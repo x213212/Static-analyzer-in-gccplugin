@@ -1,0 +1,28 @@
+
+;; Function main (main, funcdef_no=51, decl_uid=4320, cgraph_uid=51, symbol_order=51)
+
+main ()
+{
+  int * q;
+  int * p;
+  void * _1;
+  int * q.0_2;
+  int * q.1_3;
+  int _12;
+
+  <bb 2> [0.00%]:
+  p_6 = malloc (28);
+  _1 = malloc (80);
+  q = _1;
+  p_9 = &q;
+  q.0_2 = q;
+  free (q.0_2);
+  q.1_3 = q;
+  free (q.1_3);
+  _12 = 0;
+  q ={v} {CLOBBER};
+  return _12;
+
+}
+
+

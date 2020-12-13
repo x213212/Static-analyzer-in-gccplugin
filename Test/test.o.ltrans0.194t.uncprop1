@@ -1,0 +1,51 @@
+
+;; Function foo (foo, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=94) (executed once)
+
+foo (int z)
+{
+  int i;
+  int * a;
+  long unsigned int _1;
+  int _10;
+
+  <bb 2> [25.00%]:
+  _1 = (long unsigned int) z_4(D);
+  a_7 = malloc (_1);
+
+  <bb 3> [75.00%]:
+  # i_16 = PHI <i_9(5), 0(2)>
+  _10 = __printf_chk (1, "qwdwqd%d\n", i_16);
+  i_9 = i_16 + 1;
+  if (i_9 != 3)
+    goto <bb 5>; [75.00%]
+  else
+    goto <bb 4>; [25.00%]
+
+  <bb 5> [56.25%]:
+  goto <bb 3>; [100.00%]
+
+  <bb 4> [25.00%]:
+  return a_7;
+
+}
+
+
+
+;; Function main (main, funcdef_no=0, decl_uid=3987, cgraph_uid=1, symbol_order=51) (executed once)
+
+main ()
+{
+  int * q;
+  int * p;
+  int * _1;
+
+  <bb 2> [100.00%]:
+  _1 = foo (12);
+  p_7 = foo (10);
+  free (_1);
+  free (_1);
+  return 0;
+
+}
+
+

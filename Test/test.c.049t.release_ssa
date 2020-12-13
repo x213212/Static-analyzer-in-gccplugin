@@ -1,0 +1,25 @@
+
+;; Function main (main, funcdef_no=51, decl_uid=4320, cgraph_uid=51, symbol_order=51) (executed once)
+
+Released 4 names, 33.33%, removed 4 holes
+main ()
+{
+  int * q;
+  int * p;
+  int * _1;
+  int * q.0_2;
+  int * q.1_3;
+
+  <bb 2> [100.00%]:
+  _1 = foo (12);
+  q_10 = _1;
+  p_7 = foo (10);
+  q.0_2 = _1;
+  free (q.0_2);
+  q.1_3 = _1;
+  free (q.1_3);
+  return 0;
+
+}
+
+

@@ -1,0 +1,31 @@
+
+;; Function main (main, funcdef_no=51, decl_uid=4320, cgraph_uid=51, symbol_order=51)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+main ()
+{
+  int * q;
+  int * p;
+  int * _1;
+  int * q.0_2;
+  int * q.1_3;
+
+  <bb 2> [0.00%]:
+  _1 = foo (12);
+  q_14 = _1;
+  p_8 = foo (10);
+  q.0_2 = _1;
+  free (q.0_2);
+  q.1_3 = _1;
+  free (q.1_3);
+  return 0;
+
+}
+
+

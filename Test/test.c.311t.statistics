@@ -1,0 +1,4 @@
+38 ccp "Constants propagated" "main" 1
+38 ccp "Statements deleted" "main" 2
+55 release_ssa "SSA names released" "main" 4
+55 release_ssa "SSA name holes removed" "main" 4

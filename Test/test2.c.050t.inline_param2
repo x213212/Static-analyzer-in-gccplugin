@@ -1,0 +1,174 @@
+
+;; Function printf (printf, funcdef_no=31, decl_uid=798, cgraph_uid=31, symbol_order=31)
+
+
+Analyzing function body size: printf
+
+Inline summary for printf/31 always_inline inlinable
+  self time:       15
+  global time:     0
+  self size:       7
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    __printf_chk/43 function body not available
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
+       op0 is compile time invariant
+
+__attribute__((__artificial__, __gnu_inline__, __always_inline__))
+printf (const char * restrict __fmt)
+{
+  int _4;
+
+  <bb 2> [100.00%]:
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function foo (foo, funcdef_no=39, decl_uid=3011, cgraph_uid=39, symbol_order=39)
+
+
+Analyzing function body size: foo
+
+Inline summary for foo/39 inlinable
+  self time:       67
+  global time:     0
+  self size:       14
+  global size:     0
+  min size:       30
+  self stack:      0
+  global stack:    0
+    size:3.000000, time:11.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    __printf_chk/43 function body not available
+      loop depth: 1 freq:3000 size: 5 time: 14 callee size: 0 stack: 0
+       op0 is compile time invariant
+       op1 is compile time invariant
+    malloc/42 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+
+foo (int z)
+{
+  int i;
+  int * a;
+  long unsigned int _1;
+  int * _8;
+  int _10;
+
+  <bb 2> [25.00%]:
+  _1 = (long unsigned int) z_4(D);
+  a_7 = malloc (_1);
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [75.00%]:
+  _10 = __printf_chk (1, "qwdwqd%d\n", i_2);
+  i_9 = i_2 + 1;
+
+  <bb 4> [100.00%]:
+  # i_2 = PHI <0(2), i_9(3)>
+  if (i_2 <= 2)
+    goto <bb 3>; [75.00%]
+  else
+    goto <bb 5>; [25.00%]
+
+  <bb 5> [25.00%]:
+  _8 = a_7;
+  return a_7;
+
+}
+
+
+
+;; Function foo2 (foo2, funcdef_no=40, decl_uid=3019, cgraph_uid=40, symbol_order=40)
+
+
+Analyzing function body size: foo2
+
+Inline summary for foo2/40 inlinable
+  self time:       13
+  global time:     0
+  self size:       5
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    free/44 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+
+foo2 (int * z)
+{
+  <bb 2> [100.00%]:
+  free (z_2(D));
+  return;
+
+}
+
+
+
+;; Function child (child, funcdef_no=41, decl_uid=3022, cgraph_uid=41, symbol_order=41)
+
+
+Analyzing function body size: child
+
+Inline summary for child/41 inlinable
+  self time:       80
+  global time:     0
+  self size:       15
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:3.000000, time:11.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    free/44 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    pthread_exit/46 mismatched arguments
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
+    sleep/45 mismatched arguments
+      loop depth: 1 freq:3000 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
+    malloc/42 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+
+child (void * data)
+{
+  int i;
+  int * k;
+
+  <bb 2> [25.00%]:
+  k_6 = malloc (10);
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [75.00%]:
+  sleep (1);
+  i_10 = i_1 + 1;
+
+  <bb 4> [100.00%]:
+  # i_1 = PHI <0(2), i_10(3)>
+  if (i_1 <= 2)
+    goto <bb 3>; [75.00%]
+  else
+    goto <bb 5>; [25.00%]
+
+  <bb 5> [25.00%]:
+  pthread_exit (0B);
+  free (k_6);
+  return;
+
+}
+
+

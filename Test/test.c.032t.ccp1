@@ -1,0 +1,33 @@
+
+;; Function main (main, funcdef_no=51, decl_uid=4320, cgraph_uid=51, symbol_order=51)
+
+No longer having address taken: q
+
+Symbols to be put in SSA form
+{ D.4324 }
+Incremental SSA update started at block: 0
+Number of blocks in CFG: 3
+Number of blocks to update: 2 ( 67%)
+
+
+main ()
+{
+  int * q;
+  int * p;
+  int * _1;
+  int * q.0_2;
+  int * q.1_3;
+
+  <bb 2> [0.00%]:
+  _1 = foo (12);
+  q_14 = _1;
+  p_8 = foo (10);
+  q.0_2 = q_14;
+  free (q.0_2);
+  q.1_3 = q_14;
+  free (q.1_3);
+  return 0;
+
+}
+
+

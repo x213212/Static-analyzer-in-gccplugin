@@ -1,0 +1,47 @@
+
+;; Function foo (foo, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=94) (executed once)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 5 4
+;;
+;; Loop 1
+;;  header 3, latch 5
+;;  depth 1, outer 0
+;;  nodes: 3 5
+;; 2 succs { 3 }
+;; 3 succs { 5 4 }
+;; 5 succs { 3 }
+;; 4 succs { 1 }
+foo (int z)
+{
+  int i;
+  int * a;
+  long unsigned int _1;
+  int _10;
+
+  <bb 2> [25.00%]:
+  _1 = (long unsigned int) z_4(D);
+  a_7 = malloc (_1);
+
+  <bb 3> [75.00%]:
+  # i_16 = PHI <i_9(5), 0(2)>
+  _10 = __printf_chk (1, "qwdwqd%d\n", i_16);
+  i_9 = i_16 + 1;
+  if (i_9 <= 2)
+    goto <bb 5>; [75.00%]
+  else
+    goto <bb 4>; [25.00%]
+
+  <bb 5> [56.25%]:
+  goto <bb 3>; [100.00%]
+
+  <bb 4> [25.00%]:
+  return a_7;
+
+}
+
+

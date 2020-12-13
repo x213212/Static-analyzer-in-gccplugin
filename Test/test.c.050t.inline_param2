@@ -1,0 +1,49 @@
+
+;; Function main (main, funcdef_no=51, decl_uid=4320, cgraph_uid=51, symbol_order=51) (executed once)
+
+
+Analyzing function body size: main
+
+Inline summary for main/51 inlinable
+  self time:       48
+  global time:     0
+  self size:       13
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    free/53 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    free/53 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    foo/52 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+    foo/52 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+
+main ()
+{
+  int * q;
+  int * p;
+  int * _1;
+  int * q.0_2;
+  int * q.1_3;
+
+  <bb 2> [100.00%]:
+  _1 = foo (12);
+  q_10 = _1;
+  p_7 = foo (10);
+  q.0_2 = _1;
+  free (q.0_2);
+  q.1_3 = _1;
+  free (q.1_3);
+  return 0;
+
+}
+
+
