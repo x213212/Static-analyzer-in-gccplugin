@@ -2,6 +2,8 @@
 #include "system.h"
 #include <coretypes.h>
 #include "insn-constants.h"
+#include <pthread.h>
+#include <unistd.h>
 //#include "config/i386/i386.h"
 #include "is-a.h"
 #include "options.h"
@@ -41,6 +43,16 @@
 #include <sys/time.h>
 #include <sys/resource.h>
 #include <fstream>
+#include "intl.h"
+#include "opts.h"
+#include "ssa.h"
+#include "alloc-pool.h"
+#include "tree-pass.h"
+#include "context.h"
+#include "tree.h"
+#include "tree-iterator.h"
+// #include "ipa-inline.h"
+// #include "symbol-summary.h"
 #define FOR_EACH_TABLE(TABLE, TAR)                           \
 	for ((TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target; \
 		 (TAR) != NULL;                                      \
@@ -92,6 +104,29 @@ struct var_points_to
 	tree decl;
 };
 
+/*
+
+int return_type
+return type
+normal 0
+pointer 0
+function pointer
+*/
+struct return_type
+{
+	gimple *stmt;
+	tree return_tree;
+	int reutnr_type_num = 0;
+	//int return_type;
+};
+/*define return_type struct*/
+struct function_return_array
+{
+	vector<return_type> return_type_array;
+};
+/*collect function return types */
+hash_map<tree, function_return_array> *function_return_collect;
+
 /*record each DFS graph*/
 hash_map<cgraph_node *, Graph> *fDFS;
 
@@ -121,7 +156,8 @@ bool ipa = true;
 
 /*main function*/
 function *main_fun;
-
+void print_function_return(tree function_tree);
+void print_function_return2(tree function_tree, gimple *u_stmt);
 bool bb_in_branch_p(ptb *table)
 {
 	return !dominated_by_p(CDI_DOMINATORS, table->fun->cfg->x_exit_block_ptr->prev_bb, table->bb);
@@ -130,14 +166,14 @@ bool bb_in_branch_p(ptb *table)
 bool bb_in_branch_p(gimple *stmt)
 {
 	//function* fn = DECL_STRUCT_FUNCTION(gimple_get_lhs(stmt));
-	fprintf(stderr, "backkkkkkkbackkkkkkkbackkkkkkkbackkkkkkkbackkkkkkkbackkkkkkk\n");
-	debug_gimple_stmt(stmt);
+	// fprintf(stderr, "backkkkkkkbackkkkkkkbackkkkkkkbackkkkkkkbackkkkkkkbackkkkkkk\n");
+	// debug_gimple_stmt(stmt);
 	// debug_bb(stmt->bb);
-	fprintf(stderr, "prev_bbprev_bbprev_bbprev_bbprev_bbprev_bbprev_bbprev_bb\n");
-	debug_bb(cfun->cfg->x_exit_block_ptr->prev_bb);
-	debug_bb(cfun->cfg->x_entry_block_ptr->next_bb);
-	debug_bb(stmt->bb);
-	// fprintf(stderr,"fuck %d\n",dominated_by_p(CDI_DOMINATORS,stmt->bb,cfun->cfg->x_exit_block_ptr->prev_bb));
+	// fprintf(stderr, "prev_bbprev_bbprev_bbprev_bbprev_bbprev_bbprev_bbprev_bb\n");
+	// debug_bb(cfun->cfg->x_exit_block_ptr->prev_bb);
+	// debug_bb(cfun->cfg->x_entry_block_ptr->next_bb);
+	// debug_bb(stmt->bb);
+	// fprintf(stderr," %d\n",dominated_by_p(CDI_DOMINATORS,stmt->bb,cfun->cfg->x_exit_block_ptr->prev_bb));
 
 	return !dominated_by_p(CDI_DOMINATORS, stmt->bb, cfun->cfg->x_exit_block_ptr->prev_bb);
 }
@@ -235,7 +271,20 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 
 void set_gimple_array(gimple_array *table, gimple *used_stmt, tree a, tree target)
 {
-	fprintf(stderr, "set_gimple_array----------------\n");
+	// fprintf(stderr, "set_gimple_array----------------\n");
+	// 	gimple_array *user_tmp ;
+	// 	user_tmp = tvpt2->get(a);
+	// 	if(user_tmp != NULL)
+	// 	return ;
+	// bool find = false;
+	// gimple *u_stmt;
+	// gimple_array table_tmp = table;
+	// FOR_EACH_USE_TABLE(table_tmp, u_stmt) 			{
+	// 	if(table_tmp->aptr == a)
+	// 		fprintf(stderr , "222222222222222\n");
+	// }
+	// debug_tree(a);
+
 	if (table->stmt == NULL)
 	{
 		table->stmt = used_stmt;
@@ -249,8 +298,13 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree a, tree targe
 		bool same = false;
 		while (table->next != NULL)
 		{
-			if (table->stmt == used_stmt && LOCATION_LINE(gimple_location(table->stmt)) == LOCATION_LINE(gimple_location(used_stmt)))
+			//  fprintf(stderr, "set_gimple_array----------------\n");
+			//  debug(table->stmt);
+			//  debug(used_stmt);
+			if (table->stmt == used_stmt)
+			// if (table->stmt == used_stmt && LOCATION_LINE(gimple_location(table->stmt)) == LOCATION_LINE(gimple_location(used_stmt)))
 			{
+
 				same = true;
 				break;
 			}
@@ -646,385 +700,6 @@ void new_use_after_free_analysis(ptb *ptable, ptb *ftable)
 		//fprintf(stderr,"=====use table end \n");
 	}
 }
-/*new_search_imm_use */
-void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
-{
-	imm_use_iterator imm_iter;
-	gimple_array *used2 = used_stmt;
-	gimple *use_stmt;
-	gimple *gc;
-	fprintf(stderr, "debug_tree---------------------------------\n");
-	gimple *def_stmt = SSA_NAME_DEF_STMT(target);
-	gimple *def_stmt2 = SSA_NAME_DEF_STMT(target);
-	debug_tree(target);
-	fprintf(stderr, "defstmt---------------------------------\n");
-
-	// new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt),target2);
-	if (gimple_code(def_stmt) == GIMPLE_CALL)
-	{
-		fprintf(stderr, "有趣了幹---------------------------------- calllllll\n");
-		debug_gimple_stmt(def_stmt);
-		tree lhs = gimple_call_lhs(def_stmt);
-		set_gimple_array(used_stmt, def_stmt, lhs, target2);
-		debug_tree(lhs);
-		// tree lhs2 = gimple_call_lhs(def_stmt->prev);
-		// debug_gimple_stmt(def_stmt->prev);
-		// set_gimple_array(used_stmt, def_stmt->prev, lhs2, target2);
-		int count = 0;
-		tree may_alias_p;
-		tree may_alias_p2;
-		gimple *def_stmt_start = SSA_NAME_DEF_STMT(target);
-		gimple *def_stmt_end = SSA_NAME_DEF_STMT(target);
-		int start = 0;
-		int end = 0;
-		while (def_stmt_start == NULL)
-		{
-			// def_stmt_start = (def_stmt_start->prev);
-			def_stmt_start = (def_stmt_start->prev);
-			start++;
-		}
-
-		while (def_stmt_end == NULL)
-			;
-		{
-			def_stmt_end = (def_stmt_end->next);
-			end++;
-		}
-		// for ( int i = 0 ; i < 20 ;i++){
-		// def_stmt = def_stmt->next;
-		// }
-		fprintf(stderr, "---------------------fuckddddddddddddddddddddddddddddddddd\n");
-		debug_gimple_stmt(def_stmt_start);
-		debug_gimple_stmt(def_stmt_end);
-		fprintf(stderr, start + "\n");
-
-		fprintf(stderr, end + "\n");
-		fprintf(stderr, "---------------------fuckddddddddddddddddddddddddddddddddd\n");
-		do
-		{
-
-			if (gimple_call_lhs(def_stmt) && TREE_CODE(gimple_call_lhs(def_stmt)) == SSA_NAME && ptr_derefs_may_alias_p(may_alias_p, may_alias_p2))
-			{
-				// may_alias_ex=may_alias_p;
-				may_alias_p2 = may_alias_p;
-
-				may_alias_p = gimple_call_lhs(def_stmt);
-				set_gimple_array(used_stmt, def_stmt, may_alias_p, target2);
-			}
-			else if (gimple_assign_rhs1(def_stmt) && TREE_CODE(gimple_assign_rhs1(def_stmt)) == SSA_NAME && ptr_derefs_may_alias_p(may_alias_p, may_alias_p2))
-			{
-				//  may_alias_ex=may_alias_p;
-				may_alias_p2 = may_alias_p;
-
-				may_alias_p = gimple_assign_rhs1(def_stmt);
-				set_gimple_array(used_stmt, def_stmt, may_alias_p, target2);
-			}
-
-			count += 1;
-			def_stmt = def_stmt->prev;
-			// fprintf(stderr, "test\n");
-			if (def_stmt == def_stmt_start)
-				break;
-			// ptr_derefs_may_alias_p(may_alias_p,target2)!=false
-		} while (count != start);
-
-		count = 0;
-		// tree may_alias_p=NULL;
-		// tree may_alias_p2=NULL;
-		// def_stmt2 = def_stmt2->next;
-		do
-		{
-
-			if (gimple_call_lhs(def_stmt2) && TREE_CODE(gimple_call_lhs(def_stmt2)) == SSA_NAME && ptr_derefs_may_alias_p(may_alias_p, may_alias_p2))
-			{
-				// may_alias_ex=may_alias_p;
-				may_alias_p2 = may_alias_p;
-
-				may_alias_p = gimple_call_lhs(def_stmt2);
-				set_gimple_array(used_stmt, def_stmt2, may_alias_p, target2);
-			}
-			else if (gimple_assign_rhs1(def_stmt2) && TREE_CODE(gimple_assign_rhs1(def_stmt2)) == SSA_NAME && ptr_derefs_may_alias_p(may_alias_p, may_alias_p2))
-			{
-				//  may_alias_ex=may_alias_p;
-				may_alias_p2 = may_alias_p;
-
-				may_alias_p = gimple_assign_rhs1(def_stmt2);
-				set_gimple_array(used_stmt, def_stmt2, may_alias_p, target2);
-			}
-			count += 1;
-			def_stmt2 = def_stmt2->next;
-			// fprintf(stderr, "test\n"); // ptr_derefs_may_alias_p(may_alias_p,target2)!=false
-			if (def_stmt2 == def_stmt_end)
-				break;
-
-		} while (count != end);
-
-		//  gimple_call_lhs(def_stmt)?may_alias_p=gimple_call_lhs(def_stmt) :gimple_assign_rhs1(def_stmt->prev->prev);
-		//  do{
-		//  }
-		// while (ptr_derefs_may_alias_p(may_alias_p,target2)!=false);
-		// gimple *def_stmt2 = SSA_NAME_DEF_STMT(lhs2);
-		//  		fprintf(stderr, "有趣了幹---222222222------------------------------- calllllll\n");
-		// 		 tree rhs = gimple_assign_rhs1(def_stmt->prev->prev);
-		// 		 set_gimple_array(used_stmt, def_stmt->prev->prev, rhs, target2);
-		// 		 set_gimple_array(used_stmt, def_stmt->prev->prev->prev, rhs, target2);
-		// debug_tree(rhs);
-	}
-	fprintf(stderr, "debug_tree end---------------------------------\n");
-	int count = 0;
-	//gimple *def_stmt = SSA_NAME_DEF_STMT(table3->target);
-	FOR_EACH_IMM_USE_STMT(use_stmt, imm_iter, target)
-	{
-		// fprintf(stderr,"---------------------------------\n") 	;
-		// debug_gimple_stmt(use_stmt);
-		// fprintf(stderr,"---------------------------------\n");
-		// fprintf(stderr, "-------------------------%d--------sssssssss\n", count);
-		// fprintf(stderr, "---------------------------------\n");
-		debug_gimple_stmt(use_stmt);
-
-		warning_at(gimple_location(use_stmt), 0, "use location<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-		warning_at(gimple_code(use_stmt), 0, "\ngimple code");
-		// set_gimple_array(used_stmt, use_stmt, target);
-
-		// 	if (TREE_CODE(gimple_assign_lhs(use_stmt)) == SSA_NAME){
-		// fprintf(stderr, "去你媽的\n");
-		// 	}
-
-		if (gimple_code(use_stmt) == GIMPLE_ASSIGN)
-		{
-			fprintf(stderr, "有趣了\n");
-			//debug_tree(gimple_assign_lhs(use_stmt));
-			debug_gimple_stmt(use_stmt);
-			if (gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == SSA_NAME && gimple_assign_single_p(use_stmt))
-			{
-				set_gimple_array(used_stmt, use_stmt, target, target2);
-				// fprintf(stderr, "lhshslhslhslhslhslhslshlshlshlshlsh------------------\n");
-				new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt), target2);
-			}
-		}
-		else if (gimple_code(use_stmt) == GIMPLE_PHI)
-		{
-			// fprintf(stderr, "-----------------hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii------------------\n");
-			if (gimple_phi_result(use_stmt) && TREE_CODE(gimple_phi_result(use_stmt)) == SSA_NAME)
-			{
-				//debug_gimple_stmt(use_stmt);
-				debug_gimple_stmt(use_stmt);
-				//debug_tree(gimple_phi_result(use_stmt));
-				bool exist = false;
-				FOR_EACH_USE_TABLE(used2, gc)
-				{
-
-					//debug_gimple_stmt(gc);
-					if (gc == use_stmt)
-					{
-						exist = true;
-						// fprintf(stderr, "----------------what r u loolking for------------------\n");
-						debug_tree(gimple_phi_result(use_stmt));
-					}
-				}
-				if (!exist)
-				{
-					set_gimple_array(used_stmt, use_stmt, target, target2);
-					// fprintf(stderr, "-----------------hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii------------------\n");
-					debug_tree(gimple_phi_result(use_stmt));
-					new_search_imm_use(used_stmt, gimple_phi_result(use_stmt), target2);
-				}
-			}
-		}
-		else
-		{
-			// fprintf(stderr, "-------always in therealways in therealways in there--------------------------\n");
-			debug_gimple_stmt(use_stmt);
-
-			set_gimple_array(used_stmt, use_stmt, target, target2);
-		}
-	}
-	// fprintf(stderr, "-------always in therealways in therealways in there--------------------------\n");
-}
-
-/*Pointer Constraint  5*/
-void PointerConstraint(ptb *ptable, ptb *ftable)
-{
-
-	ptb *table1 = ptable;
-	ptb *table3 = ftable;
-	bool to_remove = false;
-	tree t;
-
-	struct ptr_info_def *pi1;
-	struct pt_solution *pt1;
-	struct ptr_info_def *pi2;
-	struct pt_solution *pt2;
-	fprintf(stderr, "start PointerConstraint\n");
-	fprintf(stderr, "%d \n", ftable->size);
-	fprintf(stderr, "%d \n", ptable->size);
-	if (ptable->size > ftable->size)
-	{
-		table1 = ftable;
-		table3 = ptable;
-	}
-	gimple *u_stmt;
-	gimple_array start;
-	start.stmt = NULL;
-	gimple_array *used_stmt = &start;
-
-	FOR_EACH_TABLE(table3, t)
-	{
-		if (table3->removed || !TREE_CODE(t) == SSA_NAME)
-			continue;
-
-		// pi = SSA_NAME_PTR_INFO(table3->target);
-		// pt = &pi->pt;
-		//if(pt->null)
-		//continue;
-		//fprintf(stderr,"---free_table-----\n");
-		// debug_head(table3->target);
-		fprintf(stderr, "noewnoewnoewnoewnoew -----------------------------------------------\n");
-		new_search_imm_use(used_stmt, table3->target, table3->target);
-
-		tree t2;
-		FOR_EACH_TABLE(table1, t2)
-		{
-			// debug_head(table1->target);
-			if (TREE_CODE(table1->target) != SSA_NAME)
-			{
-				continue;
-			}
-			if (ptr_derefs_may_alias_p(table3->target, table1->target))
-			{
-				fprintf(stderr, "testing-----------------------------------------------\n");
-				warning_at(table3->loc, 0, "Use after free error!: free location");
-				warning_at(table1->loc, 0, "Use after free error!: free location");
-				//warning_at(gimple_location(used_stmt->stmt), 0, "use location"); ///ppp
-				debug_tree(table1->target);
-				debug_tree(table3->target);
-				fprintf(stderr, "testing-----------------------------------------------\n");
-				new_search_imm_use(used_stmt, table1->target, table1->target);
-			}
-		}
-		// table1 = ptable;
-
-		// warning_at(	used_stmt->size, 0, "Use after free error!: free location");
-		fprintf(stderr, "used_stmt is %d \n", used_stmt->size);
-
-		// 			// warning_at(	used_stmt->size, 0, "Use after free error!: free location");
-
-		// }
-		//	 	if (gimple_code(used_stmt->stmt) == GIMPLE_PHI) 				continue; 			if (gimple_call_builtin_p(used_stmt->stmt, BUILT_IN_FREE)) 				continue; 			//fprintf(stderr,"-----  %d ~ %d \n",table3->bb->index,gimple_bb(used_stmt->stmt)->index); 			//fprintf(stderr,"free line : %d ,use line : %d \n",LOCATION_LINE((table3->loc)),LOCATION_LINE(gimple_location(used_stmt->stmt))); 			//fprintf(stderr,"free bb : %d ,use bb : %d \n",table3->bb->index,gimple_bb(used_stmt->stmt)->index); 			if (table3->bb->index == gimple_bb(used_stmt->stmt)->index) 			{ 				if (Location_b(table3->last_stmt, used_stmt->stmt, table3->bb)) 				{ //LOCATION_LINE((table3->loc))<=LOCATION_LINE(gimple_location(used_stmt->stmt)) 					//warning_at(table3->loc, 0, ""); 					//debug_head(table3->target); 					//fprintf(stderr,"--index : %d %d---\n",table3->bb->index,gimple_bb(used_stmt->stmt)->index); 					if (!table3->removed) 					{ 						warning_at(table3->loc, 0, "Use after free error!: free location"); 						warning_at(gimple_location(used_stmt->stmt), 0, "use location"); ///ppp 																						 //fprintf(fp,"%s use after free\n",gimple_filename (table3->last_stmt)); 																						 //remove_pointer_stmt(table3->last_stmt); 																						 //table3->removed=true; 					} 				} 			} 			else if (fDFS->get(table3->node)->is_succ(table3->bb, gimple_bb(used_stmt->stmt))) 			{ 				//fprintf(stderr,"----- is_succ\n"); 				if (!table3->removed) 				{ 					warning_at(table3->loc, 0, "Use after free error!: free location"); 					warning_at(gimple_location(used_stmt->stmt), 0, "use location"); 					//fprintf(fp,"%s use after free \n",DECL_SOURCE_FILE (table3->fun->decl)); 					//remove_pointer_stmt(table3->last_stmt); 					//table3->removed=true; 				} 			} 		}
-		// //pointer1
-		// gimple *u_stmt;
-		// //fprintf(stderr,"=====free: ");
-		// //debug_head(table3->target);
-		// FOR_EACH_USE_TABLE(used_stmt, u_stmt)
-		// {
-
-		// 	//debug_gimple_stmt(u_stmt);
-		// 	if (gimple_code(used_stmt->stmt) == GIMPLE_PHI)
-		// 		continue;
-		// 	if (gimple_call_builtin_p(used_stmt->stmt, BUILT_IN_FREE))
-		// 		continue;
-		// 	//fprintf(stderr,"-----  %d ~ %d \n",table3->bb->index,gimple_bb(used_stmt->stmt)->index);
-		// 	//fprintf(stderr,"free line : %d ,use line : %d \n",LOCATION_LINE((table3->loc)),LOCATION_LINE(gimple_location(used_stmt->stmt)));
-		// 	//fprintf(stderr,"free bb : %d ,use bb : %d \n",table3->bb->index,gimple_bb(used_stmt->stmt)->index);
-		// 	if (table3->bb->index == gimple_bb(used_stmt->stmt)->index)
-		// 	{
-		// 		if (Location_b(table3->last_stmt, used_stmt->stmt, table3->bb))
-		// 		{ //LOCATION_LINE((table3->loc))<=LOCATION_LINE(gimple_location(used_stmt->stmt))
-		// 			//warning_at(table3->loc, 0, "");
-		// 			//debug_head(table3->target);
-		// 			//fprintf(stderr,"--index : %d %d---\n",table3->bb->index,gimple_bb(used_stmt->stmt)->index);
-		// 			if (!table3->removed)
-		// 			{
-		// 				warning_at(table3->loc, 0, "Use after free error!: free location");
-		// 				warning_at(gimple_location(used_stmt->stmt), 0, "use location"); ///ppp
-		// 																				 //fprintf(fp,"%s use after free\n",gimple_filename (table3->last_stmt));
-		// 																				 //remove_pointer_stmt(table3->last_stmt);
-		// 																				 //table3->removed=true;
-		// 			}
-		// 		}
-		// 	}
-		// 	else if (fDFS->get(table3->node)->is_succ(table3->bb, gimple_bb(used_stmt->stmt)))
-		// 	{
-		// 		//fprintf(stderr,"----- is_succ\n");
-		// 		if (!table3->removed)
-		// 		{
-		// 			warning_at(table3->loc, 0, "Use after free error!: free location");
-		// 			warning_at(gimple_location(used_stmt->stmt), 0, "use location");
-		// 			//fprintf(fp,"%s use after free \n",DECL_SOURCE_FILE (table3->fun->decl));
-		// 			//remove_pointer_stmt(table3->last_stmt);
-		// 			//table3->removed=true;
-		// 		}
-		// 	}
-		// }
-		//fprintf(stderr,"=====use table end \n");
-	}
-	table3 = ptable;
-	gimple_array *used_stmt2 = used_stmt;
-	FOR_EACH_TABLE(table3, t)
-	{
-		if (table3->removed || !TREE_CODE(t) == SSA_NAME)
-			continue;
-		pi1 = SSA_NAME_PTR_INFO(table3->target);
-		pt1 = &pi1->pt;
-		used_stmt = used_stmt2;
-		//  debug(table3->target);
-		// fprintf(stderr, "\n Pointer to set  is :[ \n");
-
-		FOR_EACH_USE_TABLE(used_stmt, u_stmt)
-		{
-			// if (gimple_code(used_stmt->stmt) == GIMPLE_PHI) 				continue;
-			// if (gimple_call_builtin_p(used_stmt->stmt, BUILT_IN_FREE)) 				continue;
-
-			pi2 = SSA_NAME_PTR_INFO(used_stmt->target);
-			pt2 = &pi2->pt;
-			if (ptr_derefs_may_alias_p(table3->target, used_stmt->target))
-			{
-				// debug_tree(table3->target);
-				// debug(u_stmt);
-				// fprintf(stderr, ", ");
-				tvpt2->put(table3->target, *used_stmt);
-				break;
-			}
-
-			//	debug(used_stmt->stmt);
-			//	warning_at(gimple_location(used_stmt->stmt), 0, "use location<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-			// fprintf(stderr, "used_stmt is %d \n",count);
-			//debug_gimple_stmt(u_stmt);
-		}
-	}
-
-	// fprintf(stderr, "] \n");
-
-	table3 = ptable;
-	gimple_array *user_tmp = used_stmt;
-	FOR_EACH_TABLE(table3, t)
-	{
-		fprintf(stderr, "\n ------------------------------------------\n");
-		debug_tree(table3->target);
-		fprintf(stderr, " \n Pointer to set  is :[ \n");
-		user_tmp = tvpt2->get(table3->target);
-		FOR_EACH_USE_TABLE(user_tmp, u_stmt)
-		{
-			debug(u_stmt);
-			fprintf(stderr, ", ");
-		}
-		fprintf(stderr, "] \n");
-	}
-
-	// FOR_EACH_USE_TABLE(used_stmt, u_stmt)
-	// {
-	// 	// if (gimple_code(used_stmt->stmt) == GIMPLE_PHI) 				continue;
-	// 	// if (gimple_call_builtin_p(used_stmt->stmt, BUILT_IN_FREE)) 				continue;
-	// 	debug(u_stmt);
-	// 	debug(used_stmt->target);
-	// 	// debug(u_stmt);
-
-	// 	//	debug(used_stmt->stmt);
-	// 	//	warning_at(gimple_location(used_stmt->stmt), 0, "use location<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-	// 	// fprintf(stderr, "used_stmt is %d \n",count);
-	// 	//debug_gimple_stmt(u_stmt);
-	// }
-}
 
 void new_memory_leak_analysis(ptb *ptable, ptb *ftable)
 {
@@ -1088,6 +763,7 @@ void new_memory_leak_analysis(ptb *ptable, ptb *ftable)
 			//continue;
 			//if(table1->state == POINTER_STATE_IS_FREE)
 			//	warning_at(table1->loc, 0,"Memory Leak error");
+
 			if (pt2->vars == NULL)
 				continue;
 			if (bitmap_intersect_p(pt1->vars, pt2->vars))
@@ -1440,42 +1116,726 @@ void collect_malloc(gimple *gc, cgraph_node *node, basic_block bb)
 	name = get_name(gimple_call_fn(gc));
 	if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 	{
-		set_ptb(bb, ftable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+
+		if (!strcmp(get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0))), "addr_expr"))
+		{
+			// debug_gimple_stmt(gc);
+			// debug_tree(gimple_call_arg(gc, 0));
+			fprintf(stderr, "addr_expraddr_expraddr_expraddr_expraddr_expr--------\n");
+		}
+		else
+			// debug_tree(gimple_call_arg(gc, 0));
+			set_ptb(bb, ftable, gimple_call_arg(gc, 0), loc, 0, gc, node);
 	}
 	else if (!strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
 	{
 		set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
 	}
-	a = gimple_call_fn(gc);
-	fnode->put(a, node);
+	// else if (!strcmp(name, "pthread_create"))
+	// {
 
-	var_points_to vpt;
-	vector<vector<pair<fdecl, location_t>>> may_malloc_path;
-	vpt.may_malloc_path = may_malloc_path;
-	tvpt->put(gimple_call_lhs(gc), vpt);
+	// 	debug_tree(gimple_call_arg(gc, 2));
+	// 	// debug_bb(bb);
+	// 	fprintf(stderr, "node:= %d \n succs:=", bb->index);
+	// 	fprintf(stderr, "thread\n");
+	// }
+	// else if (!strcmp(name, "foo2")){
+	// 	fprintf(stderr,"othere function -------------------------------%s\n" ,name);
+	// 		debug_tree(gimple_call_fn(gc));
+	// 	//   debug_tree(gimple_assign_rhs1(gc));
+	// 	  // 	debug_tree(gimple_call_num_args(gimple_call_fn(gc) );
+	// 		//tree fundecl = TREE_OPERAND(gimple_call_fn(gc), 1);
+	// 		///tree fundecl = TREE_OPERAND(gc, 0);
+
+	// 		fprintf(stderr,"othere function22222222 -------------------------------%s\n" ,name);
+	// 		//gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_fn(gc));
+	// 		//debug_tree (gimple_call_fn(gc));
+	// 		tree type_tree = TREE_TYPE(gimple_call_fn(gc));
+	// 		//tree trace_tree =gimple_call_fn(gc);
+	// 		 tree  t = TREE_OPERAND (gimple_call_fn(gc), 0);
+	// 		debug_tree(t );
+
+	// 		fprintf(stderr,"othere function33333333333-------------------------------%s\n" ,name);
+	// 		 //tree type_tree = TREE_TYPE(t);
+	// 		 //debug_tree(type_tree);
+	// 		analyze_type( TREE_TYPE(t), gimple_call_fn(gc));
+	// 		//debug(get_tree_code_name(TREE_CODE(t));
+	// 		fprintf(stderr,"%s\n", get_tree_code_name(TREE_CODE(t)));
+	// 		//debug (t);
+	// 		tree test=DECL_SAVED_TREE(t);
+	// 		// analyze_func_body(DECL_SAVED_TREE(t), 0);
+	// 				debug_tree (test);
+	// 		//debug_tree(test);
+	// 		//if (TREE_CODE( test) == STATEMENT_LIST) {
+	//         // second operand of BIND_EXPR
+	//         // tree t = TREE_OPERAND(fnbody, 1);
+
+	// 		//fprintf(stderr,"othere nwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww-------------------------------%s\n" ,name);
+	//         // use the utility function "parse_tree" to parse
+	//         // through the tree recursively  (../include/parse-tree.h)
+	//         // parse_tree(t, print_tree_node, 1);
+	//    // }
+	// 		//    analyze_func_body(test, 0);
+	// 	// 	switch (TREE_CODE(test))
+	// 	// 	{
+	// 	// // 		case STATEMENT_LIST:
+	//     // // {
+	//     // //     tree_stmt_iterator it = tsi_start(t);
+	//     // //     while (!tsi_end_p(it))
+	//     // //     {
+	//     // //         analyze_func_body(tsi_stmt(it), level + 4);
+	//     // //         tsi_next(&it);
+	//     // //     }
+	//     // //     break;
+	//     // }
+	// 		//	case
+	// 		// }
+	// 		//tree test2=	TREE_OPERAND(t, 1);
+	// 		//tree test3=	TREE_OPERAND(t, 2);
+	// 		// debug_tree(test);
+	// 		 //   printf("%s\n", get_tree_code_name(test));
+	// 		//debug_tree(test2);
+	// 		//debug_tree(test3);
+	// 		//debug_gimple_stmt(def_stmt);
+	// 		fprintf(stderr,"othere function444-------------------------------%s\n" ,name);
+	// 		//debug(fundecl);
+	// // 				// 		fprintf(stderr, "is_gimple_callis_gimple_callis_gimple_callis_gimple_callis_gimple_call\n");
+	// // 				// 		debug(def_stmt2);
+	// 	 fprintf(stderr,"node:= %d \n succs:=",bb->index);
+	// 	fprintf(stderr,"othere function -------------------------------%s\n" ,name);
+
+	// }
+	// a = gimple_call_fn(gc);
+	// fnode->put(a, node);
+
+	// var_points_to vpt;
+	// vector<vector<pair<fdecl, location_t>>> may_malloc_path;
+	// vpt.may_malloc_path = may_malloc_path;
+	// tvpt->put(gimple_call_lhs(gc), vpt);
 }
 
-// void ompfucntio()
-// {
-// #pragma omp parallel
-// 	{
-// 		fprintf(stderr, "plugin run\n");
-// 	}
-// 	int i;
-// 	int n = 10;
-// 	double s = 0.0;
-// 	omp_set_num_threads(4);
-// #pragma omp parallel for reduction(+ \
-// 								   : s)
-// 	for (i = 0; i < n; ++i)
-// 	{
-// 		fprintf(stderr, "threads %d\n", omp_get_thread_num());
-// 		// printf("threads %d\n", omp_get_thread_num());
-// 		s += i;
-// 	}
-// 	fprintf(stderr, "%f\n", s);
-// }
+void indent(int level)
+{
+	while (level--)
+		printf(" ");
+}
 
+void analyze_func_body(tree t, int level)
+{
+	indent(level);
+	printf("%s\n", get_tree_code_name(TREE_CODE(t)));
+	switch (TREE_CODE(t))
+	{
+	case STATEMENT_LIST:
+	{
+		fprintf(stderr, "receives \n");
+		// tree_stmt_iterator it = tsi_start(t);
+		// while (!tsi_end_p(it))
+		// {
+		//     analyze_func_body(tsi_stmt(it), level + 4);
+		//     tsi_next(&it);
+		// }
+		// break;
+	}
+	case BIND_EXPR:
+	{
+		// analyze_func_body(BIND_EXPR_BODY(t), level + 4);
+		// break;
+	}
+	default:
+		break;
+	}
+}
+
+/*new_search_imm_use */
+void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
+{
+	int count = 0;
+	tree may_alias_p;
+	tree may_alias_p2;
+	may_alias_p = target2;
+	may_alias_p2 = target2;
+	gimple *def_stmt_start = SSA_NAME_DEF_STMT(target);
+	gimple *def_stmt_end = SSA_NAME_DEF_STMT(target);
+	int start = 0;
+	int end = 0;
+	imm_use_iterator imm_iter;
+	gimple_array *used2 = used_stmt;
+	gimple *use_stmt;
+	gimple *gc;
+	const char *name;
+	gimple *def_stmt = SSA_NAME_DEF_STMT(target);
+	gimple *def_org = SSA_NAME_DEF_STMT(target);
+	gimple *def_head = SSA_NAME_DEF_STMT(target);
+	gimple *def_stmt2 = SSA_NAME_DEF_STMT(target);
+
+	gimple *u_stmt;
+
+	fprintf(stderr, "START NEW FOR_EACH_IMM_USE_STMT -------------------------------\n");
+	debug_tree(target);
+	fprintf(stderr, "TARGET NEW FOR_EACH_IMM_USE_STMT -------------------------------\n");
+	FOR_EACH_IMM_USE_STMT(use_stmt, imm_iter, target)
+	{
+		fprintf(stderr, "			FOR_EACH_IMM_USE_STMT INSIDE-------------------------------\n");
+		debug(use_stmt);
+		if (!strcmp(get_tree_code_name(TREE_CODE(target)), "addr_expr"))
+		{
+			fprintf(stderr, "GIMPLE CODE :addr_expr--------\n");
+			continue;
+		}
+
+		// fprintf(stderr,"			FOR_EACH_IMM_USE_STMT INSIDE-------------------------------\n");
+
+		if (gimple_code(use_stmt) == GIMPLE_RETURN)
+		{
+			fprintf(stderr, "GIMPLE_RETURN\n");
+			fprintf(stderr, "------------------GIMPLE_RETURN : LHS------------------\n");
+			tree tmp = gimple_return_retval(as_a<greturn *>(use_stmt));
+			debug_tree(tmp);
+		}
+		else if (gimple_code(use_stmt) == GIMPLE_ASSIGN)
+		{
+			fprintf(stderr, "GIMPLE ASSIGN\n");
+			//debug_tree(gimple_assign_lhs(use_stmt));
+			// debug_gimple_stmt(use_stmt);
+			debug_tree(gimple_assign_lhs(use_stmt));
+			// debug_tree(gimple_assign_lhs(use_stmt));
+			fprintf(stderr, "%s\n", get_tree_code_name(TREE_CODE(gimple_assign_lhs(use_stmt))));
+			if (gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == SSA_NAME)
+			{
+				debug_tree(gimple_assign_lhs(use_stmt));
+
+				debug(use_stmt);
+				set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target);
+				fprintf(stderr, "------------------SSA_NAME : LHS------------------\n");
+				debug(use_stmt);
+				debug_tree(gimple_assign_lhs(use_stmt));
+				fprintf(stderr, "------------------SSA_NAME : LHS------------------\n");
+				new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt), gimple_assign_lhs(use_stmt));
+			}
+			else if (gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == VAR_DECL)
+			{
+
+				// debug(use_stmt);
+				fprintf(stderr, "------------------VAR_DECL : LHS------------------\n");
+				// debug_tree( gimple_assign_rhs1(use_stmt));
+				// debug(use_stmt);
+				// debug_tree (gimple_assign_lhs(use_stmt));
+				//fprintf(stderr, "VAR_DECLVAR_DECLVAR_DECL------------------\n");
+				// debug_gimple_stmt(use_stmt);
+				debug_tree(gimple_assign_lhs(use_stmt));
+				//fprintf(stderr, "VAR_DECLVAR_DECLVAR_DECL------------------\n");
+				fprintf(stderr, "------------------VAR_DECL : LHS------------------\n");
+				set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target);
+				// new_search_imm_use(used_stmt,  gimple_assign_rhs1(use_stmt),   gimple_assign_lhs(use_stmt));
+			}
+			else if (gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == MEM_REF)
+			{
+
+				// debug(use_stmt);
+				// fprintf(stderr, "MEM_REF ------------------\n");
+				fprintf(stderr, "------------------MEM_REF : LHS------------------\n");
+				// used2 = used_stmt;
+				// debug_tree( gimple_assign_rhs1(use_stmt));
+				// debug(use_stmt);
+				// debug_tree (gimple_assign_lhs(use_stmt));
+				//fprintf(stderr, "VAR_DECLVAR_DECLVAR_DECL------------------\n");
+				// debug_gimple_stmt(use_stmt);
+				debug_tree(gimple_assign_lhs(use_stmt));
+				tree fundecl = TREE_OPERAND(gimple_assign_lhs(use_stmt), 0);
+				debug_tree(fundecl);
+				debug(use_stmt);
+				//tree fundecl = TREE_OPERAND(gc, 0);
+
+				//fprintf(stderr, "VAR_DECLVAR_DECLVAR_DECL------------------\n");
+				fprintf(stderr, "------------------MEM_REF : LHS------------------\n");
+				set_gimple_array(used_stmt, use_stmt, fundecl, fundecl);
+
+				// new_search_imm_use(used_stmt,  gimple_assign_rhs1(use_stmt),   gimple_assign_lhs(use_stmt));
+			}
+		}
+		else if (gimple_code(use_stmt) == GIMPLE_PHI)
+		{
+			fprintf(stderr, "GIMPLE_PHI\n");
+			fprintf(stderr, "-----------------GIMPLE_PHI : LOOP------------------\n");
+			if (gimple_phi_result(use_stmt) && TREE_CODE(gimple_phi_result(use_stmt)) == SSA_NAME)
+			{
+				//debug_gimple_stmt(use_stmt);
+				debug_gimple_stmt(use_stmt);
+				struct ptr_info_def *pi;
+				struct pt_solution *pt;
+
+				struct ptr_info_def *pi1;
+				struct pt_solution *pt1;
+				bool exist = false;
+				used2 = used_stmt;
+				//debug_tree(gimple_phi_result(use_stmt));
+				// gimple *def_stmt = SSA_NAME_DEF_STMT((ret_type_array)[i].return_tree);
+				for (unsigned i = 0; i < gimple_phi_num_args(use_stmt); i++)
+				{
+					tree argu = gimple_phi_arg_def(use_stmt, i);
+					gimple *def_stmt = SSA_NAME_DEF_STMT(argu);
+					FOR_EACH_USE_TABLE(used2, gc)
+					{
+						
+						//debug_gimple_stmt(gc);
+						if (gc == def_stmt)
+						{
+							// exist = true;
+							// fprintf(stderr, "----------------what r u loolking for------------------\n");
+							debug_tree(gimple_phi_result(use_stmt));
+						}
+					}
+					if (!exist)
+					{
+						fprintf(stderr, "-----------------GIMPLE_PHI : INSERT------------------\n");
+						debug(def_stmt);
+						// debug(def_stmt);
+						set_gimple_array(used_stmt, def_stmt,argu, argu);
+					
+						// debug_tree(gimple_phi_result(def_stmt));
+						// new_search_imm_use(used_stmt,argu,argu);
+					}
+					//fprintf(stderr,"phi_argu:%d ",i);
+					//debug_tree(argu);
+					// pi1 = get_ptr_info(argu);
+					// pt1 = &pi1->pt;
+					// if (pt1->vars == NULL)
+					// 	continue;
+					// if (!bitmap_intersect_p(pt->vars, pt1->vars))
+					// {
+						// table1->state = POINTER_STATE_MAY_IS_FREE;
+						// debug(argu);
+						// if (ptr_derefs_may_alias_p(fundecl, argu))
+						// {
+					// 		fprintf(stderr, "testing-----------------------------------------------\n");
+					// 		debug(argu);
+					// 		// warning_at(table3->loc, 0, "Use after free error!: free location");
+					// 		// warning_at(table1->loc, 0, "Use after free error!: free location");
+					// 		// //warning_at(gimple_location(used_stmt->stmt), 0, "use location"); ///ppp
+					// 		// debug_tree(table1->target);
+					// 		// debug_tree(table3->target);
+					// 		fprintf(stderr, "testing-----------------------------------------------\n");
+					// 		// search_imm_use(used_stmt, table1->target);
+					// 	// }
+					// }
+				}
+			
+
+				// FOR_EACH_USE_TABLE(used2, gc)
+				// {
+
+				// 	//debug_gimple_stmt(gc);
+				// 	if (gc == use_stmt)
+				// 	{
+				// 		exist = true;
+				// 		// fprintf(stderr, "----------------what r u loolking for------------------\n");
+				// 		debug_tree(gimple_phi_result(use_stmt));
+				// 	}
+				// }
+				// if (!exist)
+				// {
+				// 	debug(use_stmt);
+				// 	set_gimple_array(used_stmt, use_stmt, gimple_phi_result(use_stmt), gimple_phi_result(use_stmt));
+				// 	fprintf(stderr, "-----------------GIMPLE_PHI : INSERT------------------\n");
+				// 	debug_tree(gimple_phi_result(use_stmt));
+				// 	// new_search_imm_use(used_stmt, gimple_phi_result(use_stmt),  gimple_phi_result(use_stmt));
+				// }
+			}
+		}
+		else if (gimple_code(use_stmt) == GIMPLE_CALL)
+		{
+			fprintf(stderr, "GIMPLE_CALL\n");
+			if (gimple_call_fn(use_stmt) == NULL)
+				return;
+			fprintf(stderr, "-----------------GIMPLE_CALL : FIND------------------\n");
+			// debug(def_stmt);
+			name = get_name(gimple_call_fn(use_stmt));
+			if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+			{
+
+				debug(use_stmt);
+				debug_tree(target);
+				debug_tree(gimple_call_fn(use_stmt));
+
+				if (!strcmp(get_tree_code_name(TREE_CODE(gimple_call_fn(use_stmt))), "addr_expr"))
+				{
+					tree fundecl = TREE_OPERAND(gimple_call_fn(use_stmt), 0);
+					debug(use_stmt);
+
+					debug_tree(fundecl);
+					tree base = get_base_address(TREE_OPERAND(gimple_call_fn(use_stmt), 0));
+					set_gimple_array(used_stmt, use_stmt, gimple_call_fn(use_stmt), target);
+					debug_tree(base);
+				}
+				else
+				{
+					fprintf(stderr, "-------always in therealways in therealways in there--------------------------\n");
+					set_gimple_array(used_stmt, use_stmt, gimple_call_fn(use_stmt), target);
+					new_search_imm_use(used_stmt, gimple_call_fn(use_stmt), gimple_call_fn(use_stmt));
+				}
+			}
+		}
+		else
+		{
+			fprintf(stderr, "-------always in therealways in therealways in there--------------------------\n");
+			debug_gimple_stmt(use_stmt);
+
+			set_gimple_array(used_stmt, use_stmt, target, target2);
+		}
+	}
+}
+
+void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp)
+{
+	gimple *u_stmt;
+	gimple_array start;
+	start.stmt = NULL;
+	gimple_array *used_stmt = &start;
+	ptb *table_temp = ptable;
+	tree t;
+	//
+
+	FOR_EACH_TABLE(table_temp, t)
+	{
+		fprintf(stderr, "\n ------------------------------------------\n");
+		if (table_temp->target != NULL)
+		{
+			debug_tree(table_temp->target);
+			user_tmp = tvpt2->get(table_temp->target);
+			if (user_tmp != NULL)
+			{
+				fprintf(stderr, " \n Pointer to set  is size %d :[ \n", user_tmp->size);
+				if (user_tmp->size > 0)
+					FOR_EACH_USE_TABLE(user_tmp, u_stmt)
+					{
+						debug(u_stmt);
+						// user_tmp->
+					}
+			}
+			else
+			{
+				fprintf(stderr, " \n Pointer to set  is size 0 :[ \n");
+				fprintf(stderr, "] \n");
+			}
+		}
+	}
+}
+void FunctionStmtMapping(ptb *ptable, gimple_array *user_tmp)
+{
+
+	gimple *u_stmt;
+	gimple_array start;
+	start.stmt = NULL;
+	gimple_array *used_stmt = &start;
+	ptb *table_temp = ptable;
+	tree t;
+	//
+	struct cgraph_node *node;
+	FOR_EACH_DEFINED_FUNCTION(node)
+	{
+		if (!ipa)
+			init_table();
+		push_cfun(node->get_fun());
+		// if (strcmp(get_name(cfun->decl), "main") == 0)
+		fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+		debug_tree(cfun->decl);
+		if (cfun == NULL)
+			continue;
+		calculate_dominance_info(CDI_DOMINATORS);
+		FOR_EACH_TABLE(table_temp, t)
+		{
+			fprintf(stderr, "\n ------------------------------------------\n");
+			if (table_temp->target != NULL)
+			{
+				debug_tree(table_temp->target);
+				user_tmp = tvpt2->get(table_temp->target);
+				if (user_tmp != NULL)
+				{
+					fprintf(stderr, " \n Pointer to set  is size %d :[ \n", user_tmp->size);
+					if (user_tmp->size > 0)
+						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
+						{
+							debug(u_stmt);
+							print_function_return2(cfun->decl, u_stmt);
+							// user_tmp->
+						}
+				}
+				else
+				{
+					fprintf(stderr, " \n Pointer to set  is size 0 :[ \n");
+					fprintf(stderr, "] \n");
+				}
+			}
+		}
+
+		pop_cfun();
+	}
+}
+void print_function_return2(tree function_tree, gimple *u_stmt)
+{
+
+	if (function_return_collect->get(function_tree) == NULL)
+		return;
+	function_return_array fun_array = *(function_return_collect->get(function_tree));
+
+	vector<return_type> ret_type_array = fun_array.return_type_array;
+	//debug_tree(function_tree);
+	//vector<pair<fdecl,location_t>> loc;
+	fprintf(stderr, "=======print_function_return %d   %d========\n", function_tree, ret_type_array.size());
+	for (int i = 0; i < ret_type_array.size(); i++)
+	{
+		fprintf(stderr, "[\n");
+
+		debug((ret_type_array)[i].stmt);
+		debug(u_stmt);
+
+		if (gimple_code(u_stmt) == GIMPLE_ASSIGN)
+		{
+			fprintf(stderr, "222222222222222222222222222222222222222222222222222222GIMPLE ASSIGN\n");
+			//debug_tree(gimple_assign_lhs(use_stmt));
+			// debug_gimple_stmt(use_stmt);
+			debug_tree(gimple_assign_lhs(u_stmt));
+			// fprintf(stderr, "222222222222222222222222222222222222222222222222222222GIMPLE ASSIGN\n");
+			// debug_tree(gimple_assign_lhs(use_stmt));
+			// fprintf(stderr, "%s\n", get_tree_code_name(TREE_CODE(gimple_assign_lhs(u_stmt))));
+			if (gimple_assign_lhs(u_stmt) && TREE_CODE(gimple_assign_lhs(u_stmt)) == SSA_NAME)
+			{
+				debug_tree(gimple_assign_lhs(u_stmt));
+				if ((ret_type_array)[i].return_tree == gimple_assign_lhs(u_stmt))
+					fprintf(stderr, "	------------------SSA_NAME : LHS Mapping ok------------------\n");
+				// debug(use_stmt);
+				// set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target);
+			}
+			else if (gimple_assign_lhs(u_stmt) && TREE_CODE(gimple_assign_lhs(u_stmt)) == VAR_DECL)
+			{
+
+				// debug(use_stmt);
+				// fprintf(stderr, "------------------VAR_DECL : LHS Mapping------------------\n");
+				// debug_tree( gimple_assign_rhs1(use_stmt));
+				// debug(use_stmt);
+				// debug_tree (gimple_assign_lhs(use_stmt));
+				//fprintf(stderr, "VAR_DECLVAR_DECLVAR_DECL------------------\n");
+				// debug_gimple_stmt(use_stmt);
+				if ((ret_type_array)[i].return_tree == gimple_assign_lhs(u_stmt))
+					fprintf(stderr, "	------------------SSA_NAME : LHS Mapping ok------------------\n");
+				//fprintf(stderr, "VAR_DECLVAR_DECLVAR_DECL------------------\n");
+				// fprintf(stderr, "------------------VAR_DECL : LHS Mapping------------------\n");
+
+				// new_search_imm_use(used_stmt,  gimple_assign_rhs1(use_stmt),   gimple_assign_lhs(use_stmt));
+			}
+			else if (gimple_assign_lhs(u_stmt) && TREE_CODE(gimple_assign_lhs(u_stmt)) == MEM_REF)
+			{
+				struct ptr_info_def *pi;
+				struct pt_solution *pt;
+
+				struct ptr_info_def *pi1;
+				struct pt_solution *pt1;
+
+				fprintf(stderr, "=======ftable start========\n");
+				pi1 = SSA_NAME_PTR_INFO((ret_type_array)[i].return_tree);
+				pt1 = &pi1->pt;
+				fprintf(stderr, "	------------------SSA_NAME : LHS Masssssssssssssssssssssssssssssssssssspping ok------------------\n");
+				// debug(use_stmt);
+				// fprintf(stderr, "MEM_REF ------------------\n");
+				// fprintf(stderr, "------------------MEM_REF : LHS Mapping------------------\n");
+				// debug_tree( gimple_assign_rhs1(use_stmt));
+				// debug(use_stmt);
+				// debug_tree (gimple_assign_lhs(use_stmt));
+				//fprintf(stderr, "VAR_DECLVAR_DECLVAR_DECL------------------\n");
+				// debug_gimple_stmt(use_stmt);
+				debug_tree(gimple_assign_lhs(u_stmt));
+				fprintf(stderr, "	------------------SSA_NAME : LHS Mapping ok------------------\n");
+				tree fundecl = TREE_OPERAND(gimple_assign_lhs(u_stmt), 0);
+				debug_tree(fundecl);
+				fprintf(stderr, "	------------------SSA_NAME : LHS Mapping ok------------------\n");
+				debug_tree((ret_type_array)[i].return_tree);
+				if ((ret_type_array)[i].return_tree == fundecl)
+					fprintf(stderr, "	------------------SSA_NAME : LHS Mapping ok------------------\n");
+
+				gimple *def_stmt = SSA_NAME_DEF_STMT((ret_type_array)[i].return_tree);
+
+				debug_gimple_stmt(def_stmt);
+				fprintf(stderr, "coooooooooooooooooooooooooooooooooooool \n");
+				if (gimple_code(def_stmt) == GIMPLE_PHI)
+				{
+					for (unsigned i = 0; i < gimple_phi_num_args(def_stmt); i++)
+					{
+						tree argu = gimple_phi_arg_def(def_stmt, i);
+						//fprintf(stderr,"phi_argu:%d ",i);
+						//debug_tree(argu);
+						pi1 = get_ptr_info(argu);
+						pt1 = &pi1->pt;
+						if (pt1->vars == NULL)
+							continue;
+						if (!bitmap_intersect_p(pt->vars, pt1->vars))
+						{
+							// table1->state = POINTER_STATE_MAY_IS_FREE;
+							// debug(argu);
+							if (ptr_derefs_may_alias_p(fundecl, argu))
+							{
+								fprintf(stderr, "testing-----------------------------------------------\n");
+								debug(argu);
+								// warning_at(table3->loc, 0, "Use after free error!: free location");
+								// warning_at(table1->loc, 0, "Use after free error!: free location");
+								// //warning_at(gimple_location(used_stmt->stmt), 0, "use location"); ///ppp
+								// debug_tree(table1->target);
+								// debug_tree(table3->target);
+								fprintf(stderr, "testing-----------------------------------------------\n");
+								// search_imm_use(used_stmt, table1->target);
+							}
+						}
+					}
+				}
+				else
+				{
+					fprintf(stderr, "fuck \n");
+				}
+
+				// debug(use_stmt);
+				//tree fundecl = TREE_OPERAND(gc, 0);
+
+				//fprintf(stderr, "VAR_DECLVAR_DECLVAR_DECL------------------\n");
+				// fprintf(stderr, "------------------MEM_REF : LHS Mapping------------------\n");
+
+				// new_search_imm_use(used_stmt,  gimple_assign_rhs1(use_stmt),   gimple_assign_lhs(use_stmt));
+			}
+			fprintf(stderr, ",\n");
+
+			// print_function_path(&ret_type_array);
+		}
+	}
+}
+/*Pointer Constraint  5*/
+void PointerConstraint(ptb *ptable, ptb *ftable)
+{
+
+	ptb *table1 = ptable;
+	ptb *table3 = ftable;
+	bool to_remove = false;
+	tree t;
+
+	struct ptr_info_def *pi1;
+	struct pt_solution *pt1;
+	struct ptr_info_def *pi2;
+	struct pt_solution *pt2;
+	fprintf(stderr, "start PointerConstraint\n");
+	fprintf(stderr, "%d \n", ftable->size);
+	fprintf(stderr, "%d \n", ptable->size);
+
+	gimple *u_stmt;
+	gimple_array *used_stmt = NULL;
+	gimple_array start;
+	start.stmt = NULL;
+	used_stmt = &start;
+
+	table3 = ptable;
+
+	tree t2;
+	if (ptable->size >= 0)
+	{
+		FOR_EACH_TABLE(table1, t2)
+		{
+			if (TREE_CODE(TREE_TYPE(t2)) == METHOD_TYPE || TREE_CODE(TREE_TYPE(t2)) == FUNCTION_TYPE || TREE_CODE(TREE_TYPE(t2)) == RECORD_TYPE || !(TREE_CODE(t2) == SSA_NAME))
+			{
+				continue;
+			}
+			if (table1->removed || !TREE_CODE(t) == SSA_NAME)
+				continue;
+			used_stmt = NULL;
+			gimple_array start;
+			start.stmt = NULL;
+			used_stmt = &start;
+			new_search_imm_use(used_stmt, table1->target, table1->target);
+			pi1 = SSA_NAME_PTR_INFO(table1->target);
+			pt1 = &pi1->pt;
+			if (pt1->vars == NULL)
+				continue;
+
+			if (!strcmp(get_tree_code_name(TREE_CODE(used_stmt->target)), "<invalid tree code>"))
+				continue;
+			FOR_EACH_USE_TABLE(used_stmt, u_stmt)
+			{
+
+				pi2 = SSA_NAME_PTR_INFO(used_stmt->target);
+				pt2 = &pi2->pt;
+
+				if (pt2->vars == NULL)
+					continue;
+
+				if (bitmap_intersect_p(pt1->vars, pt2->vars))
+				{
+
+					gimple_array *user_tmp2;
+					user_tmp2 = tvpt2->get(table1->target);
+					if (user_tmp2 != NULL)
+						break;
+
+					tvpt2->put(table1->target, *used_stmt);
+					break;
+				}
+			}
+		}
+	}
+	printfPointerConstraint(ptable, used_stmt);
+	// FunctionStmtMapping(ptable, used_stmt);
+	// printfPointerConstraint(ptable, used_stmt);
+}
+void print_function_path(vector<return_type> *path)
+{
+	fprintf(stderr, "[\n");
+	for (int i = 0; i < (*path).size(); i++)
+	{
+		debug((*path)[i].stmt);
+		fprintf(stderr, ",\n");
+	}
+	fprintf(stderr, "]\n");
+	//fprintf(stderr, "	function ->%s in loc %d \n", IDENTIFIER_POINTER(DECL_NAME((*path)[i].first.fndecl)), LOCATION_LINE((*path)[i].second));
+}
+
+void print_function_return(tree function_tree)
+{
+	if (function_return_collect->get(function_tree) == NULL)
+		return;
+	function_return_array fun_array = *(function_return_collect->get(function_tree));
+
+	vector<return_type> ret_type_array = fun_array.return_type_array;
+	//debug_tree(function_tree);
+	//vector<pair<fdecl,location_t>> loc;
+	fprintf(stderr, "=======print_function_return %d   %d========\n", function_tree, ret_type_array.size());
+	for (int i = 0; i < ret_type_array.size(); i++)
+	{
+		fprintf(stderr, "[\n");
+		for (int i = 0; i < (ret_type_array).size(); i++)
+		{
+			debug((ret_type_array)[i].stmt);
+			fprintf(stderr, ",\n");
+		}
+		fprintf(stderr, "]\n");
+		// print_function_path(&ret_type_array);
+	}
+}
+void collect_function_return(gimple *gc, cgraph_node *node, basic_block bb)
+{
+
+	fprintf(stderr, "GIMPLE_RETURN\n");
+	function_return_array fun_array;
+	tree get_function_return_tree = gimple_return_retval(as_a<greturn *>(gc));
+	vector<return_type> ret_type_array;
+
+	fun_array.return_type_array = ret_type_array;
+	struct return_type ret_type;
+	ret_type.stmt = gc;
+	ret_type.return_tree = get_function_return_tree;
+	ret_type.reutnr_type_num = 0;
+	fun_array.return_type_array.push_back(ret_type);
+	function_return_collect->put(node->get_fun()->decl, fun_array);
+
+	//debug_tree(get_function_return_tree);
+
+	//tree test = cfun->decl;
+	//var_points_to  get_function_return =*(function_return_collect->get(get_function_return_tree));
+}
 void detect()
 {
 
@@ -1484,15 +1844,19 @@ void detect()
 	struct timeval stime;
 	struct cgraph_node *node;
 	struct var_points_to vpt;
+
 	const int N = 1e2;
 	tree ptr;
 	unsigned i;
+	tree attr;
 	function *ofun;
 	function *fn;
 	basic_block bb;
 	ipa = true;
+	cgraph_edge *e;
 	tvpt = new hash_map<tree, var_points_to>;
 	tvpt2 = new hash_map<tree, gimple_array>;
+	function_return_collect = new hash_map<tree, function_return_array>;
 	fDFS = new hash_map<cgraph_node *, Graph>;
 	fnode = new hash_map<tree, cgraph_node *>;
 	fprintf(stderr, "=======ipa_pta=========\n");
@@ -1504,16 +1868,32 @@ void detect()
 	clock_t start, end;
 	start = clock();
 	getrusage(RUSAGE_SELF, &ru);
+	// fprintf(stderr,"%d\n",*tmp);
+	//cout << "----------------------------------------" <<tmp<<endl;
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
 		if (!ipa)
 			init_table();
 		push_cfun(node->get_fun());
+		// if (strcmp(get_name(cfun->decl), "main") == 0)
+		fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+		debug_tree(cfun->decl);
+		//tree test=DECL_SAVED_TREE(cfun->decl);
+		//analyze_func_body(DECL_SAVED_TREE(test), 0);
 		if (cfun == NULL)
 			continue;
-		if (strcmp(get_name(cfun->decl), "main") == 0)
-			main_fun = cfun;
-		//fprintf(stderr,"=======node_fun:%s=========\n",get_name(cfun->decl));
+		enum availability avail;
+		for (e = node->callees; e; e = e->next_callee)
+		{
+			//funct_state l;
+			cgraph_node *caller = e->caller->global.inlined_to ? e->caller->global.inlined_to : e->caller;
+			cgraph_node *callee = e->callee->ultimate_alias_target(&avail, caller);
+			fprintf(stderr, "=======child node_fun:%s=========\n", get_name(callee->decl));
+			//analyze_function=	analyze_function (caller ,true);
+		}
+		// if (strcmp(get_name(cfun->decl), "main") == 0)
+		// 	main_fun = cfun;
+		// fprintf(stderr,"=======node_fun:%s=========\n",get_name(cfun->decl));
 
 		/*initialization DFS graph*/
 		Graph DFS;
@@ -1524,6 +1904,7 @@ void detect()
 		/*create DFS graph, Algorithm 1 and 2*/
 		FOR_EACH_BB_FN(bb, cfun)
 		{
+			debug_bb(bb);
 			if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
 			{
 				edge e;
@@ -1538,13 +1919,39 @@ void detect()
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
+				if (gimple_code(gc) == GIMPLE_RETURN)
+				{
+
+					collect_function_return(gc, node, bb);
+
+					//				//struct return_type type_struct ;
+					//get_function_return.return_type_array.push_back(type_struct);
+
+					//type_struct.stmt = gc;
+					//	type_struct.return_tree = get_function_return_tree;
+					// if( get_function_return.return_type_array.size() == 0){
+					// 	fprintf(stderr,"hwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwas\n");
+					// }
+					// else{
+					// 	fprintf(stderr,"no\n");
+					// }
+					//function_return_array get_function_return = *(function_return_collect->get(cfun->decl));
+
+					//	get_function_return->return_type_array.push_back(type_struct);
+					//
+					//function_return_collect->put(cfun->decl,*get_function_return);
+					//get_function_return->return_type_array->stmt=gc;
+				}
+				// debug_gimple_stmt(gc);
 				if (is_gimple_call(gc))
 				{
 
 					/*collect malloc and free information*/
 					collect_malloc(gc, node, bb);
-					fprintf(stderr, "add collect_malloc\n");
+
+					// fprintf(stderr, "add collect_malloc\n");
 				}
+				// print_function_return(cfun->decl);
 			}
 		}
 		/*DFS of this function put set "fDfS" */
@@ -1555,6 +1962,8 @@ void detect()
 			// new_double_free_analysis(ptable,ftable);
 			// new_use_after_free_analysis(ptable, ftable);
 		}
+		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+		// print_function_return(cfun->decl);
 		pop_cfun();
 	}
 
@@ -1562,10 +1971,12 @@ void detect()
 	{
 
 		// new_memory_leak_analysis(ptable, ftable);
+
 		PointerConstraint(ptable, ftable);
 		// new_double_free_analysis(ptable,ftable);
 		// new_use_after_free_analysis(ptable, ftable);
 	}
+
 	end = clock();
 	//printf("time: %f s\n", ((double)(end - start)) / CLOCKS_PER_SEC / N); 	// fprintf(stderr,"time: %f s\n",((double)(end - start)) / CLOCKS_PER_SEC / N);
 	fprintf(stderr, "time: %f s\n", ((double)(end - start)) / CLOCKS_PER_SEC);
@@ -1596,7 +2007,7 @@ void insert_always_inline()
 	{
 		basic_block bb;
 		cgraph_edge *e;
-
+		fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 		//fprintf(stderr,"=======node_fun:%s %d=========\n",get_name(node->decl),node->decl);
 		//fprintf(stderr,"attribute:%s \n",IDENTIFIER_POINTER (node->decl));
 
@@ -1607,6 +2018,7 @@ void insert_always_inline()
 		enum availability avail;
 		for (e = node->callees; e; e = e->next_callee)
 		{
+
 			cgraph_node *caller = e->caller->global.inlined_to ? e->caller->global.inlined_to : e->caller;
 			cgraph_node *callee = e->callee->ultimate_alias_target(&avail, caller);
 			tree callee_tree = callee ? DECL_FUNCTION_SPECIFIC_OPTIMIZATION(callee->decl) : NULL;
@@ -1622,7 +2034,7 @@ void insert_always_inline()
 				//DECL_ATTRIBUTES (callee->decl) = tree_cons (get_identifier ("always_inline"),
 				//NULL, DECL_ATTRIBUTES (callee->decl));
 			}
-			always_inline = (DECL_DISREGARD_INLINE_LIMITS(callee->decl) && lookup_attribute("always_inline", DECL_ATTRIBUTES(callee->decl)));
+			always_inline = (DECL_DISREGARD_INLINE_LIMITS(callee->decl) && lookup_attribute("noinline", DECL_ATTRIBUTES(callee->decl)));
 			//fprintf(stderr,"=======%s 's address:%d %d=========\n",get_name(callee->decl),callee->decl,always_inline);
 		}
 
@@ -1634,7 +2046,7 @@ void insert_always_inline()
 		}
 		FOR_EACH_BB_FN(bb, cfun)
 		{
-
+			//debug_bb(bb);
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
@@ -1658,6 +2070,8 @@ void insert_always_inline()
 					{
 
 						//fprintf(stderr,"=======add_always:%d=========\n",node->decl);
+						//noinline
+						//always_inline
 						always_inline = (DECL_DISREGARD_INLINE_LIMITS(node->decl) && lookup_attribute("always_inline", DECL_ATTRIBUTES(node->decl)));
 						if (!always_inline && !MAIN_NAME_P(DECL_NAME(node->decl)))
 						{

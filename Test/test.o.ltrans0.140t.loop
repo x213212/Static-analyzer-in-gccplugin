@@ -1,22 +1,24 @@
 
-;; Function foo (foo, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=94) (executed once)
+;; Function foo (foo, funcdef_no=1, decl_uid=3987, cgraph_uid=2, symbol_order=53) (executed once)
 
+__attribute__((noinline))
 foo (int z)
 {
   int i;
   int * a;
+  int * p;
   long unsigned int _1;
-  int _10;
+  int _13;
 
   <bb 2> [25.00%]:
   _1 = (long unsigned int) z_4(D);
   a_7 = malloc (_1);
 
   <bb 3> [75.00%]:
-  # i_16 = PHI <i_9(5), 0(2)>
-  _10 = __printf_chk (1, "qwdwqd%d\n", i_16);
-  i_9 = i_16 + 1;
-  if (i_9 <= 2)
+  # i_21 = PHI <i_12(5), 0(2)>
+  _13 = __printf_chk (1, "qwdwqd%d\n", i_21);
+  i_12 = i_21 + 1;
+  if (i_12 <= 2)
     goto <bb 5>; [75.00%]
   else
     goto <bb 4>; [25.00%]
@@ -25,6 +27,8 @@ foo (int z)
   goto <bb 3>; [100.00%]
 
   <bb 4> [25.00%]:
+  p_9 = foo2 (2);
+  free (a_7);
   return a_7;
 
 }

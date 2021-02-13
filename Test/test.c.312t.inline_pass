@@ -1,27 +1,105 @@
 
-;; Function main (main, funcdef_no=51, decl_uid=4320, cgraph_uid=51, symbol_order=51)
+;; Function helperBad (helperBad, funcdef_no=27, decl_uid=2764, cgraph_uid=27, symbol_order=27)
 
-main ()
+__attribute__((always_inline))
+helperBad (char * aString)
 {
-  int * q;
-  int * p;
-  void * _1;
-  int * q.0_2;
-  int * q.1_3;
-  int _12;
+  char * reversedString;
+  size_t j;
+  size_t i;
+  long unsigned int _1;
+  long unsigned int _2;
+  sizetype _3;
+  char * _4;
+  char * _5;
+  char _6;
+  char * _7;
+  char * _9;
+  char * _15;
+  char * _23;
 
   <bb 2> [0.00%]:
-  p_6 = malloc (28);
-  _1 = malloc (80);
-  q = _1;
-  p_9 = &q;
-  q.0_2 = q;
-  free (q.0_2);
-  q.1_3 = q;
-  free (q.1_3);
-  _12 = 0;
-  q ={v} {CLOBBER};
-  return _12;
+  i_12 = 0;
+  reversedString_13 = 0B;
+  if (aString_14(D) != 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 3> [0.00%]:
+  i_17 = strlen (aString_14(D));
+  _1 = i_17 + 1;
+  reversedString_19 = malloc (_1);
+  if (reversedString_19 == 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  exit (-1);
+
+  <bb 5> [0.00%]:
+  j_20 = 0;
+  goto <bb 7>; [0.00%]
+
+  <bb 6> [0.00%]:
+  _2 = i_17 - j_8;
+  _3 = _2 + 18446744073709551615;
+  _4 = aString_14(D) + _3;
+  _5 = reversedString_19 + j_8;
+  _6 = *_4;
+  *_5 = _6;
+  j_25 = j_8 + 1;
+
+  <bb 7> [0.00%]:
+  # j_8 = PHI <j_20(5), j_25(6)>
+  if (j_8 < i_17)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 8> [0.00%]:
+  _7 = reversedString_19 + i_17;
+  *_7 = 0;
+  free (reversedString_19);
+  _23 = reversedString_19;
+  goto <bb 10>; [0.00%]
+
+  <bb 9> [0.00%]:
+  _15 = 0B;
+
+  <bb 10> [0.00%]:
+  # _9 = PHI <_23(8), _15(9)>
+  return _9;
+
+}
+
+
+
+;; Function CWE416_Use_After_Free__return_freed_ptr_01_bad (CWE416_Use_After_Free__return_freed_ptr_01_bad, funcdef_no=28, decl_uid=2772, cgraph_uid=28, symbol_order=28)
+
+CWE416_Use_After_Free__return_freed_ptr_01_bad ()
+{
+  char * reversedString2;
+
+  <bb 2> [0.00%]:
+  reversedString2_3 = helperBad ("BadSink");
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=29, decl_uid=2777, cgraph_uid=29, symbol_order=29)
+
+main (int argc, char * * argv)
+{
+  int _3;
+
+  <bb 2> [0.00%]:
+  CWE416_Use_After_Free__return_freed_ptr_01_bad ();
+  _3 = 0;
+  return _3;
 
 }
 

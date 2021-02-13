@@ -1,51 +1,122 @@
 
-;; Function foo (foo, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=94) (executed once)
+;; Function foo2 (foo2, funcdef_no=0, decl_uid=3988, cgraph_uid=3, symbol_order=52) (executed once)
 
-foo (int z)
+No longer having address taken: data
+No longer having address taken: a
+
+Symbols to be put in SSA form
+{ D.4026 D.4027 }
+Incremental SSA update started at block: 0
+Number of blocks in CFG: 6
+Number of blocks to update: 5 ( 83%)
+
+
+__attribute__((noinline))
+foo2 (int z)
 {
-  int i;
-  int * a;
+  int tmp;
+  int a;
+  int data;
+  int * pData;
+  int * p4;
+  int * p3;
+  int * a2;
   long unsigned int _1;
-  int * _8;
-  int _10;
+  long unsigned int _2;
+  long unsigned int _3;
+  int * _4;
+  int * _21;
+  int * _25;
 
-  <bb 2> [25.00%]:
-  _1 = (long unsigned int) z_4(D);
-  a_7 = malloc (_1);
-  goto <bb 4>; [100.00%]
-
-  <bb 3> [75.00%]:
-  _10 = __printf_chk (1, "qwdwqd%d\n", i_2);
-  i_9 = i_2 + 1;
-
-  <bb 4> [100.00%]:
-  # i_2 = PHI <0(2), i_9(3)>
-  if (i_2 <= 2)
-    goto <bb 3>; [75.00%]
+  <bb 2> [100.00%]:
+  _1 = (long unsigned int) z_6(D);
+  a2_9 = malloc (_1);
+  _2 = (long unsigned int) z_6(D);
+  p3_11 = malloc (_2);
+  _3 = (long unsigned int) z_6(D);
+  p4_13 = malloc (_3);
+  data_46 = 0;
+  data_47 = 10;
+  a_48 = 10;
+  a_49 = 20;
+  if (tmp_18(D) > 10)
+    goto <bb 3>; [63.36%]
   else
-    goto <bb 5>; [25.00%]
+    goto <bb 4>; [36.64%]
 
-  <bb 5> [25.00%]:
-  _8 = a_7;
-  return a_7;
+  <bb 3> [63.36%]:
+  *p3_11 = 10;
+  *a2_9 = 9;
+  *a2_9 = 1;
+  _25 = p3_11;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [36.64%]:
+  free (a2_9);
+  *p4_13 = 12;
+  _21 = p4_13;
+
+  <bb 5> [100.00%]:
+  # _4 = PHI <p3_11(3), p4_13(4)>
+  return _4;
 
 }
 
 
 
-;; Function main (main, funcdef_no=0, decl_uid=3987, cgraph_uid=1, symbol_order=51) (executed once)
+;; Function foo (foo, funcdef_no=1, decl_uid=3987, cgraph_uid=2, symbol_order=53) (executed once)
+
+__attribute__((noinline))
+foo (int z)
+{
+  int * p2;
+
+  <bb 2> [100.00%]:
+  p2_3 = foo2 (2);
+  return p2_3;
+
+}
+
+
+
+;; Function child (child, funcdef_no=2, decl_uid=3986, cgraph_uid=1, symbol_order=54) (executed once)
+
+__attribute__((noinline))
+child (void * data)
+{
+  int * b;
+  int * p22;
+  void * _1;
+
+  <bb 2> [100.00%]:
+  pthread_mutex_lock (&mLock);
+  _1 = malloc (454);
+  b = _1;
+  p22_7 = foo (2);
+  free (&b);
+  pthread_mutex_unlock (&mLock);
+  pthread_exit (0B);
+
+}
+
+
+
+;; Function main (main, funcdef_no=3, decl_uid=3985, cgraph_uid=0, symbol_order=56) (executed once)
 
 main ()
 {
-  int * q;
-  int * p;
-  int * _1;
+  pthread_t t;
+  char buff[50];
+  long unsigned int _1;
 
   <bb 2> [100.00%]:
-  _1 = foo (12);
-  p_7 = foo (10);
-  free (_1);
-  free (_1);
+  pthread_mutex_destroy (&mLock);
+  pthread_create (&t, 0B, child, &buff);
+  _1 = t;
+  pthread_join (_1, 0B);
+  pthread_mutex_destroy (&mLock);
+  buff ={v} {CLOBBER};
+  t ={v} {CLOBBER};
   return 0;
 
 }

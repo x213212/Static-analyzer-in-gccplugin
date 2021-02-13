@@ -1,33 +1,145 @@
+__attribute__((noinline))
+foo2 (int z)
+{
+  int * D.4347;
+  int * a2;
+  int * p3;
+  int * p4;
+  int * * ppData;
+  int * pData;
+  int data;
+  int a;
+  int * ptr;
+  int * * ptr2;
+  int tmp;
+
+  try
+    {
+      _1 = (long unsigned int) z;
+      a2 = malloc (_1);
+      _2 = (long unsigned int) z;
+      p3 = malloc (_2);
+      _3 = (long unsigned int) z;
+      p4 = malloc (_3);
+      ppData = 0B;
+      pData = 0B;
+      data = 0;
+      ppData = &pData;
+      pData = &data;
+      _4 = *ppData;
+      *_4 = 10;
+      a = 10;
+      ptr = &a;
+      ptr2 = &ptr;
+      _5 = *ptr2;
+      *_5 = 20;
+      if (tmp > 10) goto <D.4345>; else goto <D.4346>;
+      <D.4345>:
+      *p3 = 10;
+      *a2 = 9;
+      *a2 = 1;
+      D.4347 = p3;
+      return D.4347;
+      <D.4346>:
+      free (a2);
+      *p4 = 12;
+      D.4347 = p4;
+      return D.4347;
+      *a2 = 10;
+      free (a2);
+      D.4347 = a2;
+      return D.4347;
+    }
+  finally
+    {
+      pData = {CLOBBER};
+      data = {CLOBBER};
+      a = {CLOBBER};
+      ptr = {CLOBBER};
+    }
+}
+
+
+__attribute__((noinline))
+foo (int z)
+{
+  int * D.4350;
+  int * p2;
+
+  p2 = foo2 (2);
+  D.4350 = p2;
+  return D.4350;
+}
+
+
+__attribute__((noinline))
+child (void * data)
+{
+  int * p22;
+  int * b;
+
+  try
+    {
+      pthread_mutex_lock (&mLock);
+      _1 = malloc (454);
+      b = _1;
+      p22 = foo (2);
+      p22 = &b;
+      free (p22);
+      pthread_mutex_unlock (&mLock);
+      pthread_exit (0B);
+    }
+  finally
+    {
+      b = {CLOBBER};
+    }
+}
+
+
+boo (int * b)
+{
+  free (b);
+  printf ("asdda\n");
+}
+
+
+__attribute__((__artificial__, __gnu_inline__, __always_inline__))
+printf (const char * restrict __fmt)
+{
+  int D.4352;
+
+  D.4352 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.4352;
+}
+
+
 main ()
 {
-  int D.4327;
+  int D.4354;
 
   {
-    pthread_t t;
     int * p;
-    int * q;
-    int * c;
+    char buff[50];
+    pthread_t t;
 
     try
       {
-        _1 = foo (12);
-        q = _1;
-        p = foo (10);
-        p = &q;
-        q.0_2 = q;
-        free (q.0_2);
-        q.1_3 = q;
-        free (q.1_3);
-        D.4327 = 0;
-        return D.4327;
+        pthread_mutex_destroy (&mLock);
+        pthread_create (&t, 0B, child, &buff);
+        t.0_1 = t;
+        pthread_join (t.0_1, 0B);
+        pthread_mutex_destroy (&mLock);
+        D.4354 = 0;
+        return D.4354;
       }
     finally
       {
-        q = {CLOBBER};
+        buff = {CLOBBER};
+        t = {CLOBBER};
       }
   }
-  D.4327 = 0;
-  return D.4327;
+  D.4354 = 0;
+  return D.4354;
 }
 
 

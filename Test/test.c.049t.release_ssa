@@ -1,23 +1,151 @@
 
-;; Function main (main, funcdef_no=51, decl_uid=4320, cgraph_uid=51, symbol_order=51) (executed once)
+;; Function printf (printf, funcdef_no=31, decl_uid=798, cgraph_uid=31, symbol_order=31)
 
-Released 4 names, 33.33%, removed 4 holes
-main ()
+Released 0 names, 0.00%, removed 0 holes
+__attribute__((__artificial__, __gnu_inline__, __always_inline__))
+printf (const char * restrict __fmt)
 {
-  int * q;
-  int * p;
-  int * _1;
-  int * q.0_2;
-  int * q.1_3;
+  int _4;
 
   <bb 2> [100.00%]:
-  _1 = foo (12);
-  q_10 = _1;
-  p_7 = foo (10);
-  q.0_2 = _1;
-  free (q.0_2);
-  q.1_3 = _1;
-  free (q.1_3);
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function foo2 (foo2, funcdef_no=51, decl_uid=4308, cgraph_uid=51, symbol_order=52)
+
+Released 13 names, 43.33%, removed 13 holes
+__attribute__((noinline))
+foo2 (int z)
+{
+  int tmp;
+  int a;
+  int data;
+  int * pData;
+  int * p4;
+  int * p3;
+  int * a2;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  int * _4;
+  int * _21;
+  int * _25;
+
+  <bb 2> [100.00%]:
+  _1 = (long unsigned int) z_6(D);
+  a2_9 = malloc (_1);
+  _2 = (long unsigned int) z_6(D);
+  p3_11 = malloc (_2);
+  _3 = (long unsigned int) z_6(D);
+  p4_13 = malloc (_3);
+  pData_28 = 0B;
+  data = 0;
+  data = 10;
+  a = 10;
+  a = 20;
+  if (tmp_18(D) > 10)
+    goto <bb 3>; [63.36%]
+  else
+    goto <bb 4>; [36.64%]
+
+  <bb 3> [63.36%]:
+  *p3_11 = 10;
+  *a2_9 = 9;
+  *a2_9 = 1;
+  _25 = p3_11;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [36.64%]:
+  free (a2_9);
+  *p4_13 = 12;
+  _21 = p4_13;
+
+  <bb 5> [100.00%]:
+  # _4 = PHI <p3_11(3), p4_13(4)>
+  data ={v} {CLOBBER};
+  a ={v} {CLOBBER};
+  return _4;
+
+}
+
+
+
+;; Function foo (foo, funcdef_no=52, decl_uid=4306, cgraph_uid=52, symbol_order=53)
+
+Released 1 names, 25.00%, removed 1 holes
+__attribute__((noinline))
+foo (int z)
+{
+  int * p2;
+
+  <bb 2> [100.00%]:
+  p2_3 = foo2 (2);
+  return p2_3;
+
+}
+
+
+
+;; Function child (child, funcdef_no=53, decl_uid=4310, cgraph_uid=53, symbol_order=54) (executed once)
+
+Released 1 names, 9.09%, removed 1 holes
+__attribute__((noinline))
+child (void * data)
+{
+  int * b;
+  int * p22;
+  void * _1;
+
+  <bb 2> [100.00%]:
+  pthread_mutex_lock (&mLock);
+  _1 = malloc (454);
+  b = _1;
+  p22_7 = foo (2);
+  free (&b);
+  pthread_mutex_unlock (&mLock);
+  pthread_exit (0B);
+
+}
+
+
+
+;; Function boo (boo, funcdef_no=54, decl_uid=4337, cgraph_uid=54, symbol_order=55)
+
+Released 2 names, 33.33%, removed 2 holes
+boo (int * b)
+{
+  int _4;
+
+  <bb 2> [100.00%]:
+  free (b_2(D));
+  _4 = __printf_chk (1, "asdda\n");
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=55, decl_uid=4339, cgraph_uid=55, symbol_order=56) (executed once)
+
+Released 1 names, 11.11%, removed 1 holes
+main ()
+{
+  pthread_t t;
+  char buff[50];
+  long unsigned int t.0_1;
+
+  <bb 2> [100.00%]:
+  pthread_mutex_destroy (&mLock);
+  pthread_create (&t, 0B, child, &buff);
+  t.0_1 = t;
+  pthread_join (t.0_1, 0B);
+  pthread_mutex_destroy (&mLock);
+  buff ={v} {CLOBBER};
+  t ={v} {CLOBBER};
   return 0;
 
 }

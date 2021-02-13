@@ -1,0 +1,15 @@
+{
+	"allocsite": [
+		{
+		"line": 45,
+		"alloc": "srtdup",
+		"free": "free"
+		},
+		{
+		"line": 63,
+		"alloc": "srtdup",
+		"free": "free"
+		}
+
+	]
+}

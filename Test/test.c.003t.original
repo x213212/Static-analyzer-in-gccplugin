@@ -713,25 +713,113 @@
 }
 
 
+;; Function foo2 (null)
+;; enabled by -tree-original
+
+
+{
+  int * a2 = (int *) malloc ((size_t) z);
+  int * p3 = (int *) malloc ((size_t) z);
+  int * p4 = (int *) malloc ((size_t) z);
+  int * * ppData = 0B;
+  int * pData = 0B;
+  int data = 0;
+  int a = 10;
+  int * ptr = &a;
+  int * * ptr2 = &ptr;
+  int tmp;
+
+    int * a2 = (int *) malloc ((size_t) z);
+    int * p3 = (int *) malloc ((size_t) z);
+    int * p4 = (int *) malloc ((size_t) z);
+    int * * ppData = 0B;
+    int * pData = 0B;
+    int data = 0;
+  ppData = &pData;
+  pData = &data;
+  **ppData = 10;
+    int a = 10;
+    int * ptr = &a;
+    int * * ptr2 = &ptr;
+  **ptr2 = 20;
+    int tmp;
+  if (tmp > 10)
+    {
+      *p3 = 10;
+      *a2 = 9;
+      *a2 = 1;
+      return p3;
+    }
+  else
+    {
+      free ((void *) a2);
+      *p4 = 12;
+      return p4;
+    }
+  *a2 = 10;
+  free ((void *) a2);
+  return a2;
+}
+
+
+;; Function foo (null)
+;; enabled by -tree-original
+
+
+{
+  int * p2;
+
+    int * p2;
+  p2 = foo2 (2);
+  return p2;
+}
+
+
+;; Function child (null)
+;; enabled by -tree-original
+
+
+{
+  int * p22;
+  int * b = (int *) malloc (454);
+
+  pthread_mutex_lock (&mLock);
+    int * p22;
+    int * b = (int *) malloc (454);
+  p22 = foo (2);
+  p22 = (int *) &b;
+  free ((void *) p22);
+  pthread_mutex_unlock (&mLock);
+  pthread_exit (0B);
+}
+
+
+;; Function boo (null)
+;; enabled by -tree-original
+
+
+{
+  free ((void *) b);
+  printf ((const char * restrict) "asdda\n");
+}
+
+
 ;; Function main (null)
 ;; enabled by -tree-original
 
 
 {
-  pthread_t t;
   int * p;
-  int * q;
-  int * c;
+  char buff[50];
+  pthread_t t;
 
-    pthread_t t;
     int * p;
-    int * q;
-    int * c;
-  q = foo (12);
-  p = foo (10);
-  p = (int *) &q;
-  free ((void *) q);
-  free ((void *) q);
+    char buff[50];
+    pthread_t t;
+  pthread_mutex_destroy (&mLock);
+  pthread_create (&t, 0B, child, (void * restrict) &buff);
+  pthread_join (t, 0B);
+  pthread_mutex_destroy (&mLock);
   return 0;
 }
 return 0;

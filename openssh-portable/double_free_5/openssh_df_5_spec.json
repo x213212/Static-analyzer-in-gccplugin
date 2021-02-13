@@ -1,0 +1,15 @@
+{
+	"allocsite": [
+		{
+		"line": 253,
+		"alloc": "xmalloc",
+		"free": "free"
+		},
+		{
+		"line": 346,
+		"alloc": "packet_get_string",
+		"free": "free"
+		}
+
+	]
+}

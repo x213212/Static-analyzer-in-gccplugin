@@ -1,5 +1,9 @@
-90 pta "Symbol to SSA rewrite" "(nofn)" 2
-115 copyprop "Statements deleted" "foo" 1
-120 ch "Incremental SSA update" "foo" 1
-97 ccp "Copies propagated" "main" 2
-97 ccp "Statements deleted" "main" 3
+90 pta "Symbol to SSA rewrite" "(nofn)" 4
+97 ccp "Statements deleted" "foo2" 1
+115 copyprop "Statements deleted" "foo2" 6
+124 dom "Copies propagated" "foo2" 2
+124 dom "Redundant expressions eliminated" "foo2" 2
+132 ccp "Statements deleted" "foo2" 2
+266 combine "two-insn combine" "foo2" 1
+97 ccp "Symbol to SSA rewrite" "foo" 1
+233 optimized "unused VAR_DECLs removed" "foo" 3

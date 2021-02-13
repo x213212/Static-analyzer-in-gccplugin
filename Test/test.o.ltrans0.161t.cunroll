@@ -1,26 +1,28 @@
 
-;; Function foo (foo, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=94) (executed once)
+;; Function foo (foo, funcdef_no=1, decl_uid=3987, cgraph_uid=2, symbol_order=53) (executed once)
 
+__attribute__((noinline))
 foo (int z)
 {
   int i;
   int * a;
+  int * p;
   long unsigned int _1;
-  int _10;
-  unsigned int ivtmp_11;
-  unsigned int ivtmp_18;
+  int _13;
+  unsigned int ivtmp_14;
+  unsigned int ivtmp_23;
 
   <bb 2> [25.00%]:
   _1 = (long unsigned int) z_4(D);
   a_7 = malloc (_1);
 
   <bb 3> [75.00%]:
-  # i_16 = PHI <i_9(4), 0(2)>
-  # ivtmp_18 = PHI <ivtmp_11(4), 3(2)>
-  _10 = __printf_chk (1, "qwdwqd%d\n", i_16);
-  i_9 = i_16 + 1;
-  ivtmp_11 = ivtmp_18 - 1;
-  if (ivtmp_11 != 0)
+  # i_21 = PHI <i_12(4), 0(2)>
+  # ivtmp_23 = PHI <ivtmp_14(4), 3(2)>
+  _13 = __printf_chk (1, "qwdwqd%d\n", i_21);
+  i_12 = i_21 + 1;
+  ivtmp_14 = ivtmp_23 - 1;
+  if (ivtmp_14 != 0)
     goto <bb 4>; [75.00%]
   else
     goto <bb 5>; [25.00%]
@@ -29,6 +31,8 @@ foo (int z)
   goto <bb 3>; [100.00%]
 
   <bb 5> [25.00%]:
+  p_9 = foo2 (2);
+  free (a_7);
   return a_7;
 
 }
