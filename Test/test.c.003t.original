@@ -713,52 +713,42 @@
 }
 
 
+;; Function foo3 (null)
+;; enabled by -tree-original
+
+
+{
+  *z = (int) (long int) malloc (1);
+}
+
+
 ;; Function foo2 (null)
 ;; enabled by -tree-original
 
 
 {
   int * a2 = (int *) malloc ((size_t) z);
-  int * p3 = (int *) malloc ((size_t) z);
-  int * p4 = (int *) malloc ((size_t) z);
-  int * * ppData = 0B;
-  int * pData = 0B;
-  int data = 0;
-  int a = 10;
-  int * ptr = &a;
-  int * * ptr2 = &ptr;
-  int tmp;
 
     int * a2 = (int *) malloc ((size_t) z);
-    int * p3 = (int *) malloc ((size_t) z);
-    int * p4 = (int *) malloc ((size_t) z);
-    int * * ppData = 0B;
-    int * pData = 0B;
-    int data = 0;
-  ppData = &pData;
-  pData = &data;
-  **ppData = 10;
-    int a = 10;
-    int * ptr = &a;
-    int * * ptr2 = &ptr;
-  **ptr2 = 20;
-    int tmp;
-  if (tmp > 10)
-    {
-      *p3 = 10;
-      *a2 = 9;
-      *a2 = 1;
-      return p3;
-    }
-  else
-    {
-      free ((void *) a2);
-      *p4 = 12;
-      return p4;
-    }
-  *a2 = 10;
-  free ((void *) a2);
   return a2;
+}
+
+
+;; Function foo4 (null)
+;; enabled by -tree-original
+
+
+{
+  int * b = (int *) malloc (1);
+  int * p2 = (int *) malloc (1);
+
+    int * b = (int *) malloc (1);
+    int * p2 = (int *) malloc (1);
+  *b = 2;
+  *p2 = 1;
+  p2 = (int *) &b;
+  free ((void *) p2);
+  return p2;
 }
 
 
@@ -767,10 +757,15 @@
 
 
 {
-  int * p2;
+  int * b = (int *) malloc (1);
+  int * p2 = (int *) malloc (1);
 
-    int * p2;
-  p2 = foo2 (2);
+    int * b = (int *) malloc (1);
+    int * p2 = (int *) malloc (1);
+  *b = 2;
+  *p2 = 1;
+  p2 = (int *) &b;
+  free ((void *) p2);
   return p2;
 }
 
@@ -780,15 +775,20 @@
 
 
 {
-  int * p22;
-  int * b = (int *) malloc (454);
+  int * * ppData = (int * *) malloc (10);
+  int * pData = (int *) malloc (20);
+  int data2 = 0;
 
   pthread_mutex_lock (&mLock);
-    int * p22;
-    int * b = (int *) malloc (454);
-  p22 = foo (2);
-  p22 = (int *) &b;
-  free ((void *) p22);
+    int * * ppData = (int * *) malloc (10);
+    int * pData = (int *) malloc (20);
+    int data2 = 0;
+  ppData = &pData;
+  pData = &data2;
+  **ppData = 10;
+  **(ppData + 8) = 10;
+  **(ppData + 16) = 10;
+  **ppData = 10;
   pthread_mutex_unlock (&mLock);
   pthread_exit (0B);
 }
@@ -814,6 +814,7 @@
   pthread_t t;
 
     int * p;
+  foo3 (p);
     char buff[50];
     pthread_t t;
   pthread_mutex_destroy (&mLock);

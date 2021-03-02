@@ -1,81 +1,32 @@
 
-;; Function foo2 (foo2, funcdef_no=0, decl_uid=3988, cgraph_uid=3, symbol_order=52) (executed once)
+;; Function child (child, funcdef_no=0, decl_uid=3986, cgraph_uid=1, symbol_order=57) (executed once)
 
-__attribute__((noinline))
-foo2 (int z)
-{
-  int tmp;
-  int a;
-  int data;
-  int * pData;
-  int * p4;
-  int * p3;
-  int * a2;
-  long unsigned int _1;
-  long unsigned int _2;
-  long unsigned int _3;
-  int * _4;
-
-  <bb 2> [100.00%]:
-  _1 = (long unsigned int) z_6(D);
-  a2_9 = malloc (_1);
-  _2 = (long unsigned int) z_6(D);
-  p3_11 = malloc (_2);
-  _3 = (long unsigned int) z_6(D);
-  p4_13 = malloc (_3);
-  if (tmp_18(D) > 10)
-    goto <bb 3>; [63.36%]
-  else
-    goto <bb 4>; [36.64%]
-
-  <bb 3> [63.36%]:
-  *p3_11 = 10;
-  *a2_9 = 9;
-  *a2_9 = 1;
-  goto <bb 5>; [100.00%]
-
-  <bb 4> [36.64%]:
-  free (a2_9);
-  *p4_13 = 12;
-
-  <bb 5> [100.00%]:
-  # _4 = PHI <p3_11(3), p4_13(4)>
-  return _4;
-
-}
-
-
-
-;; Function foo (foo, funcdef_no=1, decl_uid=3987, cgraph_uid=2, symbol_order=53) (executed once)
-
-__attribute__((noinline))
-foo (int z)
-{
-  int * p2;
-
-  <bb 2> [100.00%]:
-  p2_3 = foo2 (2);
-  return p2_3;
-
-}
-
-
-
-;; Function child (child, funcdef_no=2, decl_uid=3986, cgraph_uid=1, symbol_order=54) (executed once)
-
-__attribute__((noinline))
 child (void * data)
 {
-  int * b;
-  int * p22;
+  int data2;
+  int * pData;
+  int * * ppData;
   void * _1;
+  int * _2;
+  int * _3;
+  int * _4;
+  int * _5;
 
   <bb 2> [100.00%]:
   pthread_mutex_lock (&mLock);
-  _1 = malloc (454);
-  b = _1;
-  p22_7 = foo (2);
-  free (&b);
+  ppData_9 = malloc (10);
+  _1 = malloc (20);
+  pData = _1;
+  data2 = 0;
+  pData = &data2;
+  _2 = pData;
+  *_2 = 10;
+  _3 = MEM[(int * *)&pData + 8B];
+  *_3 = 10;
+  _4 = MEM[(int * *)&pData + 16B];
+  *_4 = 10;
+  _5 = pData;
+  *_5 = 10;
   pthread_mutex_unlock (&mLock);
   pthread_exit (0B);
 
@@ -83,15 +34,23 @@ child (void * data)
 
 
 
-;; Function main (main, funcdef_no=3, decl_uid=3985, cgraph_uid=0, symbol_order=56) (executed once)
+;; Function main (main, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=59) (executed once)
 
 main ()
 {
   pthread_t t;
   char buff[50];
+  int * p;
   long unsigned int _1;
+  void * _12;
+  long int _13;
+  int _14;
 
   <bb 2> [100.00%]:
+  _12 = malloc (1);
+  _13 = (long int) _12;
+  _14 = (int) _13;
+  *p_3(D) = _14;
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   _1 = t;

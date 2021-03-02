@@ -23,113 +23,7 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function foo2 (foo2, funcdef_no=51, decl_uid=4308, cgraph_uid=51, symbol_order=52)
-
-;; 1 loops found
-;;
-;; Loop 0
-;;  header 0, latch 1
-;;  depth 0, outer -1
-;;  nodes: 0 1 2 3 4 5
-;; 2 succs { 3 4 }
-;; 3 succs { 5 }
-;; 4 succs { 5 }
-;; 5 succs { 1 }
-Predictions for bb 2
-  DS theory heuristics: 63.4%
-  combined heuristics: 63.4%
-  early return (on trees) heuristics of edge 2->3: 46.0%
-  call heuristics of edge 2->4: 33.0%
-Predictions for bb 3
-1 edges in bb 3 predicted to even probabilities
-Predictions for bb 4
-1 edges in bb 4 predicted to even probabilities
-Predictions for bb 5
-1 edges in bb 5 predicted to even probabilities
-__attribute__((noinline))
-foo2 (int z)
-{
-  int tmp;
-  int * * ptr2;
-  int * ptr;
-  int a;
-  int data;
-  int * pData;
-  int * * ppData;
-  int * p4;
-  int * p3;
-  int * a2;
-  long unsigned int _1;
-  long unsigned int _2;
-  long unsigned int _3;
-  int * _6;
-  int * _29;
-  int * _33;
-
-  <bb 2> [100.00%]:
-  _1 = (long unsigned int) z_8(D);
-  a2_11 = malloc (_1);
-  _2 = (long unsigned int) z_8(D);
-  p3_13 = malloc (_2);
-  _3 = (long unsigned int) z_8(D);
-  p4_15 = malloc (_3);
-  pData_38 = 0B;
-  data = 0;
-  data = 10;
-  a = 10;
-  a = 20;
-  if (tmp_26(D) > 10)
-    goto <bb 3>; [63.36%]
-  else
-    goto <bb 4>; [36.64%]
-
-  <bb 3> [63.36%]:
-  *p3_13 = 10;
-  *a2_11 = 9;
-  *a2_11 = 1;
-  _33 = p3_13;
-  goto <bb 5>; [100.00%]
-
-  <bb 4> [36.64%]:
-  free (a2_11);
-  *p4_15 = 12;
-  _29 = p4_15;
-
-  <bb 5> [100.00%]:
-  # _6 = PHI <p3_13(3), p4_15(4)>
-  data ={v} {CLOBBER};
-  a ={v} {CLOBBER};
-  return _6;
-
-}
-
-
-
-;; Function foo (foo, funcdef_no=52, decl_uid=4306, cgraph_uid=52, symbol_order=53)
-
-;; 1 loops found
-;;
-;; Loop 0
-;;  header 0, latch 1
-;;  depth 0, outer -1
-;;  nodes: 0 1 2
-;; 2 succs { 1 }
-Predictions for bb 2
-1 edges in bb 2 predicted to even probabilities
-__attribute__((noinline))
-foo (int z)
-{
-  int * p2;
-
-  <bb 2> [100.00%]:
-  p2_3 = foo2 (2);
-  return p2_3;
-
-}
-
-
-
-;; Function child (child, funcdef_no=53, decl_uid=4310, cgraph_uid=53, symbol_order=54)
+;; Function child (child, funcdef_no=55, decl_uid=4332, cgraph_uid=55, symbol_order=57)
 
 ;; 1 loops found
 ;;
@@ -140,19 +34,32 @@ foo (int z)
 ;; 2 succs { }
 Predictions for bb 2
 0 edges in bb 2 predicted to even probabilities
-__attribute__((noinline))
 child (void * data)
 {
-  int * b;
-  int * p22;
+  int data2;
+  int * pData;
+  int * * ppData;
   void * _1;
+  int * _2;
+  int * _4;
+  int * _6;
+  int * _7;
 
   <bb 2> [100.00%]:
   pthread_mutex_lock (&mLock);
-  _1 = malloc (454);
-  b = _1;
-  p22_7 = foo (2);
-  free (&b);
+  ppData_11 = malloc (10);
+  _1 = malloc (20);
+  pData = _1;
+  data2 = 0;
+  pData = &data2;
+  _2 = pData;
+  *_2 = 10;
+  _4 = MEM[(int * *)&pData + 8B];
+  *_4 = 10;
+  _6 = MEM[(int * *)&pData + 16B];
+  *_6 = 10;
+  _7 = pData;
+  *_7 = 10;
   pthread_mutex_unlock (&mLock);
   pthread_exit (0B);
 
@@ -160,7 +67,128 @@ child (void * data)
 
 
 
-;; Function boo (boo, funcdef_no=54, decl_uid=4337, cgraph_uid=54, symbol_order=55)
+;; Function foo3 (foo3, funcdef_no=51, decl_uid=4313, cgraph_uid=51, symbol_order=53)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+Predictions for bb 2
+1 edges in bb 2 predicted to even probabilities
+foo3 (int * z)
+{
+  void * _1;
+  long int _2;
+  int _3;
+
+  <bb 2> [100.00%]:
+  _1 = malloc (1);
+  _2 = (long int) _1;
+  _3 = (int) _2;
+  *z_6(D) = _3;
+  return;
+
+}
+
+
+
+;; Function foo2 (foo2, funcdef_no=52, decl_uid=4311, cgraph_uid=52, symbol_order=54)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+Predictions for bb 2
+1 edges in bb 2 predicted to even probabilities
+foo2 (int z)
+{
+  int * a2;
+  long unsigned int _1;
+  int * _6;
+
+  <bb 2> [100.00%]:
+  _1 = (long unsigned int) z_2(D);
+  a2_5 = malloc (_1);
+  _6 = a2_5;
+  return a2_5;
+
+}
+
+
+
+;; Function foo4 (foo4, funcdef_no=53, decl_uid=4309, cgraph_uid=53, symbol_order=55)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+Predictions for bb 2
+1 edges in bb 2 predicted to even probabilities
+foo4 (int z)
+{
+  int * p2;
+  int * b;
+  void * _1;
+  int * b.0_2;
+
+  <bb 2> [100.00%]:
+  _1 = malloc (1);
+  b = _1;
+  p2_7 = malloc (1);
+  b.0_2 = b;
+  *b.0_2 = 2;
+  *p2_7 = 1;
+  free (&b);
+  b ={v} {CLOBBER};
+  return &b;
+
+}
+
+
+
+;; Function foo (foo, funcdef_no=54, decl_uid=4307, cgraph_uid=54, symbol_order=56)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+Predictions for bb 2
+1 edges in bb 2 predicted to even probabilities
+foo (int z)
+{
+  int * p2;
+  int * b;
+  void * _1;
+  int * b.1_2;
+
+  <bb 2> [100.00%]:
+  _1 = malloc (1);
+  b = _1;
+  p2_7 = malloc (1);
+  b.1_2 = b;
+  *b.1_2 = 2;
+  *p2_7 = 1;
+  free (&b);
+  b ={v} {CLOBBER};
+  return &b;
+
+}
+
+
+
+;; Function boo (boo, funcdef_no=56, decl_uid=4341, cgraph_uid=56, symbol_order=58)
 
 ;; 1 loops found
 ;;
@@ -173,7 +201,7 @@ Predictions for bb 2
 1 edges in bb 2 predicted to even probabilities
 boo (int * b)
 {
-  int D.4369;
+  int D.4380;
   int _5;
 
   <bb 2> [100.00%]:
@@ -185,7 +213,7 @@ boo (int * b)
 
 
 
-;; Function main (main, funcdef_no=55, decl_uid=4339, cgraph_uid=55, symbol_order=56)
+;; Function main (main, funcdef_no=57, decl_uid=4343, cgraph_uid=57, symbol_order=59)
 
 ;; 1 loops found
 ;;
@@ -200,13 +228,15 @@ main ()
 {
   pthread_t t;
   char buff[50];
-  long unsigned int t.0_1;
+  int * p;
+  long unsigned int t.2_1;
 
   <bb 2> [100.00%]:
+  foo3 (p_3(D));
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
-  t.0_1 = t;
-  pthread_join (t.0_1, 0B);
+  t.2_1 = t;
+  pthread_join (t.2_1, 0B);
   pthread_mutex_destroy (&mLock);
   buff ={v} {CLOBBER};
   t ={v} {CLOBBER};
