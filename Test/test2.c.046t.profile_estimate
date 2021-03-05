@@ -53,7 +53,7 @@ Predictions for bb 5
 1 edges in bb 5 predicted to even probabilities
 foo (int z)
 {
-  int D.3044;
+  int D.3045;
   int i;
   int * a;
   long unsigned int _1;

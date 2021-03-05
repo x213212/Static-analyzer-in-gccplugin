@@ -37,7 +37,7 @@ Function is locally looping.
 Function can locally free.
 foo (int z)
 {
-  int D.3044;
+  int D.3045;
   int i;
   int * a;
   long unsigned int _1;

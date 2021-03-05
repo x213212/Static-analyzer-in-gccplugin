@@ -1,53 +1,20 @@
 
-;; Function child (child, funcdef_no=0, decl_uid=3986, cgraph_uid=1, symbol_order=57) (executed once)
+;; Function foo (foo, funcdef_no=0, decl_uid=3986, cgraph_uid=1, symbol_order=56) (executed once)
 
 
 
- local analysis of child
-   scanning: pthread_mutex_lock (&mLock);
-  scanning: ppData_9 = malloc (10);
-  scanning: _1 = malloc (20);
-  scanning: pData = _1;
-  scanning: data2 = 0;
-  scanning: pData = &data2;
-  scanning: data2 = 10;
-  scanning: _3 = MEM[(int * *)&pData + 8B];
-    Indirect ref read is not const
-  scanning: *_3 = 10;
-    Indirect ref write is not const/pure
-  scanning: _4 = MEM[(int * *)&pData + 16B];
-    Indirect ref read is not const
-  scanning: *_4 = 10;
-    Indirect ref write is not const/pure
-  scanning: data2 = 10;
-  scanning: pthread_mutex_unlock (&mLock);
-  scanning: pthread_exit (0B);
+ local analysis of foo
+   scanning: p2_3 = malloc (1);
+  scanning: return p2_3;
 Function is locally looping.
-Function is locally pure.
-child (void * data)
+__attribute__((noinline))
+foo (int z)
 {
-  int data2;
-  int * pData;
-  int * * ppData;
-  void * _1;
-  int * _3;
-  int * _4;
+  int * p2;
 
   <bb 2> [100.00%]:
-  pthread_mutex_lock (&mLock);
-  ppData_9 = malloc (10);
-  _1 = malloc (20);
-  pData = _1;
-  data2 = 0;
-  pData = &data2;
-  data2 = 10;
-  _3 = MEM[(int * *)&pData + 8B];
-  *_3 = 10;
-  _4 = MEM[(int * *)&pData + 16B];
-  *_4 = 10;
-  data2 = 10;
-  pthread_mutex_unlock (&mLock);
-  pthread_exit (0B);
+  p2_3 = malloc (1);
+  return p2_3;
 
 }
 
@@ -58,40 +25,23 @@ child (void * data)
 
 
  local analysis of main
-   scanning: _12 = malloc (1);
-  scanning: _13 = (long int) _12;
-  scanning: _14 = (int) _13;
-  scanning: *p_3(D) = _14;
-    Indirect ref to local memory is OK
-  scanning: pthread_mutex_destroy (&mLock);
-  scanning: pthread_create (&t, 0B, child, &buff);
-  scanning: _1 = t;
-  scanning: pthread_join (_1, 0B);
-  scanning: pthread_mutex_destroy (&mLock);
+   scanning: p_3 = foo (2);
+  scanning: p2_5 = foo (2);
+  scanning: free (p_3);
+  scanning: free (p2_5);
   scanning: return 0;
 Function is locally looping.
+Function can locally free.
 main ()
 {
-  pthread_t t;
-  char buff[50];
+  int * p2;
   int * p;
-  long unsigned int _1;
-  void * _12;
-  long int _13;
-  int _14;
 
   <bb 2> [100.00%]:
-  _12 = malloc (1);
-  _13 = (long int) _12;
-  _14 = (int) _13;
-  *p_3(D) = _14;
-  pthread_mutex_destroy (&mLock);
-  pthread_create (&t, 0B, child, &buff);
-  _1 = t;
-  pthread_join (_1, 0B);
-  pthread_mutex_destroy (&mLock);
-  buff ={v} {CLOBBER};
-  t ={v} {CLOBBER};
+  p_3 = foo (2);
+  p2_5 = foo (2);
+  free (p_3);
+  free (p2_5);
   return 0;
 
 }

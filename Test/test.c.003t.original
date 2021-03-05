@@ -757,15 +757,9 @@
 
 
 {
-  int * b = (int *) malloc (1);
   int * p2 = (int *) malloc (1);
 
-    int * b = (int *) malloc (1);
     int * p2 = (int *) malloc (1);
-  *b = 2;
-  *p2 = 1;
-  p2 = (int *) &b;
-  free ((void *) p2);
   return p2;
 }
 
@@ -789,6 +783,8 @@
   **(ppData + 8) = 10;
   **(ppData + 16) = 10;
   **ppData = 10;
+  free ((void *) pData);
+  free ((void *) ppData);
   pthread_mutex_unlock (&mLock);
   pthread_exit (0B);
 }
@@ -810,17 +806,14 @@
 
 {
   int * p;
-  char buff[50];
-  pthread_t t;
+  int * p2;
 
     int * p;
-  foo3 (p);
-    char buff[50];
-    pthread_t t;
-  pthread_mutex_destroy (&mLock);
-  pthread_create (&t, 0B, child, (void * restrict) &buff);
-  pthread_join (t, 0B);
-  pthread_mutex_destroy (&mLock);
+    int * p2;
+  p = foo (2);
+  p2 = foo (2);
+  free ((void *) p);
+  free ((void *) p2);
   return 0;
 }
 return 0;

@@ -32,82 +32,12 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function child (child, funcdef_no=55, decl_uid=4332, cgraph_uid=55, symbol_order=57)
-
-
-Analyzing function body size: child
-
-Inline summary for child/57 inlinable
-  self time:       68
-  global time:     0
-  self size:       25
-  global size:     0
-  min size:       0
-  self stack:      12
-  global stack:    12
-    size:11.000000, time:11.000000, predicate:(true)
-    size:2.000000, time:0.000000, predicate:(not inlined)
-  calls:
-    pthread_exit/64 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    pthread_mutex_unlock/63 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    malloc/60 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-       op0 is compile time invariant
-    malloc/60 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-       op0 is compile time invariant
-    pthread_mutex_lock/62 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-
-child (void * data)
-{
-  int data2;
-  int * pData;
-  int * * ppData;
-  void * _1;
-  int * _2;
-  int * * _3;
-  int * _4;
-  int * * _5;
-  int * _6;
-  int * _7;
-
-  <bb 2> [0.00%]:
-  pthread_mutex_lock (&mLock);
-  ppData_11 = malloc (10);
-  _1 = malloc (20);
-  pData = _1;
-  data2 = 0;
-  ppData_15 = &pData;
-  pData = &data2;
-  _2 = *ppData_15;
-  *_2 = 10;
-  _3 = ppData_15 + 8;
-  _4 = *_3;
-  *_4 = 10;
-  _5 = ppData_15 + 16;
-  _6 = *_5;
-  *_6 = 10;
-  _7 = *ppData_15;
-  *_7 = 10;
-  pthread_mutex_unlock (&mLock);
-  pthread_exit (0B);
-
-}
-
-
-
-;; Function foo3 (foo3, funcdef_no=51, decl_uid=4313, cgraph_uid=51, symbol_order=53)
+;; Function foo3 (foo3, funcdef_no=51, decl_uid=4311, cgraph_uid=51, symbol_order=53)
 
 
 Analyzing function body size: foo3
 
-Inline summary for foo3/53 inlinable
+Inline summary for foo3/53
   self time:       15
   global time:     0
   self size:       7
@@ -122,6 +52,7 @@ Inline summary for foo3/53 inlinable
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
        op0 is compile time invariant
 
+__attribute__((noinline))
 foo3 (int * z)
 {
   void * _1;
@@ -139,12 +70,12 @@ foo3 (int * z)
 
 
 
-;; Function foo2 (foo2, funcdef_no=52, decl_uid=4311, cgraph_uid=52, symbol_order=54)
+;; Function foo2 (foo2, funcdef_no=52, decl_uid=4309, cgraph_uid=52, symbol_order=54)
 
 
 Analyzing function body size: foo2
 
-Inline summary for foo2/54 inlinable
+Inline summary for foo2/54
   self time:       14
   global time:     0
   self size:       6
@@ -158,6 +89,7 @@ Inline summary for foo2/54 inlinable
     malloc/60 function body not available
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
 
+__attribute__((noinline))
 foo2 (int z)
 {
   int * a2;
@@ -174,7 +106,7 @@ foo2 (int z)
 
 
 
-;; Function foo4 (foo4, funcdef_no=53, decl_uid=4309, cgraph_uid=53, symbol_order=55)
+;; Function foo4 (foo4, funcdef_no=53, decl_uid=4313, cgraph_uid=53, symbol_order=55)
 
 
 Analyzing function body size: foo4
@@ -229,17 +161,60 @@ foo4 (int z)
 
 Analyzing function body size: foo
 
-Inline summary for foo/56 inlinable
-  self time:       41
+Inline summary for foo/56
+  self time:       14
   global time:     0
-  self size:       15
+  self size:       6
   global size:     0
   min size:       0
-  self stack:      8
-  global stack:    8
-    size:4.000000, time:4.000000, predicate:(true)
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
+    malloc/60 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+
+__attribute__((noinline))
+foo (int z)
+{
+  int * p2;
+  int * _4;
+
+  <bb 2> [0.00%]:
+  p2_3 = malloc (1);
+  _4 = p2_3;
+  return _4;
+
+}
+
+
+
+;; Function child (child, funcdef_no=55, decl_uid=4331, cgraph_uid=55, symbol_order=57)
+
+
+Analyzing function body size: child
+
+Inline summary for child/57 inlinable
+  self time:       91
+  global time:     0
+  self size:       30
+  global size:     0
+  min size:       0
+  self stack:      12
+  global stack:    12
+    size:12.000000, time:12.000000, predicate:(true)
+    size:2.000000, time:0.000000, predicate:(not inlined)
+  calls:
+    pthread_exit/64 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
+    pthread_mutex_unlock/63 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
+    free/61 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
     free/61 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
     malloc/60 function body not available
@@ -248,33 +223,53 @@ Inline summary for foo/56 inlinable
     malloc/60 function body not available
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
        op0 is compile time invariant
+    pthread_mutex_lock/62 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
 
-foo (int z)
+child (void * data)
 {
-  int * p2;
-  int * b;
+  int data2;
+  int * pData;
+  int * * ppData;
   void * _1;
-  int * b.1_2;
-  int * _12;
+  int * _2;
+  int * * _3;
+  int * _4;
+  int * * _5;
+  int * _6;
+  int * _7;
+  int * pData.1_8;
 
   <bb 2> [0.00%]:
-  _1 = malloc (1);
-  b = _1;
-  p2_7 = malloc (1);
-  b.1_2 = b;
-  *b.1_2 = 2;
-  *p2_7 = 1;
-  p2_10 = &b;
-  free (p2_10);
-  _12 = p2_10;
-  b ={v} {CLOBBER};
-  return _12;
+  pthread_mutex_lock (&mLock);
+  ppData_12 = malloc (10);
+  _1 = malloc (20);
+  pData = _1;
+  data2 = 0;
+  ppData_16 = &pData;
+  pData = &data2;
+  _2 = *ppData_16;
+  *_2 = 10;
+  _3 = ppData_16 + 8;
+  _4 = *_3;
+  *_4 = 10;
+  _5 = ppData_16 + 16;
+  _6 = *_5;
+  *_6 = 10;
+  _7 = *ppData_16;
+  *_7 = 10;
+  pData.1_8 = pData;
+  free (pData.1_8);
+  free (ppData_16);
+  pthread_mutex_unlock (&mLock);
+  pthread_exit (0B);
 
 }
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4341, cgraph_uid=56, symbol_order=58)
+;; Function boo (boo, funcdef_no=56, decl_uid=4340, cgraph_uid=56, symbol_order=58)
 
 
 Analyzing function body size: boo
@@ -307,59 +302,46 @@ boo (int * b)
 
 
 
-;; Function main (main, funcdef_no=57, decl_uid=4343, cgraph_uid=57, symbol_order=59)
+;; Function main (main, funcdef_no=57, decl_uid=4342, cgraph_uid=57, symbol_order=59)
 
 
 Analyzing function body size: main
 
 Inline summary for main/59 inlinable
-  self time:       62
+  self time:       48
   global time:     0
-  self size:       18
+  self size:       13
   global size:     0
   min size:       0
-  self stack:      58
-  global stack:    58
-    size:1.000000, time:1.000000, predicate:(true)
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
-    pthread_mutex_destroy/66 function body not available
+    free/61 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    pthread_join/68 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-       op1 is compile time invariant
-    pthread_create/67 function body not available
-      loop depth: 0 freq:1000 size: 5 time: 14 callee size: 0 stack: 0
-       op0 is compile time invariant
-       op1 is compile time invariant
-       op2 is compile time invariant
-       op3 is compile time invariant
-    pthread_mutex_destroy/66 function body not available
+    free/61 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    foo/56 function not considered for inlining
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 3 stack: 0
        op0 is compile time invariant
-    foo3/53 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 3 stack: 0
+    foo/56 function not considered for inlining
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 3 stack: 0
+       op0 is compile time invariant
 
 main ()
 {
-  pthread_t t;
-  char buff[50];
+  int * p2;
   int * p;
-  long unsigned int t.2_1;
-  int _9;
+  int _8;
 
   <bb 2> [0.00%]:
-  foo3 (p_3(D));
-  pthread_mutex_destroy (&mLock);
-  pthread_create (&t, 0B, child, &buff);
-  t.2_1 = t;
-  pthread_join (t.2_1, 0B);
-  pthread_mutex_destroy (&mLock);
-  _9 = 0;
-  buff ={v} {CLOBBER};
-  t ={v} {CLOBBER};
-  return _9;
+  p_3 = foo (2);
+  p2_5 = foo (2);
+  free (p_3);
+  free (p2_5);
+  _8 = 0;
+  return _8;
 
 }
 

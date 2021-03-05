@@ -1,3 +1,4 @@
+__attribute__((noinline))
 foo3 (int * z)
 {
   _1 = malloc (1);
@@ -7,21 +8,22 @@ foo3 (int * z)
 }
 
 
+__attribute__((noinline))
 foo2 (int z)
 {
-  int * D.4349;
+  int * D.4347;
   int * a2;
 
   _1 = (long unsigned int) z;
   a2 = malloc (_1);
-  D.4349 = a2;
-  return D.4349;
+  D.4347 = a2;
+  return D.4347;
 }
 
 
 foo4 (int z)
 {
-  int * D.4351;
+  int * D.4349;
   int * b;
   int * p2;
 
@@ -35,8 +37,8 @@ foo4 (int z)
       *p2 = 1;
       p2 = &b;
       free (p2);
-      D.4351 = p2;
-      return D.4351;
+      D.4349 = p2;
+      return D.4349;
     }
   finally
     {
@@ -45,29 +47,15 @@ foo4 (int z)
 }
 
 
+__attribute__((noinline))
 foo (int z)
 {
-  int * D.4354;
-  int * b;
+  int * D.4352;
   int * p2;
 
-  try
-    {
-      _1 = malloc (1);
-      b = _1;
-      p2 = malloc (1);
-      b.1_2 = b;
-      *b.1_2 = 2;
-      *p2 = 1;
-      p2 = &b;
-      free (p2);
-      D.4354 = p2;
-      return D.4354;
-    }
-  finally
-    {
-      b = {CLOBBER};
-    }
+  p2 = malloc (1);
+  D.4352 = p2;
+  return D.4352;
 }
 
 
@@ -96,6 +84,9 @@ child (void * data)
       *_6 = 10;
       _7 = *ppData;
       *_7 = 10;
+      pData.1_8 = pData;
+      free (pData.1_8);
+      free (ppData);
       pthread_mutex_unlock (&mLock);
       pthread_exit (0B);
     }
@@ -117,41 +108,30 @@ boo (int * b)
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
 {
-  int D.4357;
+  int D.4354;
 
-  D.4357 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  return D.4357;
+  D.4354 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.4354;
 }
 
 
 main ()
 {
-  int D.4359;
+  int D.4356;
 
   {
     int * p;
-    char buff[50];
-    pthread_t t;
+    int * p2;
 
-    try
-      {
-        foo3 (p);
-        pthread_mutex_destroy (&mLock);
-        pthread_create (&t, 0B, child, &buff);
-        t.2_1 = t;
-        pthread_join (t.2_1, 0B);
-        pthread_mutex_destroy (&mLock);
-        D.4359 = 0;
-        return D.4359;
-      }
-    finally
-      {
-        buff = {CLOBBER};
-        t = {CLOBBER};
-      }
+    p = foo (2);
+    p2 = foo (2);
+    free (p);
+    free (p2);
+    D.4356 = 0;
+    return D.4356;
   }
-  D.4359 = 0;
-  return D.4359;
+  D.4356 = 0;
+  return D.4356;
 }
 
 

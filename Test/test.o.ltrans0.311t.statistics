@@ -1,2 +1,2 @@
-84 inline "Symbol to SSA rewrite" "main" 1
 90 pta "Symbol to SSA rewrite" "(nofn)" 2
+115 copyprop "Statements deleted" "foo" 1

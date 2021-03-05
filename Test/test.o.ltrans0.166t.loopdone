@@ -1,33 +1,28 @@
 
-;; Function foo (foo, funcdef_no=1, decl_uid=3987, cgraph_uid=2, symbol_order=53) (executed once)
+;; Function child (child, funcdef_no=0, decl_uid=3987, cgraph_uid=1, symbol_order=41)
 
-Removing basic block 4
-__attribute__((noinline))
-foo (int z)
+child (void * data)
 {
   int i;
-  int * a;
-  int * p;
-  long unsigned int _1;
-  int _13;
+  int * k;
+  unsigned int ivtmp_11;
+  unsigned int ivtmp_24;
+  unsigned int ivtmp_30;
 
   <bb 2> [25.00%]:
-  _1 = (long unsigned int) z_4(D);
-  a_7 = malloc (_1);
-
-  <bb 3> [75.00%]:
-  # i_21 = PHI <i_12(3), 0(2)>
-  _13 = __printf_chk (1, "qwdwqd%d\n", i_21);
-  i_12 = i_21 + 1;
-  if (i_12 != 3)
-    goto <bb 3>; [75.00%]
-  else
-    goto <bb 4>; [25.00%]
-
-  <bb 4> [25.00%]:
-  p_9 = foo2 (2);
-  free (a_7);
-  return a_7;
+  k_6 = malloc (10);
+  sleep (1);
+  i_23 = 1;
+  ivtmp_24 = 2;
+  sleep (1);
+  i_29 = i_23 + 1;
+  ivtmp_30 = ivtmp_24 + 4294967295;
+  sleep (1);
+  i_10 = i_29 + 1;
+  ivtmp_11 = ivtmp_30 + 4294967295;
+  pthread_exit (0B);
+  free (k_6);
+  return;
 
 }
 

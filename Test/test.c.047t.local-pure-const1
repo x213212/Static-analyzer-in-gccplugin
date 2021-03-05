@@ -21,69 +21,7 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function child (child, funcdef_no=55, decl_uid=4332, cgraph_uid=55, symbol_order=57)
-
-
-
- local analysis of child
-   scanning: pthread_mutex_lock (&mLock);
-  scanning: ppData_11 = malloc (10);
-  scanning: _1 = malloc (20);
-  scanning: pData = _1;
-  scanning: data2 = 0;
-  scanning: pData = &data2;
-  scanning: _2 = pData;
-  scanning: *_2 = 10;
-    Indirect ref to local memory is OK
-  scanning: _4 = MEM[(int * *)&pData + 8B];
-    Indirect ref read is not const
-  scanning: *_4 = 10;
-    Indirect ref to local memory is OK
-  scanning: _6 = MEM[(int * *)&pData + 16B];
-    Indirect ref read is not const
-  scanning: *_6 = 10;
-    Indirect ref to local memory is OK
-  scanning: _7 = pData;
-  scanning: *_7 = 10;
-    Indirect ref to local memory is OK
-  scanning: pthread_mutex_unlock (&mLock);
-  scanning: pthread_exit (0B);
-Function is locally looping.
-Function found to be noreturn: child
-child (void * data)
-{
-  int data2;
-  int * pData;
-  int * * ppData;
-  void * _1;
-  int * _2;
-  int * _4;
-  int * _6;
-  int * _7;
-
-  <bb 2> [100.00%]:
-  pthread_mutex_lock (&mLock);
-  ppData_11 = malloc (10);
-  _1 = malloc (20);
-  pData = _1;
-  data2 = 0;
-  pData = &data2;
-  _2 = pData;
-  *_2 = 10;
-  _4 = MEM[(int * *)&pData + 8B];
-  *_4 = 10;
-  _6 = MEM[(int * *)&pData + 16B];
-  *_6 = 10;
-  _7 = pData;
-  *_7 = 10;
-  pthread_mutex_unlock (&mLock);
-  pthread_exit (0B);
-
-}
-
-
-
-;; Function foo3 (foo3, funcdef_no=51, decl_uid=4313, cgraph_uid=51, symbol_order=53)
+;; Function foo3 (foo3, funcdef_no=51, decl_uid=4311, cgraph_uid=51, symbol_order=53)
 
 
 
@@ -95,6 +33,7 @@ child (void * data)
     Indirect ref write is not const/pure
   scanning: return;
 Function is locally looping.
+__attribute__((noinline))
 foo3 (int * z)
 {
   void * _1;
@@ -112,7 +51,7 @@ foo3 (int * z)
 
 
 
-;; Function foo2 (foo2, funcdef_no=52, decl_uid=4311, cgraph_uid=52, symbol_order=54)
+;; Function foo2 (foo2, funcdef_no=52, decl_uid=4309, cgraph_uid=52, symbol_order=54)
 
 
 
@@ -122,6 +61,7 @@ foo3 (int * z)
   scanning: _6 = a2_5;
   scanning: return a2_5;
 Function is locally looping.
+__attribute__((noinline))
 foo2 (int z)
 {
   int * a2;
@@ -138,7 +78,7 @@ foo2 (int z)
 
 
 
-;; Function foo4 (foo4, funcdef_no=53, decl_uid=4309, cgraph_uid=53, symbol_order=55)
+;; Function foo4 (foo4, funcdef_no=53, decl_uid=4313, cgraph_uid=53, symbol_order=55)
 
 
 
@@ -183,42 +123,96 @@ foo4 (int z)
 
 
  local analysis of foo
-   scanning: _1 = malloc (1);
-  scanning: b = _1;
-  scanning: p2_7 = malloc (1);
-  scanning: b.1_2 = b;
-  scanning: *b.1_2 = 2;
-    Indirect ref write is not const/pure
-  scanning: *p2_7 = 1;
-    Indirect ref to local memory is OK
-  scanning: free (&b);
-  scanning: b ={v} {CLOBBER};
-  scanning: return &b;
+   scanning: p2_3 = malloc (1);
+  scanning: _4 = p2_3;
+  scanning: return p2_3;
 Function is locally looping.
-Function can locally free.
+__attribute__((noinline))
 foo (int z)
 {
   int * p2;
-  int * b;
-  void * _1;
-  int * b.1_2;
+  int * _4;
 
   <bb 2> [100.00%]:
-  _1 = malloc (1);
-  b = _1;
-  p2_7 = malloc (1);
-  b.1_2 = b;
-  *b.1_2 = 2;
-  *p2_7 = 1;
-  free (&b);
-  b ={v} {CLOBBER};
-  return &b;
+  p2_3 = malloc (1);
+  _4 = p2_3;
+  return p2_3;
 
 }
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4341, cgraph_uid=56, symbol_order=58)
+;; Function child (child, funcdef_no=55, decl_uid=4331, cgraph_uid=55, symbol_order=57)
+
+
+
+ local analysis of child
+   scanning: pthread_mutex_lock (&mLock);
+  scanning: ppData_12 = malloc (10);
+  scanning: _1 = malloc (20);
+  scanning: pData = _1;
+  scanning: data2 = 0;
+  scanning: pData = &data2;
+  scanning: _2 = pData;
+  scanning: *_2 = 10;
+    Indirect ref to local memory is OK
+  scanning: _4 = MEM[(int * *)&pData + 8B];
+    Indirect ref read is not const
+  scanning: *_4 = 10;
+    Indirect ref to local memory is OK
+  scanning: _6 = MEM[(int * *)&pData + 16B];
+    Indirect ref read is not const
+  scanning: *_6 = 10;
+    Indirect ref to local memory is OK
+  scanning: _7 = pData;
+  scanning: *_7 = 10;
+    Indirect ref to local memory is OK
+  scanning: pData.1_8 = pData;
+  scanning: free (pData.1_8);
+  scanning: free (&pData);
+  scanning: pthread_mutex_unlock (&mLock);
+  scanning: pthread_exit (0B);
+Function is locally looping.
+Function can locally free.
+Function found to be noreturn: child
+child (void * data)
+{
+  int data2;
+  int * pData;
+  int * * ppData;
+  void * _1;
+  int * _2;
+  int * _4;
+  int * _6;
+  int * _7;
+  int * pData.1_8;
+
+  <bb 2> [100.00%]:
+  pthread_mutex_lock (&mLock);
+  ppData_12 = malloc (10);
+  _1 = malloc (20);
+  pData = _1;
+  data2 = 0;
+  pData = &data2;
+  _2 = pData;
+  *_2 = 10;
+  _4 = MEM[(int * *)&pData + 8B];
+  *_4 = 10;
+  _6 = MEM[(int * *)&pData + 16B];
+  *_6 = 10;
+  _7 = pData;
+  *_7 = 10;
+  pData.1_8 = pData;
+  free (pData.1_8);
+  free (&pData);
+  pthread_mutex_unlock (&mLock);
+  pthread_exit (0B);
+
+}
+
+
+
+;; Function boo (boo, funcdef_no=56, decl_uid=4340, cgraph_uid=56, symbol_order=58)
 
 
 
@@ -230,7 +224,7 @@ Function is locally looping.
 Function can locally free.
 boo (int * b)
 {
-  int D.4380;
+  int D.4375;
   int _5;
 
   <bb 2> [100.00%]:
@@ -242,37 +236,28 @@ boo (int * b)
 
 
 
-;; Function main (main, funcdef_no=57, decl_uid=4343, cgraph_uid=57, symbol_order=59) (executed once)
+;; Function main (main, funcdef_no=57, decl_uid=4342, cgraph_uid=57, symbol_order=59) (executed once)
 
 
 
  local analysis of main
-   scanning: foo3 (p_3(D));
-  scanning: pthread_mutex_destroy (&mLock);
-  scanning: pthread_create (&t, 0B, child, &buff);
-  scanning: t.2_1 = t;
-  scanning: pthread_join (t.2_1, 0B);
-  scanning: pthread_mutex_destroy (&mLock);
-  scanning: buff ={v} {CLOBBER};
-  scanning: t ={v} {CLOBBER};
+   scanning: p_3 = foo (2);
+  scanning: p2_5 = foo (2);
+  scanning: free (p_3);
+  scanning: free (p2_5);
   scanning: return 0;
 Function is locally looping.
+Function can locally free.
 main ()
 {
-  pthread_t t;
-  char buff[50];
+  int * p2;
   int * p;
-  long unsigned int t.2_1;
 
   <bb 2> [100.00%]:
-  foo3 (p_3(D));
-  pthread_mutex_destroy (&mLock);
-  pthread_create (&t, 0B, child, &buff);
-  t.2_1 = t;
-  pthread_join (t.2_1, 0B);
-  pthread_mutex_destroy (&mLock);
-  buff ={v} {CLOBBER};
-  t ={v} {CLOBBER};
+  p_3 = foo (2);
+  p2_5 = foo (2);
+  free (p_3);
+  free (p2_5);
   return 0;
 
 }

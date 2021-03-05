@@ -22,7 +22,7 @@ Removing basic block 3
 Merging blocks 7 and 6
 
 Symbols to be put in SSA form
-{ D.3040 D.3044 }
+{ D.3040 D.3045 }
 Incremental SSA update started at block: 0
 Number of blocks in CFG: 6
 Number of blocks to update: 5 ( 83%)
@@ -30,7 +30,7 @@ Number of blocks to update: 5 ( 83%)
 
 foo (int z)
 {
-  int D.3044;
+  int D.3045;
   int i;
   int * a;
   long unsigned int _1;
