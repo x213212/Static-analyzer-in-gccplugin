@@ -11,19 +11,19 @@ foo3 (int * z)
 __attribute__((noinline))
 foo2 (int z)
 {
-  int * D.4347;
+  int * D.4364;
   int * a2;
 
   _1 = (long unsigned int) z;
   a2 = malloc (_1);
-  D.4347 = a2;
-  return D.4347;
+  D.4364 = a2;
+  return D.4364;
 }
 
 
 foo4 (int z)
 {
-  int * D.4349;
+  int * D.4366;
   int * b;
   int * p2;
 
@@ -37,8 +37,8 @@ foo4 (int z)
       *p2 = 1;
       p2 = &b;
       free (p2);
-      D.4349 = p2;
-      return D.4349;
+      D.4366 = p2;
+      return D.4366;
     }
   finally
     {
@@ -50,12 +50,12 @@ foo4 (int z)
 __attribute__((noinline))
 foo (int z)
 {
-  int * D.4352;
+  int * D.4369;
   int * p2;
 
   p2 = malloc (1);
-  D.4352 = p2;
-  return D.4352;
+  D.4369 = p2;
+  return D.4369;
 }
 
 
@@ -108,30 +108,66 @@ boo (int * b)
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
 {
-  int D.4354;
+  int D.4371;
 
-  D.4354 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  return D.4354;
+  D.4371 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.4371;
+}
+
+
+__attribute__((noinline))
+test44 (int * k)
+{
+  free (k);
+}
+
+
+__attribute__((noinline))
+test33 (int * k)
+{
+  test44 (k);
+}
+
+
+__attribute__((noinline))
+test22 (int * k)
+{
+  free (k);
 }
 
 
 main ()
 {
-  int D.4356;
+  int D.4373;
 
   {
     int * p;
     int * p2;
+    char buff[50];
+    pthread_t t;
 
-    p = foo (2);
-    p2 = foo (2);
-    free (p);
-    free (p2);
-    D.4356 = 0;
-    return D.4356;
+    try
+      {
+        p = foo (2);
+        p2 = foo (2);
+        test22 (p);
+        test33 (p2);
+        pthread_mutex_destroy (&mLock);
+        pthread_create (&t, 0B, child, &buff);
+        t.2_1 = t;
+        pthread_join (t.2_1, 0B);
+        pthread_mutex_destroy (&mLock);
+        D.4373 = 0;
+        return D.4373;
+      }
+    finally
+      {
+        buff = {CLOBBER};
+        t = {CLOBBER};
+      }
   }
-  D.4356 = 0;
-  return D.4356;
+  D.4373 = 0;
+  return D.4373;
 }
 
 

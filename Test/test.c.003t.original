@@ -800,6 +800,33 @@
 }
 
 
+;; Function test44 (null)
+;; enabled by -tree-original
+
+
+{
+  free ((void *) k);
+}
+
+
+;; Function test33 (null)
+;; enabled by -tree-original
+
+
+{
+  test44 (k);
+}
+
+
+;; Function test22 (null)
+;; enabled by -tree-original
+
+
+{
+  free ((void *) k);
+}
+
+
 ;; Function main (null)
 ;; enabled by -tree-original
 
@@ -807,13 +834,21 @@
 {
   int * p;
   int * p2;
+  char buff[50];
+  pthread_t t;
 
     int * p;
     int * p2;
   p = foo (2);
   p2 = foo (2);
-  free ((void *) p);
-  free ((void *) p2);
+  test22 (p);
+  test33 (p2);
+    char buff[50];
+    pthread_t t;
+  pthread_mutex_destroy (&mLock);
+  pthread_create (&t, 0B, child, (void * restrict) &buff);
+  pthread_join (t, 0B);
+  pthread_mutex_destroy (&mLock);
   return 0;
 }
 return 0;

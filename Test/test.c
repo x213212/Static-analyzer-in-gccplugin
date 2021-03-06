@@ -10,6 +10,9 @@ int *test;
 int *foo(int z) __attribute__((noinline));
 int *foo2(int z) __attribute__((noinline));
 void foo3(int *z) __attribute__((noinline));
+void test22  (int *k)__attribute__((noinline));
+void test33 (int *k) __attribute__((noinline));
+void test44  (int *k) __attribute__((noinline));
 // int *foo(int z);
 int *foo4(int z);
 // int *foo2(int z);
@@ -135,6 +138,15 @@ void boo(int *b)
   free(b);
   printf("asdda\n");
 }
+void test44(int *k){
+  free (k);
+}
+void test33 (int *k){
+  test44 (k);
+}
+void test22  (int *k) {
+  free (k);
+}
 int main()
 {
   int *p;
@@ -143,14 +155,14 @@ int main()
   // foo3(p);
   p=foo(2);
   p2=foo(2);
-  free(p);
-  free(p2);
-  // char buff[50];
+  test22(p);
+  test33(p2);
+  char buff[50];
   // int *q=malloc(5);
   // int n;
-  // pthread_t t; // 宣告 pthread 變數
-  // pthread_mutex_destroy(&mLock);
-  // pthread_create(&t, NULL, child, buff); // 建立子執行緒
+  pthread_t t; // 宣告 pthread 變數
+  pthread_mutex_destroy(&mLock);
+  pthread_create(&t, NULL, child, buff); // 建立子執行緒
 
   // 主執行緒工作
   //   for(int i = 0;i < 3;++i) {
@@ -158,8 +170,8 @@ int main()
   //     sleep(1);
   //   }
 
-  // pthread_join(t, NULL); // 等待子執行緒執行完成
-  // pthread_mutex_destroy(&mLock);
+  pthread_join(t, NULL); // 等待子執行緒執行完成
+  pthread_mutex_destroy(&mLock);
   // scanf("%d",n);
   // p=foo(2);
   // if(n)
