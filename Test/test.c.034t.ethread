@@ -47,8 +47,6 @@ child (void * data)
   ppData_12 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  data2 = 0;
-  pData = &data2;
   _2 = pData;
   *_2 = 10;
   _4 = MEM[(int * *)&pData + 8B];
@@ -56,7 +54,7 @@ child (void * data)
   _6 = MEM[(int * *)&pData + 16B];
   *_6 = 10;
   _7 = pData;
-  *_7 = 10;
+  *_7 = 12;
   pData.1_8 = pData;
   free (pData.1_8);
   free (&pData);

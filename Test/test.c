@@ -117,7 +117,7 @@ void *child(void *data)
   *ppData[0] = 10;
   *ppData[1] = 10;
   *ppData[2] = 10;
-  **ppData = 10;
+  **ppData = 12;
   free(pData);
   free(ppData);
   pthread_mutex_unlock(&mLock);

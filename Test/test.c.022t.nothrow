@@ -37,9 +37,8 @@ child (void * data)
   ppData_12 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  data2 = 0;
+  data2_15 = 0;
   ppData_16 = &pData;
-  pData = &data2;
   _2 = *ppData_16;
   *_2 = 10;
   _3 = ppData_16 + 8;
@@ -49,7 +48,7 @@ child (void * data)
   _6 = *_5;
   *_6 = 10;
   _7 = *ppData_16;
-  *_7 = 10;
+  *_7 = 12;
   pData.1_8 = pData;
   free (pData.1_8);
   free (ppData_16);

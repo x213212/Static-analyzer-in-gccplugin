@@ -17,7 +17,7 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-k_2(D), points-to NULL, points-to vars: { D.4051 } (nonlocal)
+k_2(D), points-to NULL, points-to vars: { D.4050 } (nonlocal)
 
 __attribute__((noinline))
 test44 (int * k)
@@ -48,7 +48,7 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-k_2(D), points-to NULL, points-to vars: { D.4051 } (nonlocal)
+k_2(D), points-to NULL, points-to vars: { D.4050 } (nonlocal)
 
 __attribute__((noinline))
 test33 (int * k)
@@ -79,7 +79,7 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-k_2(D), points-to NULL, points-to vars: { D.4051 } (nonlocal)
+k_2(D), points-to NULL, points-to vars: { D.4050 } (nonlocal)
 
 __attribute__((noinline))
 test22 (int * k)
@@ -110,8 +110,8 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-p2_3, points-to NULL, points-to vars: { D.4051 } (nonlocal)
-_4, points-to NULL, points-to vars: { D.4051 } (nonlocal)
+p2_3, points-to NULL, points-to vars: { D.4050 } (nonlocal)
+_4, points-to NULL, points-to vars: { D.4050 } (nonlocal)
 
 __attribute__((noinline))
 foo (int z)
@@ -139,8 +139,7 @@ Alias information for child
 
 Aliased symbols
 
-data2, UID D.4040, int, is addressable
-pData, UID D.4041, int *, is addressable
+pData, UID D.4040, int *, is addressable
 
 Call clobber information
 
@@ -148,17 +147,16 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4053 } (nonlocal, escaped, escaped heap)
-_2, points-to NULL, points-to vars: { D.4040 D.4053 } (nonlocal, escaped, escaped heap)
-_3, points-to NULL, points-to vars: { D.4040 D.4053 } (nonlocal, escaped, escaped heap)
-_4, points-to NULL, points-to vars: { D.4040 D.4053 } (nonlocal, escaped, escaped heap)
-_5, points-to NULL, points-to vars: { D.4040 D.4053 } (nonlocal, escaped, escaped heap)
-_6, points-to NULL, points-to vars: { D.4040 D.4053 } (nonlocal, escaped, escaped heap)
-ppData_10, points-to NULL, points-to vars: { D.4052 } (nonlocal)
+_1, points-to NULL, points-to vars: { D.4052 } (nonlocal, escaped, escaped heap)
+_2, points-to NULL, points-to vars: { D.4052 } (nonlocal, escaped, escaped heap)
+_3, points-to NULL, points-to vars: { D.4052 } (nonlocal, escaped, escaped heap)
+_4, points-to NULL, points-to vars: { D.4052 } (nonlocal, escaped, escaped heap)
+_5, points-to NULL, points-to vars: { D.4052 } (nonlocal, escaped, escaped heap)
+_6, points-to NULL, points-to vars: { D.4052 } (nonlocal, escaped, escaped heap)
+ppData_10, points-to NULL, points-to vars: { D.4051 } (nonlocal)
 
 child (void * data)
 {
-  int data2;
   int * pData;
   int * * ppData;
   void * _1;
@@ -173,8 +171,6 @@ child (void * data)
   ppData_10 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  data2 = 0;
-  pData = &data2;
   _2 = pData;
   *_2 = 10;
   _3 = MEM[(int * *)&pData + 8B];
@@ -182,7 +178,7 @@ child (void * data)
   _4 = MEM[(int * *)&pData + 16B];
   *_4 = 10;
   _5 = pData;
-  *_5 = 10;
+  *_5 = 12;
   _6 = pData;
   free (_6);
   free (&pData);
@@ -204,8 +200,8 @@ Alias information for main
 
 Aliased symbols
 
-t, UID D.4045, pthread_t, is addressable
-buff, UID D.4046, char[50], is addressable
+t, UID D.4044, pthread_t, is addressable
+buff, UID D.4045, char[50], is addressable
 
 Call clobber information
 
@@ -213,8 +209,8 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-p_4, points-to NULL, points-to vars: { D.4051 } (nonlocal)
-p2_6, points-to NULL, points-to vars: { D.4051 } (nonlocal)
+p_4, points-to NULL, points-to vars: { D.4050 } (nonlocal)
+p2_6, points-to NULL, points-to vars: { D.4050 } (nonlocal)
 
 main ()
 {

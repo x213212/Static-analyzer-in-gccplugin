@@ -38,14 +38,14 @@ printf (const char * restrict __fmt)
 Analyzing function body size: child
 
 Inline summary for child/57 inlinable
-  self time:       91
+  self time:       89
   global time:     0
-  self size:       30
+  self size:       28
   global size:     0
   min size:       0
-  self stack:      12
-  global stack:    12
-    size:12.000000, time:12.000000, predicate:(true)
+  self stack:      8
+  global stack:    8
+    size:10.000000, time:10.000000, predicate:(true)
     size:2.000000, time:0.000000, predicate:(not inlined)
   calls:
     pthread_exit/67 function body not available
@@ -87,9 +87,8 @@ child (void * data)
   ppData_12 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  data2 = 0;
+  data2_15 = 0;
   ppData_16 = &pData;
-  pData = &data2;
   _2 = *ppData_16;
   *_2 = 10;
   _3 = ppData_16 + 8;
@@ -99,7 +98,7 @@ child (void * data)
   _6 = *_5;
   *_6 = 10;
   _7 = *ppData_16;
-  *_7 = 10;
+  *_7 = 12;
   pData.1_8 = pData;
   free (pData.1_8);
   free (ppData_16);

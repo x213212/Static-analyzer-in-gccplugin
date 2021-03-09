@@ -30,8 +30,6 @@ printf (const char * restrict __fmt)
   scanning: ppData_12 = malloc (10);
   scanning: _1 = malloc (20);
   scanning: pData = _1;
-  scanning: data2 = 0;
-  scanning: pData = &data2;
   scanning: _2 = pData;
   scanning: *_2 = 10;
     Indirect ref to local memory is OK
@@ -44,7 +42,7 @@ printf (const char * restrict __fmt)
   scanning: *_6 = 10;
     Indirect ref to local memory is OK
   scanning: _7 = pData;
-  scanning: *_7 = 10;
+  scanning: *_7 = 12;
     Indirect ref to local memory is OK
   scanning: pData.1_8 = pData;
   scanning: free (pData.1_8);
@@ -71,8 +69,6 @@ child (void * data)
   ppData_12 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  data2 = 0;
-  pData = &data2;
   _2 = pData;
   *_2 = 10;
   _4 = MEM[(int * *)&pData + 8B];
@@ -80,7 +76,7 @@ child (void * data)
   _6 = MEM[(int * *)&pData + 16B];
   *_6 = 10;
   _7 = pData;
-  *_7 = 10;
+  *_7 = 12;
   pData.1_8 = pData;
   free (pData.1_8);
   free (&pData);

@@ -95,7 +95,6 @@ child (void * data)
       pData = _1;
       data2 = 0;
       ppData = &pData;
-      pData = &data2;
       _2 = *ppData;
       *_2 = 10;
       _3 = ppData + 8;
@@ -105,7 +104,7 @@ child (void * data)
       _6 = *_5;
       *_6 = 10;
       _7 = *ppData;
-      *_7 = 10;
+      *_7 = 12;
       pData.1_8 = pData;
       free (pData.1_8);
       free (ppData);
@@ -115,7 +114,6 @@ child (void * data)
   finally
     {
       pData = {CLOBBER};
-      data2 = {CLOBBER};
     }
 }
 

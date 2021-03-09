@@ -87,20 +87,18 @@ ppData_12 = &HEAP(13)
 ESCAPED = &NONLOCAL
 _1 = &HEAP(15)
 pData = _1
-data2 = &NULL
-pData = &data2
 _2 = pData
-derefaddrtmp(19) = &NONLOCAL
-*_2 = derefaddrtmp(19)
+derefaddrtmp(18) = &NONLOCAL
+*_2 = derefaddrtmp(18)
 _4 = pData
-derefaddrtmp(21) = &NONLOCAL
-*_4 = derefaddrtmp(21)
+derefaddrtmp(20) = &NONLOCAL
+*_4 = derefaddrtmp(20)
 _6 = pData
-derefaddrtmp(23) = &NONLOCAL
-*_6 = derefaddrtmp(23)
+derefaddrtmp(22) = &NONLOCAL
+*_6 = derefaddrtmp(22)
 _7 = pData
-derefaddrtmp(25) = &NONLOCAL
-*_7 = derefaddrtmp(25)
+derefaddrtmp(24) = &NONLOCAL
+*_7 = derefaddrtmp(24)
 pData.1_8 = pData
 ESCAPED = &mLock
 ESCAPED = &NULL
@@ -128,17 +126,16 @@ ppData_12 = { HEAP(13) }
 HEAP(13) = { }
 _1 = { HEAP(15) }
 HEAP(15) = { NONLOCAL }
-pData = { HEAP(15) data2 }
-data2 = { NULL NONLOCAL }
-_2 = { HEAP(15) data2 } same as pData
-derefaddrtmp(19) = { NONLOCAL } same as data
-_4 = { HEAP(15) data2 } same as pData
-derefaddrtmp(21) = { NONLOCAL } same as data
-_6 = { HEAP(15) data2 } same as pData
-derefaddrtmp(23) = { NONLOCAL } same as data
-_7 = { HEAP(15) data2 } same as pData
-derefaddrtmp(25) = { NONLOCAL } same as data
-pData.1_8 = { HEAP(15) data2 } same as pData
+pData = { HEAP(15) } same as _1
+_2 = { HEAP(15) } same as _1
+derefaddrtmp(18) = { NONLOCAL } same as data
+_4 = { HEAP(15) } same as _1
+derefaddrtmp(20) = { NONLOCAL } same as data
+_6 = { HEAP(15) } same as _1
+derefaddrtmp(22) = { NONLOCAL } same as data
+_7 = { HEAP(15) } same as _1
+derefaddrtmp(24) = { NONLOCAL } same as data
+pData.1_8 = { HEAP(15) } same as _1
 pthread_mutex_unlock = { }
 pthread_exit = { }
 
@@ -147,7 +144,6 @@ Alias information for child
 
 Aliased symbols
 
-data2, UID D.4341, int, is addressable
 pData, UID D.4340, int *, is addressable
 
 Call clobber information
@@ -157,11 +153,11 @@ ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4304 } (nonloc
 Flow-insensitive points-to information
 
 _1, points-to NULL, points-to vars: { D.4389 }
-_2, points-to NULL, points-to vars: { D.4341 D.4389 }
-_4, points-to NULL, points-to vars: { D.4341 D.4389 }
-_6, points-to NULL, points-to vars: { D.4341 D.4389 }
-_7, points-to NULL, points-to vars: { D.4341 D.4389 }
-pData.1_8, points-to NULL, points-to vars: { D.4341 D.4389 }
+_2, points-to NULL, points-to vars: { D.4389 }
+_4, points-to NULL, points-to vars: { D.4389 }
+_6, points-to NULL, points-to vars: { D.4389 }
+_7, points-to NULL, points-to vars: { D.4389 }
+pData.1_8, points-to NULL, points-to vars: { D.4389 }
 ppData_12, points-to NULL, points-to vars: { D.4388 }
 
 child (void * data)
@@ -181,8 +177,6 @@ child (void * data)
   ppData_12 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  data2 = 0;
-  pData = &data2;
   _2 = pData;
   *_2 = 10;
   _4 = MEM[(int * *)&pData + 8B];
@@ -190,7 +184,7 @@ child (void * data)
   _6 = MEM[(int * *)&pData + 16B];
   *_6 = 10;
   _7 = pData;
-  *_7 = 10;
+  *_7 = 12;
   pData.1_8 = pData;
   free (pData.1_8);
   free (&pData);

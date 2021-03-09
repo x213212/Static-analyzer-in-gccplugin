@@ -57,7 +57,6 @@ foo (int z)
 
 child (void * data)
 {
-  int data2;
   int * pData;
   int * * ppData;
   void * _1;
@@ -72,18 +71,16 @@ child (void * data)
   ppData_10 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  data2 = 0;
-  pData = &data2;
-  _2 = &data2;
-  data2 = 10;
+  _2 = _1;
+  MEM[(int *)_1] = 10;
   _3 = MEM[(int * *)&pData + 8B];
   *_3 = 10;
   _4 = MEM[(int * *)&pData + 16B];
   *_4 = 10;
-  _5 = &data2;
-  data2 = 10;
-  _6 = &data2;
-  free (&data2);
+  _5 = _1;
+  MEM[(int *)_1] = 12;
+  _6 = _1;
+  free (_1);
   free (&pData);
   pthread_mutex_unlock (&mLock);
   pthread_exit (0B);
