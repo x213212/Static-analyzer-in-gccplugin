@@ -113,6 +113,13 @@ normal 0
 pointer 0
 function pointer
 */
+struct fucntion_path
+{
+	gimple *stmt;
+	tree function_tree;
+
+	//int return_type;
+};
 struct return_type
 {
 	gimple *stmt;
@@ -134,6 +141,13 @@ struct function_return_array
 	vector<return_type> return_type_array;
 };
 
+/*define return_type struct*/
+struct function_path_array
+{
+	int funtion_type_num = 0;
+	vector<fucntion_path> function_type_array;
+};
+
 /*define assign_type struct*/
 struct function_assign_array
 {
@@ -144,6 +158,8 @@ struct function_assign_array
 hash_map<tree, function_return_array> *function_return_collect;
 /*collect function var decl ssa name */
 hash_map<tree, function_assign_array> *function_assign_collect;
+/*collect function path */
+hash_map<tree, function_path_array> *function_path_collect;
 
 /*record each DFS graph*/
 hash_map<cgraph_node *, Graph> *fDFS;
@@ -153,7 +169,7 @@ hash_map<tree, cgraph_node *> *fnode;
 
 /*rhs function search function decl and location*/
 hash_map<tree, var_points_to> *tvpt;
-hash_map<tree, gimple_array> *tvpt2;
+hash_map<tree, gimple_array> *treeGimpleArray;
 
 /*state*/
 unsigned int POINTER_NOT_EXIST = 0;
@@ -174,6 +190,7 @@ bool ipa = true;
 
 /*main function*/
 function *main_fun;
+void dump_fucntion(cgraph_node *node);
 void printfBasicblock();
 void print_function_return(tree function_tree);
 void print_function_return2(tree function_tree);
@@ -1240,9 +1257,12 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 		{
 			fprintf(stderr, "GIMPLE_RETURN\n");
 			fprintf(stderr, "------------------GIMPLE_RETURN : LHS------------------\n");
-			tree tmp = gimple_return_retval(as_a<greturn *>(use_stmt));
-			debug_tree(tmp);
-			set_gimple_array(used_stmt, use_stmt, tmp, tmp, NULL);
+			tree return_tree = gimple_return_retval(as_a<greturn *>(use_stmt));
+
+			set_gimple_array(used_stmt, use_stmt, return_tree, return_tree, NULL);
+			//可能產生無窮迴圈
+			// if (TREE_CODE(return_tree) == SSA_NAME )
+			// 	new_search_imm_use(used_stmt, return_tree, return_tree);
 		}
 		else if (gimple_code(use_stmt) == GIMPLE_ASSIGN)
 		{
@@ -1314,6 +1334,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						if (TREE_CODE(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)) == SSA_NAME)
 							//{
 							new_search_imm_use(used_stmt, gimple_assign_lhs((assign_array.assign_type_array)[i].stmt), gimple_assign_lhs((assign_array.assign_type_array)[i].stmt));
+
 					//}
 					//else
 					//{
@@ -1356,7 +1377,9 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 				//fprintf(stderr, "VAR_DECLVAR_DECLVAR_DECL------------------\n");
 				fprintf(stderr, "------------------MEM_REF : LHS------------------\n");
 				set_gimple_array(used_stmt, use_stmt, fundecl, fundecl, NULL);
+				// if (TREE_CODE(fundecl) == SSA_NAME)
 
+				// 	new_search_imm_use(used_stmt, fundecl, fundecl);
 				// new_search_imm_use(used_stmt,  gimple_assign_rhs1(use_stmt),   gimple_assign_lhs(use_stmt));
 			}
 		}
@@ -1424,6 +1447,8 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 					fprintf(stderr, "-----------------GIMPLE_CALL : FIN3333D------------------\n");
 					debug(gimple_call_arg(use_stmt, 0));
 					set_gimple_array(used_stmt, use_stmt, gimple_call_fn(use_stmt), gimple_call_fn(use_stmt), NULL);
+					// if (TREE_CODE(gimple_call_arg(use_stmt, 0)) == SSA_NAME)
+					// 	new_search_imm_use(used_stmt,gimple_call_arg(use_stmt, 0), gimple_call_arg(use_stmt, 0));
 					// debug_tree(base);
 				}
 				else
@@ -1469,7 +1494,7 @@ void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp)
 
 			debug_tree(table_temp->target);
 			fprintf(stderr, "------------------------------------------\n");
-			user_tmp = tvpt2->get(table_temp->target);
+			user_tmp = treeGimpleArray->get(table_temp->target);
 			start.stmt = NULL;
 			used_stmt = &start;
 			if (user_tmp != NULL)
@@ -1482,7 +1507,6 @@ void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp)
 						if (user_tmp->ret_stmt != NULL)
 						{
 
-							// fprintf(stderr, "fuck\n");
 							debug(user_tmp->ret_stmt);
 
 							location_t loc = gimple_location(user_tmp->ret_stmt);
@@ -1512,7 +1536,8 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 	tree a;
 	cgraph_node *node2;
 	const char *name;
-
+	//https://doc.ecoscentric.com/gnutools/doc/gccint/Expression-trees.html#Expression-trees
+	//https://doc.ecoscentric.com/gnutools/doc/gccint/Storage-References.html
 	if (gimple_code(gc) == GIMPLE_CALL)
 	{
 		if (gimple_call_fn(gc) == NULL)
@@ -1953,6 +1978,7 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 		debug((ret_type_array)[i].stmt);
 		debug(u_stmt);
 		gimple *gc = (ret_type_array)[i].stmt;
+		// _4=PHI<_>
 		// return _4;
 		if (gimple_code(u_stmt) == GIMPLE_PHI)
 		{
@@ -2040,7 +2066,7 @@ void printfPointerConstraint2(ptb *ftable, gimple_array *user_tmp)
 		if (table_temp->target != NULL)
 		{
 			debug_tree(table_temp->target);
-			user_tmp = tvpt2->get(table_temp->target);
+			user_tmp = treeGimpleArray->get(table_temp->target);
 			start.stmt = NULL;
 			used_stmt = &start;
 			if (user_tmp != NULL)
@@ -2053,7 +2079,6 @@ void printfPointerConstraint2(ptb *ftable, gimple_array *user_tmp)
 						if (user_tmp->ret_stmt != NULL)
 						{
 
-							// fprintf(stderr, "fuck\n");
 							debug(user_tmp->ret_stmt);
 						}
 						else
@@ -2096,7 +2121,7 @@ void FunctionStmtMappingRet(ptb *ptable, ptb *ftable, gimple_array *user_tmp)
 		{
 			debug_tree(table_temp->target);
 
-			user_tmp = tvpt2->get(table_temp->target);
+			user_tmp = treeGimpleArray->get(table_temp->target);
 			if (user_tmp != NULL)
 			{
 				fprintf(stderr, " \n Pointer to set  is size %d :[ \n", user_tmp->size);
@@ -2349,11 +2374,11 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 					fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
 					fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
 					gimple_array *user_tmp2;
-					user_tmp2 = tvpt2->get(table1->target);
+					user_tmp2 = treeGimpleArray->get(table1->target);
 					if (user_tmp2 != NULL)
 						break;
 
-					tvpt2->put(table1->target, *used_stmt);
+					treeGimpleArray->put(table1->target, *used_stmt);
 					break;
 				}
 			}
@@ -2391,8 +2416,11 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	//initMallocfunction
 
 	printfBasicblock();
-	// printfunctionCollect2(ptable, used_stmt);
+	//printfunctionCollect2(ptable, used_stmt);
 	printfPointerConstraint2(ptable, used_stmt);
+	printfunctionCollect2(ptable, used_stmt);
+	struct cgraph_node *node;
+	dump_fucntion(node);
 }
 
 void print_function_path(vector<return_type> *path)
@@ -2507,6 +2535,41 @@ void printfBasicblock()
 		pop_cfun();
 	}
 }
+void dump_fucntion(cgraph_node *node)
+{
+
+	cgraph_edge *e;
+	FOR_EACH_DEFINED_FUNCTION(node)
+	{
+		// push_cfun(node->get_fun());
+		// if (!ipa)
+		// 	init_table();
+		push_cfun(node->get_fun());
+		// if (strcmp(get_name(cfun->decl), "main") == 0)
+		fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+		debug_tree(cfun->decl);
+		//tree test=DECL_SAVED_TREE(cfun->decl);
+		//analyze_func_body(DECL_SAVED_TREE(test), 0);
+		if (cfun == NULL)
+			continue;
+		enum availability avail;
+		for (e = node->callees; e; e = e->next_callee)
+		{
+			//funct_state l;
+			cgraph_node *caller = e->caller->global.inlined_to ? e->caller->global.inlined_to : e->caller;
+			cgraph_node *callee = e->callee->ultimate_alias_target(&avail, caller);
+
+			fprintf(stderr, "=======child node_fun:%s=========\n", get_name(callee->decl));
+			if (callee != NULL)
+			{pop_cfun();
+				dump_fucntion(callee);
+			}
+
+			//analyze_function=	analyze_function (caller ,true);
+		}
+		pop_cfun();
+	}
+}
 void detect()
 {
 
@@ -2526,7 +2589,7 @@ void detect()
 	ipa = true;
 	cgraph_edge *e;
 	tvpt = new hash_map<tree, var_points_to>;
-	tvpt2 = new hash_map<tree, gimple_array>;
+	treeGimpleArray = new hash_map<tree, gimple_array>;
 	function_return_collect = new hash_map<tree, function_return_array>;
 	function_assign_collect = new hash_map<tree, function_assign_array>;
 	fDFS = new hash_map<cgraph_node *, Graph>;
@@ -2613,9 +2676,7 @@ void detect()
 					//function_return_collect->put(cfun->decl,*get_function_return);
 					//get_function_return->return_type_array->stmt=gc;
 				}
-				if (is_gimple_assign(gc))
-				{
-				}
+
 				// debug_gimple_stmt(gc);
 				if (is_gimple_call(gc))
 				{

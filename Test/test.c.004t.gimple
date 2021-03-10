@@ -11,19 +11,37 @@ foo3 (int * z)
 __attribute__((noinline))
 foo2 (int z)
 {
-  int * D.4364;
+  int * D.4370;
   int * a2;
+  int * p3;
+  int * p4;
+  int tmp;
 
   _1 = (long unsigned int) z;
   a2 = malloc (_1);
-  D.4364 = a2;
-  return D.4364;
+  _2 = (long unsigned int) z;
+  p3 = malloc (_2);
+  _3 = (long unsigned int) z;
+  p4 = malloc (_3);
+  if (tmp > 10) goto <D.4368>; else goto <D.4369>;
+  <D.4368>:
+  pthread_mutex_unlock (&mLock);
+  *p3 = 10;
+  D.4370 = p3;
+  return D.4370;
+  <D.4369>:
+  *p4 = 10;
+  D.4370 = p4;
+  return D.4370;
+  free (a2);
+  D.4370 = a2;
+  return D.4370;
 }
 
 
 foo4 (int z)
 {
-  int * D.4366;
+  int * D.4372;
   int * b;
   int * p2;
 
@@ -37,8 +55,8 @@ foo4 (int z)
       *p2 = 1;
       p2 = &b;
       free (p2);
-      D.4366 = p2;
-      return D.4366;
+      D.4372 = p2;
+      return D.4372;
     }
   finally
     {
@@ -50,12 +68,12 @@ foo4 (int z)
 __attribute__((noinline))
 foo (int z)
 {
-  int * D.4369;
+  int * D.4375;
   int * p2;
 
   p2 = malloc (1);
-  D.4369 = p2;
-  return D.4369;
+  D.4375 = p2;
+  return D.4375;
 }
 
 
@@ -63,6 +81,7 @@ child (void * data)
 {
   int * * ppData;
   int * pData;
+  int * a;
   int data2;
 
   try
@@ -71,6 +90,7 @@ child (void * data)
       ppData = malloc (10);
       _1 = malloc (20);
       pData = _1;
+      a = foo (1);
       data2 = 0;
       ppData = &pData;
       pData = &data2;
@@ -87,7 +107,6 @@ child (void * data)
       pData.1_8 = pData;
       free (pData.1_8);
       free (ppData);
-      pthread_mutex_unlock (&mLock);
       pthread_exit (0B);
     }
   finally
@@ -108,10 +127,10 @@ boo (int * b)
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
 {
-  int D.4371;
+  int D.4377;
 
-  D.4371 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  return D.4371;
+  D.4377 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.4377;
 }
 
 
@@ -138,7 +157,7 @@ test22 (int * k)
 
 main ()
 {
-  int D.4373;
+  int D.4379;
 
   {
     int * p;
@@ -148,17 +167,19 @@ main ()
 
     try
       {
-        p = foo (2);
-        p2 = foo (2);
+        p = foo2 (2);
+        p2 = foo2 (2);
         test22 (p);
         test33 (p2);
+        free (p);
+        free (p2);
         pthread_mutex_destroy (&mLock);
         pthread_create (&t, 0B, child, &buff);
         t.2_1 = t;
         pthread_join (t.2_1, 0B);
         pthread_mutex_destroy (&mLock);
-        D.4373 = 0;
-        return D.4373;
+        D.4379 = 0;
+        return D.4379;
       }
     finally
       {
@@ -166,8 +187,8 @@ main ()
         t = {CLOBBER};
       }
   }
-  D.4373 = 0;
-  return D.4373;
+  D.4379 = 0;
+  return D.4379;
 }
 
 

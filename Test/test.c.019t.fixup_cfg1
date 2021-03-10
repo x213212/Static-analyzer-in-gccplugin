@@ -4,47 +4,11 @@
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
 {
-  int D.4371;
+  int D.4377;
 
   <bb 2> [0.00%]:
-  D.4371 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  return D.4371;
-
-}
-
-
-
-;; Function child (child, funcdef_no=55, decl_uid=4337, cgraph_uid=55, symbol_order=57)
-
-child (void * data)
-{
-  int data2;
-  int * pData;
-  int * * ppData;
-
-  <bb 2> [0.00%]:
-  pthread_mutex_lock (&mLock);
-  ppData = malloc (10);
-  _1 = malloc (20);
-  pData = _1;
-  data2 = 0;
-  ppData = &pData;
-  pData = &data2;
-  _2 = *ppData;
-  *_2 = 10;
-  _3 = ppData + 8;
-  _4 = *_3;
-  *_4 = 10;
-  _5 = ppData + 16;
-  _6 = *_5;
-  *_6 = 10;
-  _7 = *ppData;
-  *_7 = 10;
-  pData.1_8 = pData;
-  free (pData.1_8);
-  free (ppData);
-  pthread_mutex_unlock (&mLock);
-  pthread_exit (0B);
+  D.4377 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.4377;
 
 }
 
@@ -71,14 +35,36 @@ foo3 (int * z)
 __attribute__((noinline))
 foo2 (int z)
 {
+  int tmp;
+  int * p4;
+  int * p3;
   int * a2;
-  int * D.4364;
+  int * D.4370;
 
   <bb 2> [0.00%]:
   _1 = (long unsigned int) z;
   a2 = malloc (_1);
-  D.4364 = a2;
-  return D.4364;
+  _2 = (long unsigned int) z;
+  p3 = malloc (_2);
+  _3 = (long unsigned int) z;
+  p4 = malloc (_3);
+  if (tmp > 10)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  pthread_mutex_unlock (&mLock);
+  *p3 = 10;
+  D.4370 = p3;
+  goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  *p4 = 10;
+  D.4370 = p4;
+
+  <bb 5> [0.00%]:
+  return D.4370;
 
 }
 
@@ -90,7 +76,7 @@ foo4 (int z)
 {
   int * p2;
   int * b;
-  int * D.4366;
+  int * D.4372;
 
   <bb 2> [0.00%]:
   _1 = malloc (1);
@@ -101,9 +87,9 @@ foo4 (int z)
   *p2 = 1;
   p2 = &b;
   free (p2);
-  D.4366 = p2;
+  D.4372 = p2;
   b = {CLOBBER};
-  return D.4366;
+  return D.4372;
 
 }
 
@@ -115,18 +101,55 @@ __attribute__((noinline))
 foo (int z)
 {
   int * p2;
-  int * D.4369;
+  int * D.4375;
 
   <bb 2> [0.00%]:
   p2 = malloc (1);
-  D.4369 = p2;
-  return D.4369;
+  D.4375 = p2;
+  return D.4375;
 
 }
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4346, cgraph_uid=56, symbol_order=58)
+;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
+
+child (void * data)
+{
+  int data2;
+  int * a;
+  int * pData;
+  int * * ppData;
+
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&mLock);
+  ppData = malloc (10);
+  _1 = malloc (20);
+  pData = _1;
+  a = foo (1);
+  data2 = 0;
+  ppData = &pData;
+  pData = &data2;
+  _2 = *ppData;
+  *_2 = 10;
+  _3 = ppData + 8;
+  _4 = *_3;
+  *_4 = 10;
+  _5 = ppData + 16;
+  _6 = *_5;
+  *_6 = 10;
+  _7 = *ppData;
+  *_7 = 10;
+  pData.1_8 = pData;
+  free (pData.1_8);
+  free (ppData);
+  pthread_exit (0B);
+
+}
+
+
+
+;; Function boo (boo, funcdef_no=56, decl_uid=4350, cgraph_uid=56, symbol_order=58)
 
 boo (int * b)
 {
@@ -178,7 +201,7 @@ test22 (int * k)
 
 
 
-;; Function main (main, funcdef_no=60, decl_uid=4357, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=60, decl_uid=4361, cgraph_uid=60, symbol_order=62)
 
 main ()
 {
@@ -186,22 +209,24 @@ main ()
   char buff[50];
   int * p2;
   int * p;
-  int D.4373;
+  int D.4379;
 
   <bb 2> [0.00%]:
-  p = foo (2);
-  p2 = foo (2);
+  p = foo2 (2);
+  p2 = foo2 (2);
   test22 (p);
   test33 (p2);
+  free (p);
+  free (p2);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;
   pthread_join (t.2_1, 0B);
   pthread_mutex_destroy (&mLock);
-  D.4373 = 0;
+  D.4379 = 0;
   buff = {CLOBBER};
   t = {CLOBBER};
-  return D.4373;
+  return D.4379;
 
 }
 

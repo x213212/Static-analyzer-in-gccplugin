@@ -14,51 +14,6 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function child (child, funcdef_no=55, decl_uid=4337, cgraph_uid=55, symbol_order=57)
-
-Iterations: 0
-child (void * data)
-{
-  int data2;
-  int * pData;
-  int * * ppData;
-  void * _1;
-  int * _2;
-  int * * _3;
-  int * _4;
-  int * * _5;
-  int * _6;
-  int * _7;
-  int * pData.1_8;
-
-  <bb 2> [0.00%]:
-  pthread_mutex_lock (&mLock);
-  ppData_12 = malloc (10);
-  _1 = malloc (20);
-  pData = _1;
-  data2 = 0;
-  ppData_16 = &pData;
-  pData = &data2;
-  _2 = *ppData_16;
-  *_2 = 10;
-  _3 = ppData_16 + 8;
-  _4 = *_3;
-  *_4 = 10;
-  _5 = ppData_16 + 16;
-  _6 = *_5;
-  *_6 = 10;
-  _7 = *ppData_16;
-  *_7 = 10;
-  pData.1_8 = pData;
-  free (pData.1_8);
-  free (ppData_16);
-  pthread_mutex_unlock (&mLock);
-  pthread_exit (0B);
-
-}
-
-
-
 ;; Function foo3 (foo3, funcdef_no=51, decl_uid=4311, cgraph_uid=51, symbol_order=53)
 
 Iterations: 0
@@ -86,15 +41,42 @@ Iterations: 0
 __attribute__((noinline))
 foo2 (int z)
 {
+  int tmp;
+  int * p4;
+  int * p3;
   int * a2;
   long unsigned int _1;
-  int * _6;
+  long unsigned int _2;
+  long unsigned int _3;
+  int * _4;
+  int * _16;
+  int * _19;
 
   <bb 2> [0.00%]:
-  _1 = (long unsigned int) z_2(D);
-  a2_5 = malloc (_1);
-  _6 = a2_5;
-  return _6;
+  _1 = (long unsigned int) z_6(D);
+  a2_9 = malloc (_1);
+  _2 = (long unsigned int) z_6(D);
+  p3_11 = malloc (_2);
+  _3 = (long unsigned int) z_6(D);
+  p4_13 = malloc (_3);
+  if (tmp_14(D) > 10)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  pthread_mutex_unlock (&mLock);
+  *p3_11 = 10;
+  _19 = p3_11;
+  goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  *p4_13 = 10;
+  _16 = p4_13;
+
+  <bb 5> [0.00%]:
+  # _4 = PHI <_19(3), _16(4)>
+  return _4;
 
 }
 
@@ -146,7 +128,53 @@ foo (int z)
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4346, cgraph_uid=56, symbol_order=58)
+;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
+
+Iterations: 0
+child (void * data)
+{
+  int data2;
+  int * a;
+  int * pData;
+  int * * ppData;
+  void * _1;
+  int * _2;
+  int * * _3;
+  int * _4;
+  int * * _5;
+  int * _6;
+  int * _7;
+  int * pData.1_8;
+
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&mLock);
+  ppData_12 = malloc (10);
+  _1 = malloc (20);
+  pData = _1;
+  a_16 = foo (1);
+  data2 = 0;
+  ppData_18 = &pData;
+  pData = &data2;
+  _2 = *ppData_18;
+  *_2 = 10;
+  _3 = ppData_18 + 8;
+  _4 = *_3;
+  *_4 = 10;
+  _5 = ppData_18 + 16;
+  _6 = *_5;
+  *_6 = 10;
+  _7 = *ppData_18;
+  *_7 = 10;
+  pData.1_8 = pData;
+  free (pData.1_8);
+  free (ppData_18);
+  pthread_exit (0B);
+
+}
+
+
+
+;; Function boo (boo, funcdef_no=56, decl_uid=4350, cgraph_uid=56, symbol_order=58)
 
   Inlining printf into boo (always_inline).
 Iterations: 0
@@ -154,7 +182,7 @@ Merging blocks 2 and 4
 Merging blocks 2 and 3
 
 Symbols to be put in SSA form
-{ D.4382 D.4396 }
+{ D.4388 D.4404 }
 Incremental SSA update started at block: 0
 Number of blocks in CFG: 3
 Number of blocks to update: 2 ( 67%)
@@ -162,7 +190,7 @@ Number of blocks to update: 2 ( 67%)
 
 boo (int * b)
 {
-  int D.4396;
+  int D.4404;
   int _5;
 
   <bb 2> [100.00%]:
@@ -217,7 +245,7 @@ test22 (int * k)
 
 
 
-;; Function main (main, funcdef_no=60, decl_uid=4357, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=60, decl_uid=4361, cgraph_uid=60, symbol_order=62)
 
 Iterations: 0
 main ()
@@ -227,22 +255,24 @@ main ()
   int * p2;
   int * p;
   long unsigned int t.2_1;
-  int _13;
+  int _15;
 
   <bb 2> [0.00%]:
-  p_4 = foo (2);
-  p2_6 = foo (2);
+  p_4 = foo2 (2);
+  p2_6 = foo2 (2);
   test22 (p_4);
   test33 (p2_6);
+  free (p_4);
+  free (p2_6);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;
   pthread_join (t.2_1, 0B);
   pthread_mutex_destroy (&mLock);
-  _13 = 0;
+  _15 = 0;
   buff ={v} {CLOBBER};
   t ={v} {CLOBBER};
-  return _13;
+  return _15;
 
 }
 

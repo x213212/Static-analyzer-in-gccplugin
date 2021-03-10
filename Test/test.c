@@ -32,17 +32,18 @@ int *foo2(int z)
 {
 
   int *a2 = malloc(z);
-  // int *p3=malloc(z);
-  // int *p4=malloc(z);
-  // int tmp ;
-  // if(tmp   > 10){
-  //     p3[0] = 10;
-  //     return p3;
-  // }else{
-  //     p4[0] = 10;
-  //     return p4;
-  // }
-  //free(a2);
+  int *p3=malloc(z);
+  int *p4=malloc(z);
+  int tmp ;
+  if(tmp   > 10){
+      pthread_mutex_unlock(&mLock);
+      p3[0] = 10;
+      return p3;
+  }else{
+      p4[0] = 10;
+      return p4;
+  }
+  free(a2);
   //char tmp ;
   // return (char)tmp;
   return a2;
@@ -83,6 +84,7 @@ int *foo(int z)
   // printf("qwdwqd%d\n", i);
   //  }
   //   free(a);
+
   return p2;
 }
 void *child(void *data)
@@ -110,6 +112,7 @@ void *child(void *data)
   pthread_mutex_lock(&mLock);
   int **ppData = malloc(10);
   int *pData = malloc(20);
+  int *a = foo(1);
   int data2 = 0;
 
   ppData = &pData;
@@ -120,7 +123,7 @@ void *child(void *data)
   **ppData = 10;
   free(pData);
   free(ppData);
-  pthread_mutex_unlock(&mLock);
+  
   pthread_exit(NULL); // 離開子執行緒
 
   //a3
@@ -153,10 +156,12 @@ int main()
   int *p2;
   // test= malloc (sizeof (int ) * 10);
   // foo3(p);
-  p=foo(2);
-  p2=foo(2);
+  p=foo2(2);
+  p2=foo2(2);
   test22(p);
   test33(p2);
+  free(p);
+  free(p2);
   char buff[50];
   // int *q=malloc(5);
   // int n;

@@ -47,11 +47,11 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4387 } (nonlocal, escaped, restrict)
+ESCAPED, points-to non-local, points-to vars: { D.4393 } (nonlocal, escaped, restrict)
 
 Flow-insensitive points-to information
 
-__fmt_2(D), points-to NULL, points-to vars: { D.4387 } (nonlocal, escaped, restrict)
+__fmt_2(D), points-to NULL, points-to vars: { D.4393 } (nonlocal, escaped, restrict)
 
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
@@ -61,141 +61,6 @@ printf (const char * restrict __fmt)
   <bb 2> [0.00%]:
   _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
   return _4;
-
-}
-
-
-
-;; Function child (child, funcdef_no=55, decl_uid=4337, cgraph_uid=55, symbol_order=57)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-data = &NONLOCAL
-mLock = NONLOCAL
-ESCAPED = &mLock
-ESCAPED = &NONLOCAL
-ppData_12 = &HEAP(13)
-ESCAPED = &NONLOCAL
-_1 = &HEAP(15)
-pData = _1
-data2 = &NULL
-pData = &data2
-_2 = pData
-derefaddrtmp(19) = &NONLOCAL
-*_2 = derefaddrtmp(19)
-_4 = pData
-derefaddrtmp(21) = &NONLOCAL
-*_4 = derefaddrtmp(21)
-_6 = pData
-derefaddrtmp(23) = &NONLOCAL
-*_6 = derefaddrtmp(23)
-_7 = pData
-derefaddrtmp(25) = &NONLOCAL
-*_7 = derefaddrtmp(25)
-pData.1_8 = pData
-ESCAPED = &mLock
-ESCAPED = &NULL
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { NULL ESCAPED NONLOCAL mLock }
-NONLOCAL = { ESCAPED NONLOCAL }
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-data = { NONLOCAL }
-pthread_mutex_lock = { }
-mLock = { ESCAPED NONLOCAL }
-malloc = { }
-ppData_12 = { HEAP(13) }
-HEAP(13) = { }
-_1 = { HEAP(15) }
-HEAP(15) = { NONLOCAL }
-pData = { HEAP(15) data2 }
-data2 = { NULL NONLOCAL }
-_2 = { HEAP(15) data2 } same as pData
-derefaddrtmp(19) = { NONLOCAL } same as data
-_4 = { HEAP(15) data2 } same as pData
-derefaddrtmp(21) = { NONLOCAL } same as data
-_6 = { HEAP(15) data2 } same as pData
-derefaddrtmp(23) = { NONLOCAL } same as data
-_7 = { HEAP(15) data2 } same as pData
-derefaddrtmp(25) = { NONLOCAL } same as data
-pData.1_8 = { HEAP(15) data2 } same as pData
-pthread_mutex_unlock = { }
-pthread_exit = { }
-
-
-Alias information for child
-
-Aliased symbols
-
-data2, UID D.4341, int, is addressable
-pData, UID D.4340, int *, is addressable
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4304 } (nonlocal, escaped, interposable)
-
-Flow-insensitive points-to information
-
-_1, points-to NULL, points-to vars: { D.4389 }
-_2, points-to NULL, points-to vars: { D.4341 D.4389 }
-_4, points-to NULL, points-to vars: { D.4341 D.4389 }
-_6, points-to NULL, points-to vars: { D.4341 D.4389 }
-_7, points-to NULL, points-to vars: { D.4341 D.4389 }
-pData.1_8, points-to NULL, points-to vars: { D.4341 D.4389 }
-ppData_12, points-to NULL, points-to vars: { D.4388 }
-
-child (void * data)
-{
-  int data2;
-  int * pData;
-  int * * ppData;
-  void * _1;
-  int * _2;
-  int * _4;
-  int * _6;
-  int * _7;
-  int * pData.1_8;
-
-  <bb 2> [0.00%]:
-  pthread_mutex_lock (&mLock);
-  ppData_12 = malloc (10);
-  _1 = malloc (20);
-  pData = _1;
-  data2 = 0;
-  pData = &data2;
-  _2 = pData;
-  *_2 = 10;
-  _4 = MEM[(int * *)&pData + 8B];
-  *_4 = 10;
-  _6 = MEM[(int * *)&pData + 16B];
-  *_6 = 10;
-  _7 = pData;
-  *_7 = 10;
-  pData.1_8 = pData;
-  free (pData.1_8);
-  free (&pData);
-  pthread_mutex_unlock (&mLock);
-  pthread_exit (0B);
 
 }
 
@@ -251,11 +116,11 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4390 } (escaped, escaped heap)
+ESCAPED, points-to non-local, points-to vars: { D.4394 } (escaped, escaped heap)
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4390 } (escaped, escaped heap)
+_1, points-to NULL, points-to vars: { D.4394 } (escaped, escaped heap)
 z_6(D), points-to non-local, points-to NULL, points-to vars: { }
 
 __attribute__((noinline))
@@ -292,9 +157,24 @@ INTEGER = &ANYTHING
 z = &NONLOCAL
 _1 = z
 ESCAPED = _1
-a2_5 = &HEAP(12)
-_6 = a2_5
-ESCAPED = a2_5
+a2_9 = &HEAP(12)
+_2 = z
+ESCAPED = _2
+p3_11 = &HEAP(15)
+_3 = z
+ESCAPED = _3
+p4_13 = &HEAP(18)
+mLock = NONLOCAL
+ESCAPED = &mLock
+derefaddrtmp(21) = &NONLOCAL
+*p3_11 = derefaddrtmp(21)
+_19 = p3_11
+derefaddrtmp(23) = &NONLOCAL
+*p4_13 = derefaddrtmp(23)
+_16 = p4_13
+_4 = p3_11
+_4 = p4_13
+ESCAPED = _4
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -307,16 +187,28 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { ESCAPED NONLOCAL HEAP(12) }
+ESCAPED = { ESCAPED NONLOCAL HEAP(15) HEAP(18) mLock }
 NONLOCAL = { ESCAPED NONLOCAL }
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
 z = { NONLOCAL }
 _1 = { NONLOCAL } same as z
 malloc = { }
-a2_5 = { HEAP(12) }
-HEAP(12) = { ESCAPED NONLOCAL }
-_6 = { HEAP(12) } same as a2_5
+a2_9 = { HEAP(12) }
+HEAP(12) = { }
+_2 = { NONLOCAL } same as z
+p3_11 = { HEAP(15) }
+HEAP(15) = { ESCAPED NONLOCAL }
+_3 = { NONLOCAL } same as z
+p4_13 = { HEAP(18) }
+HEAP(18) = { ESCAPED NONLOCAL }
+pthread_mutex_unlock = { }
+mLock = { ESCAPED NONLOCAL }
+derefaddrtmp(21) = { NONLOCAL } same as z
+_19 = { HEAP(15) } same as p3_11
+derefaddrtmp(23) = { NONLOCAL } same as z
+_16 = { HEAP(18) } same as p4_13
+_4 = { HEAP(15) HEAP(18) }
 
 
 Alias information for foo2
@@ -326,25 +218,56 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4391 } (escaped, escaped heap)
+ESCAPED, points-to non-local, points-to vars: { D.4304 D.4396 D.4397 } (nonlocal, escaped, escaped heap, interposable)
 
 Flow-insensitive points-to information
 
-a2_5, points-to NULL, points-to vars: { D.4391 } (escaped, escaped heap)
-_6, points-to NULL, points-to vars: { D.4391 } (escaped, escaped heap)
+_4, points-to NULL, points-to vars: { D.4396 D.4397 } (escaped, escaped heap)
+a2_9, points-to NULL, points-to vars: { D.4395 }
+p3_11, points-to NULL, points-to vars: { D.4396 } (escaped, escaped heap)
+p4_13, points-to NULL, points-to vars: { D.4397 } (escaped, escaped heap)
+_16, points-to NULL, points-to vars: { D.4397 } (escaped, escaped heap)
+_19, points-to NULL, points-to vars: { D.4396 } (escaped, escaped heap)
 
 __attribute__((noinline))
 foo2 (int z)
 {
+  int tmp;
+  int * p4;
+  int * p3;
   int * a2;
   long unsigned int _1;
-  int * _6;
+  long unsigned int _2;
+  long unsigned int _3;
+  int * _4;
+  int * _16;
+  int * _19;
 
   <bb 2> [0.00%]:
-  _1 = (long unsigned int) z_2(D);
-  a2_5 = malloc (_1);
-  _6 = a2_5;
-  return a2_5;
+  _1 = (long unsigned int) z_6(D);
+  a2_9 = malloc (_1);
+  _2 = (long unsigned int) z_6(D);
+  p3_11 = malloc (_2);
+  _3 = (long unsigned int) z_6(D);
+  p4_13 = malloc (_3);
+  if (tmp_14(D) > 10)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  pthread_mutex_unlock (&mLock);
+  *p3_11 = 10;
+  _19 = p3_11;
+  goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  *p4_13 = 10;
+  _16 = p4_13;
+
+  <bb 5> [0.00%]:
+  # _4 = PHI <p3_11(3), p4_13(4)>
+  return _4;
 
 }
 
@@ -407,17 +330,17 @@ Alias information for foo4
 
 Aliased symbols
 
-b, UID D.4330, int *, is addressable
+b, UID D.4333, int *, is addressable
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4330 D.4392 } (escaped, escaped heap)
+ESCAPED, points-to non-local, points-to vars: { D.4333 D.4398 } (escaped, escaped heap)
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4392 } (escaped, escaped heap)
-b.0_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.4392 } (escaped, escaped heap)
-p2_7, points-to NULL, points-to vars: { D.4393 }
+_1, points-to NULL, points-to vars: { D.4398 } (escaped, escaped heap)
+b.0_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.4398 } (escaped, escaped heap)
+p2_7, points-to NULL, points-to vars: { D.4399 }
 
 foo4 (int z)
 {
@@ -489,12 +412,12 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4394 } (escaped, escaped heap)
+ESCAPED, points-to non-local, points-to vars: { D.4400 } (escaped, escaped heap)
 
 Flow-insensitive points-to information
 
-p2_3, points-to NULL, points-to vars: { D.4394 } (escaped, escaped heap)
-_4, points-to NULL, points-to vars: { D.4394 } (escaped, escaped heap)
+p2_3, points-to NULL, points-to vars: { D.4400 } (escaped, escaped heap)
+_4, points-to NULL, points-to vars: { D.4400 } (escaped, escaped heap)
 
 __attribute__((noinline))
 foo (int z)
@@ -511,7 +434,146 @@ foo (int z)
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4346, cgraph_uid=56, symbol_order=58)
+;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+data = &NONLOCAL
+mLock = NONLOCAL
+ESCAPED = &mLock
+ESCAPED = &NONLOCAL
+ppData_12 = &HEAP(13)
+ESCAPED = &NONLOCAL
+_1 = &HEAP(15)
+pData = _1
+ESCAPED = &NONLOCAL
+a_16 = NONLOCAL
+data2 = &NULL
+pData = &data2
+_2 = pData
+derefaddrtmp(21) = &NONLOCAL
+*_2 = derefaddrtmp(21)
+_4 = pData
+derefaddrtmp(23) = &NONLOCAL
+*_4 = derefaddrtmp(23)
+_6 = pData
+derefaddrtmp(25) = &NONLOCAL
+*_6 = derefaddrtmp(25)
+_7 = pData
+derefaddrtmp(27) = &NONLOCAL
+*_7 = derefaddrtmp(27)
+pData.1_8 = pData
+ESCAPED = &NULL
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL ESCAPED NONLOCAL mLock }
+NONLOCAL = { ESCAPED NONLOCAL } same as a_16
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+data = { NONLOCAL }
+pthread_mutex_lock = { }
+mLock = { ESCAPED NONLOCAL }
+malloc = { }
+ppData_12 = { HEAP(13) }
+HEAP(13) = { }
+_1 = { HEAP(15) }
+HEAP(15) = { NONLOCAL }
+pData = { HEAP(15) data2 }
+foo = { }
+a_16 = { ESCAPED NONLOCAL }
+data2 = { NULL NONLOCAL }
+_2 = { HEAP(15) data2 } same as pData
+derefaddrtmp(21) = { NONLOCAL } same as data
+_4 = { HEAP(15) data2 } same as pData
+derefaddrtmp(23) = { NONLOCAL } same as data
+_6 = { HEAP(15) data2 } same as pData
+derefaddrtmp(25) = { NONLOCAL } same as data
+_7 = { HEAP(15) data2 } same as pData
+derefaddrtmp(27) = { NONLOCAL } same as data
+pData.1_8 = { HEAP(15) data2 } same as pData
+pthread_exit = { }
+
+
+Alias information for child
+
+Aliased symbols
+
+data2, UID D.4345, int, is addressable
+pData, UID D.4343, int *, is addressable
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4304 } (nonlocal, escaped, interposable)
+
+Flow-insensitive points-to information
+
+_1, points-to NULL, points-to vars: { D.4402 }
+_2, points-to NULL, points-to vars: { D.4345 D.4402 }
+_4, points-to NULL, points-to vars: { D.4345 D.4402 }
+_6, points-to NULL, points-to vars: { D.4345 D.4402 }
+_7, points-to NULL, points-to vars: { D.4345 D.4402 }
+pData.1_8, points-to NULL, points-to vars: { D.4345 D.4402 }
+ppData_12, points-to NULL, points-to vars: { D.4401 }
+a_16, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+
+child (void * data)
+{
+  int data2;
+  int * a;
+  int * pData;
+  int * * ppData;
+  void * _1;
+  int * _2;
+  int * _4;
+  int * _6;
+  int * _7;
+  int * pData.1_8;
+
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&mLock);
+  ppData_12 = malloc (10);
+  _1 = malloc (20);
+  pData = _1;
+  a_16 = foo (1);
+  data2 = 0;
+  pData = &data2;
+  _2 = pData;
+  *_2 = 10;
+  _4 = MEM[(int * *)&pData + 8B];
+  *_4 = 10;
+  _6 = MEM[(int * *)&pData + 16B];
+  *_6 = 10;
+  _7 = pData;
+  *_7 = 10;
+  pData.1_8 = pData;
+  free (pData.1_8);
+  free (&pData);
+  pthread_exit (0B);
+
+}
+
+
+
+;; Function boo (boo, funcdef_no=56, decl_uid=4350, cgraph_uid=56, symbol_order=58)
 
 Points-to analysis
 
@@ -564,7 +626,7 @@ b_2(D), points-to non-local, points-to NULL, points-to vars: { }
 
 boo (int * b)
 {
-  int D.4396;
+  int D.4404;
   int _5;
 
   <bb 2> [100.00%]:
@@ -749,7 +811,7 @@ test22 (int * k)
 
 
 
-;; Function main (main, funcdef_no=60, decl_uid=4357, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=60, decl_uid=4361, cgraph_uid=60, symbol_order=62)
 
 Points-to analysis
 
@@ -795,7 +857,7 @@ ESCAPED = { NULL ESCAPED NONLOCAL mLock t child buff }
 NONLOCAL = { ESCAPED NONLOCAL } same as p_4
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-foo = { }
+foo2 = { }
 p_4 = { ESCAPED NONLOCAL }
 p2_6 = { ESCAPED NONLOCAL } same as p_4
 test22 = { }
@@ -814,12 +876,12 @@ Alias information for main
 
 Aliased symbols
 
-t, UID D.4362, pthread_t, is addressable
-buff, UID D.4361, char[50], is addressable
+t, UID D.4366, pthread_t, is addressable
+buff, UID D.4365, char[50], is addressable
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4304 D.4361 D.4362 } (nonlocal, escaped, interposable)
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4304 D.4365 D.4366 } (nonlocal, escaped, interposable)
 
 Flow-insensitive points-to information
 
@@ -835,10 +897,12 @@ main ()
   long unsigned int t.2_1;
 
   <bb 2> [0.00%]:
-  p_4 = foo (2);
-  p2_6 = foo (2);
+  p_4 = foo2 (2);
+  p2_6 = foo2 (2);
   test22 (p_4);
   test33 (p2_6);
+  free (p_4);
+  free (p2_6);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;

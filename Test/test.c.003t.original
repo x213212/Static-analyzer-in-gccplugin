@@ -728,8 +728,26 @@
 
 {
   int * a2 = (int *) malloc ((size_t) z);
+  int * p3 = (int *) malloc ((size_t) z);
+  int * p4 = (int *) malloc ((size_t) z);
+  int tmp;
 
     int * a2 = (int *) malloc ((size_t) z);
+    int * p3 = (int *) malloc ((size_t) z);
+    int * p4 = (int *) malloc ((size_t) z);
+    int tmp;
+  if (tmp > 10)
+    {
+      pthread_mutex_unlock (&mLock);
+      *p3 = 10;
+      return p3;
+    }
+  else
+    {
+      *p4 = 10;
+      return p4;
+    }
+  free ((void *) a2);
   return a2;
 }
 
@@ -771,11 +789,13 @@
 {
   int * * ppData = (int * *) malloc (10);
   int * pData = (int *) malloc (20);
+  int * a = foo (1);
   int data2 = 0;
 
   pthread_mutex_lock (&mLock);
     int * * ppData = (int * *) malloc (10);
     int * pData = (int *) malloc (20);
+    int * a = foo (1);
     int data2 = 0;
   ppData = &pData;
   pData = &data2;
@@ -785,7 +805,6 @@
   **ppData = 10;
   free ((void *) pData);
   free ((void *) ppData);
-  pthread_mutex_unlock (&mLock);
   pthread_exit (0B);
 }
 
@@ -839,10 +858,12 @@
 
     int * p;
     int * p2;
-  p = foo (2);
-  p2 = foo (2);
+  p = foo2 (2);
+  p2 = foo2 (2);
   test22 (p);
   test33 (p2);
+  free ((void *) p);
+  free ((void *) p2);
     char buff[50];
     pthread_t t;
   pthread_mutex_destroy (&mLock);
