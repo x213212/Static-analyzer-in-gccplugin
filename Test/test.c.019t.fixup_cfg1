@@ -7,8 +7,48 @@ printf (const char * restrict __fmt)
   int D.4377;
 
   <bb 2> [0.00%]:
+<<<<<<< HEAD
   D.4377 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
   return D.4377;
+=======
+  D.4371 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.4371;
+
+}
+
+
+
+;; Function child (child, funcdef_no=55, decl_uid=4337, cgraph_uid=55, symbol_order=57)
+
+child (void * data)
+{
+  int data2;
+  int * pData;
+  int * * ppData;
+
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&mLock);
+  ppData = malloc (10);
+  _1 = malloc (20);
+  pData = _1;
+  data2 = 0;
+  ppData = &pData;
+  _2 = *ppData;
+  *_2 = 10;
+  _3 = ppData + 8;
+  _4 = *_3;
+  *_4 = 10;
+  _5 = ppData + 16;
+  _6 = *_5;
+  *_6 = 10;
+  _7 = *ppData;
+  *_7 = 12;
+  pData.1_8 = pData;
+  free (pData.1_8);
+  free (ppData);
+  pthread_mutex_unlock (&mLock);
+  pthread_exit (0B);
+>>>>>>> 463106576075631d5e645e5ca525670d67590639
 
 }
 

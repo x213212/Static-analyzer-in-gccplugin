@@ -42,7 +42,6 @@ test22 (int * k)
 
 child (void * data)
 {
-  int data2;
   int * pData;
   int * * ppData;
   void * _1;
@@ -57,8 +56,6 @@ child (void * data)
   ppData_10 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  data2 = 0;
-  pData = &data2;
   _2 = pData;
   *_2 = 10;
   _3 = MEM[(int * *)&pData + 8B];
@@ -66,7 +63,7 @@ child (void * data)
   _4 = MEM[(int * *)&pData + 16B];
   *_4 = 10;
   _5 = pData;
-  *_5 = 10;
+  *_5 = 12;
   _6 = pData;
   free (_6);
   free (&pData);

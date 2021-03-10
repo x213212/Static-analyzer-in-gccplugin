@@ -798,11 +798,10 @@
     int * a = foo (1);
     int data2 = 0;
   ppData = &pData;
-  pData = &data2;
   **ppData = 10;
   **(ppData + 8) = 10;
   **(ppData + 16) = 10;
-  **ppData = 10;
+  **ppData = 12;
   free ((void *) pData);
   free ((void *) ppData);
   pthread_exit (0B);
