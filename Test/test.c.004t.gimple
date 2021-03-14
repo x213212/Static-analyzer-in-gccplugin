@@ -93,6 +93,7 @@ child (void * data)
       a = foo (1);
       data2 = 0;
       ppData = &pData;
+      pData = &data2;
       _2 = *ppData;
       *_2 = 10;
       _3 = ppData + 8;
@@ -111,6 +112,7 @@ child (void * data)
   finally
     {
       pData = {CLOBBER};
+      data2 = {CLOBBER};
     }
 }
 

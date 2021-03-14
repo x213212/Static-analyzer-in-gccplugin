@@ -1,5 +1,5 @@
 
-;; Function test44 (test44, funcdef_no=1, decl_uid=3989, cgraph_uid=4, symbol_order=59) (executed once)
+;; Function test44 (test44, funcdef_no=2, decl_uid=3989, cgraph_uid=4, symbol_order=59) (executed once)
 
 
 
@@ -19,7 +19,7 @@ test44 (int * k)
 
 
 
-;; Function test33 (test33, funcdef_no=2, decl_uid=3988, cgraph_uid=3, symbol_order=60) (executed once)
+;; Function test33 (test33, funcdef_no=3, decl_uid=3988, cgraph_uid=3, symbol_order=60) (executed once)
 
 
 
@@ -38,7 +38,7 @@ test33 (int * k)
 
 
 
-;; Function test22 (test22, funcdef_no=3, decl_uid=3987, cgraph_uid=2, symbol_order=61) (executed once)
+;; Function test22 (test22, funcdef_no=4, decl_uid=3987, cgraph_uid=2, symbol_order=61) (executed once)
 
 
 
@@ -58,7 +58,28 @@ test22 (int * k)
 
 
 
-;; Function child (child, funcdef_no=4, decl_uid=3986, cgraph_uid=1, symbol_order=57) (executed once)
+;; Function foo (foo, funcdef_no=1, decl_uid=3990, cgraph_uid=5, symbol_order=56) (executed once)
+
+
+
+ local analysis of foo
+   scanning: p2_3 = malloc (1);
+  scanning: return p2_3;
+Function is locally looping.
+__attribute__((noinline))
+foo (int z)
+{
+  int * p2;
+
+  <bb 2> [100.00%]:
+  p2_3 = malloc (1);
+  return p2_3;
+
+}
+
+
+
+;; Function child (child, funcdef_no=5, decl_uid=3986, cgraph_uid=1, symbol_order=57) (executed once)
 
 
 
@@ -67,9 +88,10 @@ test22 (int * k)
   scanning: ppData_10 = malloc (10);
   scanning: _1 = malloc (20);
   scanning: pData = _1;
-  scanning: _2 = _1;
-  scanning: MEM[(int *)_1] = 10;
-    Indirect ref write is not const/pure
+  scanning: a_14 = foo (1);
+  scanning: data2 = 0;
+  scanning: pData = &data2;
+  scanning: data2 = 10;
   scanning: _3 = MEM[(int * *)&pData + 8B];
     Indirect ref read is not const
   scanning: *_3 = 10;
@@ -78,11 +100,8 @@ test22 (int * k)
     Indirect ref read is not const
   scanning: *_4 = 10;
     Indirect ref write is not const/pure
-  scanning: _5 = _1;
-  scanning: MEM[(int *)_1] = 12;
-    Indirect ref write is not const/pure
-  scanning: _6 = _1;
-  scanning: free (_1);
+  scanning: data2 = 12;
+  scanning: free (&data2);
   scanning: free (&pData);
   scanning: pthread_exit (0B);
 Function is locally looping.
@@ -90,30 +109,29 @@ Function is locally pure.
 Function can locally free.
 child (void * data)
 {
+  int data2;
+  int * a;
   int * pData;
   int * * ppData;
   void * _1;
-  int * _2;
   int * _3;
   int * _4;
-  int * _5;
-  int * _6;
 
   <bb 2> [100.00%]:
   pthread_mutex_lock (&mLock);
   ppData_10 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  _2 = _1;
-  MEM[(int *)_1] = 10;
+  a_14 = foo (1);
+  data2 = 0;
+  pData = &data2;
+  data2 = 10;
   _3 = MEM[(int * *)&pData + 8B];
   *_3 = 10;
   _4 = MEM[(int * *)&pData + 16B];
   *_4 = 10;
-  _5 = _1;
-  MEM[(int *)_1] = 12;
-  _6 = _1;
-  free (_1);
+  data2 = 12;
+  free (&data2);
   free (&pData);
   pthread_exit (0B);
 
@@ -121,7 +139,7 @@ child (void * data)
 
 
 
-;; Function foo2 (foo2, funcdef_no=0, decl_uid=3990, cgraph_uid=5, symbol_order=54) (executed once)
+;; Function foo2 (foo2, funcdef_no=0, decl_uid=3991, cgraph_uid=6, symbol_order=54) (executed once)
 
 
 
@@ -174,7 +192,7 @@ foo2 (int z)
 
 
 
-;; Function main (main, funcdef_no=5, decl_uid=3985, cgraph_uid=0, symbol_order=62) (executed once)
+;; Function main (main, funcdef_no=6, decl_uid=3985, cgraph_uid=0, symbol_order=62) (executed once)
 
 
 

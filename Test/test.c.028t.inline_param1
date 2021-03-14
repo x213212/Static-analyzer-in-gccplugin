@@ -32,86 +32,6 @@ printf (const char * restrict __fmt)
 
 
 
-<<<<<<< HEAD
-=======
-;; Function child (child, funcdef_no=55, decl_uid=4337, cgraph_uid=55, symbol_order=57)
-
-
-Analyzing function body size: child
-
-Inline summary for child/57 inlinable
-  self time:       89
-  global time:     0
-  self size:       28
-  global size:     0
-  min size:       0
-  self stack:      8
-  global stack:    8
-    size:10.000000, time:10.000000, predicate:(true)
-    size:2.000000, time:0.000000, predicate:(not inlined)
-  calls:
-    pthread_exit/67 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    pthread_mutex_unlock/66 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    free/64 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    free/64 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    malloc/63 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-       op0 is compile time invariant
-    malloc/63 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-       op0 is compile time invariant
-    pthread_mutex_lock/65 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-
-child (void * data)
-{
-  int data2;
-  int * pData;
-  int * * ppData;
-  void * _1;
-  int * _2;
-  int * * _3;
-  int * _4;
-  int * * _5;
-  int * _6;
-  int * _7;
-  int * pData.1_8;
-
-  <bb 2> [0.00%]:
-  pthread_mutex_lock (&mLock);
-  ppData_12 = malloc (10);
-  _1 = malloc (20);
-  pData = _1;
-  data2_15 = 0;
-  ppData_16 = &pData;
-  _2 = *ppData_16;
-  *_2 = 10;
-  _3 = ppData_16 + 8;
-  _4 = *_3;
-  *_4 = 10;
-  _5 = ppData_16 + 16;
-  _6 = *_5;
-  *_6 = 10;
-  _7 = *ppData_16;
-  *_7 = 12;
-  pData.1_8 = pData;
-  free (pData.1_8);
-  free (ppData_16);
-  pthread_mutex_unlock (&mLock);
-  pthread_exit (0B);
-
-}
-
-
-
->>>>>>> 463106576075631d5e645e5ca525670d67590639
 ;; Function foo3 (foo3, funcdef_no=51, decl_uid=4311, cgraph_uid=51, symbol_order=53)
 
 
@@ -374,7 +294,7 @@ child (void * data)
   _6 = *_5;
   *_6 = 10;
   _7 = *ppData_18;
-  *_7 = 10;
+  *_7 = 12;
   pData.1_8 = pData;
   free (pData.1_8);
   free (ppData_18);

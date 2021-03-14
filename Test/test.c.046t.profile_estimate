@@ -23,55 +23,6 @@ printf (const char * restrict __fmt)
 
 
 
-<<<<<<< HEAD
-=======
-;; Function child (child, funcdef_no=55, decl_uid=4337, cgraph_uid=55, symbol_order=57)
-
-;; 1 loops found
-;;
-;; Loop 0
-;;  header 0, latch 1
-;;  depth 0, outer -1
-;;  nodes: 0 1 2
-;; 2 succs { }
-Predictions for bb 2
-0 edges in bb 2 predicted to even probabilities
-child (void * data)
-{
-  int data2;
-  int * pData;
-  int * * ppData;
-  void * _1;
-  int * _2;
-  int * _4;
-  int * _6;
-  int * _7;
-  int * pData.1_8;
-
-  <bb 2> [100.00%]:
-  pthread_mutex_lock (&mLock);
-  ppData_12 = malloc (10);
-  _1 = malloc (20);
-  pData = _1;
-  _2 = pData;
-  *_2 = 10;
-  _4 = MEM[(int * *)&pData + 8B];
-  *_4 = 10;
-  _6 = MEM[(int * *)&pData + 16B];
-  *_6 = 10;
-  _7 = pData;
-  *_7 = 12;
-  pData.1_8 = pData;
-  free (pData.1_8);
-  free (&pData);
-  pthread_mutex_unlock (&mLock);
-  pthread_exit (0B);
-
-}
-
-
-
->>>>>>> 463106576075631d5e645e5ca525670d67590639
 ;; Function foo3 (foo3, funcdef_no=51, decl_uid=4311, cgraph_uid=51, symbol_order=53)
 
 ;; 1 loops found
@@ -266,7 +217,7 @@ child (void * data)
   _6 = MEM[(int * *)&pData + 16B];
   *_6 = 10;
   _7 = pData;
-  *_7 = 10;
+  *_7 = 12;
   pData.1_8 = pData;
   free (pData.1_8);
   free (&pData);

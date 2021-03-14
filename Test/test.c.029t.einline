@@ -14,53 +14,6 @@ printf (const char * restrict __fmt)
 
 
 
-<<<<<<< HEAD
-=======
-;; Function child (child, funcdef_no=55, decl_uid=4337, cgraph_uid=55, symbol_order=57)
-
-Iterations: 0
-child (void * data)
-{
-  int data2;
-  int * pData;
-  int * * ppData;
-  void * _1;
-  int * _2;
-  int * * _3;
-  int * _4;
-  int * * _5;
-  int * _6;
-  int * _7;
-  int * pData.1_8;
-
-  <bb 2> [0.00%]:
-  pthread_mutex_lock (&mLock);
-  ppData_12 = malloc (10);
-  _1 = malloc (20);
-  pData = _1;
-  data2_15 = 0;
-  ppData_16 = &pData;
-  _2 = *ppData_16;
-  *_2 = 10;
-  _3 = ppData_16 + 8;
-  _4 = *_3;
-  *_4 = 10;
-  _5 = ppData_16 + 16;
-  _6 = *_5;
-  *_6 = 10;
-  _7 = *ppData_16;
-  *_7 = 12;
-  pData.1_8 = pData;
-  free (pData.1_8);
-  free (ppData_16);
-  pthread_mutex_unlock (&mLock);
-  pthread_exit (0B);
-
-}
-
-
-
->>>>>>> 463106576075631d5e645e5ca525670d67590639
 ;; Function foo3 (foo3, funcdef_no=51, decl_uid=4311, cgraph_uid=51, symbol_order=53)
 
 Iterations: 0
@@ -211,7 +164,7 @@ child (void * data)
   _6 = *_5;
   *_6 = 10;
   _7 = *ppData_18;
-  *_7 = 10;
+  *_7 = 12;
   pData.1_8 = pData;
   free (pData.1_8);
   free (ppData_18);

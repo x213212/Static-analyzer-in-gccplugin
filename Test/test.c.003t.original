@@ -798,6 +798,7 @@
     int * a = foo (1);
     int data2 = 0;
   ppData = &pData;
+  pData = &data2;
   **ppData = 10;
   **(ppData + 8) = 10;
   **(ppData + 16) = 10;

@@ -1,5 +1,5 @@
-#include "config.h"
 #include "system.h"
+#include "config.h"
 #include <coretypes.h>
 #include "insn-constants.h"
 #include <pthread.h>
@@ -9,8 +9,8 @@
 #include "options.h"
 #include "backend.h"
 #include "rtl.h"
-#include "tree-pass.h"
 #include "tree.h"
+#include "tree-pass.h"
 #include "gimple.h"
 #include "alloc-pool.h"
 #include "ssa.h"
@@ -51,6 +51,9 @@
 #include "context.h"
 #include "tree.h"
 #include "tree-iterator.h"
+#include <iostream>
+#include <stack>
+using namespace std;
 // #include "ipa-inline.h"
 // #include "symbol-summary.h"
 #define FOR_EACH_TABLE(TABLE, TAR)                           \
@@ -113,10 +116,13 @@ normal 0
 pointer 0
 function pointer
 */
-struct fucntion_path
+struct function_path
 {
-	gimple *stmt;
-	tree function_tree;
+	//gimple *stmt;
+	//n/p treee
+	cgraph_node *cgnext;
+	tree prev;
+	tree next;
 
 	//int return_type;
 };
@@ -145,7 +151,7 @@ struct function_return_array
 struct function_path_array
 {
 	int funtion_type_num = 0;
-	vector<fucntion_path> function_type_array;
+	vector<function_path> function_path_array;
 };
 
 /*define assign_type struct*/
@@ -189,8 +195,15 @@ FILE *fp;
 bool ipa = true;
 
 /*main function*/
+class CpathStack : public std::stack< tree > {
+public:
+    using std::stack<tree>::c; // expose the container
+};
+CpathStack pathStack;
+//stack<tree> pathStack;  // 建立堆疊
 function *main_fun;
 void dump_fucntion(cgraph_node *node);
+void record_fucntion(cgraph_node *node);
 void printfBasicblock();
 void print_function_return(tree function_tree);
 void print_function_return2(tree function_tree);
@@ -2420,6 +2433,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	printfPointerConstraint2(ptable, used_stmt);
 	printfunctionCollect2(ptable, used_stmt);
 	struct cgraph_node *node;
+	record_fucntion(node);
 	dump_fucntion(node);
 }
 
@@ -2535,8 +2549,91 @@ void printfBasicblock()
 		pop_cfun();
 	}
 }
-void dump_fucntion(cgraph_node *node)
+void print_function_path(tree function_tree)
 {
+	if (function_path_collect->get(function_tree) == NULL)
+		return;
+	function_path_array fun_array = *(function_path_collect->get(function_tree));
+
+	vector<function_path> function_path_array = fun_array.function_path_array;
+	//debug_tree(function_tree);
+	//vector<pair<fdecl,location_t>> loc;
+	//fprintf(stderr, "=======print_function_path %d   %d========\n", function_tree, function_path_array.size());
+	fprintf(stderr, "[\n");
+	
+pathStack.push(function_tree);
+	for (int i = 0; i < function_path_array.size(); i++)
+	{
+
+		// for (int i = 0; i < (ret_type_array).size(); i++)
+		// {
+		//debug((function_path_array)[i].next);
+		//fprintf(stderr, "=======child node_fun:%s=========\n", get_name((function_path_array)[i].next));
+		pathStack.push((function_path_array)[i].next);
+		for(int o = 0 ; o < pathStack.size() ; o ++)
+		 fprintf(stderr, "=======stack node_fun:%s=========\n", get_name(pathStack.c[o]));
+		print_function_path((function_path_array)[i].next);
+		fprintf(stderr, ",\n");
+		pathStack.pop();
+		// }
+		// fprintf(stderr, "]\n");
+		// print_function_path(&ret_type_array);
+	}
+			pathStack.pop();
+	fprintf(stderr, "]\n");
+}
+
+void dump_fucntion(cgraph_node *node)
+{ 
+
+	cgraph_edge *e;
+	FOR_EACH_DEFINED_FUNCTION(node)
+	{
+		// push_cfun(node->get_fun());
+		// if (!ipa)
+		// 	init_table();
+		push_cfun(node->get_fun());
+		// if (strcmp(get_name(cfun->decl), "main") == 0)
+		fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+		//debug_tree(cfun->decl);
+		//tree test=DECL_SAVED_TREE(cfun->decl);
+		//analyze_func_body(DECL_SAVED_TREE(test), 0);
+		if (cfun == NULL)
+			continue;
+		enum availability avail;
+		
+	
+	fprintf(stderr, "fucntion collect path \n");
+	function_path_array  fun_array;
+	//tree get_function_return_tree = gimple_return_retval(as_a<greturn *>(gc));
+	vector<function_path> function_path_array;
+
+
+pathStack.push(cfun->decl);
+		for (e = node->callees; e; e = e->next_callee)
+		{
+			//funct_state l;
+			cgraph_node *caller = e->caller->global.inlined_to ? e->caller->global.inlined_to : e->caller;
+			cgraph_node *callee = e->callee->ultimate_alias_target(&avail, caller);
+
+			fprintf(stderr, "=======child node_fun:%s=========\n", get_name(callee->decl));
+			if (callee != NULL)
+			{
+				
+	print_function_path(callee->decl);
+				//pop_cfun();
+		//		dump_fucntion(callee);
+			}
+
+			//analyze_function=	analyze_function (caller ,true);
+		}
+		pathStack.pop();
+		pop_cfun();
+	}
+}
+
+void record_fucntion(cgraph_node *node)
+{ 
 
 	cgraph_edge *e;
 	FOR_EACH_DEFINED_FUNCTION(node)
@@ -2553,6 +2650,15 @@ void dump_fucntion(cgraph_node *node)
 		if (cfun == NULL)
 			continue;
 		enum availability avail;
+		
+	
+	fprintf(stderr, "fucntion collect \n");
+	function_path_array  fun_array;
+	//tree get_function_return_tree = gimple_return_retval(as_a<greturn *>(gc));
+	vector<function_path> function_path_array;
+
+
+
 		for (e = node->callees; e; e = e->next_callee)
 		{
 			//funct_state l;
@@ -2561,12 +2667,20 @@ void dump_fucntion(cgraph_node *node)
 
 			fprintf(stderr, "=======child node_fun:%s=========\n", get_name(callee->decl));
 			if (callee != NULL)
-			{pop_cfun();
-				dump_fucntion(callee);
+			{
+				struct function_path path_type;
+				fun_array.function_path_array = function_path_array;
+				path_type.cgnext = callee;
+				path_type.next = callee->decl;
+				fun_array.function_path_array.push_back(path_type);
+	
+				//pop_cfun();
+		//		dump_fucntion(callee);
 			}
 
 			//analyze_function=	analyze_function (caller ,true);
 		}
+				function_path_collect->put(node->get_fun()->decl, fun_array);
 		pop_cfun();
 	}
 }
@@ -2592,6 +2706,7 @@ void detect()
 	treeGimpleArray = new hash_map<tree, gimple_array>;
 	function_return_collect = new hash_map<tree, function_return_array>;
 	function_assign_collect = new hash_map<tree, function_assign_array>;
+	function_path_collect = new hash_map <tree , function_path_array>;
 	fDFS = new hash_map<cgraph_node *, Graph>;
 	fnode = new hash_map<tree, cgraph_node *>;
 	fprintf(stderr, "=======ipa_pta=========\n");
@@ -2821,4 +2936,5 @@ void insert_always_inline()
 		}
 		pop_cfun();
 	}
+
 }
