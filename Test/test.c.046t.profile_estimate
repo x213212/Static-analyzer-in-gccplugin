@@ -312,6 +312,7 @@ test22 (int * k)
 {
   <bb 2> [100.00%]:
   free (k_2(D));
+  test22 (k_2(D));
   return;
 
 }

@@ -25,13 +25,14 @@ test33 (int * k)
 
 
 
-;; Function test22 (test22, funcdef_no=4, decl_uid=3987, cgraph_uid=2, symbol_order=61) (executed once)
+;; Function test22 (test22, funcdef_no=4, decl_uid=3987, cgraph_uid=2, symbol_order=61)
 
 __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
   free (k_2(D));
+  test22 (k_2(D));
   return;
 
 }

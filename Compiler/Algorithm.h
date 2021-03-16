@@ -195,9 +195,10 @@ FILE *fp;
 bool ipa = true;
 
 /*main function*/
-class CpathStack : public std::stack< tree > {
+class CpathStack : public std::stack<tree>
+{
 public:
-    using std::stack<tree>::c; // expose the container
+	using std::stack<tree>::c; // expose the container
 };
 CpathStack pathStack;
 //stack<tree> pathStack;  // 建立堆疊
@@ -2434,6 +2435,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	printfunctionCollect2(ptable, used_stmt);
 	struct cgraph_node *node;
 	record_fucntion(node);
+	fprintf(stderr, "=======================================================\n");
 	dump_fucntion(node);
 }
 
@@ -2560,31 +2562,58 @@ void print_function_path(tree function_tree)
 	//vector<pair<fdecl,location_t>> loc;
 	//fprintf(stderr, "=======print_function_path %d   %d========\n", function_tree, function_path_array.size());
 	fprintf(stderr, "[\n");
-	
-pathStack.push(function_tree);
+
+	pathStack.push(function_tree);
 	for (int i = 0; i < function_path_array.size(); i++)
 	{
 
 		// for (int i = 0; i < (ret_type_array).size(); i++)
 		// {
 		//debug((function_path_array)[i].next);
-		//fprintf(stderr, "=======child node_fun:%s=========\n", get_name((function_path_array)[i].next));
-		pathStack.push((function_path_array)[i].next);
-		for(int o = 0 ; o < pathStack.size() ; o ++)
-		 fprintf(stderr, "=======stack node_fun:%s=========\n", get_name(pathStack.c[o]));
-		print_function_path((function_path_array)[i].next);
-		fprintf(stderr, ",\n");
-		pathStack.pop();
+		int find = 0;
+		// print_function_path((function_path_array)[i].next);
+		for (int o = 0; o < pathStack.size(); o++)
+		{
+			// if (strcmp(get_name((function_path_array)[i].next), "main") ==0)
+
+			if (pathStack.c[o] == (function_path_array)[i].next)
+			{
+				find = 1;
+				fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(pathStack.c[o]));
+				// pathStack.pop();
+				// break;
+				// continue;
+				continue;
+			}
+			else
+			{
+					fprintf(stderr, "=======SSSAAA node_fun:%s=========\n", get_name((function_path_array)[i].next));
+				fprintf(stderr, "=======ssss node_fun:%s=========\n", get_name(pathStack.c[o]));
+				
+			}
+		}
+
+		if (find == 1)
+		{
+			continue;
+		}
+		else
+		{
+			fprintf(stderr, "=======from node_fun:%s=========\n", get_name((function_path_array)[i].next));
+			pathStack.push((function_path_array)[i].next);
+			print_function_path((function_path_array)[i].next);
+			pathStack.pop();
+		}
 		// }
 		// fprintf(stderr, "]\n");
 		// print_function_path(&ret_type_array);
 	}
-			pathStack.pop();
+	pathStack.pop();
 	fprintf(stderr, "]\n");
 }
 
 void dump_fucntion(cgraph_node *node)
-{ 
+{
 
 	cgraph_edge *e;
 	FOR_EACH_DEFINED_FUNCTION(node)
@@ -2601,15 +2630,13 @@ void dump_fucntion(cgraph_node *node)
 		if (cfun == NULL)
 			continue;
 		enum availability avail;
-		
-	
-	fprintf(stderr, "fucntion collect path \n");
-	function_path_array  fun_array;
-	//tree get_function_return_tree = gimple_return_retval(as_a<greturn *>(gc));
-	vector<function_path> function_path_array;
 
+		fprintf(stderr, "fucntion collect path \n");
+		function_path_array fun_array;
+		//tree get_function_return_tree = gimple_return_retval(as_a<greturn *>(gc));
+		vector<function_path> function_path_array;
 
-pathStack.push(cfun->decl);
+		pathStack.push(cfun->decl);
 		for (e = node->callees; e; e = e->next_callee)
 		{
 			//funct_state l;
@@ -2619,10 +2646,35 @@ pathStack.push(cfun->decl);
 			fprintf(stderr, "=======child node_fun:%s=========\n", get_name(callee->decl));
 			if (callee != NULL)
 			{
-				
-	print_function_path(callee->decl);
+
+				// int find = 0;
+				// // print_function_path((function_path_array)[i].next);
+				// for (int o = 0; o < pathStack.size(); o++)
+				// {
+				// 	// if (strcmp(get_name((function_path_array)[i].next), "main") ==0)
+
+				// 	if (pathStack.c[o] == callee->decl)
+				// 	{
+				// 		find = 1;
+				// 		fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(pathStack.c[o]));
+				// 		// pathStack.pop();
+				// 		// break;
+				// 		// continue;
+				// 		break;
+				// 	}
+				// }
+
+				// if (find = 0)
+				// {
+				// print_function_path((function_path_array)[i].next);
+				// pathStack.push((function_path_array)[i].next);
+				// fprintf(stderr, ",\n");
+				// pathStack.pop();
+				print_function_path(callee->decl);
+				// }
+
 				//pop_cfun();
-		//		dump_fucntion(callee);
+				//		dump_fucntion(callee);
 			}
 
 			//analyze_function=	analyze_function (caller ,true);
@@ -2633,7 +2685,7 @@ pathStack.push(cfun->decl);
 }
 
 void record_fucntion(cgraph_node *node)
-{ 
+{
 
 	cgraph_edge *e;
 	FOR_EACH_DEFINED_FUNCTION(node)
@@ -2650,14 +2702,11 @@ void record_fucntion(cgraph_node *node)
 		if (cfun == NULL)
 			continue;
 		enum availability avail;
-		
-	
-	fprintf(stderr, "fucntion collect \n");
-	function_path_array  fun_array;
-	//tree get_function_return_tree = gimple_return_retval(as_a<greturn *>(gc));
-	vector<function_path> function_path_array;
 
-
+		fprintf(stderr, "fucntion collect \n");
+		function_path_array fun_array;
+		//tree get_function_return_tree = gimple_return_retval(as_a<greturn *>(gc));
+		vector<function_path> function_path_array;
 
 		for (e = node->callees; e; e = e->next_callee)
 		{
@@ -2673,14 +2722,14 @@ void record_fucntion(cgraph_node *node)
 				path_type.cgnext = callee;
 				path_type.next = callee->decl;
 				fun_array.function_path_array.push_back(path_type);
-	
+
 				//pop_cfun();
-		//		dump_fucntion(callee);
+				//		dump_fucntion(callee);
 			}
 
 			//analyze_function=	analyze_function (caller ,true);
 		}
-				function_path_collect->put(node->get_fun()->decl, fun_array);
+		function_path_collect->put(node->get_fun()->decl, fun_array);
 		pop_cfun();
 	}
 }
@@ -2706,7 +2755,7 @@ void detect()
 	treeGimpleArray = new hash_map<tree, gimple_array>;
 	function_return_collect = new hash_map<tree, function_return_array>;
 	function_assign_collect = new hash_map<tree, function_assign_array>;
-	function_path_collect = new hash_map <tree , function_path_array>;
+	function_path_collect = new hash_map<tree, function_path_array>;
 	fDFS = new hash_map<cgraph_node *, Graph>;
 	fnode = new hash_map<tree, cgraph_node *>;
 	fprintf(stderr, "=======ipa_pta=========\n");
@@ -2936,5 +2985,4 @@ void insert_always_inline()
 		}
 		pop_cfun();
 	}
-
 }

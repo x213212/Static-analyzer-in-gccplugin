@@ -403,9 +403,9 @@ test33 (int * k)
 Analyzing function body size: test22
 
 Inline summary for test22/61
-  self time:       13
+  self time:       24
   global time:     0
-  self size:       5
+  self size:       7
   global size:     0
   min size:       0
   self stack:      0
@@ -413,6 +413,8 @@ Inline summary for test22/61
     size:0.000000, time:0.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
+    test22/61 function not considered for inlining
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
     free/65 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
 
@@ -421,6 +423,7 @@ test22 (int * k)
 {
   <bb 2> [0.00%]:
   free (k_2(D));
+  test22 (k_2(D));
   return;
 
 }
@@ -465,7 +468,7 @@ Inline summary for main/62 inlinable
     test33/60 function not considered for inlining
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 2 stack: 0
     test22/61 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 2 stack: 0
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 3 stack: 0
     foo2/54 function not considered for inlining
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 9 stack: 0
        op0 is compile time invariant

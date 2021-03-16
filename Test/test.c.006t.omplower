@@ -182,6 +182,7 @@ __attribute__((noinline))
 test22 (int * k)
 {
   free (k);
+  test22 (k);
 }
 
 

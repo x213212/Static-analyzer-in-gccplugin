@@ -143,12 +143,17 @@ void boo(int *b)
 }
 void test44(int *k){
   free (k);
+  // test33(k);
 }
 void test33 (int *k){
   test44 (k);
 }
 void test22  (int *k) {
+  // test22(k);
+  // test33(k);
   free (k);
+  test22(k);
+  // test44(k);
 }
 int main()
 {
