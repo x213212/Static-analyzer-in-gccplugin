@@ -768,6 +768,7 @@ NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
 k = &NONLOCAL
+ESCAPED = k
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -780,11 +781,12 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { }
+ESCAPED = { ESCAPED NONLOCAL }
 NONLOCAL = { ESCAPED NONLOCAL }
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
 k = { NONLOCAL }
+test22 = { }
 
 
 Alias information for test22
@@ -794,7 +796,7 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to vars: { }
+ESCAPED, points-to non-local, points-to vars: { }
 
 Flow-insensitive points-to information
 
@@ -804,6 +806,7 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [0.00%]:
+  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -828,6 +831,7 @@ ESCAPED = &NONLOCAL
 p_4 = NONLOCAL
 ESCAPED = &NONLOCAL
 p2_6 = NONLOCAL
+ESCAPED = p_4
 ESCAPED = p_4
 ESCAPED = p2_6
 mLock = NONLOCAL
@@ -899,6 +903,7 @@ main ()
   <bb 2> [0.00%]:
   p_4 = foo2 (2);
   p2_6 = foo2 (2);
+  test22 (p_4);
   test22 (p_4);
   test33 (p2_6);
   free (p_4);

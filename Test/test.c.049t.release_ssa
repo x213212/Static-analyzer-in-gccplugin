@@ -218,6 +218,7 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
+  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -227,7 +228,7 @@ test22 (int * k)
 
 ;; Function main (main, funcdef_no=60, decl_uid=4361, cgraph_uid=60, symbol_order=62) (executed once)
 
-Released 1 names, 5.88%, removed 1 holes
+Released 1 names, 5.56%, removed 1 holes
 main ()
 {
   pthread_t t;
@@ -239,6 +240,7 @@ main ()
   <bb 2> [100.00%]:
   p_4 = foo2 (2);
   p2_6 = foo2 (2);
+  test22 (p_4);
   test22 (p_4);
   test33 (p2_6);
   free (p_4);

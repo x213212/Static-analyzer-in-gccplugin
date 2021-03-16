@@ -842,6 +842,7 @@
 
 
 {
+  test22 (k);
   free ((void *) k);
 }
 
@@ -860,6 +861,7 @@
     int * p2;
   p = foo2 (2);
   p2 = foo2 (2);
+  test22 (p);
   test22 (p);
   test33 (p2);
   free ((void *) p);

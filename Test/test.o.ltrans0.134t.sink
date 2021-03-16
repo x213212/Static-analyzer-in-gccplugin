@@ -39,7 +39,7 @@ test33 (int * k)
 
 
 
-;; Function test22 (test22, funcdef_no=4, decl_uid=3987, cgraph_uid=2, symbol_order=61) (executed once)
+;; Function test22 (test22, funcdef_no=4, decl_uid=3987, cgraph_uid=2, symbol_order=61)
 
 ;; 1 loops found
 ;;
@@ -52,6 +52,7 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
+  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -190,6 +191,7 @@ main ()
   <bb 2> [100.00%]:
   p_4 = foo2 (2);
   p2_6 = foo2 (2);
+  test22 (p_4);
   test22 (p_4);
   test33 (p2_6);
   free (p_4);

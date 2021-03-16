@@ -194,6 +194,7 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [0.00%]:
+  test22 (k);
   free (k);
   return;
 
@@ -214,6 +215,7 @@ main ()
   <bb 2> [0.00%]:
   p = foo2 (2);
   p2 = foo2 (2);
+  test22 (p);
   test22 (p);
   test33 (p2);
   free (p);

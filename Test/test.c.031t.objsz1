@@ -218,6 +218,7 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [0.00%]:
+  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -234,11 +235,12 @@ main ()
   int * p2;
   int * p;
   long unsigned int t.2_1;
-  int _15;
+  int _16;
 
   <bb 2> [0.00%]:
   p_4 = foo2 (2);
   p2_6 = foo2 (2);
+  test22 (p_4);
   test22 (p_4);
   test33 (p2_6);
   free (p_4);
@@ -248,10 +250,10 @@ main ()
   t.2_1 = t;
   pthread_join (t.2_1, 0B);
   pthread_mutex_destroy (&mLock);
-  _15 = 0;
+  _16 = 0;
   buff ={v} {CLOBBER};
   t ={v} {CLOBBER};
-  return _15;
+  return _16;
 
 }
 
