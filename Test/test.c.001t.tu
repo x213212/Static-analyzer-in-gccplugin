@@ -15858,329 +15858,333 @@
 @8884   return_expr      type: @151     expr: @8919   
 @8885   var_decl         name: @8920    type: @1374    scpe: @8760   
                          srcp: test.c:156              chain: @8921   
-                         size: @22      algn: 64       used: 1       
+                         size: @22      algn: 64       used: 0       
 @8886   statement_list   0   : @8922    1   : @8923    2   : @8924   
                          3   : @8925    4   : @8926    5   : @8927   
                          6   : @8928    7   : @8929    8   : @8930   
-                         9   : @8931    10  : @8932    11  : @8933   
-                         12  : @8934   
-@8887   modify_expr      type: @3       op 0: @8935    op 1: @248    
+                         9   : @8931    10  : @8932   
+@8887   modify_expr      type: @3       op 0: @8933    op 1: @248    
 @8888   addr_expr        type: @2190    op 0: @1620   
 @8889   nop_expr         type: @186     op 0: @8761   
-@8890   addr_expr        type: @8936    op 0: @8937   
-@8891   nop_expr         type: @2490    op 0: @8938   
+@8890   addr_expr        type: @8934    op 0: @8935   
+@8891   nop_expr         type: @2490    op 0: @8936   
 @8892   identifier_node  strg: a        lngt: 1       
-@8893   var_decl         name: @8939    type: @3       scpe: @8690   
+@8893   var_decl         name: @8937    type: @3       scpe: @8690   
                          srcp: test.c:116              init: @248    
                          size: @5       algn: 32       used: 1       
-@8894   call_expr        type: @1374    fn  : @8940    0   : @255    
-@8895   call_expr        type: @186     fn  : @8941    0   : @8942   
+@8894   call_expr        type: @1374    fn  : @8938    0   : @255    
+@8895   call_expr        type: @186     fn  : @8939    0   : @8940   
 @8896   addr_expr        type: @8670    op 0: @2223   
 @8897   integer_cst      type: @226    int: 10
 @8898   indirect_ref     type: @1374    op 0: @8764   
-@8899   indirect_ref     type: @1374    op 0: @8943   
-@8900   indirect_ref     type: @1374    op 0: @8944   
+@8899   indirect_ref     type: @1374    op 0: @8941   
+@8900   indirect_ref     type: @1374    op 0: @8942   
 @8901   indirect_ref     type: @1374    op 0: @8764   
-@8902   pointer_type     size: @22      algn: 64       ptd : @8945   
+@8902   pointer_type     size: @22      algn: 64       ptd : @8943   
 @8903   addr_expr        type: @8670    op 0: @2223   
 @8904   identifier_node  strg: __builtin_ia32_cmpless  lngt: 22      
-@8905   function_decl    name: @8946    type: @8358    scpe: @176    
-                         srcp: <built-in>:0            chain: @8947   
+@8905   function_decl    name: @8944    type: @8358    scpe: @176    
+                         srcp: <built-in>:0            chain: @8945   
                          body: undefined               link: extern  
 @8906   identifier_node  strg: fscanf   lngt: 6       
 @8907   function_type    size: @12      algn: 8        retn: @3      
                          prms: @8476   
-@8908   function_decl    name: @8948    mngl: @8949    type: @8950   
+@8908   function_decl    name: @8946    mngl: @8947    type: @8948   
                          scpe: @176     srcp: <built-in>:0      
-                         chain: @8951    body: undefined 
+                         chain: @8949    body: undefined 
                          link: extern  
 @8909   addr_expr        type: @5860    op 0: @1431   
-@8910   ge_expr          type: @16      op 0: @8952    op 1: @8953   
+@8910   ge_expr          type: @16      op 0: @8950    op 1: @8951   
 @8911   convert_expr     type: @72      op 0: @8674   
-@8912   modify_expr      type: @9       op 0: @8954    op 1: @8955   
+@8912   modify_expr      type: @9       op 0: @8952    op 1: @8953   
 @8913   indirect_ref     type: @1627    op 0: @8573   
 @8914   identifier_node  strg: link     lngt: 4       
 @8915   function_type    size: @12      algn: 8        retn: @3      
                          prms: @5361   
-@8916   function_decl    name: @8956    type: @8957    scpe: @176    
-                         srcp: unistd.h:795            chain: @8958   
+@8916   function_decl    name: @8954    type: @8955    scpe: @176    
+                         srcp: unistd.h:795            chain: @8956   
                          body: undefined               link: extern  
-@8917   ne_expr          type: @3       op 0: @8959    op 1: @34     
-@8918   statement_list   0   : @8960    1   : @8961   
-@8919   modify_expr      type: @3       op 0: @8962    op 1: @8963   
+@8917   ne_expr          type: @3       op 0: @8957    op 1: @34     
+@8918   statement_list   0   : @8958    1   : @8959   
+@8919   modify_expr      type: @3       op 0: @8960    op 1: @8961   
 @8920   identifier_node  strg: p        lngt: 1       
 @8921   var_decl         name: @8564    type: @1374    scpe: @8760   
-                         srcp: test.c:157              chain: @8964   
-                         size: @22      algn: 64       used: 1       
+                         srcp: test.c:157              chain: @8962   
+                         size: @22      algn: 64       used: 0       
 @8922   decl_expr        type: @151    
 @8923   decl_expr        type: @151    
-@8924   modify_expr      type: @1374    op 0: @8885    op 1: @8965   
-@8925   modify_expr      type: @3       op 0: @8966    op 1: @260    
-@8926   modify_expr      type: @1374    op 0: @8921    op 1: @8967   
-@8927   call_expr        type: @151     fn  : @8968    0   : @8885   
-@8928   decl_expr        type: @151    
-@8929   decl_expr        type: @151    
-@8930   call_expr        type: @3       fn  : @8969    0   : @8970   
-@8931   call_expr        type: @3       fn  : @8971    0   : @8972   
-                         1   : @8973    2   : @8974    3   : @8975   
-@8932   call_expr        type: @3       fn  : @8976    0   : @8977   
-                         1   : @8978   
-@8933   call_expr        type: @3       fn  : @8979    0   : @8980   
-@8934   return_expr      type: @151     expr: @8981   
-@8935   result_decl      type: @3       scpe: @8760    srcp: test.c:154    
+@8924   decl_expr        type: @151    
+@8925   decl_expr        type: @151    
+@8926   decl_expr        type: @151    
+@8927   decl_expr        type: @151    
+@8928   call_expr        type: @3       fn  : @8963    0   : @8964   
+@8929   call_expr        type: @3       fn  : @8965    0   : @8966   
+                         1   : @8967    2   : @8968    3   : @8969   
+@8930   call_expr        type: @3       fn  : @8970    0   : @8971   
+                         1   : @8972   
+@8931   call_expr        type: @3       fn  : @8973    0   : @8974   
+@8932   return_expr      type: @151     expr: @8975   
+@8933   result_decl      type: @3       scpe: @8760    srcp: test.c:154    
                          note: artificial              size: @5      
                          algn: 32      
-@8936   pointer_type     size: @22      algn: 64       ptd : @8982   
-@8937   function_decl    name: @8983    type: @8984    scpe: @176    
-                         srcp: stdio2.h:105            chain: @8985   
-                         args: @8986    body: undefined 
-                         link: extern   body: @8987   
-@8938   addr_expr        type: @8988    op 0: @8989   
-@8939   identifier_node  strg: data2    lngt: 5       
-@8940   addr_expr        type: @8990    op 0: @8508   
-@8941   addr_expr        type: @8670    op 0: @2223   
-@8942   integer_cst      type: @226    int: 20
-@8943   pointer_plus_expr type: @8805    op 0: @8764    op 1: @8991   
-@8944   pointer_plus_expr type: @8805    op 0: @8764    op 1: @8992   
-@8945   function_type    qual:  v       unql: @1619    size: @12     
+@8934   pointer_type     size: @22      algn: 64       ptd : @8976   
+@8935   function_decl    name: @8977    type: @8978    scpe: @176    
+                         srcp: stdio2.h:105            chain: @8979   
+                         args: @8980    body: undefined 
+                         link: extern   body: @8981   
+@8936   addr_expr        type: @8982    op 0: @8983   
+@8937   identifier_node  strg: data2    lngt: 5       
+@8938   addr_expr        type: @8984    op 0: @8508   
+@8939   addr_expr        type: @8670    op 0: @2223   
+@8940   integer_cst      type: @226    int: 20
+@8941   pointer_plus_expr type: @8805    op 0: @8764    op 1: @8985   
+@8942   pointer_plus_expr type: @8805    op 0: @8764    op 1: @8986   
+@8943   function_type    qual:  v       unql: @1619    size: @12     
                          algn: 8        retn: @151     prms: @1629   
-@8946   identifier_node  strg: __builtin_ia32_cmpunordss 
+@8944   identifier_node  strg: __builtin_ia32_cmpunordss 
                          lngt: 25      
-@8947   function_decl    name: @8993    type: @8358    scpe: @176    
-                         srcp: <built-in>:0            chain: @8994   
+@8945   function_decl    name: @8987    type: @8358    scpe: @176    
+                         srcp: <built-in>:0            chain: @8988   
                          body: undefined               link: extern  
-@8948   identifier_node  strg: __builtin_fwrite        lngt: 16      
-@8949   identifier_node  strg: fwrite   lngt: 6       
-@8950   function_type    size: @12      algn: 8        retn: @31     
+@8946   identifier_node  strg: __builtin_fwrite        lngt: 16      
+@8947   identifier_node  strg: fwrite   lngt: 6       
+@8948   function_type    size: @12      algn: 8        retn: @31     
+                         prms: @8989   
+@8949   function_decl    name: @8947    type: @8990    scpe: @176    
+                         srcp: stdio.h:652             chain: @8991   
+                         body: undefined               link: extern  
+@8950   component_ref    type: @632     op 0: @8992    op 1: @1664   
+@8951   component_ref    type: @632     op 0: @8993    op 1: @1675   
+@8952   indirect_ref     type: @9       op 0: @8994   
+@8953   convert_expr     type: @9       op 0: @8674   
+@8954   identifier_node  strg: linkat   lngt: 6       
+@8955   function_type    size: @12      algn: 8        retn: @3      
                          prms: @8995   
-@8951   function_decl    name: @8949    type: @8996    scpe: @176    
-                         srcp: stdio.h:652             chain: @8997   
+@8956   function_decl    name: @8996    type: @8915    scpe: @176    
+                         srcp: unistd.h:802            chain: @8997   
                          body: undefined               link: extern  
-@8952   component_ref    type: @632     op 0: @8998    op 1: @1664   
-@8953   component_ref    type: @632     op 0: @8999    op 1: @1675   
-@8954   indirect_ref     type: @9       op 0: @9000   
-@8955   convert_expr     type: @9       op 0: @8674   
-@8956   identifier_node  strg: linkat   lngt: 6       
-@8957   function_type    size: @12      algn: 8        retn: @3      
-                         prms: @9001   
-@8958   function_decl    name: @9002    type: @8915    scpe: @176    
-                         srcp: unistd.h:802            chain: @9003   
-                         body: undefined               link: extern  
-@8959   call_expr        type: @31      fn  : @9004    0   : @9005   
+@8957   call_expr        type: @31      fn  : @8998    0   : @8999   
                          1   : @255    
-@8960   cond_expr        type: @151     op 0: @9006    op 1: @9007   
-@8961   cond_expr        type: @151     op 0: @9008    op 1: @9009   
-@8962   result_decl      type: @3       scpe: @8753    srcp: unistd.h:291    
+@8958   cond_expr        type: @151     op 0: @9000    op 1: @9001   
+@8959   cond_expr        type: @151     op 0: @9002    op 1: @9003   
+@8960   result_decl      type: @3       scpe: @8753    srcp: unistd.h:291    
                          note: artificial              size: @5      
                          algn: 32      
-@8963   call_expr        type: @3       fn  : @9010    0   : @8793   
+@8961   call_expr        type: @3       fn  : @9004    0   : @8793   
                          1   : @8842    2   : @8882   
-@8964   var_decl         name: @9011    type: @9012    scpe: @8760   
-                         srcp: test.c:168              chain: @8977   
-                         size: @9013    algn: 8        used: 1       
-@8965   call_expr        type: @1374    fn  : @9014    0   : @260    
-@8966   indirect_ref     type: @3       op 0: @8885   
-@8967   call_expr        type: @1374    fn  : @9015    0   : @260    
-@8968   addr_expr        type: @8735    op 0: @8559   
-@8969   addr_expr        type: @8739    op 0: @7182   
-@8970   addr_expr        type: @7201    op 0: @8486   
-@8971   addr_expr        type: @9016    op 0: @6814   
-@8972   addr_expr        type: @6853    op 0: @8977   
-@8973   integer_cst      type: @6854   int: 0
-@8974   addr_expr        type: @6866    op 0: @8690   
-@8975   nop_expr         type: @5867    op 0: @9017   
-@8976   addr_expr        type: @9018    op 0: @6838   
-@8977   var_decl         name: @9019    type: @1208    scpe: @8760   
+@8962   var_decl         name: @9005    type: @9006    scpe: @8760   
+                         srcp: test.c:168              chain: @9007   
+                         size: @9008    algn: 8        used: 1       
+@8963   addr_expr        type: @8739    op 0: @7182   
+@8964   addr_expr        type: @7201    op 0: @8486   
+@8965   addr_expr        type: @9009    op 0: @6814   
+@8966   addr_expr        type: @6853    op 0: @8971   
+@8967   integer_cst      type: @6854   int: 0
+@8968   addr_expr        type: @6866    op 0: @8690   
+@8969   nop_expr         type: @5867    op 0: @9010   
+@8970   addr_expr        type: @9011    op 0: @6838   
+@8971   var_decl         name: @9012    type: @1208    scpe: @8760   
                          srcp: test.c:171              size: @22     
                          algn: 64       used: 1       
-@8978   integer_cst      type: @2343   int: 0
-@8979   addr_expr        type: @8739    op 0: @7182   
-@8980   addr_expr        type: @7201    op 0: @8486   
-@8981   modify_expr      type: @3       op 0: @8935    op 1: @248    
-@8982   function_type    size: @12      algn: 8        retn: @3      
-                         prms: @9020   
-@8983   identifier_node  strg: printf   lngt: 6       
-@8984   function_type    size: @12      algn: 8        retn: @3      
-                         prms: @9021   
-@8985   function_decl    name: @9022    mngl: @9023    type: @8984   
+@8972   integer_cst      type: @2343   int: 0
+@8973   addr_expr        type: @8739    op 0: @7182   
+@8974   addr_expr        type: @7201    op 0: @8486   
+@8975   modify_expr      type: @3       op 0: @8933    op 1: @248    
+@8976   function_type    size: @12      algn: 8        retn: @3      
+                         prms: @9013   
+@8977   identifier_node  strg: printf   lngt: 6       
+@8978   function_type    size: @12      algn: 8        retn: @3      
+                         prms: @9014   
+@8979   function_decl    name: @9015    mngl: @9016    type: @8978   
                          scpe: @176     srcp: <built-in>:0      
-                         chain: @9024    body: undefined 
+                         chain: @9017    body: undefined 
                          link: extern  
-@8986   parm_decl        name: @5630    type: @2490    scpe: @8937   
+@8980   parm_decl        name: @5630    type: @2490    scpe: @8935   
                          srcp: stdio2.h:105            argt: @2490   
                          size: @22      algn: 64       used: 1       
-@8987   bind_expr        type: @151     body: @9025   
-@8988   pointer_type     size: @22      algn: 64       ptd : @9026   
-@8989   string_cst       type: @9026   strg: asdda
+@8981   bind_expr        type: @151     body: @9018   
+@8982   pointer_type     size: @22      algn: 64       ptd : @9019   
+@8983   string_cst       type: @9019   strg: asdda
    lngt: 7       
-@8990   pointer_type     size: @22      algn: 64       ptd : @8521   
-@8991   integer_cst      type: @172    int: 8
-@8992   integer_cst      type: @172    int: 16
-@8993   identifier_node  strg: __builtin_ia32_cmpneqss lngt: 23      
-@8994   function_decl    name: @9027    type: @8358    scpe: @176    
-                         srcp: <built-in>:0            chain: @9028   
+@8984   pointer_type     size: @22      algn: 64       ptd : @8521   
+@8985   integer_cst      type: @172    int: 8
+@8986   integer_cst      type: @172    int: 16
+@8987   identifier_node  strg: __builtin_ia32_cmpneqss lngt: 23      
+@8988   function_decl    name: @9020    type: @8358    scpe: @176    
+                         srcp: <built-in>:0            chain: @9021   
                          body: undefined               link: extern  
-@8995   tree_list        valu: @1470    chan: @9029   
-@8996   function_type    size: @12      algn: 8        retn: @226    
-                         prms: @9030   
-@8997   function_decl    name: @9031    mngl: @9032    type: @8950   
+@8989   tree_list        valu: @1470    chan: @9022   
+@8990   function_type    size: @12      algn: 8        retn: @226    
+                         prms: @9023   
+@8991   function_decl    name: @9024    mngl: @9025    type: @8948   
                          scpe: @176     srcp: <built-in>:0      
-                         chain: @9033    body: undefined 
+                         chain: @9026    body: undefined 
                          link: extern  
-@8998   indirect_ref     type: @1627    op 0: @8712   
-@8999   indirect_ref     type: @1627    op 0: @8712   
-@9000   postincrement_expr type: @632     op 0: @9034    op 1: @520    
-@9001   tree_list        valu: @3       chan: @9035   
-@9002   identifier_node  strg: symlink  lngt: 7       
-@9003   function_decl    name: @9036    type: @8019    scpe: @176    
-                         srcp: unistd.h:139            chain: @9037   
-                         args: @9038    body: undefined 
-                         link: extern   body: @9039   
-@9004   addr_expr        type: @4873    op 0: @2570   
-@9005   nop_expr         type: @1470    op 0: @8842   
-@9006   eq_expr          type: @3       op 0: @9040    op 1: @248    
-@9007   return_expr      type: @151     expr: @9041   
-@9008   lt_expr          type: @3       op 0: @9042    op 1: @9043   
-@9009   return_expr      type: @151     expr: @9044   
-@9010   addr_expr        type: @5135    op 0: @8317   
-@9011   identifier_node  strg: buff     lngt: 4       
-@9012   array_type       size: @9013    algn: 8        elts: @9      
-                         domn: @9045   
-@9013   integer_cst      type: @11     int: 400
-@9014   addr_expr        type: @8990    op 0: @8522   
-@9015   addr_expr        type: @8990    op 0: @8522   
-@9016   pointer_type     size: @22      algn: 64       ptd : @6825   
-@9017   addr_expr        type: @9046    op 0: @8964   
-@9018   pointer_type     size: @22      algn: 64       ptd : @6847   
-@9019   identifier_node  strg: t        lngt: 1       
-@9020   tree_list        valu: @2490   
-@9021   tree_list        valu: @1189   
-@9022   identifier_node  strg: __builtin_printf_unlocked 
+@8992   indirect_ref     type: @1627    op 0: @8712   
+@8993   indirect_ref     type: @1627    op 0: @8712   
+@8994   postincrement_expr type: @632     op 0: @9027    op 1: @520    
+@8995   tree_list        valu: @3       chan: @9028   
+@8996   identifier_node  strg: symlink  lngt: 7       
+@8997   function_decl    name: @9029    type: @8019    scpe: @176    
+                         srcp: unistd.h:139            chain: @9030   
+                         args: @9031    body: undefined 
+                         link: extern   body: @9032   
+@8998   addr_expr        type: @4873    op 0: @2570   
+@8999   nop_expr         type: @1470    op 0: @8842   
+@9000   eq_expr          type: @3       op 0: @9033    op 1: @248    
+@9001   return_expr      type: @151     expr: @9034   
+@9002   lt_expr          type: @3       op 0: @9035    op 1: @9036   
+@9003   return_expr      type: @151     expr: @9037   
+@9004   addr_expr        type: @5135    op 0: @8317   
+@9005   identifier_node  strg: buff     lngt: 4       
+@9006   array_type       size: @9008    algn: 8        elts: @9      
+                         domn: @9038   
+@9007   var_decl         name: @9039    type: @1374    scpe: @8760   
+                         srcp: test.c:169              chain: @9040   
+                         init: @9041    size: @22      algn: 64      
+                         used: 0       
+@9008   integer_cst      type: @11     int: 400
+@9009   pointer_type     size: @22      algn: 64       ptd : @6825   
+@9010   addr_expr        type: @9042    op 0: @8962   
+@9011   pointer_type     size: @22      algn: 64       ptd : @6847   
+@9012   identifier_node  strg: t        lngt: 1       
+@9013   tree_list        valu: @2490   
+@9014   tree_list        valu: @1189   
+@9015   identifier_node  strg: __builtin_printf_unlocked 
                          lngt: 25      
-@9023   identifier_node  strg: printf_unlocked         lngt: 15      
-@9024   function_decl    name: @9023    type: @8984    srcp: <built-in>:0      
-                         chain: @9047    body: undefined 
+@9016   identifier_node  strg: printf_unlocked         lngt: 15      
+@9017   function_decl    name: @9016    type: @8978    srcp: <built-in>:0      
+                         chain: @9043    body: undefined 
                          link: extern  
-@9025   return_expr      type: @151     expr: @9048   
-@9026   array_type       size: @1279    algn: 8        elts: @9      
+@9018   return_expr      type: @151     expr: @9044   
+@9019   array_type       size: @1279    algn: 8        elts: @9      
                          domn: @1292   
-@9027   identifier_node  strg: __builtin_ia32_cmpnltss lngt: 23      
-@9028   function_decl    name: @9049    type: @8358    scpe: @176    
-                         srcp: <built-in>:0            chain: @9050   
+@9020   identifier_node  strg: __builtin_ia32_cmpnltss lngt: 23      
+@9021   function_decl    name: @9045    type: @8358    scpe: @176    
+                         srcp: <built-in>:0            chain: @9046   
                          body: undefined               link: extern  
-@9029   tree_list        valu: @31      chan: @9051   
-@9030   tree_list        valu: @9052    chan: @9053   
-@9031   identifier_node  strg: __builtin_fwrite_unlocked 
+@9022   tree_list        valu: @31      chan: @9047   
+@9023   tree_list        valu: @9048    chan: @9049   
+@9024   identifier_node  strg: __builtin_fwrite_unlocked 
                          lngt: 25      
-@9032   identifier_node  strg: fwrite_unlocked         lngt: 15      
-@9033   function_decl    name: @9032    type: @8996    scpe: @176    
-                         srcp: stdio.h:675             chain: @9054   
+@9025   identifier_node  strg: fwrite_unlocked         lngt: 15      
+@9026   function_decl    name: @9025    type: @8990    scpe: @176    
+                         srcp: stdio.h:675             chain: @9050   
                          body: undefined               link: extern  
-@9034   component_ref    type: @632     op 0: @9055    op 1: @1664   
-@9035   tree_list        valu: @1189    chan: @9056   
-@9036   identifier_node  strg: readlink lngt: 8       
-@9037   function_decl    name: @9057    type: @9058    scpe: @176    
-                         srcp: unistd.h:815            chain: @9059   
+@9027   component_ref    type: @632     op 0: @9051    op 1: @1664   
+@9028   tree_list        valu: @1189    chan: @9052   
+@9029   identifier_node  strg: readlink lngt: 8       
+@9030   function_decl    name: @9053    type: @9054    scpe: @176    
+                         srcp: unistd.h:815            chain: @9055   
                          body: undefined               link: extern  
-@9038   parm_decl        name: @9060    type: @2490    scpe: @9003   
-                         srcp: unistd.h:139            chain: @9061   
+@9031   parm_decl        name: @9056    type: @2490    scpe: @8997   
+                         srcp: unistd.h:139            chain: @9057   
                          argt: @2490    size: @22      algn: 64      
                          used: 1       
-@9039   bind_expr        type: @151     body: @9062   
-@9040   call_expr        type: @3       fn  : @9063    0   : @8882   
-@9041   modify_expr      type: @3       op 0: @8962    op 1: @9064   
-@9042   call_expr        type: @31      fn  : @9065    0   : @9066   
+@9032   bind_expr        type: @151     body: @9058   
+@9033   call_expr        type: @3       fn  : @9059    0   : @8882   
+@9034   modify_expr      type: @3       op 0: @8960    op 1: @9060   
+@9035   call_expr        type: @31      fn  : @9061    0   : @9062   
                          1   : @255    
-@9043   nop_expr         type: @31      op 0: @8882   
-@9044   modify_expr      type: @3       op 0: @8962    op 1: @9067   
-@9045   integer_type     size: @22      algn: 64       prec: 64      
-                         sign: signed   min : @165     max : @9068   
-@9046   pointer_type     size: @22      algn: 64       ptd : @9012   
-@9047   function_decl    name: @9069    mngl: @9070    type: @1104   
+@9036   nop_expr         type: @31      op 0: @8882   
+@9037   modify_expr      type: @3       op 0: @8960    op 1: @9063   
+@9038   integer_type     size: @22      algn: 64       prec: 64      
+                         sign: signed   min : @165     max : @9064   
+@9039   identifier_node  strg: q        lngt: 1       
+@9040   var_decl         name: @9065    type: @3       scpe: @8760   
+                         srcp: test.c:170              chain: @8971   
+                         size: @5       algn: 32       used: 0       
+@9041   nop_expr         type: @1374    op 0: @9066   
+@9042   pointer_type     size: @22      algn: 64       ptd : @9006   
+@9043   function_decl    name: @9067    mngl: @9068    type: @1104   
                          scpe: @176     srcp: <built-in>:0      
-                         chain: @9071    body: undefined 
+                         chain: @9069    body: undefined 
                          link: extern  
-@9048   modify_expr      type: @3       op 0: @9072    op 1: @9073   
-@9049   identifier_node  strg: __builtin_ia32_cmpnless lngt: 23      
-@9050   function_decl    name: @9074    type: @8358    scpe: @176    
-                         srcp: <built-in>:0            chain: @9075   
+@9044   modify_expr      type: @3       op 0: @9070    op 1: @9071   
+@9045   identifier_node  strg: __builtin_ia32_cmpnless lngt: 23      
+@9046   function_decl    name: @9072    type: @8358    scpe: @176    
+                         srcp: <built-in>:0            chain: @9073   
                          body: undefined               link: extern  
-@9051   tree_list        valu: @31      chan: @9076   
-@9052   pointer_type     qual:   r      unql: @1470    size: @22     
+@9047   tree_list        valu: @31      chan: @9074   
+@9048   pointer_type     qual:   r      unql: @1470    size: @22     
                          algn: 64       ptd : @1483   
-@9053   tree_list        valu: @226     chan: @9077   
-@9054   function_decl    name: @9078    mngl: @8983    type: @8984   
+@9049   tree_list        valu: @226     chan: @9075   
+@9050   function_decl    name: @9076    mngl: @8977    type: @8978   
                          scpe: @176     srcp: <built-in>:0      
-                         chain: @8937    body: undefined 
+                         chain: @8935    body: undefined 
                          link: extern  
-@9055   indirect_ref     type: @1627    op 0: @8712   
-@9056   tree_list        valu: @3       chan: @9079   
-@9057   identifier_node  strg: symlinkat               lngt: 9       
-@9058   function_type    size: @12      algn: 8        retn: @3      
-                         prms: @9080   
-@9059   function_decl    name: @9081    type: @8068    scpe: @176    
-                         srcp: unistd.h:173            chain: @9082   
-                         args: @9083    body: undefined 
-                         link: extern   body: @9084   
-@9060   identifier_node  strg: __path   lngt: 6       
-@9061   parm_decl        name: @5031    type: @2469    scpe: @9003   
-                         srcp: unistd.h:139            chain: @9085   
+@9051   indirect_ref     type: @1627    op 0: @8712   
+@9052   tree_list        valu: @3       chan: @9077   
+@9053   identifier_node  strg: symlinkat               lngt: 9       
+@9054   function_type    size: @12      algn: 8        retn: @3      
+                         prms: @9078   
+@9055   function_decl    name: @9079    type: @8068    scpe: @176    
+                         srcp: unistd.h:173            chain: @9080   
+                         args: @9081    body: undefined 
+                         link: extern   body: @9082   
+@9056   identifier_node  strg: __path   lngt: 6       
+@9057   parm_decl        name: @5031    type: @2469    scpe: @8997   
+                         srcp: unistd.h:139            chain: @9083   
                          argt: @2469    size: @22      algn: 64      
                          used: 1       
-@9062   statement_list   0   : @9086    1   : @9087   
-@9063   addr_expr        type: @5190    op 0: @1045   
-@9064   call_expr        type: @3       fn  : @9088    0   : @8793   
+@9058   statement_list   0   : @9084    1   : @9085   
+@9059   addr_expr        type: @5190    op 0: @1045   
+@9060   call_expr        type: @3       fn  : @9086    0   : @8793   
+                         1   : @8842    2   : @8882    3   : @9087   
+@9061   addr_expr        type: @4873    op 0: @2570   
+@9062   nop_expr         type: @1470    op 0: @8842   
+@9063   call_expr        type: @3       fn  : @9088    0   : @8793   
                          1   : @8842    2   : @8882    3   : @9089   
-@9065   addr_expr        type: @4873    op 0: @2570   
-@9066   nop_expr         type: @1470    op 0: @8842   
-@9067   call_expr        type: @3       fn  : @9090    0   : @8793   
-                         1   : @8842    2   : @8882    3   : @9091   
-@9068   integer_cst      type: @172    int: 49
-@9069   identifier_node  strg: __builtin_putchar       lngt: 17      
-@9070   identifier_node  strg: putchar  lngt: 7       
-@9071   function_decl    name: @9070    type: @1104    scpe: @176    
+@9064   integer_cst      type: @172    int: 49
+@9065   identifier_node  strg: n        lngt: 1       
+@9066   call_expr        type: @186     fn  : @9090    0   : @9091   
+@9067   identifier_node  strg: __builtin_putchar       lngt: 17      
+@9068   identifier_node  strg: putchar  lngt: 7       
+@9069   function_decl    name: @9068    type: @1104    scpe: @176    
                          srcp: stdio.h:82              chain: @9092   
                          args: @9093    body: undefined 
                          link: extern   body: @9094   
-@9072   result_decl      type: @3       scpe: @8937    srcp: stdio2.h:105    
+@9070   result_decl      type: @3       scpe: @8935    srcp: stdio2.h:105    
                          note: artificial              size: @5      
                          algn: 32      
-@9073   call_expr        type: @3       fn  : @9095    0   : @255    
-                         1   : @8986    2   : @9096   
-@9074   identifier_node  strg: __builtin_ia32_cmpordss lngt: 23      
-@9075   function_decl    name: @9097    type: @8358    scpe: @176    
+@9071   call_expr        type: @3       fn  : @9095    0   : @255    
+                         1   : @8980    2   : @9096   
+@9072   identifier_node  strg: __builtin_ia32_cmpordss lngt: 23      
+@9073   function_decl    name: @9097    type: @8358    scpe: @176    
                          srcp: <built-in>:0            chain: @9098   
                          body: undefined               link: extern  
-@9076   tree_list        valu: @186     chan: @188    
-@9077   tree_list        valu: @226     chan: @9099   
-@9078   identifier_node  strg: __builtin_printf        lngt: 16      
-@9079   tree_list        valu: @1189    chan: @9100   
-@9080   tree_list        valu: @1189    chan: @9101   
-@9081   identifier_node  strg: readlinkat              lngt: 10      
-@9082   function_decl    name: @9102    type: @4629    scpe: @176    
+@9074   tree_list        valu: @186     chan: @188    
+@9075   tree_list        valu: @226     chan: @9099   
+@9076   identifier_node  strg: __builtin_printf        lngt: 16      
+@9077   tree_list        valu: @1189    chan: @9100   
+@9078   tree_list        valu: @1189    chan: @9101   
+@9079   identifier_node  strg: readlinkat              lngt: 10      
+@9080   function_decl    name: @9102    type: @4629    scpe: @176    
                          srcp: unistd.h:825            chain: @9103   
                          body: undefined               link: extern  
-@9083   parm_decl        name: @5011    type: @3       scpe: @9059   
+@9081   parm_decl        name: @5011    type: @3       scpe: @9055   
                          srcp: unistd.h:173            chain: @9104   
                          argt: @3       size: @5       algn: 32      
                          used: 1       
-@9084   bind_expr        type: @151     body: @9105   
-@9085   parm_decl        name: @5239    type: @226     scpe: @9003   
+@9082   bind_expr        type: @151     body: @9105   
+@9083   parm_decl        name: @5239    type: @226     scpe: @8997   
                          srcp: unistd.h:139            argt: @226    
                          size: @22      algn: 64       used: 1       
-@9086   cond_expr        type: @151     op 0: @9106    op 1: @9107   
-@9087   return_expr      type: @151     expr: @9108   
-@9088   addr_expr        type: @5221    op 0: @8302   
-@9089   call_expr        type: @31      fn  : @9109    0   : @9110   
+@9084   cond_expr        type: @151     op 0: @9106    op 1: @9107   
+@9085   return_expr      type: @151     expr: @9108   
+@9086   addr_expr        type: @5221    op 0: @8302   
+@9087   call_expr        type: @31      fn  : @9109    0   : @9110   
                          1   : @255    
-@9090   addr_expr        type: @5221    op 0: @8330   
-@9091   call_expr        type: @31      fn  : @9111    0   : @9112   
+@9088   addr_expr        type: @5221    op 0: @8330   
+@9089   call_expr        type: @31      fn  : @9111    0   : @9112   
                          1   : @255    
+@9090   addr_expr        type: @8670    op 0: @2223   
+@9091   integer_cst      type: @226    int: 5
 @9092   function_decl    name: @9113    mngl: @9114    type: @1104   
                          scpe: @176     srcp: <built-in>:0      
                          chain: @9115    body: undefined 
                          link: extern  
-@9093   parm_decl        name: @1530    type: @3       scpe: @9071   
+@9093   parm_decl        name: @1530    type: @3       scpe: @9069   
                          srcp: stdio.h:82              argt: @3      
                          size: @5       algn: 32       used: 1       
 @9094   bind_expr        type: @151     body: @9116   
@@ -16197,7 +16201,7 @@
 @9103   function_decl    name: @9122    type: @9123    scpe: @176    
                          srcp: unistd.h:829            chain: @9124   
                          body: undefined               link: extern  
-@9104   parm_decl        name: @9060    type: @2490    scpe: @9059   
+@9104   parm_decl        name: @9056    type: @2490    scpe: @9055   
                          srcp: unistd.h:173            chain: @9125   
                          argt: @2490    size: @22      algn: 64      
                          used: 1       
@@ -16230,7 +16234,7 @@
 @9124   function_decl    name: @9141    type: @4629    scpe: @176    
                          srcp: unistd.h:834            chain: @9142   
                          body: undefined               link: extern  
-@9125   parm_decl        name: @5031    type: @2469    scpe: @9059   
+@9125   parm_decl        name: @5031    type: @2469    scpe: @9055   
                          srcp: unistd.h:173            chain: @9143   
                          argt: @2469    size: @22      algn: 64      
                          used: 1       
@@ -16240,11 +16244,11 @@
                          1   : @255    
 @9129   cond_expr        type: @151     op 0: @9149    op 1: @9150   
 @9130   cond_expr        type: @151     op 0: @9151    op 1: @9152   
-@9131   result_decl      type: @734     scpe: @9003    srcp: unistd.h:139    
+@9131   result_decl      type: @734     scpe: @8997    srcp: unistd.h:139    
                          note: artificial              size: @22     
                          algn: 64      
-@9132   call_expr        type: @734     fn  : @9153    0   : @9038   
-                         1   : @9061    2   : @9085   
+@9132   call_expr        type: @734     fn  : @9153    0   : @9031   
+                         1   : @9057    2   : @9083   
 @9133   function_decl    name: @9154    mngl: @9155    type: @9156   
                          scpe: @176     srcp: <built-in>:0      
                          chain: @9157    body: undefined 
@@ -16265,14 +16269,14 @@
 @9142   function_decl    name: @9164    type: @9165    scpe: @176    
                          srcp: unistd.h:838            chain: @9166   
                          body: undefined               link: extern  
-@9143   parm_decl        name: @5239    type: @226     scpe: @9059   
+@9143   parm_decl        name: @5239    type: @226     scpe: @9055   
                          srcp: unistd.h:173            argt: @226    
                          size: @22      algn: 64       used: 1       
 @9144   ne_expr          type: @3       op 0: @9167    op 1: @34     
 @9145   statement_list   0   : @9168    1   : @9169   
 @9146   modify_expr      type: @734     op 0: @9170    op 1: @9171   
 @9147   addr_expr        type: @4873    op 0: @2570   
-@9148   nop_expr         type: @1470    op 0: @9061   
+@9148   nop_expr         type: @1470    op 0: @9057   
 @9149   eq_expr          type: @3       op 0: @9172    op 1: @248    
 @9150   return_expr      type: @151     expr: @9173   
 @9151   lt_expr          type: @3       op 0: @9174    op 1: @9175   
@@ -16286,7 +16290,7 @@
                          srcp: stdio.h:632             chain: @9178   
                          body: undefined               link: extern  
 @9158   return_expr      type: @151     expr: @9179   
-@9159   result_decl      type: @3       scpe: @9071    srcp: stdio.h:82     
+@9159   result_decl      type: @3       scpe: @9069    srcp: stdio.h:82     
                          note: artificial              size: @5      
                          algn: 32      
 @9160   call_expr        type: @3       fn  : @9180    0   : @9093   
@@ -16306,16 +16310,16 @@
                          1   : @255    
 @9168   cond_expr        type: @151     op 0: @9190    op 1: @9191   
 @9169   cond_expr        type: @151     op 0: @9192    op 1: @9193   
-@9170   result_decl      type: @734     scpe: @9059    srcp: unistd.h:173    
+@9170   result_decl      type: @734     scpe: @9055    srcp: unistd.h:173    
                          note: artificial              size: @22     
                          algn: 64      
-@9171   call_expr        type: @734     fn  : @9194    0   : @9083   
+@9171   call_expr        type: @734     fn  : @9194    0   : @9081   
                          1   : @9104    2   : @9125    3   : @9143   
-@9172   call_expr        type: @3       fn  : @9195    0   : @9085   
+@9172   call_expr        type: @3       fn  : @9195    0   : @9083   
 @9173   modify_expr      type: @734     op 0: @9131    op 1: @9196   
 @9174   call_expr        type: @31      fn  : @9197    0   : @9198   
                          1   : @255    
-@9175   nop_expr         type: @31      op 0: @9085   
+@9175   nop_expr         type: @31      op 0: @9083   
 @9176   modify_expr      type: @734     op 0: @9131    op 1: @9199   
 @9177   pointer_type     size: @22      algn: 64       ptd : @8019   
 @9178   function_decl    name: @9200    mngl: @9201    type: @9156   
@@ -16344,12 +16348,12 @@
 @9193   return_expr      type: @151     expr: @9216   
 @9194   addr_expr        type: @9217    op 0: @8050   
 @9195   addr_expr        type: @5190    op 0: @1045   
-@9196   call_expr        type: @734     fn  : @9218    0   : @9038   
-                         1   : @9061    2   : @9085    3   : @9219   
+@9196   call_expr        type: @734     fn  : @9218    0   : @9031   
+                         1   : @9057    2   : @9083    3   : @9219   
 @9197   addr_expr        type: @4873    op 0: @2570   
-@9198   nop_expr         type: @1470    op 0: @9061   
-@9199   call_expr        type: @734     fn  : @9220    0   : @9038   
-                         1   : @9061    2   : @9085    3   : @9221   
+@9198   nop_expr         type: @1470    op 0: @9057   
+@9199   call_expr        type: @734     fn  : @9220    0   : @9031   
+                         1   : @9057    2   : @9083    3   : @9221   
 @9200   identifier_node  strg: __builtin_puts_unlocked lngt: 23      
 @9201   identifier_node  strg: puts_unlocked           lngt: 13      
 @9202   function_decl    name: @9201    type: @9156    srcp: <built-in>:0      
@@ -16409,23 +16413,23 @@
                          used: 1       
 @9232   bind_expr        type: @151     body: @9256   
 @9233   addr_expr        type: @5190    op 0: @1045   
-@9234   call_expr        type: @734     fn  : @9257    0   : @9083   
+@9234   call_expr        type: @734     fn  : @9257    0   : @9081   
                          1   : @9104    2   : @9125    3   : @9143   
                          4   : @9258   
 @9235   addr_expr        type: @4873    op 0: @2570   
 @9236   nop_expr         type: @1470    op 0: @9125   
-@9237   call_expr        type: @734     fn  : @9259    0   : @9083   
+@9237   call_expr        type: @734     fn  : @9259    0   : @9081   
                          1   : @9104    2   : @9125    3   : @9143   
                          4   : @9260   
 @9238   pointer_type     size: @22      algn: 64       ptd : @8006   
 @9239   addr_expr        type: @4873    op 0: @2570   
-@9240   nop_expr         type: @1470    op 0: @9061   
+@9240   nop_expr         type: @1470    op 0: @9057   
 @9241   addr_expr        type: @4873    op 0: @2570   
-@9242   nop_expr         type: @1470    op 0: @9061   
+@9242   nop_expr         type: @1470    op 0: @9057   
 @9243   identifier_node  strg: __builtin_scanf         lngt: 15      
 @9244   identifier_node  strg: *__isoc99_scanf         lngt: 15      
 @9245   function_type    size: @12      algn: 8        retn: @3      
-                         prms: @9021   
+                         prms: @9014   
 @9246   function_decl    name: @9261    mngl: @9244    type: @9262   
                          scpe: @176     srcp: stdio.h:410    
                          chain: @9263    body: undefined 
@@ -16455,7 +16459,7 @@
                          1   : @255    
 @9261   identifier_node  strg: scanf    lngt: 5       
 @9262   function_type    size: @12      algn: 8        retn: @3      
-                         prms: @9021   
+                         prms: @9014   
 @9263   function_decl    name: @9279    mngl: @9280    type: @9281   
                          scpe: @176     srcp: <built-in>:0      
                          chain: @9282    body: undefined 

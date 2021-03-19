@@ -173,7 +173,7 @@ child (void * data)
 
 boo (int * b)
 {
-  int D.4404;
+  int D.4406;
   int _5;
 
   <bb 2> [100.00%]:
@@ -230,26 +230,22 @@ test22 (int * k)
 main ()
 {
   pthread_t t;
+  int * q;
   char buff[50];
-  int * p2;
-  int * p;
   long unsigned int t.2_1;
-  int _13;
+  int _9;
 
   <bb 2> [0.00%]:
-  p_4 = foo2 (2);
-  *p_4 = 2;
-  p2_7 = foo2 (2);
-  test22 (p_4);
+  q_4 = malloc (5);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;
   pthread_join (t.2_1, 0B);
   pthread_mutex_destroy (&mLock);
-  _13 = 0;
+  _9 = 0;
   buff ={v} {CLOBBER};
   t ={v} {CLOBBER};
-  return _13;
+  return _9;
 
 }
 

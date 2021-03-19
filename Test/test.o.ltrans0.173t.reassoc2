@@ -1,25 +1,5 @@
 
-;; Function test22 (test22, funcdef_no=2, decl_uid=3987, cgraph_uid=2, symbol_order=61) (executed once)
-
-;; 1 loops found
-;;
-;; Loop 0
-;;  header 0, latch 1
-;;  depth 0, outer -1
-;;  nodes: 0 1 2
-;; 2 succs { 1 }
-__attribute__((noinline))
-test22 (int * k)
-{
-  <bb 2> [100.00%]:
-  free (k_2(D));
-  return;
-
-}
-
-
-
-;; Function foo (foo, funcdef_no=1, decl_uid=3988, cgraph_uid=3, symbol_order=56) (executed once)
+;; Function foo (foo, funcdef_no=0, decl_uid=3987, cgraph_uid=2, symbol_order=56) (executed once)
 
 ;; 1 loops found
 ;;
@@ -41,7 +21,7 @@ foo (int z)
 
 
 
-;; Function child (child, funcdef_no=3, decl_uid=3986, cgraph_uid=1, symbol_order=57) (executed once)
+;; Function child (child, funcdef_no=1, decl_uid=3986, cgraph_uid=1, symbol_order=57) (executed once)
 
 ;; 1 loops found
 ;;
@@ -82,55 +62,7 @@ child (void * data)
 
 
 
-;; Function foo2 (foo2, funcdef_no=0, decl_uid=3989, cgraph_uid=4, symbol_order=54) (executed once)
-
-;; 1 loops found
-;;
-;; Loop 0
-;;  header 0, latch 1
-;;  depth 0, outer -1
-;;  nodes: 0 1 2 3 4 5
-;; 2 succs { 3 4 }
-;; 3 succs { 5 }
-;; 4 succs { 5 }
-;; 5 succs { 1 }
-__attribute__((noinline))
-foo2 (int z)
-{
-  int tmp;
-  int * p4;
-  int * p3;
-  int * a2;
-  long unsigned int _1;
-  int * _4;
-
-  <bb 2> [100.00%]:
-  _1 = (long unsigned int) z_6(D);
-  a2_9 = malloc (_1);
-  p3_11 = malloc (_1);
-  p4_13 = malloc (_1);
-  if (tmp_14(D) > 10)
-    goto <bb 3>; [29.56%]
-  else
-    goto <bb 4>; [70.44%]
-
-  <bb 3> [29.56%]:
-  pthread_mutex_unlock (&mLock);
-  *p3_11 = 10;
-  goto <bb 5>; [100.00%]
-
-  <bb 4> [70.44%]:
-  *p4_13 = 10;
-
-  <bb 5> [100.00%]:
-  # _4 = PHI <p3_11(3), p4_13(4)>
-  return _4;
-
-}
-
-
-
-;; Function main (main, funcdef_no=4, decl_uid=3985, cgraph_uid=0, symbol_order=62) (executed once)
+;; Function main (main, funcdef_no=2, decl_uid=3985, cgraph_uid=0, symbol_order=62) (executed once)
 
 ;; 1 loops found
 ;;
@@ -142,16 +74,12 @@ foo2 (int z)
 main ()
 {
   pthread_t t;
+  int * q;
   char buff[50];
-  int * p2;
-  int * p;
   long unsigned int _1;
 
   <bb 2> [100.00%]:
-  p_4 = foo2 (2);
-  *p_4 = 2;
-  p2_7 = foo2 (2);
-  test22 (p_4);
+  q_4 = malloc (5);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   _1 = t;

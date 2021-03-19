@@ -430,14 +430,14 @@ test22 (int * k)
 Analyzing function body size: main
 
 Inline summary for main/62 inlinable
-  self time:       87
+  self time:       63
   global time:     0
-  self size:       25
+  self size:       19
   global size:     0
   min size:       0
   self stack:      58
   global stack:    58
-    size:2.000000, time:2.000000, predicate:(true)
+    size:1.000000, time:1.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
     pthread_mutex_destroy/69 function body not available
@@ -455,28 +455,19 @@ Inline summary for main/62 inlinable
     pthread_mutex_destroy/69 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
        op0 is compile time invariant
-    test22/61 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 2 stack: 0
-    foo2/54 function not considered for inlining
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 9 stack: 0
-       op0 is compile time invariant
-    foo2/54 function not considered for inlining
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 9 stack: 0
+    malloc/63 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
        op0 is compile time invariant
 
 main ()
 {
   pthread_t t;
+  int * q;
   char buff[50];
-  int * p2;
-  int * p;
   long unsigned int t.2_1;
 
   <bb 2> [100.00%]:
-  p_4 = foo2 (2);
-  *p_4 = 2;
-  p2_7 = foo2 (2);
-  test22 (p_4);
+  q_4 = malloc (5);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;

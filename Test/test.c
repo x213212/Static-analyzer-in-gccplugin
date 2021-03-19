@@ -157,17 +157,17 @@ int main()
   int *p2;
   // test= malloc (sizeof (int ) * 10);
   // foo3(p);
-  p=foo2(2);
-   p[0]=2;
-  p2=foo2(2);
-  test22(p);
-  test22(p);
-  test33(p2);
-  free(p);
-  free(p2);
+  // p=foo2(2);
+  //  p[0]=2;
+  // p2=foo2(2);
+  // test22(p);
+  // test22(p);
+  // test33(p2);
+  // free(p);
+  // free(p2);
   char buff[50];
-  // int *q=malloc(5);
-  // int n;
+  int *q=malloc(5);
+  int n;
   pthread_t t; // 宣告 pthread 變數
   pthread_mutex_destroy(&mLock);
   pthread_create(&t, NULL, child, buff); // 建立子執行緒

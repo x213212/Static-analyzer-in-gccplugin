@@ -240,7 +240,7 @@ Predictions for bb 2
 1 edges in bb 2 predicted to even probabilities
 boo (int * b)
 {
-  int D.4404;
+  int D.4406;
   int _5;
 
   <bb 2> [100.00%]:
@@ -332,16 +332,12 @@ Predictions for bb 2
 main ()
 {
   pthread_t t;
+  int * q;
   char buff[50];
-  int * p2;
-  int * p;
   long unsigned int t.2_1;
 
   <bb 2> [100.00%]:
-  p_4 = foo2 (2);
-  *p_4 = 2;
-  p2_7 = foo2 (2);
-  test22 (p_4);
+  q_4 = malloc (5);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;

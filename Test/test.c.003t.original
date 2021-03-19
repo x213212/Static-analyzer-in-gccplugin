@@ -854,15 +854,15 @@
   int * p;
   int * p2;
   char buff[50];
+  int * q = (int *) malloc (5);
+  int n;
   pthread_t t;
 
     int * p;
     int * p2;
-  p = foo2 (2);
-  *p = 2;
-  p2 = foo2 (2);
-  test22 (p);
     char buff[50];
+    int * q = (int *) malloc (5);
+    int n;
     pthread_t t;
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, (void * restrict) &buff);

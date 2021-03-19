@@ -1709,7 +1709,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			
 			struct return_type ret_type;
 			ret_type.stmt = gc;
-			// ret_type.return_tree = get_function_return_tree;
+			ret_type.return_tree = get_function_return_tree;
 			
 			fun_array.return_type_array.push_back(ret_type);
 			function_return_collect->put(node->get_fun()->decl, fun_array);
@@ -2146,10 +2146,13 @@ void checkPointerConstraint(tree function_tree,ptb *ptable, gimple_array *user_t
 		int find_freestmt=0;
 		// fprintf(stderr, "\n ------------------------------------------\n");
 		// debug_tree(table_temp->target);
+				// debug_tree(function_tree);
+				debug_tree(table_temp->node->get_fun()->decl);
+				//  fprintf(stderr, "%d\n",int(table_temp->node->get_fun()->decl==function_tree));
 		if(table_temp->node->get_fun()->decl==function_tree )	
 		if (table_temp->target != NULL)
 		{
-			debug_tree(table_temp->target);
+			// debug_tree(function_tree);
 			user_tmp = treeGimpleArray->get(table_temp->target);
 			start.stmt = NULL;
 			used_stmt = &start;

@@ -263,7 +263,7 @@ Function is locally looping.
 Function can locally free.
 boo (int * b)
 {
-  int D.4404;
+  int D.4406;
   int _5;
 
   <bb 2> [100.00%]:
@@ -339,11 +339,7 @@ test22 (int * k)
 
 
  local analysis of main
-   scanning: p_4 = foo2 (2);
-  scanning: *p_4 = 2;
-    Indirect ref write is not const/pure
-  scanning: p2_7 = foo2 (2);
-  scanning: test22 (p_4);
+   scanning: q_4 = malloc (5);
   scanning: pthread_mutex_destroy (&mLock);
   scanning: pthread_create (&t, 0B, child, &buff);
   scanning: t.2_1 = t;
@@ -356,16 +352,12 @@ Function is locally looping.
 main ()
 {
   pthread_t t;
+  int * q;
   char buff[50];
-  int * p2;
-  int * p;
   long unsigned int t.2_1;
 
   <bb 2> [100.00%]:
-  p_4 = foo2 (2);
-  *p_4 = 2;
-  p2_7 = foo2 (2);
-  test22 (p_4);
+  q_4 = malloc (5);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;
