@@ -860,6 +860,8 @@
 
     int * p;
     int * p2;
+  p = foo2 (2);
+  *p = 2;
     char buff[50];
     int * q = (int *) malloc (5);
   *q = 10;

@@ -339,10 +339,13 @@ test22 (int * k)
 
 
  local analysis of main
-   scanning: q_4 = malloc (5);
-  scanning: *q_4 = 10;
+   scanning: p_4 = foo2 (2);
+  scanning: *p_4 = 2;
     Indirect ref write is not const/pure
-  scanning: test22 (q_4);
+  scanning: q_7 = malloc (5);
+  scanning: *q_7 = 10;
+    Indirect ref write is not const/pure
+  scanning: test22 (q_7);
   scanning: pthread_mutex_destroy (&mLock);
   scanning: pthread_create (&t, 0B, child, &buff);
   scanning: t.2_1 = t;
@@ -357,12 +360,15 @@ main ()
   pthread_t t;
   int * q;
   char buff[50];
+  int * p;
   long unsigned int t.2_1;
 
   <bb 2> [100.00%]:
-  q_4 = malloc (5);
-  *q_4 = 10;
-  test22 (q_4);
+  p_4 = foo2 (2);
+  *p_4 = 2;
+  q_7 = malloc (5);
+  *q_7 = 10;
+  test22 (q_7);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;

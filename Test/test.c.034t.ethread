@@ -303,12 +303,15 @@ main ()
   pthread_t t;
   int * q;
   char buff[50];
+  int * p;
   long unsigned int t.2_1;
 
   <bb 2> [0.00%]:
-  q_4 = malloc (5);
-  *q_4 = 10;
-  test22 (q_4);
+  p_4 = foo2 (2);
+  *p_4 = 2;
+  q_7 = malloc (5);
+  *q_7 = 10;
+  test22 (q_7);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;

@@ -1500,31 +1500,12 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 				debug_tree(target);
 				debug_tree(gimple_call_fn(use_stmt));
 				fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
-				if (!strcmp(get_tree_code_name(TREE_CODE(gimple_call_fn(use_stmt))), "addr_expr"))
-				{
-					// fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
-					tree fundecl = TREE_OPERAND(gimple_call_fn(use_stmt), 0);
-					debug(use_stmt);
-
-					debug_tree(fundecl);
-					debug_tree(gimple_call_arg(use_stmt, 0));
-					gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(use_stmt, 0));
-					debug(def_stmt);
-					tree base = get_base_address(TREE_OPERAND(gimple_call_fn(use_stmt), 0));
-					fprintf(stderr, "-----------------GIMPLE_CALL : FIN3333D------------------\n");
-					debug(gimple_call_arg(use_stmt, 0));
-					// set_gimple_array(used_stmt, use_stmt, gimple_call_fn(use_stmt), gimple_call_fn(use_stmt), NULL);
-					// if (TREE_CODE(gimple_call_arg(use_stmt, 0)) == SSA_NAME)
-					// 	new_search_imm_use(used_stmt,gimple_call_arg(use_stmt, 0), gimple_call_arg(use_stmt, 0));
-					// debug_tree(base);
-				}
-				else
-				{
+				
 					fprintf(stderr, "-------always in therealways in therealways in there--------------------------\n");
 					set_gimple_array(used_stmt, use_stmt, gimple_call_fn(use_stmt), target, NULL);
 					if (TREE_CODE(gimple_call_fn(use_stmt)) == SSA_NAME)
 						new_search_imm_use(used_stmt, gimple_call_fn(use_stmt), gimple_call_fn(use_stmt));
-				}
+				
 			}else{
 									fprintf(stderr, "-------always in therealways in therealways in there--------------------------\n");
 					set_gimple_array(used_stmt, use_stmt, gimple_call_fn(use_stmt), target, NULL);
@@ -1714,7 +1695,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			
 			struct return_type ret_type;
 			ret_type.stmt = gc;
-			ret_type.return_tree = get_function_return_tree;
+			ret_type.return_tree = getreturnFucntionDecl;
 			
 			fun_array.return_type_array.push_back(ret_type);
 			function_return_collect->put(node->get_fun()->decl, fun_array);
@@ -2136,7 +2117,7 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 	}
 }
 
-void checkPointerConstraint(tree function_tree,ptb *ptable, gimple_array *user_tmp)
+void checkPointerConstraint(tree function_tree,ptb *ptable, gimple_array *user_tmp,tree checkTeee)
 {
 	gimple *u_stmt;
 	gimple_array start;
@@ -2149,6 +2130,7 @@ void checkPointerConstraint(tree function_tree,ptb *ptable, gimple_array *user_t
 	FOR_EACH_TABLE(table_temp, t)
 	{
 		int find_freestmt=0;
+		int find_mallocstmt=0;
 		// fprintf(stderr, "\n ------------------------------------------\n");
 		// debug_tree(table_temp->target);
 				// debug_tree(function_tree);
@@ -2158,13 +2140,14 @@ void checkPointerConstraint(tree function_tree,ptb *ptable, gimple_array *user_t
 		if (table_temp->target != NULL)
 		{
 			// debug_tree(function_tree);
-			debug_tree(table_temp->node->get_fun()->decl);
+			
 			user_tmp = treeGimpleArray->get(table_temp->target);
 			start.stmt = NULL;
 			used_stmt = &start;
 			if (user_tmp != NULL)
 			{
-				fprintf(stderr, " \n Pointer to set  is size %d :[ \n", user_tmp->size);
+			
+				fprintf(stderr, " \n start check Pointer Collect size %d :[ \n", user_tmp->size);
 				if (user_tmp->size > 0)
 					FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 					{
@@ -2176,10 +2159,59 @@ void checkPointerConstraint(tree function_tree,ptb *ptable, gimple_array *user_t
 							}
 							else
 							{
+								
 								debug(u_stmt);
+								gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
+								 if (checkTeee != NULL&& gimple_code(def_stmt) == GIMPLE_CALL){
+									 find_mallocstmt=1;
+								tree gettreefucntionarg = TREE_OPERAND(gimple_call_fn(def_stmt), 0);
+									// debug_tree(gettreefucntionarg);
+									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+									// debug_tree(checkTeee);
+										const char *name;
+									name = get_name(gimple_call_fn(def_stmt));
+							
+									if (
+						!strcmp(name, "malloc") ||
+						!strcmp(name, "xmalloc") ||
+						!strcmp(name, "calloc") ||
+						!strcmp(name, "xcalloc") ||
+						!strcmp(name, "strdup")){
+								 find_mallocstmt=0;
+						}
+								
+									else if(checkTeee == gettreefucntionarg){
+										fprintf(stderr, "i am a callee  \n");
+										fprintf(stderr, "and this stmt possible is heap-object \n");
+									
+										if(gimple_code(u_stmt) == GIMPLE_CALL){
+									name = get_name(gimple_call_fn(u_stmt));
+									if (!strcmp(name, "free") || !strcmp(name, "xfree")){
+									find_freestmt++;
+									fprintf(stderr, "HAS FREE STMT count:%d name:%s \n",find_freestmt,name);
+									}else{
+										fprintf(stderr, "trace fucntion name:%s \n",name);
+									}
+									}
 
-								if (gimple_code(u_stmt) == GIMPLE_CALL)
+
+									}
+										
+								 }
+								else if ( checkTeee == NULL&& gimple_code(u_stmt) == GIMPLE_CALL)
 								{
+									find_mallocstmt=1;
+								// gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
+							
+									gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
+										debug(def_stmt);
 									const char *name;
 									name = get_name(gimple_call_fn(u_stmt));
 									if (!strcmp(name, "free") || !strcmp(name, "xfree")){
@@ -2196,11 +2228,16 @@ void checkPointerConstraint(tree function_tree,ptb *ptable, gimple_array *user_t
 					}
 				// fprintf(stderr, "] \n");
 			}
+			if(find_mallocstmt ==1){
 		if(find_freestmt==0)
 		fprintf(stderr, "NO FREE STMT POSSIBLE MEMORY LEAK\n");	
 		else if(find_freestmt==2)
-		fprintf(stderr, "POSSIBLE DOUBLE FREE\n");	
-		}	
+		fprintf(stderr, "POSSIBLE DOUBLE FREE\n");	}
+else{
+		fprintf(stderr, "====================\n");	}
+
+
+		}
 	
 	}
 	
@@ -2715,7 +2752,7 @@ void print_function_path(tree function_tree, int fucntion_level,ptb *ptable,gimp
 	fucntion_level += 1;
 	fprintf(stderr, "[\n");
 	
-	checkPointerConstraint(function_tree,ptable,user_tmp);
+	checkPointerConstraint(function_tree,ptable,user_tmp,NULL);
 
 	fprintf(stderr, "=======print_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(),fucntion_level);
 	// pathStack.push(function_tree);
@@ -2739,10 +2776,36 @@ void print_function_path(tree function_tree, int fucntion_level,ptb *ptable,gimp
 
 		if (find == 0)
 		{
-			fprintf(stderr, "=======add node_fun stack:%s=========\n", get_name((function_path_array)[i].next));
-			// debug_tree((function_path_array)[i].next);
-			pathStack.push((function_path_array)[i].next);
+				fprintf(stderr, "=======add node_fun stack:%s=========\n", get_name((function_path_array)[i].next));
+				// debug_tree((function_path_array)[i].next);
+				pathStack.push((function_path_array)[i].next);
+				// int find_type=0;
+				if (function_return_collect->get((function_path_array)[i].next) != NULL){
+			
+				function_return_array calleeFunArray = *(function_return_collect->get((function_path_array)[i].next));
+				// vector<return_type> calleeRetTypearray = callerFunArray.return_type_array;
+				fprintf(stderr, "=======print_function_type %d  ========\n", 	calleeFunArray.return_type_num);
+				if(calleeFunArray.return_type_num==2){
+
+					checkPointerConstraint(function_tree,ptable,user_tmp,(function_path_array)[i].next);
+				}
+				// for (int i = 0; i < callerRetTypearray.size(); i++)
+				// {
+
+				// 	if((callerRetTypearray)[i].return_tree ==(function_path_array)[i].next){
+				// 		debug_tree((callerRetTypearray)[i].return_tree);
+						
+				// 						fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+				// 	fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+				// 	fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+				// 	fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+				// 	fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+				// 	checkPointerConstraint(function_tree,ptable,user_tmp,(function_path_array)[i].next);
+				// 	}
+				// }	
+			}
 			print_function_path((function_path_array)[i].next,fucntion_level,ptable,user_tmp);
+
 			pathStack.pop();
 		}
 

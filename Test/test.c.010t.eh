@@ -199,6 +199,8 @@ main ()
   int * p;
   int D.4381;
 
+  p = foo2 (2);
+  *p = 2;
   q = malloc (5);
   *q = 10;
   test22 (q);

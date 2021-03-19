@@ -213,6 +213,8 @@ main ()
 
   try
     {
+      p = foo2 (2);
+      *p = 2;
       q = malloc (5);
       *q = 10;
       test22 (q);

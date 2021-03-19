@@ -825,10 +825,14 @@ NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
 ESCAPED = &NONLOCAL
-q_4 = &HEAP(10)
-derefaddrtmp(11) = &NONLOCAL
-*q_4 = derefaddrtmp(11)
-ESCAPED = q_4
+p_4 = NONLOCAL
+derefaddrtmp(10) = &NONLOCAL
+*p_4 = derefaddrtmp(10)
+ESCAPED = &NONLOCAL
+q_7 = &HEAP(13)
+derefaddrtmp(14) = &NONLOCAL
+*q_7 = derefaddrtmp(14)
+ESCAPED = q_7
 mLock = NONLOCAL
 ESCAPED = &mLock
 ESCAPED = &t
@@ -852,14 +856,17 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { NULL ESCAPED NONLOCAL HEAP(10) mLock t child buff }
-NONLOCAL = { ESCAPED NONLOCAL }
+ESCAPED = { NULL ESCAPED NONLOCAL HEAP(13) mLock t child buff }
+NONLOCAL = { ESCAPED NONLOCAL } same as p_4
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
+foo2 = { }
+p_4 = { ESCAPED NONLOCAL }
+derefaddrtmp(10) = { NONLOCAL }
 malloc = { }
-q_4 = { HEAP(10) }
-HEAP(10) = { ESCAPED NONLOCAL }
-derefaddrtmp(11) = { NONLOCAL }
+q_7 = { HEAP(13) }
+HEAP(13) = { ESCAPED NONLOCAL }
+derefaddrtmp(14) = { NONLOCAL } same as derefaddrtmp(10)
 test22 = { }
 pthread_mutex_destroy = { }
 mLock = { ESCAPED NONLOCAL }
@@ -884,19 +891,23 @@ ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4304 D.4365 D.
 
 Flow-insensitive points-to information
 
-q_4, points-to NULL, points-to vars: { D.4407 } (escaped, escaped heap)
+p_4, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+q_7, points-to NULL, points-to vars: { D.4407 } (escaped, escaped heap)
 
 main ()
 {
   pthread_t t;
   int * q;
   char buff[50];
+  int * p;
   long unsigned int t.2_1;
 
   <bb 2> [0.00%]:
-  q_4 = malloc (5);
-  *q_4 = 10;
-  test22 (q_4);
+  p_4 = foo2 (2);
+  *p_4 = 2;
+  q_7 = malloc (5);
+  *q_7 = 10;
+  test22 (q_7);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;
