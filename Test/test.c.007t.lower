@@ -214,6 +214,8 @@ main ()
   try
     {
       q = malloc (5);
+      *q = 10;
+      test22 (q);
       pthread_mutex_destroy (&mLock);
       pthread_create (&t, 0B, child, &buff);
       t.2_1 = t;

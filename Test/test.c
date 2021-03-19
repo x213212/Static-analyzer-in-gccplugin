@@ -167,6 +167,8 @@ int main()
   // free(p2);
   char buff[50];
   int *q=malloc(5);
+  q[0]=10;
+  test22(q);
   int n;
   pthread_t t; // 宣告 pthread 變數
   pthread_mutex_destroy(&mLock);

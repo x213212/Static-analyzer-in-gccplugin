@@ -862,6 +862,8 @@
     int * p2;
     char buff[50];
     int * q = (int *) malloc (5);
+  *q = 10;
+  test22 (q);
     int n;
     pthread_t t;
   pthread_mutex_destroy (&mLock);

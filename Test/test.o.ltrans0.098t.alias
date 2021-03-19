@@ -1,5 +1,5 @@
 
-;; Function foo (foo, funcdef_no=0, decl_uid=3987, cgraph_uid=2, symbol_order=56) (executed once)
+;; Function foo (foo, funcdef_no=0, decl_uid=3988, cgraph_uid=3, symbol_order=56) (executed once)
 
 
 Not re-computing points-to information because IPA points-to information is available.
@@ -17,8 +17,8 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-p2_3, points-to NULL, points-to vars: { D.4038 } (nonlocal)
-_4, points-to NULL, points-to vars: { D.4038 } (nonlocal)
+p2_3, points-to NULL, points-to vars: { D.4042 } (nonlocal)
+_4, points-to NULL, points-to vars: { D.4042 } (nonlocal)
 
 __attribute__((noinline))
 foo (int z)
@@ -35,7 +35,38 @@ foo (int z)
 
 
 
-;; Function child (child, funcdef_no=1, decl_uid=3986, cgraph_uid=1, symbol_order=57) (executed once)
+;; Function test22 (test22, funcdef_no=1, decl_uid=3987, cgraph_uid=2, symbol_order=61) (executed once)
+
+
+Not re-computing points-to information because IPA points-to information is available.
+
+
+
+Alias information for test22
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to anything, points-to NULL
+
+Flow-insensitive points-to information
+
+k_2(D), points-to NULL, points-to vars: { D.4045 } (nonlocal)
+
+__attribute__((noinline))
+test22 (int * k)
+{
+  <bb 2> [100.00%]:
+  free (k_2(D));
+  return;
+
+}
+
+
+
+;; Function child (child, funcdef_no=2, decl_uid=3986, cgraph_uid=1, symbol_order=57) (executed once)
 
 
 Not re-computing points-to information because IPA points-to information is available.
@@ -46,8 +77,8 @@ Alias information for child
 
 Aliased symbols
 
-data2, UID D.4027, int, is addressable
-pData, UID D.4029, int *, is addressable
+data2, UID D.4031, int, is addressable
+pData, UID D.4033, int *, is addressable
 
 Call clobber information
 
@@ -55,14 +86,14 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4040 } (nonlocal, escaped, escaped heap)
-_2, points-to NULL, points-to vars: { D.4027 D.4040 } (nonlocal, escaped, escaped heap)
-_3, points-to NULL, points-to vars: { D.4027 D.4040 } (nonlocal, escaped, escaped heap)
-_4, points-to NULL, points-to vars: { D.4027 D.4040 } (nonlocal, escaped, escaped heap)
-_5, points-to NULL, points-to vars: { D.4027 D.4040 } (nonlocal, escaped, escaped heap)
-_6, points-to NULL, points-to vars: { D.4027 D.4040 } (nonlocal, escaped, escaped heap)
-ppData_10, points-to NULL, points-to vars: { D.4039 } (nonlocal)
-a_14, points-to NULL, points-to vars: { D.4038 } (nonlocal)
+_1, points-to NULL, points-to vars: { D.4044 } (nonlocal, escaped, escaped heap)
+_2, points-to NULL, points-to vars: { D.4031 D.4044 } (nonlocal, escaped, escaped heap)
+_3, points-to NULL, points-to vars: { D.4031 D.4044 } (nonlocal, escaped, escaped heap)
+_4, points-to NULL, points-to vars: { D.4031 D.4044 } (nonlocal, escaped, escaped heap)
+_5, points-to NULL, points-to vars: { D.4031 D.4044 } (nonlocal, escaped, escaped heap)
+_6, points-to NULL, points-to vars: { D.4031 D.4044 } (nonlocal, escaped, escaped heap)
+ppData_10, points-to NULL, points-to vars: { D.4043 } (nonlocal)
+a_14, points-to NULL, points-to vars: { D.4042 } (nonlocal)
 
 child (void * data)
 {
@@ -102,7 +133,7 @@ child (void * data)
 
 
 
-;; Function main (main, funcdef_no=2, decl_uid=3985, cgraph_uid=0, symbol_order=62) (executed once)
+;; Function main (main, funcdef_no=3, decl_uid=3985, cgraph_uid=0, symbol_order=62) (executed once)
 
 
 Not re-computing points-to information because IPA points-to information is available.
@@ -113,8 +144,8 @@ Alias information for main
 
 Aliased symbols
 
-t, UID D.4033, pthread_t, is addressable
-buff, UID D.4035, char[50], is addressable
+t, UID D.4037, pthread_t, is addressable
+buff, UID D.4039, char[50], is addressable
 
 Call clobber information
 
@@ -122,7 +153,7 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-q_4, points-to NULL, points-to vars: { D.4041 } (nonlocal)
+q_4, points-to NULL, points-to vars: { D.4045 } (nonlocal)
 
 main ()
 {
@@ -133,6 +164,8 @@ main ()
 
   <bb 2> [100.00%]:
   q_4 = malloc (5);
+  *q_4 = 10;
+  test22 (q_4);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   _1 = t;

@@ -307,6 +307,8 @@ main ()
 
   <bb 2> [0.00%]:
   q_4 = malloc (5);
+  *q_4 = 10;
+  test22 (q_4);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;

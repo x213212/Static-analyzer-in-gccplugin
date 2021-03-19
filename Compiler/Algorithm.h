@@ -1513,7 +1513,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 					tree base = get_base_address(TREE_OPERAND(gimple_call_fn(use_stmt), 0));
 					fprintf(stderr, "-----------------GIMPLE_CALL : FIN3333D------------------\n");
 					debug(gimple_call_arg(use_stmt, 0));
-					set_gimple_array(used_stmt, use_stmt, gimple_call_fn(use_stmt), gimple_call_fn(use_stmt), NULL);
+					// set_gimple_array(used_stmt, use_stmt, gimple_call_fn(use_stmt), gimple_call_fn(use_stmt), NULL);
 					// if (TREE_CODE(gimple_call_arg(use_stmt, 0)) == SSA_NAME)
 					// 	new_search_imm_use(used_stmt,gimple_call_arg(use_stmt, 0), gimple_call_arg(use_stmt, 0));
 					// debug_tree(base);
@@ -1525,6 +1525,11 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 					if (TREE_CODE(gimple_call_fn(use_stmt)) == SSA_NAME)
 						new_search_imm_use(used_stmt, gimple_call_fn(use_stmt), gimple_call_fn(use_stmt));
 				}
+			}else{
+									fprintf(stderr, "-------always in therealways in therealways in there--------------------------\n");
+					set_gimple_array(used_stmt, use_stmt, gimple_call_fn(use_stmt), target, NULL);
+					if (TREE_CODE(gimple_call_fn(use_stmt)) == SSA_NAME)
+						new_search_imm_use(used_stmt, gimple_call_fn(use_stmt), gimple_call_fn(use_stmt));
 			}
 		}
 		else
@@ -2147,12 +2152,13 @@ void checkPointerConstraint(tree function_tree,ptb *ptable, gimple_array *user_t
 		// fprintf(stderr, "\n ------------------------------------------\n");
 		// debug_tree(table_temp->target);
 				// debug_tree(function_tree);
-				debug_tree(table_temp->node->get_fun()->decl);
+				// debug_tree(table_temp->node->get_fun()->decl);
 				//  fprintf(stderr, "%d\n",int(table_temp->node->get_fun()->decl==function_tree));
 		if(table_temp->node->get_fun()->decl==function_tree )	
 		if (table_temp->target != NULL)
 		{
 			// debug_tree(function_tree);
+			debug_tree(table_temp->node->get_fun()->decl);
 			user_tmp = treeGimpleArray->get(table_temp->target);
 			start.stmt = NULL;
 			used_stmt = &start;

@@ -254,19 +254,21 @@ main ()
   int * q;
   char buff[50];
   long unsigned int t.2_1;
-  int _9;
+  int _11;
 
   <bb 2> [0.00%]:
   q_4 = malloc (5);
+  *q_4 = 10;
+  test22 (q_4);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;
   pthread_join (t.2_1, 0B);
   pthread_mutex_destroy (&mLock);
-  _9 = 0;
+  _11 = 0;
   buff ={v} {CLOBBER};
   t ={v} {CLOBBER};
-  return _9;
+  return _11;
 
 }
 

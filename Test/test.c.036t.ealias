@@ -826,6 +826,9 @@ NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
 ESCAPED = &NONLOCAL
 q_4 = &HEAP(10)
+derefaddrtmp(11) = &NONLOCAL
+*q_4 = derefaddrtmp(11)
+ESCAPED = q_4
 mLock = NONLOCAL
 ESCAPED = &mLock
 ESCAPED = &t
@@ -849,13 +852,15 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { NULL ESCAPED NONLOCAL mLock t child buff }
+ESCAPED = { NULL ESCAPED NONLOCAL HEAP(10) mLock t child buff }
 NONLOCAL = { ESCAPED NONLOCAL }
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
 malloc = { }
 q_4 = { HEAP(10) }
-HEAP(10) = { }
+HEAP(10) = { ESCAPED NONLOCAL }
+derefaddrtmp(11) = { NONLOCAL }
+test22 = { }
 pthread_mutex_destroy = { }
 mLock = { ESCAPED NONLOCAL }
 pthread_create = { }
@@ -875,11 +880,11 @@ buff, UID D.4365, char[50], is addressable
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4304 D.4365 D.4368 } (nonlocal, escaped, interposable)
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4304 D.4365 D.4368 D.4407 } (nonlocal, escaped, escaped heap, interposable)
 
 Flow-insensitive points-to information
 
-q_4, points-to NULL, points-to vars: { D.4407 }
+q_4, points-to NULL, points-to vars: { D.4407 } (escaped, escaped heap)
 
 main ()
 {
@@ -890,6 +895,8 @@ main ()
 
   <bb 2> [0.00%]:
   q_4 = malloc (5);
+  *q_4 = 10;
+  test22 (q_4);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;
