@@ -2568,40 +2568,27 @@ void print_function_path(tree function_tree, int fucntion_level)
 	function_path_array fun_array = *(function_path_collect->get(function_tree));
 
 	vector<function_path> function_path_array = fun_array.function_path_array;
-	//debug_tree(function_tree);
-	//vector<pair<fdecl,location_t>> loc;
+	
 	fprintf(stderr, "=======print_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(),fucntion_level);
 	fucntion_level += 1;
 	fprintf(stderr, "[\n");
 
-	// pathStack.push(function_tree);
+
 	for (int i = 0; i < function_path_array.size(); i++)
 	{
 
-		// for (int i = 0; i < (ret_type_array).size(); i++)
-		// {
-		//debug((function_path_array)[i].next);
+
 		int find = 0;
-		// print_function_path((function_path_array)[i].next);
+
 		for (int o = 0; o < pathStack.size(); o++)
 		{
-			// if (strcmp(get_name((function_path_array)[i].next), "main") ==0)
+			
 			fprintf(stderr, "=======now node_fun stack:%s=========\n", get_name(pathStack.c[o]));
 			if (pathStack.c[o] == (function_path_array)[i].next)
 			{
 				find = 1;
 				fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(pathStack.c[o]));
-				// pathStack.pop();
-				// break;
-				// continue;
-				// continue;
-			}
-			// else
-			// {
-			// 		// fprintf(stderr, "=======SSSAAA node_fun:%s=========\n", get_name((function_path_array)[i].next));
-			// 	fprintf(stderr, "=======ssss node_fun:%s=========\n", get_name(pathStack.c[o]));
-				
-			// }
+
 		}
 
 		if (find == 0)
@@ -2612,12 +2599,9 @@ void print_function_path(tree function_tree, int fucntion_level)
 			print_function_path((function_path_array)[i].next,fucntion_level);
 			pathStack.pop();
 		}
-		
-		// }
-		// fprintf(stderr, "]\n");
-		// print_function_path(&ret_type_array);
+
 	}
-	// pathStack.pop();
+
 	fprintf(stderr, "]\n");
 }
 
@@ -2627,72 +2611,23 @@ void dump_fucntion(cgraph_node *node)
 	cgraph_edge *e;
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
-		/*
-		add fucntion level
-		*/
+
 		int fucntion_level =0;
-		// push_cfun(node->get_fun());
-		// if (!ipa)
-		// 	init_table();
+
 		push_cfun(node->get_fun());
-		// if (strcmp(get_name(cfun->decl), "main") == 0)
+
 		fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
-		//debug_tree(cfun->decl);
-		//tree test=DECL_SAVED_TREE(cfun->decl);
-		//analyze_func_body(DECL_SAVED_TREE(test), 0);
+
 		if (cfun == NULL)
 			continue;
 		enum availability avail;
 		
 		fprintf(stderr, "fucntion collect path \n");
-		// function_path_array fun_array;
-		//tree get_function_return_tree = gimple_return_retval(as_a<greturn *>(gc));
-		// vector<function_path> function_path_array;
-
+	
 		pathStack.push(cfun->decl);
+
 		print_function_path(cfun->decl,fucntion_level);
-		// for (e = node->callees; e; e = e->next_callee)
-		// {
-		// 	//funct_state l;
-		// 	cgraph_node *caller = e->caller->global.inlined_to ? e->caller->global.inlined_to : e->caller;
-		// 	cgraph_node *callee = e->callee->ultimate_alias_target(&avail, caller);
-
-		// 	fprintf(stderr, "=======child node_fun:%s=========\n", get_name(callee->decl));
-		// 	if (callee != NULL)
-		// 	{
-
-		// 		// int find = 0;
-		// 		// // print_function_path((function_path_array)[i].next);
-		// 		// for (int o = 0; o < pathStack.size(); o++)
-		// 		// {
-		// 		// 	// if (strcmp(get_name((function_path_array)[i].next), "main") ==0)
-
-		// 		// 	if (pathStack.c[o] == callee->decl)
-		// 		// 	{
-		// 		// 		find = 1;
-		// 		// 		fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(pathStack.c[o]));
-		// 		// 		// pathStack.pop();
-		// 		// 		// break;
-		// 		// 		// continue;
-		// 		// 		break;
-		// 		// 	}
-		// 		// }
-
-		// 		// if (find = 0)
-		// 		// {
-		// 		// print_function_path((function_path_array)[i].next);
-		// 		// pathStack.push((function_path_array)[i].next);
-		// 		// fprintf(stderr, ",\n");
-		// 		// pathStack.pop();
-		// 		print_function_path(callee->decl);
-		// 		// }
-
-		// 		//pop_cfun();
-		// 		//		dump_fucntion(callee);
-		// 	}
-
-		// 	//analyze_function=	analyze_function (caller ,true);
-		// }
+	
 		pathStack.pop();
 		pop_cfun();
 	}
