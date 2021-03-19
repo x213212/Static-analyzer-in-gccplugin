@@ -158,6 +158,7 @@ int main()
   // test= malloc (sizeof (int ) * 10);
   // foo3(p);
   p=foo2(2);
+   p[0]=2;
   p2=foo2(2);
   test22(p);
   test22(p);
