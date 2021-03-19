@@ -191,6 +191,7 @@ test33 (int * k)
 __attribute__((noinline))
 test22 (int * k)
 {
+  test22 (k);
   free (k);
   return;
 }
@@ -214,6 +215,7 @@ main ()
     {
       p3 = foo (2);
       *p3 = 1;
+      free (p3);
       p = foo2 (2);
       *p = 2;
       p2 = foo2 (2);

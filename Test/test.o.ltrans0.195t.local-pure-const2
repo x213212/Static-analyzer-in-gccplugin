@@ -1,10 +1,12 @@
 
-;; Function test22 (test22, funcdef_no=2, decl_uid=3987, cgraph_uid=2, symbol_order=61) (executed once)
+;; Function test22 (test22, funcdef_no=2, decl_uid=3987, cgraph_uid=2, symbol_order=61)
 
 
 
  local analysis of test22
-   scanning: free (k_2(D));
+   scanning: test22 (k_2(D));
+    Recursive call can loop.
+  scanning: free (k_2(D));
   scanning: return;
 Function is locally looping.
 Function can locally free.
@@ -12,6 +14,7 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
+  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -164,18 +167,19 @@ child (void * data)
    scanning: p3_4 = foo (2);
   scanning: *p3_4 = 1;
     Indirect ref write is not const/pure
-  scanning: p_7 = foo2 (2);
-  scanning: *p_7 = 2;
+  scanning: free (p3_4);
+  scanning: p_8 = foo2 (2);
+  scanning: *p_8 = 2;
     Indirect ref write is not const/pure
-  scanning: p2_10 = foo2 (2);
-  scanning: *p2_10 = 4;
+  scanning: p2_11 = foo2 (2);
+  scanning: *p2_11 = 4;
     Indirect ref write is not const/pure
-  scanning: free (p_7);
-  scanning: free (p2_10);
-  scanning: q_15 = malloc (5);
-  scanning: *q_15 = 10;
+  scanning: free (p_8);
+  scanning: free (p2_11);
+  scanning: q_16 = malloc (5);
+  scanning: *q_16 = 10;
     Indirect ref write is not const/pure
-  scanning: test22 (q_15);
+  scanning: test22 (q_16);
   scanning: pthread_mutex_destroy (&mLock);
   scanning: pthread_create (&t, 0B, child, &buff);
   scanning: _1 = t;
@@ -197,15 +201,16 @@ main ()
   <bb 2> [100.00%]:
   p3_4 = foo (2);
   *p3_4 = 1;
-  p_7 = foo2 (2);
-  *p_7 = 2;
-  p2_10 = foo2 (2);
-  *p2_10 = 4;
-  free (p_7);
-  free (p2_10);
-  q_15 = malloc (5);
-  *q_15 = 10;
-  test22 (q_15);
+  free (p3_4);
+  p_8 = foo2 (2);
+  *p_8 = 2;
+  p2_11 = foo2 (2);
+  *p2_11 = 4;
+  free (p_8);
+  free (p2_11);
+  q_16 = malloc (5);
+  *q_16 = 10;
+  test22 (q_16);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   _1 = t;

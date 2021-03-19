@@ -401,9 +401,9 @@ test33 (int * k)
 Analyzing function body size: test22
 
 Inline summary for test22/61
-  self time:       13
+  self time:       24
   global time:     0
-  self size:       5
+  self size:       7
   global size:     0
   min size:       0
   self stack:      0
@@ -413,11 +413,14 @@ Inline summary for test22/61
   calls:
     free/65 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    test22/61 function not considered for inlining
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
 
 __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [0.00%]:
+  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -431,9 +434,9 @@ test22 (int * k)
 Analyzing function body size: main
 
 Inline summary for main/62 inlinable
-  self time:       136
+  self time:       147
   global time:     0
-  self size:       38
+  self size:       40
   global size:     0
   min size:       0
   self stack:      58
@@ -457,7 +460,7 @@ Inline summary for main/62 inlinable
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
        op0 is compile time invariant
     test22/61 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 2 stack: 0
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 3 stack: 0
     malloc/63 function body not available
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
        op0 is compile time invariant
@@ -471,6 +474,8 @@ Inline summary for main/62 inlinable
     foo2/54 function not considered for inlining
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 9 stack: 0
        op0 is compile time invariant
+    free/65 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
     foo/56 function not considered for inlining
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 3 stack: 0
        op0 is compile time invariant
@@ -484,29 +489,30 @@ main ()
   int * p2;
   int * p;
   long unsigned int t.2_1;
-  int _22;
+  int _23;
 
   <bb 2> [0.00%]:
   p3_4 = foo (2);
   *p3_4 = 1;
-  p_7 = foo2 (2);
-  *p_7 = 2;
-  p2_10 = foo2 (2);
-  *p2_10 = 4;
-  free (p_7);
-  free (p2_10);
-  q_15 = malloc (5);
-  *q_15 = 10;
-  test22 (q_15);
+  free (p3_4);
+  p_8 = foo2 (2);
+  *p_8 = 2;
+  p2_11 = foo2 (2);
+  *p2_11 = 4;
+  free (p_8);
+  free (p2_11);
+  q_16 = malloc (5);
+  *q_16 = 10;
+  test22 (q_16);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;
   pthread_join (t.2_1, 0B);
   pthread_mutex_destroy (&mLock);
-  _22 = 0;
+  _23 = 0;
   buff ={v} {CLOBBER};
   t ={v} {CLOBBER};
-  return _22;
+  return _23;
 
 }
 

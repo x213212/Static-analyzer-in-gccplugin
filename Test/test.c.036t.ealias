@@ -766,6 +766,7 @@ NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
 k = &NONLOCAL
+ESCAPED = k
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -778,11 +779,12 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { }
+ESCAPED = { ESCAPED NONLOCAL }
 NONLOCAL = { ESCAPED NONLOCAL }
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
 k = { NONLOCAL }
+test22 = { }
 
 
 Alias information for test22
@@ -792,7 +794,7 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to vars: { }
+ESCAPED, points-to non-local, points-to vars: { }
 
 Flow-insensitive points-to information
 
@@ -802,6 +804,7 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [0.00%]:
+  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -827,18 +830,18 @@ p3_4 = NONLOCAL
 derefaddrtmp(10) = &NONLOCAL
 *p3_4 = derefaddrtmp(10)
 ESCAPED = &NONLOCAL
-p_7 = NONLOCAL
+p_8 = NONLOCAL
 derefaddrtmp(13) = &NONLOCAL
-*p_7 = derefaddrtmp(13)
+*p_8 = derefaddrtmp(13)
 ESCAPED = &NONLOCAL
-p2_10 = NONLOCAL
+p2_11 = NONLOCAL
 derefaddrtmp(15) = &NONLOCAL
-*p2_10 = derefaddrtmp(15)
+*p2_11 = derefaddrtmp(15)
 ESCAPED = &NONLOCAL
-q_15 = &HEAP(18)
+q_16 = &HEAP(18)
 derefaddrtmp(19) = &NONLOCAL
-*q_15 = derefaddrtmp(19)
-ESCAPED = q_15
+*q_16 = derefaddrtmp(19)
+ESCAPED = q_16
 mLock = NONLOCAL
 ESCAPED = &mLock
 ESCAPED = &t
@@ -870,12 +873,12 @@ foo = { }
 p3_4 = { ESCAPED NONLOCAL }
 derefaddrtmp(10) = { NONLOCAL }
 foo2 = { }
-p_7 = { ESCAPED NONLOCAL } same as p3_4
+p_8 = { ESCAPED NONLOCAL } same as p3_4
 derefaddrtmp(13) = { NONLOCAL } same as derefaddrtmp(10)
-p2_10 = { ESCAPED NONLOCAL } same as p3_4
+p2_11 = { ESCAPED NONLOCAL } same as p3_4
 derefaddrtmp(15) = { NONLOCAL } same as derefaddrtmp(10)
 malloc = { }
-q_15 = { HEAP(18) }
+q_16 = { HEAP(18) }
 HEAP(18) = { ESCAPED NONLOCAL }
 derefaddrtmp(19) = { NONLOCAL } same as derefaddrtmp(10)
 test22 = { }
@@ -903,9 +906,9 @@ ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4304 D.4365 D.
 Flow-insensitive points-to information
 
 p3_4, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-p_7, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-p2_10, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-q_15, points-to NULL, points-to vars: { D.4406 } (escaped, escaped heap)
+p_8, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+p2_11, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+q_16, points-to NULL, points-to vars: { D.4406 } (escaped, escaped heap)
 
 main ()
 {
@@ -920,15 +923,16 @@ main ()
   <bb 2> [0.00%]:
   p3_4 = foo (2);
   *p3_4 = 1;
-  p_7 = foo2 (2);
-  *p_7 = 2;
-  p2_10 = foo2 (2);
-  *p2_10 = 4;
-  free (p_7);
-  free (p2_10);
-  q_15 = malloc (5);
-  *q_15 = 10;
-  test22 (q_15);
+  free (p3_4);
+  p_8 = foo2 (2);
+  *p_8 = 2;
+  p2_11 = foo2 (2);
+  *p2_11 = 4;
+  free (p_8);
+  free (p2_11);
+  q_16 = malloc (5);
+  *q_16 = 10;
+  test22 (q_16);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;

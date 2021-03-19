@@ -1,5 +1,5 @@
 
-;; Function test22 (test22, funcdef_no=2, decl_uid=3987, cgraph_uid=2, symbol_order=61) (executed once)
+;; Function test22 (test22, funcdef_no=2, decl_uid=3987, cgraph_uid=2, symbol_order=61)
 
 
 Not re-computing points-to information because IPA points-to information is available.
@@ -23,6 +23,7 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
+  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -221,9 +222,9 @@ ESCAPED, points-to anything, points-to NULL
 Flow-insensitive points-to information
 
 p3_4, points-to NULL, points-to vars: { D.4054 D.4055 } (nonlocal, escaped, escaped heap)
-p_7, points-to NULL, points-to vars: { D.4054 D.4055 } (nonlocal, escaped, escaped heap)
-p2_10, points-to NULL, points-to vars: { D.4054 D.4055 } (nonlocal, escaped, escaped heap)
-q_15, points-to NULL, points-to vars: { D.4058 } (nonlocal)
+p_8, points-to NULL, points-to vars: { D.4054 D.4055 } (nonlocal, escaped, escaped heap)
+p2_11, points-to NULL, points-to vars: { D.4054 D.4055 } (nonlocal, escaped, escaped heap)
+q_16, points-to NULL, points-to vars: { D.4058 } (nonlocal)
 
 main ()
 {
@@ -238,15 +239,16 @@ main ()
   <bb 2> [100.00%]:
   p3_4 = foo (2);
   *p3_4 = 1;
-  p_7 = foo2 (2);
-  *p_7 = 2;
-  p2_10 = foo2 (2);
-  *p2_10 = 4;
-  free (p_7);
-  free (p2_10);
-  q_15 = malloc (5);
-  *q_15 = 10;
-  test22 (q_15);
+  free (p3_4);
+  p_8 = foo2 (2);
+  *p_8 = 2;
+  p2_11 = foo2 (2);
+  *p2_11 = 4;
+  free (p_8);
+  free (p2_11);
+  q_16 = malloc (5);
+  *q_16 = 10;
+  test22 (q_16);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   _1 = t;

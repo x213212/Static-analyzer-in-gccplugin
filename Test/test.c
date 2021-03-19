@@ -151,7 +151,7 @@ void test33 (int *k){
   test44 (k);
 }
 void test22  (int *k) {
-  // test22(k);
+  test22(k);
   free (k);
 }
 int main()
@@ -163,6 +163,7 @@ int main()
   // foo3(p);
     p3=foo(2);
     p3[0]=1;
+    free(p3);
   p=foo2(2);
    p[0]=2;
   p2=foo2(2);

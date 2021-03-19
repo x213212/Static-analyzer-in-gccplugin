@@ -217,6 +217,7 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [0.00%]:
+  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -235,29 +236,30 @@ main ()
   int * p2;
   int * p;
   long unsigned int t.2_1;
-  int _22;
+  int _23;
 
   <bb 2> [0.00%]:
   p3_4 = foo (2);
   *p3_4 = 1;
-  p_7 = foo2 (2);
-  *p_7 = 2;
-  p2_10 = foo2 (2);
-  *p2_10 = 4;
-  free (p_7);
-  free (p2_10);
-  q_15 = malloc (5);
-  *q_15 = 10;
-  test22 (q_15);
+  free (p3_4);
+  p_8 = foo2 (2);
+  *p_8 = 2;
+  p2_11 = foo2 (2);
+  *p2_11 = 4;
+  free (p_8);
+  free (p2_11);
+  q_16 = malloc (5);
+  *q_16 = 10;
+  test22 (q_16);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;
   pthread_join (t.2_1, 0B);
   pthread_mutex_destroy (&mLock);
-  _22 = 0;
+  _23 = 0;
   buff ={v} {CLOBBER};
   t ={v} {CLOBBER};
-  return _22;
+  return _23;
 
 }
 

@@ -2189,7 +2189,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									find_mallocstmt = 0;
 								if (checkTeee != NULL && gimple_code(def_stmt) == GIMPLE_CALL)
 								{
-									find_mallocstmt = 1;
+
 									tree gettreefucntionarg = TREE_OPERAND(gimple_call_fn(def_stmt), 0);
 									// debug_tree(gettreefucntionarg);
 									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
@@ -2204,16 +2204,21 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 									name = get_name(gimple_call_fn(def_stmt));
 
-									if (find_mallocstmt == 0)
-										continue;
+									// if (find_mallocstmt == 0)
+									// 	continue;
 
-									else if (checkTeee == gettreefucntionarg)
+									if (checkTeee == gettreefucntionarg)
 									{
-										fprintf(stderr, "\n*================== warring ==================\n\n");
-										fprintf(stderr, "function return value related stmt \n");
+										find_mallocstmt = 1;
+
+										fprintf(stderr, "\n ================== warring ================== \n");
+										// sfprintf(stderr, "function return value related stmt \n");
 										debug(checkTeee);
-										fprintf(stderr, "this stmt possible is heap-object 。\n");
-										fprintf(stderr, "\n*================== warring ==================\n\n");
+										fprintf(stderr, "\033[40;35m    function return value related stmt \033[0m\n");
+										fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+
+										// fprintf(stderr, "this stmt possible is heap-object 。\n");
+										fprintf(stderr, "\n ================== warring ================== \n");
 
 										if (gimple_code(u_stmt) == GIMPLE_CALL)
 										{
@@ -2221,13 +2226,24 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 											{
 												find_freestmt++;
-												fprintf(stderr, "HAS FREE STMT count:%d name:%s \n", find_freestmt, name);
+
+												fprintf(stderr, "\n ================== find ================== \n");
+												debug(u_stmt);
+												warning_at(gimple_location(u_stmt), 0, "use location");
+												fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
+												fprintf(stderr, "\n ================== find ================== \n");
 											}
 											else
 											{
+												fprintf(stderr, "\n ================== trace ================== \n");
 												fprintf(stderr, "trace fucntion name:%s \n", name);
+												fprintf(stderr, "\n ================== trace ================== \n");
 											}
 										}
+									}
+									else
+									{
+										find_mallocstmt = 0;
 									}
 								}
 								else if (checkTeee == NULL && gimple_code(u_stmt) == GIMPLE_CALL)
@@ -2242,11 +2258,17 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 									{
 										find_freestmt++;
-										fprintf(stderr, "HAS FREE STMT count:%d name:%s \n", find_freestmt, name);
+										fprintf(stderr, "\n ================== find ================== \n");
+										debug(u_stmt);
+										warning_at(gimple_location(u_stmt), 0, "use location");
+										fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
+										fprintf(stderr, "\n ================== find ================== \n");
 									}
 									else
 									{
+										fprintf(stderr, "\n ================== trace ================== \n");
 										fprintf(stderr, "trace fucntion name:%s \n", name);
+										fprintf(stderr, "\n ================== trace ================== \n");
 									}
 								}
 								// if (  gimple_code(u_stmt) == GIMPLE_RETURN)
@@ -2265,28 +2287,30 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					if (find_freestmt == 0)
 					{
 						fprintf(stderr, "\n======================================================================\n");
-						fprintf(stderr, "	no free stmt possible memory leak\n");
+						// fprintf(stderr, "	no free stmt possible memory leak\n");
+						fprintf(stderr, "\033[40;31m    no free stmt possible memory leak \033[0m\n");
 						fprintf(stderr, "\n======================================================================\n\n");
 					}
 					else if (find_freestmt >= 2)
 					{
 						fprintf(stderr, "\n======================================================================\n");
-						fprintf(stderr, "	possible double free\n");
+						// fprintf(stderr, "	possible double free\n");
+						fprintf(stderr, "\033[40;31m  	possible double free \033[0m\n");
 						fprintf(stderr, "\n======================================================================\n\n");
 					}
 				}
 				else if (find_mallocstmt == -1)
 				{
 					fprintf(stderr, "\n======================================================================\n");
-					fprintf(stderr, "	this fucntion return possible has heap-object\n");
-
+					// fprintf(stderr, "	this fucntion return possible has heap-object\n");
+					fprintf(stderr, "\033[40;31m 	this fucntion return possible has heap-object \033[0m\n");
 					fprintf(stderr, "\n======================================================================\n\n");
 				}
 				else
 				{
 					fprintf(stderr, "\n======================================================================\n");
-					fprintf(stderr, "	this stmt need double check\n");
-
+					// fprintf(stderr, "	this stmt need double check\n");
+					fprintf(stderr, "\033[40;31m 	this stmt need double check \033[0m\n");
 					fprintf(stderr, "\n======================================================================\n\n");
 				}
 			}
@@ -2819,14 +2843,15 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 		return;
 	function_return_array callerFunArray = *(function_return_collect->get(function_tree));
 	vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
-
-	fprintf(stderr, "=======print_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(), fucntion_level);
-	fprintf(stderr, "=======print_function_type %d  ========\n", callerFunArray.return_type_num);
+	fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
+	fprintf(stderr, "\033[40;44m =======print_function_type %d  ========  \033[0m\n", callerFunArray.return_type_num);
+	//fprintf(stderr, "=======print_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(), fucntion_level);
+	//fprintf(stderr, "=======print_function_type %d  ========\n", callerFunArray.return_type_num);
 	fucntion_level += 1;
 
 	checkPointerConstraint(function_tree, ptable, user_tmp, NULL);
-
-	fprintf(stderr, "=======print_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(), fucntion_level);
+	fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
+	//fprintf(stderr, "=======print_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 	// pathStack.push(function_tree);
 	for (int i = 0; i < function_path_array.size(); i++)
 	{
@@ -2836,17 +2861,19 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 		for (int o = 0; o < pathStack.size(); o++)
 		{
 
-			fprintf(stderr, "=======now node_fun stack:%s=========\n", get_name(pathStack.c[o]));
+			// fprintf(stderr, "=======now node_fun stack:%s=========\n", get_name(pathStack.c[o]));
 			if (pathStack.c[o] == (function_path_array)[i].next)
 			{
 				find = 1;
-				fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(pathStack.c[o]));
+				// fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(pathStack.c[o]));
+				fprintf(stderr, "\033[40;41m =======recursive_fun:%s========= \033[0m\n",get_name(pathStack.c[o]));
 			}
 		}
 
 		if (find == 0)
 		{
-			fprintf(stderr, "=======add node_fun stack:%s=========\n", get_name((function_path_array)[i].next));
+			fprintf(stderr, "\033[40;46m =======add node_fun stack:%s========= \033[0m\n", get_name((function_path_array)[i].next));
+			//fprintf(stderr, "=======add node_fun stack:%s=========\n", get_name((function_path_array)[i].next));
 			// debug_tree((function_path_array)[i].next);
 			pathStack.push((function_path_array)[i].next);
 			// int find_type=0;
@@ -2855,7 +2882,8 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 
 				function_return_array calleeFunArray = *(function_return_collect->get((function_path_array)[i].next));
 				// vector<return_type> calleeRetTypearray = callerFunArray.return_type_array;
-				fprintf(stderr, "=======print_function_type %d  ========\n", calleeFunArray.return_type_num);
+				fprintf(stderr, "\033[40;44m =======print_function_type %d  ========  \033[0m\n", calleeFunArray.return_type_num);
+				// fprintf(stderr, "=======print_function_type %d  ========\n", calleeFunArray.return_type_num);
 				if (calleeFunArray.return_type_num == 2)
 				{
 
@@ -2877,8 +2905,9 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 				// }
 			}
 			print_function_path((function_path_array)[i].next, fucntion_level, ptable, user_tmp);
-
+			fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.top()));
 			pathStack.pop();
+			
 		}
 	}
 }
@@ -2900,14 +2929,15 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 			continue;
 		if (!strcmp(get_name(cfun->decl), "main"))
 		{
-			fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+			fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
+			// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 			enum availability avail;
-
-			fprintf(stderr, "fucntion collect path \n");
+			fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
+			// fprintf(stderr, "fucntion collect path \n");
 			pathStack.push(cfun->decl);
 
 			print_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
-
+fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.top()));
 			pathStack.pop();
 		}
 		pop_cfun();
