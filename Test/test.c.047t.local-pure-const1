@@ -319,9 +319,7 @@ test33 (int * k)
 
 
  local analysis of test22
-   scanning: test22 (k_2(D));
-    Recursive call can loop.
-  scanning: free (k_2(D));
+   scanning: free (k_2(D));
   scanning: return;
 Function is locally looping.
 Function can locally free.
@@ -329,7 +327,6 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
-  test22 (k_2(D));
   free (k_2(D));
   return;
 

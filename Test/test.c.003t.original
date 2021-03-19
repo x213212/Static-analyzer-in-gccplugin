@@ -839,7 +839,6 @@
 
 
 {
-  test22 (k);
   free ((void *) k);
 }
 

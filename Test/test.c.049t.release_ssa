@@ -217,7 +217,6 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
-  test22 (k_2(D));
   free (k_2(D));
   return;
 

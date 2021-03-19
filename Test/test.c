@@ -151,7 +151,7 @@ void test33 (int *k){
   test44 (k);
 }
 void test22  (int *k) {
-  test22(k);
+  // test22(k);
   free (k);
 }
 int main()
