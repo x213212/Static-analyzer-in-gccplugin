@@ -2568,27 +2568,29 @@ void print_function_path(tree function_tree, int fucntion_level)
 	function_path_array fun_array = *(function_path_collect->get(function_tree));
 
 	vector<function_path> function_path_array = fun_array.function_path_array;
-	
+	//debug_tree(function_tree);
+	//vector<pair<fdecl,location_t>> loc;
 	fprintf(stderr, "=======print_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(),fucntion_level);
 	fucntion_level += 1;
 	fprintf(stderr, "[\n");
 
-
+	// pathStack.push(function_tree);
 	for (int i = 0; i < function_path_array.size(); i++)
 	{
 
-
 		int find = 0;
-
+		
 		for (int o = 0; o < pathStack.size(); o++)
 		{
-			
+		
 			fprintf(stderr, "=======now node_fun stack:%s=========\n", get_name(pathStack.c[o]));
 			if (pathStack.c[o] == (function_path_array)[i].next)
 			{
 				find = 1;
 				fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(pathStack.c[o]));
-
+			
+			}
+		
 		}
 
 		if (find == 0)
