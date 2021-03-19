@@ -319,9 +319,7 @@ test33 (int * k)
 
 
  local analysis of test22
-   scanning: test22 (k_2(D));
-    Recursive call can loop.
-  scanning: free (k_2(D));
+   scanning: free (k_2(D));
   scanning: return;
 Function is locally looping.
 Function can locally free.
@@ -329,7 +327,6 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
-  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -347,10 +344,6 @@ test22 (int * k)
     Indirect ref write is not const/pure
   scanning: p2_7 = foo2 (2);
   scanning: test22 (p_4);
-  scanning: test22 (p_4);
-  scanning: test33 (p2_7);
-  scanning: free (p_4);
-  scanning: free (p2_7);
   scanning: pthread_mutex_destroy (&mLock);
   scanning: pthread_create (&t, 0B, child, &buff);
   scanning: t.2_1 = t;
@@ -360,7 +353,6 @@ test22 (int * k)
   scanning: t ={v} {CLOBBER};
   scanning: return 0;
 Function is locally looping.
-Function can locally free.
 main ()
 {
   pthread_t t;
@@ -374,10 +366,6 @@ main ()
   *p_4 = 2;
   p2_7 = foo2 (2);
   test22 (p_4);
-  test22 (p_4);
-  test33 (p2_7);
-  free (p_4);
-  free (p2_7);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;

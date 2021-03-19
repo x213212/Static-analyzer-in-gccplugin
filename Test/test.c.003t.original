@@ -842,7 +842,6 @@
 
 
 {
-  test22 (k);
   free ((void *) k);
 }
 
@@ -863,10 +862,6 @@
   *p = 2;
   p2 = foo2 (2);
   test22 (p);
-  test22 (p);
-  test33 (p2);
-  free ((void *) p);
-  free ((void *) p2);
     char buff[50];
     pthread_t t;
   pthread_mutex_destroy (&mLock);

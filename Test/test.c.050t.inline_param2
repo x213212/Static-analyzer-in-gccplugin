@@ -400,9 +400,9 @@ test33 (int * k)
 Analyzing function body size: test22
 
 Inline summary for test22/61
-  self time:       24
+  self time:       13
   global time:     0
-  self size:       7
+  self size:       5
   global size:     0
   min size:       0
   self stack:      0
@@ -412,14 +412,11 @@ Inline summary for test22/61
   calls:
     free/65 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    test22/61 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
 
 __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
-  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -433,9 +430,9 @@ test22 (int * k)
 Analyzing function body size: main
 
 Inline summary for main/62 inlinable
-  self time:       131
+  self time:       87
   global time:     0
-  self size:       33
+  self size:       25
   global size:     0
   min size:       0
   self stack:      58
@@ -458,16 +455,8 @@ Inline summary for main/62 inlinable
     pthread_mutex_destroy/69 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
        op0 is compile time invariant
-    free/65 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    free/65 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    test33/60 function not considered for inlining
+    test22/61 function not considered for inlining
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 2 stack: 0
-    test22/61 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 3 stack: 0
-    test22/61 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 3 stack: 0
     foo2/54 function not considered for inlining
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 9 stack: 0
        op0 is compile time invariant
@@ -488,10 +477,6 @@ main ()
   *p_4 = 2;
   p2_7 = foo2 (2);
   test22 (p_4);
-  test22 (p_4);
-  test33 (p2_7);
-  free (p_4);
-  free (p2_7);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;

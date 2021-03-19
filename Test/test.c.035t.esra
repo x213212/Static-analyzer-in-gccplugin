@@ -209,7 +209,6 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [0.00%]:
-  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -232,10 +231,6 @@ main ()
   *p_4 = 2;
   p2_7 = foo2 (2);
   test22 (p_4);
-  test22 (p_4);
-  test33 (p2_7);
-  free (p_4);
-  free (p2_7);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;

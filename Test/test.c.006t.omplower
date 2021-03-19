@@ -181,7 +181,6 @@ test33 (int * k)
 __attribute__((noinline))
 test22 (int * k)
 {
-  test22 (k);
   free (k);
 }
 
@@ -205,10 +204,6 @@ main ()
         *p = 2;
         p2 = foo2 (2);
         test22 (p);
-        test22 (p);
-        test33 (p2);
-        free (p);
-        free (p2);
         pthread_mutex_destroy (&mLock);
         pthread_create (&t, 0B, child, &buff);
         t.2_1 = t;

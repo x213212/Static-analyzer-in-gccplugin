@@ -1,67 +1,5 @@
 
-;; Function test44 (test44, funcdef_no=2, decl_uid=3989, cgraph_uid=4, symbol_order=59) (executed once)
-
-
-Not re-computing points-to information because IPA points-to information is available.
-
-
-
-Alias information for test44
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to anything, points-to NULL
-
-Flow-insensitive points-to information
-
-k_2(D), points-to NULL, points-to vars: { D.4061 D.4062 } (nonlocal)
-
-__attribute__((noinline))
-test44 (int * k)
-{
-  <bb 2> [100.00%]:
-  free (k_2(D));
-  return;
-
-}
-
-
-
-;; Function test33 (test33, funcdef_no=3, decl_uid=3988, cgraph_uid=3, symbol_order=60) (executed once)
-
-
-Not re-computing points-to information because IPA points-to information is available.
-
-
-
-Alias information for test33
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to anything, points-to NULL
-
-Flow-insensitive points-to information
-
-k_2(D), points-to NULL, points-to vars: { D.4061 D.4062 } (nonlocal)
-
-__attribute__((noinline))
-test33 (int * k)
-{
-  <bb 2> [100.00%]:
-  test44 (k_2(D));
-  return;
-
-}
-
-
-
-;; Function test22 (test22, funcdef_no=4, decl_uid=3987, cgraph_uid=2, symbol_order=61)
+;; Function test22 (test22, funcdef_no=2, decl_uid=3987, cgraph_uid=2, symbol_order=61) (executed once)
 
 
 Not re-computing points-to information because IPA points-to information is available.
@@ -79,13 +17,12 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-k_2(D), points-to NULL, points-to vars: { D.4061 D.4062 } (nonlocal)
+k_2(D), points-to NULL, points-to vars: { D.4053 D.4054 } (nonlocal)
 
 __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
-  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -93,7 +30,7 @@ test22 (int * k)
 
 
 
-;; Function foo (foo, funcdef_no=1, decl_uid=3990, cgraph_uid=5, symbol_order=56) (executed once)
+;; Function foo (foo, funcdef_no=1, decl_uid=3988, cgraph_uid=3, symbol_order=56) (executed once)
 
 
 Not re-computing points-to information because IPA points-to information is available.
@@ -111,8 +48,8 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-p2_3, points-to NULL, points-to vars: { D.4063 } (nonlocal)
-_4, points-to NULL, points-to vars: { D.4063 } (nonlocal)
+p2_3, points-to NULL, points-to vars: { D.4055 } (nonlocal)
+_4, points-to NULL, points-to vars: { D.4055 } (nonlocal)
 
 __attribute__((noinline))
 foo (int z)
@@ -129,7 +66,7 @@ foo (int z)
 
 
 
-;; Function child (child, funcdef_no=5, decl_uid=3986, cgraph_uid=1, symbol_order=57) (executed once)
+;; Function child (child, funcdef_no=3, decl_uid=3986, cgraph_uid=1, symbol_order=57) (executed once)
 
 
 Not re-computing points-to information because IPA points-to information is available.
@@ -140,8 +77,8 @@ Alias information for child
 
 Aliased symbols
 
-data2, UID D.4048, int, is addressable
-pData, UID D.4050, int *, is addressable
+data2, UID D.4040, int, is addressable
+pData, UID D.4042, int *, is addressable
 
 Call clobber information
 
@@ -149,14 +86,14 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4065 } (nonlocal, escaped, escaped heap)
-_2, points-to NULL, points-to vars: { D.4048 D.4065 } (nonlocal, escaped, escaped heap)
-_3, points-to NULL, points-to vars: { D.4048 D.4065 } (nonlocal, escaped, escaped heap)
-_4, points-to NULL, points-to vars: { D.4048 D.4065 } (nonlocal, escaped, escaped heap)
-_5, points-to NULL, points-to vars: { D.4048 D.4065 } (nonlocal, escaped, escaped heap)
-_6, points-to NULL, points-to vars: { D.4048 D.4065 } (nonlocal, escaped, escaped heap)
-ppData_10, points-to NULL, points-to vars: { D.4064 } (nonlocal)
-a_14, points-to NULL, points-to vars: { D.4063 } (nonlocal)
+_1, points-to NULL, points-to vars: { D.4057 } (nonlocal, escaped, escaped heap)
+_2, points-to NULL, points-to vars: { D.4040 D.4057 } (nonlocal, escaped, escaped heap)
+_3, points-to NULL, points-to vars: { D.4040 D.4057 } (nonlocal, escaped, escaped heap)
+_4, points-to NULL, points-to vars: { D.4040 D.4057 } (nonlocal, escaped, escaped heap)
+_5, points-to NULL, points-to vars: { D.4040 D.4057 } (nonlocal, escaped, escaped heap)
+_6, points-to NULL, points-to vars: { D.4040 D.4057 } (nonlocal, escaped, escaped heap)
+ppData_10, points-to NULL, points-to vars: { D.4056 } (nonlocal)
+a_14, points-to NULL, points-to vars: { D.4055 } (nonlocal)
 
 child (void * data)
 {
@@ -196,7 +133,7 @@ child (void * data)
 
 
 
-;; Function foo2 (foo2, funcdef_no=0, decl_uid=3991, cgraph_uid=6, symbol_order=54) (executed once)
+;; Function foo2 (foo2, funcdef_no=0, decl_uid=3989, cgraph_uid=4, symbol_order=54) (executed once)
 
 
 Not re-computing points-to information because IPA points-to information is available.
@@ -214,12 +151,12 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-_4, points-to NULL, points-to vars: { D.4061 D.4062 } (nonlocal)
-a2_9, points-to NULL, points-to vars: { D.4060 } (nonlocal)
-p3_11, points-to NULL, points-to vars: { D.4061 } (nonlocal)
-p4_13, points-to NULL, points-to vars: { D.4062 } (nonlocal)
-_16, points-to NULL, points-to vars: { D.4062 } (nonlocal)
-_19, points-to NULL, points-to vars: { D.4061 } (nonlocal)
+_4, points-to NULL, points-to vars: { D.4053 D.4054 } (nonlocal)
+a2_9, points-to NULL, points-to vars: { D.4052 } (nonlocal)
+p3_11, points-to NULL, points-to vars: { D.4053 } (nonlocal)
+p4_13, points-to NULL, points-to vars: { D.4054 } (nonlocal)
+_16, points-to NULL, points-to vars: { D.4054 } (nonlocal)
+_19, points-to NULL, points-to vars: { D.4053 } (nonlocal)
 
 __attribute__((noinline))
 foo2 (int z)
@@ -265,7 +202,7 @@ foo2 (int z)
 
 
 
-;; Function main (main, funcdef_no=6, decl_uid=3985, cgraph_uid=0, symbol_order=62) (executed once)
+;; Function main (main, funcdef_no=4, decl_uid=3985, cgraph_uid=0, symbol_order=62) (executed once)
 
 
 Not re-computing points-to information because IPA points-to information is available.
@@ -276,8 +213,8 @@ Alias information for main
 
 Aliased symbols
 
-t, UID D.4054, pthread_t, is addressable
-buff, UID D.4055, char[50], is addressable
+t, UID D.4046, pthread_t, is addressable
+buff, UID D.4047, char[50], is addressable
 
 Call clobber information
 
@@ -285,8 +222,8 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-p_4, points-to NULL, points-to vars: { D.4061 D.4062 } (nonlocal)
-p2_7, points-to NULL, points-to vars: { D.4061 D.4062 } (nonlocal)
+p_4, points-to NULL, points-to vars: { D.4053 D.4054 } (nonlocal)
+p2_7, points-to NULL, points-to vars: { D.4053 D.4054 } (nonlocal)
 
 main ()
 {
@@ -301,10 +238,6 @@ main ()
   *p_4 = 2;
   p2_7 = foo2 (2);
   test22 (p_4);
-  test22 (p_4);
-  test33 (p2_7);
-  free (p_4);
-  free (p2_7);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   _1 = t;
