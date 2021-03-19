@@ -86,8 +86,8 @@ foo2 (int z)
   long unsigned int _2;
   long unsigned int _3;
   int * _4;
-  int * _16;
-  int * _19;
+  int * _17;
+  int * _20;
 
   <bb 2> [100.00%]:
   _1 = (long unsigned int) z_6(D);
@@ -96,7 +96,8 @@ foo2 (int z)
   p3_11 = malloc (_2);
   _3 = (long unsigned int) z_6(D);
   p4_13 = malloc (_3);
-  if (tmp_14(D) > 10)
+  *a2_9 = 10;
+  if (tmp_15(D) > 10)
     goto <bb 3>; [29.56%]
   else
     goto <bb 4>; [70.44%]
@@ -104,12 +105,12 @@ foo2 (int z)
   <bb 3> [29.56%]:
   pthread_mutex_unlock (&mLock);
   *p3_11 = 10;
-  _19 = p3_11;
+  _20 = p3_11;
   goto <bb 5>; [100.00%]
 
   <bb 4> [70.44%]:
   *p4_13 = 10;
-  _16 = p4_13;
+  _17 = p4_13;
 
   <bb 5> [100.00%]:
   # _4 = PHI <p3_11(3), p4_13(4)>
@@ -166,19 +167,17 @@ Predictions for bb 2
 __attribute__((noinline))
 foo (int z)
 {
-  int * p2;
   int * _4;
 
   <bb 2> [100.00%]:
-  p2_3 = malloc (1);
-  _4 = p2_3;
-  return p2_3;
+  _4 = foo2 (z_2(D));
+  return _4;
 
 }
 
 
 
-;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
+;; Function child (child, funcdef_no=55, decl_uid=4339, cgraph_uid=55, symbol_order=57)
 
 ;; 1 loops found
 ;;
@@ -227,7 +226,7 @@ child (void * data)
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4350, cgraph_uid=56, symbol_order=58)
+;; Function boo (boo, funcdef_no=56, decl_uid=4349, cgraph_uid=56, symbol_order=58)
 
 ;; 1 loops found
 ;;
@@ -240,7 +239,7 @@ Predictions for bb 2
 1 edges in bb 2 predicted to even probabilities
 boo (int * b)
 {
-  int D.4406;
+  int D.4405;
   int _5;
 
   <bb 2> [100.00%]:
@@ -318,7 +317,7 @@ test22 (int * k)
 
 
 
-;; Function main (main, funcdef_no=60, decl_uid=4361, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=60, decl_uid=4360, cgraph_uid=60, symbol_order=62)
 
 ;; 1 loops found
 ;;
@@ -334,15 +333,23 @@ main ()
   pthread_t t;
   int * q;
   char buff[50];
+  int * p3;
+  int * p2;
   int * p;
   long unsigned int t.2_1;
 
   <bb 2> [100.00%]:
-  p_4 = foo2 (2);
-  *p_4 = 2;
-  q_7 = malloc (5);
-  *q_7 = 10;
-  test22 (q_7);
+  p3_4 = foo (2);
+  *p3_4 = 1;
+  p_7 = foo2 (2);
+  *p_7 = 2;
+  p2_10 = foo2 (2);
+  *p2_10 = 4;
+  free (p_7);
+  free (p2_10);
+  q_15 = malloc (5);
+  *q_15 = 10;
+  test22 (q_15);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
   t.2_1 = t;

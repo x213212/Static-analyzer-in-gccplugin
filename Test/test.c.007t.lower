@@ -30,6 +30,7 @@ foo2 (int z)
   p3 = malloc (_2);
   _3 = (long unsigned int) z;
   p4 = malloc (_3);
+  *a2 = 10;
   if (tmp > 10) goto <D.4370>; else goto <D.4371>;
   <D.4370>:
   pthread_mutex_unlock (&mLock);
@@ -40,7 +41,6 @@ foo2 (int z)
   *p4 = 10;
   D.4372 = p4;
   goto <D.4373>;
-  free (a2);
   D.4372 = a2;
   goto <D.4373>;
   <D.4373>:
@@ -85,11 +85,9 @@ foo4 (int z)
 __attribute__((noinline))
 foo (int z)
 {
-  int * p2;
   int * D.4377;
 
-  p2 = malloc (1);
-  D.4377 = p2;
+  D.4377 = foo2 (z);
   goto <D.4378>;
   <D.4378>:
   return D.4377;
@@ -97,7 +95,7 @@ foo (int z)
 
 
 
-;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
+;; Function child (child, funcdef_no=55, decl_uid=4339, cgraph_uid=55, symbol_order=57)
 
 child (void * data)
 {
@@ -140,7 +138,7 @@ child (void * data)
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4350, cgraph_uid=56, symbol_order=58)
+;; Function boo (boo, funcdef_no=56, decl_uid=4349, cgraph_uid=56, symbol_order=58)
 
 boo (int * b)
 {
@@ -199,7 +197,7 @@ test22 (int * k)
 
 
 
-;; Function main (main, funcdef_no=60, decl_uid=4361, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=60, decl_uid=4360, cgraph_uid=60, symbol_order=62)
 
 main ()
 {
@@ -207,14 +205,21 @@ main ()
   int n;
   int * q;
   char buff[50];
+  int * p3;
   int * p2;
   int * p;
   int D.4381;
 
   try
     {
+      p3 = foo (2);
+      *p3 = 1;
       p = foo2 (2);
       *p = 2;
+      p2 = foo2 (2);
+      *p2 = 4;
+      free (p);
+      free (p2);
       q = malloc (5);
       *q = 10;
       test22 (q);

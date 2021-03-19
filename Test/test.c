@@ -35,6 +35,8 @@ int *foo2(int z)
   int *p3=malloc(z);
   int *p4=malloc(z);
   int tmp ;
+  a2[0]=10;
+  //  free(a2);
   if(tmp   > 10){
       pthread_mutex_unlock(&mLock);
       p3[0] = 10;
@@ -43,7 +45,7 @@ int *foo2(int z)
       p4[0] = 10;
       return p4;
   }
-  free(a2);
+ 
   //char tmp ;
   // return (char)tmp;
   return a2;
@@ -70,8 +72,9 @@ int *foo4(int z)
 int *foo(int z)
 {
   // int *b = malloc(1);
-  int *p2 = malloc(1);
-
+  // int *p2 = malloc(1);
+  // p2[0]=1;
+  // free(p2);
   // b=2;
   //  p2=foo2(2);
   // b[0] = 2;
@@ -85,7 +88,7 @@ int *foo(int z)
   //  }
   //   free(a);
 
-  return p2;
+  return foo2(z);
 }
 void *child(void *data)
 {
@@ -155,16 +158,20 @@ int main()
 {
   int *p;
   int *p2;
+  int *p3;
   // test= malloc (sizeof (int ) * 10);
   // foo3(p);
+    p3=foo(2);
+    p3[0]=1;
   p=foo2(2);
    p[0]=2;
-  // p2=foo2(2);
+  p2=foo2(2);
+  p2[0]=4;
   // test22(p);
   // test22(p);
   // test33(p2);
-  // free(p);
-  // free(p2);
+  free(p);
+  free(p2);
   char buff[50];
   int *q=malloc(5);
   q[0]=10;

@@ -9,7 +9,7 @@ NO_OF_FILES := $(words $(FILE_NAME))
 
 LTO=-flto
 WHOLE=-fwhole-program
-FLAGS=-O1    -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -fdump-tree-all -pthread 
+FLAGS=-O1    -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -fdump-tree-all -pthread -fno-diagnostics-color
 #FLAGS=-O1    -fno-tree-dse  -fno-tree-fre -fno-tree-dce   -nostartfiles -g  -fdump-tree-all -fno-dce -fno-dse -fno-tree-dce    -fno-tree-builtin-call-dce -fipa-pta -pthread -fno-strict-aliasing
 PLUGIN=-fplugin=../Compiler/misra.so
 all: test.o

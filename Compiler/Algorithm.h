@@ -2066,8 +2066,9 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 
 					if (gimple_code(gc) == GIMPLE_RETURN)
 					{
-						fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+						fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 						fprintf(stderr, "GIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGN CALLLLLLLLLLLLLLLLLLLLLLL\n");
+						//比對所有 ptable 假設有遇到 malloc 則可能為type2
 						if (TREE_CODE((ret_type_array)[i].return_tree) == SSA_NAME)
 							if (ptr_derefs_may_alias_p(table_temp->target, (ret_type_array)[i].return_tree))
 							{
@@ -2148,22 +2149,44 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				used_stmt = &start;
 				if (user_tmp != NULL)
 				{
-
-					fprintf(stderr, " \n start check Pointer Collect size %d :[ \n", user_tmp->size);
+					debug_tree(user_tmp->target);
+					fprintf(stderr, " \n start check Pointer Collect size %d \n", user_tmp->size);
 					if (user_tmp->size > 0)
 						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 						{
 
 							if (user_tmp->ret_stmt != NULL)
 							{
-
-								debug(user_tmp->ret_stmt);
+								// if(checkTeee != NULL )
+								// find_mallocstmt = -1;
+								// debug(user_tmp->ret_stmt);
+								warning_at(gimple_location(u_stmt), 0, "use location");
+								if (gimple_code(user_tmp->ret_stmt) == GIMPLE_RETURN)
+								{
+									find_mallocstmt = -1;
+									continue;
+								}
 							}
 							else
 							{
-
+								// find_mallocstmt = 1;
 								debug(u_stmt);
+								warning_at(gimple_location(u_stmt), 0, "use location");
+								const char *name;
 								gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
+								if (gimple_code(def_stmt) == GIMPLE_CALL)
+									name = get_name(gimple_call_fn(def_stmt));
+								if (
+									!strcmp(name, "malloc") ||
+									!strcmp(name, "xmalloc") ||
+									!strcmp(name, "calloc") ||
+									!strcmp(name, "xcalloc") ||
+									!strcmp(name, "strdup"))
+								{
+									find_mallocstmt = 1;
+								}
+								else
+									find_mallocstmt = 0;
 								if (checkTeee != NULL && gimple_code(def_stmt) == GIMPLE_CALL)
 								{
 									find_mallocstmt = 1;
@@ -2178,23 +2201,19 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
 									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
 									// debug_tree(checkTeee);
-									const char *name;
+
 									name = get_name(gimple_call_fn(def_stmt));
 
-									if (
-										!strcmp(name, "malloc") ||
-										!strcmp(name, "xmalloc") ||
-										!strcmp(name, "calloc") ||
-										!strcmp(name, "xcalloc") ||
-										!strcmp(name, "strdup"))
-									{
-										find_mallocstmt = 0;
-									}
+									if (find_mallocstmt == 0)
+										continue;
 
 									else if (checkTeee == gettreefucntionarg)
 									{
-										fprintf(stderr, "i am a callee  \n");
-										fprintf(stderr, "and this stmt possible is heap-object \n");
+										fprintf(stderr, "\n*================== warring ==================\n\n");
+										fprintf(stderr, "function return value related stmt \n");
+										debug(checkTeee);
+										fprintf(stderr, "this stmt possible is heap-object 。\n");
+										fprintf(stderr, "\n*================== warring ==================\n\n");
 
 										if (gimple_code(u_stmt) == GIMPLE_CALL)
 										{
@@ -2213,7 +2232,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								}
 								else if (checkTeee == NULL && gimple_code(u_stmt) == GIMPLE_CALL)
 								{
-									find_mallocstmt = 1;
+									// find_mallocstmt = 1;
 									// gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
 
 									gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
@@ -2230,6 +2249,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										fprintf(stderr, "trace fucntion name:%s \n", name);
 									}
 								}
+								// if (  gimple_code(u_stmt) == GIMPLE_RETURN)
+								// {
+								// 	fprintf(stderr, "幹你娘\n");
+								// }
 							}
 
 							// user_tmp->
@@ -2238,14 +2261,33 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				}
 				if (find_mallocstmt == 1)
 				{
+
 					if (find_freestmt == 0)
-						fprintf(stderr, "NO FREE STMT POSSIBLE MEMORY LEAK\n");
-					else if (find_freestmt == 2)
-						fprintf(stderr, "POSSIBLE DOUBLE FREE\n");
+					{
+						fprintf(stderr, "\n======================================================================\n");
+						fprintf(stderr, "	no free stmt possible memory leak\n");
+						fprintf(stderr, "\n======================================================================\n\n");
+					}
+					else if (find_freestmt >= 2)
+					{
+						fprintf(stderr, "\n======================================================================\n");
+						fprintf(stderr, "	possible double free\n");
+						fprintf(stderr, "\n======================================================================\n\n");
+					}
+				}
+				else if (find_mallocstmt == -1)
+				{
+					fprintf(stderr, "\n======================================================================\n");
+					fprintf(stderr, "	this fucntion return possible has heap-object\n");
+
+					fprintf(stderr, "\n======================================================================\n\n");
 				}
 				else
 				{
-					fprintf(stderr, "====================\n");
+					fprintf(stderr, "\n======================================================================\n");
+					fprintf(stderr, "	this stmt need double check\n");
+
+					fprintf(stderr, "\n======================================================================\n\n");
 				}
 			}
 	}
@@ -2609,22 +2651,47 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "      |        |  ||  |\n");
 	fprintf(stderr, "      |        |  ||  |\n");
 	fprintf(stderr, "      |       _\\.:||:./_\n");
-	fprintf(stderr, "      | jks  /____/\\____\\\n");
+	fprintf(stderr, "      | 0.1v /____/\\____\\\n");
 	fprintf(stderr, "\n");
-
+	fprintf(stderr, "=======================================================\n");
 	// printfunctionCollect(ptable, used_stmt);
-	printfPointerConstraint(ptable, used_stmt);
+	// printfPointerConstraint(ptable, used_stmt);
 	//initMallocfunction
 
 	printfBasicblock();
 	//printfunctionCollect2(ptable, used_stmt);
-	printfPointerConstraint2(ptable, used_stmt);
-	printfunctionCollect2(ptable, used_stmt);
+	// printfPointerConstraint2(ptable, used_stmt);
+	// printfunctionCollect2(ptable, used_stmt);
 	struct cgraph_node *node;
 	record_fucntion(node);
-	fprintf(stderr, "=======================================================\n");
+	fprintf(stderr, "START CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\n");
+	fprintf(stderr, "START CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\n");
+	fprintf(stderr, "    =()=\n");
+	fprintf(stderr, " ,/'\_||_\n");
+	fprintf(stderr, "  (___  `.\n");
+	fprintf(stderr, " ./  `=='\n");
+	fprintf(stderr, "      |||\n");
+	fprintf(stderr, "      |||\n");
+	fprintf(stderr, "      |||\n");
+	fprintf(stderr, "      |||\n");
+	fprintf(stderr, "START CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\n");
+	fprintf(stderr, "START CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\n");
+
 	dump_fucntion(node, ptable, used_stmt);
+	fprintf(stderr, "START CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\n");
+	fprintf(stderr, "START CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\n");
+	fprintf(stderr, "    =()=\n");
+	fprintf(stderr, " ,/'\_||_\n");
+	fprintf(stderr, "  (___  `.\n");
+	fprintf(stderr, " ./  `=='\n");
+	fprintf(stderr, "                   \n");
+	fprintf(stderr, "    ~~~~~~~~~~~  \n");
+	fprintf(stderr, " ~~~~~~\n");
+	fprintf(stderr, "           ~~~~~~~\n");
+	fprintf(stderr, "START CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\n");
+	fprintf(stderr, "START CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\n");
 	// printfunctionCollect(ptable, used_stmt);
+	printfBasicblock();
 }
 
 void print_function_path(vector<return_type> *path)
@@ -2756,7 +2823,6 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 	fprintf(stderr, "=======print_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 	fprintf(stderr, "=======print_function_type %d  ========\n", callerFunArray.return_type_num);
 	fucntion_level += 1;
-	fprintf(stderr, "[\n");
 
 	checkPointerConstraint(function_tree, ptable, user_tmp, NULL);
 
@@ -2815,8 +2881,6 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 			pathStack.pop();
 		}
 	}
-
-	fprintf(stderr, "]\n");
 }
 
 void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
@@ -2830,18 +2894,22 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 
 		push_cfun(node->get_fun());
 
-		fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 
 		if (cfun == NULL)
 			continue;
-		enum availability avail;
+		if (!strcmp(get_name(cfun->decl), "main"))
+		{
+			fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+			enum availability avail;
 
-		fprintf(stderr, "fucntion collect path \n");
-		pathStack.push(cfun->decl);
+			fprintf(stderr, "fucntion collect path \n");
+			pathStack.push(cfun->decl);
 
-		print_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
+			print_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
 
-		pathStack.pop();
+			pathStack.pop();
+		}
 		pop_cfun();
 	}
 	fprintf(stderr, "fucntion collect path finsh\n");

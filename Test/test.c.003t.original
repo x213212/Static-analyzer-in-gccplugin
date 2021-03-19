@@ -736,6 +736,7 @@
     int * p3 = (int *) malloc ((size_t) z);
     int * p4 = (int *) malloc ((size_t) z);
     int tmp;
+  *a2 = 10;
   if (tmp > 10)
     {
       pthread_mutex_unlock (&mLock);
@@ -747,7 +748,6 @@
       *p4 = 10;
       return p4;
     }
-  free ((void *) a2);
   return a2;
 }
 
@@ -775,10 +775,7 @@
 
 
 {
-  int * p2 = (int *) malloc (1);
-
-    int * p2 = (int *) malloc (1);
-  return p2;
+  return foo2 (z);
 }
 
 
@@ -853,6 +850,7 @@
 {
   int * p;
   int * p2;
+  int * p3;
   char buff[50];
   int * q = (int *) malloc (5);
   int n;
@@ -860,8 +858,15 @@
 
     int * p;
     int * p2;
+    int * p3;
+  p3 = foo (2);
+  *p3 = 1;
   p = foo2 (2);
   *p = 2;
+  p2 = foo2 (2);
+  *p2 = 4;
+  free ((void *) p);
+  free ((void *) p2);
     char buff[50];
     int * q = (int *) malloc (5);
   *q = 10;

@@ -23,6 +23,7 @@ foo2 (int z)
   p3 = malloc (_2);
   _3 = (long unsigned int) z;
   p4 = malloc (_3);
+  *a2 = 10;
   if (tmp > 10) goto <D.4370>; else goto <D.4371>;
   <D.4370>:
   pthread_mutex_unlock (&mLock);
@@ -33,7 +34,6 @@ foo2 (int z)
   *p4 = 10;
   D.4372 = p4;
   return D.4372;
-  free (a2);
   D.4372 = a2;
   return D.4372;
 }
@@ -69,10 +69,8 @@ __attribute__((noinline))
 foo (int z)
 {
   int * D.4377;
-  int * p2;
 
-  p2 = malloc (1);
-  D.4377 = p2;
+  D.4377 = foo2 (z);
   return D.4377;
 }
 
@@ -162,6 +160,7 @@ main ()
   {
     int * p;
     int * p2;
+    int * p3;
     char buff[50];
     int * q;
     int n;
@@ -169,8 +168,14 @@ main ()
 
     try
       {
+        p3 = foo (2);
+        *p3 = 1;
         p = foo2 (2);
         *p = 2;
+        p2 = foo2 (2);
+        *p2 = 4;
+        free (p);
+        free (p2);
         q = malloc (5);
         *q = 10;
         test22 (q);
