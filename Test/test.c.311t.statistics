@@ -1,18 +1,28 @@
-26 ssa "unused VAR_DECLs removed" "child" 1
-26 ssa "unused VAR_DECLs removed" "foo4" 1
-26 ssa "unused VAR_DECLs removed" "foo" 1
-26 ssa "unused VAR_DECLs removed" "boo" 1
-38 ccp "Constants propagated" "foo4" 2
-38 ccp "Statements deleted" "foo4" 2
-55 release_ssa "SSA names released" "foo4" 2
-55 release_ssa "SSA name holes removed" "foo4" 2
-38 ccp "Statements deleted" "boo" 1
-55 release_ssa "unused VAR_DECLs removed" "boo" 1
-55 release_ssa "SSA names released" "boo" 2
-55 release_ssa "SSA name holes removed" "boo" 2
-35 einline "unused VAR_DECLs removed" "test55" 1
-35 einline "Symbol to SSA rewrite" "test55" 1
-38 ccp "Constants propagated" "main" 1
-38 ccp "Statements deleted" "main" 1
-55 release_ssa "SSA names released" "main" 1
-55 release_ssa "SSA name holes removed" "main" 1
+26 ssa "unused VAR_DECLs removed" "strlcat" 1
+26 ssa "unused VAR_DECLs removed" "tilde_expand_filename" 1
+26 ssa "unused VAR_DECLs removed" "read_keyfile_line" 3
+26 ssa "unused VAR_DECLs removed" "update_krl_from_file" 1
+26 ssa "unused VAR_DECLs removed" "main" 8
+38 ccp "Statements deleted" "tilde_expand_filename" 2
+55 release_ssa "unused VAR_DECLs removed" "tilde_expand_filename" 2
+55 release_ssa "SSA names released" "tilde_expand_filename" 3
+55 release_ssa "SSA name holes removed" "tilde_expand_filename" 3
+35 einline "unused VAR_DECLs removed" "read_keyfile_line" 2
+35 einline "Symbol to SSA rewrite" "read_keyfile_line" 1
+38 ccp "Constants propagated" "read_keyfile_line" 2
+38 ccp "Statements deleted" "read_keyfile_line" 3
+55 release_ssa "unused VAR_DECLs removed" "read_keyfile_line" 1
+55 release_ssa "SSA names released" "read_keyfile_line" 4
+55 release_ssa "SSA name holes removed" "read_keyfile_line" 4
+35 einline "unused VAR_DECLs removed" "update_krl_from_file" 1
+35 einline "Symbol to SSA rewrite" "update_krl_from_file" 1
+38 ccp "Statements deleted" "update_krl_from_file" 4
+55 release_ssa "unused VAR_DECLs removed" "update_krl_from_file" 4
+55 release_ssa "SSA names released" "update_krl_from_file" 7
+55 release_ssa "SSA name holes removed" "update_krl_from_file" 7
+35 einline "unused VAR_DECLs removed" "main" 3
+35 einline "Symbol to SSA rewrite" "main" 1
+38 ccp "Constants propagated" "main" 2
+38 ccp "Statements deleted" "main" 2
+55 release_ssa "SSA names released" "main" 2
+55 release_ssa "SSA name holes removed" "main" 2

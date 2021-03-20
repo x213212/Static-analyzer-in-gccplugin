@@ -1489,7 +1489,8 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 					// debug(def_stmt);
 					// debug_tree(gimple_assign_lhs(def_stmt));
 					fprintf(stderr, "-----------------GIMPLE_PHI : INSERT------------------\n");
-					// new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt),  gimple_phi_result(use_stmt));
+					if (TREE_CODE( gimple_phi_result(use_stmt)) == SSA_NAME)
+						new_search_imm_use(used_stmt,  gimple_phi_result(use_stmt), gimple_phi_result(use_stmt));
 				}
 			}
 		}
@@ -1498,8 +1499,18 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 			fprintf(stderr, "GIMPLE_CALL2\n");
 			if (gimple_call_fn(use_stmt) == NULL)
 				return;
-			fprintf(stderr, "-----------------GIMPLE_CALL : FIND------------------\n");
-			// debug(def_stmt);
+			// fprintf(stderr, "-----------------GIMPLE_CALL : FIND------------------\n");
+			// debug(use_stmt);
+			// 	fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
+			// 		fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
+			// 			fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
+			// 				fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
+			// 					fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
+			// 						fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
+			// 							fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
+			// 								fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
+
+			// 									fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
 			name = get_name(gimple_call_fn(use_stmt));
 			if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 			{
@@ -2372,11 +2383,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										find_mallocstmt = 0;
 									}
 								}
-								else if ((checkTeee == NULL && gimple_code(u_stmt) == GIMPLE_CALL) && (find_mallocstmt == 1 ||  find_mallocstmt == 2))
+								else if ((checkTeee == NULL && gimple_code(u_stmt) == GIMPLE_CALL) && (find_mallocstmt == 1 || find_mallocstmt == 2))
 								{
-								
+
 									find_mallocstmt = 1;
-									
+
 									// gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
 									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
 									gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
