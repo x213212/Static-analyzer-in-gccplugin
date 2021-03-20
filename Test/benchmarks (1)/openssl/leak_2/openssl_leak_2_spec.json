@@ -1,0 +1,10 @@
+{
+    "allocsite": [
+        {
+            "line": 447,
+            "alloc": "OPENSSL_strdup",
+            "free": "OPENSSL_free"
+        }
+    ]
+}
+

@@ -1,0 +1,38 @@
+{
+    "allocsite" : [
+        {
+			"line": 288,
+			"alloc": "OCSP_BASICRESP_new",
+			"free": "OCSP_BASICRESP_free"
+		},
+		{
+            "line": 191,
+            "alloc": "ASN1_STRING_new",
+            "free": "ASN1_STRING_free"
+        },
+        {
+            "line": 292,
+            "alloc": "X509_NAME_new",
+            "free": "X509_NAME_free"
+        },
+        {
+            "line": 293,
+            "alloc": "ASN1_BIT_STRING_new",
+            "free": "ASN1_BIT_STRING_free"
+        },
+        {
+            "line": 294,
+            "alloc": "ASN1_INTEGER_new",
+            "free": "ASN1_INTEGER_free"
+        },
+        {
+            "line": 301,
+            "alloc": "OCSP_cert_id_new",
+            "free": "OCSP_CERTID_free"
+        }
+    ]
+}
+
+
+
+

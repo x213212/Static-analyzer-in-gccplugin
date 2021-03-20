@@ -1,0 +1,10 @@
+{
+	"allocsite":
+	[
+		{
+			"line": 336,
+			"alloc": "X509_VERIFY_PARAM_new",
+			"free": "X509_VERIFY_PARAM_free"
+		}
+	]
+}

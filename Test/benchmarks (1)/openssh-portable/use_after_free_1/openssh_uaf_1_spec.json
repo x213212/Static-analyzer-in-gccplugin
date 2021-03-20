@@ -1,0 +1,20 @@
+{
+	"allocsite": [
+		{
+		"line": 533,
+		"alloc": "sshbuf_new",
+		"free": "sshbuf_free"
+		}
+		,{
+		"line": 534,
+		"alloc": "sshbuf_new",
+		"free": "sshbuf_free"
+		},
+		{
+		"line": 535,
+		"alloc": "sshbuf_new",
+		"free": "sshbuf_free"
+		}
+
+	]
+}

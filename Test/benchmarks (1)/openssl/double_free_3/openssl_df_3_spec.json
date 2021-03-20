@@ -1,0 +1,10 @@
+{
+	"allocsite":
+	[
+		{
+			"alloc": "strdup",
+			"line": 58,
+			"free": "free"
+		}
+	]
+}

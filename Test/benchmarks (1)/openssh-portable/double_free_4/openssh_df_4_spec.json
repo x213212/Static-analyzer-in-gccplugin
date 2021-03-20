@@ -1,0 +1,14 @@
+{
+	"allocsite": [
+		{
+		"line": 209,
+		"alloc": "authorized_keys_file",
+		"free": "xfree"
+		},
+		{
+		"line": 216,
+		"alloc": "authorized_keys_file2",
+		"free": "xfree"
+		}
+	]
+}

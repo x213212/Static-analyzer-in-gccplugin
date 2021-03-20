@@ -1,0 +1,15 @@
+{
+	"allocsite": [
+		{
+		"line": 77,
+		"alloc": "xstrdup",
+		"free": "free"
+		},
+		{
+		"line": 81,
+		"alloc": "xstrdup",
+		"free": "free"
+		}
+	]
+}
+

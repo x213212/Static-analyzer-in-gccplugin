@@ -1,5 +1,5 @@
-#include "stdlib.h"
-#include "stdio.h"
+#include <stdlib.h>
+#include <stdio.h>
 #include <pthread.h>
 #include <unistd.h>
 #define xstrdup(a) strdup(a)
