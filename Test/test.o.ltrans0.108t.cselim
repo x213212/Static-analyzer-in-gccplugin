@@ -1,5 +1,23 @@
 
-;; Function test22 (test22, funcdef_no=2, decl_uid=3987, cgraph_uid=2, symbol_order=61) (executed once)
+;; Function child (child, funcdef_no=3, decl_uid=3986, cgraph_uid=1, symbol_order=57)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+child (void * data)
+{
+  <bb 2> [100.00%]:
+  return;
+
+}
+
+
+
+;; Function test22 (test22, funcdef_no=2, decl_uid=3987, cgraph_uid=2, symbol_order=61)
 
 ;; 1 loops found
 ;;
@@ -12,6 +30,7 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
+  test22 (k_2(D));
   free (k_2(D));
   return;
 
@@ -88,58 +107,14 @@ foo2 (int z)
 __attribute__((noinline))
 foo (int z)
 {
-  int * _4;
+  int * p2;
+  int * _7;
 
   <bb 2> [100.00%]:
-  _4 = foo2 (z_2(D));
-  return _4;
-
-}
-
-
-
-;; Function child (child, funcdef_no=3, decl_uid=3986, cgraph_uid=1, symbol_order=57) (executed once)
-
-;; 1 loops found
-;;
-;; Loop 0
-;;  header 0, latch 1
-;;  depth 0, outer -1
-;;  nodes: 0 1 2
-;; 2 succs { }
-child (void * data)
-{
-  int data2;
-  int * a;
-  int * pData;
-  int * * ppData;
-  void * _1;
-  int * _2;
-  int * _3;
-  int * _4;
-  int * _5;
-  int * _6;
-
-  <bb 2> [100.00%]:
-  pthread_mutex_lock (&mLock);
-  ppData_10 = malloc (10);
-  _1 = malloc (20);
-  pData = _1;
-  a_14 = foo (1);
-  data2 = 0;
-  pData = &data2;
-  _2 = pData;
-  *_2 = 10;
-  _3 = MEM[(int * *)&pData + 8B];
-  *_3 = 10;
-  _4 = MEM[(int * *)&pData + 16B];
-  *_4 = 10;
-  _5 = pData;
-  *_5 = 12;
-  _6 = pData;
-  free (_6);
-  free (&pData);
-  pthread_exit (0B);
+  p2_3 = malloc (1);
+  *p2_3 = 1;
+  _7 = foo2 (z_5(D));
+  return _7;
 
 }
 

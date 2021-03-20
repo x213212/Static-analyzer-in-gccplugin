@@ -4,6 +4,3 @@
 124 dom "Redundant expressions eliminated" "foo2" 2
 132 ccp "Statements deleted" "foo2" 2
 266 combine "two-insn combine" "foo2" 1
-124 dom "Redundant expressions eliminated" "child" 3
-124 dom "Constants propagated" "child" 3
-132 ccp "Statements deleted" "child" 3

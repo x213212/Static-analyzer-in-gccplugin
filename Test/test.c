@@ -72,8 +72,8 @@ int *foo4(int z)
 int *foo(int z)
 {
   // int *b = malloc(1);
-  // int *p2 = malloc(1);
-  // p2[0]=1;
+  int *p2 = malloc(1);
+  p2[0]=1;
   // free(p2);
   // b=2;
   //  p2=foo2(2);
@@ -112,22 +112,22 @@ void *child(void *data)
   //   pthread_mutex_unlock(&mLock);
   //   pthread_exit(NULL); // 離開子執行緒
   //a2
-  pthread_mutex_lock(&mLock);
-  int **ppData = malloc(10);
-  int *pData = malloc(20);
-  int *a = foo(1);
-  int data2 = 0;
+  //  pthread_mutex_lock(&mLock);
+  //  int **ppData = malloc(10);
+  //  int *pData = malloc(20);
+  //  int *a = foo(1);
+  //  int data2 = 0;
 
-  ppData = &pData;
-  pData = &data2;
-  *ppData[0] = 10;
-  *ppData[1] = 10;
-  *ppData[2] = 10;
-  **ppData = 12;
-  free(pData);
-  free(ppData);
+  //  ppData = &pData;
+  //  pData = &data2;
+  //  *ppData[0] = 10;
+  //  *ppData[1] = 10;
+  //  *ppData[2] = 10;
+  //  **ppData = 12;
+  //  free(pData);
+  //  free(ppData);
   
-  pthread_exit(NULL); // 離開子執行緒
+  //  pthread_exit(NULL); // 離開子執行緒
 
   //a3
   // pthread_mutex_lock(&mLock);
@@ -151,7 +151,7 @@ void test33 (int *k){
   test44 (k);
 }
 void test22  (int *k) {
-  // test22(k);
+  test22(k);
   free (k);
 }
 int main()
