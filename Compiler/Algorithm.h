@@ -2288,12 +2288,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					if (user_tmp->size > 0)
 						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 						{
-
 							if (user_tmp->ret_stmt != NULL)
 							{
-								// if(checkTeee != NULL )
-								// find_mallocstmt = -1;
-								// debug(user_tmp->ret_stmt);
 								warning_at(gimple_location(u_stmt), 0, "use location");
 								if (gimple_code(user_tmp->ret_stmt) == GIMPLE_RETURN)
 								{
@@ -2303,21 +2299,12 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							}
 							else
 							{
-								// find_mallocstmt = 1;
 								debug(u_stmt);
+
 								warning_at(gimple_location(u_stmt), 0, "use location");
 
-								// else
-								// {
-
-								// 	if (checkTeee != NULL)
-								// 		find_mallocstmt = 1;
-								// }
-
-								//name
 								gimple *use_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
 
-								// debug(def_stmt);
 								if (gimple_code(u_stmt) == GIMPLE_CALL)
 								{
 									name = get_name(gimple_call_fndecl(u_stmt));
@@ -2332,8 +2319,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										!strcmp(name, "strdup"))
 									{
 										find_mallocstmt = 1;
-										// name = get_name(gimple_call_fn(def_stmt));
-										// fprintf(stderr, "this Reserved word function ---%s-----\n", name);
 									}
 									else
 									{
@@ -2341,45 +2326,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											find_mallocstmt = 1;
 										else
 											find_mallocstmt = 2;
-										// if (childptable_type == 1)
-										// 	find_mallocstmt = 1;
-										// fprintf(stderr, "this other function---%s-----\n", name);
 									}
 
-								// else
-								// 	find_mallocstmt = 1;
-								// else
-								// {
-								// 	// find_mallocstmt = 0;
-								// 	// 	fprintf(stderr, "GIMPLE CODE :addr_expr--------\n");
-								// 	// def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
-								// 	// name = get_name(gimple_call_fndecl(def_stmt));
-								// 	// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n",name);
-								// 	// if (gimple_code(def_stmt) == GIMPLE_ASSIGN){
-								// 	// 	find_mallocstmt = 2;
-								// 	// 		fprintf(stderr, "GIMPLE CODE :addr_expr--------\n");
-								// 	// 	}
-								// 	// fprintf(stderr, "\n ================== %s ================== \n",name);
-								// }
 								if (checkTeee != NULL && gimple_code(u_stmt) == GIMPLE_CALL && find_mallocstmt == 2)
 								{
 
 									tree gettreefucntionarg = TREE_OPERAND(gimple_call_fn(def_stmt), 0);
-									// debug_tree(gettreefucntionarg);
-									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
-									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
-									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
-									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
-									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
-									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
-									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
-									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
-									// debug_tree(checkTeee);
-
 									name = get_name(gimple_call_fn(def_stmt));
-									// fprintf(stderr, "\n ================== warring ================== \n");
-									// if (find_mallocstmt == 0)
-									// 	continue;
 
 									if (checkTeee == gettreefucntionarg)
 									{
@@ -2448,59 +2401,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											fprintf(stderr, "\n ================== trace ================== \n");
 										}
 								}
-								// if (gimple_code(stmt) == GIMPLE_PHI)
-								// else if (checkTeee == NULL && gimple_code(u_stmt) == GIMPLE_CALL && find_mallocstmt == 2)
-								// {
-
-								// 	find_mallocstmt = 1;
-								// 	// gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
-								// 	// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
-								// 	// gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
-								// 	// debug(def_stmt);
-								// 	// debug_tree(table_temp->target);
-								// 	// 										if (!strcmp(get_tree_code_name(TREE_CODE(target)), "addr_expr"))
-								// 	// {
-								// 	// 	fprintf(stderr, "GIMPLE CODE :addr_expr--------\n");
-								// 	// 	return;
-								// 	// }
-								// 	// debug_tree(gimple_call_lhs(u_stmt));
-								// 	const char *name;
-								// 	name = get_tree_code_name(TREE_CODE(table_temp->target));
-								// 	fprintf(stderr, "\n ================== %s ================== \n", name);
-								// 	fprintf(stderr, "\n ================== find ================== \n");
-								// 	fprintf(stderr, "\n ================== find ================== \n");
-								// 	fprintf(stderr, "\n ================== find ================== \n");
-								// 	fprintf(stderr, "\n ================== find ================== \n");
-								// 	fprintf(stderr, "\n ================== find ================== \n");
-								// 	fprintf(stderr, "\n ================== find ================== \n");
-								// 	name = get_name(gimple_call_fn(u_stmt));
-								// 	if (name != NULL)
-								// 		if (!strcmp(name, "free") || !strcmp(name, "xfree"))
-								// 		{
-								// 			find_freestmt++;
-								// 			fprintf(stderr, "\n ================== find ================== \n");
-								// 			debug(u_stmt);
-								// 			warning_at(gimple_location(u_stmt), 0, "use location");
-								// 			fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
-								// 			fprintf(stderr, "\n ================== find ================== \n");
-								// 		}
-								// 		else
-								// 		{
-								// 			fprintf(stderr, "\n ================== trace ================== \n");
-								// 			fprintf(stderr, "trace fucntion name:%s \n", name);
-								// 			fprintf(stderr, "\n ================== trace ================== \n");
-								// 		}
-								// }
-
-								// if (  gimple_code(u_stmt) == GIMPLE_RETURN)
-								// {
-								// 	fprintf(stderr, "幹你娘\n");
-								// }
 							}
-
-							// user_tmp->
 						}
-					// fprintf(stderr, "] \n");
 				}
 				else
 				{
@@ -2521,11 +2423,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					else if (find_freestmt == 1)
 					{
 						fprintf(stderr, "\n======================================================================\n");
-						// debug_tree(user_tmp->target);
-						// if(user_tmp->target!= NULL)
-						// debug_tree(user_tmp->target);
-						// gimple *use_stmt =treeGimpleArray->get(table_temp->target);
-						// fprintf(stderr, "%s\n", (TREE_CODE(user_tmp->target)));
+
 						debug_tree(userStart);
 						gimple *def_stmt = SSA_NAME_DEF_STMT(userStart);
 						debug(def_stmt);
