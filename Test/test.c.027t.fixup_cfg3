@@ -14,7 +14,7 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
+;; Function child (child, funcdef_no=55, decl_uid=4342, cgraph_uid=55, symbol_order=57)
 
 child (void * data)
 {
@@ -92,7 +92,7 @@ foo2 (int z)
 
 
 
-;; Function foo4 (foo4, funcdef_no=53, decl_uid=4319, cgraph_uid=53, symbol_order=55)
+;; Function foo4 (foo4, funcdef_no=53, decl_uid=4321, cgraph_uid=53, symbol_order=55)
 
 foo4 (int z)
 {
@@ -137,7 +137,7 @@ foo (int z)
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4346, cgraph_uid=56, symbol_order=58)
+;; Function boo (boo, funcdef_no=56, decl_uid=4348, cgraph_uid=56, symbol_order=58)
 
 boo (int * b)
 {
@@ -150,12 +150,13 @@ boo (int * b)
 
 
 
-;; Function test44 (test44, funcdef_no=57, decl_uid=4317, cgraph_uid=57, symbol_order=59)
+;; Function test55 (test55, funcdef_no=57, decl_uid=4319, cgraph_uid=57, symbol_order=59)
 
 __attribute__((noinline))
-test44 (int * k)
+test55 (int * k)
 {
   <bb 2> [0.00%]:
+  *k_2(D) = 10;
   free (k_2(D));
   return;
 
@@ -163,7 +164,22 @@ test44 (int * k)
 
 
 
-;; Function test33 (test33, funcdef_no=58, decl_uid=4315, cgraph_uid=58, symbol_order=60)
+;; Function test44 (test44, funcdef_no=58, decl_uid=4317, cgraph_uid=58, symbol_order=60)
+
+__attribute__((noinline))
+test44 (int * k)
+{
+  <bb 2> [0.00%]:
+  *k_2(D) = 10;
+  test55 (k_2(D));
+  free (k_2(D));
+  return;
+
+}
+
+
+
+;; Function test33 (test33, funcdef_no=59, decl_uid=4315, cgraph_uid=59, symbol_order=61)
 
 __attribute__((noinline))
 test33 (int * k)
@@ -176,12 +192,13 @@ test33 (int * k)
 
 
 
-;; Function test22 (test22, funcdef_no=59, decl_uid=4313, cgraph_uid=59, symbol_order=61)
+;; Function test22 (test22, funcdef_no=60, decl_uid=4313, cgraph_uid=60, symbol_order=62)
 
 __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [0.00%]:
+  test44 (k_2(D));
   test22 (k_2(D));
   free (k_2(D));
   return;
@@ -190,7 +207,7 @@ test22 (int * k)
 
 
 
-;; Function main (main, funcdef_no=60, decl_uid=4357, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=61, decl_uid=4362, cgraph_uid=61, symbol_order=63)
 
 main ()
 {

@@ -2769,10 +2769,11 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 
 	// // printfunctionCollect(ptable, used_stmt);
-	// printfBasicblock();
-	printfPointerConstraint2(ptable, used_stmt);
+	
+	// printfPointerConstraint2(ptable, used_stmt);
 	// printfunctionCollect(ptable, used_stmt);
-	// printfunctionCollect2(ptable, used_stmt);
+	printfunctionCollect2(ptable, used_stmt);
+	printfBasicblock();
 }
 
 void print_function_path(vector<return_type> *path)

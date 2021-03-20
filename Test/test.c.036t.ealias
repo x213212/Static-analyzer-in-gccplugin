@@ -47,11 +47,11 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4392 } (nonlocal, escaped, restrict)
+ESCAPED, points-to non-local, points-to vars: { D.4398 } (nonlocal, escaped, restrict)
 
 Flow-insensitive points-to information
 
-__fmt_2(D), points-to NULL, points-to vars: { D.4392 } (nonlocal, escaped, restrict)
+__fmt_2(D), points-to NULL, points-to vars: { D.4398 } (nonlocal, escaped, restrict)
 
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
@@ -66,7 +66,7 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
+;; Function child (child, funcdef_no=55, decl_uid=4342, cgraph_uid=55, symbol_order=57)
 
 Points-to analysis
 
@@ -170,11 +170,11 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4393 } (escaped, escaped heap)
+ESCAPED, points-to non-local, points-to vars: { D.4399 } (escaped, escaped heap)
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4393 } (escaped, escaped heap)
+_1, points-to NULL, points-to vars: { D.4399 } (escaped, escaped heap)
 z_6(D), points-to non-local, points-to NULL, points-to vars: { }
 
 __attribute__((noinline))
@@ -275,16 +275,16 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4304 D.4395 D.4396 } (nonlocal, escaped, escaped heap, interposable)
+ESCAPED, points-to non-local, points-to vars: { D.4304 D.4401 D.4402 } (nonlocal, escaped, escaped heap, interposable)
 
 Flow-insensitive points-to information
 
-_4, points-to NULL, points-to vars: { D.4395 D.4396 } (escaped, escaped heap)
-a2_9, points-to NULL, points-to vars: { D.4394 }
-p3_11, points-to NULL, points-to vars: { D.4395 } (escaped, escaped heap)
-p4_13, points-to NULL, points-to vars: { D.4396 } (escaped, escaped heap)
-_17, points-to NULL, points-to vars: { D.4396 } (escaped, escaped heap)
-_20, points-to NULL, points-to vars: { D.4395 } (escaped, escaped heap)
+_4, points-to NULL, points-to vars: { D.4401 D.4402 } (escaped, escaped heap)
+a2_9, points-to NULL, points-to vars: { D.4400 }
+p3_11, points-to NULL, points-to vars: { D.4401 } (escaped, escaped heap)
+p4_13, points-to NULL, points-to vars: { D.4402 } (escaped, escaped heap)
+_17, points-to NULL, points-to vars: { D.4402 } (escaped, escaped heap)
+_20, points-to NULL, points-to vars: { D.4401 } (escaped, escaped heap)
 
 __attribute__((noinline))
 foo2 (int z)
@@ -331,7 +331,7 @@ foo2 (int z)
 
 
 
-;; Function foo4 (foo4, funcdef_no=53, decl_uid=4319, cgraph_uid=53, symbol_order=55)
+;; Function foo4 (foo4, funcdef_no=53, decl_uid=4321, cgraph_uid=53, symbol_order=55)
 
 Points-to analysis
 
@@ -388,17 +388,17 @@ Alias information for foo4
 
 Aliased symbols
 
-b, UID D.4333, int *, is addressable
+b, UID D.4335, int *, is addressable
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4333 D.4397 } (escaped, escaped heap)
+ESCAPED, points-to non-local, points-to vars: { D.4335 D.4403 } (escaped, escaped heap)
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4397 } (escaped, escaped heap)
-b.0_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.4397 } (escaped, escaped heap)
-p2_7, points-to NULL, points-to vars: { D.4398 }
+_1, points-to NULL, points-to vars: { D.4403 } (escaped, escaped heap)
+b.0_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.4403 } (escaped, escaped heap)
+p2_7, points-to NULL, points-to vars: { D.4404 }
 
 foo4 (int z)
 {
@@ -479,7 +479,7 @@ ESCAPED, points-to non-local, points-to vars: { }
 
 Flow-insensitive points-to information
 
-p2_3, points-to NULL, points-to vars: { D.4399 }
+p2_3, points-to NULL, points-to vars: { D.4405 }
 _7, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 
 __attribute__((noinline))
@@ -498,7 +498,7 @@ foo (int z)
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4346, cgraph_uid=56, symbol_order=58)
+;; Function boo (boo, funcdef_no=56, decl_uid=4348, cgraph_uid=56, symbol_order=58)
 
 Points-to analysis
 
@@ -551,7 +551,7 @@ b_2(D), points-to non-local, points-to NULL, points-to vars: { }
 
 boo (int * b)
 {
-  int D.4401;
+  int D.4407;
   int _5;
 
   <bb 2> [100.00%]:
@@ -563,7 +563,7 @@ boo (int * b)
 
 
 
-;; Function test44 (test44, funcdef_no=57, decl_uid=4317, cgraph_uid=57, symbol_order=59)
+;; Function test55 (test55, funcdef_no=57, decl_uid=4319, cgraph_uid=57, symbol_order=59)
 
 Points-to analysis
 
@@ -577,6 +577,8 @@ NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
 k = &NONLOCAL
+derefaddrtmp(9) = &NONLOCAL
+*k = derefaddrtmp(9)
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -589,11 +591,75 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { }
+ESCAPED = { ESCAPED NONLOCAL }
 NONLOCAL = { ESCAPED NONLOCAL }
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
 k = { NONLOCAL }
+derefaddrtmp(9) = { NONLOCAL } same as k
+
+
+Alias information for test55
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { }
+
+Flow-insensitive points-to information
+
+k_2(D), points-to non-local, points-to NULL, points-to vars: { }
+
+__attribute__((noinline))
+test55 (int * k)
+{
+  <bb 2> [0.00%]:
+  *k_2(D) = 10;
+  free (k_2(D));
+  return;
+
+}
+
+
+
+;; Function test44 (test44, funcdef_no=58, decl_uid=4317, cgraph_uid=58, symbol_order=60)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+k = &NONLOCAL
+derefaddrtmp(9) = &NONLOCAL
+*k = derefaddrtmp(9)
+ESCAPED = k
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+k = { NONLOCAL }
+derefaddrtmp(9) = { NONLOCAL } same as k
+test55 = { }
 
 
 Alias information for test44
@@ -603,7 +669,7 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to vars: { }
+ESCAPED, points-to non-local, points-to vars: { }
 
 Flow-insensitive points-to information
 
@@ -613,6 +679,8 @@ __attribute__((noinline))
 test44 (int * k)
 {
   <bb 2> [0.00%]:
+  *k_2(D) = 10;
+  test55 (k_2(D));
   free (k_2(D));
   return;
 
@@ -620,7 +688,7 @@ test44 (int * k)
 
 
 
-;; Function test33 (test33, funcdef_no=58, decl_uid=4315, cgraph_uid=58, symbol_order=60)
+;; Function test33 (test33, funcdef_no=59, decl_uid=4315, cgraph_uid=59, symbol_order=61)
 
 Points-to analysis
 
@@ -679,7 +747,7 @@ test33 (int * k)
 
 
 
-;; Function test22 (test22, funcdef_no=59, decl_uid=4313, cgraph_uid=59, symbol_order=61)
+;; Function test22 (test22, funcdef_no=60, decl_uid=4313, cgraph_uid=60, symbol_order=62)
 
 Points-to analysis
 
@@ -693,6 +761,7 @@ NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
 k = &NONLOCAL
+ESCAPED = k
 ESCAPED = k
 
 Collapsing static cycles and doing variable substitution
@@ -711,6 +780,7 @@ NONLOCAL = { ESCAPED NONLOCAL }
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
 k = { NONLOCAL }
+test44 = { }
 test22 = { }
 
 
@@ -731,6 +801,7 @@ __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [0.00%]:
+  test44 (k_2(D));
   test22 (k_2(D));
   free (k_2(D));
   return;
@@ -739,7 +810,7 @@ test22 (int * k)
 
 
 
-;; Function main (main, funcdef_no=60, decl_uid=4357, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=61, decl_uid=4362, cgraph_uid=61, symbol_order=63)
 
 Points-to analysis
 
@@ -823,19 +894,19 @@ Alias information for main
 
 Aliased symbols
 
-t, UID D.4365, pthread_t, is addressable
-buff, UID D.4362, char[50], is addressable
+t, UID D.4370, pthread_t, is addressable
+buff, UID D.4367, char[50], is addressable
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4304 D.4362 D.4365 D.4402 } (nonlocal, escaped, escaped heap, interposable)
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4304 D.4367 D.4370 D.4408 } (nonlocal, escaped, escaped heap, interposable)
 
 Flow-insensitive points-to information
 
 p3_4, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 p_8, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 p2_11, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-q_16, points-to NULL, points-to vars: { D.4402 } (escaped, escaped heap)
+q_16, points-to NULL, points-to vars: { D.4408 } (escaped, escaped heap)
 
 main ()
 {

@@ -13,6 +13,7 @@ void foo3(int *z) __attribute__((noinline));
 void test22  (int *k)__attribute__((noinline));
 void test33 (int *k) __attribute__((noinline));
 void test44  (int *k) __attribute__((noinline));
+void test55  (int *k) __attribute__((noinline));
 // int *foo(int z);
 int *foo4(int z);
 // int *foo2(int z);
@@ -144,13 +145,20 @@ void boo(int *b)
   free(b);
   printf("asdda\n");
 }
+void test55(int *k){
+  k[0]=10;
+  free (k);
+}
 void test44(int *k){
+  k[0]=10;
+  test55(k);
   free (k);
 }
 void test33 (int *k){
   test44 (k);
 }
 void test22  (int *k) {
+  test44(k);
   test22(k);
   free (k);
 }

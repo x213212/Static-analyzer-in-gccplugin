@@ -10,8 +10,8 @@
 55 release_ssa "unused VAR_DECLs removed" "boo" 1
 55 release_ssa "SSA names released" "boo" 2
 55 release_ssa "SSA name holes removed" "boo" 2
-35 einline "unused VAR_DECLs removed" "test44" 1
-35 einline "Symbol to SSA rewrite" "test44" 1
+35 einline "unused VAR_DECLs removed" "test55" 1
+35 einline "Symbol to SSA rewrite" "test55" 1
 38 ccp "Constants propagated" "main" 1
 38 ccp "Statements deleted" "main" 1
 55 release_ssa "SSA names released" "main" 1

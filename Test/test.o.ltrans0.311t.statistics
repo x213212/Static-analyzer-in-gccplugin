@@ -1,4 +1,4 @@
-90 pta "Symbol to SSA rewrite" "(nofn)" 5
+90 pta "Symbol to SSA rewrite" "(nofn)" 7
 115 copyprop "Statements deleted" "foo2" 2
 124 dom "Copies propagated" "foo2" 2
 124 dom "Redundant expressions eliminated" "foo2" 2

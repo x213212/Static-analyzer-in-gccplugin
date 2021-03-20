@@ -802,11 +802,23 @@
 }
 
 
+;; Function test55 (null)
+;; enabled by -tree-original
+
+
+{
+  *k = 10;
+  free ((void *) k);
+}
+
+
 ;; Function test44 (null)
 ;; enabled by -tree-original
 
 
 {
+  *k = 10;
+  test55 (k);
   free ((void *) k);
 }
 
@@ -825,6 +837,7 @@
 
 
 {
+  test44 (k);
   test22 (k);
   free ((void *) k);
 }

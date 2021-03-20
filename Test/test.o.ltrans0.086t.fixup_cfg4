@@ -1,5 +1,5 @@
 
-;; Function child (child, funcdef_no=3, decl_uid=3986, cgraph_uid=1, symbol_order=57)
+;; Function child (child, funcdef_no=5, decl_uid=3986, cgraph_uid=1, symbol_order=57)
 
 child (void * data)
 {
@@ -10,12 +10,42 @@ child (void * data)
 
 
 
-;; Function test22 (test22, funcdef_no=2, decl_uid=3987, cgraph_uid=2, symbol_order=61)
+;; Function test55 (test55, funcdef_no=2, decl_uid=3989, cgraph_uid=4, symbol_order=59)
+
+__attribute__((noinline))
+test55 (int * k)
+{
+  <bb 2> [100.00%]:
+  *k_2(D) = 10;
+  free (k_2(D));
+  return;
+
+}
+
+
+
+;; Function test44 (test44, funcdef_no=3, decl_uid=3988, cgraph_uid=3, symbol_order=60)
+
+__attribute__((noinline))
+test44 (int * k)
+{
+  <bb 2> [100.00%]:
+  *k_2(D) = 10;
+  test55 (k_2(D));
+  free (k_2(D));
+  return;
+
+}
+
+
+
+;; Function test22 (test22, funcdef_no=4, decl_uid=3987, cgraph_uid=2, symbol_order=62)
 
 __attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
+  test44 (k_2(D));
   test22 (k_2(D));
   free (k_2(D));
   return;
@@ -24,7 +54,7 @@ test22 (int * k)
 
 
 
-;; Function foo2 (foo2, funcdef_no=0, decl_uid=3989, cgraph_uid=4, symbol_order=54) (executed once)
+;; Function foo2 (foo2, funcdef_no=0, decl_uid=3991, cgraph_uid=6, symbol_order=54) (executed once)
 
 __attribute__((noinline))
 foo2 (int z)
@@ -71,7 +101,7 @@ foo2 (int z)
 
 
 
-;; Function foo (foo, funcdef_no=1, decl_uid=3988, cgraph_uid=3, symbol_order=56) (executed once)
+;; Function foo (foo, funcdef_no=1, decl_uid=3990, cgraph_uid=5, symbol_order=56) (executed once)
 
 __attribute__((noinline))
 foo (int z)
@@ -89,7 +119,7 @@ foo (int z)
 
 
 
-;; Function main (main, funcdef_no=4, decl_uid=3985, cgraph_uid=0, symbol_order=62) (executed once)
+;; Function main (main, funcdef_no=6, decl_uid=3985, cgraph_uid=0, symbol_order=63) (executed once)
 
 main ()
 {

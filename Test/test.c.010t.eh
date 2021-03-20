@@ -22,7 +22,7 @@ foo2 (int z)
   int * p4;
   int * p3;
   int * a2;
-  int * D.4369;
+  int * D.4374;
 
   _1 = (long unsigned int) z;
   a2 = malloc (_1);
@@ -31,31 +31,31 @@ foo2 (int z)
   _3 = (long unsigned int) z;
   p4 = malloc (_3);
   *a2 = 10;
-  if (tmp > 10) goto <D.4367>; else goto <D.4368>;
-  <D.4367>:
+  if (tmp > 10) goto <D.4372>; else goto <D.4373>;
+  <D.4372>:
   pthread_mutex_unlock (&mLock);
   *p3 = 10;
-  D.4369 = p3;
-  goto <D.4370>;
-  <D.4368>:
+  D.4374 = p3;
+  goto <D.4375>;
+  <D.4373>:
   *p4 = 10;
-  D.4369 = p4;
-  goto <D.4370>;
-  D.4369 = a2;
-  goto <D.4370>;
-  <D.4370>:
-  return D.4369;
+  D.4374 = p4;
+  goto <D.4375>;
+  D.4374 = a2;
+  goto <D.4375>;
+  <D.4375>:
+  return D.4374;
 }
 
 
 
-;; Function foo4 (foo4, funcdef_no=53, decl_uid=4319, cgraph_uid=53, symbol_order=55)
+;; Function foo4 (foo4, funcdef_no=53, decl_uid=4321, cgraph_uid=53, symbol_order=55)
 
 foo4 (int z)
 {
   int * p2;
   int * b;
-  int * D.4371;
+  int * D.4376;
 
   _1 = malloc (1);
   b = _1;
@@ -65,13 +65,13 @@ foo4 (int z)
   *p2 = 1;
   p2 = &b;
   free (p2);
-  D.4371 = p2;
-  goto <D.4373>;
-  <D.4373>:
+  D.4376 = p2;
+  goto <D.4378>;
+  <D.4378>:
   b = {CLOBBER};
-  goto <D.4372>;
-  <D.4372>:
-  return D.4371;
+  goto <D.4377>;
+  <D.4377>:
+  return D.4376;
 }
 
 
@@ -82,19 +82,19 @@ __attribute__((noinline))
 foo (int z)
 {
   int * p2;
-  int * D.4374;
+  int * D.4379;
 
   p2 = malloc (1);
   *p2 = 1;
-  D.4374 = foo2 (z);
-  goto <D.4375>;
-  <D.4375>:
-  return D.4374;
+  D.4379 = foo2 (z);
+  goto <D.4380>;
+  <D.4380>:
+  return D.4379;
 }
 
 
 
-;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
+;; Function child (child, funcdef_no=55, decl_uid=4342, cgraph_uid=55, symbol_order=57)
 
 child (void * data)
 {
@@ -103,7 +103,7 @@ child (void * data)
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4346, cgraph_uid=56, symbol_order=58)
+;; Function boo (boo, funcdef_no=56, decl_uid=4348, cgraph_uid=56, symbol_order=58)
 
 boo (int * b)
 {
@@ -119,28 +119,42 @@ boo (int * b)
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
 {
-  int D.4376;
+  int D.4381;
 
-  D.4376 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  goto <D.4377>;
-  <D.4377>:
-  return D.4376;
+  D.4381 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  goto <D.4382>;
+  <D.4382>:
+  return D.4381;
 }
 
 
 
-;; Function test44 (test44, funcdef_no=57, decl_uid=4317, cgraph_uid=57, symbol_order=59)
+;; Function test55 (test55, funcdef_no=57, decl_uid=4319, cgraph_uid=57, symbol_order=59)
 
 __attribute__((noinline))
-test44 (int * k)
+test55 (int * k)
 {
+  *k = 10;
   free (k);
   return;
 }
 
 
 
-;; Function test33 (test33, funcdef_no=58, decl_uid=4315, cgraph_uid=58, symbol_order=60)
+;; Function test44 (test44, funcdef_no=58, decl_uid=4317, cgraph_uid=58, symbol_order=60)
+
+__attribute__((noinline))
+test44 (int * k)
+{
+  *k = 10;
+  test55 (k);
+  free (k);
+  return;
+}
+
+
+
+;; Function test33 (test33, funcdef_no=59, decl_uid=4315, cgraph_uid=59, symbol_order=61)
 
 __attribute__((noinline))
 test33 (int * k)
@@ -151,11 +165,12 @@ test33 (int * k)
 
 
 
-;; Function test22 (test22, funcdef_no=59, decl_uid=4313, cgraph_uid=59, symbol_order=61)
+;; Function test22 (test22, funcdef_no=60, decl_uid=4313, cgraph_uid=60, symbol_order=62)
 
 __attribute__((noinline))
 test22 (int * k)
 {
+  test44 (k);
   test22 (k);
   free (k);
   return;
@@ -163,7 +178,7 @@ test22 (int * k)
 
 
 
-;; Function main (main, funcdef_no=60, decl_uid=4357, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=61, decl_uid=4362, cgraph_uid=61, symbol_order=63)
 
 main ()
 {
@@ -174,7 +189,7 @@ main ()
   int * p3;
   int * p2;
   int * p;
-  int D.4378;
+  int D.4383;
 
   p3 = foo (2);
   *p3 = 1;
@@ -193,16 +208,16 @@ main ()
   t.1_1 = t;
   pthread_join (t.1_1, 0B);
   pthread_mutex_destroy (&mLock);
-  D.4378 = 0;
-  goto <D.4380>;
-  <D.4380>:
+  D.4383 = 0;
+  goto <D.4385>;
+  <D.4385>:
   buff = {CLOBBER};
   t = {CLOBBER};
-  goto <D.4379>;
-  D.4378 = 0;
-  goto <D.4379>;
-  <D.4379>:
-  return D.4378;
+  goto <D.4384>;
+  D.4383 = 0;
+  goto <D.4384>;
+  <D.4384>:
+  return D.4383;
 }
 
 
