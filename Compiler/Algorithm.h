@@ -1489,8 +1489,8 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 					// debug(def_stmt);
 					// debug_tree(gimple_assign_lhs(def_stmt));
 					fprintf(stderr, "-----------------GIMPLE_PHI : INSERT------------------\n");
-					if (TREE_CODE( gimple_phi_result(use_stmt)) == SSA_NAME)
-						new_search_imm_use(used_stmt,  gimple_phi_result(use_stmt), gimple_phi_result(use_stmt));
+					if (TREE_CODE(gimple_phi_result(use_stmt)) == SSA_NAME)
+						new_search_imm_use(used_stmt, gimple_phi_result(use_stmt), gimple_phi_result(use_stmt));
 				}
 			}
 		}
@@ -2223,8 +2223,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 			{
 				// debug_tree(function_tree);
 				const char *name;
+				debug_tree(function_tree);
+				fprintf(stderr, "\n======================================================================\n");
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
-
 				if (gimple_code(def_stmt) == GIMPLE_CALL)
 				{
 					name = get_name(gimple_call_fndecl(def_stmt));
@@ -2894,9 +2895,9 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	// // printfunctionCollect(ptable, used_stmt);
 
 	// printfunctionCollect(ptable, used_stmt);
-	printfunctionCollect2(ptable, used_stmt);
-	printfBasicblock();
-	printfPointerConstraint2(ptable, used_stmt);
+	// printfunctionCollect2(ptable, used_stmt);
+	// printfBasicblock();
+	// printfPointerConstraint2(ptable, used_stmt);
 }
 
 void print_function_path(vector<return_type> *path)

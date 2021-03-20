@@ -1,4 +1,225 @@
 
+;; Function atoi (null)
+;; enabled by -tree-original
+
+
+{
+  return (int) strtol (__nptr, 0B, 10);
+}
+
+
+;; Function atol (null)
+;; enabled by -tree-original
+
+
+{
+  return strtol (__nptr, 0B, 10);
+}
+
+
+;; Function atoll (null)
+;; enabled by -tree-original
+
+
+{
+  return strtoll (__nptr, 0B, 10);
+}
+
+
+;; Function __bswap_16 (null)
+;; enabled by -tree-original
+
+
+{
+  return (__uint16_t) __builtin_bswap16 ((int) __bsx);
+}
+
+
+;; Function __bswap_32 (null)
+;; enabled by -tree-original
+
+
+{
+  return (__uint32_t) __builtin_bswap32 (__bsx);
+}
+
+
+;; Function __bswap_64 (null)
+;; enabled by -tree-original
+
+
+{
+  return (__uint64_t) __builtin_bswap64 (__bsx);
+}
+
+
+;; Function __uint16_identity (null)
+;; enabled by -tree-original
+
+
+{
+  return __x;
+}
+
+
+;; Function __uint32_identity (null)
+;; enabled by -tree-original
+
+
+{
+  return __x;
+}
+
+
+;; Function __uint64_identity (null)
+;; enabled by -tree-original
+
+
+{
+  return __x;
+}
+
+
+;; Function bsearch (null)
+;; enabled by -tree-original
+
+
+{
+  size_t __l;
+  size_t __u;
+  size_t __idx;
+  const void * __p;
+  int __comparison;
+
+    size_t __l;
+    size_t __u;
+    size_t __idx;
+    const void * __p;
+    int __comparison;
+  __l = 0;
+  __u = __nmemb;
+  goto <D.2299>;
+  <D.2298>:;
+  __idx = (__l + __u) / 2;
+  __p = __base + (sizetype) (__idx * __size);
+  __comparison = __compar (__key, __p);
+  if (__comparison < 0)
+    {
+      __u = __idx;
+    }
+  else
+    {
+      if (__comparison > 0)
+        {
+          __l = __idx + 1;
+        }
+      else
+        {
+          return (void *) __p;
+        }
+    }
+  <D.2299>:;
+  if (__l < __u) goto <D.2298>; else goto <D.2300>;
+  <D.2300>:;
+  return 0B;
+}
+
+
+;; Function atof (null)
+;; enabled by -tree-original
+
+
+{
+  return strtod (__nptr, 0B);
+}
+
+
+;; Function realpath (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __resolved, 1) != 18446744073709551615)
+    {
+      return __realpath_chk (__name, __resolved, __builtin_object_size ((const void *) __resolved, 1));
+    }
+  return __realpath_alias (__name, __resolved);
+}
+
+
+;; Function ptsname_r (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__buflen) == 0)
+        {
+          return __ptsname_r_chk (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
+        }
+      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
+        {
+          return __ptsname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
+        }
+    }
+  return __ptsname_r_alias (__fd, __buf, __buflen);
+}
+
+
+;; Function wctomb (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __s, 1) != 18446744073709551615 && __builtin_object_size ((const void *) __s, 1) <= 15)
+    {
+      return __wctomb_chk (__s, __wchar, __builtin_object_size ((const void *) __s, 1));
+    }
+  return __wctomb_alias (__s, __wchar);
+}
+
+
+;; Function mbstowcs (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __dst, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__len) == 0)
+        {
+          return __mbstowcs_chk (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1) / 4);
+        }
+      if (__builtin_object_size ((const void *) __dst, 1) / 4 < (long unsigned int) __len)
+        {
+          return __mbstowcs_chk_warn (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1) / 4);
+        }
+    }
+  return __mbstowcs_alias (__dst, __src, __len);
+}
+
+
+;; Function wcstombs (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __dst, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__len) == 0)
+        {
+          return __wcstombs_chk (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1));
+        }
+      if (__builtin_object_size ((const void *) __dst, 1) < (long unsigned int) __len)
+        {
+          return __wcstombs_chk_warn (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1));
+        }
+    }
+  return __wcstombs_alias (__dst, __src, __len);
+}
+
+
 ;; Function getchar (null)
 ;; enabled by -tree-original
 
@@ -247,22 +468,22 @@
           {
             return 0;
           }
-        goto <D.2378>;
-        <D.2377>:;
+        goto <D.3009>;
+        <D.3008>:;
         {
           int __c = getc_unlocked (__stream);
 
                     int __c = getc_unlocked (__stream);
           if (__c == -1)
             {
-              goto <D.2376>;
+              goto <D.3007>;
             }
           *__cptr++  = (char) __c;
         }
          --__cnt;
-        <D.2378>:;
-        if (__cnt != 0) goto <D.2377>; else goto <D.2376>;
-        <D.2376>:;
+        <D.3009>:;
+        if (__cnt != 0) goto <D.3008>; else goto <D.3007>;
+        <D.3007>:;
         return (size_t) ((long unsigned int) ((long int) __cptr - (long int) __ptr) / (long unsigned int) __size);
       }
     }
@@ -270,155 +491,149 @@
 }
 
 
-;; Function atoi (null)
+;; Function pthread_equal (null)
 ;; enabled by -tree-original
 
 
 {
-  return (int) strtol (__nptr, 0B, 10);
+  return __thread1 == __thread2;
 }
 
 
-;; Function atol (null)
+;; Function read (null)
 ;; enabled by -tree-original
 
 
 {
-  return strtol (__nptr, 0B, 10);
-}
-
-
-;; Function atoll (null)
-;; enabled by -tree-original
-
-
-{
-  return strtoll (__nptr, 0B, 10);
-}
-
-
-;; Function __bswap_16 (null)
-;; enabled by -tree-original
-
-
-{
-  return (__uint16_t) __builtin_bswap16 ((int) __bsx);
-}
-
-
-;; Function __bswap_32 (null)
-;; enabled by -tree-original
-
-
-{
-  return (__uint32_t) __builtin_bswap32 (__bsx);
-}
-
-
-;; Function __bswap_64 (null)
-;; enabled by -tree-original
-
-
-{
-  return (__uint64_t) __builtin_bswap64 (__bsx);
-}
-
-
-;; Function __uint16_identity (null)
-;; enabled by -tree-original
-
-
-{
-  return __x;
-}
-
-
-;; Function __uint32_identity (null)
-;; enabled by -tree-original
-
-
-{
-  return __x;
-}
-
-
-;; Function __uint64_identity (null)
-;; enabled by -tree-original
-
-
-{
-  return __x;
-}
-
-
-;; Function bsearch (null)
-;; enabled by -tree-original
-
-
-{
-  size_t __l;
-  size_t __u;
-  size_t __idx;
-  const void * __p;
-  int __comparison;
-
-    size_t __l;
-    size_t __u;
-    size_t __idx;
-    const void * __p;
-    int __comparison;
-  __l = 0;
-  __u = __nmemb;
-  goto <D.2819>;
-  <D.2818>:;
-  __idx = (__l + __u) / 2;
-  __p = __base + (sizetype) (__idx * __size);
-  __comparison = __compar (__key, __p);
-  if (__comparison < 0)
+  if (__builtin_object_size ((const void *) __buf, 0) != 18446744073709551615)
     {
-      __u = __idx;
-    }
-  else
-    {
-      if (__comparison > 0)
+      if (__builtin_constant_p (__nbytes) == 0)
         {
-          __l = __idx + 1;
+          return __read_chk (__fd, __buf, __nbytes, __builtin_object_size ((const void *) __buf, 0));
         }
-      else
+      if (__builtin_object_size ((const void *) __buf, 0) < (long unsigned int) __nbytes)
         {
-          return (void *) __p;
+          return __read_chk_warn (__fd, __buf, __nbytes, __builtin_object_size ((const void *) __buf, 0));
         }
     }
-  <D.2819>:;
-  if (__l < __u) goto <D.2818>; else goto <D.2820>;
-  <D.2820>:;
-  return 0B;
+  return __read_alias (__fd, __buf, __nbytes);
 }
 
 
-;; Function atof (null)
+;; Function readlink (null)
 ;; enabled by -tree-original
 
 
 {
-  return strtod (__nptr, 0B);
-}
-
-
-;; Function realpath (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __resolved, 1) != 18446744073709551615)
+  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
     {
-      return __realpath_chk (__name, __resolved, __builtin_object_size ((const void *) __resolved, 1));
+      if (__builtin_constant_p (__len) == 0)
+        {
+          return __readlink_chk (__path, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
+        }
+      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __len)
+        {
+          return __readlink_chk_warn (__path, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
+        }
     }
-  return __realpath_alias (__name, __resolved);
+  return __readlink_alias (__path, __buf, __len);
 }
 
 
-;; Function ptsname_r (null)
+;; Function readlinkat (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__len) == 0)
+        {
+          return __readlinkat_chk (__fd, __path, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
+        }
+      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __len)
+        {
+          return __readlinkat_chk_warn (__fd, __path, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
+        }
+    }
+  return __readlinkat_alias (__fd, __path, __buf, __len);
+}
+
+
+;; Function getcwd (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__size) == 0)
+        {
+          return __getcwd_chk (__buf, __size, __builtin_object_size ((const void *) __buf, 1));
+        }
+      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __size)
+        {
+          return __getcwd_chk_warn (__buf, __size, __builtin_object_size ((const void *) __buf, 1));
+        }
+    }
+  return __getcwd_alias (__buf, __size);
+}
+
+
+;; Function getwd (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
+    {
+      return __getwd_chk (__buf, __builtin_object_size ((const void *) __buf, 1));
+    }
+  return __getwd_warn (__buf);
+}
+
+
+;; Function confstr (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__len) == 0)
+        {
+          return __confstr_chk (__name, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
+        }
+      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __len)
+        {
+          return __confstr_chk_warn (__name, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
+        }
+    }
+  return __confstr_alias (__name, __buf, __len);
+}
+
+
+;; Function getgroups (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __list, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__size) == 0 || __size < 0)
+        {
+          return __getgroups_chk (__size, __list, __builtin_object_size ((const void *) __list, 1));
+        }
+      if ((long unsigned int) __size * 4 > __builtin_object_size ((const void *) __list, 1))
+        {
+          return __getgroups_chk_warn (__size, __list, __builtin_object_size ((const void *) __list, 1));
+        }
+    }
+  return __getgroups_alias (__size, __list);
+}
+
+
+;; Function ttyname_r (null)
 ;; enabled by -tree-original
 
 
@@ -427,265 +642,204 @@
     {
       if (__builtin_constant_p (__buflen) == 0)
         {
-          return __ptsname_r_chk (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
+          return __ttyname_r_chk (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
         }
       if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
         {
-          return __ptsname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
+          return __ttyname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
         }
     }
-  return __ptsname_r_alias (__fd, __buf, __buflen);
+  return __ttyname_r_alias (__fd, __buf, __buflen);
 }
 
 
-;; Function wctomb (null)
+;; Function getlogin_r (null)
 ;; enabled by -tree-original
 
 
 {
-  if (__builtin_object_size ((const void *) __s, 1) != 18446744073709551615 && __builtin_object_size ((const void *) __s, 1) <= 15)
+  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
     {
-      return __wctomb_chk (__s, __wchar, __builtin_object_size ((const void *) __s, 1));
+      if (__builtin_constant_p (__buflen) == 0)
+        {
+          return __getlogin_r_chk (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
+        }
+      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
+        {
+          return __getlogin_r_chk_warn (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
+        }
     }
-  return __wctomb_alias (__s, __wchar);
+  return __getlogin_r_alias (__buf, __buflen);
 }
 
 
-;; Function mbstowcs (null)
+;; Function gethostname (null)
 ;; enabled by -tree-original
 
 
 {
-  if (__builtin_object_size ((const void *) __dst, 1) != 18446744073709551615)
+  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
     {
-      if (__builtin_constant_p (__len) == 0)
+      if (__builtin_constant_p (__buflen) == 0)
         {
-          return __mbstowcs_chk (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1) / 4);
+          return __gethostname_chk (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
         }
-      if (__builtin_object_size ((const void *) __dst, 1) / 4 < (long unsigned int) __len)
+      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
         {
-          return __mbstowcs_chk_warn (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1) / 4);
+          return __gethostname_chk_warn (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
         }
     }
-  return __mbstowcs_alias (__dst, __src, __len);
+  return __gethostname_alias (__buf, __buflen);
 }
 
 
-;; Function wcstombs (null)
+;; Function getdomainname (null)
 ;; enabled by -tree-original
 
 
 {
-  if (__builtin_object_size ((const void *) __dst, 1) != 18446744073709551615)
+  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
     {
-      if (__builtin_constant_p (__len) == 0)
+      if (__builtin_constant_p (__buflen) == 0)
         {
-          return __wcstombs_chk (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1));
+          return __getdomainname_chk (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
         }
-      if (__builtin_object_size ((const void *) __dst, 1) < (long unsigned int) __len)
+      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
         {
-          return __wcstombs_chk_warn (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1));
+          return __getdomainname_chk_warn (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
         }
     }
-  return __wcstombs_alias (__dst, __src, __len);
+  return __getdomainname_alias (__buf, __buflen);
 }
 
 
-;; Function strlcat (null)
+;; Function foo3 (null)
 ;; enabled by -tree-original
 
 
 {
-  const size_t srclen = strlen (src);
-  extern long unsigned int strlen (const char *);
-  const size_t dstlen = (const size_t) strnlen (dst, maxlen);
-  extern int strnlen ();
+  *z = (int) (long int) malloc (1);
+}
 
-    const size_t srclen = strlen (src);
-    const size_t dstlen = (const size_t) strnlen (dst, maxlen);
-  if (dstlen == (const size_t) maxlen)
-    {
-      return (size_t) ((long unsigned int) maxlen + (long unsigned int) srclen);
-    }
-  if ((long unsigned int) maxlen - (long unsigned int) dstlen > (long unsigned int) srclen)
-    {
-      {
-        extern void * memcpy (void *, const void *, long unsigned int);
 
-        memcpy ((void *) (dst + (sizetype) dstlen), (const void *) src, (long unsigned int) srclen + 1);
-      }
+;; Function foo2 (null)
+;; enabled by -tree-original
+
+
+{
+  int * a2 = (int *) malloc ((size_t) z);
+  int * p3 = (int *) malloc ((size_t) z);
+  int * p4 = (int *) malloc ((size_t) z);
+  int tmp;
+
+    int * a2 = (int *) malloc ((size_t) z);
+    int * p3 = (int *) malloc ((size_t) z);
+    int * p4 = (int *) malloc ((size_t) z);
+    int tmp;
+  *a2 = 10;
+  if (tmp > 10)
+    {
+      pthread_mutex_unlock (&mLock);
+      *p3 = 10;
+      return p3;
     }
   else
     {
-      {
-        extern void * memcpy (void *, const void *, long unsigned int);
-
-        memcpy ((void *) (dst + (sizetype) dstlen), (const void *) src, maxlen + 18446744073709551615);
-        *(dst + ((sizetype) ((long unsigned int) dstlen + (long unsigned int) maxlen) + 18446744073709551615)) = 0;
-      }
+      *p4 = 10;
+      return p4;
     }
-  return (size_t) ((long unsigned int) dstlen + (long unsigned int) srclen);
+  return a2;
 }
 
 
-;; Function tilde_expand_filename (null)
+;; Function foo4 (null)
 ;; enabled by -tree-original
 
 
 {
-  const char * path;
-  char user[128];
-  char ret[64];
-  struct passwd * pw;
-  u_int len;
-  u_int slash;
-  extern char * strchr (const char *, int);
-  extern char * strdup (const char *);
+  int * b = (int *) malloc (1);
+  int * p2 = (int *) malloc (1);
 
-    const char * path;
-    char user[128];
-    char ret[64];
-    struct passwd * pw;
-    u_int len;
-    u_int slash;
-  if (*filename != 126)
-    {
-      {
-        extern char * strdup (const char *);
-
-        return strdup (filename);
-      }
-    }
-  filename++ ;
-  path = (const char *) strchr (filename, 47);
-  if (path != 0B && path > filename)
-    {
-      {
-        extern void * memcpy (void *, const void *, long unsigned int);
-
-        slash = (u_int) ((long int) path - (long int) filename);
-        if (slash > 127)
-          {
-            printf ((const char * restrict) "tilde_expand_filename: ~username too long%s\n", (char *) "");
-            exit (1);
-          }
-        memcpy ((void *) &user, (const void *) filename, (long unsigned int) slash);
-        user[slash] = 0;
-      }
-    }
-  if (path != 0B)
-    {
-      filename = path + 1;
-    }
-  if (strlcat ((char *) &ret, filename, 64) > 63)
-    {
-      printf ((const char * restrict) "tilde_expand_filename: Path too long%s\n", (char *) "");
-      exit (1);
-    }
-  return strdup ((const char *) &ret);
+    int * b = (int *) malloc (1);
+    int * p2 = (int *) malloc (1);
+  *b = 2;
+  *p2 = 1;
+  p2 = (int *) &b;
+  free ((void *) p2);
+  return p2;
 }
 
 
-;; Function read_keyfile_line (null)
+;; Function foo (null)
 ;; enabled by -tree-original
 
 
 {
-  static const char __func__[18] = "read_keyfile_line";
+  int * p2 = (int *) malloc (1);
 
-    static const char __func__[18] = "read_keyfile_line";
-  goto <D.3598>;
-  <D.3597>:;
-  *lineno++ ;
-  printf ((const char * restrict) "%s: %s line %lu exceeds size limit\n", (const char *) &__func__, filename, *lineno);
-  if (rand () % 2 == 1)
-    {
-      return 0;
-    }
-  <D.3598>:;
-  if (rand () % 2 == 1) goto <D.3597>; else goto <D.3599>;
-  <D.3599>:;
-  return -1;
+    int * p2 = (int *) malloc (1);
+  *p2 = 1;
+  return foo2 (z);
 }
 
 
-;; Function update_krl_from_file (null)
+;; Function child (null)
 ;; enabled by -tree-original
 
 
 {
-  struct Key * key = 0B;
-  u_long lnum = 0;
-  char * path;
-  char * cp;
-  char * ep;
-  char line[16384];
-  long long unsigned int serial;
-  long long unsigned int serial2;
-  int i;
-  int was_explicit_key;
-  int was_sha1;
-  int r;
-  struct FILE * krl_spec;
+  
+}
 
-    struct Key * key = 0B;
-    u_long lnum = 0;
-    char * path;
-    char * cp;
-    char * ep;
-    char line[16384];
-    long long unsigned int serial;
-    long long unsigned int serial2;
-    int i;
-    int was_explicit_key;
-    int was_sha1;
-    int r;
-    struct FILE * krl_spec;
-  path = tilde_expand_filename (file, (uid_t) pw->pw_uid);
-  {
-    extern int strcmp ();
 
-    if (strcmp (path, (char *) "-") == 0)
-      {
-        {
-          extern char * strdup (const char *);
+;; Function boo (null)
+;; enabled by -tree-original
 
-          krl_spec = stdin;
-          free ((void *) path);
-          path = strdup ((const char *) "(standard input)");
-        }
-      }
-    else
-      {
-        if ((krl_spec = fopen ((const char * restrict) path, (const char * restrict) "r")) == 0B)
-          {
-            printf ((const char * restrict) "fopen %s: \n", path);
-            exit (1);
-          }
-      }
-  }
-  if (quiet == 0)
-    {
-      printf ((const char * restrict) "Revoking from %s\n", path);
-    }
-  goto <D.3620>;
-  <D.3619>:;
-  if (rand () % 2 == 1)
-    {
-      printf ((const char * restrict) "%s: invalid\n", path);
-      exit (1);
-    }
-  <D.3620>:;
-  if (read_keyfile_line (krl_spec, (const char *) path, (char *) &line, 16384, &lnum) == 0) goto <D.3619>; else goto <D.3621>;
-  <D.3621>:;
-  {
-    extern int strcmp ();
 
-    if (strcmp (path, (char *) "-") != 0)
-      {
-        fclose (krl_spec);
-      }
-  }
+{
+  free ((void *) b);
+  printf ((const char * restrict) "asdda\n");
+}
+
+
+;; Function test55 (null)
+;; enabled by -tree-original
+
+
+{
+  *k = 10;
+  free ((void *) k);
+}
+
+
+;; Function test44 (null)
+;; enabled by -tree-original
+
+
+{
+  *k = 10;
+  test55 (k);
+  free ((void *) k);
+}
+
+
+;; Function test33 (null)
+;; enabled by -tree-original
+
+
+{
+  test44 (k);
+}
+
+
+;; Function test22 (null)
+;; enabled by -tree-original
+
+
+{
+  test44 (k);
+  test22 (k);
+  free ((void *) k);
 }
 
 
@@ -694,23 +848,36 @@
 
 
 {
-  struct passwd pw;
-  int updating;
-  int i;
-  extern int time ();
+  int * p;
+  int * p2;
+  int * p3;
+  char buff[50];
+  int * q = (int *) malloc (5);
+  int n;
+  pthread_t t;
 
-    struct passwd pw;
-    int updating;
-    int i;
-  srand ((unsigned int) time (0B));
-  i = 0;
-  goto <D.3632>;
-  <D.3631>:;
-  update_krl_from_file (&pw, (const char *) *(argv + (sizetype) ((long unsigned int) i * 8)));
-  i++ ;
-  <D.3632>:;
-  if (i < argc) goto <D.3631>; else goto <D.3633>;
-  <D.3633>:;
+    int * p;
+    int * p2;
+    int * p3;
+  p3 = foo (2);
+  *p3 = 1;
+  free ((void *) p3);
+  p = foo2 (2);
+  *p = 2;
+  p2 = foo2 (2);
+  *p2 = 4;
+  free ((void *) p);
+  free ((void *) p2);
+    char buff[50];
+    int * q = (int *) malloc (5);
+  *q = 10;
+  test22 (q);
+    int n;
+    pthread_t t;
+  pthread_mutex_destroy (&mLock);
+  pthread_create (&t, 0B, child, (void * restrict) &buff);
+  pthread_join (t, 0B);
+  pthread_mutex_destroy (&mLock);
   return 0;
 }
 return 0;
