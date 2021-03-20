@@ -1,5 +1,5 @@
 
-;; Function printf (printf, funcdef_no=31, decl_uid=798, cgraph_uid=31, symbol_order=31)
+;; Function printf (printf, funcdef_no=15, decl_uid=798, cgraph_uid=15, symbol_order=15)
 
 
 
@@ -21,366 +21,501 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function child (child, funcdef_no=55, decl_uid=4342, cgraph_uid=55, symbol_order=57)
+;; Function strlcat (strlcat, funcdef_no=39, decl_uid=3566, cgraph_uid=39, symbol_order=40)
 
 
 
- local analysis of child
-   scanning: return;
-Function is locally const.
-Function found to be const: child
-Declaration updated to be const: child
-child (void * data)
+ local analysis of strlcat
+   scanning: srclen_15 = strlen (src_14(D));
+  scanning: _1 = strnlen (dst_16(D), maxlen_17(D));
+  scanning: dstlen_19 = (const size_t) _1;
+  scanning: if (maxlen_17(D) == dstlen_19)
+  scanning: _24 = srclen_15 + maxlen_17(D);
+  scanning: _2 = maxlen_17(D) - dstlen_19;
+  scanning: if (_2 > srclen_15)
+  scanning: _3 = srclen_15 + 1;
+  scanning: _4 = dst_16(D) + dstlen_19;
+  scanning: memcpy (_4, src_14(D), _3);
+  scanning: _5 = maxlen_17(D) + 18446744073709551615;
+  scanning: _6 = dst_16(D) + dstlen_19;
+  scanning: memcpy (_6, src_14(D), _5);
+  scanning: _7 = maxlen_17(D) + dstlen_19;
+  scanning: _8 = _7 + 18446744073709551615;
+  scanning: _9 = dst_16(D) + _8;
+  scanning: *_9 = 0;
+    Indirect ref write is not const/pure
+  scanning: _23 = srclen_15 + dstlen_19;
+  scanning: return _10;
+Function is locally looping.
+strlcat (char * restrict dst, const char * restrict src, size_t maxlen)
 {
+  const size_t dstlen;
+  const size_t srclen;
+  int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  char * _4;
+  long unsigned int _5;
+  char * _6;
+  long unsigned int _7;
+  sizetype _8;
+  char * _9;
+  size_t _10;
+  size_t _23;
+  size_t _24;
+
   <bb 2> [100.00%]:
-  return;
+  srclen_15 = strlen (src_14(D));
+  _1 = strnlen (dst_16(D), maxlen_17(D));
+  dstlen_19 = (const size_t) _1;
+  if (maxlen_17(D) == dstlen_19)
+    goto <bb 3>; [30.50%]
+  else
+    goto <bb 4>; [69.50%]
+
+  <bb 3> [30.50%]:
+  _24 = srclen_15 + maxlen_17(D);
+  goto <bb 8>; [100.00%]
+
+  <bb 4> [69.50%]:
+  _2 = maxlen_17(D) - dstlen_19;
+  if (_2 > srclen_15)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [34.75%]:
+  _3 = srclen_15 + 1;
+  _4 = dst_16(D) + dstlen_19;
+  memcpy (_4, src_14(D), _3);
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [34.75%]:
+  _5 = maxlen_17(D) + 18446744073709551615;
+  _6 = dst_16(D) + dstlen_19;
+  memcpy (_6, src_14(D), _5);
+  _7 = maxlen_17(D) + dstlen_19;
+  _8 = _7 + 18446744073709551615;
+  _9 = dst_16(D) + _8;
+  *_9 = 0;
+
+  <bb 7> [69.50%]:
+  _23 = srclen_15 + dstlen_19;
+
+  <bb 8> [100.00%]:
+  # _10 = PHI <_24(3), _23(7)>
+  return _10;
 
 }
 
 
 
-;; Function foo3 (foo3, funcdef_no=51, decl_uid=4311, cgraph_uid=51, symbol_order=53)
+;; Function tilde_expand_filename (tilde_expand_filename, funcdef_no=40, decl_uid=3577, cgraph_uid=40, symbol_order=41)
 
 
 
- local analysis of foo3
-   scanning: _1 = malloc (1);
-  scanning: _2 = (long int) _1;
-  scanning: _3 = (int) _2;
-  scanning: *z_6(D) = _3;
-    Indirect ref write is not const/pure
-  scanning: return;
+ local analysis of tilde_expand_filename
+   scanning: _1 = *filename_15(D);
+    Indirect ref read is not const
+  scanning: if (_1 != 126)
+  scanning: _30 = strdup (filename_15(D));
+  scanning: filename_16 = filename_15(D) + 1;
+  scanning: path_17 = strchr (filename_16, 47);
+  scanning: _2 = path_17 != 0B;
+  scanning: _3 = filename_16 < path_17;
+  scanning: _4 = _2 & _3;
+  scanning: if (_4 != 0)
+  scanning: path.0_5 = (long int) path_17;
+  scanning: filename.1_6 = (long int) filename_16;
+  scanning: _7 = path.0_5 - filename.1_6;
+  scanning: slash_18 = (u_int) _7;
+  scanning: if (slash_18 > 127)
+  scanning: _33 = __printf_chk (1, "tilde_expand_filename: ~username too long%s\n", "");
+  scanning: exit (1);
+  scanning: _36 = _7 & 4294967295;
+  scanning: _8 = (long unsigned int) _36;
+  scanning: memcpy (&user, filename_16, _8);
+  scanning: user[slash_18] = 0;
+  scanning: if (path_17 != 0B)
+  scanning: filename_23 = path_17 + 1;
+  scanning: _9 = strlcat (&ret, filename_10, 64);
+  scanning: if (_9 > 63)
+  scanning: _34 = __printf_chk (1, "tilde_expand_filename: Path too long%s\n", "");
+  scanning: exit (1);
+  scanning: _26 = strdup (&ret);
+  scanning: user ={v} {CLOBBER};
+  scanning: ret ={v} {CLOBBER};
+  scanning: return _11;
 Function is locally looping.
-__attribute__((noinline))
-foo3 (int * z)
+Function can locally free.
+tilde_expand_filename (const char * filename, uid_t uid)
 {
-  void * _1;
-  long int _2;
-  int _3;
+  int D.3688;
+  int D.3686;
+  u_int slash;
+  char ret[64];
+  char user[128];
+  const char * path;
+  char _1;
+  _Bool _2;
+  _Bool _3;
+  _Bool _4;
+  long int path.0_5;
+  long int filename.1_6;
+  long int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  char * _11;
+  char * _26;
+  char * _30;
+  int _33;
+  int _34;
+  long int _36;
 
   <bb 2> [100.00%]:
-  _1 = malloc (1);
-  _2 = (long int) _1;
-  _3 = (int) _2;
-  *z_6(D) = _3;
-  return;
+  _1 = *filename_15(D);
+  if (_1 != 126)
+    goto <bb 3>; [44.89%]
+  else
+    goto <bb 4>; [55.11%]
+
+  <bb 3> [44.89%]:
+  _30 = strdup (filename_15(D));
+  goto <bb 13>; [100.00%]
+
+  <bb 4> [55.11%]:
+  filename_16 = filename_15(D) + 1;
+  path_17 = strchr (filename_16, 47);
+  _2 = path_17 != 0B;
+  _3 = filename_16 < path_17;
+  _4 = _2 & _3;
+  if (_4 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 8>; [50.00%]
+
+  <bb 5> [27.55%]:
+  path.0_5 = (long int) path_17;
+  filename.1_6 = (long int) filename_16;
+  _7 = path.0_5 - filename.1_6;
+  slash_18 = (u_int) _7;
+  if (slash_18 > 127)
+    goto <bb 6>; [0.04%]
+  else
+    goto <bb 7>; [99.96%]
+
+  <bb 6> [0.01%]:
+  _33 = __printf_chk (1, "tilde_expand_filename: ~username too long%s\n", "");
+  exit (1);
+
+  <bb 7> [27.54%]:
+  _36 = _7 & 4294967295;
+  _8 = (long unsigned int) _36;
+  memcpy (&user, filename_16, _8);
+  user[slash_18] = 0;
+
+  <bb 8> [55.10%]:
+  if (path_17 != 0B)
+    goto <bb 9>; [70.00%]
+  else
+    goto <bb 10>; [30.00%]
+
+  <bb 9> [38.57%]:
+  filename_23 = path_17 + 1;
+
+  <bb 10> [55.10%]:
+  # filename_10 = PHI <filename_16(8), filename_23(9)>
+  _9 = strlcat (&ret, filename_10, 64);
+  if (_9 > 63)
+    goto <bb 11>; [0.04%]
+  else
+    goto <bb 12>; [99.96%]
+
+  <bb 11> [0.02%]:
+  _34 = __printf_chk (1, "tilde_expand_filename: Path too long%s\n", "");
+  exit (1);
+
+  <bb 12> [55.08%]:
+  _26 = strdup (&ret);
+
+  <bb 13> [99.97%]:
+  # _11 = PHI <_30(3), _26(12)>
+  user ={v} {CLOBBER};
+  ret ={v} {CLOBBER};
+  return _11;
 
 }
 
 
 
-;; Function foo2 (foo2, funcdef_no=52, decl_uid=4309, cgraph_uid=52, symbol_order=54)
+;; Function read_keyfile_line (read_keyfile_line, funcdef_no=41, decl_uid=3594, cgraph_uid=41, symbol_order=42)
 
 
 
- local analysis of foo2
-   scanning: _1 = (long unsigned int) z_6(D);
-  scanning: a2_9 = malloc (_1);
-  scanning: _2 = (long unsigned int) z_6(D);
-  scanning: p3_11 = malloc (_2);
-  scanning: _3 = (long unsigned int) z_6(D);
-  scanning: p4_13 = malloc (_3);
-  scanning: *a2_9 = 10;
-    Indirect ref to local memory is OK
-  scanning: if (tmp_15(D) > 10)
-  scanning: pthread_mutex_unlock (&mLock);
-  scanning: *p3_11 = 10;
+ local analysis of read_keyfile_line
+   scanning: _1 = *lineno_14(D);
+    Indirect ref read is not const
+  scanning: _2 = _1 + 1;
+  scanning: *lineno_14(D) = _2;
     Indirect ref write is not const/pure
-  scanning: _20 = p3_11;
-  scanning: *p4_13 = 10;
-    Indirect ref write is not const/pure
-  scanning: _17 = p4_13;
-  scanning: return _4;
+  scanning: _3 = *lineno_14(D);
+    Indirect ref read is not const
+  scanning: _20 = __printf_chk (1, "%s: %s line %lu exceeds size limit\n", &__func__, filename_16(D), _3);
+  scanning: _4 = rand ();
+  scanning: _5 = _4 % 2;
+  scanning: if (_5 == 1)
+  scanning: _6 = rand ();
+  scanning: _7 = _6 % 2;
+  scanning: if (_7 == 1)
+  scanning: return _8;
 Function is locally looping.
-__attribute__((noinline))
-foo2 (int z)
+Function can locally free.
+read_keyfile_line (struct FILE * f, const char * filename, char * buf, size_t bufsz, u_long * lineno)
 {
-  int tmp;
-  int * p4;
-  int * p3;
-  int * a2;
+  int D.3692;
+  static const char __func__[18] = "read_keyfile_line";
   long unsigned int _1;
   long unsigned int _2;
   long unsigned int _3;
-  int * _4;
-  int * _17;
-  int * _20;
-
-  <bb 2> [100.00%]:
-  _1 = (long unsigned int) z_6(D);
-  a2_9 = malloc (_1);
-  _2 = (long unsigned int) z_6(D);
-  p3_11 = malloc (_2);
-  _3 = (long unsigned int) z_6(D);
-  p4_13 = malloc (_3);
-  *a2_9 = 10;
-  if (tmp_15(D) > 10)
-    goto <bb 3>; [29.56%]
-  else
-    goto <bb 4>; [70.44%]
-
-  <bb 3> [29.56%]:
-  pthread_mutex_unlock (&mLock);
-  *p3_11 = 10;
-  _20 = p3_11;
-  goto <bb 5>; [100.00%]
-
-  <bb 4> [70.44%]:
-  *p4_13 = 10;
-  _17 = p4_13;
-
-  <bb 5> [100.00%]:
-  # _4 = PHI <p3_11(3), p4_13(4)>
-  return _4;
-
-}
-
-
-
-;; Function foo4 (foo4, funcdef_no=53, decl_uid=4321, cgraph_uid=53, symbol_order=55)
-
-
-
- local analysis of foo4
-   scanning: _1 = malloc (1);
-  scanning: b = _1;
-  scanning: p2_7 = malloc (1);
-  scanning: b.0_2 = b;
-  scanning: *b.0_2 = 2;
-    Indirect ref write is not const/pure
-  scanning: *p2_7 = 1;
-    Indirect ref to local memory is OK
-  scanning: free (&b);
-  scanning: b ={v} {CLOBBER};
-  scanning: return &b;
-Function is locally looping.
-Function can locally free.
-foo4 (int z)
-{
-  int * p2;
-  int * b;
-  void * _1;
-  int * b.0_2;
-
-  <bb 2> [100.00%]:
-  _1 = malloc (1);
-  b = _1;
-  p2_7 = malloc (1);
-  b.0_2 = b;
-  *b.0_2 = 2;
-  *p2_7 = 1;
-  free (&b);
-  b ={v} {CLOBBER};
-  return &b;
-
-}
-
-
-
-;; Function foo (foo, funcdef_no=54, decl_uid=4307, cgraph_uid=54, symbol_order=56)
-
-
-
- local analysis of foo
-   scanning: p2_3 = malloc (1);
-  scanning: *p2_3 = 1;
-    Indirect ref to local memory is OK
-  scanning: _7 = foo2 (z_5(D));
-  scanning: return _7;
-Function is locally looping.
-__attribute__((noinline))
-foo (int z)
-{
-  int * p2;
-  int * _7;
-
-  <bb 2> [100.00%]:
-  p2_3 = malloc (1);
-  *p2_3 = 1;
-  _7 = foo2 (z_5(D));
-  return _7;
-
-}
-
-
-
-;; Function boo (boo, funcdef_no=56, decl_uid=4348, cgraph_uid=56, symbol_order=58)
-
-
-
- local analysis of boo
-   scanning: free (b_2(D));
-  scanning: _5 = __printf_chk (1, "asdda\n");
-  scanning: return;
-Function is locally looping.
-Function can locally free.
-boo (int * b)
-{
-  int D.4407;
+  int _4;
   int _5;
+  int _6;
+  int _7;
+  int _8;
+  int _20;
 
-  <bb 2> [100.00%]:
-  free (b_2(D));
-  _5 = __printf_chk (1, "asdda\n");
-  return;
+  <bb 2> [14.44%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [92.50%]:
+  _1 = *lineno_14(D);
+  _2 = _1 + 1;
+  *lineno_14(D) = _2;
+  _3 = *lineno_14(D);
+  _20 = __printf_chk (1, "%s: %s line %lu exceeds size limit\n", &__func__, filename_16(D), _3);
+  _4 = rand ();
+  _5 = _4 % 2;
+  if (_5 == 1)
+    goto <bb 5>; [7.50%]
+  else
+    goto <bb 6>; [92.50%]
+
+  <bb 6> [85.56%]:
+
+  <bb 4> [100.00%]:
+  _6 = rand ();
+  _7 = _6 % 2;
+  if (_7 == 1)
+    goto <bb 3>; [92.50%]
+  else
+    goto <bb 5>; [7.50%]
+
+  <bb 5> [14.44%]:
+  # _8 = PHI <0(3), -1(4)>
+  return _8;
 
 }
 
 
 
-;; Function test55 (test55, funcdef_no=57, decl_uid=4319, cgraph_uid=57, symbol_order=59)
+;; Function update_krl_from_file (update_krl_from_file, funcdef_no=42, decl_uid=3602, cgraph_uid=42, symbol_order=43)
 
 
 
- local analysis of test55
-   scanning: *k_2(D) = 10;
-    Indirect ref write is not const/pure
-  scanning: free (k_2(D));
+ local analysis of update_krl_from_file
+   scanning: lnum = 0;
+  scanning: _1 = pw_17(D)->pw_uid;
+    Indirect ref read is not const
+  scanning: _2 = (unsigned int) _1;
+  scanning: path_20 = tilde_expand_filename (file_18(D), _2);
+  scanning: _3 = strcmp (path_20, "-");
+  scanning: if (_3 == 0)
+  scanning: krl_spec_25 = stdin;
+    global memory read is not const
+  scanning: free (path_20);
+  scanning: path_28 = strdup ("(standard input)");
+  scanning: krl_spec_22 = fopen (path_20, "r");
+  scanning: if (krl_spec_22 == 0B)
+  scanning: _38 = __printf_chk (1, "fopen %s: \n", path_20);
+  scanning: exit (1);
+  scanning: quiet.2_4 = quiet;
+    global memory read is not const
+  scanning: if (quiet.2_4 == 0)
+  scanning: _39 = __printf_chk (1, "Revoking from %s\n", path_9);
+  scanning: _5 = rand ();
+  scanning: _6 = _5 % 2;
+  scanning: if (_6 == 1)
+  scanning: _40 = __printf_chk (1, "%s: invalid\n", path_9);
+  scanning: exit (1);
+  scanning: _7 = read_keyfile_line (krl_spec_10, path_9, &line, 16384, &lnum);
+  scanning: if (_7 == 0)
+  scanning: _8 = strcmp (path_9, "-");
+  scanning: if (_8 != 0)
+  scanning: fclose (krl_spec_10);
+  scanning: lnum ={v} {CLOBBER};
+  scanning: line ={v} {CLOBBER};
   scanning: return;
 Function is locally looping.
 Function can locally free.
-__attribute__((noinline))
-test55 (int * k)
+update_krl_from_file (struct passwd * pw, const char * file)
 {
-  <bb 2> [100.00%]:
-  *k_2(D) = 10;
-  free (k_2(D));
+  int D.3698;
+  int D.3696;
+  int D.3694;
+  struct FILE * krl_spec;
+  char line[16384];
+  char * path;
+  u_long lnum;
+  struct Key * key;
+  int _1;
+  unsigned int _2;
+  int _3;
+  int quiet.2_4;
+  int _5;
+  int _6;
+  int _7;
+  int _8;
+  int _38;
+  int _39;
+  int _40;
+
+  <bb 2> [7.54%]:
+  lnum = 0;
+  _1 = pw_17(D)->pw_uid;
+  _2 = (unsigned int) _1;
+  path_20 = tilde_expand_filename (file_18(D), _2);
+  _3 = strcmp (path_20, "-");
+  if (_3 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [3.77%]:
+  krl_spec_25 = stdin;
+  free (path_20);
+  path_28 = strdup ("(standard input)");
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [3.77%]:
+  krl_spec_22 = fopen (path_20, "r");
+  if (krl_spec_22 == 0B)
+    goto <bb 5>; [0.04%]
+  else
+    goto <bb 6>; [99.96%]
+
+  <bb 5> [0.00%]:
+  _38 = __printf_chk (1, "fopen %s: \n", path_20);
+  exit (1);
+
+  <bb 6> [7.54%]:
+  # path_9 = PHI <path_28(3), path_20(4)>
+  # krl_spec_10 = PHI <krl_spec_25(3), krl_spec_22(4)>
+  quiet.2_4 = quiet;
+  if (quiet.2_4 == 0)
+    goto <bb 7>; [33.00%]
+  else
+    goto <bb 11>; [67.00%]
+
+  <bb 7> [2.49%]:
+  _39 = __printf_chk (1, "Revoking from %s\n", path_9);
+  goto <bb 11>; [100.00%]
+
+  <bb 8> [92.50%]:
+  _5 = rand ();
+  _6 = _5 % 2;
+  if (_6 == 1)
+    goto <bb 9>; [0.04%]
+  else
+    goto <bb 16>; [99.96%]
+
+  <bb 16> [92.46%]:
+  goto <bb 15>; [100.00%]
+
+  <bb 9> [0.04%]:
+  _40 = __printf_chk (1, "%s: invalid\n", path_9);
+  exit (1);
+
+  <bb 11> [7.54%]:
+
+  <bb 15> [100.00%]:
+  _7 = read_keyfile_line (krl_spec_10, path_9, &line, 16384, &lnum);
+  if (_7 == 0)
+    goto <bb 8>; [92.50%]
+  else
+    goto <bb 12>; [7.50%]
+
+  <bb 12> [7.50%]:
+  _8 = strcmp (path_9, "-");
+  if (_8 != 0)
+    goto <bb 13>; [36.64%]
+  else
+    goto <bb 14>; [63.36%]
+
+  <bb 13> [2.75%]:
+  fclose (krl_spec_10);
+
+  <bb 14> [7.50%]:
+  lnum ={v} {CLOBBER};
+  line ={v} {CLOBBER};
   return;
 
 }
 
 
 
-;; Function test44 (test44, funcdef_no=58, decl_uid=4317, cgraph_uid=58, symbol_order=60)
-
-
-
- local analysis of test44
-   scanning: *k_2(D) = 10;
-    Indirect ref write is not const/pure
-  scanning: test55 (k_2(D));
-  scanning: free (k_2(D));
-  scanning: return;
-Function is locally looping.
-Function can locally free.
-__attribute__((noinline))
-test44 (int * k)
-{
-  <bb 2> [100.00%]:
-  *k_2(D) = 10;
-  test55 (k_2(D));
-  free (k_2(D));
-  return;
-
-}
-
-
-
-;; Function test33 (test33, funcdef_no=59, decl_uid=4315, cgraph_uid=59, symbol_order=61)
-
-
-
- local analysis of test33
-   scanning: test44 (k_2(D));
-  scanning: return;
-Function is locally looping.
-__attribute__((noinline))
-test33 (int * k)
-{
-  <bb 2> [100.00%]:
-  test44 (k_2(D));
-  return;
-
-}
-
-
-
-;; Function test22 (test22, funcdef_no=60, decl_uid=4313, cgraph_uid=60, symbol_order=62)
-
-
-
- local analysis of test22
-   scanning: test44 (k_2(D));
-  scanning: test22 (k_2(D));
-    Recursive call can loop.
-  scanning: free (k_2(D));
-  scanning: return;
-Function is locally looping.
-Function can locally free.
-__attribute__((noinline))
-test22 (int * k)
-{
-  <bb 2> [100.00%]:
-  test44 (k_2(D));
-  test22 (k_2(D));
-  free (k_2(D));
-  return;
-
-}
-
-
-
-;; Function main (main, funcdef_no=61, decl_uid=4362, cgraph_uid=61, symbol_order=63) (executed once)
+;; Function main (main, funcdef_no=43, decl_uid=3625, cgraph_uid=43, symbol_order=44) (executed once)
 
 
 
  local analysis of main
-   scanning: p3_4 = foo (2);
-  scanning: *p3_4 = 1;
-    Indirect ref write is not const/pure
-  scanning: free (p3_4);
-  scanning: p_8 = foo2 (2);
-  scanning: *p_8 = 2;
-    Indirect ref write is not const/pure
-  scanning: p2_11 = foo2 (2);
-  scanning: *p2_11 = 4;
-    Indirect ref write is not const/pure
-  scanning: free (p_8);
-  scanning: free (p2_11);
-  scanning: q_16 = malloc (5);
-  scanning: *q_16 = 10;
-    Indirect ref write is not const/pure
-  scanning: test22 (q_16);
-  scanning: pthread_mutex_destroy (&mLock);
-  scanning: pthread_create (&t, 0B, child, &buff);
-  scanning: t.1_1 = t;
-  scanning: pthread_join (t.1_1, 0B);
-  scanning: pthread_mutex_destroy (&mLock);
-  scanning: buff ={v} {CLOBBER};
-  scanning: t ={v} {CLOBBER};
+   scanning: _1 = time (0B);
+  scanning: _2 = (unsigned int) _1;
+  scanning: srand (_2);
+  scanning: _3 = (long unsigned int) i_7;
+  scanning: _4 = _3 * 8;
+  scanning: _5 = argv_16(D) + _4;
+  scanning: _6 = *_5;
+    Indirect ref read is not const
+  scanning: update_krl_from_file (&pw, _6);
+  scanning: i_18 = i_7 + 1;
+  scanning: if (i_7 < argc_13(D))
+  scanning: pw ={v} {CLOBBER};
   scanning: return 0;
 Function is locally looping.
-Function can locally free.
-main ()
+main (int argc, char * * argv)
 {
-  pthread_t t;
-  int * q;
-  char buff[50];
-  int * p3;
-  int * p2;
-  int * p;
-  long unsigned int t.1_1;
+  int i;
+  struct passwd pw;
+  int _1;
+  unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  char * * _5;
+  char * _6;
 
-  <bb 2> [100.00%]:
-  p3_4 = foo (2);
-  *p3_4 = 1;
-  free (p3_4);
-  p_8 = foo2 (2);
-  *p_8 = 2;
-  p2_11 = foo2 (2);
-  *p2_11 = 4;
-  free (p_8);
-  free (p2_11);
-  q_16 = malloc (5);
-  *q_16 = 10;
-  test22 (q_16);
-  pthread_mutex_destroy (&mLock);
-  pthread_create (&t, 0B, child, &buff);
-  t.1_1 = t;
-  pthread_join (t.1_1, 0B);
-  pthread_mutex_destroy (&mLock);
-  buff ={v} {CLOBBER};
-  t ={v} {CLOBBER};
+  <bb 2> [15.00%]:
+  _1 = time (0B);
+  _2 = (unsigned int) _1;
+  srand (_2);
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [85.00%]:
+  _3 = (long unsigned int) i_7;
+  _4 = _3 * 8;
+  _5 = argv_16(D) + _4;
+  _6 = *_5;
+  update_krl_from_file (&pw, _6);
+  i_18 = i_7 + 1;
+
+  <bb 4> [100.00%]:
+  # i_7 = PHI <0(2), i_18(3)>
+  if (i_7 < argc_13(D))
+    goto <bb 3>; [85.00%]
+  else
+    goto <bb 5>; [15.00%]
+
+  <bb 5> [15.00%]:
+  pw ={v} {CLOBBER};
   return 0;
 
 }

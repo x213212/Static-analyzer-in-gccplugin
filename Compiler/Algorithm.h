@@ -2211,6 +2211,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		int ptable_type = 0;
 		int find_freestmt = 0;
 		int find_mallocstmt = 0;
+
 		// fprintf(stderr, "\n ------------------------------------------\n");
 		// debug_tree(table_temp->target);
 		// debug_tree(function_tree);
@@ -2248,11 +2249,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					fprintf(stderr, "this other function---%s-----\n", name);
 				}
 				user_tmp = treeGimpleArray->get(table_temp->target);
+				tree userStart = NULL;
 				start.stmt = NULL;
 				used_stmt = &start;
 				if (user_tmp != NULL)
 				{
 					debug_tree(user_tmp->target);
+					userStart = user_tmp->target;
 					fprintf(stderr, " \n start check Pointer Collect size %d \n", user_tmp->size);
 					if (user_tmp->size > 0)
 						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
@@ -2478,6 +2481,26 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						fprintf(stderr, "\n======================================================================\n");
 						// fprintf(stderr, "	no free stmt possible memory leak\n");
 						fprintf(stderr, "\033[40;31m    no free stmt possible memory leak \033[0m\n");
+						fprintf(stderr, "\n======================================================================\n\n");
+					}
+					else if (find_freestmt == 1)
+					{
+						fprintf(stderr, "\n======================================================================\n");
+						// debug_tree(user_tmp->target);
+						// if(user_tmp->target!= NULL)
+						// debug_tree(user_tmp->target);
+						// gimple *use_stmt =treeGimpleArray->get(table_temp->target);
+						// fprintf(stderr, "%s\n", (TREE_CODE(user_tmp->target)));
+						debug_tree(userStart);
+						gimple *def_stmt = SSA_NAME_DEF_STMT(userStart);
+						debug(def_stmt);
+						fprintf(stderr, "\n======================================================================\n");
+						if (userStart != NULL)
+							if (gimple_code(def_stmt) == GIMPLE_PHI)
+								fprintf(stderr, "\033[40;31m   need check branch because multiple direction varible\033[0m\n");
+							else
+								fprintf(stderr, "\033[40;32m    NO memory leak \033[0m\n");
+						// 	fprintf(stderr, "\033[40;32m    NO memory leak \033[0m\n");
 						fprintf(stderr, "\n======================================================================\n\n");
 					}
 					else if (find_freestmt >= 2)
