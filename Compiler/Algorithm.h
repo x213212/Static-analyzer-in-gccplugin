@@ -2209,6 +2209,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 	FOR_EACH_TABLE(table_temp, t)
 	{
 		int ptable_type = 0;
+		int childptable_type = 0;
 		int find_freestmt = 0;
 		int find_mallocstmt = 0;
 
@@ -2222,6 +2223,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		if (table_temp->node->get_fun()->decl == function_tree)
 			if (table_temp->target != NULL)
 			{
+				find_freestmt = find_mallocstmt = 0;
 				// debug_tree(function_tree);
 				const char *name;
 				debug_tree(function_tree);
@@ -2240,6 +2242,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					!strcmp(name, "strdup"))
 				{
 					ptable_type = 1;
+					// find_mallocstmt=1;
 					fprintf(stderr, "this Reserved word function---%s-----\n", name);
 					// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
 				}
@@ -2256,6 +2259,31 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				{
 					debug_tree(user_tmp->target);
 					userStart = user_tmp->target;
+					def_stmt = SSA_NAME_DEF_STMT(userStart);
+					if (gimple_code(def_stmt) == GIMPLE_CALL)
+					{
+						name = get_name(gimple_call_fndecl(def_stmt));
+						// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
+					}
+					if (
+						!strcmp(name, "malloc") ||
+						!strcmp(name, "xmalloc") ||
+						!strcmp(name, "calloc") ||
+						!strcmp(name, "xcalloc") ||
+						!strcmp(name, "strdup"))
+					{
+						fprintf(stderr, "\n%d\n", find_mallocstmt);
+						childptable_type = 1;
+						// find_mallocstmt=1;
+						fprintf(stderr, "child function is Reserved word function---%s-----\n", name);
+						// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
+					}
+					else
+					{
+						childptable_type = 2;
+						fprintf(stderr, "child function is other function---%s-----\n", name);
+					}
+
 					fprintf(stderr, " \n start check Pointer Collect size %d \n", user_tmp->size);
 					if (user_tmp->size > 0)
 						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
@@ -2309,7 +2337,12 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									}
 									else
 									{
-										find_mallocstmt = 2;
+										if (childptable_type == 1)
+											find_mallocstmt = 1;
+										else
+											find_mallocstmt = 2;
+										// if (childptable_type == 1)
+										// 	find_mallocstmt = 1;
 										// fprintf(stderr, "this other function---%s-----\n", name);
 									}
 
@@ -2473,6 +2506,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				{
 					find_mallocstmt = -2;
 				}
+				//you are Reserved word function so always check
+
 				if (find_mallocstmt == 1)
 				{
 
@@ -2499,7 +2534,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							if (gimple_code(def_stmt) == GIMPLE_PHI)
 								fprintf(stderr, "\033[40;31m   need check branch because multiple direction varible\033[0m\n");
 							else
-								fprintf(stderr, "\033[40;32m    NO memory leak \033[0m\n");
+								fprintf(stderr, "\033[40;32m   May your no memory leak .... need more check \033[0m\n");
 						// 	fprintf(stderr, "\033[40;32m    NO memory leak \033[0m\n");
 						fprintf(stderr, "\n======================================================================\n\n");
 					}
@@ -2529,7 +2564,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						fprintf(stderr, "\033[40;31m 	Possible check from Callee \033[0m\n");
 						debug_tree(function_tree);
 					}
-
 					fprintf(stderr, "\n======================================================================\n\n");
 				}
 				else

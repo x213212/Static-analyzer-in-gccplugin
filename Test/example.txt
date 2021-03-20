@@ -1,2 +1,2 @@
 utime_used: 0s;
-stime_used: 0.010563s;
+stime_used: 0.011833s;
