@@ -381,6 +381,7 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree a, tree targe
 	else
 	{
 		bool same = false;
+		int size_tmp=0 ;
 		while (table->next != NULL)
 		{
 			//  fprintf(stderr, "set_gimple_array----------------\n");
@@ -393,6 +394,7 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree a, tree targe
 				same = true;
 				break;
 			}
+			size_tmp=size_tmp+1;
 			table = table->next;
 		}
 		if (!same)
@@ -402,7 +404,7 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree a, tree targe
 			table->stmt = used_stmt;
 			table->ret_stmt = ret_stmt;
 			table->target = target;
-			table->size = table->size + 1;
+			table->size = size_tmp;
 			table->aptr = a;
 			table->next = NULL;
 		}
@@ -2196,286 +2198,6 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 	}
 }
 
-void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_tmp, tree checkTeee)
-{
-	gimple *u_stmt;
-	gimple_array start;
-	start.stmt = NULL;
-	gimple_array *used_stmt = &start;
-	ptb *table_temp = ptable;
-	tree t;
-	//
-	fprintf(stderr, "\033[40;42m =======check _ addddddd:%s========= \033[0m\n", get_name(function_tree));
-	FOR_EACH_TABLE(table_temp, t)
-	{
-		int ptable_type = 0;
-		int childptable_type = 0;
-		int find_freestmt = 0;
-		int find_mallocstmt = 0;
-
-		// fprintf(stderr, "\n ------------------------------------------\n");
-		// debug_tree(table_temp->target);
-		// debug_tree(function_tree);
-		// debug_tree(table_temp->node->get_fun()->decl);
-		//  fprintf(stderr, "%d\n",int(table_temp->node->get_fun()->decl==function_tree));
-		// debug_tree(function_tree);
-		// fprintf(stderr, "\033[40;42m =======check _ addddddd:%s========= \033[0m\n",get_name(function_tree));
-		if (table_temp->node->get_fun()->decl == function_tree)
-			if (table_temp->target != NULL)
-			{
-				find_freestmt = find_mallocstmt = 0;
-				// debug_tree(function_tree);
-				const char *name;
-				debug_tree(function_tree);
-				fprintf(stderr, "\n======================================================================\n");
-				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
-				if (gimple_code(def_stmt) == GIMPLE_CALL)
-				{
-					name = get_name(gimple_call_fndecl(def_stmt));
-					// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
-				}
-				if (
-					!strcmp(name, "malloc") ||
-					!strcmp(name, "xmalloc") ||
-					!strcmp(name, "calloc") ||
-					!strcmp(name, "xcalloc") ||
-					!strcmp(name, "strdup"))
-				{
-					ptable_type = 1;
-					// find_mallocstmt=1;
-					fprintf(stderr, "this Reserved word function---%s-----\n", name);
-					// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
-				}
-				else
-				{
-					ptable_type = 2;
-					fprintf(stderr, "this other function---%s-----\n", name);
-				}
-				user_tmp = treeGimpleArray->get(table_temp->target);
-				tree userStart = NULL;
-				start.stmt = NULL;
-				used_stmt = &start;
-				if (user_tmp != NULL)
-				{
-					debug_tree(user_tmp->target);
-					userStart = user_tmp->target;
-					def_stmt = SSA_NAME_DEF_STMT(userStart);
-					if (gimple_code(def_stmt) == GIMPLE_CALL)
-					{
-						name = get_name(gimple_call_fndecl(def_stmt));
-						// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
-					}
-					if (
-						!strcmp(name, "malloc") ||
-						!strcmp(name, "xmalloc") ||
-						!strcmp(name, "calloc") ||
-						!strcmp(name, "xcalloc") ||
-						!strcmp(name, "strdup"))
-					{
-						fprintf(stderr, "\n%d\n", find_mallocstmt);
-						childptable_type = 1;
-						// find_mallocstmt=1;
-						fprintf(stderr, "child function is Reserved word function---%s-----\n", name);
-						// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
-					}
-					else
-					{
-						childptable_type = 2;
-						fprintf(stderr, "child function is other function---%s-----\n", name);
-					}
-
-					fprintf(stderr, " \n start check Pointer Collect size %d \n", user_tmp->size);
-					if (user_tmp->size > 0)
-						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
-						{
-							if (user_tmp->ret_stmt != NULL)
-							{
-								warning_at(gimple_location(u_stmt), 0, "use location");
-								if (gimple_code(user_tmp->ret_stmt) == GIMPLE_RETURN)
-								{
-									find_mallocstmt = -1;
-									continue;
-								}
-							}
-							else
-							{
-								debug(u_stmt);
-
-								warning_at(gimple_location(u_stmt), 0, "use location");
-
-								gimple *use_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
-
-								if (gimple_code(u_stmt) == GIMPLE_CALL)
-								{
-									name = get_name(gimple_call_fndecl(u_stmt));
-									fprintf(stderr, "this other function---%s-----\n", name);
-								}
-								if (name != NULL)
-									if (
-										!strcmp(name, "malloc") ||
-										!strcmp(name, "xmalloc") ||
-										!strcmp(name, "calloc") ||
-										!strcmp(name, "xcalloc") ||
-										!strcmp(name, "strdup"))
-									{
-										find_mallocstmt = 1;
-									}
-									else
-									{
-										if (childptable_type == 1)
-											find_mallocstmt = 1;
-										else
-											find_mallocstmt = 2;
-									}
-
-								if (checkTeee != NULL && gimple_code(u_stmt) == GIMPLE_CALL && find_mallocstmt == 2)
-								{
-
-									tree gettreefucntionarg = TREE_OPERAND(gimple_call_fn(def_stmt), 0);
-									name = get_name(gimple_call_fn(def_stmt));
-
-									if (checkTeee == gettreefucntionarg)
-									{
-										find_mallocstmt = 1;
-
-										fprintf(stderr, "\n ================== warring ================== \n");
-										// sfprintf(stderr, "function return value related stmt \n");
-										debug(checkTeee);
-										fprintf(stderr, "\033[40;35m    function return value related stmt \033[0m\n");
-										fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
-
-										// fprintf(stderr, "this stmt possible is heap-object 。\n");
-										fprintf(stderr, "\n ================== warring ================== \n");
-
-										if (gimple_code(u_stmt) == GIMPLE_CALL)
-										{
-											name = get_name(gimple_call_fn(u_stmt));
-											if (!strcmp(name, "free") || !strcmp(name, "xfree"))
-											{
-												find_freestmt++;
-
-												fprintf(stderr, "\n ================== find ================== \n");
-												debug(u_stmt);
-												warning_at(gimple_location(u_stmt), 0, "use location");
-												fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
-												fprintf(stderr, "\n ================== find ================== \n");
-											}
-											else
-											{
-												fprintf(stderr, "\n ================== trace ================== \n");
-												fprintf(stderr, "trace fucntion name:%s \n", name);
-												fprintf(stderr, "\n ================== trace ================== \n");
-											}
-										}
-									}
-									else
-									{
-										find_mallocstmt = 0;
-									}
-								}
-								else if ((checkTeee == NULL && gimple_code(u_stmt) == GIMPLE_CALL) && (find_mallocstmt == 1 || find_mallocstmt == 2))
-								{
-
-									find_mallocstmt = 1;
-
-									// gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
-									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
-									gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
-									debug(def_stmt);
-									const char *name;
-									name = get_name(gimple_call_fn(u_stmt));
-									if (name != NULL)
-										if (!strcmp(name, "free") || !strcmp(name, "xfree"))
-										{
-											find_freestmt++;
-											fprintf(stderr, "\n ================== find ================== \n");
-											debug(u_stmt);
-											warning_at(gimple_location(u_stmt), 0, "use location");
-											fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
-											fprintf(stderr, "\n ================== find ================== \n");
-										}
-										else
-										{
-											fprintf(stderr, "\n ================== trace ================== \n");
-											fprintf(stderr, "trace fucntion name:%s \n", name);
-											fprintf(stderr, "\n ================== trace ================== \n");
-										}
-								}
-							}
-						}
-				}
-				else
-				{
-					find_mallocstmt = -2;
-				}
-				//you are Reserved word function so always check
-
-				if (find_mallocstmt == 1)
-				{
-
-					if (find_freestmt == 0)
-					{
-						fprintf(stderr, "\n======================================================================\n");
-						// fprintf(stderr, "	no free stmt possible memory leak\n");
-						fprintf(stderr, "\033[40;31m    no free stmt possible memory leak \033[0m\n");
-						fprintf(stderr, "\n======================================================================\n\n");
-					}
-					else if (find_freestmt == 1)
-					{
-						fprintf(stderr, "\n======================================================================\n");
-
-						debug_tree(userStart);
-						gimple *def_stmt = SSA_NAME_DEF_STMT(userStart);
-						debug(def_stmt);
-						fprintf(stderr, "\n======================================================================\n");
-						if (userStart != NULL)
-							if (gimple_code(def_stmt) == GIMPLE_PHI)
-								fprintf(stderr, "\033[40;31m   need check branch because multiple direction varible\033[0m\n");
-							else
-								fprintf(stderr, "\033[40;32m   May your no memory leak .... need more check \033[0m\n");
-						// 	fprintf(stderr, "\033[40;32m    NO memory leak \033[0m\n");
-						fprintf(stderr, "\n======================================================================\n\n");
-					}
-					else if (find_freestmt >= 2)
-					{
-						fprintf(stderr, "\n======================================================================\n");
-						// fprintf(stderr, "	possible double free\n");
-						fprintf(stderr, "\033[40;31m  	possible double free \033[0m\n");
-						fprintf(stderr, "\n======================================================================\n\n");
-					}
-				}
-				else if (find_mallocstmt == -1)
-				{
-					fprintf(stderr, "\n======================================================================\n");
-					// fprintf(stderr, "	this fucntion return possible has heap-object\n");
-					fprintf(stderr, "\033[40;31m 	this fucntion return possible is heap-object \033[0m\n");
-					fprintf(stderr, "\n======================================================================\n\n");
-				}
-				else if (find_mallocstmt == -2)
-				{
-					fprintf(stderr, "\n======================================================================\n");
-					// fprintf(stderr, "	this fucntion return possible has heap-object\n");
-					fprintf(stderr, "\033[40;31m 	Can't find this fucntion in Pointer table \033[0m\n");
-					debug_tree(table_temp->node->get_fun()->decl);
-					if (function_tree != NULL)
-					{
-						fprintf(stderr, "\033[40;31m 	Possible check from Callee \033[0m\n");
-						debug_tree(function_tree);
-					}
-					fprintf(stderr, "\n======================================================================\n\n");
-				}
-				else
-				{
-					fprintf(stderr, "\n======================================================================\n");
-					// fprintf(stderr, "	this stmt need double check\n");
-
-					fprintf(stderr, "\033[40;31m 	this stmt need double check \033[0m\n");
-					fprintf(stderr, "\n======================================================================\n\n");
-				}
-			}
-	}
-}
-
 void printfPointerConstraint2(ptb *ftable, gimple_array *user_tmp)
 {
 	gimple *u_stmt;
@@ -2965,6 +2687,291 @@ void printfBasicblock()
 			debug_bb(bb);
 		}
 		pop_cfun();
+	}
+}
+
+void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_tmp, tree checkTeee)
+{
+	gimple *u_stmt;
+	gimple_array start;
+	start.stmt = NULL;
+	gimple_array *used_stmt = &start;
+	ptb *table_temp = ptable;
+	tree t;
+	//
+	fprintf(stderr, "\033[40;42m =======pre_check_funciton:%s========= \033[0m\n", get_name(function_tree));
+	FOR_EACH_TABLE(table_temp, t)
+	{
+		int ptable_type = 0;
+		int childptable_type = 0;
+		int find_freestmt = 0;
+		int find_mallocstmt = 0;
+
+		// fprintf(stderr, "\n ------------------------------------------\n");
+		// debug_tree(table_temp->target);
+		// debug_tree(function_tree);
+		// debug_tree(table_temp->node->get_fun()->decl);
+		//  fprintf(stderr, "%d\n",int(table_temp->node->get_fun()->decl==function_tree));
+		// debug_tree(function_tree);
+		// fprintf(stderr, "\033[40;42m =======check _ addddddd:%s========= \033[0m\n",get_name(function_tree));
+		if (table_temp->node->get_fun()->decl == function_tree)
+			if (table_temp->target != NULL)
+			{
+				find_freestmt = find_mallocstmt = 0;
+				debug_tree(function_tree);
+					fprintf(stderr, "\n======================================================================\n");
+				// debug_tree(function_tree);
+				const char *name;
+				debug_tree(table_temp->target);
+				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
+				if (gimple_code(def_stmt) == GIMPLE_CALL)
+				{
+					name = get_name(gimple_call_fndecl(def_stmt));
+					// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
+				}
+				if (
+					!strcmp(name, "malloc") ||
+					!strcmp(name, "xmalloc") ||
+					!strcmp(name, "calloc") ||
+					!strcmp(name, "xcalloc") ||
+					!strcmp(name, "strdup"))
+				{
+					ptable_type = 1;
+					debug(def_stmt);
+					// find_mallocstmt=1;
+					fprintf(stderr, "this Reserved word function ------%s-----\n", name);
+					// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
+				}
+				else
+				{
+					ptable_type = 2;
+					fprintf(stderr, "this other function ------%s-----\n", name);
+				}
+
+				fprintf(stderr, "\n======================================================================\n");
+				user_tmp = treeGimpleArray->get(table_temp->target);
+				tree userStart = NULL;
+				start.stmt = NULL;
+				used_stmt = &start;
+				if (user_tmp != NULL)
+				{
+					debug_tree(user_tmp->target);
+					userStart = user_tmp->target;
+					def_stmt = SSA_NAME_DEF_STMT(userStart);
+					if (gimple_code(def_stmt) == GIMPLE_CALL)
+					{
+						name = get_name(gimple_call_fndecl(def_stmt));
+						// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
+					}
+					if (
+						!strcmp(name, "malloc") ||
+						!strcmp(name, "xmalloc") ||
+						!strcmp(name, "calloc") ||
+						!strcmp(name, "xcalloc") ||
+						!strcmp(name, "strdup"))
+					{
+
+						childptable_type = 1;
+						// find_mallocstmt=1;
+						fprintf(stderr, "child function is Reserved word function ------%s-----\n", name);
+						// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
+					}
+					else
+					{
+						childptable_type = 2;
+						fprintf(stderr, "child function is other function ------%s-----\n", name);
+					}
+
+					fprintf(stderr, " \n start check Pointer Collect size %d \n", user_tmp->size);
+					fprintf(stderr, "\n======================================================================\n");
+					if (user_tmp->size > 0)
+						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
+						{
+							if (user_tmp->ret_stmt != NULL)
+							{
+								warning_at(gimple_location(u_stmt), 0, "use location");
+								if (gimple_code(user_tmp->ret_stmt) == GIMPLE_RETURN)
+								{
+									find_mallocstmt = -1;
+									continue;
+								}
+							}
+							else
+							{
+								debug(u_stmt);
+
+								warning_at(gimple_location(u_stmt), 0, "use location");
+
+								gimple *use_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
+
+								if (gimple_code(u_stmt) == GIMPLE_CALL)
+								{
+									name = get_name(gimple_call_fndecl(u_stmt));
+									fprintf(stderr, "this other function---%s-----\n", name);
+								}
+								if (name != NULL)
+									if (
+										!strcmp(name, "malloc") ||
+										!strcmp(name, "xmalloc") ||
+										!strcmp(name, "calloc") ||
+										!strcmp(name, "xcalloc") ||
+										!strcmp(name, "strdup"))
+									{
+										find_mallocstmt = 1;
+									}
+									else
+									{
+										if (childptable_type == 1)
+											find_mallocstmt = 1;
+										else
+											find_mallocstmt = 2;
+									}
+
+								if (checkTeee != NULL && gimple_code(u_stmt) == GIMPLE_CALL && find_mallocstmt == 2)
+								{
+
+									tree gettreefucntionarg = TREE_OPERAND(gimple_call_fn(def_stmt), 0);
+									name = get_name(gimple_call_fn(def_stmt));
+
+									if (checkTeee == gettreefucntionarg)
+									{
+										find_mallocstmt = 1;
+
+										fprintf(stderr, "\n ================== warring ================== \n");
+										// sfprintf(stderr, "function return value related stmt \n");
+										debug(checkTeee);
+										fprintf(stderr, "\033[40;35m    function return value related stmt \033[0m\n");
+										fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+
+										// fprintf(stderr, "this stmt possible is heap-object 。\n");
+										fprintf(stderr, "\n ================== warring ================== \n");
+
+										if (gimple_code(u_stmt) == GIMPLE_CALL)
+										{
+											name = get_name(gimple_call_fn(u_stmt));
+											if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+											{
+												find_freestmt++;
+
+												fprintf(stderr, "\n ================== find ================== \n");
+												debug(u_stmt);
+												warning_at(gimple_location(u_stmt), 0, "use location");
+												fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
+												fprintf(stderr, "\n ================== find ================== \n");
+											}
+											else
+											{
+												fprintf(stderr, "\n ================== trace ================== \n");
+												fprintf(stderr, "trace fucntion name:%s \n", name);
+												fprintf(stderr, "\n ================== trace ================== \n");
+											}
+										}
+									}
+									else
+									{
+										find_mallocstmt = 0;
+									}
+								}
+								else if ((checkTeee == NULL && gimple_code(u_stmt) == GIMPLE_CALL) && (find_mallocstmt == 1 || find_mallocstmt == 2))
+								{
+
+									find_mallocstmt = 1;
+
+									// gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
+									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+									gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
+									debug(def_stmt);
+									const char *name;
+									name = get_name(gimple_call_fn(u_stmt));
+									if (name != NULL)
+										if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+										{
+											find_freestmt++;
+											fprintf(stderr, "\n ================== find ================== \n");
+											debug(u_stmt);
+											warning_at(gimple_location(u_stmt), 0, "use location");
+											fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
+											fprintf(stderr, "\n ================== find ================== \n");
+										}
+										else
+										{
+											fprintf(stderr, "\n ================== trace ================== \n");
+											fprintf(stderr, "trace fucntion name:%s \n", name);
+											fprintf(stderr, "\n ================== trace ================== \n");
+										}
+								}
+							}
+						}
+				}
+				else
+				{
+					find_mallocstmt = -2;
+				}
+				//you are Reserved word function so always check
+
+				if (find_mallocstmt == 1)
+				{
+
+					if (find_freestmt == 0)
+					{
+						fprintf(stderr, "\n======================================================================\n");
+						// fprintf(stderr, "	no free stmt possible memory leak\n");
+						fprintf(stderr, "\033[40;31m    no free stmt possible memory leak \033[0m\n");
+						fprintf(stderr, "\n======================================================================\n\n");
+					}
+					else if (find_freestmt == 1)
+					{
+						fprintf(stderr, "\n======================================================================\n");
+
+						debug_tree(userStart);
+						gimple *def_stmt = SSA_NAME_DEF_STMT(userStart);
+						debug(def_stmt);
+						fprintf(stderr, "\n======================================================================\n");
+						if (userStart != NULL)
+							if (gimple_code(def_stmt) == GIMPLE_PHI)
+								fprintf(stderr, "\033[40;31m   need check branch because multiple direction varible\033[0m\n");
+							else
+								fprintf(stderr, "\033[40;32m   May your no memory leak .... need more check \033[0m\n");
+						// 	fprintf(stderr, "\033[40;32m    NO memory leak \033[0m\n");
+						fprintf(stderr, "\n======================================================================\n\n");
+					}
+					else if (find_freestmt >= 2)
+					{
+						fprintf(stderr, "\n======================================================================\n");
+						// fprintf(stderr, "	possible double free\n");
+						fprintf(stderr, "\033[40;31m  	possible double free \033[0m\n");
+						fprintf(stderr, "\n======================================================================\n\n");
+					}
+				}
+				else if (find_mallocstmt == -1)
+				{
+					fprintf(stderr, "\n======================================================================\n");
+					// fprintf(stderr, "	this fucntion return possible has heap-object\n");
+					fprintf(stderr, "\033[40;31m 	this fucntion return possible is heap-object \033[0m\n");
+					fprintf(stderr, "\n======================================================================\n\n");
+				}
+				else if (find_mallocstmt == -2)
+				{
+					fprintf(stderr, "\n======================================================================\n");
+					// fprintf(stderr, "	this fucntion return possible has heap-object\n");
+					fprintf(stderr, "\033[40;31m 	Can't find this fucntion in Pointer table \033[0m\n");
+					debug_tree(table_temp->target);
+					// if (checkTeee != NULL)
+					// {
+					// 	fprintf(stderr, "\033[40;31m 	Possible check from Callee \033[0m\n");
+					// 	debug_tree(checkTeee);
+					// }
+					fprintf(stderr, "\n======================================================================\n\n");
+				}
+				else
+				{
+					fprintf(stderr, "\n======================================================================\n");
+					// fprintf(stderr, "	this stmt need double check\n");
+
+					fprintf(stderr, "\033[40;31m 	this stmt need double check \033[0m\n");
+					fprintf(stderr, "\n======================================================================\n\n");
+				}
+			}
 	}
 }
 void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gimple_array *user_tmp)
