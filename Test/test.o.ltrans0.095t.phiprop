@@ -1,305 +1,126 @@
 
-;; Function update_krl_from_file (update_krl_from_file, funcdef_no=0, decl_uid=3998, cgraph_uid=1, symbol_order=43)
+;; Function child (child, funcdef_no=3, decl_uid=3986, cgraph_uid=1, symbol_order=57)
 
-update_krl_from_file (struct passwd * pw, const char * file)
+child (void * data)
 {
-  int D.4121;
-  static const char __func__[18] = "read_keyfile_line";
-  const size_t srclen;
-  const size_t dstlen;
-  size_t D.4108;
-  const char * path;
-  char user[128];
-  char ret[64];
-  u_int slash;
-  char * D.4091;
-  const char * filename;
-  struct FILE * krl_spec;
-  char * path;
-  u_long lnum;
-  int _1;
-  unsigned int _2;
-  int _3;
-  int _5;
-  int _6;
-  int _8;
-  int _34;
-  int _35;
-  int _36;
-  char _57;
-  char * _58;
-  _Bool _61;
-  _Bool _62;
-  _Bool _63;
-  long int _64;
-  long int _65;
-  long int _66;
-  int _68;
-  long int _69;
-  long unsigned int _70;
-  int _74;
-  char * _75;
-  char * _76;
-  int _78;
-  long unsigned int _80;
-  long unsigned int _81;
-  long unsigned int _82;
-  char * _83;
-  char * _85;
-  long unsigned int _86;
-  sizetype _87;
-  char * _88;
-  long unsigned int _89;
-  long unsigned int _90;
-  long unsigned int _91;
-  long unsigned int _92;
-  long unsigned int _93;
-  int _94;
-  int _95;
-  int _96;
-  int _97;
-  int _98;
-  int _99;
-
-  <bb 2> [1.09%]:
-  _1 = pw_16(D)->pw_uid;
-  _2 = (unsigned int) _1;
-  _57 = *file_17(D);
-  if (_57 != 126)
-    goto <bb 3>; [44.89%]
-  else
-    goto <bb 4>; [55.11%]
-
-  <bb 3> [0.49%]:
-  _58 = strdup (file_17(D));
-  goto <bb 19>; [100.00%]
-
-  <bb 4> [0.60%]:
-  filename_59 = file_17(D) + 1;
-  path_60 = strchr (filename_59, 47);
-  _61 = path_60 != 0B;
-  _62 = filename_59 < path_60;
-  _63 = _61 & _62;
-  if (_63 != 0)
-    goto <bb 5>; [50.00%]
-  else
-    goto <bb 8>; [50.00%]
-
-  <bb 5> [0.30%]:
-  _64 = (long int) path_60;
-  _65 = (long int) filename_59;
-  _66 = _64 - _65;
-  slash_67 = (u_int) _66;
-  if (slash_67 > 127)
-    goto <bb 6>; [0.04%]
-  else
-    goto <bb 7>; [99.96%]
-
-  <bb 6> [0.00%]:
-  _68 = __printf_chk (1, "tilde_expand_filename: ~username too long%s\n", "");
-  exit (1);
-
-  <bb 7> [0.30%]:
-  _69 = _66 & 4294967295;
-  _70 = (long unsigned int) _69;
-  memcpy (&user, filename_59, _70);
-  user[slash_67] = 0;
-
-  <bb 8> [0.60%]:
-  if (path_60 != 0B)
-    goto <bb 9>; [70.00%]
-  else
-    goto <bb 10>; [30.00%]
-
-  <bb 9> [0.42%]:
-  filename_71 = path_60 + 1;
-
-  <bb 10> [0.60%]:
-  # filename_72 = PHI <filename_59(8), filename_71(9)>
-  srclen_77 = strlen (filename_72);
-  _78 = strnlen (&ret, 64);
-  dstlen_79 = (const size_t) _78;
-  if (dstlen_79 == 64)
-    goto <bb 11>; [30.50%]
-  else
-    goto <bb 12>; [69.50%]
-
-  <bb 11> [0.18%]:
-  _80 = srclen_77 + 64;
-  goto <bb 16>; [100.00%]
-
-  <bb 12> [0.42%]:
-  _81 = 64 - dstlen_79;
-  if (srclen_77 < _81)
-    goto <bb 13>; [50.00%]
-  else
-    goto <bb 14>; [50.00%]
-
-  <bb 13> [0.21%]:
-  _82 = srclen_77 + 1;
-  _83 = &ret + dstlen_79;
-  memcpy (_83, filename_72, _82);
-  goto <bb 15>; [100.00%]
-
-  <bb 14> [0.21%]:
-  _85 = &ret + dstlen_79;
-  memcpy (_85, filename_72, 63);
-  _86 = dstlen_79 + 64;
-  _87 = _86 + 18446744073709551615;
-  _88 = &ret + _87;
-  *_88 = 0;
-
-  <bb 15> [0.42%]:
-  _89 = srclen_77 + dstlen_79;
-
-  <bb 16> [0.60%]:
-  # _90 = PHI <_80(11), _89(15)>
-  if (_90 > 63)
-    goto <bb 17>; [0.04%]
-  else
-    goto <bb 18>; [99.96%]
-
-  <bb 17> [0.00%]:
-  _74 = __printf_chk (1, "tilde_expand_filename: Path too long%s\n", "");
-  exit (1);
-
-  <bb 18> [0.60%]:
-  _75 = strdup (&ret);
-
-  <bb 19> [1.09%]:
-  # _76 = PHI <_58(3), _75(18)>
-  user ={v} {CLOBBER};
-  ret ={v} {CLOBBER};
-  _121 = _76;
-  path_19 = _121;
-  _3 = strcmp (path_19, "-");
-  if (_3 == 0)
-    goto <bb 20>; [50.00%]
-  else
-    goto <bb 21>; [50.00%]
-
-  <bb 20> [0.54%]:
-  krl_spec_23 = stdin;
-  free (path_19);
-  path_26 = strdup ("(standard input)");
-  goto <bb 23>; [100.00%]
-
-  <bb 21> [0.54%]:
-  krl_spec_21 = fopen (path_19, "r");
-  if (krl_spec_21 == 0B)
-    goto <bb 22>; [0.04%]
-  else
-    goto <bb 23>; [99.96%]
-
-  <bb 22> [0.00%]:
-  _34 = __printf_chk (1, "fopen %s: \n", path_19);
-  exit (1);
-
-  <bb 23> [1.09%]:
-  # path_9 = PHI <path_26(20), path_19(21)>
-  # krl_spec_10 = PHI <krl_spec_23(20), krl_spec_21(21)>
-  _35 = __printf_chk (1, "Revoking from %s\n", path_9);
-  goto <bb 26>; [100.00%]
-
-  <bb 24> [13.35%]:
-  _5 = rand ();
-  _6 = _5 % 2;
-  if (_6 == 1)
-    goto <bb 25>; [0.04%]
-  else
-    goto <bb 26>; [99.96%]
-
-  <bb 25> [0.01%]:
-  _36 = __printf_chk (1, "%s: invalid\n", path_9);
-  exit (1);
-
-  <bb 26> [14.44%]:
-  # lnum_127 = PHI <lnum_129(24), 0(23)>
-  goto <bb 28>; [100.00%]
-
-  <bb 27> [92.50%]:
-  _91 = lnum_128;
-  _92 = _91 + 1;
-  lnum_131 = _92;
-  _93 = lnum_131;
-  _94 = __printf_chk (1, "%s: %s line %lu exceeds size limit\n", &__func__, path_9, _93);
-  _95 = rand ();
-  _96 = _95 % 2;
-  if (_96 == 1)
-    goto <bb 29>; [7.50%]
-  else
-    goto <bb 28>; [92.50%]
-
-  <bb 28> [100.00%]:
-  # lnum_128 = PHI <lnum_127(26), lnum_131(27)>
-  _97 = rand ();
-  _98 = _97 % 2;
-  if (_98 == 1)
-    goto <bb 27>; [92.50%]
-  else
-    goto <bb 29>; [7.50%]
-
-  <bb 29> [14.44%]:
-  # _99 = PHI <0(27), -1(28)>
-  # lnum_129 = PHI <lnum_131(27), lnum_128(28)>
-  if (_99 == 0)
-    goto <bb 24>; [92.50%]
-  else
-    goto <bb 30>; [7.50%]
-
-  <bb 30> [1.08%]:
-  _8 = strcmp (path_9, "-");
-  if (_8 != 0)
-    goto <bb 31>; [36.64%]
-  else
-    goto <bb 32>; [63.36%]
-
-  <bb 31> [0.40%]:
-  fclose (krl_spec_10);
-
-  <bb 32> [1.08%]:
+  <bb 2> [100.00%]:
   return;
 
 }
 
 
 
-;; Function main (main, funcdef_no=4, decl_uid=3986, cgraph_uid=0, symbol_order=44) (executed once)
+;; Function test22 (test22, funcdef_no=2, decl_uid=3987, cgraph_uid=2, symbol_order=61)
 
-main (int argc, char * * argv)
+__attribute__((noinline))
+test22 (int * k)
 {
-  int i;
-  struct passwd pw;
-  int _1;
-  unsigned int _2;
+  <bb 2> [100.00%]:
+  test22 (k_2(D));
+  free (k_2(D));
+  return;
+
+}
+
+
+
+;; Function foo2 (foo2, funcdef_no=0, decl_uid=3989, cgraph_uid=4, symbol_order=54) (executed once)
+
+__attribute__((noinline))
+foo2 (int z)
+{
+  int tmp;
+  int * p4;
+  int * p3;
+  int * a2;
+  long unsigned int _1;
+  long unsigned int _2;
   long unsigned int _3;
-  long unsigned int _4;
-  char * * _5;
-  char * _6;
+  int * _4;
+  int * _17;
+  int * _20;
 
-  <bb 2> [15.00%]:
-  _1 = time (0B);
-  _2 = (unsigned int) _1;
-  srand (_2);
-  goto <bb 4>; [100.00%]
-
-  <bb 3> [85.00%]:
-  _3 = (long unsigned int) i_7;
-  _4 = _3 * 8;
-  _5 = argv_14(D) + _4;
-  _6 = *_5;
-  update_krl_from_file (&pw, _6);
-  i_16 = i_7 + 1;
-
-  <bb 4> [100.00%]:
-  # i_7 = PHI <0(2), i_16(3)>
-  if (i_7 < argc_12(D))
-    goto <bb 3>; [85.00%]
+  <bb 2> [100.00%]:
+  _1 = (long unsigned int) z_6(D);
+  a2_9 = malloc (_1);
+  _2 = (long unsigned int) z_6(D);
+  p3_11 = malloc (_2);
+  _3 = (long unsigned int) z_6(D);
+  p4_13 = malloc (_3);
+  *a2_9 = 10;
+  if (tmp_15(D) > 10)
+    goto <bb 3>; [29.56%]
   else
-    goto <bb 5>; [15.00%]
+    goto <bb 4>; [70.44%]
 
-  <bb 5> [15.00%]:
-  pw ={v} {CLOBBER};
+  <bb 3> [29.56%]:
+  pthread_mutex_unlock (&mLock);
+  *p3_11 = 10;
+  _20 = p3_11;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [70.44%]:
+  *p4_13 = 10;
+  _17 = p4_13;
+
+  <bb 5> [100.00%]:
+  # _4 = PHI <p3_11(3), p4_13(4)>
+  return _4;
+
+}
+
+
+
+;; Function foo (foo, funcdef_no=1, decl_uid=3988, cgraph_uid=3, symbol_order=56) (executed once)
+
+__attribute__((noinline))
+foo (int z)
+{
+  int * p2;
+  int * _7;
+
+  <bb 2> [100.00%]:
+  p2_3 = malloc (1);
+  *p2_3 = 1;
+  _7 = foo2 (z_5(D));
+  return _7;
+
+}
+
+
+
+;; Function main (main, funcdef_no=4, decl_uid=3985, cgraph_uid=0, symbol_order=62) (executed once)
+
+main ()
+{
+  pthread_t t;
+  int * q;
+  char buff[50];
+  int * p3;
+  int * p2;
+  int * p;
+  long unsigned int _1;
+
+  <bb 2> [100.00%]:
+  p3_4 = foo (2);
+  *p3_4 = 1;
+  free (p3_4);
+  p_8 = foo2 (2);
+  *p_8 = 2;
+  p2_11 = foo2 (2);
+  *p2_11 = 4;
+  free (p_8);
+  free (p2_11);
+  q_16 = malloc (5);
+  *q_16 = 10;
+  test22 (q_16);
+  pthread_mutex_destroy (&mLock);
+  pthread_create (&t, 0B, child, &buff);
+  _1 = t;
+  pthread_join (_1, 0B);
+  pthread_mutex_destroy (&mLock);
+  buff ={v} {CLOBBER};
+  t ={v} {CLOBBER};
   return 0;
 
 }

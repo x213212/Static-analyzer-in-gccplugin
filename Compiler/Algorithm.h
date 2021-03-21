@@ -381,7 +381,7 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree a, tree targe
 	else
 	{
 		bool same = false;
-		int size_tmp=0 ;
+		int size_tmp = 0;
 		while (table->next != NULL)
 		{
 			//  fprintf(stderr, "set_gimple_array----------------\n");
@@ -394,7 +394,7 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree a, tree targe
 				same = true;
 				break;
 			}
-			size_tmp=size_tmp+1;
+			size_tmp = size_tmp + 1;
 			table = table->next;
 		}
 		if (!same)
@@ -2704,6 +2704,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 	{
 		int ptable_type = 0;
 		int childptable_type = 0;
+		int find_phistmt = 0;
 		int find_freestmt = 0;
 		int find_mallocstmt = 0;
 
@@ -2717,9 +2718,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		if (table_temp->node->get_fun()->decl == function_tree)
 			if (table_temp->target != NULL)
 			{
-				find_freestmt = find_mallocstmt = 0;
+				find_freestmt = find_mallocstmt = find_phistmt = 0;
 				debug_tree(function_tree);
-					fprintf(stderr, "\n======================================================================\n");
+				fprintf(stderr, "\n======================================================================\n");
 				// debug_tree(function_tree);
 				const char *name;
 				debug_tree(table_temp->target);
@@ -2755,34 +2756,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				used_stmt = &start;
 				if (user_tmp != NULL)
 				{
-					debug_tree(user_tmp->target);
-					userStart = user_tmp->target;
-					def_stmt = SSA_NAME_DEF_STMT(userStart);
-					if (gimple_code(def_stmt) == GIMPLE_CALL)
-					{
-						name = get_name(gimple_call_fndecl(def_stmt));
-						// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
-					}
-					if (
-						!strcmp(name, "malloc") ||
-						!strcmp(name, "xmalloc") ||
-						!strcmp(name, "calloc") ||
-						!strcmp(name, "xcalloc") ||
-						!strcmp(name, "strdup"))
-					{
 
-						childptable_type = 1;
-						// find_mallocstmt=1;
-						fprintf(stderr, "child function is Reserved word function ------%s-----\n", name);
-						// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
-					}
-					else
-					{
-						childptable_type = 2;
-						fprintf(stderr, "child function is other function ------%s-----\n", name);
-					}
-
-					fprintf(stderr, " \n start check Pointer Collect size %d \n", user_tmp->size);
+					fprintf(stderr, " \n start check Pointer Collect  \n");
 					fprintf(stderr, "\n======================================================================\n");
 					if (user_tmp->size > 0)
 						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
@@ -2809,6 +2784,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									name = get_name(gimple_call_fndecl(u_stmt));
 									fprintf(stderr, "this other function---%s-----\n", name);
 								}
+								if (gimple_code(u_stmt) == GIMPLE_PHI)
+								{
+									find_phistmt = 1;
+									fprintf(stderr, "this stmt have mutiple branch ---%s-----\n", name);
+								}
 								if (name != NULL)
 									if (
 										!strcmp(name, "malloc") ||
@@ -2821,10 +2801,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									}
 									else
 									{
-										if (childptable_type == 1)
-											find_mallocstmt = 1;
-										else
-											find_mallocstmt = 2;
+
+										find_mallocstmt = 2;
 									}
 
 								if (checkTeee != NULL && gimple_code(u_stmt) == GIMPLE_CALL && find_mallocstmt == 2)
@@ -2908,7 +2886,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					find_mallocstmt = -2;
 				}
 				//you are Reserved word function so always check
-
+				if (ptable_type == 1 && find_mallocstmt == 2)
+					find_mallocstmt = 1;
 				if (find_mallocstmt == 1)
 				{
 
@@ -2921,17 +2900,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					}
 					else if (find_freestmt == 1)
 					{
+
 						fprintf(stderr, "\n======================================================================\n");
 
-						debug_tree(userStart);
-						gimple *def_stmt = SSA_NAME_DEF_STMT(userStart);
-						debug(def_stmt);
-						fprintf(stderr, "\n======================================================================\n");
-						if (userStart != NULL)
-							if (gimple_code(def_stmt) == GIMPLE_PHI)
-								fprintf(stderr, "\033[40;31m   need check branch because multiple direction varible\033[0m\n");
-							else
-								fprintf(stderr, "\033[40;32m   May your no memory leak .... need more check \033[0m\n");
+						if (find_phistmt == 1)
+							fprintf(stderr, "\033[40;31m   need check branch because multiple direction varible\033[0m\n");
+						else
+							fprintf(stderr, "\033[40;32m   May your no memory leak .... need more check \033[0m\n");
 						// 	fprintf(stderr, "\033[40;32m    NO memory leak \033[0m\n");
 						fprintf(stderr, "\n======================================================================\n\n");
 					}

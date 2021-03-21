@@ -1,21 +1,6 @@
-84 inline "Symbol to SSA rewrite" "update_krl_from_file" 3
-84 inline "unused VAR_DECLs removed" "main" 10
-84 inline "Symbol to SSA rewrite" "main" 2
-90 pta "Symbol to SSA rewrite" "(nofn)" 2
-97 ccp "Copies propagated" "update_krl_from_file" 2
-97 ccp "Statements folded" "update_krl_from_file" 1
-97 ccp "Constants propagated" "update_krl_from_file" 3
-97 ccp "Statements deleted" "update_krl_from_file" 7
-115 copyprop "Copies propagated" "update_krl_from_file" 4
-115 copyprop "Statements deleted" "update_krl_from_file" 5
-124 dom "Redundant expressions eliminated" "update_krl_from_file" 1
-124 dom "Jumps threaded" "update_krl_from_file" 2
-147 loopinit "Incremental SSA update" "update_krl_from_file" 1
-184 dom "Redundant expressions eliminated" "update_krl_from_file" 1
-266 combine "two-insn combine" "update_krl_from_file" 15
-120 ch "Incremental SSA update" "main" 1
-124 dom "Incremental SSA update" "main" 1
-184 dom "Copies propagated" "main" 1
-184 dom "Redundant expressions eliminated" "main" 1
-233 optimized "unused VAR_DECLs removed" "main" 3
-266 combine "two-insn combine" "main" 3
+90 pta "Symbol to SSA rewrite" "(nofn)" 5
+115 copyprop "Statements deleted" "foo2" 2
+124 dom "Copies propagated" "foo2" 2
+124 dom "Redundant expressions eliminated" "foo2" 2
+132 ccp "Statements deleted" "foo2" 2
+266 combine "two-insn combine" "foo2" 1
