@@ -1,4 +1,3 @@
-__attribute__((noinline))
 foo3 (int * z)
 {
   _1 = malloc (1);
@@ -8,10 +7,9 @@ foo3 (int * z)
 }
 
 
-__attribute__((noinline))
 foo2 (int z)
 {
-  int * D.4369;
+  int * D.4373;
   int * a2;
   int * p3;
   int * p4;
@@ -24,24 +22,24 @@ foo2 (int z)
   _3 = (long unsigned int) z;
   p4 = malloc (_3);
   *a2 = 10;
-  if (tmp > 10) goto <D.4367>; else goto <D.4368>;
-  <D.4367>:
+  if (tmp > 10) goto <D.4371>; else goto <D.4372>;
+  <D.4371>:
   pthread_mutex_unlock (&mLock);
   *p3 = 10;
-  D.4369 = p3;
-  return D.4369;
-  <D.4368>:
+  D.4373 = p3;
+  return D.4373;
+  <D.4372>:
   *p4 = 10;
-  D.4369 = p4;
-  return D.4369;
-  D.4369 = a2;
-  return D.4369;
+  D.4373 = p4;
+  return D.4373;
+  D.4373 = a2;
+  return D.4373;
 }
 
 
 foo4 (int z)
 {
-  int * D.4371;
+  int * D.4375;
   int * b;
   int * p2;
 
@@ -55,8 +53,8 @@ foo4 (int z)
       *p2 = 1;
       p2 = &b;
       free (p2);
-      D.4371 = p2;
-      return D.4371;
+      D.4375 = p2;
+      return D.4375;
     }
   finally
     {
@@ -65,22 +63,55 @@ foo4 (int z)
 }
 
 
-__attribute__((noinline))
 foo (int z)
 {
-  int * D.4374;
+  int * D.4378;
   int * p2;
 
   p2 = malloc (1);
   *p2 = 1;
-  D.4374 = foo2 (z);
-  return D.4374;
+  D.4378 = foo2 (z);
+  return D.4378;
 }
 
 
 child (void * data)
 {
+  int * * ppData;
+  int * pData;
+  int * a;
+  int data2;
 
+  try
+    {
+      pthread_mutex_lock (&mLock);
+      ppData = malloc (10);
+      _1 = malloc (20);
+      pData = _1;
+      a = foo (1);
+      data2 = 0;
+      ppData = &pData;
+      pData = &data2;
+      _2 = *ppData;
+      *_2 = 10;
+      _3 = ppData + 8;
+      _4 = *_3;
+      *_4 = 10;
+      _5 = ppData + 16;
+      _6 = *_5;
+      *_6 = 10;
+      _7 = *ppData;
+      *_7 = 12;
+      pData.1_8 = pData;
+      free (pData.1_8);
+      pthread_mutex_unlock (&mLock);
+      free (ppData);
+    }
+  finally
+    {
+      pData = {CLOBBER};
+      data2 = {CLOBBER};
+    }
 }
 
 
@@ -94,28 +125,25 @@ boo (int * b)
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
 {
-  int D.4376;
+  int D.4380;
 
-  D.4376 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  return D.4376;
+  D.4380 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.4380;
 }
 
 
-__attribute__((noinline))
 test44 (int * k)
 {
   free (k);
 }
 
 
-__attribute__((noinline))
 test33 (int * k)
 {
   test44 (k);
 }
 
 
-__attribute__((noinline))
 test22 (int * k)
 {
   test22 (k);
@@ -125,7 +153,7 @@ test22 (int * k)
 
 main ()
 {
-  int D.4378;
+  int D.4382;
 
   {
     int * p;
@@ -152,11 +180,11 @@ main ()
         test22 (q);
         pthread_mutex_destroy (&mLock);
         pthread_create (&t, 0B, child, &buff);
-        t.1_1 = t;
-        pthread_join (t.1_1, 0B);
+        t.2_1 = t;
+        pthread_join (t.2_1, 0B);
         pthread_mutex_destroy (&mLock);
-        D.4378 = 0;
-        return D.4378;
+        D.4382 = 0;
+        return D.4382;
       }
     finally
       {
@@ -164,8 +192,8 @@ main ()
         t = {CLOBBER};
       }
   }
-  D.4378 = 0;
-  return D.4378;
+  D.4382 = 0;
+  return D.4382;
 }
 
 

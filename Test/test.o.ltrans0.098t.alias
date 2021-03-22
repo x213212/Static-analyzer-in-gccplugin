@@ -1,33 +1,5 @@
 
-;; Function child (child, funcdef_no=3, decl_uid=3986, cgraph_uid=1, symbol_order=57)
-
-
-Not re-computing points-to information because IPA points-to information is available.
-
-
-
-Alias information for child
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to anything, points-to NULL
-
-Flow-insensitive points-to information
-
-
-child (void * data)
-{
-  <bb 2> [100.00%]:
-  return;
-
-}
-
-
-
-;; Function test22 (test22, funcdef_no=2, decl_uid=3987, cgraph_uid=2, symbol_order=61)
+;; Function test22 (test22, funcdef_no=1, decl_uid=3988, cgraph_uid=4, symbol_order=61)
 
 
 Not re-computing points-to information because IPA points-to information is available.
@@ -45,9 +17,8 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-k_2(D), points-to NULL, points-to vars: { D.4052 } (nonlocal)
+k_2(D), points-to NULL, points-to vars: { D.4066 } (nonlocal)
 
-__attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
@@ -59,7 +30,7 @@ test22 (int * k)
 
 
 
-;; Function foo2 (foo2, funcdef_no=0, decl_uid=3989, cgraph_uid=4, symbol_order=54) (executed once)
+;; Function foo2 (foo2, funcdef_no=0, decl_uid=3989, cgraph_uid=5, symbol_order=54)
 
 
 Not re-computing points-to information because IPA points-to information is available.
@@ -77,14 +48,13 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-_4, points-to NULL, points-to vars: { D.4049 D.4050 } (nonlocal)
-a2_9, points-to NULL, points-to vars: { D.4048 } (nonlocal)
-p3_11, points-to NULL, points-to vars: { D.4049 } (nonlocal)
-p4_13, points-to NULL, points-to vars: { D.4050 } (nonlocal)
-_17, points-to NULL, points-to vars: { D.4050 } (nonlocal)
-_20, points-to NULL, points-to vars: { D.4049 } (nonlocal)
+_4, points-to NULL, points-to vars: { D.4060 D.4061 } (nonlocal, escaped, escaped heap)
+a2_9, points-to NULL, points-to vars: { D.4059 } (nonlocal, escaped, escaped heap)
+p3_11, points-to NULL, points-to vars: { D.4060 } (nonlocal, escaped, escaped heap)
+p4_13, points-to NULL, points-to vars: { D.4061 } (nonlocal, escaped, escaped heap)
+_17, points-to NULL, points-to vars: { D.4061 } (nonlocal, escaped, escaped heap)
+_20, points-to NULL, points-to vars: { D.4060 } (nonlocal, escaped, escaped heap)
 
-__attribute__((noinline))
 foo2 (int z)
 {
   int tmp;
@@ -129,17 +99,19 @@ foo2 (int z)
 
 
 
-;; Function foo (foo, funcdef_no=1, decl_uid=3988, cgraph_uid=3, symbol_order=56) (executed once)
+;; Function child (child, funcdef_no=2, decl_uid=3986, cgraph_uid=1, symbol_order=57)
 
 
 Not re-computing points-to information because IPA points-to information is available.
 
 
 
-Alias information for foo
+Alias information for child
 
 Aliased symbols
 
+data2, UID D.4035, int, is addressable
+pData, UID D.4037, int *, is addressable
 
 Call clobber information
 
@@ -147,20 +119,57 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-p2_3, points-to NULL, points-to vars: { D.4051 } (nonlocal)
-_7, points-to NULL, points-to vars: { D.4049 D.4050 } (nonlocal)
+_1, points-to NULL, points-to vars: { D.4063 } (nonlocal, escaped, escaped heap)
+_2, points-to NULL, points-to vars: { D.4035 D.4063 } (nonlocal, escaped, escaped heap)
+_3, points-to NULL, points-to vars: { D.4035 D.4063 } (nonlocal, escaped, escaped heap)
+_4, points-to NULL, points-to vars: { D.4035 D.4063 } (nonlocal, escaped, escaped heap)
+_5, points-to NULL, points-to vars: { D.4035 D.4063 } (nonlocal, escaped, escaped heap)
+_6, points-to NULL, points-to vars: { D.4035 D.4063 } (nonlocal, escaped, escaped heap)
+ppData_10, points-to NULL, points-to vars: { D.4062 } (nonlocal)
+p2_32, points-to NULL, points-to vars: { D.4064 } (nonlocal, escaped, escaped heap)
+_33, points-to NULL, points-to vars: { D.4060 D.4061 } (nonlocal, escaped, escaped heap)
 
-__attribute__((noinline))
-foo (int z)
+child (void * data)
 {
   int * p2;
-  int * _7;
+  int * D.4046;
+  int data2;
+  int * a;
+  int * pData;
+  int * * ppData;
+  void * _1;
+  int * _2;
+  int * _3;
+  int * _4;
+  int * _5;
+  int * _6;
+  int * _33;
 
   <bb 2> [100.00%]:
-  p2_3 = malloc (1);
-  *p2_3 = 1;
-  _7 = foo2 (z_5(D));
-  return _7;
+  pthread_mutex_lock (&mLock);
+  ppData_10 = malloc (10);
+  _1 = malloc (20);
+  pData = _1;
+  p2_32 = malloc (1);
+  *p2_32 = 1;
+  _33 = foo2 (1);
+  data2 = 0;
+  pData = &data2;
+  _2 = pData;
+  *_2 = 10;
+  _3 = MEM[(int * *)&pData + 8B];
+  *_3 = 10;
+  _4 = MEM[(int * *)&pData + 16B];
+  *_4 = 10;
+  _5 = pData;
+  *_5 = 12;
+  _6 = pData;
+  free (_6);
+  pthread_mutex_unlock (&mLock);
+  free (&pData);
+  pData ={v} {CLOBBER};
+  data2 ={v} {CLOBBER};
+  return;
 
 }
 
@@ -177,8 +186,8 @@ Alias information for main
 
 Aliased symbols
 
-t, UID D.4040, pthread_t, is addressable
-buff, UID D.4042, char[50], is addressable
+t, UID D.4048, pthread_t, is addressable
+buff, UID D.4050, char[50], is addressable
 
 Call clobber information
 
@@ -186,13 +195,16 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-p3_4, points-to NULL, points-to vars: { D.4049 D.4050 } (nonlocal)
-p_8, points-to NULL, points-to vars: { D.4049 D.4050 } (nonlocal)
-p2_11, points-to NULL, points-to vars: { D.4049 D.4050 } (nonlocal)
-q_16, points-to NULL, points-to vars: { D.4052 } (nonlocal)
+p_8, points-to NULL, points-to vars: { D.4060 D.4061 } (nonlocal, escaped, escaped heap)
+p2_11, points-to NULL, points-to vars: { D.4060 D.4061 } (nonlocal, escaped, escaped heap)
+q_16, points-to NULL, points-to vars: { D.4066 } (nonlocal)
+p2_36, points-to NULL, points-to vars: { D.4065 } (nonlocal)
+_37, points-to NULL, points-to vars: { D.4060 D.4061 } (nonlocal, escaped, escaped heap)
 
 main ()
 {
+  int * p2;
+  int * D.4057;
   pthread_t t;
   int * q;
   char buff[50];
@@ -200,11 +212,14 @@ main ()
   int * p2;
   int * p;
   long unsigned int _1;
+  int * _37;
 
   <bb 2> [100.00%]:
-  p3_4 = foo (2);
-  *p3_4 = 1;
-  free (p3_4);
+  p2_36 = malloc (1);
+  *p2_36 = 1;
+  _37 = foo2 (2);
+  *_37 = 1;
+  free (_37);
   p_8 = foo2 (2);
   *p_8 = 2;
   p2_11 = foo2 (2);

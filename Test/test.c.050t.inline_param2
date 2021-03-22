@@ -15,7 +15,7 @@ Inline summary for printf/31 always_inline inlinable
     size:0.000000, time:0.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
-    __printf_chk/66 function body not available
+    __printf_chk/67 function body not available
       loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
        op0 is compile time invariant
 
@@ -32,38 +32,12 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
-
-
-Analyzing function body size: child
-
-Inline summary for child/57 inlinable
-  self time:       2
-  global time:     0
-  self size:       3
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:0.000000, time:0.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-
-child (void * data)
-{
-  <bb 2> [100.00%]:
-  return;
-
-}
-
-
-
 ;; Function foo3 (foo3, funcdef_no=51, decl_uid=4311, cgraph_uid=51, symbol_order=53)
 
 
 Analyzing function body size: foo3
 
-Inline summary for foo3/53
+Inline summary for foo3/53 inlinable
   self time:       15
   global time:     0
   self size:       7
@@ -78,7 +52,6 @@ Inline summary for foo3/53
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
        op0 is compile time invariant
 
-__attribute__((noinline))
 foo3 (int * z)
 {
   void * _1;
@@ -101,7 +74,7 @@ foo3 (int * z)
 
 Analyzing function body size: foo2
 
-Inline summary for foo2/54
+Inline summary for foo2/54 inlinable
   self time:       45
   global time:     0
   self size:       19
@@ -122,7 +95,6 @@ Inline summary for foo2/54
     malloc/63 function body not available
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
 
-__attribute__((noinline))
 foo2 (int z)
 {
   int tmp;
@@ -220,7 +192,7 @@ foo4 (int z)
 
 Analyzing function body size: foo
 
-Inline summary for foo/56
+Inline summary for foo/56 inlinable
   self time:       27
   global time:     0
   self size:       10
@@ -237,7 +209,6 @@ Inline summary for foo/56
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
        op0 is compile time invariant
 
-__attribute__((noinline))
 foo (int z)
 {
   int * p2;
@@ -253,7 +224,85 @@ foo (int z)
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4346, cgraph_uid=56, symbol_order=58)
+;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
+
+
+Analyzing function body size: child
+
+Inline summary for child/57 inlinable
+  self time:       94
+  global time:     0
+  self size:       32
+  global size:     0
+  min size:       0
+  self stack:      12
+  global stack:    12
+    size:12.000000, time:12.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    free/65 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
+    pthread_mutex_unlock/64 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
+    free/65 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    foo/56 function not considered for inlining
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 5 stack: 0
+       op0 is compile time invariant
+    malloc/63 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+    malloc/63 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+    pthread_mutex_lock/66 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
+
+child (void * data)
+{
+  int data2;
+  int * a;
+  int * pData;
+  int * * ppData;
+  void * _1;
+  int * _2;
+  int * _3;
+  int * _4;
+  int * _5;
+  int * pData.1_6;
+
+  <bb 2> [100.00%]:
+  pthread_mutex_lock (&mLock);
+  ppData_10 = malloc (10);
+  _1 = malloc (20);
+  pData = _1;
+  a_14 = foo (1);
+  data2 = 0;
+  pData = &data2;
+  _2 = pData;
+  *_2 = 10;
+  _3 = MEM[(int * *)&pData + 8B];
+  *_3 = 10;
+  _4 = MEM[(int * *)&pData + 16B];
+  *_4 = 10;
+  _5 = pData;
+  *_5 = 12;
+  pData.1_6 = pData;
+  free (pData.1_6);
+  pthread_mutex_unlock (&mLock);
+  free (&pData);
+  pData ={v} {CLOBBER};
+  data2 ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function boo (boo, funcdef_no=56, decl_uid=4350, cgraph_uid=56, symbol_order=58)
 
 
 Analyzing function body size: boo
@@ -269,7 +318,7 @@ Inline summary for boo/58 inlinable
     size:0.000000, time:0.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
-    __printf_chk/66 function body not available
+    __printf_chk/67 function body not available
       loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
        op0 is compile time invariant
        op1 is compile time invariant
@@ -294,7 +343,7 @@ boo (int * b)
 
 Analyzing function body size: test44
 
-Inline summary for test44/59
+Inline summary for test44/59 inlinable
   self time:       13
   global time:     0
   self size:       5
@@ -308,7 +357,6 @@ Inline summary for test44/59
     free/65 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
 
-__attribute__((noinline))
 test44 (int * k)
 {
   <bb 2> [100.00%]:
@@ -324,7 +372,7 @@ test44 (int * k)
 
 Analyzing function body size: test33
 
-Inline summary for test33/60
+Inline summary for test33/60 inlinable
   self time:       13
   global time:     0
   self size:       5
@@ -338,7 +386,6 @@ Inline summary for test33/60
     test44/59 function not considered for inlining
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 2 stack: 0
 
-__attribute__((noinline))
 test33 (int * k)
 {
   <bb 2> [100.00%]:
@@ -354,7 +401,7 @@ test33 (int * k)
 
 Analyzing function body size: test22
 
-Inline summary for test22/61
+Inline summary for test22/61 inlinable
   self time:       24
   global time:     0
   self size:       7
@@ -370,7 +417,6 @@ Inline summary for test22/61
     test22/61 function not considered for inlining
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
 
-__attribute__((noinline))
 test22 (int * k)
 {
   <bb 2> [100.00%]:
@@ -382,7 +428,7 @@ test22 (int * k)
 
 
 
-;; Function main (main, funcdef_no=60, decl_uid=4357, cgraph_uid=60, symbol_order=62) (executed once)
+;; Function main (main, funcdef_no=60, decl_uid=4361, cgraph_uid=60, symbol_order=62) (executed once)
 
 
 Analyzing function body size: main
@@ -398,19 +444,19 @@ Inline summary for main/62 inlinable
     size:5.000000, time:5.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
-    pthread_mutex_destroy/67 function body not available
+    pthread_mutex_destroy/68 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
        op0 is compile time invariant
-    pthread_join/69 function body not available
+    pthread_join/70 function body not available
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
        op1 is compile time invariant
-    pthread_create/68 function body not available
+    pthread_create/69 function body not available
       loop depth: 0 freq:1000 size: 5 time: 14 callee size: 0 stack: 0
        op0 is compile time invariant
        op1 is compile time invariant
        op2 is compile time invariant
        op3 is compile time invariant
-    pthread_mutex_destroy/67 function body not available
+    pthread_mutex_destroy/68 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
        op0 is compile time invariant
     test22/61 function not considered for inlining
@@ -442,7 +488,7 @@ main ()
   int * p3;
   int * p2;
   int * p;
-  long unsigned int t.1_1;
+  long unsigned int t.2_1;
 
   <bb 2> [100.00%]:
   p3_4 = foo (2);
@@ -459,8 +505,8 @@ main ()
   test22 (q_16);
   pthread_mutex_destroy (&mLock);
   pthread_create (&t, 0B, child, &buff);
-  t.1_1 = t;
-  pthread_join (t.1_1, 0B);
+  t.2_1 = t;
+  pthread_join (t.2_1, 0B);
   pthread_mutex_destroy (&mLock);
   buff ={v} {CLOBBER};
   t ={v} {CLOBBER};

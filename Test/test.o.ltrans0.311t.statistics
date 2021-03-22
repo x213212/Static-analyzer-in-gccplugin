@@ -1,6 +1,16 @@
-90 pta "Symbol to SSA rewrite" "(nofn)" 5
+84 inline "Symbol to SSA rewrite" "child" 1
+84 inline "unused VAR_DECLs removed" "main" 1
+84 inline "Symbol to SSA rewrite" "main" 1
+90 pta "Symbol to SSA rewrite" "(nofn)" 4
 115 copyprop "Statements deleted" "foo2" 2
 124 dom "Copies propagated" "foo2" 2
 124 dom "Redundant expressions eliminated" "foo2" 2
 132 ccp "Statements deleted" "foo2" 2
 266 combine "two-insn combine" "foo2" 1
+97 ccp "Statements deleted" "child" 2
+124 dom "Redundant expressions eliminated" "child" 3
+124 dom "Constants propagated" "child" 3
+132 ccp "Statements deleted" "child" 3
+97 ccp "Copies propagated" "main" 2
+97 ccp "Statements deleted" "main" 2
+233 optimized "unused VAR_DECLs removed" "main" 2

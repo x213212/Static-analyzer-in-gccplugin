@@ -2715,6 +2715,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		//  fprintf(stderr, "%d\n",int(table_temp->node->get_fun()->decl==function_tree));
 		// debug_tree(function_tree);
 		// fprintf(stderr, "\033[40;42m =======check _ addddddd:%s========= \033[0m\n",get_name(function_tree));
+		//過濾所有 ptable 判斷 裡面的 node 是否為 比對的 fucntion tree
 		if (table_temp->node->get_fun()->decl == function_tree)
 			if (table_temp->target != NULL)
 			{
