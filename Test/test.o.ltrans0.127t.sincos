@@ -21,30 +21,29 @@ foo2 (int z)
   int * p3;
   int * a2;
   long unsigned int _1;
-  int * _4;
 
   <bb 2> [100.00%]:
-  _1 = (long unsigned int) z_6(D);
-  a2_9 = malloc (_1);
-  p3_11 = malloc (_1);
-  p4_13 = malloc (_1);
-  *a2_9 = 10;
-  if (tmp_15(D) > 10)
+  _1 = (long unsigned int) z_5(D);
+  a2_8 = malloc (_1);
+  p3_10 = malloc (_1);
+  p4_12 = malloc (_1);
+  *a2_8 = 10;
+  if (tmp_14(D) > 10)
     goto <bb 3>; [29.56%]
   else
     goto <bb 4>; [70.44%]
 
   <bb 3> [29.56%]:
   pthread_mutex_unlock (&mLock);
-  *p3_11 = 10;
+  *a2_8 = 10;
+  free (a2_8);
   goto <bb 5>; [100.00%]
 
   <bb 4> [70.44%]:
-  *p4_13 = 10;
+  *a2_8 = 20;
 
   <bb 5> [100.00%]:
-  # _4 = PHI <p3_11(3), p4_13(4)>
-  return _4;
+  return a2_8;
 
 }
 

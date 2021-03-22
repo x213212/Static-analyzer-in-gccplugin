@@ -740,13 +740,12 @@
   if (tmp > 10)
     {
       pthread_mutex_unlock (&mLock);
-      *p3 = 10;
-      return p3;
+      *a2 = 10;
+      free ((void *) a2);
     }
   else
     {
-      *p4 = 10;
-      return p4;
+      *a2 = 20;
     }
   return a2;
 }

@@ -47,11 +47,11 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4397 } (nonlocal, escaped, restrict)
+ESCAPED, points-to non-local, points-to vars: { D.4398 } (nonlocal, escaped, restrict)
 
 Flow-insensitive points-to information
 
-__fmt_2(D), points-to NULL, points-to vars: { D.4397 } (nonlocal, escaped, restrict)
+__fmt_2(D), points-to NULL, points-to vars: { D.4398 } (nonlocal, escaped, restrict)
 
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
@@ -116,11 +116,11 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4398 } (escaped, escaped heap)
+ESCAPED, points-to non-local, points-to vars: { D.4399 } (escaped, escaped heap)
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4398 } (escaped, escaped heap)
+_1, points-to NULL, points-to vars: { D.4399 } (escaped, escaped heap)
 z_6(D), points-to non-local, points-to NULL, points-to vars: { }
 
 foo3 (int * z)
@@ -156,26 +156,23 @@ INTEGER = &ANYTHING
 z = &NONLOCAL
 _1 = z
 ESCAPED = _1
-a2_9 = &HEAP(12)
+a2_8 = &HEAP(12)
 _2 = z
 ESCAPED = _2
-p3_11 = &HEAP(15)
+p3_10 = &HEAP(15)
 _3 = z
 ESCAPED = _3
-p4_13 = &HEAP(18)
+p4_12 = &HEAP(18)
 derefaddrtmp(19) = &NONLOCAL
-*a2_9 = derefaddrtmp(19)
+*a2_8 = derefaddrtmp(19)
 mLock = NONLOCAL
 ESCAPED = &mLock
 derefaddrtmp(22) = &NONLOCAL
-*p3_11 = derefaddrtmp(22)
-_20 = p3_11
-derefaddrtmp(24) = &NONLOCAL
-*p4_13 = derefaddrtmp(24)
-_17 = p4_13
-_4 = p3_11
-_4 = p4_13
-ESCAPED = _4
+*a2_8 = derefaddrtmp(22)
+derefaddrtmp(23) = &NONLOCAL
+*a2_8 = derefaddrtmp(23)
+_19 = a2_8
+ESCAPED = a2_8
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -188,29 +185,27 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { ESCAPED NONLOCAL HEAP(15) HEAP(18) mLock }
+ESCAPED = { ESCAPED NONLOCAL HEAP(12) mLock }
 NONLOCAL = { ESCAPED NONLOCAL }
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
 z = { NONLOCAL }
 _1 = { NONLOCAL } same as z
 malloc = { }
-a2_9 = { HEAP(12) }
-HEAP(12) = { NONLOCAL }
+a2_8 = { HEAP(12) }
+HEAP(12) = { ESCAPED NONLOCAL }
 _2 = { NONLOCAL } same as z
-p3_11 = { HEAP(15) }
-HEAP(15) = { ESCAPED NONLOCAL }
+p3_10 = { HEAP(15) }
+HEAP(15) = { }
 _3 = { NONLOCAL } same as z
-p4_13 = { HEAP(18) }
-HEAP(18) = { ESCAPED NONLOCAL }
+p4_12 = { HEAP(18) }
+HEAP(18) = { }
 derefaddrtmp(19) = { NONLOCAL } same as z
 pthread_mutex_unlock = { }
 mLock = { ESCAPED NONLOCAL }
 derefaddrtmp(22) = { NONLOCAL } same as z
-_20 = { HEAP(15) } same as p3_11
-derefaddrtmp(24) = { NONLOCAL } same as z
-_17 = { HEAP(18) } same as p4_13
-_4 = { HEAP(15) HEAP(18) }
+derefaddrtmp(23) = { NONLOCAL } same as z
+_19 = { HEAP(12) } same as a2_8
 
 
 Alias information for foo2
@@ -220,16 +215,14 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4304 D.4400 D.4401 } (nonlocal, escaped, escaped heap, interposable)
+ESCAPED, points-to non-local, points-to vars: { D.4304 D.4400 } (nonlocal, escaped, escaped heap, interposable)
 
 Flow-insensitive points-to information
 
-_4, points-to NULL, points-to vars: { D.4400 D.4401 } (escaped, escaped heap)
-a2_9, points-to NULL, points-to vars: { D.4399 }
-p3_11, points-to NULL, points-to vars: { D.4400 } (escaped, escaped heap)
-p4_13, points-to NULL, points-to vars: { D.4401 } (escaped, escaped heap)
-_17, points-to NULL, points-to vars: { D.4401 } (escaped, escaped heap)
-_20, points-to NULL, points-to vars: { D.4400 } (escaped, escaped heap)
+a2_8, points-to NULL, points-to vars: { D.4400 } (escaped, escaped heap)
+p3_10, points-to NULL, points-to vars: { D.4401 }
+p4_12, points-to NULL, points-to vars: { D.4402 }
+_19, points-to NULL, points-to vars: { D.4400 } (escaped, escaped heap)
 
 foo2 (int z)
 {
@@ -240,36 +233,33 @@ foo2 (int z)
   long unsigned int _1;
   long unsigned int _2;
   long unsigned int _3;
-  int * _4;
-  int * _17;
-  int * _20;
+  int * _19;
 
   <bb 2> [0.00%]:
-  _1 = (long unsigned int) z_6(D);
-  a2_9 = malloc (_1);
-  _2 = (long unsigned int) z_6(D);
-  p3_11 = malloc (_2);
-  _3 = (long unsigned int) z_6(D);
-  p4_13 = malloc (_3);
-  *a2_9 = 10;
-  if (tmp_15(D) > 10)
+  _1 = (long unsigned int) z_5(D);
+  a2_8 = malloc (_1);
+  _2 = (long unsigned int) z_5(D);
+  p3_10 = malloc (_2);
+  _3 = (long unsigned int) z_5(D);
+  p4_12 = malloc (_3);
+  *a2_8 = 10;
+  if (tmp_14(D) > 10)
     goto <bb 3>; [0.00%]
   else
     goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
   pthread_mutex_unlock (&mLock);
-  *p3_11 = 10;
-  _20 = p3_11;
+  *a2_8 = 10;
+  free (a2_8);
   goto <bb 5>; [0.00%]
 
   <bb 4> [0.00%]:
-  *p4_13 = 10;
-  _17 = p4_13;
+  *a2_8 = 20;
 
   <bb 5> [0.00%]:
-  # _4 = PHI <p3_11(3), p4_13(4)>
-  return _4;
+  _19 = a2_8;
+  return a2_8;
 
 }
 
@@ -336,13 +326,13 @@ b, UID D.4333, int *, is addressable
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4333 D.4402 } (escaped, escaped heap)
+ESCAPED, points-to non-local, points-to vars: { D.4333 D.4403 } (escaped, escaped heap)
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4402 } (escaped, escaped heap)
-b.0_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.4402 } (escaped, escaped heap)
-p2_7, points-to NULL, points-to vars: { D.4403 }
+_1, points-to NULL, points-to vars: { D.4403 } (escaped, escaped heap)
+b.0_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.4403 } (escaped, escaped heap)
+p2_7, points-to NULL, points-to vars: { D.4404 }
 
 foo4 (int z)
 {
@@ -423,7 +413,7 @@ ESCAPED, points-to non-local, points-to vars: { }
 
 Flow-insensitive points-to information
 
-p2_3, points-to NULL, points-to vars: { D.4404 }
+p2_3, points-to NULL, points-to vars: { D.4405 }
 _7, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 
 foo (int z)
@@ -538,13 +528,13 @@ ESCAPED, points-to non-local, points-to vars: { D.4304 D.4342 } (nonlocal, escap
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4406 }
-_2, points-to NULL, points-to vars: { D.4346 D.4406 }
-_4, points-to NULL, points-to vars: { D.4346 D.4406 }
-_6, points-to NULL, points-to vars: { D.4346 D.4406 }
-_7, points-to NULL, points-to vars: { D.4346 D.4406 }
-pData.1_8, points-to NULL, points-to vars: { D.4346 D.4406 }
-ppData_15, points-to NULL, points-to vars: { D.4405 }
+_1, points-to NULL, points-to vars: { D.4407 }
+_2, points-to NULL, points-to vars: { D.4346 D.4407 }
+_4, points-to NULL, points-to vars: { D.4346 D.4407 }
+_6, points-to NULL, points-to vars: { D.4346 D.4407 }
+_7, points-to NULL, points-to vars: { D.4346 D.4407 }
+pData.1_8, points-to NULL, points-to vars: { D.4346 D.4407 }
+ppData_15, points-to NULL, points-to vars: { D.4406 }
 a_19, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 
 child (void * data)
@@ -646,7 +636,7 @@ b_2(D), points-to non-local, points-to NULL, points-to vars: { }
 
 boo (int * b)
 {
-  int D.4408;
+  int D.4409;
   int _5;
 
   <bb 2> [100.00%]:
@@ -920,14 +910,14 @@ buff, UID D.4367, char[50], is addressable
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4304 D.4367 D.4370 D.4409 } (nonlocal, escaped, escaped heap, interposable)
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4304 D.4367 D.4370 D.4410 } (nonlocal, escaped, escaped heap, interposable)
 
 Flow-insensitive points-to information
 
 p3_4, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 p_8, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 p2_11, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-q_16, points-to NULL, points-to vars: { D.4409 } (escaped, escaped heap)
+q_16, points-to NULL, points-to vars: { D.4410 } (escaped, escaped heap)
 
 main ()
 {

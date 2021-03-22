@@ -1,215 +1,213 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <pthread.h>
-#include <unistd.h>
-#define xstrdup(a) strdup(a)
-///home/cc/gcc/ins/bin/gcc  -fplugin=/home/cc/gcc/myfile/Compiler/misra.so -I/home/cc/gcc/ins/lib/gcc/x86_64-pc-linux-gnu/7.3.0/plugin/include openssl_df_2.c  -O1  -flto  -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta   -fno-inline-functions-called-once   -o  openssl_df_2.o
-// 子執行緒函數
-pthread_mutex_t mLock;
-int *test;
-int *foo(int z);
-int *foo2(int z);
-void foo3(int *z);
-void test22(int *k);
-void test33(int *k);
-void test44(int *k);
-// int *foo(int z);
-int *foo4(int z);
-// int *foo2(int z);
-// void foo3(int *z);
+/*
+	buggy parent: a72f95f
+	commit id: b55ec8b676ed05d93ee49d6c79ae0403616c4fb0
+*/
 
-void foo3(int *z)
+#include "./common.h"
+
+#define PTR void *
+#define ABBREV_HASH_SIZE 64
+#define CHUNK_SIZE (4096 -32)
+#define CHUNK_HEADER_SIZE 32
+
+typedef bool bfd_boolean;
+
+struct bfd_hash_entry
 {
-	// int *p2;
-	// p2=foo2(2);
-	// p2[0]=10;
-	///error
-	// p2=10;
-	//printf("%d",p2);
-	*z = malloc(1);
-}
-int *foo2(int z)
+	struct bfd_hash_entry *next;
+
+	/* String being hashed.  */
+  const char *string;
+
+  /* Hash code.  This is the full hash code, not the index into the
+     table.  */
+  unsigned long hash;
+};
+
+struct bfd_hash_table
 {
+	struct bfd_hash_entry **table;
 
-	int *a2 = malloc(z);
-	int *p3 = malloc(z);
-	int *p4 = malloc(z);
-	int tmp;
-	a2[0] = 10;
-	//  free(a2);
-	if (tmp > 10)
-	{
-		pthread_mutex_unlock(&mLock);
-		p3[0] = 10;
-		return p3;
-	}
-	else
-	{
-		p4[0] = 10;
-		return p4;
-	}
+	/* An objalloc for this hash table.  This is a struct objalloc *,
+		but we use void * to avoid requiring the inclusion of objalloc.h.  */
+	void *memory;
+	/* The number of slots in the hash table.  */
+  unsigned int size;
+  /* The number of entries in the hash table.  */
+  unsigned int count;
+  /* The size of elements.  */
+  unsigned int entsize;
+};
 
-	//char tmp ;
-	// return (char)tmp;
-	return a2;
-}
-int *foo4(int z)
+struct objalloc
 {
-	int *b = malloc(1);
-	int *p2 = malloc(1);
+	char *current_ptr;
+	unsigned int current_space;
+	void *chunks;
+};
 
-	// b=2;
-	//  p2=foo2(2);
-	b[0] = 2;
-	p2[0] = 1;
-	p2 = &b;
-
-	free(p2);
-	//int *a=malloc(1);
-	// for(int i = 0;i < 3;++i) {
-	// printf("qwdwqd%d\n", i);
-	//  }
-	//   free(a);
-	return p2;
-}
-int *foo(int z)
+struct objalloc_chunk
 {
-	// int *b = malloc(1);
-	int *p2 = malloc(1);
-	p2[0] = 1;
-	// free(p2);
-	// b=2;
-	//  p2=foo2(2);
-	// b[0] = 2;
-	// p2[0] = 1;
-	// p2 = &b;
+	struct objalloc_chunk *next;
+	char *current_ptr;
+};
 
-	// free(p2);
-	//int *a=malloc(1);
-	// for(int i = 0;i < 3;++i) {
-	// printf("qwdwqd%d\n", i);
-	//  }
-	//   free(a);
+struct objalloc *
+objalloc_create (void)
+{
+	struct objalloc *ret;
+	struct objalloc_chunk *chunk;
 
-	return foo2(z);
-}
-void *child(void *data)
-{
-	pthread_mutex_t mLock2;
-		pthread_mutex_lock(&mLock2);
-			pthread_mutex_lock(&mLock2);
-	//a1
-	//   pthread_mutex_lock(&mLock);
-	//   //   char *str = (char*) data; // 取得輸入資料
-	//   // int *p;e
-	//   // p=foo(2);
-	//   int *b = malloc(2);
-	//   int *p2 = malloc(2);
-	//   // p2 = &b;
-	// //   MEM[(int *)&b] = 1;
-	// //  <mem_ref 0x7fbe6f4e27d0
-	//   // b[0] = 2;
-	//   p2[0] = 1;
-	//   p2[1] = 1;
+	ret = (struct objalloc *) malloc (sizeof *ret); /* allocation site */
 
-	//   free(p2);
-	//   // free(test);
-	//   // 	str=malloc(5);
-	//   pthread_mutex_unlock(&mLock);
-	//   pthread_exit(NULL); // 離開子執行緒
-	//a2
-	pthread_mutex_lock(&mLock);
-	pthread_mutex_lock(&mLock);
-	int **ppData = malloc(10);
-	int *pData = malloc(20);
-	int *a = foo(1);
-	int data2 = 0;
+	if (ret == NULL)
+		return NULL;
 
-	ppData = &pData;
-	pData = &data2;
-	*ppData[0] = 10;
-	*ppData[1] = 10;
-	*ppData[2] = 10;
-	**ppData = 12;
-	free(pData);
-	// free(ppData);
-	pthread_mutex_unlock(&mLock);
-		free(ppData);
-	//  pthread_exit(NULL); // 離開子執行緒
+	ret->chunks = (PTR) malloc (CHUNK_SIZE); /* allocation site */
+	if (ret->chunks == NULL)
+		{
+			free (ret);
+			return NULL;
+		}
 
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
+	chunk = (struct objalloc_chunk *) ret->chunks;
+	chunk->next = NULL;
+	chunk->current_ptr = NULL;
+	chunk->next = NULL;
+
+	ret->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+	ret->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+
+	return ret;
 }
-int *foo(int z);
-void boo(int *b)
+
+PTR
+objalloc_alloc (struct objalloc *o, unsigned long len)
 {
-	free(b);
-	printf("asdda\n");
+	char *ret;
+	struct objalloc_chunk *chunk;
+	
+	/* We don't care this case in modelled program */
+	if (len > CHUNK_SIZE)
+		exit (1);
+
+	chunk = (struct objalloc_chunk *) malloc (CHUNK_SIZE); /* allocation site */
+	if (chunk == NULL)
+		return NULL;
+
+	chunk->next = (struct objalloc_chunk *) o->chunks;
+	chunk->current_ptr = NULL;
+
+	o->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+	o->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+
+	o->chunks = (PTR) chunk;
+
+	return (PTR) (chunk + CHUNK_HEADER_SIZE);
 }
-void test44(int *k)
+
+void
+objalloc_free (struct objalloc *o)
 {
-	free(k);
+	struct objalloc_chunk *l;
+	void *data;
+
+	l = (struct objalloc_chunk *) o->chunks;
+	while (l != NULL)
+		{
+			data = l + CHUNK_HEADER_SIZE;
+			struct objalloc_chunk *next;
+
+			next = l->next;
+			free(l);
+			l = next;
+		}
+	free (o);
 }
-void test33(int *k)
+
+bfd_boolean
+bfd_hash_table_init_n (struct bfd_hash_table *table,
+		unsigned int entsize,
+		unsigned int size)
 {
-	test44(k);
+	unsigned long alloc;
+
+	alloc = size;
+	alloc *= sizeof (struct bfd_hash_entry *);
+	table->memory = (void *) objalloc_create ();
+	if (table->memory == NULL)
+		{
+			return FALSE;
+		}
+	
+  table->table = (struct bfd_hash_entry **)
+      objalloc_alloc ((struct objalloc *) table->memory, alloc);
+
+	if (table->table == NULL)
+		{
+			objalloc_free(table);
+			return FALSE;
+		}
+
+  memset ((void *) table->table, 0, alloc);
+  table->size = size;
+  table->entsize = entsize;
+  table->count = 0;
+
+	return TRUE;
 }
-void test22(int *k)
+
+struct bfd_hash_entry *
+bfd_hash_insert (struct bfd_hash_table *table,
+		 const char *string,
+		 unsigned long hash)
 {
-	test22(k);
-	free(k);
+  struct bfd_hash_entry *hashp;
+	unsigned int _index;
+
+	hashp = (struct bfd_hash_entry *) objalloc_alloc (table->memory, sizeof (*hashp));
+	hashp->hash = hash;
+	hashp->string = string;
+	_index = hash % table->size;
+	table->table[_index] = hashp;
+	table->count++;
+	
+	return hashp;
 }
+
+void bfd_dwarf2_cleanup_debug_info(struct bfd_hash_table *table)
+{
+	
+	objalloc_free(table->memory);
+}
+
+
 int main()
 {
-	int *p;
-	int *p2;
-	int *p3;
-	// test= malloc (sizeof (int ) * 10);
-	// foo3(p);
-	p3 = foo(2);
-	p3[0] = 1;
-	free(p3);
-	p = foo2(2);
-	p[0] = 2;
-	p2 = foo2(2);
-	p2[0] = 4;
-	// test22(p);
-	// test22(p);
-	// test33(p2);
-	free(p);
-	free(p2);
-	char buff[50];
-	int *q = malloc(5);
-	q[0] = 10;
-	test22(q);
-	// child((int)q);
-	int n;
-	pthread_t t; // 宣告 pthread 變數
-	pthread_mutex_destroy(&mLock);
-	pthread_create(&t, NULL, child, buff); // 建立子執行緒
+	time_t t;
 
-	// 主執行緒工作
-	//   for(int i = 0;i < 3;++i) {
-	//     printf("Master\n"); // 每秒輸出文字
-	//     sleep(1);
-	//   }
+	struct bfd_hash_table table;
+	struct bfd_hash_entry *entry;
+	unsigned int entsize = 10;
+	unsigned int size = 10;
+	unsigned int cnt = 0;
+	const char *hash[10] =
+			{ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j" };
 
-	pthread_join(t, NULL); // 等待子執行緒執行完成
-	pthread_mutex_destroy(&mLock);
-	// scanf("%d",n);
-	// p=foo(2);
-	// if(n)
-	// 	free(p);
-	// else
-	// 	boo(p);
-	// q=p;
-	// free(q);
-	// printf("%d",q);
-	return 0;
+	srand(time(&t));
+
+	if (! bfd_hash_table_init_n (&table, entsize, size))
+		return;
+
+	while ((cnt < entsize))
+		{
+			bfd_hash_insert (&table, hash[cnt], cnt);
+			cnt++;
+		}
+
+	
+	bfd_dwarf2_cleanup_debug_info(&table);
+	memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+	
 }
+

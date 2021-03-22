@@ -20,7 +20,7 @@ foo2 (int z)
   int * p4;
   int * p3;
   int * a2;
-  int * D.4374;
+  int * D.4375;
 
   _1 = (long unsigned int) z;
   a2 = malloc (_1);
@@ -32,17 +32,16 @@ foo2 (int z)
   if (tmp > 10) goto <D.4372>; else goto <D.4373>;
   <D.4372>:
   pthread_mutex_unlock (&mLock);
-  *p3 = 10;
-  D.4374 = p3;
-  goto <D.4375>;
+  *a2 = 10;
+  free (a2);
+  goto <D.4374>;
   <D.4373>:
-  *p4 = 10;
-  D.4374 = p4;
-  goto <D.4375>;
-  D.4374 = a2;
-  goto <D.4375>;
-  <D.4375>:
-  return D.4374;
+  *a2 = 20;
+  <D.4374>:
+  D.4375 = a2;
+  goto <D.4376>;
+  <D.4376>:
+  return D.4375;
 }
 
 
@@ -53,7 +52,7 @@ foo4 (int z)
 {
   int * p2;
   int * b;
-  int * D.4376;
+  int * D.4377;
 
   try
     {
@@ -65,15 +64,15 @@ foo4 (int z)
       *p2 = 1;
       p2 = &b;
       free (p2);
-      D.4376 = p2;
-      goto <D.4377>;
+      D.4377 = p2;
+      goto <D.4378>;
     }
   finally
     {
       b = {CLOBBER};
     }
-  <D.4377>:
-  return D.4376;
+  <D.4378>:
+  return D.4377;
 }
 
 
@@ -83,14 +82,14 @@ foo4 (int z)
 foo (int z)
 {
   int * p2;
-  int * D.4379;
+  int * D.4380;
 
   p2 = malloc (1);
   *p2 = 1;
-  D.4379 = foo2 (z);
-  goto <D.4380>;
-  <D.4380>:
-  return D.4379;
+  D.4380 = foo2 (z);
+  goto <D.4381>;
+  <D.4381>:
+  return D.4380;
 }
 
 
@@ -160,12 +159,12 @@ boo (int * b)
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
 {
-  int D.4381;
+  int D.4382;
 
-  D.4381 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  goto <D.4382>;
-  <D.4382>:
-  return D.4381;
+  D.4382 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  goto <D.4383>;
+  <D.4383>:
+  return D.4382;
 }
 
 
@@ -212,7 +211,7 @@ main ()
   int * p3;
   int * p2;
   int * p;
-  int D.4383;
+  int D.4384;
 
   try
     {
@@ -233,18 +232,18 @@ main ()
       t.2_1 = t;
       pthread_join (t.2_1, 0B);
       pthread_mutex_destroy (&mLock);
-      D.4383 = 0;
-      goto <D.4384>;
+      D.4384 = 0;
+      goto <D.4385>;
     }
   finally
     {
       buff = {CLOBBER};
       t = {CLOBBER};
     }
-  D.4383 = 0;
-  goto <D.4384>;
-  <D.4384>:
-  return D.4383;
+  D.4384 = 0;
+  goto <D.4385>;
+  <D.4385>:
+  return D.4384;
 }
 
 

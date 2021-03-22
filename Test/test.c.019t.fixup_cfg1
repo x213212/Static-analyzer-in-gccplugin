@@ -4,11 +4,11 @@
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
 {
-  int D.4381;
+  int D.4382;
 
   <bb 2> [0.00%]:
-  D.4381 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  return D.4381;
+  D.4382 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.4382;
 
 }
 
@@ -37,7 +37,7 @@ foo2 (int z)
   int * p4;
   int * p3;
   int * a2;
-  int * D.4374;
+  int * D.4375;
 
   <bb 2> [0.00%]:
   _1 = (long unsigned int) z;
@@ -54,16 +54,16 @@ foo2 (int z)
 
   <bb 3> [0.00%]:
   pthread_mutex_unlock (&mLock);
-  *p3 = 10;
-  D.4374 = p3;
+  *a2 = 10;
+  free (a2);
   goto <bb 5>; [0.00%]
 
   <bb 4> [0.00%]:
-  *p4 = 10;
-  D.4374 = p4;
+  *a2 = 20;
 
   <bb 5> [0.00%]:
-  return D.4374;
+  D.4375 = a2;
+  return D.4375;
 
 }
 
@@ -75,7 +75,7 @@ foo4 (int z)
 {
   int * p2;
   int * b;
-  int * D.4376;
+  int * D.4377;
 
   <bb 2> [0.00%]:
   _1 = malloc (1);
@@ -86,9 +86,9 @@ foo4 (int z)
   *p2 = 1;
   p2 = &b;
   free (p2);
-  D.4376 = p2;
+  D.4377 = p2;
   b = {CLOBBER};
-  return D.4376;
+  return D.4377;
 
 }
 
@@ -99,13 +99,13 @@ foo4 (int z)
 foo (int z)
 {
   int * p2;
-  int * D.4379;
+  int * D.4380;
 
   <bb 2> [0.00%]:
   p2 = malloc (1);
   *p2 = 1;
-  D.4379 = foo2 (z);
-  return D.4379;
+  D.4380 = foo2 (z);
+  return D.4380;
 
 }
 
@@ -217,7 +217,7 @@ main ()
   int * p3;
   int * p2;
   int * p;
-  int D.4383;
+  int D.4384;
 
   <bb 2> [0.00%]:
   p3 = foo (2);
@@ -237,10 +237,10 @@ main ()
   t.2_1 = t;
   pthread_join (t.2_1, 0B);
   pthread_mutex_destroy (&mLock);
-  D.4383 = 0;
+  D.4384 = 0;
   buff = {CLOBBER};
   t = {CLOBBER};
-  return D.4383;
+  return D.4384;
 
 }
 

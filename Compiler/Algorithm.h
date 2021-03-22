@@ -2851,9 +2851,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										find_mallocstmt = 2;
 									}
 
-								if (checkTeee != NULL && gimple_code(u_stmt) == GIMPLE_CALL && find_mallocstmt == 2)
+								if (checkTeee != NULL &&gimple_code(def_stmt) == GIMPLE_CALL && gimple_code(u_stmt) == GIMPLE_CALL && find_mallocstmt == 2)
 								{
-
+									
 									tree gettreefucntionarg = TREE_OPERAND(gimple_call_fn(def_stmt), 0);
 									name = get_name(gimple_call_fn(def_stmt));
 
@@ -3376,7 +3376,7 @@ void detect()
 		// new_memory_leak_analysis(ptable, ftable);
 
 		// new_double_free_analysis(ptable,ftable);
-		// PointerConstraint(ptable, ftable);
+		PointerConstraint(ptable, ftable);
 		// new_double_free_analysis(ptable,ftable);
 		// new_use_after_free_analysis(ptable, ftable);
 	}
