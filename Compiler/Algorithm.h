@@ -81,8 +81,13 @@ struct ptb
 	int size = 0;
 };
 
+/*ptb declaration*/
 ptb start1, start2, start3, start4, start5, start6, start7;
-ptb *ptable, *retable, *ftable, *phitable, *return_table, *use_table, *fopen_table;
+ptb *ptable, *retable, *ftable;
+ptb *phitable, *return_table, *use_table, *fopen_table;
+ptb *locktable;
+ptb *unlocktable;
+
 
 struct gimple_array
 {
@@ -1204,7 +1209,7 @@ void new_double_free_analysis(ptb *ptable, ptb *ftable)
 	}
 }
 
-void collect_malloc(gimple *gc, cgraph_node *node, basic_block bb)
+void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 {
 
 	location_t loc = gimple_location(gc);
@@ -1262,6 +1267,21 @@ void collect_malloc(gimple *gc, cgraph_node *node, basic_block bb)
 	else if (!strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
 	{
 		set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
+	}
+	
+	else  if (!strcmp(name, "pthread_mutex_lock") )
+	{
+			fprintf(stderr, "================================================\n");
+		debug(gc);
+		debug_tree( gimple_call_arg(gc, 0));
+		// set_ptb(bb, locktable, gimple_call_arg(gc,0), loc, 0, gc, node);
+
+	}else if (!strcmp(name, "pthread_mutex_unlock") ){
+			fprintf(stderr, "================================================\n");
+		debug(gc);
+		debug_tree(  gimple_call_arg(gc, 0));
+		// set_ptb(bb,	unlocktable, gimple_call_arg(gc,0), loc, 0, gc, node);
+
 	}
 }
 
@@ -2351,10 +2371,10 @@ void FunctionStmtMappingAssign(ptb *ptable, gimple_array *user_tmp)
 				if (is_gimple_call(gc) || is_gimple_assign(gc))
 				{
 					/*collect malloc and free information*/
-					// collect_malloc(gc, node, bb);
+					// collect_function_call(gc, node, bb);
 					collect_FunctionMapping_Assign(gc, node, bb);
 
-					// fprintf(stderr, "add collect_malloc\n");
+					// fprintf(stderr, "add collect_function_call\n");
 					// }else if (is_gimple_assign(gc)){
 					// 	collect_FunctionMapping_Assign(gc, node, bb);
 				}
@@ -2427,6 +2447,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 	ptb *table1 = ptable;
 	ptb *table3 = ftable;
+
 	bool to_remove = false;
 	tree t;
 
@@ -3307,9 +3328,9 @@ void detect()
 				{
 
 					/*collect malloc and free information*/
-					collect_malloc(gc, node, bb);
+					collect_function_call(gc, node, bb);
 
-					// fprintf(stderr, "add collect_malloc\n");
+					// fprintf(stderr, "add collect_function_call\n");
 				}
 				// print_function_return(cfun->decl);
 			}
@@ -3339,7 +3360,7 @@ void detect()
 		// new_memory_leak_analysis(ptable, ftable);
 
 		// new_double_free_analysis(ptable,ftable);
-		PointerConstraint(ptable, ftable);
+		// PointerConstraint(ptable, ftable);
 		// new_double_free_analysis(ptable,ftable);
 		// new_use_after_free_analysis(ptable, ftable);
 	}
