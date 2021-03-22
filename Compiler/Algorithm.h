@@ -1231,6 +1231,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 		return;
 
 	name = get_name(gimple_call_fn(gc));
+	if(name != NULL)
 	if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 	{
 		// addr_expr free (&a)
@@ -1543,6 +1544,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 		else if (gimple_code(use_stmt) == GIMPLE_CALL)
 		{
 			fprintf(stderr, "GIMPLE_CALL2\n");
+
 			if (gimple_call_fn(use_stmt) == NULL)
 				return;
 			// fprintf(stderr, "-----------------GIMPLE_CALL : FIND------------------\n");
@@ -1558,6 +1560,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 			// 									fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
 			name = get_name(gimple_call_fn(use_stmt));
+			if(name != NULL)
 			if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 			{
 
@@ -1664,16 +1667,22 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 		fprintf(stderr, "GIMPLE_CALL\n");
 		name = get_name(gimple_call_fn(gc));
+		
 		fprintf(stderr, "--------------------collect_FunctionMapping------------------\n");
 		fprintf(stderr, "%s\n", name);
 
 		debug(gc);
 		tree get_function_return_tree = gimple_call_fn(gc);
+		if(name != NULL);
 		if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 		{
 
-			debug_tree(get_function_return_tree);
-			debug_tree(gimple_call_arg(gc, 0));
+			//fprintf(stderr , "%s",get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0))));
+			fprintf(stderr, "--------------------qweqweqwe------------------\n");
+			name =get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0)));
+			fprintf(stderr, "--------------------collect_FunctionMapping------------------\n");
+			// debug_tree(get_function_return_tree);
+			// debug_tree(gimple_call_arg(gc, 0));
 			// fprintf(stderr, "--------------------wmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm------------------\n");
 			// if (function_return_collect->get(node->get_fun()->decl) == NULL)
 			// {
@@ -1681,7 +1690,8 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			// 	fprintf(stderr, "--------------------collect_FunctionMappingENNNNNNNNDDDDDDD------------------\n");
 			// 	return;
 			// }
-			if (!strcmp(get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0))), "addr_expr"))
+			if(name != NULL)
+			if (!strcmp(name, "addr_expr"))
 			{
 				tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
 				if (TREE_CODE(second) == VAR_DECL)
@@ -2171,6 +2181,7 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 		{
 			const char *name;
 			name = get_name(gimple_call_fn(table_temp->last_stmt));
+			if (name != NULL)
 			// 		debug(u_stmt);
 			// fprintf(stderr, "%s\n",name);
 			if (!strcmp(name, "malloc") || !strcmp(name, "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
@@ -2618,8 +2629,8 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 	// printfunctionCollect(ptable, used_stmt);
 	// printfunctionCollect2(ptable, used_stmt);
-	printfBasicblock();
-	// printfPointerConstraint2(ptable, used_stmt);
+	// printfBasicblock();
+	printfPointerConstraint2(ptable, used_stmt);
 }
 
 void print_function_path(vector<return_type> *path)
@@ -2769,13 +2780,21 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				fprintf(stderr, "\n======================================================================\n");
 				// debug_tree(function_tree);
 				const char *name;
+
 				debug_tree(table_temp->target);
+				if(TREE_CODE (table_temp->target)==INTEGER_CST)
+				return ;
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
+				debug(def_stmt);
+				// if(def_stmt == NULL)
+				// fprintf(stderr, "\n====qwd==================================================================\n");
+				
 				if (gimple_code(def_stmt) == GIMPLE_CALL)
 				{
 					name = get_name(gimple_call_fndecl(def_stmt));
 					// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
 				}
+				if (name != NULL)
 				if (
 					!strcmp(name, "malloc") ||
 					!strcmp(name, "xmalloc") ||
@@ -2828,7 +2847,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								if (gimple_code(u_stmt) == GIMPLE_CALL)
 								{
 									name = get_name(gimple_call_fndecl(u_stmt));
+									if (name != NULL)
 									fprintf(stderr, "this other function---%s-----\n", name);
+									else
+									fprintf(stderr, "this other function---i null-----\n", name);
 								}
 								if (gimple_code(u_stmt) == GIMPLE_PHI)
 								{
@@ -2856,7 +2878,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									
 									tree gettreefucntionarg = TREE_OPERAND(gimple_call_fn(def_stmt), 0);
 									name = get_name(gimple_call_fn(def_stmt));
-
+									if (name != NULL)
 									if (checkTeee == gettreefucntionarg)
 									{
 										find_mallocstmt = 1;
@@ -2873,6 +2895,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										if (gimple_code(u_stmt) == GIMPLE_CALL)
 										{
 											name = get_name(gimple_call_fn(u_stmt));
+											if (name != NULL)
 											if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 											{
 												find_freestmt++;

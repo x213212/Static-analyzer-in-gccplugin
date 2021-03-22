@@ -1,213 +1,224 @@
 /*
-	buggy parent: a72f95f
-	commit id: b55ec8b676ed05d93ee49d6c79ae0403616c4fb0
+    buggy parent : a452d0f
+    commit id : 4da72644b768b0491110a8ba0aa84d32b6bde41c
 */
 
-#include "./common.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-#define PTR void *
-#define ABBREV_HASH_SIZE 64
-#define CHUNK_SIZE (4096 -32)
-#define CHUNK_HEADER_SIZE 32
+#include "./stdio.h"
+#include "./git.h"
 
-typedef bool bfd_boolean;
-
-struct bfd_hash_entry
+struct commit_list *commit_list_insert(struct commit *item, struct commit_list **list_p)
 {
-	struct bfd_hash_entry *next;
+	struct commit_list *new_list = xmalloc(sizeof(struct commit_list));
+	new_list->item = item;
+	new_list->next = *list_p;
+	*list_p = new_list;
+	return new_list;
+}
 
-	/* String being hashed.  */
-  const char *string;
-
-  /* Hash code.  This is the full hash code, not the index into the
-     table.  */
-  unsigned long hash;
-};
-
-struct bfd_hash_table
+static int remove_redundant(struct commit **array, int cnt)
 {
-	struct bfd_hash_entry **table;
+	/*
+	 * Some commit in the array may be an ancestor of
+	 * another commit.  Move such commit to the end of
+	 * the array, and return the number of commits that
+	 * are independent from each other.
+	 */
+	struct commit **work;
+	unsigned char *redundant;
+	int *filled_index;
+	int i, j, filled;
 
-	/* An objalloc for this hash table.  This is a struct objalloc *,
-		but we use void * to avoid requiring the inclusion of objalloc.h.  */
-	void *memory;
-	/* The number of slots in the hash table.  */
-  unsigned int size;
-  /* The number of entries in the hash table.  */
-  unsigned int count;
-  /* The size of elements.  */
-  unsigned int entsize;
-};
+	work = xcalloc(cnt, sizeof(*work));
+	redundant = xcalloc(cnt, 1);
+	ALLOC_ARRAY(filled_index, cnt - 1);
 
-struct objalloc
+	for (i = 0; i < cnt; i++)
+		parse_commit(array[i]);
+	for (i = 0; i < cnt; i++) {
+		struct commit_list *common;
+
+		if (redundant[i])
+			continue;
+		for (j = filled = 0; j < cnt; j++) {
+			if (i == j || redundant[j])
+				continue;
+			filled_index[filled] = j;
+			work[filled++] = array[j];
+		}
+		common = paint_down_to_common(array[i], filled, work);
+		if (array[i]->object.flags & PARENT2)
+			redundant[i] = 1;
+		for (j = 0; j < filled; j++)
+			if (work[j]->object.flags & PARENT1)
+				redundant[filled_index[j]] = 1;
+		clear_commit_marks(array[i], all_flags);
+		for (j = 0; j < filled; j++)
+			clear_commit_marks(work[j], all_flags);
+		free_commit_list(common);
+	}
+
+	/* Now collect the result */
+	COPY_ARRAY(work, array, cnt);
+	for (i = filled = 0; i < cnt; i++)
+		if (!redundant[i])
+			array[filled++] = work[i];
+	for (j = filled, i = 0; i < cnt; i++)
+		if (redundant[i])
+			array[j++] = work[i];
+	free(work);
+	free(redundant);
+	free(filled_index);
+	return filled;
+}
+
+struct commit_list *reduce_heads(struct commit_list *heads)
 {
-	char *current_ptr;
-	unsigned int current_space;
-	void *chunks;
-};
+	struct commit_list *p;
+	struct commit_list *result = NULL, **tail = &result;
+	struct commit **array;
+	int num_head, i;
 
-struct objalloc_chunk
-{
-	struct objalloc_chunk *next;
-	char *current_ptr;
-};
-
-struct objalloc *
-objalloc_create (void)
-{
-	struct objalloc *ret;
-	struct objalloc_chunk *chunk;
-
-	ret = (struct objalloc *) malloc (sizeof *ret); /* allocation site */
-
-	if (ret == NULL)
+	if (!heads)
 		return NULL;
 
-	ret->chunks = (PTR) malloc (CHUNK_SIZE); /* allocation site */
-	if (ret->chunks == NULL)
-		{
-			free (ret);
-			return NULL;
+	/* Uniquify */
+	for (p = heads; p; p = p->next)
+		p->item->object.flags &= ~STALE;
+	for (p = heads, num_head = 0; p; p = p->next) {
+		if (p->item->object.flags & STALE)
+			continue;
+		p->item->object.flags |= STALE;
+		num_head++;
+	}
+	array = xcalloc(num_head, sizeof(*array));
+	for (p = heads, i = 0; p; p = p->next) {
+		if (p->item->object.flags & STALE) {
+			array[i++] = p->item;
+			p->item->object.flags &= ~STALE;
 		}
-
-	chunk = (struct objalloc_chunk *) ret->chunks;
-	chunk->next = NULL;
-	chunk->current_ptr = NULL;
-	chunk->next = NULL;
-
-	ret->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
-	ret->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
-
-	return ret;
+	}
+	num_head = remove_redundant(array, num_head);
+	for (i = 0; i < num_head; i++)
+		tail = &commit_list_insert(array[i], tail)->next;
+	free(array);
+	return result;
 }
 
-PTR
-objalloc_alloc (struct objalloc *o, unsigned long len)
+static void find_merge_parents(struct merge_parents *result,
+			       struct strbuf *in, struct object_id *head)
 {
-	char *ret;
-	struct objalloc_chunk *chunk;
-	
-	/* We don't care this case in modelled program */
-	if (len > CHUNK_SIZE)
-		exit (1);
+	struct commit_list *parents;
+	struct commit *head_commit;
+	int pos = 0, i, j;
 
-	chunk = (struct objalloc_chunk *) malloc (CHUNK_SIZE); /* allocation site */
-	if (chunk == NULL)
-		return NULL;
+	parents = NULL;
+	while (pos < in->len) {
+		int len;
+		char *p = in->buf + pos;
+		char *newline = strchr(p, '\n');
+		struct object_id oid;
+		struct commit *parent;
+		struct object *obj;
 
-	chunk->next = (struct objalloc_chunk *) o->chunks;
-	chunk->current_ptr = NULL;
+		len = newline ? newline - p : strlen(p);
+		pos += len + !!newline;
 
-	o->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
-	o->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+		if (len < GIT_SHA1_HEXSZ + 3 ||
+		    get_oid_hex(p, &oid) ||
+		    p[GIT_SHA1_HEXSZ] != '\t' ||
+		    p[GIT_SHA1_HEXSZ + 1] != '\t')
+			continue; /* skip not-for-merge */
+		/*
+		 * Do not use get_merge_parent() here; we do not have
+		 * "name" here and we do not want to contaminate its
+		 * util field yet.
+		 */
+		obj = parse_object(&oid);
+		parent = (struct commit *)peel_to_type(NULL, 0, obj, OBJ_COMMIT);
+		if (!parent)
+			continue;
+		commit_list_insert(parent, &parents);
+		add_merge_parent(result, &obj->oid, &parent->object.oid);
+	}
+	head_commit = lookup_commit(head);
+	if (head_commit)
+		commit_list_insert(head_commit, &parents);
+	parents = reduce_heads(parents);
 
-	o->chunks = (PTR) chunk;
+	while (parents) {
+		struct commit *cmit = pop_commit(&parents);
+		for (i = 0; i < result->nr; i++)
+			if (!oidcmp(&result->item[i].commit, &cmit->object.oid))
+				result->item[i].used = 1;
+	}
 
-	return (PTR) (chunk + CHUNK_HEADER_SIZE);
-}
-
-void
-objalloc_free (struct objalloc *o)
-{
-	struct objalloc_chunk *l;
-	void *data;
-
-	l = (struct objalloc_chunk *) o->chunks;
-	while (l != NULL)
-		{
-			data = l + CHUNK_HEADER_SIZE;
-			struct objalloc_chunk *next;
-
-			next = l->next;
-			free(l);
-			l = next;
+	for (i = j = 0; i < result->nr; i++) {
+		if (result->item[i].used) {
+			if (i != j)
+				result->item[j] = result->item[i];
+			j++;
 		}
-	free (o);
+	}
+	result->nr = j;
 }
 
-bfd_boolean
-bfd_hash_table_init_n (struct bfd_hash_table *table,
-		unsigned int entsize,
-		unsigned int size)
+static int mark_redundant_parents(struct rev_info *revs, struct commit *commit)
 {
-	unsigned long alloc;
+	struct commit_list *h = reduce_heads(commit->parents);
+	int i = 0, marked = 0;
+	struct commit_list *po, *pn;
 
-	alloc = size;
-	alloc *= sizeof (struct bfd_hash_entry *);
-	table->memory = (void *) objalloc_create ();
-	if (table->memory == NULL)
-		{
-			return FALSE;
+	/* Want these for sanity-checking only */
+	int orig_cnt = commit_list_count(commit->parents);
+	int cnt = commit_list_count(h);
+
+	/*
+	 * Not ready to remove items yet, just mark them for now, based
+	 * on the output of reduce_heads(). reduce_heads outputs the reduced
+	 * set in its original order, so this isn't too hard.
+	 */
+	po = commit->parents;
+	pn = h;
+	while (po) {
+		if (pn && po->item == pn->item) {
+			pn = pn->next;
+			i++;
+		} else {
+			po->item->object.flags |= TMP_MARK;
+			marked++;
 		}
-	
-  table->table = (struct bfd_hash_entry **)
-      objalloc_alloc ((struct objalloc *) table->memory, alloc);
+		po=po->next;
+	}
 
-	if (table->table == NULL)
-		{
-			objalloc_free(table);
-			return FALSE;
-		}
+	if (i != cnt || cnt+marked != orig_cnt)
+		die("mark_redundant_parents %d", orig_cnt);
 
-  memset ((void *) table->table, 0, alloc);
-  table->size = size;
-  table->entsize = entsize;
-  table->count = 0;
+	free_commit_list(h);
 
-	return TRUE;
+	return marked;
 }
 
-struct bfd_hash_entry *
-bfd_hash_insert (struct bfd_hash_table *table,
-		 const char *string,
-		 unsigned long hash)
+int main ()
 {
-  struct bfd_hash_entry *hashp;
-	unsigned int _index;
-
-	hashp = (struct bfd_hash_entry *) objalloc_alloc (table->memory, sizeof (*hashp));
-	hashp->hash = hash;
-	hashp->string = string;
-	_index = hash % table->size;
-	table->table[_index] = hashp;
-	table->count++;
-	
-	return hashp;
-}
-
-void bfd_dwarf2_cleanup_debug_info(struct bfd_hash_table *table)
-{
-	
-	objalloc_free(table->memory);
+    struct merge_parents result;
+    struct strbuf in;
+    struct object_id head;
+    struct rev_info revs;
+    struct commit_list *list;
+    for(int i = 0; i < 10; i++)
+    {
+        commit_list_insert(NULL, &list);
+    }
+    mark_redundant_parents(&revs, list->item);
+    free_commit_list(list);
+    find_merge_parents(&result, &in, &head);
+    return 0;
 }
 
 
-int main()
-{
-	time_t t;
 
-	struct bfd_hash_table table;
-	struct bfd_hash_entry *entry;
-	unsigned int entsize = 10;
-	unsigned int size = 10;
-	unsigned int cnt = 0;
-	const char *hash[10] =
-			{ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j" };
 
-	srand(time(&t));
-
-	if (! bfd_hash_table_init_n (&table, entsize, size))
-		return;
-
-	while ((cnt < entsize))
-		{
-			bfd_hash_insert (&table, hash[cnt], cnt);
-			cnt++;
-		}
-
-	
-	bfd_dwarf2_cleanup_debug_info(&table);
-	memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
-	
-}
 

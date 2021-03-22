@@ -1,10 +1,10 @@
 
-;; Function printf (printf, funcdef_no=31, decl_uid=798, cgraph_uid=31, symbol_order=31)
+;; Function printf (printf, funcdef_no=15, decl_uid=798, cgraph_uid=15, symbol_order=15)
 
 
 Analyzing function body size: printf
 
-Inline summary for printf/31 always_inline inlinable
+Inline summary for printf/15 always_inline inlinable
   self time:       15
   global time:     0
   self size:       7
@@ -15,7 +15,7 @@ Inline summary for printf/31 always_inline inlinable
     size:0.000000, time:0.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
-    __printf_chk/67 function body not available
+    __printf_chk/53 function body not available
       loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
        op0 is compile time invariant
 
@@ -32,503 +32,1391 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function foo3 (foo3, funcdef_no=51, decl_uid=4311, cgraph_uid=51, symbol_order=53)
+;; Function copy_array (copy_array, funcdef_no=39, decl_uid=3056, cgraph_uid=39, symbol_order=40)
 
 
-Analyzing function body size: foo3
+Analyzing function body size: copy_array
 
-Inline summary for foo3/53 inlinable
-  self time:       15
+Inline summary for copy_array/40 inlinable
+  self time:       30
   global time:     0
-  self size:       7
+  self size:       13
   global size:     0
   min size:       0
   self stack:      0
   global stack:    0
-    size:0.500000, time:0.500000, predicate:(true)
-    size:3.500000, time:2.500000, predicate:(not inlined)
+    size:0.000000, time:0.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+    size:2.000000, time:2.000000, predicate:(op2 changed)
   calls:
-    malloc/63 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-       op0 is compile time invariant
+    memcpy/62 function body not available
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0 predicate: (op2 != 0)
+    st_mult/57 mismatched arguments
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0 predicate: (op2 != 0)
 
-foo3 (int * z)
+copy_array (void * dst, const void * src, size_t n, size_t size)
 {
-  void * _1;
-  long int _2;
-  int _3;
+  int _1;
+  long unsigned int _2;
 
   <bb 2> [0.00%]:
-  _1 = malloc (1);
-  _2 = (long int) _1;
-  _3 = (int) _2;
-  *z_6(D) = _3;
+  if (n_4(D) != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _1 = st_mult (size_6(D), n_4(D));
+  _2 = (long unsigned int) _1;
+  memcpy (dst_8(D), src_9(D), _2);
+
+  <bb 4> [0.00%]:
   return;
 
 }
 
 
 
-;; Function foo2 (foo2, funcdef_no=52, decl_uid=4309, cgraph_uid=52, symbol_order=54)
+;; Function remove_redundant (remove_redundant, funcdef_no=45, decl_uid=3289, cgraph_uid=45, symbol_order=46)
 
 
-Analyzing function body size: foo2
+Analyzing function body size: remove_redundant
 
-Inline summary for foo2/54 inlinable
-  self time:       65
+Inline summary for remove_redundant/46 inlinable
+  self time:       257
   global time:     0
-  self size:       21
+  self size:       141
   global size:     0
   min size:       0
   self stack:      0
   global stack:    0
-    size:5.000000, time:5.000000, predicate:(true)
+    size:96.000000, time:96.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
+    size:1.000000, time:1.000000, predicate:(op1 changed)
   calls:
-    free/65 function body not available
+    free/56 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    pthread_mutex_unlock/64 function body not available
+    free/56 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    free/56 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    copy_array/40 function not considered for inlining
+      loop depth: 0 freq:1000 size: 5 time: 14 callee size: 6 stack: 0
+       op3 is compile time invariant
+    free_commit_list/61 mismatched arguments
+      loop depth: 1 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    clear_commit_marks/60 mismatched arguments
+      loop depth: 2 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+    clear_commit_marks/60 mismatched arguments
+      loop depth: 1 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+    paint_down_to_common/59 mismatched arguments
+      loop depth: 1 freq:1000 size: 5 time: 14 callee size: 0 stack: 0
+    parse_commit/58 mismatched arguments
+      loop depth: 1 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    malloc/54 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+    st_mult/57 mismatched arguments
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
        op0 is compile time invariant
-    malloc/63 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-    malloc/63 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-    malloc/63 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+    calloc/55 function body not available
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
+       op1 is compile time invariant
+    calloc/55 function body not available
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
+       op1 is compile time invariant
 
-foo2 (int z)
+remove_redundant (struct commit * * array, int cnt)
 {
-  int tmp;
-  int * p4;
-  int * p3;
-  int * a2;
+  struct commit_list * common;
+  int filled;
+  int j;
+  int i;
+  int * filled_index;
+  unsigned char * redundant;
+  struct commit * * work;
   long unsigned int _1;
   long unsigned int _2;
-  long unsigned int _3;
-  int * _19;
+  int _3;
+  int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  struct commit * * _8;
+  struct commit * _9;
+  sizetype _10;
+  unsigned char * _11;
+  unsigned char _12;
+  sizetype _13;
+  unsigned char * _14;
+  unsigned char _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  int * _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  struct commit * * _21;
+  int filled.1_22;
+  long unsigned int _23;
+  long unsigned int _24;
+  struct commit * * _25;
+  struct commit * _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  struct commit * * _29;
+  struct commit * _30;
+  int _31;
+  long int _32;
+  long unsigned int _33;
+  long unsigned int _34;
+  struct commit * * _35;
+  struct commit * _36;
+  <unnamed-unsigned:27> _37;
+  unsigned int _38;
+  unsigned int _39;
+  sizetype _40;
+  unsigned char * _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  struct commit * * _44;
+  struct commit * _45;
+  <unnamed-unsigned:27> _46;
+  unsigned int _47;
+  unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  int * _51;
+  int _52;
+  sizetype _53;
+  unsigned char * _54;
+  unsigned int all_flags.2_55;
+  long unsigned int _56;
+  long unsigned int _57;
+  struct commit * * _58;
+  struct commit * _59;
+  unsigned int all_flags.3_60;
+  long unsigned int _61;
+  long unsigned int _62;
+  struct commit * * _63;
+  struct commit * _64;
+  long unsigned int _65;
+  sizetype _66;
+  unsigned char * _67;
+  unsigned char _68;
+  long unsigned int _69;
+  long unsigned int _70;
+  struct commit * * _71;
+  int filled.4_72;
+  long unsigned int _73;
+  long unsigned int _74;
+  struct commit * * _75;
+  struct commit * _76;
+  sizetype _77;
+  unsigned char * _78;
+  unsigned char _79;
+  long unsigned int _80;
+  long unsigned int _81;
+  struct commit * * _82;
+  int j.5_83;
+  long unsigned int _84;
+  long unsigned int _85;
+  struct commit * * _86;
+  struct commit * _87;
+  int _134;
 
   <bb 2> [0.00%]:
-  _1 = (long unsigned int) z_5(D);
-  a2_8 = malloc (_1);
-  _2 = (long unsigned int) z_5(D);
-  p3_10 = malloc (_2);
-  _3 = (long unsigned int) z_5(D);
-  p4_12 = malloc (_3);
-  *a2_8 = 10;
-  if (tmp_14(D) > 10)
+  _1 = (long unsigned int) cnt_114(D);
+  work_117 = calloc (_1, 8);
+  _2 = (long unsigned int) cnt_114(D);
+  redundant_119 = calloc (_2, 1);
+  _3 = cnt_114(D) + -1;
+  _4 = st_mult (4, _3);
+  _5 = (long unsigned int) _4;
+  filled_index_122 = malloc (_5);
+  i_123 = 0;
+  goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _6 = (long unsigned int) i_88;
+  _7 = _6 * 8;
+  _8 = array_125(D) + _7;
+  _9 = *_8;
+  parse_commit (_9);
+  i_160 = i_88 + 1;
+
+  <bb 4> [0.00%]:
+  # i_88 = PHI <i_123(2), i_160(3)>
+  if (i_88 < cnt_114(D))
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 5> [0.00%]:
+  i_124 = 0;
+  goto <bb 27>; [0.00%]
+
+  <bb 6> [0.00%]:
+  _10 = (sizetype) i_89;
+  _11 = redundant_119 + _10;
+  _12 = *_11;
+  if (_12 != 0)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 7> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 26>; [0.00%]
+
+  <bb 8> [0.00%]:
+  filled_141 = 0;
+  j_142 = filled_141;
+  goto <bb 14>; [0.00%]
+
+  <bb 9> [0.00%]:
+  if (i_89 == j_92)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 10> [0.00%]:
+  _13 = (sizetype) j_92;
+  _14 = redundant_119 + _13;
+  _15 = *_14;
+  if (_15 != 0)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 11> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 13>; [0.00%]
+
+  <bb 12> [0.00%]:
+  _16 = (long unsigned int) filled_98;
+  _17 = _16 * 4;
+  _18 = filled_index_122 + _17;
+  *_18 = j_92;
+  _19 = (long unsigned int) j_92;
+  _20 = _19 * 8;
+  _21 = array_125(D) + _20;
+  filled.1_22 = filled_98;
+  filled_155 = filled.1_22 + 1;
+  _23 = (long unsigned int) filled.1_22;
+  _24 = _23 * 8;
+  _25 = work_117 + _24;
+  _26 = *_21;
+  *_25 = _26;
+
+  <bb 13> [0.00%]:
+  # filled_97 = PHI <filled_98(11), filled_155(12)>
+  j_157 = j_92 + 1;
+
+  <bb 14> [0.00%]:
+  # j_92 = PHI <j_142(8), j_157(13)>
+  # filled_98 = PHI <filled_141(8), filled_97(13)>
+  if (j_92 < cnt_114(D))
+    goto <bb 9>; [0.00%]
+  else
+    goto <bb 15>; [0.00%]
+
+  <bb 15> [0.00%]:
+  _27 = (long unsigned int) i_89;
+  _28 = _27 * 8;
+  _29 = array_125(D) + _28;
+  _30 = *_29;
+  _31 = paint_down_to_common (_30, filled_98, work_117);
+  _32 = (long int) _31;
+  common_144 = (struct commit_list *) _32;
+  _33 = (long unsigned int) i_89;
+  _34 = _33 * 8;
+  _35 = array_125(D) + _34;
+  _36 = *_35;
+  _37 = _36->object.flags;
+  _38 = (unsigned int) _37;
+  _39 = _38 & 131072;
+  if (_39 != 0)
+    goto <bb 16>; [0.00%]
+  else
+    goto <bb 17>; [0.00%]
+
+  <bb 16> [0.00%]:
+  _40 = (sizetype) i_89;
+  _41 = redundant_119 + _40;
+  *_41 = 1;
+
+  <bb 17> [0.00%]:
+  j_146 = 0;
+  goto <bb 21>; [0.00%]
+
+  <bb 18> [0.00%]:
+  _42 = (long unsigned int) j_93;
+  _43 = _42 * 8;
+  _44 = work_117 + _43;
+  _45 = *_44;
+  _46 = _45->object.flags;
+  _47 = (unsigned int) _46;
+  _48 = _47 & 65536;
+  if (_48 != 0)
+    goto <bb 19>; [0.00%]
+  else
+    goto <bb 20>; [0.00%]
+
+  <bb 19> [0.00%]:
+  _49 = (long unsigned int) j_93;
+  _50 = _49 * 4;
+  _51 = filled_index_122 + _50;
+  _52 = *_51;
+  _53 = (sizetype) _52;
+  _54 = redundant_119 + _53;
+  *_54 = 1;
+
+  <bb 20> [0.00%]:
+  j_153 = j_93 + 1;
+
+  <bb 21> [0.00%]:
+  # j_93 = PHI <j_146(17), j_153(20)>
+  if (j_93 < filled_98)
+    goto <bb 18>; [0.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 22> [0.00%]:
+  all_flags.2_55 = 983040;
+  _56 = (long unsigned int) i_89;
+  _57 = _56 * 8;
+  _58 = array_125(D) + _57;
+  _59 = *_58;
+  clear_commit_marks (_59, all_flags.2_55);
+  j_148 = 0;
+  goto <bb 24>; [0.00%]
+
+  <bb 23> [0.00%]:
+  all_flags.3_60 = 983040;
+  _61 = (long unsigned int) j_94;
+  _62 = _61 * 8;
+  _63 = work_117 + _62;
+  _64 = *_63;
+  clear_commit_marks (_64, all_flags.3_60);
+  j_151 = j_94 + 1;
+
+  <bb 24> [0.00%]:
+  # j_94 = PHI <j_148(22), j_151(23)>
+  if (j_94 < filled_98)
+    goto <bb 23>; [0.00%]
+  else
+    goto <bb 25>; [0.00%]
+
+  <bb 25> [0.00%]:
+  free_commit_list (common_144);
+
+  <bb 26> [0.00%]:
+  i_158 = i_89 + 1;
+
+  <bb 27> [0.00%]:
+  # i_89 = PHI <i_124(5), i_158(26)>
+  if (i_89 < cnt_114(D))
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 28>; [0.00%]
+
+  <bb 28> [0.00%]:
+  _65 = (long unsigned int) cnt_114(D);
+  copy_array (work_117, array_125(D), _65, 8);
+  filled_127 = 0;
+  i_128 = filled_127;
+  goto <bb 32>; [0.00%]
+
+  <bb 29> [0.00%]:
+  _66 = (sizetype) i_90;
+  _67 = redundant_119 + _66;
+  _68 = *_67;
+  if (_68 == 0)
+    goto <bb 30>; [0.00%]
+  else
+    goto <bb 31>; [0.00%]
+
+  <bb 30> [0.00%]:
+  _69 = (long unsigned int) i_90;
+  _70 = _69 * 8;
+  _71 = work_117 + _70;
+  filled.4_72 = filled_100;
+  filled_138 = filled.4_72 + 1;
+  _73 = (long unsigned int) filled.4_72;
+  _74 = _73 * 8;
+  _75 = array_125(D) + _74;
+  _76 = *_71;
+  *_75 = _76;
+
+  <bb 31> [0.00%]:
+  # filled_99 = PHI <filled_100(29), filled_138(30)>
+  i_140 = i_90 + 1;
+
+  <bb 32> [0.00%]:
+  # i_90 = PHI <i_128(28), i_140(31)>
+  # filled_100 = PHI <filled_127(28), filled_99(31)>
+  if (i_90 < cnt_114(D))
+    goto <bb 29>; [0.00%]
+  else
+    goto <bb 33>; [0.00%]
+
+  <bb 33> [0.00%]:
+  j_129 = filled_100;
+  i_130 = 0;
+  goto <bb 37>; [0.00%]
+
+  <bb 34> [0.00%]:
+  _77 = (sizetype) i_91;
+  _78 = redundant_119 + _77;
+  _79 = *_78;
+  if (_79 != 0)
+    goto <bb 35>; [0.00%]
+  else
+    goto <bb 36>; [0.00%]
+
+  <bb 35> [0.00%]:
+  _80 = (long unsigned int) i_91;
+  _81 = _80 * 8;
+  _82 = work_117 + _81;
+  j.5_83 = j_96;
+  j_135 = j.5_83 + 1;
+  _84 = (long unsigned int) j.5_83;
+  _85 = _84 * 8;
+  _86 = array_125(D) + _85;
+  _87 = *_82;
+  *_86 = _87;
+
+  <bb 36> [0.00%]:
+  # j_95 = PHI <j_96(34), j_135(35)>
+  i_137 = i_91 + 1;
+
+  <bb 37> [0.00%]:
+  # i_91 = PHI <i_130(33), i_137(36)>
+  # j_96 = PHI <j_129(33), j_95(36)>
+  if (i_91 < cnt_114(D))
+    goto <bb 34>; [0.00%]
+  else
+    goto <bb 38>; [0.00%]
+
+  <bb 38> [0.00%]:
+  free (work_117);
+  free (redundant_119);
+  free (filled_index_122);
+  _134 = filled_100;
+  return _134;
+
+}
+
+
+
+;; Function xrealloc (xrealloc, funcdef_no=43, decl_uid=3279, cgraph_uid=43, symbol_order=44)
+
+
+Analyzing function body size: xrealloc
+
+Inline summary for xrealloc/44 inlinable
+  self time:       91
+  global time:     0
+  self size:       38
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:12.000000, time:12.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+    size:2.000000, time:2.000000, predicate:(op1 changed)
+  calls:
+    exit/52 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
+    printf/15 function not considered for inlining
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 3 stack: 0
+       op0 is compile time invariant
+       op1 is compile time invariant
+    realloc/51 function body not available
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
+       op1 is compile time invariant
+    realloc/51 function body not available
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
+    realloc/51 function body not available
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
+       op1 is compile time invariant
+    realloc/51 function body not available
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
+
+xrealloc (void * ptr, size_t size)
+{
+  void * ret;
+  _Bool _1;
+  _Bool _2;
+  _Bool _3;
+  _Bool _4;
+  _Bool _5;
+  _Bool _6;
+  void * _26;
+
+  <bb 2> [0.00%]:
+  ret_17 = realloc (ptr_14(D), size_15(D));
+  _1 = ret_17 == 0B;
+  _2 = size_15(D) == 0;
+  _3 = _1 & _2;
+  if (_3 != 0)
     goto <bb 3>; [0.00%]
   else
     goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
-  pthread_mutex_unlock (&mLock);
-  *a2_8 = 10;
-  free (a2_8);
-  goto <bb 5>; [0.00%]
+  ret_19 = realloc (ptr_14(D), 1);
 
   <bb 4> [0.00%]:
-  *a2_8 = 20;
+  # ret_7 = PHI <ret_17(2), ret_19(3)>
+  if (ret_7 == 0B)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
 
   <bb 5> [0.00%]:
-  _19 = a2_8;
-  return _19;
+  ret_21 = realloc (ptr_14(D), size_15(D));
+  _4 = ret_21 == 0B;
+  _5 = size_15(D) == 0;
+  _6 = _4 & _5;
+  if (_6 != 0)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 6> [0.00%]:
+  ret_23 = realloc (ptr_14(D), 1);
+
+  <bb 7> [0.00%]:
+  # ret_8 = PHI <ret_21(5), ret_23(6)>
+  if (ret_8 == 0B)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 8> [0.00%]:
+  printf ("Out of memory, realloc failed%s", "");
+  exit (1);
+
+  <bb 9> [0.00%]:
+  # ret_9 = PHI <ret_7(4), ret_8(7)>
+  _26 = ret_9;
+  return _26;
 
 }
 
 
 
-;; Function foo4 (foo4, funcdef_no=53, decl_uid=4319, cgraph_uid=53, symbol_order=55)
+;; Function commit_list_insert (commit_list_insert, funcdef_no=44, decl_uid=3284, cgraph_uid=44, symbol_order=45)
 
 
-Analyzing function body size: foo4
+Analyzing function body size: commit_list_insert
 
-Inline summary for foo4/55 inlinable
-  self time:       41
-  global time:     0
-  self size:       15
-  global size:     0
-  min size:       0
-  self stack:      8
-  global stack:    8
-    size:4.000000, time:4.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-    free/65 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    malloc/63 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-       op0 is compile time invariant
-    malloc/63 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-       op0 is compile time invariant
-
-foo4 (int z)
-{
-  int * p2;
-  int * b;
-  void * _1;
-  int * b.0_2;
-  int * _12;
-
-  <bb 2> [0.00%]:
-  _1 = malloc (1);
-  b = _1;
-  p2_7 = malloc (1);
-  b.0_2 = b;
-  *b.0_2 = 2;
-  *p2_7 = 1;
-  p2_10 = &b;
-  free (p2_10);
-  _12 = p2_10;
-  b ={v} {CLOBBER};
-  return _12;
-
-}
-
-
-
-;; Function foo (foo, funcdef_no=54, decl_uid=4307, cgraph_uid=54, symbol_order=56)
-
-
-Analyzing function body size: foo
-
-Inline summary for foo/56 inlinable
-  self time:       27
+Inline summary for commit_list_insert/45 inlinable
+  self time:       18
   global time:     0
   self size:       10
   global size:     0
   min size:       0
   self stack:      0
   global stack:    0
+    size:3.000000, time:3.000000, predicate:(true)
+    size:4.000000, time:3.000000, predicate:(not inlined)
+  calls:
+    malloc/54 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+
+commit_list_insert (struct commit * item, struct commit_list * * list_p)
+{
+  struct commit_list * new_list;
+  struct commit_list * _1;
+  struct commit_list * _10;
+
+  <bb 2> [0.00%]:
+  new_list_4 = malloc (16);
+  new_list_4->item = item_5(D);
+  _1 = *list_p_7(D);
+  new_list_4->next = _1;
+  *list_p_7(D) = new_list_4;
+  _10 = new_list_4;
+  return _10;
+
+}
+
+
+
+;; Function reduce_heads (reduce_heads, funcdef_no=46, decl_uid=3331, cgraph_uid=46, symbol_order=47)
+
+
+Analyzing function body size: reduce_heads
+
+Inline summary for reduce_heads/47 inlinable
+  self time:       102
+  global time:     0
+  self size:       67
+  global size:     0
+  min size:       0
+  self stack:      8
+  global stack:    8
     size:1.000000, time:1.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
+    size:2.000000, time:2.000000, predicate:(op0 changed)
+    size:47.000000, time:47.000000, predicate:(op0 != 0B)
   calls:
-    foo2/54 function not considered for inlining
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size:10 stack: 0
-    malloc/63 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-       op0 is compile time invariant
+    free/56 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0 predicate: (op0 != 0B)
+    commit_list_insert/45 function not considered for inlining
+      loop depth: 1 freq:1000 size: 4 time: 13 callee size: 5 stack: 0 predicate: (op0 != 0B)
+    remove_redundant/46 function not considered for inlining
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size:70 stack: 0 predicate: (op0 != 0B)
+    calloc/55 function body not available
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0 predicate: (op0 != 0B)
+       op1 is compile time invariant
 
-foo (int z)
+reduce_heads (struct commit_list * heads)
 {
-  int * p2;
-  int * _7;
+  int i;
+  int num_head;
+  struct commit * * array;
+  struct commit_list * * tail;
+  struct commit_list * result;
+  struct commit_list * p;
+  struct commit * _1;
+  <unnamed-unsigned:27> _2;
+  struct commit * _3;
+  <unnamed-unsigned:27> _4;
+  struct commit * _5;
+  <unnamed-unsigned:27> _6;
+  unsigned int _7;
+  unsigned int _8;
+  struct commit * _9;
+  <unnamed-unsigned:27> _10;
+  struct commit * _11;
+  <unnamed-unsigned:27> _12;
+  long unsigned int _13;
+  struct commit * _14;
+  <unnamed-unsigned:27> _15;
+  unsigned int _16;
+  unsigned int _17;
+  int i.0_18;
+  long unsigned int _19;
+  long unsigned int _20;
+  struct commit * * _21;
+  struct commit * _22;
+  struct commit * _23;
+  <unnamed-unsigned:27> _24;
+  struct commit * _25;
+  <unnamed-unsigned:27> _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  struct commit * * _29;
+  struct commit * _30;
+  struct commit_list * _31;
+  struct commit_list * _41;
+  struct commit_list * _64;
+  struct commit_list * _77;
 
   <bb 2> [0.00%]:
-  p2_3 = malloc (1);
-  *p2_3 = 1;
-  _7 = foo2 (z_5(D));
-  return _7;
+  result = 0B;
+  tail_51 = &result;
+  if (heads_52(D) == 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _77 = 0B;
+  goto <bb 22>; [0.00%]
+
+  <bb 4> [0.00%]:
+  p_53 = heads_52(D);
+  goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  _1 = p_32->item;
+  _2 = _1->object.flags;
+  _3 = p_32->item;
+  _4 = _2 & 133955583;
+  _3->object.flags = _4;
+  p_76 = p_32->next;
+
+  <bb 6> [0.00%]:
+  # p_32 = PHI <p_53(4), p_76(5)>
+  if (p_32 != 0B)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 7> [0.00%]:
+  p_54 = heads_52(D);
+  num_head_55 = 0;
+  goto <bb 12>; [0.00%]
+
+  <bb 8> [0.00%]:
+  _5 = p_33->item;
+  _6 = _5->object.flags;
+  _7 = (unsigned int) _6;
+  _8 = _7 & 262144;
+  if (_8 != 0)
+    goto <bb 9>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 9> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 11>; [0.00%]
+
+  <bb 10> [0.00%]:
+  _9 = p_33->item;
+  _10 = _9->object.flags;
+  _11 = p_33->item;
+  _12 = _10 | 262144;
+  _11->object.flags = _12;
+  num_head_73 = num_head_37 + 1;
+
+  <bb 11> [0.00%]:
+  # num_head_36 = PHI <num_head_37(9), num_head_73(10)>
+  p_74 = p_33->next;
+
+  <bb 12> [0.00%]:
+  # p_33 = PHI <p_54(7), p_74(11)>
+  # num_head_37 = PHI <num_head_55(7), num_head_36(11)>
+  if (p_33 != 0B)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 13> [0.00%]:
+  _13 = (long unsigned int) num_head_37;
+  array_57 = calloc (_13, 8);
+  p_58 = heads_52(D);
+  i_59 = 0;
+  goto <bb 17>; [0.00%]
+
+  <bb 14> [0.00%]:
+  _14 = p_34->item;
+  _15 = _14->object.flags;
+  _16 = (unsigned int) _15;
+  _17 = _16 & 262144;
+  if (_17 != 0)
+    goto <bb 15>; [0.00%]
+  else
+    goto <bb 16>; [0.00%]
+
+  <bb 15> [0.00%]:
+  i.0_18 = i_39;
+  i_68 = i.0_18 + 1;
+  _19 = (long unsigned int) i.0_18;
+  _20 = _19 * 8;
+  _21 = array_57 + _20;
+  _22 = p_34->item;
+  *_21 = _22;
+  _23 = p_34->item;
+  _24 = _23->object.flags;
+  _25 = p_34->item;
+  _26 = _24 & 133955583;
+  _25->object.flags = _26;
+
+  <bb 16> [0.00%]:
+  # i_38 = PHI <i_39(14), i_68(15)>
+  p_71 = p_34->next;
+
+  <bb 17> [0.00%]:
+  # p_34 = PHI <p_58(13), p_71(16)>
+  # i_39 = PHI <i_59(13), i_38(16)>
+  if (p_34 != 0B)
+    goto <bb 14>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 18> [0.00%]:
+  num_head_61 = remove_redundant (array_57, num_head_37);
+  i_62 = 0;
+  goto <bb 20>; [0.00%]
+
+  <bb 19> [0.00%]:
+  _27 = (long unsigned int) i_40;
+  _28 = _27 * 8;
+  _29 = array_57 + _28;
+  _30 = *_29;
+  _31 = commit_list_insert (_30, tail_35);
+  tail_66 = &_31->next;
+  i_67 = i_40 + 1;
+
+  <bb 20> [0.00%]:
+  # tail_35 = PHI <tail_51(18), tail_66(19)>
+  # i_40 = PHI <i_62(18), i_67(19)>
+  if (i_40 < num_head_61)
+    goto <bb 19>; [0.00%]
+  else
+    goto <bb 21>; [0.00%]
+
+  <bb 21> [0.00%]:
+  free (array_57);
+  _64 = result;
+
+  <bb 22> [0.00%]:
+  # _41 = PHI <_77(3), _64(21)>
+  result ={v} {CLOBBER};
+  return _41;
 
 }
 
 
 
-;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
+;; Function mark_redundant_parents (mark_redundant_parents, funcdef_no=48, decl_uid=3399, cgraph_uid=48, symbol_order=49)
 
 
-Analyzing function body size: child
+Analyzing function body size: mark_redundant_parents
 
-Inline summary for child/57 inlinable
-  self time:       127
+Inline summary for mark_redundant_parents/49 inlinable
+  self time:       97
   global time:     0
-  self size:       38
+  self size:       44
   global size:     0
   min size:       0
-  self stack:      52
-  global stack:    52
-    size:12.000000, time:12.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
+  self stack:      0
+  global stack:    0
+    size:23.000000, time:23.000000, predicate:(true)
+    size:4.000000, time:3.000000, predicate:(not inlined)
+    size:0.500000, time:0.500000, predicate:(op1[ref offset: 384] changed) && (not inlined)
+    size:0.500000, time:0.500000, predicate:(op1[ref offset: 384] changed)
   calls:
-    free/65 function body not available
+    free_commit_list/61 mismatched arguments
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    pthread_mutex_unlock/64 function body not available
+    exit/52 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
        op0 is compile time invariant
-    free/65 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    foo/56 function not considered for inlining
+    printf/15 function not considered for inlining
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 3 stack: 0
+       op0 is compile time invariant
+    commit_list_count/63 mismatched arguments
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+    commit_list_count/63 mismatched arguments
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+    reduce_heads/47 function not considered for inlining
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size:33 stack: 8
+
+mark_redundant_parents (struct rev_info * revs, struct commit * commit)
+{
+  int cnt;
+  int orig_cnt;
+  struct commit_list * pn;
+  struct commit_list * po;
+  int marked;
+  int i;
+  struct commit_list * h;
+  struct commit_list * _1;
+  struct commit_list * _2;
+  struct commit * _3;
+  struct commit * _4;
+  struct commit * _5;
+  <unnamed-unsigned:27> _6;
+  struct commit * _7;
+  <unnamed-unsigned:27> _8;
+  int _9;
+  int _32;
+
+  <bb 2> [0.00%]:
+  _1 = commit_20(D)->parents;
+  h_22 = reduce_heads (_1);
+  i_23 = 0;
+  marked_24 = 0;
+  _2 = commit_20(D)->parents;
+  orig_cnt_26 = commit_list_count (_2);
+  cnt_28 = commit_list_count (h_22);
+  po_29 = commit_20(D)->parents;
+  pn_30 = h_22;
+  goto <bb 8>; [0.00%]
+
+  <bb 3> [0.00%]:
+  if (pn_16 != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 4> [0.00%]:
+  _3 = po_14->item;
+  _4 = pn_16->item;
+  if (_3 == _4)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  pn_35 = pn_16->next;
+  i_36 = i_11 + 1;
+  goto <bb 7>; [0.00%]
+
+  <bb 6> [0.00%]:
+  _5 = po_14->item;
+  _6 = _5->object.flags;
+  _7 = po_14->item;
+  _8 = _6 | 16;
+  _7->object.flags = _8;
+  marked_38 = marked_13 + 1;
+
+  <bb 7> [0.00%]:
+  # i_10 = PHI <i_36(5), i_11(6)>
+  # marked_12 = PHI <marked_13(5), marked_38(6)>
+  # pn_15 = PHI <pn_35(5), pn_16(6)>
+  po_39 = po_14->next;
+
+  <bb 8> [0.00%]:
+  # i_11 = PHI <i_23(2), i_10(7)>
+  # marked_13 = PHI <marked_24(2), marked_12(7)>
+  # po_14 = PHI <po_29(2), po_39(7)>
+  # pn_16 = PHI <pn_30(2), pn_15(7)>
+  if (po_14 != 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 9> [0.00%]:
+  if (i_11 != cnt_28)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 10> [0.00%]:
+  _9 = cnt_28 + marked_13;
+  if (orig_cnt_26 != _9)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 11> [0.00%]:
+  printf ("mark_redundant_parents %d", orig_cnt_26);
+  exit (1);
+
+  <bb 12> [0.00%]:
+  free_commit_list (h_22);
+  _32 = marked_13;
+  return _32;
+
+}
+
+
+
+;; Function find_merge_parents (find_merge_parents, funcdef_no=47, decl_uid=3355, cgraph_uid=47, symbol_order=48)
+
+
+Analyzing function body size: find_merge_parents
+
+Inline summary for find_merge_parents/48 inlinable
+  self time:       225
+  global time:     0
+  self size:       118
+  global size:     0
+  min size:       0
+  self stack:      28
+  global stack:    28
+    size:67.000000, time:67.000000, predicate:(true)
+    size:8.000000, time:7.000000, predicate:(not inlined)
+  calls:
+    oidcmp/72 mismatched arguments
+      loop depth: 2 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
+    pop_commit/71 mismatched arguments
+      loop depth: 1 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+    reduce_heads/47 function not considered for inlining
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size:33 stack: 8
+    commit_list_insert/45 function not considered for inlining
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 5 stack: 0
-       op0 is compile time invariant
-    malloc/63 function body not available
+       op1 is compile time invariant
+    lookup_commit/70 mismatched arguments
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+    add_merge_parent/69 mismatched arguments
+      loop depth: 1 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
+    commit_list_insert/45 function not considered for inlining
+      loop depth: 1 freq:1000 size: 3 time: 12 callee size: 5 stack: 0
+       op1 is compile time invariant
+    peel_to_type/68 mismatched arguments
+      loop depth: 1 freq:1000 size: 6 time: 15 callee size: 0 stack: 0
        op0 is compile time invariant
-    malloc/63 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op1 is compile time invariant
+       op3 is compile time invariant
+    parse_object/67 mismatched arguments
+      loop depth: 1 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
        op0 is compile time invariant
-    pthread_mutex_lock/66 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    pthread_mutex_lock/66 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    pthread_mutex_lock/66 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    pthread_mutex_lock/66 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
+    get_oid_hex/66 mismatched arguments
+      loop depth: 1 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
+       op1 is compile time invariant
+    strlen/65 function body not available
+      loop depth: 1 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+    strchr/64 function body not available
+      loop depth: 1 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
+       op1 is compile time invariant
 
-child (void * data)
+find_merge_parents (struct merge_parents * result, struct strbuf * in, struct object_id * head)
 {
-  int data2;
-  int * a;
-  int * pData;
-  int * * ppData;
-  union pthread_mutex_t mLock2;
-  void * _1;
-  int * _2;
-  int * * _3;
-  int * _4;
-  int * * _5;
-  int * _6;
-  int * _7;
-  int * pData.1_8;
+  struct commit * cmit;
+  struct object * obj;
+  struct commit * parent;
+  struct object_id oid;
+  char * newline;
+  char * p;
+  int len;
+  int j;
+  int i;
+  int pos;
+  struct commit * head_commit;
+  struct commit_list * parents;
+  char * _1;
+  sizetype _2;
+  long int newline.9_3;
+  long int p.10_4;
+  long int _5;
+  long unsigned int _6;
+  _Bool _7;
+  int _8;
+  int _9;
+  int _10;
+  char * _11;
+  char _12;
+  char * _13;
+  char _14;
+  int _15;
+  long int _16;
+  int _17;
+  long int _18;
+  struct object_id * _19;
+  struct object_id * _20;
+  long unsigned int _21;
+  long unsigned int _22;
+  int _23;
+  long int _24;
+  struct commit_list * parents.11_25;
+  struct commit_list * _26;
+  int _27;
+  long int _28;
+  struct object_id * _29;
+  struct merge_parent * _30;
+  long unsigned int _31;
+  long unsigned int _32;
+  struct merge_parent * _33;
+  struct object_id * _34;
+  int _35;
+  struct merge_parent * _36;
+  long unsigned int _37;
+  long unsigned int _38;
+  struct merge_parent * _39;
+  int _40;
+  struct commit_list * parents.12_41;
+  struct merge_parent * _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  struct merge_parent * _45;
+  unsigned char _46;
+  struct merge_parent * _47;
+  long unsigned int _48;
+  long unsigned int _49;
+  struct merge_parent * _50;
+  struct merge_parent * _51;
+  long unsigned int _52;
+  long unsigned int _53;
+  struct merge_parent * _54;
+  int _55;
+  int iftmp.8_61;
+  int iftmp.8_98;
+  int iftmp.8_99;
 
   <bb 2> [0.00%]:
-  pthread_mutex_lock (&mLock2);
-  pthread_mutex_lock (&mLock2);
-  pthread_mutex_lock (&mLock);
-  pthread_mutex_lock (&mLock);
-  ppData_15 = malloc (10);
-  _1 = malloc (20);
-  pData = _1;
-  a_19 = foo (1);
-  data2 = 0;
-  ppData_21 = &pData;
-  pData = &data2;
-  _2 = *ppData_21;
-  *_2 = 10;
-  _3 = ppData_21 + 8;
-  _4 = *_3;
-  *_4 = 10;
-  _5 = ppData_21 + 16;
-  _6 = *_5;
-  *_6 = 10;
-  _7 = *ppData_21;
-  *_7 = 12;
-  pData.1_8 = pData;
-  free (pData.1_8);
-  pthread_mutex_unlock (&mLock);
-  free (ppData_21);
-  mLock2 ={v} {CLOBBER};
-  pData ={v} {CLOBBER};
-  data2 ={v} {CLOBBER};
+  pos_72 = 0;
+  parents = 0B;
+  goto <bb 15>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _1 = in_75(D)->buf;
+  _2 = (sizetype) pos_56;
+  p_96 = _1 + _2;
+  newline_97 = strchr (p_96, 10);
+  if (newline_97 != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  newline.9_3 = (long int) newline_97;
+  p.10_4 = (long int) p_96;
+  _5 = newline.9_3 - p.10_4;
+  iftmp.8_99 = (int) _5;
+  goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  _6 = strlen (p_96);
+  iftmp.8_98 = (int) _6;
+
+  <bb 6> [0.00%]:
+  # iftmp.8_61 = PHI <iftmp.8_99(4), iftmp.8_98(5)>
+  len_100 = iftmp.8_61;
+  _7 = newline_97 != 0B;
+  _8 = (int) _7;
+  _9 = len_100 + _8;
+  pos_101 = pos_56 + _9;
+  if (len_100 <= 42)
+    goto <bb 10>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 7> [0.00%]:
+  _10 = get_oid_hex (p_96, &oid);
+  if (_10 != 0)
+    goto <bb 10>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 8> [0.00%]:
+  _11 = p_96 + 40;
+  _12 = *_11;
+  if (_12 != 9)
+    goto <bb 10>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 9> [0.00%]:
+  _13 = p_96 + 41;
+  _14 = *_13;
+  if (_14 != 9)
+    goto <bb 10>; [0.00%]
+  else
+    goto <bb 11>; [0.00%]
+
+  <bb 10> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 14>; [0.00%]
+
+  <bb 11> [0.00%]:
+  _15 = parse_object (&oid);
+  _16 = (long int) _15;
+  obj_104 = (struct object *) _16;
+  _17 = peel_to_type (0B, 0, obj_104, 1);
+  _18 = (long int) _17;
+  parent_106 = (struct commit *) _18;
+  if (parent_106 == 0B)
+    goto <bb 12>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 12> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 14>; [0.00%]
+
+  <bb 13> [0.00%]:
+  commit_list_insert (parent_106, &parents);
+  _19 = &parent_106->object.oid;
+  _20 = &obj_104->oid;
+  add_merge_parent (result_84(D), _20, _19);
+  oid ={v} {CLOBBER};
+  goto <bb 15>; [0.00%]
+
+  <bb 14> [0.00%]:
+  oid ={v} {CLOBBER};
+
+  <bb 15> [0.00%]:
+  # pos_56 = PHI <pos_72(2), pos_101(13), pos_101(14)>
+  _21 = (long unsigned int) pos_56;
+  _22 = in_75(D)->len;
+  if (_21 < _22)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 16>; [0.00%]
+
+  <bb 16> [0.00%]:
+  _23 = lookup_commit (head_76(D));
+  _24 = (long int) _23;
+  head_commit_78 = (struct commit *) _24;
+  if (head_commit_78 != 0B)
+    goto <bb 17>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 17> [0.00%]:
+  commit_list_insert (head_commit_78, &parents);
+
+  <bb 18> [0.00%]:
+  parents.11_25 = parents;
+  _26 = reduce_heads (parents.11_25);
+  parents = _26;
+  goto <bb 24>; [0.00%]
+
+  <bb 19> [0.00%]:
+  _27 = pop_commit (&parents);
+  _28 = (long int) _27;
+  cmit_91 = (struct commit *) _28;
+  i_92 = 0;
+  goto <bb 23>; [0.00%]
+
+  <bb 20> [0.00%]:
+  _29 = &cmit_91->object.oid;
+  _30 = result_84(D)->item;
+  _31 = (long unsigned int) i_57;
+  _32 = _31 * 41;
+  _33 = _30 + _32;
+  _34 = &_33->commit;
+  _35 = oidcmp (_34, _29);
+  if (_35 == 0)
+    goto <bb 21>; [0.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 21> [0.00%]:
+  _36 = result_84(D)->item;
+  _37 = (long unsigned int) i_57;
+  _38 = _37 * 41;
+  _39 = _36 + _38;
+  _39->used = 1;
+
+  <bb 22> [0.00%]:
+  i_95 = i_57 + 1;
+
+  <bb 23> [0.00%]:
+  # i_57 = PHI <i_92(19), i_95(22)>
+  _40 = result_84(D)->nr;
+  if (i_57 < _40)
+    goto <bb 20>; [0.00%]
+  else
+    goto <bb 24>; [0.00%]
+
+  <bb 24> [0.00%]:
+  parents.12_41 = parents;
+  if (parents.12_41 != 0B)
+    goto <bb 19>; [0.00%]
+  else
+    goto <bb 25>; [0.00%]
+
+  <bb 25> [0.00%]:
+  j_82 = 0;
+  i_83 = j_82;
+  goto <bb 31>; [0.00%]
+
+  <bb 26> [0.00%]:
+  _42 = result_84(D)->item;
+  _43 = (long unsigned int) i_58;
+  _44 = _43 * 41;
+  _45 = _42 + _44;
+  _46 = _45->used;
+  if (_46 != 0)
+    goto <bb 27>; [0.00%]
+  else
+    goto <bb 30>; [0.00%]
+
+  <bb 27> [0.00%]:
+  if (i_58 != j_60)
+    goto <bb 28>; [0.00%]
+  else
+    goto <bb 29>; [0.00%]
+
+  <bb 28> [0.00%]:
+  _47 = result_84(D)->item;
+  _48 = (long unsigned int) i_58;
+  _49 = _48 * 41;
+  _50 = _47 + _49;
+  _51 = result_84(D)->item;
+  _52 = (long unsigned int) j_60;
+  _53 = _52 * 41;
+  _54 = _51 + _53;
+  *_54 = *_50;
+
+  <bb 29> [0.00%]:
+  j_88 = j_60 + 1;
+
+  <bb 30> [0.00%]:
+  # j_59 = PHI <j_60(26), j_88(29)>
+  i_89 = i_58 + 1;
+
+  <bb 31> [0.00%]:
+  # i_58 = PHI <i_83(25), i_89(30)>
+  # j_60 = PHI <j_82(25), j_59(30)>
+  _55 = result_84(D)->nr;
+  if (i_58 < _55)
+    goto <bb 26>; [0.00%]
+  else
+    goto <bb 32>; [0.00%]
+
+  <bb 32> [0.00%]:
+  result_84(D)->nr = j_60;
+  parents ={v} {CLOBBER};
   return;
 
 }
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4351, cgraph_uid=56, symbol_order=58)
-
-
-Analyzing function body size: boo
-
-Inline summary for boo/58 inlinable
-  self time:       24
-  global time:     0
-  self size:       7
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:0.000000, time:0.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-    printf/31 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 3 stack: 0
-       op0 is compile time invariant
-    free/65 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-
-boo (int * b)
-{
-  <bb 2> [0.00%]:
-  free (b_2(D));
-  printf ("asdda\n");
-  return;
-
-}
-
-
-
-;; Function test44 (test44, funcdef_no=57, decl_uid=4317, cgraph_uid=57, symbol_order=59)
-
-
-Analyzing function body size: test44
-
-Inline summary for test44/59 inlinable
-  self time:       13
-  global time:     0
-  self size:       5
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:0.000000, time:0.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-    free/65 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-
-test44 (int * k)
-{
-  <bb 2> [0.00%]:
-  free (k_2(D));
-  return;
-
-}
-
-
-
-;; Function test33 (test33, funcdef_no=58, decl_uid=4315, cgraph_uid=58, symbol_order=60)
-
-
-Analyzing function body size: test33
-
-Inline summary for test33/60 inlinable
-  self time:       13
-  global time:     0
-  self size:       5
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:0.000000, time:0.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-    test44/59 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 2 stack: 0
-
-test33 (int * k)
-{
-  <bb 2> [0.00%]:
-  test44 (k_2(D));
-  return;
-
-}
-
-
-
-;; Function test22 (test22, funcdef_no=59, decl_uid=4313, cgraph_uid=59, symbol_order=61)
-
-
-Analyzing function body size: test22
-
-Inline summary for test22/61 inlinable
-  self time:       24
-  global time:     0
-  self size:       7
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:0.000000, time:0.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-    free/65 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    test22/61 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-
-test22 (int * k)
-{
-  <bb 2> [0.00%]:
-  test22 (k_2(D));
-  free (k_2(D));
-  return;
-
-}
-
-
-
-;; Function main (main, funcdef_no=60, decl_uid=4362, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=49, decl_uid=3414, cgraph_uid=49, symbol_order=50)
 
 
 Analyzing function body size: main
 
-Inline summary for main/62 inlinable
-  self time:       147
+Inline summary for main/50 inlinable
+  self time:       56
   global time:     0
-  self size:       40
+  self size:       21
   global size:     0
   min size:       0
-  self stack:      58
-  global stack:    58
-    size:5.000000, time:5.000000, predicate:(true)
+  self stack:      69
+  global stack:    69
+    size:6.000000, time:6.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
-    pthread_mutex_destroy/68 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    pthread_join/70 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-       op1 is compile time invariant
-    pthread_create/69 function body not available
-      loop depth: 0 freq:1000 size: 5 time: 14 callee size: 0 stack: 0
+    find_merge_parents/48 function not considered for inlining
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size:58 stack:28
        op0 is compile time invariant
        op1 is compile time invariant
        op2 is compile time invariant
-       op3 is compile time invariant
-    pthread_mutex_destroy/68 function body not available
+    free_commit_list/61 mismatched arguments
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    mark_redundant_parents/49 function not considered for inlining
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size:23 stack: 0
        op0 is compile time invariant
-    test22/61 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 3 stack: 0
-    malloc/63 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+    commit_list_insert/45 function not considered for inlining
+      loop depth: 1 freq:1000 size: 3 time: 12 callee size: 5 stack: 0
        op0 is compile time invariant
-    free/65 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    free/65 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    foo2/54 function not considered for inlining
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size:10 stack: 0
-       op0 is compile time invariant
-    foo2/54 function not considered for inlining
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size:10 stack: 0
-       op0 is compile time invariant
-    free/65 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    foo/56 function not considered for inlining
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 5 stack: 0
-       op0 is compile time invariant
+       op1 is compile time invariant
 
 main ()
 {
-  pthread_t t;
-  int * q;
-  char buff[50];
-  int * p3;
-  int * p2;
-  int * p;
-  long unsigned int t.2_1;
-  int _23;
+  int i;
+  struct commit_list * list;
+  struct rev_info revs;
+  struct object_id head;
+  struct strbuf in;
+  struct merge_parents result;
+  struct commit_list * list.6_1;
+  struct commit * _2;
+  struct commit_list * list.7_3;
+  int _11;
 
   <bb 2> [0.00%]:
-  p3_4 = foo (2);
-  *p3_4 = 1;
-  free (p3_4);
-  p_8 = foo2 (2);
-  *p_8 = 2;
-  p2_11 = foo2 (2);
-  *p2_11 = 4;
-  free (p_8);
-  free (p2_11);
-  q_16 = malloc (5);
-  *q_16 = 10;
-  test22 (q_16);
-  pthread_mutex_destroy (&mLock);
-  pthread_create (&t, 0B, child, &buff);
-  t.2_1 = t;
-  pthread_join (t.2_1, 0B);
-  pthread_mutex_destroy (&mLock);
-  _23 = 0;
-  buff ={v} {CLOBBER};
-  t ={v} {CLOBBER};
-  return _23;
+  i_6 = 0;
+  goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  commit_list_insert (0B, &list);
+  i_18 = i_4 + 1;
+
+  <bb 4> [0.00%]:
+  # i_4 = PHI <i_6(2), i_18(3)>
+  if (i_4 <= 9)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 5> [0.00%]:
+  list.6_1 = list;
+  _2 = list.6_1->item;
+  mark_redundant_parents (&revs, _2);
+  list.7_3 = list;
+  free_commit_list (list.7_3);
+  find_merge_parents (&result, &in, &head);
+  _11 = 0;
+  result ={v} {CLOBBER};
+  in ={v} {CLOBBER};
+  head ={v} {CLOBBER};
+  revs ={v} {CLOBBER};
+  list ={v} {CLOBBER};
+  return _11;
 
 }
 

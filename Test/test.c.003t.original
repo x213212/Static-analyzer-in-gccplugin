@@ -1,225 +1,4 @@
 
-;; Function atoi (null)
-;; enabled by -tree-original
-
-
-{
-  return (int) strtol (__nptr, 0B, 10);
-}
-
-
-;; Function atol (null)
-;; enabled by -tree-original
-
-
-{
-  return strtol (__nptr, 0B, 10);
-}
-
-
-;; Function atoll (null)
-;; enabled by -tree-original
-
-
-{
-  return strtoll (__nptr, 0B, 10);
-}
-
-
-;; Function __bswap_16 (null)
-;; enabled by -tree-original
-
-
-{
-  return (__uint16_t) __builtin_bswap16 ((int) __bsx);
-}
-
-
-;; Function __bswap_32 (null)
-;; enabled by -tree-original
-
-
-{
-  return (__uint32_t) __builtin_bswap32 (__bsx);
-}
-
-
-;; Function __bswap_64 (null)
-;; enabled by -tree-original
-
-
-{
-  return (__uint64_t) __builtin_bswap64 (__bsx);
-}
-
-
-;; Function __uint16_identity (null)
-;; enabled by -tree-original
-
-
-{
-  return __x;
-}
-
-
-;; Function __uint32_identity (null)
-;; enabled by -tree-original
-
-
-{
-  return __x;
-}
-
-
-;; Function __uint64_identity (null)
-;; enabled by -tree-original
-
-
-{
-  return __x;
-}
-
-
-;; Function bsearch (null)
-;; enabled by -tree-original
-
-
-{
-  size_t __l;
-  size_t __u;
-  size_t __idx;
-  const void * __p;
-  int __comparison;
-
-    size_t __l;
-    size_t __u;
-    size_t __idx;
-    const void * __p;
-    int __comparison;
-  __l = 0;
-  __u = __nmemb;
-  goto <D.2299>;
-  <D.2298>:;
-  __idx = (__l + __u) / 2;
-  __p = __base + (sizetype) (__idx * __size);
-  __comparison = __compar (__key, __p);
-  if (__comparison < 0)
-    {
-      __u = __idx;
-    }
-  else
-    {
-      if (__comparison > 0)
-        {
-          __l = __idx + 1;
-        }
-      else
-        {
-          return (void *) __p;
-        }
-    }
-  <D.2299>:;
-  if (__l < __u) goto <D.2298>; else goto <D.2300>;
-  <D.2300>:;
-  return 0B;
-}
-
-
-;; Function atof (null)
-;; enabled by -tree-original
-
-
-{
-  return strtod (__nptr, 0B);
-}
-
-
-;; Function realpath (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __resolved, 1) != 18446744073709551615)
-    {
-      return __realpath_chk (__name, __resolved, __builtin_object_size ((const void *) __resolved, 1));
-    }
-  return __realpath_alias (__name, __resolved);
-}
-
-
-;; Function ptsname_r (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__buflen) == 0)
-        {
-          return __ptsname_r_chk (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
-        {
-          return __ptsname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __ptsname_r_alias (__fd, __buf, __buflen);
-}
-
-
-;; Function wctomb (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __s, 1) != 18446744073709551615 && __builtin_object_size ((const void *) __s, 1) <= 15)
-    {
-      return __wctomb_chk (__s, __wchar, __builtin_object_size ((const void *) __s, 1));
-    }
-  return __wctomb_alias (__s, __wchar);
-}
-
-
-;; Function mbstowcs (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __dst, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__len) == 0)
-        {
-          return __mbstowcs_chk (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1) / 4);
-        }
-      if (__builtin_object_size ((const void *) __dst, 1) / 4 < (long unsigned int) __len)
-        {
-          return __mbstowcs_chk_warn (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1) / 4);
-        }
-    }
-  return __mbstowcs_alias (__dst, __src, __len);
-}
-
-
-;; Function wcstombs (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __dst, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__len) == 0)
-        {
-          return __wcstombs_chk (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1));
-        }
-      if (__builtin_object_size ((const void *) __dst, 1) < (long unsigned int) __len)
-        {
-          return __wcstombs_chk_warn (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1));
-        }
-    }
-  return __wcstombs_alias (__dst, __src, __len);
-}
-
-
 ;; Function getchar (null)
 ;; enabled by -tree-original
 
@@ -468,22 +247,22 @@
           {
             return 0;
           }
-        goto <D.3009>;
-        <D.3008>:;
+        goto <D.2378>;
+        <D.2377>:;
         {
           int __c = getc_unlocked (__stream);
 
                     int __c = getc_unlocked (__stream);
           if (__c == -1)
             {
-              goto <D.3007>;
+              goto <D.2376>;
             }
           *__cptr++  = (char) __c;
         }
          --__cnt;
-        <D.3009>:;
-        if (__cnt != 0) goto <D.3008>; else goto <D.3007>;
-        <D.3007>:;
+        <D.2378>:;
+        if (__cnt != 0) goto <D.2377>; else goto <D.2376>;
+        <D.2376>:;
         return (size_t) ((long unsigned int) ((long int) __cptr - (long int) __ptr) / (long unsigned int) __size);
       }
     }
@@ -491,364 +270,697 @@
 }
 
 
-;; Function pthread_equal (null)
+;; Function atoi (null)
 ;; enabled by -tree-original
 
 
 {
-  return __thread1 == __thread2;
+  return (int) strtol (__nptr, 0B, 10);
 }
 
 
-;; Function read (null)
+;; Function atol (null)
 ;; enabled by -tree-original
 
 
 {
-  if (__builtin_object_size ((const void *) __buf, 0) != 18446744073709551615)
+  return strtol (__nptr, 0B, 10);
+}
+
+
+;; Function atoll (null)
+;; enabled by -tree-original
+
+
+{
+  return strtoll (__nptr, 0B, 10);
+}
+
+
+;; Function __bswap_16 (null)
+;; enabled by -tree-original
+
+
+{
+  return (__uint16_t) __builtin_bswap16 ((int) __bsx);
+}
+
+
+;; Function __bswap_32 (null)
+;; enabled by -tree-original
+
+
+{
+  return (__uint32_t) __builtin_bswap32 (__bsx);
+}
+
+
+;; Function __bswap_64 (null)
+;; enabled by -tree-original
+
+
+{
+  return (__uint64_t) __builtin_bswap64 (__bsx);
+}
+
+
+;; Function __uint16_identity (null)
+;; enabled by -tree-original
+
+
+{
+  return __x;
+}
+
+
+;; Function __uint32_identity (null)
+;; enabled by -tree-original
+
+
+{
+  return __x;
+}
+
+
+;; Function __uint64_identity (null)
+;; enabled by -tree-original
+
+
+{
+  return __x;
+}
+
+
+;; Function bsearch (null)
+;; enabled by -tree-original
+
+
+{
+  size_t __l;
+  size_t __u;
+  size_t __idx;
+  const void * __p;
+  int __comparison;
+
+    size_t __l;
+    size_t __u;
+    size_t __idx;
+    const void * __p;
+    int __comparison;
+  __l = 0;
+  __u = __nmemb;
+  goto <D.2819>;
+  <D.2818>:;
+  __idx = (__l + __u) / 2;
+  __p = __base + (sizetype) (__idx * __size);
+  __comparison = __compar (__key, __p);
+  if (__comparison < 0)
     {
-      if (__builtin_constant_p (__nbytes) == 0)
-        {
-          return __read_chk (__fd, __buf, __nbytes, __builtin_object_size ((const void *) __buf, 0));
-        }
-      if (__builtin_object_size ((const void *) __buf, 0) < (long unsigned int) __nbytes)
-        {
-          return __read_chk_warn (__fd, __buf, __nbytes, __builtin_object_size ((const void *) __buf, 0));
-        }
-    }
-  return __read_alias (__fd, __buf, __nbytes);
-}
-
-
-;; Function readlink (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__len) == 0)
-        {
-          return __readlink_chk (__path, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __len)
-        {
-          return __readlink_chk_warn (__path, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __readlink_alias (__path, __buf, __len);
-}
-
-
-;; Function readlinkat (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__len) == 0)
-        {
-          return __readlinkat_chk (__fd, __path, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __len)
-        {
-          return __readlinkat_chk_warn (__fd, __path, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __readlinkat_alias (__fd, __path, __buf, __len);
-}
-
-
-;; Function getcwd (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__size) == 0)
-        {
-          return __getcwd_chk (__buf, __size, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __size)
-        {
-          return __getcwd_chk_warn (__buf, __size, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __getcwd_alias (__buf, __size);
-}
-
-
-;; Function getwd (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      return __getwd_chk (__buf, __builtin_object_size ((const void *) __buf, 1));
-    }
-  return __getwd_warn (__buf);
-}
-
-
-;; Function confstr (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__len) == 0)
-        {
-          return __confstr_chk (__name, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __len)
-        {
-          return __confstr_chk_warn (__name, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __confstr_alias (__name, __buf, __len);
-}
-
-
-;; Function getgroups (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __list, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__size) == 0 || __size < 0)
-        {
-          return __getgroups_chk (__size, __list, __builtin_object_size ((const void *) __list, 1));
-        }
-      if ((long unsigned int) __size * 4 > __builtin_object_size ((const void *) __list, 1))
-        {
-          return __getgroups_chk_warn (__size, __list, __builtin_object_size ((const void *) __list, 1));
-        }
-    }
-  return __getgroups_alias (__size, __list);
-}
-
-
-;; Function ttyname_r (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__buflen) == 0)
-        {
-          return __ttyname_r_chk (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
-        {
-          return __ttyname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __ttyname_r_alias (__fd, __buf, __buflen);
-}
-
-
-;; Function getlogin_r (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__buflen) == 0)
-        {
-          return __getlogin_r_chk (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
-        {
-          return __getlogin_r_chk_warn (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __getlogin_r_alias (__buf, __buflen);
-}
-
-
-;; Function gethostname (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__buflen) == 0)
-        {
-          return __gethostname_chk (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
-        {
-          return __gethostname_chk_warn (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __gethostname_alias (__buf, __buflen);
-}
-
-
-;; Function getdomainname (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__buflen) == 0)
-        {
-          return __getdomainname_chk (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
-        {
-          return __getdomainname_chk_warn (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __getdomainname_alias (__buf, __buflen);
-}
-
-
-;; Function foo3 (null)
-;; enabled by -tree-original
-
-
-{
-  *z = (int) (long int) malloc (1);
-}
-
-
-;; Function foo2 (null)
-;; enabled by -tree-original
-
-
-{
-  int * a2 = (int *) malloc ((size_t) z);
-  int * p3 = (int *) malloc ((size_t) z);
-  int * p4 = (int *) malloc ((size_t) z);
-  int tmp;
-
-    int * a2 = (int *) malloc ((size_t) z);
-    int * p3 = (int *) malloc ((size_t) z);
-    int * p4 = (int *) malloc ((size_t) z);
-    int tmp;
-  *a2 = 10;
-  if (tmp > 10)
-    {
-      pthread_mutex_unlock (&mLock);
-      *a2 = 10;
-      free ((void *) a2);
+      __u = __idx;
     }
   else
     {
-      *a2 = 20;
+      if (__comparison > 0)
+        {
+          __l = __idx + 1;
+        }
+      else
+        {
+          return (void *) __p;
+        }
     }
-  return a2;
+  <D.2819>:;
+  if (__l < __u) goto <D.2818>; else goto <D.2820>;
+  <D.2820>:;
+  return 0B;
 }
 
 
-;; Function foo4 (null)
+;; Function atof (null)
 ;; enabled by -tree-original
 
 
 {
-  int * b = (int *) malloc (1);
-  int * p2 = (int *) malloc (1);
-
-    int * b = (int *) malloc (1);
-    int * p2 = (int *) malloc (1);
-  *b = 2;
-  *p2 = 1;
-  p2 = (int *) &b;
-  free ((void *) p2);
-  return p2;
+  return strtod (__nptr, 0B);
 }
 
 
-;; Function foo (null)
+;; Function realpath (null)
 ;; enabled by -tree-original
 
 
 {
-  int * p2 = (int *) malloc (1);
-
-    int * p2 = (int *) malloc (1);
-  *p2 = 1;
-  return foo2 (z);
+  if (__builtin_object_size ((const void *) __resolved, 1) != 18446744073709551615)
+    {
+      return __realpath_chk (__name, __resolved, __builtin_object_size ((const void *) __resolved, 1));
+    }
+  return __realpath_alias (__name, __resolved);
 }
 
 
-;; Function child (null)
+;; Function ptsname_r (null)
 ;; enabled by -tree-original
 
 
 {
-  union pthread_mutex_t mLock2;
-  int * * ppData = (int * *) malloc (10);
-  int * pData = (int *) malloc (20);
-  int * a = foo (1);
-  int data2 = 0;
-
-    union pthread_mutex_t mLock2;
-  pthread_mutex_lock (&mLock2);
-  pthread_mutex_lock (&mLock2);
-  pthread_mutex_lock (&mLock);
-  pthread_mutex_lock (&mLock);
-    int * * ppData = (int * *) malloc (10);
-    int * pData = (int *) malloc (20);
-    int * a = foo (1);
-    int data2 = 0;
-  ppData = &pData;
-  pData = &data2;
-  **ppData = 10;
-  **(ppData + 8) = 10;
-  **(ppData + 16) = 10;
-  **ppData = 12;
-  free ((void *) pData);
-  pthread_mutex_unlock (&mLock);
-  free ((void *) ppData);
+  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__buflen) == 0)
+        {
+          return __ptsname_r_chk (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
+        }
+      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
+        {
+          return __ptsname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
+        }
+    }
+  return __ptsname_r_alias (__fd, __buf, __buflen);
 }
 
 
-;; Function boo (null)
+;; Function wctomb (null)
 ;; enabled by -tree-original
 
 
 {
-  free ((void *) b);
-  printf ((const char * restrict) "asdda\n");
+  if (__builtin_object_size ((const void *) __s, 1) != 18446744073709551615 && __builtin_object_size ((const void *) __s, 1) <= 15)
+    {
+      return __wctomb_chk (__s, __wchar, __builtin_object_size ((const void *) __s, 1));
+    }
+  return __wctomb_alias (__s, __wchar);
 }
 
 
-;; Function test44 (null)
+;; Function mbstowcs (null)
 ;; enabled by -tree-original
 
 
 {
-  free ((void *) k);
+  if (__builtin_object_size ((const void *) __dst, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__len) == 0)
+        {
+          return __mbstowcs_chk (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1) / 4);
+        }
+      if (__builtin_object_size ((const void *) __dst, 1) / 4 < (long unsigned int) __len)
+        {
+          return __mbstowcs_chk_warn (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1) / 4);
+        }
+    }
+  return __mbstowcs_alias (__dst, __src, __len);
 }
 
 
-;; Function test33 (null)
+;; Function wcstombs (null)
 ;; enabled by -tree-original
 
 
 {
-  test44 (k);
+  if (__builtin_object_size ((const void *) __dst, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__len) == 0)
+        {
+          return __wcstombs_chk (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1));
+        }
+      if (__builtin_object_size ((const void *) __dst, 1) < (long unsigned int) __len)
+        {
+          return __wcstombs_chk_warn (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1));
+        }
+    }
+  return __wcstombs_alias (__dst, __src, __len);
 }
 
 
-;; Function test22 (null)
+;; Function copy_array (null)
 ;; enabled by -tree-original
 
 
 {
-  test22 (k);
-  free ((void *) k);
+  if (n != 0)
+    {
+      {
+        extern void * memcpy (void *, const void *, long unsigned int);
+        extern int st_mult ();
+
+        memcpy (dst, src, (long unsigned int) st_mult (size, n));
+      }
+    }
+}
+
+
+;; Function move_array (null)
+;; enabled by -tree-original
+
+
+{
+  if (n != 0)
+    {
+      {
+        extern void * memmove (void *, const void *, long unsigned int);
+        extern int st_mult ();
+
+        memmove (dst, src, (long unsigned int) st_mult (size, n));
+      }
+    }
+}
+
+
+;; Function xstrdup_or_null (null)
+;; enabled by -tree-original
+
+
+{
+  extern char * strdup (const char *);
+
+  return str != 0B ? strdup (str) : 0B;
+}
+
+
+;; Function strbuf_swap (null)
+;; enabled by -tree-original
+
+
+{
+  {
+    void * _swap_a_ptr = (void *) a;
+    void * _swap_b_ptr = (void *) b;
+    unsigned char _swap_buffer[24];
+    extern void * memcpy (void *, const void *, long unsigned int);
+
+        void * _swap_a_ptr = (void *) a;
+        void * _swap_b_ptr = (void *) b;
+        unsigned char _swap_buffer[24];
+    memcpy ((void *) &_swap_buffer, (const void *) _swap_a_ptr, 24);
+    memcpy (_swap_a_ptr, (const void *) _swap_b_ptr, 24);
+    memcpy (_swap_b_ptr, (const void *) &_swap_buffer, 24);
+  }
+}
+
+
+;; Function xrealloc (null)
+;; enabled by -tree-original
+
+
+{
+  void * ret;
+
+    void * ret;
+  ret = realloc (ptr, size);
+  if (ret == 0B && size == 0)
+    {
+      ret = realloc (ptr, 1);
+    }
+  if (ret == 0B)
+    {
+      ret = realloc (ptr, size);
+      if (ret == 0B && size == 0)
+        {
+          ret = realloc (ptr, 1);
+        }
+      if (ret == 0B)
+        {
+          printf ((const char * restrict) "Out of memory, realloc failed%s", (char *) "");
+          exit (1);
+        }
+    }
+  return ret;
+}
+
+
+;; Function commit_list_insert (null)
+;; enabled by -tree-original
+
+
+{
+  struct commit_list * new_list = (struct commit_list *) malloc (16);
+
+    struct commit_list * new_list = (struct commit_list *) malloc (16);
+  new_list->item = item;
+  new_list->next = *list_p;
+  *list_p = new_list;
+  return new_list;
+}
+
+
+;; Function remove_redundant (null)
+;; enabled by -tree-original
+
+
+{
+  struct commit * * work;
+  unsigned char * redundant;
+  int * filled_index;
+  int i;
+  int j;
+  int filled;
+  extern int st_mult ();
+
+    struct commit * * work;
+    unsigned char * redundant;
+    int * filled_index;
+    int i;
+    int j;
+    int filled;
+  work = (struct commit * *) calloc ((size_t) cnt, 8);
+  redundant = (unsigned char *) calloc ((size_t) cnt, 1);
+  filled_index = (int *) malloc ((size_t) st_mult (4, cnt + -1));
+  i = 0;
+  goto <D.3300>;
+  <D.3299>:;
+  {
+    extern int parse_commit ();
+
+    parse_commit (*(array + (sizetype) ((long unsigned int) i * 8)));
+  }
+  i++ ;
+  <D.3300>:;
+  if (i < cnt) goto <D.3299>; else goto <D.3301>;
+  <D.3301>:;
+  i = 0;
+  goto <D.3321>;
+  <D.3320>:;
+  {
+    struct commit_list * common;
+    extern int paint_down_to_common ();
+    extern int clear_commit_marks ();
+    extern int free_commit_list ();
+
+        struct commit_list * common;
+    if (*(redundant + (sizetype) i) != 0)
+      {
+        // predicted unlikely by continue predictor.;
+        goto <D.3303>;
+      }
+    j = filled = 0;
+    goto <D.3306>;
+    <D.3305>:;
+    if (i == j || *(redundant + (sizetype) j) != 0)
+      {
+        // predicted unlikely by continue predictor.;
+        goto <D.3304>;
+      }
+    *(filled_index + (sizetype) ((long unsigned int) filled * 4)) = j;
+    *(work + (sizetype) ((long unsigned int) filled++  * 8)) = *(array + (sizetype) ((long unsigned int) j * 8));
+    <D.3304>:;
+    j++ ;
+    <D.3306>:;
+    if (j < cnt) goto <D.3305>; else goto <D.3307>;
+    <D.3307>:;
+    common = (struct commit_list *) (long int) paint_down_to_common (*(array + (sizetype) ((long unsigned int) i * 8)), filled, work);
+    if (((unsigned int) (*(array + (sizetype) ((long unsigned int) i * 8)))->object.flags & 131072) != 0)
+      {
+        *(redundant + (sizetype) i) = 1;
+      }
+    j = 0;
+    goto <D.3310>;
+    <D.3309>:;
+    if (((unsigned int) (*(work + (sizetype) ((long unsigned int) j * 8)))->object.flags & 65536) != 0)
+      {
+        *(redundant + (sizetype) *(filled_index + (sizetype) ((long unsigned int) j * 4))) = 1;
+      }
+    j++ ;
+    <D.3310>:;
+    if (j < filled) goto <D.3309>; else goto <D.3311>;
+    <D.3311>:;
+    clear_commit_marks (*(array + (sizetype) ((long unsigned int) i * 8)), all_flags);
+    j = 0;
+    goto <D.3314>;
+    <D.3313>:;
+    clear_commit_marks (*(work + (sizetype) ((long unsigned int) j * 8)), all_flags);
+    j++ ;
+    <D.3314>:;
+    if (j < filled) goto <D.3313>; else goto <D.3315>;
+    <D.3315>:;
+    free_commit_list (common);
+  }
+  <D.3303>:;
+  i++ ;
+  <D.3321>:;
+  if (i < cnt) goto <D.3320>; else goto <D.3322>;
+  <D.3322>:;
+  copy_array ((void *) work, (const void *) array, (size_t) cnt, 8);
+  i = filled = 0;
+  goto <D.3324>;
+  <D.3323>:;
+  if (*(redundant + (sizetype) i) == 0)
+    {
+      *(array + (sizetype) ((long unsigned int) filled++  * 8)) = *(work + (sizetype) ((long unsigned int) i * 8));
+    }
+  i++ ;
+  <D.3324>:;
+  if (i < cnt) goto <D.3323>; else goto <D.3325>;
+  <D.3325>:;
+  j = filled;, i = 0;;
+  goto <D.3327>;
+  <D.3326>:;
+  if (*(redundant + (sizetype) i) != 0)
+    {
+      *(array + (sizetype) ((long unsigned int) j++  * 8)) = *(work + (sizetype) ((long unsigned int) i * 8));
+    }
+  i++ ;
+  <D.3327>:;
+  if (i < cnt) goto <D.3326>; else goto <D.3328>;
+  <D.3328>:;
+  free ((void *) work);
+  free ((void *) redundant);
+  free ((void *) filled_index);
+  return filled;
+}
+
+
+;; Function reduce_heads (null)
+;; enabled by -tree-original
+
+
+{
+  struct commit_list * p;
+  struct commit_list * result = 0B;
+  struct commit_list * * tail = &result;
+  struct commit * * array;
+  int num_head;
+  int i;
+
+    struct commit_list * p;
+    struct commit_list * result = 0B;
+    struct commit_list * * tail = &result;
+    struct commit * * array;
+    int num_head;
+    int i;
+  if (heads == 0B)
+    {
+      return 0B;
+    }
+  p = heads;
+  goto <D.3340>;
+  <D.3339>:;
+  p->item->object.flags = p->item->object.flags & 133955583;
+  p = p->next;
+  <D.3340>:;
+  if (p != 0B) goto <D.3339>; else goto <D.3341>;
+  <D.3341>:;
+  p = heads;, num_head = 0;;
+  goto <D.3344>;
+  <D.3343>:;
+  if (((unsigned int) p->item->object.flags & 262144) != 0)
+    {
+      // predicted unlikely by continue predictor.;
+      goto <D.3342>;
+    }
+  p->item->object.flags = p->item->object.flags | 262144;
+  num_head++ ;
+  <D.3342>:;
+  p = p->next;
+  <D.3344>:;
+  if (p != 0B) goto <D.3343>; else goto <D.3345>;
+  <D.3345>:;
+  array = (struct commit * *) calloc ((size_t) num_head, 8);
+  p = heads;, i = 0;;
+  goto <D.3347>;
+  <D.3346>:;
+  if (((unsigned int) p->item->object.flags & 262144) != 0)
+    {
+      *(array + (sizetype) ((long unsigned int) i++  * 8)) = p->item;
+      p->item->object.flags = p->item->object.flags & 133955583;
+    }
+  p = p->next;
+  <D.3347>:;
+  if (p != 0B) goto <D.3346>; else goto <D.3348>;
+  <D.3348>:;
+  num_head = remove_redundant (array, num_head);
+  i = 0;
+  goto <D.3350>;
+  <D.3349>:;
+  tail = &commit_list_insert (*(array + (sizetype) ((long unsigned int) i * 8)), tail)->next;
+  i++ ;
+  <D.3350>:;
+  if (i < num_head) goto <D.3349>; else goto <D.3351>;
+  <D.3351>:;
+  free ((void *) array);
+  return result;
+}
+
+
+;; Function find_merge_parents (null)
+;; enabled by -tree-original
+
+
+{
+  struct commit_list * parents;
+  struct commit * head_commit;
+  int pos = 0;
+  int i;
+  int j;
+  extern int lookup_commit ();
+
+    struct commit_list * parents;
+    struct commit * head_commit;
+    int pos = 0;
+    int i;
+    int j;
+  parents = 0B;
+  goto <D.3369>;
+  <D.3379>:;
+  {
+    int len;
+    char * p = in->buf + (sizetype) pos;
+    char * newline = strchr ((const char *) p, 10);
+    extern char * strchr (const char *, int);
+    struct object_id oid;
+    struct commit * parent;
+    struct object * obj;
+    extern long unsigned int strlen (const char *);
+    extern int parse_object ();
+    extern int peel_to_type ();
+    extern int add_merge_parent ();
+
+        int len;
+        char * p = in->buf + (sizetype) pos;
+        char * newline = strchr ((const char *) p, 10);
+        struct object_id oid;
+        struct commit * parent;
+        struct object * obj;
+    len = newline != 0B ? (int) ((long int) newline - (long int) p) : (int) strlen ((const char *) p);
+    pos = ((newline != 0B) + len) + pos;
+    {
+      extern int get_oid_hex ();
+
+      if (((len <= 42 || get_oid_hex (p, &oid) != 0) || *(p + 40) != 9) || *(p + 41) != 9)
+        {
+          // predicted unlikely by continue predictor.;
+          goto <D.3369>;
+        }
+    }
+    obj = (struct object *) (long int) parse_object (&oid);
+    parent = (struct commit *) (long int) peel_to_type (0B, 0, obj, 1);
+    if (parent == 0B)
+      {
+        // predicted unlikely by continue predictor.;
+        goto <D.3369>;
+      }
+    commit_list_insert (parent, &parents);
+    add_merge_parent (result, &obj->oid, &parent->object.oid);
+  }
+  <D.3369>:;
+  if ((size_t) pos < in->len) goto <D.3379>; else goto <D.3380>;
+  <D.3380>:;
+  head_commit = (struct commit *) (long int) lookup_commit (head);
+  if (head_commit != 0B)
+    {
+      commit_list_insert (head_commit, &parents);
+    }
+  parents = reduce_heads (parents);
+  goto <D.3391>;
+  <D.3390>:;
+  {
+    struct commit * cmit = (struct commit *) (long int) pop_commit (&parents);
+    extern int pop_commit ();
+
+        struct commit * cmit = (struct commit *) (long int) pop_commit (&parents);
+    i = 0;
+    goto <D.3387>;
+    <D.3386>:;
+    {
+      extern int oidcmp ();
+
+      if (oidcmp (&(result->item + (sizetype) ((long unsigned int) i * 41))->commit, &cmit->object.oid) == 0)
+        {
+          (result->item + (sizetype) ((long unsigned int) i * 41))->used = 1;
+        }
+    }
+    i++ ;
+    <D.3387>:;
+    if (result->nr > i) goto <D.3386>; else goto <D.3388>;
+    <D.3388>:;
+  }
+  <D.3391>:;
+  if (parents != 0B) goto <D.3390>; else goto <D.3392>;
+  <D.3392>:;
+  i = j = 0;
+  goto <D.3394>;
+  <D.3393>:;
+  if ((result->item + (sizetype) ((long unsigned int) i * 41))->used != 0)
+    {
+      if (i != j)
+        {
+          *(result->item + (sizetype) ((long unsigned int) j * 41)) = *(result->item + (sizetype) ((long unsigned int) i * 41));
+        }
+      j++ ;
+    }
+  i++ ;
+  <D.3394>:;
+  if (result->nr > i) goto <D.3393>; else goto <D.3395>;
+  <D.3395>:;
+  result->nr = j;
+}
+
+
+;; Function mark_redundant_parents (null)
+;; enabled by -tree-original
+
+
+{
+  struct commit_list * h = reduce_heads (commit->parents);
+  int i = 0;
+  int marked = 0;
+  struct commit_list * po;
+  struct commit_list * pn;
+  int orig_cnt = commit_list_count (commit->parents);
+  extern int commit_list_count ();
+  int cnt = commit_list_count (h);
+  extern int free_commit_list ();
+
+    struct commit_list * h = reduce_heads (commit->parents);
+    int i = 0;
+    int marked = 0;
+    struct commit_list * po;
+    struct commit_list * pn;
+    int orig_cnt = commit_list_count (commit->parents);
+    int cnt = commit_list_count (h);
+  po = commit->parents;
+  pn = h;
+  goto <D.3410>;
+  <D.3409>:;
+  if (pn != 0B && po->item == pn->item)
+    {
+      pn = pn->next;
+      i++ ;
+    }
+  else
+    {
+      po->item->object.flags = po->item->object.flags | 16;
+      marked++ ;
+    }
+  po = po->next;
+  <D.3410>:;
+  if (po != 0B) goto <D.3409>; else goto <D.3411>;
+  <D.3411>:;
+  if (i != cnt || cnt + marked != orig_cnt)
+    {
+      printf ((const char * restrict) "mark_redundant_parents %d", orig_cnt);
+      exit (1);
+    }
+  free_commit_list (h);
+  return marked;
 }
 
 
@@ -857,36 +969,33 @@
 
 
 {
-  int * p;
-  int * p2;
-  int * p3;
-  char buff[50];
-  int * q = (int *) malloc (5);
-  int n;
-  pthread_t t;
+  struct merge_parents result;
+  struct strbuf in;
+  struct object_id head;
+  struct rev_info revs;
+  struct commit_list * list;
+  extern int free_commit_list ();
 
-    int * p;
-    int * p2;
-    int * p3;
-  p3 = foo (2);
-  *p3 = 1;
-  free ((void *) p3);
-  p = foo2 (2);
-  *p = 2;
-  p2 = foo2 (2);
-  *p2 = 4;
-  free ((void *) p);
-  free ((void *) p2);
-    char buff[50];
-    int * q = (int *) malloc (5);
-  *q = 10;
-  test22 (q);
-    int n;
-    pthread_t t;
-  pthread_mutex_destroy (&mLock);
-  pthread_create (&t, 0B, child, (void * restrict) &buff);
-  pthread_join (t, 0B);
-  pthread_mutex_destroy (&mLock);
+    struct merge_parents result;
+    struct strbuf in;
+    struct object_id head;
+    struct rev_info revs;
+    struct commit_list * list;
+  {
+    int i = 0;
+
+        int i = 0;
+    goto <D.3423>;
+    <D.3422>:;
+    commit_list_insert (0B, &list);
+    i++ ;
+    <D.3423>:;
+    if (i <= 9) goto <D.3422>; else goto <D.3424>;
+    <D.3424>:;
+  }
+  mark_redundant_parents (&revs, list->item);
+  free_commit_list (list);
+  find_merge_parents (&result, &in, &head);
   return 0;
 }
 return 0;

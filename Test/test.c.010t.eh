@@ -1,235 +1,674 @@
 
-;; Function foo3 (foo3, funcdef_no=51, decl_uid=4311, cgraph_uid=51, symbol_order=53)
+;; Function xrealloc (xrealloc, funcdef_no=43, decl_uid=3279, cgraph_uid=43, symbol_order=44)
 
-foo3 (int * z)
+xrealloc (void * ptr, size_t size)
 {
-  _1 = malloc (1);
-  _2 = (long int) _1;
-  _3 = (int) _2;
-  *z = _3;
-  return;
+  void * ret;
+  void * D.3435;
+
+  ret = realloc (ptr, size);
+  _1 = ret == 0B;
+  _2 = size == 0;
+  _3 = _1 & _2;
+  if (_3 != 0) goto <D.3427>; else goto <D.3428>;
+  <D.3427>:
+  ret = realloc (ptr, 1);
+  <D.3428>:
+  if (ret == 0B) goto <D.3429>; else goto <D.3430>;
+  <D.3429>:
+  ret = realloc (ptr, size);
+  _4 = ret == 0B;
+  _5 = size == 0;
+  _6 = _4 & _5;
+  if (_6 != 0) goto <D.3431>; else goto <D.3432>;
+  <D.3431>:
+  ret = realloc (ptr, 1);
+  <D.3432>:
+  if (ret == 0B) goto <D.3433>; else goto <D.3434>;
+  <D.3433>:
+  printf ("Out of memory, realloc failed%s", "");
+  exit (1);
+  <D.3434>:
+  <D.3430>:
+  D.3435 = ret;
+  goto <D.3436>;
+  <D.3436>:
+  return D.3435;
 }
 
 
 
-;; Function foo2 (foo2, funcdef_no=52, decl_uid=4309, cgraph_uid=52, symbol_order=54)
-
-foo2 (int z)
-{
-  int tmp;
-  int * p4;
-  int * p3;
-  int * a2;
-  int * D.4375;
-
-  _1 = (long unsigned int) z;
-  a2 = malloc (_1);
-  _2 = (long unsigned int) z;
-  p3 = malloc (_2);
-  _3 = (long unsigned int) z;
-  p4 = malloc (_3);
-  *a2 = 10;
-  if (tmp > 10) goto <D.4372>; else goto <D.4373>;
-  <D.4372>:
-  pthread_mutex_unlock (&mLock);
-  *a2 = 10;
-  free (a2);
-  goto <D.4374>;
-  <D.4373>:
-  *a2 = 20;
-  <D.4374>:
-  D.4375 = a2;
-  goto <D.4376>;
-  <D.4376>:
-  return D.4375;
-}
-
-
-
-;; Function foo4 (foo4, funcdef_no=53, decl_uid=4319, cgraph_uid=53, symbol_order=55)
-
-foo4 (int z)
-{
-  int * p2;
-  int * b;
-  int * D.4377;
-
-  _1 = malloc (1);
-  b = _1;
-  p2 = malloc (1);
-  b.0_2 = b;
-  *b.0_2 = 2;
-  *p2 = 1;
-  p2 = &b;
-  free (p2);
-  D.4377 = p2;
-  goto <D.4379>;
-  <D.4379>:
-  b = {CLOBBER};
-  goto <D.4378>;
-  <D.4378>:
-  return D.4377;
-}
-
-
-
-;; Function foo (foo, funcdef_no=54, decl_uid=4307, cgraph_uid=54, symbol_order=56)
-
-foo (int z)
-{
-  int * p2;
-  int * D.4380;
-
-  p2 = malloc (1);
-  *p2 = 1;
-  D.4380 = foo2 (z);
-  goto <D.4381>;
-  <D.4381>:
-  return D.4380;
-}
-
-
-
-;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
-
-child (void * data)
-{
-  int data2;
-  int * a;
-  int * pData;
-  int * * ppData;
-  union pthread_mutex_t mLock2;
-
-  pthread_mutex_lock (&mLock2);
-  pthread_mutex_lock (&mLock2);
-  pthread_mutex_lock (&mLock);
-  pthread_mutex_lock (&mLock);
-  ppData = malloc (10);
-  _1 = malloc (20);
-  pData = _1;
-  a = foo (1);
-  data2 = 0;
-  ppData = &pData;
-  pData = &data2;
-  _2 = *ppData;
-  *_2 = 10;
-  _3 = ppData + 8;
-  _4 = *_3;
-  *_4 = 10;
-  _5 = ppData + 16;
-  _6 = *_5;
-  *_6 = 10;
-  _7 = *ppData;
-  *_7 = 12;
-  pData.1_8 = pData;
-  free (pData.1_8);
-  pthread_mutex_unlock (&mLock);
-  free (ppData);
-  mLock2 = {CLOBBER};
-  pData = {CLOBBER};
-  data2 = {CLOBBER};
-  return;
-}
-
-
-
-;; Function boo (boo, funcdef_no=56, decl_uid=4351, cgraph_uid=56, symbol_order=58)
-
-boo (int * b)
-{
-  free (b);
-  printf ("asdda\n");
-  return;
-}
-
-
-
-;; Function printf (<unset-asm-name>, funcdef_no=31, decl_uid=798, cgraph_uid=31, symbol_order=31)
+;; Function printf (<unset-asm-name>, funcdef_no=15, decl_uid=798, cgraph_uid=15, symbol_order=15)
 
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
 {
-  int D.4382;
+  int D.3437;
 
-  D.4382 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  goto <D.4383>;
-  <D.4383>:
-  return D.4382;
+  D.3437 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  goto <D.3438>;
+  <D.3438>:
+  return D.3437;
 }
 
 
 
-;; Function test44 (test44, funcdef_no=57, decl_uid=4317, cgraph_uid=57, symbol_order=59)
+;; Function commit_list_insert (commit_list_insert, funcdef_no=44, decl_uid=3284, cgraph_uid=44, symbol_order=45)
 
-test44 (int * k)
+commit_list_insert (struct commit * item, struct commit_list * * list_p)
 {
-  free (k);
+  struct commit_list * new_list;
+  struct commit_list * D.3439;
+
+  new_list = malloc (16);
+  new_list->item = item;
+  _1 = *list_p;
+  new_list->next = _1;
+  *list_p = new_list;
+  D.3439 = new_list;
+  goto <D.3440>;
+  <D.3440>:
+  return D.3439;
+}
+
+
+
+;; Function reduce_heads (reduce_heads, funcdef_no=46, decl_uid=3331, cgraph_uid=46, symbol_order=47)
+
+reduce_heads (struct commit_list * heads)
+{
+  int i;
+  int num_head;
+  struct commit * * array;
+  struct commit_list * * tail;
+  struct commit_list * result;
+  struct commit_list * p;
+  struct commit_list * D.3443;
+
+  result = 0B;
+  tail = &result;
+  if (heads == 0B) goto <D.3441>; else goto <D.3442>;
+  <D.3441>:
+  D.3443 = 0B;
+  goto <D.3449>;
+  <D.3442>:
+  p = heads;
+  goto <D.3340>;
+  <D.3339>:
+  _1 = p->item;
+  _2 = _1->object.flags;
+  _3 = p->item;
+  _4 = _2 & 133955583;
+  _3->object.flags = _4;
+  p = p->next;
+  <D.3340>:
+  if (p != 0B) goto <D.3339>; else goto <D.3341>;
+  <D.3341>:
+  p = heads;
+  num_head = 0;
+  goto <D.3344>;
+  <D.3343>:
+  _5 = p->item;
+  _6 = _5->object.flags;
+  _7 = (unsigned int) _6;
+  _8 = _7 & 262144;
+  if (_8 != 0) goto <D.3444>; else goto <D.3445>;
+  <D.3444>:
+  // predicted unlikely by continue predictor.
+  goto <D.3342>;
+  <D.3445>:
+  _9 = p->item;
+  _10 = _9->object.flags;
+  _11 = p->item;
+  _12 = _10 | 262144;
+  _11->object.flags = _12;
+  num_head = num_head + 1;
+  <D.3342>:
+  p = p->next;
+  <D.3344>:
+  if (p != 0B) goto <D.3343>; else goto <D.3345>;
+  <D.3345>:
+  _13 = (long unsigned int) num_head;
+  array = calloc (_13, 8);
+  p = heads;
+  i = 0;
+  goto <D.3347>;
+  <D.3346>:
+  _14 = p->item;
+  _15 = _14->object.flags;
+  _16 = (unsigned int) _15;
+  _17 = _16 & 262144;
+  if (_17 != 0) goto <D.3446>; else goto <D.3447>;
+  <D.3446>:
+  i.0_18 = i;
+  i = i.0_18 + 1;
+  _19 = (long unsigned int) i.0_18;
+  _20 = _19 * 8;
+  _21 = array + _20;
+  _22 = p->item;
+  *_21 = _22;
+  _23 = p->item;
+  _24 = _23->object.flags;
+  _25 = p->item;
+  _26 = _24 & 133955583;
+  _25->object.flags = _26;
+  <D.3447>:
+  p = p->next;
+  <D.3347>:
+  if (p != 0B) goto <D.3346>; else goto <D.3348>;
+  <D.3348>:
+  num_head = remove_redundant (array, num_head);
+  i = 0;
+  goto <D.3350>;
+  <D.3349>:
+  _27 = (long unsigned int) i;
+  _28 = _27 * 8;
+  _29 = array + _28;
+  _30 = *_29;
+  _31 = commit_list_insert (_30, tail);
+  tail = &_31->next;
+  i = i + 1;
+  <D.3350>:
+  if (i < num_head) goto <D.3349>; else goto <D.3351>;
+  <D.3351>:
+  free (array);
+  D.3443 = result;
+  goto <D.3449>;
+  <D.3449>:
+  result = {CLOBBER};
+  goto <D.3448>;
+  <D.3448>:
+  return D.3443;
+}
+
+
+
+;; Function remove_redundant (remove_redundant, funcdef_no=45, decl_uid=3289, cgraph_uid=45, symbol_order=46)
+
+remove_redundant (struct commit * * array, int cnt)
+{
+  struct commit_list * common;
+  int filled;
+  int j;
+  int i;
+  int * filled_index;
+  unsigned char * redundant;
+  struct commit * * work;
+  int D.3463;
+
+  _1 = (long unsigned int) cnt;
+  work = calloc (_1, 8);
+  _2 = (long unsigned int) cnt;
+  redundant = calloc (_2, 1);
+  _3 = cnt + -1;
+  _4 = st_mult (4, _3);
+  _5 = (long unsigned int) _4;
+  filled_index = malloc (_5);
+  i = 0;
+  goto <D.3300>;
+  <D.3299>:
+  _6 = (long unsigned int) i;
+  _7 = _6 * 8;
+  _8 = array + _7;
+  _9 = *_8;
+  parse_commit (_9);
+  i = i + 1;
+  <D.3300>:
+  if (i < cnt) goto <D.3299>; else goto <D.3301>;
+  <D.3301>:
+  i = 0;
+  goto <D.3321>;
+  <D.3320>:
+  _10 = (sizetype) i;
+  _11 = redundant + _10;
+  _12 = *_11;
+  if (_12 != 0) goto <D.3450>; else goto <D.3451>;
+  <D.3450>:
+  // predicted unlikely by continue predictor.
+  goto <D.3303>;
+  <D.3451>:
+  filled = 0;
+  j = filled;
+  goto <D.3306>;
+  <D.3305>:
+  if (i == j) goto <D.3452>; else goto <D.3454>;
+  <D.3454>:
+  _13 = (sizetype) j;
+  _14 = redundant + _13;
+  _15 = *_14;
+  if (_15 != 0) goto <D.3452>; else goto <D.3453>;
+  <D.3452>:
+  // predicted unlikely by continue predictor.
+  goto <D.3304>;
+  <D.3453>:
+  _16 = (long unsigned int) filled;
+  _17 = _16 * 4;
+  _18 = filled_index + _17;
+  *_18 = j;
+  _19 = (long unsigned int) j;
+  _20 = _19 * 8;
+  _21 = array + _20;
+  filled.1_22 = filled;
+  filled = filled.1_22 + 1;
+  _23 = (long unsigned int) filled.1_22;
+  _24 = _23 * 8;
+  _25 = work + _24;
+  _26 = *_21;
+  *_25 = _26;
+  <D.3304>:
+  j = j + 1;
+  <D.3306>:
+  if (j < cnt) goto <D.3305>; else goto <D.3307>;
+  <D.3307>:
+  _27 = (long unsigned int) i;
+  _28 = _27 * 8;
+  _29 = array + _28;
+  _30 = *_29;
+  _31 = paint_down_to_common (_30, filled, work);
+  _32 = (long int) _31;
+  common = (struct commit_list *) _32;
+  _33 = (long unsigned int) i;
+  _34 = _33 * 8;
+  _35 = array + _34;
+  _36 = *_35;
+  _37 = _36->object.flags;
+  _38 = (unsigned int) _37;
+  _39 = _38 & 131072;
+  if (_39 != 0) goto <D.3455>; else goto <D.3456>;
+  <D.3455>:
+  _40 = (sizetype) i;
+  _41 = redundant + _40;
+  *_41 = 1;
+  <D.3456>:
+  j = 0;
+  goto <D.3310>;
+  <D.3309>:
+  _42 = (long unsigned int) j;
+  _43 = _42 * 8;
+  _44 = work + _43;
+  _45 = *_44;
+  _46 = _45->object.flags;
+  _47 = (unsigned int) _46;
+  _48 = _47 & 65536;
+  if (_48 != 0) goto <D.3457>; else goto <D.3458>;
+  <D.3457>:
+  _49 = (long unsigned int) j;
+  _50 = _49 * 4;
+  _51 = filled_index + _50;
+  _52 = *_51;
+  _53 = (sizetype) _52;
+  _54 = redundant + _53;
+  *_54 = 1;
+  <D.3458>:
+  j = j + 1;
+  <D.3310>:
+  if (j < filled) goto <D.3309>; else goto <D.3311>;
+  <D.3311>:
+  all_flags.2_55 = 983040;
+  _56 = (long unsigned int) i;
+  _57 = _56 * 8;
+  _58 = array + _57;
+  _59 = *_58;
+  clear_commit_marks (_59, all_flags.2_55);
+  j = 0;
+  goto <D.3314>;
+  <D.3313>:
+  all_flags.3_60 = 983040;
+  _61 = (long unsigned int) j;
+  _62 = _61 * 8;
+  _63 = work + _62;
+  _64 = *_63;
+  clear_commit_marks (_64, all_flags.3_60);
+  j = j + 1;
+  <D.3314>:
+  if (j < filled) goto <D.3313>; else goto <D.3315>;
+  <D.3315>:
+  free_commit_list (common);
+  <D.3303>:
+  i = i + 1;
+  <D.3321>:
+  if (i < cnt) goto <D.3320>; else goto <D.3322>;
+  <D.3322>:
+  _65 = (long unsigned int) cnt;
+  copy_array (work, array, _65, 8);
+  filled = 0;
+  i = filled;
+  goto <D.3324>;
+  <D.3323>:
+  _66 = (sizetype) i;
+  _67 = redundant + _66;
+  _68 = *_67;
+  if (_68 == 0) goto <D.3459>; else goto <D.3460>;
+  <D.3459>:
+  _69 = (long unsigned int) i;
+  _70 = _69 * 8;
+  _71 = work + _70;
+  filled.4_72 = filled;
+  filled = filled.4_72 + 1;
+  _73 = (long unsigned int) filled.4_72;
+  _74 = _73 * 8;
+  _75 = array + _74;
+  _76 = *_71;
+  *_75 = _76;
+  <D.3460>:
+  i = i + 1;
+  <D.3324>:
+  if (i < cnt) goto <D.3323>; else goto <D.3325>;
+  <D.3325>:
+  j = filled;
+  i = 0;
+  goto <D.3327>;
+  <D.3326>:
+  _77 = (sizetype) i;
+  _78 = redundant + _77;
+  _79 = *_78;
+  if (_79 != 0) goto <D.3461>; else goto <D.3462>;
+  <D.3461>:
+  _80 = (long unsigned int) i;
+  _81 = _80 * 8;
+  _82 = work + _81;
+  j.5_83 = j;
+  j = j.5_83 + 1;
+  _84 = (long unsigned int) j.5_83;
+  _85 = _84 * 8;
+  _86 = array + _85;
+  _87 = *_82;
+  *_86 = _87;
+  <D.3462>:
+  i = i + 1;
+  <D.3327>:
+  if (i < cnt) goto <D.3326>; else goto <D.3328>;
+  <D.3328>:
+  free (work);
+  free (redundant);
+  free (filled_index);
+  D.3463 = filled;
+  goto <D.3464>;
+  <D.3464>:
+  return D.3463;
+}
+
+
+
+;; Function copy_array (copy_array, funcdef_no=39, decl_uid=3056, cgraph_uid=39, symbol_order=40)
+
+copy_array (void * dst, const void * src, size_t n, size_t size)
+{
+  if (n != 0) goto <D.3465>; else goto <D.3466>;
+  <D.3465>:
+  _1 = st_mult (size, n);
+  _2 = (long unsigned int) _1;
+  memcpy (dst, src, _2);
+  <D.3466>:
   return;
 }
 
 
 
-;; Function test33 (test33, funcdef_no=58, decl_uid=4315, cgraph_uid=58, symbol_order=60)
-
-test33 (int * k)
-{
-  test44 (k);
-  return;
-}
-
-
-
-;; Function test22 (test22, funcdef_no=59, decl_uid=4313, cgraph_uid=59, symbol_order=61)
-
-test22 (int * k)
-{
-  test22 (k);
-  free (k);
-  return;
-}
-
-
-
-;; Function main (main, funcdef_no=60, decl_uid=4362, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=49, decl_uid=3414, cgraph_uid=49, symbol_order=50)
 
 main ()
 {
-  pthread_t t;
-  int n;
-  int * q;
-  char buff[50];
-  int * p3;
-  int * p2;
-  int * p;
-  int D.4384;
+  int i;
+  struct commit_list * list;
+  struct rev_info revs;
+  struct object_id head;
+  struct strbuf in;
+  struct merge_parents result;
+  int D.3467;
 
-  p3 = foo (2);
-  *p3 = 1;
-  free (p3);
-  p = foo2 (2);
-  *p = 2;
-  p2 = foo2 (2);
-  *p2 = 4;
-  free (p);
-  free (p2);
-  q = malloc (5);
-  *q = 10;
-  test22 (q);
-  pthread_mutex_destroy (&mLock);
-  pthread_create (&t, 0B, child, &buff);
-  t.2_1 = t;
-  pthread_join (t.2_1, 0B);
-  pthread_mutex_destroy (&mLock);
-  D.4384 = 0;
-  goto <D.4386>;
-  <D.4386>:
-  buff = {CLOBBER};
-  t = {CLOBBER};
-  goto <D.4385>;
-  D.4384 = 0;
-  goto <D.4385>;
-  <D.4385>:
-  return D.4384;
+  i = 0;
+  goto <D.3423>;
+  <D.3422>:
+  commit_list_insert (0B, &list);
+  i = i + 1;
+  <D.3423>:
+  if (i <= 9) goto <D.3422>; else goto <D.3424>;
+  <D.3424>:
+  list.6_1 = list;
+  _2 = list.6_1->item;
+  mark_redundant_parents (&revs, _2);
+  list.7_3 = list;
+  free_commit_list (list.7_3);
+  find_merge_parents (&result, &in, &head);
+  D.3467 = 0;
+  goto <D.3469>;
+  <D.3469>:
+  result = {CLOBBER};
+  in = {CLOBBER};
+  head = {CLOBBER};
+  revs = {CLOBBER};
+  list = {CLOBBER};
+  goto <D.3468>;
+  D.3467 = 0;
+  goto <D.3468>;
+  <D.3468>:
+  return D.3467;
+}
+
+
+
+;; Function mark_redundant_parents (mark_redundant_parents, funcdef_no=48, decl_uid=3399, cgraph_uid=48, symbol_order=49)
+
+mark_redundant_parents (struct rev_info * revs, struct commit * commit)
+{
+  int cnt;
+  int orig_cnt;
+  struct commit_list * pn;
+  struct commit_list * po;
+  int marked;
+  int i;
+  struct commit_list * h;
+  int D.3477;
+
+  _1 = commit->parents;
+  h = reduce_heads (_1);
+  i = 0;
+  marked = 0;
+  _2 = commit->parents;
+  orig_cnt = commit_list_count (_2);
+  cnt = commit_list_count (h);
+  po = commit->parents;
+  pn = h;
+  goto <D.3410>;
+  <D.3409>:
+  if (pn != 0B) goto <D.3472>; else goto <D.3470>;
+  <D.3472>:
+  _3 = po->item;
+  _4 = pn->item;
+  if (_3 == _4) goto <D.3473>; else goto <D.3470>;
+  <D.3473>:
+  pn = pn->next;
+  i = i + 1;
+  goto <D.3471>;
+  <D.3470>:
+  _5 = po->item;
+  _6 = _5->object.flags;
+  _7 = po->item;
+  _8 = _6 | 16;
+  _7->object.flags = _8;
+  marked = marked + 1;
+  <D.3471>:
+  po = po->next;
+  <D.3410>:
+  if (po != 0B) goto <D.3409>; else goto <D.3411>;
+  <D.3411>:
+  if (i != cnt) goto <D.3474>; else goto <D.3476>;
+  <D.3476>:
+  _9 = cnt + marked;
+  if (orig_cnt != _9) goto <D.3474>; else goto <D.3475>;
+  <D.3474>:
+  printf ("mark_redundant_parents %d", orig_cnt);
+  exit (1);
+  <D.3475>:
+  free_commit_list (h);
+  D.3477 = marked;
+  goto <D.3478>;
+  <D.3478>:
+  return D.3477;
+}
+
+
+
+;; Function find_merge_parents (find_merge_parents, funcdef_no=47, decl_uid=3355, cgraph_uid=47, symbol_order=48)
+
+find_merge_parents (struct merge_parents * result, struct strbuf * in, struct object_id * head)
+{
+  struct commit * cmit;
+  struct object * obj;
+  struct commit * parent;
+  struct object_id oid;
+  char * newline;
+  char * p;
+  int len;
+  int j;
+  int i;
+  int pos;
+  struct commit * head_commit;
+  struct commit_list * parents;
+  int iftmp.8;
+
+  pos = 0;
+  parents = 0B;
+  goto <D.3369>;
+  <D.3379>:
+  _1 = in->buf;
+  _2 = (sizetype) pos;
+  p = _1 + _2;
+  newline = strchr (p, 10);
+  if (newline != 0B) goto <D.3480>; else goto <D.3481>;
+  <D.3480>:
+  newline.9_3 = (long int) newline;
+  p.10_4 = (long int) p;
+  _5 = newline.9_3 - p.10_4;
+  iftmp.8 = (int) _5;
+  goto <D.3482>;
+  <D.3481>:
+  _6 = strlen (p);
+  iftmp.8 = (int) _6;
+  <D.3482>:
+  len = iftmp.8;
+  _7 = newline != 0B;
+  _8 = (int) _7;
+  _9 = len + _8;
+  pos = pos + _9;
+  if (len <= 42) goto <D.3483>; else goto <D.3485>;
+  <D.3485>:
+  _10 = get_oid_hex (p, &oid);
+  if (_10 != 0) goto <D.3483>; else goto <D.3486>;
+  <D.3486>:
+  _11 = p + 40;
+  _12 = *_11;
+  if (_12 != 9) goto <D.3483>; else goto <D.3487>;
+  <D.3487>:
+  _13 = p + 41;
+  _14 = *_13;
+  if (_14 != 9) goto <D.3483>; else goto <D.3484>;
+  <D.3483>:
+  // predicted unlikely by continue predictor.
+  goto <D.3499>;
+  <D.3484>:
+  _15 = parse_object (&oid);
+  _16 = (long int) _15;
+  obj = (struct object *) _16;
+  _17 = peel_to_type (0B, 0, obj, 1);
+  _18 = (long int) _17;
+  parent = (struct commit *) _18;
+  if (parent == 0B) goto <D.3488>; else goto <D.3489>;
+  <D.3488>:
+  // predicted unlikely by continue predictor.
+  goto <D.3499>;
+  <D.3489>:
+  commit_list_insert (parent, &parents);
+  _19 = &parent->object.oid;
+  _20 = &obj->oid;
+  add_merge_parent (result, _20, _19);
+  oid = {CLOBBER};
+  goto <D.3498>;
+  <D.3499>:
+  oid = {CLOBBER};
+  goto <D.3369>;
+  <D.3498>:
+  <D.3369>:
+  _21 = (long unsigned int) pos;
+  _22 = in->len;
+  if (_21 < _22) goto <D.3379>; else goto <D.3380>;
+  <D.3380>:
+  _23 = lookup_commit (head);
+  _24 = (long int) _23;
+  head_commit = (struct commit *) _24;
+  if (head_commit != 0B) goto <D.3490>; else goto <D.3491>;
+  <D.3490>:
+  commit_list_insert (head_commit, &parents);
+  <D.3491>:
+  parents.11_25 = parents;
+  _26 = reduce_heads (parents.11_25);
+  parents = _26;
+  goto <D.3391>;
+  <D.3390>:
+  _27 = pop_commit (&parents);
+  _28 = (long int) _27;
+  cmit = (struct commit *) _28;
+  i = 0;
+  goto <D.3387>;
+  <D.3386>:
+  _29 = &cmit->object.oid;
+  _30 = result->item;
+  _31 = (long unsigned int) i;
+  _32 = _31 * 41;
+  _33 = _30 + _32;
+  _34 = &_33->commit;
+  _35 = oidcmp (_34, _29);
+  if (_35 == 0) goto <D.3492>; else goto <D.3493>;
+  <D.3492>:
+  _36 = result->item;
+  _37 = (long unsigned int) i;
+  _38 = _37 * 41;
+  _39 = _36 + _38;
+  _39->used = 1;
+  <D.3493>:
+  i = i + 1;
+  <D.3387>:
+  _40 = result->nr;
+  if (i < _40) goto <D.3386>; else goto <D.3388>;
+  <D.3388>:
+  <D.3391>:
+  parents.12_41 = parents;
+  if (parents.12_41 != 0B) goto <D.3390>; else goto <D.3392>;
+  <D.3392>:
+  j = 0;
+  i = j;
+  goto <D.3394>;
+  <D.3393>:
+  _42 = result->item;
+  _43 = (long unsigned int) i;
+  _44 = _43 * 41;
+  _45 = _42 + _44;
+  _46 = _45->used;
+  if (_46 != 0) goto <D.3494>; else goto <D.3495>;
+  <D.3494>:
+  if (i != j) goto <D.3496>; else goto <D.3497>;
+  <D.3496>:
+  _47 = result->item;
+  _48 = (long unsigned int) i;
+  _49 = _48 * 41;
+  _50 = _47 + _49;
+  _51 = result->item;
+  _52 = (long unsigned int) j;
+  _53 = _52 * 41;
+  _54 = _51 + _53;
+  *_54 = *_50;
+  <D.3497>:
+  j = j + 1;
+  <D.3495>:
+  i = i + 1;
+  <D.3394>:
+  _55 = result->nr;
+  if (i < _55) goto <D.3393>; else goto <D.3395>;
+  <D.3395>:
+  result->nr = j;
+  parents = {CLOBBER};
+  return;
 }
 
 

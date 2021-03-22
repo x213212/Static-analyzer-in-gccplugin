@@ -1,138 +1,1104 @@
 
-;; Function test22 (test22, funcdef_no=1, decl_uid=3988, cgraph_uid=4, symbol_order=61)
+;; Function commit_list_insert (commit_list_insert, funcdef_no=0, decl_uid=4030, cgraph_uid=6, symbol_order=45)
 
-test22 (int * k)
+commit_list_insert (struct commit * item, struct commit_list * * list_p)
 {
+  struct commit_list * new_list;
+  struct commit_list * _1;
+
   <bb 2> [100.00%]:
-  test22 (k_2(D));
-  free (k_2(D));
-  return;
+  new_list_4 = malloc (16);
+  new_list_4->item = item_5(D);
+  _1 = *list_p_7(D);
+  new_list_4->next = _1;
+  *list_p_7(D) = new_list_4;
+  return new_list_4;
 
 }
 
 
 
-;; Function foo2 (foo2, funcdef_no=0, decl_uid=3989, cgraph_uid=5, symbol_order=54)
+;; Function reduce_heads (reduce_heads, funcdef_no=1, decl_uid=4027, cgraph_uid=3, symbol_order=47) (executed once)
 
-foo2 (int z)
+reduce_heads (struct commit_list * heads)
 {
-  int tmp;
-  int * p4;
-  int * p3;
-  int * a2;
-  long unsigned int _1;
+  struct commit * * work;
+  unsigned char * redundant;
+  int * filled_index;
+  int i;
+  int j;
+  int filled;
+  struct commit_list * common;
+  int D.4093;
+  int i;
+  int num_head;
+  struct commit * * array;
+  struct commit_list * * tail;
+  struct commit_list * result;
+  struct commit_list * p;
+  struct commit * _1;
+  <unnamed-unsigned:27> _2;
+  <unnamed-unsigned:27> _4;
+  struct commit * _5;
+  <unnamed-unsigned:27> _6;
+  unsigned int _7;
+  unsigned int _8;
+  <unnamed-unsigned:27> _12;
+  long unsigned int _13;
+  struct commit * _14;
+  <unnamed-unsigned:27> _15;
+  unsigned int _16;
+  unsigned int _17;
+  long unsigned int _19;
+  long unsigned int _20;
+  struct commit * * _21;
+  struct commit * _23;
+  <unnamed-unsigned:27> _24;
+  <unnamed-unsigned:27> _26;
+  long unsigned int _27;
+  long unsigned int _28;
+  struct commit * * _29;
+  struct commit * _30;
+  struct commit_list * _31;
+  long unsigned int _35;
+  long unsigned int _40;
+  struct commit_list * _41;
+  <unnamed-unsigned:27> _51;
+  <unnamed-unsigned:27> _53;
+  struct commit * * _57;
+  struct commit_list * _59;
+  long unsigned int _90;
+  long unsigned int _92;
+  int _94;
+  int _95;
+  long unsigned int _96;
+  long unsigned int _99;
+  long unsigned int _100;
+  struct commit * * _101;
+  struct commit * _102;
+  sizetype _105;
+  unsigned char * _106;
+  unsigned char _107;
+  sizetype _109;
+  unsigned char * _110;
+  unsigned char _111;
+  long unsigned int _113;
+  long unsigned int _114;
+  int * _115;
+  long unsigned int _116;
+  long unsigned int _117;
+  struct commit * * _118;
+  long unsigned int _121;
+  long unsigned int _122;
+  struct commit * * _123;
+  struct commit * _124;
+  long unsigned int _126;
+  long unsigned int _127;
+  struct commit * * _128;
+  struct commit * _129;
+  int _130;
+  long int _131;
+  long unsigned int _133;
+  long unsigned int _134;
+  struct commit * * _135;
+  struct commit * _136;
+  <unnamed-unsigned:27> _137;
+  unsigned int _138;
+  <unnamed-unsigned:27> _139;
+  unsigned int _140;
+  sizetype _141;
+  unsigned char * _142;
+  long unsigned int _144;
+  long unsigned int _145;
+  struct commit * * _146;
+  struct commit * _147;
+  <unnamed-unsigned:27> _148;
+  unsigned int _149;
+  <unnamed-unsigned:27> _150;
+  unsigned int _151;
+  long unsigned int _152;
+  long unsigned int _153;
+  int * _154;
+  int _155;
+  sizetype _156;
+  unsigned char * _157;
+  long unsigned int _164;
+  long unsigned int _165;
+  struct commit * * _166;
+  struct commit * _167;
+  long unsigned int _170;
+  sizetype _172;
+  unsigned char * _173;
+  unsigned char _174;
+  long unsigned int _175;
+  long unsigned int _176;
+  struct commit * * _177;
+  long unsigned int _181;
+  long unsigned int _182;
+  struct commit * * _183;
+  struct commit * _184;
+  sizetype _188;
+  unsigned char * _189;
+  unsigned char _190;
+  long unsigned int _191;
+  long unsigned int _192;
+  struct commit * * _193;
+  long unsigned int _197;
+  long unsigned int _198;
+  struct commit * * _199;
+  struct commit * _200;
+  int _207;
+  long unsigned int _208;
+  struct commit * * _243;
+  long unsigned int _246;
+  long unsigned int _247;
 
-  <bb 2> [100.00%]:
-  _1 = (long unsigned int) z_5(D);
-  a2_8 = malloc (_1);
-  p3_10 = malloc (_1);
-  p4_12 = malloc (_1);
-  *a2_8 = 10;
-  if (tmp_14(D) > 10)
-    goto <bb 3>; [29.56%]
+  <bb 2> [5.40%]:
+  result = 0B;
+  if (heads_52(D) == 0B)
+    goto <bb 62>; [4.07%]
   else
-    goto <bb 4>; [70.44%]
+    goto <bb 50>; [95.93%]
 
-  <bb 3> [29.56%]:
-  pthread_mutex_unlock (&mLock);
-  *a2_8 = 10;
-  free (a2_8);
-  goto <bb 5>; [100.00%]
+  <bb 62> [0.22%]:
+  goto <bb 40>; [100.00%]
 
-  <bb 4> [70.44%]:
-  *a2_8 = 20;
+  <bb 50> [5.18%]:
 
-  <bb 5> [100.00%]:
-  return a2_8;
+  <bb 3> [29.34%]:
+  # p_265 = PHI <p_71(61), heads_52(D)(50)>
+  _1 = p_265->item;
+  _2 = _1->object.flags;
+  _4 = _2 & 133955583;
+  _1->object.flags = _4;
+  p_71 = p_265->next;
+  if (p_71 != 0B)
+    goto <bb 61>; [85.00%]
+  else
+    goto <bb 49>; [15.00%]
+
+  <bb 61> [24.94%]:
+  goto <bb 3>; [100.00%]
+
+  <bb 49> [4.40%]:
+
+  <bb 4> [29.34%]:
+  # p_266 = PHI <p_69(60), heads_52(D)(49)>
+  # num_head_269 = PHI <num_head_36(60), 0(49)>
+  _5 = p_266->item;
+  _6 = _5->object.flags;
+  _7 = (unsigned int) _6;
+  _53 = _6 & 262144;
+  _8 = (unsigned int) _53;
+  if (_53 != 0)
+    goto <bb 63>; [33.00%]
+  else
+    goto <bb 5>; [67.00%]
+
+  <bb 63> [9.68%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [19.66%]:
+  _12 = _6 | 262144;
+  _5->object.flags = _12;
+  num_head_68 = num_head_269 + 1;
+
+  <bb 6> [29.34%]:
+  # num_head_36 = PHI <num_head_269(63), num_head_68(5)>
+  p_69 = p_266->next;
+  if (p_69 != 0B)
+    goto <bb 60>; [85.00%]
+  else
+    goto <bb 7>; [15.00%]
+
+  <bb 60> [24.94%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 7> [5.18%]:
+  _13 = (long unsigned int) num_head_36;
+  array_55 = calloc (_13, 8);
+
+  <bb 8> [29.34%]:
+  # p_267 = PHI <p_66(59), heads_52(D)(7)>
+  # i_271 = PHI <i_38(59), 0(7)>
+  _14 = p_267->item;
+  _15 = _14->object.flags;
+  _16 = (unsigned int) _15;
+  _51 = _15 & 262144;
+  _17 = (unsigned int) _51;
+  if (_51 != 0)
+    goto <bb 9>; [50.00%]
+  else
+    goto <bb 64>; [50.00%]
+
+  <bb 64> [14.67%]:
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [14.67%]:
+  i_63 = i_271 + 1;
+  _19 = (long unsigned int) i_271;
+  _20 = _19 * 8;
+  _21 = array_55 + _20;
+  *_21 = _14;
+  _23 = p_267->item;
+  _24 = _23->object.flags;
+  _26 = _24 & 133955583;
+  _23->object.flags = _26;
+
+  <bb 10> [29.34%]:
+  # i_38 = PHI <i_271(64), i_63(9)>
+  p_66 = p_267->next;
+  if (p_66 != 0B)
+    goto <bb 59>; [85.00%]
+  else
+    goto <bb 11>; [15.00%]
+
+  <bb 59> [24.94%]:
+  goto <bb 8>; [100.00%]
+
+  <bb 11> [5.18%]:
+  _90 = _13;
+  work_91 = calloc (_13, 8);
+  _92 = _13;
+  redundant_93 = calloc (_13, 1);
+  _94 = num_head_36 + -1;
+  _95 = st_mult (4, _94);
+  _96 = (long unsigned int) _95;
+  filled_index_97 = malloc (_96);
+  if (num_head_36 > 0)
+    goto <bb 48>; [85.00%]
+  else
+    goto <bb 65>; [15.00%]
+
+  <bb 48> [4.40%]:
+
+  <bb 12> [29.34%]:
+  # i_281 = PHI <i_103(58), 0(48)>
+  _99 = (long unsigned int) i_281;
+  _100 = _99 * 8;
+  _101 = array_55 + _100;
+  _102 = *_101;
+  parse_commit (_102);
+  i_103 = i_281 + 1;
+  if (num_head_36 > i_103)
+    goto <bb 58>; [85.00%]
+  else
+    goto <bb 45>; [15.00%]
+
+  <bb 58> [24.94%]:
+  goto <bb 12>; [100.00%]
+
+  <bb 45> [4.40%]:
+
+  <bb 13> [29.34%]:
+  # i_282 = PHI <i_169(54), 0(45)>
+  _105 = (sizetype) i_282;
+  _106 = redundant_93 + _105;
+  _107 = *_106;
+  if (_107 != 0)
+    goto <bb 66>; [48.88%]
+  else
+    goto <bb 47>; [51.12%]
+
+  <bb 66> [14.34%]:
+  goto <bb 26>; [100.00%]
+
+  <bb 47> [15.00%]:
+
+  <bb 14> [85.00%]:
+  # j_283 = PHI <j_125(57), 0(47)>
+  # filled_284 = PHI <filled_203(57), 0(47)>
+  if (i_282 == j_283)
+    goto <bb 67>; [20.24%]
+  else
+    goto <bb 15>; [79.76%]
+
+  <bb 67> [17.20%]:
+  goto <bb 17>; [100.00%]
+
+  <bb 15> [67.80%]:
+  _109 = (sizetype) j_283;
+  _110 = redundant_93 + _109;
+  _111 = *_110;
+  if (_111 != 0)
+    goto <bb 68>; [33.00%]
+  else
+    goto <bb 16>; [67.00%]
+
+  <bb 68> [22.37%]:
+  goto <bb 17>; [100.00%]
+
+  <bb 16> [45.42%]:
+  _113 = (long unsigned int) filled_284;
+  _114 = _113 * 4;
+  _115 = filled_index_97 + _114;
+  *_115 = j_283;
+  _116 = _109;
+  _117 = _109 * 8;
+  _118 = array_55 + _117;
+  filled_120 = filled_284 + 1;
+  _121 = _113;
+  _122 = _113 * 8;
+  _123 = work_91 + _122;
+  _124 = *_118;
+  *_123 = _124;
+
+  <bb 17> [85.00%]:
+  # filled_203 = PHI <filled_284(68), filled_120(16), filled_284(67)>
+  j_125 = j_283 + 1;
+  if (num_head_36 > j_125)
+    goto <bb 57>; [85.00%]
+  else
+    goto <bb 18>; [15.00%]
+
+  <bb 57> [72.25%]:
+  goto <bb 14>; [100.00%]
+
+  <bb 18> [15.00%]:
+  _126 = _105;
+  _127 = _105 * 8;
+  _128 = array_55 + _127;
+  _129 = *_128;
+  _130 = paint_down_to_common (_129, filled_203, work_91);
+  _131 = (long int) _130;
+  common_132 = (struct commit_list *) _131;
+  _133 = _105;
+  _134 = _127;
+  _135 = _128;
+  _136 = *_128;
+  _137 = _136->object.flags;
+  _138 = (unsigned int) _137;
+  _139 = _137 & 131072;
+  _140 = (unsigned int) _139;
+  if (_139 != 0)
+    goto <bb 19>; [50.00%]
+  else
+    goto <bb 69>; [50.00%]
+
+  <bb 69> [7.50%]:
+  goto <bb 20>; [100.00%]
+
+  <bb 19> [7.50%]:
+  _141 = _105;
+  _142 = _106;
+  *_106 = 1;
+
+  <bb 20> [15.00%]:
+  if (filled_203 > 0)
+    goto <bb 46>; [85.00%]
+  else
+    goto <bb 42>; [15.00%]
+
+  <bb 46> [12.75%]:
+
+  <bb 21> [85.00%]:
+  # j_286 = PHI <j_158(56), 0(46)>
+  _144 = (long unsigned int) j_286;
+  _145 = _144 * 8;
+  _146 = work_91 + _145;
+  _147 = *_146;
+  _148 = _147->object.flags;
+  _149 = (unsigned int) _148;
+  _150 = _148 & 65536;
+  _151 = (unsigned int) _150;
+  if (_150 != 0)
+    goto <bb 22>; [50.00%]
+  else
+    goto <bb 70>; [50.00%]
+
+  <bb 70> [42.50%]:
+  goto <bb 23>; [100.00%]
+
+  <bb 22> [42.50%]:
+  _152 = _144;
+  _153 = _144 * 4;
+  _154 = filled_index_97 + _153;
+  _155 = *_154;
+  _156 = (sizetype) _155;
+  _157 = redundant_93 + _156;
+  *_157 = 1;
+
+  <bb 23> [85.00%]:
+  j_158 = j_286 + 1;
+  if (j_158 < filled_203)
+    goto <bb 56>; [85.00%]
+  else
+    goto <bb 41>; [15.00%]
+
+  <bb 56> [72.25%]:
+  goto <bb 21>; [100.00%]
+
+  <bb 55> [72.25%]:
+
+  <bb 24> [85.00%]:
+  # j_287 = PHI <j_168(55), 0(41)>
+  _164 = (long unsigned int) j_287;
+  _165 = _164 * 8;
+  _166 = work_91 + _165;
+  _167 = *_166;
+  clear_commit_marks (_167, 983040);
+  j_168 = j_287 + 1;
+  if (j_168 < filled_203)
+    goto <bb 55>; [85.00%]
+  else
+    goto <bb 71>; [15.00%]
+
+  <bb 71> [12.75%]:
+
+  <bb 25> [15.00%]:
+  free_commit_list (common_132);
+
+  <bb 26> [29.34%]:
+  i_169 = i_282 + 1;
+  if (num_head_36 > i_169)
+    goto <bb 54>; [85.00%]
+  else
+    goto <bb 72>; [15.00%]
+
+  <bb 72> [4.40%]:
+  goto <bb 27>; [100.00%]
+
+  <bb 54> [24.94%]:
+  goto <bb 13>; [100.00%]
+
+  <bb 65> [0.78%]:
+
+  <bb 27> [5.18%]:
+  _170 = _13;
+  if (_13 != 0)
+    goto <bb 28>; [36.64%]
+  else
+    goto <bb 32>; [63.36%]
+
+  <bb 28> [1.90%]:
+  _207 = st_mult (8, _13);
+  _208 = (long unsigned int) _207;
+  memcpy (work_91, array_55, _208);
+  if (num_head_36 > 0)
+    goto <bb 44>; [100.00%]
+  else
+    goto <bb 73>; [0.00%]
+
+  <bb 44> [1.90%]:
+
+  <bb 29> [29.34%]:
+  # i_288 = PHI <i_185(53), 0(44)>
+  # filled_289 = PHI <filled_205(53), 0(44)>
+  _172 = (sizetype) i_288;
+  _173 = redundant_93 + _172;
+  _174 = *_173;
+  if (_174 == 0)
+    goto <bb 30>; [50.00%]
+  else
+    goto <bb 74>; [50.00%]
+
+  <bb 74> [14.67%]:
+  goto <bb 31>; [100.00%]
+
+  <bb 30> [14.67%]:
+  _175 = _172;
+  _176 = _172 * 8;
+  _177 = work_91 + _176;
+  filled_180 = filled_289 + 1;
+  _181 = (long unsigned int) filled_289;
+  _182 = _181 * 8;
+  _183 = array_55 + _182;
+  _184 = *_177;
+  *_183 = _184;
+
+  <bb 31> [29.34%]:
+  # filled_205 = PHI <filled_289(74), filled_180(30)>
+  i_185 = i_288 + 1;
+  if (num_head_36 > i_185)
+    goto <bb 53>; [85.00%]
+  else
+    goto <bb 75>; [15.00%]
+
+  <bb 75> [4.40%]:
+  goto <bb 33>; [100.00%]
+
+  <bb 53> [24.94%]:
+  goto <bb 29>; [100.00%]
+
+  <bb 32> [0.78%]:
+  if (num_head_36 > 0)
+    goto <bb 76>; [0.38%]
+  else
+    goto <bb 77>; [99.62%]
+
+  <bb 77> [0.78%]:
+  goto <bb 37>; [100.00%]
+
+  <bb 76> [0.00%]:
+
+  <bb 33> [4.40%]:
+  # j_171 = PHI <filled_205(75), 0(76)>
+  # filled_104 = PHI <filled_205(75), 0(76)>
+
+  <bb 34> [29.34%]:
+  # i_291 = PHI <0(33), i_201(52)>
+  # j_292 = PHI <j_171(33), j_206(52)>
+  _188 = (sizetype) i_291;
+  _189 = redundant_93 + _188;
+  _190 = *_189;
+  if (_190 != 0)
+    goto <bb 35>; [50.00%]
+  else
+    goto <bb 78>; [50.00%]
+
+  <bb 78> [14.67%]:
+  goto <bb 36>; [100.00%]
+
+  <bb 35> [14.67%]:
+  _191 = _188;
+  _192 = _188 * 8;
+  _193 = work_91 + _192;
+  j_196 = j_292 + 1;
+  _197 = (long unsigned int) j_292;
+  _198 = _197 * 8;
+  _199 = array_55 + _198;
+  _200 = *_193;
+  *_199 = _200;
+
+  <bb 36> [29.34%]:
+  # j_206 = PHI <j_292(78), j_196(35)>
+  i_201 = i_291 + 1;
+  if (num_head_36 > i_201)
+    goto <bb 52>; [85.00%]
+  else
+    goto <bb 79>; [15.00%]
+
+  <bb 79> [4.40%]:
+  goto <bb 37>; [100.00%]
+
+  <bb 52> [24.94%]:
+  goto <bb 34>; [100.00%]
+
+  <bb 73> [0.00%]:
+
+  <bb 37> [5.18%]:
+  # filled_215 = PHI <filled_104(79), 0(77), 0(73)>
+  free (work_91);
+  free (redundant_93);
+  free (filled_index_97);
+  if (filled_215 > 0)
+    goto <bb 43>; [85.00%]
+  else
+    goto <bb 80>; [15.00%]
+
+  <bb 43> [4.40%]:
+
+  <bb 38> [29.34%]:
+  # tail_268 = PHI <tail_61(51), &result(43)>
+  # i_272 = PHI <i_62(51), 0(43)>
+  _27 = (long unsigned int) i_272;
+  _28 = _27 * 8;
+  _29 = array_55 + _28;
+  _30 = *_29;
+  _31 = commit_list_insert (_30, tail_268);
+  tail_61 = &_31->next;
+  i_62 = i_272 + 1;
+  if (i_62 < filled_215)
+    goto <bb 51>; [85.00%]
+  else
+    goto <bb 81>; [15.00%]
+
+  <bb 81> [4.40%]:
+  goto <bb 39>; [100.00%]
+
+  <bb 51> [24.94%]:
+  goto <bb 38>; [100.00%]
+
+  <bb 80> [0.78%]:
+
+  <bb 39> [5.18%]:
+  free (array_55);
+  _59 = result;
+
+  <bb 40> [5.40%]:
+  # _41 = PHI <0B(62), _59(39)>
+  result ={v} {CLOBBER};
+  return _41;
+
+  <bb 41> [12.75%]:
+  _247 = _105;
+  _246 = _127;
+  _243 = _128;
+  clear_commit_marks (_136, 983040);
+  goto <bb 24>; [100.00%]
+
+  <bb 42> [2.25%]:
+  _40 = _105;
+  _35 = _127;
+  _57 = _128;
+  clear_commit_marks (_136, 983040);
+  goto <bb 25>; [100.00%]
 
 }
 
 
 
-;; Function child (child, funcdef_no=2, decl_uid=3986, cgraph_uid=1, symbol_order=57)
-
-child (void * data)
-{
-  int * p2;
-  int * D.4047;
-  int data2;
-  int * a;
-  int * pData;
-  int * * ppData;
-  union pthread_mutex_t mLock2;
-  void * _1;
-  int * _3;
-  int * _4;
-  int * _40;
-
-  <bb 2> [100.00%]:
-  pthread_mutex_lock (&mLock2);
-  pthread_mutex_lock (&mLock2);
-  pthread_mutex_lock (&mLock);
-  pthread_mutex_lock (&mLock);
-  ppData_13 = malloc (10);
-  _1 = malloc (20);
-  pData = _1;
-  p2_39 = malloc (1);
-  *p2_39 = 1;
-  _40 = foo2 (1);
-  data2 = 0;
-  pData = &data2;
-  data2 = 10;
-  _3 = MEM[(int * *)&pData + 8B];
-  *_3 = 10;
-  _4 = MEM[(int * *)&pData + 16B];
-  *_4 = 10;
-  data2 = 12;
-  free (&data2);
-  pthread_mutex_unlock (&mLock);
-  free (&pData);
-  mLock2 ={v} {CLOBBER};
-  pData ={v} {CLOBBER};
-  data2 ={v} {CLOBBER};
-  return;
-
-}
-
-
-
-;; Function main (main, funcdef_no=4, decl_uid=3985, cgraph_uid=0, symbol_order=62) (executed once)
+;; Function main (main, funcdef_no=4, decl_uid=3985, cgraph_uid=0, symbol_order=50) (executed once)
 
 main ()
 {
-  int * p2;
-  int * D.4058;
-  pthread_t t;
-  int * q;
-  char buff[50];
-  int * p3;
-  int * p2;
-  int * p;
-  long unsigned int _1;
-  int * _37;
+  struct commit_list * h;
+  int i;
+  int marked;
+  struct commit_list * po;
+  struct commit_list * pn;
+  int orig_cnt;
+  int cnt;
+  int D.4176;
+  struct commit_list * parents;
+  struct commit * head_commit;
+  int pos;
+  int i;
+  int j;
+  char * p;
+  char * newline;
+  struct object_id oid;
+  struct commit * parent;
+  struct object * obj;
+  struct commit * cmit;
+  int i;
+  struct commit_list * list;
+  struct object_id head;
+  struct strbuf in;
+  struct merge_parents result;
+  struct commit_list * _1;
+  struct commit * _2;
+  struct commit_list * _3;
+  int _25;
+  char * _28;
+  sizetype _30;
+  long int _33;
+  long int _34;
+  long int _35;
+  int _36;
+  long unsigned int _37;
+  int _38;
+  _Bool _39;
+  int _40;
+  int _41;
+  int _42;
+  int _44;
+  char _45;
+  char _46;
+  int _47;
+  long int _48;
+  int _50;
+  long int _51;
+  struct object_id * _53;
+  struct object_id * _54;
+  long unsigned int _55;
+  long unsigned int _56;
+  int _57;
+  long int _58;
+  struct commit_list * _60;
+  struct commit_list * _61;
+  int _62;
+  long int _63;
+  struct object_id * _65;
+  struct merge_parent * _66;
+  long unsigned int _68;
+  long unsigned int _69;
+  struct merge_parent * _70;
+  struct object_id * _71;
+  int _72;
+  struct merge_parent * _73;
+  long unsigned int _74;
+  long unsigned int _75;
+  struct merge_parent * _76;
+  int _78;
+  struct commit_list * _79;
+  struct merge_parent * _80;
+  long unsigned int _82;
+  long unsigned int _83;
+  struct merge_parent * _84;
+  unsigned char _85;
+  long unsigned int _88;
+  long unsigned int _92;
+  long unsigned int _93;
+  struct merge_parent * _94;
+  int _97;
+  struct commit_list * _100;
+  struct commit_list * _102;
+  struct commit * _108;
+  struct commit * _109;
+  struct commit * _113;
+  <unnamed-unsigned:27> _114;
+  <unnamed-unsigned:27> _116;
+  int _120;
+  int _121;
+  int _165;
 
-  <bb 2> [100.00%]:
-  p2_36 = malloc (1);
-  *p2_36 = 1;
-  _37 = foo2 (2);
-  *_37 = 1;
-  free (_37);
-  p_8 = foo2 (2);
-  *p_8 = 2;
-  p2_11 = foo2 (2);
-  *p2_11 = 4;
-  free (p_8);
-  free (p2_11);
-  q_16 = malloc (5);
-  *q_16 = 10;
-  test22 (q_16);
-  pthread_mutex_destroy (&mLock);
-  pthread_create (&t, 0B, child, &buff);
-  _1 = t;
-  pthread_join (_1, 0B);
-  pthread_mutex_destroy (&mLock);
-  buff ={v} {CLOBBER};
-  t ={v} {CLOBBER};
+  <bb 2> [2.65%]:
+
+  <bb 3> [26.49%]:
+  # i_173 = PHI <i_16(48), 0(2)>
+  commit_list_insert (0B, &list);
+  i_16 = i_173 + 1;
+  if (i_16 <= 9)
+    goto <bb 48>; [90.91%]
+  else
+    goto <bb 4>; [9.09%]
+
+  <bb 48> [24.08%]:
+  goto <bb 3>; [100.00%]
+
+  <bb 4> [2.65%]:
+  _1 = list;
+  _2 = _1->item;
+  _100 = _2->parents;
+  h_101 = reduce_heads (_100);
+  _102 = _2->parents;
+  orig_cnt_103 = commit_list_count (_102);
+  cnt_104 = commit_list_count (h_101);
+  po_105 = _2->parents;
+  if (po_105 != 0B)
+    goto <bb 44>; [85.00%]
+  else
+    goto <bb 49>; [15.00%]
+
+  <bb 44> [2.25%]:
+
+  <bb 5> [15.01%]:
+  # pn_180 = PHI <pn_125(47), h_101(44)>
+  # po_181 = PHI <po_119(47), po_105(44)>
+  # i_182 = PHI <i_123(47), 0(44)>
+  # marked_184 = PHI <marked_124(47), 0(44)>
+  if (pn_180 != 0B)
+    goto <bb 6>; [70.00%]
+  else
+    goto <bb 50>; [30.00%]
+
+  <bb 6> [10.51%]:
+  _108 = po_181->item;
+  _109 = pn_180->item;
+  if (_108 == _109)
+    goto <bb 7>; [30.00%]
+  else
+    goto <bb 51>; [70.00%]
+
+  <bb 51> [7.36%]:
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [3.15%]:
+  pn_110 = pn_180->next;
+  i_112 = i_182 + 1;
+  goto <bb 9>; [100.00%]
+
+  <bb 50> [4.50%]:
+
+  <bb 8> [11.86%]:
+  _113 = po_181->item;
+  _114 = _113->object.flags;
+  _116 = _114 | 16;
+  _113->object.flags = _116;
+  marked_118 = marked_184 + 1;
+
+  <bb 9> [15.01%]:
+  # i_123 = PHI <i_112(7), i_182(8)>
+  # marked_124 = PHI <marked_184(7), marked_118(8)>
+  # pn_125 = PHI <pn_110(7), pn_180(8)>
+  po_119 = po_181->next;
+  if (po_119 != 0B)
+    goto <bb 47>; [85.00%]
+  else
+    goto <bb 52>; [15.00%]
+
+  <bb 52> [2.25%]:
+  goto <bb 10>; [100.00%]
+
+  <bb 47> [12.76%]:
+  goto <bb 5>; [100.00%]
+
+  <bb 49> [0.40%]:
+
+  <bb 10> [2.65%]:
+  # i_183 = PHI <i_123(52), 0(49)>
+  # marked_185 = PHI <marked_124(52), 0(49)>
+  if (cnt_104 != i_183)
+    goto <bb 53>; [0.04%]
+  else
+    goto <bb 11>; [99.96%]
+
+  <bb 53> [0.00%]:
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [2.65%]:
+  _120 = cnt_104 + marked_185;
+  if (orig_cnt_103 != _120)
+    goto <bb 54>; [0.04%]
+  else
+    goto <bb 13>; [99.96%]
+
+  <bb 54> [0.00%]:
+
+  <bb 12> [0.00%]:
+  _121 = __printf_chk (1, "mark_redundant_parents %d", orig_cnt_103);
+  exit (1);
+
+  <bb 13> [2.65%]:
+  free_commit_list (h_101);
+  _3 = list;
+  free_commit_list (_3);
+  parents = 0B;
+  goto <bb 25>; [100.00%]
+
+  <bb 14> [15.00%]:
+  _28 = in.buf;
+  _30 = _55;
+  p_31 = _28 + _55;
+  newline_32 = strchr (p_31, 10);
+  if (newline_32 != 0B)
+    goto <bb 15>; [70.00%]
+  else
+    goto <bb 16>; [30.00%]
+
+  <bb 15> [10.50%]:
+  _33 = (long int) newline_32;
+  _34 = (long int) p_31;
+  _35 = _33 - _34;
+  _36 = (int) _35;
+  goto <bb 17>; [100.00%]
+
+  <bb 16> [4.50%]:
+  _37 = strlen (p_31);
+  _38 = (int) _37;
+
+  <bb 17> [15.00%]:
+  # _41 = PHI <_36(15), _38(16)>
+  _39 = newline_32 != 0B;
+  _40 = (int) _39;
+  _42 = _40 + _41;
+  pos_43 = pos_29 + _42;
+  if (_41 <= 42)
+    goto <bb 55>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 18> [7.50%]:
+  _44 = get_oid_hex (p_31, &oid);
+  if (_44 != 0)
+    goto <bb 56>; [33.00%]
+  else
+    goto <bb 19>; [67.00%]
+
+  <bb 56> [2.48%]:
+  goto <bb 23>; [100.00%]
+
+  <bb 19> [5.03%]:
+  _45 = MEM[(char *)p_31 + 40B];
+  if (_45 != 9)
+    goto <bb 57>; [48.88%]
+  else
+    goto <bb 20>; [51.12%]
+
+  <bb 57> [2.46%]:
+  goto <bb 23>; [100.00%]
+
+  <bb 20> [2.57%]:
+  _46 = MEM[(char *)p_31 + 41B];
+  if (_46 != 9)
+    goto <bb 58>; [66.00%]
+  else
+    goto <bb 21>; [34.00%]
+
+  <bb 58> [1.70%]:
+  goto <bb 23>; [100.00%]
+
+  <bb 21> [0.87%]:
+  _47 = parse_object (&oid);
+  _48 = (long int) _47;
+  obj_49 = (struct object *) _48;
+  _50 = peel_to_type (0B, 0, obj_49, 1);
+  _51 = (long int) _50;
+  parent_52 = (struct commit *) _51;
+  if (_50 == 0)
+    goto <bb 59>; [50.00%]
+  else
+    goto <bb 22>; [50.00%]
+
+  <bb 59> [0.44%]:
+  goto <bb 23>; [100.00%]
+
+  <bb 22> [0.44%]:
+  commit_list_insert (parent_52, &parents);
+  _53 = &parent_52->object.oid;
+  _54 = &obj_49->oid;
+  add_merge_parent (&result, _54, _53);
+  oid ={v} {CLOBBER};
+  goto <bb 24>; [100.00%]
+
+  <bb 55> [7.50%]:
+
+  <bb 23> [14.56%]:
+  oid ={v} {CLOBBER};
+
+  <bb 24> [15.00%]:
+
+  <bb 25> [17.65%]:
+  # pos_29 = PHI <pos_43(24), 0(13)>
+  _55 = (long unsigned int) pos_29;
+  _56 = in.len;
+  if (_55 < _56)
+    goto <bb 14>; [85.00%]
+  else
+    goto <bb 26>; [15.00%]
+
+  <bb 26> [2.65%]:
+  _57 = lookup_commit (&head);
+  _58 = (long int) _57;
+  head_commit_59 = (struct commit *) _58;
+  if (_57 != 0)
+    goto <bb 27>; [33.00%]
+  else
+    goto <bb 60>; [67.00%]
+
+  <bb 60> [1.78%]:
+  goto <bb 28>; [100.00%]
+
+  <bb 27> [0.87%]:
+  commit_list_insert (head_commit_59, &parents);
+
+  <bb 28> [2.65%]:
+  _60 = parents;
+  _61 = reduce_heads (_60);
+  parents = _61;
+  goto <bb 34>; [100.00%]
+
+  <bb 29> [15.00%]:
+  _62 = pop_commit (&parents);
+  _63 = (long int) _62;
+  cmit_64 = (struct commit *) _63;
+  _165 = result.nr;
+  if (_165 > 0)
+    goto <bb 43>; [85.00%]
+  else
+    goto <bb 61>; [15.00%]
+
+  <bb 43> [12.75%]:
+
+  <bb 30> [85.00%]:
+  # i_176 = PHI <i_77(46), 0(43)>
+  _65 = &cmit_64->object.oid;
+  _66 = result.item;
+  _68 = (long unsigned int) i_176;
+  _69 = _68 * 41;
+  _70 = _66 + _69;
+  _71 = &_70->commit;
+  _72 = oidcmp (_71, _65);
+  if (_72 == 0)
+    goto <bb 31>; [50.00%]
+  else
+    goto <bb 62>; [50.00%]
+
+  <bb 62> [42.50%]:
+  goto <bb 32>; [100.00%]
+
+  <bb 31> [42.50%]:
+  _73 = result.item;
+  _74 = _68;
+  _75 = _69;
+  _76 = _73 + _69;
+  _76->used = 1;
+
+  <bb 32> [85.00%]:
+  i_77 = i_176 + 1;
+  _78 = result.nr;
+  if (i_77 < _78)
+    goto <bb 46>; [85.00%]
+  else
+    goto <bb 63>; [15.00%]
+
+  <bb 63> [12.75%]:
+  goto <bb 33>; [100.00%]
+
+  <bb 46> [72.25%]:
+  goto <bb 30>; [100.00%]
+
+  <bb 61> [2.25%]:
+
+  <bb 33> [15.00%]:
+
+  <bb 34> [17.65%]:
+  _79 = parents;
+  if (_79 != 0B)
+    goto <bb 29>; [85.00%]
+  else
+    goto <bb 35>; [15.00%]
+
+  <bb 35> [2.65%]:
+  _25 = result.nr;
+  if (_25 > 0)
+    goto <bb 42>; [85.00%]
+  else
+    goto <bb 64>; [15.00%]
+
+  <bb 42> [2.25%]:
+
+  <bb 36> [15.00%]:
+  # i_177 = PHI <i_96(45), 0(42)>
+  # j_178 = PHI <j_99(45), 0(42)>
+  _80 = result.item;
+  _82 = (long unsigned int) i_177;
+  _83 = _82 * 41;
+  _84 = _80 + _83;
+  _85 = _84->used;
+  if (_85 != 0)
+    goto <bb 37>; [50.00%]
+  else
+    goto <bb 65>; [50.00%]
+
+  <bb 65> [7.50%]:
+  goto <bb 40>; [100.00%]
+
+  <bb 37> [7.50%]:
+  if (i_177 != j_178)
+    goto <bb 38>; [66.00%]
+  else
+    goto <bb 66>; [34.00%]
+
+  <bb 66> [2.55%]:
+  goto <bb 39>; [100.00%]
+
+  <bb 38> [4.95%]:
+  _88 = _82;
+  _92 = (long unsigned int) j_178;
+  _93 = _92 * 41;
+  _94 = _80 + _93;
+  *_94 = *_84;
+
+  <bb 39> [7.50%]:
+  j_95 = j_178 + 1;
+
+  <bb 40> [15.00%]:
+  # j_99 = PHI <j_178(65), j_95(39)>
+  i_96 = i_177 + 1;
+  _97 = result.nr;
+  if (i_96 < _97)
+    goto <bb 45>; [85.00%]
+  else
+    goto <bb 67>; [15.00%]
+
+  <bb 67> [2.25%]:
+  goto <bb 41>; [100.00%]
+
+  <bb 45> [12.75%]:
+  goto <bb 36>; [100.00%]
+
+  <bb 64> [0.40%]:
+
+  <bb 41> [2.65%]:
+  # j_179 = PHI <j_99(67), 0(64)>
+  result.nr = j_179;
+  parents ={v} {CLOBBER};
+  result ={v} {CLOBBER};
+  in ={v} {CLOBBER};
+  head ={v} {CLOBBER};
+  list ={v} {CLOBBER};
   return 0;
 
 }

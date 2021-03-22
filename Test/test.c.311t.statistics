@@ -1,22 +1,40 @@
-26 ssa "unused VAR_DECLs removed" "foo3" 1
-26 ssa "unused VAR_DECLs removed" "foo4" 1
-26 ssa "unused VAR_DECLs removed" "foo" 1
-26 ssa "unused VAR_DECLs removed" "child" 1
-38 ccp "Constants propagated" "foo4" 2
-38 ccp "Statements deleted" "foo4" 2
-55 release_ssa "SSA names released" "foo4" 2
-55 release_ssa "SSA name holes removed" "foo4" 2
-38 ccp "Constants propagated" "child" 5
-38 ccp "Statements deleted" "child" 3
-55 release_ssa "SSA names released" "child" 3
-55 release_ssa "SSA name holes removed" "child" 3
-38 ccp "Statements deleted" "boo" 1
-55 release_ssa "unused VAR_DECLs removed" "boo" 1
-55 release_ssa "SSA names released" "boo" 2
-55 release_ssa "SSA name holes removed" "boo" 2
-35 einline "unused VAR_DECLs removed" "test44" 1
-35 einline "Symbol to SSA rewrite" "test44" 1
-38 ccp "Constants propagated" "main" 1
-38 ccp "Statements deleted" "main" 1
-55 release_ssa "SSA names released" "main" 1
-55 release_ssa "SSA name holes removed" "main" 1
+26 ssa "unused VAR_DECLs removed" "copy_array" 1
+26 ssa "unused VAR_DECLs removed" "xrealloc" 1
+26 ssa "unused VAR_DECLs removed" "commit_list_insert" 1
+26 ssa "unused VAR_DECLs removed" "reduce_heads" 1
+26 ssa "unused VAR_DECLs removed" "mark_redundant_parents" 1
+26 ssa "unused VAR_DECLs removed" "find_merge_parents" 1
+26 ssa "unused VAR_DECLs removed" "main" 1
+38 ccp "Constants propagated" "remove_redundant" 11
+38 ccp "Statements deleted" "remove_redundant" 11
+55 release_ssa "SSA names released" "remove_redundant" 8
+55 release_ssa "SSA name holes removed" "remove_redundant" 8
+38 ccp "Statements deleted" "xrealloc" 1
+55 release_ssa "unused VAR_DECLs removed" "xrealloc" 1
+55 release_ssa "SSA names released" "xrealloc" 2
+55 release_ssa "SSA name holes removed" "xrealloc" 2
+35 einline "unused VAR_DECLs removed" "commit_list_insert" 1
+35 einline "Symbol to SSA rewrite" "commit_list_insert" 1
+38 ccp "Copies propagated" "reduce_heads" 3
+38 ccp "Constants propagated" "reduce_heads" 5
+38 ccp "Statements deleted" "reduce_heads" 8
+55 release_ssa "SSA names released" "reduce_heads" 6
+55 release_ssa "SSA name holes removed" "reduce_heads" 6
+38 ccp "Copies propagated" "mark_redundant_parents" 1
+38 ccp "Constants propagated" "mark_redundant_parents" 2
+38 ccp "Statements deleted" "mark_redundant_parents" 4
+55 release_ssa "unused VAR_DECLs removed" "mark_redundant_parents" 1
+55 release_ssa "SSA names released" "mark_redundant_parents" 5
+55 release_ssa "SSA name holes removed" "mark_redundant_parents" 5
+35 einline "unused VAR_DECLs removed" "find_merge_parents" 1
+35 einline "Symbol to SSA rewrite" "find_merge_parents" 1
+38 ccp "Copies propagated" "find_merge_parents" 2
+38 ccp "Constants propagated" "find_merge_parents" 4
+38 ccp "Statements deleted" "find_merge_parents" 5
+55 release_ssa "unused VAR_DECLs removed" "find_merge_parents" 1
+55 release_ssa "SSA names released" "find_merge_parents" 5
+55 release_ssa "SSA name holes removed" "find_merge_parents" 5
+38 ccp "Constants propagated" "main" 2
+38 ccp "Statements deleted" "main" 2
+55 release_ssa "SSA names released" "main" 2
+55 release_ssa "SSA name holes removed" "main" 2
