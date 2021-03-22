@@ -203,10 +203,11 @@ child (void * data)
 
   <bb 2> [100.00%]:
   pthread_mutex_lock (&mLock);
-  ppData_12 = malloc (10);
+  pthread_mutex_lock (&mLock);
+  ppData_13 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  a_16 = foo (1);
+  a_17 = foo (1);
   data2 = 0;
   pData = &data2;
   _2 = pData;

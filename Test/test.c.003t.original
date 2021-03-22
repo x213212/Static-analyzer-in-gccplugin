@@ -794,6 +794,7 @@
   int data2 = 0;
 
   pthread_mutex_lock (&mLock);
+  pthread_mutex_lock (&mLock);
     int * * ppData = (int * *) malloc (10);
     int * pData = (int *) malloc (20);
     int * a = foo (1);

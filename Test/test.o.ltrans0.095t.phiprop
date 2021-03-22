@@ -74,16 +74,17 @@ child (void * data)
   int * _4;
   int * _5;
   int * _6;
-  int * _33;
+  int * _35;
 
   <bb 2> [100.00%]:
   pthread_mutex_lock (&mLock);
-  ppData_10 = malloc (10);
+  pthread_mutex_lock (&mLock);
+  ppData_11 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  p2_32 = malloc (1);
-  *p2_32 = 1;
-  _33 = foo2 (1);
+  p2_34 = malloc (1);
+  *p2_34 = 1;
+  _35 = foo2 (1);
   data2 = 0;
   pData = &data2;
   _2 = pData;

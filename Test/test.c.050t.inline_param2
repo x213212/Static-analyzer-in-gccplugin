@@ -230,9 +230,9 @@ foo (int z)
 Analyzing function body size: child
 
 Inline summary for child/57 inlinable
-  self time:       94
+  self time:       105
   global time:     0
-  self size:       32
+  self size:       34
   global size:     0
   min size:       0
   self stack:      12
@@ -260,6 +260,9 @@ Inline summary for child/57 inlinable
     pthread_mutex_lock/66 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
        op0 is compile time invariant
+    pthread_mutex_lock/66 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
 
 child (void * data)
 {
@@ -276,10 +279,11 @@ child (void * data)
 
   <bb 2> [100.00%]:
   pthread_mutex_lock (&mLock);
-  ppData_10 = malloc (10);
+  pthread_mutex_lock (&mLock);
+  ppData_11 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  a_14 = foo (1);
+  a_15 = foo (1);
   data2 = 0;
   pData = &data2;
   _2 = pData;

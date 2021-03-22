@@ -149,6 +149,7 @@ struct free_type
 	//int return_type;
 };
 
+
 /*define return_type struct*/
 struct function_return_array
 {
@@ -176,6 +177,11 @@ struct function_free_array
 	vector<free_type> free_type_array;
 };
 
+struct function_graph_array 
+{
+	Graph graph_type_array;
+	cgraph_node *  graph_node ;
+};
 /*collect function return types */
 hash_map<tree, function_return_array> *function_return_collect;
 /*collect function var decl ssa name */
@@ -184,6 +190,8 @@ hash_map<tree, function_assign_array> *function_assign_collect;
 hash_map<tree, function_path_array> *function_path_collect;
 /*collect function free */
 hash_map<tree, function_free_array> *function_free_collect;
+/*collect fucntion graph_array*/
+hash_map<tree, function_graph_array> *function_graph_collect;
 
 /*record each DFS graph*/
 hash_map<cgraph_node *, Graph> *fDFS;
@@ -2573,7 +2581,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 	// printfunctionCollect(ptable, used_stmt);
 	// printfunctionCollect2(ptable, used_stmt);
-	// printfBasicblock();
+	printfBasicblock();
 	// printfPointerConstraint2(ptable, used_stmt);
 }
 
@@ -3206,6 +3214,7 @@ void detect()
 	function_assign_collect = new hash_map<tree, function_assign_array>;
 	function_path_collect = new hash_map<tree, function_path_array>;
 	function_free_collect = new hash_map<tree, function_free_array>;
+	function_graph_collect = new hash_map<tree , function_graph_array>;
 	fDFS = new hash_map<cgraph_node *, Graph>;
 	fnode = new hash_map<tree, cgraph_node *>;
 	fprintf(stderr, "=======ipa_pta=========\n");
@@ -3248,6 +3257,7 @@ void detect()
 		/*initialization DFS graph*/
 		Graph DFS;
 		DFS.init_Graph(cfun->cfg->x_last_basic_block);
+		
 		/*calculate dominator tree*/
 		calculate_dominance_info(CDI_DOMINATORS);
 
@@ -3305,7 +3315,13 @@ void detect()
 			}
 		}
 		/*DFS of this function put set "fDfS" */
-		fDFS->put(node, DFS);
+		// fDFS->put(node, DFS);
+
+		function_graph_array fun_graph_array;
+		fun_graph_array.graph_type_array = DFS; 
+		fun_graph_array.graph_node = node ;
+		function_graph_collect->put(node->get_fun()->decl, fun_graph_array);
+
 		if (!ipa)
 		{
 			// new_memory_leak_analysis (ptable,ftable);

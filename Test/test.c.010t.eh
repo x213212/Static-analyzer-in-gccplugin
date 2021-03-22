@@ -101,6 +101,7 @@ child (void * data)
   int * * ppData;
 
   pthread_mutex_lock (&mLock);
+  pthread_mutex_lock (&mLock);
   ppData = malloc (10);
   _1 = malloc (20);
   pData = _1;

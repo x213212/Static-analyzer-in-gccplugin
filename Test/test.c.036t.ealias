@@ -457,13 +457,14 @@ INTEGER = &ANYTHING
 data = &NONLOCAL
 mLock = NONLOCAL
 ESCAPED = &mLock
+ESCAPED = &mLock
 ESCAPED = &NONLOCAL
-ppData_12 = &HEAP(13)
+ppData_13 = &HEAP(13)
 ESCAPED = &NONLOCAL
 _1 = &HEAP(15)
 pData = _1
 ESCAPED = &NONLOCAL
-a_16 = NONLOCAL
+a_17 = NONLOCAL
 data2 = &NULL
 pData = &data2
 _2 = pData
@@ -493,20 +494,20 @@ Points-to sets
 
 ANYTHING = { ANYTHING }
 ESCAPED = { ESCAPED NONLOCAL mLock }
-NONLOCAL = { ESCAPED NONLOCAL } same as a_16
+NONLOCAL = { ESCAPED NONLOCAL } same as a_17
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
 data = { NONLOCAL }
 pthread_mutex_lock = { }
 mLock = { ESCAPED NONLOCAL }
 malloc = { }
-ppData_12 = { HEAP(13) }
+ppData_13 = { HEAP(13) }
 HEAP(13) = { }
 _1 = { HEAP(15) }
 HEAP(15) = { NONLOCAL }
 pData = { HEAP(15) data2 }
 foo = { }
-a_16 = { ESCAPED NONLOCAL }
+a_17 = { ESCAPED NONLOCAL }
 data2 = { NULL NONLOCAL }
 _2 = { HEAP(15) data2 } same as pData
 derefaddrtmp(21) = { NONLOCAL } same as data
@@ -539,8 +540,8 @@ _4, points-to NULL, points-to vars: { D.4345 D.4405 }
 _6, points-to NULL, points-to vars: { D.4345 D.4405 }
 _7, points-to NULL, points-to vars: { D.4345 D.4405 }
 pData.1_8, points-to NULL, points-to vars: { D.4345 D.4405 }
-ppData_12, points-to NULL, points-to vars: { D.4404 }
-a_16, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+ppData_13, points-to NULL, points-to vars: { D.4404 }
+a_17, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 
 child (void * data)
 {
@@ -557,10 +558,11 @@ child (void * data)
 
   <bb 2> [0.00%]:
   pthread_mutex_lock (&mLock);
-  ppData_12 = malloc (10);
+  pthread_mutex_lock (&mLock);
+  ppData_13 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  a_16 = foo (1);
+  a_17 = foo (1);
   data2 = 0;
   pData = &data2;
   _2 = pData;

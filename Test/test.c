@@ -116,6 +116,7 @@ void *child(void *data)
 	//   pthread_exit(NULL); // 離開子執行緒
 	//a2
 	pthread_mutex_lock(&mLock);
+	pthread_mutex_lock(&mLock);
 	int **ppData = malloc(10);
 	int *pData = malloc(20);
 	int *a = foo(1);

@@ -148,27 +148,28 @@ child (void * data)
 
   <bb 2> [0.00%]:
   pthread_mutex_lock (&mLock);
-  ppData_12 = malloc (10);
+  pthread_mutex_lock (&mLock);
+  ppData_13 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  a_16 = foo (1);
+  a_17 = foo (1);
   data2 = 0;
-  ppData_18 = &pData;
+  ppData_19 = &pData;
   pData = &data2;
-  _2 = *ppData_18;
+  _2 = *ppData_19;
   *_2 = 10;
-  _3 = ppData_18 + 8;
+  _3 = ppData_19 + 8;
   _4 = *_3;
   *_4 = 10;
-  _5 = ppData_18 + 16;
+  _5 = ppData_19 + 16;
   _6 = *_5;
   *_6 = 10;
-  _7 = *ppData_18;
+  _7 = *ppData_19;
   *_7 = 12;
   pData.1_8 = pData;
   free (pData.1_8);
   pthread_mutex_unlock (&mLock);
-  free (ppData_18);
+  free (ppData_19);
   pData ={v} {CLOBBER};
   data2 ={v} {CLOBBER};
   return;
