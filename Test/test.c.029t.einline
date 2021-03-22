@@ -136,6 +136,7 @@ child (void * data)
   int * a;
   int * pData;
   int * * ppData;
+  union pthread_mutex_t mLock2;
   void * _1;
   int * _2;
   int * * _3;
@@ -146,29 +147,32 @@ child (void * data)
   int * pData.1_8;
 
   <bb 2> [0.00%]:
+  pthread_mutex_lock (&mLock2);
+  pthread_mutex_lock (&mLock2);
   pthread_mutex_lock (&mLock);
   pthread_mutex_lock (&mLock);
-  ppData_13 = malloc (10);
+  ppData_15 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  a_17 = foo (1);
+  a_19 = foo (1);
   data2 = 0;
-  ppData_19 = &pData;
+  ppData_21 = &pData;
   pData = &data2;
-  _2 = *ppData_19;
+  _2 = *ppData_21;
   *_2 = 10;
-  _3 = ppData_19 + 8;
+  _3 = ppData_21 + 8;
   _4 = *_3;
   *_4 = 10;
-  _5 = ppData_19 + 16;
+  _5 = ppData_21 + 16;
   _6 = *_5;
   *_6 = 10;
-  _7 = *ppData_19;
+  _7 = *ppData_21;
   *_7 = 12;
   pData.1_8 = pData;
   free (pData.1_8);
   pthread_mutex_unlock (&mLock);
-  free (ppData_19);
+  free (ppData_21);
+  mLock2 ={v} {CLOBBER};
   pData ={v} {CLOBBER};
   data2 ={v} {CLOBBER};
   return;
@@ -177,7 +181,7 @@ child (void * data)
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4350, cgraph_uid=56, symbol_order=58)
+;; Function boo (boo, funcdef_no=56, decl_uid=4351, cgraph_uid=56, symbol_order=58)
 
   Inlining printf into boo (always_inline).
 Iterations: 0
@@ -185,7 +189,7 @@ Merging blocks 2 and 4
 Merging blocks 2 and 3
 
 Symbols to be put in SSA form
-{ D.4391 D.4407 }
+{ D.4392 D.4408 }
 Incremental SSA update started at block: 0
 Number of blocks in CFG: 3
 Number of blocks to update: 2 ( 67%)
@@ -193,7 +197,7 @@ Number of blocks to update: 2 ( 67%)
 
 boo (int * b)
 {
-  int D.4407;
+  int D.4408;
   int _5;
 
   <bb 2> [100.00%]:
@@ -246,7 +250,7 @@ test22 (int * k)
 
 
 
-;; Function main (main, funcdef_no=60, decl_uid=4361, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=60, decl_uid=4362, cgraph_uid=60, symbol_order=62)
 
 Iterations: 0
 main ()

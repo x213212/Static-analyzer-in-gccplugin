@@ -232,13 +232,13 @@ foo (int z)
 Analyzing function body size: child
 
 Inline summary for child/57 inlinable
-  self time:       105
+  self time:       127
   global time:     0
-  self size:       34
+  self size:       38
   global size:     0
   min size:       0
-  self stack:      12
-  global stack:    12
+  self stack:      52
+  global stack:    52
     size:12.000000, time:12.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
@@ -264,6 +264,12 @@ Inline summary for child/57 inlinable
     pthread_mutex_lock/66 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
        op0 is compile time invariant
+    pthread_mutex_lock/66 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
+    pthread_mutex_lock/66 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
 
 child (void * data)
 {
@@ -271,6 +277,7 @@ child (void * data)
   int * a;
   int * pData;
   int * * ppData;
+  union pthread_mutex_t mLock2;
   void * _1;
   int * _2;
   int * * _3;
@@ -281,29 +288,32 @@ child (void * data)
   int * pData.1_8;
 
   <bb 2> [0.00%]:
+  pthread_mutex_lock (&mLock2);
+  pthread_mutex_lock (&mLock2);
   pthread_mutex_lock (&mLock);
   pthread_mutex_lock (&mLock);
-  ppData_13 = malloc (10);
+  ppData_15 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  a_17 = foo (1);
+  a_19 = foo (1);
   data2 = 0;
-  ppData_19 = &pData;
+  ppData_21 = &pData;
   pData = &data2;
-  _2 = *ppData_19;
+  _2 = *ppData_21;
   *_2 = 10;
-  _3 = ppData_19 + 8;
+  _3 = ppData_21 + 8;
   _4 = *_3;
   *_4 = 10;
-  _5 = ppData_19 + 16;
+  _5 = ppData_21 + 16;
   _6 = *_5;
   *_6 = 10;
-  _7 = *ppData_19;
+  _7 = *ppData_21;
   *_7 = 12;
   pData.1_8 = pData;
   free (pData.1_8);
   pthread_mutex_unlock (&mLock);
-  free (ppData_19);
+  free (ppData_21);
+  mLock2 ={v} {CLOBBER};
   pData ={v} {CLOBBER};
   data2 ={v} {CLOBBER};
   return;
@@ -312,7 +322,7 @@ child (void * data)
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4350, cgraph_uid=56, symbol_order=58)
+;; Function boo (boo, funcdef_no=56, decl_uid=4351, cgraph_uid=56, symbol_order=58)
 
 
 Analyzing function body size: boo
@@ -435,7 +445,7 @@ test22 (int * k)
 
 
 
-;; Function main (main, funcdef_no=60, decl_uid=4361, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=60, decl_uid=4362, cgraph_uid=60, symbol_order=62)
 
 
 Analyzing function body size: main

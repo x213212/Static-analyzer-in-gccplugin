@@ -20,7 +20,7 @@ foo2 (int z)
   int * p4;
   int * p3;
   int * a2;
-  int * D.4373;
+  int * D.4374;
 
   _1 = (long unsigned int) z;
   a2 = malloc (_1);
@@ -29,20 +29,20 @@ foo2 (int z)
   _3 = (long unsigned int) z;
   p4 = malloc (_3);
   *a2 = 10;
-  if (tmp > 10) goto <D.4371>; else goto <D.4372>;
-  <D.4371>:
+  if (tmp > 10) goto <D.4372>; else goto <D.4373>;
+  <D.4372>:
   pthread_mutex_unlock (&mLock);
   *p3 = 10;
-  D.4373 = p3;
-  goto <D.4374>;
-  <D.4372>:
+  D.4374 = p3;
+  goto <D.4375>;
+  <D.4373>:
   *p4 = 10;
-  D.4373 = p4;
-  goto <D.4374>;
-  D.4373 = a2;
-  goto <D.4374>;
-  <D.4374>:
-  return D.4373;
+  D.4374 = p4;
+  goto <D.4375>;
+  D.4374 = a2;
+  goto <D.4375>;
+  <D.4375>:
+  return D.4374;
 }
 
 
@@ -53,7 +53,7 @@ foo4 (int z)
 {
   int * p2;
   int * b;
-  int * D.4375;
+  int * D.4376;
 
   _1 = malloc (1);
   b = _1;
@@ -63,13 +63,13 @@ foo4 (int z)
   *p2 = 1;
   p2 = &b;
   free (p2);
-  D.4375 = p2;
+  D.4376 = p2;
+  goto <D.4378>;
+  <D.4378>:
+  b = {CLOBBER};
   goto <D.4377>;
   <D.4377>:
-  b = {CLOBBER};
-  goto <D.4376>;
-  <D.4376>:
-  return D.4375;
+  return D.4376;
 }
 
 
@@ -79,14 +79,14 @@ foo4 (int z)
 foo (int z)
 {
   int * p2;
-  int * D.4378;
+  int * D.4379;
 
   p2 = malloc (1);
   *p2 = 1;
-  D.4378 = foo2 (z);
-  goto <D.4379>;
-  <D.4379>:
-  return D.4378;
+  D.4379 = foo2 (z);
+  goto <D.4380>;
+  <D.4380>:
+  return D.4379;
 }
 
 
@@ -99,7 +99,10 @@ child (void * data)
   int * a;
   int * pData;
   int * * ppData;
+  union pthread_mutex_t mLock2;
 
+  pthread_mutex_lock (&mLock2);
+  pthread_mutex_lock (&mLock2);
   pthread_mutex_lock (&mLock);
   pthread_mutex_lock (&mLock);
   ppData = malloc (10);
@@ -123,6 +126,7 @@ child (void * data)
   free (pData.1_8);
   pthread_mutex_unlock (&mLock);
   free (ppData);
+  mLock2 = {CLOBBER};
   pData = {CLOBBER};
   data2 = {CLOBBER};
   return;
@@ -130,7 +134,7 @@ child (void * data)
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4350, cgraph_uid=56, symbol_order=58)
+;; Function boo (boo, funcdef_no=56, decl_uid=4351, cgraph_uid=56, symbol_order=58)
 
 boo (int * b)
 {
@@ -146,12 +150,12 @@ boo (int * b)
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
 {
-  int D.4380;
+  int D.4381;
 
-  D.4380 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  goto <D.4381>;
-  <D.4381>:
-  return D.4380;
+  D.4381 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  goto <D.4382>;
+  <D.4382>:
+  return D.4381;
 }
 
 
@@ -187,7 +191,7 @@ test22 (int * k)
 
 
 
-;; Function main (main, funcdef_no=60, decl_uid=4361, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=60, decl_uid=4362, cgraph_uid=60, symbol_order=62)
 
 main ()
 {
@@ -198,7 +202,7 @@ main ()
   int * p3;
   int * p2;
   int * p;
-  int D.4382;
+  int D.4383;
 
   p3 = foo (2);
   *p3 = 1;
@@ -217,16 +221,16 @@ main ()
   t.2_1 = t;
   pthread_join (t.2_1, 0B);
   pthread_mutex_destroy (&mLock);
-  D.4382 = 0;
-  goto <D.4384>;
-  <D.4384>:
+  D.4383 = 0;
+  goto <D.4385>;
+  <D.4385>:
   buff = {CLOBBER};
   t = {CLOBBER};
-  goto <D.4383>;
-  D.4382 = 0;
-  goto <D.4383>;
-  <D.4383>:
-  return D.4382;
+  goto <D.4384>;
+  D.4383 = 0;
+  goto <D.4384>;
+  <D.4384>:
+  return D.4383;
 }
 
 

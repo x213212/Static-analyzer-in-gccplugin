@@ -95,7 +95,9 @@ int *foo(int z)
 }
 void *child(void *data)
 {
-	
+	pthread_mutex_t mLock2;
+		pthread_mutex_lock(&mLock2);
+			pthread_mutex_lock(&mLock2);
 	//a1
 	//   pthread_mutex_lock(&mLock);
 	//   //   char *str = (char*) data; // 取得輸入資料

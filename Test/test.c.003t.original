@@ -788,11 +788,15 @@
 
 
 {
+  union pthread_mutex_t mLock2;
   int * * ppData = (int * *) malloc (10);
   int * pData = (int *) malloc (20);
   int * a = foo (1);
   int data2 = 0;
 
+    union pthread_mutex_t mLock2;
+  pthread_mutex_lock (&mLock2);
+  pthread_mutex_lock (&mLock2);
   pthread_mutex_lock (&mLock);
   pthread_mutex_lock (&mLock);
     int * * ppData = (int * *) malloc (10);

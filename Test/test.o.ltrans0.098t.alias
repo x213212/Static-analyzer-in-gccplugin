@@ -17,7 +17,7 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-k_2(D), points-to NULL, points-to vars: { D.4066 } (nonlocal)
+k_2(D), points-to NULL, points-to vars: { D.4067 } (nonlocal)
 
 test22 (int * k)
 {
@@ -48,12 +48,12 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-_4, points-to NULL, points-to vars: { D.4060 D.4061 } (nonlocal, escaped, escaped heap)
-a2_9, points-to NULL, points-to vars: { D.4059 } (nonlocal, escaped, escaped heap)
-p3_11, points-to NULL, points-to vars: { D.4060 } (nonlocal, escaped, escaped heap)
-p4_13, points-to NULL, points-to vars: { D.4061 } (nonlocal, escaped, escaped heap)
-_17, points-to NULL, points-to vars: { D.4061 } (nonlocal, escaped, escaped heap)
-_20, points-to NULL, points-to vars: { D.4060 } (nonlocal, escaped, escaped heap)
+_4, points-to NULL, points-to vars: { D.4061 D.4062 } (nonlocal, escaped, escaped heap)
+a2_9, points-to NULL, points-to vars: { D.4060 } (nonlocal, escaped, escaped heap)
+p3_11, points-to NULL, points-to vars: { D.4061 } (nonlocal, escaped, escaped heap)
+p4_13, points-to NULL, points-to vars: { D.4062 } (nonlocal, escaped, escaped heap)
+_17, points-to NULL, points-to vars: { D.4062 } (nonlocal, escaped, escaped heap)
+_20, points-to NULL, points-to vars: { D.4061 } (nonlocal, escaped, escaped heap)
 
 foo2 (int z)
 {
@@ -112,6 +112,7 @@ Aliased symbols
 
 data2, UID D.4035, int, is addressable
 pData, UID D.4037, int *, is addressable
+mLock2, UID D.4039, union pthread_mutex_t, is addressable
 
 Call clobber information
 
@@ -119,41 +120,44 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4063 } (nonlocal, escaped, escaped heap)
-_2, points-to NULL, points-to vars: { D.4035 D.4063 } (nonlocal, escaped, escaped heap)
-_3, points-to NULL, points-to vars: { D.4035 D.4063 } (nonlocal, escaped, escaped heap)
-_4, points-to NULL, points-to vars: { D.4035 D.4063 } (nonlocal, escaped, escaped heap)
-_5, points-to NULL, points-to vars: { D.4035 D.4063 } (nonlocal, escaped, escaped heap)
-_6, points-to NULL, points-to vars: { D.4035 D.4063 } (nonlocal, escaped, escaped heap)
-ppData_11, points-to NULL, points-to vars: { D.4062 } (nonlocal)
-p2_34, points-to NULL, points-to vars: { D.4064 } (nonlocal, escaped, escaped heap)
-_35, points-to NULL, points-to vars: { D.4060 D.4061 } (nonlocal, escaped, escaped heap)
+_1, points-to NULL, points-to vars: { D.4064 } (nonlocal, escaped, escaped heap)
+_2, points-to NULL, points-to vars: { D.4035 D.4064 } (nonlocal, escaped, escaped heap)
+_3, points-to NULL, points-to vars: { D.4035 D.4064 } (nonlocal, escaped, escaped heap)
+_4, points-to NULL, points-to vars: { D.4035 D.4064 } (nonlocal, escaped, escaped heap)
+_5, points-to NULL, points-to vars: { D.4035 D.4064 } (nonlocal, escaped, escaped heap)
+_6, points-to NULL, points-to vars: { D.4035 D.4064 } (nonlocal, escaped, escaped heap)
+ppData_13, points-to NULL, points-to vars: { D.4063 } (nonlocal)
+p2_39, points-to NULL, points-to vars: { D.4065 } (nonlocal, escaped, escaped heap)
+_40, points-to NULL, points-to vars: { D.4061 D.4062 } (nonlocal, escaped, escaped heap)
 
 child (void * data)
 {
   int * p2;
-  int * D.4046;
+  int * D.4047;
   int data2;
   int * a;
   int * pData;
   int * * ppData;
+  union pthread_mutex_t mLock2;
   void * _1;
   int * _2;
   int * _3;
   int * _4;
   int * _5;
   int * _6;
-  int * _35;
+  int * _40;
 
   <bb 2> [100.00%]:
+  pthread_mutex_lock (&mLock2);
+  pthread_mutex_lock (&mLock2);
   pthread_mutex_lock (&mLock);
   pthread_mutex_lock (&mLock);
-  ppData_11 = malloc (10);
+  ppData_13 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  p2_34 = malloc (1);
-  *p2_34 = 1;
-  _35 = foo2 (1);
+  p2_39 = malloc (1);
+  *p2_39 = 1;
+  _40 = foo2 (1);
   data2 = 0;
   pData = &data2;
   _2 = pData;
@@ -168,6 +172,7 @@ child (void * data)
   free (_6);
   pthread_mutex_unlock (&mLock);
   free (&pData);
+  mLock2 ={v} {CLOBBER};
   pData ={v} {CLOBBER};
   data2 ={v} {CLOBBER};
   return;
@@ -187,8 +192,8 @@ Alias information for main
 
 Aliased symbols
 
-t, UID D.4048, pthread_t, is addressable
-buff, UID D.4050, char[50], is addressable
+t, UID D.4049, pthread_t, is addressable
+buff, UID D.4051, char[50], is addressable
 
 Call clobber information
 
@@ -196,16 +201,16 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-p_8, points-to NULL, points-to vars: { D.4060 D.4061 } (nonlocal, escaped, escaped heap)
-p2_11, points-to NULL, points-to vars: { D.4060 D.4061 } (nonlocal, escaped, escaped heap)
-q_16, points-to NULL, points-to vars: { D.4066 } (nonlocal)
-p2_36, points-to NULL, points-to vars: { D.4065 } (nonlocal)
-_37, points-to NULL, points-to vars: { D.4060 D.4061 } (nonlocal, escaped, escaped heap)
+p_8, points-to NULL, points-to vars: { D.4061 D.4062 } (nonlocal, escaped, escaped heap)
+p2_11, points-to NULL, points-to vars: { D.4061 D.4062 } (nonlocal, escaped, escaped heap)
+q_16, points-to NULL, points-to vars: { D.4067 } (nonlocal)
+p2_36, points-to NULL, points-to vars: { D.4066 } (nonlocal)
+_37, points-to NULL, points-to vars: { D.4061 D.4062 } (nonlocal, escaped, escaped heap)
 
 main ()
 {
   int * p2;
-  int * D.4057;
+  int * D.4058;
   pthread_t t;
   int * q;
   char buff[50];

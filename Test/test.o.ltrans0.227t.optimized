@@ -58,20 +58,23 @@ child (void * data)
   int data2;
   int * pData;
   int * * ppData;
+  union pthread_mutex_t mLock2;
   void * _1;
   int * _3;
   int * _4;
-  int * _35;
+  int * _40;
 
   <bb 2> [100.00%]:
+  pthread_mutex_lock (&mLock2);
+  pthread_mutex_lock (&mLock2);
   pthread_mutex_lock (&mLock);
   pthread_mutex_lock (&mLock);
-  ppData_11 = malloc (10);
+  ppData_13 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  p2_34 = malloc (1);
-  *p2_34 = 1;
-  _35 = foo2 (1);
+  p2_39 = malloc (1);
+  *p2_39 = 1;
+  _40 = foo2 (1);
   data2 = 0;
   pData = &data2;
   data2 = 10;
@@ -83,6 +86,7 @@ child (void * data)
   free (&data2);
   pthread_mutex_unlock (&mLock);
   free (&pData);
+  mLock2 ={v} {CLOBBER};
   pData ={v} {CLOBBER};
   data2 ={v} {CLOBBER};
   return;

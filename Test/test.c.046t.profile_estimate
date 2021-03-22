@@ -194,6 +194,7 @@ child (void * data)
   int * a;
   int * pData;
   int * * ppData;
+  union pthread_mutex_t mLock2;
   void * _1;
   int * _2;
   int * _4;
@@ -202,12 +203,14 @@ child (void * data)
   int * pData.1_8;
 
   <bb 2> [100.00%]:
+  pthread_mutex_lock (&mLock2);
+  pthread_mutex_lock (&mLock2);
   pthread_mutex_lock (&mLock);
   pthread_mutex_lock (&mLock);
-  ppData_13 = malloc (10);
+  ppData_15 = malloc (10);
   _1 = malloc (20);
   pData = _1;
-  a_17 = foo (1);
+  a_19 = foo (1);
   data2 = 0;
   pData = &data2;
   _2 = pData;
@@ -222,6 +225,7 @@ child (void * data)
   free (pData.1_8);
   pthread_mutex_unlock (&mLock);
   free (&pData);
+  mLock2 ={v} {CLOBBER};
   pData ={v} {CLOBBER};
   data2 ={v} {CLOBBER};
   return;
@@ -230,7 +234,7 @@ child (void * data)
 
 
 
-;; Function boo (boo, funcdef_no=56, decl_uid=4350, cgraph_uid=56, symbol_order=58)
+;; Function boo (boo, funcdef_no=56, decl_uid=4351, cgraph_uid=56, symbol_order=58)
 
 ;; 1 loops found
 ;;
@@ -243,7 +247,7 @@ Predictions for bb 2
 1 edges in bb 2 predicted to even probabilities
 boo (int * b)
 {
-  int D.4407;
+  int D.4408;
   int _5;
 
   <bb 2> [100.00%]:
@@ -319,7 +323,7 @@ test22 (int * k)
 
 
 
-;; Function main (main, funcdef_no=60, decl_uid=4361, cgraph_uid=60, symbol_order=62)
+;; Function main (main, funcdef_no=60, decl_uid=4362, cgraph_uid=60, symbol_order=62)
 
 ;; 1 loops found
 ;;

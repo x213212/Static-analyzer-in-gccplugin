@@ -82,7 +82,7 @@ struct ptb
 };
 
 /*ptb declaration*/
-ptb start1, start2, start3, start4, start5, start6, start7;
+ptb start1, start2, start3, start4, start5, start6, start7, start8, start9;
 ptb *ptable, *retable, *ftable;
 ptb *phitable, *return_table, *use_table, *fopen_table;
 ptb *locktable;
@@ -301,6 +301,16 @@ void init_table()
 	start7.next = NULL;
 	start7.state = POINTER_NOT_EXIST;
 	fopen_table = &start7;
+
+	start8.target = NULL_TREE;
+	start8.next = NULL;
+	start8.state = POINTER_NOT_EXIST;
+	locktable = &start8;
+
+	start9.target = NULL_TREE;
+	start9.next = NULL;
+	start9.state = POINTER_NOT_EXIST;
+	unlocktable = &start9;
 }
 
 /*set allocation and deallocation table*/
@@ -1223,7 +1233,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 	name = get_name(gimple_call_fn(gc));
 	if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 	{
-
+		// addr_expr free (&a)
 		if (!strcmp(get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0))), "addr_expr"))
 		{
 			// debug_gimple_stmt(gc);
@@ -1235,24 +1245,23 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 			// debug_tree(gimple_call_arg(gc, 0));
 			set_ptb(bb, ftable, gimple_call_arg(gc, 0), loc, 0, gc, node);
 
+		}
 			// tree getreturnFucntionDecl = TREE_OPERAND(get_function_return_tree, 0);
 			tree getFucntionDecl = (node->get_fun()->decl);
-			if (function_free_collect->get(getFucntionDecl) == NULL)
-			{
-				fprintf(stderr, "--------------------collect_Function free------------------\n");
-				return;
-			}
 
 			vector<free_type> free_type_array;
 			function_free_array fun_array;
 			if (function_free_collect->get(getFucntionDecl) == NULL)
 			{
+				// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
 				fun_array.free_type_array = free_type_array;
+				
 			}
 			else
 			{
 				fun_array = *(function_free_collect->get(getFucntionDecl));
 				free_type_array = fun_array.free_type_array;
+				
 			}
 
 			struct free_type free_type;
@@ -1262,25 +1271,32 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 
 			fun_array.free_type_array.push_back(free_type);
 			function_free_collect->put(node->get_fun()->decl, fun_array);
-		}
 	}
+	 
 	else if (!strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
 	{
 		set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
 	}
-	
+					// warning_at(gimple_location(gc), 0, "use location");
 	else  if (!strcmp(name, "pthread_mutex_lock") )
 	{
 			fprintf(stderr, "================================================\n");
 		debug(gc);
+		
 		debug_tree( gimple_call_arg(gc, 0));
-		// set_ptb(bb, locktable, gimple_call_arg(gc,0), loc, 0, gc, node);
+					fprintf(stderr, "================================================\n");
+		tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
+		debug_tree(second);
+		set_ptb(bb, locktable, second, loc, 0, gc, node);
 
 	}else if (!strcmp(name, "pthread_mutex_unlock") ){
 			fprintf(stderr, "================================================\n");
 		debug(gc);
 		debug_tree(  gimple_call_arg(gc, 0));
-		// set_ptb(bb,	unlocktable, gimple_call_arg(gc,0), loc, 0, gc, node);
+					fprintf(stderr, "================================================\n");
+		tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
+		debug_tree(second);
+		set_ptb(bb,	unlocktable, second, loc, 0, gc, node);
 
 	}
 }
