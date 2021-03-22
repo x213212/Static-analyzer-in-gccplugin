@@ -1,1111 +1,848 @@
 
-;; Function commit_list_insert (commit_list_insert, funcdef_no=0, decl_uid=4030, cgraph_uid=6, symbol_order=45)
+;; Function strbuf_release (strbuf_release, funcdef_no=0, decl_uid=4045, cgraph_uid=8, symbol_order=52)
 
-commit_list_insert (struct commit * item, struct commit_list * * list_p)
+strbuf_release (struct strbuf * sb)
 {
-  struct commit_list * new_list;
-  struct commit_list * _1;
+  long unsigned int _1;
+  char * _2;
 
   <bb 2> [100.00%]:
-  new_list_4 = malloc (16);
-  new_list_4->item = item_5(D);
-  _1 = *list_p_7(D);
-  new_list_4->next = _1;
-  *list_p_7(D) = new_list_4;
-  return new_list_4;
-
-}
-
-
-
-;; Function reduce_heads (reduce_heads, funcdef_no=1, decl_uid=4027, cgraph_uid=3, symbol_order=47) (executed once)
-
-reduce_heads (struct commit_list * heads)
-{
-  unsigned long ivtmp.37;
-  unsigned long ivtmp.30;
-  unsigned long ivtmp.25;
-  unsigned long ivtmp.20;
-  unsigned long ivtmp.18;
-  unsigned long ivtmp.11;
-  unsigned long ivtmp.6;
-  unsigned long ivtmp.3;
-  struct commit * * work;
-  unsigned char * redundant;
-  int * filled_index;
-  int i;
-  int j;
-  int filled;
-  struct commit_list * common;
-  int D.4093;
-  int i;
-  int num_head;
-  struct commit * * array;
-  struct commit_list * * tail;
-  struct commit_list * result;
-  struct commit_list * p;
-  struct commit * _1;
-  <unnamed-unsigned:27> _2;
-  <unnamed-unsigned:27> _4;
-  struct commit * _5;
-  <unnamed-unsigned:27> _6;
-  unsigned int _7;
-  unsigned int _8;
-  <unnamed-unsigned:27> _12;
-  long unsigned int _13;
-  struct commit * _14;
-  <unnamed-unsigned:27> _15;
-  unsigned int _16;
-  unsigned int _17;
-  unsigned int _18;
-  long unsigned int _19;
-  long unsigned int _20;
-  struct commit * * _21;
-  struct commit * _23;
-  <unnamed-unsigned:27> _24;
-  <unnamed-unsigned:27> _26;
-  struct commit * _30;
-  struct commit_list * _31;
-  unsigned long _40;
-  struct commit_list * _41;
-  <unnamed-unsigned:27> _51;
-  <unnamed-unsigned:27> _53;
-  struct commit_list * _59;
-  unsigned long _82;
-  int _94;
-  int _95;
-  long unsigned int _96;
-  unsigned long _99;
-  unsigned long _100;
-  struct commit * _102;
-  unsigned char _107;
-  unsigned char _111;
-  long unsigned int _113;
-  long unsigned int _114;
-  int * _115;
-  unsigned long _119;
-  void * _121;
-  long unsigned int _122;
-  struct commit * * _123;
-  struct commit * _124;
-  unsigned int _126;
-  struct commit * _129;
-  int _130;
-  long int _131;
-  unsigned int _133;
-  unsigned long _134;
-  unsigned long _135;
-  struct commit * _136;
-  <unnamed-unsigned:27> _137;
-  unsigned int _138;
-  <unnamed-unsigned:27> _139;
-  unsigned int _140;
-  unsigned long _141;
-  long unsigned int _142;
-  struct commit * _147;
-  <unnamed-unsigned:27> _148;
-  unsigned int _149;
-  <unnamed-unsigned:27> _150;
-  unsigned int _151;
-  int _155;
-  sizetype _156;
-  unsigned char * _157;
-  unsigned long _159;
-  unsigned long _161;
-  unsigned long _162;
-  struct commit * _167;
-  unsigned int _170;
-  unsigned char _174;
-  unsigned long _175;
-  unsigned int _179;
-  long unsigned int _181;
-  long unsigned int _182;
-  struct commit * * _183;
-  struct commit * _184;
-  unsigned int _187;
-  unsigned char _190;
-  unsigned long _191;
-  unsigned long _194;
-  long unsigned int _197;
-  long unsigned int _198;
-  struct commit * * _199;
-  struct commit * _200;
-  int _207;
-  long unsigned int _208;
-  int _212;
-  unsigned long _219;
-  unsigned long _221;
-  void * _231;
-  unsigned long _236;
-  unsigned int _243;
-  unsigned int _244;
-  unsigned long _245;
-  unsigned int _252;
-  unsigned int _260;
-  unsigned int _262;
-  void * _263;
-  unsigned long _276;
-  unsigned long _278;
-  unsigned long _281;
-  unsigned long _285;
-  unsigned int _290;
-  unsigned int _294;
-  unsigned long _296;
-  unsigned int _298;
-
-  <bb 2> [5.40%]:
-  result = 0B;
-  if (heads_52(D) == 0B)
-    goto <bb 52>; [4.07%]
+  _1 = sb_5(D)->alloc;
+  if (_1 != 0)
+    goto <bb 3>; [36.64%]
   else
-    goto <bb 53>; [95.93%]
+    goto <bb 5>; [63.36%]
 
-  <bb 52> [0.22%]:
-  goto <bb 46>; [100.00%]
-
-  <bb 53> [5.18%]:
-
-  <bb 3> [29.34%]:
-  # p_265 = PHI <p_71(54), heads_52(D)(53)>
-  _1 = p_265->item;
-  _2 = _1->object.flags;
-  _4 = _2 & 133955583;
-  _1->object.flags = _4;
-  p_71 = p_265->next;
-  if (p_71 != 0B)
-    goto <bb 54>; [85.00%]
-  else
-    goto <bb 55>; [15.00%]
-
-  <bb 54> [24.94%]:
-  goto <bb 3>; [100.00%]
-
-  <bb 55> [4.40%]:
-
-  <bb 4> [29.34%]:
-  # p_266 = PHI <p_69(57), heads_52(D)(55)>
-  # num_head_269 = PHI <num_head_36(57), 0(55)>
-  _5 = p_266->item;
-  _6 = _5->object.flags;
-  _7 = (unsigned int) _6;
-  _53 = _6 & 262144;
-  _8 = (unsigned int) _53;
-  if (_53 != 0)
-    goto <bb 56>; [33.00%]
-  else
-    goto <bb 5>; [67.00%]
-
-  <bb 56> [9.68%]:
-  goto <bb 6>; [100.00%]
-
-  <bb 5> [19.66%]:
-  _12 = _6 | 262144;
-  _5->object.flags = _12;
-  num_head_68 = num_head_269 + 1;
-
-  <bb 6> [29.34%]:
-  # num_head_36 = PHI <num_head_269(56), num_head_68(5)>
-  p_69 = p_266->next;
-  if (p_69 != 0B)
-    goto <bb 57>; [85.00%]
-  else
-    goto <bb 7>; [15.00%]
-
-  <bb 57> [24.94%]:
+  <bb 5> [63.36%]:
   goto <bb 4>; [100.00%]
 
-  <bb 7> [5.18%]:
-  _13 = (long unsigned int) num_head_36;
-  array_55 = calloc (_13, 8);
-
-  <bb 8> [29.34%]:
-  # p_267 = PHI <p_66(59), heads_52(D)(7)>
-  # i_271 = PHI <i_38(59), 0(7)>
-  _14 = p_267->item;
-  _15 = _14->object.flags;
-  _16 = (unsigned int) _15;
-  _51 = _15 & 262144;
-  _17 = (unsigned int) _51;
-  if (_51 != 0)
-    goto <bb 9>; [50.00%]
-  else
-    goto <bb 58>; [50.00%]
-
-  <bb 58> [14.67%]:
-  goto <bb 10>; [100.00%]
-
-  <bb 9> [14.67%]:
-  i_63 = i_271 + 1;
-  _19 = (long unsigned int) i_271;
-  _20 = _19 * 8;
-  _21 = array_55 + _20;
-  *_21 = _14;
-  _23 = p_267->item;
-  _24 = _23->object.flags;
-  _26 = _24 & 133955583;
-  _23->object.flags = _26;
-
-  <bb 10> [29.34%]:
-  # i_38 = PHI <i_271(58), i_63(9)>
-  p_66 = p_267->next;
-  if (p_66 != 0B)
-    goto <bb 59>; [85.00%]
-  else
-    goto <bb 11>; [15.00%]
-
-  <bb 59> [24.94%]:
-  goto <bb 8>; [100.00%]
-
-  <bb 11> [5.18%]:
-  work_91 = calloc (_13, 8);
-  redundant_93 = calloc (_13, 1);
-  _94 = num_head_36 + -1;
-  _95 = st_mult (4, _94);
-  _96 = (long unsigned int) _95;
-  filled_index_97 = malloc (_96);
-  if (num_head_36 > 0)
-    goto <bb 12>; [85.00%]
-  else
-    goto <bb 31>; [15.00%]
-
-  <bb 12> [4.40%]:
-  ivtmp.37_264 = (unsigned long) array_55;
-  _298 = (unsigned int) num_head_36;
-  _294 = _298 + 4294967295;
-  _236 = (unsigned long) _294;
-  _162 = _236 * 8;
-  _161 = ivtmp.37_264;
-  _100 = ivtmp.37_264 + 8;
-  _159 = _100 + _162;
-
-  <bb 13> [29.34%]:
-  # ivtmp.37_270 = PHI <ivtmp.37_274(60), ivtmp.37_264(12)>
-  _263 = (void *) ivtmp.37_270;
-  _102 = MEM[base: _263, offset: 0B];
-  parse_commit (_102);
-  ivtmp.37_274 = ivtmp.37_270 + 8;
-  if (_159 != ivtmp.37_274)
-    goto <bb 60>; [85.00%]
-  else
-    goto <bb 14>; [15.00%]
-
-  <bb 60> [24.94%]:
-  goto <bb 13>; [100.00%]
-
-  <bb 14> [4.40%]:
-  _252 = _298;
-  _262 = _294;
-  _278 = _236;
-  _276 = _236 + 1;
-
-  <bb 15> [29.34%]:
-  # ivtmp.30_254 = PHI <ivtmp.30_253(70), 0(14)>
-  i_282 = (int) ivtmp.30_254;
-  _107 = MEM[base: redundant_93, index: ivtmp.30_254, offset: 0B];
-  if (_107 != 0)
-    goto <bb 61>; [48.88%]
-  else
-    goto <bb 16>; [51.12%]
-
-  <bb 61> [14.34%]:
-  goto <bb 30>; [100.00%]
-
-  <bb 16> [15.00%]:
-  _260 = _298;
-  _244 = _294;
-  _296 = _236;
-  _285 = _276;
-
-  <bb 17> [85.00%]:
-  # filled_284 = PHI <filled_203(64), 0(16)>
-  # ivtmp.25_178 = PHI <ivtmp.25_261(64), 0(16)>
-  j_283 = (int) ivtmp.25_178;
-  j_77 = j_283;
-  if (i_282 == j_283)
-    goto <bb 62>; [20.24%]
-  else
-    goto <bb 18>; [79.76%]
-
-  <bb 62> [17.20%]:
-  goto <bb 20>; [100.00%]
-
-  <bb 18> [67.80%]:
-  _111 = MEM[base: redundant_93, index: ivtmp.25_178, offset: 0B];
-  if (_111 != 0)
-    goto <bb 63>; [33.00%]
-  else
-    goto <bb 19>; [67.00%]
-
-  <bb 63> [22.37%]:
-  goto <bb 20>; [100.00%]
-
-  <bb 19> [45.42%]:
-  _113 = (long unsigned int) filled_284;
-  _114 = _113 * 4;
-  _115 = filled_index_97 + _114;
-  *_115 = j_283;
-  filled_120 = filled_284 + 1;
-  _122 = _113 * 8;
-  _123 = work_91 + _122;
-  _124 = MEM[base: array_55, index: ivtmp.25_178, step: 8, offset: 0B];
-  *_123 = _124;
-
-  <bb 20> [85.00%]:
-  # filled_203 = PHI <filled_284(63), filled_120(19), filled_284(62)>
-  ivtmp.25_261 = ivtmp.25_178 + 1;
-  if (ivtmp.25_261 != _276)
-    goto <bb 64>; [85.00%]
-  else
-    goto <bb 21>; [15.00%]
-
-  <bb 64> [72.25%]:
-  goto <bb 17>; [100.00%]
-
-  <bb 21> [15.00%]:
-  _129 = MEM[base: array_55, index: ivtmp.30_254, step: 8, offset: 0B];
-  _130 = paint_down_to_common (_129, filled_203, work_91);
-  _131 = (long int) _130;
-  common_132 = (struct commit_list *) _131;
-  _136 = MEM[base: array_55, index: ivtmp.30_254, step: 8, offset: 0B];
-  _137 = _136->object.flags;
-  _138 = (unsigned int) _137;
-  _139 = _137 & 131072;
-  _140 = (unsigned int) _139;
-  if (_139 != 0)
-    goto <bb 22>; [50.00%]
-  else
-    goto <bb 65>; [50.00%]
-
-  <bb 65> [7.50%]:
-  goto <bb 23>; [100.00%]
-
-  <bb 22> [7.50%]:
-  MEM[base: redundant_93, index: ivtmp.30_254, offset: 0B] = 1;
-
-  <bb 23> [15.00%]:
-  if (filled_203 > 0)
-    goto <bb 24>; [85.00%]
-  else
-    goto <bb 48>; [15.00%]
-
-  <bb 24> [12.75%]:
-  _290 = (unsigned int) filled_203;
-  _187 = _290 + 4294967295;
-  _194 = (unsigned long) _187;
-  _221 = _194 + 1;
-
-  <bb 25> [85.00%]:
-  # ivtmp.20_204 = PHI <ivtmp.20_304(67), 0(24)>
-  _147 = MEM[base: work_91, index: ivtmp.20_204, step: 8, offset: 0B];
-  _148 = _147->object.flags;
-  _149 = (unsigned int) _148;
-  _150 = _148 & 65536;
-  _151 = (unsigned int) _150;
-  if (_150 != 0)
-    goto <bb 26>; [50.00%]
-  else
-    goto <bb 66>; [50.00%]
-
-  <bb 66> [42.50%]:
-  goto <bb 27>; [100.00%]
-
-  <bb 26> [42.50%]:
-  _155 = MEM[base: filled_index_97, index: ivtmp.20_204, step: 4, offset: 0B];
-  _156 = (sizetype) _155;
-  _157 = redundant_93 + _156;
-  *_157 = 1;
-
-  <bb 27> [85.00%]:
-  ivtmp.20_304 = ivtmp.20_204 + 1;
-  if (_221 != ivtmp.20_304)
-    goto <bb 67>; [85.00%]
-  else
-    goto <bb 47>; [15.00%]
-
-  <bb 67> [72.25%]:
-  goto <bb 25>; [100.00%]
-
-  <bb 68> [72.25%]:
-
-  <bb 28> [85.00%]:
-  # ivtmp.18_11 = PHI <ivtmp.18_22(68), ivtmp.18_25(47)>
-  _231 = (void *) ivtmp.18_11;
-  _167 = MEM[base: _231, offset: 0B];
-  clear_commit_marks (_167, 983040);
-  ivtmp.18_22 = ivtmp.18_11 + 8;
-  if (ivtmp.18_22 != _82)
-    goto <bb 68>; [85.00%]
-  else
-    goto <bb 69>; [15.00%]
-
-  <bb 69> [12.75%]:
-
-  <bb 29> [15.00%]:
-  free_commit_list (common_132);
-
-  <bb 30> [29.34%]:
-  ivtmp.30_253 = ivtmp.30_254 + 1;
-  if (ivtmp.30_253 != _276)
-    goto <bb 70>; [85.00%]
-  else
-    goto <bb 50>; [15.00%]
-
-  <bb 70> [24.94%]:
-  goto <bb 15>; [100.00%]
-
-  <bb 31> [0.78%]:
-  if (_13 != 0)
-    goto <bb 32>; [36.64%]
-  else
-    goto <bb 71>; [63.36%]
-
-  <bb 32> [0.29%]:
-  _207 = st_mult (8, _13);
-  _208 = (long unsigned int) _207;
-  memcpy (work_91, array_55, _208);
-  if (num_head_36 > 0)
-    goto <bb 72>; [100.00%]
-  else
-    goto <bb 73>; [0.00%]
-
-  <bb 72> [0.29%]:
-
-  <bb 33> [1.90%]:
-  _243 = (unsigned int) num_head_36;
-  _170 = _243 + 4294967295;
-  _175 = (unsigned long) _170;
-  _191 = _175 + 1;
-
-  <bb 34> [29.34%]:
-  # filled_289 = PHI <filled_205(75), 0(33)>
-  # ivtmp.11_247 = PHI <ivtmp.11_246(75), 0(33)>
-  _174 = MEM[base: redundant_93, index: ivtmp.11_247, offset: 0B];
-  if (_174 == 0)
-    goto <bb 35>; [50.00%]
-  else
-    goto <bb 74>; [50.00%]
-
-  <bb 74> [14.67%]:
-  goto <bb 36>; [100.00%]
-
-  <bb 35> [14.67%]:
-  filled_180 = filled_289 + 1;
-  _181 = (long unsigned int) filled_289;
-  _182 = _181 * 8;
-  _183 = array_55 + _182;
-  _184 = MEM[base: work_91, index: ivtmp.11_247, step: 8, offset: 0B];
-  *_183 = _184;
-
-  <bb 36> [29.34%]:
-  # filled_205 = PHI <filled_289(74), filled_180(35)>
-  ivtmp.11_246 = ivtmp.11_247 + 1;
-  if (_191 != ivtmp.11_246)
-    goto <bb 75>; [85.00%]
-  else
-    goto <bb 76>; [15.00%]
-
-  <bb 76> [4.40%]:
-  goto <bb 38>; [100.00%]
-
-  <bb 75> [24.94%]:
-  goto <bb 34>; [100.00%]
-
-  <bb 71> [0.49%]:
-
-  <bb 37> [0.78%]:
-  if (num_head_36 > 0)
-    goto <bb 77>; [0.38%]
-  else
-    goto <bb 78>; [99.62%]
-
-  <bb 78> [0.78%]:
-  goto <bb 51>; [100.00%]
-
-  <bb 77> [0.00%]:
-
-  <bb 38> [4.40%]:
-  # j_171 = PHI <filled_205(76), 0(77)>
-
-  <bb 39> [29.34%]:
-  # j_292 = PHI <j_171(38), j_206(80)>
-  # ivtmp.6_35 = PHI <0(38), ivtmp.6_57(80)>
-  _190 = MEM[base: redundant_93, index: ivtmp.6_35, offset: 0B];
-  if (_190 != 0)
-    goto <bb 40>; [50.00%]
-  else
-    goto <bb 79>; [50.00%]
-
-  <bb 79> [14.67%]:
-  goto <bb 41>; [100.00%]
-
-  <bb 40> [14.67%]:
-  j_196 = j_292 + 1;
-  _197 = (long unsigned int) j_292;
-  _198 = _197 * 8;
-  _199 = array_55 + _198;
-  _200 = MEM[base: work_91, index: ivtmp.6_35, step: 8, offset: 0B];
-  *_199 = _200;
-
-  <bb 41> [29.34%]:
-  # j_206 = PHI <j_292(79), j_196(40)>
-  ivtmp.6_57 = ivtmp.6_35 + 1;
-  i_152 = (int) ivtmp.6_57;
-  if (num_head_36 > i_152)
-    goto <bb 80>; [85.00%]
-  else
-    goto <bb 42>; [15.00%]
-
-  <bb 80> [24.94%]:
-  goto <bb 39>; [100.00%]
-
-  <bb 42> [4.40%]:
-  free (work_91);
-  free (redundant_93);
-  free (filled_index_97);
-  if (j_171 > 0)
-    goto <bb 43>; [100.00%]
-  else
-    goto <bb 81>; [0.00%]
-
-  <bb 81> [0.00%]:
-  goto <bb 45>; [100.00%]
-
-  <bb 43> [4.40%]:
-  ivtmp.3_116 = (unsigned long) array_55;
-  _126 = (unsigned int) j_171;
-  _133 = _126 + 4294967295;
-  _134 = (unsigned long) _133;
-  _135 = _134 * 8;
-  _141 = ivtmp.3_116;
-  _281 = ivtmp.3_116 + 8;
-  _40 = _135 + _281;
-
-  <bb 44> [29.34%]:
-  # tail_268 = PHI <tail_61(82), &result(43)>
-  # ivtmp.3_90 = PHI <ivtmp.3_92(82), ivtmp.3_116(43)>
-  _121 = (void *) ivtmp.3_90;
-  _30 = MEM[base: _121, offset: 0B];
-  _31 = commit_list_insert (_30, tail_268);
-  tail_61 = &_31->next;
-  ivtmp.3_92 = ivtmp.3_90 + 8;
-  if (_40 != ivtmp.3_92)
-    goto <bb 82>; [85.00%]
-  else
-    goto <bb 83>; [15.00%]
-
-  <bb 82> [24.94%]:
-  goto <bb 44>; [100.00%]
-
-  <bb 83> [4.40%]:
-
-  <bb 45> [5.18%]:
-  free (array_55);
-  _59 = result;
-
-  <bb 46> [5.40%]:
-  # _41 = PHI <heads_52(D)(52), _59(45)>
-  result ={v} {CLOBBER};
-  return _41;
-
-  <bb 47> [12.75%]:
-  clear_commit_marks (_136, 983040);
-  ivtmp.18_25 = (unsigned long) work_91;
-  _179 = _290;
-  _18 = _187;
-  _245 = _194;
-  _219 = _194 * 8;
-  _119 = ivtmp.18_25;
-  _99 = ivtmp.18_25 + 8;
-  _82 = _99 + _219;
-  goto <bb 28>; [100.00%]
-
-  <bb 48> [2.25%]:
-  clear_commit_marks (_136, 983040);
-  goto <bb 29>; [100.00%]
-
-  <bb 49> [1.61%]:
-  _212 = st_mult (8, _13);
-  _142 = (long unsigned int) _212;
-  memcpy (work_91, array_55, _142);
-  goto <bb 33>; [100.00%]
-
-  <bb 50> [4.40%]:
-  if (_13 != 0)
-    goto <bb 49>; [36.64%]
-  else
-    goto <bb 84>; [63.36%]
-
-  <bb 84> [2.79%]:
-  goto <bb 37>; [100.00%]
-
-  <bb 73> [0.00%]:
-
-  <bb 51> [0.78%]:
-  free (work_91);
-  free (redundant_93);
-  free (filled_index_97);
-  goto <bb 45>; [100.00%]
+  <bb 3> [36.64%]:
+  _2 = sb_5(D)->buf;
+  free (_2);
+  strbuf_init (sb_5(D), 0);
+
+  <bb 4> [100.00%]:
+  return;
 
 }
 
 
 
-;; Function main (main, funcdef_no=4, decl_uid=3985, cgraph_uid=0, symbol_order=50) (executed once)
+;; Function main (main, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=57) (executed once)
 
 main ()
 {
-  struct commit_list * h;
-  int i;
-  int marked;
-  struct commit_list * po;
-  struct commit_list * pn;
-  int orig_cnt;
-  int cnt;
-  int D.4176;
-  struct commit_list * parents;
-  struct commit * head_commit;
-  int pos;
-  int i;
-  int j;
-  char * p;
-  char * newline;
-  struct object_id oid;
-  struct commit * parent;
-  struct object * obj;
-  struct commit * cmit;
-  int i;
-  struct commit_list * list;
-  struct object_id head;
-  struct strbuf in;
-  struct merge_parents result;
-  struct commit_list * _1;
-  struct commit * _2;
-  struct commit_list * _3;
-  int _25;
-  char * _28;
-  long int _33;
-  long int _34;
-  long int _35;
-  int _36;
-  long unsigned int _37;
-  int _38;
-  _Bool _39;
-  int _40;
-  int _41;
-  int _42;
-  int _44;
-  char _45;
-  char _46;
+  unsigned char _swap_buffer[24];
+  void * ret;
+  void * D.4293;
+  int new_buf;
+  size_t oldalloc;
+  int len;
+  int D.4273;
+  size_t hint;
+  struct files_ref_store * refs;
+  struct strbuf sb_contents;
+  struct strbuf sb_path;
+  const char * path;
+  const char * buf;
+  int fd;
+  int ret;
+  int save_errno;
+  int remaining_retries;
+  struct stat st;
+  int save_errno;
+  int D.4258;
+  struct ref_lock * lock;
+  struct strbuf ref_file;
+  int ret;
+  int D.4207;
+  struct strbuf referent;
+  int mustexist;
+  int ret;
+  struct ref_lock * lock;
+  char * reason;
+  char * write_err;
+  int D.4174;
+  struct strbuf err;
+  struct string_list affected_refnames;
+  char * head_ref;
+  struct ref_transaction transaction;
+  struct ref_update update;
+  struct files_ref_store refs;
+  int _15;
+  long int _16;
+  int _18;
+  long unsigned int _19;
+  unsigned int _20;
+  unsigned int _21;
+  unsigned int _22;
+  unsigned int _23;
+  long unsigned int _24;
+  char * _26;
+  int _28;
+  unsigned int _29;
+  unsigned int _30;
+  int _31;
+  long unsigned int _32;
+  struct object_id * _33;
+  int _34;
+  char * _35;
+  struct object_id * _38;
+  int _39;
+  unsigned int _40;
+  unsigned int _41;
+  unsigned int _42;
+  unsigned int _43;
+  struct object_id * _46;
   int _47;
-  long int _48;
   int _50;
-  long int _51;
-  struct object_id * _53;
-  struct object_id * _54;
-  long unsigned int _55;
-  long unsigned int _56;
-  int _57;
-  long int _58;
-  struct commit_list * _60;
-  struct commit_list * _61;
-  int _62;
-  long int _63;
-  struct object_id * _65;
-  struct merge_parent * _66;
-  long unsigned int _68;
+  int _51;
+  long int _52;
+  unsigned int _54;
+  unsigned int _55;
+  unsigned int _56;
+  unsigned int _57;
+  int _59;
+  char * _62;
+  unsigned char[20] * _63;
   long unsigned int _69;
-  struct merge_parent * _70;
-  struct object_id * _71;
-  int _72;
-  struct merge_parent * _73;
-  unsigned int ivtmp_74;
-  struct merge_parent * _76;
-  int _78;
-  struct commit_list * _79;
-  struct merge_parent * _80;
-  long unsigned int _82;
-  long unsigned int _83;
-  struct merge_parent * _84;
-  unsigned char _85;
-  unsigned int ivtmp_88;
-  long unsigned int _92;
-  long unsigned int _93;
-  struct merge_parent * _94;
-  int _97;
-  struct commit_list * _100;
-  struct commit_list * _102;
-  struct commit * _108;
-  struct commit * _109;
-  struct commit * _113;
-  <unnamed-unsigned:27> _114;
-  <unnamed-unsigned:27> _116;
-  int _120;
-  int _121;
-  int _165;
+  int _70;
+  long int _71;
+  long unsigned int _75;
+  int _77;
+  int * _78;
+  int _79;
+  int _80;
+  int * _83;
+  int _84;
+  _Bool _85;
+  _Bool _86;
+  _Bool _87;
+  char * _88;
+  int _89;
+  char * _90;
+  int _91;
+  unsigned int _92;
+  unsigned int _93;
+  int _95;
+  int * _96;
+  int _100;
+  char _104;
+  int _105;
+  int _106;
+  unsigned int _107;
+  unsigned int _108;
+  int _109;
+  char _110;
+  int _112;
+  int _113;
+  unsigned int _114;
+  unsigned int _115;
+  int * _116;
+  char * _123;
+  int * _125;
+  int _126;
+  long unsigned int _127;
+  long unsigned int _131;
+  _Bool _132;
+  int _134;
+  long unsigned int _135;
+  long unsigned int _136;
+  int _137;
+  int _138;
+  int _144;
+  long unsigned int _145;
+  long unsigned int _146;
+  long unsigned int _148;
+  unsigned int ivtmp_150;
+  unsigned int ivtmp_151;
+  long unsigned int _152;
+  int _153;
+  long unsigned int _154;
+  long unsigned int _155;
+  int _156;
+  long unsigned int _157;
+  char * _158;
+  long unsigned int _159;
+  char * _160;
+  _Bool _162;
+  _Bool _163;
+  _Bool _164;
+  _Bool _168;
+  _Bool _170;
+  int _173;
+  long unsigned int _186;
+  int * _205;
+  int * _243;
+  long unsigned int _320;
+  long unsigned int _322;
+  long unsigned int _323;
 
-  <bb 2> [2.65%]:
-
-  <bb 3> [26.49%]:
-  # ivtmp_88 = PHI <ivtmp_74(42), 10(2)>
-  commit_list_insert (0B, &list);
-  ivtmp_74 = ivtmp_88 + 4294967295;
-  if (ivtmp_74 != 0)
-    goto <bb 42>; [90.91%]
+  <bb 2> [6.76%]:
+  referent.alloc = 0;
+  referent.len = 0;
+  referent.buf = &strbuf_slopbuf;
+  if (head_ref_2(D) != 0B)
+    goto <bb 3>; [70.00%]
   else
-    goto <bb 4>; [9.09%]
+    goto <bb 72>; [30.00%]
 
-  <bb 42> [24.08%]:
-  goto <bb 3>; [100.00%]
+  <bb 72> [2.03%]:
+  goto <bb 4>; [100.00%]
 
-  <bb 4> [2.65%]:
-  _1 = list;
-  _2 = _1->item;
-  _100 = _2->parents;
-  h_101 = reduce_heads (_100);
-  _102 = _2->parents;
-  orig_cnt_103 = commit_list_count (_102);
-  cnt_104 = commit_list_count (h_101);
-  po_105 = _2->parents;
-  if (po_105 != 0B)
-    goto <bb 43>; [85.00%]
+  <bb 3> [4.73%]:
+  ret_10 = split_head_update (&update, &transaction, head_ref_2(D), &affected_refnames, &err);
+  if (ret_10 != 0)
+    goto <bb 73>; [46.00%]
   else
-    goto <bb 44>; [15.00%]
+    goto <bb 74>; [54.00%]
 
-  <bb 44> [0.40%]:
-  goto <bb 10>; [100.00%]
+  <bb 73> [2.18%]:
+  goto <bb 66>; [100.00%]
 
-  <bb 43> [2.25%]:
+  <bb 74> [2.55%]:
 
-  <bb 5> [15.01%]:
-  # pn_180 = PHI <pn_125(47), h_101(43)>
-  # po_181 = PHI <po_119(47), po_105(43)>
-  # i_182 = PHI <i_123(47), 0(43)>
-  # marked_184 = PHI <marked_124(47), 0(43)>
-  if (pn_180 != 0B)
-    goto <bb 6>; [70.00%]
+  <bb 4> [4.58%]:
+  ref_file.alloc = 0;
+  ref_file.len = 0;
+  ref_file.buf = &strbuf_slopbuf;
+  MEM[(unsigned int *)&update + 56B] = 0;
+  lock_61 = calloc (1, 40);
+  _62 = strdup (&update.refname);
+  lock_61->ref_name = _62;
+  files_ref_path (&refs, &ref_file, &update.refname);
+  _63 = &lock_61->old_oid.hash;
+  _70 = files_downcast (&refs.base, 1, "read_raw_ref");
+  _71 = (long int) _70;
+  refs_72 = (struct files_ref_store *) _71;
+  sb_contents.alloc = 0;
+  sb_contents.len = 0;
+  sb_contents.buf = &strbuf_slopbuf;
+  sb_path.alloc = 0;
+  sb_path.len = 0;
+  sb_path.buf = &strbuf_slopbuf;
+  MEM[(unsigned int *)&update + 56B] = 0;
+  strbuf_reset (&sb_path);
+  files_ref_path (refs_72, &sb_path, &update.refname);
+  path_73 = sb_path.buf;
+  goto <bb 6>; [100.00%]
+
+stat_ref [9.03%]:
+  ivtmp_151 = ivtmp_150 + 4294967295;
+  if (ivtmp_151 == 0)
+    goto <bb 75>; [37.68%]
   else
-    goto <bb 45>; [30.00%]
+    goto <bb 76>; [62.32%]
 
-  <bb 6> [10.51%]:
-  _108 = po_181->item;
-  _109 = pn_180->item;
-  if (_108 == _109)
-    goto <bb 7>; [30.00%]
+  <bb 76> [5.63%]:
+
+  <bb 6> [10.21%]:
+  # ivtmp_150 = PHI <ivtmp_151(76), 3(4)>
+  _77 = __lxstat (1, path_73, &st);
+  if (_77 < 0)
+    goto <bb 7>; [3.75%]
   else
-    goto <bb 46>; [70.00%]
+    goto <bb 10>; [96.25%]
 
-  <bb 46> [7.36%]:
-  goto <bb 8>; [100.00%]
-
-  <bb 7> [3.15%]:
-  pn_110 = pn_180->next;
-  i_112 = i_182 + 1;
-  goto <bb 9>; [100.00%]
-
-  <bb 45> [4.50%]:
-
-  <bb 8> [11.86%]:
-  _113 = po_181->item;
-  _114 = _113->object.flags;
-  _116 = _114 | 16;
-  _113->object.flags = _116;
-  marked_118 = marked_184 + 1;
-
-  <bb 9> [15.01%]:
-  # i_123 = PHI <i_112(7), i_182(8)>
-  # marked_124 = PHI <marked_184(7), marked_118(8)>
-  # pn_125 = PHI <pn_110(7), pn_180(8)>
-  po_119 = po_181->next;
-  if (po_119 != 0B)
-    goto <bb 47>; [85.00%]
+  <bb 7> [0.38%]:
+  _78 = __errno_location ();
+  _79 = *_78;
+  if (_79 != 2)
+    goto <bb 77>; [7.44%]
   else
-    goto <bb 48>; [15.00%]
+    goto <bb 8>; [92.56%]
 
-  <bb 47> [12.76%]:
-  goto <bb 5>; [100.00%]
+  <bb 77> [0.03%]:
+  goto <bb 70>; [100.00%]
 
-  <bb 48> [2.25%]:
-
-  <bb 10> [2.65%]:
-  # i_183 = PHI <i_123(48), 0(44)>
-  # marked_185 = PHI <marked_124(48), 0(44)>
-  if (cnt_104 != i_183)
-    goto <bb 49>; [0.04%]
+  <bb 8> [0.35%]:
+  _80 = resolve_packed_ref (refs_72, &update.refname, _63, &update.type);
+  if (_80 != 0)
+    goto <bb 9>; [2.00%]
   else
-    goto <bb 11>; [99.96%]
+    goto <bb 78>; [98.00%]
 
-  <bb 49> [0.00%]:
-  goto <bb 12>; [100.00%]
+  <bb 9> [0.01%]:
+  *_78 = 2;
+  goto <bb 70>; [100.00%]
 
-  <bb 11> [2.65%]:
-  _120 = cnt_104 + marked_185;
-  if (orig_cnt_103 != _120)
-    goto <bb 50>; [0.04%]
+  <bb 10> [9.82%]:
+  strbuf_reset (&sb_contents);
+  oldalloc_121 = sb_contents.alloc;
+
+  <bb 11> [95.00%]:
+  # hint_175 = PHI <hint_128(93), 32(10)>
+  _131 = sb_contents.alloc;
+  _132 = _131 == 0;
+  new_buf_133 = (int) _132;
+  _134 = unsigned_add_overflows (hint_175, 1);
+  if (_134 != 0)
+    goto <bb 79>; [0.04%]
   else
-    goto <bb 13>; [99.96%]
+    goto <bb 12>; [99.96%]
 
-  <bb 50> [0.00%]:
+  <bb 79> [0.04%]:
+  goto <bb 13>; [100.00%]
 
-  <bb 12> [0.00%]:
-  _121 = __printf_chk (1, "mark_redundant_parents %d", orig_cnt_103);
+  <bb 12> [94.96%]:
+  _135 = hint_175 + 1;
+  _136 = sb_contents.len;
+  _137 = unsigned_add_overflows (_136, _135);
+  if (_137 != 0)
+    goto <bb 80>; [0.04%]
+  else
+    goto <bb 14>; [99.96%]
+
+  <bb 80> [0.04%]:
+
+  <bb 13> [0.08%]:
+  _138 = __printf_chk (1, "you want to use way too much memory%s", "");
   exit (1);
 
-  <bb 13> [2.65%]:
-  free_commit_list (h_101);
-  _3 = list;
-  free_commit_list (_3);
-  parents = 0B;
-  goto <bb 25>; [100.00%]
-
-  <bb 14> [15.00%]:
-  _28 = in.buf;
-  p_31 = _28 + _55;
-  newline_32 = strchr (p_31, 10);
-  if (newline_32 != 0B)
-    goto <bb 15>; [70.00%]
+  <bb 14> [94.92%]:
+  if (_131 == 0)
+    goto <bb 15>; [50.00%]
   else
-    goto <bb 16>; [30.00%]
+    goto <bb 67>; [50.00%]
 
-  <bb 15> [10.50%]:
-  _33 = (long int) newline_32;
-  _34 = (long int) p_31;
-  _35 = _33 - _34;
-  _36 = (int) _35;
-  goto <bb 17>; [100.00%]
-
-  <bb 16> [4.50%]:
-  _37 = strlen (p_31);
-  _38 = (int) _37;
-
-  <bb 17> [15.00%]:
-  # _41 = PHI <_36(15), _38(16)>
-  _39 = newline_32 != 0B;
-  _40 = (int) _39;
-  _42 = _40 + _41;
-  pos_43 = pos_29 + _42;
-  if (_41 <= 42)
-    goto <bb 51>; [50.00%]
+  <bb 15> [47.46%]:
+  sb_contents.buf = 0B;
+  _75 = sb_contents.len;
+  _186 = _75 + 1;
+  _159 = hint_175 + _186;
+  _69 = sb_contents.alloc;
+  if (_69 < _159)
+    goto <bb 81>; [58.00%]
   else
-    goto <bb 18>; [50.00%]
+    goto <bb 82>; [42.00%]
 
-  <bb 18> [7.50%]:
-  _44 = get_oid_hex (p_31, &oid);
-  if (_44 != 0)
-    goto <bb 52>; [33.00%]
+  <bb 82> [19.93%]:
+  goto <bb 27>; [100.00%]
+
+  <bb 81> [27.53%]:
+
+  <bb 16> [31.32%]:
+  # _323 = PHI <_32(114), _69(81)>
+  _144 = alloc_nr (_323);
+  _145 = (long unsigned int) _144;
+  _146 = sb_contents.len;
+  _322 = _146 + 1;
+  _148 = hint_175 + _322;
+  if (_145 < _148)
+    goto <bb 17>; [67.00%]
   else
-    goto <bb 19>; [67.00%]
+    goto <bb 18>; [33.00%]
 
-  <bb 52> [2.48%]:
-  goto <bb 23>; [100.00%]
+  <bb 17> [20.99%]:
+  sb_contents.alloc = _148;
+  goto <bb 19>; [100.00%]
 
-  <bb 19> [5.03%]:
-  _45 = MEM[(char *)p_31 + 40B];
-  if (_45 != 9)
-    goto <bb 53>; [48.88%]
+  <bb 18> [10.34%]:
+  _152 = sb_contents.alloc;
+  _153 = alloc_nr (_152);
+  _154 = (long unsigned int) _153;
+  sb_contents.alloc = _154;
+
+  <bb 19> [31.32%]:
+  _155 = sb_contents.alloc;
+  _156 = st_mult (1, _155);
+  _157 = (long unsigned int) _156;
+  _158 = sb_contents.buf;
+  ret_161 = realloc (_158, _157);
+  _162 = ret_161 == 0B;
+  _163 = _157 == 0;
+  _164 = _162 & _163;
+  if (_164 != 0)
+    goto <bb 20>; [33.00%]
   else
-    goto <bb 20>; [51.12%]
+    goto <bb 83>; [67.00%]
 
-  <bb 53> [2.46%]:
-  goto <bb 23>; [100.00%]
+  <bb 83> [20.98%]:
+  goto <bb 21>; [100.00%]
 
-  <bb 20> [2.57%]:
-  _46 = MEM[(char *)p_31 + 41B];
-  if (_46 != 9)
-    goto <bb 54>; [66.00%]
+  <bb 20> [10.34%]:
+  ret_165 = realloc (_158, 1);
+
+  <bb 21> [31.32%]:
+  # ret_166 = PHI <ret_161(83), ret_165(20)>
+  if (ret_166 == 0B)
+    goto <bb 22>; [19.86%]
   else
-    goto <bb 21>; [34.00%]
+    goto <bb 84>; [80.14%]
 
-  <bb 54> [1.70%]:
-  goto <bb 23>; [100.00%]
-
-  <bb 21> [0.87%]:
-  _47 = parse_object (&oid);
-  _48 = (long int) _47;
-  obj_49 = (struct object *) _48;
-  _50 = peel_to_type (0B, 0, obj_49, 1);
-  if (_50 == 0)
-    goto <bb 55>; [50.00%]
+  <bb 22> [6.22%]:
+  ret_167 = realloc (_158, _157);
+  _168 = ret_167 == 0B;
+  _170 = _163 & _168;
+  if (_170 != 0)
+    goto <bb 23>; [33.00%]
   else
-    goto <bb 22>; [50.00%]
+    goto <bb 85>; [67.00%]
 
-  <bb 55> [0.44%]:
-  goto <bb 23>; [100.00%]
-
-  <bb 22> [0.44%]:
-  _51 = (long int) _50;
-  parent_52 = (struct commit *) _51;
-  commit_list_insert (parent_52, &parents);
-  _53 = &parent_52->object.oid;
-  _54 = &obj_49->oid;
-  add_merge_parent (&result, _54, _53);
-  oid ={v} {CLOBBER};
+  <bb 85> [4.17%]:
   goto <bb 24>; [100.00%]
 
-  <bb 51> [7.50%]:
+  <bb 23> [2.05%]:
+  ret_171 = realloc (_158, 1);
 
-  <bb 23> [14.56%]:
-  oid ={v} {CLOBBER};
-
-  <bb 24> [15.00%]:
-
-  <bb 25> [17.65%]:
-  # pos_29 = PHI <pos_43(24), 0(13)>
-  _55 = (long unsigned int) pos_29;
-  _56 = in.len;
-  if (_55 < _56)
-    goto <bb 14>; [85.00%]
+  <bb 24> [6.22%]:
+  # ret_172 = PHI <ret_167(85), ret_171(23)>
+  if (ret_172 == 0B)
+    goto <bb 25>; [0.04%]
   else
-    goto <bb 26>; [15.00%]
+    goto <bb 86>; [99.96%]
 
-  <bb 26> [2.65%]:
-  _57 = lookup_commit (&head);
-  if (_57 != 0)
-    goto <bb 27>; [33.00%]
+  <bb 86> [6.22%]:
+  goto <bb 26>; [100.00%]
+
+  <bb 25> [0.00%]:
+  _173 = __printf_chk (1, "Out of memory, realloc failed%s", "");
+  exit (1);
+
+  <bb 84> [25.10%]:
+
+  <bb 26> [31.33%]:
+  # ret_174 = PHI <ret_166(84), ret_172(86)>
+  sb_contents.buf = ret_174;
+  if (_131 == 0)
+    goto <bb 87>; [100.00%]
   else
-    goto <bb 56>; [67.00%]
+    goto <bb 88>; [0.00%]
 
-  <bb 56> [1.78%]:
+  <bb 88> [0.00%]:
   goto <bb 28>; [100.00%]
 
-  <bb 27> [0.87%]:
-  _58 = (long int) _57;
-  head_commit_59 = (struct commit *) _58;
-  commit_list_insert (head_commit_59, &parents);
+  <bb 87> [31.33%]:
 
-  <bb 28> [2.65%]:
-  _60 = parents;
-  _61 = reduce_heads (_60);
-  parents = _61;
-  goto <bb 34>; [100.00%]
+  <bb 27> [51.26%]:
+  _160 = sb_contents.buf;
+  *_160 = 0;
 
-  <bb 29> [15.00%]:
-  _62 = pop_commit (&parents);
-  _63 = (long int) _62;
-  cmit_64 = (struct commit *) _63;
-  _165 = result.nr;
-  if (_165 > 0)
-    goto <bb 57>; [85.00%]
+  <bb 28> [94.92%]:
+  _123 = sb_contents.buf;
+  len_124 = readlink (path_73, _123, hint_175);
+  if (len_124 < 0)
+    goto <bb 29>; [36.00%]
   else
-    goto <bb 58>; [15.00%]
+    goto <bb 30>; [64.00%]
 
-  <bb 58> [2.25%]:
+  <bb 29> [34.17%]:
+  _125 = __errno_location ();
+  _126 = *_125;
+  if (_126 != 34)
+    goto <bb 89>; [5.00%]
+  else
+    goto <bb 90>; [95.00%]
+
+  <bb 89> [1.71%]:
   goto <bb 33>; [100.00%]
 
-  <bb 57> [12.75%]:
-
-  <bb 30> [85.00%]:
-  # i_176 = PHI <i_77(60), 0(57)>
-  _65 = &cmit_64->object.oid;
-  _66 = result.item;
-  _68 = (long unsigned int) i_176;
-  _69 = _68 * 41;
-  _70 = _66 + _69;
-  _71 = &_70->commit;
-  _72 = oidcmp (_71, _65);
-  if (_72 == 0)
-    goto <bb 31>; [50.00%]
+  <bb 30> [60.75%]:
+  _127 = (long unsigned int) len_124;
+  if (_127 < hint_175)
+    goto <bb 31>; [5.00%]
   else
-    goto <bb 59>; [50.00%]
+    goto <bb 91>; [95.00%]
 
-  <bb 59> [42.50%]:
+  <bb 91> [57.71%]:
   goto <bb 32>; [100.00%]
 
-  <bb 31> [42.50%]:
-  _73 = result.item;
-  _76 = _73 + _69;
-  _76->used = 1;
-
-  <bb 32> [85.00%]:
-  i_77 = i_176 + 1;
-  _78 = result.nr;
-  if (i_77 < _78)
-    goto <bb 60>; [85.00%]
+  <bb 31> [3.04%]:
+  strbuf_setlen (&sb_contents, len_124);
+  _88 = sb_contents.buf;
+  _89 = starts_with (_88, "refs/");
+  if (_89 != 0)
+    goto <bb 35>; [50.00%]
   else
-    goto <bb 61>; [15.00%]
+    goto <bb 92>; [50.00%]
 
-  <bb 60> [72.25%]:
-  goto <bb 30>; [100.00%]
+  <bb 90> [32.46%]:
 
-  <bb 61> [12.75%]:
-
-  <bb 33> [15.00%]:
-
-  <bb 34> [17.65%]:
-  _79 = parents;
-  if (_79 != 0B)
-    goto <bb 29>; [85.00%]
+  <bb 32> [90.20%]:
+  hint_128 = hint_175 * 2;
+  if (hint_128 <= 8191)
+    goto <bb 93>; [95.00%]
   else
-    goto <bb 35>; [15.00%]
+    goto <bb 94>; [5.00%]
 
-  <bb 35> [2.65%]:
-  _25 = result.nr;
-  if (_25 > 0)
-    goto <bb 62>; [85.00%]
+  <bb 93> [85.69%]:
+  goto <bb 11>; [100.00%]
+
+  <bb 94> [4.51%]:
+
+  <bb 33> [6.71%]:
+  if (oldalloc_121 == 0)
+    goto <bb 34>; [33.00%]
   else
-    goto <bb 63>; [15.00%]
+    goto <bb 95>; [67.00%]
 
-  <bb 63> [0.40%]:
-  goto <bb 41>; [100.00%]
+  <bb 34> [2.21%]:
+  strbuf_release (&sb_contents);
+  goto <bb 68>; [100.00%]
 
-  <bb 62> [2.25%]:
-
-  <bb 36> [15.00%]:
-  # i_177 = PHI <i_96(66), 0(62)>
-  # j_178 = PHI <j_99(66), 0(62)>
-  _80 = result.item;
-  _82 = (long unsigned int) i_177;
-  _83 = _82 * 41;
-  _84 = _80 + _83;
-  _85 = _84->used;
-  if (_85 != 0)
-    goto <bb 37>; [50.00%]
+  <bb 35> [0.18%]:
+  _90 = sb_contents.buf;
+  _91 = check_refname_format (_90, 0);
+  if (_91 == 0)
+    goto <bb 36>; [29.56%]
   else
-    goto <bb 64>; [50.00%]
+    goto <bb 96>; [70.44%]
 
-  <bb 64> [7.50%]:
-  goto <bb 40>; [100.00%]
+  <bb 96> [0.13%]:
+  goto <bb 37>; [100.00%]
 
-  <bb 37> [7.50%]:
-  if (i_177 != j_178)
-    goto <bb 38>; [66.00%]
+  <bb 36> [0.05%]:
+  MEM[(char * {ref-all})&_swap_buffer] = MEM[(char * {ref-all})&sb_contents];
+  MEM[(char * {ref-all})&sb_contents] = MEM[(char * {ref-all})&referent];
+  MEM[(char * {ref-all})&referent] = MEM[(char * {ref-all})&_swap_buffer];
+  _swap_buffer ={v} {CLOBBER};
+  _92 = MEM[(unsigned int *)&update + 56B];
+  _93 = _92 | 1;
+  MEM[(unsigned int *)&update + 56B] = _93;
+  goto <bb 69>; [100.00%]
+
+  <bb 92> [1.52%]:
+
+  <bb 37> [0.31%]:
+  strbuf_reset (&sb_contents);
+  _95 = strbuf_read (&sb_contents, fd_94(D), 256);
+  if (_95 < 0)
+    goto <bb 38>; [1.13%]
   else
-    goto <bb 65>; [34.00%]
+    goto <bb 39>; [98.87%]
 
-  <bb 65> [2.55%]:
-  goto <bb 39>; [100.00%]
+  <bb 38> [0.00%]:
+  _96 = __errno_location ();
+  save_errno_97 = *_96;
+  close (fd_94(D));
+  *_96 = save_errno_97;
+  goto <bb 70>; [100.00%]
 
-  <bb 38> [4.95%]:
-  _92 = (long unsigned int) j_178;
-  _93 = _92 * 41;
-  _94 = _80 + _93;
-  *_94 = *_84;
-
-  <bb 39> [7.50%]:
-  j_95 = j_178 + 1;
-
-  <bb 40> [15.00%]:
-  # j_99 = PHI <j_178(64), j_95(39)>
-  i_96 = i_177 + 1;
-  _97 = result.nr;
-  if (i_96 < _97)
-    goto <bb 66>; [85.00%]
+  <bb 39> [0.31%]:
+  strbuf_rtrim (&sb_contents);
+  buf_99 = sb_contents.buf;
+  _100 = starts_with (buf_99, "ref:");
+  if (_100 != 0)
+    goto <bb 40>; [67.00%]
   else
-    goto <bb 67>; [15.00%]
+    goto <bb 44>; [33.00%]
 
-  <bb 66> [12.75%]:
-  goto <bb 36>; [100.00%]
+  <bb 40> [0.21%]:
+  buf_101 = buf_99 + 4;
+  goto <bb 42>; [100.00%]
 
-  <bb 67> [2.25%]:
+  <bb 41> [1.17%]:
+  buf_103 = buf_102 + 1;
 
-  <bb 41> [2.65%]:
-  # j_179 = PHI <j_99(67), 0(63)>
-  result.nr = j_179;
-  parents ={v} {CLOBBER};
-  result ={v} {CLOBBER};
-  in ={v} {CLOBBER};
-  head ={v} {CLOBBER};
-  list ={v} {CLOBBER};
+  <bb 42> [1.38%]:
+  # buf_102 = PHI <buf_101(40), buf_103(41)>
+  _104 = MEM[base: buf_102, offset: 0B];
+  _105 = (int) _104;
+  _106 = isspace (_105);
+  if (_106 != 0)
+    goto <bb 41>; [85.00%]
+  else
+    goto <bb 43>; [15.00%]
+
+  <bb 43> [0.21%]:
+  strbuf_reset (&referent);
+  strbuf_addstr (&referent, buf_102);
+  _107 = MEM[(unsigned int *)&update + 56B];
+  _108 = _107 | 1;
+  MEM[(unsigned int *)&update + 56B] = _108;
+  goto <bb 69>; [100.00%]
+
+  <bb 44> [0.10%]:
+  _109 = get_sha1_hex (buf_99, _63);
+  if (_109 != 0)
+    goto <bb 97>; [2.00%]
+  else
+    goto <bb 45>; [98.00%]
+
+  <bb 97> [0.00%]:
+  goto <bb 47>; [100.00%]
+
+  <bb 45> [0.10%]:
+  _110 = MEM[(const char *)buf_99 + 40B];
+  if (_110 != 0)
+    goto <bb 46>; [54.00%]
+  else
+    goto <bb 98>; [46.00%]
+
+  <bb 98> [0.05%]:
+  goto <bb 69>; [100.00%]
+
+  <bb 46> [0.05%]:
+  _112 = (int) _110;
+  _113 = isspace (_112);
+  if (_113 == 0)
+    goto <bb 99>; [2.00%]
+  else
+    goto <bb 100>; [98.00%]
+
+  <bb 100> [0.05%]:
+  goto <bb 69>; [100.00%]
+
+  <bb 99> [0.00%]:
+
+  <bb 47> [0.00%]:
+  _114 = MEM[(unsigned int *)&update + 56B];
+  _115 = _114 | 4;
+  MEM[(unsigned int *)&update + 56B] = _115;
+  _116 = __errno_location ();
+  *_116 = 22;
+  goto <bb 70>; [100.00%]
+
+  <bb 48> [0.92%]:
+  if (mustexist_13(D) != 0)
+    goto <bb 49>; [1.00%]
+  else
+    goto <bb 101>; [99.00%]
+
+  <bb 101> [0.91%]:
+  goto <bb 71>; [100.00%]
+
+  <bb 49> [1.33%]:
+  strbuf_addf (&err, "unable to resolve reference \'%s\'", &update.refname);
+  unlock_ref (lock_61);
+  strbuf_release (&ref_file);
+  ref_file ={v} {CLOBBER};
+  _15 = strbuf_detach (&err, 0B);
+  _16 = (long int) _15;
+  reason_17 = (char *) _16;
+  _18 = original_update_refname (&update);
+  strbuf_addf (&err, "cannot lock ref \'%s\': %s", _18, reason_17);
+  free (reason_17);
+  goto <bb 66>; [100.00%]
+
+  <bb 50> [3.17%]:
+  update.backend_data = lock_61;
+  _20 = update.type;
+  _21 = _20 & 1;
+  if (_21 != 0)
+    goto <bb 51>; [67.00%]
+  else
+    goto <bb 57>; [33.00%]
+
+  <bb 51> [2.12%]:
+  _22 = update.flags;
+  _23 = _22 & 1;
+  if (_23 != 0)
+    goto <bb 52>; [50.00%]
+  else
+    goto <bb 56>; [50.00%]
+
+  <bb 52> [1.06%]:
+  _26 = referent.buf;
+  _28 = refs_read_ref_full (&refs.base, _26, 0, _63, 0B);
+  if (_28 != 0)
+    goto <bb 53>; [67.00%]
+  else
+    goto <bb 55>; [33.00%]
+
+  <bb 53> [0.71%]:
+  _29 = update.flags;
+  _30 = _29 & 16;
+  if (_30 != 0)
+    goto <bb 54>; [1.00%]
+  else
+    goto <bb 102>; [99.00%]
+
+  <bb 102> [0.70%]:
+  goto <bb 58>; [100.00%]
+
+  <bb 54> [0.01%]:
+  _31 = original_update_refname (&update);
+  strbuf_addf (&err, "cannot lock ref \'%s\': error reading reference", _31);
+  goto <bb 66>; [100.00%]
+
+  <bb 55> [0.35%]:
+  _33 = &lock_61->old_oid;
+  _34 = check_old_oid (&update, _33, &err);
+  if (_34 != 0)
+    goto <bb 103>; [2.00%]
+  else
+    goto <bb 104>; [98.00%]
+
+  <bb 104> [0.34%]:
+  goto <bb 58>; [100.00%]
+
+  <bb 103> [0.01%]:
+  goto <bb 66>; [100.00%]
+
+  <bb 56> [1.06%]:
+  _35 = referent.buf;
+  ret_36 = split_symref_update (&refs, &update, _35, &transaction, &affected_refnames, &err);
+  if (ret_36 != 0)
+    goto <bb 105>; [46.00%]
+  else
+    goto <bb 106>; [54.00%]
+
+  <bb 106> [0.57%]:
+  goto <bb 58>; [100.00%]
+
+  <bb 105> [0.49%]:
+  goto <bb 66>; [100.00%]
+
+  <bb 57> [1.05%]:
+  _38 = &lock_61->old_oid;
+  _39 = check_old_oid (&update, _38, &err);
+  if (_39 != 0)
+    goto <bb 107>; [2.00%]
+  else
+    goto <bb 108>; [98.00%]
+
+  <bb 107> [0.02%]:
+  goto <bb 66>; [100.00%]
+
+  <bb 108> [1.03%]:
+
+  <bb 58> [2.65%]:
+  _40 = BIT_FIELD_REF <update, 32, 320>;
+  _41 = _40 & 138;
+  if (_41 == 8)
+    goto <bb 59>; [34.00%]
+  else
+    goto <bb 109>; [66.00%]
+
+  <bb 109> [1.75%]:
+  goto <bb 64>; [100.00%]
+
+  <bb 59> [0.90%]:
+  _42 = update.type;
+  _43 = _42 & 1;
+  if (_43 == 0)
+    goto <bb 60>; [50.00%]
+  else
+    goto <bb 110>; [50.00%]
+
+  <bb 110> [0.45%]:
+  goto <bb 61>; [100.00%]
+
+  <bb 60> [0.45%]:
+  _46 = &lock_61->old_oid;
+  _47 = oidcmp (_46, &update.new_oid);
+  if (_47 == 0)
+    goto <bb 111>; [50.00%]
+  else
+    goto <bb 112>; [50.00%]
+
+  <bb 111> [0.23%]:
+  goto <bb 64>; [100.00%]
+
+  <bb 112> [0.23%]:
+
+  <bb 61> [0.68%]:
+  _50 = write_ref_to_lockfile (lock_61, &update.new_oid, &err);
+  if (_50 != 0)
+    goto <bb 62>; [1.00%]
+  else
+    goto <bb 63>; [99.00%]
+
+  <bb 62> [0.01%]:
+  _51 = strbuf_detach (&err, 0B);
+  _52 = (long int) _51;
+  write_err_53 = (char *) _52;
+  update.backend_data = 0B;
+  goto <bb 66>; [100.00%]
+
+  <bb 63> [0.67%]:
+  _54 = update.flags;
+  _55 = _54 | 32;
+  update.flags = _55;
+
+  <bb 64> [2.64%]:
+  _56 = update.flags;
+  _57 = _56 & 32;
+  if (_57 == 0)
+    goto <bb 65>; [36.64%]
+  else
+    goto <bb 113>; [63.36%]
+
+  <bb 113> [1.67%]:
+  goto <bb 66>; [100.00%]
+
+  <bb 65> [0.97%]:
+  _59 = close_ref (lock_61);
+
+  <bb 66> [6.68%]:
+  referent ={v} {CLOBBER};
+  refs ={v} {CLOBBER};
+  update ={v} {CLOBBER};
+  transaction ={v} {CLOBBER};
+  affected_refnames ={v} {CLOBBER};
+  err ={v} {CLOBBER};
   return 0;
+
+  <bb 67> [47.46%]:
+  _19 = sb_contents.len;
+  _320 = _19 + 1;
+  _24 = hint_175 + _320;
+  _32 = sb_contents.alloc;
+  if (_24 > _32)
+    goto <bb 114>; [8.00%]
+  else
+    goto <bb 115>; [92.00%]
+
+  <bb 115> [43.66%]:
+  goto <bb 28>; [100.00%]
+
+  <bb 114> [3.80%]:
+  goto <bb 16>; [100.00%]
+
+  <bb 95> [4.50%]:
+
+  <bb 68> [9.38%]:
+  _83 = __errno_location ();
+  _84 = *_83;
+  _85 = _84 == 2;
+  _86 = _84 == 22;
+  _87 = _85 | _86;
+  if (_87 != 0)
+    goto <bb 5> (stat_ref); [96.25%]
+  else
+    goto <bb 116>; [3.75%]
+
+  <bb 116> [0.35%]:
+  goto <bb 70>; [100.00%]
+
+  <bb 78> [0.34%]:
+
+  <bb 69> [2.06%]:
+  _243 = __errno_location ();
+  save_errno_82 = *_243;
+  strbuf_release (&sb_path);
+  strbuf_release (&sb_contents);
+  *_243 = save_errno_82;
+  sb_contents ={v} {CLOBBER};
+  sb_path ={v} {CLOBBER};
+  st ={v} {CLOBBER};
+  strbuf_release (&ref_file);
+  ref_file ={v} {CLOBBER};
+  goto <bb 50>; [100.00%]
+
+  <bb 75> [3.40%]:
+
+  <bb 70> [3.79%]:
+  _205 = __errno_location ();
+  save_errno_130 = *_205;
+  strbuf_release (&sb_path);
+  strbuf_release (&sb_contents);
+  *_205 = save_errno_130;
+  sb_contents ={v} {CLOBBER};
+  sb_path ={v} {CLOBBER};
+  st ={v} {CLOBBER};
+  if (save_errno_130 == 2)
+    goto <bb 48>; [37.68%]
+  else
+    goto <bb 117>; [62.32%]
+
+  <bb 117> [2.36%]:
+
+  <bb 71> [2.43%]:
+  strbuf_release (&ref_file);
+  ref_file ={v} {CLOBBER};
+  goto <bb 50>; [100.00%]
 
 }
 

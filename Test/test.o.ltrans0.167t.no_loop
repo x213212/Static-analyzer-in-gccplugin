@@ -1,18 +1,28 @@
 
-;; Function commit_list_insert (commit_list_insert, funcdef_no=0, decl_uid=4030, cgraph_uid=6, symbol_order=45)
+;; Function strbuf_release (strbuf_release, funcdef_no=0, decl_uid=4045, cgraph_uid=8, symbol_order=52)
 
-commit_list_insert (struct commit * item, struct commit_list * * list_p)
+strbuf_release (struct strbuf * sb)
 {
-  struct commit_list * new_list;
-  struct commit_list * _1;
+  long unsigned int _1;
+  char * _2;
 
   <bb 2> [100.00%]:
-  new_list_4 = malloc (16);
-  new_list_4->item = item_5(D);
-  _1 = *list_p_7(D);
-  new_list_4->next = _1;
-  *list_p_7(D) = new_list_4;
-  return new_list_4;
+  _1 = sb_5(D)->alloc;
+  if (_1 != 0)
+    goto <bb 3>; [36.64%]
+  else
+    goto <bb 5>; [63.36%]
+
+  <bb 5> [63.36%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [36.64%]:
+  _2 = sb_5(D)->buf;
+  free (_2);
+  strbuf_init (sb_5(D), 0);
+
+  <bb 4> [100.00%]:
+  return;
 
 }
 

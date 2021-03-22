@@ -21,579 +21,60 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function copy_array (copy_array, funcdef_no=39, decl_uid=3056, cgraph_uid=39, symbol_order=40)
+;; Function lstat (lstat, funcdef_no=40, decl_uid=3041, cgraph_uid=40, symbol_order=40)
 
 
 
- local analysis of copy_array
-   scanning: if (n_4(D) != 0)
-  scanning: _1 = st_mult (size_6(D), n_4(D));
-  scanning: _2 = (long unsigned int) _1;
-  scanning: memcpy (dst_8(D), src_9(D), _2);
-  scanning: return;
+ local analysis of lstat
+   scanning: _5 = __lxstat (1, __path_2(D), __statbuf_3(D));
+  scanning: return _5;
 Function is locally looping.
-copy_array (void * dst, const void * src, size_t n, size_t size)
+__attribute__((__gnu_inline__, __leaf__, __nothrow__))
+lstat (const char * __path, struct stat * __statbuf)
 {
-  int _1;
-  long unsigned int _2;
+  int _5;
 
   <bb 2> [100.00%]:
-  if (n_4(D) != 0)
-    goto <bb 3>; [36.64%]
-  else
-    goto <bb 4>; [63.36%]
+  _5 = __lxstat (1, __path_2(D), __statbuf_3(D));
+  return _5;
 
-  <bb 3> [36.64%]:
-  _1 = st_mult (size_6(D), n_4(D));
-  _2 = (long unsigned int) _1;
-  memcpy (dst_8(D), src_9(D), _2);
+}
 
-  <bb 4> [100.00%]:
+
+
+;; Function strbuf_swap (strbuf_swap, funcdef_no=48, decl_uid=3408, cgraph_uid=48, symbol_order=49)
+
+
+
+ local analysis of strbuf_swap
+   scanning: MEM[(char * {ref-all})&_swap_buffer] = MEM[(char * {ref-all})a_1(D)];
+    Indirect ref write is not const/pure
+    Indirect ref read is not const
+  scanning: memcpy (a_1(D), b_3(D), 24);
+  scanning: MEM[(char * {ref-all})b_3(D)] = MEM[(char * {ref-all})&_swap_buffer];
+    Indirect ref write is not const/pure
+    Indirect ref read is not const
+  scanning: _swap_buffer ={v} {CLOBBER};
+  scanning: return;
+Function is locally looping.
+strbuf_swap (struct strbuf * a, struct strbuf * b)
+{
+  unsigned char _swap_buffer[24];
+  void * _swap_b_ptr;
+  void * _swap_a_ptr;
+
+  <bb 2> [100.00%]:
+  MEM[(char * {ref-all})&_swap_buffer] = MEM[(char * {ref-all})a_1(D)];
+  memcpy (a_1(D), b_3(D), 24);
+  MEM[(char * {ref-all})b_3(D)] = MEM[(char * {ref-all})&_swap_buffer];
+  _swap_buffer ={v} {CLOBBER};
   return;
 
 }
 
 
 
-;; Function remove_redundant (remove_redundant, funcdef_no=45, decl_uid=3289, cgraph_uid=45, symbol_order=46)
-
-
-
- local analysis of remove_redundant
-   scanning: _1 = (long unsigned int) cnt_114(D);
-  scanning: work_117 = calloc (_1, 8);
-  scanning: _2 = (long unsigned int) cnt_114(D);
-  scanning: redundant_119 = calloc (_2, 1);
-  scanning: _3 = cnt_114(D) + -1;
-  scanning: _4 = st_mult (4, _3);
-  scanning: _5 = (long unsigned int) _4;
-  scanning: filled_index_122 = malloc (_5);
-  scanning: _6 = (long unsigned int) i_88;
-  scanning: _7 = _6 * 8;
-  scanning: _8 = array_125(D) + _7;
-  scanning: _9 = *_8;
-    Indirect ref read is not const
-  scanning: parse_commit (_9);
-  scanning: i_160 = i_88 + 1;
-  scanning: if (i_88 < cnt_114(D))
-  scanning: _10 = (sizetype) i_89;
-  scanning: _11 = redundant_119 + _10;
-  scanning: _12 = *_11;
-    Indirect ref to local memory is OK
-  scanning: if (_12 != 0)
-  scanning: // predicted unlikely by continue predictor.
-  scanning: if (i_89 == j_92)
-  scanning: _13 = (sizetype) j_92;
-  scanning: _14 = redundant_119 + _13;
-  scanning: _15 = *_14;
-    Indirect ref to local memory is OK
-  scanning: if (_15 != 0)
-  scanning: // predicted unlikely by continue predictor.
-  scanning: _16 = (long unsigned int) filled_98;
-  scanning: _17 = _16 * 4;
-  scanning: _18 = filled_index_122 + _17;
-  scanning: *_18 = j_92;
-    Indirect ref to local memory is OK
-  scanning: _19 = (long unsigned int) j_92;
-  scanning: _20 = _19 * 8;
-  scanning: _21 = array_125(D) + _20;
-  scanning: filled.1_22 = filled_98;
-  scanning: filled_155 = filled_98 + 1;
-  scanning: _23 = (long unsigned int) filled_98;
-  scanning: _24 = _23 * 8;
-  scanning: _25 = work_117 + _24;
-  scanning: _26 = *_21;
-    Indirect ref read is not const
-  scanning: *_25 = _26;
-    Indirect ref write is not const/pure
-  scanning: j_157 = j_92 + 1;
-  scanning: if (j_92 < cnt_114(D))
-  scanning: _27 = (long unsigned int) i_89;
-  scanning: _28 = _27 * 8;
-  scanning: _29 = array_125(D) + _28;
-  scanning: _30 = *_29;
-    Indirect ref read is not const
-  scanning: _31 = paint_down_to_common (_30, filled_98, work_117);
-  scanning: _32 = (long int) _31;
-  scanning: common_144 = (struct commit_list *) _32;
-  scanning: _33 = (long unsigned int) i_89;
-  scanning: _34 = _33 * 8;
-  scanning: _35 = array_125(D) + _34;
-  scanning: _36 = *_35;
-    Indirect ref read is not const
-  scanning: _37 = _36->object.flags;
-    Indirect ref read is not const
-  scanning: _38 = (unsigned int) _37;
-  scanning: _123 = _37 & 131072;
-  scanning: _39 = (unsigned int) _123;
-  scanning: if (_123 != 0)
-  scanning: _40 = (sizetype) i_89;
-  scanning: _41 = redundant_119 + _40;
-  scanning: *_41 = 1;
-    Indirect ref to local memory is OK
-  scanning: _42 = (long unsigned int) j_93;
-  scanning: _43 = _42 * 8;
-  scanning: _44 = work_117 + _43;
-  scanning: _45 = *_44;
-    Indirect ref read is not const
-  scanning: _46 = _45->object.flags;
-    Indirect ref read is not const
-  scanning: _47 = (unsigned int) _46;
-  scanning: _124 = _46 & 65536;
-  scanning: _48 = (unsigned int) _124;
-  scanning: if (_124 != 0)
-  scanning: _49 = (long unsigned int) j_93;
-  scanning: _50 = _49 * 4;
-  scanning: _51 = filled_index_122 + _50;
-  scanning: _52 = *_51;
-    Indirect ref to local memory is OK
-  scanning: _53 = (sizetype) _52;
-  scanning: _54 = redundant_119 + _53;
-  scanning: *_54 = 1;
-    Indirect ref to local memory is OK
-  scanning: j_153 = j_93 + 1;
-  scanning: if (j_93 < filled_98)
-  scanning: _56 = (long unsigned int) i_89;
-  scanning: _57 = _56 * 8;
-  scanning: _58 = array_125(D) + _57;
-  scanning: _59 = *_58;
-    Indirect ref read is not const
-  scanning: clear_commit_marks (_59, 983040);
-  scanning: _61 = (long unsigned int) j_94;
-  scanning: _62 = _61 * 8;
-  scanning: _63 = work_117 + _62;
-  scanning: _64 = *_63;
-    Indirect ref read is not const
-  scanning: clear_commit_marks (_64, 983040);
-  scanning: j_151 = j_94 + 1;
-  scanning: if (j_94 < filled_98)
-  scanning: free_commit_list (common_144);
-  scanning: i_158 = i_89 + 1;
-  scanning: if (i_89 < cnt_114(D))
-  scanning: _65 = (long unsigned int) cnt_114(D);
-  scanning: copy_array (work_117, array_125(D), _65, 8);
-  scanning: _66 = (sizetype) i_90;
-  scanning: _67 = redundant_119 + _66;
-  scanning: _68 = *_67;
-    Indirect ref to local memory is OK
-  scanning: if (_68 == 0)
-  scanning: _69 = (long unsigned int) i_90;
-  scanning: _70 = _69 * 8;
-  scanning: _71 = work_117 + _70;
-  scanning: filled.4_72 = filled_100;
-  scanning: filled_138 = filled_100 + 1;
-  scanning: _73 = (long unsigned int) filled_100;
-  scanning: _74 = _73 * 8;
-  scanning: _75 = array_125(D) + _74;
-  scanning: _76 = *_71;
-    Indirect ref read is not const
-  scanning: *_75 = _76;
-    Indirect ref write is not const/pure
-  scanning: i_140 = i_90 + 1;
-  scanning: if (i_90 < cnt_114(D))
-  scanning: j_129 = filled_100;
-  scanning: _77 = (sizetype) i_91;
-  scanning: _78 = redundant_119 + _77;
-  scanning: _79 = *_78;
-    Indirect ref to local memory is OK
-  scanning: if (_79 != 0)
-  scanning: _80 = (long unsigned int) i_91;
-  scanning: _81 = _80 * 8;
-  scanning: _82 = work_117 + _81;
-  scanning: j.5_83 = j_96;
-  scanning: j_135 = j_96 + 1;
-  scanning: _84 = (long unsigned int) j_96;
-  scanning: _85 = _84 * 8;
-  scanning: _86 = array_125(D) + _85;
-  scanning: _87 = *_82;
-    Indirect ref read is not const
-  scanning: *_86 = _87;
-    Indirect ref write is not const/pure
-  scanning: i_137 = i_91 + 1;
-  scanning: if (i_91 < cnt_114(D))
-  scanning: free (work_117);
-  scanning: free (redundant_119);
-  scanning: free (filled_index_122);
-  scanning: _134 = filled_100;
-  scanning: return filled_100;
-Function is locally looping.
-Function can locally free.
-remove_redundant (struct commit * * array, int cnt)
-{
-  struct commit_list * common;
-  int filled;
-  int j;
-  int i;
-  int * filled_index;
-  unsigned char * redundant;
-  struct commit * * work;
-  long unsigned int _1;
-  long unsigned int _2;
-  int _3;
-  int _4;
-  long unsigned int _5;
-  long unsigned int _6;
-  long unsigned int _7;
-  struct commit * * _8;
-  struct commit * _9;
-  sizetype _10;
-  unsigned char * _11;
-  unsigned char _12;
-  sizetype _13;
-  unsigned char * _14;
-  unsigned char _15;
-  long unsigned int _16;
-  long unsigned int _17;
-  int * _18;
-  long unsigned int _19;
-  long unsigned int _20;
-  struct commit * * _21;
-  int filled.1_22;
-  long unsigned int _23;
-  long unsigned int _24;
-  struct commit * * _25;
-  struct commit * _26;
-  long unsigned int _27;
-  long unsigned int _28;
-  struct commit * * _29;
-  struct commit * _30;
-  int _31;
-  long int _32;
-  long unsigned int _33;
-  long unsigned int _34;
-  struct commit * * _35;
-  struct commit * _36;
-  <unnamed-unsigned:27> _37;
-  unsigned int _38;
-  unsigned int _39;
-  sizetype _40;
-  unsigned char * _41;
-  long unsigned int _42;
-  long unsigned int _43;
-  struct commit * * _44;
-  struct commit * _45;
-  <unnamed-unsigned:27> _46;
-  unsigned int _47;
-  unsigned int _48;
-  long unsigned int _49;
-  long unsigned int _50;
-  int * _51;
-  int _52;
-  sizetype _53;
-  unsigned char * _54;
-  long unsigned int _56;
-  long unsigned int _57;
-  struct commit * * _58;
-  struct commit * _59;
-  long unsigned int _61;
-  long unsigned int _62;
-  struct commit * * _63;
-  struct commit * _64;
-  long unsigned int _65;
-  sizetype _66;
-  unsigned char * _67;
-  unsigned char _68;
-  long unsigned int _69;
-  long unsigned int _70;
-  struct commit * * _71;
-  int filled.4_72;
-  long unsigned int _73;
-  long unsigned int _74;
-  struct commit * * _75;
-  struct commit * _76;
-  sizetype _77;
-  unsigned char * _78;
-  unsigned char _79;
-  long unsigned int _80;
-  long unsigned int _81;
-  struct commit * * _82;
-  int j.5_83;
-  long unsigned int _84;
-  long unsigned int _85;
-  struct commit * * _86;
-  struct commit * _87;
-  <unnamed-unsigned:27> _123;
-  <unnamed-unsigned:27> _124;
-  int _134;
-
-  <bb 2> [5.18%]:
-  _1 = (long unsigned int) cnt_114(D);
-  work_117 = calloc (_1, 8);
-  _2 = (long unsigned int) cnt_114(D);
-  redundant_119 = calloc (_2, 1);
-  _3 = cnt_114(D) + -1;
-  _4 = st_mult (4, _3);
-  _5 = (long unsigned int) _4;
-  filled_index_122 = malloc (_5);
-  goto <bb 4>; [100.00%]
-
-  <bb 3> [29.34%]:
-  _6 = (long unsigned int) i_88;
-  _7 = _6 * 8;
-  _8 = array_125(D) + _7;
-  _9 = *_8;
-  parse_commit (_9);
-  i_160 = i_88 + 1;
-
-  <bb 4> [34.52%]:
-  # i_88 = PHI <0(2), i_160(3)>
-  if (i_88 < cnt_114(D))
-    goto <bb 3>; [85.00%]
-  else
-    goto <bb 37>; [15.00%]
-
-  <bb 37> [5.18%]:
-  goto <bb 25>; [100.00%]
-
-  <bb 5> [29.34%]:
-  _10 = (sizetype) i_89;
-  _11 = redundant_119 + _10;
-  _12 = *_11;
-  if (_12 != 0)
-    goto <bb 6>; [48.88%]
-  else
-    goto <bb 39>; [51.12%]
-
-  <bb 39> [15.00%]:
-  goto <bb 12>; [100.00%]
-
-  <bb 6> [14.34%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 24>; [100.00%]
-
-  <bb 7> [85.00%]:
-  if (i_89 == j_92)
-    goto <bb 9>; [20.24%]
-  else
-    goto <bb 8>; [79.76%]
-
-  <bb 8> [67.80%]:
-  _13 = (sizetype) j_92;
-  _14 = redundant_119 + _13;
-  _15 = *_14;
-  if (_15 != 0)
-    goto <bb 9>; [33.00%]
-  else
-    goto <bb 10>; [67.00%]
-
-  <bb 9> [39.58%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 11>; [100.00%]
-
-  <bb 10> [45.42%]:
-  _16 = (long unsigned int) filled_98;
-  _17 = _16 * 4;
-  _18 = filled_index_122 + _17;
-  *_18 = j_92;
-  _19 = (long unsigned int) j_92;
-  _20 = _19 * 8;
-  _21 = array_125(D) + _20;
-  filled.1_22 = filled_98;
-  filled_155 = filled_98 + 1;
-  _23 = (long unsigned int) filled_98;
-  _24 = _23 * 8;
-  _25 = work_117 + _24;
-  _26 = *_21;
-  *_25 = _26;
-
-  <bb 11> [85.00%]:
-  # filled_97 = PHI <filled_98(9), filled_155(10)>
-  j_157 = j_92 + 1;
-
-  <bb 12> [100.00%]:
-  # j_92 = PHI <0(39), j_157(11)>
-  # filled_98 = PHI <0(39), filled_97(11)>
-  if (j_92 < cnt_114(D))
-    goto <bb 7>; [85.00%]
-  else
-    goto <bb 13>; [15.00%]
-
-  <bb 13> [15.00%]:
-  _27 = (long unsigned int) i_89;
-  _28 = _27 * 8;
-  _29 = array_125(D) + _28;
-  _30 = *_29;
-  _31 = paint_down_to_common (_30, filled_98, work_117);
-  _32 = (long int) _31;
-  common_144 = (struct commit_list *) _32;
-  _33 = (long unsigned int) i_89;
-  _34 = _33 * 8;
-  _35 = array_125(D) + _34;
-  _36 = *_35;
-  _37 = _36->object.flags;
-  _38 = (unsigned int) _37;
-  _123 = _37 & 131072;
-  _39 = (unsigned int) _123;
-  if (_123 != 0)
-    goto <bb 14>; [50.00%]
-  else
-    goto <bb 19>; [50.00%]
-
-  <bb 14> [7.50%]:
-  _40 = (sizetype) i_89;
-  _41 = redundant_119 + _40;
-  *_41 = 1;
-
-  <bb 19> [15.00%]:
-  # j_104 = PHI <0(14), 0(13)>
-  goto <bb 38>; [100.00%]
-
-  <bb 16> [85.00%]:
-  _42 = (long unsigned int) j_93;
-  _43 = _42 * 8;
-  _44 = work_117 + _43;
-  _45 = *_44;
-  _46 = _45->object.flags;
-  _47 = (unsigned int) _46;
-  _124 = _46 & 65536;
-  _48 = (unsigned int) _124;
-  if (_124 != 0)
-    goto <bb 17>; [50.00%]
-  else
-    goto <bb 18>; [50.00%]
-
-  <bb 17> [42.50%]:
-  _49 = (long unsigned int) j_93;
-  _50 = _49 * 4;
-  _51 = filled_index_122 + _50;
-  _52 = *_51;
-  _53 = (sizetype) _52;
-  _54 = redundant_119 + _53;
-  *_54 = 1;
-
-  <bb 18> [85.00%]:
-  j_153 = j_93 + 1;
-
-  <bb 38> [100.00%]:
-  # j_93 = PHI <j_104(19), j_153(18)>
-  if (j_93 < filled_98)
-    goto <bb 16>; [85.00%]
-  else
-    goto <bb 20>; [15.00%]
-
-  <bb 20> [15.00%]:
-  _56 = (long unsigned int) i_89;
-  _57 = _56 * 8;
-  _58 = array_125(D) + _57;
-  _59 = *_58;
-  clear_commit_marks (_59, 983040);
-  goto <bb 22>; [100.00%]
-
-  <bb 21> [85.00%]:
-  _61 = (long unsigned int) j_94;
-  _62 = _61 * 8;
-  _63 = work_117 + _62;
-  _64 = *_63;
-  clear_commit_marks (_64, 983040);
-  j_151 = j_94 + 1;
-
-  <bb 22> [100.00%]:
-  # j_94 = PHI <0(20), j_151(21)>
-  if (j_94 < filled_98)
-    goto <bb 21>; [85.00%]
-  else
-    goto <bb 23>; [15.00%]
-
-  <bb 23> [15.00%]:
-  free_commit_list (common_144);
-
-  <bb 24> [29.34%]:
-  i_158 = i_89 + 1;
-
-  <bb 25> [34.52%]:
-  # i_89 = PHI <0(37), i_158(24)>
-  if (i_89 < cnt_114(D))
-    goto <bb 5>; [85.00%]
-  else
-    goto <bb 26>; [15.00%]
-
-  <bb 26> [5.18%]:
-  _65 = (long unsigned int) cnt_114(D);
-  copy_array (work_117, array_125(D), _65, 8);
-  goto <bb 30>; [100.00%]
-
-  <bb 27> [29.34%]:
-  _66 = (sizetype) i_90;
-  _67 = redundant_119 + _66;
-  _68 = *_67;
-  if (_68 == 0)
-    goto <bb 28>; [50.00%]
-  else
-    goto <bb 29>; [50.00%]
-
-  <bb 28> [14.67%]:
-  _69 = (long unsigned int) i_90;
-  _70 = _69 * 8;
-  _71 = work_117 + _70;
-  filled.4_72 = filled_100;
-  filled_138 = filled_100 + 1;
-  _73 = (long unsigned int) filled_100;
-  _74 = _73 * 8;
-  _75 = array_125(D) + _74;
-  _76 = *_71;
-  *_75 = _76;
-
-  <bb 29> [29.34%]:
-  # filled_99 = PHI <filled_100(27), filled_138(28)>
-  i_140 = i_90 + 1;
-
-  <bb 30> [34.52%]:
-  # i_90 = PHI <0(26), i_140(29)>
-  # filled_100 = PHI <0(26), filled_99(29)>
-  if (i_90 < cnt_114(D))
-    goto <bb 27>; [85.00%]
-  else
-    goto <bb 31>; [15.00%]
-
-  <bb 31> [5.18%]:
-  j_129 = filled_100;
-  goto <bb 35>; [100.00%]
-
-  <bb 32> [29.34%]:
-  _77 = (sizetype) i_91;
-  _78 = redundant_119 + _77;
-  _79 = *_78;
-  if (_79 != 0)
-    goto <bb 33>; [50.00%]
-  else
-    goto <bb 34>; [50.00%]
-
-  <bb 33> [14.67%]:
-  _80 = (long unsigned int) i_91;
-  _81 = _80 * 8;
-  _82 = work_117 + _81;
-  j.5_83 = j_96;
-  j_135 = j_96 + 1;
-  _84 = (long unsigned int) j_96;
-  _85 = _84 * 8;
-  _86 = array_125(D) + _85;
-  _87 = *_82;
-  *_86 = _87;
-
-  <bb 34> [29.34%]:
-  # j_95 = PHI <j_96(32), j_135(33)>
-  i_137 = i_91 + 1;
-
-  <bb 35> [34.52%]:
-  # i_91 = PHI <0(31), i_137(34)>
-  # j_96 = PHI <filled_100(31), j_95(34)>
-  if (i_91 < cnt_114(D))
-    goto <bb 32>; [85.00%]
-  else
-    goto <bb 36>; [15.00%]
-
-  <bb 36> [5.18%]:
-  free (work_117);
-  free (redundant_119);
-  free (filled_index_122);
-  _134 = filled_100;
-  return filled_100;
-
-}
-
-
-
-;; Function xrealloc (xrealloc, funcdef_no=43, decl_uid=3279, cgraph_uid=43, symbol_order=44)
+;; Function xrealloc (xrealloc, funcdef_no=49, decl_uid=3416, cgraph_uid=49, symbol_order=50)
 
 
 
@@ -620,7 +101,7 @@ Function is locally looping.
 Function can locally free.
 xrealloc (void * ptr, size_t size)
 {
-  int D.3514;
+  int D.3725;
   void * ret;
   _Bool _1;
   _Bool _2;
@@ -684,925 +165,1156 @@ xrealloc (void * ptr, size_t size)
 
 
 
-;; Function commit_list_insert (commit_list_insert, funcdef_no=44, decl_uid=3284, cgraph_uid=44, symbol_order=45)
+;; Function strbuf_grow (strbuf_grow, funcdef_no=50, decl_uid=3453, cgraph_uid=50, symbol_order=51)
 
 
 
- local analysis of commit_list_insert
-   scanning: new_list_4 = malloc (16);
-  scanning: new_list_4->item = item_5(D);
-    Indirect ref write is not const/pure
-  scanning: _1 = *list_p_7(D);
+ local analysis of strbuf_grow
+   scanning: _1 = sb_35(D)->alloc;
     Indirect ref read is not const
-  scanning: new_list_4->next = _1;
-    Indirect ref write is not const/pure
-  scanning: *list_p_7(D) = new_list_4;
-    Indirect ref write is not const/pure
-  scanning: _10 = new_list_4;
-  scanning: return new_list_4;
-Function is locally looping.
-commit_list_insert (struct commit * item, struct commit_list * * list_p)
-{
-  struct commit_list * new_list;
-  struct commit_list * _1;
-  struct commit_list * _10;
-
-  <bb 2> [100.00%]:
-  new_list_4 = malloc (16);
-  new_list_4->item = item_5(D);
-  _1 = *list_p_7(D);
-  new_list_4->next = _1;
-  *list_p_7(D) = new_list_4;
-  _10 = new_list_4;
-  return new_list_4;
-
-}
-
-
-
-;; Function reduce_heads (reduce_heads, funcdef_no=46, decl_uid=3331, cgraph_uid=46, symbol_order=47)
-
-
-
- local analysis of reduce_heads
-   scanning: result = 0B;
-  scanning: if (heads_52(D) == 0B)
-  scanning: _1 = p_32->item;
+  scanning: _2 = _1 == 0;
+  scanning: new_buf_36 = (int) _2;
+  scanning: _3 = unsigned_add_overflows (extra_37(D), 1);
+  scanning: if (_3 != 0)
+  scanning: _4 = extra_37(D) + 1;
+  scanning: _5 = sb_35(D)->len;
     Indirect ref read is not const
-  scanning: _2 = _1->object.flags;
-    Indirect ref read is not const
-  scanning: _3 = p_32->item;
-    Indirect ref read is not const
-  scanning: _4 = _2 & 133955583;
-  scanning: _3->object.flags = _4;
-    Indirect ref write is not const/pure
-  scanning: p_76 = p_32->next;
-    Indirect ref read is not const
-  scanning: if (p_32 != 0B)
-  scanning: _5 = p_33->item;
-    Indirect ref read is not const
-  scanning: _6 = _5->object.flags;
-    Indirect ref read is not const
-  scanning: _7 = (unsigned int) _6;
-  scanning: _53 = _6 & 262144;
-  scanning: _8 = (unsigned int) _53;
-  scanning: if (_53 != 0)
-  scanning: // predicted unlikely by continue predictor.
-  scanning: _9 = p_33->item;
-    Indirect ref read is not const
-  scanning: _10 = _9->object.flags;
-    Indirect ref read is not const
-  scanning: _11 = p_33->item;
-    Indirect ref read is not const
-  scanning: _12 = _10 | 262144;
-  scanning: _11->object.flags = _12;
-    Indirect ref write is not const/pure
-  scanning: num_head_73 = num_head_37 + 1;
-  scanning: p_74 = p_33->next;
-    Indirect ref read is not const
-  scanning: if (p_33 != 0B)
-  scanning: _13 = (long unsigned int) num_head_37;
-  scanning: array_57 = calloc (_13, 8);
-  scanning: _14 = p_34->item;
-    Indirect ref read is not const
-  scanning: _15 = _14->object.flags;
-    Indirect ref read is not const
-  scanning: _16 = (unsigned int) _15;
-  scanning: _51 = _15 & 262144;
-  scanning: _17 = (unsigned int) _51;
-  scanning: if (_51 != 0)
-  scanning: i.0_18 = i_39;
-  scanning: i_68 = i_39 + 1;
-  scanning: _19 = (long unsigned int) i_39;
-  scanning: _20 = _19 * 8;
-  scanning: _21 = array_57 + _20;
-  scanning: _22 = p_34->item;
-    Indirect ref read is not const
-  scanning: *_21 = _22;
-    Indirect ref write is not const/pure
-  scanning: _23 = p_34->item;
-    Indirect ref read is not const
-  scanning: _24 = _23->object.flags;
-    Indirect ref read is not const
-  scanning: _25 = p_34->item;
-    Indirect ref read is not const
-  scanning: _26 = _24 & 133955583;
-  scanning: _25->object.flags = _26;
-    Indirect ref write is not const/pure
-  scanning: p_71 = p_34->next;
-    Indirect ref read is not const
-  scanning: if (p_34 != 0B)
-  scanning: num_head_61 = remove_redundant (array_57, num_head_37);
-  scanning: _27 = (long unsigned int) i_40;
-  scanning: _28 = _27 * 8;
-  scanning: _29 = array_57 + _28;
-  scanning: _30 = *_29;
-    Indirect ref read is not const
-  scanning: _31 = commit_list_insert (_30, tail_35);
-  scanning: tail_66 = &_31->next;
-  scanning: i_67 = i_40 + 1;
-  scanning: if (i_40 < num_head_61)
-  scanning: free (array_57);
-  scanning: _64 = result;
-  scanning: result ={v} {CLOBBER};
-  scanning: return _41;
-Function is locally looping.
-Function can locally free.
-reduce_heads (struct commit_list * heads)
-{
-  int i;
-  int num_head;
-  struct commit * * array;
-  struct commit_list * * tail;
-  struct commit_list * result;
-  struct commit_list * p;
-  struct commit * _1;
-  <unnamed-unsigned:27> _2;
-  struct commit * _3;
-  <unnamed-unsigned:27> _4;
-  struct commit * _5;
-  <unnamed-unsigned:27> _6;
-  unsigned int _7;
-  unsigned int _8;
-  struct commit * _9;
-  <unnamed-unsigned:27> _10;
-  struct commit * _11;
-  <unnamed-unsigned:27> _12;
-  long unsigned int _13;
-  struct commit * _14;
-  <unnamed-unsigned:27> _15;
-  unsigned int _16;
-  unsigned int _17;
-  int i.0_18;
-  long unsigned int _19;
-  long unsigned int _20;
-  struct commit * * _21;
-  struct commit * _22;
-  struct commit * _23;
-  <unnamed-unsigned:27> _24;
-  struct commit * _25;
-  <unnamed-unsigned:27> _26;
-  long unsigned int _27;
-  long unsigned int _28;
-  struct commit * * _29;
-  struct commit * _30;
-  struct commit_list * _31;
-  struct commit_list * _41;
-  <unnamed-unsigned:27> _51;
-  <unnamed-unsigned:27> _53;
-  struct commit_list * _64;
-
-  <bb 2> [15.64%]:
-  result = 0B;
-  if (heads_52(D) == 0B)
-    goto <bb 19>; [4.07%]
-  else
-    goto <bb 21>; [95.93%]
-
-  <bb 21> [15.00%]:
-  goto <bb 4>; [100.00%]
-
-  <bb 3> [85.00%]:
-  _1 = p_32->item;
-  _2 = _1->object.flags;
-  _3 = p_32->item;
-  _4 = _2 & 133955583;
-  _3->object.flags = _4;
-  p_76 = p_32->next;
-
-  <bb 4> [100.00%]:
-  # p_32 = PHI <heads_52(D)(21), p_76(3)>
-  if (p_32 != 0B)
-    goto <bb 3>; [85.00%]
-  else
-    goto <bb 20>; [15.00%]
-
-  <bb 20> [15.00%]:
-  goto <bb 9>; [100.00%]
-
-  <bb 5> [85.00%]:
-  _5 = p_33->item;
-  _6 = _5->object.flags;
-  _7 = (unsigned int) _6;
-  _53 = _6 & 262144;
-  _8 = (unsigned int) _53;
-  if (_53 != 0)
-    goto <bb 6>; [33.00%]
-  else
-    goto <bb 7>; [67.00%]
-
-  <bb 6> [28.05%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 8>; [100.00%]
-
-  <bb 7> [56.95%]:
-  _9 = p_33->item;
-  _10 = _9->object.flags;
-  _11 = p_33->item;
-  _12 = _10 | 262144;
-  _11->object.flags = _12;
-  num_head_73 = num_head_37 + 1;
-
-  <bb 8> [85.00%]:
-  # num_head_36 = PHI <num_head_37(6), num_head_73(7)>
-  p_74 = p_33->next;
-
-  <bb 9> [100.00%]:
-  # p_33 = PHI <heads_52(D)(20), p_74(8)>
-  # num_head_37 = PHI <0(20), num_head_36(8)>
-  if (p_33 != 0B)
-    goto <bb 5>; [85.00%]
-  else
-    goto <bb 10>; [15.00%]
-
-  <bb 10> [15.00%]:
-  _13 = (long unsigned int) num_head_37;
-  array_57 = calloc (_13, 8);
-  goto <bb 14>; [100.00%]
-
-  <bb 11> [85.00%]:
-  _14 = p_34->item;
-  _15 = _14->object.flags;
-  _16 = (unsigned int) _15;
-  _51 = _15 & 262144;
-  _17 = (unsigned int) _51;
-  if (_51 != 0)
-    goto <bb 12>; [50.00%]
-  else
-    goto <bb 13>; [50.00%]
-
-  <bb 12> [42.50%]:
-  i.0_18 = i_39;
-  i_68 = i_39 + 1;
-  _19 = (long unsigned int) i_39;
-  _20 = _19 * 8;
-  _21 = array_57 + _20;
-  _22 = p_34->item;
-  *_21 = _22;
-  _23 = p_34->item;
-  _24 = _23->object.flags;
-  _25 = p_34->item;
-  _26 = _24 & 133955583;
-  _25->object.flags = _26;
-
-  <bb 13> [85.00%]:
-  # i_38 = PHI <i_39(11), i_68(12)>
-  p_71 = p_34->next;
-
-  <bb 14> [100.00%]:
-  # p_34 = PHI <heads_52(D)(10), p_71(13)>
-  # i_39 = PHI <0(10), i_38(13)>
-  if (p_34 != 0B)
-    goto <bb 11>; [85.00%]
-  else
-    goto <bb 15>; [15.00%]
-
-  <bb 15> [15.00%]:
-  num_head_61 = remove_redundant (array_57, num_head_37);
-  goto <bb 17>; [100.00%]
-
-  <bb 16> [85.00%]:
-  _27 = (long unsigned int) i_40;
-  _28 = _27 * 8;
-  _29 = array_57 + _28;
-  _30 = *_29;
-  _31 = commit_list_insert (_30, tail_35);
-  tail_66 = &_31->next;
-  i_67 = i_40 + 1;
-
-  <bb 17> [100.00%]:
-  # tail_35 = PHI <&result(15), tail_66(16)>
-  # i_40 = PHI <0(15), i_67(16)>
-  if (i_40 < num_head_61)
-    goto <bb 16>; [85.00%]
-  else
-    goto <bb 18>; [15.00%]
-
-  <bb 18> [15.00%]:
-  free (array_57);
-  _64 = result;
-
-  <bb 19> [15.64%]:
-  # _41 = PHI <0B(2), _64(18)>
-  result ={v} {CLOBBER};
-  return _41;
-
-}
-
-
-
-;; Function mark_redundant_parents (mark_redundant_parents, funcdef_no=48, decl_uid=3399, cgraph_uid=48, symbol_order=49)
-
-
-
- local analysis of mark_redundant_parents
-   scanning: _1 = commit_20(D)->parents;
-    Indirect ref read is not const
-  scanning: h_22 = reduce_heads (_1);
-  scanning: _2 = commit_20(D)->parents;
-    Indirect ref read is not const
-  scanning: orig_cnt_26 = commit_list_count (_2);
-  scanning: cnt_28 = commit_list_count (h_22);
-  scanning: po_29 = commit_20(D)->parents;
-    Indirect ref read is not const
-  scanning: if (pn_16 != 0B)
-  scanning: _3 = po_14->item;
-    Indirect ref read is not const
-  scanning: _4 = pn_16->item;
-    Indirect ref read is not const
-  scanning: if (_3 == _4)
-  scanning: pn_35 = pn_16->next;
-    Indirect ref read is not const
-  scanning: i_36 = i_11 + 1;
-  scanning: _5 = po_14->item;
-    Indirect ref read is not const
-  scanning: _6 = _5->object.flags;
-    Indirect ref read is not const
-  scanning: _7 = po_14->item;
-    Indirect ref read is not const
-  scanning: _8 = _6 | 16;
-  scanning: _7->object.flags = _8;
-    Indirect ref write is not const/pure
-  scanning: marked_38 = marked_13 + 1;
-  scanning: po_39 = po_14->next;
-    Indirect ref read is not const
-  scanning: if (po_14 != 0B)
-  scanning: if (i_11 != cnt_28)
-  scanning: _9 = marked_13 + cnt_28;
-  scanning: if (_9 != orig_cnt_26)
-  scanning: _40 = __printf_chk (1, "mark_redundant_parents %d", orig_cnt_26);
+  scanning: _6 = unsigned_add_overflows (_5, _4);
+  scanning: if (_6 != 0)
+  scanning: _51 = __printf_chk (1, "you want to use way too much memory%s", "");
   scanning: exit (1);
-  scanning: free_commit_list (h_22);
-  scanning: _32 = marked_13;
-  scanning: return marked_13;
-Function is locally looping.
-Function can locally free.
-mark_redundant_parents (struct rev_info * revs, struct commit * commit)
-{
-  int D.3522;
-  int cnt;
-  int orig_cnt;
-  struct commit_list * pn;
-  struct commit_list * po;
-  int marked;
-  int i;
-  struct commit_list * h;
-  struct commit_list * _1;
-  struct commit_list * _2;
-  struct commit * _3;
-  struct commit * _4;
-  struct commit * _5;
-  <unnamed-unsigned:27> _6;
-  struct commit * _7;
-  <unnamed-unsigned:27> _8;
-  int _9;
-  int _32;
-  int _40;
-
-  <bb 2> [15.00%]:
-  _1 = commit_20(D)->parents;
-  h_22 = reduce_heads (_1);
-  _2 = commit_20(D)->parents;
-  orig_cnt_26 = commit_list_count (_2);
-  cnt_28 = commit_list_count (h_22);
-  po_29 = commit_20(D)->parents;
-  goto <bb 8>; [100.00%]
-
-  <bb 3> [85.00%]:
-  if (pn_16 != 0B)
-    goto <bb 4>; [70.00%]
-  else
-    goto <bb 6>; [30.00%]
-
-  <bb 4> [59.50%]:
-  _3 = po_14->item;
-  _4 = pn_16->item;
-  if (_3 == _4)
-    goto <bb 5>; [30.00%]
-  else
-    goto <bb 6>; [70.00%]
-
-  <bb 5> [17.85%]:
-  pn_35 = pn_16->next;
-  i_36 = i_11 + 1;
-  goto <bb 7>; [100.00%]
-
-  <bb 6> [67.15%]:
-  _5 = po_14->item;
-  _6 = _5->object.flags;
-  _7 = po_14->item;
-  _8 = _6 | 16;
-  _7->object.flags = _8;
-  marked_38 = marked_13 + 1;
-
-  <bb 7> [85.00%]:
-  # i_10 = PHI <i_36(5), i_11(6)>
-  # marked_12 = PHI <marked_13(5), marked_38(6)>
-  # pn_15 = PHI <pn_35(5), pn_16(6)>
-  po_39 = po_14->next;
-
-  <bb 8> [100.00%]:
-  # i_11 = PHI <0(2), i_10(7)>
-  # marked_13 = PHI <0(2), marked_12(7)>
-  # po_14 = PHI <po_29(2), po_39(7)>
-  # pn_16 = PHI <h_22(2), pn_15(7)>
-  if (po_14 != 0B)
-    goto <bb 3>; [85.00%]
-  else
-    goto <bb 9>; [15.00%]
-
-  <bb 9> [15.00%]:
-  if (i_11 != cnt_28)
-    goto <bb 11>; [0.04%]
-  else
-    goto <bb 10>; [99.96%]
-
-  <bb 10> [14.99%]:
-  _9 = marked_13 + cnt_28;
-  if (_9 != orig_cnt_26)
-    goto <bb 11>; [0.04%]
-  else
-    goto <bb 12>; [99.96%]
-
-  <bb 11> [0.01%]:
-  _40 = __printf_chk (1, "mark_redundant_parents %d", orig_cnt_26);
-  exit (1);
-
-  <bb 12> [14.99%]:
-  free_commit_list (h_22);
-  _32 = marked_13;
-  return marked_13;
-
-}
-
-
-
-;; Function find_merge_parents (find_merge_parents, funcdef_no=47, decl_uid=3355, cgraph_uid=47, symbol_order=48)
-
-
-
- local analysis of find_merge_parents
-   scanning: parents = 0B;
-  scanning: _1 = in_75(D)->buf;
-    Indirect ref read is not const
-  scanning: _2 = (sizetype) pos_56;
-  scanning: p_96 = _1 + _2;
-  scanning: newline_97 = strchr (p_96, 10);
-  scanning: if (newline_97 != 0B)
-  scanning: newline.9_3 = (long int) newline_97;
-  scanning: p.10_4 = (long int) p_96;
-  scanning: _5 = newline.9_3 - p.10_4;
-  scanning: iftmp.8_99 = (int) _5;
-  scanning: _6 = strlen (p_96);
-  scanning: iftmp.8_98 = (int) _6;
-  scanning: _7 = newline_97 != 0B;
-  scanning: _8 = (int) _7;
-  scanning: _9 = _8 + iftmp.8_61;
-  scanning: pos_101 = _9 + pos_56;
-  scanning: if (iftmp.8_61 <= 42)
-  scanning: _10 = get_oid_hex (p_96, &oid);
-  scanning: if (_10 != 0)
-  scanning: _12 = MEM[(char *)p_96 + 40B];
-    Indirect ref read is not const
-  scanning: if (_12 != 9)
-  scanning: _14 = MEM[(char *)p_96 + 41B];
-    Indirect ref read is not const
-  scanning: if (_14 != 9)
-  scanning: // predicted unlikely by continue predictor.
-  scanning: _15 = parse_object (&oid);
-  scanning: _16 = (long int) _15;
-  scanning: obj_104 = (struct object *) _16;
-  scanning: _17 = peel_to_type (0B, 0, obj_104, 1);
-  scanning: _18 = (long int) _17;
-  scanning: parent_106 = (struct commit *) _18;
-  scanning: if (_17 == 0)
-  scanning: // predicted unlikely by continue predictor.
-  scanning: commit_list_insert (parent_106, &parents);
-  scanning: _19 = &parent_106->object.oid;
-  scanning: _20 = &obj_104->oid;
-  scanning: add_merge_parent (result_84(D), _20, _19);
-  scanning: oid ={v} {CLOBBER};
-  scanning: oid ={v} {CLOBBER};
-  scanning: _21 = (long unsigned int) pos_56;
-  scanning: _22 = in_75(D)->len;
-    Indirect ref read is not const
-  scanning: if (_21 < _22)
-  scanning: _23 = lookup_commit (head_76(D));
-  scanning: _24 = (long int) _23;
-  scanning: head_commit_78 = (struct commit *) _24;
-  scanning: if (_23 != 0)
-  scanning: commit_list_insert (head_commit_78, &parents);
-  scanning: parents.11_25 = parents;
-  scanning: _26 = reduce_heads (parents.11_25);
-  scanning: parents = _26;
-  scanning: _27 = pop_commit (&parents);
-  scanning: _28 = (long int) _27;
-  scanning: cmit_91 = (struct commit *) _28;
-  scanning: _29 = &cmit_91->object.oid;
-  scanning: _30 = result_84(D)->item;
-    Indirect ref read is not const
-  scanning: _31 = (long unsigned int) i_57;
-  scanning: _32 = _31 * 41;
-  scanning: _33 = _30 + _32;
-  scanning: _34 = &_33->commit;
-  scanning: _35 = oidcmp (_34, _29);
-  scanning: if (_35 == 0)
-  scanning: _36 = result_84(D)->item;
-    Indirect ref read is not const
-  scanning: _37 = (long unsigned int) i_57;
-  scanning: _38 = _37 * 41;
-  scanning: _39 = _36 + _38;
-  scanning: _39->used = 1;
+  scanning: if (_1 == 0)
+  scanning: sb_35(D)->buf = 0B;
     Indirect ref write is not const/pure
-  scanning: i_95 = i_57 + 1;
-  scanning: _40 = result_84(D)->nr;
+  scanning: _7 = sb_35(D)->len;
     Indirect ref read is not const
-  scanning: if (_40 > i_57)
-  scanning: parents.12_41 = parents;
-  scanning: if (parents.12_41 != 0B)
-  scanning: _42 = result_84(D)->item;
+  scanning: _8 = _7 + extra_37(D);
+  scanning: _9 = _8 + 1;
+  scanning: _10 = sb_35(D)->alloc;
     Indirect ref read is not const
-  scanning: _43 = (long unsigned int) i_58;
-  scanning: _44 = _43 * 41;
-  scanning: _45 = _42 + _44;
-  scanning: _46 = _45->used;
+  scanning: if (_9 > _10)
+  scanning: _11 = sb_35(D)->alloc;
     Indirect ref read is not const
-  scanning: if (_46 != 0)
-  scanning: if (i_58 != j_60)
-  scanning: _47 = result_84(D)->item;
+  scanning: _12 = alloc_nr (_11);
+  scanning: _13 = (long unsigned int) _12;
+  scanning: _14 = sb_35(D)->len;
     Indirect ref read is not const
-  scanning: _48 = (long unsigned int) i_58;
-  scanning: _49 = _48 * 41;
-  scanning: _50 = _47 + _49;
-  scanning: _51 = result_84(D)->item;
+  scanning: _15 = _14 + extra_37(D);
+  scanning: _16 = _15 + 1;
+  scanning: if (_13 < _16)
+  scanning: _17 = sb_35(D)->len;
     Indirect ref read is not const
-  scanning: _52 = (long unsigned int) j_60;
-  scanning: _53 = _52 * 41;
-  scanning: _54 = _51 + _53;
-  scanning: *_54 = *_50;
+  scanning: _18 = _17 + extra_37(D);
+  scanning: _19 = _18 + 1;
+  scanning: sb_35(D)->alloc = _19;
     Indirect ref write is not const/pure
+  scanning: _20 = sb_35(D)->alloc;
     Indirect ref read is not const
-  scanning: j_88 = j_60 + 1;
-  scanning: i_89 = i_58 + 1;
-  scanning: _55 = result_84(D)->nr;
-    Indirect ref read is not const
-  scanning: if (_55 > i_58)
-  scanning: result_84(D)->nr = j_60;
+  scanning: _21 = alloc_nr (_20);
+  scanning: _22 = (long unsigned int) _21;
+  scanning: sb_35(D)->alloc = _22;
     Indirect ref write is not const/pure
-  scanning: parents ={v} {CLOBBER};
+  scanning: _23 = sb_35(D)->alloc;
+    Indirect ref read is not const
+  scanning: _24 = st_mult (1, _23);
+  scanning: _25 = (long unsigned int) _24;
+  scanning: _26 = sb_35(D)->buf;
+    Indirect ref read is not const
+  scanning: _27 = xrealloc (_26, _25);
+  scanning: sb_35(D)->buf = _27;
+    Indirect ref write is not const/pure
+  scanning: if (_1 == 0)
+  scanning: _28 = sb_35(D)->buf;
+    Indirect ref read is not const
+  scanning: *_28 = 0;
+    Indirect ref write is not const/pure
   scanning: return;
 Function is locally looping.
-find_merge_parents (struct merge_parents * result, struct strbuf * in, struct object_id * head)
+Function can locally free.
+strbuf_grow (struct strbuf * sb, size_t extra)
 {
-  struct commit * cmit;
-  struct object * obj;
-  struct commit * parent;
-  struct object_id oid;
-  char * newline;
-  char * p;
-  int len;
-  int j;
-  int i;
-  int pos;
-  struct commit * head_commit;
-  struct commit_list * parents;
-  char * _1;
-  sizetype _2;
-  long int newline.9_3;
-  long int p.10_4;
-  long int _5;
-  long unsigned int _6;
-  _Bool _7;
-  int _8;
-  int _9;
-  int _10;
-  char _12;
-  char _14;
-  int _15;
-  long int _16;
-  int _17;
-  long int _18;
-  struct object_id * _19;
-  struct object_id * _20;
-  long unsigned int _21;
+  int D.3731;
+  int new_buf;
+  long unsigned int _1;
+  _Bool _2;
+  int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  int _12;
+  long unsigned int _13;
+  long unsigned int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  long unsigned int _20;
+  int _21;
   long unsigned int _22;
-  int _23;
-  long int _24;
-  struct commit_list * parents.11_25;
-  struct commit_list * _26;
-  int _27;
-  long int _28;
-  struct object_id * _29;
-  struct merge_parent * _30;
-  long unsigned int _31;
-  long unsigned int _32;
-  struct merge_parent * _33;
-  struct object_id * _34;
-  int _35;
-  struct merge_parent * _36;
-  long unsigned int _37;
-  long unsigned int _38;
-  struct merge_parent * _39;
-  int _40;
-  struct commit_list * parents.12_41;
-  struct merge_parent * _42;
-  long unsigned int _43;
-  long unsigned int _44;
-  struct merge_parent * _45;
-  unsigned char _46;
-  struct merge_parent * _47;
-  long unsigned int _48;
-  long unsigned int _49;
-  struct merge_parent * _50;
-  struct merge_parent * _51;
-  long unsigned int _52;
-  long unsigned int _53;
-  struct merge_parent * _54;
-  int _55;
-  int iftmp.8_61;
-  int iftmp.8_98;
-  int iftmp.8_99;
+  long unsigned int _23;
+  int _24;
+  long unsigned int _25;
+  char * _26;
+  void * _27;
+  char * _28;
+  int _51;
 
-  <bb 2> [2.65%]:
-  parents = 0B;
-  goto <bb 32>; [100.00%]
-
-  <bb 3> [15.00%]:
-  _1 = in_75(D)->buf;
-  _2 = (sizetype) pos_56;
-  p_96 = _1 + _2;
-  newline_97 = strchr (p_96, 10);
-  if (newline_97 != 0B)
-    goto <bb 4>; [70.00%]
+  <bb 2> [100.00%]:
+  _1 = sb_35(D)->alloc;
+  _2 = _1 == 0;
+  new_buf_36 = (int) _2;
+  _3 = unsigned_add_overflows (extra_37(D), 1);
+  if (_3 != 0)
+    goto <bb 4>; [0.04%]
   else
-    goto <bb 5>; [30.00%]
+    goto <bb 3>; [99.96%]
 
-  <bb 4> [10.50%]:
-  newline.9_3 = (long int) newline_97;
-  p.10_4 = (long int) p_96;
-  _5 = newline.9_3 - p.10_4;
-  iftmp.8_99 = (int) _5;
-  goto <bb 6>; [100.00%]
+  <bb 3> [99.96%]:
+  _4 = extra_37(D) + 1;
+  _5 = sb_35(D)->len;
+  _6 = unsigned_add_overflows (_5, _4);
+  if (_6 != 0)
+    goto <bb 4>; [0.04%]
+  else
+    goto <bb 5>; [99.96%]
 
-  <bb 5> [4.50%]:
-  _6 = strlen (p_96);
-  iftmp.8_98 = (int) _6;
+  <bb 4> [0.08%]:
+  _51 = __printf_chk (1, "you want to use way too much memory%s", "");
+  exit (1);
 
-  <bb 6> [15.00%]:
-  # iftmp.8_61 = PHI <iftmp.8_99(4), iftmp.8_98(5)>
-  _7 = newline_97 != 0B;
-  _8 = (int) _7;
-  _9 = _8 + iftmp.8_61;
-  pos_101 = _9 + pos_56;
-  if (iftmp.8_61 <= 42)
-    goto <bb 10>; [50.00%]
+  <bb 5> [99.92%]:
+  if (_1 == 0)
+    goto <bb 6>; [50.00%]
   else
     goto <bb 7>; [50.00%]
 
-  <bb 7> [7.50%]:
-  _10 = get_oid_hex (p_96, &oid);
-  if (_10 != 0)
+  <bb 6> [49.96%]:
+  sb_35(D)->buf = 0B;
+
+  <bb 7> [99.92%]:
+  _7 = sb_35(D)->len;
+  _8 = _7 + extra_37(D);
+  _9 = _8 + 1;
+  _10 = sb_35(D)->alloc;
+  if (_9 > _10)
+    goto <bb 8>; [33.00%]
+  else
+    goto <bb 12>; [67.00%]
+
+  <bb 8> [32.97%]:
+  _11 = sb_35(D)->alloc;
+  _12 = alloc_nr (_11);
+  _13 = (long unsigned int) _12;
+  _14 = sb_35(D)->len;
+  _15 = _14 + extra_37(D);
+  _16 = _15 + 1;
+  if (_13 < _16)
+    goto <bb 9>; [67.00%]
+  else
     goto <bb 10>; [33.00%]
+
+  <bb 9> [22.09%]:
+  _17 = sb_35(D)->len;
+  _18 = _17 + extra_37(D);
+  _19 = _18 + 1;
+  sb_35(D)->alloc = _19;
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [10.88%]:
+  _20 = sb_35(D)->alloc;
+  _21 = alloc_nr (_20);
+  _22 = (long unsigned int) _21;
+  sb_35(D)->alloc = _22;
+
+  <bb 11> [32.97%]:
+  _23 = sb_35(D)->alloc;
+  _24 = st_mult (1, _23);
+  _25 = (long unsigned int) _24;
+  _26 = sb_35(D)->buf;
+  _27 = xrealloc (_26, _25);
+  sb_35(D)->buf = _27;
+
+  <bb 12> [99.92%]:
+  if (_1 == 0)
+    goto <bb 13>; [54.00%]
   else
-    goto <bb 8>; [67.00%]
+    goto <bb 14>; [46.00%]
 
-  <bb 8> [5.03%]:
-  _12 = MEM[(char *)p_96 + 40B];
-  if (_12 != 9)
-    goto <bb 10>; [48.88%]
-  else
-    goto <bb 9>; [51.12%]
+  <bb 13> [53.96%]:
+  _28 = sb_35(D)->buf;
+  *_28 = 0;
 
-  <bb 9> [2.57%]:
-  _14 = MEM[(char *)p_96 + 41B];
-  if (_14 != 9)
-    goto <bb 10>; [66.00%]
-  else
-    goto <bb 11>; [34.00%]
-
-  <bb 10> [14.13%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 14>; [100.00%]
-
-  <bb 11> [0.87%]:
-  _15 = parse_object (&oid);
-  _16 = (long int) _15;
-  obj_104 = (struct object *) _16;
-  _17 = peel_to_type (0B, 0, obj_104, 1);
-  _18 = (long int) _17;
-  parent_106 = (struct commit *) _18;
-  if (_17 == 0)
-    goto <bb 12>; [50.00%]
-  else
-    goto <bb 13>; [50.00%]
-
-  <bb 12> [0.44%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 14>; [100.00%]
-
-  <bb 13> [0.44%]:
-  commit_list_insert (parent_106, &parents);
-  _19 = &parent_106->object.oid;
-  _20 = &obj_104->oid;
-  add_merge_parent (result_84(D), _20, _19);
-  oid ={v} {CLOBBER};
-  goto <bb 15>; [100.00%]
-
-  <bb 14> [14.56%]:
-  oid ={v} {CLOBBER};
-
-  <bb 15> [15.00%]:
-  # pos_13 = PHI <pos_101(14), pos_101(13)>
-
-  <bb 32> [17.65%]:
-  # pos_56 = PHI <pos_13(15), 0(2)>
-  _21 = (long unsigned int) pos_56;
-  _22 = in_75(D)->len;
-  if (_21 < _22)
-    goto <bb 3>; [85.00%]
-  else
-    goto <bb 16>; [15.00%]
-
-  <bb 16> [2.65%]:
-  _23 = lookup_commit (head_76(D));
-  _24 = (long int) _23;
-  head_commit_78 = (struct commit *) _24;
-  if (_23 != 0)
-    goto <bb 17>; [33.00%]
-  else
-    goto <bb 18>; [67.00%]
-
-  <bb 17> [0.87%]:
-  commit_list_insert (head_commit_78, &parents);
-
-  <bb 18> [2.65%]:
-  parents.11_25 = parents;
-  _26 = reduce_heads (parents.11_25);
-  parents = _26;
-  goto <bb 24>; [100.00%]
-
-  <bb 19> [15.00%]:
-  _27 = pop_commit (&parents);
-  _28 = (long int) _27;
-  cmit_91 = (struct commit *) _28;
-  goto <bb 23>; [100.00%]
-
-  <bb 20> [85.00%]:
-  _29 = &cmit_91->object.oid;
-  _30 = result_84(D)->item;
-  _31 = (long unsigned int) i_57;
-  _32 = _31 * 41;
-  _33 = _30 + _32;
-  _34 = &_33->commit;
-  _35 = oidcmp (_34, _29);
-  if (_35 == 0)
-    goto <bb 21>; [50.00%]
-  else
-    goto <bb 22>; [50.00%]
-
-  <bb 21> [42.50%]:
-  _36 = result_84(D)->item;
-  _37 = (long unsigned int) i_57;
-  _38 = _37 * 41;
-  _39 = _36 + _38;
-  _39->used = 1;
-
-  <bb 22> [85.00%]:
-  i_95 = i_57 + 1;
-
-  <bb 23> [100.00%]:
-  # i_57 = PHI <0(19), i_95(22)>
-  _40 = result_84(D)->nr;
-  if (_40 > i_57)
-    goto <bb 20>; [85.00%]
-  else
-    goto <bb 34>; [15.00%]
-
-  <bb 34> [15.00%]:
-
-  <bb 24> [17.65%]:
-  parents.12_41 = parents;
-  if (parents.12_41 != 0B)
-    goto <bb 19>; [85.00%]
-  else
-    goto <bb 33>; [15.00%]
-
-  <bb 33> [2.65%]:
-  goto <bb 30>; [100.00%]
-
-  <bb 25> [15.00%]:
-  _42 = result_84(D)->item;
-  _43 = (long unsigned int) i_58;
-  _44 = _43 * 41;
-  _45 = _42 + _44;
-  _46 = _45->used;
-  if (_46 != 0)
-    goto <bb 26>; [50.00%]
-  else
-    goto <bb 29>; [50.00%]
-
-  <bb 26> [7.50%]:
-  if (i_58 != j_60)
-    goto <bb 27>; [66.00%]
-  else
-    goto <bb 28>; [34.00%]
-
-  <bb 27> [4.95%]:
-  _47 = result_84(D)->item;
-  _48 = (long unsigned int) i_58;
-  _49 = _48 * 41;
-  _50 = _47 + _49;
-  _51 = result_84(D)->item;
-  _52 = (long unsigned int) j_60;
-  _53 = _52 * 41;
-  _54 = _51 + _53;
-  *_54 = *_50;
-
-  <bb 28> [7.50%]:
-  j_88 = j_60 + 1;
-
-  <bb 29> [15.00%]:
-  # j_59 = PHI <j_60(25), j_88(28)>
-  i_89 = i_58 + 1;
-
-  <bb 30> [17.65%]:
-  # i_58 = PHI <0(33), i_89(29)>
-  # j_60 = PHI <0(33), j_59(29)>
-  _55 = result_84(D)->nr;
-  if (_55 > i_58)
-    goto <bb 25>; [85.00%]
-  else
-    goto <bb 31>; [15.00%]
-
-  <bb 31> [2.65%]:
-  result_84(D)->nr = j_60;
-  parents ={v} {CLOBBER};
+  <bb 14> [99.92%]:
   return;
 
 }
 
 
 
-;; Function main (main, funcdef_no=49, decl_uid=3414, cgraph_uid=49, symbol_order=50) (executed once)
+;; Function strbuf_release (strbuf_release, funcdef_no=51, decl_uid=3462, cgraph_uid=51, symbol_order=52)
+
+
+
+ local analysis of strbuf_release
+   scanning: _1 = sb_5(D)->alloc;
+    Indirect ref read is not const
+  scanning: if (_1 != 0)
+  scanning: _2 = sb_5(D)->buf;
+    Indirect ref read is not const
+  scanning: free (_2);
+  scanning: strbuf_init (sb_5(D), 0);
+  scanning: return;
+Function is locally looping.
+Function can locally free.
+strbuf_release (struct strbuf * sb)
+{
+  long unsigned int _1;
+  char * _2;
+
+  <bb 2> [100.00%]:
+  _1 = sb_5(D)->alloc;
+  if (_1 != 0)
+    goto <bb 3>; [36.64%]
+  else
+    goto <bb 4>; [63.36%]
+
+  <bb 3> [36.64%]:
+  _2 = sb_5(D)->buf;
+  free (_2);
+  strbuf_init (sb_5(D), 0);
+
+  <bb 4> [100.00%]:
+  return;
+
+}
+
+
+
+;; Function strbuf_readlink (strbuf_readlink, funcdef_no=52, decl_uid=3469, cgraph_uid=52, symbol_order=53)
+
+
+
+ local analysis of strbuf_readlink
+   scanning: oldalloc_13 = sb_12(D)->alloc;
+    Indirect ref read is not const
+  scanning: if (hint_14(D) <= 31)
+  scanning: strbuf_grow (sb_12(D), hint_5);
+  scanning: _1 = sb_12(D)->buf;
+    Indirect ref read is not const
+  scanning: len_19 = readlink (path_17(D), _1, hint_5);
+  scanning: if (len_19 < 0)
+  scanning: _2 = __errno_location ();
+  scanning: _3 = *_2;
+    Indirect ref read is not const
+  scanning: if (_3 != 34)
+  scanning: _4 = (long unsigned int) len_19;
+  scanning: if (_4 < hint_5)
+  scanning: strbuf_setlen (sb_12(D), len_19);
+  scanning: hint_22 = hint_5 * 2;
+  scanning: if (hint_5 <= 8191)
+  scanning: if (oldalloc_13 == 0)
+  scanning: strbuf_release (sb_12(D));
+  scanning: return _6;
+Function is locally looping.
+strbuf_readlink (struct strbuf * sb, const char * path, size_t hint)
+{
+  int len;
+  size_t oldalloc;
+  char * _1;
+  int * _2;
+  int _3;
+  long unsigned int _4;
+  int _6;
+
+  <bb 2> [9.75%]:
+  oldalloc_13 = sb_12(D)->alloc;
+  if (hint_14(D) <= 31)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 10>; [50.00%]
+
+  <bb 3> [4.88%]:
+
+  <bb 10> [9.75%]:
+  # hint_26 = PHI <hint_14(D)(2), 32(3)>
+  goto <bb 15>; [100.00%]
+
+  <bb 4> [95.00%]:
+  strbuf_grow (sb_12(D), hint_5);
+  _1 = sb_12(D)->buf;
+  len_19 = readlink (path_17(D), _1, hint_5);
+  if (len_19 < 0)
+    goto <bb 5>; [36.00%]
+  else
+    goto <bb 6>; [64.00%]
+
+  <bb 5> [34.20%]:
+  _2 = __errno_location ();
+  _3 = *_2;
+  if (_3 != 34)
+    goto <bb 11>; [5.00%]
+  else
+    goto <bb 8>; [95.00%]
+
+  <bb 6> [60.80%]:
+  _4 = (long unsigned int) len_19;
+  if (_4 < hint_5)
+    goto <bb 7>; [5.00%]
+  else
+    goto <bb 8>; [95.00%]
+
+  <bb 7> [3.04%]:
+  strbuf_setlen (sb_12(D), len_19);
+  goto <bb 14>; [100.00%]
+
+  <bb 8> [90.25%]:
+  hint_22 = hint_5 * 2;
+
+  <bb 15> [100.00%]:
+  # hint_5 = PHI <hint_26(10), hint_22(8)>
+  if (hint_5 <= 8191)
+    goto <bb 4>; [95.00%]
+  else
+    goto <bb 11>; [5.00%]
+
+  <bb 11> [6.71%]:
+  if (oldalloc_13 == 0)
+    goto <bb 12>; [33.00%]
+  else
+    goto <bb 14>; [67.00%]
+
+  <bb 12> [2.21%]:
+  strbuf_release (sb_12(D));
+
+  <bb 14> [9.75%]:
+  # _6 = PHI <0(7), -1(12), -1(11)>
+  return _6;
+
+}
+
+
+
+;; Function files_read_raw_ref (files_read_raw_ref, funcdef_no=53, decl_uid=3485, cgraph_uid=53, symbol_order=54)
+
+
+
+ local analysis of files_read_raw_ref
+   scanning: _1 = files_downcast (ref_store_48(D), 1, "read_raw_ref");
+  scanning: _2 = (long int) _1;
+  scanning: refs_50 = (struct files_ref_store *) _2;
+  scanning: sb_contents.alloc = 0;
+  scanning: sb_contents.len = 0;
+  scanning: sb_contents.buf = &strbuf_slopbuf;
+  scanning: sb_path.alloc = 0;
+  scanning: sb_path.len = 0;
+  scanning: sb_path.buf = &strbuf_slopbuf;
+  scanning: *type_59(D) = 0;
+    Indirect ref write is not const/pure
+  scanning: strbuf_reset (&sb_path);
+  scanning: files_ref_path (refs_50, &sb_path, refname_62(D));
+  scanning: path_64 = sb_path.buf;
+  scanning: stat_ref [100.00%]:
+  scanning: remaining_retries.7_3 = remaining_retries_43;
+  scanning: remaining_retries_65 = remaining_retries_43 + -1;
+  scanning: if (remaining_retries_43 <= 0)
+  scanning: _107 = __lxstat (1, path_64, &st);
+  scanning: if (_107 < 0)
+  scanning: _5 = __errno_location ();
+  scanning: _6 = *_5;
+    Indirect ref read is not const
+  scanning: if (_6 != 2)
+  scanning: _7 = resolve_packed_ref (refs_50, refname_62(D), sha1_81(D), type_59(D));
+  scanning: if (_7 != 0)
+  scanning: _8 = __errno_location ();
+  scanning: *_8 = 2;
+    Indirect ref write is not const/pure
+  scanning: strbuf_reset (&sb_contents);
+  scanning: _9 = strbuf_readlink (&sb_contents, path_64, 0);
+  scanning: if (_9 < 0)
+  scanning: _10 = __errno_location ();
+  scanning: _95 = *_10;
+    Indirect ref read is not const
+  scanning: _11 = _95 == 2;
+  scanning: _12 = _95 == 22;
+  scanning: _13 = _11 | _12;
+  scanning: if (_13 != 0)
+  scanning: _14 = sb_contents.buf;
+  scanning: _15 = starts_with (_14, "refs/");
+  scanning: if (_15 != 0)
+  scanning: _16 = sb_contents.buf;
+  scanning: _17 = check_refname_format (_16, 0);
+  scanning: if (_17 == 0)
+  scanning: strbuf_swap (&sb_contents, referent_71(D));
+  scanning: _18 = *type_59(D);
+    Indirect ref read is not const
+  scanning: _19 = _18 | 1;
+  scanning: *type_59(D) = _19;
+    Indirect ref write is not const/pure
+  scanning: strbuf_reset (&sb_contents);
+  scanning: _20 = strbuf_read (&sb_contents, fd_76(D), 256);
+  scanning: if (_20 < 0)
+  scanning: _21 = __errno_location ();
+  scanning: save_errno_92 = *_21;
+    Indirect ref read is not const
+  scanning: close (fd_76(D));
+  scanning: _22 = __errno_location ();
+  scanning: *_22 = save_errno_92;
+    Indirect ref write is not const/pure
+  scanning: strbuf_rtrim (&sb_contents);
+  scanning: buf_79 = sb_contents.buf;
+  scanning: _23 = starts_with (buf_79, "ref:");
+  scanning: if (_23 != 0)
+  scanning: buf_86 = buf_79 + 4;
+  scanning: buf_91 = buf_41 + 1;
+  scanning: _24 = *buf_41;
+    Indirect ref read is not const
+  scanning: _25 = (int) _24;
+  scanning: _26 = isspace (_25);
+  scanning: if (_26 != 0)
+  scanning: strbuf_reset (referent_71(D));
+  scanning: strbuf_addstr (referent_71(D), buf_41);
+  scanning: _27 = *type_59(D);
+    Indirect ref read is not const
+  scanning: _28 = _27 | 1;
+  scanning: *type_59(D) = _28;
+    Indirect ref write is not const/pure
+  scanning: _29 = get_sha1_hex (buf_79, sha1_81(D));
+  scanning: if (_29 != 0)
+  scanning: _31 = MEM[(const char *)buf_79 + 40B];
+    Indirect ref read is not const
+  scanning: if (_31 != 0)
+  scanning: _33 = MEM[(const char *)buf_79 + 40B];
+    Indirect ref read is not const
+  scanning: _34 = (int) _33;
+  scanning: _35 = isspace (_34);
+  scanning: if (_35 == 0)
+  scanning: _36 = *type_59(D);
+    Indirect ref read is not const
+  scanning: _37 = _36 | 4;
+  scanning: *type_59(D) = _37;
+    Indirect ref write is not const/pure
+  scanning: _38 = __errno_location ();
+  scanning: *_38 = 22;
+    Indirect ref write is not const/pure
+  scanning: out [33.13%]:
+  scanning: _39 = __errno_location ();
+  scanning: save_errno_99 = *_39;
+    Indirect ref read is not const
+  scanning: strbuf_release (&sb_path);
+  scanning: strbuf_release (&sb_contents);
+  scanning: _40 = __errno_location ();
+  scanning: *_40 = save_errno_99;
+    Indirect ref write is not const/pure
+  scanning: sb_contents ={v} {CLOBBER};
+  scanning: sb_path ={v} {CLOBBER};
+  scanning: st ={v} {CLOBBER};
+  scanning: return ret_42;
+Function is locally looping.
+files_read_raw_ref (struct ref_store * ref_store, const char * refname, unsigned char * sha1, struct strbuf * referent, unsigned int * type)
+{
+  int D.3734;
+  int save_errno;
+  struct stat st;
+  int remaining_retries;
+  int save_errno;
+  int ret;
+  int fd;
+  const char * buf;
+  const char * path;
+  struct strbuf sb_path;
+  struct strbuf sb_contents;
+  struct files_ref_store * refs;
+  int _1;
+  long int _2;
+  int remaining_retries.7_3;
+  int * _5;
+  int _6;
+  int _7;
+  int * _8;
+  int _9;
+  int * _10;
+  _Bool _11;
+  _Bool _12;
+  _Bool _13;
+  char * _14;
+  int _15;
+  char * _16;
+  int _17;
+  unsigned int _18;
+  unsigned int _19;
+  int _20;
+  int * _21;
+  int * _22;
+  int _23;
+  char _24;
+  int _25;
+  int _26;
+  unsigned int _27;
+  unsigned int _28;
+  int _29;
+  char _31;
+  char _33;
+  int _34;
+  int _35;
+  unsigned int _36;
+  unsigned int _37;
+  int * _38;
+  int * _39;
+  int * _40;
+  int _95;
+  int _107;
+
+  <bb 2> [33.13%]:
+  _1 = files_downcast (ref_store_48(D), 1, "read_raw_ref");
+  _2 = (long int) _1;
+  refs_50 = (struct files_ref_store *) _2;
+  sb_contents.alloc = 0;
+  sb_contents.len = 0;
+  sb_contents.buf = &strbuf_slopbuf;
+  sb_path.alloc = 0;
+  sb_path.len = 0;
+  sb_path.buf = &strbuf_slopbuf;
+  *type_59(D) = 0;
+  strbuf_reset (&sb_path);
+  files_ref_path (refs_50, &sb_path, refname_62(D));
+  path_64 = sb_path.buf;
+
+  # remaining_retries_43 = PHI <3(2), remaining_retries_65(25)>
+stat_ref [100.00%]:
+  remaining_retries.7_3 = remaining_retries_43;
+  remaining_retries_65 = remaining_retries_43 + -1;
+  if (remaining_retries_43 <= 0)
+    goto <bb 24> (out); [25.00%]
+  else
+    goto <bb 4>; [75.00%]
+
+  <bb 4> [75.00%]:
+  _107 = __lxstat (1, path_64, &st);
+  if (_107 < 0)
+    goto <bb 5>; [3.75%]
+  else
+    goto <bb 8>; [96.25%]
+
+  <bb 5> [2.81%]:
+  _5 = __errno_location ();
+  _6 = *_5;
+  if (_6 != 2)
+    goto <bb 24> (out); [7.44%]
+  else
+    goto <bb 6>; [92.56%]
+
+  <bb 6> [2.60%]:
+  _7 = resolve_packed_ref (refs_50, refname_62(D), sha1_81(D), type_59(D));
+  if (_7 != 0)
+    goto <bb 7>; [2.00%]
+  else
+    goto <bb 24> (out); [98.00%]
+
+  <bb 7> [0.05%]:
+  _8 = __errno_location ();
+  *_8 = 2;
+  goto <bb 24> (out); [100.00%]
+
+  <bb 8> [72.19%]:
+  strbuf_reset (&sb_contents);
+  _9 = strbuf_readlink (&sb_contents, path_64, 0);
+  if (_9 < 0)
+    goto <bb 9>; [96.25%]
+  else
+    goto <bb 10>; [3.75%]
+
+  <bb 9> [69.48%]:
+  _10 = __errno_location ();
+  _95 = *_10;
+  _11 = _95 == 2;
+  _12 = _95 == 22;
+  _13 = _11 | _12;
+  if (_13 != 0)
+    goto <bb 25>; [96.25%]
+  else
+    goto <bb 24> (out); [3.75%]
+
+  <bb 25> [66.87%]:
+  goto <bb 3> (stat_ref); [100.00%]
+
+  <bb 10> [2.71%]:
+  _14 = sb_contents.buf;
+  _15 = starts_with (_14, "refs/");
+  if (_15 != 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 11> [1.35%]:
+  _16 = sb_contents.buf;
+  _17 = check_refname_format (_16, 0);
+  if (_17 == 0)
+    goto <bb 12>; [29.56%]
+  else
+    goto <bb 13>; [70.44%]
+
+  <bb 12> [0.40%]:
+  strbuf_swap (&sb_contents, referent_71(D));
+  _18 = *type_59(D);
+  _19 = _18 | 1;
+  *type_59(D) = _19;
+  goto <bb 24> (out); [100.00%]
+
+  <bb 13> [2.31%]:
+  strbuf_reset (&sb_contents);
+  _20 = strbuf_read (&sb_contents, fd_76(D), 256);
+  if (_20 < 0)
+    goto <bb 14>; [1.13%]
+  else
+    goto <bb 15>; [98.87%]
+
+  <bb 14> [0.03%]:
+  _21 = __errno_location ();
+  save_errno_92 = *_21;
+  close (fd_76(D));
+  _22 = __errno_location ();
+  *_22 = save_errno_92;
+  goto <bb 24> (out); [100.00%]
+
+  <bb 15> [2.28%]:
+  strbuf_rtrim (&sb_contents);
+  buf_79 = sb_contents.buf;
+  _23 = starts_with (buf_79, "ref:");
+  if (_23 != 0)
+    goto <bb 16>; [67.00%]
+  else
+    goto <bb 20>; [33.00%]
+
+  <bb 16> [1.53%]:
+  buf_86 = buf_79 + 4;
+  goto <bb 18>; [100.00%]
+
+  <bb 17> [8.66%]:
+  buf_91 = buf_41 + 1;
+
+  <bb 18> [10.19%]:
+  # buf_41 = PHI <buf_86(16), buf_91(17)>
+  _24 = *buf_41;
+  _25 = (int) _24;
+  _26 = isspace (_25);
+  if (_26 != 0)
+    goto <bb 17>; [85.00%]
+  else
+    goto <bb 19>; [15.00%]
+
+  <bb 19> [1.53%]:
+  strbuf_reset (referent_71(D));
+  strbuf_addstr (referent_71(D), buf_41);
+  _27 = *type_59(D);
+  _28 = _27 | 1;
+  *type_59(D) = _28;
+  goto <bb 24> (out); [100.00%]
+
+  <bb 20> [0.75%]:
+  _29 = get_sha1_hex (buf_79, sha1_81(D));
+  if (_29 != 0)
+    goto <bb 23>; [2.00%]
+  else
+    goto <bb 21>; [98.00%]
+
+  <bb 21> [0.74%]:
+  _31 = MEM[(const char *)buf_79 + 40B];
+  if (_31 != 0)
+    goto <bb 22>; [54.00%]
+  else
+    goto <bb 24> (out); [46.00%]
+
+  <bb 22> [0.40%]:
+  _33 = MEM[(const char *)buf_79 + 40B];
+  _34 = (int) _33;
+  _35 = isspace (_34);
+  if (_35 == 0)
+    goto <bb 23>; [2.00%]
+  else
+    goto <bb 24> (out); [98.00%]
+
+  <bb 23> [0.02%]:
+  _36 = *type_59(D);
+  _37 = _36 | 4;
+  *type_59(D) = _37;
+  _38 = __errno_location ();
+  *_38 = 22;
+
+  # ret_42 = PHI <-1(3), -1(5), -1(7), 0(6), -1(9), 0(12), -1(14), 0(19), -1(23), 0(22), 0(21)>
+out [33.13%]:
+  _39 = __errno_location ();
+  save_errno_99 = *_39;
+  strbuf_release (&sb_path);
+  strbuf_release (&sb_contents);
+  _40 = __errno_location ();
+  *_40 = save_errno_99;
+  sb_contents ={v} {CLOBBER};
+  sb_path ={v} {CLOBBER};
+  st ={v} {CLOBBER};
+  return ret_42;
+
+}
+
+
+
+;; Function lock_raw_ref (lock_raw_ref, funcdef_no=54, decl_uid=3537, cgraph_uid=54, symbol_order=55)
+
+
+
+ local analysis of lock_raw_ref
+   scanning: ref_file.alloc = 0;
+  scanning: ref_file.len = 0;
+  scanning: ref_file.buf = &strbuf_slopbuf;
+  scanning: *type_15(D) = 0;
+    Indirect ref write is not const/pure
+  scanning: lock_18 = calloc (1, 40);
+  scanning: *lock_p_19(D) = lock_18;
+    Indirect ref write is not const/pure
+  scanning: _1 = strdup (refname_21(D));
+  scanning: lock_18->ref_name = _1;
+    Indirect ref write is not const/pure
+  scanning: files_ref_path (refs_24(D), &ref_file, refname_21(D));
+  scanning: _2 = &lock_18->old_oid.hash;
+  scanning: _3 = &refs_24(D)->base;
+  scanning: _4 = files_read_raw_ref (_3, refname_21(D), _2, referent_26(D), type_15(D));
+  scanning: if (_4 != 0)
+  scanning: _5 = __errno_location ();
+  scanning: _6 = *_5;
+    Indirect ref read is not const
+  scanning: if (_6 == 2)
+  scanning: if (mustexist_28(D) != 0)
+  scanning: strbuf_addf (err_29(D), "unable to resolve reference \'%s\'", refname_21(D));
+  scanning: unlock_ref (lock_18);
+  scanning: *lock_p_19(D) = 0B;
+    Indirect ref write is not const/pure
+  scanning: out [100.00%]:
+  scanning: strbuf_release (&ref_file);
+  scanning: _35 = ret_7;
+  scanning: ref_file ={v} {CLOBBER};
+  scanning: return ret_7;
+Function is locally looping.
+lock_raw_ref (struct files_ref_store * refs, const char * refname, int mustexist, const struct string_list * extras, const struct string_list * skip, struct ref_lock * * lock_p, struct strbuf * referent, unsigned int * type, struct strbuf * err)
+{
+  int ret;
+  int attempts_remaining;
+  struct strbuf ref_file;
+  struct ref_lock * lock;
+  char * _1;
+  unsigned char[20] * _2;
+  struct ref_store * _3;
+  int _4;
+  int * _5;
+  int _6;
+  int _35;
+
+  <bb 2> [100.00%]:
+  ref_file.alloc = 0;
+  ref_file.len = 0;
+  ref_file.buf = &strbuf_slopbuf;
+  *type_15(D) = 0;
+  lock_18 = calloc (1, 40);
+  *lock_p_19(D) = lock_18;
+  _1 = strdup (refname_21(D));
+  lock_18->ref_name = _1;
+  files_ref_path (refs_24(D), &ref_file, refname_21(D));
+  _2 = &lock_18->old_oid.hash;
+  _3 = &refs_24(D)->base;
+  _4 = files_read_raw_ref (_3, refname_21(D), _2, referent_26(D), type_15(D));
+  if (_4 != 0)
+    goto <bb 3>; [54.00%]
+  else
+    goto <bb 6> (out); [46.00%]
+
+  <bb 3> [54.00%]:
+  _5 = __errno_location ();
+  _6 = *_5;
+  if (_6 == 2)
+    goto <bb 4>; [37.68%]
+  else
+    goto <bb 6> (out); [62.32%]
+
+  <bb 4> [20.35%]:
+  if (mustexist_28(D) != 0)
+    goto <bb 5>; [1.00%]
+  else
+    goto <bb 6> (out); [99.00%]
+
+  <bb 5> [0.20%]:
+  strbuf_addf (err_29(D), "unable to resolve reference \'%s\'", refname_21(D));
+  unlock_ref (lock_18);
+  *lock_p_19(D) = 0B;
+
+  # ret_7 = PHI <0(3), -2(5), 0(2), 0(4)>
+out [100.00%]:
+  strbuf_release (&ref_file);
+  _35 = ret_7;
+  ref_file ={v} {CLOBBER};
+  return ret_7;
+
+}
+
+
+
+;; Function lock_ref_for_update (lock_ref_for_update, funcdef_no=55, decl_uid=3557, cgraph_uid=55, symbol_order=56)
+
+
+
+ local analysis of lock_ref_for_update
+   scanning: referent.alloc = 0;
+  scanning: referent.len = 0;
+  scanning: referent.buf = &strbuf_slopbuf;
+  scanning: if (head_ref_56(D) != 0B)
+  scanning: ret_62 = split_head_update (update_57(D), transaction_58(D), head_ref_56(D), affected_refnames_59(D), err_60(D));
+  scanning: if (ret_62 != 0)
+  scanning: _1 = &update_57(D)->type;
+  scanning: _2 = &update_57(D)->refname;
+  scanning: ret_67 = lock_raw_ref (refs_64(D), _2, mustexist_65(D), affected_refnames_59(D), 0B, &lock, &referent, _1, err_60(D));
+  scanning: if (ret_67 != 0)
+  scanning: _3 = strbuf_detach (err_60(D), 0B);
+  scanning: _4 = (long int) _3;
+  scanning: reason_91 = (char *) _4;
+  scanning: _5 = original_update_refname (update_57(D));
+  scanning: strbuf_addf (err_60(D), "cannot lock ref \'%s\': %s", _5, reason_91);
+  scanning: free (reason_91);
+  scanning: lock.0_6 = lock;
+  scanning: update_57(D)->backend_data = lock.0_6;
+    Indirect ref write is not const/pure
+  scanning: _7 = update_57(D)->type;
+    Indirect ref read is not const
+  scanning: _8 = _7 & 1;
+  scanning: if (_8 != 0)
+  scanning: _9 = update_57(D)->flags;
+    Indirect ref read is not const
+  scanning: _10 = _9 & 1;
+  scanning: if (_10 != 0)
+  scanning: lock.1_11 = lock;
+  scanning: _12 = &lock.1_11->old_oid.hash;
+  scanning: _13 = referent.buf;
+  scanning: _14 = &refs_64(D)->base;
+  scanning: _15 = refs_read_ref_full (_14, _13, 0, _12, 0B);
+  scanning: if (_15 != 0)
+  scanning: _16 = update_57(D)->flags;
+    Indirect ref read is not const
+  scanning: _17 = _16 & 16;
+  scanning: if (_17 != 0)
+  scanning: _18 = original_update_refname (update_57(D));
+  scanning: strbuf_addf (err_60(D), "cannot lock ref \'%s\': error reading reference", _18);
+  scanning: lock.2_19 = lock;
+  scanning: _20 = &lock.2_19->old_oid;
+  scanning: _21 = check_old_oid (update_57(D), _20, err_60(D));
+  scanning: if (_21 != 0)
+  scanning: _22 = referent.buf;
+  scanning: ret_72 = split_symref_update (refs_64(D), update_57(D), _22, transaction_58(D), affected_refnames_59(D), err_60(D));
+  scanning: if (ret_72 != 0)
+  scanning: lock.3_23 = lock;
+  scanning: _24 = &lock.3_23->old_oid;
+  scanning: _25 = check_old_oid (update_57(D), _24, err_60(D));
+  scanning: if (_25 != 0)
+  scanning: _26 = BIT_FIELD_REF <*update_57(D), 32, 320>;
+    Indirect ref read is not const
+  scanning: _27 = _26 & 138;
+  scanning: if (_27 == 8)
+  scanning: _28 = update_57(D)->type;
+    Indirect ref read is not const
+  scanning: _29 = _28 & 1;
+  scanning: if (_29 == 0)
+  scanning: _30 = &update_57(D)->new_oid;
+  scanning: lock.4_31 = lock;
+  scanning: _32 = &lock.4_31->old_oid;
+  scanning: _33 = oidcmp (_32, _30);
+  scanning: if (_33 == 0)
+  scanning: _34 = &update_57(D)->new_oid;
+  scanning: lock.5_35 = lock;
+  scanning: _36 = write_ref_to_lockfile (lock.5_35, _34, err_60(D));
+  scanning: if (_36 != 0)
+  scanning: _37 = strbuf_detach (err_60(D), 0B);
+  scanning: _38 = (long int) _37;
+  scanning: write_err_84 = (char *) _38;
+  scanning: update_57(D)->backend_data = 0B;
+    Indirect ref write is not const/pure
+  scanning: _39 = update_57(D)->flags;
+    Indirect ref read is not const
+  scanning: _40 = _39 | 32;
+  scanning: update_57(D)->flags = _40;
+    Indirect ref write is not const/pure
+  scanning: _41 = update_57(D)->flags;
+    Indirect ref read is not const
+  scanning: _42 = _41 & 32;
+  scanning: if (_42 == 0)
+  scanning: lock.6_43 = lock;
+  scanning: _44 = close_ref (lock.6_43);
+  scanning: if (_44 != 0)
+  scanning: referent ={v} {CLOBBER};
+  scanning: lock ={v} {CLOBBER};
+  scanning: return _45;
+Function is locally looping.
+Function can locally free.
+lock_ref_for_update (struct files_ref_store * refs, struct ref_update * update, struct ref_transaction * transaction, const char * head_ref, struct string_list * affected_refnames, struct strbuf * err)
+{
+  char * write_err;
+  char * reason;
+  struct ref_lock * lock;
+  int ret;
+  int mustexist;
+  struct strbuf referent;
+  unsigned int * _1;
+  const char[0:] * _2;
+  int _3;
+  long int _4;
+  int _5;
+  struct ref_lock * lock.0_6;
+  unsigned int _7;
+  unsigned int _8;
+  unsigned int _9;
+  unsigned int _10;
+  struct ref_lock * lock.1_11;
+  unsigned char[20] * _12;
+  char * _13;
+  struct ref_store * _14;
+  int _15;
+  unsigned int _16;
+  unsigned int _17;
+  int _18;
+  struct ref_lock * lock.2_19;
+  struct object_id * _20;
+  int _21;
+  char * _22;
+  struct ref_lock * lock.3_23;
+  struct object_id * _24;
+  int _25;
+  unsigned int _26;
+  unsigned int _27;
+  unsigned int _28;
+  unsigned int _29;
+  struct object_id * _30;
+  struct ref_lock * lock.4_31;
+  struct object_id * _32;
+  int _33;
+  struct object_id * _34;
+  struct ref_lock * lock.5_35;
+  int _36;
+  int _37;
+  long int _38;
+  unsigned int _39;
+  unsigned int _40;
+  unsigned int _41;
+  unsigned int _42;
+  struct ref_lock * lock.6_43;
+  int _44;
+  int _45;
+
+  <bb 2> [100.00%]:
+  referent.alloc = 0;
+  referent.len = 0;
+  referent.buf = &strbuf_slopbuf;
+  if (head_ref_56(D) != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 4>; [30.00%]
+
+  <bb 3> [70.00%]:
+  ret_62 = split_head_update (update_57(D), transaction_58(D), head_ref_56(D), affected_refnames_59(D), err_60(D));
+  if (ret_62 != 0)
+    goto <bb 23>; [46.00%]
+  else
+    goto <bb 4>; [54.00%]
+
+  <bb 4> [67.80%]:
+  _1 = &update_57(D)->type;
+  _2 = &update_57(D)->refname;
+  ret_67 = lock_raw_ref (refs_64(D), _2, mustexist_65(D), affected_refnames_59(D), 0B, &lock, &referent, _1, err_60(D));
+  if (ret_67 != 0)
+    goto <bb 5>; [29.56%]
+  else
+    goto <bb 6>; [70.44%]
+
+  <bb 5> [20.04%]:
+  _3 = strbuf_detach (err_60(D), 0B);
+  _4 = (long int) _3;
+  reason_91 = (char *) _4;
+  _5 = original_update_refname (update_57(D));
+  strbuf_addf (err_60(D), "cannot lock ref \'%s\': %s", _5, reason_91);
+  free (reason_91);
+  goto <bb 23>; [100.00%]
+
+  <bb 6> [47.76%]:
+  lock.0_6 = lock;
+  update_57(D)->backend_data = lock.0_6;
+  _7 = update_57(D)->type;
+  _8 = _7 & 1;
+  if (_8 != 0)
+    goto <bb 7>; [67.00%]
+  else
+    goto <bb 13>; [33.00%]
+
+  <bb 7> [32.00%]:
+  _9 = update_57(D)->flags;
+  _10 = _9 & 1;
+  if (_10 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 8> [16.00%]:
+  lock.1_11 = lock;
+  _12 = &lock.1_11->old_oid.hash;
+  _13 = referent.buf;
+  _14 = &refs_64(D)->base;
+  _15 = refs_read_ref_full (_14, _13, 0, _12, 0B);
+  if (_15 != 0)
+    goto <bb 9>; [67.00%]
+  else
+    goto <bb 11>; [33.00%]
+
+  <bb 9> [10.72%]:
+  _16 = update_57(D)->flags;
+  _17 = _16 & 16;
+  if (_17 != 0)
+    goto <bb 10>; [1.00%]
+  else
+    goto <bb 14>; [99.00%]
+
+  <bb 10> [0.11%]:
+  _18 = original_update_refname (update_57(D));
+  strbuf_addf (err_60(D), "cannot lock ref \'%s\': error reading reference", _18);
+  goto <bb 23>; [100.00%]
+
+  <bb 11> [5.28%]:
+  lock.2_19 = lock;
+  _20 = &lock.2_19->old_oid;
+  _21 = check_old_oid (update_57(D), _20, err_60(D));
+  if (_21 != 0)
+    goto <bb 23>; [2.00%]
+  else
+    goto <bb 14>; [98.00%]
+
+  <bb 12> [16.00%]:
+  _22 = referent.buf;
+  ret_72 = split_symref_update (refs_64(D), update_57(D), _22, transaction_58(D), affected_refnames_59(D), err_60(D));
+  if (ret_72 != 0)
+    goto <bb 23>; [46.00%]
+  else
+    goto <bb 14>; [54.00%]
+
+  <bb 13> [15.76%]:
+  lock.3_23 = lock;
+  _24 = &lock.3_23->old_oid;
+  _25 = check_old_oid (update_57(D), _24, err_60(D));
+  if (_25 != 0)
+    goto <bb 23>; [2.00%]
+  else
+    goto <bb 14>; [98.00%]
+
+  <bb 14> [39.87%]:
+  _26 = BIT_FIELD_REF <*update_57(D), 32, 320>;
+  _27 = _26 & 138;
+  if (_27 == 8)
+    goto <bb 15>; [34.00%]
+  else
+    goto <bb 20>; [66.00%]
+
+  <bb 15> [13.56%]:
+  _28 = update_57(D)->type;
+  _29 = _28 & 1;
+  if (_29 == 0)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 16> [6.78%]:
+  _30 = &update_57(D)->new_oid;
+  lock.4_31 = lock;
+  _32 = &lock.4_31->old_oid;
+  _33 = oidcmp (_32, _30);
+  if (_33 == 0)
+    goto <bb 20>; [50.00%]
+  else
+    goto <bb 17>; [50.00%]
+
+  <bb 17> [10.17%]:
+  _34 = &update_57(D)->new_oid;
+  lock.5_35 = lock;
+  _36 = write_ref_to_lockfile (lock.5_35, _34, err_60(D));
+  if (_36 != 0)
+    goto <bb 18>; [1.00%]
+  else
+    goto <bb 19>; [99.00%]
+
+  <bb 18> [0.10%]:
+  _37 = strbuf_detach (err_60(D), 0B);
+  _38 = (long int) _37;
+  write_err_84 = (char *) _38;
+  update_57(D)->backend_data = 0B;
+  goto <bb 23>; [100.00%]
+
+  <bb 19> [10.07%]:
+  _39 = update_57(D)->flags;
+  _40 = _39 | 32;
+  update_57(D)->flags = _40;
+
+  <bb 20> [39.77%]:
+  _41 = update_57(D)->flags;
+  _42 = _41 & 32;
+  if (_42 == 0)
+    goto <bb 21>; [36.64%]
+  else
+    goto <bb 23>; [63.36%]
+
+  <bb 21> [14.57%]:
+  lock.6_43 = lock;
+  _44 = close_ref (lock.6_43);
+  if (_44 != 0)
+    goto <bb 23>; [2.00%]
+  else
+    goto <bb 24>; [98.00%]
+
+  <bb 24> [14.28%]:
+
+  <bb 23> [100.00%]:
+  # _45 = PHI <ret_62(3), ret_67(5), -1(10), -2(11), ret_72(12), -2(13), -2(18), -2(21), 0(24), 0(20)>
+  referent ={v} {CLOBBER};
+  lock ={v} {CLOBBER};
+  return _45;
+
+}
+
+
+
+;; Function main (main, funcdef_no=56, decl_uid=3589, cgraph_uid=56, symbol_order=57) (executed once)
 
 
 
  local analysis of main
-   scanning: commit_list_insert (0B, &list);
-  scanning: i_18 = i_4 + 1;
-  scanning: if (i_4 <= 9)
-  scanning: list.6_1 = list;
-  scanning: _2 = list.6_1->item;
-    Indirect ref read is not const
-  scanning: mark_redundant_parents (&revs, _2);
-  scanning: list.7_3 = list;
-  scanning: free_commit_list (list.7_3);
-  scanning: find_merge_parents (&result, &in, &head);
-  scanning: result ={v} {CLOBBER};
-  scanning: in ={v} {CLOBBER};
-  scanning: head ={v} {CLOBBER};
-  scanning: revs ={v} {CLOBBER};
-  scanning: list ={v} {CLOBBER};
+   scanning: lock_ref_for_update (&refs, &update, &transaction, head_ref_2(D), &affected_refnames, &err);
+  scanning: refs ={v} {CLOBBER};
+  scanning: update ={v} {CLOBBER};
+  scanning: transaction ={v} {CLOBBER};
+  scanning: affected_refnames ={v} {CLOBBER};
+  scanning: err ={v} {CLOBBER};
   scanning: return 0;
 Function is locally looping.
 main ()
 {
-  int i;
-  struct commit_list * list;
-  struct rev_info revs;
-  struct object_id head;
-  struct strbuf in;
-  struct merge_parents result;
-  struct commit_list * list.6_1;
-  struct commit * _2;
-  struct commit_list * list.7_3;
+  struct strbuf err;
+  struct string_list affected_refnames;
+  char * head_ref;
+  struct ref_transaction transaction;
+  struct ref_update update;
+  struct files_ref_store refs;
 
-  <bb 2> [9.09%]:
-  goto <bb 4>; [100.00%]
-
-  <bb 3> [90.91%]:
-  commit_list_insert (0B, &list);
-  i_18 = i_4 + 1;
-
-  <bb 4> [100.00%]:
-  # i_4 = PHI <0(2), i_18(3)>
-  if (i_4 <= 9)
-    goto <bb 3>; [90.91%]
-  else
-    goto <bb 5>; [9.09%]
-
-  <bb 5> [9.09%]:
-  list.6_1 = list;
-  _2 = list.6_1->item;
-  mark_redundant_parents (&revs, _2);
-  list.7_3 = list;
-  free_commit_list (list.7_3);
-  find_merge_parents (&result, &in, &head);
-  result ={v} {CLOBBER};
-  in ={v} {CLOBBER};
-  head ={v} {CLOBBER};
-  revs ={v} {CLOBBER};
-  list ={v} {CLOBBER};
+  <bb 2> [100.00%]:
+  lock_ref_for_update (&refs, &update, &transaction, head_ref_2(D), &affected_refnames, &err);
+  refs ={v} {CLOBBER};
+  update ={v} {CLOBBER};
+  transaction ={v} {CLOBBER};
+  affected_refnames ={v} {CLOBBER};
+  err ={v} {CLOBBER};
   return 0;
 
 }

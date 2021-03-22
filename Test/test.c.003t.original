@@ -491,6 +491,60 @@
 }
 
 
+;; Function stat (null)
+;; enabled by -tree-original
+
+
+{
+  return __xstat (1, __path, __statbuf);
+}
+
+
+;; Function lstat (null)
+;; enabled by -tree-original
+
+
+{
+  return __lxstat (1, __path, __statbuf);
+}
+
+
+;; Function fstat (null)
+;; enabled by -tree-original
+
+
+{
+  return __fxstat (1, __fd, __statbuf);
+}
+
+
+;; Function fstatat (null)
+;; enabled by -tree-original
+
+
+{
+  return __fxstatat (1, __fd, __filename, __statbuf, __flag);
+}
+
+
+;; Function mknod (null)
+;; enabled by -tree-original
+
+
+{
+  return __xmknod (0, __path, __mode, &__dev);
+}
+
+
+;; Function mknodat (null)
+;; enabled by -tree-original
+
+
+{
+  return __xmknodat (0, __fd, __path, __mode, &__dev);
+}
+
+
 ;; Function copy_array (null)
 ;; enabled by -tree-original
 
@@ -587,380 +641,466 @@
 }
 
 
-;; Function commit_list_insert (null)
+;; Function strbuf_grow (null)
 ;; enabled by -tree-original
 
 
 {
-  struct commit_list * new_list = (struct commit_list *) malloc (16);
+  int new_buf = sb->alloc == 0;
 
-    struct commit_list * new_list = (struct commit_list *) malloc (16);
-  new_list->item = item;
-  new_list->next = *list_p;
-  *list_p = new_list;
-  return new_list;
-}
-
-
-;; Function remove_redundant (null)
-;; enabled by -tree-original
-
-
-{
-  struct commit * * work;
-  unsigned char * redundant;
-  int * filled_index;
-  int i;
-  int j;
-  int filled;
-  extern int st_mult ();
-
-    struct commit * * work;
-    unsigned char * redundant;
-    int * filled_index;
-    int i;
-    int j;
-    int filled;
-  work = (struct commit * *) calloc ((size_t) cnt, 8);
-  redundant = (unsigned char *) calloc ((size_t) cnt, 1);
-  filled_index = (int *) malloc ((size_t) st_mult (4, cnt + -1));
-  i = 0;
-  goto <D.3300>;
-  <D.3299>:;
+    int new_buf = sb->alloc == 0;
   {
-    extern int parse_commit ();
+    extern int unsigned_add_overflows ();
 
-    parse_commit (*(array + (sizetype) ((long unsigned int) i * 8)));
+    if (unsigned_add_overflows (extra, 1) != 0 || unsigned_add_overflows (sb->len, extra + 1) != 0)
+      {
+        printf ((const char * restrict) "you want to use way too much memory%s", (char *) "");
+        exit (1);
+      }
   }
-  i++ ;
-  <D.3300>:;
-  if (i < cnt) goto <D.3299>; else goto <D.3301>;
-  <D.3301>:;
-  i = 0;
-  goto <D.3321>;
-  <D.3320>:;
-  {
-    struct commit_list * common;
-    extern int paint_down_to_common ();
-    extern int clear_commit_marks ();
-    extern int free_commit_list ();
+  if (new_buf != 0)
+    {
+      sb->buf = 0B;
+    }
+  if ((sb->len + extra) + 1 > sb->alloc)
+    {
+      {
+        extern int st_mult ();
 
-        struct commit_list * common;
-    if (*(redundant + (sizetype) i) != 0)
-      {
-        // predicted unlikely by continue predictor.;
-        goto <D.3303>;
+        {
+          extern int alloc_nr ();
+
+          if ((size_t) alloc_nr (sb->alloc) < (sb->len + extra) + 1)
+            {
+              sb->alloc = (sb->len + extra) + 1;
+            }
+          else
+            {
+              sb->alloc = (size_t) alloc_nr (sb->alloc);
+            }
+        }
+        sb->buf = (char *) xrealloc ((void *) sb->buf, (size_t) st_mult (1, sb->alloc));
       }
-    j = filled = 0;
-    goto <D.3306>;
-    <D.3305>:;
-    if (i == j || *(redundant + (sizetype) j) != 0)
-      {
-        // predicted unlikely by continue predictor.;
-        goto <D.3304>;
-      }
-    *(filled_index + (sizetype) ((long unsigned int) filled * 4)) = j;
-    *(work + (sizetype) ((long unsigned int) filled++  * 8)) = *(array + (sizetype) ((long unsigned int) j * 8));
-    <D.3304>:;
-    j++ ;
-    <D.3306>:;
-    if (j < cnt) goto <D.3305>; else goto <D.3307>;
-    <D.3307>:;
-    common = (struct commit_list *) (long int) paint_down_to_common (*(array + (sizetype) ((long unsigned int) i * 8)), filled, work);
-    if (((unsigned int) (*(array + (sizetype) ((long unsigned int) i * 8)))->object.flags & 131072) != 0)
-      {
-        *(redundant + (sizetype) i) = 1;
-      }
-    j = 0;
-    goto <D.3310>;
-    <D.3309>:;
-    if (((unsigned int) (*(work + (sizetype) ((long unsigned int) j * 8)))->object.flags & 65536) != 0)
-      {
-        *(redundant + (sizetype) *(filled_index + (sizetype) ((long unsigned int) j * 4))) = 1;
-      }
-    j++ ;
-    <D.3310>:;
-    if (j < filled) goto <D.3309>; else goto <D.3311>;
-    <D.3311>:;
-    clear_commit_marks (*(array + (sizetype) ((long unsigned int) i * 8)), all_flags);
-    j = 0;
-    goto <D.3314>;
-    <D.3313>:;
-    clear_commit_marks (*(work + (sizetype) ((long unsigned int) j * 8)), all_flags);
-    j++ ;
-    <D.3314>:;
-    if (j < filled) goto <D.3313>; else goto <D.3315>;
-    <D.3315>:;
-    free_commit_list (common);
-  }
-  <D.3303>:;
-  i++ ;
-  <D.3321>:;
-  if (i < cnt) goto <D.3320>; else goto <D.3322>;
-  <D.3322>:;
-  copy_array ((void *) work, (const void *) array, (size_t) cnt, 8);
-  i = filled = 0;
-  goto <D.3324>;
-  <D.3323>:;
-  if (*(redundant + (sizetype) i) == 0)
-    {
-      *(array + (sizetype) ((long unsigned int) filled++  * 8)) = *(work + (sizetype) ((long unsigned int) i * 8));
     }
-  i++ ;
-  <D.3324>:;
-  if (i < cnt) goto <D.3323>; else goto <D.3325>;
-  <D.3325>:;
-  j = filled;, i = 0;;
-  goto <D.3327>;
-  <D.3326>:;
-  if (*(redundant + (sizetype) i) != 0)
+  if (new_buf != 0)
     {
-      *(array + (sizetype) ((long unsigned int) j++  * 8)) = *(work + (sizetype) ((long unsigned int) i * 8));
+      *sb->buf = 0;
     }
-  i++ ;
-  <D.3327>:;
-  if (i < cnt) goto <D.3326>; else goto <D.3328>;
-  <D.3328>:;
-  free ((void *) work);
-  free ((void *) redundant);
-  free ((void *) filled_index);
-  return filled;
 }
 
 
-;; Function reduce_heads (null)
+;; Function strbuf_release (null)
 ;; enabled by -tree-original
 
 
 {
-  struct commit_list * p;
-  struct commit_list * result = 0B;
-  struct commit_list * * tail = &result;
-  struct commit * * array;
-  int num_head;
-  int i;
+  if (sb->alloc != 0)
+    {
+      {
+        extern int strbuf_init ();
 
-    struct commit_list * p;
-    struct commit_list * result = 0B;
-    struct commit_list * * tail = &result;
-    struct commit * * array;
-    int num_head;
-    int i;
-  if (heads == 0B)
-    {
-      return 0B;
+        free ((void *) sb->buf);
+        strbuf_init (sb, 0);
+      }
     }
-  p = heads;
-  goto <D.3340>;
-  <D.3339>:;
-  p->item->object.flags = p->item->object.flags & 133955583;
-  p = p->next;
-  <D.3340>:;
-  if (p != 0B) goto <D.3339>; else goto <D.3341>;
-  <D.3341>:;
-  p = heads;, num_head = 0;;
-  goto <D.3344>;
-  <D.3343>:;
-  if (((unsigned int) p->item->object.flags & 262144) != 0)
-    {
-      // predicted unlikely by continue predictor.;
-      goto <D.3342>;
-    }
-  p->item->object.flags = p->item->object.flags | 262144;
-  num_head++ ;
-  <D.3342>:;
-  p = p->next;
-  <D.3344>:;
-  if (p != 0B) goto <D.3343>; else goto <D.3345>;
-  <D.3345>:;
-  array = (struct commit * *) calloc ((size_t) num_head, 8);
-  p = heads;, i = 0;;
-  goto <D.3347>;
-  <D.3346>:;
-  if (((unsigned int) p->item->object.flags & 262144) != 0)
-    {
-      *(array + (sizetype) ((long unsigned int) i++  * 8)) = p->item;
-      p->item->object.flags = p->item->object.flags & 133955583;
-    }
-  p = p->next;
-  <D.3347>:;
-  if (p != 0B) goto <D.3346>; else goto <D.3348>;
-  <D.3348>:;
-  num_head = remove_redundant (array, num_head);
-  i = 0;
-  goto <D.3350>;
-  <D.3349>:;
-  tail = &commit_list_insert (*(array + (sizetype) ((long unsigned int) i * 8)), tail)->next;
-  i++ ;
-  <D.3350>:;
-  if (i < num_head) goto <D.3349>; else goto <D.3351>;
-  <D.3351>:;
-  free ((void *) array);
-  return result;
 }
 
 
-;; Function find_merge_parents (null)
+;; Function strbuf_readlink (null)
 ;; enabled by -tree-original
 
 
 {
-  struct commit_list * parents;
-  struct commit * head_commit;
-  int pos = 0;
-  int i;
-  int j;
-  extern int lookup_commit ();
+  size_t oldalloc = sb->alloc;
 
-    struct commit_list * parents;
-    struct commit * head_commit;
-    int pos = 0;
-    int i;
-    int j;
-  parents = 0B;
-  goto <D.3369>;
-  <D.3379>:;
+    size_t oldalloc = sb->alloc;
+  if (hint <= 31)
+    {
+      hint = 32;
+    }
+  goto <D.3479>;
+  <D.3478>:;
   {
     int len;
-    char * p = in->buf + (sizetype) pos;
-    char * newline = strchr ((const char *) p, 10);
-    extern char * strchr (const char *, int);
-    struct object_id oid;
-    struct commit * parent;
-    struct object * obj;
-    extern long unsigned int strlen (const char *);
-    extern int parse_object ();
-    extern int peel_to_type ();
-    extern int add_merge_parent ();
+    extern int readlink ();
 
         int len;
-        char * p = in->buf + (sizetype) pos;
-        char * newline = strchr ((const char *) p, 10);
-        struct object_id oid;
-        struct commit * parent;
-        struct object * obj;
-    len = newline != 0B ? (int) ((long int) newline - (long int) p) : (int) strlen ((const char *) p);
-    pos = ((newline != 0B) + len) + pos;
-    {
-      extern int get_oid_hex ();
-
-      if (((len <= 42 || get_oid_hex (p, &oid) != 0) || *(p + 40) != 9) || *(p + 41) != 9)
-        {
-          // predicted unlikely by continue predictor.;
-          goto <D.3369>;
-        }
-    }
-    obj = (struct object *) (long int) parse_object (&oid);
-    parent = (struct commit *) (long int) peel_to_type (0B, 0, obj, 1);
-    if (parent == 0B)
+    strbuf_grow (sb, hint);
+    len = readlink (path, sb->buf, hint);
+    if (len < 0)
       {
-        // predicted unlikely by continue predictor.;
-        goto <D.3369>;
+        if (*__errno_location () != 34)
+          {
+            goto <D.3474>;
+          }
       }
-    commit_list_insert (parent, &parents);
-    add_merge_parent (result, &obj->oid, &parent->object.oid);
-  }
-  <D.3369>:;
-  if ((size_t) pos < in->len) goto <D.3379>; else goto <D.3380>;
-  <D.3380>:;
-  head_commit = (struct commit *) (long int) lookup_commit (head);
-  if (head_commit != 0B)
-    {
-      commit_list_insert (head_commit, &parents);
-    }
-  parents = reduce_heads (parents);
-  goto <D.3391>;
-  <D.3390>:;
-  {
-    struct commit * cmit = (struct commit *) (long int) pop_commit (&parents);
-    extern int pop_commit ();
+    else
+      {
+        if ((size_t) len < hint)
+          {
+            {
+              extern int strbuf_setlen ();
 
-        struct commit * cmit = (struct commit *) (long int) pop_commit (&parents);
-    i = 0;
-    goto <D.3387>;
-    <D.3386>:;
-    {
-      extern int oidcmp ();
-
-      if (oidcmp (&(result->item + (sizetype) ((long unsigned int) i * 41))->commit, &cmit->object.oid) == 0)
-        {
-          (result->item + (sizetype) ((long unsigned int) i * 41))->used = 1;
-        }
-    }
-    i++ ;
-    <D.3387>:;
-    if (result->nr > i) goto <D.3386>; else goto <D.3388>;
-    <D.3388>:;
+              strbuf_setlen (sb, len);
+              return 0;
+            }
+          }
+      }
+    hint = hint * 2;
   }
-  <D.3391>:;
-  if (parents != 0B) goto <D.3390>; else goto <D.3392>;
-  <D.3392>:;
-  i = j = 0;
-  goto <D.3394>;
-  <D.3393>:;
-  if ((result->item + (sizetype) ((long unsigned int) i * 41))->used != 0)
+  <D.3479>:;
+  if (hint <= 8191) goto <D.3478>; else goto <D.3474>;
+  <D.3474>:;
+  if (oldalloc == 0)
     {
-      if (i != j)
-        {
-          *(result->item + (sizetype) ((long unsigned int) j * 41)) = *(result->item + (sizetype) ((long unsigned int) i * 41));
-        }
-      j++ ;
+      strbuf_release (sb);
     }
-  i++ ;
-  <D.3394>:;
-  if (result->nr > i) goto <D.3393>; else goto <D.3395>;
-  <D.3395>:;
-  result->nr = j;
+  return -1;
 }
 
 
-;; Function mark_redundant_parents (null)
+;; Function files_read_raw_ref (null)
 ;; enabled by -tree-original
 
 
 {
-  struct commit_list * h = reduce_heads (commit->parents);
-  int i = 0;
-  int marked = 0;
-  struct commit_list * po;
-  struct commit_list * pn;
-  int orig_cnt = commit_list_count (commit->parents);
-  extern int commit_list_count ();
-  int cnt = commit_list_count (h);
-  extern int free_commit_list ();
+  struct files_ref_store * refs = (struct files_ref_store *) (long int) files_downcast (ref_store, 1, (char *) "read_raw_ref");
+  extern int files_downcast ();
+  struct strbuf sb_contents = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
+  struct strbuf sb_path = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
+  const char * path;
+  const char * buf;
+  int fd;
+  int ret = -1;
+  int save_errno;
+  int remaining_retries = 3;
+  struct stat st;
+  extern int strbuf_reset ();
+  extern int files_ref_path ();
+  void stat_ref = <<< error >>>;
+  void out = <<< error >>>;
+  extern int strbuf_rtrim ();
 
-    struct commit_list * h = reduce_heads (commit->parents);
-    int i = 0;
-    int marked = 0;
-    struct commit_list * po;
-    struct commit_list * pn;
-    int orig_cnt = commit_list_count (commit->parents);
-    int cnt = commit_list_count (h);
-  po = commit->parents;
-  pn = h;
-  goto <D.3410>;
-  <D.3409>:;
-  if (pn != 0B && po->item == pn->item)
+    struct files_ref_store * refs = (struct files_ref_store *) (long int) files_downcast (ref_store, 1, (char *) "read_raw_ref");
+    struct strbuf sb_contents = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
+    struct strbuf sb_path = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
+    const char * path;
+    const char * buf;
+    int fd;
+    int ret = -1;
+    int save_errno;
+    int remaining_retries = 3;
+    struct stat st;
+  *type = 0;
+  strbuf_reset (&sb_path);
+  files_ref_path (refs, &sb_path, refname);
+  path = (const char *) sb_path.buf;
+  stat_ref:;
+  if (remaining_retries--  <= 0)
     {
-      pn = pn->next;
-      i++ ;
+      goto out;
+    }
+  if (lstat (path, &st) < 0)
+    {
+      if (*__errno_location () != 2)
+        {
+          goto out;
+        }
+      {
+        extern int resolve_packed_ref ();
+
+        if (resolve_packed_ref (refs, refname, sha1, type) != 0)
+          {
+            *__errno_location () = 2;
+            goto out;
+          }
+      }
+      ret = 0;
+      goto out;
+    }
+  strbuf_reset (&sb_contents);
+  if (strbuf_readlink (&sb_contents, path, 0) < 0)
+    {
+      if (SAVE_EXPR <*__errno_location ()> == 2 || SAVE_EXPR <*__errno_location ()> == 22) goto stat_ref; else goto out;
+    }
+  {
+    extern int starts_with ();
+    extern int check_refname_format ();
+
+    if (starts_with (sb_contents.buf, (char *) "refs/") != 0 && check_refname_format (sb_contents.buf, 0) == 0)
+      {
+        strbuf_swap (&sb_contents, referent);
+        *type = *type | 1;
+        ret = 0;
+        goto out;
+      }
+  }
+  strbuf_reset (&sb_contents);
+  {
+    extern int strbuf_read ();
+
+    if (strbuf_read (&sb_contents, fd, 256) < 0)
+      {
+        {
+          int save_errno = *__errno_location ();
+          extern int close ();
+
+                    int save_errno = *__errno_location ();
+          close (fd);
+          *__errno_location () = save_errno;
+          goto out;
+        }
+      }
+  }
+  strbuf_rtrim (&sb_contents);
+  buf = (const char *) sb_contents.buf;
+  {
+    extern int starts_with ();
+
+    if (starts_with (buf, (char *) "ref:") != 0)
+      {
+        {
+          extern int strbuf_addstr ();
+
+          buf = buf + 4;
+          {
+            extern int isspace ();
+
+            goto <D.3515>;
+            <D.3514>:;
+            buf++ ;
+            <D.3515>:;
+            if (isspace ((int) *buf) != 0) goto <D.3514>; else goto <D.3516>;
+            <D.3516>:;
+          }
+          strbuf_reset (referent);
+          strbuf_addstr (referent, buf);
+          *type = *type | 1;
+          ret = 0;
+          goto out;
+        }
+      }
+  }
+  {
+    extern int get_sha1_hex ();
+    extern int isspace ();
+
+    if (get_sha1_hex (buf, sha1) != 0 || *(buf + 40) != 0 && isspace ((int) *(buf + 40)) == 0)
+      {
+        *type = *type | 4;
+        *__errno_location () = 22;
+        goto out;
+      }
+  }
+  ret = 0;
+  out:;
+  save_errno = *__errno_location ();
+  strbuf_release (&sb_path);
+  strbuf_release (&sb_contents);
+  *__errno_location () = save_errno;
+  return ret;
+}
+
+
+;; Function lock_raw_ref (null)
+;; enabled by -tree-original
+
+
+{
+  struct ref_lock * lock;
+  struct strbuf ref_file = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
+  int attempts_remaining = 3;
+  int ret = -2;
+  extern char * strdup (const char *);
+  extern int files_ref_path ();
+  void error_return = <<< error >>>;
+  void out = <<< error >>>;
+  extern int unlock_ref ();
+
+    struct ref_lock * lock;
+    struct strbuf ref_file = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
+    int attempts_remaining = 3;
+    int ret = -2;
+  *type = 0;
+  *lock_p = lock = (struct ref_lock *) calloc (1, 40);
+  lock->ref_name = strdup (refname);
+  files_ref_path (refs, &ref_file, refname);
+  if (files_read_raw_ref (&refs->base, refname, (unsigned char *) &lock->old_oid.hash, referent, type) != 0)
+    {
+      if (*__errno_location () == 2)
+        {
+          if (mustexist != 0)
+            {
+              {
+                extern int strbuf_addf ();
+
+                strbuf_addf (err, (char *) "unable to resolve reference \'%s\'", refname);
+                goto error_return;
+              }
+            }
+        }
+    }
+  ret = 0;
+  goto out;
+  error_return:;
+  unlock_ref (lock);
+  *lock_p = 0B;
+  out:;
+  strbuf_release (&ref_file);
+  return ret;
+}
+
+
+;; Function lock_ref_for_update (null)
+;; enabled by -tree-original
+
+
+{
+  struct strbuf referent = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
+  int mustexist;
+  int ret;
+  struct ref_lock * lock;
+
+    struct strbuf referent = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
+    int mustexist;
+    int ret;
+    struct ref_lock * lock;
+  if (head_ref != 0B)
+    {
+      {
+        extern int split_head_update ();
+
+        ret = split_head_update (update, transaction, head_ref, affected_refnames, err);
+        if (ret != 0)
+          {
+            return ret;
+          }
+      }
+    }
+  ret = lock_raw_ref (refs, (const char *) &update->refname, mustexist, (const struct string_list *) affected_refnames, 0B, &lock, &referent, &update->type, err);
+  if (ret != 0)
+    {
+      {
+        char * reason;
+        extern int strbuf_detach ();
+        extern int strbuf_addf ();
+        extern int original_update_refname ();
+
+                char * reason;
+        reason = (char *) (long int) strbuf_detach (err, 0B);
+        strbuf_addf (err, (char *) "cannot lock ref \'%s\': %s", original_update_refname (update), reason);
+        free ((void *) reason);
+        return ret;
+      }
+    }
+  update->backend_data = (void *) lock;
+  if ((update->type & 1) != 0)
+    {
+      if ((update->flags & 1) != 0)
+        {
+          {
+            extern int refs_read_ref_full ();
+
+            if (refs_read_ref_full (&refs->base, referent.buf, 0, (unsigned char *) &lock->old_oid.hash, 0B) != 0)
+              {
+                if ((update->flags & 16) != 0)
+                  {
+                    {
+                      extern int strbuf_addf ();
+                      extern int original_update_refname ();
+
+                      strbuf_addf (err, (char *) "cannot lock ref \'%s\': error reading reference", original_update_refname (update));
+                      return -1;
+                    }
+                  }
+              }
+            else
+              {
+                {
+                  extern int check_old_oid ();
+
+                  if (check_old_oid (update, &lock->old_oid, err) != 0)
+                    {
+                      return -2;
+                    }
+                }
+              }
+          }
+        }
+      else
+        {
+          {
+            extern int split_symref_update ();
+
+            ret = split_symref_update (refs, update, referent.buf, transaction, affected_refnames, err);
+            if (ret != 0)
+              {
+                return ret;
+              }
+          }
+        }
     }
   else
     {
-      po->item->object.flags = po->item->object.flags | 16;
-      marked++ ;
+      {
+        struct ref_update * parent_update;
+
+                struct ref_update * parent_update;
+        {
+          extern int check_old_oid ();
+
+          if (check_old_oid (update, &lock->old_oid, err) != 0)
+            {
+              return -2;
+            }
+        }
+      }
     }
-  po = po->next;
-  <D.3410>:;
-  if (po != 0B) goto <D.3409>; else goto <D.3411>;
-  <D.3411>:;
-  if (i != cnt || cnt + marked != orig_cnt)
+  if ((BIT_FIELD_REF <*update, 32, 320> & 138) == 8)
     {
-      printf ((const char * restrict) "mark_redundant_parents %d", orig_cnt);
-      exit (1);
+      {
+        extern int oidcmp ();
+
+        if ((update->type & 1) == 0 && oidcmp (&lock->old_oid, &update->new_oid) == 0)
+          {
+            
+          }
+        else
+          {
+            {
+              extern int write_ref_to_lockfile ();
+
+              if (write_ref_to_lockfile (lock, &update->new_oid, err) != 0)
+                {
+                  {
+                    char * write_err = (char *) (long int) strbuf_detach (err, 0B);
+                    extern int strbuf_detach ();
+
+                                        char * write_err = (char *) (long int) strbuf_detach (err, 0B);
+                    update->backend_data = 0B;
+                    return -2;
+                  }
+                }
+              else
+                {
+                  update->flags = update->flags | 32;
+                }
+            }
+          }
+      }
     }
-  free_commit_list (h);
-  return marked;
+  if ((update->flags & 32) == 0)
+    {
+      {
+        extern int close_ref ();
+
+        if (close_ref (lock) != 0)
+          {
+            return -2;
+          }
+      }
+    }
+  return 0;
 }
 
 
@@ -969,33 +1109,20 @@
 
 
 {
-  struct merge_parents result;
-  struct strbuf in;
-  struct object_id head;
-  struct rev_info revs;
-  struct commit_list * list;
-  extern int free_commit_list ();
+  struct files_ref_store refs;
+  struct ref_update update;
+  struct ref_transaction transaction;
+  char * head_ref;
+  struct string_list affected_refnames;
+  struct strbuf err;
 
-    struct merge_parents result;
-    struct strbuf in;
-    struct object_id head;
-    struct rev_info revs;
-    struct commit_list * list;
-  {
-    int i = 0;
-
-        int i = 0;
-    goto <D.3423>;
-    <D.3422>:;
-    commit_list_insert (0B, &list);
-    i++ ;
-    <D.3423>:;
-    if (i <= 9) goto <D.3422>; else goto <D.3424>;
-    <D.3424>:;
-  }
-  mark_redundant_parents (&revs, list->item);
-  free_commit_list (list);
-  find_merge_parents (&result, &in, &head);
+    struct files_ref_store refs;
+    struct ref_update update;
+    struct ref_transaction transaction;
+    char * head_ref;
+    struct string_list affected_refnames;
+    struct strbuf err;
+  lock_ref_for_update (&refs, &update, &transaction, (const char *) head_ref, &affected_refnames, &err);
   return 0;
 }
 return 0;

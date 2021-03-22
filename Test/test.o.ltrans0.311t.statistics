@@ -1,37 +1,16 @@
-84 inline "Symbol to SSA rewrite" "reduce_heads" 2
-84 inline "unused VAR_DECLs removed" "main" 6
-84 inline "Symbol to SSA rewrite" "main" 1
-84 inline "Symbol to SSA rewrite" "main" 2
-90 pta "Symbol to SSA rewrite" "(nofn)" 3
-115 copyprop "Statements deleted" "commit_list_insert" 1
-97 ccp "Constants propagated" "reduce_heads" 3
-97 ccp "Statements deleted" "reduce_heads" 3
-115 copyprop "Constants propagated" "reduce_heads" 3
-115 copyprop "Statements deleted" "reduce_heads" 11
-120 ch "Incremental SSA update" "reduce_heads" 1
-124 dom "Copies propagated" "reduce_heads" 46
-124 dom "Constants propagated" "reduce_heads" 3
-124 dom "Redundant expressions eliminated" "reduce_heads" 28
-124 dom "Jumps threaded" "reduce_heads" 7
-132 ccp "Statements deleted" "reduce_heads" 8
-147 loopinit "Incremental SSA update" "reduce_heads" 1
-153 copyprop "Statements deleted" "reduce_heads" 20
-184 dom "Copies propagated" "reduce_heads" 28
-184 dom "Redundant expressions eliminated" "reduce_heads" 14
-184 dom "Jumps threaded" "reduce_heads" 3
-266 combine "three-insn combine" "reduce_heads" 6
-266 combine "two-insn combine" "reduce_heads" 24
-115 copyprop "Copies propagated" "main" 1
-115 copyprop "Statements deleted" "main" 3
+84 inline "Symbol to SSA rewrite" "main" 7
+90 pta "Symbol to SSA rewrite" "(nofn)" 2
+97 ccp "Copies propagated" "main" 2
+97 ccp "Constants propagated" "main" 19
+97 ccp "Statements deleted" "main" 12
+115 copyprop "Copies propagated" "main" 6
+115 copyprop "Statements deleted" "main" 15
 120 ch "Incremental SSA update" "main" 1
-124 dom "Incremental SSA update" "main" 1
-124 dom "Copies propagated" "main" 9
-124 dom "Constants propagated" "main" 1
-124 dom "Redundant expressions eliminated" "main" 9
-132 ccp "Statements deleted" "main" 5
-140 sink "Sunk statements" "main" 4
+124 dom "Copies propagated" "main" 11
+124 dom "Redundant expressions eliminated" "main" 13
+124 dom "Jumps threaded" "main" 21
+132 ccp "Statements deleted" "main" 12
 147 loopinit "Incremental SSA update" "main" 1
-153 copyprop "Statements deleted" "main" 4
-184 dom "Incremental SSA update" "main" 1
-233 optimized "unused VAR_DECLs removed" "main" 1
-266 combine "two-insn combine" "main" 14
+184 dom "Copies propagated" "main" 3
+184 dom "Redundant expressions eliminated" "main" 3
+266 combine "two-insn combine" "main" 29

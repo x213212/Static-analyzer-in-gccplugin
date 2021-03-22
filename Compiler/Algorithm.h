@@ -2629,8 +2629,9 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 	// printfunctionCollect(ptable, used_stmt);
 	// printfunctionCollect2(ptable, used_stmt);
-	// printfBasicblock();
-	printfPointerConstraint2(ptable, used_stmt);
+	printfBasicblock();
+	// printfPointerConstraint2(ptable, used_stmt);
+	printfunctionCollect(ptable, used_stmt);
 }
 
 void print_function_path(vector<return_type> *path)
@@ -2782,10 +2783,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				const char *name;
 
 				debug_tree(table_temp->target);
-				if(TREE_CODE (table_temp->target)==INTEGER_CST)
+				if(TREE_CODE (table_temp->target)==INTEGER_CST )
 				return ;
+				if (!strcmp(get_tree_code_name(TREE_CODE(table_temp->target)), "addr_expr"))
+				return;
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
-				debug(def_stmt);
+				
+				// debug(def_stmt);
 				// if(def_stmt == NULL)
 				// fprintf(stderr, "\n====qwd==================================================================\n");
 				
