@@ -4,823 +4,447 @@
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
 {
-  int D.3608;
+  int D.3287;
 
   <bb 2> [0.00%]:
-  D.3608 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  return D.3608;
+  D.3287 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.3287;
 
 }
 
 
 
-;; Function lstat (lstat, funcdef_no=40, decl_uid=3041, cgraph_uid=40, symbol_order=40)
+;; Function do_my_cleanups (do_my_cleanups, funcdef_no=48, decl_uid=3170, cgraph_uid=48, symbol_order=53)
 
-__attribute__((__gnu_inline__, __leaf__, __nothrow__))
-lstat (const char * __path, struct stat * __statbuf)
+do_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
 {
-  int D.3710;
+  struct cleanup * ptr;
 
   <bb 2> [0.00%]:
-  D.3710 = __lxstat (1, __path, __statbuf);
-  return D.3710;
+  goto <bb 6>; [0.00%]
 
-}
+  <bb 3> [0.00%]:
+  _1 = ptr->next;
+  *pmy_chain = _1;
+  _2 = ptr->function;
+  _3 = ptr->arg;
+  _2 (_3);
+  printf ("cleanup!!!!! =========\n");
+  _4 = ptr->arg;
+  printf ("%x\n", _4);
+  _5 = ptr->free_arg;
+  if (_5 != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
 
+  <bb 4> [0.00%]:
+  _6 = ptr->free_arg;
+  _7 = ptr->arg;
+  _6 (_7);
 
+  <bb 5> [0.00%]:
+  free (ptr);
 
-;; Function strbuf_swap (strbuf_swap, funcdef_no=48, decl_uid=3408, cgraph_uid=48, symbol_order=49)
+  <bb 6> [0.00%]:
+  ptr = *pmy_chain;
+  if (ptr != old_chain)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
 
-strbuf_swap (struct strbuf * a, struct strbuf * b)
-{
-  unsigned char _swap_buffer[24];
-  void * _swap_b_ptr;
-  void * _swap_a_ptr;
-
-  <bb 2> [0.00%]:
-  _swap_a_ptr = a;
-  _swap_b_ptr = b;
-  MEM[(char * {ref-all})&_swap_buffer] = MEM[(char * {ref-all})_swap_a_ptr];
-  memcpy (_swap_a_ptr, _swap_b_ptr, 24);
-  MEM[(char * {ref-all})_swap_b_ptr] = MEM[(char * {ref-all})&_swap_buffer];
-  _swap_buffer = {CLOBBER};
+  <bb 7> [0.00%]:
   return;
 
 }
 
 
 
-;; Function xrealloc (xrealloc, funcdef_no=49, decl_uid=3416, cgraph_uid=49, symbol_order=50)
+;; Function make_my_cleanup2 (make_my_cleanup2, funcdef_no=50, decl_uid=3178, cgraph_uid=50, symbol_order=55)
 
-xrealloc (void * ptr, size_t size)
+make_my_cleanup2 (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg, void (*<Ted>) (void *) free_arg)
 {
-  void * ret;
-  void * D.3606;
+  struct cleanup * old_chain;
+  struct cleanup * new;
+  struct cleanup * D.3297;
 
   <bb 2> [0.00%]:
-  ret = realloc (ptr, size);
-  _1 = ret == 0B;
-  _2 = size == 0;
-  _3 = _1 & _2;
-  if (_3 != 0)
+  new = malloc (32);
+  old_chain = *pmy_chain;
+  _1 = *pmy_chain;
+  new->next = _1;
+  new->function = function;
+  new->free_arg = free_arg;
+  new->arg = arg;
+  *pmy_chain = new;
+  if (old_chain == 0B)
     goto <bb 3>; [0.00%]
   else
     goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
-  ret = realloc (ptr, 1);
-
-  <bb 4> [0.00%]:
-  if (ret == 0B)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 5> [0.00%]:
-  ret = realloc (ptr, size);
-  _4 = ret == 0B;
-  _5 = size == 0;
-  _6 = _4 & _5;
-  if (_6 != 0)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 6> [0.00%]:
-  ret = realloc (ptr, 1);
-
-  <bb 7> [0.00%]:
-  if (ret == 0B)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 8> [0.00%]:
-  printf ("Out of memory, realloc failed%s", "");
   exit (1);
 
-  <bb 9> [0.00%]:
-  D.3606 = ret;
-  return D.3606;
+  <bb 4> [0.00%]:
+  D.3297 = old_chain;
+  return D.3297;
 
 }
 
 
 
-;; Function strbuf_grow (strbuf_grow, funcdef_no=50, decl_uid=3453, cgraph_uid=50, symbol_order=51)
+;; Function make_my_cleanup (make_my_cleanup, funcdef_no=51, decl_uid=3182, cgraph_uid=51, symbol_order=56)
 
-strbuf_grow (struct strbuf * sb, size_t extra)
+make_my_cleanup (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg)
 {
-  int new_buf;
+  struct cleanup * D.3293;
 
   <bb 2> [0.00%]:
-  _1 = sb->alloc;
+  D.3293 = make_my_cleanup2 (pmy_chain, function, arg, 0B);
+  return D.3293;
+
+}
+
+
+
+;; Function rs6000_ptrace64 (rs6000_ptrace64, funcdef_no=55, decl_uid=3252, cgraph_uid=55, symbol_order=60)
+
+rs6000_ptrace64 (int req, int id, long long int addr, int data, void * buf)
+{
+  int ret;
+  int i;
+  int D.3333;
+  int iftmp.3;
+
+  <bb 2> [0.00%]:
+  addr.2_1 = (int *) addr;
+  i = *addr.2_1;
+  _2 = rand ();
+  _3 = _2 % 2;
+  if (_3 == 1)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  iftmp.3 = 1;
+  goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  iftmp.3 = -1;
+
+  <bb 5> [0.00%]:
+  ret = iftmp.3;
+  D.3333 = ret;
+  return D.3333;
+
+}
+
+
+
+;; Function discard_my_cleanups (discard_my_cleanups, funcdef_no=47, decl_uid=3165, cgraph_uid=47, symbol_order=52)
+
+discard_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
+{
+  struct cleanup * ptr;
+
+  <bb 2> [0.00%]:
+  goto <bb 6>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _1 = ptr->next;
+  *pmy_chain = _1;
+  _2 = ptr->free_arg;
+  if (_2 != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  _3 = ptr->free_arg;
+  _4 = ptr->arg;
+  _3 (_4);
+
+  <bb 5> [0.00%]:
+  free (ptr);
+
+  <bb 6> [0.00%]:
+  ptr = *pmy_chain;
+  if (ptr != old_chain)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 7> [0.00%]:
+  _5 = ptr->arg;
+  printf ("freearg: %x\n", _5);
+  return;
+
+}
+
+
+
+;; Function discard_cleanups (discard_cleanups, funcdef_no=45, decl_uid=3162, cgraph_uid=45, symbol_order=50)
+
+discard_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  discard_my_cleanups (&cleanup_chain, old_chain);
+  return;
+
+}
+
+
+
+;; Function discard_final_cleanups (discard_final_cleanups, funcdef_no=46, decl_uid=3167, cgraph_uid=46, symbol_order=51)
+
+discard_final_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  discard_my_cleanups (&final_cleanup_chain, old_chain);
+  return;
+
+}
+
+
+
+;; Function do_cleanups (do_cleanups, funcdef_no=49, decl_uid=3172, cgraph_uid=49, symbol_order=54)
+
+do_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  do_my_cleanups (&cleanup_chain, old_chain);
+  return;
+
+}
+
+
+
+;; Function make_cleanup (make_cleanup, funcdef_no=52, decl_uid=3185, cgraph_uid=52, symbol_order=57)
+
+make_cleanup (void (*<Ta1d>) (void *) function, void * arg)
+{
+  struct cleanup * D.3291;
+
+  <bb 2> [0.00%]:
+  D.3291 = make_my_cleanup (&cleanup_chain, function, arg);
+  return D.3291;
+
+}
+
+
+
+;; Function xrealloc (xrealloc, funcdef_no=53, decl_uid=3240, cgraph_uid=53, symbol_order=58)
+
+xrealloc (void * oldmem, size_t size)
+{
+  void * newmem;
+  void * D.3306;
+
+  <bb 2> [0.00%]:
+  if (size == 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  size = 1;
+
+  <bb 4> [0.00%]:
+  if (oldmem == 0B)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  newmem = malloc (size);
+  goto <bb 7>; [0.00%]
+
+  <bb 6> [0.00%]:
+  newmem = realloc (oldmem, size);
+
+  <bb 7> [0.00%]:
+  if (newmem == 0B)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 8> [0.00%]:
+  exit (1);
+
+  <bb 9> [0.00%]:
+  D.3306 = newmem;
+  return D.3306;
+
+}
+
+
+
+;; Function rs6000_ptrace_ldinfo (rs6000_ptrace_ldinfo, funcdef_no=56, decl_uid=3256, cgraph_uid=56, symbol_order=61)
+
+rs6000_ptrace_ldinfo ()
+{
+  int rc;
+  void * ldi;
+  int ldi_size;
+  const int pid;
+  gdb_byte * D.3327;
+
+  <bb 2> [0.00%]:
+  pid = 1;
+  ldi_size = 1024;
+  _1 = (long unsigned int) ldi_size;
+  ldi = malloc (_1);
+  rc = -1;
+
+  <bb 3> [0.00%]:
+  ldi.1_2 = (long long int) ldi;
+  rc = rs6000_ptrace64 (1, pid, ldi.1_2, ldi_size, 0B);
+  if (rc != -1)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 4> [0.00%]:
+  ldi_size = ldi_size * 2;
+  _3 = (long unsigned int) ldi_size;
+  ldi = xrealloc (ldi, _3);
+  goto <bb 3>; [0.00%]
+
+  <bb 5> [0.00%]:
+  D.3327 = ldi;
+  return D.3327;
+
+}
+
+
+
+;; Function remote_filename_p (remote_filename_p, funcdef_no=54, decl_uid=3244, cgraph_uid=54, symbol_order=59)
+
+remote_filename_p (const char * filename)
+{
+  int D.3308;
+
+  <bb 2> [0.00%]:
+  _1 = strncmp (filename, "remote:", 7);
   _2 = _1 == 0;
-  new_buf = (int) _2;
-  _3 = unsigned_add_overflows (extra, 1);
-  if (_3 != 0)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 3>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _4 = extra + 1;
-  _5 = sb->len;
-  _6 = unsigned_add_overflows (_5, _4);
-  if (_6 != 0)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  printf ("you want to use way too much memory%s", "");
-  exit (1);
-
-  <bb 5> [0.00%]:
-  if (new_buf != 0)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 6> [0.00%]:
-  sb->buf = 0B;
-
-  <bb 7> [0.00%]:
-  _7 = sb->len;
-  _8 = extra + _7;
-  _9 = _8 + 1;
-  _10 = sb->alloc;
-  if (_9 > _10)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 8> [0.00%]:
-  _11 = sb->alloc;
-  _12 = alloc_nr (_11);
-  _13 = (long unsigned int) _12;
-  _14 = sb->len;
-  _15 = extra + _14;
-  _16 = _15 + 1;
-  if (_13 < _16)
-    goto <bb 9>; [0.00%]
-  else
-    goto <bb 10>; [0.00%]
-
-  <bb 9> [0.00%]:
-  _17 = sb->len;
-  _18 = extra + _17;
-  _19 = _18 + 1;
-  sb->alloc = _19;
-  goto <bb 11>; [0.00%]
-
-  <bb 10> [0.00%]:
-  _20 = sb->alloc;
-  _21 = alloc_nr (_20);
-  _22 = (long unsigned int) _21;
-  sb->alloc = _22;
-
-  <bb 11> [0.00%]:
-  _23 = sb->alloc;
-  _24 = st_mult (1, _23);
-  _25 = (long unsigned int) _24;
-  _26 = sb->buf;
-  _27 = xrealloc (_26, _25);
-  sb->buf = _27;
-
-  <bb 12> [0.00%]:
-  if (new_buf != 0)
-    goto <bb 13>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 13> [0.00%]:
-  _28 = sb->buf;
-  *_28 = 0;
-
-  <bb 14> [0.00%]:
-  return;
+  D.3308 = (int) _2;
+  return D.3308;
 
 }
 
 
 
-;; Function strbuf_release (strbuf_release, funcdef_no=51, decl_uid=3462, cgraph_uid=51, symbol_order=52)
+;; Function rs6000_aix_ld_info_to_xml (rs6000_aix_ld_info_to_xml, funcdef_no=57, decl_uid=3265, cgraph_uid=57, symbol_order=62)
 
-strbuf_release (struct strbuf * sb)
+rs6000_aix_ld_info_to_xml (const gdb_byte * ldi_buf)
 {
+  int i;
+  ULONGEST D.3310;
+
   <bb 2> [0.00%]:
-  _1 = sb->alloc;
-  if (_1 != 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _2 = sb->buf;
-  free (_2);
-  strbuf_init (sb, 0);
-
-  <bb 4> [0.00%]:
-  return;
+  _1 = *ldi_buf;
+  i = (int) _1;
+  D.3310 = (ULONGEST) i;
+  return D.3310;
 
 }
 
 
 
-;; Function strbuf_readlink (strbuf_readlink, funcdef_no=52, decl_uid=3469, cgraph_uid=52, symbol_order=53)
+;; Function rs6000_xfer_shared_libraries (rs6000_xfer_shared_libraries, funcdef_no=58, decl_uid=3270, cgraph_uid=58, symbol_order=63)
 
-strbuf_readlink (struct strbuf * sb, const char * path, size_t hint)
+rs6000_xfer_shared_libraries (const gdb_byte * writebuf, ULONGEST * xfered_len)
 {
-  int len;
-  size_t oldalloc;
-  int D.3632;
+  struct cleanup * cleanup;
+  ULONGEST result;
+  gdb_byte * ldi_buf;
+  target_xfer_status D.3320;
 
   <bb 2> [0.00%]:
-  oldalloc = sb->alloc;
-  if (hint <= 31)
+  if (writebuf != 0B)
     goto <bb 3>; [0.00%]
   else
-    goto <bb 9>; [0.00%]
+    goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
-  hint = 32;
+  D.3320 = -1;
   goto <bb 9>; [0.00%]
 
   <bb 4> [0.00%]:
-  strbuf_grow (sb, hint);
-  _1 = sb->buf;
-  len = readlink (path, _1, hint);
-  if (len < 0)
+  ldi_buf = rs6000_ptrace_ldinfo ();
+  if (ldi_buf == 0B)
     goto <bb 5>; [0.00%]
   else
     goto <bb 6>; [0.00%]
 
   <bb 5> [0.00%]:
-  _2 = __errno_location ();
-  _3 = *_2;
-  if (_3 != 34)
-    goto <bb 10>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
+  exit (1);
 
   <bb 6> [0.00%]:
-  _4 = (long unsigned int) len;
-  if (hint > _4)
+  cleanup = make_cleanup (free, ldi_buf);
+  result = rs6000_aix_ld_info_to_xml (ldi_buf);
+  free (ldi_buf);
+  do_cleanups (cleanup);
+  if (result == 0)
     goto <bb 7>; [0.00%]
   else
     goto <bb 8>; [0.00%]
 
   <bb 7> [0.00%]:
-  strbuf_setlen (sb, len);
-  D.3632 = 0;
-  goto <bb 13>; [0.00%]
+  D.3320 = 0;
+  goto <bb 9>; [0.00%]
 
   <bb 8> [0.00%]:
-  hint = hint * 2;
+  *xfered_len = result;
+  D.3320 = 1;
 
   <bb 9> [0.00%]:
-  if (hint <= 8191)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 10>; [0.00%]
-
-  <bb 10> [0.00%]:
-  if (oldalloc == 0)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 11> [0.00%]:
-  strbuf_release (sb);
-
-  <bb 12> [0.00%]:
-  D.3632 = -1;
-
-  <bb 13> [0.00%]:
-  return D.3632;
+  return D.3320;
 
 }
 
 
 
-;; Function files_read_raw_ref (files_read_raw_ref, funcdef_no=53, decl_uid=3485, cgraph_uid=53, symbol_order=54)
-
-files_read_raw_ref (struct ref_store * ref_store, const char * refname, unsigned char * sha1, struct strbuf * referent, unsigned int * type)
-{
-  int save_errno;
-  struct stat st;
-  int remaining_retries;
-  int save_errno;
-  int ret;
-  int fd;
-  const char * buf;
-  const char * path;
-  struct strbuf sb_path;
-  struct strbuf sb_contents;
-  struct files_ref_store * refs;
-  int D.3707;
-  int D.3694;
-
-  <bb 2> [0.00%]:
-  _1 = files_downcast (ref_store, 1, "read_raw_ref");
-  _2 = (long int) _1;
-  refs = (struct files_ref_store *) _2;
-  sb_contents.alloc = 0;
-  sb_contents.len = 0;
-  sb_contents.buf = &strbuf_slopbuf;
-  sb_path.alloc = 0;
-  sb_path.len = 0;
-  sb_path.buf = &strbuf_slopbuf;
-  ret = -1;
-  remaining_retries = 3;
-  *type = 0;
-  strbuf_reset (&sb_path);
-  files_ref_path (refs, &sb_path, refname);
-  path = sb_path.buf;
-
-stat_ref [0.00%]:
-  remaining_retries.7_3 = remaining_retries;
-  remaining_retries = remaining_retries.7_3 + -1;
-  if (remaining_retries.7_3 <= 0)
-    goto <bb 26> (out); [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _4 = lstat (path, &st);
-  if (_4 < 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 5> [0.00%]:
-  _5 = __errno_location ();
-  _6 = *_5;
-  if (_6 != 2)
-    goto <bb 26> (out); [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 6> [0.00%]:
-  _7 = resolve_packed_ref (refs, refname, sha1, type);
-  if (_7 != 0)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 7> [0.00%]:
-  _8 = __errno_location ();
-  *_8 = 2;
-  goto <bb 26> (out); [0.00%]
-
-  <bb 8> [0.00%]:
-  ret = 0;
-  goto <bb 26> (out); [0.00%]
-
-  <bb 9> [0.00%]:
-  strbuf_reset (&sb_contents);
-  _9 = strbuf_readlink (&sb_contents, path, 0);
-  if (_9 < 0)
-    goto <bb 10>; [0.00%]
-  else
-    goto <bb 11>; [0.00%]
-
-  <bb 10> [0.00%]:
-  _10 = __errno_location ();
-  D.3694 = *_10;
-  _11 = D.3694 == 2;
-  _12 = D.3694 == 22;
-  _13 = _11 | _12;
-  if (_13 != 0)
-    goto <bb 3> (stat_ref); [0.00%]
-  else
-    goto <bb 26> (out); [0.00%]
-
-  <bb 11> [0.00%]:
-  _14 = sb_contents.buf;
-  _15 = starts_with (_14, "refs/");
-  if (_15 != 0)
-    goto <bb 12>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 12> [0.00%]:
-  _16 = sb_contents.buf;
-  _17 = check_refname_format (_16, 0);
-  if (_17 == 0)
-    goto <bb 13>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 13> [0.00%]:
-  strbuf_swap (&sb_contents, referent);
-  _18 = *type;
-  _19 = _18 | 1;
-  *type = _19;
-  ret = 0;
-  goto <bb 26> (out); [0.00%]
-
-  <bb 14> [0.00%]:
-  strbuf_reset (&sb_contents);
-  _20 = strbuf_read (&sb_contents, fd, 256);
-  if (_20 < 0)
-    goto <bb 15>; [0.00%]
-  else
-    goto <bb 16>; [0.00%]
-
-  <bb 15> [0.00%]:
-  _21 = __errno_location ();
-  save_errno = *_21;
-  close (fd);
-  _22 = __errno_location ();
-  *_22 = save_errno;
-  goto <bb 26> (out); [0.00%]
-
-  <bb 16> [0.00%]:
-  strbuf_rtrim (&sb_contents);
-  buf = sb_contents.buf;
-  _23 = starts_with (buf, "ref:");
-  if (_23 != 0)
-    goto <bb 17>; [0.00%]
-  else
-    goto <bb 21>; [0.00%]
-
-  <bb 17> [0.00%]:
-  buf = buf + 4;
-  goto <bb 19>; [0.00%]
-
-  <bb 18> [0.00%]:
-  buf = buf + 1;
-
-  <bb 19> [0.00%]:
-  _24 = *buf;
-  _25 = (int) _24;
-  _26 = isspace (_25);
-  if (_26 != 0)
-    goto <bb 18>; [0.00%]
-  else
-    goto <bb 20>; [0.00%]
-
-  <bb 20> [0.00%]:
-  strbuf_reset (referent);
-  strbuf_addstr (referent, buf);
-  _27 = *type;
-  _28 = _27 | 1;
-  *type = _28;
-  ret = 0;
-  goto <bb 26> (out); [0.00%]
-
-  <bb 21> [0.00%]:
-  _29 = get_sha1_hex (buf, sha1);
-  if (_29 != 0)
-    goto <bb 24>; [0.00%]
-  else
-    goto <bb 22>; [0.00%]
-
-  <bb 22> [0.00%]:
-  _30 = buf + 40;
-  _31 = *_30;
-  if (_31 != 0)
-    goto <bb 23>; [0.00%]
-  else
-    goto <bb 25>; [0.00%]
-
-  <bb 23> [0.00%]:
-  _32 = buf + 40;
-  _33 = *_32;
-  _34 = (int) _33;
-  _35 = isspace (_34);
-  if (_35 == 0)
-    goto <bb 24>; [0.00%]
-  else
-    goto <bb 25>; [0.00%]
-
-  <bb 24> [0.00%]:
-  _36 = *type;
-  _37 = _36 | 4;
-  *type = _37;
-  _38 = __errno_location ();
-  *_38 = 22;
-  goto <bb 26> (out); [0.00%]
-
-  <bb 25> [0.00%]:
-  ret = 0;
-
-out [0.00%]:
-  _39 = __errno_location ();
-  save_errno = *_39;
-  strbuf_release (&sb_path);
-  strbuf_release (&sb_contents);
-  _40 = __errno_location ();
-  *_40 = save_errno;
-  D.3707 = ret;
-  sb_contents = {CLOBBER};
-  sb_path = {CLOBBER};
-  st = {CLOBBER};
-  return D.3707;
-
-}
-
-
-
-;; Function lock_raw_ref (lock_raw_ref, funcdef_no=54, decl_uid=3537, cgraph_uid=54, symbol_order=55)
-
-lock_raw_ref (struct files_ref_store * refs, const char * refname, int mustexist, const struct string_list * extras, const struct string_list * skip, struct ref_lock * * lock_p, struct strbuf * referent, unsigned int * type, struct strbuf * err)
-{
-  int ret;
-  int attempts_remaining;
-  struct strbuf ref_file;
-  struct ref_lock * lock;
-  int D.3683;
-
-  <bb 2> [0.00%]:
-  ref_file.alloc = 0;
-  ref_file.len = 0;
-  ref_file.buf = &strbuf_slopbuf;
-  attempts_remaining = 3;
-  ret = -2;
-  *type = 0;
-  lock = calloc (1, 40);
-  *lock_p = lock;
-  _1 = strdup (refname);
-  lock->ref_name = _1;
-  files_ref_path (refs, &ref_file, refname);
-  _2 = &lock->old_oid.hash;
-  _3 = &refs->base;
-  _4 = files_read_raw_ref (_3, refname, _2, referent, type);
-  if (_4 != 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _5 = __errno_location ();
-  _6 = *_5;
-  if (_6 == 2)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 4> [0.00%]:
-  if (mustexist != 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 5> [0.00%]:
-  strbuf_addf (err, "unable to resolve reference \'%s\'", refname);
-  unlock_ref (lock);
-  *lock_p = 0B;
-  goto <bb 7> (out); [0.00%]
-
-  <bb 6> [0.00%]:
-  ret = 0;
-
-out [0.00%]:
-  strbuf_release (&ref_file);
-  D.3683 = ret;
-  ref_file = {CLOBBER};
-  return D.3683;
-
-}
-
-
-
-;; Function lock_ref_for_update (lock_ref_for_update, funcdef_no=55, decl_uid=3557, cgraph_uid=55, symbol_order=56)
-
-lock_ref_for_update (struct files_ref_store * refs, struct ref_update * update, struct ref_transaction * transaction, const char * head_ref, struct string_list * affected_refnames, struct strbuf * err)
-{
-  char * write_err;
-  struct ref_update * parent_update;
-  char * reason;
-  struct ref_lock * lock;
-  int ret;
-  int mustexist;
-  struct strbuf referent;
-  int D.3643;
-
-  <bb 2> [0.00%]:
-  referent.alloc = 0;
-  referent.len = 0;
-  referent.buf = &strbuf_slopbuf;
-  if (head_ref != 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 3> [0.00%]:
-  ret = split_head_update (update, transaction, head_ref, affected_refnames, err);
-  if (ret != 0)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  D.3643 = ret;
-  goto <bb 28>; [0.00%]
-
-  <bb 5> [0.00%]:
-  _1 = &update->type;
-  _2 = &update->refname;
-  ret = lock_raw_ref (refs, _2, mustexist, affected_refnames, 0B, &lock, &referent, _1, err);
-  if (ret != 0)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 6> [0.00%]:
-  _3 = strbuf_detach (err, 0B);
-  _4 = (long int) _3;
-  reason = (char *) _4;
-  _5 = original_update_refname (update);
-  strbuf_addf (err, "cannot lock ref \'%s\': %s", _5, reason);
-  free (reason);
-  D.3643 = ret;
-  goto <bb 28>; [0.00%]
-
-  <bb 7> [0.00%]:
-  lock.0_6 = lock;
-  update->backend_data = lock.0_6;
-  _7 = update->type;
-  _8 = _7 & 1;
-  if (_8 != 0)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 16>; [0.00%]
-
-  <bb 8> [0.00%]:
-  _9 = update->flags;
-  _10 = _9 & 1;
-  if (_10 != 0)
-    goto <bb 9>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 9> [0.00%]:
-  lock.1_11 = lock;
-  _12 = &lock.1_11->old_oid.hash;
-  _13 = referent.buf;
-  _14 = &refs->base;
-  _15 = refs_read_ref_full (_14, _13, 0, _12, 0B);
-  if (_15 != 0)
-    goto <bb 10>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 10> [0.00%]:
-  _16 = update->flags;
-  _17 = _16 & 16;
-  if (_17 != 0)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 11> [0.00%]:
-  _18 = original_update_refname (update);
-  strbuf_addf (err, "cannot lock ref \'%s\': error reading reference", _18);
-  D.3643 = -1;
-  goto <bb 28>; [0.00%]
-
-  <bb 12> [0.00%]:
-  lock.2_19 = lock;
-  _20 = &lock.2_19->old_oid;
-  _21 = check_old_oid (update, _20, err);
-  if (_21 != 0)
-    goto <bb 13>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 13> [0.00%]:
-  D.3643 = -2;
-  goto <bb 28>; [0.00%]
-
-  <bb 14> [0.00%]:
-  _22 = referent.buf;
-  ret = split_symref_update (refs, update, _22, transaction, affected_refnames, err);
-  if (ret != 0)
-    goto <bb 15>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 15> [0.00%]:
-  D.3643 = ret;
-  goto <bb 28>; [0.00%]
-
-  <bb 16> [0.00%]:
-  lock.3_23 = lock;
-  _24 = &lock.3_23->old_oid;
-  _25 = check_old_oid (update, _24, err);
-  if (_25 != 0)
-    goto <bb 17>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 17> [0.00%]:
-  D.3643 = -2;
-  goto <bb 28>; [0.00%]
-
-  <bb 18> [0.00%]:
-  _26 = BIT_FIELD_REF <*update, 32, 320>;
-  _27 = _26 & 138;
-  if (_27 == 8)
-    goto <bb 19>; [0.00%]
-  else
-    goto <bb 24>; [0.00%]
-
-  <bb 19> [0.00%]:
-  _28 = update->type;
-  _29 = _28 & 1;
-  if (_29 == 0)
-    goto <bb 20>; [0.00%]
-  else
-    goto <bb 21>; [0.00%]
-
-  <bb 20> [0.00%]:
-  _30 = &update->new_oid;
-  lock.4_31 = lock;
-  _32 = &lock.4_31->old_oid;
-  _33 = oidcmp (_32, _30);
-  if (_33 == 0)
-    goto <bb 24>; [0.00%]
-  else
-    goto <bb 21>; [0.00%]
-
-  <bb 21> [0.00%]:
-  _34 = &update->new_oid;
-  lock.5_35 = lock;
-  _36 = write_ref_to_lockfile (lock.5_35, _34, err);
-  if (_36 != 0)
-    goto <bb 22>; [0.00%]
-  else
-    goto <bb 23>; [0.00%]
-
-  <bb 22> [0.00%]:
-  _37 = strbuf_detach (err, 0B);
-  _38 = (long int) _37;
-  write_err = (char *) _38;
-  update->backend_data = 0B;
-  D.3643 = -2;
-  goto <bb 28>; [0.00%]
-
-  <bb 23> [0.00%]:
-  _39 = update->flags;
-  _40 = _39 | 32;
-  update->flags = _40;
-
-  <bb 24> [0.00%]:
-  _41 = update->flags;
-  _42 = _41 & 32;
-  if (_42 == 0)
-    goto <bb 25>; [0.00%]
-  else
-    goto <bb 27>; [0.00%]
-
-  <bb 25> [0.00%]:
-  lock.6_43 = lock;
-  _44 = close_ref (lock.6_43);
-  if (_44 != 0)
-    goto <bb 26>; [0.00%]
-  else
-    goto <bb 27>; [0.00%]
-
-  <bb 26> [0.00%]:
-  D.3643 = -2;
-  goto <bb 28>; [0.00%]
-
-  <bb 27> [0.00%]:
-  D.3643 = 0;
-
-  <bb 28> [0.00%]:
-  referent = {CLOBBER};
-  lock = {CLOBBER};
-  return D.3643;
-
-}
-
-
-
-;; Function main (main, funcdef_no=56, decl_uid=3589, cgraph_uid=56, symbol_order=57)
+;; Function main (main, funcdef_no=59, decl_uid=3275, cgraph_uid=59, symbol_order=64)
 
 main ()
 {
-  struct strbuf err;
-  struct string_list affected_refnames;
-  char * head_ref;
-  struct ref_transaction transaction;
-  struct ref_update update;
-  struct files_ref_store refs;
-  int D.3636;
+  ULONGEST * xfered_len;
+  gdb_byte * writebuf;
+  int len;
+  char buf[10];
+  time_t t;
+  int D.3316;
+  gdb_byte * iftmp.0;
 
   <bb 2> [0.00%]:
-  lock_ref_for_update (&refs, &update, &transaction, head_ref, &affected_refnames, &err);
-  D.3636 = 0;
-  refs = {CLOBBER};
-  update = {CLOBBER};
-  transaction = {CLOBBER};
-  affected_refnames = {CLOBBER};
-  err = {CLOBBER};
-  return D.3636;
+  _1 = time (&t);
+  _2 = (unsigned int) _1;
+  srand (_2);
+  xfered_len = &len;
+  _3 = rand ();
+  _4 = _3 % 2;
+  if (_4 == 1)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  iftmp.0 = &buf;
+  goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  iftmp.0 = 0B;
+
+  <bb 5> [0.00%]:
+  writebuf = iftmp.0;
+  rs6000_xfer_shared_libraries (writebuf, xfered_len);
+  t = {CLOBBER};
+  buf = {CLOBBER};
+  len = {CLOBBER};
+  D.3316 = 0;
+  return D.3316;
 
 }
 

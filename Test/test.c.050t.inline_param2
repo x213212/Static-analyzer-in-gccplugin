@@ -15,7 +15,7 @@ Inline summary for printf/15 always_inline inlinable
     size:0.000000, time:0.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
-    __printf_chk/60 function body not available
+    __printf_chk/66 function body not available
       loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
        op0 is compile time invariant
 
@@ -32,12 +32,393 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function lstat (lstat, funcdef_no=40, decl_uid=3041, cgraph_uid=40, symbol_order=40)
+;; Function do_my_cleanups (do_my_cleanups, funcdef_no=48, decl_uid=3170, cgraph_uid=48, symbol_order=53)
 
 
-Analyzing function body size: lstat
+Analyzing function body size: do_my_cleanups
 
-Inline summary for lstat/40 always_inline inlinable
+Inline summary for do_my_cleanups/53 inlinable
+  self time:       469
+  global time:     0
+  self size:       35
+  global size:     0
+  min size:       74
+  self stack:      0
+  global stack:    0
+    size:12.000000, time:69.754000, predicate:(true)
+    size:4.000000, time:8.166000, predicate:(not inlined)
+  calls:
+    free/65 function body not available
+      loop depth: 1 freq:5666 size: 2 time: 11 callee size: 0 stack: 0
+    __printf_chk/66 function body not available
+      loop depth: 1 freq:5666 size: 5 time: 14 callee size: 0 stack: 0
+       op0 is compile time invariant
+       op1 is compile time invariant
+    __printf_chk/66 function body not available
+      loop depth: 1 freq:5666 size: 4 time: 13 callee size: 0 stack: 0
+       op0 is compile time invariant
+       op1 is compile time invariant
+    indirect call loop depth: 1 freq:5297 size: 4 time: 16
+    indirect call loop depth: 1 freq:5666 size: 4 time: 16
+
+do_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
+{
+  struct cleanup * ptr;
+  struct cleanup * _1;
+  void (*<Ted>) (void *) _2;
+  void * _3;
+  void * _4;
+  void (*<Ted>) (void *) _5;
+  void (*<Ted>) (void *) _6;
+  void * _7;
+  int _18;
+  int _19;
+
+  <bb 2> [15.00%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 3> [85.00%]:
+  _1 = ptr_12->next;
+  *pmy_chain_11(D) = _1;
+  _2 = ptr_12->function;
+  _3 = ptr_12->arg;
+  _2 (_3);
+  _19 = __printf_chk (1, "cleanup!!!!! =========\n");
+  _4 = ptr_12->arg;
+  _18 = __printf_chk (1, "%x\n", _4);
+  _5 = ptr_12->free_arg;
+  if (_5 != 0B)
+    goto <bb 4>; [93.48%]
+  else
+    goto <bb 5>; [6.52%]
+
+  <bb 4> [79.46%]:
+  _6 = ptr_12->free_arg;
+  _7 = ptr_12->arg;
+  _6 (_7);
+
+  <bb 5> [85.00%]:
+  free (ptr_12);
+
+  <bb 6> [100.00%]:
+  ptr_12 = *pmy_chain_11(D);
+  if (ptr_12 != old_chain_13(D))
+    goto <bb 3>; [85.00%]
+  else
+    goto <bb 7>; [15.00%]
+
+  <bb 7> [15.00%]:
+  return;
+
+}
+
+
+
+;; Function make_my_cleanup2 (make_my_cleanup2, funcdef_no=50, decl_uid=3178, cgraph_uid=50, symbol_order=55)
+
+
+Analyzing function body size: make_my_cleanup2
+
+Inline summary for make_my_cleanup2/55 inlinable
+  self time:       23
+  global time:     0
+  self size:       17
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:4.500000, time:4.500000, predicate:(true)
+    size:2.500000, time:0.500000, predicate:(not inlined)
+    size:1.000000, time:1.000000, predicate:(op0[ref offset: 0] changed) && (not inlined)
+    size:3.000000, time:3.000000, predicate:(op0[ref offset: 0] changed)
+    size:1.000000, time:1.998000, predicate:(op0[ref offset: 0] != 0B) && (not inlined)
+  calls:
+    exit/68 function body not available
+      loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0 predicate: (op0[ref offset: 0] == 0B)
+       op0 is compile time invariant
+    malloc/67 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+
+make_my_cleanup2 (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg, void (*<Ted>) (void *) free_arg)
+{
+  struct cleanup * old_chain;
+  struct cleanup * new;
+  struct cleanup * _1;
+
+  <bb 2> [100.00%]:
+  new_4 = malloc (32);
+  old_chain_6 = *pmy_chain_5(D);
+  _1 = *pmy_chain_5(D);
+  new_4->next = _1;
+  new_4->function = function_8(D);
+  new_4->free_arg = free_arg_10(D);
+  new_4->arg = arg_12(D);
+  *pmy_chain_5(D) = new_4;
+  if (old_chain_6 == 0B)
+    goto <bb 3>; [0.04%]
+  else
+    goto <bb 4>; [99.96%]
+
+  <bb 3> [0.04%]:
+  exit (1);
+
+  <bb 4> [99.96%]:
+  return old_chain_6;
+
+}
+
+
+
+;; Function make_my_cleanup (make_my_cleanup, funcdef_no=51, decl_uid=3182, cgraph_uid=51, symbol_order=56)
+
+
+Analyzing function body size: make_my_cleanup
+
+Inline summary for make_my_cleanup/56 inlinable
+  self time:       17
+  global time:     0
+  self size:       9
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    make_my_cleanup2/55 function not considered for inlining
+      loop depth: 0 freq:1000 size: 6 time: 15 callee size: 8 stack: 0
+       op3 is compile time invariant
+
+make_my_cleanup (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg)
+{
+  struct cleanup * _6;
+
+  <bb 2> [100.00%]:
+  _6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
+  return _6;
+
+}
+
+
+
+;; Function rs6000_ptrace64 (rs6000_ptrace64, funcdef_no=55, decl_uid=3252, cgraph_uid=55, symbol_order=60)
+
+
+Analyzing function body size: rs6000_ptrace64
+
+Inline summary for rs6000_ptrace64/60 inlinable
+  self time:       17
+  global time:     0
+  self size:       9
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:4.000000, time:4.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    rand/73 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+
+rs6000_ptrace64 (int req, int id, long long int addr, int data, void * buf)
+{
+  int ret;
+  int i;
+  int * addr.2_1;
+  int _2;
+  int _3;
+  int iftmp.3_4;
+  int _10;
+
+  <bb 2> [100.00%]:
+  addr.2_1 = (int *) addr_5(D);
+  i_7 = *addr.2_1;
+  _2 = rand ();
+  _3 = _2 % 2;
+  if (_3 == 1)
+    goto <bb 4>; [96.19%]
+  else
+    goto <bb 3>; [3.81%]
+
+  <bb 3> [3.81%]:
+
+  <bb 4> [100.00%]:
+  # iftmp.3_4 = PHI <1(2), -1(3)>
+  ret_9 = iftmp.3_4;
+  _10 = iftmp.3_4;
+  return iftmp.3_4;
+
+}
+
+
+
+;; Function discard_my_cleanups (discard_my_cleanups, funcdef_no=47, decl_uid=3165, cgraph_uid=47, symbol_order=52)
+
+
+Analyzing function body size: discard_my_cleanups
+
+Inline summary for discard_my_cleanups/52 inlinable
+  self time:       223
+  global time:     0
+  self size:       25
+  global size:     0
+  min size:       42
+  self stack:      0
+  global stack:    0
+    size:10.000000, time:53.756000, predicate:(true)
+    size:4.000000, time:8.166000, predicate:(not inlined)
+  calls:
+    __printf_chk/66 function body not available
+      loop depth: 0 freq:1000 size: 5 time: 14 callee size: 0 stack: 0
+       op0 is compile time invariant
+       op1 is compile time invariant
+    free/65 function body not available
+      loop depth: 1 freq:5666 size: 2 time: 11 callee size: 0 stack: 0
+    indirect call loop depth: 1 freq:5297 size: 4 time: 16
+
+discard_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
+{
+  struct cleanup * ptr;
+  struct cleanup * _1;
+  void (*<Ted>) (void *) _2;
+  void (*<Ted>) (void *) _3;
+  void * _4;
+  void * _5;
+  int _15;
+
+  <bb 2> [15.00%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 3> [85.00%]:
+  _1 = ptr_10->next;
+  *pmy_chain_9(D) = _1;
+  _2 = ptr_10->free_arg;
+  if (_2 != 0B)
+    goto <bb 4>; [93.48%]
+  else
+    goto <bb 5>; [6.52%]
+
+  <bb 4> [79.46%]:
+  _3 = ptr_10->free_arg;
+  _4 = ptr_10->arg;
+  _3 (_4);
+
+  <bb 5> [85.00%]:
+  free (ptr_10);
+
+  <bb 6> [100.00%]:
+  ptr_10 = *pmy_chain_9(D);
+  if (ptr_10 != old_chain_11(D))
+    goto <bb 3>; [85.00%]
+  else
+    goto <bb 7>; [15.00%]
+
+  <bb 7> [15.00%]:
+  _5 = ptr_10->arg;
+  _15 = __printf_chk (1, "freearg: %x\n", _5);
+  return;
+
+}
+
+
+
+;; Function discard_cleanups (discard_cleanups, funcdef_no=45, decl_uid=3162, cgraph_uid=45, symbol_order=50)
+
+
+Analyzing function body size: discard_cleanups
+
+Inline summary for discard_cleanups/50 inlinable
+  self time:       14
+  global time:     0
+  self size:       6
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    discard_my_cleanups/52 function not considered for inlining
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size:12 stack: 0
+       op0 is compile time invariant
+
+discard_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [100.00%]:
+  discard_my_cleanups (&cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function discard_final_cleanups (discard_final_cleanups, funcdef_no=46, decl_uid=3167, cgraph_uid=46, symbol_order=51)
+
+
+Analyzing function body size: discard_final_cleanups
+
+Inline summary for discard_final_cleanups/51 inlinable
+  self time:       14
+  global time:     0
+  self size:       6
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    discard_my_cleanups/52 function not considered for inlining
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size:12 stack: 0
+       op0 is compile time invariant
+
+discard_final_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [100.00%]:
+  discard_my_cleanups (&final_cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function do_cleanups (do_cleanups, funcdef_no=49, decl_uid=3172, cgraph_uid=49, symbol_order=54)
+
+
+Analyzing function body size: do_cleanups
+
+Inline summary for do_cleanups/54 inlinable
+  self time:       14
+  global time:     0
+  self size:       6
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    do_my_cleanups/53 function not considered for inlining
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size:17 stack: 0
+       op0 is compile time invariant
+
+do_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [100.00%]:
+  do_my_cleanups (&cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function make_cleanup (make_cleanup, funcdef_no=52, decl_uid=3185, cgraph_uid=52, symbol_order=57)
+
+
+Analyzing function body size: make_cleanup
+
+Inline summary for make_cleanup/57 inlinable
   self time:       16
   global time:     0
   self size:       8
@@ -48,1265 +429,361 @@ Inline summary for lstat/40 always_inline inlinable
     size:0.000000, time:0.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
-    __lxstat/95 function body not available
-      loop depth: 0 freq:1000 size: 5 time: 14 callee size: 0 stack: 0
+    make_my_cleanup/56 function not considered for inlining
+      loop depth: 0 freq:1000 size: 5 time: 14 callee size: 4 stack: 0
        op0 is compile time invariant
 
-__attribute__((__gnu_inline__, __leaf__, __nothrow__))
-lstat (const char * __path, struct stat * __statbuf)
+make_cleanup (void (*<Ta1d>) (void *) function, void * arg)
 {
-  int _5;
+  struct cleanup * _5;
 
   <bb 2> [100.00%]:
-  _5 = __lxstat (1, __path_2(D), __statbuf_3(D));
+  _5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
   return _5;
 
 }
 
 
 
-;; Function strbuf_swap (strbuf_swap, funcdef_no=48, decl_uid=3408, cgraph_uid=48, symbol_order=49)
-
-
-Analyzing function body size: strbuf_swap
-
-Inline summary for strbuf_swap/49 inlinable
-  self time:       23
-  global time:     0
-  self size:       15
-  global size:     0
-  min size:       0
-  self stack:      24
-  global stack:    24
-    size:8.000000, time:8.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-    memcpy/96 function body not available
-      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
-       op2 is compile time invariant
-
-strbuf_swap (struct strbuf * a, struct strbuf * b)
-{
-  unsigned char _swap_buffer[24];
-
-  <bb 2> [100.00%]:
-  MEM[(char * {ref-all})&_swap_buffer] = MEM[(char * {ref-all})a_1(D)];
-  memcpy (a_1(D), b_2(D), 24);
-  MEM[(char * {ref-all})b_2(D)] = MEM[(char * {ref-all})&_swap_buffer];
-  _swap_buffer ={v} {CLOBBER};
-  return;
-
-}
-
-
-
-;; Function xrealloc (xrealloc, funcdef_no=49, decl_uid=3416, cgraph_uid=49, symbol_order=50)
+;; Function xrealloc (xrealloc, funcdef_no=53, decl_uid=3240, cgraph_uid=53, symbol_order=58)
 
 
 Analyzing function body size: xrealloc
 
-Inline summary for xrealloc/50 inlinable
-  self time:       31
+Inline summary for xrealloc/58 inlinable
+  self time:       21
   global time:     0
-  self size:       40
+  self size:       18
   global size:     0
-  min size:       90
+  min size:       0
   self stack:      0
   global stack:    0
-    size:12.000000, time:7.188000, predicate:(true)
+    size:2.000000, time:2.000000, predicate:(true)
     size:3.000000, time:1.998000, predicate:(not inlined)
-    size:2.000000, time:1.198000, predicate:(op1 changed)
+    size:2.000000, time:2.000000, predicate:(op1 changed)
+    size:2.000000, time:2.000000, predicate:(op0 changed)
   calls:
-    exit/59 function body not available
+    exit/68 function body not available
       loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0
        op0 is compile time invariant
-    __printf_chk/60 function body not available
-      loop depth: 0 freq:   0 size: 5 time: 14 callee size: 0 stack: 0
-       op0 is compile time invariant
-       op1 is compile time invariant
-       op2 is compile time invariant
-    realloc/58 function body not available
-      loop depth: 0 freq:  65 size: 4 time: 13 callee size: 0 stack: 0
-       op1 is compile time invariant
-    realloc/58 function body not available
-      loop depth: 0 freq: 198 size: 4 time: 13 callee size: 0 stack: 0
-    realloc/58 function body not available
-      loop depth: 0 freq: 330 size: 4 time: 13 callee size: 0 stack: 0
-       op1 is compile time invariant
-    realloc/58 function body not available
-      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
+    realloc/69 function body not available
+      loop depth: 0 freq: 700 size: 4 time: 13 callee size: 0 stack: 0 predicate: (op0 != 0B)
+    malloc/67 function body not available
+      loop depth: 0 freq: 300 size: 3 time: 12 callee size: 0 stack: 0 predicate: (op0 == 0B)
 
-xrealloc (void * ptr, size_t size)
+xrealloc (void * oldmem, size_t size)
 {
-  void * ret;
-  _Bool _1;
-  _Bool _2;
-  _Bool _3;
-  _Bool _4;
-  _Bool _5;
-  _Bool _6;
-  void * _25;
-  int _26;
+  void * newmem;
+  void * _11;
 
   <bb 2> [100.00%]:
-  ret_17 = realloc (ptr_14(D), size_15(D));
-  _1 = ret_17 == 0B;
-  _2 = size_15(D) == 0;
-  _3 = _1 & _2;
-  if (_3 != 0)
-    goto <bb 3>; [33.00%]
+  if (size_4(D) == 0)
+    goto <bb 3>; [50.00%]
   else
-    goto <bb 4>; [67.00%]
+    goto <bb 4>; [50.00%]
 
-  <bb 3> [33.00%]:
-  ret_19 = realloc (ptr_14(D), 1);
+  <bb 3> [50.00%]:
 
   <bb 4> [100.00%]:
-  # ret_7 = PHI <ret_17(2), ret_19(3)>
-  if (ret_7 == 0B)
-    goto <bb 5>; [19.86%]
+  # size_1 = PHI <size_4(D)(2), 1(3)>
+  if (oldmem_5(D) == 0B)
+    goto <bb 5>; [30.00%]
   else
-    goto <bb 9>; [80.14%]
+    goto <bb 6>; [70.00%]
 
-  <bb 5> [19.86%]:
-  ret_21 = realloc (ptr_14(D), size_15(D));
-  _4 = ret_21 == 0B;
-  _5 = size_15(D) == 0;
-  _6 = _4 & _5;
-  if (_6 != 0)
-    goto <bb 6>; [33.00%]
-  else
-    goto <bb 7>; [67.00%]
+  <bb 5> [30.00%]:
+  newmem_10 = malloc (size_1);
+  goto <bb 7>; [100.00%]
 
-  <bb 6> [6.55%]:
-  ret_23 = realloc (ptr_14(D), 1);
+  <bb 6> [70.00%]:
+  newmem_8 = realloc (oldmem_5(D), size_1);
 
-  <bb 7> [19.86%]:
-  # ret_8 = PHI <ret_21(5), ret_23(6)>
-  if (ret_8 == 0B)
+  <bb 7> [100.00%]:
+  # newmem_2 = PHI <newmem_10(5), newmem_8(6)>
+  if (newmem_2 == 0B)
     goto <bb 8>; [0.04%]
   else
     goto <bb 9>; [99.96%]
 
-  <bb 8> [0.01%]:
-  _26 = __printf_chk (1, "Out of memory, realloc failed%s", "");
+  <bb 8> [0.04%]:
   exit (1);
 
-  <bb 9> [99.99%]:
-  # ret_9 = PHI <ret_7(4), ret_8(7)>
-  _25 = ret_9;
-  return ret_9;
+  <bb 9> [99.96%]:
+  _11 = newmem_2;
+  return newmem_2;
 
 }
 
 
 
-;; Function strbuf_grow (strbuf_grow, funcdef_no=50, decl_uid=3453, cgraph_uid=50, symbol_order=51)
+;; Function rs6000_ptrace_ldinfo (rs6000_ptrace_ldinfo, funcdef_no=56, decl_uid=3256, cgraph_uid=56, symbol_order=61)
 
 
-Analyzing function body size: strbuf_grow
+Analyzing function body size: rs6000_ptrace_ldinfo
 
-Inline summary for strbuf_grow/51 inlinable
-  self time:       65
+Inline summary for rs6000_ptrace_ldinfo/61 inlinable
+  self time:       213
   global time:     0
-  self size:       68
-  global size:     0
-  min size:       114
-  self stack:      0
-  global stack:    0
-    size:20.000000, time:12.399000, predicate:(true)
-    size:9.000000, time:4.647000, predicate:(not inlined)
-    size:0.500000, time:0.500000, predicate:(op0[ref offset: 0] changed) && (not inlined)
-    size:5.500000, time:5.496000, predicate:(op0[ref offset: 0] changed)
-    size:1.000000, time:0.999000, predicate:(op1 changed)
-    size:1.000000, time:0.519000, predicate:(op0[ref offset: 0] == 0) && (not inlined)
-    size:2.000000, time:1.058000, predicate:(op0[ref offset: 0] == 0)
-  calls:
-    xrealloc/50 function not considered for inlining
-      loop depth: 0 freq: 329 size: 4 time: 13 callee size:20 stack: 0
-    st_mult/63 mismatched arguments
-      loop depth: 0 freq: 329 size: 4 time: 13 callee size: 0 stack: 0
-       op0 is compile time invariant
-    alloc_nr/62 mismatched arguments
-      loop depth: 0 freq: 108 size: 3 time: 12 callee size: 0 stack: 0
-    alloc_nr/62 mismatched arguments
-      loop depth: 0 freq: 329 size: 3 time: 12 callee size: 0 stack: 0
-    exit/59 function body not available
-      loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    __printf_chk/60 function body not available
-      loop depth: 0 freq:   0 size: 5 time: 14 callee size: 0 stack: 0
-       op0 is compile time invariant
-       op1 is compile time invariant
-       op2 is compile time invariant
-    unsigned_add_overflows/61 mismatched arguments
-      loop depth: 0 freq: 999 size: 4 time: 13 callee size: 0 stack: 0
-    unsigned_add_overflows/61 mismatched arguments
-      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
-       op1 is compile time invariant
-
-strbuf_grow (struct strbuf * sb, size_t extra)
-{
-  int new_buf;
-  long unsigned int _1;
-  _Bool _2;
-  int _3;
-  long unsigned int _4;
-  long unsigned int _5;
-  int _6;
-  long unsigned int _7;
-  long unsigned int _8;
-  long unsigned int _9;
-  long unsigned int _10;
-  long unsigned int _11;
-  int _12;
-  long unsigned int _13;
-  long unsigned int _14;
-  long unsigned int _15;
-  long unsigned int _16;
-  long unsigned int _17;
-  long unsigned int _18;
-  long unsigned int _19;
-  long unsigned int _20;
-  int _21;
-  long unsigned int _22;
-  long unsigned int _23;
-  int _24;
-  long unsigned int _25;
-  char * _26;
-  void * _27;
-  char * _28;
-  int _50;
-
-  <bb 2> [100.00%]:
-  _1 = sb_35(D)->alloc;
-  _2 = _1 == 0;
-  new_buf_36 = (int) _2;
-  _3 = unsigned_add_overflows (extra_37(D), 1);
-  if (_3 != 0)
-    goto <bb 4>; [0.04%]
-  else
-    goto <bb 3>; [99.96%]
-
-  <bb 3> [99.96%]:
-  _4 = extra_37(D) + 1;
-  _5 = sb_35(D)->len;
-  _6 = unsigned_add_overflows (_5, _4);
-  if (_6 != 0)
-    goto <bb 4>; [0.04%]
-  else
-    goto <bb 5>; [99.96%]
-
-  <bb 4> [0.08%]:
-  _50 = __printf_chk (1, "you want to use way too much memory%s", "");
-  exit (1);
-
-  <bb 5> [99.92%]:
-  if (_1 == 0)
-    goto <bb 6>; [50.00%]
-  else
-    goto <bb 7>; [50.00%]
-
-  <bb 6> [49.96%]:
-  sb_35(D)->buf = 0B;
-
-  <bb 7> [99.92%]:
-  _7 = sb_35(D)->len;
-  _8 = _7 + extra_37(D);
-  _9 = _8 + 1;
-  _10 = sb_35(D)->alloc;
-  if (_9 > _10)
-    goto <bb 8>; [33.00%]
-  else
-    goto <bb 12>; [67.00%]
-
-  <bb 8> [32.97%]:
-  _11 = sb_35(D)->alloc;
-  _12 = alloc_nr (_11);
-  _13 = (long unsigned int) _12;
-  _14 = sb_35(D)->len;
-  _15 = _14 + extra_37(D);
-  _16 = _15 + 1;
-  if (_13 < _16)
-    goto <bb 9>; [67.00%]
-  else
-    goto <bb 10>; [33.00%]
-
-  <bb 9> [22.09%]:
-  _17 = sb_35(D)->len;
-  _18 = _17 + extra_37(D);
-  _19 = _18 + 1;
-  sb_35(D)->alloc = _19;
-  goto <bb 11>; [100.00%]
-
-  <bb 10> [10.88%]:
-  _20 = sb_35(D)->alloc;
-  _21 = alloc_nr (_20);
-  _22 = (long unsigned int) _21;
-  sb_35(D)->alloc = _22;
-
-  <bb 11> [32.97%]:
-  _23 = sb_35(D)->alloc;
-  _24 = st_mult (1, _23);
-  _25 = (long unsigned int) _24;
-  _26 = sb_35(D)->buf;
-  _27 = xrealloc (_26, _25);
-  sb_35(D)->buf = _27;
-
-  <bb 12> [99.92%]:
-  if (_1 == 0)
-    goto <bb 13>; [54.00%]
-  else
-    goto <bb 14>; [46.00%]
-
-  <bb 13> [53.96%]:
-  _28 = sb_35(D)->buf;
-  *_28 = 0;
-
-  <bb 14> [99.92%]:
-  return;
-
-}
-
-
-
-;; Function strbuf_release (strbuf_release, funcdef_no=51, decl_uid=3462, cgraph_uid=51, symbol_order=52)
-
-
-Analyzing function body size: strbuf_release
-
-Inline summary for strbuf_release/52 inlinable
-  self time:       14
-  global time:     0
-  self size:       12
+  self size:       20
   global size:     0
   min size:       0
   self stack:      0
   global stack:    0
-    size:0.000000, time:0.000000, predicate:(true)
+    size:3.000000, time:18.998000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
-    size:0.500000, time:0.500000, predicate:(op0[ref offset: 0] changed) && (not inlined)
-    size:2.500000, time:2.500000, predicate:(op0[ref offset: 0] changed)
-    size:0.500000, time:0.183000, predicate:(op0[ref offset: 128] changed) && (op0[ref offset: 0] != 0) && (not inlined)
-    size:0.500000, time:0.183000, predicate:(op0[ref offset: 128] changed) && (op0[ref offset: 0] != 0)
   calls:
-    strbuf_init/65 mismatched arguments
-      loop depth: 0 freq: 366 size: 3 time: 12 callee size: 0 stack: 0 predicate: (op0[ref offset: 0] != 0)
+    xrealloc/58 function not considered for inlining
+      loop depth: 1 freq:5666 size: 4 time: 13 callee size: 9 stack: 0
+    rs6000_ptrace64/60 function not considered for inlining
+      loop depth: 1 freq:6666 size: 7 time: 16 callee size: 4 stack: 0
+       op0 is compile time invariant
        op1 is compile time invariant
-    free/64 function body not available
-      loop depth: 0 freq: 366 size: 2 time: 11 callee size: 0 stack: 0 predicate: (op0[ref offset: 0] != 0)
+       op4 is compile time invariant
+    malloc/67 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
 
-strbuf_release (struct strbuf * sb)
+rs6000_ptrace_ldinfo ()
 {
-  long unsigned int _1;
-  char * _2;
+  int rc;
+  void * ldi;
+  int ldi_size;
+  long long int ldi.1_1;
+  long unsigned int _2;
 
-  <bb 2> [100.00%]:
-  _1 = sb_5(D)->alloc;
-  if (_1 != 0)
-    goto <bb 3>; [36.64%]
+  <bb 2> [15.00%]:
+  ldi_8 = malloc (1024);
+
+  <bb 3> [100.00%]:
+  # ldi_size_3 = PHI <1024(2), ldi_size_11(4)>
+  # ldi_4 = PHI <ldi_8(2), ldi_13(4)>
+  ldi.1_1 = (long long int) ldi_4;
+  rc_10 = rs6000_ptrace64 (1, 1, ldi.1_1, ldi_size_3, 0B);
+  if (rc_10 != -1)
+    goto <bb 5>; [15.00%]
   else
-    goto <bb 4>; [63.36%]
+    goto <bb 4>; [85.00%]
 
-  <bb 3> [36.64%]:
-  _2 = sb_5(D)->buf;
-  free (_2);
-  strbuf_init (sb_5(D), 0);
+  <bb 4> [85.00%]:
+  ldi_size_11 = ldi_size_3 * 2;
+  _2 = (long unsigned int) ldi_size_11;
+  ldi_13 = xrealloc (ldi_4, _2);
+  goto <bb 3>; [100.00%]
 
-  <bb 4> [100.00%]:
-  return;
+  <bb 5> [15.00%]:
+  return ldi_4;
 
 }
 
 
 
-;; Function strbuf_readlink (strbuf_readlink, funcdef_no=52, decl_uid=3469, cgraph_uid=52, symbol_order=53)
+;; Function remote_filename_p (remote_filename_p, funcdef_no=54, decl_uid=3244, cgraph_uid=54, symbol_order=59)
 
 
-Analyzing function body size: strbuf_readlink
+Analyzing function body size: remote_filename_p
 
-Inline summary for strbuf_readlink/53 inlinable
-  self time:       386
+Inline summary for remote_filename_p/59 inlinable
+  self time:       17
   global time:     0
-  self size:       34
+  self size:       9
   global size:     0
   min size:       0
   self stack:      0
   global stack:    0
-    size:10.500000, time:77.116500, predicate:(true)
-    size:3.500000, time:6.871500, predicate:(not inlined)
-    size:0.500000, time:0.500000, predicate:(op0[ref offset: 0] changed) && (not inlined)
-    size:2.500000, time:1.876000, predicate:(op0[ref offset: 0] changed)
-    size:2.000000, time:2.000000, predicate:(op2 changed)
+    size:1.000000, time:1.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
-    strbuf_release/52 function not considered for inlining
-      loop depth: 0 freq: 226 size: 2 time: 11 callee size: 6 stack: 0 predicate: (op0[ref offset: 0] == 0)
-    strbuf_setlen/68 mismatched arguments
-      loop depth: 0 freq: 311 size: 3 time: 12 callee size: 0 stack: 0
-    __errno_location/67 function body not available
-      loop depth: 1 freq:3507 size: 2 time: 11 callee size: 0 stack: 0
-    readlink/66 mismatched arguments
-      loop depth: 1 freq:9743 size: 5 time: 14 callee size: 0 stack: 0
-       op0 change 10.260000% of time
-    strbuf_grow/51 function not considered for inlining
-      loop depth: 1 freq:9743 size: 3 time: 12 callee size:34 stack: 0
-       op0 change 10.260000% of time
-
-strbuf_readlink (struct strbuf * sb, const char * path, size_t hint)
-{
-  int len;
-  size_t oldalloc;
-  char * _1;
-  int * _2;
-  int _3;
-  long unsigned int _4;
-  int _6;
-
-  <bb 2> [9.75%]:
-  oldalloc_12 = sb_11(D)->alloc;
-  if (hint_13(D) <= 31)
-    goto <bb 3>; [50.00%]
-  else
-    goto <bb 10>; [50.00%]
-
-  <bb 3> [4.88%]:
-
-  <bb 10> [9.75%]:
-  # hint_22 = PHI <hint_13(D)(2), 32(3)>
-  goto <bb 15>; [100.00%]
-
-  <bb 4> [95.00%]:
-  strbuf_grow (sb_11(D), hint_5);
-  _1 = sb_11(D)->buf;
-  len_17 = readlink (path_15(D), _1, hint_5);
-  if (len_17 < 0)
-    goto <bb 5>; [36.00%]
-  else
-    goto <bb 6>; [64.00%]
-
-  <bb 5> [34.20%]:
-  _2 = __errno_location ();
-  _3 = *_2;
-  if (_3 != 34)
-    goto <bb 11>; [5.00%]
-  else
-    goto <bb 8>; [95.00%]
-
-  <bb 6> [60.80%]:
-  _4 = (long unsigned int) len_17;
-  if (_4 < hint_5)
-    goto <bb 7>; [5.00%]
-  else
-    goto <bb 8>; [95.00%]
-
-  <bb 7> [3.04%]:
-  strbuf_setlen (sb_11(D), len_17);
-  goto <bb 14>; [100.00%]
-
-  <bb 8> [90.25%]:
-  hint_19 = hint_5 * 2;
-
-  <bb 15> [100.00%]:
-  # hint_5 = PHI <hint_22(10), hint_19(8)>
-  if (hint_5 <= 8191)
-    goto <bb 4>; [95.00%]
-  else
-    goto <bb 11>; [5.00%]
-
-  <bb 11> [6.71%]:
-  if (oldalloc_12 == 0)
-    goto <bb 12>; [33.00%]
-  else
-    goto <bb 14>; [67.00%]
-
-  <bb 12> [2.21%]:
-  strbuf_release (sb_11(D));
-
-  <bb 14> [9.75%]:
-  # _6 = PHI <0(7), -1(12), -1(11)>
-  return _6;
-
-}
-
-
-
-;; Function files_read_raw_ref (files_read_raw_ref, funcdef_no=53, decl_uid=3485, cgraph_uid=53, symbol_order=54)
-
-
-Analyzing function body size: files_read_raw_ref
-
-Inline summary for files_read_raw_ref/54 inlinable
-  self time:       249
-  global time:     0
-  self size:       158
-  global size:     0
-  min size:       360
-  self stack:      192
-  global stack:    192
-    size:61.500000, time:42.622000, predicate:(true)
-    size:6.500000, time:2.558000, predicate:(not inlined)
-  calls:
-    __errno_location/67 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    strbuf_release/52 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 6 stack: 0
-       op0 is compile time invariant
-    strbuf_release/52 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 6 stack: 0
-       op0 is compile time invariant
-    __errno_location/67 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    __errno_location/67 function body not available
-      loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0
-    isspace/92 function body not available
-      loop depth: 0 freq:  12 size: 3 time: 12 callee size: 0 stack: 0
-    get_sha1_hex/94 mismatched arguments
-      loop depth: 0 freq:  22 size: 4 time: 13 callee size: 0 stack: 0
-    strbuf_addstr/93 mismatched arguments
-      loop depth: 0 freq:  46 size: 3 time: 12 callee size: 0 stack: 0
-    strbuf_reset/85 mismatched arguments
-      loop depth: 0 freq:  46 size: 2 time: 11 callee size: 0 stack: 0
-    isspace/92 function body not available
-      loop depth: 1 freq: 307 size: 3 time: 12 callee size: 0 stack: 0
-    starts_with/87 mismatched arguments
-      loop depth: 0 freq:  68 size: 4 time: 13 callee size: 0 stack: 0
-       op1 is compile time invariant
-    strbuf_rtrim/91 mismatched arguments
-      loop depth: 0 freq:  68 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    __errno_location/67 function body not available
-      loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0
-    close/90 mismatched arguments
-      loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0
-    __errno_location/67 function body not available
-      loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0
-    strbuf_read/89 mismatched arguments
-      loop depth: 0 freq:  69 size: 5 time: 14 callee size: 0 stack: 0
-       op0 is compile time invariant
-       op2 is compile time invariant
-    strbuf_reset/85 mismatched arguments
-      loop depth: 0 freq:  69 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    strbuf_swap/49 function not considered for inlining
-      loop depth: 0 freq:  12 size: 3 time: 12 callee size: 7 stack:24
-       op0 is compile time invariant
-    check_refname_format/88 mismatched arguments
-      loop depth: 0 freq:  40 size: 4 time: 13 callee size: 0 stack: 0
-       op1 is compile time invariant
-    starts_with/87 mismatched arguments
-      loop depth: 0 freq:  81 size: 4 time: 13 callee size: 0 stack: 0
-       op1 is compile time invariant
-    __errno_location/67 function body not available
-      loop depth: 1 freq:2097 size: 2 time: 11 callee size: 0 stack: 0
-    strbuf_readlink/53 function not considered for inlining
-      loop depth: 1 freq:2178 size: 5 time: 14 callee size:17 stack: 0
-       op0 is compile time invariant
-       op1 change 45.890000% of time
-       op2 is compile time invariant
-    strbuf_reset/85 mismatched arguments
-      loop depth: 1 freq:2178 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    __errno_location/67 function body not available
-      loop depth: 0 freq:   1 size: 2 time: 11 callee size: 0 stack: 0
-    resolve_packed_ref/86 mismatched arguments
-      loop depth: 0 freq:  78 size: 6 time: 15 callee size: 0 stack: 0
-    __errno_location/67 function body not available
-      loop depth: 0 freq:  84 size: 2 time: 11 callee size: 0 stack: 0
-    __lxstat/95 function body not available
-      loop depth: 1 freq:2263 size: 5 time: 14 callee size: 0 stack: 0
-       op0 is compile time invariant
-       op1 change 44.170000% of time
-       op2 is compile time invariant
-    files_ref_path/82 mismatched arguments
-      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
-       op1 is compile time invariant
-    strbuf_reset/85 mismatched arguments
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    files_downcast/84 mismatched arguments
+    strncmp/70 function body not available
       loop depth: 0 freq:1000 size: 5 time: 14 callee size: 0 stack: 0
        op1 is compile time invariant
        op2 is compile time invariant
 
-files_read_raw_ref (struct ref_store * ref_store, const char * refname, unsigned char * sha1, struct strbuf * referent, unsigned int * type)
+remote_filename_p (const char * filename)
 {
-  int save_errno;
-  struct stat st;
-  int remaining_retries;
-  int save_errno;
-  int ret;
-  int fd;
-  const char * buf;
-  const char * path;
-  struct strbuf sb_path;
-  struct strbuf sb_contents;
-  struct files_ref_store * refs;
   int _1;
-  long int _2;
-  int remaining_retries.7_3;
-  int * _4;
+  _Bool _2;
   int _5;
-  int _6;
-  int * _7;
-  int _8;
-  int * _9;
-  _Bool _10;
-  _Bool _11;
-  _Bool _12;
-  char * _13;
-  int _14;
-  char * _15;
-  int _16;
-  unsigned int _17;
-  unsigned int _18;
-  int _19;
-  int * _20;
-  int * _21;
-  int _22;
-  char _23;
-  int _24;
-  int _25;
-  unsigned int _26;
-  unsigned int _27;
-  int _28;
-  char _29;
-  char _30;
-  int _31;
-  int _32;
-  unsigned int _33;
-  unsigned int _34;
-  int * _35;
-  int * _36;
-  int * _37;
-  int _86;
-  int _96;
-
-  <bb 2> [33.13%]:
-  _1 = files_downcast (ref_store_45(D), 1, "read_raw_ref");
-  _2 = (long int) _1;
-  refs_47 = (struct files_ref_store *) _2;
-  sb_contents.alloc = 0;
-  sb_contents.len = 0;
-  sb_contents.buf = &strbuf_slopbuf;
-  sb_path.alloc = 0;
-  sb_path.len = 0;
-  sb_path.buf = &strbuf_slopbuf;
-  *type_54(D) = 0;
-  strbuf_reset (&sb_path);
-  files_ref_path (refs_47, &sb_path, refname_57(D));
-  path_59 = sb_path.buf;
-
-  # remaining_retries_40 = PHI <3(2), remaining_retries_60(25)>
-stat_ref [100.00%]:
-  remaining_retries.7_3 = remaining_retries_40;
-  remaining_retries_60 = remaining_retries_40 + -1;
-  if (remaining_retries_40 <= 0)
-    goto <bb 24> (out); [25.00%]
-  else
-    goto <bb 4>; [75.00%]
-
-  <bb 4> [75.00%]:
-  _96 = __lxstat (1, path_59, &st);
-  if (_96 < 0)
-    goto <bb 5>; [3.75%]
-  else
-    goto <bb 8>; [96.25%]
-
-  <bb 5> [2.81%]:
-  _4 = __errno_location ();
-  _5 = *_4;
-  if (_5 != 2)
-    goto <bb 24> (out); [7.44%]
-  else
-    goto <bb 6>; [92.56%]
-
-  <bb 6> [2.60%]:
-  _6 = resolve_packed_ref (refs_47, refname_57(D), sha1_74(D), type_54(D));
-  if (_6 != 0)
-    goto <bb 7>; [2.00%]
-  else
-    goto <bb 24> (out); [98.00%]
-
-  <bb 7> [0.05%]:
-  _7 = __errno_location ();
-  *_7 = 2;
-  goto <bb 24> (out); [100.00%]
-
-  <bb 8> [72.19%]:
-  strbuf_reset (&sb_contents);
-  _8 = strbuf_readlink (&sb_contents, path_59, 0);
-  if (_8 < 0)
-    goto <bb 9>; [96.25%]
-  else
-    goto <bb 10>; [3.75%]
-
-  <bb 9> [69.48%]:
-  _9 = __errno_location ();
-  _86 = *_9;
-  _10 = _86 == 2;
-  _11 = _86 == 22;
-  _12 = _10 | _11;
-  if (_12 != 0)
-    goto <bb 25>; [96.25%]
-  else
-    goto <bb 24> (out); [3.75%]
-
-  <bb 25> [66.87%]:
-  goto <bb 3> (stat_ref); [100.00%]
-
-  <bb 10> [2.71%]:
-  _13 = sb_contents.buf;
-  _14 = starts_with (_13, "refs/");
-  if (_14 != 0)
-    goto <bb 11>; [50.00%]
-  else
-    goto <bb 13>; [50.00%]
-
-  <bb 11> [1.35%]:
-  _15 = sb_contents.buf;
-  _16 = check_refname_format (_15, 0);
-  if (_16 == 0)
-    goto <bb 12>; [29.56%]
-  else
-    goto <bb 13>; [70.44%]
-
-  <bb 12> [0.40%]:
-  strbuf_swap (&sb_contents, referent_65(D));
-  _17 = *type_54(D);
-  _18 = _17 | 1;
-  *type_54(D) = _18;
-  goto <bb 24> (out); [100.00%]
-
-  <bb 13> [2.31%]:
-  strbuf_reset (&sb_contents);
-  _19 = strbuf_read (&sb_contents, fd_69(D), 256);
-  if (_19 < 0)
-    goto <bb 14>; [1.13%]
-  else
-    goto <bb 15>; [98.87%]
-
-  <bb 14> [0.03%]:
-  _20 = __errno_location ();
-  save_errno_83 = *_20;
-  close (fd_69(D));
-  _21 = __errno_location ();
-  *_21 = save_errno_83;
-  goto <bb 24> (out); [100.00%]
-
-  <bb 15> [2.28%]:
-  strbuf_rtrim (&sb_contents);
-  buf_72 = sb_contents.buf;
-  _22 = starts_with (buf_72, "ref:");
-  if (_22 != 0)
-    goto <bb 16>; [67.00%]
-  else
-    goto <bb 20>; [33.00%]
-
-  <bb 16> [1.53%]:
-  buf_78 = buf_72 + 4;
-  goto <bb 18>; [100.00%]
-
-  <bb 17> [8.66%]:
-  buf_82 = buf_38 + 1;
-
-  <bb 18> [10.19%]:
-  # buf_38 = PHI <buf_78(16), buf_82(17)>
-  _23 = *buf_38;
-  _24 = (int) _23;
-  _25 = isspace (_24);
-  if (_25 != 0)
-    goto <bb 17>; [85.00%]
-  else
-    goto <bb 19>; [15.00%]
-
-  <bb 19> [1.53%]:
-  strbuf_reset (referent_65(D));
-  strbuf_addstr (referent_65(D), buf_38);
-  _26 = *type_54(D);
-  _27 = _26 | 1;
-  *type_54(D) = _27;
-  goto <bb 24> (out); [100.00%]
-
-  <bb 20> [0.75%]:
-  _28 = get_sha1_hex (buf_72, sha1_74(D));
-  if (_28 != 0)
-    goto <bb 23>; [2.00%]
-  else
-    goto <bb 21>; [98.00%]
-
-  <bb 21> [0.74%]:
-  _29 = MEM[(const char *)buf_72 + 40B];
-  if (_29 != 0)
-    goto <bb 22>; [54.00%]
-  else
-    goto <bb 24> (out); [46.00%]
-
-  <bb 22> [0.40%]:
-  _30 = MEM[(const char *)buf_72 + 40B];
-  _31 = (int) _30;
-  _32 = isspace (_31);
-  if (_32 == 0)
-    goto <bb 23>; [2.00%]
-  else
-    goto <bb 24> (out); [98.00%]
-
-  <bb 23> [0.02%]:
-  _33 = *type_54(D);
-  _34 = _33 | 4;
-  *type_54(D) = _34;
-  _35 = __errno_location ();
-  *_35 = 22;
-
-  # ret_39 = PHI <-1(3), -1(5), -1(7), 0(6), -1(9), 0(12), -1(14), 0(19), -1(23), 0(22), 0(21)>
-out [33.13%]:
-  _36 = __errno_location ();
-  save_errno_89 = *_36;
-  strbuf_release (&sb_path);
-  strbuf_release (&sb_contents);
-  _37 = __errno_location ();
-  *_37 = save_errno_89;
-  sb_contents ={v} {CLOBBER};
-  sb_path ={v} {CLOBBER};
-  st ={v} {CLOBBER};
-  return ret_39;
-
-}
-
-
-
-;; Function lock_raw_ref (lock_raw_ref, funcdef_no=54, decl_uid=3537, cgraph_uid=54, symbol_order=55)
-
-
-Analyzing function body size: lock_raw_ref
-
-Inline summary for lock_raw_ref/55 inlinable
-  self time:       83
-  global time:     0
-  self size:       45
-  global size:     0
-  min size:       0
-  self stack:      24
-  global stack:    24
-    size:10.000000, time:8.620000, predicate:(true)
-    size:4.000000, time:3.000000, predicate:(not inlined)
-    size:2.000000, time:0.406000, predicate:(op2 changed)
-    size:0.500000, time:0.001000, predicate:(op2 != 0) && (not inlined)
-    size:0.500000, time:0.001000, predicate:(op2 != 0)
-  calls:
-    strbuf_release/52 function not considered for inlining
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 6 stack: 0
-       op0 is compile time invariant
-    unlock_ref/83 mismatched arguments
-      loop depth: 0 freq:   2 size: 2 time: 11 callee size: 0 stack: 0 predicate: (op2 != 0)
-    strbuf_addf/73 mismatched arguments
-      loop depth: 0 freq:   2 size: 4 time: 13 callee size: 0 stack: 0 predicate: (op2 != 0)
-       op1 is compile time invariant
-    __errno_location/67 function body not available
-      loop depth: 0 freq: 540 size: 2 time: 11 callee size: 0 stack: 0
-    files_read_raw_ref/54 function not considered for inlining
-      loop depth: 0 freq:1000 size: 7 time: 16 callee size:79 stack:192
-    files_ref_path/82 mismatched arguments
-      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
-       op1 is compile time invariant
-    strdup/81 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-    calloc/80 function body not available
-      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
-       op0 is compile time invariant
-       op1 is compile time invariant
-
-lock_raw_ref (struct files_ref_store * refs, const char * refname, int mustexist, const struct string_list * extras, const struct string_list * skip, struct ref_lock * * lock_p, struct strbuf * referent, unsigned int * type, struct strbuf * err)
-{
-  int ret;
-  struct strbuf ref_file;
-  struct ref_lock * lock;
-  char * _1;
-  unsigned char[20] * _2;
-  struct ref_store * _3;
-  int _4;
-  int * _5;
-  int _6;
-  int _32;
 
   <bb 2> [100.00%]:
-  ref_file.alloc = 0;
-  ref_file.len = 0;
-  ref_file.buf = &strbuf_slopbuf;
-  *type_13(D) = 0;
-  lock_16 = calloc (1, 40);
-  *lock_p_17(D) = lock_16;
-  _1 = strdup (refname_19(D));
-  lock_16->ref_name = _1;
-  files_ref_path (refs_22(D), &ref_file, refname_19(D));
-  _2 = &lock_16->old_oid.hash;
-  _3 = &refs_22(D)->base;
-  _4 = files_read_raw_ref (_3, refname_19(D), _2, referent_24(D), type_13(D));
-  if (_4 != 0)
-    goto <bb 3>; [54.00%]
-  else
-    goto <bb 6> (out); [46.00%]
-
-  <bb 3> [54.00%]:
-  _5 = __errno_location ();
-  _6 = *_5;
-  if (_6 == 2)
-    goto <bb 4>; [37.68%]
-  else
-    goto <bb 6> (out); [62.32%]
-
-  <bb 4> [20.35%]:
-  if (mustexist_26(D) != 0)
-    goto <bb 5>; [1.00%]
-  else
-    goto <bb 6> (out); [99.00%]
-
-  <bb 5> [0.20%]:
-  strbuf_addf (err_27(D), "unable to resolve reference \'%s\'", refname_19(D));
-  unlock_ref (lock_16);
-  *lock_p_17(D) = 0B;
-
-  # ret_7 = PHI <0(3), -2(5), 0(2), 0(4)>
-out [100.00%]:
-  strbuf_release (&ref_file);
-  _32 = ret_7;
-  ref_file ={v} {CLOBBER};
-  return ret_7;
+  _1 = strncmp (filename_4(D), "remote:", 7);
+  _2 = _1 == 0;
+  _5 = (int) _2;
+  return _5;
 
 }
 
 
 
-;; Function lock_ref_for_update (lock_ref_for_update, funcdef_no=55, decl_uid=3557, cgraph_uid=55, symbol_order=56)
+;; Function rs6000_aix_ld_info_to_xml (rs6000_aix_ld_info_to_xml, funcdef_no=57, decl_uid=3265, cgraph_uid=57, symbol_order=62)
 
 
-Analyzing function body size: lock_ref_for_update
+Analyzing function body size: rs6000_aix_ld_info_to_xml
 
-Inline summary for lock_ref_for_update/56 inlinable
-  self time:       68
+Inline summary for rs6000_aix_ld_info_to_xml/62 inlinable
+  self time:       3
   global time:     0
-  self size:       144
+  self size:       4
   global size:     0
   min size:       0
-  self stack:      32
-  global stack:    32
-    size:52.000000, time:14.377000, predicate:(true)
-    size:8.000000, time:3.256000, predicate:(not inlined)
-    size:2.000000, time:2.000000, predicate:(op3 changed)
-    size:2.000000, time:1.400000, predicate:(op3 != 0B)
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+    size:0.500000, time:0.500000, predicate:(op0[ref offset: 0] changed) && (not inlined)
+    size:0.500000, time:0.500000, predicate:(op0[ref offset: 0] changed)
   calls:
-    close_ref/79 mismatched arguments
-      loop depth: 0 freq: 145 size: 3 time: 12 callee size: 0 stack: 0
-    strbuf_detach/71 mismatched arguments
-      loop depth: 0 freq:   1 size: 4 time: 13 callee size: 0 stack: 0
-       op1 is compile time invariant
-    write_ref_to_lockfile/78 mismatched arguments
-      loop depth: 0 freq: 101 size: 5 time: 14 callee size: 0 stack: 0
-    oidcmp/77 mismatched arguments
-      loop depth: 0 freq:  67 size: 4 time: 13 callee size: 0 stack: 0
-    check_old_oid/75 mismatched arguments
-      loop depth: 0 freq: 157 size: 5 time: 14 callee size: 0 stack: 0
-    split_symref_update/76 mismatched arguments
-      loop depth: 0 freq: 160 size: 8 time: 17 callee size: 0 stack: 0
-    check_old_oid/75 mismatched arguments
-      loop depth: 0 freq:  52 size: 5 time: 14 callee size: 0 stack: 0
-    strbuf_addf/73 mismatched arguments
-      loop depth: 0 freq:   1 size: 4 time: 13 callee size: 0 stack: 0
-       op1 is compile time invariant
-    original_update_refname/72 mismatched arguments
-      loop depth: 0 freq:   1 size: 3 time: 12 callee size: 0 stack: 0
-    refs_read_ref_full/74 mismatched arguments
-      loop depth: 0 freq: 160 size: 7 time: 16 callee size: 0 stack: 0
-       op2 is compile time invariant
-       op4 is compile time invariant
-    free/64 function body not available
-      loop depth: 0 freq: 200 size: 2 time: 11 callee size: 0 stack: 0
-    strbuf_addf/73 mismatched arguments
-      loop depth: 0 freq: 200 size: 5 time: 14 callee size: 0 stack: 0
-       op1 is compile time invariant
-    original_update_refname/72 mismatched arguments
-      loop depth: 0 freq: 200 size: 3 time: 12 callee size: 0 stack: 0
-    strbuf_detach/71 mismatched arguments
-      loop depth: 0 freq: 200 size: 4 time: 13 callee size: 0 stack: 0
-       op1 is compile time invariant
-    lock_raw_ref/55 function not considered for inlining
-      loop depth: 0 freq: 678 size:11 time: 20 callee size:22 stack:24
-       op4 is compile time invariant
-       op5 is compile time invariant
-       op6 is compile time invariant
-    split_head_update/70 mismatched arguments
-      loop depth: 0 freq: 700 size: 7 time: 16 callee size: 0 stack: 0 predicate: (op3 != 0B)
 
-lock_ref_for_update (struct files_ref_store * refs, struct ref_update * update, struct ref_transaction * transaction, const char * head_ref, struct string_list * affected_refnames, struct strbuf * err)
+rs6000_aix_ld_info_to_xml (const gdb_byte * ldi_buf)
 {
-  char * write_err;
-  char * reason;
-  struct ref_lock * lock;
-  int ret;
-  int mustexist;
-  struct strbuf referent;
-  unsigned int * _1;
-  const char[0:] * _2;
-  int _3;
-  long int _4;
-  int _5;
-  struct ref_lock * lock.0_6;
-  unsigned int _7;
-  unsigned int _8;
-  unsigned int _9;
-  unsigned int _10;
-  struct ref_lock * lock.1_11;
-  unsigned char[20] * _12;
-  char * _13;
-  struct ref_store * _14;
-  int _15;
-  unsigned int _16;
-  unsigned int _17;
-  int _18;
-  struct ref_lock * lock.2_19;
-  struct object_id * _20;
-  int _21;
-  char * _22;
-  struct ref_lock * lock.3_23;
-  struct object_id * _24;
-  int _25;
-  unsigned int _26;
-  unsigned int _27;
-  unsigned int _28;
-  unsigned int _29;
-  struct object_id * _30;
-  struct ref_lock * lock.4_31;
-  struct object_id * _32;
-  int _33;
-  struct object_id * _34;
-  struct ref_lock * lock.5_35;
-  int _36;
-  int _37;
-  long int _38;
-  unsigned int _39;
-  unsigned int _40;
-  unsigned int _41;
-  unsigned int _42;
-  struct ref_lock * lock.6_43;
-  int _44;
-  int _45;
+  int i;
+  unsigned char _1;
+  ULONGEST _5;
 
   <bb 2> [100.00%]:
-  referent.alloc = 0;
-  referent.len = 0;
-  referent.buf = &strbuf_slopbuf;
-  if (head_ref_55(D) != 0B)
-    goto <bb 3>; [70.00%]
-  else
-    goto <bb 4>; [30.00%]
-
-  <bb 3> [70.00%]:
-  ret_61 = split_head_update (update_56(D), transaction_57(D), head_ref_55(D), affected_refnames_58(D), err_59(D));
-  if (ret_61 != 0)
-    goto <bb 23>; [46.00%]
-  else
-    goto <bb 4>; [54.00%]
-
-  <bb 4> [67.80%]:
-  _1 = &update_56(D)->type;
-  _2 = &update_56(D)->refname;
-  ret_65 = lock_raw_ref (refs_62(D), _2, mustexist_63(D), affected_refnames_58(D), 0B, &lock, &referent, _1, err_59(D));
-  if (ret_65 != 0)
-    goto <bb 5>; [29.56%]
-  else
-    goto <bb 6>; [70.44%]
-
-  <bb 5> [20.04%]:
-  _3 = strbuf_detach (err_59(D), 0B);
-  _4 = (long int) _3;
-  reason_82 = (char *) _4;
-  _5 = original_update_refname (update_56(D));
-  strbuf_addf (err_59(D), "cannot lock ref \'%s\': %s", _5, reason_82);
-  free (reason_82);
-  goto <bb 23>; [100.00%]
-
-  <bb 6> [47.76%]:
-  lock.0_6 = lock;
-  update_56(D)->backend_data = lock.0_6;
-  _7 = update_56(D)->type;
-  _8 = _7 & 1;
-  if (_8 != 0)
-    goto <bb 7>; [67.00%]
-  else
-    goto <bb 13>; [33.00%]
-
-  <bb 7> [32.00%]:
-  _9 = update_56(D)->flags;
-  _10 = _9 & 1;
-  if (_10 != 0)
-    goto <bb 8>; [50.00%]
-  else
-    goto <bb 12>; [50.00%]
-
-  <bb 8> [16.00%]:
-  lock.1_11 = lock;
-  _12 = &lock.1_11->old_oid.hash;
-  _13 = referent.buf;
-  _14 = &refs_62(D)->base;
-  _15 = refs_read_ref_full (_14, _13, 0, _12, 0B);
-  if (_15 != 0)
-    goto <bb 9>; [67.00%]
-  else
-    goto <bb 11>; [33.00%]
-
-  <bb 9> [10.72%]:
-  _16 = update_56(D)->flags;
-  _17 = _16 & 16;
-  if (_17 != 0)
-    goto <bb 10>; [1.00%]
-  else
-    goto <bb 14>; [99.00%]
-
-  <bb 10> [0.11%]:
-  _18 = original_update_refname (update_56(D));
-  strbuf_addf (err_59(D), "cannot lock ref \'%s\': error reading reference", _18);
-  goto <bb 23>; [100.00%]
-
-  <bb 11> [5.28%]:
-  lock.2_19 = lock;
-  _20 = &lock.2_19->old_oid;
-  _21 = check_old_oid (update_56(D), _20, err_59(D));
-  if (_21 != 0)
-    goto <bb 23>; [2.00%]
-  else
-    goto <bb 14>; [98.00%]
-
-  <bb 12> [16.00%]:
-  _22 = referent.buf;
-  ret_69 = split_symref_update (refs_62(D), update_56(D), _22, transaction_57(D), affected_refnames_58(D), err_59(D));
-  if (ret_69 != 0)
-    goto <bb 23>; [46.00%]
-  else
-    goto <bb 14>; [54.00%]
-
-  <bb 13> [15.76%]:
-  lock.3_23 = lock;
-  _24 = &lock.3_23->old_oid;
-  _25 = check_old_oid (update_56(D), _24, err_59(D));
-  if (_25 != 0)
-    goto <bb 23>; [2.00%]
-  else
-    goto <bb 14>; [98.00%]
-
-  <bb 14> [39.87%]:
-  _26 = BIT_FIELD_REF <*update_56(D), 32, 320>;
-  _27 = _26 & 138;
-  if (_27 == 8)
-    goto <bb 15>; [34.00%]
-  else
-    goto <bb 20>; [66.00%]
-
-  <bb 15> [13.56%]:
-  _28 = update_56(D)->type;
-  _29 = _28 & 1;
-  if (_29 == 0)
-    goto <bb 16>; [50.00%]
-  else
-    goto <bb 17>; [50.00%]
-
-  <bb 16> [6.78%]:
-  _30 = &update_56(D)->new_oid;
-  lock.4_31 = lock;
-  _32 = &lock.4_31->old_oid;
-  _33 = oidcmp (_32, _30);
-  if (_33 == 0)
-    goto <bb 20>; [50.00%]
-  else
-    goto <bb 17>; [50.00%]
-
-  <bb 17> [10.17%]:
-  _34 = &update_56(D)->new_oid;
-  lock.5_35 = lock;
-  _36 = write_ref_to_lockfile (lock.5_35, _34, err_59(D));
-  if (_36 != 0)
-    goto <bb 18>; [1.00%]
-  else
-    goto <bb 19>; [99.00%]
-
-  <bb 18> [0.10%]:
-  _37 = strbuf_detach (err_59(D), 0B);
-  _38 = (long int) _37;
-  write_err_78 = (char *) _38;
-  update_56(D)->backend_data = 0B;
-  goto <bb 23>; [100.00%]
-
-  <bb 19> [10.07%]:
-  _39 = update_56(D)->flags;
-  _40 = _39 | 32;
-  update_56(D)->flags = _40;
-
-  <bb 20> [39.77%]:
-  _41 = update_56(D)->flags;
-  _42 = _41 & 32;
-  if (_42 == 0)
-    goto <bb 21>; [36.64%]
-  else
-    goto <bb 23>; [63.36%]
-
-  <bb 21> [14.57%]:
-  lock.6_43 = lock;
-  _44 = close_ref (lock.6_43);
-  if (_44 != 0)
-    goto <bb 23>; [2.00%]
-  else
-    goto <bb 24>; [98.00%]
-
-  <bb 24> [14.28%]:
-
-  <bb 23> [100.00%]:
-  # _45 = PHI <ret_61(3), ret_65(5), -1(10), -2(11), ret_69(12), -2(13), -2(18), -2(21), 0(24), 0(20)>
-  referent ={v} {CLOBBER};
-  lock ={v} {CLOBBER};
-  return _45;
+  _1 = *ldi_buf_3(D);
+  i_4 = (int) _1;
+  _5 = (ULONGEST) _1;
+  return _5;
 
 }
 
 
 
-;; Function main (main, funcdef_no=56, decl_uid=3589, cgraph_uid=56, symbol_order=57) (executed once)
+;; Function rs6000_xfer_shared_libraries (rs6000_xfer_shared_libraries, funcdef_no=58, decl_uid=3270, cgraph_uid=58, symbol_order=63)
+
+
+Analyzing function body size: rs6000_xfer_shared_libraries
+
+Inline summary for rs6000_xfer_shared_libraries/63 inlinable
+  self time:       61
+  global time:     0
+  self size:       25
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000, predicate:(true)
+    size:3.000000, time:1.998000, predicate:(not inlined)
+    size:2.000000, time:2.000000, predicate:(op0 changed)
+    size:4.500000, time:3.890000, predicate:(op0 == 0B)
+    size:0.500000, time:0.246000, predicate:(op0 == 0B) && (not inlined)
+  calls:
+    do_cleanups/54 function not considered for inlining
+      loop depth: 0 freq: 911 size: 2 time: 11 callee size: 3 stack: 0 predicate: (op0 == 0B)
+    free/65 function body not available
+      loop depth: 0 freq: 911 size: 2 time: 11 callee size: 0 stack: 0 predicate: (op0 == 0B)
+    rs6000_aix_ld_info_to_xml/62 function not considered for inlining
+      loop depth: 0 freq: 911 size: 3 time: 12 callee size: 2 stack: 0 predicate: (op0 == 0B)
+    make_cleanup/57 function not considered for inlining
+      loop depth: 0 freq: 911 size: 4 time: 13 callee size: 4 stack: 0 predicate: (op0 == 0B)
+       op0 is compile time invariant
+    exit/68 function body not available
+      loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0 predicate: (op0 == 0B)
+       op0 is compile time invariant
+    rs6000_ptrace_ldinfo/61 function not considered for inlining
+      loop depth: 0 freq: 911 size: 2 time: 11 callee size:10 stack: 0 predicate: (op0 == 0B)
+
+rs6000_xfer_shared_libraries (const gdb_byte * writebuf, ULONGEST * xfered_len)
+{
+  struct cleanup * cleanup;
+  ULONGEST result;
+  gdb_byte * ldi_buf;
+  target_xfer_status _1;
+
+  <bb 2> [100.00%]:
+  if (writebuf_3(D) != 0B)
+    goto <bb 7>; [8.82%]
+  else
+    goto <bb 3>; [91.18%]
+
+  <bb 3> [91.18%]:
+  ldi_buf_6 = rs6000_ptrace_ldinfo ();
+  if (ldi_buf_6 == 0B)
+    goto <bb 4>; [0.04%]
+  else
+    goto <bb 5>; [99.96%]
+
+  <bb 4> [0.04%]:
+  exit (1);
+
+  <bb 5> [91.14%]:
+  cleanup_8 = make_cleanup (free, ldi_buf_6);
+  result_9 = rs6000_aix_ld_info_to_xml (ldi_buf_6);
+  free (ldi_buf_6);
+  do_cleanups (cleanup_8);
+  if (result_9 == 0)
+    goto <bb 7>; [46.00%]
+  else
+    goto <bb 6>; [54.00%]
+
+  <bb 6> [49.22%]:
+  *xfered_len_12(D) = result_9;
+
+  <bb 7> [99.96%]:
+  # _1 = PHI <-1(2), 0(5), 1(6)>
+  return _1;
+
+}
+
+
+
+;; Function main (main, funcdef_no=59, decl_uid=3275, cgraph_uid=59, symbol_order=64) (executed once)
 
 
 Analyzing function body size: main
 
-Inline summary for main/57 inlinable
-  self time:       18
+Inline summary for main/64 inlinable
+  self time:       51
   global time:     0
-  self size:       10
+  self size:       16
   global size:     0
   min size:       0
-  self stack:      224
-  global stack:    224
-    size:0.000000, time:0.000000, predicate:(true)
+  self stack:      22
+  global stack:    22
+    size:3.000000, time:3.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
-    lock_ref_for_update/56 function not considered for inlining
-      loop depth: 0 freq:1000 size: 7 time: 16 callee size:72 stack:32
-       op0 is compile time invariant
+    rs6000_xfer_shared_libraries/63 function not considered for inlining
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size:12 stack: 0
        op1 is compile time invariant
-       op2 is compile time invariant
-       op4 is compile time invariant
-       op5 is compile time invariant
+    rand/73 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    srand/72 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    time/71 mismatched arguments
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
 
 main ()
 {
-  struct strbuf err;
-  struct string_list affected_refnames;
-  char * head_ref;
-  struct ref_transaction transaction;
-  struct ref_update update;
-  struct files_ref_store refs;
+  int len;
+  char buf[10];
+  time_t t;
+  int _1;
+  unsigned int _2;
+  int _3;
+  int _4;
+  gdb_byte * iftmp.0_5;
 
   <bb 2> [100.00%]:
-  lock_ref_for_update (&refs, &update, &transaction, head_ref_2(D), &affected_refnames, &err);
-  refs ={v} {CLOBBER};
-  update ={v} {CLOBBER};
-  transaction ={v} {CLOBBER};
-  affected_refnames ={v} {CLOBBER};
-  err ={v} {CLOBBER};
+  _1 = time (&t);
+  _2 = (unsigned int) _1;
+  srand (_2);
+  _3 = rand ();
+  _4 = _3 % 2;
+  if (_4 == 1)
+    goto <bb 4>; [30.50%]
+  else
+    goto <bb 3>; [69.50%]
+
+  <bb 3> [69.50%]:
+
+  <bb 4> [100.00%]:
+  # iftmp.0_5 = PHI <&buf(2), 0B(3)>
+  rs6000_xfer_shared_libraries (iftmp.0_5, &len);
+  t ={v} {CLOBBER};
+  buf ={v} {CLOBBER};
+  len ={v} {CLOBBER};
   return 0;
 
 }

@@ -545,69 +545,119 @@
 }
 
 
-;; Function copy_array (null)
+;; Function discard_cleanups (null)
 ;; enabled by -tree-original
 
 
 {
-  if (n != 0)
+  discard_my_cleanups (&cleanup_chain, old_chain);
+}
+
+
+;; Function discard_final_cleanups (null)
+;; enabled by -tree-original
+
+
+{
+  discard_my_cleanups (&final_cleanup_chain, old_chain);
+}
+
+
+;; Function discard_my_cleanups (null)
+;; enabled by -tree-original
+
+
+{
+  struct cleanup * ptr;
+
+    struct cleanup * ptr;
+  goto <D.3198>;
+  <D.3197>:;
+  *pmy_chain = ptr->next;
+  if (ptr->free_arg != 0B)
     {
-      {
-        extern void * memcpy (void *, const void *, long unsigned int);
-        extern int st_mult ();
-
-        memcpy (dst, src, (long unsigned int) st_mult (size, n));
-      }
+      ptr->free_arg (ptr->arg);
     }
+  free ((void *) ptr);
+  <D.3198>:;
+  if ((ptr = *pmy_chain) != old_chain) goto <D.3197>; else goto <D.3199>;
+  <D.3199>:;
+  printf ((const char * restrict) "freearg: %x\n", ptr->arg);
 }
 
 
-;; Function move_array (null)
+;; Function do_my_cleanups (null)
 ;; enabled by -tree-original
 
 
 {
-  if (n != 0)
+  struct cleanup * ptr;
+
+    struct cleanup * ptr;
+  goto <D.3206>;
+  <D.3205>:;
+  *pmy_chain = ptr->next;
+  ptr->function (ptr->arg);
+  printf ((const char * restrict) "cleanup!!!!! =========\n");
+  printf ((const char * restrict) "%x\n", ptr->arg);
+  if (ptr->free_arg != 0B)
     {
-      {
-        extern void * memmove (void *, const void *, long unsigned int);
-        extern int st_mult ();
-
-        memmove (dst, src, (long unsigned int) st_mult (size, n));
-      }
+      ptr->free_arg (ptr->arg);
     }
+  free ((void *) ptr);
+  <D.3206>:;
+  if ((ptr = *pmy_chain) != old_chain) goto <D.3205>; else goto <D.3207>;
+  <D.3207>:;
 }
 
 
-;; Function xstrdup_or_null (null)
+;; Function do_cleanups (null)
 ;; enabled by -tree-original
 
 
 {
-  extern char * strdup (const char *);
-
-  return str != 0B ? strdup (str) : 0B;
+  do_my_cleanups (&cleanup_chain, old_chain);
 }
 
 
-;; Function strbuf_swap (null)
+;; Function make_my_cleanup2 (null)
 ;; enabled by -tree-original
 
 
 {
-  {
-    void * _swap_a_ptr = (void *) a;
-    void * _swap_b_ptr = (void *) b;
-    unsigned char _swap_buffer[24];
-    extern void * memcpy (void *, const void *, long unsigned int);
+  struct cleanup * new = (struct cleanup *) malloc (32);
+  struct cleanup * old_chain = *pmy_chain;
 
-        void * _swap_a_ptr = (void *) a;
-        void * _swap_b_ptr = (void *) b;
-        unsigned char _swap_buffer[24];
-    memcpy ((void *) &_swap_buffer, (const void *) _swap_a_ptr, 24);
-    memcpy (_swap_a_ptr, (const void *) _swap_b_ptr, 24);
-    memcpy (_swap_b_ptr, (const void *) &_swap_buffer, 24);
-  }
+    struct cleanup * new = (struct cleanup *) malloc (32);
+    struct cleanup * old_chain = *pmy_chain;
+  new->next = *pmy_chain;
+  new->function = (void (*<Ted>) (void *)) function;
+  new->free_arg = free_arg;
+  new->arg = arg;
+  *pmy_chain = new;
+  if (old_chain == 0B)
+    {
+      exit (1);
+    }
+  return old_chain;
+}
+
+
+;; Function make_my_cleanup (null)
+;; enabled by -tree-original
+
+
+{
+  return make_my_cleanup2 (pmy_chain, function, arg, 0B);
+}
+
+
+;; Function make_cleanup (null)
+;; enabled by -tree-original
+
+
+{
+  return make_my_cleanup (&cleanup_chain, function, arg);
 }
 
 
@@ -616,491 +666,129 @@
 
 
 {
-  void * ret;
+  void * newmem;
 
-    void * ret;
-  ret = realloc (ptr, size);
-  if (ret == 0B && size == 0)
+    void * newmem;
+  if (size == 0)
     {
-      ret = realloc (ptr, 1);
+      size = 1;
     }
-  if (ret == 0B)
+  if (oldmem == 0B)
     {
-      ret = realloc (ptr, size);
-      if (ret == 0B && size == 0)
-        {
-          ret = realloc (ptr, 1);
-        }
-      if (ret == 0B)
-        {
-          printf ((const char * restrict) "Out of memory, realloc failed%s", (char *) "");
-          exit (1);
-        }
-    }
-  return ret;
-}
-
-
-;; Function strbuf_grow (null)
-;; enabled by -tree-original
-
-
-{
-  int new_buf = sb->alloc == 0;
-
-    int new_buf = sb->alloc == 0;
-  {
-    extern int unsigned_add_overflows ();
-
-    if (unsigned_add_overflows (extra, 1) != 0 || unsigned_add_overflows (sb->len, extra + 1) != 0)
-      {
-        printf ((const char * restrict) "you want to use way too much memory%s", (char *) "");
-        exit (1);
-      }
-  }
-  if (new_buf != 0)
-    {
-      sb->buf = 0B;
-    }
-  if ((sb->len + extra) + 1 > sb->alloc)
-    {
-      {
-        extern int st_mult ();
-
-        {
-          extern int alloc_nr ();
-
-          if ((size_t) alloc_nr (sb->alloc) < (sb->len + extra) + 1)
-            {
-              sb->alloc = (sb->len + extra) + 1;
-            }
-          else
-            {
-              sb->alloc = (size_t) alloc_nr (sb->alloc);
-            }
-        }
-        sb->buf = (char *) xrealloc ((void *) sb->buf, (size_t) st_mult (1, sb->alloc));
-      }
-    }
-  if (new_buf != 0)
-    {
-      *sb->buf = 0;
-    }
-}
-
-
-;; Function strbuf_release (null)
-;; enabled by -tree-original
-
-
-{
-  if (sb->alloc != 0)
-    {
-      {
-        extern int strbuf_init ();
-
-        free ((void *) sb->buf);
-        strbuf_init (sb, 0);
-      }
-    }
-}
-
-
-;; Function strbuf_readlink (null)
-;; enabled by -tree-original
-
-
-{
-  size_t oldalloc = sb->alloc;
-
-    size_t oldalloc = sb->alloc;
-  if (hint <= 31)
-    {
-      hint = 32;
-    }
-  goto <D.3479>;
-  <D.3478>:;
-  {
-    int len;
-    extern int readlink ();
-
-        int len;
-    strbuf_grow (sb, hint);
-    len = readlink (path, sb->buf, hint);
-    if (len < 0)
-      {
-        if (*__errno_location () != 34)
-          {
-            goto <D.3474>;
-          }
-      }
-    else
-      {
-        if ((size_t) len < hint)
-          {
-            {
-              extern int strbuf_setlen ();
-
-              strbuf_setlen (sb, len);
-              return 0;
-            }
-          }
-      }
-    hint = hint * 2;
-  }
-  <D.3479>:;
-  if (hint <= 8191) goto <D.3478>; else goto <D.3474>;
-  <D.3474>:;
-  if (oldalloc == 0)
-    {
-      strbuf_release (sb);
-    }
-  return -1;
-}
-
-
-;; Function files_read_raw_ref (null)
-;; enabled by -tree-original
-
-
-{
-  struct files_ref_store * refs = (struct files_ref_store *) (long int) files_downcast (ref_store, 1, (char *) "read_raw_ref");
-  extern int files_downcast ();
-  struct strbuf sb_contents = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
-  struct strbuf sb_path = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
-  const char * path;
-  const char * buf;
-  int fd;
-  int ret = -1;
-  int save_errno;
-  int remaining_retries = 3;
-  struct stat st;
-  extern int strbuf_reset ();
-  extern int files_ref_path ();
-  void stat_ref = <<< error >>>;
-  void out = <<< error >>>;
-  extern int strbuf_rtrim ();
-
-    struct files_ref_store * refs = (struct files_ref_store *) (long int) files_downcast (ref_store, 1, (char *) "read_raw_ref");
-    struct strbuf sb_contents = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
-    struct strbuf sb_path = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
-    const char * path;
-    const char * buf;
-    int fd;
-    int ret = -1;
-    int save_errno;
-    int remaining_retries = 3;
-    struct stat st;
-  *type = 0;
-  strbuf_reset (&sb_path);
-  files_ref_path (refs, &sb_path, refname);
-  path = (const char *) sb_path.buf;
-  stat_ref:;
-  if (remaining_retries--  <= 0)
-    {
-      goto out;
-    }
-  if (lstat (path, &st) < 0)
-    {
-      if (*__errno_location () != 2)
-        {
-          goto out;
-        }
-      {
-        extern int resolve_packed_ref ();
-
-        if (resolve_packed_ref (refs, refname, sha1, type) != 0)
-          {
-            *__errno_location () = 2;
-            goto out;
-          }
-      }
-      ret = 0;
-      goto out;
-    }
-  strbuf_reset (&sb_contents);
-  if (strbuf_readlink (&sb_contents, path, 0) < 0)
-    {
-      if (SAVE_EXPR <*__errno_location ()> == 2 || SAVE_EXPR <*__errno_location ()> == 22) goto stat_ref; else goto out;
-    }
-  {
-    extern int starts_with ();
-    extern int check_refname_format ();
-
-    if (starts_with (sb_contents.buf, (char *) "refs/") != 0 && check_refname_format (sb_contents.buf, 0) == 0)
-      {
-        strbuf_swap (&sb_contents, referent);
-        *type = *type | 1;
-        ret = 0;
-        goto out;
-      }
-  }
-  strbuf_reset (&sb_contents);
-  {
-    extern int strbuf_read ();
-
-    if (strbuf_read (&sb_contents, fd, 256) < 0)
-      {
-        {
-          int save_errno = *__errno_location ();
-          extern int close ();
-
-                    int save_errno = *__errno_location ();
-          close (fd);
-          *__errno_location () = save_errno;
-          goto out;
-        }
-      }
-  }
-  strbuf_rtrim (&sb_contents);
-  buf = (const char *) sb_contents.buf;
-  {
-    extern int starts_with ();
-
-    if (starts_with (buf, (char *) "ref:") != 0)
-      {
-        {
-          extern int strbuf_addstr ();
-
-          buf = buf + 4;
-          {
-            extern int isspace ();
-
-            goto <D.3515>;
-            <D.3514>:;
-            buf++ ;
-            <D.3515>:;
-            if (isspace ((int) *buf) != 0) goto <D.3514>; else goto <D.3516>;
-            <D.3516>:;
-          }
-          strbuf_reset (referent);
-          strbuf_addstr (referent, buf);
-          *type = *type | 1;
-          ret = 0;
-          goto out;
-        }
-      }
-  }
-  {
-    extern int get_sha1_hex ();
-    extern int isspace ();
-
-    if (get_sha1_hex (buf, sha1) != 0 || *(buf + 40) != 0 && isspace ((int) *(buf + 40)) == 0)
-      {
-        *type = *type | 4;
-        *__errno_location () = 22;
-        goto out;
-      }
-  }
-  ret = 0;
-  out:;
-  save_errno = *__errno_location ();
-  strbuf_release (&sb_path);
-  strbuf_release (&sb_contents);
-  *__errno_location () = save_errno;
-  return ret;
-}
-
-
-;; Function lock_raw_ref (null)
-;; enabled by -tree-original
-
-
-{
-  struct ref_lock * lock;
-  struct strbuf ref_file = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
-  int attempts_remaining = 3;
-  int ret = -2;
-  extern char * strdup (const char *);
-  extern int files_ref_path ();
-  void error_return = <<< error >>>;
-  void out = <<< error >>>;
-  extern int unlock_ref ();
-
-    struct ref_lock * lock;
-    struct strbuf ref_file = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
-    int attempts_remaining = 3;
-    int ret = -2;
-  *type = 0;
-  *lock_p = lock = (struct ref_lock *) calloc (1, 40);
-  lock->ref_name = strdup (refname);
-  files_ref_path (refs, &ref_file, refname);
-  if (files_read_raw_ref (&refs->base, refname, (unsigned char *) &lock->old_oid.hash, referent, type) != 0)
-    {
-      if (*__errno_location () == 2)
-        {
-          if (mustexist != 0)
-            {
-              {
-                extern int strbuf_addf ();
-
-                strbuf_addf (err, (char *) "unable to resolve reference \'%s\'", refname);
-                goto error_return;
-              }
-            }
-        }
-    }
-  ret = 0;
-  goto out;
-  error_return:;
-  unlock_ref (lock);
-  *lock_p = 0B;
-  out:;
-  strbuf_release (&ref_file);
-  return ret;
-}
-
-
-;; Function lock_ref_for_update (null)
-;; enabled by -tree-original
-
-
-{
-  struct strbuf referent = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
-  int mustexist;
-  int ret;
-  struct ref_lock * lock;
-
-    struct strbuf referent = {.alloc=0, .len=0, .buf=(char *) &strbuf_slopbuf};
-    int mustexist;
-    int ret;
-    struct ref_lock * lock;
-  if (head_ref != 0B)
-    {
-      {
-        extern int split_head_update ();
-
-        ret = split_head_update (update, transaction, head_ref, affected_refnames, err);
-        if (ret != 0)
-          {
-            return ret;
-          }
-      }
-    }
-  ret = lock_raw_ref (refs, (const char *) &update->refname, mustexist, (const struct string_list *) affected_refnames, 0B, &lock, &referent, &update->type, err);
-  if (ret != 0)
-    {
-      {
-        char * reason;
-        extern int strbuf_detach ();
-        extern int strbuf_addf ();
-        extern int original_update_refname ();
-
-                char * reason;
-        reason = (char *) (long int) strbuf_detach (err, 0B);
-        strbuf_addf (err, (char *) "cannot lock ref \'%s\': %s", original_update_refname (update), reason);
-        free ((void *) reason);
-        return ret;
-      }
-    }
-  update->backend_data = (void *) lock;
-  if ((update->type & 1) != 0)
-    {
-      if ((update->flags & 1) != 0)
-        {
-          {
-            extern int refs_read_ref_full ();
-
-            if (refs_read_ref_full (&refs->base, referent.buf, 0, (unsigned char *) &lock->old_oid.hash, 0B) != 0)
-              {
-                if ((update->flags & 16) != 0)
-                  {
-                    {
-                      extern int strbuf_addf ();
-                      extern int original_update_refname ();
-
-                      strbuf_addf (err, (char *) "cannot lock ref \'%s\': error reading reference", original_update_refname (update));
-                      return -1;
-                    }
-                  }
-              }
-            else
-              {
-                {
-                  extern int check_old_oid ();
-
-                  if (check_old_oid (update, &lock->old_oid, err) != 0)
-                    {
-                      return -2;
-                    }
-                }
-              }
-          }
-        }
-      else
-        {
-          {
-            extern int split_symref_update ();
-
-            ret = split_symref_update (refs, update, referent.buf, transaction, affected_refnames, err);
-            if (ret != 0)
-              {
-                return ret;
-              }
-          }
-        }
+      newmem = malloc (size);
     }
   else
     {
-      {
-        struct ref_update * parent_update;
-
-                struct ref_update * parent_update;
-        {
-          extern int check_old_oid ();
-
-          if (check_old_oid (update, &lock->old_oid, err) != 0)
-            {
-              return -2;
-            }
-        }
-      }
+      newmem = realloc (oldmem, size);
     }
-  if ((BIT_FIELD_REF <*update, 32, 320> & 138) == 8)
+  if (newmem == 0B)
     {
-      {
-        extern int oidcmp ();
-
-        if ((update->type & 1) == 0 && oidcmp (&lock->old_oid, &update->new_oid) == 0)
-          {
-            
-          }
-        else
-          {
-            {
-              extern int write_ref_to_lockfile ();
-
-              if (write_ref_to_lockfile (lock, &update->new_oid, err) != 0)
-                {
-                  {
-                    char * write_err = (char *) (long int) strbuf_detach (err, 0B);
-                    extern int strbuf_detach ();
-
-                                        char * write_err = (char *) (long int) strbuf_detach (err, 0B);
-                    update->backend_data = 0B;
-                    return -2;
-                  }
-                }
-              else
-                {
-                  update->flags = update->flags | 32;
-                }
-            }
-          }
-      }
+      exit (1);
     }
-  if ((update->flags & 32) == 0)
+  return newmem;
+}
+
+
+;; Function remote_filename_p (null)
+;; enabled by -tree-original
+
+
+{
+  extern int strncmp ();
+
+  return strncmp (filename, (char *) "remote:", 7) == 0;
+}
+
+
+;; Function rs6000_ptrace64 (null)
+;; enabled by -tree-original
+
+
+{
+  int i = *(int *) addr;
+  int ret;
+
+    int i = *(int *) addr;
+    int ret;
+  ret = rand () % 2 == 1 ? 1 : -1;
+  return ret;
+}
+
+
+;; Function rs6000_ptrace_ldinfo (null)
+;; enabled by -tree-original
+
+
+{
+  const int pid = 1;
+  int ldi_size = 1024;
+  void * ldi = malloc ((size_t) ldi_size);
+  int rc = -1;
+
+    const int pid = 1;
+    int ldi_size = 1024;
+    void * ldi = malloc ((size_t) ldi_size);
+    int rc = -1;
+  <D.3263>:;
+  rc = rs6000_ptrace64 (1, pid, (long long int) ldi, ldi_size, 0B);
+  if (rc != -1)
     {
-      {
-        extern int close_ref ();
-
-        if (close_ref (lock) != 0)
-          {
-            return -2;
-          }
-      }
+      goto <D.3262>;
     }
-  return 0;
+  ldi_size = ldi_size * 2;
+  ldi = xrealloc (ldi, (size_t) ldi_size);
+  goto <D.3263>;
+  <D.3262>:;
+  return (gdb_byte *) ldi;
+}
+
+
+;; Function rs6000_aix_ld_info_to_xml (null)
+;; enabled by -tree-original
+
+
+{
+  int i = (int) *ldi_buf;
+
+    int i = (int) *ldi_buf;
+  return (ULONGEST) i;
+}
+
+
+;; Function rs6000_xfer_shared_libraries (null)
+;; enabled by -tree-original
+
+
+{
+  gdb_byte * ldi_buf;
+  ULONGEST result;
+  struct cleanup * cleanup;
+
+    gdb_byte * ldi_buf;
+    ULONGEST result;
+    struct cleanup * cleanup;
+  if (writebuf != 0B)
+    {
+      return -1;
+    }
+  ldi_buf = rs6000_ptrace_ldinfo ();
+  if (ldi_buf == 0B)
+    {
+      exit (1);
+    }
+  cleanup = make_cleanup ((void (*<Ta1d>) (void *)) free, (void *) ldi_buf);
+  result = rs6000_aix_ld_info_to_xml ((const gdb_byte *) ldi_buf);
+  free ((void *) ldi_buf);
+  do_cleanups (cleanup);
+  if (result == 0)
+    {
+      return 0;
+    }
+  else
+    {
+      *xfered_len = result;
+      return 1;
+    }
 }
 
 
@@ -1109,21 +797,21 @@
 
 
 {
-  struct files_ref_store refs;
-  struct ref_update update;
-  struct ref_transaction transaction;
-  char * head_ref;
-  struct string_list affected_refnames;
-  struct strbuf err;
+  time_t t;
+  extern int time ();
+  char buf[10];
+  int len;
+  gdb_byte * writebuf;
+  ULONGEST * xfered_len = (ULONGEST *) &len;
 
-    struct files_ref_store refs;
-    struct ref_update update;
-    struct ref_transaction transaction;
-    char * head_ref;
-    struct string_list affected_refnames;
-    struct strbuf err;
-  lock_ref_for_update (&refs, &update, &transaction, (const char *) head_ref, &affected_refnames, &err);
-  return 0;
+    time_t t;
+  srand ((unsigned int) time (&t));
+    char buf[10];
+    int len;
+    gdb_byte * writebuf;
+    ULONGEST * xfered_len = (ULONGEST *) &len;
+  writebuf = rand () % 2 == 1 ? (gdb_byte *) &buf : 0B;
+  rs6000_xfer_shared_libraries ((const gdb_byte *) writebuf, xfered_len);
 }
 return 0;
 

@@ -1,50 +1,50 @@
-26 ssa "unused VAR_DECLs removed" "lstat" 1
-26 ssa "unused VAR_DECLs removed" "strbuf_swap" 1
-26 ssa "unused VAR_DECLs removed" "strbuf_grow" 1
-26 ssa "unused VAR_DECLs removed" "files_read_raw_ref" 1
-26 ssa "unused VAR_DECLs removed" "lock_raw_ref" 2
-26 ssa "unused VAR_DECLs removed" "lock_ref_for_update" 1
-26 ssa "unused VAR_DECLs removed" "main" 2
-38 ccp "Copies propagated" "strbuf_swap" 4
-38 ccp "Statements deleted" "strbuf_swap" 2
-55 release_ssa "unused VAR_DECLs removed" "strbuf_swap" 2
-55 release_ssa "SSA names released" "strbuf_swap" 2
-55 release_ssa "SSA name holes removed" "strbuf_swap" 2
+26 ssa "unused VAR_DECLs removed" "do_my_cleanups" 1
+26 ssa "unused VAR_DECLs removed" "make_my_cleanup" 1
+26 ssa "unused VAR_DECLs removed" "rs6000_ptrace64" 1
+26 ssa "unused VAR_DECLs removed" "discard_my_cleanups" 2
+26 ssa "unused VAR_DECLs removed" "xrealloc" 1
+26 ssa "unused VAR_DECLs removed" "rs6000_ptrace_ldinfo" 1
+26 ssa "unused VAR_DECLs removed" "remote_filename_p" 1
+26 ssa "unused VAR_DECLs removed" "rs6000_aix_ld_info_to_xml" 1
+26 ssa "unused VAR_DECLs removed" "rs6000_xfer_shared_libraries" 1
+26 ssa "unused VAR_DECLs removed" "main" 1
+38 ccp "Statements deleted" "do_my_cleanups" 2
+55 release_ssa "unused VAR_DECLs removed" "do_my_cleanups" 2
+55 release_ssa "SSA names released" "do_my_cleanups" 4
+55 release_ssa "SSA name holes removed" "do_my_cleanups" 4
+35 einline "unused VAR_DECLs removed" "make_my_cleanup2" 2
+35 einline "Symbol to SSA rewrite" "make_my_cleanup2" 1
+38 ccp "Copies propagated" "make_my_cleanup2" 1
+38 ccp "Statements deleted" "make_my_cleanup2" 1
+55 release_ssa "SSA names released" "make_my_cleanup2" 1
+55 release_ssa "SSA name holes removed" "make_my_cleanup2" 1
+38 ccp "Statements deleted" "rs6000_ptrace64" 2
+38 ccp "Constants propagated" "rs6000_ptrace64" 2
+55 release_ssa "SSA names released" "rs6000_ptrace64" 2
+55 release_ssa "SSA name holes removed" "rs6000_ptrace64" 2
+38 ccp "Statements deleted" "discard_my_cleanups" 1
+55 release_ssa "unused VAR_DECLs removed" "discard_my_cleanups" 1
+55 release_ssa "SSA names released" "discard_my_cleanups" 2
+55 release_ssa "SSA name holes removed" "discard_my_cleanups" 2
+35 einline "unused VAR_DECLs removed" "discard_cleanups" 1
+35 einline "Symbol to SSA rewrite" "discard_cleanups" 1
 38 ccp "Statements deleted" "xrealloc" 1
-55 release_ssa "unused VAR_DECLs removed" "xrealloc" 1
-55 release_ssa "SSA names released" "xrealloc" 2
-55 release_ssa "SSA name holes removed" "xrealloc" 2
-35 einline "unused VAR_DECLs removed" "strbuf_grow" 1
-35 einline "Symbol to SSA rewrite" "strbuf_grow" 1
-38 ccp "Statements deleted" "strbuf_grow" 1
-55 release_ssa "unused VAR_DECLs removed" "strbuf_grow" 1
-55 release_ssa "SSA names released" "strbuf_grow" 2
-55 release_ssa "SSA name holes removed" "strbuf_grow" 2
-35 einline "unused VAR_DECLs removed" "strbuf_release" 1
-35 einline "Symbol to SSA rewrite" "strbuf_release" 1
-38 ccp "Statements deleted" "strbuf_readlink" 3
-38 ccp "Constants propagated" "strbuf_readlink" 3
-55 release_ssa "SSA names released" "strbuf_readlink" 4
-55 release_ssa "SSA name holes removed" "strbuf_readlink" 4
-38 ccp "Copies propagated" "files_read_raw_ref" 2
-38 ccp "Statements deleted" "files_read_raw_ref" 9
-38 ccp "Constants propagated" "files_read_raw_ref" 11
-55 release_ssa "unused VAR_DECLs removed" "files_read_raw_ref" 1
-55 release_ssa "SSA names released" "files_read_raw_ref" 12
-55 release_ssa "SSA name holes removed" "files_read_raw_ref" 12
-35 einline "unused VAR_DECLs removed" "lock_raw_ref" 2
-35 einline "Symbol to SSA rewrite" "lock_raw_ref" 1
-38 ccp "Statements deleted" "lock_raw_ref" 3
-38 ccp "Constants propagated" "lock_raw_ref" 2
-55 release_ssa "unused VAR_DECLs removed" "lock_raw_ref" 1
-55 release_ssa "SSA names released" "lock_raw_ref" 3
-55 release_ssa "SSA name holes removed" "lock_raw_ref" 3
-38 ccp "Copies propagated" "lock_ref_for_update" 3
-38 ccp "Statements deleted" "lock_ref_for_update" 9
-38 ccp "Constants propagated" "lock_ref_for_update" 6
-55 release_ssa "SSA names released" "lock_ref_for_update" 10
-55 release_ssa "SSA name holes removed" "lock_ref_for_update" 10
-38 ccp "Statements deleted" "main" 1
-38 ccp "Constants propagated" "main" 1
-55 release_ssa "SSA names released" "main" 1
-55 release_ssa "SSA name holes removed" "main" 1
+38 ccp "Constants propagated" "xrealloc" 1
+55 release_ssa "SSA names released" "xrealloc" 1
+55 release_ssa "SSA name holes removed" "xrealloc" 1
+38 ccp "Copies propagated" "rs6000_ptrace_ldinfo" 1
+38 ccp "Statements deleted" "rs6000_ptrace_ldinfo" 5
+38 ccp "Constants propagated" "rs6000_ptrace_ldinfo" 3
+55 release_ssa "unused VAR_DECLs removed" "rs6000_ptrace_ldinfo" 1
+55 release_ssa "SSA names released" "rs6000_ptrace_ldinfo" 5
+55 release_ssa "SSA name holes removed" "rs6000_ptrace_ldinfo" 5
+38 ccp "Statements deleted" "rs6000_xfer_shared_libraries" 3
+38 ccp "Constants propagated" "rs6000_xfer_shared_libraries" 3
+55 release_ssa "SSA names released" "rs6000_xfer_shared_libraries" 4
+55 release_ssa "SSA name holes removed" "rs6000_xfer_shared_libraries" 4
+38 ccp "Copies propagated" "main" 1
+38 ccp "Statements deleted" "main" 5
+38 ccp "Constants propagated" "main" 4
+55 release_ssa "unused VAR_DECLs removed" "main" 2
+55 release_ssa "SSA names released" "main" 5
+55 release_ssa "SSA name holes removed" "main" 5

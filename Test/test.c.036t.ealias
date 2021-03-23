@@ -47,11 +47,11 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.3723 } (nonlocal, escaped, restrict)
+ESCAPED, points-to non-local, points-to vars: { D.3351 } (nonlocal, escaped, restrict)
 
 Flow-insensitive points-to information
 
-__fmt_2(D), points-to NULL, points-to vars: { D.3723 } (nonlocal, escaped, restrict)
+__fmt_2(D), points-to NULL, points-to vars: { D.3351 } (nonlocal, escaped, restrict)
 
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
@@ -66,7 +66,7 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function lstat (lstat, funcdef_no=40, decl_uid=3041, cgraph_uid=40, symbol_order=40)
+;; Function do_my_cleanups (do_my_cleanups, funcdef_no=48, decl_uid=3170, cgraph_uid=48, symbol_order=53)
 
 Points-to analysis
 
@@ -79,182 +79,26 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-__path = &NONLOCAL
-__statbuf = &NONLOCAL
-ESCAPED = &NONLOCAL
-ESCAPED = __path
-ESCAPED = __statbuf
-_5 = NONLOCAL
-ESCAPED = _5
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { ESCAPED NONLOCAL }
-NONLOCAL = { ESCAPED NONLOCAL } same as _5
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-__path = { NONLOCAL }
-__statbuf = { NONLOCAL } same as __path
-__lxstat = { }
-_5 = { ESCAPED NONLOCAL }
-
-
-Alias information for lstat
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to vars: { }
-
-Flow-insensitive points-to information
-
-__path_2(D), points-to non-local, points-to NULL, points-to vars: { }
-__statbuf_3(D), points-to non-local, points-to NULL, points-to vars: { }
-
-__attribute__((__gnu_inline__, __leaf__, __nothrow__))
-lstat (const char * __path, struct stat * __statbuf)
-{
-  int _5;
-
-  <bb 2> [0.00%]:
-  _5 = __lxstat (1, __path_2(D), __statbuf_3(D));
-  return _5;
-
-}
-
-
-
-;; Function strbuf_swap (strbuf_swap, funcdef_no=48, decl_uid=3408, cgraph_uid=48, symbol_order=49)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-a = &NONLOCAL
-b = &NONLOCAL
-_swap_buffer = *a + UNKNOWN
-doubledereftmp(11) = *b
-*a = doubledereftmp(11)
-*b + UNKNOWN = _swap_buffer
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { ESCAPED NONLOCAL }
-NONLOCAL = { ESCAPED NONLOCAL } same as doubledereftmp(11)
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-a = { NONLOCAL }
-b = { NONLOCAL } same as a
-_swap_buffer = { ESCAPED NONLOCAL }
-doubledereftmp(11) = { ESCAPED NONLOCAL }
-
-
-Alias information for strbuf_swap
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to vars: { }
-
-Flow-insensitive points-to information
-
-a_1(D), points-to non-local, points-to NULL, points-to vars: { }
-b_3(D), points-to non-local, points-to NULL, points-to vars: { }
-
-strbuf_swap (struct strbuf * a, struct strbuf * b)
-{
-  unsigned char _swap_buffer[24];
-  void * _swap_b_ptr;
-  void * _swap_a_ptr;
-
-  <bb 2> [0.00%]:
-  MEM[(char * {ref-all})&_swap_buffer] = MEM[(char * {ref-all})a_1(D)];
-  memcpy (a_1(D), b_3(D), 24);
-  MEM[(char * {ref-all})b_3(D)] = MEM[(char * {ref-all})&_swap_buffer];
-  _swap_buffer ={v} {CLOBBER};
-  return;
-
-}
-
-
-
-;; Function xrealloc (xrealloc, funcdef_no=49, decl_uid=3416, cgraph_uid=49, symbol_order=50)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-ptr = &NONLOCAL
-size = &NONLOCAL
-ret_17 = &HEAP(11)
-doubledereftmp(12) = *ptr
-*ret_17 = doubledereftmp(12)
-ret_17 = ptr
-_3 = _1
-_3 = _2
-ret_19 = &HEAP(17)
-doubledereftmp(18) = *ptr
-*ret_19 = doubledereftmp(18)
-ret_19 = ptr
-ret_7 = ret_17
-ret_7 = ret_19
-ret_21 = &HEAP(21)
-doubledereftmp(22) = *ptr
-*ret_21 = doubledereftmp(22)
-ret_21 = ptr
-_6 = _4
-_6 = _5
-ret_23 = &HEAP(27)
-doubledereftmp(28) = *ptr
-*ret_23 = doubledereftmp(28)
-ret_23 = ptr
-ret_8 = ret_21
-ret_8 = ret_23
+pmy_chain = &NONLOCAL
+old_chain = &NONLOCAL
+_1 = *ptr_12
+*pmy_chain = _1
+_2 = *ptr_12 + 64
+_3 = *ptr_12 + 192
+ESCAPED = _3
 ESCAPED = &NONLOCAL
 ESCAPED = &STRING
-ESCAPED = &STRING
-_27 = NONLOCAL
+_21 = NONLOCAL
+_4 = *ptr_12 + 192
 ESCAPED = &NONLOCAL
-ret_9 = ret_7
-ret_9 = ret_8
-_26 = ret_9
-ESCAPED = ret_9
+ESCAPED = &STRING
+ESCAPED = _4
+_20 = NONLOCAL
+_5 = *ptr_12 + 128
+_6 = *ptr_12 + 128
+_7 = *ptr_12 + 192
+ESCAPED = _7
+ptr_12 = *pmy_chain
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -267,399 +111,103 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { STRING ESCAPED NONLOCAL HEAP(11) HEAP(17) HEAP(21) HEAP(27) }
-NONLOCAL = { ESCAPED NONLOCAL } same as _27
+ESCAPED = { STRING ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL } same as _21
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-ptr = { NONLOCAL }
-size = { NONLOCAL } same as ptr
-ret_17 = { NONLOCAL HEAP(11) }
-HEAP(11) = { ESCAPED NONLOCAL }
-doubledereftmp(12) = { ESCAPED NONLOCAL }
-_1 = { }
-_2 = { }
-_3 = { }
-ret_19 = { NONLOCAL HEAP(17) }
-HEAP(17) = { ESCAPED NONLOCAL }
-doubledereftmp(18) = { ESCAPED NONLOCAL } same as doubledereftmp(12)
-ret_7 = { NONLOCAL HEAP(11) HEAP(17) }
-ret_21 = { NONLOCAL HEAP(21) }
-HEAP(21) = { ESCAPED NONLOCAL }
-doubledereftmp(22) = { ESCAPED NONLOCAL } same as doubledereftmp(12)
-_4 = { }
-_5 = { }
-_6 = { }
-ret_23 = { NONLOCAL HEAP(27) }
-HEAP(27) = { ESCAPED NONLOCAL }
-doubledereftmp(28) = { ESCAPED NONLOCAL } same as doubledereftmp(12)
-ret_8 = { NONLOCAL HEAP(21) HEAP(27) }
+pmy_chain = { NONLOCAL }
+old_chain = { NONLOCAL } same as pmy_chain
+_1 = { ESCAPED NONLOCAL }
+ptr_12 = { ESCAPED NONLOCAL }
+_2 = { ESCAPED NONLOCAL }
+_3 = { ESCAPED NONLOCAL }
 __printf_chk = { }
-_27 = { ESCAPED NONLOCAL }
-exit = { }
-ret_9 = { NONLOCAL HEAP(11) HEAP(17) HEAP(21) HEAP(27) }
-_26 = { NONLOCAL HEAP(11) HEAP(17) HEAP(21) HEAP(27) } same as ret_9
+_21 = { ESCAPED NONLOCAL }
+_4 = { ESCAPED NONLOCAL }
+_20 = { ESCAPED NONLOCAL } same as _21
+_5 = { ESCAPED NONLOCAL }
+_6 = { ESCAPED NONLOCAL }
+_7 = { ESCAPED NONLOCAL }
 
 
-Alias information for xrealloc
+Alias information for do_my_cleanups
 
 Aliased symbols
 
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.3726 D.3727 D.3728 D.3729 } (escaped, escaped heap)
+ESCAPED, points-to non-local, points-to vars: { }
 
 Flow-insensitive points-to information
 
-ret_7, points-to non-local, points-to NULL, points-to vars: { D.3726 D.3727 } (escaped, escaped heap)
-ret_8, points-to non-local, points-to NULL, points-to vars: { D.3728 D.3729 } (escaped, escaped heap)
-ret_9, points-to non-local, points-to NULL, points-to vars: { D.3726 D.3727 D.3728 D.3729 } (escaped, escaped heap)
-ptr_14(D), points-to non-local, points-to NULL, points-to vars: { }
-ret_17, points-to non-local, points-to NULL, points-to vars: { D.3726 } (escaped, escaped heap)
-ret_19, points-to non-local, points-to NULL, points-to vars: { D.3727 } (escaped, escaped heap)
-ret_21, points-to non-local, points-to NULL, points-to vars: { D.3728 } (escaped, escaped heap)
-ret_23, points-to non-local, points-to NULL, points-to vars: { D.3729 } (escaped, escaped heap)
-_26, points-to non-local, points-to NULL, points-to vars: { D.3726 D.3727 D.3728 D.3729 } (escaped, escaped heap)
+_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_3, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_4, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_5, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_7, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+pmy_chain_11(D), points-to non-local, points-to NULL, points-to vars: { }
+ptr_12, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+old_chain_13(D), points-to non-local, points-to NULL, points-to vars: { }
 
-xrealloc (void * ptr, size_t size)
+do_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
 {
-  int D.3725;
-  void * ret;
-  _Bool _1;
-  _Bool _2;
-  _Bool _3;
-  _Bool _4;
-  _Bool _5;
-  _Bool _6;
-  void * _26;
-  int _27;
+  int D.3355;
+  int D.3353;
+  struct cleanup * ptr;
+  struct cleanup * _1;
+  void (*<Ted>) (void *) _2;
+  void * _3;
+  void * _4;
+  void (*<Ted>) (void *) _5;
+  void (*<Ted>) (void *) _6;
+  void * _7;
+  int _20;
+  int _21;
 
   <bb 2> [0.00%]:
-  ret_17 = realloc (ptr_14(D), size_15(D));
-  _1 = ret_17 == 0B;
-  _2 = size_15(D) == 0;
-  _3 = _1 & _2;
-  if (_3 != 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
+  goto <bb 6>; [0.00%]
 
-  <bb 3> [0.00%]:
-  ret_19 = realloc (ptr_14(D), 1);
+  <bb 3> [100.00%]:
+  _1 = ptr_12->next;
+  *pmy_chain_11(D) = _1;
+  _2 = ptr_12->function;
+  _3 = ptr_12->arg;
+  _2 (_3);
+  _21 = __printf_chk (1, "cleanup!!!!! =========\n");
+  _4 = ptr_12->arg;
+  _20 = __printf_chk (1, "%x\n", _4);
+  _5 = ptr_12->free_arg;
+  if (_5 != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
 
   <bb 4> [0.00%]:
-  # ret_7 = PHI <ret_17(2), ret_19(3)>
-  if (ret_7 == 0B)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
+  _6 = ptr_12->free_arg;
+  _7 = ptr_12->arg;
+  _6 (_7);
 
   <bb 5> [0.00%]:
-  ret_21 = realloc (ptr_14(D), size_15(D));
-  _4 = ret_21 == 0B;
-  _5 = size_15(D) == 0;
-  _6 = _4 & _5;
-  if (_6 != 0)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
+  free (ptr_12);
 
   <bb 6> [0.00%]:
-  ret_23 = realloc (ptr_14(D), 1);
-
-  <bb 7> [0.00%]:
-  # ret_8 = PHI <ret_21(5), ret_23(6)>
-  if (ret_8 == 0B)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 8> [100.00%]:
-  _27 = __printf_chk (1, "Out of memory, realloc failed%s", "");
-  exit (1);
-
-  <bb 9> [0.00%]:
-  # ret_9 = PHI <ret_7(4), ret_8(7)>
-  _26 = ret_9;
-  return ret_9;
-
-}
-
-
-
-;; Function strbuf_grow (strbuf_grow, funcdef_no=50, decl_uid=3453, cgraph_uid=50, symbol_order=51)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-sb = &NONLOCAL
-extra = &NONLOCAL
-_1 = *sb
-new_buf_36 = _2
-ESCAPED = extra
-ESCAPED = &NONLOCAL
-_3 = NONLOCAL
-_4 = extra
-_4 = &NONLOCAL
-_5 = *sb + 64
-ESCAPED = _5
-ESCAPED = _4
-_6 = NONLOCAL
-ESCAPED = &NONLOCAL
-ESCAPED = &STRING
-ESCAPED = &STRING
-_51 = NONLOCAL
-ESCAPED = &NONLOCAL
-derefaddrtmp(21) = &NULL
-*sb + 128 = derefaddrtmp(21)
-_7 = *sb + 64
-_8 = _7
-_8 = extra
-_9 = _8
-_9 = &NONLOCAL
-_10 = *sb
-_11 = *sb
-ESCAPED = _11
-_12 = NONLOCAL
-_13 = _12
-_14 = *sb + 64
-_15 = _14
-_15 = extra
-_16 = _15
-_16 = &NONLOCAL
-_17 = *sb + 64
-_18 = _17
-_18 = extra
-_19 = _18
-_19 = &NONLOCAL
-*sb = _19
-_20 = *sb
-ESCAPED = _20
-_21 = NONLOCAL
-_22 = _21
-*sb = _22
-_23 = *sb
-ESCAPED = &NONLOCAL
-ESCAPED = _23
-_24 = NONLOCAL
-_25 = _24
-_26 = *sb + 128
-ESCAPED = _26
-ESCAPED = _25
-_27 = NONLOCAL
-*sb + 128 = _27
-_28 = *sb + 128
-derefaddrtmp(47) = &NULL
-*_28 = derefaddrtmp(47)
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { NULL STRING ESCAPED NONLOCAL }
-NONLOCAL = { ESCAPED NONLOCAL } same as _3
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-sb = { NONLOCAL }
-extra = { NONLOCAL } same as sb
-_1 = { ESCAPED NONLOCAL }
-_2 = { }
-new_buf_36 = { }
-unsigned_add_overflows = { }
-_3 = { ESCAPED NONLOCAL }
-_4 = { NONLOCAL } same as sb
-_5 = { ESCAPED NONLOCAL }
-_6 = { ESCAPED NONLOCAL } same as _3
-__printf_chk = { }
-_51 = { ESCAPED NONLOCAL } same as _3
-exit = { }
-derefaddrtmp(21) = { NULL }
-_7 = { ESCAPED NONLOCAL }
-_8 = { ESCAPED NONLOCAL }
-_9 = { ESCAPED NONLOCAL } same as _8
-_10 = { ESCAPED NONLOCAL } same as _1
-_11 = { ESCAPED NONLOCAL } same as _1
-alloc_nr = { }
-_12 = { ESCAPED NONLOCAL } same as _3
-_13 = { ESCAPED NONLOCAL } same as _3
-_14 = { ESCAPED NONLOCAL }
-_15 = { ESCAPED NONLOCAL }
-_16 = { ESCAPED NONLOCAL } same as _15
-_17 = { ESCAPED NONLOCAL }
-_18 = { ESCAPED NONLOCAL }
-_19 = { ESCAPED NONLOCAL } same as _18
-_20 = { ESCAPED NONLOCAL } same as _1
-_21 = { ESCAPED NONLOCAL } same as _3
-_22 = { ESCAPED NONLOCAL } same as _3
-_23 = { ESCAPED NONLOCAL } same as _1
-st_mult = { }
-_24 = { ESCAPED NONLOCAL } same as _3
-_25 = { ESCAPED NONLOCAL } same as _3
-_26 = { ESCAPED NONLOCAL }
-xrealloc = { }
-_27 = { ESCAPED NONLOCAL } same as _3
-_28 = { ESCAPED NONLOCAL }
-derefaddrtmp(47) = { NULL } same as derefaddrtmp(21)
-
-
-Alias information for strbuf_grow
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { }
-
-Flow-insensitive points-to information
-
-_26, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_27, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_28, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-sb_35(D), points-to non-local, points-to NULL, points-to vars: { }
-
-strbuf_grow (struct strbuf * sb, size_t extra)
-{
-  int D.3731;
-  int new_buf;
-  long unsigned int _1;
-  _Bool _2;
-  int _3;
-  long unsigned int _4;
-  long unsigned int _5;
-  int _6;
-  long unsigned int _7;
-  long unsigned int _8;
-  long unsigned int _9;
-  long unsigned int _10;
-  long unsigned int _11;
-  int _12;
-  long unsigned int _13;
-  long unsigned int _14;
-  long unsigned int _15;
-  long unsigned int _16;
-  long unsigned int _17;
-  long unsigned int _18;
-  long unsigned int _19;
-  long unsigned int _20;
-  int _21;
-  long unsigned int _22;
-  long unsigned int _23;
-  int _24;
-  long unsigned int _25;
-  char * _26;
-  void * _27;
-  char * _28;
-  int _51;
-
-  <bb 2> [0.00%]:
-  _1 = sb_35(D)->alloc;
-  _2 = _1 == 0;
-  new_buf_36 = (int) _2;
-  _3 = unsigned_add_overflows (extra_37(D), 1);
-  if (_3 != 0)
-    goto <bb 4>; [0.00%]
-  else
+  ptr_12 = *pmy_chain_11(D);
+  if (ptr_12 != old_chain_13(D))
     goto <bb 3>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _4 = extra_37(D) + 1;
-  _5 = sb_35(D)->len;
-  _6 = unsigned_add_overflows (_5, _4);
-  if (_6 != 0)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [100.00%]:
-  _51 = __printf_chk (1, "you want to use way too much memory%s", "");
-  exit (1);
-
-  <bb 5> [0.00%]:
-  if (_1 == 0)
-    goto <bb 6>; [0.00%]
   else
     goto <bb 7>; [0.00%]
 
-  <bb 6> [0.00%]:
-  sb_35(D)->buf = 0B;
-
   <bb 7> [0.00%]:
-  _7 = sb_35(D)->len;
-  _8 = _7 + extra_37(D);
-  _9 = _8 + 1;
-  _10 = sb_35(D)->alloc;
-  if (_9 > _10)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 8> [0.00%]:
-  _11 = sb_35(D)->alloc;
-  _12 = alloc_nr (_11);
-  _13 = (long unsigned int) _12;
-  _14 = sb_35(D)->len;
-  _15 = _14 + extra_37(D);
-  _16 = _15 + 1;
-  if (_13 < _16)
-    goto <bb 9>; [0.00%]
-  else
-    goto <bb 10>; [0.00%]
-
-  <bb 9> [0.00%]:
-  _17 = sb_35(D)->len;
-  _18 = _17 + extra_37(D);
-  _19 = _18 + 1;
-  sb_35(D)->alloc = _19;
-  goto <bb 11>; [0.00%]
-
-  <bb 10> [0.00%]:
-  _20 = sb_35(D)->alloc;
-  _21 = alloc_nr (_20);
-  _22 = (long unsigned int) _21;
-  sb_35(D)->alloc = _22;
-
-  <bb 11> [0.00%]:
-  _23 = sb_35(D)->alloc;
-  _24 = st_mult (1, _23);
-  _25 = (long unsigned int) _24;
-  _26 = sb_35(D)->buf;
-  _27 = xrealloc (_26, _25);
-  sb_35(D)->buf = _27;
-
-  <bb 12> [0.00%]:
-  if (_1 == 0)
-    goto <bb 13>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 13> [0.00%]:
-  _28 = sb_35(D)->buf;
-  *_28 = 0;
-
-  <bb 14> [0.00%]:
   return;
 
 }
 
 
 
-;; Function strbuf_release (strbuf_release, funcdef_no=51, decl_uid=3462, cgraph_uid=51, symbol_order=52)
+;; Function make_my_cleanup2 (make_my_cleanup2, funcdef_no=50, decl_uid=3178, cgraph_uid=50, symbol_order=55)
 
 Points-to analysis
 
@@ -672,11 +220,21 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-sb = &NONLOCAL
-_1 = *sb
-_2 = *sb + 128
-ESCAPED = sb
-ESCAPED = &NULL
+pmy_chain = &NONLOCAL
+function = &NONLOCAL
+arg = &NONLOCAL
+free_arg = &NONLOCAL
+ESCAPED = &NONLOCAL
+new_4 = &HEAP(14)
+old_chain_6 = *pmy_chain
+_1 = *pmy_chain
+*new_4 = _1
+*new_4 + 64 = function
+*new_4 + 128 = free_arg
+*new_4 + 192 = arg
+*pmy_chain = new_4
+ESCAPED = &NONLOCAL
+ESCAPED = old_chain_6
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -689,55 +247,72 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { NULL ESCAPED NONLOCAL }
+ESCAPED = { ESCAPED NONLOCAL HEAP(14) }
 NONLOCAL = { ESCAPED NONLOCAL }
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-sb = { NONLOCAL }
-_1 = { ESCAPED NONLOCAL }
-_2 = { ESCAPED NONLOCAL }
-strbuf_init = { }
+pmy_chain = { NONLOCAL }
+function = { NONLOCAL } same as pmy_chain
+arg = { NONLOCAL } same as pmy_chain
+free_arg = { NONLOCAL } same as pmy_chain
+malloc = { }
+new_4 = { HEAP(14) }
+HEAP(14) = { ESCAPED NONLOCAL }
+old_chain_6 = { ESCAPED NONLOCAL }
+_1 = { ESCAPED NONLOCAL } same as old_chain_6
+exit = { }
 
 
-Alias information for strbuf_release
+Alias information for make_my_cleanup2
 
 Aliased symbols
 
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { }
+ESCAPED, points-to non-local, points-to vars: { D.3356 } (escaped, escaped heap)
 
 Flow-insensitive points-to information
 
-_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-sb_5(D), points-to non-local, points-to NULL, points-to vars: { }
+_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+new_4, points-to NULL, points-to vars: { D.3356 } (escaped, escaped heap)
+pmy_chain_5(D), points-to non-local, points-to NULL, points-to vars: { }
+old_chain_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+function_8(D), points-to non-local, points-to NULL, points-to vars: { }
+free_arg_10(D), points-to non-local, points-to NULL, points-to vars: { }
+arg_12(D), points-to non-local, points-to NULL, points-to vars: { }
 
-strbuf_release (struct strbuf * sb)
+make_my_cleanup2 (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg, void (*<Ted>) (void *) free_arg)
 {
-  long unsigned int _1;
-  char * _2;
+  struct cleanup * old_chain;
+  struct cleanup * new;
+  struct cleanup * _1;
 
   <bb 2> [0.00%]:
-  _1 = sb_5(D)->alloc;
-  if (_1 != 0)
+  new_4 = malloc (32);
+  old_chain_6 = *pmy_chain_5(D);
+  _1 = *pmy_chain_5(D);
+  new_4->next = _1;
+  new_4->function = function_8(D);
+  new_4->free_arg = free_arg_10(D);
+  new_4->arg = arg_12(D);
+  *pmy_chain_5(D) = new_4;
+  if (old_chain_6 == 0B)
     goto <bb 3>; [0.00%]
   else
     goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
-  _2 = sb_5(D)->buf;
-  free (_2);
-  strbuf_init (sb_5(D), 0);
+  exit (1);
 
   <bb 4> [0.00%]:
-  return;
+  return old_chain_6;
 
 }
 
 
 
-;; Function strbuf_readlink (strbuf_readlink, funcdef_no=52, decl_uid=3469, cgraph_uid=52, symbol_order=53)
+;; Function make_my_cleanup (make_my_cleanup, funcdef_no=51, decl_uid=3182, cgraph_uid=51, symbol_order=56)
 
 Points-to analysis
 
@@ -750,31 +325,14 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-sb = &NONLOCAL
-path = &NONLOCAL
-hint = &NONLOCAL
-oldalloc_13 = *sb
-ESCAPED = sb
-ESCAPED = hint_5
-_1 = *sb + 128
-ESCAPED = path
-ESCAPED = _1
-ESCAPED = hint_5
-len_19 = NONLOCAL
-_2 = &NONLOCAL
-_3 = *_2
-_4 = len_19
-ESCAPED = sb
-ESCAPED = len_19
-hint_22 = hint_5
-hint_22 = &NONLOCAL
-hint_25 = &NONLOCAL
-hint_25 = hint
-hint_5 = hint_25
-hint_5 = hint_22
-ESCAPED = sb
-_6 = &NULL
-_6 = &NONLOCAL
+pmy_chain = &NONLOCAL
+function = &NONLOCAL
+arg = &NONLOCAL
+ESCAPED = pmy_chain
+ESCAPED = function
+ESCAPED = arg
+ESCAPED = &NULL
+_6 = NONLOCAL
 ESCAPED = _6
 
 Collapsing static cycles and doing variable substitution
@@ -789,30 +347,17 @@ Points-to sets
 
 ANYTHING = { ANYTHING }
 ESCAPED = { NULL ESCAPED NONLOCAL }
-NONLOCAL = { ESCAPED NONLOCAL } same as len_19
+NONLOCAL = { ESCAPED NONLOCAL } same as _6
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-sb = { NONLOCAL }
-path = { NONLOCAL } same as sb
-hint = { NONLOCAL } same as sb
-oldalloc_13 = { ESCAPED NONLOCAL }
-strbuf_grow = { }
-hint_5 = { NONLOCAL } same as sb
-_1 = { ESCAPED NONLOCAL }
-readlink = { }
-len_19 = { ESCAPED NONLOCAL }
-__errno_location = { }
-_2 = { NONLOCAL } same as sb
-_3 = { ESCAPED NONLOCAL }
-_4 = { ESCAPED NONLOCAL } same as len_19
-strbuf_setlen = { }
-hint_22 = { NONLOCAL } same as sb
-hint_25 = { NONLOCAL } same as sb
-strbuf_release = { }
-_6 = { NULL NONLOCAL }
+pmy_chain = { NONLOCAL }
+function = { NONLOCAL } same as pmy_chain
+arg = { NONLOCAL } same as pmy_chain
+make_my_cleanup2 = { }
+_6 = { ESCAPED NONLOCAL }
 
 
-Alias information for strbuf_readlink
+Alias information for make_my_cleanup
 
 Aliased symbols
 
@@ -823,93 +368,24 @@ ESCAPED, points-to non-local, points-to NULL, points-to vars: { }
 
 Flow-insensitive points-to information
 
-_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_2, points-to non-local, points-to NULL, points-to vars: { }
-sb_12(D), points-to non-local, points-to NULL, points-to vars: { }
-path_17(D), points-to non-local, points-to NULL, points-to vars: { }
+pmy_chain_2(D), points-to non-local, points-to NULL, points-to vars: { }
+function_3(D), points-to non-local, points-to NULL, points-to vars: { }
+arg_4(D), points-to non-local, points-to NULL, points-to vars: { }
+_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 
-strbuf_readlink (struct strbuf * sb, const char * path, size_t hint)
+make_my_cleanup (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg)
 {
-  int len;
-  size_t oldalloc;
-  char * _1;
-  int * _2;
-  int _3;
-  long unsigned int _4;
-  int _6;
+  struct cleanup * _6;
 
   <bb 2> [0.00%]:
-  oldalloc_13 = sb_12(D)->alloc;
-  if (hint_14(D) <= 31)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 3> [0.00%]:
-  goto <bb 9>; [0.00%]
-
-  <bb 4> [0.00%]:
-  strbuf_grow (sb_12(D), hint_5);
-  _1 = sb_12(D)->buf;
-  len_19 = readlink (path_17(D), _1, hint_5);
-  if (len_19 < 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 5> [0.00%]:
-  _2 = __errno_location ();
-  _3 = *_2;
-  if (_3 != 34)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 6> [0.00%]:
-  _4 = (long unsigned int) len_19;
-  if (_4 < hint_5)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 7> [0.00%]:
-  strbuf_setlen (sb_12(D), len_19);
-  goto <bb 14>; [0.00%]
-
-  <bb 8> [0.00%]:
-  hint_22 = hint_5 * 2;
-  goto <bb 10>; [0.00%]
-
-  <bb 9> [0.00%]:
-  # hint_25 = PHI <32(3), hint_14(D)(2)>
-
-  <bb 10> [0.00%]:
-  # hint_5 = PHI <hint_25(9), hint_22(8)>
-  if (hint_5 <= 8191)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 11>; [0.00%]
-
-  <bb 11> [0.00%]:
-  if (oldalloc_13 == 0)
-    goto <bb 12>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
-
-  <bb 12> [0.00%]:
-  strbuf_release (sb_12(D));
-
-  <bb 13> [0.00%]:
-
-  <bb 14> [0.00%]:
-  # _6 = PHI <0(7), -1(13)>
+  _6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
   return _6;
 
 }
 
 
 
-;; Function files_read_raw_ref (files_read_raw_ref, funcdef_no=53, decl_uid=3485, cgraph_uid=53, symbol_order=54)
+;; Function rs6000_ptrace64 (rs6000_ptrace64, funcdef_no=55, decl_uid=3252, cgraph_uid=55, symbol_order=60)
 
 Points-to analysis
 
@@ -922,142 +398,21 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-ref_store = &NONLOCAL
-refname = &NONLOCAL
-sha1 = &NONLOCAL
-referent = &NONLOCAL
-type = &NONLOCAL
-ESCAPED = ref_store
-ESCAPED = &NONLOCAL
-ESCAPED = &STRING
-_1 = NONLOCAL
-_2 = _1
-refs_50 = _2
-sb_contents = &NULL
-sb_contents = &NULL
-strbuf_slopbuf = NONLOCAL
-sb_contents = &strbuf_slopbuf
-sb_path = &NULL
-sb_path = &NULL
-sb_path = &strbuf_slopbuf
-derefaddrtmp(20) = &NULL
-*type = derefaddrtmp(20)
-ESCAPED = &sb_path
-ESCAPED = refs_50
-ESCAPED = &sb_path
-ESCAPED = refname
-path_64 = sb_path
-remaining_retries_43 = &NONLOCAL
-remaining_retries_43 = remaining_retries_65
-remaining_retries.7_3 = remaining_retries_43
-remaining_retries_65 = remaining_retries_43
-remaining_retries_65 = &NONLOCAL
-ESCAPED = &NONLOCAL
-ESCAPED = path_64
-ESCAPED = &st
-_107 = NONLOCAL
-_5 = &NONLOCAL
-_6 = *_5
-ESCAPED = refs_50
-ESCAPED = refname
-ESCAPED = sha1
-ESCAPED = type
-_7 = NONLOCAL
-_8 = &NONLOCAL
-derefaddrtmp(36) = &NONLOCAL
-*_8 = derefaddrtmp(36)
-ESCAPED = &sb_contents
-ESCAPED = &sb_contents
-ESCAPED = path_64
-ESCAPED = &NULL
-_9 = NONLOCAL
-_10 = &NONLOCAL
-_95 = *_10
-_13 = _11
-_13 = _12
-_14 = sb_contents
-ESCAPED = _14
-ESCAPED = &STRING
-_15 = NONLOCAL
-_16 = sb_contents
-ESCAPED = _16
-ESCAPED = &NULL
-_17 = NONLOCAL
-ESCAPED = &sb_contents
-ESCAPED = referent
-_18 = *type
-_19 = _18
-_19 = &NONLOCAL
-*type = _19
-ESCAPED = &sb_contents
-ESCAPED = &sb_contents
-ESCAPED = fd_76
-ESCAPED = &NONLOCAL
-_20 = NONLOCAL
-_21 = &NONLOCAL
-save_errno_92 = *_21
-ESCAPED = fd_76
-_22 = &NONLOCAL
-*_22 = save_errno_92
-ESCAPED = &sb_contents
-buf_79 = sb_contents
-ESCAPED = buf_79
-ESCAPED = &STRING
-_23 = NONLOCAL
-buf_86 = buf_79
-buf_91 = buf_41
-buf_41 = buf_86
-buf_41 = buf_91
-_24 = *buf_41
-_25 = _24
-CALLUSED(69) = CALLUSED(69) + UNKNOWN
-CALLUSED(69) = *CALLUSED(69) + UNKNOWN
-CALLUSED(69) = _25
-_26 = CALLUSED(69)
-_26 = NONLOCAL
-ESCAPED = referent
-ESCAPED = referent
-ESCAPED = buf_41
-_27 = *type
-_28 = _27
-_28 = &NONLOCAL
-*type = _28
-ESCAPED = buf_79
-ESCAPED = sha1
-_29 = NONLOCAL
-_31 = *buf_79
-_33 = *buf_79
-_34 = _33
-CALLUSED(80) = CALLUSED(80) + UNKNOWN
-CALLUSED(80) = *CALLUSED(80) + UNKNOWN
-CALLUSED(80) = _34
-_35 = CALLUSED(80)
-_35 = NONLOCAL
-_36 = *type
-_37 = _36
-_37 = &NONLOCAL
-*type = _37
-_38 = &NONLOCAL
-derefaddrtmp(86) = &NONLOCAL
-*_38 = derefaddrtmp(86)
-ret_42 = &NONLOCAL
-ret_42 = &NONLOCAL
-ret_42 = &NONLOCAL
-ret_42 = &NULL
-ret_42 = &NONLOCAL
-ret_42 = &NULL
-ret_42 = &NONLOCAL
-ret_42 = &NULL
-ret_42 = &NONLOCAL
-ret_42 = &NULL
-ret_42 = &NULL
-_39 = &NONLOCAL
-save_errno_99 = *_39
-ESCAPED = &sb_path
-ESCAPED = &sb_contents
-_40 = &NONLOCAL
-*_40 = save_errno_99
-ESCAPED = ret_42
+req = &NONLOCAL
+id = &NONLOCAL
+addr = &NONLOCAL
+data = &NONLOCAL
+buf = &NONLOCAL
+addr.2_1 = addr
+i_7 = *addr.2_1
+_2 = NONLOCAL
+_3 = _2
+_3 = &NONLOCAL
+iftmp.3_4 = &NONLOCAL
+iftmp.3_4 = &NONLOCAL
+ret_11 = iftmp.3_4
+_12 = iftmp.3_4
+ESCAPED = iftmp.3_4
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -1070,575 +425,71 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { NULL STRING ESCAPED NONLOCAL sb_contents strbuf_slopbuf sb_path st }
-NONLOCAL = { ESCAPED NONLOCAL } same as _1
+ESCAPED = { ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL } same as _2
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-ref_store = { NONLOCAL }
-refname = { NONLOCAL } same as ref_store
-sha1 = { NONLOCAL } same as ref_store
-referent = { NONLOCAL } same as ref_store
-type = { NONLOCAL } same as ref_store
-files_downcast = { }
-_1 = { ESCAPED NONLOCAL }
-_2 = { ESCAPED NONLOCAL } same as _1
-refs_50 = { ESCAPED NONLOCAL } same as _1
-sb_contents = { NULL ESCAPED NONLOCAL strbuf_slopbuf } same as _14
-strbuf_slopbuf = { ESCAPED NONLOCAL }
-sb_path = { NULL ESCAPED NONLOCAL strbuf_slopbuf } same as path_64
-derefaddrtmp(20) = { NULL }
-strbuf_reset = { }
-files_ref_path = { }
-path_64 = { NULL ESCAPED NONLOCAL strbuf_slopbuf }
-remaining_retries_43 = { NONLOCAL } same as ref_store
-remaining_retries_65 = { NONLOCAL } same as ref_store
-remaining_retries.7_3 = { NONLOCAL } same as ref_store
-__lxstat = { }
-st = { ESCAPED NONLOCAL }
-_107 = { ESCAPED NONLOCAL } same as _1
-__errno_location = { }
-_5 = { NONLOCAL } same as ref_store
-_6 = { ESCAPED NONLOCAL }
-resolve_packed_ref = { }
-_7 = { ESCAPED NONLOCAL } same as _1
-_8 = { NONLOCAL } same as ref_store
-derefaddrtmp(36) = { NONLOCAL } same as ref_store
-strbuf_readlink = { }
-_9 = { ESCAPED NONLOCAL } same as _1
-_10 = { NONLOCAL } same as ref_store
-_95 = { ESCAPED NONLOCAL }
-_11 = { }
-_12 = { }
-_13 = { }
-_14 = { NULL ESCAPED NONLOCAL strbuf_slopbuf }
-starts_with = { }
-_15 = { ESCAPED NONLOCAL } same as _1
-_16 = { NULL ESCAPED NONLOCAL strbuf_slopbuf } same as _14
-check_refname_format = { }
-_17 = { ESCAPED NONLOCAL } same as _1
-strbuf_swap = { }
-_18 = { ESCAPED NONLOCAL }
-_19 = { ESCAPED NONLOCAL } same as _18
-strbuf_read = { }
-fd_76 = { }
-_20 = { ESCAPED NONLOCAL } same as _1
-_21 = { NONLOCAL } same as ref_store
-save_errno_92 = { ESCAPED NONLOCAL } same as _18
-close = { }
-_22 = { NONLOCAL } same as ref_store
-strbuf_rtrim = { }
-buf_79 = { NULL ESCAPED NONLOCAL strbuf_slopbuf } same as _14
-_23 = { ESCAPED NONLOCAL } same as _1
-buf_86 = { NULL ESCAPED NONLOCAL strbuf_slopbuf } same as _14
-buf_91 = { NULL ESCAPED NONLOCAL strbuf_slopbuf } same as _14
-buf_41 = { NULL ESCAPED NONLOCAL strbuf_slopbuf } same as _14
-_24 = { ESCAPED NONLOCAL }
-_25 = { ESCAPED NONLOCAL } same as _24
-isspace = { }
-CALLUSED(69) = { ESCAPED NONLOCAL }
-CALLCLOBBERED(70) = { }
-_26 = { ESCAPED NONLOCAL }
-strbuf_addstr = { }
-_27 = { ESCAPED NONLOCAL } same as _18
-_28 = { ESCAPED NONLOCAL } same as _18
-get_sha1_hex = { }
-_29 = { ESCAPED NONLOCAL } same as _1
-_31 = { ESCAPED NONLOCAL }
-_33 = { ESCAPED NONLOCAL } same as _31
-_34 = { ESCAPED NONLOCAL } same as _31
-CALLUSED(80) = { ESCAPED NONLOCAL }
-CALLCLOBBERED(81) = { }
-_35 = { ESCAPED NONLOCAL }
-_36 = { ESCAPED NONLOCAL } same as _18
-_37 = { ESCAPED NONLOCAL } same as _18
-_38 = { NONLOCAL } same as ref_store
-derefaddrtmp(86) = { NONLOCAL } same as ref_store
-ret_42 = { NULL NONLOCAL }
-_39 = { NONLOCAL } same as ref_store
-save_errno_99 = { ESCAPED NONLOCAL } same as _18
-strbuf_release = { }
-_40 = { NONLOCAL } same as ref_store
+req = { NONLOCAL }
+id = { NONLOCAL } same as req
+addr = { NONLOCAL } same as req
+data = { NONLOCAL } same as req
+buf = { NONLOCAL } same as req
+addr.2_1 = { NONLOCAL } same as req
+i_7 = { ESCAPED NONLOCAL }
+rand = { }
+_2 = { ESCAPED NONLOCAL }
+_3 = { ESCAPED NONLOCAL } same as _2
+iftmp.3_4 = { NONLOCAL } same as req
+ret_11 = { NONLOCAL } same as req
+_12 = { NONLOCAL } same as req
 
 
-Alias information for files_read_raw_ref
+Alias information for rs6000_ptrace64
 
 Aliased symbols
 
-st, UID D.3497, struct stat, is addressable
-sb_path, UID D.3490, struct strbuf, is addressable
-sb_contents, UID D.3489, struct strbuf, is addressable
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.3390 D.3489 D.3490 D.3497 } (nonlocal, escaped, interposable)
+ESCAPED, points-to non-local, points-to vars: { }
 
 Flow-insensitive points-to information
 
-_5, points-to non-local, points-to NULL, points-to vars: { }
-_8, points-to non-local, points-to NULL, points-to vars: { }
-_10, points-to non-local, points-to NULL, points-to vars: { }
-_14, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.3390 } (nonlocal, escaped, interposable)
-_16, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.3390 } (nonlocal, escaped, interposable)
-_21, points-to non-local, points-to NULL, points-to vars: { }
-_22, points-to non-local, points-to NULL, points-to vars: { }
-_38, points-to non-local, points-to NULL, points-to vars: { }
-_39, points-to non-local, points-to NULL, points-to vars: { }
-_40, points-to non-local, points-to NULL, points-to vars: { }
-buf_41, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.3390 } (nonlocal, escaped, interposable)
-ref_store_48(D), points-to non-local, points-to NULL, points-to vars: { }
-refs_50, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-type_59(D), points-to non-local, points-to NULL, points-to vars: { }
-refname_62(D), points-to non-local, points-to NULL, points-to vars: { }
-path_64, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.3390 } (nonlocal, escaped, interposable)
-referent_71(D), points-to non-local, points-to NULL, points-to vars: { }
-buf_79, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.3390 } (nonlocal, escaped, interposable)
-sha1_81(D), points-to non-local, points-to NULL, points-to vars: { }
-buf_86, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.3390 } (nonlocal, escaped, interposable)
-buf_91, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.3390 } (nonlocal, escaped, interposable)
+addr.2_1, points-to non-local, points-to NULL, points-to vars: { }
 
-files_read_raw_ref (struct ref_store * ref_store, const char * refname, unsigned char * sha1, struct strbuf * referent, unsigned int * type)
+rs6000_ptrace64 (int req, int id, long long int addr, int data, void * buf)
 {
-  int D.3734;
-  int save_errno;
-  struct stat st;
-  int remaining_retries;
-  int save_errno;
   int ret;
-  int fd;
-  const char * buf;
-  const char * path;
-  struct strbuf sb_path;
-  struct strbuf sb_contents;
-  struct files_ref_store * refs;
-  int _1;
-  long int _2;
-  int remaining_retries.7_3;
-  int * _5;
-  int _6;
-  int _7;
-  int * _8;
-  int _9;
-  int * _10;
-  _Bool _11;
-  _Bool _12;
-  _Bool _13;
-  char * _14;
-  int _15;
-  char * _16;
-  int _17;
-  unsigned int _18;
-  unsigned int _19;
-  int _20;
-  int * _21;
-  int * _22;
-  int _23;
-  char _24;
-  int _25;
-  int _26;
-  unsigned int _27;
-  unsigned int _28;
-  int _29;
-  char _31;
-  char _33;
-  int _34;
-  int _35;
-  unsigned int _36;
-  unsigned int _37;
-  int * _38;
-  int * _39;
-  int * _40;
-  int _95;
-  int _107;
+  int i;
+  int * addr.2_1;
+  int _2;
+  int _3;
+  int iftmp.3_4;
+  int _12;
 
   <bb 2> [0.00%]:
-  _1 = files_downcast (ref_store_48(D), 1, "read_raw_ref");
-  _2 = (long int) _1;
-  refs_50 = (struct files_ref_store *) _2;
-  sb_contents.alloc = 0;
-  sb_contents.len = 0;
-  sb_contents.buf = &strbuf_slopbuf;
-  sb_path.alloc = 0;
-  sb_path.len = 0;
-  sb_path.buf = &strbuf_slopbuf;
-  *type_59(D) = 0;
-  strbuf_reset (&sb_path);
-  files_ref_path (refs_50, &sb_path, refname_62(D));
-  path_64 = sb_path.buf;
-
-  # remaining_retries_43 = PHI <3(2), remaining_retries_65(9)>
-stat_ref [0.00%]:
-  remaining_retries.7_3 = remaining_retries_43;
-  remaining_retries_65 = remaining_retries_43 + -1;
-  if (remaining_retries_43 <= 0)
-    goto <bb 24> (out); [0.00%]
-  else
+  addr.2_1 = (int *) addr_5(D);
+  i_7 = *addr.2_1;
+  _2 = rand ();
+  _3 = _2 % 2;
+  if (_3 == 1)
     goto <bb 4>; [0.00%]
-
-  <bb 4> [100.00%]:
-  _107 = __lxstat (1, path_64, &st);
-  if (_107 < 0)
-    goto <bb 5>; [0.00%]
   else
-    goto <bb 8>; [0.00%]
-
-  <bb 5> [0.00%]:
-  _5 = __errno_location ();
-  _6 = *_5;
-  if (_6 != 2)
-    goto <bb 24> (out); [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 6> [0.00%]:
-  _7 = resolve_packed_ref (refs_50, refname_62(D), sha1_81(D), type_59(D));
-  if (_7 != 0)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 24> (out); [0.00%]
-
-  <bb 7> [0.00%]:
-  _8 = __errno_location ();
-  *_8 = 2;
-  goto <bb 24> (out); [0.00%]
-
-  <bb 8> [0.00%]:
-  strbuf_reset (&sb_contents);
-  _9 = strbuf_readlink (&sb_contents, path_64, 0);
-  if (_9 < 0)
-    goto <bb 9>; [0.00%]
-  else
-    goto <bb 10>; [0.00%]
-
-  <bb 9> [0.00%]:
-  _10 = __errno_location ();
-  _95 = *_10;
-  _11 = _95 == 2;
-  _12 = _95 == 22;
-  _13 = _11 | _12;
-  if (_13 != 0)
-    goto <bb 3> (stat_ref); [0.00%]
-  else
-    goto <bb 24> (out); [0.00%]
-
-  <bb 10> [0.00%]:
-  _14 = sb_contents.buf;
-  _15 = starts_with (_14, "refs/");
-  if (_15 != 0)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
-
-  <bb 11> [0.00%]:
-  _16 = sb_contents.buf;
-  _17 = check_refname_format (_16, 0);
-  if (_17 == 0)
-    goto <bb 12>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
-
-  <bb 12> [0.00%]:
-  strbuf_swap (&sb_contents, referent_71(D));
-  _18 = *type_59(D);
-  _19 = _18 | 1;
-  *type_59(D) = _19;
-  goto <bb 24> (out); [0.00%]
-
-  <bb 13> [0.00%]:
-  strbuf_reset (&sb_contents);
-  _20 = strbuf_read (&sb_contents, fd_76(D), 256);
-  if (_20 < 0)
-    goto <bb 14>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 14> [0.00%]:
-  _21 = __errno_location ();
-  save_errno_92 = *_21;
-  close (fd_76(D));
-  _22 = __errno_location ();
-  *_22 = save_errno_92;
-  goto <bb 24> (out); [0.00%]
-
-  <bb 15> [0.00%]:
-  strbuf_rtrim (&sb_contents);
-  buf_79 = sb_contents.buf;
-  _23 = starts_with (buf_79, "ref:");
-  if (_23 != 0)
-    goto <bb 16>; [0.00%]
-  else
-    goto <bb 20>; [0.00%]
-
-  <bb 16> [0.00%]:
-  buf_86 = buf_79 + 4;
-  goto <bb 18>; [0.00%]
-
-  <bb 17> [0.00%]:
-  buf_91 = buf_41 + 1;
-
-  <bb 18> [0.00%]:
-  # buf_41 = PHI <buf_86(16), buf_91(17)>
-  _24 = *buf_41;
-  _25 = (int) _24;
-  _26 = isspace (_25);
-  if (_26 != 0)
-    goto <bb 17>; [0.00%]
-  else
-    goto <bb 19>; [0.00%]
-
-  <bb 19> [0.00%]:
-  strbuf_reset (referent_71(D));
-  strbuf_addstr (referent_71(D), buf_41);
-  _27 = *type_59(D);
-  _28 = _27 | 1;
-  *type_59(D) = _28;
-  goto <bb 24> (out); [0.00%]
-
-  <bb 20> [0.00%]:
-  _29 = get_sha1_hex (buf_79, sha1_81(D));
-  if (_29 != 0)
-    goto <bb 23>; [0.00%]
-  else
-    goto <bb 21>; [0.00%]
-
-  <bb 21> [0.00%]:
-  _31 = MEM[(const char *)buf_79 + 40B];
-  if (_31 != 0)
-    goto <bb 22>; [0.00%]
-  else
-    goto <bb 24> (out); [0.00%]
-
-  <bb 22> [0.00%]:
-  _33 = MEM[(const char *)buf_79 + 40B];
-  _34 = (int) _33;
-  _35 = isspace (_34);
-  if (_35 == 0)
-    goto <bb 23>; [0.00%]
-  else
-    goto <bb 24> (out); [0.00%]
-
-  <bb 23> [0.00%]:
-  _36 = *type_59(D);
-  _37 = _36 | 4;
-  *type_59(D) = _37;
-  _38 = __errno_location ();
-  *_38 = 22;
-
-  # ret_42 = PHI <-1(3), -1(5), -1(7), 0(6), -1(9), 0(12), -1(14), 0(19), -1(23), 0(22), 0(21)>
-out [0.00%]:
-  _39 = __errno_location ();
-  save_errno_99 = *_39;
-  strbuf_release (&sb_path);
-  strbuf_release (&sb_contents);
-  _40 = __errno_location ();
-  *_40 = save_errno_99;
-  sb_contents ={v} {CLOBBER};
-  sb_path ={v} {CLOBBER};
-  st ={v} {CLOBBER};
-  return ret_42;
-
-}
-
-
-
-;; Function lock_raw_ref (lock_raw_ref, funcdef_no=54, decl_uid=3537, cgraph_uid=54, symbol_order=55)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-refs = &NONLOCAL
-refname = &NONLOCAL
-mustexist = &NONLOCAL
-extras = &NONLOCAL
-skip = &NONLOCAL
-lock_p = &NONLOCAL
-referent = &NONLOCAL
-type = &NONLOCAL
-err = &NONLOCAL
-ref_file = &NULL
-ref_file = &NULL
-strbuf_slopbuf = NONLOCAL
-ref_file = &strbuf_slopbuf
-derefaddrtmp(19) = &NULL
-*type = derefaddrtmp(19)
-ESCAPED = &NONLOCAL
-ESCAPED = &NONLOCAL
-lock_18 = &HEAP(22)
-*lock_p = lock_18
-_1 = &HEAP(24)
-doubledereftmp(25) = *refname
-*_1 = doubledereftmp(25)
-*lock_18 = _1
-ESCAPED = refs
-ESCAPED = &ref_file
-ESCAPED = refname
-_2 = lock_18 + UNKNOWN
-_3 = refs + UNKNOWN
-ESCAPED = _3
-ESCAPED = refname
-ESCAPED = _2
-ESCAPED = referent
-ESCAPED = type
-_4 = NONLOCAL
-_5 = &NONLOCAL
-_6 = *_5
-ESCAPED = err
-ESCAPED = &STRING
-ESCAPED = refname
-ESCAPED = lock_18
-derefaddrtmp(36) = &NULL
-*lock_p = derefaddrtmp(36)
-ret_7 = &NULL
-ret_7 = &NONLOCAL
-ret_7 = &NULL
-ret_7 = &NULL
-ESCAPED = &ref_file
-_35 = ret_7
-ESCAPED = ret_7
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { NULL STRING ESCAPED NONLOCAL ref_file strbuf_slopbuf HEAP(22) HEAP(24) }
-NONLOCAL = { ESCAPED NONLOCAL } same as _4
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-refs = { NONLOCAL }
-refname = { NONLOCAL } same as refs
-mustexist = { NONLOCAL } same as refs
-extras = { NONLOCAL } same as refs
-skip = { NONLOCAL } same as refs
-lock_p = { NONLOCAL } same as refs
-referent = { NONLOCAL } same as refs
-type = { NONLOCAL } same as refs
-err = { NONLOCAL } same as refs
-ref_file = { NULL ESCAPED NONLOCAL strbuf_slopbuf }
-strbuf_slopbuf = { ESCAPED NONLOCAL }
-derefaddrtmp(19) = { NULL }
-calloc = { }
-lock_18 = { HEAP(22) }
-HEAP(22) = { ESCAPED NONLOCAL HEAP(24) }
-_1 = { HEAP(24) }
-HEAP(24) = { ESCAPED NONLOCAL }
-doubledereftmp(25) = { ESCAPED NONLOCAL }
-files_ref_path = { }
-_2 = { HEAP(22) }
-_3 = { NONLOCAL }
-files_read_raw_ref = { }
-_4 = { ESCAPED NONLOCAL }
-__errno_location = { }
-_5 = { NONLOCAL } same as refs
-_6 = { ESCAPED NONLOCAL }
-strbuf_addf = { }
-unlock_ref = { }
-derefaddrtmp(36) = { NULL } same as derefaddrtmp(19)
-ret_7 = { NULL NONLOCAL }
-strbuf_release = { }
-_35 = { NULL NONLOCAL } same as ret_7
-
-
-Alias information for lock_raw_ref
-
-Aliased symbols
-
-ref_file, UID D.3540, struct strbuf, is addressable
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.3390 D.3540 D.3735 D.3736 } (nonlocal, escaped, escaped heap, interposable)
-
-Flow-insensitive points-to information
-
-_1, points-to NULL, points-to vars: { D.3736 } (escaped, escaped heap)
-_2, points-to NULL, points-to vars: { D.3735 } (escaped, escaped heap)
-_3, points-to non-local, points-to NULL, points-to vars: { }
-_5, points-to non-local, points-to NULL, points-to vars: { }
-type_15(D), points-to non-local, points-to NULL, points-to vars: { }
-lock_18, points-to NULL, points-to vars: { D.3735 } (escaped, escaped heap)
-lock_p_19(D), points-to non-local, points-to NULL, points-to vars: { }
-refname_21(D), points-to non-local, points-to NULL, points-to vars: { }
-refs_24(D), points-to non-local, points-to NULL, points-to vars: { }
-referent_26(D), points-to non-local, points-to NULL, points-to vars: { }
-err_29(D), points-to non-local, points-to NULL, points-to vars: { }
-
-lock_raw_ref (struct files_ref_store * refs, const char * refname, int mustexist, const struct string_list * extras, const struct string_list * skip, struct ref_lock * * lock_p, struct strbuf * referent, unsigned int * type, struct strbuf * err)
-{
-  int ret;
-  int attempts_remaining;
-  struct strbuf ref_file;
-  struct ref_lock * lock;
-  char * _1;
-  unsigned char[20] * _2;
-  struct ref_store * _3;
-  int _4;
-  int * _5;
-  int _6;
-  int _35;
-
-  <bb 2> [0.00%]:
-  ref_file.alloc = 0;
-  ref_file.len = 0;
-  ref_file.buf = &strbuf_slopbuf;
-  *type_15(D) = 0;
-  lock_18 = calloc (1, 40);
-  *lock_p_19(D) = lock_18;
-  _1 = strdup (refname_21(D));
-  lock_18->ref_name = _1;
-  files_ref_path (refs_24(D), &ref_file, refname_21(D));
-  _2 = &lock_18->old_oid.hash;
-  _3 = &refs_24(D)->base;
-  _4 = files_read_raw_ref (_3, refname_21(D), _2, referent_26(D), type_15(D));
-  if (_4 != 0)
     goto <bb 3>; [0.00%]
-  else
-    goto <bb 6> (out); [0.00%]
 
   <bb 3> [0.00%]:
-  _5 = __errno_location ();
-  _6 = *_5;
-  if (_6 == 2)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 6> (out); [0.00%]
 
   <bb 4> [0.00%]:
-  if (mustexist_28(D) != 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6> (out); [0.00%]
-
-  <bb 5> [0.00%]:
-  strbuf_addf (err_29(D), "unable to resolve reference \'%s\'", refname_21(D));
-  unlock_ref (lock_18);
-  *lock_p_19(D) = 0B;
-
-  # ret_7 = PHI <0(3), -2(5), 0(2), 0(4)>
-out [0.00%]:
-  strbuf_release (&ref_file);
-  _35 = ret_7;
-  ref_file ={v} {CLOBBER};
-  return ret_7;
+  # iftmp.3_4 = PHI <1(2), -1(3)>
+  ret_11 = iftmp.3_4;
+  _12 = iftmp.3_4;
+  return iftmp.3_4;
 
 }
 
 
 
-;; Function lock_ref_for_update (lock_ref_for_update, funcdef_no=55, decl_uid=3557, cgraph_uid=55, symbol_order=56)
+;; Function discard_my_cleanups (discard_my_cleanups, funcdef_no=47, decl_uid=3165, cgraph_uid=47, symbol_order=52)
 
 Points-to analysis
 
@@ -1651,130 +502,20 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-refs = &NONLOCAL
-update = &NONLOCAL
-transaction = &NONLOCAL
-head_ref = &NONLOCAL
-affected_refnames = &NONLOCAL
-err = &NONLOCAL
-referent = &NULL
-referent = &NULL
-strbuf_slopbuf = NONLOCAL
-referent = &strbuf_slopbuf
-ESCAPED = update
-ESCAPED = transaction
-ESCAPED = head_ref
-ESCAPED = affected_refnames
-ESCAPED = err
-ret_62 = NONLOCAL
-_1 = update + 448
-_2 = update + UNKNOWN
-ESCAPED = refs
-ESCAPED = _2
-ESCAPED = mustexist_65
-ESCAPED = affected_refnames
-ESCAPED = &NULL
-ESCAPED = &lock
-ESCAPED = &referent
-ESCAPED = _1
-ESCAPED = err
-ret_67 = NONLOCAL
-ESCAPED = err
-ESCAPED = &NULL
-_3 = NONLOCAL
-_4 = _3
-reason_91 = _4
-ESCAPED = update
-_5 = NONLOCAL
-ESCAPED = err
+pmy_chain = &NONLOCAL
+old_chain = &NONLOCAL
+_1 = *ptr_10
+*pmy_chain = _1
+_2 = *ptr_10 + 128
+_3 = *ptr_10 + 128
+_4 = *ptr_10 + 192
+ESCAPED = _4
+ptr_10 = *pmy_chain
+_5 = *ptr_10 + 192
+ESCAPED = &NONLOCAL
 ESCAPED = &STRING
 ESCAPED = _5
-ESCAPED = reason_91
-lock.0_6 = lock
-*update + 384 = lock.0_6
-_7 = *update + 448
-_8 = _7
-_9 = *update + 320
-_10 = _9
-lock.1_11 = lock
-_12 = lock.1_11 + UNKNOWN
-_13 = referent
-_14 = refs + UNKNOWN
-ESCAPED = _14
-ESCAPED = _13
-ESCAPED = &NULL
-ESCAPED = _12
-ESCAPED = &NULL
-_15 = NONLOCAL
-_16 = *update + 320
-_17 = _16
-ESCAPED = update
-_18 = NONLOCAL
-ESCAPED = err
-ESCAPED = &STRING
-ESCAPED = _18
-lock.2_19 = lock
-_20 = lock.2_19 + UNKNOWN
-ESCAPED = update
-ESCAPED = _20
-ESCAPED = err
-_21 = NONLOCAL
-_22 = referent
-ESCAPED = refs
-ESCAPED = update
-ESCAPED = _22
-ESCAPED = transaction
-ESCAPED = affected_refnames
-ESCAPED = err
-ret_72 = NONLOCAL
-lock.3_23 = lock
-_24 = lock.3_23 + UNKNOWN
-ESCAPED = update
-ESCAPED = _24
-ESCAPED = err
-_25 = NONLOCAL
-_26 = *update + 320
-_27 = _26
-_28 = *update + 448
-_29 = _28
-_30 = update + UNKNOWN
-lock.4_31 = lock
-_32 = lock.4_31 + UNKNOWN
-ESCAPED = _32
-ESCAPED = _30
-_33 = NONLOCAL
-_34 = update + UNKNOWN
-lock.5_35 = lock
-ESCAPED = lock.5_35
-ESCAPED = _34
-ESCAPED = err
-_36 = NONLOCAL
-ESCAPED = err
-ESCAPED = &NULL
-_37 = NONLOCAL
-_38 = _37
-write_err_84 = _38
-derefaddrtmp(71) = &NULL
-*update + 384 = derefaddrtmp(71)
-_39 = *update + 320
-_40 = _39
-_40 = &NONLOCAL
-*update + 320 = _40
-_41 = *update + 320
-_42 = _41
-lock.6_43 = lock
-ESCAPED = lock.6_43
-_44 = NONLOCAL
-_45 = ret_62
-_45 = ret_67
-_45 = &NONLOCAL
-_45 = &NONLOCAL
-_45 = ret_72
-_45 = &NONLOCAL
-_45 = &NONLOCAL
-_45 = &NONLOCAL
-_45 = &NULL
-ESCAPED = _45
+_16 = NONLOCAL
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -1787,356 +528,90 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { NULL STRING ESCAPED NONLOCAL referent strbuf_slopbuf lock }
-NONLOCAL = { ESCAPED NONLOCAL } same as ret_62
+ESCAPED = { STRING ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL } same as _16
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-refs = { NONLOCAL }
-update = { NONLOCAL } same as refs
-transaction = { NONLOCAL } same as refs
-head_ref = { NONLOCAL } same as refs
-affected_refnames = { NONLOCAL } same as refs
-err = { NONLOCAL } same as refs
-referent = { NULL ESCAPED NONLOCAL strbuf_slopbuf } same as _13
-strbuf_slopbuf = { ESCAPED NONLOCAL }
-split_head_update = { }
-ret_62 = { ESCAPED NONLOCAL }
-_1 = { NONLOCAL }
-_2 = { NONLOCAL }
-lock_raw_ref = { }
-mustexist_65 = { }
-lock = { ESCAPED NONLOCAL } same as lock.0_6
-ret_67 = { ESCAPED NONLOCAL } same as ret_62
-strbuf_detach = { }
-_3 = { ESCAPED NONLOCAL } same as ret_62
-_4 = { ESCAPED NONLOCAL } same as ret_62
-reason_91 = { ESCAPED NONLOCAL } same as ret_62
-original_update_refname = { }
-_5 = { ESCAPED NONLOCAL } same as ret_62
-strbuf_addf = { }
-lock.0_6 = { ESCAPED NONLOCAL }
-_7 = { ESCAPED NONLOCAL }
-_8 = { ESCAPED NONLOCAL } same as _7
-_9 = { ESCAPED NONLOCAL }
-_10 = { ESCAPED NONLOCAL } same as _9
-lock.1_11 = { ESCAPED NONLOCAL } same as lock.0_6
-_12 = { ESCAPED NONLOCAL }
-_13 = { NULL ESCAPED NONLOCAL strbuf_slopbuf }
-_14 = { NONLOCAL }
-refs_read_ref_full = { }
-_15 = { ESCAPED NONLOCAL } same as ret_62
+pmy_chain = { NONLOCAL }
+old_chain = { NONLOCAL } same as pmy_chain
+_1 = { ESCAPED NONLOCAL }
+ptr_10 = { ESCAPED NONLOCAL }
+_2 = { ESCAPED NONLOCAL }
+_3 = { ESCAPED NONLOCAL }
+_4 = { ESCAPED NONLOCAL }
+_5 = { ESCAPED NONLOCAL }
+__printf_chk = { }
 _16 = { ESCAPED NONLOCAL }
-_17 = { ESCAPED NONLOCAL } same as _16
-_18 = { ESCAPED NONLOCAL } same as ret_62
-lock.2_19 = { ESCAPED NONLOCAL } same as lock.0_6
-_20 = { ESCAPED NONLOCAL }
-check_old_oid = { }
-_21 = { ESCAPED NONLOCAL } same as ret_62
-_22 = { NULL ESCAPED NONLOCAL strbuf_slopbuf } same as _13
-split_symref_update = { }
-ret_72 = { ESCAPED NONLOCAL } same as ret_62
-lock.3_23 = { ESCAPED NONLOCAL } same as lock.0_6
-_24 = { ESCAPED NONLOCAL }
-_25 = { ESCAPED NONLOCAL } same as ret_62
-_26 = { ESCAPED NONLOCAL }
-_27 = { ESCAPED NONLOCAL } same as _26
-_28 = { ESCAPED NONLOCAL }
-_29 = { ESCAPED NONLOCAL } same as _28
-_30 = { NONLOCAL }
-lock.4_31 = { ESCAPED NONLOCAL } same as lock.0_6
-_32 = { ESCAPED NONLOCAL }
-oidcmp = { }
-_33 = { ESCAPED NONLOCAL } same as ret_62
-_34 = { NONLOCAL }
-lock.5_35 = { ESCAPED NONLOCAL } same as lock.0_6
-write_ref_to_lockfile = { }
-_36 = { ESCAPED NONLOCAL } same as ret_62
-_37 = { ESCAPED NONLOCAL } same as ret_62
-_38 = { ESCAPED NONLOCAL } same as ret_62
-write_err_84 = { ESCAPED NONLOCAL } same as ret_62
-derefaddrtmp(71) = { NULL }
-_39 = { ESCAPED NONLOCAL }
-_40 = { ESCAPED NONLOCAL }
-_41 = { ESCAPED NONLOCAL }
-_42 = { ESCAPED NONLOCAL } same as _41
-lock.6_43 = { ESCAPED NONLOCAL } same as lock.0_6
-close_ref = { }
-_44 = { ESCAPED NONLOCAL } same as ret_62
-_45 = { NULL ESCAPED NONLOCAL }
 
 
-Alias information for lock_ref_for_update
+Alias information for discard_my_cleanups
 
 Aliased symbols
 
-lock, UID D.3562, struct ref_lock *, is addressable
-referent, UID D.3559, struct strbuf, is addressable
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.3390 D.3559 D.3562 } (nonlocal, escaped, interposable)
+ESCAPED, points-to non-local, points-to vars: { }
 
 Flow-insensitive points-to information
 
-_1, points-to non-local, points-to NULL, points-to vars: { }
-_2, points-to non-local, points-to NULL, points-to vars: { }
-lock.0_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-lock.1_11, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_12, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_13, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.3390 } (nonlocal, escaped, interposable)
-_14, points-to non-local, points-to NULL, points-to vars: { }
-lock.2_19, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_20, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_22, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.3390 } (nonlocal, escaped, interposable)
-lock.3_23, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_24, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_30, points-to non-local, points-to NULL, points-to vars: { }
-lock.4_31, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_32, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_34, points-to non-local, points-to NULL, points-to vars: { }
-lock.5_35, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-lock.6_43, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-head_ref_56(D), points-to non-local, points-to NULL, points-to vars: { }
-update_57(D), points-to non-local, points-to NULL, points-to vars: { }
-transaction_58(D), points-to non-local, points-to NULL, points-to vars: { }
-affected_refnames_59(D), points-to non-local, points-to NULL, points-to vars: { }
-err_60(D), points-to non-local, points-to NULL, points-to vars: { }
-refs_64(D), points-to non-local, points-to NULL, points-to vars: { }
-write_err_84, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-reason_91, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_3, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_4, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_5, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+pmy_chain_9(D), points-to non-local, points-to NULL, points-to vars: { }
+ptr_10, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+old_chain_11(D), points-to non-local, points-to NULL, points-to vars: { }
 
-lock_ref_for_update (struct files_ref_store * refs, struct ref_update * update, struct ref_transaction * transaction, const char * head_ref, struct string_list * affected_refnames, struct strbuf * err)
+discard_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
 {
-  char * write_err;
-  char * reason;
-  struct ref_lock * lock;
-  int ret;
-  int mustexist;
-  struct strbuf referent;
-  unsigned int * _1;
-  const char[0:] * _2;
-  int _3;
-  long int _4;
-  int _5;
-  struct ref_lock * lock.0_6;
-  unsigned int _7;
-  unsigned int _8;
-  unsigned int _9;
-  unsigned int _10;
-  struct ref_lock * lock.1_11;
-  unsigned char[20] * _12;
-  char * _13;
-  struct ref_store * _14;
-  int _15;
-  unsigned int _16;
-  unsigned int _17;
-  int _18;
-  struct ref_lock * lock.2_19;
-  struct object_id * _20;
-  int _21;
-  char * _22;
-  struct ref_lock * lock.3_23;
-  struct object_id * _24;
-  int _25;
-  unsigned int _26;
-  unsigned int _27;
-  unsigned int _28;
-  unsigned int _29;
-  struct object_id * _30;
-  struct ref_lock * lock.4_31;
-  struct object_id * _32;
-  int _33;
-  struct object_id * _34;
-  struct ref_lock * lock.5_35;
-  int _36;
-  int _37;
-  long int _38;
-  unsigned int _39;
-  unsigned int _40;
-  unsigned int _41;
-  unsigned int _42;
-  struct ref_lock * lock.6_43;
-  int _44;
-  int _45;
+  int D.3358;
+  struct cleanup * ptr;
+  struct cleanup * _1;
+  void (*<Ted>) (void *) _2;
+  void (*<Ted>) (void *) _3;
+  void * _4;
+  void * _5;
+  int _16;
 
   <bb 2> [0.00%]:
-  referent.alloc = 0;
-  referent.len = 0;
-  referent.buf = &strbuf_slopbuf;
-  if (head_ref_56(D) != 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
+  goto <bb 6>; [0.00%]
 
   <bb 3> [0.00%]:
-  ret_62 = split_head_update (update_57(D), transaction_58(D), head_ref_56(D), affected_refnames_59(D), err_60(D));
-  if (ret_62 != 0)
-    goto <bb 23>; [0.00%]
-  else
+  _1 = ptr_10->next;
+  *pmy_chain_9(D) = _1;
+  _2 = ptr_10->free_arg;
+  if (_2 != 0B)
     goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
 
   <bb 4> [0.00%]:
-  _1 = &update_57(D)->type;
-  _2 = &update_57(D)->refname;
-  ret_67 = lock_raw_ref (refs_64(D), _2, mustexist_65(D), affected_refnames_59(D), 0B, &lock, &referent, _1, err_60(D));
-  if (ret_67 != 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
+  _3 = ptr_10->free_arg;
+  _4 = ptr_10->arg;
+  _3 (_4);
 
   <bb 5> [0.00%]:
-  _3 = strbuf_detach (err_60(D), 0B);
-  _4 = (long int) _3;
-  reason_91 = (char *) _4;
-  _5 = original_update_refname (update_57(D));
-  strbuf_addf (err_60(D), "cannot lock ref \'%s\': %s", _5, reason_91);
-  free (reason_91);
-  goto <bb 23>; [0.00%]
+  free (ptr_10);
 
   <bb 6> [0.00%]:
-  lock.0_6 = lock;
-  update_57(D)->backend_data = lock.0_6;
-  _7 = update_57(D)->type;
-  _8 = _7 & 1;
-  if (_8 != 0)
+  ptr_10 = *pmy_chain_9(D);
+  if (ptr_10 != old_chain_11(D))
+    goto <bb 3>; [0.00%]
+  else
     goto <bb 7>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
 
-  <bb 7> [0.00%]:
-  _9 = update_57(D)->flags;
-  _10 = _9 & 1;
-  if (_10 != 0)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 8> [0.00%]:
-  lock.1_11 = lock;
-  _12 = &lock.1_11->old_oid.hash;
-  _13 = referent.buf;
-  _14 = &refs_64(D)->base;
-  _15 = refs_read_ref_full (_14, _13, 0, _12, 0B);
-  if (_15 != 0)
-    goto <bb 9>; [0.00%]
-  else
-    goto <bb 11>; [0.00%]
-
-  <bb 9> [0.00%]:
-  _16 = update_57(D)->flags;
-  _17 = _16 & 16;
-  if (_17 != 0)
-    goto <bb 10>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 10> [0.00%]:
-  _18 = original_update_refname (update_57(D));
-  strbuf_addf (err_60(D), "cannot lock ref \'%s\': error reading reference", _18);
-  goto <bb 23>; [0.00%]
-
-  <bb 11> [0.00%]:
-  lock.2_19 = lock;
-  _20 = &lock.2_19->old_oid;
-  _21 = check_old_oid (update_57(D), _20, err_60(D));
-  if (_21 != 0)
-    goto <bb 23>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 12> [0.00%]:
-  _22 = referent.buf;
-  ret_72 = split_symref_update (refs_64(D), update_57(D), _22, transaction_58(D), affected_refnames_59(D), err_60(D));
-  if (ret_72 != 0)
-    goto <bb 23>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 13> [0.00%]:
-  lock.3_23 = lock;
-  _24 = &lock.3_23->old_oid;
-  _25 = check_old_oid (update_57(D), _24, err_60(D));
-  if (_25 != 0)
-    goto <bb 23>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 14> [0.00%]:
-  _26 = BIT_FIELD_REF <*update_57(D), 32, 320>;
-  _27 = _26 & 138;
-  if (_27 == 8)
-    goto <bb 15>; [0.00%]
-  else
-    goto <bb 20>; [0.00%]
-
-  <bb 15> [0.00%]:
-  _28 = update_57(D)->type;
-  _29 = _28 & 1;
-  if (_29 == 0)
-    goto <bb 16>; [0.00%]
-  else
-    goto <bb 17>; [0.00%]
-
-  <bb 16> [0.00%]:
-  _30 = &update_57(D)->new_oid;
-  lock.4_31 = lock;
-  _32 = &lock.4_31->old_oid;
-  _33 = oidcmp (_32, _30);
-  if (_33 == 0)
-    goto <bb 20>; [0.00%]
-  else
-    goto <bb 17>; [0.00%]
-
-  <bb 17> [0.00%]:
-  _34 = &update_57(D)->new_oid;
-  lock.5_35 = lock;
-  _36 = write_ref_to_lockfile (lock.5_35, _34, err_60(D));
-  if (_36 != 0)
-    goto <bb 18>; [0.00%]
-  else
-    goto <bb 19>; [0.00%]
-
-  <bb 18> [0.00%]:
-  _37 = strbuf_detach (err_60(D), 0B);
-  _38 = (long int) _37;
-  write_err_84 = (char *) _38;
-  update_57(D)->backend_data = 0B;
-  goto <bb 23>; [0.00%]
-
-  <bb 19> [0.00%]:
-  _39 = update_57(D)->flags;
-  _40 = _39 | 32;
-  update_57(D)->flags = _40;
-
-  <bb 20> [0.00%]:
-  _41 = update_57(D)->flags;
-  _42 = _41 & 32;
-  if (_42 == 0)
-    goto <bb 21>; [0.00%]
-  else
-    goto <bb 22>; [0.00%]
-
-  <bb 21> [0.00%]:
-  lock.6_43 = lock;
-  _44 = close_ref (lock.6_43);
-  if (_44 != 0)
-    goto <bb 23>; [0.00%]
-  else
-    goto <bb 22>; [0.00%]
-
-  <bb 22> [0.00%]:
-
-  <bb 23> [0.00%]:
-  # _45 = PHI <ret_62(3), ret_67(5), -1(10), -2(11), ret_72(12), -2(13), -2(18), -2(21), 0(22)>
-  referent ={v} {CLOBBER};
-  lock ={v} {CLOBBER};
-  return _45;
+  <bb 7> [100.00%]:
+  _5 = ptr_10->arg;
+  _16 = __printf_chk (1, "freearg: %x\n", _5);
+  return;
 
 }
 
 
 
-;; Function main (main, funcdef_no=56, decl_uid=3589, cgraph_uid=56, symbol_order=57)
+;; Function discard_cleanups (discard_cleanups, funcdef_no=45, decl_uid=3162, cgraph_uid=45, symbol_order=50)
 
 Points-to analysis
 
@@ -2149,13 +624,10 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-ESCAPED = &refs
-ESCAPED = &update
-ESCAPED = &transaction
-ESCAPED = head_ref_2
-ESCAPED = &affected_refnames
-ESCAPED = &err
-ESCAPED = &NULL
+old_chain = &NONLOCAL
+cleanup_chain = NONLOCAL
+ESCAPED = &cleanup_chain
+ESCAPED = old_chain
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -2168,53 +640,836 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { NULL ESCAPED NONLOCAL refs update transaction affected_refnames err }
+ESCAPED = { ESCAPED NONLOCAL cleanup_chain }
 NONLOCAL = { ESCAPED NONLOCAL }
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-lock_ref_for_update = { }
-refs = { ESCAPED NONLOCAL }
-update = { ESCAPED NONLOCAL }
-transaction = { ESCAPED NONLOCAL }
-head_ref_2 = { }
-affected_refnames = { ESCAPED NONLOCAL }
-err = { ESCAPED NONLOCAL }
+old_chain = { NONLOCAL }
+discard_my_cleanups = { }
+cleanup_chain = { ESCAPED NONLOCAL }
+
+
+Alias information for discard_cleanups
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.3159 } (nonlocal, escaped)
+
+Flow-insensitive points-to information
+
+old_chain_2(D), points-to non-local, points-to NULL, points-to vars: { }
+
+discard_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  discard_my_cleanups (&cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function discard_final_cleanups (discard_final_cleanups, funcdef_no=46, decl_uid=3167, cgraph_uid=46, symbol_order=51)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+old_chain = &NONLOCAL
+final_cleanup_chain = NONLOCAL
+ESCAPED = &final_cleanup_chain
+ESCAPED = old_chain
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL final_cleanup_chain }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+old_chain = { NONLOCAL }
+discard_my_cleanups = { }
+final_cleanup_chain = { ESCAPED NONLOCAL }
+
+
+Alias information for discard_final_cleanups
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.3160 } (nonlocal, escaped)
+
+Flow-insensitive points-to information
+
+old_chain_2(D), points-to non-local, points-to NULL, points-to vars: { }
+
+discard_final_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  discard_my_cleanups (&final_cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function do_cleanups (do_cleanups, funcdef_no=49, decl_uid=3172, cgraph_uid=49, symbol_order=54)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+old_chain = &NONLOCAL
+cleanup_chain = NONLOCAL
+ESCAPED = &cleanup_chain
+ESCAPED = old_chain
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL cleanup_chain }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+old_chain = { NONLOCAL }
+do_my_cleanups = { }
+cleanup_chain = { ESCAPED NONLOCAL }
+
+
+Alias information for do_cleanups
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.3159 } (nonlocal, escaped)
+
+Flow-insensitive points-to information
+
+old_chain_2(D), points-to non-local, points-to NULL, points-to vars: { }
+
+do_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  do_my_cleanups (&cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function make_cleanup (make_cleanup, funcdef_no=52, decl_uid=3185, cgraph_uid=52, symbol_order=57)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+function = &NONLOCAL
+arg = &NONLOCAL
+cleanup_chain = NONLOCAL
+ESCAPED = &cleanup_chain
+ESCAPED = function
+ESCAPED = arg
+_5 = NONLOCAL
+ESCAPED = _5
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL cleanup_chain }
+NONLOCAL = { ESCAPED NONLOCAL } same as _5
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+function = { NONLOCAL }
+arg = { NONLOCAL } same as function
+make_my_cleanup = { }
+cleanup_chain = { ESCAPED NONLOCAL }
+_5 = { ESCAPED NONLOCAL }
+
+
+Alias information for make_cleanup
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.3159 } (nonlocal, escaped)
+
+Flow-insensitive points-to information
+
+function_2(D), points-to non-local, points-to NULL, points-to vars: { }
+arg_3(D), points-to non-local, points-to NULL, points-to vars: { }
+_5, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+
+make_cleanup (void (*<Ta1d>) (void *) function, void * arg)
+{
+  struct cleanup * _5;
+
+  <bb 2> [0.00%]:
+  _5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
+  return _5;
+
+}
+
+
+
+;; Function xrealloc (xrealloc, funcdef_no=53, decl_uid=3240, cgraph_uid=53, symbol_order=58)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+oldmem = &NONLOCAL
+size = &NONLOCAL
+size_1 = size
+size_1 = &NONLOCAL
+ESCAPED = size_1
+newmem_11 = &HEAP(13)
+newmem_9 = &HEAP(15)
+doubledereftmp(16) = *oldmem
+*newmem_9 = doubledereftmp(16)
+newmem_9 = oldmem
+newmem_2 = newmem_11
+newmem_2 = newmem_9
+ESCAPED = &NONLOCAL
+_12 = newmem_2
+ESCAPED = newmem_2
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL HEAP(13) HEAP(15) }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+oldmem = { NONLOCAL }
+size = { NONLOCAL } same as oldmem
+size_1 = { NONLOCAL } same as oldmem
+malloc = { }
+newmem_11 = { HEAP(13) }
+HEAP(13) = { ESCAPED NONLOCAL }
+newmem_9 = { NONLOCAL HEAP(15) }
+HEAP(15) = { ESCAPED NONLOCAL }
+doubledereftmp(16) = { ESCAPED NONLOCAL }
+newmem_2 = { NONLOCAL HEAP(13) HEAP(15) }
+exit = { }
+_12 = { NONLOCAL HEAP(13) HEAP(15) } same as newmem_2
+
+
+Alias information for xrealloc
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.3359 D.3360 } (escaped, escaped heap)
+
+Flow-insensitive points-to information
+
+newmem_2, points-to non-local, points-to NULL, points-to vars: { D.3359 D.3360 } (escaped, escaped heap)
+oldmem_6(D), points-to non-local, points-to NULL, points-to vars: { }
+newmem_9, points-to non-local, points-to NULL, points-to vars: { D.3360 } (escaped, escaped heap)
+newmem_11, points-to NULL, points-to vars: { D.3359 } (escaped, escaped heap)
+_12, points-to non-local, points-to NULL, points-to vars: { D.3359 D.3360 } (escaped, escaped heap)
+
+xrealloc (void * oldmem, size_t size)
+{
+  void * newmem;
+  void * _12;
+
+  <bb 2> [0.00%]:
+  if (size_4(D) == 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+
+  <bb 4> [0.00%]:
+  # size_1 = PHI <size_4(D)(2), 1(3)>
+  if (oldmem_6(D) == 0B)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  newmem_11 = malloc (size_1);
+  goto <bb 7>; [0.00%]
+
+  <bb 6> [0.00%]:
+  newmem_9 = realloc (oldmem_6(D), size_1);
+
+  <bb 7> [0.00%]:
+  # newmem_2 = PHI <newmem_11(5), newmem_9(6)>
+  if (newmem_2 == 0B)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 8> [0.00%]:
+  exit (1);
+
+  <bb 9> [0.00%]:
+  _12 = newmem_2;
+  return newmem_2;
+
+}
+
+
+
+;; Function rs6000_ptrace_ldinfo (rs6000_ptrace_ldinfo, funcdef_no=56, decl_uid=3256, cgraph_uid=56, symbol_order=61)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+ESCAPED = &NONLOCAL
+ldi_11 = &HEAP(10)
+ldi_size_4 = &NONLOCAL
+ldi_size_4 = ldi_size_15
+ldi_5 = ldi_11
+ldi_5 = ldi_17
+ldi.1_2 = ldi_5
+ESCAPED = &NONLOCAL
+ESCAPED = &NONLOCAL
+ESCAPED = ldi.1_2
+ESCAPED = ldi_size_4
+ESCAPED = &NULL
+rc_14 = NONLOCAL
+ldi_size_15 = ldi_size_4
+ldi_size_15 = &NONLOCAL
+_3 = ldi_size_15
+ESCAPED = ldi_5
+ESCAPED = _3
+ldi_17 = NONLOCAL
+ESCAPED = ldi_5
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL ESCAPED NONLOCAL HEAP(10) }
+NONLOCAL = { ESCAPED NONLOCAL } same as ldi_17
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+malloc = { }
+ldi_11 = { HEAP(10) }
+HEAP(10) = { ESCAPED NONLOCAL }
+ldi_size_4 = { NONLOCAL }
+ldi_size_15 = { NONLOCAL } same as ldi_size_4
+ldi_5 = { ESCAPED NONLOCAL HEAP(10) }
+ldi_17 = { ESCAPED NONLOCAL }
+ldi.1_2 = { ESCAPED NONLOCAL HEAP(10) } same as ldi_5
+rs6000_ptrace64 = { }
+rc_14 = { ESCAPED NONLOCAL } same as ldi_17
+_3 = { NONLOCAL } same as ldi_size_4
+xrealloc = { }
+
+
+Alias information for rs6000_ptrace_ldinfo
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.3361 } (escaped, escaped heap)
+
+Flow-insensitive points-to information
+
+ldi_5, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.3361 } (escaped, escaped heap)
+ldi_11, points-to NULL, points-to vars: { D.3361 } (escaped, escaped heap)
+ldi_17, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+
+rs6000_ptrace_ldinfo ()
+{
+  int rc;
+  void * ldi;
+  int ldi_size;
+  const int pid;
+  long long int ldi.1_2;
+  long unsigned int _3;
+
+  <bb 2> [0.00%]:
+  ldi_11 = malloc (1024);
+
+  <bb 3> [0.00%]:
+  # ldi_size_4 = PHI <1024(2), ldi_size_15(4)>
+  # ldi_5 = PHI <ldi_11(2), ldi_17(4)>
+  ldi.1_2 = (long long int) ldi_5;
+  rc_14 = rs6000_ptrace64 (1, 1, ldi.1_2, ldi_size_4, 0B);
+  if (rc_14 != -1)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 4> [0.00%]:
+  ldi_size_15 = ldi_size_4 * 2;
+  _3 = (long unsigned int) ldi_size_15;
+  ldi_17 = xrealloc (ldi_5, _3);
+  goto <bb 3>; [0.00%]
+
+  <bb 5> [0.00%]:
+  return ldi_5;
+
+}
+
+
+
+;; Function remote_filename_p (remote_filename_p, funcdef_no=54, decl_uid=3244, cgraph_uid=54, symbol_order=59)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+filename = &NONLOCAL
+CALLUSED(10) = CALLUSED(10) + UNKNOWN
+CALLUSED(10) = *CALLUSED(10) + UNKNOWN
+CALLUSED(10) = filename
+CALLUSED(10) = &STRING
+CALLUSED(10) = &NONLOCAL
+_1 = CALLUSED(10)
+_1 = NONLOCAL
+_5 = _2
+ESCAPED = _5
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+filename = { NONLOCAL }
+strncmp = { }
+CALLUSED(10) = { STRING ESCAPED NONLOCAL }
+CALLCLOBBERED(11) = { }
+_1 = { STRING ESCAPED NONLOCAL }
+_2 = { }
+_5 = { }
+
+
+Alias information for remote_filename_p
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to vars: { }
+
+Flow-insensitive points-to information
+
+filename_4(D), points-to non-local, points-to NULL, points-to vars: { }
+
+remote_filename_p (const char * filename)
+{
+  int _1;
+  _Bool _2;
+  int _5;
+
+  <bb 2> [0.00%]:
+  _1 = strncmp (filename_4(D), "remote:", 7);
+  _2 = _1 == 0;
+  _5 = (int) _2;
+  return _5;
+
+}
+
+
+
+;; Function rs6000_aix_ld_info_to_xml (rs6000_aix_ld_info_to_xml, funcdef_no=57, decl_uid=3265, cgraph_uid=57, symbol_order=62)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+ldi_buf = &NONLOCAL
+_1 = *ldi_buf
+i_4 = _1
+_5 = _1
+ESCAPED = _5
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+ldi_buf = { NONLOCAL }
+_1 = { ESCAPED NONLOCAL }
+i_4 = { ESCAPED NONLOCAL } same as _1
+_5 = { ESCAPED NONLOCAL } same as _1
+
+
+Alias information for rs6000_aix_ld_info_to_xml
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { }
+
+Flow-insensitive points-to information
+
+ldi_buf_3(D), points-to non-local, points-to NULL, points-to vars: { }
+
+rs6000_aix_ld_info_to_xml (const gdb_byte * ldi_buf)
+{
+  int i;
+  unsigned char _1;
+  ULONGEST _5;
+
+  <bb 2> [0.00%]:
+  _1 = *ldi_buf_3(D);
+  i_4 = (int) _1;
+  _5 = (ULONGEST) _1;
+  return _5;
+
+}
+
+
+
+;; Function rs6000_xfer_shared_libraries (rs6000_xfer_shared_libraries, funcdef_no=58, decl_uid=3270, cgraph_uid=58, symbol_order=63)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+writebuf = &NONLOCAL
+xfered_len = &NONLOCAL
+ldi_buf_6 = NONLOCAL
+ESCAPED = &NONLOCAL
+ESCAPED = &free
+ESCAPED = ldi_buf_6
+cleanup_8 = NONLOCAL
+CALLUSED(17) = CALLUSED(17) + UNKNOWN
+CALLUSED(17) = *CALLUSED(17) + UNKNOWN
+CALLUSED(17) = ldi_buf_6
+result_10 = CALLUSED(17)
+result_10 = NONLOCAL
+ESCAPED = cleanup_8
+*xfered_len = result_10
+_1 = &NONLOCAL
+_1 = &NULL
+_1 = &NONLOCAL
+ESCAPED = _1
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL ESCAPED NONLOCAL free }
+NONLOCAL = { ESCAPED NONLOCAL } same as ldi_buf_6
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+writebuf = { NONLOCAL }
+xfered_len = { NONLOCAL } same as writebuf
+rs6000_ptrace_ldinfo = { }
+ldi_buf_6 = { ESCAPED NONLOCAL }
+exit = { }
+make_cleanup = { }
+free = { ESCAPED NONLOCAL }
+cleanup_8 = { ESCAPED NONLOCAL } same as ldi_buf_6
+rs6000_aix_ld_info_to_xml = { }
+CALLUSED(17) = { ESCAPED NONLOCAL }
+CALLCLOBBERED(18) = { }
+result_10 = { ESCAPED NONLOCAL } same as CALLUSED(17)
+do_cleanups = { }
+_1 = { NULL NONLOCAL }
+
+
+Alias information for rs6000_xfer_shared_libraries
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { } (nonlocal, escaped)
+
+Flow-insensitive points-to information
+
+writebuf_3(D), points-to non-local, points-to NULL, points-to vars: { }
+ldi_buf_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+cleanup_8, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+xfered_len_13(D), points-to non-local, points-to NULL, points-to vars: { }
+
+rs6000_xfer_shared_libraries (const gdb_byte * writebuf, ULONGEST * xfered_len)
+{
+  struct cleanup * cleanup;
+  ULONGEST result;
+  gdb_byte * ldi_buf;
+  target_xfer_status _1;
+
+  <bb 2> [0.00%]:
+  if (writebuf_3(D) != 0B)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 3>; [0.00%]
+
+  <bb 3> [0.00%]:
+  ldi_buf_6 = rs6000_ptrace_ldinfo ();
+  if (ldi_buf_6 == 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  exit (1);
+
+  <bb 5> [0.00%]:
+  cleanup_8 = make_cleanup (free, ldi_buf_6);
+  result_10 = rs6000_aix_ld_info_to_xml (ldi_buf_6);
+  free (ldi_buf_6);
+  do_cleanups (cleanup_8);
+  if (result_10 == 0)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 6> [0.00%]:
+  *xfered_len_13(D) = result_10;
+
+  <bb 7> [0.00%]:
+  # _1 = PHI <-1(2), 0(5), 1(6)>
+  return _1;
+
+}
+
+
+
+;; Function main (main, funcdef_no=59, decl_uid=3275, cgraph_uid=59, symbol_order=64)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+ESCAPED = &t
+_1 = NONLOCAL
+_2 = _1
+ESCAPED = _2
+_3 = NONLOCAL
+_4 = _3
+_4 = &NONLOCAL
+iftmp.0_5 = &buf
+iftmp.0_5 = &NULL
+ESCAPED = iftmp.0_5
+ESCAPED = &len
+ESCAPED = &NULL
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL ESCAPED NONLOCAL t buf len }
+NONLOCAL = { ESCAPED NONLOCAL } same as _1
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+time = { }
+t = { ESCAPED NONLOCAL }
+_1 = { ESCAPED NONLOCAL }
+_2 = { ESCAPED NONLOCAL } same as _1
+srand = { }
+rand = { }
+_3 = { ESCAPED NONLOCAL } same as _1
+_4 = { ESCAPED NONLOCAL } same as _1
+iftmp.0_5 = { NULL buf }
+buf = { ESCAPED NONLOCAL }
+rs6000_xfer_shared_libraries = { }
+len = { ESCAPED NONLOCAL }
 
 
 Alias information for main
 
 Aliased symbols
 
-err, UID D.3596, struct strbuf, is addressable
-affected_refnames, UID D.3595, struct string_list, is addressable
-transaction, UID D.3593, struct ref_transaction, is addressable
-update, UID D.3592, struct ref_update, is addressable
-refs, UID D.3591, struct files_ref_store, is addressable
+len, UID D.3280, int, is addressable
+buf, UID D.3279, char[10], is addressable
+t, UID D.3277, time_t, is addressable
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.3591 D.3592 D.3593 D.3595 D.3596 } (escaped)
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.3277 D.3279 D.3280 } (escaped)
 
 Flow-insensitive points-to information
 
-head_ref_2(D), points-to NULL, points-to vars: { }
+iftmp.0_5, points-to NULL, points-to vars: { D.3279 } (escaped)
 
 main ()
 {
-  struct strbuf err;
-  struct string_list affected_refnames;
-  char * head_ref;
-  struct ref_transaction transaction;
-  struct ref_update update;
-  struct files_ref_store refs;
+  ULONGEST * xfered_len;
+  gdb_byte * writebuf;
+  int len;
+  char buf[10];
+  time_t t;
+  int _1;
+  unsigned int _2;
+  int _3;
+  int _4;
+  gdb_byte * iftmp.0_5;
 
   <bb 2> [0.00%]:
-  lock_ref_for_update (&refs, &update, &transaction, head_ref_2(D), &affected_refnames, &err);
-  refs ={v} {CLOBBER};
-  update ={v} {CLOBBER};
-  transaction ={v} {CLOBBER};
-  affected_refnames ={v} {CLOBBER};
-  err ={v} {CLOBBER};
+  _1 = time (&t);
+  _2 = (unsigned int) _1;
+  srand (_2);
+  _3 = rand ();
+  _4 = _3 % 2;
+  if (_4 == 1)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 3>; [0.00%]
+
+  <bb 3> [0.00%]:
+
+  <bb 4> [0.00%]:
+  # iftmp.0_5 = PHI <&buf(2), 0B(3)>
+  rs6000_xfer_shared_libraries (iftmp.0_5, &len);
+  t ={v} {CLOBBER};
+  buf ={v} {CLOBBER};
+  len ={v} {CLOBBER};
   return 0;
 
 }
