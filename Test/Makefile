@@ -16,7 +16,7 @@ all: test.o
 
 
 test.o:  
-	#$(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
+	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 	$(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 2> check.log
 clean:
 	-rm -rf ./test ./test.dSYM *.o
