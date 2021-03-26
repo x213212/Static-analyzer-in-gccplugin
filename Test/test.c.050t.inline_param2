@@ -15,7 +15,7 @@ Inline summary for printf/15 always_inline inlinable
     size:0.000000, time:0.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
-    __printf_chk/66 function body not available
+    __printf_chk/54 function body not available
       loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
        op0 is compile time invariant
 
@@ -32,758 +32,1553 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function do_my_cleanups (do_my_cleanups, funcdef_no=48, decl_uid=3170, cgraph_uid=48, symbol_order=53)
+;; Function fgets (fgets, funcdef_no=20, decl_uid=2081, cgraph_uid=20, symbol_order=20)
 
 
-Analyzing function body size: do_my_cleanups
+Analyzing function body size: fgets
 
-Inline summary for do_my_cleanups/53 inlinable
-  self time:       469
+Inline summary for fgets/20 always_inline inlinable
+  self time:       22
   global time:     0
-  self size:       35
-  global size:     0
-  min size:       74
-  self stack:      0
-  global stack:    0
-    size:12.000000, time:69.754000, predicate:(true)
-    size:4.000000, time:8.166000, predicate:(not inlined)
-  calls:
-    free/65 function body not available
-      loop depth: 1 freq:5666 size: 2 time: 11 callee size: 0 stack: 0
-    __printf_chk/66 function body not available
-      loop depth: 1 freq:5666 size: 5 time: 14 callee size: 0 stack: 0
-       op0 is compile time invariant
-       op1 is compile time invariant
-    __printf_chk/66 function body not available
-      loop depth: 1 freq:5666 size: 4 time: 13 callee size: 0 stack: 0
-       op0 is compile time invariant
-       op1 is compile time invariant
-    indirect call loop depth: 1 freq:5297 size: 4 time: 16
-    indirect call loop depth: 1 freq:5666 size: 4 time: 16
-
-do_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
-{
-  struct cleanup * ptr;
-  struct cleanup * _1;
-  void (*<Ted>) (void *) _2;
-  void * _3;
-  void * _4;
-  void (*<Ted>) (void *) _5;
-  void (*<Ted>) (void *) _6;
-  void * _7;
-  int _18;
-  int _19;
-
-  <bb 2> [15.00%]:
-  goto <bb 6>; [100.00%]
-
-  <bb 3> [85.00%]:
-  _1 = ptr_12->next;
-  *pmy_chain_11(D) = _1;
-  _2 = ptr_12->function;
-  _3 = ptr_12->arg;
-  _2 (_3);
-  _19 = __printf_chk (1, "cleanup!!!!! =========\n");
-  _4 = ptr_12->arg;
-  _18 = __printf_chk (1, "%x\n", _4);
-  _5 = ptr_12->free_arg;
-  if (_5 != 0B)
-    goto <bb 4>; [93.48%]
-  else
-    goto <bb 5>; [6.52%]
-
-  <bb 4> [79.46%]:
-  _6 = ptr_12->free_arg;
-  _7 = ptr_12->arg;
-  _6 (_7);
-
-  <bb 5> [85.00%]:
-  free (ptr_12);
-
-  <bb 6> [100.00%]:
-  ptr_12 = *pmy_chain_11(D);
-  if (ptr_12 != old_chain_13(D))
-    goto <bb 3>; [85.00%]
-  else
-    goto <bb 7>; [15.00%]
-
-  <bb 7> [15.00%]:
-  return;
-
-}
-
-
-
-;; Function make_my_cleanup2 (make_my_cleanup2, funcdef_no=50, decl_uid=3178, cgraph_uid=50, symbol_order=55)
-
-
-Analyzing function body size: make_my_cleanup2
-
-Inline summary for make_my_cleanup2/55 inlinable
-  self time:       23
-  global time:     0
-  self size:       17
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:4.500000, time:4.500000, predicate:(true)
-    size:2.500000, time:0.500000, predicate:(not inlined)
-    size:1.000000, time:1.000000, predicate:(op0[ref offset: 0] changed) && (not inlined)
-    size:3.000000, time:3.000000, predicate:(op0[ref offset: 0] changed)
-    size:1.000000, time:1.998000, predicate:(op0[ref offset: 0] != 0B) && (not inlined)
-  calls:
-    exit/68 function body not available
-      loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0 predicate: (op0[ref offset: 0] == 0B)
-       op0 is compile time invariant
-    malloc/67 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-       op0 is compile time invariant
-
-make_my_cleanup2 (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg, void (*<Ted>) (void *) free_arg)
-{
-  struct cleanup * old_chain;
-  struct cleanup * new;
-  struct cleanup * _1;
-
-  <bb 2> [100.00%]:
-  new_4 = malloc (32);
-  old_chain_6 = *pmy_chain_5(D);
-  _1 = *pmy_chain_5(D);
-  new_4->next = _1;
-  new_4->function = function_8(D);
-  new_4->free_arg = free_arg_10(D);
-  new_4->arg = arg_12(D);
-  *pmy_chain_5(D) = new_4;
-  if (old_chain_6 == 0B)
-    goto <bb 3>; [0.04%]
-  else
-    goto <bb 4>; [99.96%]
-
-  <bb 3> [0.04%]:
-  exit (1);
-
-  <bb 4> [99.96%]:
-  return old_chain_6;
-
-}
-
-
-
-;; Function make_my_cleanup (make_my_cleanup, funcdef_no=51, decl_uid=3182, cgraph_uid=51, symbol_order=56)
-
-
-Analyzing function body size: make_my_cleanup
-
-Inline summary for make_my_cleanup/56 inlinable
-  self time:       17
-  global time:     0
-  self size:       9
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:0.000000, time:0.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-    make_my_cleanup2/55 function not considered for inlining
-      loop depth: 0 freq:1000 size: 6 time: 15 callee size: 8 stack: 0
-       op3 is compile time invariant
-
-make_my_cleanup (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg)
-{
-  struct cleanup * _6;
-
-  <bb 2> [100.00%]:
-  _6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
-  return _6;
-
-}
-
-
-
-;; Function rs6000_ptrace64 (rs6000_ptrace64, funcdef_no=55, decl_uid=3252, cgraph_uid=55, symbol_order=60)
-
-
-Analyzing function body size: rs6000_ptrace64
-
-Inline summary for rs6000_ptrace64/60 inlinable
-  self time:       17
-  global time:     0
-  self size:       9
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:4.000000, time:4.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-    rand/73 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-
-rs6000_ptrace64 (int req, int id, long long int addr, int data, void * buf)
-{
-  int ret;
-  int i;
-  int * addr.2_1;
-  int _2;
-  int _3;
-  int iftmp.3_4;
-  int _10;
-
-  <bb 2> [100.00%]:
-  addr.2_1 = (int *) addr_5(D);
-  i_7 = *addr.2_1;
-  _2 = rand ();
-  _3 = _2 % 2;
-  if (_3 == 1)
-    goto <bb 4>; [96.19%]
-  else
-    goto <bb 3>; [3.81%]
-
-  <bb 3> [3.81%]:
-
-  <bb 4> [100.00%]:
-  # iftmp.3_4 = PHI <1(2), -1(3)>
-  ret_9 = iftmp.3_4;
-  _10 = iftmp.3_4;
-  return iftmp.3_4;
-
-}
-
-
-
-;; Function discard_my_cleanups (discard_my_cleanups, funcdef_no=47, decl_uid=3165, cgraph_uid=47, symbol_order=52)
-
-
-Analyzing function body size: discard_my_cleanups
-
-Inline summary for discard_my_cleanups/52 inlinable
-  self time:       223
-  global time:     0
-  self size:       25
-  global size:     0
-  min size:       42
-  self stack:      0
-  global stack:    0
-    size:10.000000, time:53.756000, predicate:(true)
-    size:4.000000, time:8.166000, predicate:(not inlined)
-  calls:
-    __printf_chk/66 function body not available
-      loop depth: 0 freq:1000 size: 5 time: 14 callee size: 0 stack: 0
-       op0 is compile time invariant
-       op1 is compile time invariant
-    free/65 function body not available
-      loop depth: 1 freq:5666 size: 2 time: 11 callee size: 0 stack: 0
-    indirect call loop depth: 1 freq:5297 size: 4 time: 16
-
-discard_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
-{
-  struct cleanup * ptr;
-  struct cleanup * _1;
-  void (*<Ted>) (void *) _2;
-  void (*<Ted>) (void *) _3;
-  void * _4;
-  void * _5;
-  int _15;
-
-  <bb 2> [15.00%]:
-  goto <bb 6>; [100.00%]
-
-  <bb 3> [85.00%]:
-  _1 = ptr_10->next;
-  *pmy_chain_9(D) = _1;
-  _2 = ptr_10->free_arg;
-  if (_2 != 0B)
-    goto <bb 4>; [93.48%]
-  else
-    goto <bb 5>; [6.52%]
-
-  <bb 4> [79.46%]:
-  _3 = ptr_10->free_arg;
-  _4 = ptr_10->arg;
-  _3 (_4);
-
-  <bb 5> [85.00%]:
-  free (ptr_10);
-
-  <bb 6> [100.00%]:
-  ptr_10 = *pmy_chain_9(D);
-  if (ptr_10 != old_chain_11(D))
-    goto <bb 3>; [85.00%]
-  else
-    goto <bb 7>; [15.00%]
-
-  <bb 7> [15.00%]:
-  _5 = ptr_10->arg;
-  _15 = __printf_chk (1, "freearg: %x\n", _5);
-  return;
-
-}
-
-
-
-;; Function discard_cleanups (discard_cleanups, funcdef_no=45, decl_uid=3162, cgraph_uid=45, symbol_order=50)
-
-
-Analyzing function body size: discard_cleanups
-
-Inline summary for discard_cleanups/50 inlinable
-  self time:       14
-  global time:     0
-  self size:       6
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:0.000000, time:0.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-    discard_my_cleanups/52 function not considered for inlining
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size:12 stack: 0
-       op0 is compile time invariant
-
-discard_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [100.00%]:
-  discard_my_cleanups (&cleanup_chain, old_chain_2(D));
-  return;
-
-}
-
-
-
-;; Function discard_final_cleanups (discard_final_cleanups, funcdef_no=46, decl_uid=3167, cgraph_uid=46, symbol_order=51)
-
-
-Analyzing function body size: discard_final_cleanups
-
-Inline summary for discard_final_cleanups/51 inlinable
-  self time:       14
-  global time:     0
-  self size:       6
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:0.000000, time:0.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-    discard_my_cleanups/52 function not considered for inlining
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size:12 stack: 0
-       op0 is compile time invariant
-
-discard_final_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [100.00%]:
-  discard_my_cleanups (&final_cleanup_chain, old_chain_2(D));
-  return;
-
-}
-
-
-
-;; Function do_cleanups (do_cleanups, funcdef_no=49, decl_uid=3172, cgraph_uid=49, symbol_order=54)
-
-
-Analyzing function body size: do_cleanups
-
-Inline summary for do_cleanups/54 inlinable
-  self time:       14
-  global time:     0
-  self size:       6
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:0.000000, time:0.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-    do_my_cleanups/53 function not considered for inlining
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size:17 stack: 0
-       op0 is compile time invariant
-
-do_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [100.00%]:
-  do_my_cleanups (&cleanup_chain, old_chain_2(D));
-  return;
-
-}
-
-
-
-;; Function make_cleanup (make_cleanup, funcdef_no=52, decl_uid=3185, cgraph_uid=52, symbol_order=57)
-
-
-Analyzing function body size: make_cleanup
-
-Inline summary for make_cleanup/57 inlinable
-  self time:       16
-  global time:     0
-  self size:       8
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:0.000000, time:0.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-    make_my_cleanup/56 function not considered for inlining
-      loop depth: 0 freq:1000 size: 5 time: 14 callee size: 4 stack: 0
-       op0 is compile time invariant
-
-make_cleanup (void (*<Ta1d>) (void *) function, void * arg)
-{
-  struct cleanup * _5;
-
-  <bb 2> [100.00%]:
-  _5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
-  return _5;
-
-}
-
-
-
-;; Function xrealloc (xrealloc, funcdef_no=53, decl_uid=3240, cgraph_uid=53, symbol_order=58)
-
-
-Analyzing function body size: xrealloc
-
-Inline summary for xrealloc/58 inlinable
-  self time:       21
-  global time:     0
-  self size:       18
+  self size:       28
   global size:     0
   min size:       0
   self stack:      0
   global stack:    0
     size:2.000000, time:2.000000, predicate:(true)
-    size:3.000000, time:1.998000, predicate:(not inlined)
-    size:2.000000, time:2.000000, predicate:(op1 changed)
-    size:2.000000, time:2.000000, predicate:(op0 changed)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+    size:4.000000, time:2.716000, predicate:(op1 changed)
+    size:2.000000, time:0.758000, predicate:(op1 > 0)
   calls:
-    exit/68 function body not available
-      loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0
-       op0 is compile time invariant
-    realloc/69 function body not available
-      loop depth: 0 freq: 700 size: 4 time: 13 callee size: 0 stack: 0 predicate: (op0 != 0B)
-    malloc/67 function body not available
-      loop depth: 0 freq: 300 size: 3 time: 12 callee size: 0 stack: 0 predicate: (op0 == 0B)
+    *fgets/73 function body not available
+      loop depth: 0 freq: 470 size: 5 time: 14 callee size: 0 stack: 0
+    *__fgets_chk/72 function body not available
+      loop depth: 0 freq: 112 size: 6 time: 15 callee size: 0 stack: 0 predicate: (op1 > 0)
+    __builtin_object_size/69 function body not available
+      loop depth: 0 freq: 112 size: 0 time:  0 callee size: 0 stack: 0 predicate: (op1 > 0)
+       op1 is compile time invariant
+    __builtin_object_size/69 function body not available
+      loop depth: 0 freq: 379 size: 0 time:  0 callee size: 0 stack: 0 predicate: (op1 > 0)
+       op1 is compile time invariant
+    __fgets_chk/71 function body not available
+      loop depth: 0 freq: 417 size: 6 time: 15 callee size: 0 stack: 0
+    __builtin_object_size/69 function body not available
+      loop depth: 0 freq: 417 size: 0 time:  0 callee size: 0 stack: 0
+       op1 is compile time invariant
+    __builtin_constant_p/70 mismatched arguments
+      loop depth: 0 freq: 797 size: 0 time:  0 callee size: 0 stack: 0
+    __builtin_object_size/69 function body not available
+      loop depth: 0 freq:1000 size: 0 time:  0 callee size: 0 stack: 0
+       op1 is compile time invariant
 
-xrealloc (void * oldmem, size_t size)
+__attribute__((__artificial__, __gnu_inline__, __always_inline__))
+fgets (char * restrict __s, int __n, struct FILE * restrict __stream)
 {
-  void * newmem;
-  void * _11;
+  long unsigned int _1;
+  int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  char * _7;
+  char * _14;
+  char * _16;
+  char * _18;
 
   <bb 2> [100.00%]:
-  if (size_4(D) == 0)
-    goto <bb 3>; [50.00%]
+  _1 = __builtin_object_size (__s_10(D), 1);
+  if (_1 != 18446744073709551615)
+    goto <bb 3>; [79.76%]
   else
-    goto <bb 4>; [50.00%]
+    goto <bb 8>; [20.24%]
 
-  <bb 3> [50.00%]:
-
-  <bb 4> [100.00%]:
-  # size_1 = PHI <size_4(D)(2), 1(3)>
-  if (oldmem_5(D) == 0B)
-    goto <bb 5>; [30.00%]
+  <bb 3> [79.76%]:
+  _2 = __builtin_constant_p (__n_11(D));
+  if (_2 == 0)
+    goto <bb 5>; [29.56%]
   else
-    goto <bb 6>; [70.00%]
+    goto <bb 4>; [70.44%]
 
-  <bb 5> [30.00%]:
-  newmem_10 = malloc (size_1);
-  goto <bb 7>; [100.00%]
-
-  <bb 6> [70.00%]:
-  newmem_8 = realloc (oldmem_5(D), size_1);
-
-  <bb 7> [100.00%]:
-  # newmem_2 = PHI <newmem_10(5), newmem_8(6)>
-  if (newmem_2 == 0B)
-    goto <bb 8>; [0.04%]
+  <bb 4> [56.18%]:
+  if (__n_11(D) <= 0)
+    goto <bb 5>; [32.39%]
   else
-    goto <bb 9>; [99.96%]
+    goto <bb 6>; [67.61%]
 
-  <bb 8> [0.04%]:
-  exit (1);
+  <bb 5> [41.77%]:
+  _3 = __builtin_object_size (__s_10(D), 1);
+  _16 = __fgets_chk (__s_10(D), _3, __n_11(D), __stream_12(D));
+  goto <bb 9>; [100.00%]
 
-  <bb 9> [99.96%]:
-  _11 = newmem_2;
-  return newmem_2;
+  <bb 6> [37.99%]:
+  _4 = (long unsigned int) __n_11(D);
+  _5 = __builtin_object_size (__s_10(D), 1);
+  if (_4 > _5)
+    goto <bb 7>; [29.56%]
+  else
+    goto <bb 8>; [70.44%]
+
+  <bb 7> [11.23%]:
+  _6 = __builtin_object_size (__s_10(D), 1);
+  _14 = *__fgets_chk (__s_10(D), _6, __n_11(D), __stream_12(D));
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [47.00%]:
+  _18 = *fgets (__s_10(D), __n_11(D), __stream_12(D));
+
+  <bb 9> [100.00%]:
+  # _7 = PHI <_16(5), _14(7), _18(8)>
+  return _7;
 
 }
 
 
 
-;; Function rs6000_ptrace_ldinfo (rs6000_ptrace_ldinfo, funcdef_no=56, decl_uid=3256, cgraph_uid=56, symbol_order=61)
+;; Function xrealloc (xrealloc, funcdef_no=39, decl_uid=4125, cgraph_uid=39, symbol_order=43)
 
 
-Analyzing function body size: rs6000_ptrace_ldinfo
+Analyzing function body size: xrealloc
 
-Inline summary for rs6000_ptrace_ldinfo/61 inlinable
-  self time:       213
+Inline summary for xrealloc/43 inlinable
+  self time:       33
   global time:     0
-  self size:       20
+  self size:       37
   global size:     0
-  min size:       0
+  min size:       94
   self stack:      0
   global stack:    0
-    size:3.000000, time:18.998000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
+    size:2.000000, time:1.998000, predicate:(true)
+    size:3.000000, time:1.996000, predicate:(not inlined)
+    size:5.000000, time:4.998000, predicate:(op1 changed || op2 changed)
+    size:2.000000, time:10.989000, predicate:(op1 changed)
   calls:
-    xrealloc/58 function not considered for inlining
-      loop depth: 1 freq:5666 size: 4 time: 13 callee size: 9 stack: 0
-    rs6000_ptrace64/60 function not considered for inlining
-      loop depth: 1 freq:6666 size: 7 time: 16 callee size: 4 stack: 0
+    exit/52 function body not available
+      loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
+    __printf_chk/54 function body not available
+      loop depth: 0 freq:   0 size: 5 time: 14 callee size: 0 stack: 0
        op0 is compile time invariant
        op1 is compile time invariant
-       op4 is compile time invariant
-    malloc/67 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op2 is compile time invariant
+    realloc/53 function body not available
+      loop depth: 0 freq: 999 size: 4 time: 13 callee size: 0 stack: 0
+    exit/52 function body not available
+      loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0
        op0 is compile time invariant
-
-rs6000_ptrace_ldinfo ()
-{
-  int rc;
-  void * ldi;
-  int ldi_size;
-  long long int ldi.1_1;
-  long unsigned int _2;
-
-  <bb 2> [15.00%]:
-  ldi_8 = malloc (1024);
-
-  <bb 3> [100.00%]:
-  # ldi_size_3 = PHI <1024(2), ldi_size_11(4)>
-  # ldi_4 = PHI <ldi_8(2), ldi_13(4)>
-  ldi.1_1 = (long long int) ldi_4;
-  rc_10 = rs6000_ptrace64 (1, 1, ldi.1_1, ldi_size_3, 0B);
-  if (rc_10 != -1)
-    goto <bb 5>; [15.00%]
-  else
-    goto <bb 4>; [85.00%]
-
-  <bb 4> [85.00%]:
-  ldi_size_11 = ldi_size_3 * 2;
-  _2 = (long unsigned int) ldi_size_11;
-  ldi_13 = xrealloc (ldi_4, _2);
-  goto <bb 3>; [100.00%]
-
-  <bb 5> [15.00%]:
-  return ldi_4;
-
-}
-
-
-
-;; Function remote_filename_p (remote_filename_p, funcdef_no=54, decl_uid=3244, cgraph_uid=54, symbol_order=59)
-
-
-Analyzing function body size: remote_filename_p
-
-Inline summary for remote_filename_p/59 inlinable
-  self time:       17
-  global time:     0
-  self size:       9
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:1.000000, time:1.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-  calls:
-    strncmp/70 function body not available
-      loop depth: 0 freq:1000 size: 5 time: 14 callee size: 0 stack: 0
+    __printf_chk/54 function body not available
+      loop depth: 0 freq:   0 size: 5 time: 14 callee size: 0 stack: 0
+       op0 is compile time invariant
+       op1 is compile time invariant
+       op2 is compile time invariant
+    exit/52 function body not available
+      loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0
+       op0 is compile time invariant
+    __printf_chk/54 function body not available
+      loop depth: 0 freq:   0 size: 5 time: 14 callee size: 0 stack: 0
+       op0 is compile time invariant
        op1 is compile time invariant
        op2 is compile time invariant
 
-remote_filename_p (const char * filename)
+xrealloc (void * oldptr, size_t nmemb, size_t size)
 {
-  int _1;
-  _Bool _2;
-  int _5;
+  void * newptr;
+  size_t newsize;
+  long unsigned int _1;
+  unsigned int _2;
+  int _3;
+  long unsigned int _4;
+  void * _12;
+  int _16;
+  int _17;
+  int _18;
 
   <bb 2> [100.00%]:
-  _1 = strncmp (filename_4(D), "remote:", 7);
-  _2 = _1 == 0;
-  _5 = (int) _2;
-  return _5;
-
-}
-
-
-
-;; Function rs6000_aix_ld_info_to_xml (rs6000_aix_ld_info_to_xml, funcdef_no=57, decl_uid=3265, cgraph_uid=57, symbol_order=62)
-
-
-Analyzing function body size: rs6000_aix_ld_info_to_xml
-
-Inline summary for rs6000_aix_ld_info_to_xml/62 inlinable
-  self time:       3
-  global time:     0
-  self size:       4
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:0.000000, time:0.000000, predicate:(true)
-    size:3.000000, time:2.000000, predicate:(not inlined)
-    size:0.500000, time:0.500000, predicate:(op0[ref offset: 0] changed) && (not inlined)
-    size:0.500000, time:0.500000, predicate:(op0[ref offset: 0] changed)
-  calls:
-
-rs6000_aix_ld_info_to_xml (const gdb_byte * ldi_buf)
-{
-  int i;
-  unsigned char _1;
-  ULONGEST _5;
-
-  <bb 2> [100.00%]:
-  _1 = *ldi_buf_3(D);
-  i_4 = (int) _1;
-  _5 = (ULONGEST) _1;
-  return _5;
-
-}
-
-
-
-;; Function rs6000_xfer_shared_libraries (rs6000_xfer_shared_libraries, funcdef_no=58, decl_uid=3270, cgraph_uid=58, symbol_order=63)
-
-
-Analyzing function body size: rs6000_xfer_shared_libraries
-
-Inline summary for rs6000_xfer_shared_libraries/63 inlinable
-  self time:       61
-  global time:     0
-  self size:       25
-  global size:     0
-  min size:       0
-  self stack:      0
-  global stack:    0
-    size:0.000000, time:0.000000, predicate:(true)
-    size:3.000000, time:1.998000, predicate:(not inlined)
-    size:2.000000, time:2.000000, predicate:(op0 changed)
-    size:4.500000, time:3.890000, predicate:(op0 == 0B)
-    size:0.500000, time:0.246000, predicate:(op0 == 0B) && (not inlined)
-  calls:
-    do_cleanups/54 function not considered for inlining
-      loop depth: 0 freq: 911 size: 2 time: 11 callee size: 3 stack: 0 predicate: (op0 == 0B)
-    free/65 function body not available
-      loop depth: 0 freq: 911 size: 2 time: 11 callee size: 0 stack: 0 predicate: (op0 == 0B)
-    rs6000_aix_ld_info_to_xml/62 function not considered for inlining
-      loop depth: 0 freq: 911 size: 3 time: 12 callee size: 2 stack: 0 predicate: (op0 == 0B)
-    make_cleanup/57 function not considered for inlining
-      loop depth: 0 freq: 911 size: 4 time: 13 callee size: 4 stack: 0 predicate: (op0 == 0B)
-       op0 is compile time invariant
-    exit/68 function body not available
-      loop depth: 0 freq:   0 size: 2 time: 11 callee size: 0 stack: 0 predicate: (op0 == 0B)
-       op0 is compile time invariant
-    rs6000_ptrace_ldinfo/61 function not considered for inlining
-      loop depth: 0 freq: 911 size: 2 time: 11 callee size:10 stack: 0 predicate: (op0 == 0B)
-
-rs6000_xfer_shared_libraries (const gdb_byte * writebuf, ULONGEST * xfered_len)
-{
-  struct cleanup * cleanup;
-  ULONGEST result;
-  gdb_byte * ldi_buf;
-  target_xfer_status _1;
-
-  <bb 2> [100.00%]:
-  if (writebuf_3(D) != 0B)
-    goto <bb 7>; [8.82%]
+  newsize_7 = nmemb_5(D) * size_6(D);
+  if (newsize_7 == 0)
+    goto <bb 3>; [0.04%]
   else
-    goto <bb 3>; [91.18%]
+    goto <bb 4>; [99.96%]
 
-  <bb 3> [91.18%]:
-  ldi_buf_6 = rs6000_ptrace_ldinfo ();
-  if (ldi_buf_6 == 0B)
-    goto <bb 4>; [0.04%]
-  else
-    goto <bb 5>; [99.96%]
-
-  <bb 4> [0.04%]:
+  <bb 3> [0.04%]:
+  _16 = __printf_chk (1, "zero size%s", "");
   exit (1);
 
-  <bb 5> [91.14%]:
-  cleanup_8 = make_cleanup (free, ldi_buf_6);
-  result_9 = rs6000_aix_ld_info_to_xml (ldi_buf_6);
-  free (ldi_buf_6);
-  do_cleanups (cleanup_8);
-  if (result_9 == 0)
-    goto <bb 7>; [46.00%]
+  <bb 4> [99.96%]:
+  _1 = 30 / nmemb_5(D);
+  _2 = (unsigned int) _1;
+  _3 = 1 << _2;
+  _4 = (long unsigned int) _3;
+  if (_4 < size_6(D))
+    goto <bb 5>; [0.04%]
   else
-    goto <bb 6>; [54.00%]
+    goto <bb 6>; [99.96%]
 
-  <bb 6> [49.22%]:
-  *xfered_len_12(D) = result_9;
+  <bb 5> [0.04%]:
+  _17 = __printf_chk (1, "nmemb * size > SIZE_MAX%s", "");
+  exit (1);
 
-  <bb 7> [99.96%]:
-  # _1 = PHI <-1(2), 0(5), 1(6)>
-  return _1;
+  <bb 6> [99.92%]:
+  newptr_11 = realloc (oldptr_9(D), newsize_7);
+  if (newptr_11 == 0B)
+    goto <bb 7>; [0.04%]
+  else
+    goto <bb 8>; [99.96%]
+
+  <bb 7> [0.04%]:
+  _18 = __printf_chk (1, "xrealloc failed%s", "");
+  exit (1);
+
+  <bb 8> [99.88%]:
+  _12 = newptr_11;
+  return newptr_11;
 
 }
 
 
 
-;; Function main (main, funcdef_no=59, decl_uid=3275, cgraph_uid=59, symbol_order=64) (executed once)
+;; Function cmd_string_getc (cmd_string_getc, funcdef_no=40, decl_uid=4131, cgraph_uid=40, symbol_order=44)
+
+
+Analyzing function body size: cmd_string_getc
+
+Inline summary for cmd_string_getc/44 inlinable
+  self time:       12
+  global time:     0
+  self size:       13
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:4.500000, time:4.470000, predicate:(true)
+    size:3.500000, time:2.490000, predicate:(not inlined)
+    size:1.000000, time:0.990000, predicate:(op1[ref offset: 0] changed) && (not inlined)
+    size:2.000000, time:1.970000, predicate:(op1[ref offset: 0] changed)
+    size:2.000000, time:1.980000, predicate:(op1[ref offset: 0] changed || op0 changed)
+  calls:
+
+cmd_string_getc (const char * s, size_t * p)
+{
+  long unsigned int _1;
+  const u_char * _2;
+  unsigned char _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  const u_char * _6;
+  unsigned char _7;
+  int _8;
+  int _14;
+
+  <bb 2> [100.00%]:
+  _1 = *p_12(D);
+  _2 = s_10(D) + _1;
+  _3 = *_2;
+  if (_3 == 0)
+    goto <bb 4>; [2.00%]
+  else
+    goto <bb 3>; [98.00%]
+
+  <bb 3> [98.00%]:
+  _4 = *p_12(D);
+  _5 = _4 + 1;
+  *p_12(D) = _5;
+  _6 = s_10(D) + _4;
+  _7 = *_6;
+  _14 = (int) _7;
+
+  <bb 4> [100.00%]:
+  # _8 = PHI <-1(2), _14(3)>
+  return _8;
+
+}
+
+
+
+;; Function cmd_string_ungetc (cmd_string_ungetc, funcdef_no=41, decl_uid=4135, cgraph_uid=41, symbol_order=45)
+
+
+Analyzing function body size: cmd_string_ungetc
+
+Inline summary for cmd_string_ungetc/45 inlinable
+  self time:       5
+  global time:     0
+  self size:       6
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.500000, time:0.500000, predicate:(true)
+    size:3.500000, time:2.500000, predicate:(not inlined)
+    size:0.500000, time:0.500000, predicate:(op0[ref offset: 0] changed) && (not inlined)
+    size:1.500000, time:1.500000, predicate:(op0[ref offset: 0] changed)
+  calls:
+
+cmd_string_ungetc (size_t * p)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+
+  <bb 2> [100.00%]:
+  _1 = *p_4(D);
+  _2 = _1 + 18446744073709551615;
+  *p_4(D) = _2;
+  return;
+
+}
+
+
+
+;; Function cmd_string_variable (cmd_string_variable, funcdef_no=42, decl_uid=4139, cgraph_uid=42, symbol_order=46)
+
+
+Analyzing function body size: cmd_string_variable
+
+Inline summary for cmd_string_variable/46 inlinable
+  self time:       323
+  global time:     0
+  self size:       103
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:61.000000, time:113.502000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    free/55 function body not available
+      loop depth: 0 freq: 442 size: 2 time: 11 callee size: 0 stack: 0
+    strdup/56 function body not available
+      loop depth: 0 freq: 249 size: 3 time: 12 callee size: 0 stack: 0
+    strdup/56 function body not available
+      loop depth: 0 freq: 106 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+    free/55 function body not available
+      loop depth: 0 freq: 356 size: 2 time: 11 callee size: 0 stack: 0
+    xrealloc/43 function not considered for inlining
+      loop depth: 0 freq: 356 size: 5 time: 14 callee size:18 stack: 0
+       op1 is compile time invariant
+    cmd_string_ungetc/45 function not considered for inlining
+      loop depth: 0 freq: 117 size: 2 time: 11 callee size: 3 stack: 0
+    xrealloc/43 function not considered for inlining
+      loop depth: 1 freq:5874 size: 5 time: 14 callee size:18 stack: 0
+       op1 is compile time invariant
+    cmd_string_getc/44 function not considered for inlining
+      loop depth: 1 freq:6325 size: 4 time: 13 callee size: 6 stack: 0
+       op0 change 15.810000% of time
+       op1 change 15.810000% of time
+    xrealloc/43 function not considered for inlining
+      loop depth: 0 freq: 450 size: 5 time: 14 callee size:18 stack: 0
+       op0 is compile time invariant
+       op1 is compile time invariant
+       op2 is compile time invariant
+    cmd_string_getc/44 function not considered for inlining
+      loop depth: 0 freq: 333 size: 4 time: 13 callee size: 6 stack: 0
+    cmd_string_getc/44 function not considered for inlining
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 6 stack: 0
+
+cmd_string_variable (const char * s, size_t * p)
+{
+  struct environ_entry * envent;
+  size_t len;
+  char * t;
+  char * buf;
+  int fch;
+  int ch;
+  _Bool _1;
+  unsigned int ch.0_2;
+  unsigned int _3;
+  _Bool _4;
+  _Bool _5;
+  unsigned int ch.1_6;
+  unsigned int _7;
+  _Bool _8;
+  unsigned int ch.2_9;
+  unsigned int _10;
+  _Bool _11;
+  _Bool _12;
+  unsigned int ch.3_13;
+  unsigned int _14;
+  char _15;
+  _Bool _16;
+  unsigned int ch.5_17;
+  unsigned int _18;
+  _Bool _19;
+  _Bool _20;
+  unsigned int ch.6_21;
+  unsigned int _22;
+  unsigned int ch.7_23;
+  unsigned int _24;
+  long unsigned int _25;
+  long unsigned int len.8_26;
+  char * _27;
+  char _28;
+  _Bool _29;
+  _Bool _30;
+  _Bool _31;
+  _Bool _32;
+  _Bool _33;
+  _Bool _34;
+  long unsigned int _35;
+  char * _36;
+  char * _37;
+  char * _43;
+  char * _57;
+  char * _74;
+  char * _76;
+
+  <bb 2> [15.81%]:
+  ch_53 = cmd_string_getc (s_50(D), p_51(D));
+  switch (ch_53) <default: <L3> [33.33%], case -1: error [33.33%], case 123: <L1> [33.33%]>
+
+<L1> [5.27%]:
+  ch_55 = cmd_string_getc (s_50(D), p_51(D));
+  _1 = ch_55 != 95;
+  ch.0_2 = (unsigned int) ch_55;
+  _3 = ch.0_2 + 4294967199;
+  _4 = _3 > 25;
+  _5 = _1 & _4;
+  if (_5 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5> (<L3>); [50.00%]
+
+  <bb 4> [2.63%]:
+  ch.1_6 = (unsigned int) ch_55;
+  _7 = ch.1_6 + 4294967231;
+  if (_7 > 25)
+    goto <bb 21> (error); [9.00%]
+  else
+    goto <bb 5> (<L3>); [91.00%]
+
+  # ch_38 = PHI <ch_53(2), ch_55(3), ch_55(4)>
+  # fch_39 = PHI <-1(2), 123(3), 123(4)>
+<L3> [10.30%]:
+  _8 = ch_38 != 95;
+  ch.2_9 = (unsigned int) ch_38;
+  _10 = ch.2_9 + 4294967199;
+  _11 = _10 > 25;
+  _12 = _8 & _11;
+  if (_12 != 0)
+    goto <bb 6>; [67.00%]
+  else
+    goto <bb 8>; [33.00%]
+
+  <bb 6> [6.90%]:
+  ch.3_13 = (unsigned int) ch_38;
+  _14 = ch.3_13 + 4294967231;
+  if (_14 > 25)
+    goto <bb 7>; [46.00%]
+  else
+    goto <bb 8>; [54.00%]
+
+  <bb 7> [3.17%]:
+  _57 = t_56(D);
+  goto <bb 22>; [100.00%]
+
+  <bb 8> [7.13%]:
+  buf_59 = xrealloc (0B, 1, 1);
+  _15 = (char) ch_38;
+  *buf_59 = _15;
+
+  <bb 9> [100.00%]:
+  # buf_40 = PHI <buf_59(8), buf_64(14)>
+  # len_42 = PHI <1(8), len_65(14)>
+  ch_62 = cmd_string_getc (s_50(D), p_51(D));
+  if (ch_62 == -1)
+    goto <bb 15>; [5.00%]
+  else
+    goto <bb 10>; [95.00%]
+
+  <bb 10> [95.00%]:
+  _16 = ch_62 != 95;
+  ch.5_17 = (unsigned int) ch_62;
+  _18 = ch.5_17 + 4294967199;
+  _19 = _18 > 25;
+  _20 = _16 & _19;
+  if (_20 != 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 11> [47.50%]:
+  ch.6_21 = (unsigned int) ch_62;
+  _22 = ch.6_21 + 4294967231;
+  if (_22 > 25)
+    goto <bb 12>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 12> [23.75%]:
+  ch.7_23 = (unsigned int) ch_62;
+  _24 = ch.7_23 + 4294967248;
+  if (_24 > 9)
+    goto <bb 15>; [5.00%]
+  else
+    goto <bb 13>; [95.00%]
+
+  <bb 13> [93.81%]:
+  if (len_42 > 1073741820)
+    goto <bb 21> (error); [1.00%]
+  else
+    goto <bb 14>; [99.00%]
+
+  <bb 14> [92.87%]:
+  _25 = len_42 + 1;
+  buf_64 = xrealloc (buf_40, 1, _25);
+  len.8_26 = len_42;
+  len_65 = len_42 + 1;
+  _27 = buf_64 + len_42;
+  _28 = (char) ch_62;
+  *_27 = _28;
+  goto <bb 9>; [100.00%]
+
+  <bb 15> [6.19%]:
+  _29 = fch_39 == 123;
+  _30 = ch_62 != 125;
+  _31 = _29 & _30;
+  if (_31 != 0)
+    goto <bb 21> (error); [9.00%]
+  else
+    goto <bb 16>; [91.00%]
+
+  <bb 16> [5.63%]:
+  _32 = ch_62 != -1;
+  _33 = fch_39 != 123;
+  _34 = _32 & _33;
+  if (_34 != 0)
+    goto <bb 17>; [33.00%]
+  else
+    goto <bb 18>; [67.00%]
+
+  <bb 17> [1.86%]:
+  cmd_string_ungetc (p_51(D));
+
+  <bb 18> [5.63%]:
+  _35 = len_42 + 1;
+  buf_69 = xrealloc (buf_40, 1, _35);
+  _36 = buf_69 + len_42;
+  *_36 = 0;
+  free (buf_69);
+  if (envent_72(D) == 0B)
+    goto <bb 19>; [30.00%]
+  else
+    goto <bb 20>; [70.00%]
+
+  <bb 19> [1.69%]:
+  _76 = strdup ("");
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [3.94%]:
+  _37 = envent_72(D)->value;
+  _74 = strdup (_37);
+  goto <bb 22>; [100.00%]
+
+  # buf_41 = PHI <0B(2), 0B(4), buf_40(13), buf_40(15)>
+error [7.00%]:
+  free (buf_41);
+
+  <bb 22> [15.81%]:
+  # _43 = PHI <t_56(D)(7), _76(19), _74(20), 0B(21)>
+  return _43;
+
+}
+
+
+
+;; Function cmd_string_string (cmd_string_string, funcdef_no=43, decl_uid=4159, cgraph_uid=43, symbol_order=47)
+
+
+Analyzing function body size: cmd_string_string
+
+Inline summary for cmd_string_string/47 inlinable
+  self time:       125
+  global time:     0
+  self size:       64
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:19.000000, time:31.156000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+    size:4.000000, time:3.116000, predicate:(op3 changed)
+    size:14.000000, time:1.542000, predicate:(op3 != 0)
+  calls:
+    free/55 function body not available
+      loop depth: 0 freq: 903 size: 2 time: 11 callee size: 0 stack: 0
+    xrealloc/43 function not considered for inlining
+      loop depth: 0 freq:  96 size: 5 time: 14 callee size:18 stack: 0
+       op1 is compile time invariant
+    cmd_string_getc/44 function not considered for inlining
+      loop depth: 1 freq:3213 size: 4 time: 13 callee size: 6 stack: 0
+       op0 change 31.120000% of time
+       op1 change 31.120000% of time
+    xrealloc/43 function not considered for inlining
+      loop depth: 1 freq:1976 size: 5 time: 14 callee size:18 stack: 0
+       op1 is compile time invariant
+    cmd_string_variable/46 function not considered for inlining
+      loop depth: 1 freq: 257 size: 4 time: 13 callee size:51 stack: 0 predicate: (op3 != 0)
+    cmd_string_getc/44 function not considered for inlining
+      loop depth: 1 freq: 257 size: 4 time: 13 callee size: 6 stack: 0 predicate: (op3 != 0)
+
+cmd_string_string (const char * s, size_t * p, char endch, int esc)
+{
+  size_t len;
+  char * t;
+  char * buf;
+  int ch;
+  long unsigned int _1;
+  long unsigned int len.9_2;
+  char * _3;
+  char _4;
+  int _5;
+  long unsigned int _6;
+  char * _7;
+  char * _11;
+
+  <bb 2> [31.12%]:
+  goto <bb 19>; [100.00%]
+
+  <bb 3> [97.00%]:
+  switch (ch_22) <default: <L14> [25.00%], case -1: error [25.00%], case 36: <L11> [25.00%], case 92: <L2> [25.00%]>
+
+<L2> [24.25%]:
+  if (esc_28(D) == 0)
+    goto <bb 13> (<L14>); [67.00%]
+  else
+    goto <bb 5>; [33.00%]
+
+  <bb 5> [8.00%]:
+  ch_30 = cmd_string_getc (s_19(D), p_20(D));
+  switch (ch_30) <default: <L14> [16.67%], case -1: error [16.67%], case 101: <L5> [16.67%], case 110: <L7> [16.67%], case 114: <L6> [16.67%], case 116: <L8> [16.67%]>
+
+<L5> [1.33%]:
+  goto <bb 13> (<L14>); [100.00%]
+
+<L6> [1.33%]:
+  goto <bb 13> (<L14>); [100.00%]
+
+<L7> [1.33%]:
+  goto <bb 13> (<L14>); [100.00%]
+
+<L8> [1.33%]:
+  goto <bb 13> (<L14>); [100.00%]
+
+<L11> [24.25%]:
+  if (esc_28(D) == 0)
+    goto <bb 13> (<L14>); [67.00%]
+  else
+    goto <bb 11>; [33.00%]
+
+  <bb 11> [8.00%]:
+  t_32 = cmd_string_variable (s_19(D), p_20(D));
+  if (t_32 == 0B)
+    goto <bb 17> (error); [7.92%]
+  else
+    goto <bb 12>; [92.08%]
+
+  <bb 12> [7.37%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 15>; [100.00%]
+
+  # ch_8 = PHI <ch_22(3), ch_22(4), 27(6), ch_22(10), ch_30(5), 9(9), 10(8), 13(7)>
+<L14> [63.42%]:
+  if (len_10 > 1073741821)
+    goto <bb 17> (error); [3.00%]
+  else
+    goto <bb 14>; [97.00%]
+
+  <bb 14> [61.51%]:
+  _1 = len_10 + 1;
+  buf_34 = xrealloc (buf_9, 1, _1);
+  len.9_2 = len_10;
+  len_35 = len_10 + 1;
+  _3 = buf_34 + len_10;
+  _4 = (char) ch_8;
+  *_3 = _4;
+
+  <bb 15> [68.88%]:
+  # buf_16 = PHI <buf_34(14), buf_9(12)>
+  # len_17 = PHI <len_35(14), len_10(12)>
+
+  <bb 19> [100.00%]:
+  # buf_9 = PHI <buf_16(15), 0B(2)>
+  # len_10 = PHI <len_17(15), 0(2)>
+  ch_22 = cmd_string_getc (s_19(D), p_20(D));
+  _5 = (int) endch_23(D);
+  if (_5 != ch_22)
+    goto <bb 3>; [97.00%]
+  else
+    goto <bb 16>; [3.00%]
+
+  <bb 16> [3.00%]:
+  _6 = len_10 + 1;
+  buf_25 = xrealloc (buf_9, 1, _6);
+  _7 = buf_25 + len_10;
+  *_7 = 0;
+  goto <bb 18>; [100.00%]
+
+error [28.12%]:
+  free (buf_9);
+
+  <bb 18> [31.12%]:
+  # _11 = PHI <buf_25(16), 0B(17)>
+  return _11;
+
+}
+
+
+
+;; Function cmd_string_expand_tilde (cmd_string_expand_tilde, funcdef_no=44, decl_uid=4181, cgraph_uid=44, symbol_order=48)
+
+
+Analyzing function body size: cmd_string_expand_tilde
+
+Inline summary for cmd_string_expand_tilde/48 inlinable
+  self time:       65
+  global time:     0
+  self size:       47
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:19.000000, time:9.763000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    strdup/56 function body not available
+      loop depth: 0 freq: 860 size: 3 time: 12 callee size: 0 stack: 0
+    free/55 function body not available
+      loop depth: 0 freq: 450 size: 2 time: 11 callee size: 0 stack: 0
+    getpwnam/59 mismatched arguments
+      loop depth: 0 freq: 450 size: 3 time: 12 callee size: 0 stack: 0
+    cmd_string_string/47 function not considered for inlining
+      loop depth: 0 freq: 488 size: 6 time: 15 callee size:32 stack: 0
+       op2 is compile time invariant
+       op3 is compile time invariant
+    cmd_string_ungetc/45 function not considered for inlining
+      loop depth: 0 freq: 488 size: 2 time: 11 callee size: 3 stack: 0
+    getpwuid/58 mismatched arguments
+      loop depth: 0 freq: 300 size: 3 time: 12 callee size: 0 stack: 0
+    getuid/57 function body not available
+      loop depth: 0 freq: 300 size: 2 time: 11 callee size: 0 stack: 0
+    cmd_string_getc/44 function not considered for inlining
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 6 stack: 0
+
+cmd_string_expand_tilde (const char * s, size_t * p)
+{
+  char * username;
+  char * home;
+  struct environ_entry * envent;
+  struct passwd * pw;
+  int _1;
+  char * _2;
+  char _3;
+  int _4;
+  int _5;
+  long int _6;
+  int _7;
+  long int _8;
+  char * _11;
+  char * _32;
+
+  <bb 2> [100.00%]:
+  _1 = cmd_string_getc (s_15(D), p_16(D));
+  if (_1 == 47)
+    goto <bb 3>; [51.12%]
+  else
+    goto <bb 9>; [48.88%]
+
+  <bb 3> [51.12%]:
+  if (envent_25(D) != 0B)
+    goto <bb 4>; [82.57%]
+  else
+    goto <bb 6>; [17.43%]
+
+  <bb 4> [42.21%]:
+  _2 = envent_25(D)->value;
+  _3 = *_2;
+  if (_3 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [21.10%]:
+  home_26 = envent_25(D)->value;
+  goto <bb 13>; [100.00%]
+
+  <bb 6> [30.02%]:
+  _4 = getuid ();
+  _5 = getpwuid (_4);
+  _6 = (long int) _5;
+  pw_29 = (struct passwd *) _6;
+  if (_5 != 0)
+    goto <bb 8>; [91.00%]
+  else
+    goto <bb 15>; [9.00%]
+
+  <bb 8> [27.31%]:
+  home_30 = pw_29->pw_dir;
+  goto <bb 13>; [100.00%]
+
+  <bb 9> [48.88%]:
+  cmd_string_ungetc (p_16(D));
+  username_20 = cmd_string_string (s_15(D), p_16(D), 47, 0);
+  if (username_20 == 0B)
+    goto <bb 15>; [7.92%]
+  else
+    goto <bb 10>; [92.08%]
+
+  <bb 10> [45.01%]:
+  _7 = getpwnam (username_20);
+  _8 = (long int) _7;
+  pw_22 = (struct passwd *) _8;
+  if (_7 != 0)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 11> [22.50%]:
+  home_23 = pw_22->pw_dir;
+
+  <bb 12> [45.01%]:
+  # home_9 = PHI <0B(10), home_23(11)>
+  free (username_20);
+
+  <bb 13> [93.43%]:
+  # home_10 = PHI <home_30(8), home_9(12), home_26(5)>
+  if (home_10 == 0B)
+    goto <bb 15>; [7.92%]
+  else
+    goto <bb 14>; [92.08%]
+
+  <bb 14> [86.03%]:
+  _32 = strdup (home_10);
+
+  <bb 15> [100.00%]:
+  # _11 = PHI <0B(9), 0B(13), _32(14), 0B(6)>
+  return _11;
+
+}
+
+
+
+;; Function cmd_string_parse (cmd_string_parse, funcdef_no=45, decl_uid=4198, cgraph_uid=45, symbol_order=49)
+
+
+Analyzing function body size: cmd_string_parse
+
+Inline summary for cmd_string_parse/49 inlinable
+  self time:       2330
+  global time:     0
+  self size:       142
+  global size:     0
+  min size:       0
+  self stack:      8
+  global stack:    8
+    size:76.500000, time:584.263500, predicate:(true)
+    size:4.500000, time:3.165500, predicate:(not inlined)
+  calls:
+    free/55 function body not available
+      loop depth: 0 freq: 740 size: 2 time: 11 callee size: 0 stack: 0
+    free/55 function body not available
+      loop depth: 1 freq:4202 size: 2 time: 11 callee size: 0 stack: 0
+    free/55 function body not available
+      loop depth: 0 freq:1012 size: 2 time: 11 callee size: 0 stack: 0
+       op0 change 98.800000% of time
+    xrealloc/43 function not considered for inlining
+      loop depth: 1 freq:10299 size: 5 time: 14 callee size:18 stack: 0
+       op1 is compile time invariant
+    cmd_string_expand_tilde/48 function not considered for inlining
+      loop depth: 1 freq:1008 size: 4 time: 13 callee size:23 stack: 0
+       op0 change 99.200000% of time
+       op1 is compile time invariant
+    memmove/62 function body not available
+      loop depth: 1 freq:1712 size: 4 time: 13 callee size: 0 stack: 0
+       op0 change 58.390000% of time
+    strcspn/61 function body not available
+      loop depth: 1 freq:1854 size: 4 time: 13 callee size: 0 stack: 0
+       op1 is compile time invariant
+    strchr/60 function body not available
+      loop depth: 1 freq:1854 size: 4 time: 13 callee size: 0 stack: 0
+       op1 is compile time invariant
+    xrealloc/43 function not considered for inlining
+      loop depth: 1 freq:6186 size: 5 time: 14 callee size:18 stack: 0
+       op2 is compile time invariant
+    xrealloc/43 function not considered for inlining
+      loop depth: 1 freq:6186 size: 5 time: 14 callee size:18 stack: 0
+       op1 is compile time invariant
+    cmd_string_getc/44 function not considered for inlining
+      loop depth: 2 freq:38570 size: 4 time: 13 callee size: 6 stack: 0
+       op0 change 2.590000% of time
+       op1 is compile time invariant
+    cmd_string_variable/46 function not considered for inlining
+      loop depth: 1 freq:5785 size: 4 time: 13 callee size:51 stack: 0
+       op0 change 17.280000% of time
+       op1 is compile time invariant
+    cmd_string_string/47 function not considered for inlining
+      loop depth: 1 freq:5785 size: 6 time: 15 callee size:32 stack: 0
+       op0 change 17.280000% of time
+       op1 is compile time invariant
+       op2 is compile time invariant
+       op3 is compile time invariant
+    cmd_string_string/47 function not considered for inlining
+      loop depth: 1 freq:5785 size: 6 time: 15 callee size:32 stack: 0
+       op0 change 17.280000% of time
+       op1 is compile time invariant
+       op2 is compile time invariant
+       op3 is compile time invariant
+    cmd_string_getc/44 function not considered for inlining
+      loop depth: 1 freq:40485 size: 4 time: 13 callee size: 6 stack: 0
+       op0 change 2.470000% of time
+       op1 is compile time invariant
+
+cmd_string_parse (const char * s, struct cmd_list * * cmdlist, char * * cause)
+{
+  size_t len;
+  const char * equals;
+  const char * whitespace;
+  char * t;
+  char * buf;
+  char * * argv;
+  int rval;
+  int argc;
+  int i;
+  int ch;
+  size_t p;
+  long unsigned int _1;
+  char * _2;
+  int _3;
+  long unsigned int _4;
+  int argc.10_5;
+  long unsigned int _6;
+  long unsigned int _7;
+  char * * _8;
+  char * _9;
+  char * _10;
+  char * _11;
+  long unsigned int _12;
+  _Bool _13;
+  _Bool _14;
+  _Bool _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  char * * _18;
+  struct cmd_list * _19;
+  long unsigned int _20;
+  long unsigned int len.11_21;
+  char * _22;
+  char _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  char * * _26;
+  char * _27;
+  int _94;
+
+  <bb 2> [2.47%]:
+  *cause_56(D) = 0B;
+  *cmdlist_58(D) = 0B;
+  p = 0;
+  goto <bb 26>; [100.00%]
+
+  <bb 3> [97.53%]:
+  # argc_51 = PHI <argc_30(6), argc_30(5), argc_30(4), argc_30(20), argc_30(18), argc_31(10)>
+  # argv_52 = PHI <argv_35(6), argv_35(5), argv_35(4), argv_35(20), argv_35(18), argv_36(10)>
+  # buf_53 = PHI <buf_38(6), buf_38(5), buf_38(4), buf_87(20), buf_38(18), buf_39(10)>
+  # len_54 = PHI <len_41(6), len_41(5), len_41(4), len_88(20), len_41(18), len_42(10)>
+
+  <bb 26> [100.00%]:
+  # argc_30 = PHI <argc_51(3), 0(2)>
+  # argv_35 = PHI <argv_52(3), 0B(2)>
+  # buf_38 = PHI <buf_53(3), 0B(2)>
+  # len_41 = PHI <len_54(3), 0(2)>
+  ch_64 = cmd_string_getc (s_62(D), &p);
+  switch (ch_64) <default: <L26> [14.29%], case -1: <L10> [14.29%], case 9: <L10> [14.29%], case 32: <L10> [14.29%], case 34: <L3> [14.29%], case 35: <L40> [14.29%], case 36: <L5> [14.29%], case 39: <L1> [14.29%], case 126: <L23> [14.29%]>
+
+<L1> [14.29%]:
+  t_68 = cmd_string_string (s_62(D), &p, 39, 0);
+  if (t_68 == 0B)
+    goto <bb 21> (error); [2.50%]
+  else
+    goto <bb 3>; [97.50%]
+
+<L3> [14.29%]:
+  t_74 = cmd_string_string (s_62(D), &p, 34, 1);
+  if (t_74 == 0B)
+    goto <bb 21> (error); [2.50%]
+  else
+    goto <bb 3>; [97.50%]
+
+<L5> [14.29%]:
+  t_70 = cmd_string_variable (s_62(D), &p);
+  if (t_70 == 0B)
+    goto <bb 21> (error); [2.50%]
+  else
+    goto <bb 3>; [97.50%]
+
+<L40> [14.29%]:
+
+<L39> [95.27%]:
+  ch_72 = cmd_string_getc (s_62(D), &p);
+  if (ch_72 != -1)
+    goto <bb 30>; [85.00%]
+  else
+    goto <bb 8> (<L10>); [15.00%]
+
+  <bb 30> [80.98%]:
+  goto <bb 7> (<L39>); [100.00%]
+
+  # ch_28 = PHI <ch_64(26), ch_72(7)>
+<L10> [28.58%]:
+  if (buf_38 != 0B)
+    goto <bb 9>; [53.47%]
+  else
+    goto <bb 10>; [46.53%]
+
+  <bb 9> [15.28%]:
+  _1 = len_41 + 1;
+  buf_76 = xrealloc (buf_38, 1, _1);
+  _2 = buf_76 + len_41;
+  *_2 = 0;
+  _3 = argc_30 + 1;
+  _4 = (long unsigned int) _3;
+  argv_79 = xrealloc (argv_35, _4, 8);
+  argc.10_5 = argc_30;
+  argc_80 = argc_30 + 1;
+  _6 = (long unsigned int) argc_30;
+  _7 = _6 * 8;
+  _8 = argv_79 + _7;
+  *_8 = buf_76;
+
+  <bb 10> [28.58%]:
+  # argc_31 = PHI <argc_30(8), argc_80(9)>
+  # argv_36 = PHI <argv_35(8), argv_79(9)>
+  # buf_39 = PHI <buf_38(8), 0B(9)>
+  # len_42 = PHI <len_41(8), 0(9)>
+  if (ch_28 != -1)
+    goto <bb 3>; [97.50%]
+  else
+    goto <bb 28>; [2.50%]
+
+  <bb 28> [0.71%]:
+  goto <bb 13>; [100.00%]
+
+  <bb 11> [4.58%]:
+  _9 = *argv_36;
+  equals_82 = strchr (_9, 61);
+  _10 = *argv_36;
+  _11 = *argv_36;
+  _12 = strcspn (_11, " \t");
+  whitespace_83 = _10 + _12;
+  _13 = equals_82 == 0B;
+  _14 = equals_82 > whitespace_83;
+  _15 = _13 | _14;
+  if (_15 != 0)
+    goto <bb 14>; [7.50%]
+  else
+    goto <bb 12>; [92.50%]
+
+  <bb 12> [4.23%]:
+  argc_84 = argc_32 + -1;
+  _16 = (long unsigned int) argc_84;
+  _17 = _16 * 8;
+  _18 = argv_36 + 8;
+  memmove (argv_36, _18, _17);
+
+  <bb 13> [4.95%]:
+  # argc_32 = PHI <argc_31(28), argc_84(12)>
+  if (argc_32 != 0)
+    goto <bb 11>; [92.50%]
+  else
+    goto <bb 14>; [7.50%]
+
+  <bb 14> [0.71%]:
+  if (argc_32 == 0)
+    goto <bb 21> (error); [2.00%]
+  else
+    goto <bb 15>; [98.00%]
+
+  <bb 15> [0.70%]:
+  _19 = *cmdlist_58(D);
+  if (_19 == 0B)
+    goto <bb 21> (error); [0.87%]
+  else
+    goto <bb 16>; [99.13%]
+
+  <bb 16> [0.69%]:
+  goto <bb 21> (error); [100.00%]
+
+<L23> [14.29%]:
+  if (buf_38 == 0B)
+    goto <bb 18>; [17.43%]
+  else
+    goto <bb 19> (<L26>); [82.57%]
+
+  <bb 18> [2.49%]:
+  t_66 = cmd_string_expand_tilde (s_62(D), &p);
+  if (t_66 == 0B)
+    goto <bb 21> (error); [2.50%]
+  else
+    goto <bb 3>; [97.50%]
+
+<L26> [26.09%]:
+  if (len_41 > 1073741821)
+    goto <bb 21> (error); [2.50%]
+  else
+    goto <bb 20>; [97.50%]
+
+  <bb 20> [25.44%]:
+  _20 = len_41 + 1;
+  buf_87 = xrealloc (buf_38, 1, _20);
+  len.11_21 = len_41;
+  len_88 = len_41 + 1;
+  _22 = buf_87 + len_41;
+  _23 = (char) ch_64;
+  *_22 = _23;
+  goto <bb 3>; [100.00%]
+
+  # argc_33 = PHI <argc_30(4), argc_30(5), argc_30(6), argc_32(14), argc_32(15), argc_32(16), argc_30(18), argc_30(19)>
+  # rval_34 = PHI <-1(4), -1(5), -1(6), -1(14), -1(15), 0(16), -1(18), -1(19)>
+  # argv_37 = PHI <argv_35(4), argv_35(5), argv_35(6), argv_36(14), argv_36(15), argv_36(16), argv_35(18), argv_35(19)>
+  # buf_40 = PHI <buf_38(4), buf_38(5), buf_38(6), buf_39(14), buf_39(15), buf_39(16), buf_38(18), buf_38(19)>
+error [2.50%]:
+out [2.50%]:
+  free (buf_40);
+  if (argv_37 != 0B)
+    goto <bb 27>; [73.26%]
+  else
+    goto <bb 25>; [26.74%]
+
+  <bb 27> [1.83%]:
+  goto <bb 23>; [100.00%]
+
+  <bb 22> [10.38%]:
+  _24 = (long unsigned int) i_29;
+  _25 = _24 * 8;
+  _26 = argv_37 + _25;
+  _27 = *_26;
+  free (_27);
+  i_93 = i_29 + 1;
+
+  <bb 23> [12.21%]:
+  # i_29 = PHI <0(27), i_93(22)>
+  if (i_29 < argc_33)
+    goto <bb 22>; [85.00%]
+  else
+    goto <bb 24>; [15.00%]
+
+  <bb 24> [1.83%]:
+  free (argv_37);
+
+  <bb 25> [2.50%]:
+  _94 = rval_34;
+  p ={v} {CLOBBER};
+  return rval_34;
+
+}
+
+
+
+;; Function load_cfg (load_cfg, funcdef_no=46, decl_uid=4239, cgraph_uid=46, symbol_order=50)
+
+
+Analyzing function body size: load_cfg
+
+Inline summary for load_cfg/50 inlinable
+  self time:       1154
+  global time:     0
+  self size:       127
+  global size:     0
+  min size:       248
+  self stack:      64
+  global stack:    64
+    size:60.000000, time:292.426000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+    size:2.000000, time:1.936000, predicate:(op1 changed)
+    size:1.500000, time:1.017000, predicate:(op1 != 0B) && (not inlined)
+    size:4.500000, time:3.051000, predicate:(op1 != 0B)
+    size:3.000000, time:0.870000, predicate:(op1 == 0B)
+  calls:
+    fclose/68 function body not available
+      loop depth: 0 freq: 990 size: 2 time: 11 callee size: 0 stack: 0
+    *fgets/73 function body not available
+      loop depth: 1 freq:2853 size: 5 time: 14 callee size: 0 stack: 0
+       op2 change 35.050000% of time
+    *__fgets_chk/72 function body not available
+      loop depth: 1 freq: 746 size: 6 time: 15 callee size: 0 stack: 0
+    __builtin_object_size/69 function body not available
+      loop depth: 1 freq: 746 size: 0 time:  0 callee size: 0 stack: 0
+       op1 is compile time invariant
+    __builtin_object_size/69 function body not available
+      loop depth: 1 freq:2262 size: 0 time:  0 callee size: 0 stack: 0
+       op1 is compile time invariant
+    __fgets_chk/71 function body not available
+      loop depth: 1 freq:3012 size: 6 time: 15 callee size: 0 stack: 0
+       op3 change 33.200000% of time
+    __builtin_object_size/69 function body not available
+      loop depth: 1 freq:3012 size: 0 time:  0 callee size: 0 stack: 0
+       op1 is compile time invariant
+    __builtin_constant_p/70 mismatched arguments
+      loop depth: 1 freq:5275 size: 0 time:  0 callee size: 0 stack: 0
+    __builtin_object_size/69 function body not available
+      loop depth: 1 freq:6615 size: 0 time:  0 callee size: 0 stack: 0
+       op1 is compile time invariant
+    free/55 function body not available
+      loop depth: 1 freq:1171 size: 2 time: 11 callee size: 0 stack: 0
+    free/55 function body not available
+      loop depth: 1 freq: 628 size: 2 time: 11 callee size: 0 stack: 0
+    free/55 function body not available
+      loop depth: 1 freq:1171 size: 2 time: 11 callee size: 0 stack: 0
+    cmd_string_parse/49 function not considered for inlining
+      loop depth: 1 freq:2343 size: 5 time: 14 callee size:71 stack: 8
+       op1 is compile time invariant
+       op2 is compile time invariant
+    isspace/67 function body not available
+      loop depth: 2 freq:31250 size: 3 time: 12 callee size: 0 stack: 0
+    strlen/64 function body not available
+      loop depth: 1 freq:5621 size: 3 time: 12 callee size: 0 stack: 0
+    memcpy/66 function body not available
+      loop depth: 1 freq:5621 size: 4 time: 13 callee size: 0 stack: 0
+    malloc/65 function body not available
+      loop depth: 1 freq:5621 size: 3 time: 12 callee size: 0 stack: 0
+    __printf_chk/54 function body not available
+      loop depth: 1 freq:5621 size: 6 time: 15 callee size: 0 stack: 0
+       op0 is compile time invariant
+       op1 is compile time invariant
+       op2 change 17.790000% of time
+    fopen/63 function body not available
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size: 0 stack: 0
+       op1 is compile time invariant
+
+load_cfg (const char * path, struct cmd_ctx * ctxin, struct causelist * causes)
+{
+  struct cmd_ctx ctx;
+  struct cmd_list * cmdlist;
+  size_t len;
+  char * cause;
+  char * line;
+  char * copy;
+  char * buf;
+  u_int n;
+  struct FILE * f;
+  int cfg_references.12_1;
+  int _2;
+  sizetype _3;
+  char * _4;
+  char _5;
+  long unsigned int _7;
+  char * _8;
+  long unsigned int _9;
+  char * _10;
+  sizetype _11;
+  char * _12;
+  char _13;
+  sizetype _14;
+  char * _15;
+  sizetype _16;
+  char * _17;
+  char _18;
+  char _19;
+  unsigned char _20;
+  int _21;
+  int _22;
+  char _23;
+  int _24;
+  char * cause.13_25;
+  char * cause.14_26;
+  struct cmd_list * cmdlist.15_27;
+  struct msg_command_data * _28;
+  struct client * _29;
+  struct client * _30;
+  int _31;
+  int cfg_references.16_32;
+  int _33;
+  cmd_retval _40;
+  int _83;
+  long unsigned int _84;
+  int _85;
+  long unsigned int _86;
+  char * _87;
+  long unsigned int _88;
+  long unsigned int _89;
+  long unsigned int _90;
+  char * _91;
+  char * _92;
+  char * _93;
+
+  <bb 2> [3.20%]:
+  f_50 = fopen (path_48(D), "rb");
+  if (f_50 == 0B)
+    goto <bb 35>; [0.87%]
+  else
+    goto <bb 3>; [99.13%]
+
+  <bb 3> [3.17%]:
+  cfg_references.12_1 = cfg_references;
+  _2 = cfg_references.12_1 + 1;
+  cfg_references = _2;
+  goto <bb 36>; [100.00%]
+
+  <bb 4> [17.99%]:
+  _3 = len_39 + 18446744073709551615;
+  _4 = _93 + _3;
+  _5 = *_4;
+  if (_5 == 10)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 5> [6.12%]:
+  len_56 = len_39 + 18446744073709551615;
+
+  <bb 6> [17.99%]:
+  # len_38 = PHI <len_39(4), len_56(5)>
+  _83 = __printf_chk (1, "%s: %s", path_48(D), _93);
+  _7 = len_38 + 1;
+  line_58 = malloc (_7);
+  _8 = line_58;
+  memcpy (_8, _93, len_38);
+  _9 = len_38;
+  _10 = line_58 + len_38;
+  *_10 = 0;
+  n_62 = n_34 + 1;
+  len_63 = strlen (line_58);
+  if (len_63 != 0)
+    goto <bb 7>; [66.00%]
+  else
+    goto <bb 11>; [34.00%]
+
+  <bb 7> [11.87%]:
+  _11 = len_63 + 18446744073709551615;
+  _12 = line_58 + _11;
+  _13 = *_12;
+  if (_13 == 92)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 11>; [50.00%]
+
+  <bb 8> [5.94%]:
+  _14 = len_63 + 18446744073709551615;
+  _15 = line_58 + _14;
+  *_15 = 0;
+  if (len_63 > 1)
+    goto <bb 9>; [77.53%]
+  else
+    goto <bb 11>; [22.47%]
+
+  <bb 9> [4.60%]:
+  _16 = len_63 + 18446744073709551614;
+  _17 = line_58 + _16;
+  _18 = *_17;
+  if (_18 != 92)
+    goto <bb 10>; [64.99%]
+  else
+    goto <bb 11>; [35.01%]
+
+  <bb 10> [2.99%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 26>; [100.00%]
+
+  <bb 11> [15.00%]:
+  copy_65 = line_58;
+  buf_66 = line_58;
+  goto <bb 13>; [100.00%]
+
+  <bb 12> [85.00%]:
+  buf_79 = buf_35 + 1;
+
+  <bb 13> [100.00%]:
+  # buf_35 = PHI <line_58(11), buf_79(12)>
+  _19 = *buf_35;
+  _20 = (unsigned char) _19;
+  _21 = (int) _20;
+  _22 = isspace (_21);
+  if (_22 != 0)
+    goto <bb 12>; [85.00%]
+  else
+    goto <bb 14>; [15.00%]
+
+  <bb 14> [15.00%]:
+  _23 = *buf_35;
+  if (_23 == 0)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 15> [7.50%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 26>; [100.00%]
+
+  <bb 16> [7.50%]:
+  _24 = cmd_string_parse (buf_35, &cmdlist, &cause);
+  if (_24 != 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 17> [3.75%]:
+  free (copy_65);
+  cause.13_25 = cause;
+  if (cause.13_25 == 0B)
+    goto <bb 18>; [46.53%]
+  else
+    goto <bb 19>; [53.47%]
+
+  <bb 18> [1.74%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 26>; [100.00%]
+
+  <bb 19> [2.01%]:
+  cause.14_26 = cause;
+  free (cause.14_26);
+  // predicted unlikely by continue predictor.
+  goto <bb 26>; [100.00%]
+
+  <bb 20> [3.75%]:
+  free (copy_65);
+  cmdlist.15_27 = cmdlist;
+  if (cmdlist.15_27 == 0B)
+    goto <bb 21>; [17.43%]
+  else
+    goto <bb 22>; [82.57%]
+
+  <bb 21> [0.65%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 26>; [100.00%]
+
+  <bb 22> [3.10%]:
+  if (ctxin_69(D) == 0B)
+    goto <bb 23>; [30.00%]
+  else
+    goto <bb 24>; [70.00%]
+
+  <bb 23> [0.93%]:
+  ctx.msgdata = 0B;
+  ctx.curclient = 0B;
+  ctx.cmdclient = 0B;
+  goto <bb 25>; [100.00%]
+
+  <bb 24> [2.17%]:
+  _28 = ctxin_69(D)->msgdata;
+  ctx.msgdata = _28;
+  _29 = ctxin_69(D)->curclient;
+  ctx.curclient = _29;
+  _30 = ctxin_69(D)->cmdclient;
+  ctx.cmdclient = _30;
+
+  <bb 25> [3.10%]:
+  cfg_cause = 0B;
+
+  <bb 26> [17.99%]:
+  # n_41 = PHI <n_62(25), n_62(10), n_62(15), n_62(18), n_62(19), n_62(21)>
+  # buf_37 = PHI <buf_35(25), _93(10), buf_35(15), buf_35(18), buf_35(19), buf_35(21)>
+  # len_59 = PHI <len_63(25), len_63(10), len_63(15), len_63(18), len_63(19), len_63(21)>
+
+  <bb 36> [21.17%]:
+  # n_34 = PHI <n_41(26), 0(3)>
+  # buf_36 = PHI <buf_37(26), buf_52(D)(3)>
+  # len_39 = PHI <len_59(26), len_53(D)(3)>
+  _31 = (int) len_39;
+  _84 = __builtin_object_size (buf_36, 1);
+  if (_84 != 18446744073709551615)
+    goto <bb 27>; [79.76%]
+  else
+    goto <bb 32>; [20.24%]
+
+  <bb 27> [16.88%]:
+  _85 = __builtin_constant_p (_31);
+  if (_85 == 0)
+    goto <bb 29>; [33.00%]
+  else
+    goto <bb 28>; [67.00%]
+
+  <bb 28> [11.31%]:
+  if (_31 <= 0)
+    goto <bb 29>; [36.00%]
+  else
+    goto <bb 30>; [64.00%]
+
+  <bb 29> [9.64%]:
+  _86 = __builtin_object_size (buf_36, 1);
+  _87 = __fgets_chk (buf_36, _86, _31, f_50);
+  goto <bb 33>; [100.00%]
+
+  <bb 30> [7.24%]:
+  _88 = (long unsigned int) _31;
+  _89 = __builtin_object_size (buf_36, 1);
+  if (_88 > _89)
+    goto <bb 31>; [33.00%]
+  else
+    goto <bb 32>; [67.00%]
+
+  <bb 31> [2.39%]:
+  _90 = __builtin_object_size (buf_36, 1);
+  _91 = *__fgets_chk (buf_36, _90, _31, f_50);
+  goto <bb 33>; [100.00%]
+
+  <bb 32> [9.13%]:
+  _92 = *fgets (buf_36, _31, f_50);
+
+  <bb 33> [21.17%]:
+  # _93 = PHI <_87(29), _91(31), _92(32)>
+  if (_93 != 0B)
+    goto <bb 4>; [85.00%]
+  else
+    goto <bb 34>; [15.00%]
+
+  <bb 34> [3.17%]:
+  fclose (f_50);
+  cfg_references.16_32 = cfg_references;
+  _33 = cfg_references.16_32 + -1;
+  cfg_references = _33;
+
+  <bb 35> [3.20%]:
+  # _40 = PHI <-1(2), 0(34)>
+  cause ={v} {CLOBBER};
+  cmdlist ={v} {CLOBBER};
+  ctx ={v} {CLOBBER};
+  return _40;
+
+}
+
+
+
+;; Function main (main, funcdef_no=47, decl_uid=4262, cgraph_uid=47, symbol_order=51) (executed once)
 
 
 Analyzing function body size: main
 
-Inline summary for main/64 inlinable
-  self time:       51
+Inline summary for main/51 inlinable
+  self time:       31
   global time:     0
-  self size:       16
+  self size:       14
   global size:     0
   min size:       0
-  self stack:      22
-  global stack:    22
-    size:3.000000, time:3.000000, predicate:(true)
+  self stack:      72
+  global stack:    72
+    size:4.000000, time:4.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
-    rs6000_xfer_shared_libraries/63 function not considered for inlining
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size:12 stack: 0
+    load_cfg/50 function not considered for inlining
+      loop depth: 0 freq:1000 size: 4 time: 13 callee size:63 stack:64
+       op0 is compile time invariant
        op1 is compile time invariant
-    rand/73 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    srand/72 function body not available
-      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    time/71 mismatched arguments
+       op2 is compile time invariant
+    malloc/65 function body not available
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
        op0 is compile time invariant
 
 main ()
 {
-  int len;
-  char buf[10];
-  time_t t;
-  int _1;
-  unsigned int _2;
-  int _3;
-  int _4;
-  gdb_byte * iftmp.0_5;
+  struct causelist causes;
+  struct cmd_ctx ctxin;
+  void * _1;
 
   <bb 2> [100.00%]:
-  _1 = time (&t);
-  _2 = (unsigned int) _1;
-  srand (_2);
-  _3 = rand ();
-  _4 = _3 % 2;
-  if (_4 == 1)
-    goto <bb 4>; [30.50%]
-  else
-    goto <bb 3>; [69.50%]
-
-  <bb 3> [69.50%]:
-
-  <bb 4> [100.00%]:
-  # iftmp.0_5 = PHI <&buf(2), 0B(3)>
-  rs6000_xfer_shared_libraries (iftmp.0_5, &len);
-  t ={v} {CLOBBER};
-  buf ={v} {CLOBBER};
-  len ={v} {CLOBBER};
+  _1 = malloc (1);
+  causes.list = _1;
+  causes.num = 0;
+  causes.list = 0B;
+  causes.space = 0;
+  load_cfg ("path", &ctxin, &causes);
+  ctxin ={v} {CLOBBER};
+  causes ={v} {CLOBBER};
   return 0;
 
 }

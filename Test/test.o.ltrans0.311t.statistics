@@ -1,15 +1,47 @@
-84 inline "Symbol to SSA rewrite" "main" 10
-90 pta "Symbol to SSA rewrite" "(nofn)" 1
-97 ccp "Copies propagated" "main" 1
-97 ccp "Statements deleted" "main" 7
-115 copyprop "Copies propagated" "main" 4
-115 copyprop "Statements deleted" "main" 12
+84 inline "Symbol to SSA rewrite" "cmd_string_variable" 1
+84 inline "unused VAR_DECLs removed" "cmd_string_string" 1
+84 inline "Symbol to SSA rewrite" "cmd_string_string" 1
+84 inline "Symbol to SSA rewrite" "main" 3
+90 pta "Symbol to SSA rewrite" "(nofn)" 5
+124 dom "Copies propagated" "cmd_string_getc" 4
+124 dom "Redundant expressions eliminated" "cmd_string_getc" 3
+132 ccp "Statements deleted" "cmd_string_getc" 3
+115 copyprop "Statements deleted" "xrealloc" 1
+115 copyprop "Statements deleted" "cmd_string_variable" 2
+124 dom "Copies propagated" "cmd_string_variable" 4
+124 dom "Redundant expressions eliminated" "cmd_string_variable" 5
+124 dom "Jumps threaded" "cmd_string_variable" 3
+132 ccp "Statements deleted" "cmd_string_variable" 4
+147 loopinit "Incremental SSA update" "cmd_string_variable" 1
+153 copyprop "Statements deleted" "cmd_string_variable" 1
+184 dom "Copies propagated" "cmd_string_variable" 15
+184 dom "Constants propagated" "cmd_string_variable" 5
+184 dom "Redundant expressions eliminated" "cmd_string_variable" 11
+184 dom "Jumps threaded" "cmd_string_variable" 1
+266 combine "two-insn combine" "cmd_string_variable" 14
+115 copyprop "Statements deleted" "cmd_string_string" 1
+124 dom "Incremental SSA update" "cmd_string_string" 1
+124 dom "Redundant expressions eliminated" "cmd_string_string" 1
+147 loopinit "Incremental SSA update" "cmd_string_string" 1
+153 copyprop "Statements deleted" "cmd_string_string" 1
+184 dom "Incremental SSA update" "cmd_string_string" 1
+184 dom "Copies propagated" "cmd_string_string" 4
+266 combine "two-insn combine" "cmd_string_string" 1
+97 ccp "Statements folded" "main" 3
+97 ccp "Constants propagated" "main" 5
+97 ccp "Statements deleted" "main" 9
+115 copyprop "Copies propagated" "main" 9
+115 copyprop "Statements deleted" "main" 11
 120 ch "Incremental SSA update" "main" 1
-124 dom "Copies propagated" "main" 3
-124 dom "Redundant expressions eliminated" "main" 3
-124 dom "Jumps threaded" "main" 4
+122 sra "Scalarized aggregates" "main" 1
+124 dom "Copies propagated" "main" 6
+124 dom "Redundant expressions eliminated" "main" 9
+124 dom "Jumps threaded" "main" 5
+124 dom "Constants propagated" "main" 1
 132 ccp "Statements deleted" "main" 2
+140 sink "Sunk statements" "main" 2
 147 loopinit "Incremental SSA update" "main" 1
-153 copyprop "Statements deleted" "main" 1
-184 dom "Copies propagated" "main" 4
-266 combine "two-insn combine" "main" 4
+153 copyprop "Statements deleted" "main" 7
+184 dom "Copies propagated" "main" 14
+184 dom "Redundant expressions eliminated" "main" 1
+266 combine "two-insn combine" "main" 12

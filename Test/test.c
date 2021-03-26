@@ -1,132 +1,219 @@
 /*
-	buggy parent : a9f42cf
-	commit id : 09473be85c13eab0d794e363d898b74d66431d72
+    commit id : b2afdaf1b52231aa23d2153f4a8c5a60a694dda
 */
 
-#include "./common.h"
-#define PT_LDINFO 1
+#include <stdio.h>
+#include <stdlib.h>
 
-typedef int ptid_t;
-typedef unsigned char bfd_byte;
-typedef bfd_byte gdb_byte;
-typedef unsigned long ULONGEST;
 
-enum target_xfer_status
+#include "./stdio.h"
+#include "./openssh.h"
+
+Options options;
+struct ssh *active_state;
+
+char *
+strsep(char **stringp, const char *delim)
 {
-  /* Some bytes are transferred.  */
-  TARGET_XFER_OK = 1,
+	char *s;
+	const char *spanp;
+	int c, sc;
+	char *tok;
 
-  /* No further transfer is possible.  */
-  TARGET_XFER_EOF = 0,
-
-  /* The piece of the object requested is unavailable.  */
-  TARGET_XFER_UNAVAILABLE = 2,
-
-  /* Generic I/O error.  Note that it's important that this is '-1',
-     as we still have target_xfer-related code returning hardcoded
-     '-1' on error.  */
-  TARGET_XFER_E_IO = -1,
-
-  /* Keep list in sync with target_xfer_status_to_string.  */
-};
-
-void *
-xrealloc (void *oldmem, size_t size)
-{
-  void *newmem;
-
-  if (size == 0)
-    size = 1;
-  if (!oldmem)
-    newmem = malloc (size);
-  else
-    newmem = realloc (oldmem, size);
-  if (!newmem)
-		exit(1);
-
-  return (newmem);
+	if ((s = *stringp) == NULL)
+		return (NULL);
+	for (tok = s;;) {
+		c = *s++;
+		spanp = delim;
+		do {
+			if ((sc = *spanp++) == c) {
+				if (c == 0)
+					s = NULL;
+				else
+					s[-1] = 0;
+				*stringp = s;
+				return (tok);
+			}
+		} while (sc != 0);
+	}
+	/* NOTREACHED */
 }
 
-int remote_filename_p (const char *filename)
+size_t
+strlcat(char *dst, const char *src, size_t siz)
 {
-	return strncmp (filename, "remote:", 7) == 0;
+	char *d = dst;
+	const char *s = src;
+	size_t n = siz;
+	size_t dlen;
+
+	/* Find the end of dst and adjust bytes left but don't go past end */
+	while (n-- != 0 && *d != '\0')
+		d++;
+	dlen = d - dst;
+	n = siz - dlen;
+
+	if (n == 0)
+		return(dlen + strlen(s));
+	while (*s != '\0') {
+		if (n != 1) {
+			*d++ = *s;
+			n--;
+		}
+		s++;
+	}
+	*d = '\0';
+
+	return(dlen + (s - src));	/* count does not include NUL */
 }
 
-static int
-rs6000_ptrace64 (int req, int id, long long addr, int data, void *buf)
+/*
+ * Returns true if the given string matches the pattern (which may contain ?
+ * and * as wildcards), and zero if it does not match.
+ */
+
+int
+match_pattern(const char *s, const char *pattern)
 {
-	int i = *((int *)addr);
-	int ret;
-	__NONDET(ret, 1, (-1));
-	return ret;
+	for (;;) {
+		/* If at end of pattern, accept if also at end of string. */
+		if (!*pattern)
+			return !*s;
+
+		if (*pattern == '*') {
+			/* Skip the asterisk. */
+			pattern++;
+
+			/* If at end of pattern, accept immediately. */
+			if (!*pattern)
+				return 1;
+
+			/* If next character in pattern is known, optimize. */
+			if (*pattern != '?' && *pattern != '*') {
+				/*
+				 * Look instances of the next character in
+				 * pattern, and try to match starting from
+				 * those.
+				 */
+				for (; *s; s++)
+					if (*s == *pattern)
+						return 1;
+				/* Failed. */
+				return 0;
+			}
+			/*
+			 * Move ahead one character at a time and try to
+			 * match at each position.
+			 */
+			for (; *s; s++)
+				return 1;
+			/* Failed. */
+			return 0;
+		}
+		/*
+		 * There must be at least one more character in the string.
+		 * If we are at the end, fail.
+		 */
+		if (!*s)
+			return 0;
+
+		/* Check if the next character of the string is acceptable. */
+		if (*pattern != '?' && *pattern != *s)
+			return 0;
+
+		/* Move to the next character, both in string and in pattern. */
+		s++;
+		pattern++;
+	}
+	/* NOTREACHED */
+}
+int
+match_pattern_list(const char *string, const char *pattern, int dolower)
+{
+	char sub[1024];
+	int negated;
+	int got_positive;
+	unsigned int i, subi, len = strlen(pattern);
+
+	got_positive = 0;
+	for (i = 0; i < len;) {
+		/* Check if the subpattern is negated. */
+		if (pattern[i] == '!') {
+			negated = 1;
+			i++;
+		} else
+			negated = 0;
+
+		/*
+		 * Extract the subpattern up to a comma or end.  Convert the
+		 * subpattern to lowercase.
+		 */
+		for (subi = 0;
+		    i < len && subi < sizeof(sub) - 1 && pattern[i] != ',';
+		    subi++, i++)
+			sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+			    tolower((u_char)pattern[i]) : pattern[i];
+		/* If subpattern too long, return failure (no match). */
+		if (subi >= sizeof(sub) - 1)
+			return 0;
+
+		/* If the subpattern was terminated by a comma, skip the comma. */
+		if (i < len && pattern[i] == ',')
+			i++;
+
+		/* Null-terminate the subpattern. */
+		sub[subi] = '\0';
+
+		/* Try to match the subpattern against the string. */
+		if (match_pattern(string, sub)) {
+			if (negated)
+				return -1;		/* Negative */
+			else
+				got_positive = 1;	/* Positive */
+		}
+	}
+
+	/*
+	 * Return success if got a positive match.  If there was a negative
+	 * match, we have already returned -1 and never get here.
+	 */
+	return got_positive;
 }
 
-static gdb_byte *rs6000_ptrace_ldinfo ()
+char *
+match_filter_list(const char *proposal, const char *filter)
 {
-  const int pid = 1;
-  int ldi_size = 1024;
-  void *ldi = malloc (ldi_size); /* allocation site */
-  int rc = -1;
+    size_t len = strlen(proposal) + 1;
+    char *fix_prop = malloc(len);	/* allocation site */
+    char *orig_prop = strdup(proposal);
+    char *cp, *tmp;
 
-  while (1)
-    {
-	rc = rs6000_ptrace64 (PT_LDINFO, pid, (unsigned long) ldi, ldi_size, NULL);
-
-      if (rc != -1)
-	break; /* Success, we got the entire ld_info data.  */
-
-      /* ldi is not big enough.  Double it and try again.  */
-      ldi_size *= 2;
-      ldi = xrealloc (ldi, ldi_size);
+    if (fix_prop == NULL || orig_prop == NULL) {
+        free(orig_prop);
+        /* memory-leak */
+        return NULL;
     }
 
-  return (gdb_byte *) ldi;
-}
-
-ULONGEST
-rs6000_aix_ld_info_to_xml (const gdb_byte *ldi_buf)
-{
-	int i = *ldi_buf;
-	return i;
-}
-
-static enum target_xfer_status rs6000_xfer_shared_libraries
-  (const gdb_byte *writebuf, ULONGEST *xfered_len)
-{
-	gdb_byte *ldi_buf;
-	ULONGEST result;
-	struct cleanup *cleanup;
-
-  if (writebuf)
-    return TARGET_XFER_E_IO;
-
-  ldi_buf = rs6000_ptrace_ldinfo ();
-	if (!ldi_buf) exit(1);
-  cleanup = make_cleanup (free, ldi_buf);
-  result = rs6000_aix_ld_info_to_xml (ldi_buf);
-
-  free (ldi_buf);	/* double-free */
-  do_cleanups (cleanup);	/* double-free */
-
-  if (result == 0)
-    return TARGET_XFER_EOF;
-  else
-    {
-      *xfered_len = result;
-      return TARGET_XFER_OK;
+    tmp = orig_prop;
+    *fix_prop = '\0';
+    while ((cp = strsep(&tmp, ",")) != NULL) {
+        if (match_pattern_list(cp, filter, 0) != 1) {
+            if (*fix_prop != '\0')
+                strlcat(fix_prop, ",", len);
+            strlcat(fix_prop, cp, len);
+        }
     }
+    free(orig_prop);
+    return fix_prop;
 }
 
-int main() {
-	time_t t;
-	srand(time(&t));
-
-	char buf[10];
-	int len;
-	gdb_byte *writebuf;
-	ULONGEST *xfered_len = &len;
-	
-	__NONDET(writebuf, buf, NULL);
-
-	rs6000_xfer_shared_libraries(writebuf, xfered_len);
+int main()
+{
+	char *proposal = match_filter_list("proposal", "filter");
+	if(proposal == NULL)
+		printf("match_filter_list failed\n");
+	printf("proposal : %s\n", proposal); 	
+	return 0;
 }
+
+

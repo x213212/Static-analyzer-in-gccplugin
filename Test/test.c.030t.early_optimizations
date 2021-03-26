@@ -14,486 +14,1252 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function do_my_cleanups (do_my_cleanups, funcdef_no=48, decl_uid=3170, cgraph_uid=48, symbol_order=53)
+;; Function fgets (fgets, funcdef_no=20, decl_uid=2081, cgraph_uid=20, symbol_order=20)
 
-do_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
+__attribute__((__artificial__, __gnu_inline__, __always_inline__))
+fgets (char * restrict __s, int __n, struct FILE * restrict __stream)
 {
-  int D.3355;
-  int D.3353;
-  struct cleanup * ptr;
-  struct cleanup * _1;
-  void (*<Ted>) (void *) _2;
-  void * _3;
-  void * _4;
-  void (*<Ted>) (void *) _5;
-  void (*<Ted>) (void *) _6;
-  void * _7;
+  long unsigned int _1;
+  int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  char * _7;
+  char * _14;
+  char * _16;
+  char * _18;
+
+  <bb 2> [0.00%]:
+  _1 = __builtin_object_size (__s_10(D), 1);
+  if (_1 != 18446744073709551615)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _2 = __builtin_constant_p (__n_11(D));
+  if (_2 == 0)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 4> [0.00%]:
+  if (__n_11(D) <= 0)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  _3 = __builtin_object_size (__s_10(D), 1);
+  _16 = __fgets_chk (__s_10(D), _3, __n_11(D), __stream_12(D));
+  goto <bb 9>; [0.00%]
+
+  <bb 6> [0.00%]:
+  _4 = (long unsigned int) __n_11(D);
+  _5 = __builtin_object_size (__s_10(D), 1);
+  if (_4 > _5)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 7> [0.00%]:
+  _6 = __builtin_object_size (__s_10(D), 1);
+  _14 = *__fgets_chk (__s_10(D), _6, __n_11(D), __stream_12(D));
+  goto <bb 9>; [0.00%]
+
+  <bb 8> [0.00%]:
+  _18 = *fgets (__s_10(D), __n_11(D), __stream_12(D));
+
+  <bb 9> [0.00%]:
+  # _7 = PHI <_16(5), _14(7), _18(8)>
+  return _7;
+
+}
+
+
+
+;; Function xrealloc (xrealloc, funcdef_no=39, decl_uid=4125, cgraph_uid=39, symbol_order=43)
+
+xrealloc (void * oldptr, size_t nmemb, size_t size)
+{
+  int D.4407;
+  int D.4405;
+  int D.4403;
+  void * newptr;
+  size_t newsize;
+  long unsigned int _1;
+  unsigned int _2;
+  int _3;
+  long unsigned int _4;
+  void * _12;
+  int _19;
   int _20;
   int _21;
 
   <bb 2> [0.00%]:
-  goto <bb 6>; [0.00%]
+  newsize_7 = nmemb_5(D) * size_6(D);
+  if (newsize_7 == 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
 
   <bb 3> [100.00%]:
-  _1 = ptr_12->next;
-  *pmy_chain_11(D) = _1;
-  _2 = ptr_12->function;
-  _3 = ptr_12->arg;
-  _2 (_3);
-  _21 = __printf_chk (1, "cleanup!!!!! =========\n");
-  _23 = _21;
-  _4 = ptr_12->arg;
-  _20 = __printf_chk (1, "%x\n", _4);
-  _25 = _20;
-  _5 = ptr_12->free_arg;
-  if (_5 != 0B)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _6 = ptr_12->free_arg;
-  _7 = ptr_12->arg;
-  _6 (_7);
-
-  <bb 5> [0.00%]:
-  free (ptr_12);
-
-  <bb 6> [0.00%]:
-  ptr_12 = *pmy_chain_11(D);
-  if (ptr_12 != old_chain_13(D))
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 7> [0.00%]:
-  return;
-
-}
-
-
-
-;; Function make_my_cleanup2 (make_my_cleanup2, funcdef_no=50, decl_uid=3178, cgraph_uid=50, symbol_order=55)
-
-make_my_cleanup2 (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg, void (*<Ted>) (void *) free_arg)
-{
-  struct cleanup * old_chain;
-  struct cleanup * new;
-  struct cleanup * _1;
-  struct cleanup * _15;
-
-  <bb 2> [0.00%]:
-  new_4 = malloc (32);
-  old_chain_6 = *pmy_chain_5(D);
-  _1 = *pmy_chain_5(D);
-  new_4->next = _1;
-  new_4->function = function_8(D);
-  new_4->free_arg = free_arg_10(D);
-  new_4->arg = arg_12(D);
-  *pmy_chain_5(D) = new_4;
-  if (old_chain_6 == 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
+  _19 = __printf_chk (1, "zero size%s", "");
+  _27 = _19;
   exit (1);
 
   <bb 4> [0.00%]:
-  _15 = old_chain_6;
-  return _15;
-
-}
-
-
-
-;; Function make_my_cleanup (make_my_cleanup, funcdef_no=51, decl_uid=3182, cgraph_uid=51, symbol_order=56)
-
-make_my_cleanup (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg)
-{
-  struct cleanup * _6;
-
-  <bb 2> [0.00%]:
-  _6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
-  return _6;
-
-}
-
-
-
-;; Function rs6000_ptrace64 (rs6000_ptrace64, funcdef_no=55, decl_uid=3252, cgraph_uid=55, symbol_order=60)
-
-rs6000_ptrace64 (int req, int id, long long int addr, int data, void * buf)
-{
-  int ret;
-  int i;
-  int * addr.2_1;
-  int _2;
-  int _3;
-  int iftmp.3_4;
-  int iftmp.3_9;
-  int iftmp.3_10;
-  int _12;
-
-  <bb 2> [0.00%]:
-  addr.2_1 = (int *) addr_5(D);
-  i_7 = *addr.2_1;
-  _2 = rand ();
-  _3 = _2 % 2;
-  if (_3 == 1)
-    goto <bb 3>; [0.00%]
+  _1 = 30 / nmemb_5(D);
+  _2 = (unsigned int) _1;
+  _3 = 1 << _2;
+  _4 = (long unsigned int) _3;
+  if (size_6(D) > _4)
+    goto <bb 5>; [0.00%]
   else
-    goto <bb 4>; [0.00%]
+    goto <bb 6>; [0.00%]
 
-  <bb 3> [0.00%]:
-  iftmp.3_10 = 1;
-  goto <bb 5>; [0.00%]
+  <bb 5> [100.00%]:
+  _20 = __printf_chk (1, "nmemb * size > SIZE_MAX%s", "");
+  _25 = _20;
+  exit (1);
 
-  <bb 4> [0.00%]:
-  iftmp.3_9 = -1;
+  <bb 6> [0.00%]:
+  newptr_11 = realloc (oldptr_9(D), newsize_7);
+  if (newptr_11 == 0B)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
 
-  <bb 5> [0.00%]:
-  # iftmp.3_4 = PHI <iftmp.3_10(3), iftmp.3_9(4)>
-  ret_11 = iftmp.3_4;
-  _12 = ret_11;
+  <bb 7> [100.00%]:
+  _21 = __printf_chk (1, "xrealloc failed%s", "");
+  _23 = _21;
+  exit (1);
+
+  <bb 8> [0.00%]:
+  _12 = newptr_11;
   return _12;
 
 }
 
 
 
-;; Function discard_my_cleanups (discard_my_cleanups, funcdef_no=47, decl_uid=3165, cgraph_uid=47, symbol_order=52)
+;; Function cmd_string_getc (cmd_string_getc, funcdef_no=40, decl_uid=4131, cgraph_uid=40, symbol_order=44)
 
-discard_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
+cmd_string_getc (const char * s, size_t * p)
 {
-  int D.3358;
-  struct cleanup * ptr;
-  struct cleanup * _1;
-  void (*<Ted>) (void *) _2;
-  void (*<Ted>) (void *) _3;
-  void * _4;
-  void * _5;
+  const u_char * ucs;
+  long unsigned int _1;
+  const u_char * _2;
+  unsigned char _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  const u_char * _7;
+  unsigned char _8;
+  int _9;
   int _16;
+  int _17;
 
   <bb 2> [0.00%]:
-  goto <bb 6>; [0.00%]
+  ucs_12 = s_11(D);
+  _1 = *p_14(D);
+  _2 = ucs_12 + _1;
+  _3 = *_2;
+  if (_3 == 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
-  _1 = ptr_10->next;
-  *pmy_chain_9(D) = _1;
-  _2 = ptr_10->free_arg;
-  if (_2 != 0B)
+  _17 = -1;
+  goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  _4 = *p_14(D);
+  _5 = _4;
+  _6 = _5 + 1;
+  *p_14(D) = _6;
+  _7 = ucs_12 + _5;
+  _8 = *_7;
+  _16 = (int) _8;
+
+  <bb 5> [0.00%]:
+  # _9 = PHI <_17(3), _16(4)>
+  return _9;
+
+}
+
+
+
+;; Function cmd_string_ungetc (cmd_string_ungetc, funcdef_no=41, decl_uid=4135, cgraph_uid=41, symbol_order=45)
+
+cmd_string_ungetc (size_t * p)
+{
+  long unsigned int _1;
+  long unsigned int _2;
+
+  <bb 2> [0.00%]:
+  _1 = *p_4(D);
+  _2 = _1 + 18446744073709551615;
+  *p_4(D) = _2;
+  return;
+
+}
+
+
+
+;; Function cmd_string_variable (cmd_string_variable, funcdef_no=42, decl_uid=4139, cgraph_uid=42, symbol_order=46)
+
+cmd_string_variable (const char * s, size_t * p)
+{
+  struct environ_entry * envent;
+  size_t len;
+  char * t;
+  char * buf;
+  int fch;
+  int ch;
+  _Bool _1;
+  unsigned int ch.0_2;
+  unsigned int _3;
+  _Bool _4;
+  _Bool _5;
+  unsigned int ch.1_6;
+  unsigned int _7;
+  _Bool _8;
+  unsigned int ch.2_9;
+  unsigned int _10;
+  _Bool _11;
+  _Bool _12;
+  unsigned int ch.3_13;
+  unsigned int _14;
+  long unsigned int _15;
+  long unsigned int len.4_16;
+  char * _17;
+  char _18;
+  _Bool _19;
+  unsigned int ch.5_20;
+  unsigned int _21;
+  _Bool _22;
+  _Bool _23;
+  unsigned int ch.6_24;
+  unsigned int _25;
+  unsigned int ch.7_26;
+  unsigned int _27;
+  long unsigned int _28;
+  long unsigned int len.8_29;
+  char * _30;
+  char _31;
+  _Bool _32;
+  _Bool _33;
+  _Bool _34;
+  _Bool _35;
+  _Bool _36;
+  _Bool _37;
+  long unsigned int _38;
+  char * _39;
+  char * _40;
+  char * _46;
+  char * _64;
+  char * _82;
+  char * _84;
+  char * _86;
+
+  <bb 2> [0.00%]:
+  buf_52 = 0B;
+  len_53 = 0;
+  fch_54 = -1;
+  ch_59 = cmd_string_getc (s_56(D), p_57(D));
+  switch (ch_59) <default: <L3> [0.00%], case -1: error [0.00%], case 123: <L1> [0.00%]>
+
+<L1> [0.00%]:
+  fch_60 = 123;
+  ch_62 = cmd_string_getc (s_56(D), p_57(D));
+  _1 = ch_62 != 95;
+  ch.0_2 = (unsigned int) ch_62;
+  _3 = ch.0_2 + 4294967199;
+  _4 = _3 > 25;
+  _5 = _1 & _4;
+  if (_5 != 0)
     goto <bb 4>; [0.00%]
+  else
+    goto <bb 5> (<L3>); [0.00%]
+
+  <bb 4> [0.00%]:
+  ch.1_6 = (unsigned int) ch_62;
+  _7 = ch.1_6 + 4294967231;
+  if (_7 > 25)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 5> (<L3>); [0.00%]
+
+  # ch_41 = PHI <ch_59(2), ch_62(3), ch_62(4)>
+  # fch_42 = PHI <fch_54(2), fch_60(3), fch_60(4)>
+<L3> [0.00%]:
+  _8 = ch_41 != 95;
+  ch.2_9 = (unsigned int) ch_41;
+  _10 = ch.2_9 + 4294967199;
+  _11 = _10 > 25;
+  _12 = _8 & _11;
+  if (_12 != 0)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 6> [0.00%]:
+  ch.3_13 = (unsigned int) ch_41;
+  _14 = ch.3_13 + 4294967231;
+  if (_14 > 25)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 7> [0.00%]:
+  _64 = t_63(D);
+  goto <bb 22>; [0.00%]
+
+  <bb 8> [0.00%]:
+  _15 = len_53 + 1;
+  buf_66 = xrealloc (buf_52, 1, _15);
+  len.4_16 = len_53;
+  len_67 = len.4_16 + 1;
+  _17 = buf_66 + len.4_16;
+  _18 = (char) ch_41;
+  *_17 = _18;
+
+  <bb 9> [0.00%]:
+  # buf_43 = PHI <buf_66(8), buf_72(14)>
+  # len_45 = PHI <len_67(8), len_73(14)>
+  ch_70 = cmd_string_getc (s_56(D), p_57(D));
+  if (ch_70 == -1)
+    goto <bb 15>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 10> [0.00%]:
+  _19 = ch_70 != 95;
+  ch.5_20 = (unsigned int) ch_70;
+  _21 = ch.5_20 + 4294967199;
+  _22 = _21 > 25;
+  _23 = _19 & _22;
+  if (_23 != 0)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 11> [0.00%]:
+  ch.6_24 = (unsigned int) ch_70;
+  _25 = ch.6_24 + 4294967231;
+  if (_25 > 25)
+    goto <bb 12>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 12> [0.00%]:
+  ch.7_26 = (unsigned int) ch_70;
+  _27 = ch.7_26 + 4294967248;
+  if (_27 > 9)
+    goto <bb 15>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 13> [0.00%]:
+  if (len_45 > 1073741820)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 14> [0.00%]:
+  _28 = len_45 + 1;
+  buf_72 = xrealloc (buf_43, 1, _28);
+  len.8_29 = len_45;
+  len_73 = len.8_29 + 1;
+  _30 = buf_72 + len.8_29;
+  _31 = (char) ch_70;
+  *_30 = _31;
+  goto <bb 9>; [0.00%]
+
+  <bb 15> [0.00%]:
+  _32 = fch_42 == 123;
+  _33 = ch_70 != 125;
+  _34 = _32 & _33;
+  if (_34 != 0)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 16>; [0.00%]
+
+  <bb 16> [0.00%]:
+  _35 = ch_70 != -1;
+  _36 = fch_42 != 123;
+  _37 = _35 & _36;
+  if (_37 != 0)
+    goto <bb 17>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 17> [0.00%]:
+  cmd_string_ungetc (p_57(D));
+
+  <bb 18> [0.00%]:
+  _38 = len_45 + 1;
+  buf_77 = xrealloc (buf_43, 1, _38);
+  _39 = buf_77 + len_45;
+  *_39 = 0;
+  free (buf_77);
+  if (envent_80(D) == 0B)
+    goto <bb 19>; [0.00%]
+  else
+    goto <bb 20>; [0.00%]
+
+  <bb 19> [0.00%]:
+  _84 = strdup ("");
+  goto <bb 22>; [0.00%]
+
+  <bb 20> [0.00%]:
+  _40 = envent_80(D)->value;
+  _82 = strdup (_40);
+  goto <bb 22>; [0.00%]
+
+  # buf_44 = PHI <buf_52(2), buf_52(4), buf_43(13), buf_43(15)>
+error [0.00%]:
+  free (buf_44);
+  _86 = 0B;
+
+  <bb 22> [0.00%]:
+  # _46 = PHI <_64(7), _84(19), _82(20), _86(21)>
+  return _46;
+
+}
+
+
+
+;; Function cmd_string_string (cmd_string_string, funcdef_no=43, decl_uid=4159, cgraph_uid=43, symbol_order=47)
+
+cmd_string_string (const char * s, size_t * p, char endch, int esc)
+{
+  size_t len;
+  char * t;
+  char * buf;
+  int ch;
+  long unsigned int _1;
+  long unsigned int len.9_2;
+  char * _3;
+  char _4;
+  int _5;
+  long unsigned int _6;
+  char * _7;
+  char * _11;
+  char * _27;
+  char * _42;
+
+  <bb 2> [0.00%]:
+  buf_16 = 0B;
+  len_17 = 0;
+  goto <bb 15>; [0.00%]
+
+  <bb 3> [0.00%]:
+  switch (ch_22) <default: <L14> [0.00%], case -1: error [0.00%], case 36: <L11> [0.00%], case 92: <L2> [0.00%]>
+
+<L2> [0.00%]:
+  if (esc_28(D) == 0)
+    goto <bb 13> (<L14>); [0.00%]
   else
     goto <bb 5>; [0.00%]
 
-  <bb 4> [0.00%]:
-  _3 = ptr_10->free_arg;
-  _4 = ptr_10->arg;
-  _3 (_4);
-
   <bb 5> [0.00%]:
-  free (ptr_10);
+  ch_30 = cmd_string_getc (s_19(D), p_20(D));
+  switch (ch_30) <default: <L14> [0.00%], case -1: error [0.00%], case 101: <L5> [0.00%], case 110: <L7> [0.00%], case 114: <L6> [0.00%], case 116: <L8> [0.00%]>
 
-  <bb 6> [0.00%]:
-  ptr_10 = *pmy_chain_9(D);
-  if (ptr_10 != old_chain_11(D))
+<L5> [0.00%]:
+  ch_34 = 27;
+  goto <bb 13> (<L14>); [0.00%]
+
+<L6> [0.00%]:
+  ch_32 = 13;
+  goto <bb 13> (<L14>); [0.00%]
+
+<L7> [0.00%]:
+  ch_33 = 10;
+  goto <bb 13> (<L14>); [0.00%]
+
+<L8> [0.00%]:
+  ch_31 = 9;
+  goto <bb 13> (<L14>); [0.00%]
+
+<L11> [0.00%]:
+  if (esc_28(D) == 0)
+    goto <bb 13> (<L14>); [0.00%]
+  else
+    goto <bb 11>; [0.00%]
+
+  <bb 11> [0.00%]:
+  t_36 = cmd_string_variable (s_19(D), p_20(D));
+  if (t_36 == 0B)
+    goto <bb 17> (error); [0.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 12> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 15>; [0.00%]
+
+  # ch_8 = PHI <ch_22(3), ch_22(4), ch_34(6), ch_22(10), ch_30(5), ch_31(9), ch_33(8), ch_32(7)>
+<L14> [0.00%]:
+  if (len_10 > 1073741821)
+    goto <bb 17> (error); [0.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 14> [0.00%]:
+  _1 = len_10 + 1;
+  buf_38 = xrealloc (buf_9, 1, _1);
+  len.9_2 = len_10;
+  len_39 = len.9_2 + 1;
+  _3 = buf_38 + len.9_2;
+  _4 = (char) ch_8;
+  *_3 = _4;
+
+  <bb 15> [0.00%]:
+  # buf_9 = PHI <buf_16(2), buf_9(12), buf_38(14)>
+  # len_10 = PHI <len_17(2), len_10(12), len_39(14)>
+  ch_22 = cmd_string_getc (s_19(D), p_20(D));
+  _5 = (int) endch_23(D);
+  if (ch_22 != _5)
     goto <bb 3>; [0.00%]
   else
-    goto <bb 7>; [0.00%]
+    goto <bb 16>; [0.00%]
 
-  <bb 7> [100.00%]:
-  _5 = ptr_10->arg;
-  _16 = __printf_chk (1, "freearg: %x\n", _5);
-  _18 = _16;
-  return;
+  <bb 16> [0.00%]:
+  _6 = len_10 + 1;
+  buf_25 = xrealloc (buf_9, 1, _6);
+  _7 = buf_25 + len_10;
+  *_7 = 0;
+  _27 = buf_25;
+  goto <bb 18>; [0.00%]
 
-}
+error [0.00%]:
+  free (buf_9);
+  _42 = 0B;
 
-
-
-;; Function discard_cleanups (discard_cleanups, funcdef_no=45, decl_uid=3162, cgraph_uid=45, symbol_order=50)
-
-discard_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [0.00%]:
-  discard_my_cleanups (&cleanup_chain, old_chain_2(D));
-  return;
+  <bb 18> [0.00%]:
+  # _11 = PHI <_27(16), _42(17)>
+  return _11;
 
 }
 
 
 
-;; Function discard_final_cleanups (discard_final_cleanups, funcdef_no=46, decl_uid=3167, cgraph_uid=46, symbol_order=51)
+;; Function cmd_string_expand_tilde (cmd_string_expand_tilde, funcdef_no=44, decl_uid=4181, cgraph_uid=44, symbol_order=48)
 
-discard_final_cleanups (struct cleanup * old_chain)
+cmd_string_expand_tilde (const char * s, size_t * p)
 {
-  <bb 2> [0.00%]:
-  discard_my_cleanups (&final_cleanup_chain, old_chain_2(D));
-  return;
-
-}
-
-
-
-;; Function do_cleanups (do_cleanups, funcdef_no=49, decl_uid=3172, cgraph_uid=49, symbol_order=54)
-
-do_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [0.00%]:
-  do_my_cleanups (&cleanup_chain, old_chain_2(D));
-  return;
-
-}
-
-
-
-;; Function make_cleanup (make_cleanup, funcdef_no=52, decl_uid=3185, cgraph_uid=52, symbol_order=57)
-
-make_cleanup (void (*<Ta1d>) (void *) function, void * arg)
-{
-  struct cleanup * _5;
+  char * username;
+  char * home;
+  struct environ_entry * envent;
+  struct passwd * pw;
+  int _1;
+  char * _2;
+  char _3;
+  int _4;
+  int _5;
+  long int _6;
+  int _7;
+  long int _8;
+  char * _11;
+  char * _26;
+  char * _34;
+  char * _35;
 
   <bb 2> [0.00%]:
-  _5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
-  return _5;
-
-}
-
-
-
-;; Function xrealloc (xrealloc, funcdef_no=53, decl_uid=3240, cgraph_uid=53, symbol_order=58)
-
-xrealloc (void * oldmem, size_t size)
-{
-  void * newmem;
-  void * _12;
-
-  <bb 2> [0.00%]:
-  if (size_4(D) == 0)
+  home_14 = 0B;
+  _1 = cmd_string_getc (s_16(D), p_17(D));
+  if (_1 == 47)
     goto <bb 3>; [0.00%]
   else
-    goto <bb 4>; [0.00%]
+    goto <bb 8>; [0.00%]
 
   <bb 3> [0.00%]:
-  size_5 = 1;
+  if (envent_27(D) != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
 
   <bb 4> [0.00%]:
-  # size_1 = PHI <size_4(D)(2), size_5(3)>
-  if (oldmem_6(D) == 0B)
+  _2 = envent_27(D)->value;
+  _3 = *_2;
+  if (_3 != 0)
     goto <bb 5>; [0.00%]
   else
     goto <bb 6>; [0.00%]
 
   <bb 5> [0.00%]:
-  newmem_11 = malloc (size_1);
-  goto <bb 7>; [0.00%]
+  home_28 = envent_27(D)->value;
+  goto <bb 13>; [0.00%]
 
   <bb 6> [0.00%]:
-  newmem_9 = realloc (oldmem_6(D), size_1);
+  _4 = getuid ();
+  _5 = getpwuid (_4);
+  _6 = (long int) _5;
+  pw_31 = (struct passwd *) _6;
+  if (pw_31 != 0B)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
 
   <bb 7> [0.00%]:
-  # newmem_2 = PHI <newmem_11(5), newmem_9(6)>
-  if (newmem_2 == 0B)
+  home_32 = pw_31->pw_dir;
+  goto <bb 13>; [0.00%]
+
+  <bb 8> [0.00%]:
+  cmd_string_ungetc (p_17(D));
+  username_21 = cmd_string_string (s_16(D), p_17(D), 47, 0);
+  if (username_21 == 0B)
+    goto <bb 9>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 9> [0.00%]:
+  _26 = 0B;
+  goto <bb 16>; [0.00%]
+
+  <bb 10> [0.00%]:
+  _7 = getpwnam (username_21);
+  _8 = (long int) _7;
+  pw_23 = (struct passwd *) _8;
+  if (pw_23 != 0B)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 11> [0.00%]:
+  home_24 = pw_23->pw_dir;
+
+  <bb 12> [0.00%]:
+  # home_9 = PHI <home_14(10), home_24(11)>
+  free (username_21);
+
+  <bb 13> [0.00%]:
+  # home_10 = PHI <home_14(6), home_9(12), home_28(5), home_32(7)>
+  if (home_10 == 0B)
+    goto <bb 14>; [0.00%]
+  else
+    goto <bb 15>; [0.00%]
+
+  <bb 14> [0.00%]:
+  _35 = 0B;
+  goto <bb 16>; [0.00%]
+
+  <bb 15> [0.00%]:
+  _34 = strdup (home_10);
+
+  <bb 16> [0.00%]:
+  # _11 = PHI <_26(9), _35(14), _34(15)>
+  return _11;
+
+}
+
+
+
+;; Function cmd_string_parse (cmd_string_parse, funcdef_no=45, decl_uid=4198, cgraph_uid=45, symbol_order=49)
+
+cmd_string_parse (const char * s, struct cmd_list * * cmdlist, char * * cause)
+{
+  size_t len;
+  const char * equals;
+  const char * whitespace;
+  char * t;
+  char * buf;
+  char * * argv;
+  int rval;
+  int argc;
+  int i;
+  int ch;
+  size_t p;
+  long unsigned int _1;
+  char * _2;
+  int _3;
+  long unsigned int _4;
+  int argc.10_5;
+  long unsigned int _6;
+  long unsigned int _7;
+  char * * _8;
+  char * _9;
+  char * _10;
+  char * _11;
+  long unsigned int _12;
+  _Bool _13;
+  _Bool _14;
+  _Bool _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  char * * _18;
+  struct cmd_list * _19;
+  long unsigned int _20;
+  long unsigned int len.11_21;
+  char * _22;
+  char _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  char * * _26;
+  char * _27;
+  int _98;
+
+  <bb 2> [0.00%]:
+  argv_51 = 0B;
+  argc_52 = 0;
+  buf_53 = 0B;
+  len_54 = 0;
+  *cause_56(D) = 0B;
+  *cmdlist_58(D) = 0B;
+  rval_60 = -1;
+  p = 0;
+
+  <bb 3> [0.00%]:
+  # argc_30 = PHI <argc_52(2), argc_30(5), argc_30(4), argc_30(20), argc_30(18), argc_31(10), argc_30(6)>
+  # argv_35 = PHI <argv_51(2), argv_35(5), argv_35(4), argv_35(20), argv_35(18), argv_36(10), argv_35(6)>
+  # buf_38 = PHI <buf_53(2), buf_38(5), buf_38(4), buf_90(20), buf_38(18), buf_39(10), buf_38(6)>
+  # len_41 = PHI <len_54(2), len_41(5), len_41(4), len_91(20), len_41(18), len_42(10), len_41(6)>
+  ch_64 = cmd_string_getc (s_62(D), &p);
+  switch (ch_64) <default: <L26> [0.00%], case -1: <L10> [0.00%], case 9: <L10> [0.00%], case 32: <L10> [0.00%], case 34: <L3> [0.00%], case 35: <L39> [0.00%], case 36: <L5> [0.00%], case 39: <L1> [0.00%], case 126: <L23> [0.00%]>
+
+<L1> [0.00%]:
+  t_68 = cmd_string_string (s_62(D), &p, 39, 0);
+  if (t_68 == 0B)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 3>; [0.00%]
+
+<L3> [0.00%]:
+  t_74 = cmd_string_string (s_62(D), &p, 34, 1);
+  if (t_74 == 0B)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 3>; [0.00%]
+
+<L5> [0.00%]:
+  t_70 = cmd_string_variable (s_62(D), &p);
+  if (t_70 == 0B)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 3>; [0.00%]
+
+<L39> [0.00%]:
+  ch_72 = cmd_string_getc (s_62(D), &p);
+  if (ch_72 != -1)
+    goto <bb 7> (<L39>); [0.00%]
+  else
+    goto <bb 8> (<L10>); [0.00%]
+
+  # ch_28 = PHI <ch_64(3), ch_72(7)>
+<L10> [0.00%]:
+  if (buf_38 != 0B)
+    goto <bb 9>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 9> [0.00%]:
+  _1 = len_41 + 1;
+  buf_76 = xrealloc (buf_38, 1, _1);
+  _2 = buf_76 + len_41;
+  *_2 = 0;
+  _3 = argc_30 + 1;
+  _4 = (long unsigned int) _3;
+  argv_79 = xrealloc (argv_35, _4, 8);
+  argc.10_5 = argc_30;
+  argc_80 = argc.10_5 + 1;
+  _6 = (long unsigned int) argc.10_5;
+  _7 = _6 * 8;
+  _8 = argv_79 + _7;
+  *_8 = buf_76;
+  buf_82 = 0B;
+  len_83 = 0;
+
+  <bb 10> [0.00%]:
+  # argc_31 = PHI <argc_30(8), argc_80(9)>
+  # argv_36 = PHI <argv_35(8), argv_79(9)>
+  # buf_39 = PHI <buf_38(8), buf_82(9)>
+  # len_42 = PHI <len_41(8), len_83(9)>
+  if (ch_28 != -1)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 11> [0.00%]:
+  _9 = *argv_36;
+  equals_84 = strchr (_9, 61);
+  _10 = *argv_36;
+  _11 = *argv_36;
+  _12 = strcspn (_11, " \t");
+  whitespace_85 = _10 + _12;
+  _13 = equals_84 == 0B;
+  _14 = equals_84 > whitespace_85;
+  _15 = _13 | _14;
+  if (_15 != 0)
+    goto <bb 14>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 12> [0.00%]:
+  argc_86 = argc_32 + -1;
+  _16 = (long unsigned int) argc_86;
+  _17 = _16 * 8;
+  _18 = argv_36 + 8;
+  memmove (argv_36, _18, _17);
+
+  <bb 13> [0.00%]:
+  # argc_32 = PHI <argc_31(10), argc_86(12)>
+  if (argc_32 != 0)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 14> [0.00%]:
+  if (argc_32 == 0)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 15>; [0.00%]
+
+  <bb 15> [0.00%]:
+  _19 = *cmdlist_58(D);
+  if (_19 == 0B)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 16>; [0.00%]
+
+  <bb 16> [0.00%]:
+  rval_88 = 0;
+  goto <bb 21> (error); [0.00%]
+
+<L23> [0.00%]:
+  if (buf_38 == 0B)
+    goto <bb 18>; [0.00%]
+  else
+    goto <bb 19> (<L26>); [0.00%]
+
+  <bb 18> [0.00%]:
+  t_66 = cmd_string_expand_tilde (s_62(D), &p);
+  if (t_66 == 0B)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 3>; [0.00%]
+
+<L26> [0.00%]:
+  if (len_41 > 1073741821)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 20>; [0.00%]
+
+  <bb 20> [0.00%]:
+  _20 = len_41 + 1;
+  buf_90 = xrealloc (buf_38, 1, _20);
+  len.11_21 = len_41;
+  len_91 = len.11_21 + 1;
+  _22 = buf_90 + len.11_21;
+  _23 = (char) ch_64;
+  *_22 = _23;
+  goto <bb 3>; [0.00%]
+
+  # argc_33 = PHI <argc_30(4), argc_30(5), argc_30(6), argc_32(14), argc_32(15), argc_32(16), argc_30(18), argc_30(19)>
+  # rval_34 = PHI <rval_60(4), rval_60(5), rval_60(6), rval_60(14), rval_60(15), rval_88(16), rval_60(18), rval_60(19)>
+  # argv_37 = PHI <argv_35(4), argv_35(5), argv_35(6), argv_36(14), argv_36(15), argv_36(16), argv_35(18), argv_35(19)>
+  # buf_40 = PHI <buf_38(4), buf_38(5), buf_38(6), buf_39(14), buf_39(15), buf_39(16), buf_38(18), buf_38(19)>
+error [0.00%]:
+out [0.00%]:
+  free (buf_40);
+  if (argv_37 != 0B)
+    goto <bb 22>; [0.00%]
+  else
+    goto <bb 26>; [0.00%]
+
+  <bb 22> [0.00%]:
+  i_94 = 0;
+  goto <bb 24>; [0.00%]
+
+  <bb 23> [0.00%]:
+  _24 = (long unsigned int) i_29;
+  _25 = _24 * 8;
+  _26 = argv_37 + _25;
+  _27 = *_26;
+  free (_27);
+  i_97 = i_29 + 1;
+
+  <bb 24> [0.00%]:
+  # i_29 = PHI <i_94(22), i_97(23)>
+  if (i_29 < argc_33)
+    goto <bb 23>; [0.00%]
+  else
+    goto <bb 25>; [0.00%]
+
+  <bb 25> [0.00%]:
+  free (argv_37);
+
+  <bb 26> [0.00%]:
+  _98 = rval_34;
+  p ={v} {CLOBBER};
+  return _98;
+
+}
+
+
+
+;; Function load_cfg (load_cfg, funcdef_no=46, decl_uid=4239, cgraph_uid=46, symbol_order=50)
+
+load_cfg (const char * path, struct cmd_ctx * ctxin, struct causelist * causes)
+{
+  char * D.4418;
+  int D.4414;
+  cmd_retval retval;
+  struct cmd_ctx ctx;
+  struct cmd_list * cmdlist;
+  size_t oldlen;
+  size_t len;
+  char * cause;
+  char * line;
+  char * copy;
+  char * buf;
+  u_int n;
+  struct FILE * f;
+  int cfg_references.12_1;
+  int _2;
+  sizetype _3;
+  char * _4;
+  char _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  char * _9;
+  long unsigned int _10;
+  char * _11;
+  sizetype _12;
+  char * _13;
+  char _14;
+  sizetype _15;
+  char * _16;
+  sizetype _17;
+  char * _18;
+  char _19;
+  char _20;
+  unsigned char _21;
+  int _22;
+  int _23;
+  char _24;
+  int _25;
+  char * cause.13_26;
+  char * cause.14_27;
+  struct cmd_list * cmdlist.15_28;
+  struct msg_command_data * _29;
+  struct client * _30;
+  struct client * _31;
+  int _32;
+  int cfg_references.16_33;
+  int _34;
+  cmd_retval _43;
+  cmd_retval _65;
+  cmd_retval _95;
+  int _99;
+  long unsigned int _100;
+  int _101;
+  long unsigned int _102;
+  char * _103;
+  long unsigned int _104;
+  long unsigned int _105;
+  long unsigned int _106;
+  char * _107;
+  char * _108;
+  char * _109;
+
+  <bb 2> [0.00%]:
+  f_53 = fopen (path_51(D), "rb");
+  if (f_53 == 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _95 = -1;
+  goto <bb 41>; [0.00%]
+
+  <bb 4> [0.00%]:
+  cfg_references.12_1 = cfg_references;
+  _2 = cfg_references.12_1 + 1;
+  cfg_references = _2;
+  n_55 = 0;
+  line_56 = 0B;
+  retval_57 = 0;
+  goto <bb 30>; [0.00%]
+
+  <bb 5> [0.00%]:
+  _3 = len_41 + 18446744073709551615;
+  _4 = buf_61 + _3;
+  _5 = *_4;
+  if (_5 == 10)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 6> [0.00%]:
+  len_66 = len_41 + 18446744073709551615;
+
+  <bb 7> [100.00%]:
+  # len_40 = PHI <len_41(5), len_66(6)>
+  _99 = __printf_chk (1, "%s: %s", path_51(D), buf_61);
+  _116 = _99;
+  if (line_39 != 0B)
     goto <bb 8>; [0.00%]
   else
     goto <bb 9>; [0.00%]
 
   <bb 8> [0.00%]:
-  exit (1);
+  oldlen_71 = strlen (line_39);
+  _6 = oldlen_71 + len_40;
+  _7 = _6 + 1;
+  line_73 = xrealloc (line_39, 1, _7);
+  goto <bb 10>; [0.00%]
 
   <bb 9> [0.00%]:
-  _12 = newmem_2;
-  return _12;
+  oldlen_68 = 0;
+  _8 = len_40 + 1;
+  line_70 = malloc (_8);
 
-}
+  <bb 10> [0.00%]:
+  # line_38 = PHI <line_73(8), line_70(9)>
+  # oldlen_42 = PHI <oldlen_71(8), oldlen_68(9)>
+  _9 = line_38 + oldlen_42;
+  memcpy (_9, buf_61, len_40);
+  _10 = oldlen_42 + len_40;
+  _11 = line_38 + _10;
+  *_11 = 0;
+  n_76 = n_35 + 1;
+  len_77 = strlen (line_38);
+  if (len_77 != 0)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 15>; [0.00%]
 
+  <bb 11> [0.00%]:
+  _12 = len_77 + 18446744073709551615;
+  _13 = line_38 + _12;
+  _14 = *_13;
+  if (_14 == 92)
+    goto <bb 12>; [0.00%]
+  else
+    goto <bb 15>; [0.00%]
 
+  <bb 12> [0.00%]:
+  _15 = len_77 + 18446744073709551615;
+  _16 = line_38 + _15;
+  *_16 = 0;
+  if (len_77 > 1)
+    goto <bb 13>; [0.00%]
+  else
+    goto <bb 15>; [0.00%]
 
-;; Function rs6000_ptrace_ldinfo (rs6000_ptrace_ldinfo, funcdef_no=56, decl_uid=3256, cgraph_uid=56, symbol_order=61)
+  <bb 13> [0.00%]:
+  _17 = len_77 + 18446744073709551614;
+  _18 = line_38 + _17;
+  _19 = *_18;
+  if (_19 != 92)
+    goto <bb 14>; [0.00%]
+  else
+    goto <bb 15>; [0.00%]
 
-rs6000_ptrace_ldinfo ()
-{
-  int rc;
-  void * ldi;
-  int ldi_size;
-  const int pid;
-  long unsigned int _1;
-  long long int ldi.1_2;
-  long unsigned int _3;
-  gdb_byte * _18;
+  <bb 14> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 30>; [0.00%]
 
-  <bb 2> [0.00%]:
-  pid_7 = 1;
-  ldi_size_8 = 1024;
-  _1 = (long unsigned int) ldi_size_8;
-  ldi_11 = malloc (_1);
-  rc_12 = -1;
+  <bb 15> [0.00%]:
+  copy_79 = line_38;
+  line_80 = 0B;
+  buf_81 = copy_79;
+  goto <bb 17>; [0.00%]
 
-  <bb 3> [0.00%]:
-  # ldi_size_4 = PHI <ldi_size_8(2), ldi_size_15(4)>
-  # ldi_5 = PHI <ldi_11(2), ldi_17(4)>
-  ldi.1_2 = (long long int) ldi_5;
-  rc_14 = rs6000_ptrace64 (1, pid_7, ldi.1_2, ldi_size_4, 0B);
-  if (rc_14 != -1)
+  <bb 16> [0.00%]:
+  buf_94 = buf_36 + 1;
+
+  <bb 17> [0.00%]:
+  # buf_36 = PHI <buf_81(15), buf_94(16)>
+  _20 = *buf_36;
+  _21 = (unsigned char) _20;
+  _22 = (int) _21;
+  _23 = isspace (_22);
+  if (_23 != 0)
+    goto <bb 16>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 18> [0.00%]:
+  _24 = *buf_36;
+  if (_24 == 0)
+    goto <bb 19>; [0.00%]
+  else
+    goto <bb 20>; [0.00%]
+
+  <bb 19> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 30>; [0.00%]
+
+  <bb 20> [0.00%]:
+  _25 = cmd_string_parse (buf_36, &cmdlist, &cause);
+  if (_25 != 0)
+    goto <bb 21>; [0.00%]
+  else
+    goto <bb 24>; [0.00%]
+
+  <bb 21> [0.00%]:
+  free (copy_79);
+  cause.13_26 = cause;
+  if (cause.13_26 == 0B)
+    goto <bb 22>; [0.00%]
+  else
+    goto <bb 23>; [0.00%]
+
+  <bb 22> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 30>; [0.00%]
+
+  <bb 23> [0.00%]:
+  cause.14_27 = cause;
+  free (cause.14_27);
+  // predicted unlikely by continue predictor.
+  goto <bb 30>; [0.00%]
+
+  <bb 24> [0.00%]:
+  free (copy_79);
+  cmdlist.15_28 = cmdlist;
+  if (cmdlist.15_28 == 0B)
+    goto <bb 25>; [0.00%]
+  else
+    goto <bb 26>; [0.00%]
+
+  <bb 25> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 30>; [0.00%]
+
+  <bb 26> [0.00%]:
+  if (ctxin_84(D) == 0B)
+    goto <bb 27>; [0.00%]
+  else
+    goto <bb 28>; [0.00%]
+
+  <bb 27> [0.00%]:
+  ctx.msgdata = 0B;
+  ctx.curclient = 0B;
+  ctx.cmdclient = 0B;
+  goto <bb 29>; [0.00%]
+
+  <bb 28> [0.00%]:
+  _29 = ctxin_84(D)->msgdata;
+  ctx.msgdata = _29;
+  _30 = ctxin_84(D)->curclient;
+  ctx.curclient = _30;
+  _31 = ctxin_84(D)->cmdclient;
+  ctx.cmdclient = _31;
+
+  <bb 29> [0.00%]:
+  cfg_cause = 0B;
+
+  <bb 30> [100.00%]:
+  # n_35 = PHI <n_55(4), n_76(14), n_76(19), n_76(22), n_76(23), n_76(25), n_76(29)>
+  # buf_37 = PHI <buf_58(D)(4), buf_61(14), buf_36(19), buf_36(22), buf_36(23), buf_36(25), buf_36(29)>
+  # line_39 = PHI <line_56(4), line_38(14), line_80(19), line_80(22), line_80(23), line_80(25), line_80(29)>
+  # len_41 = PHI <len_59(D)(4), len_77(14), len_77(19), len_77(22), len_77(23), len_77(25), len_77(29)>
+  _32 = (int) len_41;
+  _100 = __builtin_object_size (buf_37, 1);
+  if (_100 != 18446744073709551615)
+    goto <bb 31>; [79.76%]
+  else
+    goto <bb 36>; [20.24%]
+
+  <bb 31> [79.76%]:
+  _101 = __builtin_constant_p (_32);
+  if (_101 == 0)
+    goto <bb 33>; [29.56%]
+  else
+    goto <bb 32>; [70.44%]
+
+  <bb 32> [56.18%]:
+  if (_32 <= 0)
+    goto <bb 33>; [32.39%]
+  else
+    goto <bb 34>; [67.61%]
+
+  <bb 33> [41.77%]:
+  _102 = __builtin_object_size (buf_37, 1);
+  _103 = __fgets_chk (buf_37, _102, _32, f_53);
+  goto <bb 37>; [100.00%]
+
+  <bb 34> [37.99%]:
+  _104 = (long unsigned int) _32;
+  _105 = __builtin_object_size (buf_37, 1);
+  if (_104 > _105)
+    goto <bb 35>; [29.56%]
+  else
+    goto <bb 36>; [70.44%]
+
+  <bb 35> [11.23%]:
+  _106 = __builtin_object_size (buf_37, 1);
+  _107 = *__fgets_chk (buf_37, _106, _32, f_53);
+  goto <bb 37>; [100.00%]
+
+  <bb 36> [47.00%]:
+  _108 = *fgets (buf_37, _32, f_53);
+
+  <bb 37> [100.00%]:
+  # _109 = PHI <_103(33), _107(35), _108(36)>
+  _114 = _109;
+  buf_61 = _114;
+  if (buf_61 != 0B)
     goto <bb 5>; [0.00%]
   else
-    goto <bb 4>; [0.00%]
+    goto <bb 38>; [0.00%]
 
-  <bb 4> [0.00%]:
-  ldi_size_15 = ldi_size_4 * 2;
-  _3 = (long unsigned int) ldi_size_15;
-  ldi_17 = xrealloc (ldi_5, _3);
-  goto <bb 3>; [0.00%]
-
-  <bb 5> [0.00%]:
-  _18 = ldi_5;
-  return _18;
-
-}
-
-
-
-;; Function remote_filename_p (remote_filename_p, funcdef_no=54, decl_uid=3244, cgraph_uid=54, symbol_order=59)
-
-remote_filename_p (const char * filename)
-{
-  int _1;
-  _Bool _2;
-  int _5;
-
-  <bb 2> [0.00%]:
-  _1 = strncmp (filename_4(D), "remote:", 7);
-  _2 = _1 == 0;
-  _5 = (int) _2;
-  return _5;
-
-}
-
-
-
-;; Function rs6000_aix_ld_info_to_xml (rs6000_aix_ld_info_to_xml, funcdef_no=57, decl_uid=3265, cgraph_uid=57, symbol_order=62)
-
-rs6000_aix_ld_info_to_xml (const gdb_byte * ldi_buf)
-{
-  int i;
-  unsigned char _1;
-  ULONGEST _5;
-
-  <bb 2> [0.00%]:
-  _1 = *ldi_buf_3(D);
-  i_4 = (int) _1;
-  _5 = (ULONGEST) i_4;
-  return _5;
-
-}
-
-
-
-;; Function rs6000_xfer_shared_libraries (rs6000_xfer_shared_libraries, funcdef_no=58, decl_uid=3270, cgraph_uid=58, symbol_order=63)
-
-rs6000_xfer_shared_libraries (const gdb_byte * writebuf, ULONGEST * xfered_len)
-{
-  struct cleanup * cleanup;
-  ULONGEST result;
-  gdb_byte * ldi_buf;
-  target_xfer_status _1;
-  target_xfer_status _15;
-  target_xfer_status _16;
-  target_xfer_status _18;
-
-  <bb 2> [0.00%]:
-  if (writebuf_3(D) != 0B)
-    goto <bb 3>; [0.00%]
+  <bb 38> [0.00%]:
+  if (line_39 != 0B)
+    goto <bb 39>; [0.00%]
   else
-    goto <bb 4>; [0.00%]
+    goto <bb 40>; [0.00%]
 
-  <bb 3> [0.00%]:
-  _18 = -1;
-  goto <bb 9>; [0.00%]
+  <bb 39> [0.00%]:
+  free (line_39);
 
-  <bb 4> [0.00%]:
-  ldi_buf_6 = rs6000_ptrace_ldinfo ();
-  if (ldi_buf_6 == 0B)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
+  <bb 40> [0.00%]:
+  fclose (f_53);
+  cfg_references.16_33 = cfg_references;
+  _34 = cfg_references.16_33 + -1;
+  cfg_references = _34;
+  _65 = retval_57;
 
-  <bb 5> [0.00%]:
-  exit (1);
-
-  <bb 6> [0.00%]:
-  cleanup_8 = make_cleanup (free, ldi_buf_6);
-  result_10 = rs6000_aix_ld_info_to_xml (ldi_buf_6);
-  free (ldi_buf_6);
-  do_cleanups (cleanup_8);
-  if (result_10 == 0)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 7> [0.00%]:
-  _16 = 0;
-  goto <bb 9>; [0.00%]
-
-  <bb 8> [0.00%]:
-  *xfered_len_13(D) = result_10;
-  _15 = 1;
-
-  <bb 9> [0.00%]:
-  # _1 = PHI <_18(3), _16(7), _15(8)>
-  return _1;
+  <bb 41> [0.00%]:
+  # _43 = PHI <_95(3), _65(40)>
+  cause ={v} {CLOBBER};
+  cmdlist ={v} {CLOBBER};
+  ctx ={v} {CLOBBER};
+  return _43;
 
 }
 
 
 
-;; Function main (main, funcdef_no=59, decl_uid=3275, cgraph_uid=59, symbol_order=64)
+;; Function main (main, funcdef_no=47, decl_uid=4262, cgraph_uid=47, symbol_order=51)
 
 main ()
 {
-  ULONGEST * xfered_len;
-  gdb_byte * writebuf;
-  int len;
-  char buf[10];
-  time_t t;
-  int _1;
-  unsigned int _2;
-  int _3;
-  int _4;
-  gdb_byte * iftmp.0_5;
-  gdb_byte * iftmp.0_11;
-  gdb_byte * iftmp.0_12;
-  int _18;
+  struct causelist causes;
+  struct cmd_ctx ctxin;
+  void * _1;
+  int _9;
 
   <bb 2> [0.00%]:
-  _1 = time (&t);
-  _2 = (unsigned int) _1;
-  srand (_2);
-  xfered_len_9 = &len;
-  _3 = rand ();
-  _4 = _3 % 2;
-  if (_4 == 1)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  iftmp.0_12 = &buf;
-  goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  iftmp.0_11 = 0B;
-
-  <bb 5> [0.00%]:
-  # iftmp.0_5 = PHI <iftmp.0_12(3), iftmp.0_11(4)>
-  writebuf_13 = iftmp.0_5;
-  rs6000_xfer_shared_libraries (writebuf_13, xfered_len_9);
-  t ={v} {CLOBBER};
-  buf ={v} {CLOBBER};
-  len ={v} {CLOBBER};
-  _18 = 0;
-  return _18;
+  _1 = malloc (1);
+  causes.list = _1;
+  causes.num = 0;
+  causes.list = 0B;
+  causes.space = 0;
+  load_cfg ("path", &ctxin, &causes);
+  _9 = 0;
+  ctxin ={v} {CLOBBER};
+  causes ={v} {CLOBBER};
+  return _9;
 
 }
 

@@ -491,304 +491,262 @@
 }
 
 
-;; Function stat (null)
+;; Function strsep (null)
 ;; enabled by -tree-original
 
 
 {
-  return __xstat (1, __path, __statbuf);
-}
+  char * s;
+  const char * spanp;
+  int c;
+  int sc;
+  char * tok;
 
-
-;; Function lstat (null)
-;; enabled by -tree-original
-
-
-{
-  return __lxstat (1, __path, __statbuf);
-}
-
-
-;; Function fstat (null)
-;; enabled by -tree-original
-
-
-{
-  return __fxstat (1, __fd, __statbuf);
-}
-
-
-;; Function fstatat (null)
-;; enabled by -tree-original
-
-
-{
-  return __fxstatat (1, __fd, __filename, __statbuf, __flag);
-}
-
-
-;; Function mknod (null)
-;; enabled by -tree-original
-
-
-{
-  return __xmknod (0, __path, __mode, &__dev);
-}
-
-
-;; Function mknodat (null)
-;; enabled by -tree-original
-
-
-{
-  return __xmknodat (0, __fd, __path, __mode, &__dev);
-}
-
-
-;; Function discard_cleanups (null)
-;; enabled by -tree-original
-
-
-{
-  discard_my_cleanups (&cleanup_chain, old_chain);
-}
-
-
-;; Function discard_final_cleanups (null)
-;; enabled by -tree-original
-
-
-{
-  discard_my_cleanups (&final_cleanup_chain, old_chain);
-}
-
-
-;; Function discard_my_cleanups (null)
-;; enabled by -tree-original
-
-
-{
-  struct cleanup * ptr;
-
-    struct cleanup * ptr;
-  goto <D.3198>;
-  <D.3197>:;
-  *pmy_chain = ptr->next;
-  if (ptr->free_arg != 0B)
+    char * s;
+    const char * spanp;
+    int c;
+    int sc;
+    char * tok;
+  if ((s = *stringp) == 0B)
     {
-      ptr->free_arg (ptr->arg);
+      return 0B;
     }
-  free ((void *) ptr);
-  <D.3198>:;
-  if ((ptr = *pmy_chain) != old_chain) goto <D.3197>; else goto <D.3199>;
-  <D.3199>:;
-  printf ((const char * restrict) "freearg: %x\n", ptr->arg);
-}
-
-
-;; Function do_my_cleanups (null)
-;; enabled by -tree-original
-
-
-{
-  struct cleanup * ptr;
-
-    struct cleanup * ptr;
-  goto <D.3206>;
-  <D.3205>:;
-  *pmy_chain = ptr->next;
-  ptr->function (ptr->arg);
-  printf ((const char * restrict) "cleanup!!!!! =========\n");
-  printf ((const char * restrict) "%x\n", ptr->arg);
-  if (ptr->free_arg != 0B)
+  tok = s;
+  <D.3552>:;
+  c = (int) *s++ ;
+  spanp = delim;
+  <D.3550>:;
+  if ((sc = (int) *spanp++ ) == c)
     {
-      ptr->free_arg (ptr->arg);
+      if (c == 0)
+        {
+          s = 0B;
+        }
+      else
+        {
+          *(s + 18446744073709551615) = 0;
+        }
+      *stringp = s;
+      return tok;
     }
-  free ((void *) ptr);
-  <D.3206>:;
-  if ((ptr = *pmy_chain) != old_chain) goto <D.3205>; else goto <D.3207>;
-  <D.3207>:;
+  if (sc != 0) goto <D.3550>; else goto <D.3551>;
+  <D.3551>:;
+  goto <D.3552>;
 }
 
 
-;; Function do_cleanups (null)
+;; Function strlcat (null)
 ;; enabled by -tree-original
 
 
 {
-  do_my_cleanups (&cleanup_chain, old_chain);
-}
+  char * d = dst;
+  const char * s = src;
+  size_t n = siz;
+  size_t dlen;
 
-
-;; Function make_my_cleanup2 (null)
-;; enabled by -tree-original
-
-
-{
-  struct cleanup * new = (struct cleanup *) malloc (32);
-  struct cleanup * old_chain = *pmy_chain;
-
-    struct cleanup * new = (struct cleanup *) malloc (32);
-    struct cleanup * old_chain = *pmy_chain;
-  new->next = *pmy_chain;
-  new->function = (void (*<Ted>) (void *)) function;
-  new->free_arg = free_arg;
-  new->arg = arg;
-  *pmy_chain = new;
-  if (old_chain == 0B)
+    char * d = dst;
+    const char * s = src;
+    size_t n = siz;
+    size_t dlen;
+  goto <D.3563>;
+  <D.3562>:;
+  d++ ;
+  <D.3563>:;
+  if (n--  != 0 && *d != 0) goto <D.3562>; else goto <D.3564>;
+  <D.3564>:;
+  dlen = (size_t) ((long int) d - (long int) dst);
+  n = siz - dlen;
+  if (n == 0)
     {
-      exit (1);
+      {
+        extern long unsigned int strlen (const char *);
+
+        return (size_t) (strlen (s) + (long unsigned int) dlen);
+      }
     }
-  return old_chain;
-}
-
-
-;; Function make_my_cleanup (null)
-;; enabled by -tree-original
-
-
-{
-  return make_my_cleanup2 (pmy_chain, function, arg, 0B);
-}
-
-
-;; Function make_cleanup (null)
-;; enabled by -tree-original
-
-
-{
-  return make_my_cleanup (&cleanup_chain, function, arg);
-}
-
-
-;; Function xrealloc (null)
-;; enabled by -tree-original
-
-
-{
-  void * newmem;
-
-    void * newmem;
-  if (size == 0)
+  goto <D.3567>;
+  <D.3566>:;
+  if (n != 1)
     {
-      size = 1;
+      *d++  = *s;
+      n-- ;
     }
-  if (oldmem == 0B)
-    {
-      newmem = malloc (size);
-    }
-  else
-    {
-      newmem = realloc (oldmem, size);
-    }
-  if (newmem == 0B)
-    {
-      exit (1);
-    }
-  return newmem;
+  s++ ;
+  <D.3567>:;
+  if (*s != 0) goto <D.3566>; else goto <D.3568>;
+  <D.3568>:;
+  *d = 0;
+  return (size_t) ((long unsigned int) ((long int) s - (long int) src) + (long unsigned int) dlen);
 }
 
 
-;; Function remote_filename_p (null)
+;; Function match_pattern (null)
 ;; enabled by -tree-original
 
 
 {
-  extern int strncmp ();
-
-  return strncmp (filename, (char *) "remote:", 7) == 0;
-}
-
-
-;; Function rs6000_ptrace64 (null)
-;; enabled by -tree-original
-
-
-{
-  int i = *(int *) addr;
-  int ret;
-
-    int i = *(int *) addr;
-    int ret;
-  ret = rand () % 2 == 1 ? 1 : -1;
-  return ret;
-}
-
-
-;; Function rs6000_ptrace_ldinfo (null)
-;; enabled by -tree-original
-
-
-{
-  const int pid = 1;
-  int ldi_size = 1024;
-  void * ldi = malloc ((size_t) ldi_size);
-  int rc = -1;
-
-    const int pid = 1;
-    int ldi_size = 1024;
-    void * ldi = malloc ((size_t) ldi_size);
-    int rc = -1;
-  <D.3263>:;
-  rc = rs6000_ptrace64 (1, pid, (long long int) ldi, ldi_size, 0B);
-  if (rc != -1)
+  <D.3579>:;
+  if (*pattern == 0)
     {
-      goto <D.3262>;
+      return *s == 0;
     }
-  ldi_size = ldi_size * 2;
-  ldi = xrealloc (ldi, (size_t) ldi_size);
-  goto <D.3263>;
-  <D.3262>:;
-  return (gdb_byte *) ldi;
-}
-
-
-;; Function rs6000_aix_ld_info_to_xml (null)
-;; enabled by -tree-original
-
-
-{
-  int i = (int) *ldi_buf;
-
-    int i = (int) *ldi_buf;
-  return (ULONGEST) i;
-}
-
-
-;; Function rs6000_xfer_shared_libraries (null)
-;; enabled by -tree-original
-
-
-{
-  gdb_byte * ldi_buf;
-  ULONGEST result;
-  struct cleanup * cleanup;
-
-    gdb_byte * ldi_buf;
-    ULONGEST result;
-    struct cleanup * cleanup;
-  if (writebuf != 0B)
+  if (*pattern == 42)
     {
-      return -1;
+      pattern++ ;
+      if (*pattern == 0)
+        {
+          return 1;
+        }
+      if (*pattern != 63 && *pattern != 42)
+        {
+          goto <D.3574>;
+          <D.3573>:;
+          if (*s == *pattern)
+            {
+              return 1;
+            }
+          s++ ;
+          <D.3574>:;
+          if (*s != 0) goto <D.3573>; else goto <D.3575>;
+          <D.3575>:;
+          return 0;
+        }
+      goto <D.3577>;
+      <D.3576>:;
+      return 1;
+      s++ ;
+      <D.3577>:;
+      if (*s != 0) goto <D.3576>; else goto <D.3578>;
+      <D.3578>:;
+      return 0;
     }
-  ldi_buf = rs6000_ptrace_ldinfo ();
-  if (ldi_buf == 0B)
-    {
-      exit (1);
-    }
-  cleanup = make_cleanup ((void (*<Ta1d>) (void *)) free, (void *) ldi_buf);
-  result = rs6000_aix_ld_info_to_xml ((const gdb_byte *) ldi_buf);
-  free ((void *) ldi_buf);
-  do_cleanups (cleanup);
-  if (result == 0)
+  if (*s == 0)
     {
       return 0;
     }
+  if (*pattern != 63 && *pattern != *s)
+    {
+      return 0;
+    }
+  s++ ;
+  pattern++ ;
+  goto <D.3579>;
+}
+
+
+;; Function match_pattern_list (null)
+;; enabled by -tree-original
+
+
+{
+  char sub[1024];
+  int negated;
+  int got_positive;
+  unsigned int i;
+  unsigned int subi;
+  unsigned int len = (unsigned int) strlen (pattern);
+  extern long unsigned int strlen (const char *);
+
+    char sub[1024];
+    int negated;
+    int got_positive;
+    unsigned int i;
+    unsigned int subi;
+    unsigned int len = (unsigned int) strlen (pattern);
+  got_positive = 0;
+  i = 0;
+  goto <D.3597>;
+  <D.3596>:;
+  if (*(pattern + (sizetype) i) == 33)
+    {
+      negated = 1;
+      i++ ;
+    }
   else
     {
-      *xfered_len = result;
-      return 1;
+      negated = 0;
     }
+  subi = 0;
+  goto <D.3594>;
+  <D.3593>:;
+  {
+    extern int isupper ();
+    extern int tolower ();
+
+    sub[subi] = dolower != 0 && isupper ((int) (unsigned char) *(pattern + (sizetype) i)) != 0 ? (char) tolower ((int) (unsigned char) *(pattern + (sizetype) i)) : (char) *(pattern + (sizetype) i);
+  }
+  subi++ ;, i++ ;;
+  <D.3594>:;
+  if ((i < len && subi <= 1022) && *(pattern + (sizetype) i) != 44) goto <D.3593>; else goto <D.3595>;
+  <D.3595>:;
+  if (subi > 1022)
+    {
+      return 0;
+    }
+  if (i < len && *(pattern + (sizetype) i) == 44)
+    {
+      i++ ;
+    }
+  sub[subi] = 0;
+  if (match_pattern (string, (const char *) &sub) != 0)
+    {
+      if (negated != 0)
+        {
+          return -1;
+        }
+      else
+        {
+          got_positive = 1;
+        }
+    }
+  <D.3597>:;
+  if (i < len) goto <D.3596>; else goto <D.3598>;
+  <D.3598>:;
+  return got_positive;
+}
+
+
+;; Function match_filter_list (null)
+;; enabled by -tree-original
+
+
+{
+  size_t len = strlen (proposal) + 1;
+  extern long unsigned int strlen (const char *);
+  char * fix_prop = (char *) malloc (len);
+  char * orig_prop = strdup (proposal);
+  extern char * strdup (const char *);
+  char * cp;
+  char * tmp;
+
+    size_t len = strlen (proposal) + 1;
+    char * fix_prop = (char *) malloc (len);
+    char * orig_prop = strdup (proposal);
+    char * cp;
+    char * tmp;
+  if (fix_prop == 0B || orig_prop == 0B)
+    {
+      free ((void *) orig_prop);
+      return 0B;
+    }
+  tmp = orig_prop;
+  *fix_prop = 0;
+  goto <D.3610>;
+  <D.3609>:;
+  if (match_pattern_list ((const char *) cp, filter, 0) != 1)
+    {
+      if (*fix_prop != 0)
+        {
+          strlcat (fix_prop, (const char *) ",", len);
+        }
+      strlcat (fix_prop, (const char *) cp, len);
+    }
+  <D.3610>:;
+  if ((cp = strsep (&tmp, (const char *) ",")) != 0B) goto <D.3609>; else goto <D.3611>;
+  <D.3611>:;
+  free ((void *) orig_prop);
+  return fix_prop;
 }
 
 
@@ -797,21 +755,15 @@
 
 
 {
-  time_t t;
-  extern int time ();
-  char buf[10];
-  int len;
-  gdb_byte * writebuf;
-  ULONGEST * xfered_len = (ULONGEST *) &len;
+  char * proposal = match_filter_list ((const char *) "proposal", (const char *) "filter");
 
-    time_t t;
-  srand ((unsigned int) time (&t));
-    char buf[10];
-    int len;
-    gdb_byte * writebuf;
-    ULONGEST * xfered_len = (ULONGEST *) &len;
-  writebuf = rand () % 2 == 1 ? (gdb_byte *) &buf : 0B;
-  rs6000_xfer_shared_libraries ((const gdb_byte *) writebuf, xfered_len);
+    char * proposal = match_filter_list ((const char *) "proposal", (const char *) "filter");
+  if (proposal == 0B)
+    {
+      printf ((const char * restrict) "match_filter_list failed\n");
+    }
+  printf ((const char * restrict) "proposal : %s\n", proposal);
+  return 0;
 }
 return 0;
 

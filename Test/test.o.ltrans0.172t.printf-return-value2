@@ -1,192 +1,1000 @@
 
-;; Function main (main, funcdef_no=0, decl_uid=3985, cgraph_uid=0, symbol_order=64) (executed once)
+;; Function cmd_string_getc (cmd_string_getc, funcdef_no=1, decl_uid=4521, cgraph_uid=10, symbol_order=44)
+
+cmd_string_getc (const char * s, size_t * p)
+{
+  long unsigned int _1;
+  const u_char * _2;
+  unsigned char _3;
+  long unsigned int _5;
+  int _8;
+  int _14;
+
+  <bb 2> [100.00%]:
+  _1 = *p_12(D);
+  _2 = s_10(D) + _1;
+  _3 = *_2;
+  if (_3 == 0)
+    goto <bb 4>; [2.00%]
+  else
+    goto <bb 3>; [98.00%]
+
+  <bb 3> [98.00%]:
+  _5 = _1 + 1;
+  *p_12(D) = _5;
+  _14 = (int) _3;
+
+  <bb 4> [100.00%]:
+  # _8 = PHI <-1(2), _14(3)>
+  return _8;
+
+}
+
+
+
+;; Function xrealloc (xrealloc, funcdef_no=0, decl_uid=4522, cgraph_uid=11, symbol_order=43)
+
+xrealloc (void * oldptr, size_t nmemb, size_t size)
+{
+  void * newptr;
+  size_t newsize;
+  long unsigned int _1;
+  unsigned int _2;
+  int _3;
+  long unsigned int _4;
+  int _16;
+  int _17;
+  int _18;
+
+  <bb 2> [100.00%]:
+  newsize_7 = nmemb_5(D) * size_6(D);
+  if (newsize_7 == 0)
+    goto <bb 3>; [0.04%]
+  else
+    goto <bb 4>; [99.96%]
+
+  <bb 3> [0.04%]:
+  _16 = __printf_chk (1, "zero size%s", "");
+  exit (1);
+
+  <bb 4> [99.96%]:
+  _1 = 30 / nmemb_5(D);
+  _2 = (unsigned int) _1;
+  _3 = 1 << _2;
+  _4 = (long unsigned int) _3;
+  if (_4 < size_6(D))
+    goto <bb 5>; [0.04%]
+  else
+    goto <bb 6>; [99.96%]
+
+  <bb 5> [0.04%]:
+  _17 = __printf_chk (1, "nmemb * size > SIZE_MAX%s", "");
+  exit (1);
+
+  <bb 6> [99.92%]:
+  newptr_11 = realloc (oldptr_9(D), newsize_7);
+  if (newptr_11 == 0B)
+    goto <bb 7>; [0.04%]
+  else
+    goto <bb 8>; [99.96%]
+
+  <bb 7> [0.04%]:
+  _18 = __printf_chk (1, "xrealloc failed%s", "");
+  exit (1);
+
+  <bb 8> [99.88%]:
+  return newptr_11;
+
+}
+
+
+
+;; Function cmd_string_variable (cmd_string_variable, funcdef_no=2, decl_uid=4520, cgraph_uid=9, symbol_order=46)
+
+cmd_string_variable (const char * s, size_t * p)
+{
+  struct environ_entry * envent;
+  size_t len;
+  char * t;
+  char * buf;
+  int fch;
+  int ch;
+  _Bool _1;
+  unsigned int _2;
+  unsigned int _3;
+  _Bool _4;
+  _Bool _5;
+  unsigned int _7;
+  _Bool _8;
+  unsigned int _9;
+  unsigned int _10;
+  _Bool _11;
+  _Bool _12;
+  unsigned int _14;
+  char _15;
+  _Bool _16;
+  unsigned int _17;
+  unsigned int _18;
+  _Bool _19;
+  _Bool _20;
+  unsigned int _22;
+  unsigned int _24;
+  long unsigned int _25;
+  char * _27;
+  char _28;
+  _Bool _29;
+  _Bool _30;
+  _Bool _31;
+  _Bool _32;
+  _Bool _33;
+  _Bool _34;
+  long unsigned int _35;
+  char * _36;
+  char * _37;
+  char * _43;
+  char * _74;
+  char * _76;
+  long unsigned int _97;
+  long unsigned int _98;
+  _Bool _100;
+  unsigned int _101;
+  unsigned int _102;
+  _Bool _103;
+  _Bool _104;
+  _Bool _108;
+  unsigned int _109;
+  unsigned int _110;
+  _Bool _111;
+  _Bool _112;
+  _Bool _113;
+  _Bool _114;
+  _Bool _115;
+  _Bool _116;
+  _Bool _117;
+  _Bool _118;
+  unsigned int _119;
+
+  <bb 2> [15.81%]:
+  ch_53 = cmd_string_getc (s_50(D), p_51(D));
+  switch (ch_53) <default: <L1> [33.33%], case -1: error [33.33%], case 123: <L0> [33.33%]>
+
+<L0> [5.27%]:
+  ch_55 = cmd_string_getc (s_50(D), p_51(D));
+  _1 = ch_55 != 95;
+  _2 = (unsigned int) ch_55;
+  _3 = _2 + 4294967199;
+  _4 = _3 > 25;
+  _5 = _1 & _4;
+  if (_5 != 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 4> [2.63%]:
+  _7 = _2 + 4294967231;
+  if (_7 > 25)
+    goto <bb 21> (error); [9.00%]
+  else
+    goto <bb 24>; [91.00%]
+
+<L1> [5.27%]:
+  _8 = ch_53 != 95;
+  _9 = (unsigned int) ch_53;
+  _10 = _9 + 4294967199;
+  _11 = _10 > 25;
+  _12 = _8 & _11;
+  if (_12 != 0)
+    goto <bb 6>; [85.49%]
+  else
+    goto <bb 7>; [14.51%]
+
+  <bb 6> [6.90%]:
+  # _119 = PHI <_9(5), _109(24)>
+  # ch_120 = PHI <ch_53(5), ch_55(24)>
+  # fch_122 = PHI <-1(5), 123(24)>
+  _14 = _119 + 4294967231;
+  if (_14 > 25)
+    goto <bb 22>; [46.00%]
+  else
+    goto <bb 7>; [54.00%]
+
+  <bb 7> [7.13%]:
+  # ch_121 = PHI <ch_53(5), ch_120(6), ch_55(23)>
+  # fch_123 = PHI <-1(5), fch_122(6), 123(23)>
+  buf_59 = xrealloc (0B, 1, 1);
+  _15 = (char) ch_121;
+  *buf_59 = _15;
+
+  <bb 8> [100.00%]:
+  # buf_40 = PHI <buf_59(7), buf_64(14)>
+  # len_42 = PHI <1(7), _25(14)>
+  ch_62 = cmd_string_getc (s_50(D), p_51(D));
+  if (ch_62 == -1)
+    goto <bb 26>; [5.00%]
+  else
+    goto <bb 9>; [95.00%]
+
+  <bb 9> [95.00%]:
+  _16 = ch_62 != 95;
+  _17 = (unsigned int) ch_62;
+  _18 = _17 + 4294967199;
+  _19 = _18 > 25;
+  _20 = _16 & _19;
+  if (_20 != 0)
+    goto <bb 10>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 10> [47.50%]:
+  _22 = _17 + 4294967231;
+  if (_22 > 25)
+    goto <bb 11>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 11> [23.75%]:
+  _24 = _17 + 4294967248;
+  if (_24 > 9)
+    goto <bb 15>; [5.00%]
+  else
+    goto <bb 12>; [95.00%]
+
+  <bb 12> [93.81%]:
+  if (len_42 == 1073741821)
+    goto <bb 13>; [1.00%]
+  else
+    goto <bb 14>; [99.00%]
+
+  <bb 13> [0.94%]:
+  # buf_21 = PHI <buf_40(12)>
+  goto <bb 21> (error); [100.00%]
+
+  <bb 14> [92.87%]:
+  _25 = len_42 + 1;
+  buf_64 = xrealloc (buf_40, 1, _25);
+  _27 = buf_64 + len_42;
+  _28 = (char) ch_62;
+  *_27 = _28;
+  goto <bb 8>; [100.00%]
+
+  <bb 15> [1.19%]:
+  # buf_6 = PHI <buf_40(11)>
+  # len_23 = PHI <len_42(11)>
+  # ch_106 = PHI <ch_62(11)>
+  _29 = fch_123 == 123;
+  _30 = ch_106 != 125;
+  _31 = _29 & _30;
+  if (_31 != 0)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 16>; [100.00%]
+
+  <bb 16> [1.86%]:
+  _32 = ch_106 != -1;
+  _33 = fch_123 != 123;
+  _34 = _32 & _33;
+  if (_34 != 0)
+    goto <bb 17>; [100.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 17> [1.86%]:
+  _97 = *p_51(D);
+  _98 = _97 + 18446744073709551615;
+  *p_51(D) = _98;
+
+  <bb 18> [5.63%]:
+  # buf_90 = PHI <buf_6(16), buf_6(17), buf_13(25)>
+  # len_26 = PHI <len_23(16), len_23(17), len_107(25)>
+  _35 = len_26 + 1;
+  buf_69 = xrealloc (buf_90, 1, _35);
+  _36 = buf_69 + len_26;
+  *_36 = 0;
+  free (buf_69);
+  if (envent_72(D) == 0B)
+    goto <bb 19>; [30.00%]
+  else
+    goto <bb 20>; [70.00%]
+
+  <bb 19> [1.69%]:
+  _76 = strdup ("");
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [3.94%]:
+  _37 = envent_72(D)->value;
+  _74 = strdup (_37);
+  goto <bb 22>; [100.00%]
+
+  # buf_41 = PHI <0B(2), 0B(4), buf_21(13), buf_6(15), buf_13(26)>
+error [7.00%]:
+  free (buf_41);
+
+  <bb 22> [15.81%]:
+  # _43 = PHI <t_56(D)(6), _76(19), _74(20), 0B(21)>
+  return _43;
+
+  <bb 23> [2.64%]:
+  _100 = ch_55 != 95;
+  _101 = (unsigned int) ch_55;
+  _102 = _101 + 4294967199;
+  _103 = _102 > 25;
+  _104 = _100 & _103;
+  goto <bb 7>; [100.00%]
+
+  <bb 24> [2.39%]:
+  _108 = ch_55 != 95;
+  _109 = (unsigned int) ch_55;
+  _110 = _109 + 4294967199;
+  _111 = _110 > 25;
+  _112 = _108 & _111;
+  goto <bb 6>; [100.00%]
+
+  <bb 25> [3.77%]:
+  _113 = ch_105 != -1;
+  _114 = fch_123 != 123;
+  _115 = _113 & _114;
+  goto <bb 18>; [100.00%]
+
+  <bb 26> [5.00%]:
+  # buf_13 = PHI <buf_40(8)>
+  # len_107 = PHI <len_42(8)>
+  # ch_105 = PHI <ch_62(8)>
+  _116 = fch_123 == 123;
+  _117 = ch_105 != 125;
+  _118 = _116 & _117;
+  if (_118 != 0)
+    goto <bb 21> (error); [24.56%]
+  else
+    goto <bb 25>; [75.44%]
+
+}
+
+
+
+;; Function cmd_string_string (cmd_string_string, funcdef_no=4, decl_uid=4519, cgraph_uid=8, symbol_order=47)
+
+cmd_string_string (const char * s, size_t * p, char endch, int esc)
+{
+  size_t len;
+  char * t;
+  char * buf;
+  int ch;
+  long unsigned int _1;
+  char * _3;
+  char _4;
+  int _5;
+  long unsigned int _6;
+  char * _7;
+  char * _11;
+
+  <bb 2> [31.12%]:
+  goto <bb 18>; [100.00%]
+
+  <bb 3> [97.00%]:
+  switch (ch_22) <default: <L6> [25.00%], case -1: <L9> [25.00%], case 36: <L5> [25.00%], case 92: <L0> [25.00%]>
+
+<L0> [24.25%]:
+  if (esc_28(D) == 0)
+    goto <bb 14> (<L6>); [67.00%]
+  else
+    goto <bb 5>; [33.00%]
+
+  <bb 5> [8.00%]:
+  ch_30 = cmd_string_getc (s_19(D), p_20(D));
+  switch (ch_30) <default: <L10> [16.67%], case -1: <L11> [16.67%], case 101: <L6> [16.67%], case 110: <L3> [16.67%], case 114: <L2> [16.67%], case 116: <L4> [16.67%]>
+
+  # buf_51 = PHI <buf_9(5)>
+<L11> [1.33%]:
+  goto <bb 21> (error); [100.00%]
+
+<L10> [1.33%]:
+  goto <bb 14> (<L6>); [100.00%]
+
+<L2> [1.33%]:
+  goto <bb 14> (<L6>); [100.00%]
+
+<L3> [1.33%]:
+  goto <bb 14> (<L6>); [100.00%]
+
+<L4> [1.33%]:
+  goto <bb 14> (<L6>); [100.00%]
+
+<L5> [24.25%]:
+  if (esc_28(D) == 0)
+    goto <bb 14> (<L6>); [67.00%]
+  else
+    goto <bb 12>; [33.00%]
+
+  <bb 12> [8.00%]:
+  t_32 = cmd_string_variable (s_19(D), p_20(D));
+  if (t_32 == 0B)
+    goto <bb 13>; [7.92%]
+  else
+    goto <bb 17>; [92.08%]
+
+  <bb 13> [0.63%]:
+  # buf_52 = PHI <buf_9(12)>
+  goto <bb 21> (error); [100.00%]
+
+  # ch_8 = PHI <ch_22(3), 92(4), ch_30(7), 27(5), 13(8), 10(9), 9(10), 36(11)>
+<L6> [63.42%]:
+  if (len_10 > 1073741821)
+    goto <bb 15>; [3.00%]
+  else
+    goto <bb 16>; [97.00%]
+
+  <bb 15> [1.90%]:
+  # buf_53 = PHI <buf_9(14)>
+  goto <bb 21> (error); [100.00%]
+
+  <bb 16> [61.51%]:
+  _1 = len_10 + 1;
+  buf_34 = xrealloc (buf_9, 1, _1);
+  _3 = buf_34 + len_10;
+  _4 = (char) ch_8;
+  *_3 = _4;
+
+  <bb 17> [68.88%]:
+  # buf_37 = PHI <buf_9(12), buf_34(16)>
+  # len_17 = PHI <len_10(12), _1(16)>
+
+  <bb 18> [100.00%]:
+  # buf_9 = PHI <buf_37(17), 0B(2)>
+  # len_10 = PHI <len_17(17), 0(2)>
+  ch_22 = cmd_string_getc (s_19(D), p_20(D));
+  _5 = (int) endch_23(D);
+  if (_5 != ch_22)
+    goto <bb 3>; [97.00%]
+  else
+    goto <bb 19>; [3.00%]
+
+  <bb 19> [3.00%]:
+  # buf_2 = PHI <buf_9(18)>
+  # len_54 = PHI <len_10(18)>
+  _6 = len_54 + 1;
+  buf_25 = xrealloc (buf_2, 1, _6);
+  _7 = buf_25 + len_54;
+  *_7 = 0;
+  goto <bb 22>; [100.00%]
+
+  # buf_50 = PHI <buf_9(3)>
+<L9> [24.25%]:
+
+  # buf_55 = PHI <buf_50(20), buf_51(6), buf_52(13), buf_53(15)>
+error [28.12%]:
+  free (buf_55);
+
+  <bb 22> [31.12%]:
+  # _11 = PHI <buf_25(19), 0B(21)>
+  return _11;
+
+}
+
+
+
+;; Function main (main, funcdef_no=5, decl_uid=3985, cgraph_uid=0, symbol_order=51) (executed once)
 
 main ()
 {
-  struct cleanup * ptr;
-  struct cleanup * new;
-  struct cleanup * old_chain;
-  struct cleanup * D.4116;
-  struct cleanup * D.4101;
-  struct cleanup * D.4092;
+  unsigned long ivtmp.18;
+  struct passwd * pw;
+  struct environ_entry * envent;
+  char * home;
+  char * username;
+  char * D.4722;
+  size_t p;
+  int ch;
   int i;
-  ULONGEST D.4085;
-  void * newmem;
-  void * D.4074;
-  size_t size;
-  int i;
-  int ret;
-  int D.4065;
-  int ldi_size;
-  void * ldi;
-  int rc;
-  gdb_byte * D.4048;
-  gdb_byte * ldi_buf;
-  ULONGEST result;
-  struct cleanup * cleanup;
-  target_xfer_status D.4039;
-  int len;
-  char buf[10];
-  time_t t;
-  int _1;
-  unsigned int _2;
-  int _3;
-  int _4;
-  long long int _20;
-  long unsigned int _24;
-  int _28;
-  int _29;
-  unsigned char _38;
-  long unsigned int _40;
-  struct cleanup * _47;
-  void (*<Ta03>) (void *) _48;
-  void * _49;
-  int _50;
-  void * _51;
-  int _52;
-  void (*<Ta03>) (void *) _53;
-  void * _55;
+  int argc;
+  int rval;
+  char * * argv;
+  char * buf;
+  char * t;
+  const char * whitespace;
+  const char * equals;
+  size_t len;
+  int D.4695;
+  struct FILE * f;
+  u_int n;
+  char * buf;
+  char * copy;
+  char * line;
+  char * cause;
+  size_t len;
+  struct cmd_list * cmdlist;
+  struct cmd_ctx ctx;
+  cmd_retval D.4659;
+  struct causelist causes;
+  struct cmd_ctx ctxin;
+  void * _1;
+  int _12;
+  int _13;
+  sizetype _15;
+  char * _17;
+  char _18;
+  int _20;
+  long unsigned int _22;
+  char * _26;
+  sizetype _30;
+  char * _31;
+  char _32;
+  sizetype _35;
+  char * _36;
+  char _37;
+  char _42;
+  unsigned char _43;
+  int _44;
+  int _45;
+  void * _46;
+  unsigned long _51;
+  unsigned long _52;
+  int _54;
+  long unsigned int _56;
+  char * _64;
+  int _65;
+  int _66;
+  long unsigned int _80;
+  char * _82;
+  int _84;
+  long unsigned int _85;
+  unsigned int _89;
+  long unsigned int _90;
+  long unsigned int _91;
+  char * * _92;
+  char * _95;
+  char _98;
+  long unsigned int _99;
+  _Bool _101;
+  _Bool _102;
+  _Bool _103;
+  long unsigned int _106;
+  long unsigned int _107;
+  char * * _108;
+  long unsigned int _111;
+  unsigned long _114;
+  char * _115;
+  char _116;
+  char * _123;
+  int _135;
+  char * _137;
+  char _138;
+  unsigned int _139;
+  int _140;
+  int _141;
+  long int _142;
+  int _146;
+  long int _147;
+  char * _151;
+  long unsigned int _154;
+  long unsigned int _155;
+  unsigned long _214;
+  unsigned long _215;
 
-  <bb 2> [16.49%]:
-  _1 = time (&t);
-  _2 = (unsigned int) _1;
-  srand (_2);
-  _3 = rand ();
-  _4 = _3 % 2;
-  if (_4 == 1)
-    goto <bb 18>; [30.50%]
+  <bb 2> [1.02%]:
+  _1 = malloc (1);
+  causes.list = _1;
+  causes.num = 0;
+  causes.list = 0B;
+  causes.space = 0;
+  f_11 = fopen ("path", "rb");
+  if (f_11 == 0B)
+    goto <bb 58>; [0.87%]
   else
-    goto <bb 19>; [69.50%]
+    goto <bb 3>; [99.13%]
 
-  <bb 3> [100.00%]:
-  # ldi_size_21 = PHI <1024(19), ldi_size_23(7)>
-  # ldi_19 = PHI <ldi_18(19), newmem_36(7)>
-  _20 = (long long int) ldi_19;
-  i_27 = MEM[(int *)ldi_19];
-  _28 = rand ();
-  _29 = _28 % 2;
-  if (_29 == 1)
-    goto <bb 22>; [96.19%]
+  <bb 3> [1.02%]:
+  _12 = cfg_references;
+  _13 = _12 + 1;
+  cfg_references = _13;
+  goto <bb 56>; [100.00%]
+
+  <bb 4> [5.93%]:
+  _15 = len_14 + 18446744073709551615;
+  _17 = _64 + _15;
+  _18 = *_17;
+  if (_18 == 10)
+    goto <bb 5>; [34.00%]
   else
-    goto <bb 20>; [3.81%]
+    goto <bb 6>; [66.00%]
 
-  <bb 4> [85.00%]:
-  # size_33 = PHI <_24(21), 1(20)>
-  if (ldi_19 == 0B)
-    goto <bb 5>; [30.00%]
+  <bb 5> [2.02%]:
+
+  <bb 6> [5.93%]:
+  # len_21 = PHI <len_14(4), _15(5)>
+  _20 = __printf_chk (1, "%s: %s", "path", _64);
+  _22 = len_21 + 1;
+  line_23 = malloc (_22);
+  memcpy (line_23, _64, len_21);
+  _26 = line_23 + len_21;
+  *_26 = 0;
+  len_29 = strlen (line_23);
+  if (len_29 != 0)
+    goto <bb 7>; [66.00%]
   else
-    goto <bb 6>; [70.00%]
+    goto <bb 10>; [34.00%]
 
-  <bb 5> [25.50%]:
-  newmem_34 = malloc (size_33);
-  goto <bb 7>; [100.00%]
-
-  <bb 6> [59.50%]:
-  newmem_35 = realloc (ldi_19, size_33);
-
-  <bb 7> [85.00%]:
-  # newmem_36 = PHI <newmem_34(5), newmem_35(6)>
-  if (newmem_36 == 0B)
-    goto <bb 8>; [0.04%]
+  <bb 7> [3.91%]:
+  _30 = len_29 + 18446744073709551615;
+  _31 = line_23 + _30;
+  _32 = *_31;
+  if (_32 == 92)
+    goto <bb 8>; [50.00%]
   else
-    goto <bb 3>; [99.96%]
+    goto <bb 10>; [50.00%]
 
-  <bb 8> [0.03%]:
-  exit (1);
-
-  <bb 9> [0.01%]:
-  exit (1);
-
-  <bb 10> [14.99%]:
-  new_43 = malloc (32);
-  old_chain_44 = cleanup_chain;
-  new_43->next = old_chain_44;
-  new_43->function = free;
-  new_43->free_arg = 0B;
-  new_43->arg = ldi_45;
-  cleanup_chain = new_43;
-  if (old_chain_44 == 0B)
-    goto <bb 11>; [0.04%]
+  <bb 8> [1.96%]:
+  *_31 = 0;
+  if (len_29 > 1)
+    goto <bb 9>; [77.53%]
   else
-    goto <bb 12>; [99.96%]
+    goto <bb 10>; [22.47%]
 
-  <bb 11> [0.01%]:
-  exit (1);
-
-  <bb 12> [14.99%]:
-  _38 = MEM[(const gdb_byte *)ldi_45];
-  i_39 = (int) _38;
-  _40 = (long unsigned int) _38;
-  free (ldi_45);
-  if (new_43 != old_chain_44)
-    goto <bb 13>; [85.00%]
+  <bb 9> [1.52%]:
+  _35 = len_29 + 18446744073709551614;
+  _36 = line_23 + _35;
+  _37 = *_36;
+  if (_37 != 92)
+    goto <bb 55>; [64.99%]
   else
-    goto <bb 16>; [15.00%]
+    goto <bb 10>; [35.01%]
 
-  <bb 13> [84.93%]:
-  # ptr_32 = PHI <ptr_46(15), new_43(12)>
-  _47 = ptr_32->next;
-  cleanup_chain = _47;
-  _48 = ptr_32->function;
-  _49 = ptr_32->arg;
-  _48 (_49);
-  _50 = __printf_chk (1, "cleanup!!!!! =========\n");
-  _51 = ptr_32->arg;
-  _52 = __printf_chk (1, "%x\n", _51);
-  _53 = ptr_32->free_arg;
-  if (_53 != 0B)
-    goto <bb 14>; [93.48%]
+  <bb 10> [4.94%]:
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [28.00%]:
+  buf_41 = buf_40 + 1;
+
+  <bb 12> [32.94%]:
+  # buf_40 = PHI <line_23(10), buf_41(11)>
+  _42 = MEM[base: buf_40, offset: 0B];
+  _43 = (unsigned char) _42;
+  _44 = (int) _43;
+  _45 = isspace (_44);
+  if (_45 != 0)
+    goto <bb 11>; [85.00%]
   else
-    goto <bb 15>; [6.52%]
+    goto <bb 13>; [15.00%]
 
-  <bb 14> [79.39%]:
-  _55 = ptr_32->arg;
-  _53 (_55);
-
-  <bb 15> [84.93%]:
-  free (ptr_32);
-  ptr_46 = cleanup_chain;
-  if (old_chain_44 != ptr_46)
-    goto <bb 13>; [85.00%]
+  <bb 13> [4.94%]:
+  # buf_97 = PHI <buf_40(12)>
+  # _98 = PHI <_42(12)>
+  if (_98 == 0)
+    goto <bb 55>; [50.00%]
   else
-    goto <bb 16>; [15.00%]
+    goto <bb 14>; [50.00%]
 
-  <bb 16> [14.99%]:
-  if (_40 == 0)
-    goto <bb 18>; [46.00%]
+  <bb 14> [2.47%]:
+  p = 0;
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [97.53%]:
+  # argc_128 = PHI <argc_83(18), argc_83(17), argc_83(20), argc_129(25), argc_83(43), argc_83(47)>
+  # argv_130 = PHI <argv_86(18), argv_86(17), argv_86(20), argv_94(25), argv_86(43), argv_86(47)>
+  # buf_133 = PHI <buf_78(18), buf_78(17), buf_78(20), 0B(25), 0B(43), buf_112(47)>
+  # len_170 = PHI <len_79(18), len_79(17), len_79(20), len_134(25), len_79(43), _111(47)>
+
+  <bb 16> [100.00%]:
+  # argc_83 = PHI <argc_128(15), 0(14)>
+  # argv_86 = PHI <argv_130(15), 0B(14)>
+  # buf_78 = PHI <buf_133(15), 0B(14)>
+  # len_79 = PHI <len_170(15), 0(14)>
+  ch_73 = cmd_string_getc (buf_97, &p);
+  switch (ch_73) <default: <L7> [14.29%], case -1: <L5> [14.29%], case 9: <L5> [14.29%], case 32: <L5> [14.29%], case 34: <L1> [14.29%], case 35: <L4> [14.29%], case 36: <L2> [14.29%], case 39: <L0> [14.29%], case 126: <L6> [14.29%]>
+
+<L0> [14.29%]:
+  t_74 = cmd_string_string (buf_97, &p, 39, 0);
+  if (t_74 == 0B)
+    goto <bb 48>; [2.50%]
   else
-    goto <bb 17>; [54.00%]
+    goto <bb 15>; [97.50%]
 
-  <bb 17> [8.09%]:
-  MEM[(ULONGEST *)&len] = _40;
+<L1> [14.29%]:
+  t_75 = cmd_string_string (buf_97, &p, 34, 1);
+  if (t_75 == 0B)
+    goto <bb 19>; [2.50%]
+  else
+    goto <bb 15>; [97.50%]
 
-  <bb 18> [16.44%]:
-  t ={v} {CLOBBER};
-  buf ={v} {CLOBBER};
-  len ={v} {CLOBBER};
+  <bb 19> [0.36%]:
+  # buf_162 = PHI <buf_78(18)>
+  # argc_60 = PHI <argc_83(18)>
+  # argv_70 = PHI <argv_86(18)>
+  goto <bb 49> (error); [100.00%]
+
+<L2> [14.29%]:
+  t_76 = cmd_string_variable (buf_97, &p);
+  if (t_76 == 0B)
+    goto <bb 21>; [2.50%]
+  else
+    goto <bb 15>; [97.50%]
+
+  <bb 21> [0.36%]:
+  # buf_38 = PHI <buf_78(20)>
+  # argc_175 = PHI <argc_83(20)>
+  # argv_68 = PHI <argv_86(20)>
+  goto <bb 49> (error); [100.00%]
+
+<L4> [95.27%]:
+  ch_77 = cmd_string_getc (buf_97, &p);
+  if (ch_77 != -1)
+    goto <bb 22> (<L4>); [85.00%]
+  else
+    goto <bb 23> (<L5>); [15.00%]
+
+  # ch_93 = PHI <ch_73(16), -1(22)>
+<L5> [28.58%]:
+  if (buf_78 != 0B)
+    goto <bb 24>; [53.47%]
+  else
+    goto <bb 25>; [46.53%]
+
+  <bb 24> [15.28%]:
+  _80 = len_79 + 1;
+  buf_81 = xrealloc (buf_78, 1, _80);
+  _82 = buf_81 + len_79;
+  *_82 = 0;
+  _84 = argc_83 + 1;
+  _85 = (long unsigned int) _84;
+  argv_87 = xrealloc (argv_86, _85, 8);
+  _90 = (long unsigned int) argc_83;
+  _91 = _90 * 8;
+  _92 = argv_87 + _91;
+  *_92 = buf_81;
+
+  <bb 25> [28.58%]:
+  # argc_129 = PHI <argc_83(23), _84(24)>
+  # argv_94 = PHI <argv_86(23), argv_87(24)>
+  # len_134 = PHI <len_79(23), 0(24)>
+  if (ch_93 != -1)
+    goto <bb 15>; [97.50%]
+  else
+    goto <bb 26>; [2.50%]
+
+  <bb 26> [0.71%]:
+  # argv_49 = PHI <argv_94(25)>
+  # argc_218 = PHI <argc_129(25)>
+  if (argc_218 != 0)
+    goto <bb 27>; [92.50%]
+  else
+    goto <bb 61>; [7.50%]
+
+  <bb 27> [4.58%]:
+  # argc_61 = PHI <argc_105(29), argc_218(26)>
+  _95 = *argv_49;
+  equals_96 = strchr (_95, 61);
+  _99 = strcspn (_95, " \t");
+  whitespace_100 = _95 + _99;
+  _101 = equals_96 == 0B;
+  _102 = equals_96 > whitespace_100;
+  _103 = _101 | _102;
+  if (_103 != 0)
+    goto <bb 28>; [7.50%]
+  else
+    goto <bb 29>; [92.50%]
+
+  <bb 28> [0.34%]:
+  # argc_196 = PHI <argc_61(27)>
+  goto <bb 49> (error); [100.00%]
+
+  <bb 29> [4.24%]:
+  argc_105 = argc_61 + -1;
+  _106 = (long unsigned int) argc_105;
+  _107 = _106 * 8;
+  _108 = argv_49 + 8;
+  memmove (argv_49, _108, _107);
+  if (argc_105 != 0)
+    goto <bb 27>; [92.50%]
+  else
+    goto <bb 61>; [7.50%]
+
+<L6> [14.29%]:
+  if (buf_78 == 0B)
+    goto <bb 31>; [17.43%]
+  else
+    goto <bb 45> (<L7>); [82.57%]
+
+  <bb 31> [2.49%]:
+  _135 = cmd_string_getc (buf_97, &p);
+  if (_135 == 47)
+    goto <bb 32>; [51.12%]
+  else
+    goto <bb 36>; [48.88%]
+
+  <bb 32> [1.27%]:
+  if (envent_136(D) != 0B)
+    goto <bb 33>; [82.57%]
+  else
+    goto <bb 34>; [17.43%]
+
+  <bb 33> [1.05%]:
+  _137 = envent_136(D)->value;
+  _138 = *_137;
+  if (_138 != 0)
+    goto <bb 41>; [50.00%]
+  else
+    goto <bb 34>; [50.00%]
+
+  <bb 34> [0.75%]:
+  _140 = getuid ();
+  _141 = getpwuid (_140);
+  _142 = (long int) _141;
+  pw_143 = (struct passwd *) _142;
+  if (_141 != 0)
+    goto <bb 35>; [91.00%]
+  else
+    goto <bb 59>; [9.00%]
+
+  <bb 35> [0.68%]:
+  home_144 = pw_143->pw_dir;
+  goto <bb 41>; [100.00%]
+
+  <bb 36> [1.22%]:
+  _154 = p;
+  _155 = _154 + 18446744073709551615;
+  p = _155;
+  username_145 = cmd_string_string (buf_97, &p, 47, 0);
+  if (username_145 == 0B)
+    goto <bb 37>; [7.92%]
+  else
+    goto <bb 38>; [92.08%]
+
+  <bb 37> [0.10%]:
+  # argc_164 = PHI <argc_83(36)>
+  # argv_88 = PHI <argv_86(36)>
+  goto <bb 60>; [100.00%]
+
+  <bb 38> [1.12%]:
+  _146 = getpwnam (username_145);
+  if (_146 != 0)
+    goto <bb 39>; [50.00%]
+  else
+    goto <bb 40>; [50.00%]
+
+  <bb 39> [0.56%]:
+  _147 = (long int) _146;
+  pw_148 = (struct passwd *) _147;
+  home_149 = pw_148->pw_dir;
+
+  <bb 40> [1.12%]:
+  # home_153 = PHI <0B(38), home_149(39)>
+  free (username_145);
+
+  <bb 41> [2.33%]:
+  # home_150 = PHI <_137(33), home_144(35), home_153(40)>
+  if (home_150 == 0B)
+    goto <bb 42>; [7.92%]
+  else
+    goto <bb 43>; [92.08%]
+
+  <bb 42> [0.18%]:
+  # argc_152 = PHI <argc_83(41)>
+  # argv_113 = PHI <argv_86(41)>
+  goto <bb 60>; [100.00%]
+
+  <bb 43> [2.14%]:
+  _151 = strdup (home_150);
+  if (_151 == 0B)
+    goto <bb 44>; [0.00%]
+  else
+    goto <bb 15>; [100.00%]
+
+  <bb 44> [0.00%]:
+  # argc_166 = PHI <argc_83(43)>
+  # argv_157 = PHI <argv_86(43)>
+  goto <bb 49> (error); [100.00%]
+
+<L7> [26.09%]:
+  if (len_79 > 1073741821)
+    goto <bb 46>; [2.50%]
+  else
+    goto <bb 47>; [97.50%]
+
+  <bb 46> [0.65%]:
+  # buf_25 = PHI <buf_78(45)>
+  # argc_59 = PHI <argc_83(45)>
+  # argv_131 = PHI <argv_86(45)>
+  goto <bb 49> (error); [100.00%]
+
+  <bb 47> [25.44%]:
+  _111 = len_79 + 1;
+  buf_112 = xrealloc (buf_78, 1, _111);
+  _115 = buf_112 + len_79;
+  _116 = (char) ch_73;
+  *_115 = _116;
+  goto <bb 15>; [100.00%]
+
+  <bb 48> [0.36%]:
+  # buf_104 = PHI <buf_78(17)>
+  # argc_24 = PHI <argc_83(17)>
+  # argv_58 = PHI <argv_86(17)>
+
+  # argc_125 = PHI <argc_24(48), argc_60(19), argc_175(21), argc_213(60), argc_166(44), argc_59(46), argc_196(28)>
+  # argv_118 = PHI <argv_58(48), argv_70(19), argv_68(21), argv_50(60), argv_157(44), argv_131(46), argv_49(28)>
+  # buf_117 = PHI <buf_104(48), buf_162(19), buf_38(21), 0B(60), 0B(44), buf_25(46), 0B(28)>
+error [2.13%]:
+out [2.13%]:
+  free (buf_117);
+  if (argv_118 != 0B)
+    goto <bb 50>; [73.26%]
+  else
+    goto <bb 54>; [26.74%]
+
+  <bb 50> [1.56%]:
+  if (argc_125 > 0)
+    goto <bb 51>; [99.84%]
+  else
+    goto <bb 53>; [0.16%]
+
+  <bb 51> [1.56%]:
+  ivtmp.18_34 = (unsigned long) argv_118;
+  _139 = (unsigned int) argc_125;
+  _89 = _139 + 4294967295;
+  _114 = (unsigned long) _89;
+  _51 = _114 * 8;
+  _214 = (unsigned long) argv_118;
+  _52 = _51 + _214;
+  _215 = _52 + 8;
+
+  <bb 52> [10.38%]:
+  # ivtmp.18_19 = PHI <ivtmp.18_33(52), ivtmp.18_34(51)>
+  _46 = (void *) ivtmp.18_19;
+  _123 = MEM[base: _46, offset: 0B];
+  free (_123);
+  ivtmp.18_33 = ivtmp.18_19 + 8;
+  if (ivtmp.18_33 != _215)
+    goto <bb 52>; [85.00%]
+  else
+    goto <bb 53>; [15.00%]
+
+  <bb 53> [1.83%]:
+  # argv_110 = PHI <argv_118(52), argv_118(50), argv_49(61)>
+  free (argv_110);
+
+  <bb 54> [2.50%]:
+  p ={v} {CLOBBER};
+  free (line_23);
+
+  <bb 55> [5.96%]:
+  # buf_69 = PHI <buf_97(13), _64(9), buf_97(54)>
+
+  <bb 56> [6.97%]:
+  # buf_55 = PHI <buf_69(55), buf_71(D)(3)>
+  # len_14 = PHI <len_29(55), len_72(D)(3)>
+  _54 = (int) len_14;
+  _56 = __builtin_object_size (buf_55, 1);
+  _64 = __fgets_alias (buf_55, _54, f_11);
+  if (_64 != 0B)
+    goto <bb 4>; [85.00%]
+  else
+    goto <bb 57>; [15.00%]
+
+  <bb 57> [1.05%]:
+  fclose (f_11);
+  _65 = cfg_references;
+  _66 = _65 + -1;
+  cfg_references = _66;
+
+  <bb 58> [1.05%]:
+  ctx ={v} {CLOBBER};
+  ctxin ={v} {CLOBBER};
+  causes ={v} {CLOBBER};
   return 0;
 
-  <bb 19> [15.03%]:
-  ldi_18 = malloc (1024);
-  goto <bb 3>; [100.00%]
+  <bb 59> [0.07%]:
+  # argc_132 = PHI <argc_83(34)>
+  # argv_67 = PHI <argv_86(34)>
 
-  <bb 20> [85.00%]:
-  ldi_size_23 = ldi_size_21 * 2;
-  _24 = (long unsigned int) ldi_size_23;
-  if (_24 == 0)
-    goto <bb 4>; [50.00%]
+  <bb 60> [0.35%]:
+  # argc_213 = PHI <argc_152(42), argc_164(37), argc_132(59)>
+  # argv_50 = PHI <argv_113(42), argv_88(37), argv_67(59)>
+  goto <bb 49> (error); [100.00%]
+
+  <bb 61> [0.37%]:
+  GIMPLE_NOP
+  if (argv_49 != 0B)
+    goto <bb 53>; [73.26%]
   else
-    goto <bb 21>; [50.00%]
-
-  <bb 21> [42.50%]:
-  goto <bb 4>; [100.00%]
-
-  <bb 22> [96.19%]:
-  # ldi_45 = PHI <ldi_19(3)>
-  if (ldi_45 == 0B)
-    goto <bb 9>; [0.04%]
-  else
-    goto <bb 10>; [99.96%]
+    goto <bb 54>; [26.74%]
 
 }
 

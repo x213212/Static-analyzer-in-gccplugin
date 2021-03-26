@@ -47,11 +47,11 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.3351 } (nonlocal, escaped, restrict)
+ESCAPED, points-to non-local, points-to vars: { D.4399 } (nonlocal, escaped, restrict)
 
 Flow-insensitive points-to information
 
-__fmt_2(D), points-to NULL, points-to vars: { D.3351 } (nonlocal, escaped, restrict)
+__fmt_2(D), points-to NULL, points-to vars: { D.4399 } (nonlocal, escaped, restrict)
 
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
@@ -66,7 +66,7 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function do_my_cleanups (do_my_cleanups, funcdef_no=48, decl_uid=3170, cgraph_uid=48, symbol_order=53)
+;; Function fgets (fgets, funcdef_no=20, decl_uid=2081, cgraph_uid=20, symbol_order=20)
 
 Points-to analysis
 
@@ -79,26 +79,57 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-pmy_chain = &NONLOCAL
-old_chain = &NONLOCAL
-_1 = *ptr_12
-*pmy_chain = _1
-_2 = *ptr_12 + 64
-_3 = *ptr_12 + 192
+__s = &PARM_NOALIAS(9)
+PARM_NOALIAS(9) = &NONLOCAL
+__n = &NONLOCAL
+__stream = &PARM_NOALIAS(12)
+PARM_NOALIAS(12) = &NONLOCAL
+CALLUSED(14) = CALLUSED(14) + UNKNOWN
+CALLUSED(14) = *CALLUSED(14) + UNKNOWN
+CALLUSED(14) = __s
+CALLUSED(14) = &NONLOCAL
+_1 = CALLUSED(14)
+_1 = NONLOCAL
+callarg(18) = __n
+_2 = callarg(18) + UNKNOWN
+_2 = &NONLOCAL
+CALLUSED(20) = CALLUSED(20) + UNKNOWN
+CALLUSED(20) = *CALLUSED(20) + UNKNOWN
+CALLUSED(20) = __s
+CALLUSED(20) = &NONLOCAL
+_3 = CALLUSED(20)
+_3 = NONLOCAL
+ESCAPED = __s
 ESCAPED = _3
-ESCAPED = &NONLOCAL
-ESCAPED = &STRING
-_21 = NONLOCAL
-_4 = *ptr_12 + 192
-ESCAPED = &NONLOCAL
-ESCAPED = &STRING
-ESCAPED = _4
-_20 = NONLOCAL
-_5 = *ptr_12 + 128
-_6 = *ptr_12 + 128
-_7 = *ptr_12 + 192
+ESCAPED = __n
+ESCAPED = __stream
+_16 = NONLOCAL
+_4 = __n
+CALLUSED(26) = CALLUSED(26) + UNKNOWN
+CALLUSED(26) = *CALLUSED(26) + UNKNOWN
+CALLUSED(26) = __s
+CALLUSED(26) = &NONLOCAL
+_5 = CALLUSED(26)
+_5 = NONLOCAL
+CALLUSED(29) = CALLUSED(29) + UNKNOWN
+CALLUSED(29) = *CALLUSED(29) + UNKNOWN
+CALLUSED(29) = __s
+CALLUSED(29) = &NONLOCAL
+_6 = CALLUSED(29)
+_6 = NONLOCAL
+ESCAPED = __s
+ESCAPED = _6
+ESCAPED = __n
+ESCAPED = __stream
+_14 = NONLOCAL
+ESCAPED = __s
+ESCAPED = __n
+ESCAPED = __stream
+_18 = NONLOCAL
+_7 = _16
+_7 = _14
+_7 = _18
 ESCAPED = _7
-ptr_12 = *pmy_chain
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -111,26 +142,335 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { STRING ESCAPED NONLOCAL }
-NONLOCAL = { ESCAPED NONLOCAL } same as _21
+ESCAPED = { ESCAPED NONLOCAL PARM_NOALIAS(9) PARM_NOALIAS(12) }
+NONLOCAL = { ESCAPED NONLOCAL } same as _16
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-pmy_chain = { NONLOCAL }
-old_chain = { NONLOCAL } same as pmy_chain
-_1 = { ESCAPED NONLOCAL }
-ptr_12 = { ESCAPED NONLOCAL }
-_2 = { ESCAPED NONLOCAL }
-_3 = { ESCAPED NONLOCAL }
+__s = { PARM_NOALIAS(9) }
+PARM_NOALIAS(9) = { ESCAPED NONLOCAL }
+__n = { NONLOCAL }
+__stream = { PARM_NOALIAS(12) }
+PARM_NOALIAS(12) = { ESCAPED NONLOCAL }
+__builtin_object_size = { }
+CALLUSED(14) = { ESCAPED NONLOCAL PARM_NOALIAS(9) }
+CALLCLOBBERED(15) = { }
+_1 = { ESCAPED NONLOCAL PARM_NOALIAS(9) }
+__builtin_constant_p = { }
+callarg(18) = { NONLOCAL } same as __n
+_2 = { NONLOCAL }
+CALLUSED(20) = { ESCAPED NONLOCAL PARM_NOALIAS(9) }
+CALLCLOBBERED(21) = { }
+_3 = { ESCAPED NONLOCAL PARM_NOALIAS(9) }
+__fgets_chk = { }
+_16 = { ESCAPED NONLOCAL }
+_4 = { NONLOCAL } same as __n
+CALLUSED(26) = { ESCAPED NONLOCAL PARM_NOALIAS(9) }
+CALLCLOBBERED(27) = { }
+_5 = { ESCAPED NONLOCAL PARM_NOALIAS(9) }
+CALLUSED(29) = { ESCAPED NONLOCAL PARM_NOALIAS(9) }
+CALLCLOBBERED(30) = { }
+_6 = { ESCAPED NONLOCAL PARM_NOALIAS(9) }
+*__fgets_chk = { }
+_14 = { ESCAPED NONLOCAL } same as _16
+*fgets = { }
+_18 = { ESCAPED NONLOCAL } same as _16
+_7 = { ESCAPED NONLOCAL } same as _16
+
+
+Alias information for fgets
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.4400 D.4401 } (nonlocal, escaped, restrict)
+
+Flow-insensitive points-to information
+
+_7, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+__s_10(D), points-to NULL, points-to vars: { D.4400 } (nonlocal, escaped, restrict)
+__stream_12(D), points-to NULL, points-to vars: { D.4401 } (nonlocal, escaped, restrict)
+_14, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_16, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_18, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+
+__attribute__((__artificial__, __gnu_inline__, __always_inline__))
+fgets (char * restrict __s, int __n, struct FILE * restrict __stream)
+{
+  long unsigned int _1;
+  int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  char * _7;
+  char * _14;
+  char * _16;
+  char * _18;
+
+  <bb 2> [0.00%]:
+  _1 = __builtin_object_size (__s_10(D), 1);
+  if (_1 != 18446744073709551615)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _2 = __builtin_constant_p (__n_11(D));
+  if (_2 == 0)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 4> [0.00%]:
+  if (__n_11(D) <= 0)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  _3 = __builtin_object_size (__s_10(D), 1);
+  _16 = __fgets_chk (__s_10(D), _3, __n_11(D), __stream_12(D));
+  goto <bb 9>; [0.00%]
+
+  <bb 6> [0.00%]:
+  _4 = (long unsigned int) __n_11(D);
+  _5 = __builtin_object_size (__s_10(D), 1);
+  if (_4 > _5)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 7> [0.00%]:
+  _6 = __builtin_object_size (__s_10(D), 1);
+  _14 = *__fgets_chk (__s_10(D), _6, __n_11(D), __stream_12(D));
+  goto <bb 9>; [0.00%]
+
+  <bb 8> [0.00%]:
+  _18 = *fgets (__s_10(D), __n_11(D), __stream_12(D));
+
+  <bb 9> [0.00%]:
+  # _7 = PHI <_16(5), _14(7), _18(8)>
+  return _7;
+
+}
+
+
+
+;; Function xrealloc (xrealloc, funcdef_no=39, decl_uid=4125, cgraph_uid=39, symbol_order=43)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+oldptr = &NONLOCAL
+nmemb = &NONLOCAL
+size = &NONLOCAL
+newsize_7 = nmemb
+newsize_7 = size
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = &STRING
+_19 = NONLOCAL
+ESCAPED = &NONLOCAL
+_1 = &NONLOCAL
+_1 = nmemb
+_2 = _1
+_3 = &NONLOCAL
+_3 = _2
+_4 = _3
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = &STRING
+_20 = NONLOCAL
+ESCAPED = &NONLOCAL
+newptr_11 = &HEAP(21)
+doubledereftmp(22) = *oldptr
+*newptr_11 = doubledereftmp(22)
+newptr_11 = oldptr
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = &STRING
+_21 = NONLOCAL
+ESCAPED = &NONLOCAL
+_12 = newptr_11
+ESCAPED = newptr_11
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { STRING ESCAPED NONLOCAL HEAP(21) }
+NONLOCAL = { ESCAPED NONLOCAL } same as _19
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+oldptr = { NONLOCAL }
+nmemb = { NONLOCAL } same as oldptr
+size = { NONLOCAL } same as oldptr
+newsize_7 = { NONLOCAL } same as oldptr
 __printf_chk = { }
-_21 = { ESCAPED NONLOCAL }
-_4 = { ESCAPED NONLOCAL }
-_20 = { ESCAPED NONLOCAL } same as _21
-_5 = { ESCAPED NONLOCAL }
-_6 = { ESCAPED NONLOCAL }
-_7 = { ESCAPED NONLOCAL }
+_19 = { ESCAPED NONLOCAL }
+exit = { }
+_1 = { NONLOCAL } same as oldptr
+_2 = { NONLOCAL } same as oldptr
+_3 = { NONLOCAL } same as oldptr
+_4 = { NONLOCAL } same as oldptr
+_20 = { ESCAPED NONLOCAL } same as _19
+newptr_11 = { NONLOCAL HEAP(21) }
+HEAP(21) = { ESCAPED NONLOCAL }
+doubledereftmp(22) = { ESCAPED NONLOCAL }
+_21 = { ESCAPED NONLOCAL } same as _19
+_12 = { NONLOCAL HEAP(21) } same as newptr_11
 
 
-Alias information for do_my_cleanups
+Alias information for xrealloc
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.4408 } (escaped, escaped heap)
+
+Flow-insensitive points-to information
+
+oldptr_9(D), points-to non-local, points-to NULL, points-to vars: { }
+newptr_11, points-to non-local, points-to NULL, points-to vars: { D.4408 } (escaped, escaped heap)
+_12, points-to non-local, points-to NULL, points-to vars: { D.4408 } (escaped, escaped heap)
+
+xrealloc (void * oldptr, size_t nmemb, size_t size)
+{
+  int D.4407;
+  int D.4405;
+  int D.4403;
+  void * newptr;
+  size_t newsize;
+  long unsigned int _1;
+  unsigned int _2;
+  int _3;
+  long unsigned int _4;
+  void * _12;
+  int _19;
+  int _20;
+  int _21;
+
+  <bb 2> [0.00%]:
+  newsize_7 = nmemb_5(D) * size_6(D);
+  if (newsize_7 == 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [100.00%]:
+  _19 = __printf_chk (1, "zero size%s", "");
+  exit (1);
+
+  <bb 4> [0.00%]:
+  _1 = 30 / nmemb_5(D);
+  _2 = (unsigned int) _1;
+  _3 = 1 << _2;
+  _4 = (long unsigned int) _3;
+  if (_4 < size_6(D))
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 5> [100.00%]:
+  _20 = __printf_chk (1, "nmemb * size > SIZE_MAX%s", "");
+  exit (1);
+
+  <bb 6> [0.00%]:
+  newptr_11 = realloc (oldptr_9(D), newsize_7);
+  if (newptr_11 == 0B)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 7> [100.00%]:
+  _21 = __printf_chk (1, "xrealloc failed%s", "");
+  exit (1);
+
+  <bb 8> [0.00%]:
+  _12 = newptr_11;
+  return newptr_11;
+
+}
+
+
+
+;; Function cmd_string_getc (cmd_string_getc, funcdef_no=40, decl_uid=4131, cgraph_uid=40, symbol_order=44)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+s = &NONLOCAL
+p = &NONLOCAL
+_1 = *p
+_2 = s
+_3 = *_2
+_4 = *p
+_6 = _4
+_6 = &NONLOCAL
+*p = _6
+_7 = s
+_8 = *_7
+_16 = _8
+_9 = &NONLOCAL
+_9 = _16
+ESCAPED = _9
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL } same as _1
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+s = { NONLOCAL }
+p = { NONLOCAL } same as s
+_1 = { ESCAPED NONLOCAL }
+_2 = { NONLOCAL } same as s
+_3 = { ESCAPED NONLOCAL }
+_4 = { ESCAPED NONLOCAL } same as _1
+_6 = { ESCAPED NONLOCAL } same as _1
+_7 = { NONLOCAL } same as s
+_8 = { ESCAPED NONLOCAL }
+_16 = { ESCAPED NONLOCAL } same as _8
+_9 = { ESCAPED NONLOCAL }
+
+
+Alias information for cmd_string_getc
 
 Aliased symbols
 
@@ -141,73 +481,50 @@ ESCAPED, points-to non-local, points-to vars: { }
 
 Flow-insensitive points-to information
 
-_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_3, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_4, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_5, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_7, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-pmy_chain_11(D), points-to non-local, points-to NULL, points-to vars: { }
-ptr_12, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-old_chain_13(D), points-to non-local, points-to NULL, points-to vars: { }
+_2, points-to non-local, points-to NULL, points-to vars: { }
+_7, points-to non-local, points-to NULL, points-to vars: { }
+s_11(D), points-to non-local, points-to NULL, points-to vars: { }
+p_14(D), points-to non-local, points-to NULL, points-to vars: { }
 
-do_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
+cmd_string_getc (const char * s, size_t * p)
 {
-  int D.3355;
-  int D.3353;
-  struct cleanup * ptr;
-  struct cleanup * _1;
-  void (*<Ted>) (void *) _2;
-  void * _3;
-  void * _4;
-  void (*<Ted>) (void *) _5;
-  void (*<Ted>) (void *) _6;
-  void * _7;
-  int _20;
-  int _21;
+  const u_char * ucs;
+  long unsigned int _1;
+  const u_char * _2;
+  unsigned char _3;
+  long unsigned int _4;
+  long unsigned int _6;
+  const u_char * _7;
+  unsigned char _8;
+  int _9;
+  int _16;
 
   <bb 2> [0.00%]:
-  goto <bb 6>; [0.00%]
-
-  <bb 3> [100.00%]:
-  _1 = ptr_12->next;
-  *pmy_chain_11(D) = _1;
-  _2 = ptr_12->function;
-  _3 = ptr_12->arg;
-  _2 (_3);
-  _21 = __printf_chk (1, "cleanup!!!!! =========\n");
-  _4 = ptr_12->arg;
-  _20 = __printf_chk (1, "%x\n", _4);
-  _5 = ptr_12->free_arg;
-  if (_5 != 0B)
+  _1 = *p_14(D);
+  _2 = s_11(D) + _1;
+  _3 = *_2;
+  if (_3 == 0)
     goto <bb 4>; [0.00%]
   else
-    goto <bb 5>; [0.00%]
+    goto <bb 3>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _4 = *p_14(D);
+  _6 = _4 + 1;
+  *p_14(D) = _6;
+  _7 = s_11(D) + _4;
+  _8 = *_7;
+  _16 = (int) _8;
 
   <bb 4> [0.00%]:
-  _6 = ptr_12->free_arg;
-  _7 = ptr_12->arg;
-  _6 (_7);
-
-  <bb 5> [0.00%]:
-  free (ptr_12);
-
-  <bb 6> [0.00%]:
-  ptr_12 = *pmy_chain_11(D);
-  if (ptr_12 != old_chain_13(D))
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 7> [0.00%]:
-  return;
+  # _9 = PHI <-1(2), _16(3)>
+  return _9;
 
 }
 
 
 
-;; Function make_my_cleanup2 (make_my_cleanup2, funcdef_no=50, decl_uid=3178, cgraph_uid=50, symbol_order=55)
+;; Function cmd_string_ungetc (cmd_string_ungetc, funcdef_no=41, decl_uid=4135, cgraph_uid=41, symbol_order=45)
 
 Points-to analysis
 
@@ -220,21 +537,11 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-pmy_chain = &NONLOCAL
-function = &NONLOCAL
-arg = &NONLOCAL
-free_arg = &NONLOCAL
-ESCAPED = &NONLOCAL
-new_4 = &HEAP(14)
-old_chain_6 = *pmy_chain
-_1 = *pmy_chain
-*new_4 = _1
-*new_4 + 64 = function
-*new_4 + 128 = free_arg
-*new_4 + 192 = arg
-*pmy_chain = new_4
-ESCAPED = &NONLOCAL
-ESCAPED = old_chain_6
+p = &NONLOCAL
+_1 = *p
+_2 = _1
+_2 = &NONLOCAL
+*p = _2
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -247,72 +554,44 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { ESCAPED NONLOCAL HEAP(14) }
-NONLOCAL = { ESCAPED NONLOCAL }
+ESCAPED = { ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL } same as _1
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-pmy_chain = { NONLOCAL }
-function = { NONLOCAL } same as pmy_chain
-arg = { NONLOCAL } same as pmy_chain
-free_arg = { NONLOCAL } same as pmy_chain
-malloc = { }
-new_4 = { HEAP(14) }
-HEAP(14) = { ESCAPED NONLOCAL }
-old_chain_6 = { ESCAPED NONLOCAL }
-_1 = { ESCAPED NONLOCAL } same as old_chain_6
-exit = { }
+p = { NONLOCAL }
+_1 = { ESCAPED NONLOCAL }
+_2 = { ESCAPED NONLOCAL } same as _1
 
 
-Alias information for make_my_cleanup2
+Alias information for cmd_string_ungetc
 
 Aliased symbols
 
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.3356 } (escaped, escaped heap)
+ESCAPED, points-to non-local, points-to vars: { }
 
 Flow-insensitive points-to information
 
-_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-new_4, points-to NULL, points-to vars: { D.3356 } (escaped, escaped heap)
-pmy_chain_5(D), points-to non-local, points-to NULL, points-to vars: { }
-old_chain_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-function_8(D), points-to non-local, points-to NULL, points-to vars: { }
-free_arg_10(D), points-to non-local, points-to NULL, points-to vars: { }
-arg_12(D), points-to non-local, points-to NULL, points-to vars: { }
+p_4(D), points-to non-local, points-to NULL, points-to vars: { }
 
-make_my_cleanup2 (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg, void (*<Ted>) (void *) free_arg)
+cmd_string_ungetc (size_t * p)
 {
-  struct cleanup * old_chain;
-  struct cleanup * new;
-  struct cleanup * _1;
+  long unsigned int _1;
+  long unsigned int _2;
 
   <bb 2> [0.00%]:
-  new_4 = malloc (32);
-  old_chain_6 = *pmy_chain_5(D);
-  _1 = *pmy_chain_5(D);
-  new_4->next = _1;
-  new_4->function = function_8(D);
-  new_4->free_arg = free_arg_10(D);
-  new_4->arg = arg_12(D);
-  *pmy_chain_5(D) = new_4;
-  if (old_chain_6 == 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  exit (1);
-
-  <bb 4> [0.00%]:
-  return old_chain_6;
+  _1 = *p_4(D);
+  _2 = _1 + 18446744073709551615;
+  *p_4(D) = _2;
+  return;
 
 }
 
 
 
-;; Function make_my_cleanup (make_my_cleanup, funcdef_no=51, decl_uid=3182, cgraph_uid=51, symbol_order=56)
+;; Function cmd_string_variable (cmd_string_variable, funcdef_no=42, decl_uid=4139, cgraph_uid=42, symbol_order=46)
 
 Points-to analysis
 
@@ -325,15 +604,485 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-pmy_chain = &NONLOCAL
-function = &NONLOCAL
-arg = &NONLOCAL
-ESCAPED = pmy_chain
-ESCAPED = function
-ESCAPED = arg
+s = &NONLOCAL
+p = &NONLOCAL
+ESCAPED = s
+ESCAPED = p
+ch_59 = NONLOCAL
+ESCAPED = s
+ESCAPED = p
+ch_62 = NONLOCAL
+ch.0_2 = ch_62
+_3 = ch.0_2
+_3 = &NONLOCAL
+_5 = _1
+_5 = _4
+ch.1_6 = ch_62
+_7 = ch.1_6
+_7 = &NONLOCAL
+ch_41 = ch_59
+ch_41 = ch_62
+ch_41 = ch_62
+fch_42 = &NONLOCAL
+fch_42 = &NONLOCAL
+fch_42 = &NONLOCAL
+ch.2_9 = ch_41
+_10 = ch.2_9
+_10 = &NONLOCAL
+_12 = _8
+_12 = _11
+ch.3_13 = ch_41
+_14 = ch.3_13
+_14 = &NONLOCAL
+_64 = t_63
 ESCAPED = &NULL
-_6 = NONLOCAL
+ESCAPED = &NONLOCAL
+ESCAPED = &NONLOCAL
+buf_66 = NONLOCAL
+_18 = ch_41
+*buf_66 = _18
+buf_43 = buf_66
+buf_43 = buf_72
+len_45 = &NONLOCAL
+len_45 = len_73
+ESCAPED = s
+ESCAPED = p
+ch_70 = NONLOCAL
+ch.5_20 = ch_70
+_21 = ch.5_20
+_21 = &NONLOCAL
+_23 = _19
+_23 = _22
+ch.6_24 = ch_70
+_25 = ch.6_24
+_25 = &NONLOCAL
+ch.7_26 = ch_70
+_27 = ch.7_26
+_27 = &NONLOCAL
+_28 = len_45
+_28 = &NONLOCAL
+ESCAPED = buf_43
+ESCAPED = &NONLOCAL
+ESCAPED = _28
+buf_72 = NONLOCAL
+len.8_29 = len_45
+len_73 = len_45
+len_73 = &NONLOCAL
+_30 = buf_72
+_31 = ch_70
+*_30 = _31
+_34 = _32
+_34 = _33
+_37 = _35
+_37 = _36
+ESCAPED = p
+_38 = len_45
+_38 = &NONLOCAL
+ESCAPED = buf_43
+ESCAPED = &NONLOCAL
+ESCAPED = _38
+buf_77 = NONLOCAL
+_39 = buf_77
+derefaddrtmp(62) = &NULL
+*_39 = derefaddrtmp(62)
+_84 = &HEAP(64)
+_40 = *envent_80 + 64
+_82 = &HEAP(68)
+doubledereftmp(69) = *_40
+*_82 = doubledereftmp(69)
+buf_44 = &NULL
+buf_44 = &NULL
+buf_44 = buf_43
+buf_44 = buf_43
+_46 = t_63
+_46 = _84
+_46 = _82
+_46 = &NULL
+ESCAPED = _46
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL ESCAPED NONLOCAL HEAP(64) HEAP(68) }
+NONLOCAL = { ESCAPED NONLOCAL } same as ch_59
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+s = { NONLOCAL }
+p = { NONLOCAL } same as s
+cmd_string_getc = { }
+ch_59 = { ESCAPED NONLOCAL }
+ch_62 = { ESCAPED NONLOCAL } same as ch_59
+_1 = { }
+ch.0_2 = { ESCAPED NONLOCAL } same as ch_59
+_3 = { ESCAPED NONLOCAL } same as ch_59
+_4 = { }
+_5 = { }
+ch.1_6 = { ESCAPED NONLOCAL } same as ch_59
+_7 = { ESCAPED NONLOCAL } same as ch_59
+ch_41 = { ESCAPED NONLOCAL } same as ch_59
+fch_42 = { NONLOCAL } same as s
+_8 = { }
+ch.2_9 = { ESCAPED NONLOCAL } same as ch_59
+_10 = { ESCAPED NONLOCAL } same as ch_59
+_11 = { }
+_12 = { }
+ch.3_13 = { ESCAPED NONLOCAL } same as ch_59
+_14 = { ESCAPED NONLOCAL } same as ch_59
+_64 = { }
+t_63 = { }
+xrealloc = { }
+buf_66 = { ESCAPED NONLOCAL } same as ch_59
+_18 = { ESCAPED NONLOCAL } same as ch_59
+buf_43 = { ESCAPED NONLOCAL } same as ch_59
+buf_72 = { ESCAPED NONLOCAL } same as ch_59
+len_45 = { NONLOCAL } same as s
+len_73 = { NONLOCAL } same as s
+ch_70 = { ESCAPED NONLOCAL } same as ch_59
+_19 = { }
+ch.5_20 = { ESCAPED NONLOCAL } same as ch_59
+_21 = { ESCAPED NONLOCAL } same as ch_59
+_22 = { }
+_23 = { }
+ch.6_24 = { ESCAPED NONLOCAL } same as ch_59
+_25 = { ESCAPED NONLOCAL } same as ch_59
+ch.7_26 = { ESCAPED NONLOCAL } same as ch_59
+_27 = { ESCAPED NONLOCAL } same as ch_59
+_28 = { NONLOCAL } same as s
+len.8_29 = { NONLOCAL } same as s
+_30 = { ESCAPED NONLOCAL } same as ch_59
+_31 = { ESCAPED NONLOCAL } same as ch_59
+_32 = { }
+_33 = { }
+_34 = { }
+_35 = { }
+_36 = { }
+_37 = { }
+cmd_string_ungetc = { }
+_38 = { NONLOCAL } same as s
+buf_77 = { ESCAPED NONLOCAL } same as ch_59
+_39 = { ESCAPED NONLOCAL } same as ch_59
+derefaddrtmp(62) = { NULL }
+_84 = { HEAP(64) }
+HEAP(64) = { ESCAPED NONLOCAL }
+_40 = { }
+envent_80 = { }
+_82 = { HEAP(68) }
+HEAP(68) = { ESCAPED NONLOCAL }
+doubledereftmp(69) = { }
+buf_44 = { NULL ESCAPED NONLOCAL }
+_46 = { NULL HEAP(64) HEAP(68) }
+
+
+Alias information for cmd_string_variable
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4409 D.4410 } (escaped, escaped heap)
+
+Flow-insensitive points-to information
+
+_30, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_39, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_40, points-to NULL, points-to vars: { }
+buf_43, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+buf_44, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_46, points-to NULL, points-to vars: { D.4409 D.4410 } (escaped, escaped heap)
+s_56(D), points-to non-local, points-to NULL, points-to vars: { }
+p_57(D), points-to non-local, points-to NULL, points-to vars: { }
+t_63(D), points-to NULL, points-to vars: { }
+_64, points-to NULL, points-to vars: { }
+buf_66, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+buf_72, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+buf_77, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+envent_80(D), points-to NULL, points-to vars: { }
+_82, points-to NULL, points-to vars: { D.4410 } (escaped, escaped heap)
+_84, points-to NULL, points-to vars: { D.4409 } (escaped, escaped heap)
+
+cmd_string_variable (const char * s, size_t * p)
+{
+  struct environ_entry * envent;
+  size_t len;
+  char * t;
+  char * buf;
+  int fch;
+  int ch;
+  _Bool _1;
+  unsigned int ch.0_2;
+  unsigned int _3;
+  _Bool _4;
+  _Bool _5;
+  unsigned int ch.1_6;
+  unsigned int _7;
+  _Bool _8;
+  unsigned int ch.2_9;
+  unsigned int _10;
+  _Bool _11;
+  _Bool _12;
+  unsigned int ch.3_13;
+  unsigned int _14;
+  char _18;
+  _Bool _19;
+  unsigned int ch.5_20;
+  unsigned int _21;
+  _Bool _22;
+  _Bool _23;
+  unsigned int ch.6_24;
+  unsigned int _25;
+  unsigned int ch.7_26;
+  unsigned int _27;
+  long unsigned int _28;
+  long unsigned int len.8_29;
+  char * _30;
+  char _31;
+  _Bool _32;
+  _Bool _33;
+  _Bool _34;
+  _Bool _35;
+  _Bool _36;
+  _Bool _37;
+  long unsigned int _38;
+  char * _39;
+  char * _40;
+  char * _46;
+  char * _64;
+  char * _82;
+  char * _84;
+
+  <bb 2> [0.00%]:
+  ch_59 = cmd_string_getc (s_56(D), p_57(D));
+  switch (ch_59) <default: <L3> [0.00%], case -1: error [0.00%], case 123: <L1> [0.00%]>
+
+<L1> [0.00%]:
+  ch_62 = cmd_string_getc (s_56(D), p_57(D));
+  _1 = ch_62 != 95;
+  ch.0_2 = (unsigned int) ch_62;
+  _3 = ch.0_2 + 4294967199;
+  _4 = _3 > 25;
+  _5 = _1 & _4;
+  if (_5 != 0)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5> (<L3>); [0.00%]
+
+  <bb 4> [0.00%]:
+  ch.1_6 = (unsigned int) ch_62;
+  _7 = ch.1_6 + 4294967231;
+  if (_7 > 25)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 5> (<L3>); [0.00%]
+
+  # ch_41 = PHI <ch_59(2), ch_62(3), ch_62(4)>
+  # fch_42 = PHI <-1(2), 123(3), 123(4)>
+<L3> [0.00%]:
+  _8 = ch_41 != 95;
+  ch.2_9 = (unsigned int) ch_41;
+  _10 = ch.2_9 + 4294967199;
+  _11 = _10 > 25;
+  _12 = _8 & _11;
+  if (_12 != 0)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 6> [0.00%]:
+  ch.3_13 = (unsigned int) ch_41;
+  _14 = ch.3_13 + 4294967231;
+  if (_14 > 25)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 7> [0.00%]:
+  _64 = t_63(D);
+  goto <bb 22>; [0.00%]
+
+  <bb 8> [0.00%]:
+  buf_66 = xrealloc (0B, 1, 1);
+  _18 = (char) ch_41;
+  *buf_66 = _18;
+
+  <bb 9> [0.00%]:
+  # buf_43 = PHI <buf_66(8), buf_72(14)>
+  # len_45 = PHI <1(8), len_73(14)>
+  ch_70 = cmd_string_getc (s_56(D), p_57(D));
+  if (ch_70 == -1)
+    goto <bb 15>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 10> [0.00%]:
+  _19 = ch_70 != 95;
+  ch.5_20 = (unsigned int) ch_70;
+  _21 = ch.5_20 + 4294967199;
+  _22 = _21 > 25;
+  _23 = _19 & _22;
+  if (_23 != 0)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 11> [0.00%]:
+  ch.6_24 = (unsigned int) ch_70;
+  _25 = ch.6_24 + 4294967231;
+  if (_25 > 25)
+    goto <bb 12>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 12> [0.00%]:
+  ch.7_26 = (unsigned int) ch_70;
+  _27 = ch.7_26 + 4294967248;
+  if (_27 > 9)
+    goto <bb 15>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 13> [0.00%]:
+  if (len_45 > 1073741820)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 14> [0.00%]:
+  _28 = len_45 + 1;
+  buf_72 = xrealloc (buf_43, 1, _28);
+  len.8_29 = len_45;
+  len_73 = len_45 + 1;
+  _30 = buf_72 + len_45;
+  _31 = (char) ch_70;
+  *_30 = _31;
+  goto <bb 9>; [0.00%]
+
+  <bb 15> [0.00%]:
+  _32 = fch_42 == 123;
+  _33 = ch_70 != 125;
+  _34 = _32 & _33;
+  if (_34 != 0)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 16>; [0.00%]
+
+  <bb 16> [0.00%]:
+  _35 = ch_70 != -1;
+  _36 = fch_42 != 123;
+  _37 = _35 & _36;
+  if (_37 != 0)
+    goto <bb 17>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 17> [0.00%]:
+  cmd_string_ungetc (p_57(D));
+
+  <bb 18> [0.00%]:
+  _38 = len_45 + 1;
+  buf_77 = xrealloc (buf_43, 1, _38);
+  _39 = buf_77 + len_45;
+  *_39 = 0;
+  free (buf_77);
+  if (envent_80(D) == 0B)
+    goto <bb 19>; [0.00%]
+  else
+    goto <bb 20>; [0.00%]
+
+  <bb 19> [0.00%]:
+  _84 = strdup ("");
+  goto <bb 22>; [0.00%]
+
+  <bb 20> [0.00%]:
+  _40 = envent_80(D)->value;
+  _82 = strdup (_40);
+  goto <bb 22>; [0.00%]
+
+  # buf_44 = PHI <0B(2), 0B(4), buf_43(13), buf_43(15)>
+error [0.00%]:
+  free (buf_44);
+
+  <bb 22> [0.00%]:
+  # _46 = PHI <t_63(D)(7), _84(19), _82(20), 0B(21)>
+  return _46;
+
+}
+
+
+
+;; Function cmd_string_string (cmd_string_string, funcdef_no=43, decl_uid=4159, cgraph_uid=43, symbol_order=47)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+s = &NONLOCAL
+p = &NONLOCAL
+endch = &NONLOCAL
+esc = &NONLOCAL
+ESCAPED = s
+ESCAPED = p
+ch_30 = NONLOCAL
+ESCAPED = s
+ESCAPED = p
+t_36 = NONLOCAL
+ch_8 = ch_22
+ch_8 = ch_22
+ch_8 = &NONLOCAL
+ch_8 = ch_22
+ch_8 = ch_30
+ch_8 = &NONLOCAL
+ch_8 = &NONLOCAL
+ch_8 = &NONLOCAL
+_1 = len_10
+_1 = &NONLOCAL
+ESCAPED = buf_9
+ESCAPED = &NONLOCAL
+ESCAPED = _1
+buf_38 = NONLOCAL
+len.9_2 = len_10
+len_39 = len_10
+len_39 = &NONLOCAL
+_3 = buf_38
+_4 = ch_8
+*_3 = _4
+buf_9 = &NULL
+buf_9 = buf_9
+buf_9 = buf_38
+len_10 = &NULL
+len_10 = len_10
+len_10 = len_39
+ESCAPED = s
+ESCAPED = p
+ch_22 = NONLOCAL
+_5 = endch
+_6 = len_10
+_6 = &NONLOCAL
+ESCAPED = buf_9
+ESCAPED = &NONLOCAL
 ESCAPED = _6
+buf_25 = NONLOCAL
+_7 = buf_25
+derefaddrtmp(31) = &NULL
+*_7 = derefaddrtmp(31)
+_11 = buf_25
+_11 = &NULL
+ESCAPED = _11
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -347,17 +1096,37 @@ Points-to sets
 
 ANYTHING = { ANYTHING }
 ESCAPED = { NULL ESCAPED NONLOCAL }
-NONLOCAL = { ESCAPED NONLOCAL } same as _6
+NONLOCAL = { ESCAPED NONLOCAL } same as ch_30
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-pmy_chain = { NONLOCAL }
-function = { NONLOCAL } same as pmy_chain
-arg = { NONLOCAL } same as pmy_chain
-make_my_cleanup2 = { }
-_6 = { ESCAPED NONLOCAL }
+s = { NONLOCAL }
+p = { NONLOCAL } same as s
+endch = { NONLOCAL } same as s
+esc = { NONLOCAL } same as s
+cmd_string_getc = { }
+ch_30 = { ESCAPED NONLOCAL }
+cmd_string_variable = { }
+t_36 = { ESCAPED NONLOCAL } same as ch_30
+ch_8 = { ESCAPED NONLOCAL } same as ch_30
+ch_22 = { ESCAPED NONLOCAL } same as ch_30
+_1 = { NULL NONLOCAL }
+len_10 = { NULL NONLOCAL } same as _1
+xrealloc = { }
+buf_9 = { NULL ESCAPED NONLOCAL }
+buf_38 = { ESCAPED NONLOCAL } same as ch_30
+len.9_2 = { NULL NONLOCAL } same as _1
+len_39 = { NULL NONLOCAL } same as _1
+_3 = { ESCAPED NONLOCAL } same as ch_30
+_4 = { ESCAPED NONLOCAL } same as ch_30
+_5 = { NONLOCAL } same as s
+_6 = { NULL NONLOCAL } same as _1
+buf_25 = { ESCAPED NONLOCAL } same as ch_30
+_7 = { ESCAPED NONLOCAL } same as ch_30
+derefaddrtmp(31) = { NULL }
+_11 = { NULL ESCAPED NONLOCAL } same as buf_9
 
 
-Alias information for make_my_cleanup
+Alias information for cmd_string_string
 
 Aliased symbols
 
@@ -368,1006 +1137,121 @@ ESCAPED, points-to non-local, points-to NULL, points-to vars: { }
 
 Flow-insensitive points-to information
 
-pmy_chain_2(D), points-to non-local, points-to NULL, points-to vars: { }
-function_3(D), points-to non-local, points-to NULL, points-to vars: { }
-arg_4(D), points-to non-local, points-to NULL, points-to vars: { }
-_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-
-make_my_cleanup (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg)
-{
-  struct cleanup * _6;
-
-  <bb 2> [0.00%]:
-  _6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
-  return _6;
-
-}
-
-
-
-;; Function rs6000_ptrace64 (rs6000_ptrace64, funcdef_no=55, decl_uid=3252, cgraph_uid=55, symbol_order=60)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-req = &NONLOCAL
-id = &NONLOCAL
-addr = &NONLOCAL
-data = &NONLOCAL
-buf = &NONLOCAL
-addr.2_1 = addr
-i_7 = *addr.2_1
-_2 = NONLOCAL
-_3 = _2
-_3 = &NONLOCAL
-iftmp.3_4 = &NONLOCAL
-iftmp.3_4 = &NONLOCAL
-ret_11 = iftmp.3_4
-_12 = iftmp.3_4
-ESCAPED = iftmp.3_4
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { ESCAPED NONLOCAL }
-NONLOCAL = { ESCAPED NONLOCAL } same as _2
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-req = { NONLOCAL }
-id = { NONLOCAL } same as req
-addr = { NONLOCAL } same as req
-data = { NONLOCAL } same as req
-buf = { NONLOCAL } same as req
-addr.2_1 = { NONLOCAL } same as req
-i_7 = { ESCAPED NONLOCAL }
-rand = { }
-_2 = { ESCAPED NONLOCAL }
-_3 = { ESCAPED NONLOCAL } same as _2
-iftmp.3_4 = { NONLOCAL } same as req
-ret_11 = { NONLOCAL } same as req
-_12 = { NONLOCAL } same as req
-
-
-Alias information for rs6000_ptrace64
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to vars: { }
-
-Flow-insensitive points-to information
-
-addr.2_1, points-to non-local, points-to NULL, points-to vars: { }
-
-rs6000_ptrace64 (int req, int id, long long int addr, int data, void * buf)
-{
-  int ret;
-  int i;
-  int * addr.2_1;
-  int _2;
-  int _3;
-  int iftmp.3_4;
-  int _12;
-
-  <bb 2> [0.00%]:
-  addr.2_1 = (int *) addr_5(D);
-  i_7 = *addr.2_1;
-  _2 = rand ();
-  _3 = _2 % 2;
-  if (_3 == 1)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 3>; [0.00%]
-
-  <bb 3> [0.00%]:
-
-  <bb 4> [0.00%]:
-  # iftmp.3_4 = PHI <1(2), -1(3)>
-  ret_11 = iftmp.3_4;
-  _12 = iftmp.3_4;
-  return iftmp.3_4;
-
-}
-
-
-
-;; Function discard_my_cleanups (discard_my_cleanups, funcdef_no=47, decl_uid=3165, cgraph_uid=47, symbol_order=52)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-pmy_chain = &NONLOCAL
-old_chain = &NONLOCAL
-_1 = *ptr_10
-*pmy_chain = _1
-_2 = *ptr_10 + 128
-_3 = *ptr_10 + 128
-_4 = *ptr_10 + 192
-ESCAPED = _4
-ptr_10 = *pmy_chain
-_5 = *ptr_10 + 192
-ESCAPED = &NONLOCAL
-ESCAPED = &STRING
-ESCAPED = _5
-_16 = NONLOCAL
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { STRING ESCAPED NONLOCAL }
-NONLOCAL = { ESCAPED NONLOCAL } same as _16
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-pmy_chain = { NONLOCAL }
-old_chain = { NONLOCAL } same as pmy_chain
-_1 = { ESCAPED NONLOCAL }
-ptr_10 = { ESCAPED NONLOCAL }
-_2 = { ESCAPED NONLOCAL }
-_3 = { ESCAPED NONLOCAL }
-_4 = { ESCAPED NONLOCAL }
-_5 = { ESCAPED NONLOCAL }
-__printf_chk = { }
-_16 = { ESCAPED NONLOCAL }
-
-
-Alias information for discard_my_cleanups
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to vars: { }
-
-Flow-insensitive points-to information
-
-_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 _3, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_4, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_5, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-pmy_chain_9(D), points-to non-local, points-to NULL, points-to vars: { }
-ptr_10, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-old_chain_11(D), points-to non-local, points-to NULL, points-to vars: { }
+_7, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+buf_9, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_11, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+s_19(D), points-to non-local, points-to NULL, points-to vars: { }
+p_20(D), points-to non-local, points-to NULL, points-to vars: { }
+buf_25, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+t_36, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+buf_38, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 
-discard_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
+cmd_string_string (const char * s, size_t * p, char endch, int esc)
 {
-  int D.3358;
-  struct cleanup * ptr;
-  struct cleanup * _1;
-  void (*<Ted>) (void *) _2;
-  void (*<Ted>) (void *) _3;
-  void * _4;
-  void * _5;
-  int _16;
-
-  <bb 2> [0.00%]:
-  goto <bb 6>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _1 = ptr_10->next;
-  *pmy_chain_9(D) = _1;
-  _2 = ptr_10->free_arg;
-  if (_2 != 0B)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _3 = ptr_10->free_arg;
-  _4 = ptr_10->arg;
-  _3 (_4);
-
-  <bb 5> [0.00%]:
-  free (ptr_10);
-
-  <bb 6> [0.00%]:
-  ptr_10 = *pmy_chain_9(D);
-  if (ptr_10 != old_chain_11(D))
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 7> [100.00%]:
-  _5 = ptr_10->arg;
-  _16 = __printf_chk (1, "freearg: %x\n", _5);
-  return;
-
-}
-
-
-
-;; Function discard_cleanups (discard_cleanups, funcdef_no=45, decl_uid=3162, cgraph_uid=45, symbol_order=50)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-old_chain = &NONLOCAL
-cleanup_chain = NONLOCAL
-ESCAPED = &cleanup_chain
-ESCAPED = old_chain
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { ESCAPED NONLOCAL cleanup_chain }
-NONLOCAL = { ESCAPED NONLOCAL }
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-old_chain = { NONLOCAL }
-discard_my_cleanups = { }
-cleanup_chain = { ESCAPED NONLOCAL }
-
-
-Alias information for discard_cleanups
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to vars: { D.3159 } (nonlocal, escaped)
-
-Flow-insensitive points-to information
-
-old_chain_2(D), points-to non-local, points-to NULL, points-to vars: { }
-
-discard_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [0.00%]:
-  discard_my_cleanups (&cleanup_chain, old_chain_2(D));
-  return;
-
-}
-
-
-
-;; Function discard_final_cleanups (discard_final_cleanups, funcdef_no=46, decl_uid=3167, cgraph_uid=46, symbol_order=51)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-old_chain = &NONLOCAL
-final_cleanup_chain = NONLOCAL
-ESCAPED = &final_cleanup_chain
-ESCAPED = old_chain
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { ESCAPED NONLOCAL final_cleanup_chain }
-NONLOCAL = { ESCAPED NONLOCAL }
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-old_chain = { NONLOCAL }
-discard_my_cleanups = { }
-final_cleanup_chain = { ESCAPED NONLOCAL }
-
-
-Alias information for discard_final_cleanups
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to vars: { D.3160 } (nonlocal, escaped)
-
-Flow-insensitive points-to information
-
-old_chain_2(D), points-to non-local, points-to NULL, points-to vars: { }
-
-discard_final_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [0.00%]:
-  discard_my_cleanups (&final_cleanup_chain, old_chain_2(D));
-  return;
-
-}
-
-
-
-;; Function do_cleanups (do_cleanups, funcdef_no=49, decl_uid=3172, cgraph_uid=49, symbol_order=54)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-old_chain = &NONLOCAL
-cleanup_chain = NONLOCAL
-ESCAPED = &cleanup_chain
-ESCAPED = old_chain
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { ESCAPED NONLOCAL cleanup_chain }
-NONLOCAL = { ESCAPED NONLOCAL }
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-old_chain = { NONLOCAL }
-do_my_cleanups = { }
-cleanup_chain = { ESCAPED NONLOCAL }
-
-
-Alias information for do_cleanups
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to vars: { D.3159 } (nonlocal, escaped)
-
-Flow-insensitive points-to information
-
-old_chain_2(D), points-to non-local, points-to NULL, points-to vars: { }
-
-do_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [0.00%]:
-  do_my_cleanups (&cleanup_chain, old_chain_2(D));
-  return;
-
-}
-
-
-
-;; Function make_cleanup (make_cleanup, funcdef_no=52, decl_uid=3185, cgraph_uid=52, symbol_order=57)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-function = &NONLOCAL
-arg = &NONLOCAL
-cleanup_chain = NONLOCAL
-ESCAPED = &cleanup_chain
-ESCAPED = function
-ESCAPED = arg
-_5 = NONLOCAL
-ESCAPED = _5
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { ESCAPED NONLOCAL cleanup_chain }
-NONLOCAL = { ESCAPED NONLOCAL } same as _5
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-function = { NONLOCAL }
-arg = { NONLOCAL } same as function
-make_my_cleanup = { }
-cleanup_chain = { ESCAPED NONLOCAL }
-_5 = { ESCAPED NONLOCAL }
-
-
-Alias information for make_cleanup
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to vars: { D.3159 } (nonlocal, escaped)
-
-Flow-insensitive points-to information
-
-function_2(D), points-to non-local, points-to NULL, points-to vars: { }
-arg_3(D), points-to non-local, points-to NULL, points-to vars: { }
-_5, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-
-make_cleanup (void (*<Ta1d>) (void *) function, void * arg)
-{
-  struct cleanup * _5;
-
-  <bb 2> [0.00%]:
-  _5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
-  return _5;
-
-}
-
-
-
-;; Function xrealloc (xrealloc, funcdef_no=53, decl_uid=3240, cgraph_uid=53, symbol_order=58)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-oldmem = &NONLOCAL
-size = &NONLOCAL
-size_1 = size
-size_1 = &NONLOCAL
-ESCAPED = size_1
-newmem_11 = &HEAP(13)
-newmem_9 = &HEAP(15)
-doubledereftmp(16) = *oldmem
-*newmem_9 = doubledereftmp(16)
-newmem_9 = oldmem
-newmem_2 = newmem_11
-newmem_2 = newmem_9
-ESCAPED = &NONLOCAL
-_12 = newmem_2
-ESCAPED = newmem_2
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { ESCAPED NONLOCAL HEAP(13) HEAP(15) }
-NONLOCAL = { ESCAPED NONLOCAL }
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-oldmem = { NONLOCAL }
-size = { NONLOCAL } same as oldmem
-size_1 = { NONLOCAL } same as oldmem
-malloc = { }
-newmem_11 = { HEAP(13) }
-HEAP(13) = { ESCAPED NONLOCAL }
-newmem_9 = { NONLOCAL HEAP(15) }
-HEAP(15) = { ESCAPED NONLOCAL }
-doubledereftmp(16) = { ESCAPED NONLOCAL }
-newmem_2 = { NONLOCAL HEAP(13) HEAP(15) }
-exit = { }
-_12 = { NONLOCAL HEAP(13) HEAP(15) } same as newmem_2
-
-
-Alias information for xrealloc
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to vars: { D.3359 D.3360 } (escaped, escaped heap)
-
-Flow-insensitive points-to information
-
-newmem_2, points-to non-local, points-to NULL, points-to vars: { D.3359 D.3360 } (escaped, escaped heap)
-oldmem_6(D), points-to non-local, points-to NULL, points-to vars: { }
-newmem_9, points-to non-local, points-to NULL, points-to vars: { D.3360 } (escaped, escaped heap)
-newmem_11, points-to NULL, points-to vars: { D.3359 } (escaped, escaped heap)
-_12, points-to non-local, points-to NULL, points-to vars: { D.3359 D.3360 } (escaped, escaped heap)
-
-xrealloc (void * oldmem, size_t size)
-{
-  void * newmem;
-  void * _12;
-
-  <bb 2> [0.00%]:
-  if (size_4(D) == 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-
-  <bb 4> [0.00%]:
-  # size_1 = PHI <size_4(D)(2), 1(3)>
-  if (oldmem_6(D) == 0B)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 5> [0.00%]:
-  newmem_11 = malloc (size_1);
-  goto <bb 7>; [0.00%]
-
-  <bb 6> [0.00%]:
-  newmem_9 = realloc (oldmem_6(D), size_1);
-
-  <bb 7> [0.00%]:
-  # newmem_2 = PHI <newmem_11(5), newmem_9(6)>
-  if (newmem_2 == 0B)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 8> [0.00%]:
-  exit (1);
-
-  <bb 9> [0.00%]:
-  _12 = newmem_2;
-  return newmem_2;
-
-}
-
-
-
-;; Function rs6000_ptrace_ldinfo (rs6000_ptrace_ldinfo, funcdef_no=56, decl_uid=3256, cgraph_uid=56, symbol_order=61)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-ESCAPED = &NONLOCAL
-ldi_11 = &HEAP(10)
-ldi_size_4 = &NONLOCAL
-ldi_size_4 = ldi_size_15
-ldi_5 = ldi_11
-ldi_5 = ldi_17
-ldi.1_2 = ldi_5
-ESCAPED = &NONLOCAL
-ESCAPED = &NONLOCAL
-ESCAPED = ldi.1_2
-ESCAPED = ldi_size_4
-ESCAPED = &NULL
-rc_14 = NONLOCAL
-ldi_size_15 = ldi_size_4
-ldi_size_15 = &NONLOCAL
-_3 = ldi_size_15
-ESCAPED = ldi_5
-ESCAPED = _3
-ldi_17 = NONLOCAL
-ESCAPED = ldi_5
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { NULL ESCAPED NONLOCAL HEAP(10) }
-NONLOCAL = { ESCAPED NONLOCAL } same as ldi_17
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-malloc = { }
-ldi_11 = { HEAP(10) }
-HEAP(10) = { ESCAPED NONLOCAL }
-ldi_size_4 = { NONLOCAL }
-ldi_size_15 = { NONLOCAL } same as ldi_size_4
-ldi_5 = { ESCAPED NONLOCAL HEAP(10) }
-ldi_17 = { ESCAPED NONLOCAL }
-ldi.1_2 = { ESCAPED NONLOCAL HEAP(10) } same as ldi_5
-rs6000_ptrace64 = { }
-rc_14 = { ESCAPED NONLOCAL } same as ldi_17
-_3 = { NONLOCAL } same as ldi_size_4
-xrealloc = { }
-
-
-Alias information for rs6000_ptrace_ldinfo
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.3361 } (escaped, escaped heap)
-
-Flow-insensitive points-to information
-
-ldi_5, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.3361 } (escaped, escaped heap)
-ldi_11, points-to NULL, points-to vars: { D.3361 } (escaped, escaped heap)
-ldi_17, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-
-rs6000_ptrace_ldinfo ()
-{
-  int rc;
-  void * ldi;
-  int ldi_size;
-  const int pid;
-  long long int ldi.1_2;
-  long unsigned int _3;
-
-  <bb 2> [0.00%]:
-  ldi_11 = malloc (1024);
-
-  <bb 3> [0.00%]:
-  # ldi_size_4 = PHI <1024(2), ldi_size_15(4)>
-  # ldi_5 = PHI <ldi_11(2), ldi_17(4)>
-  ldi.1_2 = (long long int) ldi_5;
-  rc_14 = rs6000_ptrace64 (1, 1, ldi.1_2, ldi_size_4, 0B);
-  if (rc_14 != -1)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 4> [0.00%]:
-  ldi_size_15 = ldi_size_4 * 2;
-  _3 = (long unsigned int) ldi_size_15;
-  ldi_17 = xrealloc (ldi_5, _3);
-  goto <bb 3>; [0.00%]
-
-  <bb 5> [0.00%]:
-  return ldi_5;
-
-}
-
-
-
-;; Function remote_filename_p (remote_filename_p, funcdef_no=54, decl_uid=3244, cgraph_uid=54, symbol_order=59)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-filename = &NONLOCAL
-CALLUSED(10) = CALLUSED(10) + UNKNOWN
-CALLUSED(10) = *CALLUSED(10) + UNKNOWN
-CALLUSED(10) = filename
-CALLUSED(10) = &STRING
-CALLUSED(10) = &NONLOCAL
-_1 = CALLUSED(10)
-_1 = NONLOCAL
-_5 = _2
-ESCAPED = _5
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { }
-NONLOCAL = { ESCAPED NONLOCAL }
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-filename = { NONLOCAL }
-strncmp = { }
-CALLUSED(10) = { STRING ESCAPED NONLOCAL }
-CALLCLOBBERED(11) = { }
-_1 = { STRING ESCAPED NONLOCAL }
-_2 = { }
-_5 = { }
-
-
-Alias information for remote_filename_p
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to vars: { }
-
-Flow-insensitive points-to information
-
-filename_4(D), points-to non-local, points-to NULL, points-to vars: { }
-
-remote_filename_p (const char * filename)
-{
-  int _1;
-  _Bool _2;
+  size_t len;
+  char * t;
+  char * buf;
+  int ch;
+  long unsigned int _1;
+  long unsigned int len.9_2;
+  char * _3;
+  char _4;
   int _5;
+  long unsigned int _6;
+  char * _7;
+  char * _11;
 
   <bb 2> [0.00%]:
-  _1 = strncmp (filename_4(D), "remote:", 7);
-  _2 = _1 == 0;
-  _5 = (int) _2;
-  return _5;
-
-}
-
-
-
-;; Function rs6000_aix_ld_info_to_xml (rs6000_aix_ld_info_to_xml, funcdef_no=57, decl_uid=3265, cgraph_uid=57, symbol_order=62)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-ldi_buf = &NONLOCAL
-_1 = *ldi_buf
-i_4 = _1
-_5 = _1
-ESCAPED = _5
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { ESCAPED NONLOCAL }
-NONLOCAL = { ESCAPED NONLOCAL }
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-ldi_buf = { NONLOCAL }
-_1 = { ESCAPED NONLOCAL }
-i_4 = { ESCAPED NONLOCAL } same as _1
-_5 = { ESCAPED NONLOCAL } same as _1
-
-
-Alias information for rs6000_aix_ld_info_to_xml
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to vars: { }
-
-Flow-insensitive points-to information
-
-ldi_buf_3(D), points-to non-local, points-to NULL, points-to vars: { }
-
-rs6000_aix_ld_info_to_xml (const gdb_byte * ldi_buf)
-{
-  int i;
-  unsigned char _1;
-  ULONGEST _5;
-
-  <bb 2> [0.00%]:
-  _1 = *ldi_buf_3(D);
-  i_4 = (int) _1;
-  _5 = (ULONGEST) _1;
-  return _5;
-
-}
-
-
-
-;; Function rs6000_xfer_shared_libraries (rs6000_xfer_shared_libraries, funcdef_no=58, decl_uid=3270, cgraph_uid=58, symbol_order=63)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-writebuf = &NONLOCAL
-xfered_len = &NONLOCAL
-ldi_buf_6 = NONLOCAL
-ESCAPED = &NONLOCAL
-ESCAPED = &free
-ESCAPED = ldi_buf_6
-cleanup_8 = NONLOCAL
-CALLUSED(17) = CALLUSED(17) + UNKNOWN
-CALLUSED(17) = *CALLUSED(17) + UNKNOWN
-CALLUSED(17) = ldi_buf_6
-result_10 = CALLUSED(17)
-result_10 = NONLOCAL
-ESCAPED = cleanup_8
-*xfered_len = result_10
-_1 = &NONLOCAL
-_1 = &NULL
-_1 = &NONLOCAL
-ESCAPED = _1
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { NULL ESCAPED NONLOCAL free }
-NONLOCAL = { ESCAPED NONLOCAL } same as ldi_buf_6
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-writebuf = { NONLOCAL }
-xfered_len = { NONLOCAL } same as writebuf
-rs6000_ptrace_ldinfo = { }
-ldi_buf_6 = { ESCAPED NONLOCAL }
-exit = { }
-make_cleanup = { }
-free = { ESCAPED NONLOCAL }
-cleanup_8 = { ESCAPED NONLOCAL } same as ldi_buf_6
-rs6000_aix_ld_info_to_xml = { }
-CALLUSED(17) = { ESCAPED NONLOCAL }
-CALLCLOBBERED(18) = { }
-result_10 = { ESCAPED NONLOCAL } same as CALLUSED(17)
-do_cleanups = { }
-_1 = { NULL NONLOCAL }
-
-
-Alias information for rs6000_xfer_shared_libraries
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { } (nonlocal, escaped)
-
-Flow-insensitive points-to information
-
-writebuf_3(D), points-to non-local, points-to NULL, points-to vars: { }
-ldi_buf_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-cleanup_8, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-xfered_len_13(D), points-to non-local, points-to NULL, points-to vars: { }
-
-rs6000_xfer_shared_libraries (const gdb_byte * writebuf, ULONGEST * xfered_len)
-{
-  struct cleanup * cleanup;
-  ULONGEST result;
-  gdb_byte * ldi_buf;
-  target_xfer_status _1;
-
-  <bb 2> [0.00%]:
-  if (writebuf_3(D) != 0B)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 3>; [0.00%]
+  goto <bb 15>; [0.00%]
 
   <bb 3> [0.00%]:
-  ldi_buf_6 = rs6000_ptrace_ldinfo ();
-  if (ldi_buf_6 == 0B)
-    goto <bb 4>; [0.00%]
+  switch (ch_22) <default: <L14> [0.00%], case -1: error [0.00%], case 36: <L11> [0.00%], case 92: <L2> [0.00%]>
+
+<L2> [0.00%]:
+  if (esc_28(D) == 0)
+    goto <bb 13> (<L14>); [0.00%]
   else
     goto <bb 5>; [0.00%]
 
-  <bb 4> [0.00%]:
-  exit (1);
-
   <bb 5> [0.00%]:
-  cleanup_8 = make_cleanup (free, ldi_buf_6);
-  result_10 = rs6000_aix_ld_info_to_xml (ldi_buf_6);
-  free (ldi_buf_6);
-  do_cleanups (cleanup_8);
-  if (result_10 == 0)
-    goto <bb 7>; [0.00%]
+  ch_30 = cmd_string_getc (s_19(D), p_20(D));
+  switch (ch_30) <default: <L14> [0.00%], case -1: error [0.00%], case 101: <L5> [0.00%], case 110: <L7> [0.00%], case 114: <L6> [0.00%], case 116: <L8> [0.00%]>
+
+<L5> [0.00%]:
+  goto <bb 13> (<L14>); [0.00%]
+
+<L6> [0.00%]:
+  goto <bb 13> (<L14>); [0.00%]
+
+<L7> [0.00%]:
+  goto <bb 13> (<L14>); [0.00%]
+
+<L8> [0.00%]:
+  goto <bb 13> (<L14>); [0.00%]
+
+<L11> [0.00%]:
+  if (esc_28(D) == 0)
+    goto <bb 13> (<L14>); [0.00%]
   else
-    goto <bb 6>; [0.00%]
+    goto <bb 11>; [0.00%]
 
-  <bb 6> [0.00%]:
-  *xfered_len_13(D) = result_10;
+  <bb 11> [0.00%]:
+  t_36 = cmd_string_variable (s_19(D), p_20(D));
+  if (t_36 == 0B)
+    goto <bb 17> (error); [0.00%]
+  else
+    goto <bb 12>; [0.00%]
 
-  <bb 7> [0.00%]:
-  # _1 = PHI <-1(2), 0(5), 1(6)>
-  return _1;
+  <bb 12> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 15>; [0.00%]
+
+  # ch_8 = PHI <ch_22(3), ch_22(4), 27(6), ch_22(10), ch_30(5), 9(9), 10(8), 13(7)>
+<L14> [0.00%]:
+  if (len_10 > 1073741821)
+    goto <bb 17> (error); [0.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 14> [0.00%]:
+  _1 = len_10 + 1;
+  buf_38 = xrealloc (buf_9, 1, _1);
+  len.9_2 = len_10;
+  len_39 = len_10 + 1;
+  _3 = buf_38 + len_10;
+  _4 = (char) ch_8;
+  *_3 = _4;
+
+  <bb 15> [0.00%]:
+  # buf_9 = PHI <0B(2), buf_9(12), buf_38(14)>
+  # len_10 = PHI <0(2), len_10(12), len_39(14)>
+  ch_22 = cmd_string_getc (s_19(D), p_20(D));
+  _5 = (int) endch_23(D);
+  if (_5 != ch_22)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 16>; [0.00%]
+
+  <bb 16> [0.00%]:
+  _6 = len_10 + 1;
+  buf_25 = xrealloc (buf_9, 1, _6);
+  _7 = buf_25 + len_10;
+  *_7 = 0;
+  goto <bb 18>; [0.00%]
+
+error [0.00%]:
+  free (buf_9);
+
+  <bb 18> [0.00%]:
+  # _11 = PHI <buf_25(16), 0B(17)>
+  return _11;
 
 }
 
 
 
-;; Function main (main, funcdef_no=59, decl_uid=3275, cgraph_uid=59, symbol_order=64)
+;; Function cmd_string_expand_tilde (cmd_string_expand_tilde, funcdef_no=44, decl_uid=4181, cgraph_uid=44, symbol_order=48)
 
 Points-to analysis
 
@@ -1380,18 +1264,45 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-ESCAPED = &t
+s = &NONLOCAL
+p = &NONLOCAL
+ESCAPED = s
+ESCAPED = p
 _1 = NONLOCAL
-_2 = _1
-ESCAPED = _2
-_3 = NONLOCAL
-_4 = _3
-_4 = &NONLOCAL
-iftmp.0_5 = &buf
-iftmp.0_5 = &NULL
-ESCAPED = iftmp.0_5
-ESCAPED = &len
+_2 = *envent_27 + 64
+_3 = *_2
+home_28 = *envent_27 + 64
+_4 = NONLOCAL
+ESCAPED = _4
+_5 = NONLOCAL
+_6 = _5
+pw_31 = _6
+home_14 = &NULL
+home_32 = *pw_31 + 384
+ESCAPED = p
+ESCAPED = s
+ESCAPED = p
+ESCAPED = &NONLOCAL
 ESCAPED = &NULL
+username_21 = NONLOCAL
+ESCAPED = username_21
+_7 = NONLOCAL
+_8 = _7
+pw_23 = _8
+home_24 = *pw_23 + 384
+home_9 = &NULL
+home_9 = home_24
+home_10 = home_32
+home_10 = home_9
+home_10 = home_28
+_34 = &HEAP(35)
+doubledereftmp(36) = *home_10
+*_34 = doubledereftmp(36)
+_11 = &NULL
+_11 = &NULL
+_11 = _34
+_11 = &NULL
+ESCAPED = _11
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -1404,72 +1315,1418 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { NULL ESCAPED NONLOCAL t buf len }
+ESCAPED = { NULL ESCAPED NONLOCAL HEAP(35) }
 NONLOCAL = { ESCAPED NONLOCAL } same as _1
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-time = { }
-t = { ESCAPED NONLOCAL }
+s = { NONLOCAL }
+p = { NONLOCAL } same as s
+cmd_string_getc = { }
 _1 = { ESCAPED NONLOCAL }
-_2 = { ESCAPED NONLOCAL } same as _1
-srand = { }
-rand = { }
-_3 = { ESCAPED NONLOCAL } same as _1
+_2 = { }
+envent_27 = { }
+_3 = { }
+home_28 = { }
+getuid = { }
 _4 = { ESCAPED NONLOCAL } same as _1
-iftmp.0_5 = { NULL buf }
-buf = { ESCAPED NONLOCAL }
-rs6000_xfer_shared_libraries = { }
-len = { ESCAPED NONLOCAL }
+getpwuid = { }
+_5 = { ESCAPED NONLOCAL } same as _1
+_6 = { ESCAPED NONLOCAL } same as _1
+pw_31 = { ESCAPED NONLOCAL } same as _1
+home_14 = { NULL }
+home_32 = { ESCAPED NONLOCAL }
+cmd_string_ungetc = { }
+cmd_string_string = { }
+username_21 = { ESCAPED NONLOCAL } same as _1
+getpwnam = { }
+_7 = { ESCAPED NONLOCAL } same as _1
+_8 = { ESCAPED NONLOCAL } same as _1
+pw_23 = { ESCAPED NONLOCAL } same as _1
+home_24 = { ESCAPED NONLOCAL }
+home_9 = { NULL ESCAPED NONLOCAL }
+home_10 = { NULL ESCAPED NONLOCAL }
+_34 = { HEAP(35) }
+HEAP(35) = { ESCAPED NONLOCAL }
+doubledereftmp(36) = { ESCAPED NONLOCAL }
+_11 = { NULL HEAP(35) }
+
+
+Alias information for cmd_string_expand_tilde
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4411 } (escaped, escaped heap)
+
+Flow-insensitive points-to information
+
+_2, points-to NULL, points-to vars: { }
+home_9, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+home_10, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_11, points-to NULL, points-to vars: { D.4411 } (escaped, escaped heap)
+home_14, points-to NULL, points-to vars: { }
+s_16(D), points-to non-local, points-to NULL, points-to vars: { }
+p_17(D), points-to non-local, points-to NULL, points-to vars: { }
+username_21, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+pw_23, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+home_24, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+envent_27(D), points-to NULL, points-to vars: { }
+home_28, points-to NULL, points-to vars: { }
+pw_31, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+home_32, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_34, points-to NULL, points-to vars: { D.4411 } (escaped, escaped heap)
+
+cmd_string_expand_tilde (const char * s, size_t * p)
+{
+  char * username;
+  char * home;
+  struct environ_entry * envent;
+  struct passwd * pw;
+  int _1;
+  char * _2;
+  char _3;
+  int _4;
+  int _5;
+  long int _6;
+  int _7;
+  long int _8;
+  char * _11;
+  char * _34;
+
+  <bb 2> [0.00%]:
+  _1 = cmd_string_getc (s_16(D), p_17(D));
+  if (_1 == 47)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 3> [0.00%]:
+  if (envent_27(D) != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 4> [0.00%]:
+  _2 = envent_27(D)->value;
+  _3 = *_2;
+  if (_3 != 0)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  home_28 = envent_27(D)->value;
+  goto <bb 13>; [0.00%]
+
+  <bb 6> [0.00%]:
+  _4 = getuid ();
+  _5 = getpwuid (_4);
+  _6 = (long int) _5;
+  pw_31 = (struct passwd *) _6;
+  if (_5 != 0)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 7> [0.00%]:
+  # home_14 = PHI <0B(6)>
+  goto <bb 15>; [100.00%]
+
+  <bb 8> [0.00%]:
+  home_32 = pw_31->pw_dir;
+  goto <bb 13>; [0.00%]
+
+  <bb 9> [0.00%]:
+  cmd_string_ungetc (p_17(D));
+  username_21 = cmd_string_string (s_16(D), p_17(D), 47, 0);
+  if (username_21 == 0B)
+    goto <bb 15>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 10> [0.00%]:
+  _7 = getpwnam (username_21);
+  _8 = (long int) _7;
+  pw_23 = (struct passwd *) _8;
+  if (_7 != 0)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 11> [0.00%]:
+  home_24 = pw_23->pw_dir;
+
+  <bb 12> [0.00%]:
+  # home_9 = PHI <0B(10), home_24(11)>
+  free (username_21);
+
+  <bb 13> [0.00%]:
+  # home_10 = PHI <home_32(8), home_9(12), home_28(5)>
+  if (home_10 == 0B)
+    goto <bb 15>; [0.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 14> [0.00%]:
+  _34 = strdup (home_10);
+
+  <bb 15> [0.00%]:
+  # _11 = PHI <0B(9), 0B(13), _34(14), 0B(7)>
+  return _11;
+
+}
+
+
+
+;; Function cmd_string_parse (cmd_string_parse, funcdef_no=45, decl_uid=4198, cgraph_uid=45, symbol_order=49)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+s = &NONLOCAL
+cmdlist = &NONLOCAL
+cause = &NONLOCAL
+derefaddrtmp(11) = &NULL
+*cause = derefaddrtmp(11)
+derefaddrtmp(12) = &NULL
+*cmdlist = derefaddrtmp(12)
+p = &NULL
+argc_30 = &NULL
+argc_30 = argc_30
+argc_30 = argc_30
+argc_30 = argc_30
+argc_30 = argc_30
+argc_30 = argc_31
+argc_30 = argc_30
+argv_35 = &NULL
+argv_35 = argv_35
+argv_35 = argv_35
+argv_35 = argv_35
+argv_35 = argv_35
+argv_35 = argv_36
+argv_35 = argv_35
+buf_38 = &NULL
+buf_38 = buf_38
+buf_38 = buf_38
+buf_38 = buf_90
+buf_38 = buf_38
+buf_38 = buf_39
+buf_38 = buf_38
+len_41 = &NULL
+len_41 = len_41
+len_41 = len_41
+len_41 = len_91
+len_41 = len_41
+len_41 = len_42
+len_41 = len_41
+ESCAPED = s
+ESCAPED = &p
+ch_64 = NONLOCAL
+ESCAPED = s
+ESCAPED = &p
+ESCAPED = &NONLOCAL
+ESCAPED = &NULL
+t_68 = NONLOCAL
+ESCAPED = s
+ESCAPED = &p
+ESCAPED = &NONLOCAL
+ESCAPED = &NONLOCAL
+t_74 = NONLOCAL
+ESCAPED = s
+ESCAPED = &p
+t_70 = NONLOCAL
+ESCAPED = s
+ESCAPED = &p
+ch_72 = NONLOCAL
+ch_28 = ch_64
+ch_28 = ch_72
+_1 = len_41
+_1 = &NONLOCAL
+ESCAPED = buf_38
+ESCAPED = &NONLOCAL
+ESCAPED = _1
+buf_76 = NONLOCAL
+_2 = buf_76
+derefaddrtmp(37) = &NULL
+*_2 = derefaddrtmp(37)
+_3 = argc_30
+_3 = &NONLOCAL
+_4 = _3
+ESCAPED = argv_35
+ESCAPED = _4
+ESCAPED = &NONLOCAL
+argv_79 = NONLOCAL
+argc.10_5 = argc_30
+argc_80 = argc_30
+argc_80 = &NONLOCAL
+_6 = argc_30
+_7 = _6
+_7 = &NONLOCAL
+_8 = argv_79
+*_8 = buf_76
+argc_31 = argc_30
+argc_31 = argc_80
+argv_36 = argv_35
+argv_36 = argv_79
+buf_39 = buf_38
+buf_39 = &NULL
+len_42 = len_41
+len_42 = &NULL
+_9 = *argv_36
+equals_84 = _9
+equals_84 = &NULL
+_10 = *argv_36
+_11 = *argv_36
+CALLUSED(51) = CALLUSED(51) + UNKNOWN
+CALLUSED(51) = *CALLUSED(51) + UNKNOWN
+CALLUSED(51) = _11
+CALLUSED(51) = &STRING
+_12 = CALLUSED(51)
+_12 = NONLOCAL
+whitespace_85 = _10
+_15 = _13
+_15 = _14
+argc_86 = argc_32
+argc_86 = &NONLOCAL
+_16 = argc_86
+_17 = _16
+_17 = &NONLOCAL
+_18 = argv_36
+doubledereftmp(63) = *_18
+*argv_36 = doubledereftmp(63)
+argc_32 = argc_31
+argc_32 = argc_86
+_19 = *cmdlist
+ESCAPED = s
+ESCAPED = &p
+t_66 = NONLOCAL
+_20 = len_41
+_20 = &NONLOCAL
+ESCAPED = buf_38
+ESCAPED = &NONLOCAL
+ESCAPED = _20
+buf_90 = NONLOCAL
+len.11_21 = len_41
+len_91 = len_41
+len_91 = &NONLOCAL
+_22 = buf_90
+_23 = ch_64
+*_22 = _23
+argc_33 = argc_30
+argc_33 = argc_30
+argc_33 = argc_30
+argc_33 = argc_32
+argc_33 = argc_32
+argc_33 = argc_32
+argc_33 = argc_30
+argc_33 = argc_30
+rval_34 = &NONLOCAL
+rval_34 = &NONLOCAL
+rval_34 = &NONLOCAL
+rval_34 = &NONLOCAL
+rval_34 = &NONLOCAL
+rval_34 = &NULL
+rval_34 = &NONLOCAL
+rval_34 = &NONLOCAL
+argv_37 = argv_35
+argv_37 = argv_35
+argv_37 = argv_35
+argv_37 = argv_36
+argv_37 = argv_36
+argv_37 = argv_36
+argv_37 = argv_35
+argv_37 = argv_35
+buf_40 = buf_38
+buf_40 = buf_38
+buf_40 = buf_38
+buf_40 = buf_39
+buf_40 = buf_39
+buf_40 = buf_39
+buf_40 = buf_38
+buf_40 = buf_38
+_24 = i_29
+_25 = _24
+_25 = &NONLOCAL
+_26 = argv_37
+_27 = *_26
+i_97 = i_29
+i_97 = &NONLOCAL
+i_29 = &NULL
+i_29 = i_97
+_98 = rval_34
+ESCAPED = rval_34
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL ESCAPED NONLOCAL p } same as _9
+NONLOCAL = { ESCAPED NONLOCAL } same as buf_90
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+s = { NONLOCAL }
+cmdlist = { NONLOCAL } same as s
+cause = { NONLOCAL } same as s
+derefaddrtmp(11) = { NULL }
+derefaddrtmp(12) = { NULL } same as derefaddrtmp(11)
+p = { NULL ESCAPED NONLOCAL }
+argc_30 = { NULL NONLOCAL }
+argc_31 = { NULL NONLOCAL } same as argc_30
+argv_35 = { NULL ESCAPED NONLOCAL }
+argv_36 = { NULL ESCAPED NONLOCAL } same as argv_35
+buf_38 = { NULL ESCAPED NONLOCAL } same as argv_35
+buf_90 = { ESCAPED NONLOCAL }
+buf_39 = { NULL ESCAPED NONLOCAL } same as argv_35
+len_41 = { NULL NONLOCAL } same as argc_30
+len_91 = { NULL NONLOCAL } same as argc_30
+len_42 = { NULL NONLOCAL } same as argc_30
+cmd_string_getc = { }
+ch_64 = { ESCAPED NONLOCAL } same as buf_90
+cmd_string_string = { }
+t_68 = { ESCAPED NONLOCAL } same as buf_90
+t_74 = { ESCAPED NONLOCAL } same as buf_90
+cmd_string_variable = { }
+t_70 = { ESCAPED NONLOCAL } same as buf_90
+ch_72 = { ESCAPED NONLOCAL } same as buf_90
+ch_28 = { ESCAPED NONLOCAL } same as buf_90
+_1 = { NULL NONLOCAL } same as argc_30
+xrealloc = { }
+buf_76 = { ESCAPED NONLOCAL } same as buf_90
+_2 = { ESCAPED NONLOCAL } same as buf_90
+derefaddrtmp(37) = { NULL } same as derefaddrtmp(11)
+_3 = { NULL NONLOCAL } same as argc_30
+_4 = { NULL NONLOCAL } same as argc_30
+argv_79 = { ESCAPED NONLOCAL } same as buf_90
+argc.10_5 = { NULL NONLOCAL } same as argc_30
+argc_80 = { NULL NONLOCAL } same as argc_30
+_6 = { NULL NONLOCAL } same as argc_30
+_7 = { NULL NONLOCAL } same as argc_30
+_8 = { ESCAPED NONLOCAL } same as buf_90
+_9 = { NULL ESCAPED NONLOCAL p }
+equals_84 = { NULL ESCAPED NONLOCAL p } same as _9
+_10 = { NULL ESCAPED NONLOCAL p } same as _9
+_11 = { NULL ESCAPED NONLOCAL p } same as _9
+strcspn = { }
+CALLUSED(51) = { STRING ESCAPED NONLOCAL }
+CALLCLOBBERED(52) = { }
+_12 = { STRING ESCAPED NONLOCAL } same as CALLUSED(51)
+whitespace_85 = { NULL ESCAPED NONLOCAL p } same as _9
+_13 = { }
+_14 = { }
+_15 = { }
+argc_86 = { NULL NONLOCAL } same as argc_30
+argc_32 = { NULL NONLOCAL } same as argc_30
+_16 = { NULL NONLOCAL } same as argc_30
+_17 = { NULL NONLOCAL } same as argc_30
+_18 = { NULL ESCAPED NONLOCAL } same as argv_35
+doubledereftmp(63) = { NULL ESCAPED NONLOCAL p } same as _9
+_19 = { ESCAPED NONLOCAL }
+cmd_string_expand_tilde = { }
+t_66 = { ESCAPED NONLOCAL } same as buf_90
+_20 = { NULL NONLOCAL } same as argc_30
+len.11_21 = { NULL NONLOCAL } same as argc_30
+_22 = { ESCAPED NONLOCAL } same as buf_90
+_23 = { ESCAPED NONLOCAL } same as buf_90
+argc_33 = { NULL NONLOCAL } same as argc_30
+rval_34 = { NULL NONLOCAL } same as argc_30
+argv_37 = { NULL ESCAPED NONLOCAL } same as argv_35
+buf_40 = { NULL ESCAPED NONLOCAL } same as argv_35
+_24 = { NULL NONLOCAL } same as argc_30
+i_29 = { NULL NONLOCAL } same as argc_30
+_25 = { NULL NONLOCAL } same as argc_30
+_26 = { NULL ESCAPED NONLOCAL } same as argv_35
+_27 = { ESCAPED NONLOCAL }
+i_97 = { NULL NONLOCAL } same as argc_30
+_98 = { NULL NONLOCAL } same as argc_30
+
+
+Alias information for cmd_string_parse
+
+Aliased symbols
+
+p, UID D.4200, size_t, is addressable
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4200 } (escaped)
+
+Flow-insensitive points-to information
+
+_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_8, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_9, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.4200 } (escaped)
+_10, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.4200 } (escaped)
+_11, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.4200 } (escaped)
+_18, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_19, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_22, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_26, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_27, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+argv_35, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+argv_36, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+argv_37, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+buf_38, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+buf_39, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+buf_40, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+cause_56(D), points-to non-local, points-to NULL, points-to vars: { }
+cmdlist_58(D), points-to non-local, points-to NULL, points-to vars: { }
+s_62(D), points-to non-local, points-to NULL, points-to vars: { }
+t_66, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+t_68, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+t_70, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+t_74, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+buf_76, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+argv_79, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+equals_84, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.4200 } (escaped)
+whitespace_85, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.4200 } (escaped)
+buf_90, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+
+cmd_string_parse (const char * s, struct cmd_list * * cmdlist, char * * cause)
+{
+  size_t len;
+  const char * equals;
+  const char * whitespace;
+  char * t;
+  char * buf;
+  char * * argv;
+  int rval;
+  int argc;
+  int i;
+  int ch;
+  size_t p;
+  long unsigned int _1;
+  char * _2;
+  int _3;
+  long unsigned int _4;
+  int argc.10_5;
+  long unsigned int _6;
+  long unsigned int _7;
+  char * * _8;
+  char * _9;
+  char * _10;
+  char * _11;
+  long unsigned int _12;
+  _Bool _13;
+  _Bool _14;
+  _Bool _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  char * * _18;
+  struct cmd_list * _19;
+  long unsigned int _20;
+  long unsigned int len.11_21;
+  char * _22;
+  char _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  char * * _26;
+  char * _27;
+  int _98;
+
+  <bb 2> [0.00%]:
+  *cause_56(D) = 0B;
+  *cmdlist_58(D) = 0B;
+  p = 0;
+
+  <bb 3> [0.00%]:
+  # argc_30 = PHI <0(2), argc_30(5), argc_30(4), argc_30(20), argc_30(18), argc_31(10), argc_30(6)>
+  # argv_35 = PHI <0B(2), argv_35(5), argv_35(4), argv_35(20), argv_35(18), argv_36(10), argv_35(6)>
+  # buf_38 = PHI <0B(2), buf_38(5), buf_38(4), buf_90(20), buf_38(18), buf_39(10), buf_38(6)>
+  # len_41 = PHI <0(2), len_41(5), len_41(4), len_91(20), len_41(18), len_42(10), len_41(6)>
+  ch_64 = cmd_string_getc (s_62(D), &p);
+  switch (ch_64) <default: <L26> [0.00%], case -1: <L10> [0.00%], case 9: <L10> [0.00%], case 32: <L10> [0.00%], case 34: <L3> [0.00%], case 35: <L39> [0.00%], case 36: <L5> [0.00%], case 39: <L1> [0.00%], case 126: <L23> [0.00%]>
+
+<L1> [0.00%]:
+  t_68 = cmd_string_string (s_62(D), &p, 39, 0);
+  if (t_68 == 0B)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 3>; [0.00%]
+
+<L3> [0.00%]:
+  t_74 = cmd_string_string (s_62(D), &p, 34, 1);
+  if (t_74 == 0B)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 3>; [0.00%]
+
+<L5> [0.00%]:
+  t_70 = cmd_string_variable (s_62(D), &p);
+  if (t_70 == 0B)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 3>; [0.00%]
+
+<L39> [0.00%]:
+  ch_72 = cmd_string_getc (s_62(D), &p);
+  if (ch_72 != -1)
+    goto <bb 7> (<L39>); [0.00%]
+  else
+    goto <bb 8> (<L10>); [0.00%]
+
+  # ch_28 = PHI <ch_64(3), ch_72(7)>
+<L10> [0.00%]:
+  if (buf_38 != 0B)
+    goto <bb 9>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 9> [0.00%]:
+  _1 = len_41 + 1;
+  buf_76 = xrealloc (buf_38, 1, _1);
+  _2 = buf_76 + len_41;
+  *_2 = 0;
+  _3 = argc_30 + 1;
+  _4 = (long unsigned int) _3;
+  argv_79 = xrealloc (argv_35, _4, 8);
+  argc.10_5 = argc_30;
+  argc_80 = argc_30 + 1;
+  _6 = (long unsigned int) argc_30;
+  _7 = _6 * 8;
+  _8 = argv_79 + _7;
+  *_8 = buf_76;
+
+  <bb 10> [0.00%]:
+  # argc_31 = PHI <argc_30(8), argc_80(9)>
+  # argv_36 = PHI <argv_35(8), argv_79(9)>
+  # buf_39 = PHI <buf_38(8), 0B(9)>
+  # len_42 = PHI <len_41(8), 0(9)>
+  if (ch_28 != -1)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 11> [0.00%]:
+  _9 = *argv_36;
+  equals_84 = strchr (_9, 61);
+  _10 = *argv_36;
+  _11 = *argv_36;
+  _12 = strcspn (_11, " \t");
+  whitespace_85 = _10 + _12;
+  _13 = equals_84 == 0B;
+  _14 = equals_84 > whitespace_85;
+  _15 = _13 | _14;
+  if (_15 != 0)
+    goto <bb 14>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 12> [0.00%]:
+  argc_86 = argc_32 + -1;
+  _16 = (long unsigned int) argc_86;
+  _17 = _16 * 8;
+  _18 = argv_36 + 8;
+  memmove (argv_36, _18, _17);
+
+  <bb 13> [0.00%]:
+  # argc_32 = PHI <argc_31(10), argc_86(12)>
+  if (argc_32 != 0)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 14> [0.00%]:
+  if (argc_32 == 0)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 15>; [0.00%]
+
+  <bb 15> [0.00%]:
+  _19 = *cmdlist_58(D);
+  if (_19 == 0B)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 16>; [0.00%]
+
+  <bb 16> [0.00%]:
+  goto <bb 21> (error); [0.00%]
+
+<L23> [0.00%]:
+  if (buf_38 == 0B)
+    goto <bb 18>; [0.00%]
+  else
+    goto <bb 19> (<L26>); [0.00%]
+
+  <bb 18> [0.00%]:
+  t_66 = cmd_string_expand_tilde (s_62(D), &p);
+  if (t_66 == 0B)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 3>; [0.00%]
+
+<L26> [0.00%]:
+  if (len_41 > 1073741821)
+    goto <bb 21> (error); [0.00%]
+  else
+    goto <bb 20>; [0.00%]
+
+  <bb 20> [0.00%]:
+  _20 = len_41 + 1;
+  buf_90 = xrealloc (buf_38, 1, _20);
+  len.11_21 = len_41;
+  len_91 = len_41 + 1;
+  _22 = buf_90 + len_41;
+  _23 = (char) ch_64;
+  *_22 = _23;
+  goto <bb 3>; [0.00%]
+
+  # argc_33 = PHI <argc_30(4), argc_30(5), argc_30(6), argc_32(14), argc_32(15), argc_32(16), argc_30(18), argc_30(19)>
+  # rval_34 = PHI <-1(4), -1(5), -1(6), -1(14), -1(15), 0(16), -1(18), -1(19)>
+  # argv_37 = PHI <argv_35(4), argv_35(5), argv_35(6), argv_36(14), argv_36(15), argv_36(16), argv_35(18), argv_35(19)>
+  # buf_40 = PHI <buf_38(4), buf_38(5), buf_38(6), buf_39(14), buf_39(15), buf_39(16), buf_38(18), buf_38(19)>
+error [0.00%]:
+out [0.00%]:
+  free (buf_40);
+  if (argv_37 != 0B)
+    goto <bb 23>; [0.00%]
+  else
+    goto <bb 25>; [0.00%]
+
+  <bb 22> [0.00%]:
+  _24 = (long unsigned int) i_29;
+  _25 = _24 * 8;
+  _26 = argv_37 + _25;
+  _27 = *_26;
+  free (_27);
+  i_97 = i_29 + 1;
+
+  <bb 23> [0.00%]:
+  # i_29 = PHI <0(21), i_97(22)>
+  if (i_29 < argc_33)
+    goto <bb 22>; [0.00%]
+  else
+    goto <bb 24>; [0.00%]
+
+  <bb 24> [0.00%]:
+  free (argv_37);
+
+  <bb 25> [0.00%]:
+  _98 = rval_34;
+  p ={v} {CLOBBER};
+  return rval_34;
+
+}
+
+
+
+;; Function load_cfg (load_cfg, funcdef_no=46, decl_uid=4239, cgraph_uid=46, symbol_order=50)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+path = &NONLOCAL
+ctxin = &NONLOCAL
+causes = &NONLOCAL
+ESCAPED = path
+ESCAPED = &STRING
+f_53 = NONLOCAL
+cfg_references = NONLOCAL
+cfg_references.12_1 = cfg_references
+_2 = cfg_references.12_1
+_2 = &NONLOCAL
+cfg_references = _2
+ESCAPED = _2
+_3 = len_41
+_3 = &NONLOCAL
+_4 = _109
+_5 = *_4
+len_66 = len_41
+len_66 = &NONLOCAL
+len_40 = len_41
+len_40 = len_66
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = path
+ESCAPED = _109
+_99 = NONLOCAL
+_8 = len_40
+_8 = &NONLOCAL
+ESCAPED = _8
+line_70 = &HEAP(28)
+_9 = line_70
+doubledereftmp(30) = *_109
+*_9 = doubledereftmp(30)
+_10 = len_40
+_11 = line_70
+derefaddrtmp(33) = &NULL
+*_11 = derefaddrtmp(33)
+n_76 = n_35
+n_76 = &NONLOCAL
+CALLUSED(37) = CALLUSED(37) + UNKNOWN
+CALLUSED(37) = *CALLUSED(37) + UNKNOWN
+CALLUSED(37) = line_70
+len_77 = CALLUSED(37)
+len_77 = NONLOCAL
+_12 = len_77
+_12 = &NONLOCAL
+_13 = line_70
+_14 = *_13
+_15 = len_77
+_15 = &NONLOCAL
+_16 = line_70
+derefaddrtmp(45) = &NULL
+*_16 = derefaddrtmp(45)
+_17 = len_77
+_17 = &NONLOCAL
+_18 = line_70
+_19 = *_18
+copy_79 = line_70
+buf_81 = line_70
+buf_94 = buf_36
+buf_36 = line_70
+buf_36 = buf_94
+_20 = *buf_36
+_21 = _20
+_22 = _21
+CALLUSED(57) = CALLUSED(57) + UNKNOWN
+CALLUSED(57) = *CALLUSED(57) + UNKNOWN
+CALLUSED(57) = _22
+_23 = CALLUSED(57)
+_23 = NONLOCAL
+_24 = *buf_36
+ESCAPED = buf_36
+ESCAPED = &cmdlist
+ESCAPED = &cause
+_25 = NONLOCAL
+cause.13_26 = cause
+cause.14_27 = cause
+cmdlist.15_28 = cmdlist
+ctx = &NULL
+ctx = &NULL
+ctx = &NULL
+_29 = *ctxin + 128
+ctx = _29
+_30 = *ctxin
+ctx = _30
+_31 = *ctxin + 64
+ctx = _31
+cfg_cause = NONLOCAL
+cfg_cause = &NULL
+ESCAPED = &NULL
+n_35 = &NULL
+n_35 = n_76
+n_35 = n_76
+n_35 = n_76
+n_35 = n_76
+n_35 = n_76
+n_35 = n_76
+buf_37 = buf_58
+buf_37 = _109
+buf_37 = buf_36
+buf_37 = buf_36
+buf_37 = buf_36
+buf_37 = buf_36
+buf_37 = buf_36
+len_41 = len_59
+len_41 = len_77
+len_41 = len_77
+len_41 = len_77
+len_41 = len_77
+len_41 = len_77
+len_41 = len_77
+_32 = len_41
+CALLUSED(78) = CALLUSED(78) + UNKNOWN
+CALLUSED(78) = *CALLUSED(78) + UNKNOWN
+CALLUSED(78) = buf_37
+CALLUSED(78) = &NONLOCAL
+_100 = CALLUSED(78)
+_100 = NONLOCAL
+callarg(82) = _32
+_101 = callarg(82) + UNKNOWN
+_101 = &NONLOCAL
+CALLUSED(84) = CALLUSED(84) + UNKNOWN
+CALLUSED(84) = *CALLUSED(84) + UNKNOWN
+CALLUSED(84) = buf_37
+CALLUSED(84) = &NONLOCAL
+_102 = CALLUSED(84)
+_102 = NONLOCAL
+ESCAPED = buf_37
+ESCAPED = _102
+ESCAPED = _32
+ESCAPED = f_53
+_103 = NONLOCAL
+_104 = _32
+CALLUSED(90) = CALLUSED(90) + UNKNOWN
+CALLUSED(90) = *CALLUSED(90) + UNKNOWN
+CALLUSED(90) = buf_37
+CALLUSED(90) = &NONLOCAL
+_105 = CALLUSED(90)
+_105 = NONLOCAL
+CALLUSED(93) = CALLUSED(93) + UNKNOWN
+CALLUSED(93) = *CALLUSED(93) + UNKNOWN
+CALLUSED(93) = buf_37
+CALLUSED(93) = &NONLOCAL
+_106 = CALLUSED(93)
+_106 = NONLOCAL
+ESCAPED = buf_37
+ESCAPED = _106
+ESCAPED = _32
+ESCAPED = f_53
+_107 = NONLOCAL
+ESCAPED = buf_37
+ESCAPED = _32
+ESCAPED = f_53
+_108 = NONLOCAL
+_109 = _103
+_109 = _107
+_109 = _108
+ESCAPED = f_53
+cfg_references.16_33 = cfg_references
+_34 = cfg_references.16_33
+_34 = &NONLOCAL
+cfg_references = _34
+ESCAPED = _34
+_43 = &NONLOCAL
+_43 = &NULL
+ESCAPED = _43
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as doubledereftmp(30)
+NONLOCAL = { ESCAPED NONLOCAL } same as f_53
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+path = { NONLOCAL }
+ctxin = { NONLOCAL } same as path
+causes = { NONLOCAL } same as path
+fopen = { }
+f_53 = { ESCAPED NONLOCAL }
+cfg_references.12_1 = { ESCAPED NONLOCAL } same as f_53
+cfg_references = { ESCAPED NONLOCAL } same as f_53
+_2 = { ESCAPED NONLOCAL } same as f_53
+_3 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause }
+len_41 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as _3
+_4 = { ESCAPED NONLOCAL } same as f_53
+_109 = { ESCAPED NONLOCAL } same as f_53
+_5 = { ESCAPED NONLOCAL }
+len_66 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as _3
+len_40 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as _3
+__printf_chk = { }
+_99 = { ESCAPED NONLOCAL } same as f_53
+_8 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as _3
+malloc = { }
+line_70 = { HEAP(28) }
+HEAP(28) = { NULL STRING ESCAPED NONLOCAL cmdlist cause }
+_9 = { HEAP(28) } same as line_70
+doubledereftmp(30) = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause }
+_10 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as _3
+_11 = { HEAP(28) } same as line_70
+derefaddrtmp(33) = { NULL }
+n_76 = { NULL NONLOCAL }
+n_35 = { NULL NONLOCAL } same as n_76
+strlen = { }
+CALLUSED(37) = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause }
+CALLCLOBBERED(38) = { }
+len_77 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as _3
+_12 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as _3
+_13 = { HEAP(28) } same as line_70
+_14 = { NULL STRING ESCAPED NONLOCAL cmdlist cause }
+_15 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as _3
+_16 = { HEAP(28) } same as line_70
+derefaddrtmp(45) = { NULL } same as derefaddrtmp(33)
+_17 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as _3
+_18 = { HEAP(28) } same as line_70
+_19 = { NULL STRING ESCAPED NONLOCAL cmdlist cause }
+copy_79 = { HEAP(28) } same as line_70
+buf_81 = { HEAP(28) } same as line_70
+buf_94 = { HEAP(28) } same as line_70
+buf_36 = { HEAP(28) } same as line_70
+_20 = { NULL STRING ESCAPED NONLOCAL cmdlist cause }
+_21 = { NULL STRING ESCAPED NONLOCAL cmdlist cause } same as _20
+_22 = { NULL STRING ESCAPED NONLOCAL cmdlist cause } same as _20
+isspace = { }
+CALLUSED(57) = { NULL STRING ESCAPED NONLOCAL cmdlist cause }
+CALLCLOBBERED(58) = { }
+_23 = { NULL STRING ESCAPED NONLOCAL cmdlist cause }
+_24 = { NULL STRING ESCAPED NONLOCAL cmdlist cause } same as _20
+cmd_string_parse = { }
+cmdlist = { ESCAPED NONLOCAL } same as cmdlist.15_28
+cause = { ESCAPED NONLOCAL } same as cause.13_26
+_25 = { ESCAPED NONLOCAL } same as f_53
+cause.13_26 = { ESCAPED NONLOCAL }
+cause.14_27 = { ESCAPED NONLOCAL } same as cause.13_26
+cmdlist.15_28 = { ESCAPED NONLOCAL }
+ctx = { NULL ESCAPED NONLOCAL }
+_29 = { ESCAPED NONLOCAL }
+_30 = { ESCAPED NONLOCAL }
+_31 = { ESCAPED NONLOCAL }
+cfg_cause = { NULL ESCAPED NONLOCAL }
+buf_37 = { ESCAPED NONLOCAL HEAP(28) }
+buf_58 = { }
+len_59 = { }
+_32 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as _3
+__builtin_object_size = { }
+CALLUSED(78) = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause }
+CALLCLOBBERED(79) = { }
+_100 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as CALLUSED(78)
+__builtin_constant_p = { }
+callarg(82) = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as _3
+_101 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause }
+CALLUSED(84) = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause }
+CALLCLOBBERED(85) = { }
+_102 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as CALLUSED(84)
+__fgets_chk = { }
+_103 = { ESCAPED NONLOCAL } same as f_53
+_104 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as _3
+CALLUSED(90) = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause }
+CALLCLOBBERED(91) = { }
+_105 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as CALLUSED(90)
+CALLUSED(93) = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause }
+CALLCLOBBERED(94) = { }
+_106 = { NULL STRING ESCAPED NONLOCAL HEAP(28) cmdlist cause } same as CALLUSED(93)
+*__fgets_chk = { }
+_107 = { ESCAPED NONLOCAL } same as f_53
+*fgets = { }
+_108 = { ESCAPED NONLOCAL } same as f_53
+fclose = { }
+cfg_references.16_33 = { ESCAPED NONLOCAL } same as f_53
+_34 = { ESCAPED NONLOCAL } same as f_53
+_43 = { NULL NONLOCAL } same as n_76
+
+
+Alias information for load_cfg
+
+Aliased symbols
+
+cmdlist, UID D.4249, struct cmd_list *, is addressable
+cause, UID D.4246, char *, is addressable
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4246 D.4249 D.4419 } (escaped, escaped heap)
+
+Flow-insensitive points-to information
+
+_4, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_9, points-to NULL, points-to vars: { D.4419 } (escaped, escaped heap)
+_11, points-to NULL, points-to vars: { D.4419 } (escaped, escaped heap)
+_13, points-to NULL, points-to vars: { D.4419 } (escaped, escaped heap)
+_16, points-to NULL, points-to vars: { D.4419 } (escaped, escaped heap)
+_18, points-to NULL, points-to vars: { D.4419 } (escaped, escaped heap)
+cause.13_26, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+cause.14_27, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+cmdlist.15_28, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_29, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_30, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_31, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+buf_36, points-to NULL, points-to vars: { D.4419 } (escaped, escaped heap)
+buf_37, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.4419 } (escaped, escaped heap)
+path_51(D), points-to non-local, points-to NULL, points-to vars: { }
+f_53, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+buf_58(D), points-to NULL, points-to vars: { }
+line_70, points-to NULL, points-to vars: { D.4419 } (escaped, escaped heap)
+copy_79, points-to NULL, points-to vars: { D.4419 } (escaped, escaped heap)
+buf_81, points-to NULL, points-to vars: { D.4419 } (escaped, escaped heap)
+ctxin_84(D), points-to non-local, points-to NULL, points-to vars: { }
+buf_94, points-to NULL, points-to vars: { D.4419 } (escaped, escaped heap)
+_103, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_107, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_108, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_109, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+
+load_cfg (const char * path, struct cmd_ctx * ctxin, struct causelist * causes)
+{
+  char * D.4418;
+  int D.4414;
+  cmd_retval retval;
+  struct cmd_ctx ctx;
+  struct cmd_list * cmdlist;
+  size_t oldlen;
+  size_t len;
+  char * cause;
+  char * line;
+  char * copy;
+  char * buf;
+  u_int n;
+  struct FILE * f;
+  int cfg_references.12_1;
+  int _2;
+  sizetype _3;
+  char * _4;
+  char _5;
+  long unsigned int _8;
+  char * _9;
+  long unsigned int _10;
+  char * _11;
+  sizetype _12;
+  char * _13;
+  char _14;
+  sizetype _15;
+  char * _16;
+  sizetype _17;
+  char * _18;
+  char _19;
+  char _20;
+  unsigned char _21;
+  int _22;
+  int _23;
+  char _24;
+  int _25;
+  char * cause.13_26;
+  char * cause.14_27;
+  struct cmd_list * cmdlist.15_28;
+  struct msg_command_data * _29;
+  struct client * _30;
+  struct client * _31;
+  int _32;
+  int cfg_references.16_33;
+  int _34;
+  cmd_retval _43;
+  int _99;
+  long unsigned int _100;
+  int _101;
+  long unsigned int _102;
+  char * _103;
+  long unsigned int _104;
+  long unsigned int _105;
+  long unsigned int _106;
+  char * _107;
+  char * _108;
+  char * _109;
+
+  <bb 2> [0.00%]:
+  f_53 = fopen (path_51(D), "rb");
+  if (f_53 == 0B)
+    goto <bb 35>; [0.00%]
+  else
+    goto <bb 3>; [0.00%]
+
+  <bb 3> [0.00%]:
+  cfg_references.12_1 = cfg_references;
+  _2 = cfg_references.12_1 + 1;
+  cfg_references = _2;
+  goto <bb 26>; [0.00%]
+
+  <bb 4> [0.00%]:
+  _3 = len_41 + 18446744073709551615;
+  _4 = _109 + _3;
+  _5 = *_4;
+  if (_5 == 10)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  len_66 = len_41 + 18446744073709551615;
+
+  <bb 6> [100.00%]:
+  # len_40 = PHI <len_41(4), len_66(5)>
+  _99 = __printf_chk (1, "%s: %s", path_51(D), _109);
+  _8 = len_40 + 1;
+  line_70 = malloc (_8);
+  _9 = line_70;
+  memcpy (_9, _109, len_40);
+  _10 = len_40;
+  _11 = line_70 + len_40;
+  *_11 = 0;
+  n_76 = n_35 + 1;
+  len_77 = strlen (line_70);
+  if (len_77 != 0)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 11>; [0.00%]
+
+  <bb 7> [0.00%]:
+  _12 = len_77 + 18446744073709551615;
+  _13 = line_70 + _12;
+  _14 = *_13;
+  if (_14 == 92)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 11>; [0.00%]
+
+  <bb 8> [0.00%]:
+  _15 = len_77 + 18446744073709551615;
+  _16 = line_70 + _15;
+  *_16 = 0;
+  if (len_77 > 1)
+    goto <bb 9>; [0.00%]
+  else
+    goto <bb 11>; [0.00%]
+
+  <bb 9> [0.00%]:
+  _17 = len_77 + 18446744073709551614;
+  _18 = line_70 + _17;
+  _19 = *_18;
+  if (_19 != 92)
+    goto <bb 10>; [0.00%]
+  else
+    goto <bb 11>; [0.00%]
+
+  <bb 10> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 26>; [0.00%]
+
+  <bb 11> [0.00%]:
+  copy_79 = line_70;
+  buf_81 = line_70;
+  goto <bb 13>; [0.00%]
+
+  <bb 12> [0.00%]:
+  buf_94 = buf_36 + 1;
+
+  <bb 13> [0.00%]:
+  # buf_36 = PHI <line_70(11), buf_94(12)>
+  _20 = *buf_36;
+  _21 = (unsigned char) _20;
+  _22 = (int) _21;
+  _23 = isspace (_22);
+  if (_23 != 0)
+    goto <bb 12>; [0.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 14> [0.00%]:
+  _24 = *buf_36;
+  if (_24 == 0)
+    goto <bb 15>; [0.00%]
+  else
+    goto <bb 16>; [0.00%]
+
+  <bb 15> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 26>; [0.00%]
+
+  <bb 16> [0.00%]:
+  _25 = cmd_string_parse (buf_36, &cmdlist, &cause);
+  if (_25 != 0)
+    goto <bb 17>; [0.00%]
+  else
+    goto <bb 20>; [0.00%]
+
+  <bb 17> [0.00%]:
+  free (copy_79);
+  cause.13_26 = cause;
+  if (cause.13_26 == 0B)
+    goto <bb 18>; [0.00%]
+  else
+    goto <bb 19>; [0.00%]
+
+  <bb 18> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 26>; [0.00%]
+
+  <bb 19> [0.00%]:
+  cause.14_27 = cause;
+  free (cause.14_27);
+  // predicted unlikely by continue predictor.
+  goto <bb 26>; [0.00%]
+
+  <bb 20> [0.00%]:
+  free (copy_79);
+  cmdlist.15_28 = cmdlist;
+  if (cmdlist.15_28 == 0B)
+    goto <bb 21>; [0.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 21> [0.00%]:
+  // predicted unlikely by continue predictor.
+  goto <bb 26>; [0.00%]
+
+  <bb 22> [0.00%]:
+  if (ctxin_84(D) == 0B)
+    goto <bb 23>; [0.00%]
+  else
+    goto <bb 24>; [0.00%]
+
+  <bb 23> [0.00%]:
+  ctx.msgdata = 0B;
+  ctx.curclient = 0B;
+  ctx.cmdclient = 0B;
+  goto <bb 25>; [0.00%]
+
+  <bb 24> [0.00%]:
+  _29 = ctxin_84(D)->msgdata;
+  ctx.msgdata = _29;
+  _30 = ctxin_84(D)->curclient;
+  ctx.curclient = _30;
+  _31 = ctxin_84(D)->cmdclient;
+  ctx.cmdclient = _31;
+
+  <bb 25> [0.00%]:
+  cfg_cause = 0B;
+
+  <bb 26> [100.00%]:
+  # n_35 = PHI <0(3), n_76(10), n_76(15), n_76(18), n_76(19), n_76(21), n_76(25)>
+  # buf_37 = PHI <buf_58(D)(3), _109(10), buf_36(15), buf_36(18), buf_36(19), buf_36(21), buf_36(25)>
+  # len_41 = PHI <len_59(D)(3), len_77(10), len_77(15), len_77(18), len_77(19), len_77(21), len_77(25)>
+  _32 = (int) len_41;
+  _100 = __builtin_object_size (buf_37, 1);
+  if (_100 != 18446744073709551615)
+    goto <bb 27>; [79.76%]
+  else
+    goto <bb 32>; [20.24%]
+
+  <bb 27> [79.76%]:
+  _101 = __builtin_constant_p (_32);
+  if (_101 == 0)
+    goto <bb 29>; [29.56%]
+  else
+    goto <bb 28>; [70.44%]
+
+  <bb 28> [56.18%]:
+  if (_32 <= 0)
+    goto <bb 29>; [32.39%]
+  else
+    goto <bb 30>; [67.61%]
+
+  <bb 29> [41.77%]:
+  _102 = __builtin_object_size (buf_37, 1);
+  _103 = __fgets_chk (buf_37, _102, _32, f_53);
+  goto <bb 33>; [100.00%]
+
+  <bb 30> [37.99%]:
+  _104 = (long unsigned int) _32;
+  _105 = __builtin_object_size (buf_37, 1);
+  if (_104 > _105)
+    goto <bb 31>; [29.56%]
+  else
+    goto <bb 32>; [70.44%]
+
+  <bb 31> [11.23%]:
+  _106 = __builtin_object_size (buf_37, 1);
+  _107 = *__fgets_chk (buf_37, _106, _32, f_53);
+  goto <bb 33>; [100.00%]
+
+  <bb 32> [47.00%]:
+  _108 = *fgets (buf_37, _32, f_53);
+
+  <bb 33> [100.00%]:
+  # _109 = PHI <_103(29), _107(31), _108(32)>
+  if (_109 != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 34>; [0.00%]
+
+  <bb 34> [0.00%]:
+  fclose (f_53);
+  cfg_references.16_33 = cfg_references;
+  _34 = cfg_references.16_33 + -1;
+  cfg_references = _34;
+
+  <bb 35> [0.00%]:
+  # _43 = PHI <-1(2), 0(34)>
+  cause ={v} {CLOBBER};
+  cmdlist ={v} {CLOBBER};
+  ctx ={v} {CLOBBER};
+  return _43;
+
+}
+
+
+
+;; Function main (main, funcdef_no=47, decl_uid=4262, cgraph_uid=47, symbol_order=51)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+ESCAPED = &NONLOCAL
+_1 = &HEAP(10)
+causes = _1
+causes = &NULL
+causes = &NULL
+causes = &NULL
+ESCAPED = &STRING
+ESCAPED = &ctxin
+ESCAPED = &causes
+ESCAPED = &NULL
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL STRING ESCAPED NONLOCAL HEAP(10) causes ctxin }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+malloc = { }
+_1 = { HEAP(10) }
+HEAP(10) = { ESCAPED NONLOCAL }
+causes = { NULL ESCAPED NONLOCAL HEAP(10) }
+load_cfg = { }
+ctxin = { ESCAPED NONLOCAL }
 
 
 Alias information for main
 
 Aliased symbols
 
-len, UID D.3280, int, is addressable
-buf, UID D.3279, char[10], is addressable
-t, UID D.3277, time_t, is addressable
+causes, UID D.4265, struct causelist, is addressable
+ctxin, UID D.4264, struct cmd_ctx, is addressable
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.3277 D.3279 D.3280 } (escaped)
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.4264 D.4265 D.4420 } (escaped, escaped heap)
 
 Flow-insensitive points-to information
 
-iftmp.0_5, points-to NULL, points-to vars: { D.3279 } (escaped)
+_1, points-to NULL, points-to vars: { D.4420 } (escaped, escaped heap)
 
 main ()
 {
-  ULONGEST * xfered_len;
-  gdb_byte * writebuf;
-  int len;
-  char buf[10];
-  time_t t;
-  int _1;
-  unsigned int _2;
-  int _3;
-  int _4;
-  gdb_byte * iftmp.0_5;
+  struct causelist causes;
+  struct cmd_ctx ctxin;
+  void * _1;
 
   <bb 2> [0.00%]:
-  _1 = time (&t);
-  _2 = (unsigned int) _1;
-  srand (_2);
-  _3 = rand ();
-  _4 = _3 % 2;
-  if (_4 == 1)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 3>; [0.00%]
-
-  <bb 3> [0.00%]:
-
-  <bb 4> [0.00%]:
-  # iftmp.0_5 = PHI <&buf(2), 0B(3)>
-  rs6000_xfer_shared_libraries (iftmp.0_5, &len);
-  t ={v} {CLOBBER};
-  buf ={v} {CLOBBER};
-  len ={v} {CLOBBER};
+  _1 = malloc (1);
+  causes.list = _1;
+  causes.num = 0;
+  causes.list = 0B;
+  causes.space = 0;
+  load_cfg ("path", &ctxin, &causes);
+  ctxin ={v} {CLOBBER};
+  causes ={v} {CLOBBER};
   return 0;
 
 }

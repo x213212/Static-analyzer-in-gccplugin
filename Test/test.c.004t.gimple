@@ -1,299 +1,392 @@
-discard_cleanups (struct cleanup * old_chain)
+strsep (char * * stringp, const char * delim)
 {
-  discard_my_cleanups (&cleanup_chain, old_chain);
+  char * D.3620;
+  char * s;
+  const char * spanp;
+  int c;
+  int sc;
+  char * tok;
+
+  s = *stringp;
+  if (s == 0B) goto <D.3618>; else goto <D.3619>;
+  <D.3618>:
+  D.3620 = 0B;
+  return D.3620;
+  <D.3619>:
+  tok = s;
+  <D.3552>:
+  s.0_1 = s;
+  s = s.0_1 + 1;
+  _2 = *s.0_1;
+  c = (int) _2;
+  spanp = delim;
+  <D.3550>:
+  spanp.1_3 = spanp;
+  spanp = spanp.1_3 + 1;
+  _4 = *spanp.1_3;
+  sc = (int) _4;
+  if (sc == c) goto <D.3621>; else goto <D.3622>;
+  <D.3621>:
+  if (c == 0) goto <D.3623>; else goto <D.3624>;
+  <D.3623>:
+  s = 0B;
+  goto <D.3625>;
+  <D.3624>:
+  _5 = s + 18446744073709551615;
+  *_5 = 0;
+  <D.3625>:
+  *stringp = s;
+  D.3620 = tok;
+  return D.3620;
+  <D.3622>:
+  if (sc != 0) goto <D.3550>; else goto <D.3551>;
+  <D.3551>:
+  goto <D.3552>;
 }
 
 
-discard_final_cleanups (struct cleanup * old_chain)
+strlcat (char * dst, const char * src, size_t siz)
 {
-  discard_my_cleanups (&final_cleanup_chain, old_chain);
+  size_t D.3630;
+  char * d;
+  const char * s;
+  size_t n;
+  size_t dlen;
+
+  d = dst;
+  s = src;
+  n = siz;
+  goto <D.3563>;
+  <D.3562>:
+  d = d + 1;
+  <D.3563>:
+  n.2_1 = n;
+  n = n.2_1 + 18446744073709551615;
+  if (n.2_1 != 0) goto <D.3627>; else goto <D.3564>;
+  <D.3627>:
+  _2 = *d;
+  if (_2 != 0) goto <D.3562>; else goto <D.3564>;
+  <D.3564>:
+  d.3_3 = (long int) d;
+  dst.4_4 = (long int) dst;
+  _5 = d.3_3 - dst.4_4;
+  dlen = (size_t) _5;
+  n = siz - dlen;
+  if (n == 0) goto <D.3628>; else goto <D.3629>;
+  <D.3628>:
+  {
+    extern long unsigned int strlen (const char *);
+
+    _6 = strlen (s);
+    D.3630 = dlen + _6;
+    return D.3630;
+  }
+  <D.3629>:
+  goto <D.3567>;
+  <D.3566>:
+  if (n != 1) goto <D.3631>; else goto <D.3632>;
+  <D.3631>:
+  d.5_7 = d;
+  d = d.5_7 + 1;
+  _8 = *s;
+  *d.5_7 = _8;
+  n = n + 18446744073709551615;
+  <D.3632>:
+  s = s + 1;
+  <D.3567>:
+  _9 = *s;
+  if (_9 != 0) goto <D.3566>; else goto <D.3568>;
+  <D.3568>:
+  *d = 0;
+  s.6_10 = (long int) s;
+  src.7_11 = (long int) src;
+  _12 = s.6_10 - src.7_11;
+  _13 = (long unsigned int) _12;
+  D.3630 = dlen + _13;
+  return D.3630;
 }
 
 
-discard_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
+match_pattern (const char * s, const char * pattern)
 {
-  struct cleanup * ptr;
+  int D.3636;
 
-  goto <D.3198>;
-  <D.3197>:
-  _1 = ptr->next;
-  *pmy_chain = _1;
-  _2 = ptr->free_arg;
-  if (_2 != 0B) goto <D.3285>; else goto <D.3286>;
-  <D.3285>:
-  _3 = ptr->free_arg;
-  _4 = ptr->arg;
-  _3 (_4);
-  <D.3286>:
-  free (ptr);
-  <D.3198>:
-  ptr = *pmy_chain;
-  if (ptr != old_chain) goto <D.3197>; else goto <D.3199>;
-  <D.3199>:
-  _5 = ptr->arg;
-  printf ("freearg: %x\n", _5);
+  <D.3579>:
+  _1 = *pattern;
+  if (_1 == 0) goto <D.3634>; else goto <D.3635>;
+  <D.3634>:
+  _2 = *s;
+  _3 = _2 == 0;
+  D.3636 = (int) _3;
+  return D.3636;
+  <D.3635>:
+  _4 = *pattern;
+  if (_4 == 42) goto <D.3637>; else goto <D.3638>;
+  <D.3637>:
+  pattern = pattern + 1;
+  _5 = *pattern;
+  if (_5 == 0) goto <D.3639>; else goto <D.3640>;
+  <D.3639>:
+  D.3636 = 1;
+  return D.3636;
+  <D.3640>:
+  _6 = *pattern;
+  _7 = _6 != 63;
+  _8 = *pattern;
+  _9 = _8 != 42;
+  _10 = _7 & _9;
+  if (_10 != 0) goto <D.3641>; else goto <D.3642>;
+  <D.3641>:
+  goto <D.3574>;
+  <D.3573>:
+  _11 = *s;
+  _12 = *pattern;
+  if (_11 == _12) goto <D.3643>; else goto <D.3644>;
+  <D.3643>:
+  D.3636 = 1;
+  return D.3636;
+  <D.3644>:
+  s = s + 1;
+  <D.3574>:
+  _13 = *s;
+  if (_13 != 0) goto <D.3573>; else goto <D.3575>;
+  <D.3575>:
+  D.3636 = 0;
+  return D.3636;
+  <D.3642>:
+  goto <D.3577>;
+  <D.3576>:
+  D.3636 = 1;
+  return D.3636;
+  s = s + 1;
+  <D.3577>:
+  _14 = *s;
+  if (_14 != 0) goto <D.3576>; else goto <D.3578>;
+  <D.3578>:
+  D.3636 = 0;
+  return D.3636;
+  <D.3638>:
+  _15 = *s;
+  if (_15 == 0) goto <D.3645>; else goto <D.3646>;
+  <D.3645>:
+  D.3636 = 0;
+  return D.3636;
+  <D.3646>:
+  _16 = *pattern;
+  if (_16 != 63) goto <D.3647>; else goto <D.3648>;
+  <D.3647>:
+  _17 = *pattern;
+  _18 = *s;
+  if (_17 != _18) goto <D.3649>; else goto <D.3650>;
+  <D.3649>:
+  D.3636 = 0;
+  return D.3636;
+  <D.3650>:
+  <D.3648>:
+  s = s + 1;
+  pattern = pattern + 1;
+  goto <D.3579>;
+}
+
+
+match_pattern_list (const char * string, const char * pattern, int dolower)
+{
+  char iftmp.8;
+  int D.3663;
+  char sub[1024];
+  int negated;
+  int got_positive;
+  unsigned int i;
+  unsigned int subi;
+  unsigned int len;
+  extern long unsigned int strlen (const char *);
+
+  try
+    {
+      _1 = strlen (pattern);
+      len = (unsigned int) _1;
+      got_positive = 0;
+      i = 0;
+      goto <D.3597>;
+      <D.3596>:
+      _2 = (sizetype) i;
+      _3 = pattern + _2;
+      _4 = *_3;
+      if (_4 == 33) goto <D.3652>; else goto <D.3653>;
+      <D.3652>:
+      negated = 1;
+      i = i + 1;
+      goto <D.3654>;
+      <D.3653>:
+      negated = 0;
+      <D.3654>:
+      subi = 0;
+      goto <D.3594>;
+      <D.3593>:
+      {
+        extern int isupper ();
+        extern int tolower ();
+
+        if (dolower != 0) goto <D.3658>; else goto <D.3656>;
+        <D.3658>:
+        _5 = (sizetype) i;
+        _6 = pattern + _5;
+        _7 = *_6;
+        _8 = (unsigned char) _7;
+        _9 = (int) _8;
+        _10 = isupper (_9);
+        if (_10 != 0) goto <D.3659>; else goto <D.3656>;
+        <D.3659>:
+        _11 = (sizetype) i;
+        _12 = pattern + _11;
+        _13 = *_12;
+        _14 = (unsigned char) _13;
+        _15 = (int) _14;
+        _16 = tolower (_15);
+        iftmp.8 = (char) _16;
+        goto <D.3657>;
+        <D.3656>:
+        _17 = (sizetype) i;
+        _18 = pattern + _17;
+        iftmp.8 = *_18;
+        <D.3657>:
+        sub[subi] = iftmp.8;
+      }
+      subi = subi + 1;
+      i = i + 1;
+      <D.3594>:
+      _19 = i < len;
+      _20 = subi <= 1022;
+      _21 = _19 & _20;
+      if (_21 != 0) goto <D.3660>; else goto <D.3595>;
+      <D.3660>:
+      _22 = (sizetype) i;
+      _23 = pattern + _22;
+      _24 = *_23;
+      if (_24 != 44) goto <D.3593>; else goto <D.3595>;
+      <D.3595>:
+      if (subi > 1022) goto <D.3661>; else goto <D.3662>;
+      <D.3661>:
+      D.3663 = 0;
+      return D.3663;
+      <D.3662>:
+      if (i < len) goto <D.3664>; else goto <D.3665>;
+      <D.3664>:
+      _25 = (sizetype) i;
+      _26 = pattern + _25;
+      _27 = *_26;
+      if (_27 == 44) goto <D.3666>; else goto <D.3667>;
+      <D.3666>:
+      i = i + 1;
+      <D.3667>:
+      <D.3665>:
+      sub[subi] = 0;
+      _28 = match_pattern (string, &sub);
+      if (_28 != 0) goto <D.3668>; else goto <D.3669>;
+      <D.3668>:
+      if (negated != 0) goto <D.3670>; else goto <D.3671>;
+      <D.3670>:
+      D.3663 = -1;
+      return D.3663;
+      <D.3671>:
+      got_positive = 1;
+      <D.3669>:
+      <D.3597>:
+      if (i < len) goto <D.3596>; else goto <D.3598>;
+      <D.3598>:
+      D.3663 = got_positive;
+      return D.3663;
+    }
+  finally
+    {
+      sub = {CLOBBER};
+    }
+}
+
+
+match_filter_list (const char * proposal, const char * filter)
+{
+  char * D.3676;
+  size_t len;
+  extern long unsigned int strlen (const char *);
+  char * fix_prop;
+  char * orig_prop;
+  extern char * strdup (const char *);
+  char * cp;
+  char * tmp;
+
+  try
+    {
+      _1 = strlen (proposal);
+      len = _1 + 1;
+      fix_prop = malloc (len);
+      orig_prop = strdup (proposal);
+      _2 = fix_prop == 0B;
+      _3 = orig_prop == 0B;
+      _4 = _2 | _3;
+      if (_4 != 0) goto <D.3674>; else goto <D.3675>;
+      <D.3674>:
+      free (orig_prop);
+      D.3676 = 0B;
+      return D.3676;
+      <D.3675>:
+      tmp = orig_prop;
+      *fix_prop = 0;
+      goto <D.3610>;
+      <D.3609>:
+      _5 = match_pattern_list (cp, filter, 0);
+      if (_5 != 1) goto <D.3677>; else goto <D.3678>;
+      <D.3677>:
+      _6 = *fix_prop;
+      if (_6 != 0) goto <D.3679>; else goto <D.3680>;
+      <D.3679>:
+      strlcat (fix_prop, ",", len);
+      <D.3680>:
+      strlcat (fix_prop, cp, len);
+      <D.3678>:
+      <D.3610>:
+      cp = strsep (&tmp, ",");
+      if (cp != 0B) goto <D.3609>; else goto <D.3611>;
+      <D.3611>:
+      free (orig_prop);
+      D.3676 = fix_prop;
+      return D.3676;
+    }
+  finally
+    {
+      tmp = {CLOBBER};
+    }
+}
+
+
+main ()
+{
+  int D.3685;
+
+  {
+    char * proposal;
+
+    proposal = match_filter_list ("proposal", "filter");
+    if (proposal == 0B) goto <D.3683>; else goto <D.3684>;
+    <D.3683>:
+    printf ("match_filter_list failed\n");
+    <D.3684>:
+    printf ("proposal : %s\n", proposal);
+    D.3685 = 0;
+    return D.3685;
+  }
+  D.3685 = 0;
+  return D.3685;
 }
 
 
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
 {
-  int D.3287;
+  int D.3687;
 
-  D.3287 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  return D.3287;
-}
-
-
-do_cleanups (struct cleanup * old_chain)
-{
-  do_my_cleanups (&cleanup_chain, old_chain);
-}
-
-
-do_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
-{
-  struct cleanup * ptr;
-
-  goto <D.3206>;
-  <D.3205>:
-  _1 = ptr->next;
-  *pmy_chain = _1;
-  _2 = ptr->function;
-  _3 = ptr->arg;
-  _2 (_3);
-  printf ("cleanup!!!!! =========\n");
-  _4 = ptr->arg;
-  printf ("%x\n", _4);
-  _5 = ptr->free_arg;
-  if (_5 != 0B) goto <D.3289>; else goto <D.3290>;
-  <D.3289>:
-  _6 = ptr->free_arg;
-  _7 = ptr->arg;
-  _6 (_7);
-  <D.3290>:
-  free (ptr);
-  <D.3206>:
-  ptr = *pmy_chain;
-  if (ptr != old_chain) goto <D.3205>; else goto <D.3207>;
-  <D.3207>:
-}
-
-
-make_cleanup (void (*<Ta1d>) (void *) function, void * arg)
-{
-  struct cleanup * D.3291;
-
-  D.3291 = make_my_cleanup (&cleanup_chain, function, arg);
-  return D.3291;
-}
-
-
-make_my_cleanup (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg)
-{
-  struct cleanup * D.3293;
-
-  D.3293 = make_my_cleanup2 (pmy_chain, function, arg, 0B);
-  return D.3293;
-}
-
-
-make_my_cleanup2 (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg, void (*<Ted>) (void *) free_arg)
-{
-  struct cleanup * D.3297;
-  struct cleanup * new;
-  struct cleanup * old_chain;
-
-  new = malloc (32);
-  old_chain = *pmy_chain;
-  _1 = *pmy_chain;
-  new->next = _1;
-  new->function = function;
-  new->free_arg = free_arg;
-  new->arg = arg;
-  *pmy_chain = new;
-  if (old_chain == 0B) goto <D.3295>; else goto <D.3296>;
-  <D.3295>:
-  exit (1);
-  <D.3296>:
-  D.3297 = old_chain;
-  return D.3297;
-}
-
-
-xrealloc (void * oldmem, size_t size)
-{
-  void * D.3306;
-  void * newmem;
-
-  if (size == 0) goto <D.3299>; else goto <D.3300>;
-  <D.3299>:
-  size = 1;
-  <D.3300>:
-  if (oldmem == 0B) goto <D.3301>; else goto <D.3302>;
-  <D.3301>:
-  newmem = malloc (size);
-  goto <D.3303>;
-  <D.3302>:
-  newmem = realloc (oldmem, size);
-  <D.3303>:
-  if (newmem == 0B) goto <D.3304>; else goto <D.3305>;
-  <D.3304>:
-  exit (1);
-  <D.3305>:
-  D.3306 = newmem;
-  return D.3306;
-}
-
-
-remote_filename_p (const char * filename)
-{
-  int D.3308;
-  extern int strncmp ();
-
-  _1 = strncmp (filename, "remote:", 7);
-  _2 = _1 == 0;
-  D.3308 = (int) _2;
-  return D.3308;
-}
-
-
-rs6000_aix_ld_info_to_xml (const gdb_byte * ldi_buf)
-{
-  ULONGEST D.3310;
-  int i;
-
-  _1 = *ldi_buf;
-  i = (int) _1;
-  D.3310 = (ULONGEST) i;
-  return D.3310;
-}
-
-
-main ()
-{
-  gdb_byte * iftmp.0;
-  int D.3316;
-
-  {
-    time_t t;
-    extern int time ();
-    char buf[10];
-    int len;
-    gdb_byte * writebuf;
-    ULONGEST * xfered_len;
-
-    try
-      {
-        _1 = time (&t);
-        _2 = (unsigned int) _1;
-        srand (_2);
-        xfered_len = &len;
-        _3 = rand ();
-        _4 = _3 % 2;
-        if (_4 == 1) goto <D.3313>; else goto <D.3314>;
-        <D.3313>:
-        iftmp.0 = &buf;
-        goto <D.3315>;
-        <D.3314>:
-        iftmp.0 = 0B;
-        <D.3315>:
-        writebuf = iftmp.0;
-        rs6000_xfer_shared_libraries (writebuf, xfered_len);
-      }
-    finally
-      {
-        t = {CLOBBER};
-        buf = {CLOBBER};
-        len = {CLOBBER};
-      }
-  }
-  D.3316 = 0;
-  return D.3316;
-}
-
-
-rs6000_xfer_shared_libraries (const gdb_byte * writebuf, ULONGEST * xfered_len)
-{
-  target_xfer_status D.3320;
-  gdb_byte * ldi_buf;
-  ULONGEST result;
-  struct cleanup * cleanup;
-
-  if (writebuf != 0B) goto <D.3318>; else goto <D.3319>;
-  <D.3318>:
-  D.3320 = -1;
-  return D.3320;
-  <D.3319>:
-  ldi_buf = rs6000_ptrace_ldinfo ();
-  if (ldi_buf == 0B) goto <D.3321>; else goto <D.3322>;
-  <D.3321>:
-  exit (1);
-  <D.3322>:
-  cleanup = make_cleanup (free, ldi_buf);
-  result = rs6000_aix_ld_info_to_xml (ldi_buf);
-  free (ldi_buf);
-  do_cleanups (cleanup);
-  if (result == 0) goto <D.3323>; else goto <D.3324>;
-  <D.3323>:
-  D.3320 = 0;
-  return D.3320;
-  <D.3324>:
-  *xfered_len = result;
-  D.3320 = 1;
-  return D.3320;
-}
-
-
-rs6000_ptrace_ldinfo ()
-{
-  gdb_byte * D.3327;
-  const int pid;
-  int ldi_size;
-  void * ldi;
-  int rc;
-
-  pid = 1;
-  ldi_size = 1024;
-  _1 = (long unsigned int) ldi_size;
-  ldi = malloc (_1);
-  rc = -1;
-  <D.3263>:
-  ldi.1_2 = (long long int) ldi;
-  rc = rs6000_ptrace64 (1, pid, ldi.1_2, ldi_size, 0B);
-  if (rc != -1) goto <D.3262>; else goto <D.3326>;
-  <D.3326>:
-  ldi_size = ldi_size * 2;
-  _3 = (long unsigned int) ldi_size;
-  ldi = xrealloc (ldi, _3);
-  goto <D.3263>;
-  <D.3262>:
-  D.3327 = ldi;
-  return D.3327;
-}
-
-
-rs6000_ptrace64 (int req, int id, long long int addr, int data, void * buf)
-{
-  int iftmp.3;
-  int D.3333;
-  int i;
-  int ret;
-
-  addr.2_1 = (int *) addr;
-  i = *addr.2_1;
-  _2 = rand ();
-  _3 = _2 % 2;
-  if (_3 == 1) goto <D.3330>; else goto <D.3331>;
-  <D.3330>:
-  iftmp.3 = 1;
-  goto <D.3332>;
-  <D.3331>:
-  iftmp.3 = -1;
-  <D.3332>:
-  ret = iftmp.3;
-  D.3333 = ret;
-  return D.3333;
+  D.3687 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.3687;
 }
 
 
