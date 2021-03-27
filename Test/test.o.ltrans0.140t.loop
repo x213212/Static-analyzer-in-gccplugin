@@ -1,1007 +1,819 @@
 
-;; Function cmd_string_variable (cmd_string_variable, funcdef_no=2, decl_uid=4520, cgraph_uid=9, symbol_order=46)
-
-cmd_string_variable (const char * s, size_t * p)
-{
-  struct environ_entry * envent;
-  size_t len;
-  char * t;
-  char * buf;
-  int fch;
-  int ch;
-  _Bool _1;
-  unsigned int _2;
-  unsigned int _3;
-  _Bool _4;
-  _Bool _5;
-  unsigned int _7;
-  _Bool _8;
-  unsigned int _9;
-  unsigned int _10;
-  _Bool _11;
-  _Bool _12;
-  unsigned int _14;
-  char _15;
-  _Bool _16;
-  unsigned int _17;
-  unsigned int _18;
-  _Bool _19;
-  _Bool _20;
-  unsigned int _22;
-  unsigned int _24;
-  long unsigned int _25;
-  char * _27;
-  char _28;
-  _Bool _29;
-  _Bool _30;
-  _Bool _31;
-  _Bool _32;
-  _Bool _33;
-  _Bool _34;
-  long unsigned int _35;
-  char * _36;
-  char * _37;
-  char * _43;
-  char * _74;
-  char * _76;
-  long unsigned int _97;
-  long unsigned int _98;
-  _Bool _100;
-  unsigned int _101;
-  unsigned int _102;
-  _Bool _103;
-  _Bool _104;
-  _Bool _108;
-  unsigned int _109;
-  unsigned int _110;
-  _Bool _111;
-  _Bool _112;
-  _Bool _113;
-  _Bool _114;
-  _Bool _115;
-  _Bool _116;
-  _Bool _117;
-  _Bool _118;
-  unsigned int _119;
-
-  <bb 2> [15.81%]:
-  ch_53 = cmd_string_getc (s_50(D), p_51(D));
-  switch (ch_53) <default: <L1> [33.33%], case -1: <L3> [33.33%], case 123: <L0> [33.33%]>
-
-<L0> [5.27%]:
-  ch_55 = cmd_string_getc (s_50(D), p_51(D));
-  _1 = ch_55 != 95;
-  _2 = (unsigned int) ch_55;
-  _3 = _2 + 4294967199;
-  _4 = _3 > 25;
-  _5 = _1 & _4;
-  if (_5 != 0)
-    goto <bb 4>; [50.00%]
-  else
-    goto <bb 22>; [50.00%]
-
-  <bb 4> [2.63%]:
-  _7 = _2 + 4294967231;
-  if (_7 > 25)
-    goto <bb 27>; [9.00%]
-  else
-    goto <bb 23>; [91.00%]
-
-  <bb 27> [0.24%]:
-  goto <bb 20> (error); [100.00%]
-
-<L1> [5.27%]:
-  _8 = ch_53 != 95;
-  _9 = (unsigned int) ch_53;
-  _10 = _9 + 4294967199;
-  _11 = _10 > 25;
-  _12 = _8 & _11;
-  if (_12 != 0)
-    goto <bb 28>; [85.49%]
-  else
-    goto <bb 29>; [14.51%]
-
-  <bb 29> [0.76%]:
-  goto <bb 7>; [100.00%]
-
-  <bb 28> [4.51%]:
-
-  <bb 6> [6.90%]:
-  # _119 = PHI <_9(28), _109(23)>
-  # ch_120 = PHI <ch_53(28), ch_55(23)>
-  # fch_122 = PHI <-1(28), 123(23)>
-  _14 = _119 + 4294967231;
-  if (_14 > 25)
-    goto <bb 30>; [46.00%]
-  else
-    goto <bb 31>; [54.00%]
-
-  <bb 30> [3.17%]:
-  goto <bb 21>; [100.00%]
-
-  <bb 31> [3.73%]:
-
-  <bb 7> [7.13%]:
-  # ch_121 = PHI <ch_53(29), ch_120(31), ch_55(22)>
-  # fch_123 = PHI <-1(29), fch_122(31), 123(22)>
-  buf_59 = xrealloc (0B, 1, 1);
-  _15 = (char) ch_121;
-  *buf_59 = _15;
-
-  <bb 8> [100.00%]:
-  # buf_40 = PHI <buf_59(7), buf_64(13)>
-  # len_42 = PHI <1(7), _25(13)>
-  ch_62 = cmd_string_getc (s_50(D), p_51(D));
-  if (ch_62 == -1)
-    goto <bb 25>; [5.00%]
-  else
-    goto <bb 9>; [95.00%]
-
-  <bb 9> [95.00%]:
-  _16 = ch_62 != 95;
-  _17 = (unsigned int) ch_62;
-  _18 = _17 + 4294967199;
-  _19 = _18 > 25;
-  _20 = _16 & _19;
-  if (_20 != 0)
-    goto <bb 10>; [50.00%]
-  else
-    goto <bb 32>; [50.00%]
-
-  <bb 32> [47.50%]:
-  goto <bb 12>; [100.00%]
-
-  <bb 10> [47.50%]:
-  _22 = _17 + 4294967231;
-  if (_22 > 25)
-    goto <bb 11>; [50.00%]
-  else
-    goto <bb 33>; [50.00%]
-
-  <bb 33> [23.75%]:
-  goto <bb 12>; [100.00%]
-
-  <bb 11> [23.75%]:
-  _24 = _17 + 4294967248;
-  if (_24 > 9)
-    goto <bb 14>; [5.00%]
-  else
-    goto <bb 34>; [95.00%]
-
-  <bb 34> [22.56%]:
-
-  <bb 12> [93.81%]:
-  if (len_42 > 1073741820)
-    goto <bb 35>; [1.00%]
-  else
-    goto <bb 13>; [99.00%]
-
-  <bb 35> [0.94%]:
-  goto <bb 20> (error); [100.00%]
-
-  <bb 13> [92.87%]:
-  _25 = len_42 + 1;
-  buf_64 = xrealloc (buf_40, 1, _25);
-  len_65 = _25;
-  _27 = buf_64 + len_42;
-  _28 = (char) ch_62;
-  *_27 = _28;
-  goto <bb 8>; [100.00%]
-
-  <bb 14> [1.19%]:
-  _29 = fch_123 == 123;
-  _30 = ch_62 != 125;
-  _31 = _29 & _30;
-  if (_31 != 0)
-    goto <bb 36>; [0.00%]
-  else
-    goto <bb 15>; [100.00%]
-
-  <bb 36> [0.00%]:
-  goto <bb 20> (error); [100.00%]
-
-  <bb 15> [1.86%]:
-  _32 = ch_62 != -1;
-  _33 = fch_123 != 123;
-  _34 = _32 & _33;
-  if (_34 != 0)
-    goto <bb 16>; [100.00%]
-  else
-    goto <bb 37>; [0.00%]
-
-  <bb 37> [0.00%]:
-  goto <bb 17>; [100.00%]
-
-  <bb 16> [1.86%]:
-  _97 = *p_51(D);
-  _98 = _97 + 18446744073709551615;
-  *p_51(D) = _98;
-
-  <bb 17> [5.63%]:
-  _35 = len_42 + 1;
-  buf_69 = xrealloc (buf_40, 1, _35);
-  _36 = buf_69 + len_42;
-  *_36 = 0;
-  free (buf_69);
-  if (envent_72(D) == 0B)
-    goto <bb 18>; [30.00%]
-  else
-    goto <bb 19>; [70.00%]
-
-  <bb 18> [1.69%]:
-  _76 = strdup ("");
-  goto <bb 21>; [100.00%]
-
-  <bb 19> [3.94%]:
-  _37 = envent_72(D)->value;
-  _74 = strdup (_37);
-  goto <bb 21>; [100.00%]
-
-<L3> [5.27%]:
-
-  # buf_41 = PHI <0B(26), 0B(27), buf_40(35), buf_40(36), buf_40(38)>
-error [7.00%]:
-  free (buf_41);
-
-  <bb 21> [15.81%]:
-  # _43 = PHI <t_56(D)(30), _76(18), _74(19), 0B(20)>
-  return _43;
-
-  <bb 22> [2.64%]:
-  _100 = ch_55 != 95;
-  _101 = (unsigned int) ch_55;
-  _102 = _101 + 4294967199;
-  _103 = _102 > 25;
-  _104 = _100 & _103;
-  goto <bb 7>; [100.00%]
-
-  <bb 23> [2.39%]:
-  _108 = ch_55 != 95;
-  _109 = (unsigned int) ch_55;
-  _110 = _109 + 4294967199;
-  _111 = _110 > 25;
-  _112 = _108 & _111;
-  goto <bb 6>; [100.00%]
-
-  <bb 24> [3.77%]:
-  _113 = ch_62 != -1;
-  _114 = fch_123 != 123;
-  _115 = _113 & _114;
-  goto <bb 17>; [100.00%]
-
-  <bb 25> [5.00%]:
-  _116 = fch_123 == 123;
-  _117 = ch_62 != 125;
-  _118 = _116 & _117;
-  if (_118 != 0)
-    goto <bb 38>; [24.56%]
-  else
-    goto <bb 24>; [75.44%]
-
-  <bb 38> [1.23%]:
-  goto <bb 20> (error); [100.00%]
-
-}
-
-
-
-;; Function cmd_string_string (cmd_string_string, funcdef_no=4, decl_uid=4519, cgraph_uid=8, symbol_order=47)
-
-cmd_string_string (const char * s, size_t * p, char endch, int esc)
-{
-  size_t len;
-  char * t;
-  char * buf;
-  int ch;
-  long unsigned int _1;
-  char * _3;
-  char _4;
-  int _5;
-  long unsigned int _6;
-  char * _7;
-  char * _11;
-
-  <bb 2> [31.12%]:
-  goto <bb 15>; [100.00%]
-
-  <bb 3> [97.00%]:
-  switch (ch_22) <default: <L8> [25.00%], case -1: <L9> [25.00%], case 36: <L5> [25.00%], case 92: <L0> [25.00%]>
-
-<L0> [24.25%]:
-  if (esc_28(D) == 0)
-    goto <bb 21>; [67.00%]
-  else
-    goto <bb 5>; [33.00%]
-
-  <bb 21> [16.25%]:
-  goto <bb 12> (<L6>); [100.00%]
-
-  <bb 5> [8.00%]:
-  ch_30 = cmd_string_getc (s_19(D), p_20(D));
-  switch (ch_30) <default: <L10> [16.67%], case -1: <L11> [16.67%], case 101: <L1> [16.67%], case 110: <L3> [16.67%], case 114: <L2> [16.67%], case 116: <L4> [16.67%]>
-
-<L11> [1.33%]:
-  goto <bb 17> (error); [100.00%]
-
-<L10> [1.33%]:
-  goto <bb 12> (<L6>); [100.00%]
-
-<L1> [1.33%]:
-  goto <bb 12> (<L6>); [100.00%]
-
-<L2> [1.33%]:
-  goto <bb 12> (<L6>); [100.00%]
-
-<L3> [1.33%]:
-  goto <bb 12> (<L6>); [100.00%]
-
-<L4> [1.33%]:
-  goto <bb 12> (<L6>); [100.00%]
-
-<L5> [24.25%]:
-  if (esc_28(D) == 0)
-    goto <bb 24>; [67.00%]
-  else
-    goto <bb 11>; [33.00%]
-
-  <bb 24> [16.25%]:
-  goto <bb 12> (<L6>); [100.00%]
-
-  <bb 11> [8.00%]:
-  t_32 = cmd_string_variable (s_19(D), p_20(D));
-  if (t_32 == 0B)
-    goto <bb 25>; [7.92%]
-  else
-    goto <bb 26>; [92.08%]
-
-  <bb 26> [7.37%]:
-  goto <bb 14>; [100.00%]
-
-  <bb 25> [0.63%]:
-  goto <bb 17> (error); [100.00%]
-
-<L8> [24.25%]:
-
-  # ch_8 = PHI <ch_22(19), 92(21), ch_30(22), 27(6), 13(7), 10(8), 9(9), 36(24)>
-<L6> [63.42%]:
-  if (len_10 > 1073741821)
-    goto <bb 27>; [3.00%]
-  else
-    goto <bb 13>; [97.00%]
-
-  <bb 27> [1.90%]:
-  goto <bb 17> (error); [100.00%]
-
-  <bb 13> [61.51%]:
-  _1 = len_10 + 1;
-  buf_34 = xrealloc (buf_9, 1, _1);
-  len_35 = _1;
-  _3 = buf_34 + len_10;
-  _4 = (char) ch_8;
-  *_3 = _4;
-
-  <bb 14> [68.88%]:
-  # buf_37 = PHI <buf_9(26), buf_34(13)>
-  # len_17 = PHI <len_10(26), _1(13)>
-
-  <bb 15> [100.00%]:
-  # buf_9 = PHI <buf_37(14), 0B(2)>
-  # len_10 = PHI <len_17(14), 0(2)>
-  ch_22 = cmd_string_getc (s_19(D), p_20(D));
-  _5 = (int) endch_23(D);
-  if (_5 != ch_22)
-    goto <bb 3>; [97.00%]
-  else
-    goto <bb 16>; [3.00%]
-
-  <bb 16> [3.00%]:
-  _6 = len_10 + 1;
-  buf_25 = xrealloc (buf_9, 1, _6);
-  _7 = buf_25 + len_10;
-  *_7 = 0;
-  goto <bb 18>; [100.00%]
-
-<L9> [24.25%]:
-
-error [28.12%]:
-  free (buf_9);
-
-  <bb 18> [31.12%]:
-  # _11 = PHI <buf_25(16), 0B(17)>
-  return _11;
-
-}
-
-
-
-;; Function main (main, funcdef_no=5, decl_uid=3985, cgraph_uid=0, symbol_order=51) (executed once)
+;; Function main (main, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=57) (executed once)
 
 main ()
 {
-  struct passwd * pw;
-  struct environ_entry * envent;
-  char * home;
-  char * username;
-  char * D.4722;
-  size_t p;
-  int ch;
-  int i;
-  int argc;
-  int rval;
-  char * * argv;
-  char * buf;
-  char * t;
-  const char * whitespace;
-  const char * equals;
-  size_t len;
-  int D.4695;
-  struct FILE * f;
-  u_int n;
-  char * buf;
-  char * copy;
-  char * line;
-  char * cause;
-  size_t len;
-  struct cmd_list * cmdlist;
-  struct cmd_ctx ctx;
-  cmd_retval D.4659;
-  struct causelist causes;
-  struct cmd_ctx ctxin;
-  void * _1;
-  int _12;
-  int _13;
-  sizetype _15;
-  char * _17;
-  char _18;
-  int _20;
-  long unsigned int _22;
+  unsigned char _swap_buffer[24];
+  void * ret;
+  void * D.4293;
+  int new_buf;
+  size_t oldalloc;
+  int len;
+  int D.4273;
+  size_t hint;
+  struct files_ref_store * refs;
+  struct strbuf sb_contents;
+  struct strbuf sb_path;
+  const char * path;
+  const char * buf;
+  int fd;
+  int ret;
+  int save_errno;
+  int remaining_retries;
+  struct stat st;
+  int save_errno;
+  int D.4258;
+  struct ref_lock * lock;
+  struct strbuf ref_file;
+  int ret;
+  int D.4207;
+  struct strbuf referent;
+  int mustexist;
+  int ret;
+  struct ref_lock * lock;
+  char * reason;
+  char * write_err;
+  int D.4174;
+  struct strbuf err;
+  struct string_list affected_refnames;
+  char * head_ref;
+  struct ref_transaction transaction;
+  struct ref_update update;
+  struct files_ref_store refs;
+  int _15;
+  long int _16;
+  int _18;
+  long unsigned int _19;
+  unsigned int _20;
+  unsigned int _21;
+  unsigned int _22;
+  unsigned int _23;
+  long unsigned int _24;
+  unsigned char[20] * _25;
   char * _26;
-  sizetype _30;
-  char * _31;
-  char _32;
-  sizetype _33;
-  char * _34;
-  sizetype _35;
-  char * _36;
-  char _37;
-  char _42;
-  unsigned char _43;
-  int _44;
-  int _45;
-  char _46;
-  int _54;
-  long unsigned int _56;
-  char * _64;
-  int _65;
-  int _66;
-  long unsigned int _80;
-  char * _82;
+  int _28;
+  unsigned int _29;
+  unsigned int _30;
+  int _31;
+  long unsigned int _32;
+  struct object_id * _33;
+  int _34;
+  char * _35;
+  struct object_id * _38;
+  int _39;
+  unsigned int _40;
+  unsigned int _41;
+  unsigned int _42;
+  unsigned int _43;
+  struct object_id * _46;
+  int _47;
+  int _50;
+  int _51;
+  long int _52;
+  unsigned int _54;
+  unsigned int _55;
+  unsigned int _56;
+  unsigned int _57;
+  int _59;
+  char * _62;
+  unsigned char[20] * _63;
+  long unsigned int _69;
+  int _70;
+  long int _71;
+  long unsigned int _75;
+  int _77;
+  int * _78;
+  int _79;
+  int _80;
+  int * _83;
   int _84;
-  long unsigned int _85;
-  long unsigned int _90;
-  long unsigned int _91;
-  char * * _92;
-  char * _95;
-  long unsigned int _99;
-  _Bool _101;
-  _Bool _102;
-  _Bool _103;
-  long unsigned int _106;
-  long unsigned int _107;
-  char * * _108;
-  long unsigned int _111;
-  char * _115;
-  char _116;
-  long unsigned int _120;
-  long unsigned int _121;
-  char * * _122;
+  _Bool _85;
+  _Bool _86;
+  _Bool _87;
+  char * _88;
+  int _89;
+  char * _90;
+  int _91;
+  unsigned int _92;
+  unsigned int _93;
+  int _95;
+  int * _96;
+  int _100;
+  char _104;
+  int _105;
+  int _106;
+  unsigned int _107;
+  unsigned int _108;
+  int _109;
+  char _110;
+  int _112;
+  int _113;
+  unsigned int _114;
+  unsigned int _115;
+  int * _116;
   char * _123;
-  int _135;
-  char * _137;
-  char _138;
-  int _140;
-  int _141;
-  long int _142;
-  int _146;
-  long int _147;
-  char * _151;
+  int * _125;
+  int _126;
+  long unsigned int _127;
+  long unsigned int _131;
+  _Bool _132;
+  int _134;
+  long unsigned int _135;
+  long unsigned int _136;
+  int _137;
+  int _138;
+  int _144;
+  long unsigned int _145;
+  long unsigned int _146;
+  long unsigned int _147;
+  long unsigned int _148;
+  long unsigned int _152;
+  int _153;
   long unsigned int _154;
   long unsigned int _155;
+  int _156;
+  long unsigned int _157;
+  char * _158;
+  long unsigned int _159;
+  char * _160;
+  _Bool _162;
+  _Bool _163;
+  _Bool _164;
+  _Bool _168;
+  _Bool _170;
+  int _173;
+  long unsigned int _186;
+  int * _205;
+  int * _243;
+  long unsigned int _320;
+  long unsigned int _323;
 
-  <bb 2> [1.02%]:
-  _1 = malloc (1);
-  causes.list = _1;
-  causes.num = 0;
-  causes.list = 0B;
-  causes.space = 0;
-  f_11 = fopen ("path", "rb");
-  if (f_11 == 0B)
-    goto <bb 59>; [0.87%]
+  <bb 2> [6.76%]:
+  referent.alloc = 0;
+  referent.len = 0;
+  referent.buf = &strbuf_slopbuf;
+  if (head_ref_2(D) != 0B)
+    goto <bb 3>; [70.00%]
   else
-    goto <bb 3>; [99.13%]
+    goto <bb 74>; [30.00%]
 
-  <bb 59> [0.01%]:
-  goto <bb 50>; [100.00%]
+  <bb 74> [2.03%]:
+  goto <bb 4>; [100.00%]
 
-  <bb 3> [1.02%]:
-  _12 = cfg_references;
-  _13 = _12 + 1;
-  cfg_references = _13;
-  goto <bb 48>; [100.00%]
-
-  <bb 4> [5.93%]:
-  _15 = len_14 + 18446744073709551615;
-  _17 = _64 + _15;
-  _18 = *_17;
-  if (_18 == 10)
-    goto <bb 5>; [34.00%]
+  <bb 3> [4.73%]:
+  ret_10 = split_head_update (&update, &transaction, head_ref_2(D), &affected_refnames, &err);
+  if (ret_10 != 0)
+    goto <bb 75>; [46.00%]
   else
-    goto <bb 60>; [66.00%]
+    goto <bb 76>; [54.00%]
 
-  <bb 60> [3.91%]:
+  <bb 75> [2.18%]:
+  goto <bb 66>; [100.00%]
+
+  <bb 76> [2.55%]:
+
+  <bb 4> [4.58%]:
+  ref_file.alloc = 0;
+  ref_file.len = 0;
+  ref_file.buf = &strbuf_slopbuf;
+  MEM[(unsigned int *)&update + 56B] = 0;
+  lock_61 = calloc (1, 40);
+  _62 = strdup (&update.refname);
+  lock_61->ref_name = _62;
+  files_ref_path (&refs, &ref_file, &update.refname);
+  _63 = &lock_61->old_oid.hash;
+  _70 = files_downcast (&refs.base, 1, "read_raw_ref");
+  _71 = (long int) _70;
+  refs_72 = (struct files_ref_store *) _71;
+  sb_contents.alloc = 0;
+  sb_contents.len = 0;
+  sb_contents.buf = &strbuf_slopbuf;
+  sb_path.alloc = 0;
+  sb_path.len = 0;
+  sb_path.buf = &strbuf_slopbuf;
+  MEM[(unsigned int *)&update + 56B] = 0;
+  strbuf_reset (&sb_path);
+  files_ref_path (refs_72, &sb_path, &update.refname);
+  path_73 = sb_path.buf;
   goto <bb 6>; [100.00%]
 
-  <bb 5> [2.02%]:
-  len_19 = _15;
-
-  <bb 6> [5.93%]:
-  # len_21 = PHI <len_14(60), _15(5)>
-  _20 = __printf_chk (1, "%s: %s", "path", _64);
-  _22 = len_21 + 1;
-  line_23 = malloc (_22);
-  memcpy (line_23, _64, len_21);
-  _26 = line_23 + len_21;
-  *_26 = 0;
-  n_28 = n_27 + 1;
-  len_29 = strlen (line_23);
-  if (len_29 != 0)
-    goto <bb 7>; [66.00%]
+stat_ref [9.03%]:
+  remaining_retries_76 = remaining_retries_322 + -1;
+  if (remaining_retries_322 <= 0)
+    goto <bb 77>; [37.68%]
   else
-    goto <bb 61>; [34.00%]
+    goto <bb 72>; [62.32%]
 
-  <bb 61> [2.02%]:
-  goto <bb 10>; [100.00%]
+  <bb 72> [5.63%]:
 
-  <bb 7> [3.91%]:
-  _30 = len_29 + 18446744073709551615;
-  _31 = line_23 + _30;
-  _32 = *_31;
-  if (_32 == 92)
-    goto <bb 8>; [50.00%]
+  <bb 6> [10.21%]:
+  # remaining_retries_322 = PHI <remaining_retries_76(72), 2(4)>
+  _77 = __lxstat (1, path_73, &st);
+  if (_77 < 0)
+    goto <bb 7>; [3.75%]
   else
-    goto <bb 62>; [50.00%]
+    goto <bb 10>; [96.25%]
 
-  <bb 62> [1.96%]:
-  goto <bb 10>; [100.00%]
-
-  <bb 8> [1.96%]:
-  _33 = _30;
-  _34 = _31;
-  *_31 = 0;
-  if (len_29 > 1)
-    goto <bb 9>; [77.53%]
+  <bb 7> [0.38%]:
+  _78 = __errno_location ();
+  _79 = *_78;
+  if (_79 != 2)
+    goto <bb 78>; [7.44%]
   else
-    goto <bb 63>; [22.47%]
+    goto <bb 8>; [92.56%]
 
-  <bb 63> [0.44%]:
-  goto <bb 10>; [100.00%]
+  <bb 78> [0.03%]:
+  goto <bb 70>; [100.00%]
 
-  <bb 9> [1.52%]:
-  _35 = len_29 + 18446744073709551614;
-  _36 = line_23 + _35;
-  _37 = *_36;
-  if (_37 != 92)
-    goto <bb 64>; [64.99%]
+  <bb 8> [0.35%]:
+  _80 = resolve_packed_ref (refs_72, &update.refname, _63, &update.type);
+  if (_80 != 0)
+    goto <bb 9>; [2.00%]
   else
-    goto <bb 65>; [35.01%]
+    goto <bb 79>; [98.00%]
 
-  <bb 64> [0.99%]:
-  goto <bb 47>; [100.00%]
+  <bb 9> [0.01%]:
+  *_78 = 2;
+  goto <bb 70>; [100.00%]
 
-  <bb 65> [0.53%]:
+  <bb 10> [9.82%]:
+  strbuf_reset (&sb_contents);
+  oldalloc_121 = sb_contents.alloc;
 
-  <bb 10> [4.94%]:
-  goto <bb 12>; [100.00%]
-
-  <bb 11> [28.00%]:
-  buf_41 = buf_40 + 1;
-
-  <bb 12> [32.94%]:
-  # buf_40 = PHI <line_23(10), buf_41(11)>
-  _42 = *buf_40;
-  _43 = (unsigned char) _42;
-  _44 = (int) _43;
-  _45 = isspace (_44);
-  if (_45 != 0)
-    goto <bb 11>; [85.00%]
+  <bb 11> [95.00%]:
+  # hint_175 = PHI <hint_128(73), 32(10)>
+  _131 = sb_contents.alloc;
+  _132 = _131 == 0;
+  new_buf_133 = (int) _132;
+  _134 = unsigned_add_overflows (hint_175, 1);
+  if (_134 != 0)
+    goto <bb 80>; [0.04%]
   else
-    goto <bb 13>; [15.00%]
+    goto <bb 12>; [99.96%]
 
-  <bb 13> [4.94%]:
-  _46 = _42;
-  if (_42 == 0)
-    goto <bb 66>; [50.00%]
+  <bb 80> [0.04%]:
+  goto <bb 13>; [100.00%]
+
+  <bb 12> [94.96%]:
+  _135 = hint_175 + 1;
+  _136 = sb_contents.len;
+  _137 = unsigned_add_overflows (_136, _135);
+  if (_137 != 0)
+    goto <bb 81>; [0.04%]
   else
-    goto <bb 14>; [50.00%]
+    goto <bb 14>; [99.96%]
 
-  <bb 66> [2.47%]:
-  goto <bb 47>; [100.00%]
+  <bb 81> [0.04%]:
 
-  <bb 14> [2.47%]:
-  p = 0;
-  goto <bb 16>; [100.00%]
+  <bb 13> [0.08%]:
+  _138 = __printf_chk (1, "you want to use way too much memory%s", "");
+  exit (1);
 
-  <bb 70> [13.93%]:
-
-  <bb 15> [97.53%]:
-  # argc_128 = PHI <argc_83(72), argc_83(70), argc_83(74), argc_129(77), argc_83(89), argc_83(41)>
-  # argv_130 = PHI <argv_86(72), argv_86(70), argv_86(74), argv_94(77), argv_86(89), argv_86(41)>
-  # buf_133 = PHI <buf_78(72), buf_78(70), buf_78(74), 0B(77), 0B(89), buf_112(41)>
-  # len_170 = PHI <len_79(72), len_79(70), len_79(74), len_134(77), len_79(89), _111(41)>
-
-  <bb 16> [100.00%]:
-  # argc_83 = PHI <argc_128(15), 0(14)>
-  # argv_86 = PHI <argv_130(15), 0B(14)>
-  # buf_78 = PHI <buf_133(15), 0B(14)>
-  # len_79 = PHI <len_170(15), 0(14)>
-  ch_73 = cmd_string_getc (buf_40, &p);
-  switch (ch_73) <default: <L14> [14.29%], case -1: <L15> [14.29%], case 9: <L15> [14.29%], case 32: <L15> [14.29%], case 34: <L1> [14.29%], case 35: <L13> [14.29%], case 36: <L2> [14.29%], case 39: <L0> [14.29%], case 126: <L6> [14.29%]>
-
-<L0> [14.29%]:
-  t_74 = cmd_string_string (buf_40, &p, 39, 0);
-  if (t_74 == 0B)
-    goto <bb 69>; [2.50%]
+  <bb 14> [94.92%]:
+  if (_131 == 0)
+    goto <bb 15>; [50.00%]
   else
-    goto <bb 70>; [97.50%]
+    goto <bb 67>; [50.00%]
 
-<L1> [14.29%]:
-  t_75 = cmd_string_string (buf_40, &p, 34, 1);
-  if (t_75 == 0B)
-    goto <bb 71>; [2.50%]
+  <bb 15> [47.46%]:
+  sb_contents.buf = 0B;
+  _75 = sb_contents.len;
+  _186 = _75 + 1;
+  _159 = hint_175 + _186;
+  _69 = sb_contents.alloc;
+  if (_69 < _159)
+    goto <bb 82>; [58.00%]
   else
-    goto <bb 72>; [97.50%]
+    goto <bb 83>; [42.00%]
 
-  <bb 72> [13.93%]:
-  goto <bb 15>; [100.00%]
+  <bb 83> [19.93%]:
+  goto <bb 27>; [100.00%]
 
-  <bb 71> [0.36%]:
-  goto <bb 42> (error); [100.00%]
+  <bb 82> [27.53%]:
 
-<L2> [14.29%]:
-  t_76 = cmd_string_variable (buf_40, &p);
-  if (t_76 == 0B)
-    goto <bb 73>; [2.50%]
+  <bb 16> [31.32%]:
+  # _323 = PHI <_32(114), _69(82)>
+  _144 = alloc_nr (_323);
+  _145 = (long unsigned int) _144;
+  _146 = sb_contents.len;
+  _147 = _146 + hint_175;
+  _148 = _147 + 1;
+  if (_145 < _148)
+    goto <bb 17>; [67.00%]
   else
-    goto <bb 74>; [97.50%]
+    goto <bb 18>; [33.00%]
 
-  <bb 74> [13.93%]:
-  goto <bb 15>; [100.00%]
+  <bb 17> [20.99%]:
+  sb_contents.alloc = _148;
+  goto <bb 19>; [100.00%]
 
-  <bb 73> [0.36%]:
-  goto <bb 42> (error); [100.00%]
+  <bb 18> [10.34%]:
+  _152 = sb_contents.alloc;
+  _153 = alloc_nr (_152);
+  _154 = (long unsigned int) _153;
+  sb_contents.alloc = _154;
 
-<L13> [14.29%]:
-
-<L4> [95.27%]:
-  ch_77 = cmd_string_getc (buf_40, &p);
-  if (ch_77 != -1)
-    goto <bb 58>; [85.00%]
+  <bb 19> [31.32%]:
+  _155 = sb_contents.alloc;
+  _156 = st_mult (1, _155);
+  _157 = (long unsigned int) _156;
+  _158 = sb_contents.buf;
+  ret_161 = realloc (_158, _157);
+  _162 = ret_161 == 0B;
+  _163 = _157 == 0;
+  _164 = _162 & _163;
+  if (_164 != 0)
+    goto <bb 20>; [33.00%]
   else
-    goto <bb 75>; [15.00%]
+    goto <bb 84>; [67.00%]
 
-  <bb 75> [14.29%]:
-  goto <bb 21> (<L5>); [100.00%]
+  <bb 84> [20.98%]:
+  goto <bb 21>; [100.00%]
 
-  <bb 58> [80.98%]:
-  goto <bb 20> (<L4>); [100.00%]
+  <bb 20> [10.34%]:
+  ret_165 = realloc (_158, 1);
 
-<L15> [14.29%]:
-
-  # ch_93 = PHI <ch_73(68), -1(75)>
-<L5> [28.58%]:
-  if (buf_78 != 0B)
-    goto <bb 22>; [53.47%]
+  <bb 21> [31.32%]:
+  # ret_166 = PHI <ret_161(84), ret_165(20)>
+  if (ret_166 == 0B)
+    goto <bb 22>; [19.86%]
   else
-    goto <bb 76>; [46.53%]
+    goto <bb 85>; [80.14%]
 
-  <bb 76> [13.30%]:
-  goto <bb 23>; [100.00%]
-
-  <bb 22> [15.28%]:
-  _80 = len_79 + 1;
-  buf_81 = xrealloc (buf_78, 1, _80);
-  _82 = buf_81 + len_79;
-  *_82 = 0;
-  _84 = argc_83 + 1;
-  _85 = (long unsigned int) _84;
-  argv_87 = xrealloc (argv_86, _85, 8);
-  argc_89 = _84;
-  _90 = (long unsigned int) argc_83;
-  _91 = _90 * 8;
-  _92 = argv_87 + _91;
-  *_92 = buf_81;
-
-  <bb 23> [28.58%]:
-  # argc_129 = PHI <argc_83(76), _84(22)>
-  # argv_94 = PHI <argv_86(76), argv_87(22)>
-  # len_134 = PHI <len_79(76), 0(22)>
-  if (ch_93 != -1)
-    goto <bb 77>; [97.50%]
+  <bb 22> [6.22%]:
+  ret_167 = realloc (_158, _157);
+  _168 = ret_167 == 0B;
+  _170 = _163 & _168;
+  if (_170 != 0)
+    goto <bb 23>; [33.00%]
   else
-    goto <bb 24>; [2.50%]
+    goto <bb 86>; [67.00%]
 
-  <bb 77> [27.87%]:
-  goto <bb 15>; [100.00%]
+  <bb 86> [4.17%]:
+  goto <bb 24>; [100.00%]
 
-  <bb 24> [0.71%]:
-  if (argc_129 != 0)
-    goto <bb 54>; [92.50%]
+  <bb 23> [2.05%]:
+  ret_171 = realloc (_158, 1);
+
+  <bb 24> [6.22%]:
+  # ret_172 = PHI <ret_167(86), ret_171(23)>
+  if (ret_172 == 0B)
+    goto <bb 25>; [0.04%]
   else
-    goto <bb 78>; [7.50%]
+    goto <bb 87>; [99.96%]
 
-  <bb 54> [0.66%]:
+  <bb 87> [6.22%]:
+  goto <bb 26>; [100.00%]
 
-  <bb 25> [4.58%]:
-  # argc_61 = PHI <argc_105(57), argc_129(54)>
-  _95 = *argv_94;
-  equals_96 = strchr (_95, 61);
-  _99 = strcspn (_95, " \t");
-  whitespace_100 = _95 + _99;
-  _101 = equals_96 == 0B;
-  _102 = equals_96 > whitespace_100;
-  _103 = _101 | _102;
-  if (_103 != 0)
-    goto <bb 79>; [7.50%]
+  <bb 25> [0.00%]:
+  _173 = __printf_chk (1, "Out of memory, realloc failed%s", "");
+  exit (1);
+
+  <bb 85> [25.10%]:
+
+  <bb 26> [31.33%]:
+  # ret_174 = PHI <ret_166(85), ret_172(87)>
+  sb_contents.buf = ret_174;
+  if (_131 == 0)
+    goto <bb 88>; [100.00%]
   else
-    goto <bb 26>; [92.50%]
+    goto <bb 89>; [0.00%]
 
-  <bb 79> [0.34%]:
-  goto <bb 42> (error); [100.00%]
+  <bb 89> [0.00%]:
+  goto <bb 28>; [100.00%]
 
-  <bb 26> [4.24%]:
-  argc_105 = argc_61 + -1;
-  _106 = (long unsigned int) argc_105;
-  _107 = _106 * 8;
-  _108 = argv_94 + 8;
-  memmove (argv_94, _108, _107);
-  if (argc_105 != 0)
-    goto <bb 57>; [92.50%]
+  <bb 88> [31.33%]:
+
+  <bb 27> [51.26%]:
+  _160 = sb_contents.buf;
+  *_160 = 0;
+
+  <bb 28> [94.92%]:
+  _123 = sb_contents.buf;
+  len_124 = readlink (path_73, _123, hint_175);
+  if (len_124 < 0)
+    goto <bb 29>; [36.00%]
   else
-    goto <bb 80>; [7.50%]
+    goto <bb 30>; [64.00%]
 
-  <bb 80> [0.32%]:
-  goto <bb 52>; [100.00%]
-
-  <bb 57> [3.92%]:
-  goto <bb 25>; [100.00%]
-
-<L6> [14.29%]:
-  if (buf_78 == 0B)
-    goto <bb 28>; [17.43%]
+  <bb 29> [34.17%]:
+  _125 = __errno_location ();
+  _126 = *_125;
+  if (_126 != 34)
+    goto <bb 90>; [5.00%]
   else
-    goto <bb 81>; [82.57%]
+    goto <bb 91>; [95.00%]
 
-  <bb 81> [11.80%]:
-  goto <bb 40> (<L7>); [100.00%]
-
-  <bb 28> [2.49%]:
-  _135 = cmd_string_getc (buf_40, &p);
-  if (_135 == 47)
-    goto <bb 29>; [51.12%]
+  <bb 30> [60.75%]:
+  _127 = (long unsigned int) len_124;
+  if (_127 < hint_175)
+    goto <bb 31>; [5.00%]
   else
-    goto <bb 34>; [48.88%]
+    goto <bb 92>; [95.00%]
 
-  <bb 29> [1.27%]:
-  if (envent_136(D) != 0B)
-    goto <bb 30>; [82.57%]
-  else
-    goto <bb 82>; [17.43%]
-
-  <bb 30> [1.05%]:
-  _137 = envent_136(D)->value;
-  _138 = *_137;
-  if (_138 != 0)
-    goto <bb 31>; [50.00%]
-  else
-    goto <bb 83>; [50.00%]
-
-  <bb 83> [0.53%]:
+  <bb 92> [57.71%]:
   goto <bb 32>; [100.00%]
 
-  <bb 31> [0.53%]:
-  home_139 = _137;
-  goto <bb 38>; [100.00%]
-
-  <bb 82> [0.22%]:
-
-  <bb 32> [0.75%]:
-  _140 = getuid ();
-  _141 = getpwuid (_140);
-  _142 = (long int) _141;
-  pw_143 = (struct passwd *) _142;
-  if (_141 != 0)
-    goto <bb 33>; [91.00%]
+  <bb 31> [3.04%]:
+  strbuf_setlen (&sb_contents, len_124);
+  _88 = sb_contents.buf;
+  _89 = starts_with (_88, "refs/");
+  if (_89 != 0)
+    goto <bb 35>; [50.00%]
   else
-    goto <bb 84>; [9.00%]
+    goto <bb 93>; [50.00%]
 
-  <bb 33> [0.68%]:
-  home_144 = pw_143->pw_dir;
-  goto <bb 38>; [100.00%]
+  <bb 91> [32.46%]:
 
-  <bb 34> [1.22%]:
-  _154 = p;
-  _155 = _154 + 18446744073709551615;
-  p = _155;
-  username_145 = cmd_string_string (buf_40, &p, 47, 0);
-  if (username_145 == 0B)
-    goto <bb 85>; [7.92%]
+  <bb 32> [90.20%]:
+  hint_128 = hint_175 * 2;
+  if (hint_128 <= 8191)
+    goto <bb 73>; [95.00%]
   else
-    goto <bb 35>; [92.08%]
+    goto <bb 94>; [5.00%]
 
-  <bb 85> [0.10%]:
-  goto <bb 51>; [100.00%]
+  <bb 94> [4.51%]:
+  goto <bb 33>; [100.00%]
 
-  <bb 35> [1.12%]:
-  _146 = getpwnam (username_145);
-  if (_146 != 0)
-    goto <bb 36>; [50.00%]
+  <bb 73> [85.69%]:
+  goto <bb 11>; [100.00%]
+
+  <bb 90> [1.71%]:
+
+  <bb 33> [6.71%]:
+  if (oldalloc_121 == 0)
+    goto <bb 34>; [33.00%]
   else
-    goto <bb 86>; [50.00%]
+    goto <bb 95>; [67.00%]
 
-  <bb 86> [0.56%]:
+  <bb 34> [2.21%]:
+  strbuf_release (&sb_contents);
+  goto <bb 68>; [100.00%]
+
+  <bb 35> [0.18%]:
+  _90 = sb_contents.buf;
+  _91 = check_refname_format (_90, 0);
+  if (_91 == 0)
+    goto <bb 36>; [29.56%]
+  else
+    goto <bb 96>; [70.44%]
+
+  <bb 96> [0.13%]:
   goto <bb 37>; [100.00%]
 
-  <bb 36> [0.56%]:
-  _147 = (long int) _146;
-  pw_148 = (struct passwd *) _147;
-  home_149 = pw_148->pw_dir;
+  <bb 36> [0.05%]:
+  MEM[(char * {ref-all})&_swap_buffer] = MEM[(char * {ref-all})&sb_contents];
+  MEM[(char * {ref-all})&sb_contents] = MEM[(char * {ref-all})&referent];
+  MEM[(char * {ref-all})&referent] = MEM[(char * {ref-all})&_swap_buffer];
+  _swap_buffer ={v} {CLOBBER};
+  _92 = MEM[(unsigned int *)&update + 56B];
+  _93 = _92 | 1;
+  MEM[(unsigned int *)&update + 56B] = _93;
+  goto <bb 69>; [100.00%]
 
-  <bb 37> [1.12%]:
-  # home_153 = PHI <0B(86), home_149(36)>
-  free (username_145);
+  <bb 93> [1.52%]:
 
-  <bb 38> [2.33%]:
-  # home_150 = PHI <_137(31), home_144(33), home_153(37)>
-  if (home_150 == 0B)
-    goto <bb 87>; [7.92%]
+  <bb 37> [0.31%]:
+  strbuf_reset (&sb_contents);
+  _95 = strbuf_read (&sb_contents, fd_94(D), 256);
+  if (_95 < 0)
+    goto <bb 38>; [1.13%]
   else
-    goto <bb 39>; [92.08%]
+    goto <bb 39>; [98.87%]
 
-  <bb 87> [0.18%]:
-  goto <bb 51>; [100.00%]
+  <bb 38> [0.00%]:
+  _96 = __errno_location ();
+  save_errno_97 = *_96;
+  close (fd_94(D));
+  *_96 = save_errno_97;
+  goto <bb 70>; [100.00%]
 
-  <bb 39> [2.14%]:
-  _151 = strdup (home_150);
-  if (_151 == 0B)
-    goto <bb 88>; [0.00%]
+  <bb 39> [0.31%]:
+  strbuf_rtrim (&sb_contents);
+  buf_99 = sb_contents.buf;
+  _100 = starts_with (buf_99, "ref:");
+  if (_100 != 0)
+    goto <bb 40>; [67.00%]
   else
-    goto <bb 89>; [100.00%]
+    goto <bb 44>; [33.00%]
 
-  <bb 89> [2.14%]:
-  goto <bb 15>; [100.00%]
+  <bb 40> [0.21%]:
+  buf_101 = buf_99 + 4;
+  goto <bb 42>; [100.00%]
 
-  <bb 88> [0.00%]:
-  goto <bb 42> (error); [100.00%]
+  <bb 41> [1.17%]:
+  buf_103 = buf_102 + 1;
 
-<L14> [14.29%]:
-
-<L7> [26.09%]:
-  if (len_79 > 1073741821)
-    goto <bb 90>; [2.50%]
+  <bb 42> [1.38%]:
+  # buf_102 = PHI <buf_101(40), buf_103(41)>
+  _104 = *buf_102;
+  _105 = (int) _104;
+  _106 = isspace (_105);
+  if (_106 != 0)
+    goto <bb 41>; [85.00%]
   else
-    goto <bb 41>; [97.50%]
+    goto <bb 43>; [15.00%]
 
-  <bb 90> [0.65%]:
-  goto <bb 42> (error); [100.00%]
+  <bb 43> [0.21%]:
+  strbuf_reset (&referent);
+  strbuf_addstr (&referent, buf_102);
+  _107 = MEM[(unsigned int *)&update + 56B];
+  _108 = _107 | 1;
+  MEM[(unsigned int *)&update + 56B] = _108;
+  goto <bb 69>; [100.00%]
 
-  <bb 41> [25.44%]:
-  _111 = len_79 + 1;
-  buf_112 = xrealloc (buf_78, 1, _111);
-  len_114 = _111;
-  _115 = buf_112 + len_79;
-  _116 = (char) ch_73;
-  *_115 = _116;
-  goto <bb 15>; [100.00%]
-
-  <bb 69> [0.36%]:
-
-  # argc_125 = PHI <argc_83(69), argc_83(71), argc_83(73), argc_83(51), argc_83(88), argc_83(90), argc_61(79)>
-  # argv_118 = PHI <argv_86(69), argv_86(71), argv_86(73), argv_86(51), argv_86(88), argv_86(90), argv_94(79)>
-  # buf_117 = PHI <buf_78(69), buf_78(71), buf_78(73), 0B(51), 0B(88), buf_78(90), 0B(79)>
-error [2.13%]:
-out [2.13%]:
-  free (buf_117);
-  if (argv_118 != 0B)
-    goto <bb 43>; [73.26%]
+  <bb 44> [0.10%]:
+  _109 = get_sha1_hex (buf_99, _63);
+  if (_109 != 0)
+    goto <bb 97>; [2.00%]
   else
-    goto <bb 91>; [26.74%]
+    goto <bb 45>; [98.00%]
 
-  <bb 91> [0.57%]:
-  goto <bb 46>; [100.00%]
+  <bb 97> [0.00%]:
+  goto <bb 47>; [100.00%]
 
-  <bb 43> [1.56%]:
-  if (argc_125 > 0)
-    goto <bb 53>; [99.84%]
+  <bb 45> [0.10%]:
+  _110 = MEM[(const char *)buf_99 + 40B];
+  if (_110 != 0)
+    goto <bb 46>; [54.00%]
   else
-    goto <bb 92>; [0.16%]
+    goto <bb 98>; [46.00%]
 
-  <bb 53> [1.56%]:
+  <bb 98> [0.05%]:
+  goto <bb 69>; [100.00%]
 
-  <bb 44> [10.38%]:
-  # i_62 = PHI <i_124(56), 0(53)>
-  _120 = (long unsigned int) i_62;
-  _121 = _120 * 8;
-  _122 = argv_118 + _121;
-  _123 = *_122;
-  free (_123);
-  i_124 = i_62 + 1;
-  if (i_124 < argc_125)
-    goto <bb 56>; [85.00%]
+  <bb 46> [0.05%]:
+  _112 = (int) _110;
+  _113 = isspace (_112);
+  if (_113 == 0)
+    goto <bb 99>; [2.00%]
   else
-    goto <bb 93>; [15.00%]
+    goto <bb 100>; [98.00%]
 
-  <bb 93> [1.56%]:
-  goto <bb 45>; [100.00%]
+  <bb 100> [0.05%]:
+  goto <bb 69>; [100.00%]
 
-  <bb 56> [8.82%]:
-  goto <bb 44>; [100.00%]
+  <bb 99> [0.00%]:
 
-  <bb 92> [0.00%]:
+  <bb 47> [0.00%]:
+  _114 = MEM[(unsigned int *)&update + 56B];
+  _115 = _114 | 4;
+  MEM[(unsigned int *)&update + 56B] = _115;
+  _116 = __errno_location ();
+  *_116 = 22;
+  goto <bb 70>; [100.00%]
 
-  <bb 45> [1.83%]:
-  # argv_110 = PHI <argv_118(93), argv_118(92), argv_94(94)>
-  free (argv_110);
-
-  <bb 46> [2.50%]:
-  p ={v} {CLOBBER};
-  free (line_23);
-
-  <bb 47> [5.96%]:
-  # buf_69 = PHI <buf_40(66), _64(64), buf_40(46)>
-
-  <bb 48> [6.97%]:
-  # n_27 = PHI <n_28(47), 0(3)>
-  # buf_55 = PHI <buf_69(47), buf_71(D)(3)>
-  # len_14 = PHI <len_29(47), len_72(D)(3)>
-  _54 = (int) len_14;
-  _56 = __builtin_object_size (buf_55, 1);
-  _64 = __fgets_alias (buf_55, _54, f_11);
-  if (_64 != 0B)
-    goto <bb 4>; [85.00%]
+  <bb 48> [0.92%]:
+  if (mustexist_13(D) != 0)
+    goto <bb 49>; [1.00%]
   else
-    goto <bb 49>; [15.00%]
+    goto <bb 101>; [99.00%]
 
-  <bb 49> [1.05%]:
-  fclose (f_11);
-  _65 = cfg_references;
-  _66 = _65 + -1;
-  cfg_references = _66;
+  <bb 101> [0.91%]:
+  goto <bb 71>; [100.00%]
 
-  <bb 50> [1.05%]:
-  ctx ={v} {CLOBBER};
-  ctxin ={v} {CLOBBER};
-  causes ={v} {CLOBBER};
+  <bb 49> [1.33%]:
+  strbuf_addf (&err, "unable to resolve reference \'%s\'", &update.refname);
+  unlock_ref (lock_61);
+  strbuf_release (&ref_file);
+  ref_file ={v} {CLOBBER};
+  _15 = strbuf_detach (&err, 0B);
+  _16 = (long int) _15;
+  reason_17 = (char *) _16;
+  _18 = original_update_refname (&update);
+  strbuf_addf (&err, "cannot lock ref \'%s\': %s", _18, reason_17);
+  free (reason_17);
+  goto <bb 66>; [100.00%]
+
+  <bb 50> [3.17%]:
+  update.backend_data = lock_61;
+  _20 = update.type;
+  _21 = _20 & 1;
+  if (_21 != 0)
+    goto <bb 51>; [67.00%]
+  else
+    goto <bb 57>; [33.00%]
+
+  <bb 51> [2.12%]:
+  _22 = update.flags;
+  _23 = _22 & 1;
+  if (_23 != 0)
+    goto <bb 52>; [50.00%]
+  else
+    goto <bb 56>; [50.00%]
+
+  <bb 52> [1.06%]:
+  _25 = &lock_61->old_oid.hash;
+  _26 = referent.buf;
+  _28 = refs_read_ref_full (&refs.base, _26, 0, _25, 0B);
+  if (_28 != 0)
+    goto <bb 53>; [67.00%]
+  else
+    goto <bb 55>; [33.00%]
+
+  <bb 53> [0.71%]:
+  _29 = update.flags;
+  _30 = _29 & 16;
+  if (_30 != 0)
+    goto <bb 54>; [1.00%]
+  else
+    goto <bb 102>; [99.00%]
+
+  <bb 102> [0.70%]:
+  goto <bb 58>; [100.00%]
+
+  <bb 54> [0.01%]:
+  _31 = original_update_refname (&update);
+  strbuf_addf (&err, "cannot lock ref \'%s\': error reading reference", _31);
+  goto <bb 66>; [100.00%]
+
+  <bb 55> [0.35%]:
+  _33 = &lock_61->old_oid;
+  _34 = check_old_oid (&update, _33, &err);
+  if (_34 != 0)
+    goto <bb 103>; [2.00%]
+  else
+    goto <bb 104>; [98.00%]
+
+  <bb 104> [0.34%]:
+  goto <bb 58>; [100.00%]
+
+  <bb 103> [0.01%]:
+  goto <bb 66>; [100.00%]
+
+  <bb 56> [1.06%]:
+  _35 = referent.buf;
+  ret_36 = split_symref_update (&refs, &update, _35, &transaction, &affected_refnames, &err);
+  if (ret_36 != 0)
+    goto <bb 105>; [46.00%]
+  else
+    goto <bb 106>; [54.00%]
+
+  <bb 106> [0.57%]:
+  goto <bb 58>; [100.00%]
+
+  <bb 105> [0.49%]:
+  goto <bb 66>; [100.00%]
+
+  <bb 57> [1.05%]:
+  _38 = &lock_61->old_oid;
+  _39 = check_old_oid (&update, _38, &err);
+  if (_39 != 0)
+    goto <bb 107>; [2.00%]
+  else
+    goto <bb 108>; [98.00%]
+
+  <bb 107> [0.02%]:
+  goto <bb 66>; [100.00%]
+
+  <bb 108> [1.03%]:
+
+  <bb 58> [2.65%]:
+  _40 = BIT_FIELD_REF <update, 32, 320>;
+  _41 = _40 & 138;
+  if (_41 == 8)
+    goto <bb 59>; [34.00%]
+  else
+    goto <bb 109>; [66.00%]
+
+  <bb 109> [1.75%]:
+  goto <bb 64>; [100.00%]
+
+  <bb 59> [0.90%]:
+  _42 = update.type;
+  _43 = _42 & 1;
+  if (_43 == 0)
+    goto <bb 60>; [50.00%]
+  else
+    goto <bb 110>; [50.00%]
+
+  <bb 110> [0.45%]:
+  goto <bb 61>; [100.00%]
+
+  <bb 60> [0.45%]:
+  _46 = &lock_61->old_oid;
+  _47 = oidcmp (_46, &update.new_oid);
+  if (_47 == 0)
+    goto <bb 111>; [50.00%]
+  else
+    goto <bb 112>; [50.00%]
+
+  <bb 111> [0.23%]:
+  goto <bb 64>; [100.00%]
+
+  <bb 112> [0.23%]:
+
+  <bb 61> [0.68%]:
+  _50 = write_ref_to_lockfile (lock_61, &update.new_oid, &err);
+  if (_50 != 0)
+    goto <bb 62>; [1.00%]
+  else
+    goto <bb 63>; [99.00%]
+
+  <bb 62> [0.01%]:
+  _51 = strbuf_detach (&err, 0B);
+  _52 = (long int) _51;
+  write_err_53 = (char *) _52;
+  update.backend_data = 0B;
+  goto <bb 66>; [100.00%]
+
+  <bb 63> [0.67%]:
+  _54 = update.flags;
+  _55 = _54 | 32;
+  update.flags = _55;
+
+  <bb 64> [2.64%]:
+  _56 = update.flags;
+  _57 = _56 & 32;
+  if (_57 == 0)
+    goto <bb 65>; [36.64%]
+  else
+    goto <bb 113>; [63.36%]
+
+  <bb 113> [1.67%]:
+  goto <bb 66>; [100.00%]
+
+  <bb 65> [0.97%]:
+  _59 = close_ref (lock_61);
+
+  <bb 66> [6.68%]:
+  referent ={v} {CLOBBER};
+  refs ={v} {CLOBBER};
+  update ={v} {CLOBBER};
+  transaction ={v} {CLOBBER};
+  affected_refnames ={v} {CLOBBER};
+  err ={v} {CLOBBER};
   return 0;
 
-  <bb 84> [0.07%]:
-
-  <bb 51> [0.35%]:
-  goto <bb 42> (error); [100.00%]
-
-  <bb 78> [0.05%]:
-
-  <bb 52> [0.37%]:
-  GIMPLE_NOP
-  if (argv_94 != 0B)
-    goto <bb 94>; [73.26%]
+  <bb 67> [47.46%]:
+  _19 = sb_contents.len;
+  _320 = _19 + 1;
+  _24 = hint_175 + _320;
+  _32 = sb_contents.alloc;
+  if (_24 > _32)
+    goto <bb 114>; [8.00%]
   else
-    goto <bb 95>; [26.74%]
+    goto <bb 115>; [92.00%]
 
-  <bb 95> [0.10%]:
-  goto <bb 46>; [100.00%]
+  <bb 115> [43.66%]:
+  goto <bb 28>; [100.00%]
 
-  <bb 94> [0.27%]:
-  goto <bb 45>; [100.00%]
+  <bb 114> [3.80%]:
+  goto <bb 16>; [100.00%]
+
+  <bb 95> [4.50%]:
+
+  <bb 68> [9.38%]:
+  _83 = __errno_location ();
+  _84 = *_83;
+  _85 = _84 == 2;
+  _86 = _84 == 22;
+  _87 = _85 | _86;
+  if (_87 != 0)
+    goto <bb 5> (stat_ref); [96.25%]
+  else
+    goto <bb 116>; [3.75%]
+
+  <bb 116> [0.35%]:
+  goto <bb 70>; [100.00%]
+
+  <bb 79> [0.34%]:
+
+  <bb 69> [2.06%]:
+  _243 = __errno_location ();
+  save_errno_82 = *_243;
+  strbuf_release (&sb_path);
+  strbuf_release (&sb_contents);
+  *_243 = save_errno_82;
+  sb_contents ={v} {CLOBBER};
+  sb_path ={v} {CLOBBER};
+  st ={v} {CLOBBER};
+  strbuf_release (&ref_file);
+  ref_file ={v} {CLOBBER};
+  goto <bb 50>; [100.00%]
+
+  <bb 77> [3.40%]:
+
+  <bb 70> [3.79%]:
+  _205 = __errno_location ();
+  save_errno_130 = *_205;
+  strbuf_release (&sb_path);
+  strbuf_release (&sb_contents);
+  *_205 = save_errno_130;
+  sb_contents ={v} {CLOBBER};
+  sb_path ={v} {CLOBBER};
+  st ={v} {CLOBBER};
+  if (save_errno_130 == 2)
+    goto <bb 48>; [37.68%]
+  else
+    goto <bb 117>; [62.32%]
+
+  <bb 117> [2.36%]:
+
+  <bb 71> [2.43%]:
+  strbuf_release (&ref_file);
+  ref_file ={v} {CLOBBER};
+  goto <bb 50>; [100.00%]
 
 }
 

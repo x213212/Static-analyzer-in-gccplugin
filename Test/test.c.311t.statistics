@@ -1,0 +1,38 @@
+26 ssa "unused VAR_DECLs removed" "init_tree_desc_internal" 1
+26 ssa "unused VAR_DECLs removed" "xrealloc" 1
+26 ssa "unused VAR_DECLs removed" "update_tree_entry" 1
+26 ssa "unused VAR_DECLs removed" "unpack_trees" 1
+26 ssa "unused VAR_DECLs removed" "init_tree_desc" 1
+26 ssa "unused VAR_DECLs removed" "main" 1
+38 ccp "Copies propagated" "update_tree_entry_internal" 3
+38 ccp "Constants propagated" "update_tree_entry_internal" 1
+38 ccp "Statements deleted" "update_tree_entry_internal" 3
+55 release_ssa "SSA names released" "update_tree_entry_internal" 4
+55 release_ssa "SSA name holes removed" "update_tree_entry_internal" 4
+38 ccp "Copies propagated" "init_tree_desc_internal" 1
+38 ccp "Constants propagated" "init_tree_desc_internal" 1
+38 ccp "Statements deleted" "init_tree_desc_internal" 2
+55 release_ssa "SSA names released" "init_tree_desc_internal" 2
+55 release_ssa "SSA name holes removed" "init_tree_desc_internal" 2
+38 ccp "Constants propagated" "traverse_trees" 3
+38 ccp "Statements deleted" "traverse_trees" 4
+55 release_ssa "SSA names released" "traverse_trees" 4
+55 release_ssa "SSA name holes removed" "traverse_trees" 4
+38 ccp "Constants propagated" "unpack_trees" 1
+38 ccp "Statements deleted" "unpack_trees" 1
+55 release_ssa "SSA names released" "unpack_trees" 1
+55 release_ssa "SSA name holes removed" "unpack_trees" 1
+38 ccp "Constants propagated" "fill_tree_descriptor" 2
+38 ccp "Statements deleted" "fill_tree_descriptor" 2
+55 release_ssa "unused VAR_DECLs removed" "fill_tree_descriptor" 1
+55 release_ssa "SSA names released" "fill_tree_descriptor" 2
+55 release_ssa "SSA name holes removed" "fill_tree_descriptor" 2
+38 ccp "Copies propagated" "reset_index" 1
+38 ccp "Constants propagated" "reset_index" 5
+38 ccp "Statements deleted" "reset_index" 8
+55 release_ssa "SSA names released" "reset_index" 9
+55 release_ssa "SSA name holes removed" "reset_index" 9
+38 ccp "Constants propagated" "main" 1
+38 ccp "Statements deleted" "main" 1
+55 release_ssa "SSA names released" "main" 1
+55 release_ssa "SSA name holes removed" "main" 1

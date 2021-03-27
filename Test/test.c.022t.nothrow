@@ -1,1210 +1,614 @@
 
-;; Function printf (printf, funcdef_no=15, decl_uid=798, cgraph_uid=15, symbol_order=15)
+;; Function update_tree_entry_internal (update_tree_entry_internal, funcdef_no=1, decl_uid=1976, cgraph_uid=1, symbol_order=2)
 
-Function found to be nothrow: printf
-__attribute__((__artificial__, __gnu_inline__, __always_inline__))
-printf (const char * restrict __fmt)
+Function found to be nothrow: update_tree_entry_internal
+update_tree_entry_internal (struct tree_desc * desc, struct strbuf * err)
 {
-  int _4;
+  int tmp;
+  long unsigned int len;
+  long unsigned int size;
+  const unsigned char * end;
+  const void * buf;
+  const struct object_id * _1;
+  const unsigned char[20] * _2;
+  unsigned int _3;
+  long int end.0_4;
+  long int buf.1_5;
+  long int _6;
+  unsigned int _7;
+  int _8;
+  int _20;
+  int _24;
 
   <bb 2> [0.00%]:
-  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
-  return _4;
+  buf_12 = desc_11(D)->buffer;
+  _1 = desc_11(D)->entry.oid;
+  _2 = &_1->hash;
+  end_13 = _2 + 20;
+  _3 = desc_11(D)->size;
+  size_14 = (long unsigned int) _3;
+  end.0_4 = (long int) end_13;
+  buf.1_5 = (long int) buf_12;
+  _6 = end.0_4 - buf.1_5;
+  len_15 = (long unsigned int) _6;
+  if (size_14 < len_15)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  printf ("too-short tree file%s", buf_12);
+  exit (1);
+
+  <bb 4> [0.00%]:
+  buf_16 = end_13;
+  size_17 = size_14 - len_15;
+  desc_11(D)->buffer = buf_16;
+  _7 = (unsigned int) size_17;
+  desc_11(D)->size = _7;
+  if (size_17 != 0)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  tmp_23 = decode_tree_entry (desc_11(D), buf_16, size_17, err_21(D));
+  _24 = tmp_23;
+  goto <bb 7>; [0.00%]
+
+  <bb 6> [0.00%]:
+  _20 = 0;
+
+  <bb 7> [0.00%]:
+  # _8 = PHI <_24(5), _20(6)>
+  return _8;
 
 }
 
 
 
-;; Function fgets (fgets, funcdef_no=20, decl_uid=2081, cgraph_uid=20, symbol_order=20)
+;; Function init_tree_desc_internal (init_tree_desc_internal, funcdef_no=6, decl_uid=2030, cgraph_uid=6, symbol_order=7)
 
-Function found to be nothrow: fgets
-__attribute__((__artificial__, __gnu_inline__, __always_inline__))
-fgets (char * restrict __s, int __n, struct FILE * restrict __stream)
+Function found to be nothrow: init_tree_desc_internal
+init_tree_desc_internal (struct tree_desc * desc, const void * buffer, long unsigned int size, struct strbuf * err)
 {
-  long unsigned int _1;
+  int tmp;
+  unsigned int _1;
   int _2;
-  long unsigned int _3;
-  long unsigned int _4;
-  long unsigned int _5;
-  long unsigned int _6;
-  char * _7;
-  char * _14;
-  char * _16;
-  char * _18;
+  int _10;
+  int _14;
 
   <bb 2> [0.00%]:
-  _1 = __builtin_object_size (__s_10(D), 1);
-  if (_1 != 18446744073709551615)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _2 = __builtin_constant_p (__n_11(D));
-  if (_2 == 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 4> [0.00%]:
-  if (__n_11(D) <= 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 5> [0.00%]:
-  _3 = __builtin_object_size (__s_10(D), 1);
-  _16 = __fgets_chk (__s_10(D), _3, __n_11(D), __stream_12(D));
-  goto <bb 9>; [0.00%]
-
-  <bb 6> [0.00%]:
-  _4 = (long unsigned int) __n_11(D);
-  _5 = __builtin_object_size (__s_10(D), 1);
-  if (_4 > _5)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 7> [0.00%]:
-  _6 = __builtin_object_size (__s_10(D), 1);
-  _14 = *__fgets_chk (__s_10(D), _6, __n_11(D), __stream_12(D));
-  goto <bb 9>; [0.00%]
-
-  <bb 8> [0.00%]:
-  _18 = *fgets (__s_10(D), __n_11(D), __stream_12(D));
-
-  <bb 9> [0.00%]:
-  # _7 = PHI <_16(5), _14(7), _18(8)>
-  return _7;
-
-}
-
-
-
-;; Function xrealloc (xrealloc, funcdef_no=39, decl_uid=4125, cgraph_uid=39, symbol_order=43)
-
-Function found to be nothrow: xrealloc
-xrealloc (void * oldptr, size_t nmemb, size_t size)
-{
-  void * newptr;
-  size_t newsize;
-  long unsigned int _1;
-  unsigned int _2;
-  int _3;
-  long unsigned int _4;
-  void * _12;
-
-  <bb 2> [0.00%]:
-  newsize_7 = nmemb_5(D) * size_6(D);
-  if (newsize_7 == 0)
+  desc_5(D)->buffer = buffer_6(D);
+  _1 = (unsigned int) size_8(D);
+  desc_5(D)->size = _1;
+  if (size_8(D) != 0)
     goto <bb 3>; [0.00%]
   else
     goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
-  printf ("zero size%s", "");
-  exit (1);
-
-  <bb 4> [0.00%]:
-  _1 = 30 / nmemb_5(D);
-  _2 = (unsigned int) _1;
-  _3 = 1 << _2;
-  _4 = (long unsigned int) _3;
-  if (size_6(D) > _4)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 5> [0.00%]:
-  printf ("nmemb * size > SIZE_MAX%s", "");
-  exit (1);
-
-  <bb 6> [0.00%]:
-  newptr_11 = realloc (oldptr_9(D), newsize_7);
-  if (newptr_11 == 0B)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 7> [0.00%]:
-  printf ("xrealloc failed%s", "");
-  exit (1);
-
-  <bb 8> [0.00%]:
-  _12 = newptr_11;
-  return _12;
-
-}
-
-
-
-;; Function cmd_string_getc (cmd_string_getc, funcdef_no=40, decl_uid=4131, cgraph_uid=40, symbol_order=44)
-
-Function found to be nothrow: cmd_string_getc
-cmd_string_getc (const char * s, size_t * p)
-{
-  const u_char * ucs;
-  long unsigned int _1;
-  const u_char * _2;
-  unsigned char _3;
-  long unsigned int _4;
-  long unsigned int _5;
-  long unsigned int _6;
-  const u_char * _7;
-  unsigned char _8;
-  int _9;
-  int _16;
-  int _17;
-
-  <bb 2> [0.00%]:
-  ucs_12 = s_11(D);
-  _1 = *p_14(D);
-  _2 = ucs_12 + _1;
-  _3 = *_2;
-  if (_3 == 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _17 = -1;
+  tmp_13 = decode_tree_entry (desc_5(D), buffer_6(D), size_8(D), err_11(D));
+  _14 = tmp_13;
   goto <bb 5>; [0.00%]
 
   <bb 4> [0.00%]:
-  _4 = *p_14(D);
-  _5 = _4;
-  _6 = _5 + 1;
-  *p_14(D) = _6;
-  _7 = ucs_12 + _5;
-  _8 = *_7;
-  _16 = (int) _8;
+  _10 = 0;
 
   <bb 5> [0.00%]:
-  # _9 = PHI <_17(3), _16(4)>
-  return _9;
+  # _2 = PHI <_14(3), _10(4)>
+  return _2;
 
 }
 
 
 
-;; Function cmd_string_ungetc (cmd_string_ungetc, funcdef_no=41, decl_uid=4135, cgraph_uid=41, symbol_order=45)
+;; Function xrealloc (xrealloc, funcdef_no=0, decl_uid=1963, cgraph_uid=0, symbol_order=0)
 
-Function found to be nothrow: cmd_string_ungetc
-cmd_string_ungetc (size_t * p)
+Function found to be nothrow: xrealloc
+xrealloc (void * ptr, size_t size)
 {
-  long unsigned int _1;
-  long unsigned int _2;
+  void * ret;
+  void * _20;
 
   <bb 2> [0.00%]:
-  _1 = *p_4(D);
-  _2 = _1 + 18446744073709551615;
-  *p_4(D) = _2;
+  ret_11 = realloc (ptr_8(D), size_9(D));
+  if (ret_11 == 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 3> [0.00%]:
+  if (size_9(D) == 0)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  ret_13 = realloc (ptr_8(D), 1);
+
+  <bb 5> [0.00%]:
+  # ret_1 = PHI <ret_11(2), ret_11(3), ret_13(4)>
+  if (ret_1 == 0B)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 11>; [0.00%]
+
+  <bb 6> [0.00%]:
+  ret_15 = realloc (ptr_8(D), size_9(D));
+  if (ret_15 == 0B)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 7> [0.00%]:
+  if (size_9(D) == 0)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 8> [0.00%]:
+  ret_17 = realloc (ptr_8(D), 1);
+
+  <bb 9> [0.00%]:
+  # ret_2 = PHI <ret_15(6), ret_15(7), ret_17(8)>
+  if (ret_2 == 0B)
+    goto <bb 10>; [0.00%]
+  else
+    goto <bb 11>; [0.00%]
+
+  <bb 10> [0.00%]:
+  printf ("Out of memory, realloc failed%s", "");
+  exit (1);
+
+  <bb 11> [0.00%]:
+  # ret_3 = PHI <ret_1(5), ret_2(9)>
+  _20 = ret_3;
+  return _20;
+
+}
+
+
+
+;; Function update_tree_entry (update_tree_entry, funcdef_no=2, decl_uid=1985, cgraph_uid=2, symbol_order=3)
+
+Function found to be nothrow: update_tree_entry
+update_tree_entry (struct tree_desc * desc)
+{
+  int tmp;
+  struct strbuf err;
+  char * _1;
+
+  <bb 2> [0.00%]:
+  err.alloc = 0;
+  err.len = 0;
+  err.buf = &strbuf_slopbuf;
+  tmp_8 = update_tree_entry_internal (desc_6(D), &err);
+  if (tmp_8 != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _1 = err.buf;
+  printf ("%s", _1);
+  exit (1);
+
+  <bb 4> [0.00%]:
+  strbuf_release (&err);
+  err ={v} {CLOBBER};
   return;
 
 }
 
 
 
-;; Function cmd_string_variable (cmd_string_variable, funcdef_no=42, decl_uid=4139, cgraph_uid=42, symbol_order=46)
+;; Function extended_entry_extract (extended_entry_extract, funcdef_no=3, decl_uid=1995, cgraph_uid=3, symbol_order=4)
 
-Function found to be nothrow: cmd_string_variable
-cmd_string_variable (const char * s, size_t * p)
+Function found to be nothrow: extended_entry_extract
+extended_entry_extract (struct tree_desc_x * t, struct name_entry * a, const char * first, int first_len)
 {
-  struct environ_entry * envent;
-  size_t len;
-  char * t;
-  char * buf;
-  int fch;
-  int ch;
-  _Bool _1;
-  unsigned int ch.0_2;
-  unsigned int _3;
-  _Bool _4;
-  _Bool _5;
-  unsigned int ch.1_6;
-  unsigned int _7;
-  _Bool _8;
-  unsigned int ch.2_9;
-  unsigned int _10;
-  _Bool _11;
-  _Bool _12;
-  unsigned int ch.3_13;
-  unsigned int _14;
-  long unsigned int _15;
-  long unsigned int len.4_16;
-  char * _17;
-  char _18;
-  _Bool _19;
-  unsigned int ch.5_20;
-  unsigned int _21;
-  _Bool _22;
-  _Bool _23;
-  unsigned int ch.6_24;
-  unsigned int _25;
-  unsigned int ch.7_26;
-  unsigned int _27;
-  long unsigned int _28;
-  long unsigned int len.8_29;
-  char * _30;
-  char _31;
-  _Bool _32;
-  _Bool _33;
-  _Bool _34;
-  _Bool _35;
-  _Bool _36;
-  _Bool _37;
-  long unsigned int _38;
-  char * _39;
-  char * _40;
-  char * _46;
-  char * _64;
-  char * _82;
-  char * _84;
-  char * _86;
+  struct tree_desc_skip * skip;
+  unsigned int _1;
+  struct tree_desc * _2;
+  const char * _3;
+  long unsigned int _4;
+  const void * _5;
+  long unsigned int _6;
+  struct tree_desc * _7;
 
   <bb 2> [0.00%]:
-  buf_52 = 0B;
-  len_53 = 0;
-  fch_54 = -1;
-  ch_59 = cmd_string_getc (s_56(D), p_57(D));
-  switch (ch_59) <default: <L3> [0.00%], case -1: error [0.00%], case 123: <L1> [0.00%]>
-
-<L1> [0.00%]:
-  fch_60 = 123;
-  ch_62 = cmd_string_getc (s_56(D), p_57(D));
-  _1 = ch_62 != 95;
-  ch.0_2 = (unsigned int) ch_62;
-  _3 = ch.0_2 + 4294967199;
-  _4 = _3 > 25;
-  _5 = _1 & _4;
-  if (_5 != 0)
-    goto <bb 4>; [0.00%]
+  _1 = t_12(D)->d.size;
+  if (_1 == 0)
+    goto <bb 3>; [0.00%]
   else
-    goto <bb 5> (<L3>); [0.00%]
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  entry_clear (a_13(D));
+  goto <bb 10>; [0.00%]
 
   <bb 4> [0.00%]:
-  ch.1_6 = (unsigned int) ch_62;
-  _7 = ch.1_6 + 4294967231;
-  if (_7 > 25)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 5> (<L3>); [0.00%]
+  _2 = &t_12(D)->d;
+  entry_extract (_2, a_13(D));
+  skip_15 = t_12(D)->skip;
+  goto <bb 7>; [0.00%]
 
-  # ch_41 = PHI <ch_59(2), ch_62(3), ch_62(4)>
-  # fch_42 = PHI <fch_54(2), fch_60(3), fch_60(4)>
-<L3> [0.00%]:
-  _8 = ch_41 != 95;
-  ch.2_9 = (unsigned int) ch_41;
-  _10 = ch.2_9 + 4294967199;
-  _11 = _10 > 25;
-  _12 = _8 & _11;
-  if (_12 != 0)
+  <bb 5> [0.00%]:
+  _3 = a_13(D)->path;
+  _4 = (long unsigned int) _3;
+  _5 = skip_8->ptr;
+  _6 = (long unsigned int) _5;
+  if (_4 == _6)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 6> [0.00%]:
+  skip_16 = skip_8->prev;
+
+  <bb 7> [0.00%]:
+  # skip_8 = PHI <skip_15(4), skip_16(6)>
+  if (skip_8 != 0B)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 8> [0.00%]:
+  if (skip_8 == 0B)
+    goto <bb 10>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 9> [0.00%]:
+  _7 = &t_12(D)->d;
+  update_tree_entry (_7);
+  goto <bb 2>; [0.00%]
+
+  <bb 10> [0.00%]:
+  return;
+
+}
+
+
+
+;; Function traverse_trees (traverse_trees, funcdef_no=4, decl_uid=2006, cgraph_uid=4, symbol_order=5)
+
+Function found to be nothrow: traverse_trees
+traverse_trees (int n, struct tree_desc * t, struct traverse_info * info)
+{
+  struct name_entry * e;
+  void * tmp___0;
+  struct name_entry * entry;
+  void * tmp;
+  struct tree_desc_x * tx;
+  int n___0;
+  int i;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  struct tree_desc * _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  struct tree_desc_x * _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  struct tree_desc_x * _14;
+  int _31;
+
+  <bb 2> [0.00%]:
+  _1 = (long unsigned int) n___0_19(D);
+  tmp_22 = calloc (_1, 48);
+  tx_23 = tmp_22;
+  _2 = (long unsigned int) n___0_19(D);
+  _3 = _2 * 24;
+  tmp___0_25 = malloc (_3);
+  entry_26 = tmp___0_25;
+  e_27 = 0B;
+  i_28 = 0;
+  goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _4 = (long unsigned int) i_15;
+  _5 = _4 * 40;
+  _6 = t_35(D) + _5;
+  _7 = (long unsigned int) i_15;
+  _8 = _7 * 48;
+  _9 = tx_23 + _8;
+  _9->d = *_6;
+  i_37 = i_15 + 1;
+
+  <bb 4> [0.00%]:
+  # i_15 = PHI <i_28(2), i_37(3)>
+  if (i_15 < n___0_19(D))
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 5> [0.00%]:
+  i_29 = 0;
+  goto <bb 7>; [0.00%]
+
+  <bb 6> [0.00%]:
+  _10 = (long unsigned int) i_16;
+  _11 = _10 * 24;
+  e_32 = entry_26 + _11;
+  _12 = (long unsigned int) i_16;
+  _13 = _12 * 48;
+  _14 = tx_23 + _13;
+  extended_entry_extract (_14, e_32, 0B, 0);
+  i_34 = i_16 + 1;
+
+  <bb 7> [0.00%]:
+  # i_16 = PHI <i_29(5), i_34(6)>
+  if (i_16 < n___0_19(D))
     goto <bb 6>; [0.00%]
   else
     goto <bb 8>; [0.00%]
 
-  <bb 6> [0.00%]:
-  ch.3_13 = (unsigned int) ch_41;
-  _14 = ch.3_13 + 4294967231;
-  if (_14 > 25)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
+  <bb 8> [0.00%]:
+  free (tx_23);
+  _31 = 1;
+  return _31;
 
-  <bb 7> [0.00%]:
-  _64 = t_63(D);
-  goto <bb 22>; [0.00%]
+}
+
+
+
+;; Function unpack_trees (unpack_trees, funcdef_no=5, decl_uid=2024, cgraph_uid=5, symbol_order=6)
+
+Function found to be nothrow: unpack_trees
+unpack_trees (unsigned int len, struct tree_desc * t, struct unpack_trees_options * o)
+{
+  int len.2_1;
+  int _6;
+
+  <bb 2> [0.00%]:
+  len.2_1 = (int) len_2(D);
+  traverse_trees (len.2_1, t_4(D), 0B);
+  _6 = 0;
+  return _6;
+
+}
+
+
+
+;; Function init_tree_desc (init_tree_desc, funcdef_no=7, decl_uid=2036, cgraph_uid=7, symbol_order=8)
+
+Function found to be nothrow: init_tree_desc
+init_tree_desc (struct tree_desc * desc, const void * buffer, long unsigned int size)
+{
+  int tmp;
+  struct strbuf err;
+  char * _1;
+
+  <bb 2> [0.00%]:
+  err.alloc = 0;
+  err.len = 0;
+  err.buf = &strbuf_slopbuf;
+  tmp_10 = init_tree_desc_internal (desc_6(D), buffer_7(D), size_8(D), &err);
+  if (tmp_10 != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _1 = err.buf;
+  printf ("%s", _1);
+  exit (1);
+
+  <bb 4> [0.00%]:
+  strbuf_release (&err);
+  err ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function fill_tree_descriptor (fill_tree_descriptor, funcdef_no=8, decl_uid=2043, cgraph_uid=8, symbol_order=9)
+
+Function found to be nothrow: fill_tree_descriptor
+fill_tree_descriptor (struct tree_desc * desc, const struct object_id * oid)
+{
+  int tmp;
+  void * buf;
+  long unsigned int size;
+
+  <bb 2> [0.00%]:
+  size_3 = 0;
+  buf_4 = 0B;
+  if (oid_5(D) != 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 3> [0.00%]:
+  buf_8 = malloc (100);
+  if (buf_8 == 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  tmp_10 = oid_to_hex (oid_5(D));
+  printf ("unable to read tree %s", tmp_10);
+  exit (1);
+
+  <bb 5> [0.00%]:
+  # buf_1 = PHI <buf_4(2), buf_8(3)>
+  init_tree_desc (desc_13(D), buf_1, size_3);
+  return;
+
+}
+
+
+
+;; Function reset_index (reset_index, funcdef_no=9, decl_uid=2058, cgraph_uid=9, symbol_order=10)
+
+Function found to be nothrow: reset_index
+reset_index (const struct object_id * oid, int reset_type, int quiet)
+{
+  int tmp___3;
+  int tmp___2;
+  int tmp___1;
+  int tmp___0;
+  int tmp;
+  struct object_id head_oid;
+  struct unpack_trees_options opts;
+  struct tree * tree;
+  struct tree_desc desc[2];
+  int nr;
+  long unsigned int _1;
+  long unsigned int _2;
+  struct tree_desc * _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  struct tree_desc * _6;
+  const void * _7;
+  unsigned int nr.3_8;
+  long int _9;
+  long int _10;
+  int _12;
+  int _43;
+  int _58;
+  int _59;
+
+  <bb 2> [0.00%]:
+  nr_19 = 0;
+  memset (&opts, 0, 640);
+  opts.head_idx = 1;
+  opts.src_index = &the_index;
+  opts.dst_index = &the_index;
+  opts.fn = oneway_merge;
+  opts.merge = 1;
+  if (quiet_27(D) == 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  opts.verbose_update = 1;
+
+  <bb 4> [0.00%]:
+  switch (reset_type_29(D)) <default: <L5> [0.00%], case 2: <L4> [0.00%], case 3 ... 4: <L2> [0.00%]>
+
+<L2> [0.00%]:
+  opts.update = 1;
+  goto <bb 8>; [0.00%]
+
+<L4> [0.00%]:
+  opts.update = 1;
+
+<L5> [0.00%]:
+  opts.reset = 1;
 
   <bb 8> [0.00%]:
-  _15 = len_53 + 1;
-  buf_66 = xrealloc (buf_52, 1, _15);
-  len.4_16 = len_53;
-  len_67 = len.4_16 + 1;
-  _17 = buf_66 + len.4_16;
-  _18 = (char) ch_41;
-  *_17 = _18;
+  read_cache_unmerged ();
+  if (reset_type_29(D) == 4)
+    goto <bb 9>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
 
   <bb 9> [0.00%]:
-  # buf_43 = PHI <buf_66(8), buf_72(14)>
-  # len_45 = PHI <len_67(8), len_73(14)>
-  ch_70 = cmd_string_getc (s_56(D), p_57(D));
-  if (ch_70 == -1)
-    goto <bb 15>; [0.00%]
-  else
+  tmp___1_35 = get_oid ("HEAD", &head_oid);
+  if (tmp___1_35 != 0)
     goto <bb 10>; [0.00%]
+  else
+    goto <bb 11>; [0.00%]
 
   <bb 10> [0.00%]:
-  _19 = ch_70 != 95;
-  ch.5_20 = (unsigned int) ch_70;
-  _21 = ch.5_20 + 4294967199;
-  _22 = _21 > 25;
-  _23 = _19 & _22;
-  if (_23 != 0)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
+  tmp_40 = _ ("You do not have a valid HEAD.");
+  tmp___0_42 = error (tmp_40);
+  _43 = tmp___0_42;
+  goto <bb 19>; [0.00%]
 
   <bb 11> [0.00%]:
-  ch.6_24 = (unsigned int) ch_70;
-  _25 = ch.6_24 + 4294967231;
-  if (_25 > 25)
-    goto <bb 12>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
+  _1 = (long unsigned int) nr_19;
+  _2 = _1 * 40;
+  _3 = &desc + _2;
+  fill_tree_descriptor (_3, &head_oid);
+  nr_37 = nr_19 + 1;
+  opts.fn = twoway_merge;
 
   <bb 12> [0.00%]:
-  ch.7_26 = (unsigned int) ch_70;
-  _27 = ch.7_26 + 4294967248;
-  if (_27 > 9)
-    goto <bb 15>; [0.00%]
-  else
+  # nr_11 = PHI <nr_19(8), nr_37(11)>
+  _4 = (long unsigned int) nr_11;
+  _5 = _4 * 40;
+  _6 = &desc + _5;
+  fill_tree_descriptor (_6, oid_44(D));
+  nr_46 = nr_11 + 1;
+  _7 = desc[nr_46].buffer;
+  printf ("%d\n", _7);
+  nr.3_8 = (unsigned int) nr_46;
+  tmp___2_49 = unpack_trees (nr.3_8, &desc, &opts);
+  if (tmp___2_49 != 0)
     goto <bb 13>; [0.00%]
-
-  <bb 13> [0.00%]:
-  if (len_45 > 1073741820)
-    goto <bb 21> (error); [0.00%]
   else
     goto <bb 14>; [0.00%]
 
-  <bb 14> [0.00%]:
-  _28 = len_45 + 1;
-  buf_72 = xrealloc (buf_43, 1, _28);
-  len.8_29 = len_45;
-  len_73 = len.8_29 + 1;
-  _30 = buf_72 + len.8_29;
-  _31 = (char) ch_70;
-  *_30 = _31;
-  goto <bb 9>; [0.00%]
+  <bb 13> [0.00%]:
+  _59 = -1;
+  goto <bb 19>; [0.00%]
 
-  <bb 15> [0.00%]:
-  _32 = fch_42 == 123;
-  _33 = ch_70 != 125;
-  _34 = _32 & _33;
-  if (_34 != 0)
-    goto <bb 21> (error); [0.00%]
+  <bb 14> [0.00%]:
+  if (reset_type_29(D) == 0)
+    goto <bb 15>; [0.00%]
   else
     goto <bb 16>; [0.00%]
 
+  <bb 15> [0.00%]:
+  tmp___3_55 = parse_tree_indirect (oid_44(D));
+  _9 = (long int) tmp___3_55;
+  tree_56 = (struct tree *) _9;
+  prime_cache_tree (&the_index, tree_56);
+  goto <bb 18>; [0.00%]
+
   <bb 16> [0.00%]:
-  _35 = ch_70 != -1;
-  _36 = fch_42 != 123;
-  _37 = _35 & _36;
-  if (_37 != 0)
+  if (reset_type_29(D) == 2)
     goto <bb 17>; [0.00%]
   else
     goto <bb 18>; [0.00%]
 
   <bb 17> [0.00%]:
-  cmd_string_ungetc (p_57(D));
+  tmp___3_51 = parse_tree_indirect (oid_44(D));
+  _10 = (long int) tmp___3_51;
+  tree_52 = (struct tree *) _10;
+  prime_cache_tree (&the_index, tree_52);
 
   <bb 18> [0.00%]:
-  _38 = len_45 + 1;
-  buf_77 = xrealloc (buf_43, 1, _38);
-  _39 = buf_77 + len_45;
-  *_39 = 0;
-  free (buf_77);
-  if (envent_80(D) == 0B)
-    goto <bb 19>; [0.00%]
-  else
-    goto <bb 20>; [0.00%]
+  _58 = 0;
 
   <bb 19> [0.00%]:
-  _84 = strdup ("");
-  goto <bb 22>; [0.00%]
-
-  <bb 20> [0.00%]:
-  _40 = envent_80(D)->value;
-  _82 = strdup (_40);
-  goto <bb 22>; [0.00%]
-
-  # buf_44 = PHI <buf_52(2), buf_52(4), buf_43(13), buf_43(15)>
-error [0.00%]:
-  free (buf_44);
-  _86 = 0B;
-
-  <bb 22> [0.00%]:
-  # _46 = PHI <_64(7), _84(19), _82(20), _86(21)>
-  return _46;
+  # _12 = PHI <_43(10), _59(13), _58(18)>
+  desc ={v} {CLOBBER};
+  opts ={v} {CLOBBER};
+  head_oid ={v} {CLOBBER};
+  return _12;
 
 }
 
 
 
-;; Function cmd_string_string (cmd_string_string, funcdef_no=43, decl_uid=4159, cgraph_uid=43, symbol_order=47)
-
-Function found to be nothrow: cmd_string_string
-cmd_string_string (const char * s, size_t * p, char endch, int esc)
-{
-  size_t len;
-  char * t;
-  char * buf;
-  int ch;
-  long unsigned int _1;
-  long unsigned int len.9_2;
-  char * _3;
-  char _4;
-  int _5;
-  long unsigned int _6;
-  char * _7;
-  char * _11;
-  char * _27;
-  char * _42;
-
-  <bb 2> [0.00%]:
-  buf_16 = 0B;
-  len_17 = 0;
-  goto <bb 15>; [0.00%]
-
-  <bb 3> [0.00%]:
-  switch (ch_22) <default: <L14> [0.00%], case -1: error [0.00%], case 36: <L11> [0.00%], case 92: <L2> [0.00%]>
-
-<L2> [0.00%]:
-  if (esc_28(D) == 0)
-    goto <bb 13> (<L14>); [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 5> [0.00%]:
-  ch_30 = cmd_string_getc (s_19(D), p_20(D));
-  switch (ch_30) <default: <L14> [0.00%], case -1: error [0.00%], case 101: <L5> [0.00%], case 110: <L7> [0.00%], case 114: <L6> [0.00%], case 116: <L8> [0.00%]>
-
-<L5> [0.00%]:
-  ch_34 = 27;
-  goto <bb 13> (<L14>); [0.00%]
-
-<L6> [0.00%]:
-  ch_32 = 13;
-  goto <bb 13> (<L14>); [0.00%]
-
-<L7> [0.00%]:
-  ch_33 = 10;
-  goto <bb 13> (<L14>); [0.00%]
-
-<L8> [0.00%]:
-  ch_31 = 9;
-  goto <bb 13> (<L14>); [0.00%]
-
-<L11> [0.00%]:
-  if (esc_28(D) == 0)
-    goto <bb 13> (<L14>); [0.00%]
-  else
-    goto <bb 11>; [0.00%]
-
-  <bb 11> [0.00%]:
-  t_36 = cmd_string_variable (s_19(D), p_20(D));
-  if (t_36 == 0B)
-    goto <bb 17> (error); [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 12> [0.00%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 15>; [0.00%]
-
-  # ch_8 = PHI <ch_22(3), ch_22(4), ch_34(6), ch_22(10), ch_30(5), ch_31(9), ch_33(8), ch_32(7)>
-<L14> [0.00%]:
-  if (len_10 > 1073741821)
-    goto <bb 17> (error); [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 14> [0.00%]:
-  _1 = len_10 + 1;
-  buf_38 = xrealloc (buf_9, 1, _1);
-  len.9_2 = len_10;
-  len_39 = len.9_2 + 1;
-  _3 = buf_38 + len.9_2;
-  _4 = (char) ch_8;
-  *_3 = _4;
-
-  <bb 15> [0.00%]:
-  # buf_9 = PHI <buf_16(2), buf_9(12), buf_38(14)>
-  # len_10 = PHI <len_17(2), len_10(12), len_39(14)>
-  ch_22 = cmd_string_getc (s_19(D), p_20(D));
-  _5 = (int) endch_23(D);
-  if (ch_22 != _5)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 16>; [0.00%]
-
-  <bb 16> [0.00%]:
-  _6 = len_10 + 1;
-  buf_25 = xrealloc (buf_9, 1, _6);
-  _7 = buf_25 + len_10;
-  *_7 = 0;
-  _27 = buf_25;
-  goto <bb 18>; [0.00%]
-
-error [0.00%]:
-  free (buf_9);
-  _42 = 0B;
-
-  <bb 18> [0.00%]:
-  # _11 = PHI <_27(16), _42(17)>
-  return _11;
-
-}
-
-
-
-;; Function cmd_string_expand_tilde (cmd_string_expand_tilde, funcdef_no=44, decl_uid=4181, cgraph_uid=44, symbol_order=48)
-
-Function found to be nothrow: cmd_string_expand_tilde
-cmd_string_expand_tilde (const char * s, size_t * p)
-{
-  char * username;
-  char * home;
-  struct environ_entry * envent;
-  struct passwd * pw;
-  int _1;
-  char * _2;
-  char _3;
-  int _4;
-  int _5;
-  long int _6;
-  int _7;
-  long int _8;
-  char * _11;
-  char * _26;
-  char * _34;
-  char * _35;
-
-  <bb 2> [0.00%]:
-  home_14 = 0B;
-  _1 = cmd_string_getc (s_16(D), p_17(D));
-  if (_1 == 47)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 3> [0.00%]:
-  if (envent_27(D) != 0B)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _2 = envent_27(D)->value;
-  _3 = *_2;
-  if (_3 != 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 5> [0.00%]:
-  home_28 = envent_27(D)->value;
-  goto <bb 13>; [0.00%]
-
-  <bb 6> [0.00%]:
-  _4 = getuid ();
-  _5 = getpwuid (_4);
-  _6 = (long int) _5;
-  pw_31 = (struct passwd *) _6;
-  if (pw_31 != 0B)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
-
-  <bb 7> [0.00%]:
-  home_32 = pw_31->pw_dir;
-  goto <bb 13>; [0.00%]
-
-  <bb 8> [0.00%]:
-  cmd_string_ungetc (p_17(D));
-  username_21 = cmd_string_string (s_16(D), p_17(D), 47, 0);
-  if (username_21 == 0B)
-    goto <bb 9>; [0.00%]
-  else
-    goto <bb 10>; [0.00%]
-
-  <bb 9> [0.00%]:
-  _26 = 0B;
-  goto <bb 16>; [0.00%]
-
-  <bb 10> [0.00%]:
-  _7 = getpwnam (username_21);
-  _8 = (long int) _7;
-  pw_23 = (struct passwd *) _8;
-  if (pw_23 != 0B)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 11> [0.00%]:
-  home_24 = pw_23->pw_dir;
-
-  <bb 12> [0.00%]:
-  # home_9 = PHI <home_14(10), home_24(11)>
-  free (username_21);
-
-  <bb 13> [0.00%]:
-  # home_10 = PHI <home_14(6), home_9(12), home_28(5), home_32(7)>
-  if (home_10 == 0B)
-    goto <bb 14>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 14> [0.00%]:
-  _35 = 0B;
-  goto <bb 16>; [0.00%]
-
-  <bb 15> [0.00%]:
-  _34 = strdup (home_10);
-
-  <bb 16> [0.00%]:
-  # _11 = PHI <_26(9), _35(14), _34(15)>
-  return _11;
-
-}
-
-
-
-;; Function cmd_string_parse (cmd_string_parse, funcdef_no=45, decl_uid=4198, cgraph_uid=45, symbol_order=49)
-
-Function found to be nothrow: cmd_string_parse
-cmd_string_parse (const char * s, struct cmd_list * * cmdlist, char * * cause)
-{
-  size_t len;
-  const char * equals;
-  const char * whitespace;
-  char * t;
-  char * buf;
-  char * * argv;
-  int rval;
-  int argc;
-  int i;
-  int ch;
-  size_t p;
-  long unsigned int _1;
-  char * _2;
-  int _3;
-  long unsigned int _4;
-  int argc.10_5;
-  long unsigned int _6;
-  long unsigned int _7;
-  char * * _8;
-  char * _9;
-  char * _10;
-  char * _11;
-  long unsigned int _12;
-  _Bool _13;
-  _Bool _14;
-  _Bool _15;
-  long unsigned int _16;
-  long unsigned int _17;
-  char * * _18;
-  struct cmd_list * _19;
-  long unsigned int _20;
-  long unsigned int len.11_21;
-  char * _22;
-  char _23;
-  long unsigned int _24;
-  long unsigned int _25;
-  char * * _26;
-  char * _27;
-  int _98;
-
-  <bb 2> [0.00%]:
-  argv_51 = 0B;
-  argc_52 = 0;
-  buf_53 = 0B;
-  len_54 = 0;
-  *cause_56(D) = 0B;
-  *cmdlist_58(D) = 0B;
-  rval_60 = -1;
-  p = 0;
-
-  <bb 3> [0.00%]:
-  # argc_30 = PHI <argc_52(2), argc_30(5), argc_30(4), argc_30(20), argc_30(18), argc_31(10), argc_30(6)>
-  # argv_35 = PHI <argv_51(2), argv_35(5), argv_35(4), argv_35(20), argv_35(18), argv_36(10), argv_35(6)>
-  # buf_38 = PHI <buf_53(2), buf_38(5), buf_38(4), buf_90(20), buf_38(18), buf_39(10), buf_38(6)>
-  # len_41 = PHI <len_54(2), len_41(5), len_41(4), len_91(20), len_41(18), len_42(10), len_41(6)>
-  ch_64 = cmd_string_getc (s_62(D), &p);
-  switch (ch_64) <default: <L26> [0.00%], case -1: <L10> [0.00%], case 9: <L10> [0.00%], case 32: <L10> [0.00%], case 34: <L3> [0.00%], case 35: <L39> [0.00%], case 36: <L5> [0.00%], case 39: <L1> [0.00%], case 126: <L23> [0.00%]>
-
-<L1> [0.00%]:
-  t_68 = cmd_string_string (s_62(D), &p, 39, 0);
-  if (t_68 == 0B)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 3>; [0.00%]
-
-<L3> [0.00%]:
-  t_74 = cmd_string_string (s_62(D), &p, 34, 1);
-  if (t_74 == 0B)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 3>; [0.00%]
-
-<L5> [0.00%]:
-  t_70 = cmd_string_variable (s_62(D), &p);
-  if (t_70 == 0B)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 3>; [0.00%]
-
-<L39> [0.00%]:
-  ch_72 = cmd_string_getc (s_62(D), &p);
-  if (ch_72 != -1)
-    goto <bb 7> (<L39>); [0.00%]
-  else
-    goto <bb 8> (<L10>); [0.00%]
-
-  # ch_28 = PHI <ch_64(3), ch_72(7)>
-<L10> [0.00%]:
-  if (buf_38 != 0B)
-    goto <bb 9>; [0.00%]
-  else
-    goto <bb 10>; [0.00%]
-
-  <bb 9> [0.00%]:
-  _1 = len_41 + 1;
-  buf_76 = xrealloc (buf_38, 1, _1);
-  _2 = buf_76 + len_41;
-  *_2 = 0;
-  _3 = argc_30 + 1;
-  _4 = (long unsigned int) _3;
-  argv_79 = xrealloc (argv_35, _4, 8);
-  argc.10_5 = argc_30;
-  argc_80 = argc.10_5 + 1;
-  _6 = (long unsigned int) argc.10_5;
-  _7 = _6 * 8;
-  _8 = argv_79 + _7;
-  *_8 = buf_76;
-  buf_82 = 0B;
-  len_83 = 0;
-
-  <bb 10> [0.00%]:
-  # argc_31 = PHI <argc_30(8), argc_80(9)>
-  # argv_36 = PHI <argv_35(8), argv_79(9)>
-  # buf_39 = PHI <buf_38(8), buf_82(9)>
-  # len_42 = PHI <len_41(8), len_83(9)>
-  if (ch_28 != -1)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
-
-  <bb 11> [0.00%]:
-  _9 = *argv_36;
-  equals_84 = strchr (_9, 61);
-  _10 = *argv_36;
-  _11 = *argv_36;
-  _12 = strcspn (_11, " \t");
-  whitespace_85 = _10 + _12;
-  _13 = equals_84 == 0B;
-  _14 = equals_84 > whitespace_85;
-  _15 = _13 | _14;
-  if (_15 != 0)
-    goto <bb 14>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 12> [0.00%]:
-  argc_86 = argc_32 + -1;
-  _16 = (long unsigned int) argc_86;
-  _17 = _16 * 8;
-  _18 = argv_36 + 8;
-  memmove (argv_36, _18, _17);
-
-  <bb 13> [0.00%]:
-  # argc_32 = PHI <argc_31(10), argc_86(12)>
-  if (argc_32 != 0)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 14> [0.00%]:
-  if (argc_32 == 0)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 15> [0.00%]:
-  _19 = *cmdlist_58(D);
-  if (_19 == 0B)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 16>; [0.00%]
-
-  <bb 16> [0.00%]:
-  rval_88 = 0;
-  goto <bb 21> (error); [0.00%]
-
-<L23> [0.00%]:
-  if (buf_38 == 0B)
-    goto <bb 18>; [0.00%]
-  else
-    goto <bb 19> (<L26>); [0.00%]
-
-  <bb 18> [0.00%]:
-  t_66 = cmd_string_expand_tilde (s_62(D), &p);
-  if (t_66 == 0B)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 3>; [0.00%]
-
-<L26> [0.00%]:
-  if (len_41 > 1073741821)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 20>; [0.00%]
-
-  <bb 20> [0.00%]:
-  _20 = len_41 + 1;
-  buf_90 = xrealloc (buf_38, 1, _20);
-  len.11_21 = len_41;
-  len_91 = len.11_21 + 1;
-  _22 = buf_90 + len.11_21;
-  _23 = (char) ch_64;
-  *_22 = _23;
-  goto <bb 3>; [0.00%]
-
-  # argc_33 = PHI <argc_30(4), argc_30(5), argc_30(6), argc_32(14), argc_32(15), argc_32(16), argc_30(18), argc_30(19)>
-  # rval_34 = PHI <rval_60(4), rval_60(5), rval_60(6), rval_60(14), rval_60(15), rval_88(16), rval_60(18), rval_60(19)>
-  # argv_37 = PHI <argv_35(4), argv_35(5), argv_35(6), argv_36(14), argv_36(15), argv_36(16), argv_35(18), argv_35(19)>
-  # buf_40 = PHI <buf_38(4), buf_38(5), buf_38(6), buf_39(14), buf_39(15), buf_39(16), buf_38(18), buf_38(19)>
-error [0.00%]:
-out [0.00%]:
-  free (buf_40);
-  if (argv_37 != 0B)
-    goto <bb 22>; [0.00%]
-  else
-    goto <bb 26>; [0.00%]
-
-  <bb 22> [0.00%]:
-  i_94 = 0;
-  goto <bb 24>; [0.00%]
-
-  <bb 23> [0.00%]:
-  _24 = (long unsigned int) i_29;
-  _25 = _24 * 8;
-  _26 = argv_37 + _25;
-  _27 = *_26;
-  free (_27);
-  i_97 = i_29 + 1;
-
-  <bb 24> [0.00%]:
-  # i_29 = PHI <i_94(22), i_97(23)>
-  if (i_29 < argc_33)
-    goto <bb 23>; [0.00%]
-  else
-    goto <bb 25>; [0.00%]
-
-  <bb 25> [0.00%]:
-  free (argv_37);
-
-  <bb 26> [0.00%]:
-  _98 = rval_34;
-  p ={v} {CLOBBER};
-  return _98;
-
-}
-
-
-
-;; Function load_cfg (load_cfg, funcdef_no=46, decl_uid=4239, cgraph_uid=46, symbol_order=50)
-
-Function found to be nothrow: load_cfg
-load_cfg (const char * path, struct cmd_ctx * ctxin, struct causelist * causes)
-{
-  cmd_retval retval;
-  struct cmd_ctx ctx;
-  struct cmd_list * cmdlist;
-  size_t oldlen;
-  size_t len;
-  char * cause;
-  char * line;
-  char * copy;
-  char * buf;
-  u_int n;
-  struct FILE * f;
-  int cfg_references.12_1;
-  int _2;
-  sizetype _3;
-  char * _4;
-  char _5;
-  long unsigned int _6;
-  long unsigned int _7;
-  long unsigned int _8;
-  char * _9;
-  long unsigned int _10;
-  char * _11;
-  sizetype _12;
-  char * _13;
-  char _14;
-  sizetype _15;
-  char * _16;
-  sizetype _17;
-  char * _18;
-  char _19;
-  char _20;
-  unsigned char _21;
-  int _22;
-  int _23;
-  char _24;
-  int _25;
-  char * cause.13_26;
-  char * cause.14_27;
-  struct cmd_list * cmdlist.15_28;
-  struct msg_command_data * _29;
-  struct client * _30;
-  struct client * _31;
-  int _32;
-  int cfg_references.16_33;
-  int _34;
-  cmd_retval _43;
-  cmd_retval _65;
-  cmd_retval _95;
-
-  <bb 2> [0.00%]:
-  f_53 = fopen (path_51(D), "rb");
-  if (f_53 == 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _95 = -1;
-  goto <bb 34>; [0.00%]
-
-  <bb 4> [0.00%]:
-  cfg_references.12_1 = cfg_references;
-  _2 = cfg_references.12_1 + 1;
-  cfg_references = _2;
-  n_55 = 0;
-  line_56 = 0B;
-  retval_57 = 0;
-  goto <bb 30>; [0.00%]
-
-  <bb 5> [0.00%]:
-  _3 = len_41 + 18446744073709551615;
-  _4 = buf_61 + _3;
-  _5 = *_4;
-  if (_5 == 10)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 6> [0.00%]:
-  len_66 = len_41 + 18446744073709551615;
-
-  <bb 7> [0.00%]:
-  # len_40 = PHI <len_41(5), len_66(6)>
-  printf ("%s: %s", path_51(D), buf_61);
-  if (line_39 != 0B)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 8> [0.00%]:
-  oldlen_71 = strlen (line_39);
-  _6 = oldlen_71 + len_40;
-  _7 = _6 + 1;
-  line_73 = xrealloc (line_39, 1, _7);
-  goto <bb 10>; [0.00%]
-
-  <bb 9> [0.00%]:
-  oldlen_68 = 0;
-  _8 = len_40 + 1;
-  line_70 = malloc (_8);
-
-  <bb 10> [0.00%]:
-  # line_38 = PHI <line_73(8), line_70(9)>
-  # oldlen_42 = PHI <oldlen_71(8), oldlen_68(9)>
-  _9 = line_38 + oldlen_42;
-  memcpy (_9, buf_61, len_40);
-  _10 = oldlen_42 + len_40;
-  _11 = line_38 + _10;
-  *_11 = 0;
-  n_76 = n_35 + 1;
-  len_77 = strlen (line_38);
-  if (len_77 != 0)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 11> [0.00%]:
-  _12 = len_77 + 18446744073709551615;
-  _13 = line_38 + _12;
-  _14 = *_13;
-  if (_14 == 92)
-    goto <bb 12>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 12> [0.00%]:
-  _15 = len_77 + 18446744073709551615;
-  _16 = line_38 + _15;
-  *_16 = 0;
-  if (len_77 > 1)
-    goto <bb 13>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 13> [0.00%]:
-  _17 = len_77 + 18446744073709551614;
-  _18 = line_38 + _17;
-  _19 = *_18;
-  if (_19 != 92)
-    goto <bb 14>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 14> [0.00%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 30>; [0.00%]
-
-  <bb 15> [0.00%]:
-  copy_79 = line_38;
-  line_80 = 0B;
-  buf_81 = copy_79;
-  goto <bb 17>; [0.00%]
-
-  <bb 16> [0.00%]:
-  buf_94 = buf_36 + 1;
-
-  <bb 17> [0.00%]:
-  # buf_36 = PHI <buf_81(15), buf_94(16)>
-  _20 = *buf_36;
-  _21 = (unsigned char) _20;
-  _22 = (int) _21;
-  _23 = isspace (_22);
-  if (_23 != 0)
-    goto <bb 16>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 18> [0.00%]:
-  _24 = *buf_36;
-  if (_24 == 0)
-    goto <bb 19>; [0.00%]
-  else
-    goto <bb 20>; [0.00%]
-
-  <bb 19> [0.00%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 30>; [0.00%]
-
-  <bb 20> [0.00%]:
-  _25 = cmd_string_parse (buf_36, &cmdlist, &cause);
-  if (_25 != 0)
-    goto <bb 21>; [0.00%]
-  else
-    goto <bb 24>; [0.00%]
-
-  <bb 21> [0.00%]:
-  free (copy_79);
-  cause.13_26 = cause;
-  if (cause.13_26 == 0B)
-    goto <bb 22>; [0.00%]
-  else
-    goto <bb 23>; [0.00%]
-
-  <bb 22> [0.00%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 30>; [0.00%]
-
-  <bb 23> [0.00%]:
-  cause.14_27 = cause;
-  free (cause.14_27);
-  // predicted unlikely by continue predictor.
-  goto <bb 30>; [0.00%]
-
-  <bb 24> [0.00%]:
-  free (copy_79);
-  cmdlist.15_28 = cmdlist;
-  if (cmdlist.15_28 == 0B)
-    goto <bb 25>; [0.00%]
-  else
-    goto <bb 26>; [0.00%]
-
-  <bb 25> [0.00%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 30>; [0.00%]
-
-  <bb 26> [0.00%]:
-  if (ctxin_84(D) == 0B)
-    goto <bb 27>; [0.00%]
-  else
-    goto <bb 28>; [0.00%]
-
-  <bb 27> [0.00%]:
-  ctx.msgdata = 0B;
-  ctx.curclient = 0B;
-  ctx.cmdclient = 0B;
-  goto <bb 29>; [0.00%]
-
-  <bb 28> [0.00%]:
-  _29 = ctxin_84(D)->msgdata;
-  ctx.msgdata = _29;
-  _30 = ctxin_84(D)->curclient;
-  ctx.curclient = _30;
-  _31 = ctxin_84(D)->cmdclient;
-  ctx.cmdclient = _31;
-
-  <bb 29> [0.00%]:
-  cfg_cause = 0B;
-
-  <bb 30> [0.00%]:
-  # n_35 = PHI <n_55(4), n_76(14), n_76(19), n_76(22), n_76(23), n_76(25), n_76(29)>
-  # buf_37 = PHI <buf_58(D)(4), buf_61(14), buf_36(19), buf_36(22), buf_36(23), buf_36(25), buf_36(29)>
-  # line_39 = PHI <line_56(4), line_38(14), line_80(19), line_80(22), line_80(23), line_80(25), line_80(29)>
-  # len_41 = PHI <len_59(D)(4), len_77(14), len_77(19), len_77(22), len_77(23), len_77(25), len_77(29)>
-  _32 = (int) len_41;
-  buf_61 = fgets (buf_37, _32, f_53);
-  if (buf_61 != 0B)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 31>; [0.00%]
-
-  <bb 31> [0.00%]:
-  if (line_39 != 0B)
-    goto <bb 32>; [0.00%]
-  else
-    goto <bb 33>; [0.00%]
-
-  <bb 32> [0.00%]:
-  free (line_39);
-
-  <bb 33> [0.00%]:
-  fclose (f_53);
-  cfg_references.16_33 = cfg_references;
-  _34 = cfg_references.16_33 + -1;
-  cfg_references = _34;
-  _65 = retval_57;
-
-  <bb 34> [0.00%]:
-  # _43 = PHI <_95(3), _65(33)>
-  cause ={v} {CLOBBER};
-  cmdlist ={v} {CLOBBER};
-  ctx ={v} {CLOBBER};
-  return _43;
-
-}
-
-
-
-;; Function main (main, funcdef_no=47, decl_uid=4262, cgraph_uid=47, symbol_order=51)
+;; Function main (main, funcdef_no=10, decl_uid=2076, cgraph_uid=10, symbol_order=11)
 
 Function found to be nothrow: main
 main ()
 {
-  struct causelist causes;
-  struct cmd_ctx ctxin;
-  void * _1;
-  int _9;
+  int quiet;
+  int type;
+  struct object_id oid;
+  int _5;
 
   <bb 2> [0.00%]:
-  _1 = malloc (1);
-  causes.list = _1;
-  causes.num = 0;
-  causes.list = 0B;
-  causes.space = 0;
-  load_cfg ("path", &ctxin, &causes);
-  _9 = 0;
-  ctxin ={v} {CLOBBER};
-  causes ={v} {CLOBBER};
-  return _9;
+  reset_index (&oid, type_2(D), quiet_3(D));
+  _5 = 0;
+  oid ={v} {CLOBBER};
+  return _5;
 
 }
 

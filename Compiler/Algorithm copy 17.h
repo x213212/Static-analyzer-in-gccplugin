@@ -1567,11 +1567,11 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 					for (int i = 0; i < assign_array.assign_type_array.size(); i++)
 					{
 
-						// if ((assign_array.assign_type_array)[i].stmt == use_stmt)
-						// {
-						// 	debug((assign_array.assign_type_array)[i].stmt);
-						// 	continue;
-						// }
+						if ((assign_array.assign_type_array)[i].stmt == use_stmt)
+						{
+							debug((assign_array.assign_type_array)[i].stmt);
+							continue;
+						}
 
 						if (gimple_code((assign_array.assign_type_array)[i].stmt) == GIMPLE_ASSIGN)
 						{
@@ -1996,17 +1996,6 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 						// if (gimple_assign_lhs(use_stmt) != target2)
 						new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt), gimple_assign_lhs(use_stmt));
-					}
-				}else
-				{
-						if (!check_stmtStack(gimple_assign_lhs(use_stmt)))
-					{
-						// gimple_assign_lhs(def_stmt2) != gimple_assign_lhs(use_stmt)
-						fprintf(stderr, "------------------COMPONENT_REF : LHS-3-----------------\n");
-						set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target, NULL);
-
-						// if (gimple_assign_lhs(use_stmt) != target2)
-						// new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt), gimple_assign_lhs(use_stmt));
 					}
 				}
 				if (TREE_CODE(gimple_assign_rhs1(use_stmt)) == SSA_NAME)
@@ -3248,7 +3237,6 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 						break;
 
 					treeGimpleArray->put(table1->target, *used_stmt);
-					free(user_tmp2);
 					break;
 				}
 			}
@@ -3303,12 +3291,6 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	printfBasicblock();
 	// printfPointerConstraint2(ptable, used_stmt);
 	printfunctionCollect(ptable, used_stmt);
-
-free(table1);
-free(table3);
-free(u_stmt);
-
-
 }
 
 void print_function_path(vector<return_type> *path)

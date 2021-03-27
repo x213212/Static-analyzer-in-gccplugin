@@ -1,1007 +1,543 @@
 
-;; Function printf (printf, funcdef_no=15, decl_uid=798, cgraph_uid=15, symbol_order=15)
+;; Function update_tree_entry_internal (update_tree_entry_internal, funcdef_no=1, decl_uid=1976, cgraph_uid=1, symbol_order=2)
 
-__attribute__((__artificial__, __gnu_inline__, __always_inline__))
-printf (const char * restrict __fmt)
+update_tree_entry_internal (struct tree_desc * desc, struct strbuf * err)
 {
-  int D.4275;
+  int tmp;
+  long unsigned int len;
+  long unsigned int size;
+  const unsigned char * end;
+  const void * buf;
+  int D.2104;
 
   <bb 2> [0.00%]:
-  D.4275 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  return D.4275;
-
-}
-
-
-
-;; Function fgets (fgets, funcdef_no=20, decl_uid=2081, cgraph_uid=20, symbol_order=20)
-
-__attribute__((__artificial__, __gnu_inline__, __always_inline__))
-fgets (char * restrict __s, int __n, struct FILE * restrict __stream)
-{
-  char * D.4381;
-
-  <bb 2> [0.00%]:
-  _1 = __builtin_object_size (__s, 1);
-  if (_1 != 18446744073709551615)
+  buf = desc->buffer;
+  _1 = desc->entry.oid;
+  _2 = &_1->hash;
+  end = _2 + 20;
+  _3 = desc->size;
+  size = (long unsigned int) _3;
+  end.0_4 = (long int) end;
+  buf.1_5 = (long int) buf;
+  _6 = end.0_4 - buf.1_5;
+  len = (long unsigned int) _6;
+  if (size < len)
     goto <bb 3>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _2 = __builtin_constant_p (__n);
-  if (_2 == 0)
-    goto <bb 5>; [0.00%]
   else
     goto <bb 4>; [0.00%]
 
+  <bb 3> [0.00%]:
+  printf ("too-short tree file%s", buf);
+  exit (1);
+
   <bb 4> [0.00%]:
-  if (__n <= 0)
+  buf = end;
+  size = size - len;
+  desc->buffer = buf;
+  _7 = (unsigned int) size;
+  desc->size = _7;
+  if (size != 0)
     goto <bb 5>; [0.00%]
   else
     goto <bb 6>; [0.00%]
 
   <bb 5> [0.00%]:
-  _3 = __builtin_object_size (__s, 1);
-  D.4381 = __fgets_chk (__s, _3, __n, __stream);
-  goto <bb 9>; [0.00%]
+  tmp = decode_tree_entry (desc, buf, size, err);
+  D.2104 = tmp;
+  goto <bb 7>; [0.00%]
 
   <bb 6> [0.00%]:
-  _4 = (long unsigned int) __n;
-  _5 = __builtin_object_size (__s, 1);
-  if (_4 > _5)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
+  D.2104 = 0;
 
   <bb 7> [0.00%]:
-  _6 = __builtin_object_size (__s, 1);
-  D.4381 = *__fgets_chk (__s, _6, __n, __stream);
-  goto <bb 9>; [0.00%]
-
-  <bb 8> [0.00%]:
-  D.4381 = *fgets (__s, __n, __stream);
-
-  <bb 9> [0.00%]:
-  return D.4381;
+  return D.2104;
 
 }
 
 
 
-;; Function xrealloc (xrealloc, funcdef_no=39, decl_uid=4125, cgraph_uid=39, symbol_order=43)
+;; Function init_tree_desc_internal (init_tree_desc_internal, funcdef_no=6, decl_uid=2030, cgraph_uid=6, symbol_order=7)
 
-xrealloc (void * oldptr, size_t nmemb, size_t size)
+init_tree_desc_internal (struct tree_desc * desc, const void * buffer, long unsigned int size, struct strbuf * err)
 {
-  void * newptr;
-  size_t newsize;
-  void * D.4273;
+  int tmp;
+  int D.2121;
 
   <bb 2> [0.00%]:
-  newsize = nmemb * size;
-  if (newsize == 0)
+  desc->buffer = buffer;
+  _1 = (unsigned int) size;
+  desc->size = _1;
+  if (size != 0)
     goto <bb 3>; [0.00%]
   else
     goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
-  printf ("zero size%s", "");
-  exit (1);
-
-  <bb 4> [0.00%]:
-  _1 = 30 / nmemb;
-  _2 = (unsigned int) _1;
-  _3 = 1 << _2;
-  _4 = (long unsigned int) _3;
-  if (size > _4)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 5> [0.00%]:
-  printf ("nmemb * size > SIZE_MAX%s", "");
-  exit (1);
-
-  <bb 6> [0.00%]:
-  newptr = realloc (oldptr, newsize);
-  if (newptr == 0B)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 7> [0.00%]:
-  printf ("xrealloc failed%s", "");
-  exit (1);
-
-  <bb 8> [0.00%]:
-  D.4273 = newptr;
-  return D.4273;
-
-}
-
-
-
-;; Function cmd_string_getc (cmd_string_getc, funcdef_no=40, decl_uid=4131, cgraph_uid=40, symbol_order=44)
-
-cmd_string_getc (const char * s, size_t * p)
-{
-  const u_char * ucs;
-  int D.4279;
-
-  <bb 2> [0.00%]:
-  ucs = s;
-  _1 = *p;
-  _2 = ucs + _1;
-  _3 = *_2;
-  if (_3 == 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  D.4279 = -1;
+  tmp = decode_tree_entry (desc, buffer, size, err);
+  D.2121 = tmp;
   goto <bb 5>; [0.00%]
 
   <bb 4> [0.00%]:
-  _4 = *p;
-  _5 = _4;
-  _6 = _5 + 1;
-  *p = _6;
-  _7 = ucs + _5;
-  _8 = *_7;
-  D.4279 = (int) _8;
+  D.2121 = 0;
 
   <bb 5> [0.00%]:
-  return D.4279;
+  return D.2121;
 
 }
 
 
 
-;; Function cmd_string_ungetc (cmd_string_ungetc, funcdef_no=41, decl_uid=4135, cgraph_uid=41, symbol_order=45)
+;; Function xrealloc (xrealloc, funcdef_no=0, decl_uid=1963, cgraph_uid=0, symbol_order=0)
 
-cmd_string_ungetc (size_t * p)
+xrealloc (void * ptr, size_t size)
 {
+  void * ret;
+  void * D.2094;
+
   <bb 2> [0.00%]:
-  _1 = *p;
-  _2 = _1 + 18446744073709551615;
-  *p = _2;
+  ret = realloc (ptr, size);
+  if (ret == 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 3> [0.00%]:
+  if (size == 0)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  ret = realloc (ptr, 1);
+
+  <bb 5> [0.00%]:
+  if (ret == 0B)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 11>; [0.00%]
+
+  <bb 6> [0.00%]:
+  ret = realloc (ptr, size);
+  if (ret == 0B)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 7> [0.00%]:
+  if (size == 0)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 8> [0.00%]:
+  ret = realloc (ptr, 1);
+
+  <bb 9> [0.00%]:
+  if (ret == 0B)
+    goto <bb 10>; [0.00%]
+  else
+    goto <bb 11>; [0.00%]
+
+  <bb 10> [0.00%]:
+  printf ("Out of memory, realloc failed%s", "");
+  exit (1);
+
+  <bb 11> [0.00%]:
+  D.2094 = ret;
+  return D.2094;
+
+}
+
+
+
+;; Function update_tree_entry (update_tree_entry, funcdef_no=2, decl_uid=1985, cgraph_uid=2, symbol_order=3)
+
+update_tree_entry (struct tree_desc * desc)
+{
+  int tmp;
+  struct strbuf err;
+
+  <bb 2> [0.00%]:
+  err.alloc = 0;
+  err.len = 0;
+  err.buf = &strbuf_slopbuf;
+  tmp = update_tree_entry_internal (desc, &err);
+  if (tmp != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _1 = err.buf;
+  printf ("%s", _1);
+  exit (1);
+
+  <bb 4> [0.00%]:
+  strbuf_release (&err);
+  err = {CLOBBER};
   return;
 
 }
 
 
 
-;; Function cmd_string_variable (cmd_string_variable, funcdef_no=42, decl_uid=4139, cgraph_uid=42, symbol_order=46)
+;; Function extended_entry_extract (extended_entry_extract, funcdef_no=3, decl_uid=1995, cgraph_uid=3, symbol_order=4)
 
-cmd_string_variable (const char * s, size_t * p)
+extended_entry_extract (struct tree_desc_x * t, struct name_entry * a, const char * first, int first_len)
 {
-  struct environ_entry * envent;
-  size_t len;
-  char * t;
-  char * buf;
-  int fch;
-  int ch;
-  char * D.4288;
+  struct tree_desc_skip * skip;
 
   <bb 2> [0.00%]:
-  buf = 0B;
-  len = 0;
-  fch = -1;
-  ch = cmd_string_getc (s, p);
-  switch (ch) <default: <L3> [0.00%], case -1: error [0.00%], case 123: <L1> [0.00%]>
-
-<L1> [0.00%]:
-  fch = 123;
-  ch = cmd_string_getc (s, p);
-  _1 = ch != 95;
-  ch.0_2 = (unsigned int) ch;
-  _3 = ch.0_2 + 4294967199;
-  _4 = _3 > 25;
-  _5 = _1 & _4;
-  if (_5 != 0)
-    goto <bb 4>; [0.00%]
+  _1 = t->d.size;
+  if (_1 == 0)
+    goto <bb 3>; [0.00%]
   else
-    goto <bb 5> (<L3>); [0.00%]
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  entry_clear (a);
+  goto <bb 10>; [0.00%]
 
   <bb 4> [0.00%]:
-  ch.1_6 = (unsigned int) ch;
-  _7 = ch.1_6 + 4294967231;
-  if (_7 > 25)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 5> (<L3>); [0.00%]
+  _2 = &t->d;
+  entry_extract (_2, a);
+  skip = t->skip;
+  goto <bb 7>; [0.00%]
 
-<L3> [0.00%]:
-  _8 = ch != 95;
-  ch.2_9 = (unsigned int) ch;
-  _10 = ch.2_9 + 4294967199;
-  _11 = _10 > 25;
-  _12 = _8 & _11;
-  if (_12 != 0)
+  <bb 5> [0.00%]:
+  _3 = a->path;
+  _4 = (long unsigned int) _3;
+  _5 = skip->ptr;
+  _6 = (long unsigned int) _5;
+  if (_4 == _6)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 6> [0.00%]:
+  skip = skip->prev;
+
+  <bb 7> [0.00%]:
+  if (skip != 0B)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 8> [0.00%]:
+  if (skip == 0B)
+    goto <bb 10>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 9> [0.00%]:
+  _7 = &t->d;
+  update_tree_entry (_7);
+  goto <bb 2>; [0.00%]
+
+  <bb 10> [0.00%]:
+  return;
+
+}
+
+
+
+;; Function traverse_trees (traverse_trees, funcdef_no=4, decl_uid=2006, cgraph_uid=4, symbol_order=5)
+
+traverse_trees (int n, struct tree_desc * t, struct traverse_info * info)
+{
+  struct name_entry * e;
+  void * tmp___0;
+  struct name_entry * entry;
+  void * tmp;
+  struct tree_desc_x * tx;
+  int n___0;
+  int i;
+  int D.2106;
+
+  <bb 2> [0.00%]:
+  _1 = (long unsigned int) n___0;
+  tmp = calloc (_1, 48);
+  tx = tmp;
+  _2 = (long unsigned int) n___0;
+  _3 = _2 * 24;
+  tmp___0 = malloc (_3);
+  entry = tmp___0;
+  e = 0B;
+  i = 0;
+  goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _4 = (long unsigned int) i;
+  _5 = _4 * 40;
+  _6 = t + _5;
+  _7 = (long unsigned int) i;
+  _8 = _7 * 48;
+  _9 = tx + _8;
+  _9->d = *_6;
+  i = i + 1;
+
+  <bb 4> [0.00%]:
+  if (i < n___0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 5> [0.00%]:
+  i = 0;
+  goto <bb 7>; [0.00%]
+
+  <bb 6> [0.00%]:
+  _10 = (long unsigned int) i;
+  _11 = _10 * 24;
+  e = entry + _11;
+  _12 = (long unsigned int) i;
+  _13 = _12 * 48;
+  _14 = tx + _13;
+  extended_entry_extract (_14, e, 0B, 0);
+  i = i + 1;
+
+  <bb 7> [0.00%]:
+  if (i < n___0)
     goto <bb 6>; [0.00%]
   else
     goto <bb 8>; [0.00%]
 
-  <bb 6> [0.00%]:
-  ch.3_13 = (unsigned int) ch;
-  _14 = ch.3_13 + 4294967231;
-  if (_14 > 25)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
+  <bb 8> [0.00%]:
+  free (tx);
+  D.2106 = 1;
+  return D.2106;
 
-  <bb 7> [0.00%]:
-  D.4288 = t;
-  goto <bb 22>; [0.00%]
+}
+
+
+
+;; Function unpack_trees (unpack_trees, funcdef_no=5, decl_uid=2024, cgraph_uid=5, symbol_order=6)
+
+unpack_trees (unsigned int len, struct tree_desc * t, struct unpack_trees_options * o)
+{
+  int D.2113;
+
+  <bb 2> [0.00%]:
+  len.2_1 = (int) len;
+  traverse_trees (len.2_1, t, 0B);
+  D.2113 = 0;
+  return D.2113;
+
+}
+
+
+
+;; Function init_tree_desc (init_tree_desc, funcdef_no=7, decl_uid=2036, cgraph_uid=7, symbol_order=8)
+
+init_tree_desc (struct tree_desc * desc, const void * buffer, long unsigned int size)
+{
+  int tmp;
+  struct strbuf err;
+
+  <bb 2> [0.00%]:
+  err.alloc = 0;
+  err.len = 0;
+  err.buf = &strbuf_slopbuf;
+  tmp = init_tree_desc_internal (desc, buffer, size, &err);
+  if (tmp != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _1 = err.buf;
+  printf ("%s", _1);
+  exit (1);
+
+  <bb 4> [0.00%]:
+  strbuf_release (&err);
+  err = {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function fill_tree_descriptor (fill_tree_descriptor, funcdef_no=8, decl_uid=2043, cgraph_uid=8, symbol_order=9)
+
+fill_tree_descriptor (struct tree_desc * desc, const struct object_id * oid)
+{
+  int tmp;
+  void * buf;
+  long unsigned int size;
+
+  <bb 2> [0.00%]:
+  size = 0;
+  buf = 0B;
+  if (oid != 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 3> [0.00%]:
+  buf = malloc (100);
+  if (buf == 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  tmp = oid_to_hex (oid);
+  printf ("unable to read tree %s", tmp);
+  exit (1);
+
+  <bb 5> [0.00%]:
+  init_tree_desc (desc, buf, size);
+  return;
+
+}
+
+
+
+;; Function reset_index (reset_index, funcdef_no=9, decl_uid=2058, cgraph_uid=9, symbol_order=10)
+
+reset_index (const struct object_id * oid, int reset_type, int quiet)
+{
+  int tmp___3;
+  int tmp___2;
+  int tmp___1;
+  int tmp___0;
+  int tmp;
+  struct object_id head_oid;
+  struct unpack_trees_options opts;
+  struct tree * tree;
+  struct tree_desc desc[2];
+  int nr;
+  int D.2137;
+
+  <bb 2> [0.00%]:
+  nr = 0;
+  memset (&opts, 0, 640);
+  opts.head_idx = 1;
+  opts.src_index = &the_index;
+  opts.dst_index = &the_index;
+  opts.fn = oneway_merge;
+  opts.merge = 1;
+  if (quiet == 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  opts.verbose_update = 1;
+
+  <bb 4> [0.00%]:
+  switch (reset_type) <default: <L5> [0.00%], case 2: <L4> [0.00%], case 3 ... 4: <L2> [0.00%]>
+
+<L2> [0.00%]:
+  opts.update = 1;
+  goto <bb 8>; [0.00%]
+
+<L4> [0.00%]:
+  opts.update = 1;
+
+<L5> [0.00%]:
+  opts.reset = 1;
 
   <bb 8> [0.00%]:
-  _15 = len + 1;
-  buf = xrealloc (buf, 1, _15);
-  len.4_16 = len;
-  len = len.4_16 + 1;
-  _17 = buf + len.4_16;
-  _18 = (char) ch;
-  *_17 = _18;
+  read_cache_unmerged ();
+  if (reset_type == 4)
+    goto <bb 9>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
 
   <bb 9> [0.00%]:
-  ch = cmd_string_getc (s, p);
-  if (ch == -1)
-    goto <bb 15>; [0.00%]
-  else
+  tmp___1 = get_oid ("HEAD", &head_oid);
+  if (tmp___1 != 0)
     goto <bb 10>; [0.00%]
+  else
+    goto <bb 11>; [0.00%]
 
   <bb 10> [0.00%]:
-  _19 = ch != 95;
-  ch.5_20 = (unsigned int) ch;
-  _21 = ch.5_20 + 4294967199;
-  _22 = _21 > 25;
-  _23 = _19 & _22;
-  if (_23 != 0)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
+  tmp = _ ("You do not have a valid HEAD.");
+  tmp___0 = error (tmp);
+  D.2137 = tmp___0;
+  goto <bb 19>; [0.00%]
 
   <bb 11> [0.00%]:
-  ch.6_24 = (unsigned int) ch;
-  _25 = ch.6_24 + 4294967231;
-  if (_25 > 25)
-    goto <bb 12>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
+  _1 = (long unsigned int) nr;
+  _2 = _1 * 40;
+  _3 = &desc + _2;
+  fill_tree_descriptor (_3, &head_oid);
+  nr = nr + 1;
+  opts.fn = twoway_merge;
 
   <bb 12> [0.00%]:
-  ch.7_26 = (unsigned int) ch;
-  _27 = ch.7_26 + 4294967248;
-  if (_27 > 9)
-    goto <bb 15>; [0.00%]
-  else
+  _4 = (long unsigned int) nr;
+  _5 = _4 * 40;
+  _6 = &desc + _5;
+  fill_tree_descriptor (_6, oid);
+  nr = nr + 1;
+  _7 = desc[nr].buffer;
+  printf ("%d\n", _7);
+  nr.3_8 = (unsigned int) nr;
+  tmp___2 = unpack_trees (nr.3_8, &desc, &opts);
+  if (tmp___2 != 0)
     goto <bb 13>; [0.00%]
-
-  <bb 13> [0.00%]:
-  if (len > 1073741820)
-    goto <bb 21> (error); [0.00%]
   else
     goto <bb 14>; [0.00%]
 
-  <bb 14> [0.00%]:
-  _28 = len + 1;
-  buf = xrealloc (buf, 1, _28);
-  len.8_29 = len;
-  len = len.8_29 + 1;
-  _30 = buf + len.8_29;
-  _31 = (char) ch;
-  *_30 = _31;
-  goto <bb 9>; [0.00%]
+  <bb 13> [0.00%]:
+  D.2137 = -1;
+  goto <bb 19>; [0.00%]
 
-  <bb 15> [0.00%]:
-  _32 = fch == 123;
-  _33 = ch != 125;
-  _34 = _32 & _33;
-  if (_34 != 0)
-    goto <bb 21> (error); [0.00%]
+  <bb 14> [0.00%]:
+  if (reset_type == 0)
+    goto <bb 15>; [0.00%]
   else
     goto <bb 16>; [0.00%]
 
+  <bb 15> [0.00%]:
+  tmp___3 = parse_tree_indirect (oid);
+  _9 = (long int) tmp___3;
+  tree = (struct tree *) _9;
+  prime_cache_tree (&the_index, tree);
+  goto <bb 18>; [0.00%]
+
   <bb 16> [0.00%]:
-  _35 = ch != -1;
-  _36 = fch != 123;
-  _37 = _35 & _36;
-  if (_37 != 0)
+  if (reset_type == 2)
     goto <bb 17>; [0.00%]
   else
     goto <bb 18>; [0.00%]
 
   <bb 17> [0.00%]:
-  cmd_string_ungetc (p);
+  tmp___3 = parse_tree_indirect (oid);
+  _10 = (long int) tmp___3;
+  tree = (struct tree *) _10;
+  prime_cache_tree (&the_index, tree);
 
   <bb 18> [0.00%]:
-  _38 = len + 1;
-  buf = xrealloc (buf, 1, _38);
-  _39 = buf + len;
-  *_39 = 0;
-  free (buf);
-  if (envent == 0B)
-    goto <bb 19>; [0.00%]
-  else
-    goto <bb 20>; [0.00%]
+  D.2137 = 0;
 
   <bb 19> [0.00%]:
-  D.4288 = strdup ("");
-  goto <bb 22>; [0.00%]
-
-  <bb 20> [0.00%]:
-  _40 = envent->value;
-  D.4288 = strdup (_40);
-  goto <bb 22>; [0.00%]
-
-error [0.00%]:
-  free (buf);
-  D.4288 = 0B;
-
-  <bb 22> [0.00%]:
-  return D.4288;
+  desc = {CLOBBER};
+  opts = {CLOBBER};
+  head_oid = {CLOBBER};
+  return D.2137;
 
 }
 
 
 
-;; Function cmd_string_string (cmd_string_string, funcdef_no=43, decl_uid=4159, cgraph_uid=43, symbol_order=47)
-
-cmd_string_string (const char * s, size_t * p, char endch, int esc)
-{
-  size_t len;
-  char * t;
-  char * buf;
-  int ch;
-  char * D.4307;
-
-  <bb 2> [0.00%]:
-  buf = 0B;
-  len = 0;
-  goto <bb 15>; [0.00%]
-
-  <bb 3> [0.00%]:
-  switch (ch) <default: <L14> [0.00%], case -1: error [0.00%], case 36: <L11> [0.00%], case 92: <L2> [0.00%]>
-
-<L2> [0.00%]:
-  if (esc == 0)
-    goto <bb 13> (<L14>); [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 5> [0.00%]:
-  ch = cmd_string_getc (s, p);
-  switch (ch) <default: <L14> [0.00%], case -1: error [0.00%], case 101: <L5> [0.00%], case 110: <L7> [0.00%], case 114: <L6> [0.00%], case 116: <L8> [0.00%]>
-
-<L5> [0.00%]:
-  ch = 27;
-  goto <bb 13> (<L14>); [0.00%]
-
-<L6> [0.00%]:
-  ch = 13;
-  goto <bb 13> (<L14>); [0.00%]
-
-<L7> [0.00%]:
-  ch = 10;
-  goto <bb 13> (<L14>); [0.00%]
-
-<L8> [0.00%]:
-  ch = 9;
-  goto <bb 13> (<L14>); [0.00%]
-
-<L11> [0.00%]:
-  if (esc == 0)
-    goto <bb 13> (<L14>); [0.00%]
-  else
-    goto <bb 11>; [0.00%]
-
-  <bb 11> [0.00%]:
-  t = cmd_string_variable (s, p);
-  if (t == 0B)
-    goto <bb 17> (error); [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 12> [0.00%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 15>; [0.00%]
-
-<L14> [0.00%]:
-  if (len > 1073741821)
-    goto <bb 17> (error); [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 14> [0.00%]:
-  _1 = len + 1;
-  buf = xrealloc (buf, 1, _1);
-  len.9_2 = len;
-  len = len.9_2 + 1;
-  _3 = buf + len.9_2;
-  _4 = (char) ch;
-  *_3 = _4;
-
-  <bb 15> [0.00%]:
-  ch = cmd_string_getc (s, p);
-  _5 = (int) endch;
-  if (ch != _5)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 16>; [0.00%]
-
-  <bb 16> [0.00%]:
-  _6 = len + 1;
-  buf = xrealloc (buf, 1, _6);
-  _7 = buf + len;
-  *_7 = 0;
-  D.4307 = buf;
-  goto <bb 18>; [0.00%]
-
-error [0.00%]:
-  free (buf);
-  D.4307 = 0B;
-
-  <bb 18> [0.00%]:
-  return D.4307;
-
-}
-
-
-
-;; Function cmd_string_expand_tilde (cmd_string_expand_tilde, funcdef_no=44, decl_uid=4181, cgraph_uid=44, symbol_order=48)
-
-cmd_string_expand_tilde (const char * s, size_t * p)
-{
-  char * username;
-  char * path;
-  char * home;
-  struct environ_entry * envent;
-  struct passwd * pw;
-  char * D.4320;
-
-  <bb 2> [0.00%]:
-  home = 0B;
-  _1 = cmd_string_getc (s, p);
-  if (_1 == 47)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 3> [0.00%]:
-  if (envent != 0B)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _2 = envent->value;
-  _3 = *_2;
-  if (_3 != 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 5> [0.00%]:
-  home = envent->value;
-  goto <bb 13>; [0.00%]
-
-  <bb 6> [0.00%]:
-  _4 = getuid ();
-  _5 = getpwuid (_4);
-  _6 = (long int) _5;
-  pw = (struct passwd *) _6;
-  if (pw != 0B)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
-
-  <bb 7> [0.00%]:
-  home = pw->pw_dir;
-  goto <bb 13>; [0.00%]
-
-  <bb 8> [0.00%]:
-  cmd_string_ungetc (p);
-  username = cmd_string_string (s, p, 47, 0);
-  if (username == 0B)
-    goto <bb 9>; [0.00%]
-  else
-    goto <bb 10>; [0.00%]
-
-  <bb 9> [0.00%]:
-  D.4320 = 0B;
-  goto <bb 16>; [0.00%]
-
-  <bb 10> [0.00%]:
-  _7 = getpwnam (username);
-  _8 = (long int) _7;
-  pw = (struct passwd *) _8;
-  if (pw != 0B)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 11> [0.00%]:
-  home = pw->pw_dir;
-
-  <bb 12> [0.00%]:
-  free (username);
-
-  <bb 13> [0.00%]:
-  if (home == 0B)
-    goto <bb 14>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 14> [0.00%]:
-  D.4320 = 0B;
-  goto <bb 16>; [0.00%]
-
-  <bb 15> [0.00%]:
-  D.4320 = strdup (home);
-
-  <bb 16> [0.00%]:
-  return D.4320;
-
-}
-
-
-
-;; Function cmd_string_parse (cmd_string_parse, funcdef_no=45, decl_uid=4198, cgraph_uid=45, symbol_order=49)
-
-cmd_string_parse (const char * s, struct cmd_list * * cmdlist, char * * cause)
-{
-  size_t len;
-  const char * equals;
-  const char * whitespace;
-  char * t;
-  char * buf;
-  char * * argv;
-  int rval;
-  int argc;
-  int i;
-  int ch;
-  size_t p;
-  int D.4341;
-
-  <bb 2> [0.00%]:
-  argv = 0B;
-  argc = 0;
-  buf = 0B;
-  len = 0;
-  *cause = 0B;
-  *cmdlist = 0B;
-  rval = -1;
-  p = 0;
-
-  <bb 3> [0.00%]:
-  ch = cmd_string_getc (s, &p);
-  switch (ch) <default: <L26> [0.00%], case -1: <L10> [0.00%], case 9: <L10> [0.00%], case 32: <L10> [0.00%], case 34: <L3> [0.00%], case 35: <L39> [0.00%], case 36: <L5> [0.00%], case 39: <L1> [0.00%], case 126: <L23> [0.00%]>
-
-<L1> [0.00%]:
-  t = cmd_string_string (s, &p, 39, 0);
-  if (t == 0B)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 3>; [0.00%]
-
-<L3> [0.00%]:
-  t = cmd_string_string (s, &p, 34, 1);
-  if (t == 0B)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 3>; [0.00%]
-
-<L5> [0.00%]:
-  t = cmd_string_variable (s, &p);
-  if (t == 0B)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 3>; [0.00%]
-
-<L39> [0.00%]:
-  ch = cmd_string_getc (s, &p);
-  if (ch != -1)
-    goto <bb 7> (<L39>); [0.00%]
-  else
-    goto <bb 8> (<L10>); [0.00%]
-
-<L10> [0.00%]:
-  if (buf != 0B)
-    goto <bb 9>; [0.00%]
-  else
-    goto <bb 10>; [0.00%]
-
-  <bb 9> [0.00%]:
-  _1 = len + 1;
-  buf = xrealloc (buf, 1, _1);
-  _2 = buf + len;
-  *_2 = 0;
-  _3 = argc + 1;
-  _4 = (long unsigned int) _3;
-  argv = xrealloc (argv, _4, 8);
-  argc.10_5 = argc;
-  argc = argc.10_5 + 1;
-  _6 = (long unsigned int) argc.10_5;
-  _7 = _6 * 8;
-  _8 = argv + _7;
-  *_8 = buf;
-  buf = 0B;
-  len = 0;
-
-  <bb 10> [0.00%]:
-  if (ch != -1)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
-
-  <bb 11> [0.00%]:
-  _9 = *argv;
-  equals = strchr (_9, 61);
-  _10 = *argv;
-  _11 = *argv;
-  _12 = strcspn (_11, " \t");
-  whitespace = _10 + _12;
-  _13 = equals == 0B;
-  _14 = equals > whitespace;
-  _15 = _13 | _14;
-  if (_15 != 0)
-    goto <bb 14>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 12> [0.00%]:
-  argc = argc + -1;
-  _16 = (long unsigned int) argc;
-  _17 = _16 * 8;
-  _18 = argv + 8;
-  memmove (argv, _18, _17);
-
-  <bb 13> [0.00%]:
-  if (argc != 0)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 14> [0.00%]:
-  if (argc == 0)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 15> [0.00%]:
-  _19 = *cmdlist;
-  if (_19 == 0B)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 16>; [0.00%]
-
-  <bb 16> [0.00%]:
-  rval = 0;
-  goto <bb 21> (error); [0.00%]
-
-<L23> [0.00%]:
-  if (buf == 0B)
-    goto <bb 18>; [0.00%]
-  else
-    goto <bb 19> (<L26>); [0.00%]
-
-  <bb 18> [0.00%]:
-  t = cmd_string_expand_tilde (s, &p);
-  if (t == 0B)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 3>; [0.00%]
-
-<L26> [0.00%]:
-  if (len > 1073741821)
-    goto <bb 21> (error); [0.00%]
-  else
-    goto <bb 20>; [0.00%]
-
-  <bb 20> [0.00%]:
-  _20 = len + 1;
-  buf = xrealloc (buf, 1, _20);
-  len.11_21 = len;
-  len = len.11_21 + 1;
-  _22 = buf + len.11_21;
-  _23 = (char) ch;
-  *_22 = _23;
-  goto <bb 3>; [0.00%]
-
-error [0.00%]:
-out [0.00%]:
-  free (buf);
-  if (argv != 0B)
-    goto <bb 22>; [0.00%]
-  else
-    goto <bb 26>; [0.00%]
-
-  <bb 22> [0.00%]:
-  i = 0;
-  goto <bb 24>; [0.00%]
-
-  <bb 23> [0.00%]:
-  _24 = (long unsigned int) i;
-  _25 = _24 * 8;
-  _26 = argv + _25;
-  _27 = *_26;
-  free (_27);
-  i = i + 1;
-
-  <bb 24> [0.00%]:
-  if (i < argc)
-    goto <bb 23>; [0.00%]
-  else
-    goto <bb 25>; [0.00%]
-
-  <bb 25> [0.00%]:
-  free (argv);
-
-  <bb 26> [0.00%]:
-  D.4341 = rval;
-  p = {CLOBBER};
-  return D.4341;
-
-}
-
-
-
-;; Function load_cfg (load_cfg, funcdef_no=46, decl_uid=4239, cgraph_uid=46, symbol_order=50)
-
-load_cfg (const char * path, struct cmd_ctx * ctxin, struct causelist * causes)
-{
-  cmd_retval retval;
-  struct cmd_ctx ctx;
-  struct cmd_list * cmdlist;
-  size_t oldlen;
-  size_t len;
-  char * cause;
-  char * line;
-  char * copy;
-  char * buf;
-  u_int n;
-  struct FILE * f;
-  cmd_retval D.4347;
-
-  <bb 2> [0.00%]:
-  f = fopen (path, "rb");
-  if (f == 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  D.4347 = -1;
-  goto <bb 34>; [0.00%]
-
-  <bb 4> [0.00%]:
-  cfg_references.12_1 = cfg_references;
-  _2 = cfg_references.12_1 + 1;
-  cfg_references = _2;
-  n = 0;
-  line = 0B;
-  retval = 0;
-  goto <bb 30>; [0.00%]
-
-  <bb 5> [0.00%]:
-  _3 = len + 18446744073709551615;
-  _4 = buf + _3;
-  _5 = *_4;
-  if (_5 == 10)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 6> [0.00%]:
-  len = len + 18446744073709551615;
-
-  <bb 7> [0.00%]:
-  printf ("%s: %s", path, buf);
-  if (line != 0B)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 8> [0.00%]:
-  oldlen = strlen (line);
-  _6 = oldlen + len;
-  _7 = _6 + 1;
-  line = xrealloc (line, 1, _7);
-  goto <bb 10>; [0.00%]
-
-  <bb 9> [0.00%]:
-  oldlen = 0;
-  _8 = len + 1;
-  line = malloc (_8);
-
-  <bb 10> [0.00%]:
-  _9 = line + oldlen;
-  memcpy (_9, buf, len);
-  _10 = oldlen + len;
-  _11 = line + _10;
-  *_11 = 0;
-  n = n + 1;
-  len = strlen (line);
-  if (len != 0)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 11> [0.00%]:
-  _12 = len + 18446744073709551615;
-  _13 = line + _12;
-  _14 = *_13;
-  if (_14 == 92)
-    goto <bb 12>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 12> [0.00%]:
-  _15 = len + 18446744073709551615;
-  _16 = line + _15;
-  *_16 = 0;
-  if (len > 1)
-    goto <bb 13>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 13> [0.00%]:
-  _17 = len + 18446744073709551614;
-  _18 = line + _17;
-  _19 = *_18;
-  if (_19 != 92)
-    goto <bb 14>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 14> [0.00%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 30>; [0.00%]
-
-  <bb 15> [0.00%]:
-  copy = line;
-  line = 0B;
-  buf = copy;
-  goto <bb 17>; [0.00%]
-
-  <bb 16> [0.00%]:
-  buf = buf + 1;
-
-  <bb 17> [0.00%]:
-  _20 = *buf;
-  _21 = (unsigned char) _20;
-  _22 = (int) _21;
-  _23 = isspace (_22);
-  if (_23 != 0)
-    goto <bb 16>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 18> [0.00%]:
-  _24 = *buf;
-  if (_24 == 0)
-    goto <bb 19>; [0.00%]
-  else
-    goto <bb 20>; [0.00%]
-
-  <bb 19> [0.00%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 30>; [0.00%]
-
-  <bb 20> [0.00%]:
-  _25 = cmd_string_parse (buf, &cmdlist, &cause);
-  if (_25 != 0)
-    goto <bb 21>; [0.00%]
-  else
-    goto <bb 24>; [0.00%]
-
-  <bb 21> [0.00%]:
-  free (copy);
-  cause.13_26 = cause;
-  if (cause.13_26 == 0B)
-    goto <bb 22>; [0.00%]
-  else
-    goto <bb 23>; [0.00%]
-
-  <bb 22> [0.00%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 30>; [0.00%]
-
-  <bb 23> [0.00%]:
-  cause.14_27 = cause;
-  free (cause.14_27);
-  // predicted unlikely by continue predictor.
-  goto <bb 30>; [0.00%]
-
-  <bb 24> [0.00%]:
-  free (copy);
-  cmdlist.15_28 = cmdlist;
-  if (cmdlist.15_28 == 0B)
-    goto <bb 25>; [0.00%]
-  else
-    goto <bb 26>; [0.00%]
-
-  <bb 25> [0.00%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 30>; [0.00%]
-
-  <bb 26> [0.00%]:
-  if (ctxin == 0B)
-    goto <bb 27>; [0.00%]
-  else
-    goto <bb 28>; [0.00%]
-
-  <bb 27> [0.00%]:
-  ctx.msgdata = 0B;
-  ctx.curclient = 0B;
-  ctx.cmdclient = 0B;
-  goto <bb 29>; [0.00%]
-
-  <bb 28> [0.00%]:
-  _29 = ctxin->msgdata;
-  ctx.msgdata = _29;
-  _30 = ctxin->curclient;
-  ctx.curclient = _30;
-  _31 = ctxin->cmdclient;
-  ctx.cmdclient = _31;
-
-  <bb 29> [0.00%]:
-  cfg_cause = 0B;
-
-  <bb 30> [0.00%]:
-  _32 = (int) len;
-  buf = fgets (buf, _32, f);
-  if (buf != 0B)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 31>; [0.00%]
-
-  <bb 31> [0.00%]:
-  if (line != 0B)
-    goto <bb 32>; [0.00%]
-  else
-    goto <bb 33>; [0.00%]
-
-  <bb 32> [0.00%]:
-  free (line);
-
-  <bb 33> [0.00%]:
-  fclose (f);
-  cfg_references.16_33 = cfg_references;
-  _34 = cfg_references.16_33 + -1;
-  cfg_references = _34;
-  D.4347 = retval;
-
-  <bb 34> [0.00%]:
-  cause = {CLOBBER};
-  cmdlist = {CLOBBER};
-  ctx = {CLOBBER};
-  return D.4347;
-
-}
-
-
-
-;; Function main (main, funcdef_no=47, decl_uid=4262, cgraph_uid=47, symbol_order=51)
+;; Function main (main, funcdef_no=10, decl_uid=2076, cgraph_uid=10, symbol_order=11)
 
 main ()
 {
-  struct causelist causes;
-  struct cmd_ctx ctxin;
-  int D.4385;
+  int quiet;
+  int type;
+  struct object_id oid;
+  int D.2128;
 
   <bb 2> [0.00%]:
-  _1 = malloc (1);
-  causes.list = _1;
-  causes.num = 0;
-  causes.list = 0B;
-  causes.space = 0;
-  load_cfg ("path", &ctxin, &causes);
-  D.4385 = 0;
-  ctxin = {CLOBBER};
-  causes = {CLOBBER};
-  return D.4385;
+  reset_index (&oid, type, quiet);
+  D.2128 = 0;
+  oid = {CLOBBER};
+  return D.2128;
 
 }
 
