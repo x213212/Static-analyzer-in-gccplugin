@@ -1,38 +1,43 @@
-26 ssa "unused VAR_DECLs removed" "init_tree_desc_internal" 1
-26 ssa "unused VAR_DECLs removed" "xrealloc" 1
-26 ssa "unused VAR_DECLs removed" "update_tree_entry" 1
-26 ssa "unused VAR_DECLs removed" "unpack_trees" 1
-26 ssa "unused VAR_DECLs removed" "init_tree_desc" 1
-26 ssa "unused VAR_DECLs removed" "main" 1
-38 ccp "Copies propagated" "update_tree_entry_internal" 3
-38 ccp "Constants propagated" "update_tree_entry_internal" 1
-38 ccp "Statements deleted" "update_tree_entry_internal" 3
-55 release_ssa "SSA names released" "update_tree_entry_internal" 4
-55 release_ssa "SSA name holes removed" "update_tree_entry_internal" 4
-38 ccp "Copies propagated" "init_tree_desc_internal" 1
-38 ccp "Constants propagated" "init_tree_desc_internal" 1
-38 ccp "Statements deleted" "init_tree_desc_internal" 2
-55 release_ssa "SSA names released" "init_tree_desc_internal" 2
-55 release_ssa "SSA name holes removed" "init_tree_desc_internal" 2
-38 ccp "Constants propagated" "traverse_trees" 3
-38 ccp "Statements deleted" "traverse_trees" 4
-55 release_ssa "SSA names released" "traverse_trees" 4
-55 release_ssa "SSA name holes removed" "traverse_trees" 4
-38 ccp "Constants propagated" "unpack_trees" 1
-38 ccp "Statements deleted" "unpack_trees" 1
-55 release_ssa "SSA names released" "unpack_trees" 1
-55 release_ssa "SSA name holes removed" "unpack_trees" 1
-38 ccp "Constants propagated" "fill_tree_descriptor" 2
-38 ccp "Statements deleted" "fill_tree_descriptor" 2
-55 release_ssa "unused VAR_DECLs removed" "fill_tree_descriptor" 1
-55 release_ssa "SSA names released" "fill_tree_descriptor" 2
-55 release_ssa "SSA name holes removed" "fill_tree_descriptor" 2
-38 ccp "Copies propagated" "reset_index" 1
-38 ccp "Constants propagated" "reset_index" 5
-38 ccp "Statements deleted" "reset_index" 8
-55 release_ssa "SSA names released" "reset_index" 9
-55 release_ssa "SSA name holes removed" "reset_index" 9
-38 ccp "Constants propagated" "main" 1
-38 ccp "Statements deleted" "main" 1
-55 release_ssa "SSA names released" "main" 1
-55 release_ssa "SSA name holes removed" "main" 1
+26 ssa "unused VAR_DECLs removed" "printf" 1
+26 ssa "unused VAR_DECLs removed" "do_my_cleanups" 1
+26 ssa "unused VAR_DECLs removed" "make_my_cleanup" 1
+26 ssa "unused VAR_DECLs removed" "discard_my_cleanups" 1
+26 ssa "unused VAR_DECLs removed" "newentry" 1
+26 ssa "unused VAR_DECLs removed" "add_var" 1
+26 ssa "unused VAR_DECLs removed" "nextword" 1
+26 ssa "unused VAR_DECLs removed" "compile" 2
+38 ccp "Statements deleted" "do_my_cleanups" 2
+55 release_ssa "unused VAR_DECLs removed" "do_my_cleanups" 2
+55 release_ssa "SSA names released" "do_my_cleanups" 4
+55 release_ssa "SSA name holes removed" "do_my_cleanups" 4
+35 einline "unused VAR_DECLs removed" "make_my_cleanup2" 2
+35 einline "Symbol to SSA rewrite" "make_my_cleanup2" 1
+38 ccp "Copies propagated" "make_my_cleanup2" 1
+38 ccp "Statements deleted" "make_my_cleanup2" 1
+55 release_ssa "SSA names released" "make_my_cleanup2" 1
+55 release_ssa "SSA name holes removed" "make_my_cleanup2" 1
+38 ccp "Statements deleted" "discard_my_cleanups" 1
+55 release_ssa "unused VAR_DECLs removed" "discard_my_cleanups" 1
+55 release_ssa "SSA names released" "discard_my_cleanups" 2
+55 release_ssa "SSA name holes removed" "discard_my_cleanups" 2
+35 einline "unused VAR_DECLs removed" "discard_cleanups" 1
+35 einline "Symbol to SSA rewrite" "discard_cleanups" 1
+38 ccp "Copies propagated" "add_to_definition" 2
+38 ccp "Statements deleted" "add_to_definition" 1
+55 release_ssa "SSA names released" "add_to_definition" 1
+55 release_ssa "SSA name holes removed" "add_to_definition" 1
+38 ccp "Statements deleted" "nextword" 5
+38 ccp "Constants propagated" "nextword" 6
+55 release_ssa "SSA names released" "nextword" 4
+55 release_ssa "SSA name holes removed" "nextword" 4
+38 ccp "Statements deleted" "compile" 5
+55 release_ssa "unused VAR_DECLs removed" "compile" 5
+55 release_ssa "SSA names released" "compile" 8
+55 release_ssa "SSA name holes removed" "compile" 8
+35 einline "unused VAR_DECLs removed" "main" 6
+35 einline "Symbol to SSA rewrite" "main" 1
+38 ccp "Statements deleted" "main" 3
+38 ccp "Constants propagated" "main" 2
+55 release_ssa "unused VAR_DECLs removed" "main" 2
+55 release_ssa "SSA names released" "main" 4
+55 release_ssa "SSA name holes removed" "main" 4

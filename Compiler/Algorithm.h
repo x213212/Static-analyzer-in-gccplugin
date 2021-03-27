@@ -1518,7 +1518,25 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 					new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt), gimple_assign_lhs(use_stmt));
 				}
+				if (gimple_assign_rhs1(use_stmt) && TREE_CODE(gimple_assign_rhs1(use_stmt)) == SSA_NAME)
+				{
+					// fprintf(stderr, "------------------SSA_NAME : fuck------------------\n");
+					// if (gimple_assign_rhs1(use_stmt) != target2)
+					// 	new_search_imm_use(used_stmt, gimple_assign_rhs1(use_stmt), gimple_assign_rhs1(use_stmt));
+					// else
+					// 	fprintf(stderr, "------------------SSA_NAME : fuck2------------------\n");
+
+					if (!check_stmtStack(gimple_assign_rhs1(use_stmt)))
+					{
+						fprintf(stderr, "------------------SSA_NAME : rhs ssaname------------------\n");
+						if (gimple_assign_rhs1(use_stmt) != target2)
+							new_search_imm_use(used_stmt, gimple_assign_rhs1(use_stmt), gimple_assign_rhs1(use_stmt));
+						else
+							fprintf(stderr, "------------------SSA_NAME : rhs ssaname-------------------\n");
+					}
+				}
 			}
+
 			else if (gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == VAR_DECL)
 			{
 				/*
@@ -1945,7 +1963,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 				{
 
 					set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), gimple_assign_lhs(use_stmt), NULL);
-						// fprintf(stderr, "-----------------rkoqwrkoqwrkoqwkr-----------------\n");
+					// fprintf(stderr, "-----------------rkoqwrkoqwrkoqwkr-----------------\n");
 					// set_gimple_array(used_stmt, use_stmt, gimple_assign_rhs1(use_stmt), target, NULL);
 					// if (TREE_CODE(gimple_assign_rhs1((use_stmt))) == SSA_NAME)
 					// {
@@ -1997,9 +2015,10 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						// if (gimple_assign_lhs(use_stmt) != target2)
 						new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt), gimple_assign_lhs(use_stmt));
 					}
-				}else
+				}
+				else
 				{
-						if (!check_stmtStack(gimple_assign_lhs(use_stmt)))
+					if (!check_stmtStack(gimple_assign_lhs(use_stmt)))
 					{
 						// gimple_assign_lhs(def_stmt2) != gimple_assign_lhs(use_stmt)
 						fprintf(stderr, "------------------COMPONENT_REF : LHS-3-----------------\n");
@@ -2041,8 +2060,10 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						// debug_tree(gimple_assign_lhs(def_stmt2));
 						// if(gimple_assign_lhs(def_stmt2))
 						fprintf(stderr, "------------------SSA_NAME : fuck------------------\n");
-							if(gimple_assign_rhs1(use_stmt) != target2)
-						new_search_imm_use(used_stmt, gimple_assign_rhs1(use_stmt), gimple_assign_rhs1(use_stmt));
+						if (gimple_assign_rhs1(use_stmt) != target2)
+							new_search_imm_use(used_stmt, gimple_assign_rhs1(use_stmt), gimple_assign_rhs1(use_stmt));
+						else
+							fprintf(stderr, "------------------SSA_NAME : fuck2------------------\n");
 					}
 				}
 				// if(has_single_use( gimple_assign_rhs1(use_stmt)))
@@ -3190,13 +3211,17 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 			if (!strcmp(get_tree_code_name(TREE_CODE(used_stmt->target)), "<invalid tree code>"))
 				continue;
-				// fprintf(stderr, "check stmt\n");
+			// fprintf(stderr, "check stmt\n");
 			while (stmtStack.size())
 			{
-					fprintf(stderr, "check stmt\n");
+				fprintf(stderr, "check stmt\n");
 				debug(stmtStack.top());
 				stmtStack.pop();
 			}
+			int size; //宣告一個整數型態size變數，用來儲存x的位元組大小
+			tree teewtetqq;
+			size = sizeof(teewtetqq);
+			fprintf(stderr, " used_stmt size of : %d\n", size);
 			FOR_EACH_USE_TABLE(used_stmt, u_stmt)
 			{
 
@@ -3304,11 +3329,9 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	// printfPointerConstraint2(ptable, used_stmt);
 	printfunctionCollect(ptable, used_stmt);
 
-free(table1);
-free(table3);
-free(u_stmt);
-
-
+	free(table1);
+	// free(table3);
+	// free(used_stmt);
 }
 
 void print_function_path(vector<return_type> *path)
@@ -3473,12 +3496,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				if (!strcmp(get_tree_code_name(TREE_CODE(table_temp->target)), "addr_expr"))
 					continue;
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
-
-				// debug(def_stmt);
-				// if(def_stmt == NULL)
-				// fprintf(stderr, "\n====qwd==================================================================\n");
-				debug(def_stmt);
-				// debug_tree(gimple_assign_rhs1(def_stmt));
 				if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "addr_expr"))
 					continue;
 				if (gimple_code(def_stmt) == GIMPLE_CALL)
@@ -3488,8 +3505,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				}
 				if (gimple_code(def_stmt) == GIMPLE_NOP)
 					continue;
+
+				// debug(def_stmt);
+				// if(def_stmt == NULL)
+				// fprintf(stderr, "\n====qwd==================================================================\n");
+				// debug(def_stmt);
+				// debug_tree(gimple_assign_rhs1(def_stmt));
 				// 	debug(def_stmt);
-				fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
+				// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
 				// warning_at(gimple_location(def_stmt), 0, "use location");
 				if (name != NULL)
 
@@ -3703,7 +3726,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						if (find_phistmt == 1)
 							fprintf(stderr, "\033[40;31m   need check branch because multiple direction varible\033[0m\n");
 						else
-							fprintf(stderr, "\033[40;32m   May your no memory leak .... need more check \033[0m\n");
+							fprintf(stderr, "\033[40;32m   Maybe you don't have a memory leak.... more checks  \033[0m\n");
 						// 	fprintf(stderr, "\033[40;32m    NO memory leak \033[0m\n");
 						fprintf(stderr, "\n======================================================================\n\n");
 					}
@@ -4014,6 +4037,8 @@ void detect()
 	clock_t start, end;
 	start = clock();
 	getrusage(RUSAGE_SELF, &ru);
+	utime = ru.ru_utime;
+	stime = ru.ru_stime;
 	// fprintf(stderr,"%d\n",*tmp);
 	//cout << "----------------------------------------" <<tmp<<endl;
 	FOR_EACH_DEFINED_FUNCTION(node)
@@ -4135,12 +4160,10 @@ void detect()
 	end = clock();
 	//printf("time: %f s\n", ((double)(end - start)) / CLOCKS_PER_SEC / N); 	// fprintf(stderr,"time: %f s\n",((double)(end - start)) / CLOCKS_PER_SEC / N);
 	fprintf(stderr, "time: %f s\n", ((double)(end - start)) / CLOCKS_PER_SEC);
-	utime = ru.ru_utime;
-	stime = ru.ru_stime;
 
 	double utime_used = utime.tv_sec + (double)utime.tv_usec / 1000000.0;
 	double stime_used = stime.tv_sec + (double)stime.tv_usec / 1000000.0;
-	ofstream myfile("example.txt");
+	ofstream myfile("time.txt");
 	if (myfile.is_open())
 	{ //
 		myfile << "utime_used: " << utime_used << "s;\n";

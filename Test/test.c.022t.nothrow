@@ -1,614 +1,802 @@
 
-;; Function update_tree_entry_internal (update_tree_entry_internal, funcdef_no=1, decl_uid=1976, cgraph_uid=1, symbol_order=2)
+;; Function fprintf (fprintf, funcdef_no=14, decl_uid=776, cgraph_uid=14, symbol_order=14)
 
-Function found to be nothrow: update_tree_entry_internal
-update_tree_entry_internal (struct tree_desc * desc, struct strbuf * err)
+Function found to be nothrow: fprintf
+__attribute__((__artificial__, __gnu_inline__, __always_inline__))
+fprintf (struct FILE * restrict __stream, const char * restrict __fmt)
 {
-  int tmp;
-  long unsigned int len;
-  long unsigned int size;
-  const unsigned char * end;
-  const void * buf;
-  const struct object_id * _1;
-  const unsigned char[20] * _2;
-  unsigned int _3;
-  long int end.0_4;
-  long int buf.1_5;
-  long int _6;
-  unsigned int _7;
-  int _8;
-  int _20;
-  int _24;
+  int _5;
 
   <bb 2> [0.00%]:
-  buf_12 = desc_11(D)->buffer;
-  _1 = desc_11(D)->entry.oid;
-  _2 = &_1->hash;
-  end_13 = _2 + 20;
-  _3 = desc_11(D)->size;
-  size_14 = (long unsigned int) _3;
-  end.0_4 = (long int) end_13;
-  buf.1_5 = (long int) buf_12;
-  _6 = end.0_4 - buf.1_5;
-  len_15 = (long unsigned int) _6;
-  if (size_14 < len_15)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  printf ("too-short tree file%s", buf_12);
-  exit (1);
-
-  <bb 4> [0.00%]:
-  buf_16 = end_13;
-  size_17 = size_14 - len_15;
-  desc_11(D)->buffer = buf_16;
-  _7 = (unsigned int) size_17;
-  desc_11(D)->size = _7;
-  if (size_17 != 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 5> [0.00%]:
-  tmp_23 = decode_tree_entry (desc_11(D), buf_16, size_17, err_21(D));
-  _24 = tmp_23;
-  goto <bb 7>; [0.00%]
-
-  <bb 6> [0.00%]:
-  _20 = 0;
-
-  <bb 7> [0.00%]:
-  # _8 = PHI <_24(5), _20(6)>
-  return _8;
+  _5 = __fprintf_chk (__stream_2(D), 1, __fmt_3(D), __builtin_va_arg_pack ());
+  return _5;
 
 }
 
 
 
-;; Function init_tree_desc_internal (init_tree_desc_internal, funcdef_no=6, decl_uid=2030, cgraph_uid=6, symbol_order=7)
+;; Function printf (printf, funcdef_no=15, decl_uid=798, cgraph_uid=15, symbol_order=15)
 
-Function found to be nothrow: init_tree_desc_internal
-init_tree_desc_internal (struct tree_desc * desc, const void * buffer, long unsigned int size, struct strbuf * err)
+Function found to be nothrow: printf
+__attribute__((__artificial__, __gnu_inline__, __always_inline__))
+printf (const char * restrict __fmt)
 {
-  int tmp;
-  unsigned int _1;
-  int _2;
-  int _10;
-  int _14;
+  int _4;
 
   <bb 2> [0.00%]:
-  desc_5(D)->buffer = buffer_6(D);
-  _1 = (unsigned int) size_8(D);
-  desc_5(D)->size = _1;
-  if (size_8(D) != 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  tmp_13 = decode_tree_entry (desc_5(D), buffer_6(D), size_8(D), err_11(D));
-  _14 = tmp_13;
-  goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _10 = 0;
-
-  <bb 5> [0.00%]:
-  # _2 = PHI <_14(3), _10(4)>
-  return _2;
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
 
 }
 
 
 
-;; Function xrealloc (xrealloc, funcdef_no=0, decl_uid=1963, cgraph_uid=0, symbol_order=0)
+;; Function do_my_cleanups (do_my_cleanups, funcdef_no=48, decl_uid=3170, cgraph_uid=48, symbol_order=53)
 
-Function found to be nothrow: xrealloc
-xrealloc (void * ptr, size_t size)
+Function found to be nothrow: do_my_cleanups
+do_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
 {
-  void * ret;
-  void * _20;
+  struct cleanup * ptr;
+  struct cleanup * _1;
+  void (*<Ted>) (void *) _2;
+  void * _3;
+  void * _4;
+  void (*<Ted>) (void *) _5;
+  void (*<Ted>) (void *) _6;
+  void * _7;
 
   <bb 2> [0.00%]:
-  ret_11 = realloc (ptr_8(D), size_9(D));
-  if (ret_11 == 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
+  goto <bb 6>; [0.00%]
 
   <bb 3> [0.00%]:
-  if (size_9(D) == 0)
+  _1 = ptr_12->next;
+  *pmy_chain_11(D) = _1;
+  _2 = ptr_12->function;
+  _3 = ptr_12->arg;
+  _2 (_3);
+  printf ("cleanup!!!!! =========\n");
+  _4 = ptr_12->arg;
+  printf ("%x\n", _4);
+  _5 = ptr_12->free_arg;
+  if (_5 != 0B)
     goto <bb 4>; [0.00%]
   else
     goto <bb 5>; [0.00%]
 
   <bb 4> [0.00%]:
-  ret_13 = realloc (ptr_8(D), 1);
+  _6 = ptr_12->free_arg;
+  _7 = ptr_12->arg;
+  _6 (_7);
 
   <bb 5> [0.00%]:
-  # ret_1 = PHI <ret_11(2), ret_11(3), ret_13(4)>
-  if (ret_1 == 0B)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 11>; [0.00%]
+  free (ptr_12);
 
   <bb 6> [0.00%]:
-  ret_15 = realloc (ptr_8(D), size_9(D));
-  if (ret_15 == 0B)
+  ptr_12 = *pmy_chain_11(D);
+  if (ptr_12 != old_chain_13(D))
+    goto <bb 3>; [0.00%]
+  else
     goto <bb 7>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
 
   <bb 7> [0.00%]:
-  if (size_9(D) == 0)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 8> [0.00%]:
-  ret_17 = realloc (ptr_8(D), 1);
-
-  <bb 9> [0.00%]:
-  # ret_2 = PHI <ret_15(6), ret_15(7), ret_17(8)>
-  if (ret_2 == 0B)
-    goto <bb 10>; [0.00%]
-  else
-    goto <bb 11>; [0.00%]
-
-  <bb 10> [0.00%]:
-  printf ("Out of memory, realloc failed%s", "");
-  exit (1);
-
-  <bb 11> [0.00%]:
-  # ret_3 = PHI <ret_1(5), ret_2(9)>
-  _20 = ret_3;
-  return _20;
-
-}
-
-
-
-;; Function update_tree_entry (update_tree_entry, funcdef_no=2, decl_uid=1985, cgraph_uid=2, symbol_order=3)
-
-Function found to be nothrow: update_tree_entry
-update_tree_entry (struct tree_desc * desc)
-{
-  int tmp;
-  struct strbuf err;
-  char * _1;
-
-  <bb 2> [0.00%]:
-  err.alloc = 0;
-  err.len = 0;
-  err.buf = &strbuf_slopbuf;
-  tmp_8 = update_tree_entry_internal (desc_6(D), &err);
-  if (tmp_8 != 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _1 = err.buf;
-  printf ("%s", _1);
-  exit (1);
-
-  <bb 4> [0.00%]:
-  strbuf_release (&err);
-  err ={v} {CLOBBER};
   return;
 
 }
 
 
 
-;; Function extended_entry_extract (extended_entry_extract, funcdef_no=3, decl_uid=1995, cgraph_uid=3, symbol_order=4)
+;; Function make_my_cleanup2 (make_my_cleanup2, funcdef_no=50, decl_uid=3178, cgraph_uid=50, symbol_order=55)
 
-Function found to be nothrow: extended_entry_extract
-extended_entry_extract (struct tree_desc_x * t, struct name_entry * a, const char * first, int first_len)
+Function found to be nothrow: make_my_cleanup2
+make_my_cleanup2 (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg, void (*<Ted>) (void *) free_arg)
 {
-  struct tree_desc_skip * skip;
-  unsigned int _1;
-  struct tree_desc * _2;
-  const char * _3;
-  long unsigned int _4;
-  const void * _5;
-  long unsigned int _6;
-  struct tree_desc * _7;
+  struct cleanup * old_chain;
+  struct cleanup * new;
+  struct cleanup * _1;
+  struct cleanup * _15;
 
   <bb 2> [0.00%]:
-  _1 = t_12(D)->d.size;
-  if (_1 == 0)
+  new_4 = malloc (32);
+  old_chain_6 = *pmy_chain_5(D);
+  _1 = *pmy_chain_5(D);
+  new_4->next = _1;
+  new_4->function = function_8(D);
+  new_4->free_arg = free_arg_10(D);
+  new_4->arg = arg_12(D);
+  *pmy_chain_5(D) = new_4;
+  if (old_chain_6 == 0B)
     goto <bb 3>; [0.00%]
   else
     goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
-  entry_clear (a_13(D));
-  goto <bb 10>; [0.00%]
+  exit (1);
 
   <bb 4> [0.00%]:
-  _2 = &t_12(D)->d;
-  entry_extract (_2, a_13(D));
-  skip_15 = t_12(D)->skip;
-  goto <bb 7>; [0.00%]
-
-  <bb 5> [0.00%]:
-  _3 = a_13(D)->path;
-  _4 = (long unsigned int) _3;
-  _5 = skip_8->ptr;
-  _6 = (long unsigned int) _5;
-  if (_4 == _6)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 6> [0.00%]:
-  skip_16 = skip_8->prev;
-
-  <bb 7> [0.00%]:
-  # skip_8 = PHI <skip_15(4), skip_16(6)>
-  if (skip_8 != 0B)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 8> [0.00%]:
-  if (skip_8 == 0B)
-    goto <bb 10>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 9> [0.00%]:
-  _7 = &t_12(D)->d;
-  update_tree_entry (_7);
-  goto <bb 2>; [0.00%]
-
-  <bb 10> [0.00%]:
-  return;
+  _15 = old_chain_6;
+  return _15;
 
 }
 
 
 
-;; Function traverse_trees (traverse_trees, funcdef_no=4, decl_uid=2006, cgraph_uid=4, symbol_order=5)
+;; Function make_my_cleanup (make_my_cleanup, funcdef_no=51, decl_uid=3182, cgraph_uid=51, symbol_order=56)
 
-Function found to be nothrow: traverse_trees
-traverse_trees (int n, struct tree_desc * t, struct traverse_info * info)
+Function found to be nothrow: make_my_cleanup
+make_my_cleanup (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg)
 {
-  struct name_entry * e;
-  void * tmp___0;
-  struct name_entry * entry;
-  void * tmp;
-  struct tree_desc_x * tx;
-  int n___0;
-  int i;
-  long unsigned int _1;
-  long unsigned int _2;
-  long unsigned int _3;
-  long unsigned int _4;
-  long unsigned int _5;
-  struct tree_desc * _6;
-  long unsigned int _7;
-  long unsigned int _8;
-  struct tree_desc_x * _9;
-  long unsigned int _10;
-  long unsigned int _11;
-  long unsigned int _12;
-  long unsigned int _13;
-  struct tree_desc_x * _14;
-  int _31;
+  struct cleanup * _6;
 
   <bb 2> [0.00%]:
-  _1 = (long unsigned int) n___0_19(D);
-  tmp_22 = calloc (_1, 48);
-  tx_23 = tmp_22;
-  _2 = (long unsigned int) n___0_19(D);
-  _3 = _2 * 24;
-  tmp___0_25 = malloc (_3);
-  entry_26 = tmp___0_25;
-  e_27 = 0B;
-  i_28 = 0;
-  goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _4 = (long unsigned int) i_15;
-  _5 = _4 * 40;
-  _6 = t_35(D) + _5;
-  _7 = (long unsigned int) i_15;
-  _8 = _7 * 48;
-  _9 = tx_23 + _8;
-  _9->d = *_6;
-  i_37 = i_15 + 1;
-
-  <bb 4> [0.00%]:
-  # i_15 = PHI <i_28(2), i_37(3)>
-  if (i_15 < n___0_19(D))
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 5> [0.00%]:
-  i_29 = 0;
-  goto <bb 7>; [0.00%]
-
-  <bb 6> [0.00%]:
-  _10 = (long unsigned int) i_16;
-  _11 = _10 * 24;
-  e_32 = entry_26 + _11;
-  _12 = (long unsigned int) i_16;
-  _13 = _12 * 48;
-  _14 = tx_23 + _13;
-  extended_entry_extract (_14, e_32, 0B, 0);
-  i_34 = i_16 + 1;
-
-  <bb 7> [0.00%]:
-  # i_16 = PHI <i_29(5), i_34(6)>
-  if (i_16 < n___0_19(D))
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 8> [0.00%]:
-  free (tx_23);
-  _31 = 1;
-  return _31;
-
-}
-
-
-
-;; Function unpack_trees (unpack_trees, funcdef_no=5, decl_uid=2024, cgraph_uid=5, symbol_order=6)
-
-Function found to be nothrow: unpack_trees
-unpack_trees (unsigned int len, struct tree_desc * t, struct unpack_trees_options * o)
-{
-  int len.2_1;
-  int _6;
-
-  <bb 2> [0.00%]:
-  len.2_1 = (int) len_2(D);
-  traverse_trees (len.2_1, t_4(D), 0B);
-  _6 = 0;
+  _6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
   return _6;
 
 }
 
 
 
-;; Function init_tree_desc (init_tree_desc, funcdef_no=7, decl_uid=2036, cgraph_uid=7, symbol_order=8)
+;; Function discard_my_cleanups (discard_my_cleanups, funcdef_no=47, decl_uid=3165, cgraph_uid=47, symbol_order=52)
 
-Function found to be nothrow: init_tree_desc
-init_tree_desc (struct tree_desc * desc, const void * buffer, long unsigned int size)
+Function found to be nothrow: discard_my_cleanups
+discard_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
 {
-  int tmp;
-  struct strbuf err;
-  char * _1;
+  struct cleanup * ptr;
+  struct cleanup * _1;
+  void (*<Ted>) (void *) _2;
+  void (*<Ted>) (void *) _3;
+  void * _4;
+  void * _5;
 
   <bb 2> [0.00%]:
-  err.alloc = 0;
-  err.len = 0;
-  err.buf = &strbuf_slopbuf;
-  tmp_10 = init_tree_desc_internal (desc_6(D), buffer_7(D), size_8(D), &err);
-  if (tmp_10 != 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
+  goto <bb 6>; [0.00%]
 
   <bb 3> [0.00%]:
-  _1 = err.buf;
-  printf ("%s", _1);
-  exit (1);
-
-  <bb 4> [0.00%]:
-  strbuf_release (&err);
-  err ={v} {CLOBBER};
-  return;
-
-}
-
-
-
-;; Function fill_tree_descriptor (fill_tree_descriptor, funcdef_no=8, decl_uid=2043, cgraph_uid=8, symbol_order=9)
-
-Function found to be nothrow: fill_tree_descriptor
-fill_tree_descriptor (struct tree_desc * desc, const struct object_id * oid)
-{
-  int tmp;
-  void * buf;
-  long unsigned int size;
-
-  <bb 2> [0.00%]:
-  size_3 = 0;
-  buf_4 = 0B;
-  if (oid_5(D) != 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 3> [0.00%]:
-  buf_8 = malloc (100);
-  if (buf_8 == 0B)
+  _1 = ptr_10->next;
+  *pmy_chain_9(D) = _1;
+  _2 = ptr_10->free_arg;
+  if (_2 != 0B)
     goto <bb 4>; [0.00%]
   else
     goto <bb 5>; [0.00%]
 
   <bb 4> [0.00%]:
-  tmp_10 = oid_to_hex (oid_5(D));
-  printf ("unable to read tree %s", tmp_10);
-  exit (1);
+  _3 = ptr_10->free_arg;
+  _4 = ptr_10->arg;
+  _3 (_4);
 
   <bb 5> [0.00%]:
-  # buf_1 = PHI <buf_4(2), buf_8(3)>
-  init_tree_desc (desc_13(D), buf_1, size_3);
+  free (ptr_10);
+
+  <bb 6> [0.00%]:
+  ptr_10 = *pmy_chain_9(D);
+  if (ptr_10 != old_chain_11(D))
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 7> [0.00%]:
+  _5 = ptr_10->arg;
+  printf ("freearg: %x\n", _5);
   return;
 
 }
 
 
 
-;; Function reset_index (reset_index, funcdef_no=9, decl_uid=2058, cgraph_uid=9, symbol_order=10)
+;; Function discard_cleanups (discard_cleanups, funcdef_no=45, decl_uid=3162, cgraph_uid=45, symbol_order=50)
 
-Function found to be nothrow: reset_index
-reset_index (const struct object_id * oid, int reset_type, int quiet)
+Function found to be nothrow: discard_cleanups
+discard_cleanups (struct cleanup * old_chain)
 {
-  int tmp___3;
-  int tmp___2;
-  int tmp___1;
-  int tmp___0;
-  int tmp;
-  struct object_id head_oid;
-  struct unpack_trees_options opts;
-  struct tree * tree;
-  struct tree_desc desc[2];
-  int nr;
-  long unsigned int _1;
-  long unsigned int _2;
-  struct tree_desc * _3;
-  long unsigned int _4;
-  long unsigned int _5;
-  struct tree_desc * _6;
-  const void * _7;
-  unsigned int nr.3_8;
-  long int _9;
-  long int _10;
-  int _12;
-  int _43;
-  int _58;
-  int _59;
+  <bb 2> [0.00%]:
+  discard_my_cleanups (&cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function discard_final_cleanups (discard_final_cleanups, funcdef_no=46, decl_uid=3167, cgraph_uid=46, symbol_order=51)
+
+Function found to be nothrow: discard_final_cleanups
+discard_final_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  discard_my_cleanups (&final_cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function do_cleanups (do_cleanups, funcdef_no=49, decl_uid=3172, cgraph_uid=49, symbol_order=54)
+
+Function found to be nothrow: do_cleanups
+do_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  do_my_cleanups (&cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function make_cleanup (make_cleanup, funcdef_no=52, decl_uid=3185, cgraph_uid=52, symbol_order=57)
+
+Function found to be nothrow: make_cleanup
+make_cleanup (void (*<Ta1d>) (void *) function, void * arg)
+{
+  struct cleanup * _5;
 
   <bb 2> [0.00%]:
-  nr_19 = 0;
-  memset (&opts, 0, 640);
-  opts.head_idx = 1;
-  opts.src_index = &the_index;
-  opts.dst_index = &the_index;
-  opts.fn = oneway_merge;
-  opts.merge = 1;
-  if (quiet_27(D) == 0)
+  _5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
+  return _5;
+
+}
+
+
+
+;; Function newentry (newentry, funcdef_no=53, decl_uid=3247, cgraph_uid=53, symbol_order=60)
+
+Function found to be nothrow: newentry
+newentry (char * word)
+{
+  struct dict_type * new_d;
+  struct dict_type * root.0_1;
+  void * _2;
+  struct dict_type * _14;
+
+  <bb 2> [0.00%]:
+  new_d_5 = malloc (40);
+  new_d_5->word = word_6(D);
+  root.0_1 = root;
+  new_d_5->next = root.0_1;
+  root = new_d_5;
+  _2 = malloc (8);
+  new_d_5->code = _2;
+  new_d_5->code_length = 1;
+  new_d_5->code_end = 0;
+  _14 = new_d_5;
+  return _14;
+
+}
+
+
+
+;; Function add_var (add_var, funcdef_no=54, decl_uid=3250, cgraph_uid=54, symbol_order=61)
+
+Function found to be nothrow: add_var
+add_var (char * name)
+{
+  struct dict_type * new_d;
+
+  <bb 2> [0.00%]:
+  new_d_4 = newentry (name_2(D));
+  return;
+
+}
+
+
+
+;; Function add_to_definition (add_to_definition, funcdef_no=55, decl_uid=3254, cgraph_uid=55, symbol_order=62)
+
+Function found to be nothrow: add_to_definition
+add_to_definition (struct dict_type * entry, void (*stinst_type) () word)
+{
+  int _1;
+  int _2;
+  int _3;
+  int _4;
+  int _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  void (*stinst_type) () * _8;
+  void * _9;
+  void (*stinst_type) () * _10;
+  int _11;
+  long unsigned int _12;
+  long unsigned int _13;
+  void (*stinst_type) () * _14;
+  int _15;
+  int _16;
+  int _17;
+  unsigned int _27;
+
+  <bb 2> [0.00%]:
+  _1 = entry_20(D)->code_end;
+  _2 = entry_20(D)->code_length;
+  if (_1 == _2)
     goto <bb 3>; [0.00%]
   else
     goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
-  opts.verbose_update = 1;
+  _3 = entry_20(D)->code_length;
+  _4 = _3 + 2;
+  entry_20(D)->code_length = _4;
+  _5 = entry_20(D)->code_length;
+  _6 = (long unsigned int) _5;
+  _7 = _6 * 8;
+  _8 = entry_20(D)->code;
+  _9 = realloc (_8, _7);
+  entry_20(D)->code = _9;
 
   <bb 4> [0.00%]:
-  switch (reset_type_29(D)) <default: <L5> [0.00%], case 2: <L4> [0.00%], case 3 ... 4: <L2> [0.00%]>
+  _10 = entry_20(D)->code;
+  _11 = entry_20(D)->code_end;
+  _12 = (long unsigned int) _11;
+  _13 = _12 * 8;
+  _14 = _10 + _13;
+  *_14 = word_24(D);
+  _15 = entry_20(D)->code_end;
+  _16 = _15;
+  _17 = _16 + 1;
+  entry_20(D)->code_end = _17;
+  _27 = (unsigned int) _16;
+  return _27;
 
-<L2> [0.00%]:
-  opts.update = 1;
-  goto <bb 8>; [0.00%]
+}
 
-<L4> [0.00%]:
-  opts.update = 1;
 
-<L5> [0.00%]:
-  opts.reset = 1;
+
+;; Function nextword (nextword, funcdef_no=56, decl_uid=3258, cgraph_uid=56, symbol_order=63)
+
+Function found to be nothrow: nextword
+nextword (char * string, char * * word)
+{
+  int length;
+  char * src;
+  char * dst;
+  int idx;
+  char * word_start;
+  char _1;
+  _Bool _2;
+  _Bool _3;
+  _Bool _4;
+  char _5;
+  unsigned char _6;
+  int _7;
+  int _8;
+  char _9;
+  char _10;
+  char _11;
+  char _12;
+  char _13;
+  char _14;
+  unsigned char _15;
+  int _16;
+  int _17;
+  int _18;
+  long unsigned int _19;
+  void * _20;
+  sizetype _21;
+  char * _22;
+  char _23;
+  sizetype _24;
+  sizetype _25;
+  char * _26;
+  char _27;
+  int _28;
+  char * dst.1_29;
+  sizetype _30;
+  sizetype _31;
+  char * _32;
+  char * dst.2_33;
+  char _34;
+  char * dst.3_35;
+  sizetype _36;
+  char * _37;
+  char * dst.4_38;
+  char _39;
+  char * dst.5_40;
+  char _41;
+  char * _56;
+  char * _78;
+  char * _79;
+  char * _91;
+  char _93;
+  char * _95;
+
+  <bb 2> [0.00%]:
+  length_60 = 0;
+  if (string_61(D) == 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _95 = 0B;
+  goto <bb 30>; [0.00%]
+
+  <bb 4> [0.00%]:
+  _1 = *string_43;
+  if (_1 == 45)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 5> [0.00%]:
+  string_94 = string_42 + 1;
+
+  <bb 6> [0.00%]:
+  # string_42 = PHI <string_43(4), string_94(5)>
+  _93 = *string_42;
+  _2 = _93 != 0;
+  _3 = _93 != 10;
+  _4 = _2 & _3;
+  if (_4 != 0)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 7> [0.00%]:
+  string_92 = string_43 + 1;
 
   <bb 8> [0.00%]:
-  read_cache_unmerged ();
-  if (reset_type_29(D) == 4)
+  # string_43 = PHI <string_61(D)(2), string_42(6), string_92(7)>
+  _5 = *string_43;
+  _6 = (unsigned char) _5;
+  _7 = (int) _6;
+  _8 = isspace (_7);
+  if (_8 != 0)
+    goto <bb 4>; [0.00%]
+  else
     goto <bb 9>; [0.00%]
+
+  <bb 9> [0.00%]:
+  _9 = *string_43;
+  if (_9 == 45)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 10> [0.00%]:
+  _10 = *string_43;
+  if (_10 == 0)
+    goto <bb 11>; [0.00%]
   else
     goto <bb 12>; [0.00%]
 
-  <bb 9> [0.00%]:
-  tmp___1_35 = get_oid ("HEAD", &head_oid);
-  if (tmp___1_35 != 0)
-    goto <bb 10>; [0.00%]
-  else
-    goto <bb 11>; [0.00%]
-
-  <bb 10> [0.00%]:
-  tmp_40 = _ ("You do not have a valid HEAD.");
-  tmp___0_42 = error (tmp_40);
-  _43 = tmp___0_42;
-  goto <bb 19>; [0.00%]
-
   <bb 11> [0.00%]:
-  _1 = (long unsigned int) nr_19;
-  _2 = _1 * 40;
-  _3 = &desc + _2;
-  fill_tree_descriptor (_3, &head_oid);
-  nr_37 = nr_19 + 1;
-  opts.fn = twoway_merge;
+  _91 = 0B;
+  goto <bb 30>; [0.00%]
 
   <bb 12> [0.00%]:
-  # nr_11 = PHI <nr_19(8), nr_37(11)>
-  _4 = (long unsigned int) nr_11;
-  _5 = _4 * 40;
-  _6 = &desc + _5;
-  fill_tree_descriptor (_6, oid_44(D));
-  nr_46 = nr_11 + 1;
-  _7 = desc[nr_46].buffer;
-  printf ("%d\n", _7);
-  nr.3_8 = (unsigned int) nr_46;
-  tmp___2_49 = unpack_trees (nr.3_8, &desc, &opts);
-  if (tmp___2_49 != 0)
+  word_start_63 = string_43;
+  _11 = *string_43;
+  if (_11 == 34)
     goto <bb 13>; [0.00%]
+  else
+    goto <bb 17>; [0.00%]
+
+  <bb 13> [0.00%]:
+  # string_44 = PHI <string_43(12), string_45(15)>
+  # length_52 = PHI <length_60(12), length_53(15)>
+  string_66 = string_44 + 1;
+  length_67 = length_52 + 1;
+  _12 = *string_66;
+  if (_12 == 92)
+    goto <bb 14>; [0.00%]
+  else
+    goto <bb 15>; [0.00%]
+
+  <bb 14> [0.00%]:
+  string_68 = string_66 + 2;
+  length_69 = length_67 + 2;
+
+  <bb 15> [0.00%]:
+  # string_45 = PHI <string_66(13), string_68(14)>
+  # length_53 = PHI <length_67(13), length_69(14)>
+  _13 = *string_45;
+  if (_13 != 34)
+    goto <bb 13>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 16> [0.00%]:
+  string_64 = string_46 + 1;
+  length_65 = length_54 + 1;
+
+  <bb 17> [0.00%]:
+  # string_46 = PHI <string_43(12), string_64(16)>
+  # length_54 = PHI <length_60(12), length_65(16)>
+  _14 = *string_46;
+  _15 = (unsigned char) _14;
+  _16 = (int) _15;
+  _17 = isspace (_16);
+  if (_17 == 0)
+    goto <bb 16>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 18> [0.00%]:
+  # string_47 = PHI <string_45(15), string_46(17)>
+  # length_55 = PHI <length_53(15), length_54(17)>
+  _18 = length_55 + 1;
+  _19 = (long unsigned int) _18;
+  _20 = malloc (_19);
+  *word_71(D) = _20;
+  dst_73 = *word_71(D);
+  src_74 = word_start_63;
+  idx_75 = 0;
+  goto <bb 26>; [0.00%]
+
+  <bb 19> [0.00%]:
+  _21 = (sizetype) idx_49;
+  _22 = src_74 + _21;
+  _23 = *_22;
+  if (_23 == 92)
+    goto <bb 20>; [0.00%]
+  else
+    goto <bb 24>; [0.00%]
+
+  <bb 20> [0.00%]:
+  _24 = (sizetype) idx_49;
+  _25 = _24 + 1;
+  _26 = src_74 + _25;
+  _27 = *_26;
+  _28 = (int) _27;
+  switch (_28) <default: <L29> [0.00%], case 34: <L27> [0.00%], case 92: <L27> [0.00%], case 110: <L26> [0.00%]>
+
+<L26> [0.00%]:
+  dst.1_29 = dst_51;
+  dst_82 = dst.1_29 + 1;
+  *dst.1_29 = 10;
+  idx_84 = idx_49 + 1;
+  goto <bb 25>; [0.00%]
+
+<L27> [0.00%]:
+  _30 = (sizetype) idx_49;
+  _31 = _30 + 1;
+  _32 = src_74 + _31;
+  dst.2_33 = dst_51;
+  dst_85 = dst.2_33 + 1;
+  _34 = *_32;
+  *dst.2_33 = _34;
+  idx_87 = idx_49 + 1;
+  goto <bb 25>; [0.00%]
+
+<L29> [0.00%]:
+  dst.3_35 = dst_51;
+  dst_88 = dst.3_35 + 1;
+  *dst.3_35 = 92;
+  goto <bb 25>; [0.00%]
+
+  <bb 24> [0.00%]:
+  _36 = (sizetype) idx_49;
+  _37 = src_74 + _36;
+  dst.4_38 = dst_51;
+  dst_80 = dst.4_38 + 1;
+  _39 = *_37;
+  *dst.4_38 = _39;
+
+  <bb 25> [0.00%]:
+  # idx_48 = PHI <idx_87(22), idx_49(24), idx_84(21), idx_49(23)>
+  # dst_50 = PHI <dst_85(22), dst_80(24), dst_82(21), dst_88(23)>
+  idx_90 = idx_48 + 1;
+
+  <bb 26> [0.00%]:
+  # idx_49 = PHI <idx_75(18), idx_90(25)>
+  # dst_51 = PHI <dst_73(18), dst_50(25)>
+  if (idx_49 < length_55)
+    goto <bb 19>; [0.00%]
+  else
+    goto <bb 27>; [0.00%]
+
+  <bb 27> [0.00%]:
+  dst.5_40 = dst_51;
+  dst_76 = dst.5_40 + 1;
+  *dst.5_40 = 0;
+  _41 = *string_47;
+  if (_41 != 0)
+    goto <bb 28>; [0.00%]
+  else
+    goto <bb 29>; [0.00%]
+
+  <bb 28> [0.00%]:
+  _79 = string_47 + 1;
+  goto <bb 30>; [0.00%]
+
+  <bb 29> [0.00%]:
+  _78 = 0B;
+
+  <bb 30> [0.00%]:
+  # _56 = PHI <_95(3), _91(11), _79(28), _78(29)>
+  return _56;
+
+}
+
+
+
+;; Function compile (compile, funcdef_no=57, decl_uid=3289, cgraph_uid=57, symbol_order=64)
+
+Function found to be nothrow: compile
+compile (char * string)
+{
+  struct dict_type * ptr;
+  char * word;
+  char * word.6_1;
+  int _2;
+  char * word.7_3;
+  char * word.8_4;
+  char _5;
+  char * word.9_6;
+  char * word.10_7;
+  char * word.11_8;
+  char _9;
+  int _10;
+  char * word.12_11;
+  char * _12;
+  void (*<T1d2>) () _13;
+  int _14;
+  char * word.13_15;
+  int _16;
+  char * word.14_17;
+  char * word.15_18;
+  char _19;
+  int _20;
+  char * _21;
+  struct FILE * stderr.16_22;
+  char _23;
+  char * word.17_24;
+  char _25;
+
+  <bb 2> [0.00%]:
+  string_36 = nextword (string_34(D), &word);
+  goto <bb 15>; [0.00%]
+
+  <bb 3> [0.00%]:
+  printf ("string: %s\n", string_28);
+  word.6_1 = word;
+  _2 = strcmp (word.6_1, "var");
+  if (_2 == 0)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  string_57 = nextword (string_28, &word);
+  word.7_3 = word;
+  add_var (word.7_3);
+  string_60 = nextword (string_57, &word);
+  goto <bb 15>; [0.00%]
+
+  <bb 5> [0.00%]:
+  word.8_4 = word;
+  _5 = *word.8_4;
+  if (_5 == 58)
+    goto <bb 6>; [0.00%]
   else
     goto <bb 14>; [0.00%]
 
+  <bb 6> [0.00%]:
+  word.9_6 = word;
+  free (word.9_6);
+  string_41 = nextword (string_28, &word);
+  word.10_7 = word;
+  ptr_43 = newentry (word.10_7);
+  string_45 = nextword (string_41, &word);
+  goto <bb 12>; [0.00%]
+
+  <bb 7> [0.00%]:
+  word.11_8 = word;
+  _9 = *word.11_8;
+  _10 = (int) _9;
+  switch (_10) <default: <L16> [0.00%], case 34: <L5> [0.00%], case 48 ... 57: <L6> [0.00%]>
+
+<L5> [0.00%]:
+  word.12_11 = word;
+  _12 = word.12_11 + 1;
+  _13 = (void (*<T1d2>) ()) _12;
+  add_to_definition (ptr_43, _13);
+  goto <bb 11>; [0.00%]
+
+<L6> [0.00%]:
+  _14 = MEM[(int *)ptr_43];
+  printf ("%d\n", _14);
+  word.13_15 = word;
+  free (word.13_15);
+  goto <bb 11>; [0.00%]
+
+<L16> [0.00%]:
+  _16 = MEM[(int *)ptr_43];
+  printf ("%d\n", _16);
+  word.14_17 = word;
+  free (word.14_17);
+
+  <bb 11> [0.00%]:
+  string_52 = nextword (string_26, &word);
+  if (string_52 == 0B)
+    goto <bb 13>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 12> [0.00%]:
+  # string_26 = PHI <string_45(6), string_52(11)>
+  word.15_18 = word;
+  _19 = *word.15_18;
+  if (_19 != 59)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
   <bb 13> [0.00%]:
-  _59 = -1;
-  goto <bb 19>; [0.00%]
+  # string_27 = PHI <string_52(11), string_26(12)>
+  _20 = MEM[(int *)ptr_43];
+  printf ("%d\n", _20);
+  string_55 = nextword (string_27, &word);
+  goto <bb 15>; [0.00%]
 
   <bb 14> [0.00%]:
-  if (reset_type_29(D) == 0)
-    goto <bb 15>; [0.00%]
-  else
-    goto <bb 16>; [0.00%]
+  _21 = string_28 + 18446744073709551615;
+  stderr.16_22 = stderr;
+  fprintf (stderr.16_22, "syntax error at %s\n", _21);
 
   <bb 15> [0.00%]:
-  tmp___3_55 = parse_tree_indirect (oid_44(D));
-  _9 = (long int) tmp___3_55;
-  tree_56 = (struct tree *) _9;
-  prime_cache_tree (&the_index, tree_56);
-  goto <bb 18>; [0.00%]
+  # string_28 = PHI <string_36(2), string_60(4), string_55(13), string_28(14)>
+  if (string_28 != 0B)
+    goto <bb 16>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
 
   <bb 16> [0.00%]:
-  if (reset_type_29(D) == 2)
+  _23 = *string_28;
+  if (_23 != 0)
     goto <bb 17>; [0.00%]
   else
     goto <bb 18>; [0.00%]
 
   <bb 17> [0.00%]:
-  tmp___3_51 = parse_tree_indirect (oid_44(D));
-  _10 = (long int) tmp___3_51;
-  tree_52 = (struct tree *) _10;
-  prime_cache_tree (&the_index, tree_52);
+  word.17_24 = word;
+  _25 = *word.17_24;
+  if (_25 != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
 
   <bb 18> [0.00%]:
-  _58 = 0;
-
-  <bb 19> [0.00%]:
-  # _12 = PHI <_43(10), _59(13), _58(18)>
-  desc ={v} {CLOBBER};
-  opts ={v} {CLOBBER};
-  head_oid ={v} {CLOBBER};
-  return _12;
+  word ={v} {CLOBBER};
+  return;
 
 }
 
 
 
-;; Function main (main, funcdef_no=10, decl_uid=2076, cgraph_uid=10, symbol_order=11)
+;; Function main (main, funcdef_no=58, decl_uid=3313, cgraph_uid=58, symbol_order=65)
 
 Function found to be nothrow: main
 main ()
 {
-  int quiet;
-  int type;
-  struct object_id oid;
-  int _5;
+  char * string;
+  struct dict_type * dict;
+  char * _1;
+  char * _2;
+  int _9;
 
   <bb 2> [0.00%]:
-  reset_index (&oid, type_2(D), quiet_3(D));
-  _5 = 0;
-  oid ={v} {CLOBBER};
-  return _5;
+  string_5 = "var second : stored_in_dict 5 ; : next";
+  compile (string_5);
+  dict_8 = root;
+  goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _1 = dict_3->word;
+  printf ("%s\n", _1);
+  _2 = dict_3->word;
+  free (_2);
+  dict_12 = dict_3->next;
+
+  <bb 4> [0.00%]:
+  # dict_3 = PHI <dict_8(2), dict_12(3)>
+  if (dict_3 != 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 5> [0.00%]:
+  _9 = 0;
+  return _9;
 
 }
 

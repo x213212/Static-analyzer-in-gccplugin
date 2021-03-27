@@ -1,28 +1,23 @@
 
-;; Function strbuf_release (strbuf_release, funcdef_no=0, decl_uid=4045, cgraph_uid=8, symbol_order=52)
+;; Function newentry (newentry, funcdef_no=0, decl_uid=4000, cgraph_uid=5, symbol_order=60)
 
-strbuf_release (struct strbuf * sb)
+newentry (char * word)
 {
-  long unsigned int _1;
-  char * _2;
+  struct dict_type * new_d;
+  struct dict_type * _1;
+  void * _2;
 
   <bb 2> [100.00%]:
-  _1 = sb_5(D)->alloc;
-  if (_1 != 0)
-    goto <bb 3>; [36.64%]
-  else
-    goto <bb 5>; [63.36%]
-
-  <bb 5> [63.36%]:
-  goto <bb 4>; [100.00%]
-
-  <bb 3> [36.64%]:
-  _2 = sb_5(D)->buf;
-  free (_2);
-  strbuf_init (sb_5(D), 0);
-
-  <bb 4> [100.00%]:
-  return;
+  new_d_5 = malloc (40);
+  new_d_5->word = word_6(D);
+  _1 = root;
+  new_d_5->next = _1;
+  root = new_d_5;
+  _2 = malloc (8);
+  new_d_5->code = _2;
+  new_d_5->code_length = 1;
+  new_d_5->code_end = 0;
+  return new_d_5;
 
 }
 

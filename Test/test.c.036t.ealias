@@ -1,5 +1,5 @@
 
-;; Function update_tree_entry_internal (update_tree_entry_internal, funcdef_no=1, decl_uid=1976, cgraph_uid=1, symbol_order=2)
+;; Function fprintf (fprintf, funcdef_no=14, decl_uid=776, cgraph_uid=14, symbol_order=14)
 
 Points-to analysis
 
@@ -12,34 +12,15 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-desc = &NONLOCAL
-err = &NONLOCAL
-buf_12 = *desc
-_1 = *desc + 64
-end_13 = _1
-_3 = *desc + 256
-size_14 = _3
-end.0_4 = end_13
-buf.1_5 = buf_12
-_6 = end.0_4
-_6 = buf.1_5
-len_15 = _6
-ESCAPED = &STRING
-ESCAPED = buf_12
+__stream = &PARM_NOALIAS(9)
+PARM_NOALIAS(9) = &NONLOCAL
+__fmt = &PARM_NOALIAS(11)
+PARM_NOALIAS(11) = &NONLOCAL
+ESCAPED = __stream
 ESCAPED = &NONLOCAL
-size_17 = size_14
-size_17 = len_15
-*desc = end_13
-_7 = size_17
-*desc + 256 = _7
-ESCAPED = desc
-ESCAPED = end_13
-ESCAPED = size_17
-ESCAPED = err
-tmp_23 = NONLOCAL
-_8 = tmp_23
-_8 = &NULL
-ESCAPED = _8
+ESCAPED = __fmt
+_5 = NONLOCAL
+ESCAPED = _5
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -52,103 +33,46 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { NULL STRING ESCAPED NONLOCAL }
-NONLOCAL = { ESCAPED NONLOCAL } same as tmp_23
+ESCAPED = { ESCAPED NONLOCAL PARM_NOALIAS(9) PARM_NOALIAS(11) }
+NONLOCAL = { ESCAPED NONLOCAL } same as _5
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-desc = { NONLOCAL }
-err = { NONLOCAL } same as desc
-buf_12 = { ESCAPED NONLOCAL }
-_1 = { ESCAPED NONLOCAL }
-end_13 = { ESCAPED NONLOCAL } same as _1
-_3 = { ESCAPED NONLOCAL }
-size_14 = { ESCAPED NONLOCAL } same as _3
-end.0_4 = { ESCAPED NONLOCAL } same as _1
-buf.1_5 = { ESCAPED NONLOCAL } same as buf_12
-_6 = { ESCAPED NONLOCAL } same as buf_12
-len_15 = { ESCAPED NONLOCAL } same as buf_12
-printf = { }
-exit = { }
-size_17 = { ESCAPED NONLOCAL }
-_7 = { ESCAPED NONLOCAL } same as size_17
-decode_tree_entry = { }
-tmp_23 = { ESCAPED NONLOCAL }
-_8 = { NULL ESCAPED NONLOCAL }
+__stream = { PARM_NOALIAS(9) }
+PARM_NOALIAS(9) = { ESCAPED NONLOCAL }
+__fmt = { PARM_NOALIAS(11) }
+PARM_NOALIAS(11) = { ESCAPED NONLOCAL }
+__fprintf_chk = { }
+_5 = { ESCAPED NONLOCAL }
 
 
-Alias information for update_tree_entry_internal
+Alias information for fprintf
 
 Aliased symbols
 
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { }
+ESCAPED, points-to non-local, points-to vars: { D.3391 D.3392 } (nonlocal, escaped, restrict)
 
 Flow-insensitive points-to information
 
-_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-desc_11(D), points-to non-local, points-to NULL, points-to vars: { }
-buf_12, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-end_13, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-err_21(D), points-to non-local, points-to NULL, points-to vars: { }
+__stream_2(D), points-to NULL, points-to vars: { D.3391 } (nonlocal, escaped, restrict)
+__fmt_3(D), points-to NULL, points-to vars: { D.3392 } (nonlocal, escaped, restrict)
 
-update_tree_entry_internal (struct tree_desc * desc, struct strbuf * err)
+__attribute__((__artificial__, __gnu_inline__, __always_inline__))
+fprintf (struct FILE * restrict __stream, const char * restrict __fmt)
 {
-  int tmp;
-  long unsigned int len;
-  long unsigned int size;
-  const unsigned char * end;
-  const void * buf;
-  const struct object_id * _1;
-  unsigned int _3;
-  long int end.0_4;
-  long int buf.1_5;
-  long int _6;
-  unsigned int _7;
-  int _8;
+  int _5;
 
   <bb 2> [0.00%]:
-  buf_12 = desc_11(D)->buffer;
-  _1 = desc_11(D)->entry.oid;
-  end_13 = &MEM[(void *)_1 + 20B];
-  _3 = desc_11(D)->size;
-  size_14 = (long unsigned int) _3;
-  end.0_4 = (long int) end_13;
-  buf.1_5 = (long int) buf_12;
-  _6 = end.0_4 - buf.1_5;
-  len_15 = (long unsigned int) _6;
-  if (size_14 < len_15)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  printf ("too-short tree file%s", buf_12);
-  exit (1);
-
-  <bb 4> [0.00%]:
-  size_17 = size_14 - len_15;
-  desc_11(D)->buffer = end_13;
-  _7 = (unsigned int) size_17;
-  desc_11(D)->size = _7;
-  if (size_17 != 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 5> [0.00%]:
-  tmp_23 = decode_tree_entry (desc_11(D), end_13, size_17, err_21(D));
-
-  <bb 6> [0.00%]:
-  # _8 = PHI <tmp_23(5), 0(4)>
-  return _8;
+  _5 = __fprintf_chk (__stream_2(D), 1, __fmt_3(D), __builtin_va_arg_pack ());
+  return _5;
 
 }
 
 
 
-;; Function init_tree_desc_internal (init_tree_desc_internal, funcdef_no=6, decl_uid=2030, cgraph_uid=6, symbol_order=7)
+;; Function printf (printf, funcdef_no=15, decl_uid=798, cgraph_uid=15, symbol_order=15)
 
 Points-to analysis
 
@@ -161,21 +85,328 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-desc = &NONLOCAL
-buffer = &NONLOCAL
-size = &NONLOCAL
-err = &NONLOCAL
-*desc = buffer
-_1 = size
-*desc + 256 = _1
-ESCAPED = desc
-ESCAPED = buffer
-ESCAPED = size
-ESCAPED = err
-tmp_13 = NONLOCAL
-_2 = tmp_13
-_2 = &NULL
-ESCAPED = _2
+__fmt = &PARM_NOALIAS(9)
+PARM_NOALIAS(9) = &NONLOCAL
+ESCAPED = &NONLOCAL
+ESCAPED = __fmt
+_4 = NONLOCAL
+ESCAPED = _4
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL PARM_NOALIAS(9) }
+NONLOCAL = { ESCAPED NONLOCAL } same as _4
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+__fmt = { PARM_NOALIAS(9) }
+PARM_NOALIAS(9) = { ESCAPED NONLOCAL }
+__printf_chk = { }
+_4 = { ESCAPED NONLOCAL }
+
+
+Alias information for printf
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.3393 } (nonlocal, escaped, restrict)
+
+Flow-insensitive points-to information
+
+__fmt_2(D), points-to NULL, points-to vars: { D.3393 } (nonlocal, escaped, restrict)
+
+__attribute__((__artificial__, __gnu_inline__, __always_inline__))
+printf (const char * restrict __fmt)
+{
+  int _4;
+
+  <bb 2> [0.00%]:
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function do_my_cleanups (do_my_cleanups, funcdef_no=48, decl_uid=3170, cgraph_uid=48, symbol_order=53)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+pmy_chain = &NONLOCAL
+old_chain = &NONLOCAL
+_1 = *ptr_12
+*pmy_chain = _1
+_2 = *ptr_12 + 64
+_3 = *ptr_12 + 192
+ESCAPED = _3
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+_21 = NONLOCAL
+_4 = *ptr_12 + 192
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = _4
+_20 = NONLOCAL
+_5 = *ptr_12 + 128
+_6 = *ptr_12 + 128
+_7 = *ptr_12 + 192
+ESCAPED = _7
+ptr_12 = *pmy_chain
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { STRING ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL } same as _21
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+pmy_chain = { NONLOCAL }
+old_chain = { NONLOCAL } same as pmy_chain
+_1 = { ESCAPED NONLOCAL }
+ptr_12 = { ESCAPED NONLOCAL }
+_2 = { ESCAPED NONLOCAL }
+_3 = { ESCAPED NONLOCAL }
+__printf_chk = { }
+_21 = { ESCAPED NONLOCAL }
+_4 = { ESCAPED NONLOCAL }
+_20 = { ESCAPED NONLOCAL } same as _21
+_5 = { ESCAPED NONLOCAL }
+_6 = { ESCAPED NONLOCAL }
+_7 = { ESCAPED NONLOCAL }
+
+
+Alias information for do_my_cleanups
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { }
+
+Flow-insensitive points-to information
+
+_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_3, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_4, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_5, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_7, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+pmy_chain_11(D), points-to non-local, points-to NULL, points-to vars: { }
+ptr_12, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+old_chain_13(D), points-to non-local, points-to NULL, points-to vars: { }
+
+do_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
+{
+  int D.3397;
+  int D.3395;
+  struct cleanup * ptr;
+  struct cleanup * _1;
+  void (*<Ted>) (void *) _2;
+  void * _3;
+  void * _4;
+  void (*<Ted>) (void *) _5;
+  void (*<Ted>) (void *) _6;
+  void * _7;
+  int _20;
+  int _21;
+
+  <bb 2> [0.00%]:
+  goto <bb 6>; [0.00%]
+
+  <bb 3> [100.00%]:
+  _1 = ptr_12->next;
+  *pmy_chain_11(D) = _1;
+  _2 = ptr_12->function;
+  _3 = ptr_12->arg;
+  _2 (_3);
+  _21 = __printf_chk (1, "cleanup!!!!! =========\n");
+  _4 = ptr_12->arg;
+  _20 = __printf_chk (1, "%x\n", _4);
+  _5 = ptr_12->free_arg;
+  if (_5 != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  _6 = ptr_12->free_arg;
+  _7 = ptr_12->arg;
+  _6 (_7);
+
+  <bb 5> [0.00%]:
+  free (ptr_12);
+
+  <bb 6> [0.00%]:
+  ptr_12 = *pmy_chain_11(D);
+  if (ptr_12 != old_chain_13(D))
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 7> [0.00%]:
+  return;
+
+}
+
+
+
+;; Function make_my_cleanup2 (make_my_cleanup2, funcdef_no=50, decl_uid=3178, cgraph_uid=50, symbol_order=55)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+pmy_chain = &NONLOCAL
+function = &NONLOCAL
+arg = &NONLOCAL
+free_arg = &NONLOCAL
+ESCAPED = &NONLOCAL
+new_4 = &HEAP(14)
+old_chain_6 = *pmy_chain
+_1 = *pmy_chain
+*new_4 = _1
+*new_4 + 64 = function
+*new_4 + 128 = free_arg
+*new_4 + 192 = arg
+*pmy_chain = new_4
+ESCAPED = &NONLOCAL
+ESCAPED = old_chain_6
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL HEAP(14) }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+pmy_chain = { NONLOCAL }
+function = { NONLOCAL } same as pmy_chain
+arg = { NONLOCAL } same as pmy_chain
+free_arg = { NONLOCAL } same as pmy_chain
+malloc = { }
+new_4 = { HEAP(14) }
+HEAP(14) = { ESCAPED NONLOCAL }
+old_chain_6 = { ESCAPED NONLOCAL }
+_1 = { ESCAPED NONLOCAL } same as old_chain_6
+exit = { }
+
+
+Alias information for make_my_cleanup2
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.3398 } (escaped, escaped heap)
+
+Flow-insensitive points-to information
+
+_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+new_4, points-to NULL, points-to vars: { D.3398 } (escaped, escaped heap)
+pmy_chain_5(D), points-to non-local, points-to NULL, points-to vars: { }
+old_chain_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+function_8(D), points-to non-local, points-to NULL, points-to vars: { }
+free_arg_10(D), points-to non-local, points-to NULL, points-to vars: { }
+arg_12(D), points-to non-local, points-to NULL, points-to vars: { }
+
+make_my_cleanup2 (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg, void (*<Ted>) (void *) free_arg)
+{
+  struct cleanup * old_chain;
+  struct cleanup * new;
+  struct cleanup * _1;
+
+  <bb 2> [0.00%]:
+  new_4 = malloc (32);
+  old_chain_6 = *pmy_chain_5(D);
+  _1 = *pmy_chain_5(D);
+  new_4->next = _1;
+  new_4->function = function_8(D);
+  new_4->free_arg = free_arg_10(D);
+  new_4->arg = arg_12(D);
+  *pmy_chain_5(D) = new_4;
+  if (old_chain_6 == 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  exit (1);
+
+  <bb 4> [0.00%]:
+  return old_chain_6;
+
+}
+
+
+
+;; Function make_my_cleanup (make_my_cleanup, funcdef_no=51, decl_uid=3182, cgraph_uid=51, symbol_order=56)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+pmy_chain = &NONLOCAL
+function = &NONLOCAL
+arg = &NONLOCAL
+ESCAPED = pmy_chain
+ESCAPED = function
+ESCAPED = arg
+ESCAPED = &NULL
+_6 = NONLOCAL
+ESCAPED = _6
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -189,20 +420,17 @@ Points-to sets
 
 ANYTHING = { ANYTHING }
 ESCAPED = { NULL ESCAPED NONLOCAL }
-NONLOCAL = { ESCAPED NONLOCAL } same as tmp_13
+NONLOCAL = { ESCAPED NONLOCAL } same as _6
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-desc = { NONLOCAL }
-buffer = { NONLOCAL } same as desc
-size = { NONLOCAL } same as desc
-err = { NONLOCAL } same as desc
-_1 = { NONLOCAL } same as desc
-decode_tree_entry = { }
-tmp_13 = { ESCAPED NONLOCAL }
-_2 = { NULL ESCAPED NONLOCAL }
+pmy_chain = { NONLOCAL }
+function = { NONLOCAL } same as pmy_chain
+arg = { NONLOCAL } same as pmy_chain
+make_my_cleanup2 = { }
+_6 = { ESCAPED NONLOCAL }
 
 
-Alias information for init_tree_desc_internal
+Alias information for make_my_cleanup
 
 Aliased symbols
 
@@ -213,37 +441,24 @@ ESCAPED, points-to non-local, points-to NULL, points-to vars: { }
 
 Flow-insensitive points-to information
 
-desc_5(D), points-to non-local, points-to NULL, points-to vars: { }
-buffer_6(D), points-to non-local, points-to NULL, points-to vars: { }
-err_11(D), points-to non-local, points-to NULL, points-to vars: { }
+pmy_chain_2(D), points-to non-local, points-to NULL, points-to vars: { }
+function_3(D), points-to non-local, points-to NULL, points-to vars: { }
+arg_4(D), points-to non-local, points-to NULL, points-to vars: { }
+_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 
-init_tree_desc_internal (struct tree_desc * desc, const void * buffer, long unsigned int size, struct strbuf * err)
+make_my_cleanup (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg)
 {
-  int tmp;
-  unsigned int _1;
-  int _2;
+  struct cleanup * _6;
 
   <bb 2> [0.00%]:
-  desc_5(D)->buffer = buffer_6(D);
-  _1 = (unsigned int) size_8(D);
-  desc_5(D)->size = _1;
-  if (size_8(D) != 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  tmp_13 = decode_tree_entry (desc_5(D), buffer_6(D), size_8(D), err_11(D));
-
-  <bb 4> [0.00%]:
-  # _2 = PHI <tmp_13(3), 0(2)>
-  return _2;
+  _6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
+  return _6;
 
 }
 
 
 
-;; Function xrealloc (xrealloc, funcdef_no=0, decl_uid=1963, cgraph_uid=0, symbol_order=0)
+;; Function discard_my_cleanups (discard_my_cleanups, funcdef_no=47, decl_uid=3165, cgraph_uid=47, symbol_order=52)
 
 Points-to analysis
 
@@ -256,37 +471,20 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-ptr = &NONLOCAL
-size = &NONLOCAL
-ret_11 = &HEAP(11)
-doubledereftmp(12) = *ptr
-*ret_11 = doubledereftmp(12)
-ret_11 = ptr
-ret_13 = &HEAP(14)
-doubledereftmp(15) = *ptr
-*ret_13 = doubledereftmp(15)
-ret_13 = ptr
-ret_1 = ret_11
-ret_1 = ret_11
-ret_1 = ret_13
-ret_15 = &HEAP(18)
-doubledereftmp(19) = *ptr
-*ret_15 = doubledereftmp(19)
-ret_15 = ptr
-ret_17 = &HEAP(21)
-doubledereftmp(22) = *ptr
-*ret_17 = doubledereftmp(22)
-ret_17 = ptr
-ret_2 = ret_15
-ret_2 = ret_15
-ret_2 = ret_17
-ESCAPED = &STRING
-ESCAPED = &STRING
+pmy_chain = &NONLOCAL
+old_chain = &NONLOCAL
+_1 = *ptr_10
+*pmy_chain = _1
+_2 = *ptr_10 + 128
+_3 = *ptr_10 + 128
+_4 = *ptr_10 + 192
+ESCAPED = _4
+ptr_10 = *pmy_chain
+_5 = *ptr_10 + 192
 ESCAPED = &NONLOCAL
-ret_3 = ret_1
-ret_3 = ret_2
-_20 = ret_3
-ESCAPED = ret_3
+ESCAPED = &STRING
+ESCAPED = _5
+_16 = NONLOCAL
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -299,216 +497,90 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { STRING ESCAPED NONLOCAL HEAP(11) HEAP(14) HEAP(18) HEAP(21) }
-NONLOCAL = { ESCAPED NONLOCAL }
+ESCAPED = { STRING ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL } same as _16
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-ptr = { NONLOCAL }
-size = { NONLOCAL } same as ptr
-ret_11 = { NONLOCAL HEAP(11) }
-HEAP(11) = { ESCAPED NONLOCAL }
-doubledereftmp(12) = { ESCAPED NONLOCAL }
-ret_13 = { NONLOCAL HEAP(14) }
-HEAP(14) = { ESCAPED NONLOCAL }
-doubledereftmp(15) = { ESCAPED NONLOCAL } same as doubledereftmp(12)
-ret_1 = { NONLOCAL HEAP(11) HEAP(14) }
-ret_15 = { NONLOCAL HEAP(18) }
-HEAP(18) = { ESCAPED NONLOCAL }
-doubledereftmp(19) = { ESCAPED NONLOCAL } same as doubledereftmp(12)
-ret_17 = { NONLOCAL HEAP(21) }
-HEAP(21) = { ESCAPED NONLOCAL }
-doubledereftmp(22) = { ESCAPED NONLOCAL } same as doubledereftmp(12)
-ret_2 = { NONLOCAL HEAP(18) HEAP(21) }
-printf = { }
-exit = { }
-ret_3 = { NONLOCAL HEAP(11) HEAP(14) HEAP(18) HEAP(21) }
-_20 = { NONLOCAL HEAP(11) HEAP(14) HEAP(18) HEAP(21) } same as ret_3
+pmy_chain = { NONLOCAL }
+old_chain = { NONLOCAL } same as pmy_chain
+_1 = { ESCAPED NONLOCAL }
+ptr_10 = { ESCAPED NONLOCAL }
+_2 = { ESCAPED NONLOCAL }
+_3 = { ESCAPED NONLOCAL }
+_4 = { ESCAPED NONLOCAL }
+_5 = { ESCAPED NONLOCAL }
+__printf_chk = { }
+_16 = { ESCAPED NONLOCAL }
 
 
-Alias information for xrealloc
+Alias information for discard_my_cleanups
 
 Aliased symbols
 
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.2158 D.2159 D.2160 D.2161 } (escaped, escaped heap)
+ESCAPED, points-to non-local, points-to vars: { }
 
 Flow-insensitive points-to information
 
-ret_1, points-to non-local, points-to NULL, points-to vars: { D.2158 D.2159 } (escaped, escaped heap)
-ret_2, points-to non-local, points-to NULL, points-to vars: { D.2160 D.2161 } (escaped, escaped heap)
-ret_3, points-to non-local, points-to NULL, points-to vars: { D.2158 D.2159 D.2160 D.2161 } (escaped, escaped heap)
-ptr_8(D), points-to non-local, points-to NULL, points-to vars: { }
-ret_11, points-to non-local, points-to NULL, points-to vars: { D.2158 } (escaped, escaped heap)
-ret_13, points-to non-local, points-to NULL, points-to vars: { D.2159 } (escaped, escaped heap)
-ret_15, points-to non-local, points-to NULL, points-to vars: { D.2160 } (escaped, escaped heap)
-ret_17, points-to non-local, points-to NULL, points-to vars: { D.2161 } (escaped, escaped heap)
-_20, points-to non-local, points-to NULL, points-to vars: { D.2158 D.2159 D.2160 D.2161 } (escaped, escaped heap)
+_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_3, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_4, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_5, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+pmy_chain_9(D), points-to non-local, points-to NULL, points-to vars: { }
+ptr_10, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+old_chain_11(D), points-to non-local, points-to NULL, points-to vars: { }
 
-xrealloc (void * ptr, size_t size)
+discard_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
 {
-  void * ret;
-  void * _20;
+  int D.3400;
+  struct cleanup * ptr;
+  struct cleanup * _1;
+  void (*<Ted>) (void *) _2;
+  void (*<Ted>) (void *) _3;
+  void * _4;
+  void * _5;
+  int _16;
 
   <bb 2> [0.00%]:
-  ret_11 = realloc (ptr_8(D), size_9(D));
-  if (ret_11 == 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
+  goto <bb 6>; [0.00%]
 
   <bb 3> [0.00%]:
-  if (size_9(D) == 0)
+  _1 = ptr_10->next;
+  *pmy_chain_9(D) = _1;
+  _2 = ptr_10->free_arg;
+  if (_2 != 0B)
     goto <bb 4>; [0.00%]
   else
     goto <bb 5>; [0.00%]
 
   <bb 4> [0.00%]:
-  ret_13 = realloc (ptr_8(D), 1);
+  _3 = ptr_10->free_arg;
+  _4 = ptr_10->arg;
+  _3 (_4);
 
   <bb 5> [0.00%]:
-  # ret_1 = PHI <ret_11(2), ret_11(3), ret_13(4)>
-  if (ret_1 == 0B)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 11>; [0.00%]
+  free (ptr_10);
 
   <bb 6> [0.00%]:
-  ret_15 = realloc (ptr_8(D), size_9(D));
-  if (ret_15 == 0B)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 7> [0.00%]:
-  if (size_9(D) == 0)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 8> [0.00%]:
-  ret_17 = realloc (ptr_8(D), 1);
-
-  <bb 9> [0.00%]:
-  # ret_2 = PHI <ret_15(6), ret_15(7), ret_17(8)>
-  if (ret_2 == 0B)
-    goto <bb 10>; [0.00%]
-  else
-    goto <bb 11>; [0.00%]
-
-  <bb 10> [0.00%]:
-  printf ("Out of memory, realloc failed%s", "");
-  exit (1);
-
-  <bb 11> [0.00%]:
-  # ret_3 = PHI <ret_1(5), ret_2(9)>
-  _20 = ret_3;
-  return ret_3;
-
-}
-
-
-
-;; Function update_tree_entry (update_tree_entry, funcdef_no=2, decl_uid=1985, cgraph_uid=2, symbol_order=3)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-desc = &NONLOCAL
-err = &NULL
-err = &NULL
-strbuf_slopbuf = NONLOCAL
-err = &strbuf_slopbuf
-ESCAPED = desc
-ESCAPED = &err
-tmp_8 = NONLOCAL
-_1 = err
-ESCAPED = &STRING
-ESCAPED = _1
-ESCAPED = &NONLOCAL
-ESCAPED = &err
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { NULL STRING ESCAPED NONLOCAL err strbuf_slopbuf }
-NONLOCAL = { ESCAPED NONLOCAL } same as tmp_8
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-desc = { NONLOCAL }
-err = { NULL ESCAPED NONLOCAL strbuf_slopbuf } same as _1
-strbuf_slopbuf = { ESCAPED NONLOCAL }
-update_tree_entry_internal = { }
-tmp_8 = { ESCAPED NONLOCAL }
-_1 = { NULL ESCAPED NONLOCAL strbuf_slopbuf }
-printf = { }
-exit = { }
-strbuf_release = { }
-
-
-Alias information for update_tree_entry
-
-Aliased symbols
-
-err, UID D.1987, struct strbuf, is addressable
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.1960 D.1987 } (nonlocal, escaped, interposable)
-
-Flow-insensitive points-to information
-
-_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.1960 } (nonlocal, escaped, interposable)
-desc_6(D), points-to non-local, points-to NULL, points-to vars: { }
-
-update_tree_entry (struct tree_desc * desc)
-{
-  int tmp;
-  struct strbuf err;
-  char * _1;
-
-  <bb 2> [0.00%]:
-  err.alloc = 0;
-  err.len = 0;
-  err.buf = &strbuf_slopbuf;
-  tmp_8 = update_tree_entry_internal (desc_6(D), &err);
-  if (tmp_8 != 0)
+  ptr_10 = *pmy_chain_9(D);
+  if (ptr_10 != old_chain_11(D))
     goto <bb 3>; [0.00%]
   else
-    goto <bb 4>; [0.00%]
+    goto <bb 7>; [0.00%]
 
-  <bb 3> [0.00%]:
-  _1 = err.buf;
-  printf ("%s", _1);
-  exit (1);
-
-  <bb 4> [0.00%]:
-  strbuf_release (&err);
-  err ={v} {CLOBBER};
+  <bb 7> [100.00%]:
+  _5 = ptr_10->arg;
+  _16 = __printf_chk (1, "freearg: %x\n", _5);
   return;
 
 }
 
 
 
-;; Function extended_entry_extract (extended_entry_extract, funcdef_no=3, decl_uid=1995, cgraph_uid=3, symbol_order=4)
+;; Function discard_cleanups (discard_cleanups, funcdef_no=45, decl_uid=3162, cgraph_uid=45, symbol_order=50)
 
 Points-to analysis
 
@@ -521,25 +593,364 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-t = &NONLOCAL
-a = &NONLOCAL
-first = &NONLOCAL
-first_len = &NONLOCAL
-_1 = *t + 256
-ESCAPED = a
-_2 = t + UNKNOWN
-ESCAPED = _2
-ESCAPED = a
-skip_15 = *t + 320
-_3 = *a + 64
-_4 = _3
-_5 = *skip_8 + 64
-_6 = _5
-skip_16 = *skip_8
-skip_8 = skip_15
-skip_8 = skip_16
-_7 = t + UNKNOWN
-ESCAPED = _7
+old_chain = &NONLOCAL
+cleanup_chain = NONLOCAL
+ESCAPED = &cleanup_chain
+ESCAPED = old_chain
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL cleanup_chain }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+old_chain = { NONLOCAL }
+discard_my_cleanups = { }
+cleanup_chain = { ESCAPED NONLOCAL }
+
+
+Alias information for discard_cleanups
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.3159 } (nonlocal, escaped)
+
+Flow-insensitive points-to information
+
+old_chain_2(D), points-to non-local, points-to NULL, points-to vars: { }
+
+discard_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  discard_my_cleanups (&cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function discard_final_cleanups (discard_final_cleanups, funcdef_no=46, decl_uid=3167, cgraph_uid=46, symbol_order=51)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+old_chain = &NONLOCAL
+final_cleanup_chain = NONLOCAL
+ESCAPED = &final_cleanup_chain
+ESCAPED = old_chain
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL final_cleanup_chain }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+old_chain = { NONLOCAL }
+discard_my_cleanups = { }
+final_cleanup_chain = { ESCAPED NONLOCAL }
+
+
+Alias information for discard_final_cleanups
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.3160 } (nonlocal, escaped)
+
+Flow-insensitive points-to information
+
+old_chain_2(D), points-to non-local, points-to NULL, points-to vars: { }
+
+discard_final_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  discard_my_cleanups (&final_cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function do_cleanups (do_cleanups, funcdef_no=49, decl_uid=3172, cgraph_uid=49, symbol_order=54)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+old_chain = &NONLOCAL
+cleanup_chain = NONLOCAL
+ESCAPED = &cleanup_chain
+ESCAPED = old_chain
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL cleanup_chain }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+old_chain = { NONLOCAL }
+do_my_cleanups = { }
+cleanup_chain = { ESCAPED NONLOCAL }
+
+
+Alias information for do_cleanups
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.3159 } (nonlocal, escaped)
+
+Flow-insensitive points-to information
+
+old_chain_2(D), points-to non-local, points-to NULL, points-to vars: { }
+
+do_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  do_my_cleanups (&cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function make_cleanup (make_cleanup, funcdef_no=52, decl_uid=3185, cgraph_uid=52, symbol_order=57)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+function = &NONLOCAL
+arg = &NONLOCAL
+cleanup_chain = NONLOCAL
+ESCAPED = &cleanup_chain
+ESCAPED = function
+ESCAPED = arg
+_5 = NONLOCAL
+ESCAPED = _5
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL cleanup_chain }
+NONLOCAL = { ESCAPED NONLOCAL } same as _5
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+function = { NONLOCAL }
+arg = { NONLOCAL } same as function
+make_my_cleanup = { }
+cleanup_chain = { ESCAPED NONLOCAL }
+_5 = { ESCAPED NONLOCAL }
+
+
+Alias information for make_cleanup
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.3159 } (nonlocal, escaped)
+
+Flow-insensitive points-to information
+
+function_2(D), points-to non-local, points-to NULL, points-to vars: { }
+arg_3(D), points-to non-local, points-to NULL, points-to vars: { }
+_5, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+
+make_cleanup (void (*<Ta1d>) (void *) function, void * arg)
+{
+  struct cleanup * _5;
+
+  <bb 2> [0.00%]:
+  _5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
+  return _5;
+
+}
+
+
+
+;; Function newentry (newentry, funcdef_no=53, decl_uid=3247, cgraph_uid=53, symbol_order=60)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+word = &NONLOCAL
+ESCAPED = &NONLOCAL
+new_d_5 = &HEAP(11)
+*new_d_5 = word
+root = NONLOCAL
+root.0_1 = root
+*new_d_5 + 64 = root.0_1
+root = new_d_5
+ESCAPED = new_d_5
+ESCAPED = &NONLOCAL
+_2 = &HEAP(15)
+*new_d_5 + 128 = _2
+derefaddrtmp(16) = &NONLOCAL
+*new_d_5 + 192 = derefaddrtmp(16)
+derefaddrtmp(17) = &NULL
+*new_d_5 + 224 = derefaddrtmp(17)
+_14 = new_d_5
+ESCAPED = new_d_5
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL ESCAPED NONLOCAL HEAP(11) HEAP(15) }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+word = { NONLOCAL }
+malloc = { }
+new_d_5 = { HEAP(11) }
+HEAP(11) = { NULL ESCAPED NONLOCAL HEAP(11) HEAP(15) }
+root.0_1 = { ESCAPED NONLOCAL HEAP(11) } same as root
+root = { ESCAPED NONLOCAL HEAP(11) }
+_2 = { HEAP(15) }
+HEAP(15) = { ESCAPED NONLOCAL }
+derefaddrtmp(16) = { NONLOCAL } same as word
+derefaddrtmp(17) = { NULL }
+_14 = { HEAP(11) } same as new_d_5
+
+
+Alias information for newentry
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.3401 D.3402 } (escaped, escaped heap)
+
+Flow-insensitive points-to information
+
+root.0_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.3401 } (escaped, escaped heap)
+_2, points-to NULL, points-to vars: { D.3402 } (escaped, escaped heap)
+new_d_5, points-to NULL, points-to vars: { D.3401 } (escaped, escaped heap)
+word_6(D), points-to non-local, points-to NULL, points-to vars: { }
+_14, points-to NULL, points-to vars: { D.3401 } (escaped, escaped heap)
+
+newentry (char * word)
+{
+  struct dict_type * new_d;
+  struct dict_type * root.0_1;
+  void * _2;
+  struct dict_type * _14;
+
+  <bb 2> [0.00%]:
+  new_d_5 = malloc (40);
+  new_d_5->word = word_6(D);
+  root.0_1 = root;
+  new_d_5->next = root.0_1;
+  root = new_d_5;
+  _2 = malloc (8);
+  new_d_5->code = _2;
+  new_d_5->code_length = 1;
+  new_d_5->code_end = 0;
+  _14 = new_d_5;
+  return new_d_5;
+
+}
+
+
+
+;; Function add_var (add_var, funcdef_no=54, decl_uid=3250, cgraph_uid=54, symbol_order=61)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+name = &NONLOCAL
+ESCAPED = name
+new_d_4 = NONLOCAL
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -553,29 +964,15 @@ Points-to sets
 
 ANYTHING = { ANYTHING }
 ESCAPED = { ESCAPED NONLOCAL }
-NONLOCAL = { ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL } same as new_d_4
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-t = { NONLOCAL }
-a = { NONLOCAL } same as t
-first = { NONLOCAL } same as t
-first_len = { NONLOCAL } same as t
-_1 = { ESCAPED NONLOCAL }
-entry_clear = { }
-_2 = { NONLOCAL }
-entry_extract = { }
-skip_15 = { ESCAPED NONLOCAL }
-_3 = { ESCAPED NONLOCAL }
-_4 = { ESCAPED NONLOCAL } same as _3
-_5 = { ESCAPED NONLOCAL }
-skip_8 = { ESCAPED NONLOCAL }
-_6 = { ESCAPED NONLOCAL } same as _5
-skip_16 = { ESCAPED NONLOCAL }
-_7 = { NONLOCAL }
-update_tree_entry = { }
+name = { NONLOCAL }
+newentry = { }
+new_d_4 = { ESCAPED NONLOCAL }
 
 
-Alias information for extended_entry_extract
+Alias information for add_var
 
 Aliased symbols
 
@@ -586,83 +983,22 @@ ESCAPED, points-to non-local, points-to vars: { }
 
 Flow-insensitive points-to information
 
-_2, points-to non-local, points-to NULL, points-to vars: { }
-_3, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_5, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-_7, points-to non-local, points-to NULL, points-to vars: { }
-skip_8, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-t_12(D), points-to non-local, points-to NULL, points-to vars: { }
-a_13(D), points-to non-local, points-to NULL, points-to vars: { }
-skip_15, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-skip_16, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+name_2(D), points-to non-local, points-to NULL, points-to vars: { }
+new_d_4, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 
-extended_entry_extract (struct tree_desc_x * t, struct name_entry * a, const char * first, int first_len)
+add_var (char * name)
 {
-  struct tree_desc_skip * skip;
-  unsigned int _1;
-  struct tree_desc * _2;
-  const char * _3;
-  long unsigned int _4;
-  const void * _5;
-  long unsigned int _6;
-  struct tree_desc * _7;
+  struct dict_type * new_d;
 
   <bb 2> [0.00%]:
-  _1 = t_12(D)->d.size;
-  if (_1 == 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  entry_clear (a_13(D));
-  goto <bb 10>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _2 = &t_12(D)->d;
-  entry_extract (_2, a_13(D));
-  skip_15 = t_12(D)->skip;
-  goto <bb 7>; [0.00%]
-
-  <bb 5> [0.00%]:
-  _3 = a_13(D)->path;
-  _4 = (long unsigned int) _3;
-  _5 = skip_8->ptr;
-  _6 = (long unsigned int) _5;
-  if (_4 == _6)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 6> [0.00%]:
-  skip_16 = skip_8->prev;
-
-  <bb 7> [0.00%]:
-  # skip_8 = PHI <skip_15(4), skip_16(6)>
-  if (skip_8 != 0B)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 8> [0.00%]:
-  if (skip_8 == 0B)
-    goto <bb 10>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 9> [0.00%]:
-  _7 = &t_12(D)->d;
-  update_tree_entry (_7);
-  goto <bb 2>; [0.00%]
-
-  <bb 10> [0.00%]:
+  new_d_4 = newentry (name_2(D));
   return;
 
 }
 
 
 
-;; Function traverse_trees (traverse_trees, funcdef_no=4, decl_uid=2006, cgraph_uid=4, symbol_order=5)
+;; Function add_to_definition (add_to_definition, funcdef_no=55, decl_uid=3254, cgraph_uid=55, symbol_order=62)
 
 Points-to analysis
 
@@ -675,51 +1011,37 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-n = &NONLOCAL
-t = &NONLOCAL
-info = &NONLOCAL
-_1 = n___0_19
-ESCAPED = _1
-ESCAPED = &NONLOCAL
-tmp_22 = &HEAP(15)
-tx_23 = tmp_22
-_2 = n___0_19
-_3 = _2
-_3 = &NONLOCAL
-ESCAPED = _3
-tmp___0_25 = &HEAP(21)
-entry_26 = tmp___0_25
-_4 = i_15
-_5 = _4
-_5 = &NONLOCAL
-_6 = t
-_7 = i_15
-_8 = _7
-_8 = &NONLOCAL
-_9 = tmp_22
-doubledereftmp(30) = *_6 + UNKNOWN
-*_9 + UNKNOWN = doubledereftmp(30)
-i_37 = i_15
-i_37 = &NONLOCAL
-i_15 = &NULL
-i_15 = i_37
-_10 = i_16
-_11 = _10
-_11 = &NONLOCAL
-e_32 = tmp___0_25
-_12 = i_16
+entry = &NONLOCAL
+word = &NONLOCAL
+_1 = *entry + 224
+_2 = *entry + 192
+_3 = *entry + 192
+_4 = _3
+_4 = &NONLOCAL
+*entry + 192 = _4
+_5 = *entry + 192
+_6 = _5
+_7 = _6
+_7 = &NONLOCAL
+_8 = *entry + 128
+_9 = &HEAP(19)
+doubledereftmp(20) = *_8
+*_9 = doubledereftmp(20)
+_9 = _8
+*entry + 128 = _9
+_10 = *entry + 128
+_11 = *entry + 224
+_12 = _11
 _13 = _12
 _13 = &NONLOCAL
-_14 = tmp_22
-ESCAPED = _14
-ESCAPED = e_32
-ESCAPED = &NULL
-ESCAPED = &NULL
-i_34 = i_16
-i_34 = &NONLOCAL
-i_16 = &NULL
-i_16 = i_34
-ESCAPED = &NONLOCAL
+_14 = _10
+*_14 = word
+_15 = *entry + 224
+_17 = _15
+_17 = &NONLOCAL
+*entry + 224 = _17
+_27 = _15
+ESCAPED = _27
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -732,143 +1054,108 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { NULL ESCAPED NONLOCAL HEAP(15) HEAP(21) }
+ESCAPED = { ESCAPED NONLOCAL HEAP(19) }
 NONLOCAL = { ESCAPED NONLOCAL }
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-n = { NONLOCAL }
-t = { NONLOCAL } same as n
-info = { NONLOCAL } same as n
-_1 = { }
-n___0_19 = { }
-calloc = { }
-tmp_22 = { HEAP(15) }
-HEAP(15) = { ESCAPED NONLOCAL }
-tx_23 = { HEAP(15) } same as tmp_22
-_2 = { }
-_3 = { NONLOCAL } same as n
-malloc = { }
-tmp___0_25 = { HEAP(21) }
-HEAP(21) = { ESCAPED NONLOCAL }
-entry_26 = { HEAP(21) } same as tmp___0_25
-_4 = { NULL NONLOCAL }
-i_15 = { NULL NONLOCAL } same as _4
-_5 = { NULL NONLOCAL } same as _4
-_6 = { NONLOCAL } same as n
-_7 = { NULL NONLOCAL } same as _4
-_8 = { NULL NONLOCAL } same as _4
-_9 = { HEAP(15) } same as tmp_22
-doubledereftmp(30) = { ESCAPED NONLOCAL }
-i_37 = { NULL NONLOCAL } same as _4
-_10 = { NULL NONLOCAL } same as _4
-i_16 = { NULL NONLOCAL } same as _4
-_11 = { NULL NONLOCAL } same as _4
-e_32 = { HEAP(21) } same as tmp___0_25
-_12 = { NULL NONLOCAL } same as _4
-_13 = { NULL NONLOCAL } same as _4
-_14 = { HEAP(15) } same as tmp_22
-extended_entry_extract = { }
-i_34 = { NULL NONLOCAL } same as _4
+entry = { NONLOCAL }
+word = { NONLOCAL } same as entry
+_1 = { ESCAPED NONLOCAL }
+_2 = { ESCAPED NONLOCAL }
+_3 = { ESCAPED NONLOCAL }
+_4 = { ESCAPED NONLOCAL }
+_5 = { ESCAPED NONLOCAL }
+_6 = { ESCAPED NONLOCAL } same as _5
+_7 = { ESCAPED NONLOCAL }
+_8 = { ESCAPED NONLOCAL }
+_9 = { ESCAPED NONLOCAL HEAP(19) }
+HEAP(19) = { ESCAPED NONLOCAL }
+doubledereftmp(20) = { ESCAPED NONLOCAL }
+_10 = { ESCAPED NONLOCAL }
+_11 = { ESCAPED NONLOCAL }
+_12 = { ESCAPED NONLOCAL } same as _11
+_13 = { ESCAPED NONLOCAL }
+_14 = { ESCAPED NONLOCAL } same as _10
+_15 = { ESCAPED NONLOCAL }
+_17 = { ESCAPED NONLOCAL }
+_27 = { ESCAPED NONLOCAL } same as _15
 
 
-Alias information for traverse_trees
+Alias information for add_to_definition
 
 Aliased symbols
 
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.2162 D.2163 } (escaped, escaped heap)
+ESCAPED, points-to non-local, points-to vars: { D.3403 } (escaped, escaped heap)
 
 Flow-insensitive points-to information
 
-_6, points-to non-local, points-to NULL, points-to vars: { }
-_9, points-to NULL, points-to vars: { D.2162 } (escaped, escaped heap)
-_14, points-to NULL, points-to vars: { D.2162 } (escaped, escaped heap)
-tmp_22, points-to NULL, points-to vars: { D.2162 } (escaped, escaped heap)
-tx_23, points-to NULL, points-to vars: { D.2162 } (escaped, escaped heap)
-tmp___0_25, points-to NULL, points-to vars: { D.2163 } (escaped, escaped heap)
-entry_26, points-to NULL, points-to vars: { D.2163 } (escaped, escaped heap)
-e_32, points-to NULL, points-to vars: { D.2163 } (escaped, escaped heap)
-t_35(D), points-to non-local, points-to NULL, points-to vars: { }
+_8, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_9, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.3403 } (escaped, escaped heap)
+_10, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_14, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+entry_20(D), points-to non-local, points-to NULL, points-to vars: { }
+word_24(D), points-to non-local, points-to NULL, points-to vars: { }
 
-traverse_trees (int n, struct tree_desc * t, struct traverse_info * info)
+add_to_definition (struct dict_type * entry, void (*stinst_type) () word)
 {
-  struct name_entry * e;
-  void * tmp___0;
-  struct name_entry * entry;
-  void * tmp;
-  struct tree_desc_x * tx;
-  int n___0;
-  int i;
-  long unsigned int _1;
-  long unsigned int _2;
-  long unsigned int _3;
-  long unsigned int _4;
-  long unsigned int _5;
-  struct tree_desc * _6;
+  int _1;
+  int _2;
+  int _3;
+  int _4;
+  int _5;
+  long unsigned int _6;
   long unsigned int _7;
-  long unsigned int _8;
-  struct tree_desc_x * _9;
-  long unsigned int _10;
-  long unsigned int _11;
+  void (*stinst_type) () * _8;
+  void * _9;
+  void (*stinst_type) () * _10;
+  int _11;
   long unsigned int _12;
   long unsigned int _13;
-  struct tree_desc_x * _14;
+  void (*stinst_type) () * _14;
+  int _15;
+  int _17;
+  unsigned int _27;
 
   <bb 2> [0.00%]:
-  _1 = (long unsigned int) n___0_19(D);
-  tmp_22 = calloc (_1, 48);
-  tx_23 = tmp_22;
-  _2 = (long unsigned int) n___0_19(D);
-  _3 = _2 * 24;
-  tmp___0_25 = malloc (_3);
-  entry_26 = tmp___0_25;
-  goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _4 = (long unsigned int) i_15;
-  _5 = _4 * 40;
-  _6 = t_35(D) + _5;
-  _7 = (long unsigned int) i_15;
-  _8 = _7 * 48;
-  _9 = tmp_22 + _8;
-  _9->d = *_6;
-  i_37 = i_15 + 1;
-
-  <bb 4> [0.00%]:
-  # i_15 = PHI <0(2), i_37(3)>
-  if (i_15 < n___0_19(D))
+  _1 = entry_20(D)->code_end;
+  _2 = entry_20(D)->code_length;
+  if (_1 == _2)
     goto <bb 3>; [0.00%]
   else
-    goto <bb 6>; [0.00%]
+    goto <bb 4>; [0.00%]
 
-  <bb 5> [0.00%]:
-  _10 = (long unsigned int) i_16;
-  _11 = _10 * 24;
-  e_32 = tmp___0_25 + _11;
-  _12 = (long unsigned int) i_16;
-  _13 = _12 * 48;
-  _14 = tmp_22 + _13;
-  extended_entry_extract (_14, e_32, 0B, 0);
-  i_34 = i_16 + 1;
+  <bb 3> [0.00%]:
+  _3 = entry_20(D)->code_length;
+  _4 = _3 + 2;
+  entry_20(D)->code_length = _4;
+  _5 = entry_20(D)->code_length;
+  _6 = (long unsigned int) _5;
+  _7 = _6 * 8;
+  _8 = entry_20(D)->code;
+  _9 = realloc (_8, _7);
+  entry_20(D)->code = _9;
 
-  <bb 6> [0.00%]:
-  # i_16 = PHI <0(4), i_34(5)>
-  if (i_16 < n___0_19(D))
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 7> [0.00%]:
-  free (tx_23);
-  return 1;
+  <bb 4> [0.00%]:
+  _10 = entry_20(D)->code;
+  _11 = entry_20(D)->code_end;
+  _12 = (long unsigned int) _11;
+  _13 = _12 * 8;
+  _14 = _10 + _13;
+  *_14 = word_24(D);
+  _15 = entry_20(D)->code_end;
+  _17 = _15 + 1;
+  entry_20(D)->code_end = _17;
+  _27 = (unsigned int) _15;
+  return _27;
 
 }
 
 
 
-;; Function unpack_trees (unpack_trees, funcdef_no=5, decl_uid=2024, cgraph_uid=5, symbol_order=6)
+;; Function nextword (nextword, funcdef_no=56, decl_uid=3258, cgraph_uid=56, symbol_order=63)
 
 Points-to analysis
 
@@ -881,13 +1168,934 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-len = &NONLOCAL
-t = &NONLOCAL
-o = &NONLOCAL
-len.2_1 = len
-ESCAPED = len.2_1
-ESCAPED = t
-ESCAPED = &NULL
+string = &NONLOCAL
+word = &NONLOCAL
+_1 = *string_43
+string_94 = string_42
+string_42 = string_43
+string_42 = string_94
+_93 = *string_42
+_4 = _2
+_4 = _3
+string_92 = string_43
+string_43 = string
+string_43 = string_42
+string_43 = string_92
+_5 = *string_43
+_6 = _5
+_7 = _6
+CALLUSED(23) = CALLUSED(23) + UNKNOWN
+CALLUSED(23) = *CALLUSED(23) + UNKNOWN
+CALLUSED(23) = _7
+_8 = CALLUSED(23)
+_8 = NONLOCAL
+_9 = *string_43
+_10 = *string_43
+word_start_63 = string_43
+_11 = *string_43
+string_44 = string_43
+string_44 = string_45
+length_52 = &NULL
+length_52 = length_53
+string_66 = string_44
+length_67 = length_52
+length_67 = &NONLOCAL
+_12 = *string_44
+string_68 = string_44
+length_69 = length_52
+length_69 = &NONLOCAL
+string_45 = string_66
+string_45 = string_68
+length_53 = length_67
+length_53 = length_69
+_13 = *string_45
+string_64 = string_46
+length_65 = length_54
+length_65 = &NONLOCAL
+string_46 = string_43
+string_46 = string_64
+length_54 = &NULL
+length_54 = length_65
+_14 = *string_46
+_15 = _14
+_16 = _15
+CALLUSED(47) = CALLUSED(47) + UNKNOWN
+CALLUSED(47) = *CALLUSED(47) + UNKNOWN
+CALLUSED(47) = _16
+_17 = CALLUSED(47)
+_17 = NONLOCAL
+string_47 = string_45
+string_47 = string_46
+length_55 = length_53
+length_55 = length_54
+_18 = length_55
+_18 = &NONLOCAL
+_19 = _18
+ESCAPED = _19
+_20 = &HEAP(56)
+*word = _20
+dst_73 = *word
+src_74 = string_43
+_21 = idx_49
+_22 = string_43
+_23 = *_22
+_24 = idx_49
+_25 = _24
+_25 = &NONLOCAL
+_26 = string_43
+_27 = *_26
+_28 = _27
+dst.1_29 = dst_51
+dst_82 = dst_51
+derefaddrtmp(71) = &NONLOCAL
+*dst.1_29 = derefaddrtmp(71)
+idx_84 = idx_49
+idx_84 = &NONLOCAL
+_30 = idx_49
+_31 = _30
+_31 = &NONLOCAL
+_32 = string_43
+dst.2_33 = dst_51
+dst_85 = dst_51
+_34 = *_32
+*dst.2_33 = _34
+idx_87 = idx_49
+idx_87 = &NONLOCAL
+dst.3_35 = dst_51
+dst_88 = dst_51
+derefaddrtmp(82) = &NONLOCAL
+*dst.3_35 = derefaddrtmp(82)
+_36 = idx_49
+_37 = string_43
+dst.4_38 = dst_51
+dst_80 = dst_51
+_39 = *_37
+*dst.4_38 = _39
+idx_48 = idx_87
+idx_48 = idx_49
+idx_48 = idx_84
+idx_48 = idx_49
+dst_50 = dst_85
+dst_50 = dst_80
+dst_50 = dst_82
+dst_50 = dst_88
+idx_90 = idx_48
+idx_90 = &NONLOCAL
+idx_49 = &NULL
+idx_49 = idx_90
+dst_51 = dst_73
+dst_51 = dst_50
+dst.5_40 = dst_51
+dst_76 = dst_51
+derefaddrtmp(93) = &NULL
+*dst.5_40 = derefaddrtmp(93)
+_41 = *string_47
+_79 = string_47
+_56 = &NULL
+_56 = &NULL
+_56 = _79
+_56 = &NULL
+ESCAPED = _56
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL ESCAPED NONLOCAL HEAP(56) }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+string = { NONLOCAL }
+word = { NONLOCAL } same as string
+_1 = { ESCAPED NONLOCAL }
+string_43 = { NONLOCAL } same as string
+string_94 = { NONLOCAL } same as string
+string_42 = { NONLOCAL } same as string
+_93 = { ESCAPED NONLOCAL } same as _1
+_2 = { }
+_3 = { }
+_4 = { }
+string_92 = { NONLOCAL } same as string
+_5 = { ESCAPED NONLOCAL } same as _1
+_6 = { ESCAPED NONLOCAL } same as _1
+_7 = { ESCAPED NONLOCAL } same as _1
+isspace = { }
+CALLUSED(23) = { ESCAPED NONLOCAL }
+CALLCLOBBERED(24) = { }
+_8 = { ESCAPED NONLOCAL }
+_9 = { ESCAPED NONLOCAL } same as _1
+_10 = { ESCAPED NONLOCAL } same as _1
+word_start_63 = { NONLOCAL } same as string
+_11 = { ESCAPED NONLOCAL } same as _1
+string_44 = { NONLOCAL } same as string
+string_45 = { NONLOCAL } same as string
+length_52 = { NULL NONLOCAL }
+length_53 = { NULL NONLOCAL } same as length_52
+string_66 = { NONLOCAL } same as string
+length_67 = { NULL NONLOCAL } same as length_52
+_12 = { ESCAPED NONLOCAL }
+string_68 = { NONLOCAL } same as string
+length_69 = { NULL NONLOCAL } same as length_52
+_13 = { ESCAPED NONLOCAL } same as _12
+string_64 = { NONLOCAL } same as string
+string_46 = { NONLOCAL } same as string
+length_65 = { NULL NONLOCAL } same as length_52
+length_54 = { NULL NONLOCAL } same as length_52
+_14 = { ESCAPED NONLOCAL }
+_15 = { ESCAPED NONLOCAL } same as _14
+_16 = { ESCAPED NONLOCAL } same as _14
+CALLUSED(47) = { ESCAPED NONLOCAL }
+CALLCLOBBERED(48) = { }
+_17 = { ESCAPED NONLOCAL }
+string_47 = { NONLOCAL } same as string
+length_55 = { NULL NONLOCAL } same as length_52
+_18 = { NULL NONLOCAL } same as length_52
+_19 = { NULL NONLOCAL } same as length_52
+malloc = { }
+_20 = { HEAP(56) }
+HEAP(56) = { ESCAPED NONLOCAL }
+dst_73 = { ESCAPED NONLOCAL }
+src_74 = { NONLOCAL } same as string
+_21 = { NULL NONLOCAL } same as length_52
+idx_49 = { NULL NONLOCAL } same as length_52
+_22 = { NONLOCAL } same as string
+_23 = { ESCAPED NONLOCAL }
+_24 = { NULL NONLOCAL } same as length_52
+_25 = { NULL NONLOCAL } same as length_52
+_26 = { NONLOCAL } same as string
+_27 = { ESCAPED NONLOCAL }
+_28 = { ESCAPED NONLOCAL } same as _27
+dst.1_29 = { ESCAPED NONLOCAL } same as dst_73
+dst_51 = { ESCAPED NONLOCAL } same as dst_73
+dst_82 = { ESCAPED NONLOCAL } same as dst_73
+derefaddrtmp(71) = { NONLOCAL } same as string
+idx_84 = { NULL NONLOCAL } same as length_52
+_30 = { NULL NONLOCAL } same as length_52
+_31 = { NULL NONLOCAL } same as length_52
+_32 = { NONLOCAL } same as string
+dst.2_33 = { ESCAPED NONLOCAL } same as dst_73
+dst_85 = { ESCAPED NONLOCAL } same as dst_73
+_34 = { ESCAPED NONLOCAL }
+idx_87 = { NULL NONLOCAL } same as length_52
+dst.3_35 = { ESCAPED NONLOCAL } same as dst_73
+dst_88 = { ESCAPED NONLOCAL } same as dst_73
+derefaddrtmp(82) = { NONLOCAL } same as string
+_36 = { NULL NONLOCAL } same as length_52
+_37 = { NONLOCAL } same as string
+dst.4_38 = { ESCAPED NONLOCAL } same as dst_73
+dst_80 = { ESCAPED NONLOCAL } same as dst_73
+_39 = { ESCAPED NONLOCAL }
+idx_48 = { NULL NONLOCAL } same as length_52
+dst_50 = { ESCAPED NONLOCAL } same as dst_73
+idx_90 = { NULL NONLOCAL } same as length_52
+dst.5_40 = { ESCAPED NONLOCAL } same as dst_73
+dst_76 = { ESCAPED NONLOCAL } same as dst_73
+derefaddrtmp(93) = { NULL }
+_41 = { ESCAPED NONLOCAL }
+_79 = { NONLOCAL } same as string
+_56 = { NULL NONLOCAL } same as length_52
+
+
+Alias information for nextword
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.3404 } (escaped, escaped heap)
+
+Flow-insensitive points-to information
+
+_20, points-to NULL, points-to vars: { D.3404 } (escaped, escaped heap)
+_22, points-to non-local, points-to NULL, points-to vars: { }
+_26, points-to non-local, points-to NULL, points-to vars: { }
+dst.1_29, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_32, points-to non-local, points-to NULL, points-to vars: { }
+dst.2_33, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+dst.3_35, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_37, points-to non-local, points-to NULL, points-to vars: { }
+dst.4_38, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+dst.5_40, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+string_42, points-to non-local, points-to NULL, points-to vars: { }
+string_43, points-to non-local, points-to NULL, points-to vars: { }
+string_44, points-to non-local, points-to NULL, points-to vars: { }
+string_45, points-to non-local, points-to NULL, points-to vars: { }
+string_46, points-to non-local, points-to NULL, points-to vars: { }
+string_47, points-to non-local, points-to NULL, points-to vars: { }
+dst_50, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+dst_51, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_56, points-to non-local, points-to NULL, points-to vars: { }
+string_61(D), points-to non-local, points-to NULL, points-to vars: { }
+word_start_63, points-to non-local, points-to NULL, points-to vars: { }
+string_64, points-to non-local, points-to NULL, points-to vars: { }
+string_66, points-to non-local, points-to NULL, points-to vars: { }
+string_68, points-to non-local, points-to NULL, points-to vars: { }
+word_71(D), points-to non-local, points-to NULL, points-to vars: { }
+dst_73, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+src_74, points-to non-local, points-to NULL, points-to vars: { }
+dst_76, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_79, points-to non-local, points-to NULL, points-to vars: { }
+dst_80, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+dst_82, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+dst_85, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+dst_88, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+string_92, points-to non-local, points-to NULL, points-to vars: { }
+string_94, points-to non-local, points-to NULL, points-to vars: { }
+
+nextword (char * string, char * * word)
+{
+  int length;
+  char * src;
+  char * dst;
+  int idx;
+  char * word_start;
+  char _1;
+  _Bool _2;
+  _Bool _3;
+  _Bool _4;
+  char _5;
+  unsigned char _6;
+  int _7;
+  int _8;
+  char _9;
+  char _10;
+  char _11;
+  char _12;
+  char _13;
+  char _14;
+  unsigned char _15;
+  int _16;
+  int _17;
+  int _18;
+  long unsigned int _19;
+  void * _20;
+  sizetype _21;
+  char * _22;
+  char _23;
+  sizetype _24;
+  sizetype _25;
+  char * _26;
+  char _27;
+  int _28;
+  char * dst.1_29;
+  sizetype _30;
+  sizetype _31;
+  char * _32;
+  char * dst.2_33;
+  char _34;
+  char * dst.3_35;
+  sizetype _36;
+  char * _37;
+  char * dst.4_38;
+  char _39;
+  char * dst.5_40;
+  char _41;
+  char * _56;
+  char * _79;
+  char _93;
+
+  <bb 2> [0.00%]:
+  if (string_61(D) == 0B)
+    goto <bb 27>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _1 = *string_43;
+  if (_1 == 45)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 4> [0.00%]:
+  string_94 = string_42 + 1;
+
+  <bb 5> [0.00%]:
+  # string_42 = PHI <string_43(3), string_94(4)>
+  _93 = *string_42;
+  _2 = _93 != 0;
+  _3 = _93 != 10;
+  _4 = _2 & _3;
+  if (_4 != 0)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 6> [0.00%]:
+  string_92 = string_43 + 1;
+
+  <bb 7> [0.00%]:
+  # string_43 = PHI <string_61(D)(2), string_42(5), string_92(6)>
+  _5 = *string_43;
+  _6 = (unsigned char) _5;
+  _7 = (int) _6;
+  _8 = isspace (_7);
+  if (_8 != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 8> [0.00%]:
+  _9 = *string_43;
+  if (_9 == 45)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 9> [0.00%]:
+  _10 = *string_43;
+  if (_10 == 0)
+    goto <bb 27>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 10> [0.00%]:
+  word_start_63 = string_43;
+  _11 = *string_43;
+  if (_11 == 34)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 15>; [0.00%]
+
+  <bb 11> [0.00%]:
+  # string_44 = PHI <string_43(10), string_45(13)>
+  # length_52 = PHI <0(10), length_53(13)>
+  string_66 = string_44 + 1;
+  length_67 = length_52 + 1;
+  _12 = MEM[(char *)string_44 + 1B];
+  if (_12 == 92)
+    goto <bb 12>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 12> [0.00%]:
+  string_68 = &MEM[(void *)string_44 + 3B];
+  length_69 = length_52 + 3;
+
+  <bb 13> [0.00%]:
+  # string_45 = PHI <string_66(11), string_68(12)>
+  # length_53 = PHI <length_67(11), length_69(12)>
+  _13 = *string_45;
+  if (_13 != 34)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 16>; [0.00%]
+
+  <bb 14> [0.00%]:
+  string_64 = string_46 + 1;
+  length_65 = length_54 + 1;
+
+  <bb 15> [0.00%]:
+  # string_46 = PHI <string_43(10), string_64(14)>
+  # length_54 = PHI <0(10), length_65(14)>
+  _14 = *string_46;
+  _15 = (unsigned char) _14;
+  _16 = (int) _15;
+  _17 = isspace (_16);
+  if (_17 == 0)
+    goto <bb 14>; [0.00%]
+  else
+    goto <bb 16>; [0.00%]
+
+  <bb 16> [0.00%]:
+  # string_47 = PHI <string_45(13), string_46(15)>
+  # length_55 = PHI <length_53(13), length_54(15)>
+  _18 = length_55 + 1;
+  _19 = (long unsigned int) _18;
+  _20 = malloc (_19);
+  *word_71(D) = _20;
+  dst_73 = *word_71(D);
+  src_74 = string_43;
+  goto <bb 24>; [0.00%]
+
+  <bb 17> [0.00%]:
+  _21 = (sizetype) idx_49;
+  _22 = string_43 + _21;
+  _23 = *_22;
+  if (_23 == 92)
+    goto <bb 18>; [0.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 18> [0.00%]:
+  _24 = (sizetype) idx_49;
+  _25 = _24 + 1;
+  _26 = string_43 + _25;
+  _27 = *_26;
+  _28 = (int) _27;
+  switch (_27) <default: <L29> [0.00%], case 34: <L27> [0.00%], case 92: <L27> [0.00%], case 110: <L26> [0.00%]>
+
+<L26> [0.00%]:
+  dst.1_29 = dst_51;
+  dst_82 = dst_51 + 1;
+  *dst.1_29 = 10;
+  idx_84 = idx_49 + 1;
+  goto <bb 23>; [0.00%]
+
+<L27> [0.00%]:
+  _30 = (sizetype) idx_49;
+  _31 = _30 + 1;
+  _32 = string_43 + _31;
+  dst.2_33 = dst_51;
+  dst_85 = dst_51 + 1;
+  _34 = *_32;
+  *dst.2_33 = _34;
+  idx_87 = idx_49 + 1;
+  goto <bb 23>; [0.00%]
+
+<L29> [0.00%]:
+  dst.3_35 = dst_51;
+  dst_88 = dst_51 + 1;
+  *dst.3_35 = 92;
+  goto <bb 23>; [0.00%]
+
+  <bb 22> [0.00%]:
+  _36 = (sizetype) idx_49;
+  _37 = string_43 + _36;
+  dst.4_38 = dst_51;
+  dst_80 = dst_51 + 1;
+  _39 = *_37;
+  *dst.4_38 = _39;
+
+  <bb 23> [0.00%]:
+  # idx_48 = PHI <idx_87(20), idx_49(22), idx_84(19), idx_49(21)>
+  # dst_50 = PHI <dst_85(20), dst_80(22), dst_82(19), dst_88(21)>
+  idx_90 = idx_48 + 1;
+
+  <bb 24> [0.00%]:
+  # idx_49 = PHI <0(16), idx_90(23)>
+  # dst_51 = PHI <dst_73(16), dst_50(23)>
+  if (idx_49 < length_55)
+    goto <bb 17>; [0.00%]
+  else
+    goto <bb 25>; [0.00%]
+
+  <bb 25> [0.00%]:
+  dst.5_40 = dst_51;
+  dst_76 = dst_51 + 1;
+  *dst.5_40 = 0;
+  _41 = *string_47;
+  if (_41 != 0)
+    goto <bb 26>; [0.00%]
+  else
+    goto <bb 27>; [0.00%]
+
+  <bb 26> [0.00%]:
+  _79 = string_47 + 1;
+
+  <bb 27> [0.00%]:
+  # _56 = PHI <0B(2), 0B(9), _79(26), 0B(25)>
+  return _56;
+
+}
+
+
+
+;; Function compile (compile, funcdef_no=57, decl_uid=3289, cgraph_uid=57, symbol_order=64)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+string = &NONLOCAL
+ESCAPED = string
+ESCAPED = &word
+string_36 = NONLOCAL
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = string_28
+_62 = NONLOCAL
+word.6_1 = word
+CALLUSED(17) = CALLUSED(17) + UNKNOWN
+CALLUSED(17) = *CALLUSED(17) + UNKNOWN
+CALLUSED(17) = word.6_1
+CALLUSED(17) = &STRING
+_2 = CALLUSED(17)
+_2 = NONLOCAL
+ESCAPED = string_28
+ESCAPED = &word
+string_57 = NONLOCAL
+word.7_3 = word
+ESCAPED = word.7_3
+ESCAPED = string_57
+ESCAPED = &word
+string_60 = NONLOCAL
+word.8_4 = word
+_5 = *word.8_4
+word.9_6 = word
+ESCAPED = string_28
+ESCAPED = &word
+string_41 = NONLOCAL
+word.10_7 = word
+ESCAPED = word.10_7
+ptr_43 = NONLOCAL
+ESCAPED = string_41
+ESCAPED = &word
+string_45 = NONLOCAL
+word.11_8 = word
+_9 = *word.11_8
+_10 = _9
+word.12_11 = word
+_12 = word.12_11
+_13 = _12
+ESCAPED = ptr_43
+ESCAPED = _13
+_14 = *ptr_43
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = _14
+_63 = NONLOCAL
+word.13_15 = word
+_16 = *ptr_43
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = _16
+_64 = NONLOCAL
+word.14_17 = word
+ESCAPED = string_26
+ESCAPED = &word
+string_52 = NONLOCAL
+string_26 = string_45
+string_26 = string_52
+word.15_18 = word
+_19 = *word.15_18
+string_27 = string_52
+string_27 = string_26
+_20 = *ptr_43
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = _20
+_65 = NONLOCAL
+ESCAPED = string_27
+ESCAPED = &word
+string_55 = NONLOCAL
+_21 = string_28
+stderr = NONLOCAL
+stderr.16_22 = stderr
+ESCAPED = stderr.16_22
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = _21
+_66 = NONLOCAL
+string_28 = string_36
+string_28 = string_60
+string_28 = string_55
+string_28 = string_28
+_23 = *string_28
+word.17_24 = word
+_25 = *word.17_24
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { STRING ESCAPED NONLOCAL word } same as _14
+NONLOCAL = { ESCAPED NONLOCAL } same as string_36
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+string = { NONLOCAL }
+nextword = { }
+word = { ESCAPED NONLOCAL } same as word.6_1
+string_36 = { ESCAPED NONLOCAL }
+__printf_chk = { }
+string_28 = { ESCAPED NONLOCAL } same as string_36
+_62 = { ESCAPED NONLOCAL } same as string_36
+word.6_1 = { ESCAPED NONLOCAL }
+strcmp = { }
+CALLUSED(17) = { STRING ESCAPED NONLOCAL }
+CALLCLOBBERED(18) = { }
+_2 = { STRING ESCAPED NONLOCAL }
+string_57 = { ESCAPED NONLOCAL } same as string_36
+word.7_3 = { ESCAPED NONLOCAL } same as word.6_1
+add_var = { }
+string_60 = { ESCAPED NONLOCAL } same as string_36
+word.8_4 = { ESCAPED NONLOCAL } same as word.6_1
+_5 = { ESCAPED NONLOCAL }
+word.9_6 = { ESCAPED NONLOCAL } same as word.6_1
+string_41 = { ESCAPED NONLOCAL } same as string_36
+word.10_7 = { ESCAPED NONLOCAL } same as word.6_1
+newentry = { }
+ptr_43 = { ESCAPED NONLOCAL } same as string_36
+string_45 = { ESCAPED NONLOCAL } same as string_36
+word.11_8 = { ESCAPED NONLOCAL } same as word.6_1
+_9 = { ESCAPED NONLOCAL }
+_10 = { ESCAPED NONLOCAL } same as _9
+word.12_11 = { ESCAPED NONLOCAL } same as word.6_1
+_12 = { ESCAPED NONLOCAL } same as word.6_1
+_13 = { ESCAPED NONLOCAL } same as word.6_1
+add_to_definition = { }
+_14 = { STRING ESCAPED NONLOCAL word }
+_63 = { ESCAPED NONLOCAL } same as string_36
+word.13_15 = { ESCAPED NONLOCAL } same as word.6_1
+_16 = { STRING ESCAPED NONLOCAL word } same as _14
+_64 = { ESCAPED NONLOCAL } same as string_36
+word.14_17 = { ESCAPED NONLOCAL } same as word.6_1
+string_26 = { ESCAPED NONLOCAL } same as string_36
+string_52 = { ESCAPED NONLOCAL } same as string_36
+word.15_18 = { ESCAPED NONLOCAL } same as word.6_1
+_19 = { ESCAPED NONLOCAL }
+string_27 = { ESCAPED NONLOCAL } same as string_36
+_20 = { STRING ESCAPED NONLOCAL word } same as _14
+_65 = { ESCAPED NONLOCAL } same as string_36
+string_55 = { ESCAPED NONLOCAL } same as string_36
+_21 = { ESCAPED NONLOCAL } same as string_36
+stderr.16_22 = { ESCAPED NONLOCAL } same as string_36
+stderr = { ESCAPED NONLOCAL } same as string_36
+__fprintf_chk = { }
+_66 = { ESCAPED NONLOCAL } same as string_36
+_23 = { STRING ESCAPED NONLOCAL word } same as _14
+word.17_24 = { ESCAPED NONLOCAL } same as word.6_1
+_25 = { ESCAPED NONLOCAL }
+
+
+Alias information for compile
+
+Aliased symbols
+
+word, UID D.3291, char *, is addressable
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.3291 } (escaped)
+
+Flow-insensitive points-to information
+
+word.6_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+word.7_3, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+word.8_4, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+word.9_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+word.10_7, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+word.11_8, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+word.12_11, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_12, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_13, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+word.13_15, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+word.14_17, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+word.15_18, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_21, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+stderr.16_22, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+word.17_24, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+string_26, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+string_27, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+string_28, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+string_34(D), points-to non-local, points-to NULL, points-to vars: { }
+string_36, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+string_41, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+ptr_43, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+string_45, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+string_52, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+string_55, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+string_57, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+string_60, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+
+compile (char * string)
+{
+  int D.3415;
+  int D.3412;
+  int D.3410;
+  int D.3408;
+  int D.3406;
+  struct dict_type * ptr;
+  char * word;
+  char * word.6_1;
+  int _2;
+  char * word.7_3;
+  char * word.8_4;
+  char _5;
+  char * word.9_6;
+  char * word.10_7;
+  char * word.11_8;
+  char _9;
+  int _10;
+  char * word.12_11;
+  char * _12;
+  void (*<T1d2>) () _13;
+  int _14;
+  char * word.13_15;
+  int _16;
+  char * word.14_17;
+  char * word.15_18;
+  char _19;
+  int _20;
+  char * _21;
+  struct FILE * stderr.16_22;
+  char _23;
+  char * word.17_24;
+  char _25;
+  int _62;
+  int _63;
+  int _64;
+  int _65;
+  int _66;
+
+  <bb 2> [0.00%]:
+  string_36 = nextword (string_34(D), &word);
+  goto <bb 15>; [0.00%]
+
+  <bb 3> [100.00%]:
+  _62 = __printf_chk (1, "string: %s\n", string_28);
+  word.6_1 = word;
+  _2 = strcmp (word.6_1, "var");
+  if (_2 == 0)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  string_57 = nextword (string_28, &word);
+  word.7_3 = word;
+  add_var (word.7_3);
+  string_60 = nextword (string_57, &word);
+  goto <bb 15>; [0.00%]
+
+  <bb 5> [0.00%]:
+  word.8_4 = word;
+  _5 = *word.8_4;
+  if (_5 == 58)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 6> [0.00%]:
+  word.9_6 = word;
+  free (word.9_6);
+  string_41 = nextword (string_28, &word);
+  word.10_7 = word;
+  ptr_43 = newentry (word.10_7);
+  string_45 = nextword (string_41, &word);
+  goto <bb 12>; [0.00%]
+
+  <bb 7> [0.00%]:
+  word.11_8 = word;
+  _9 = *word.11_8;
+  _10 = (int) _9;
+  switch (_9) <default: <L16> [0.00%], case 34: <L5> [0.00%], case 48 ... 57: <L6> [0.00%]>
+
+<L5> [0.00%]:
+  word.12_11 = word;
+  _12 = word.12_11 + 1;
+  _13 = (void (*<T1d2>) ()) _12;
+  add_to_definition (ptr_43, _13);
+  goto <bb 11>; [0.00%]
+
+<L6> [100.00%]:
+  _14 = MEM[(int *)ptr_43];
+  _63 = __printf_chk (1, "%d\n", _14);
+  word.13_15 = word;
+  free (word.13_15);
+  goto <bb 11>; [0.00%]
+
+<L16> [100.00%]:
+  _16 = MEM[(int *)ptr_43];
+  _64 = __printf_chk (1, "%d\n", _16);
+  word.14_17 = word;
+  free (word.14_17);
+
+  <bb 11> [0.00%]:
+  string_52 = nextword (string_26, &word);
+  if (string_52 == 0B)
+    goto <bb 13>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 12> [0.00%]:
+  # string_26 = PHI <string_45(6), string_52(11)>
+  word.15_18 = word;
+  _19 = *word.15_18;
+  if (_19 != 59)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 13> [100.00%]:
+  # string_27 = PHI <string_52(11), string_26(12)>
+  _20 = MEM[(int *)ptr_43];
+  _65 = __printf_chk (1, "%d\n", _20);
+  string_55 = nextword (string_27, &word);
+  goto <bb 15>; [0.00%]
+
+  <bb 14> [100.00%]:
+  _21 = string_28 + 18446744073709551615;
+  stderr.16_22 = stderr;
+  _66 = __fprintf_chk (stderr.16_22, 1, "syntax error at %s\n", _21);
+
+  <bb 15> [0.00%]:
+  # string_28 = PHI <string_36(2), string_60(4), string_55(13), string_28(14)>
+  if (string_28 != 0B)
+    goto <bb 16>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 16> [0.00%]:
+  _23 = *string_28;
+  if (_23 != 0)
+    goto <bb 17>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 17> [0.00%]:
+  word.17_24 = word;
+  _25 = *word.17_24;
+  if (_25 != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 18> [0.00%]:
+  word ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=58, decl_uid=3313, cgraph_uid=58, symbol_order=65)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+ESCAPED = &STRING
+root = NONLOCAL
+dict_8 = root
+_1 = *dict_3
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = _1
+_13 = NONLOCAL
+_2 = *dict_3
+dict_12 = *dict_3 + 64
+dict_3 = dict_8
+dict_3 = dict_12
 ESCAPED = &NULL
 
 Collapsing static cycles and doing variable substitution
@@ -901,18 +2109,22 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { NULL ESCAPED NONLOCAL }
-NONLOCAL = { ESCAPED NONLOCAL }
+ESCAPED = { NULL STRING ESCAPED NONLOCAL } same as _1
+NONLOCAL = { ESCAPED NONLOCAL } same as root
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-len = { NONLOCAL }
-t = { NONLOCAL } same as len
-o = { NONLOCAL } same as len
-len.2_1 = { NONLOCAL } same as len
-traverse_trees = { }
+compile = { }
+dict_8 = { ESCAPED NONLOCAL } same as root
+root = { ESCAPED NONLOCAL }
+_1 = { NULL STRING ESCAPED NONLOCAL }
+dict_3 = { ESCAPED NONLOCAL }
+__printf_chk = { }
+_13 = { ESCAPED NONLOCAL } same as root
+_2 = { NULL STRING ESCAPED NONLOCAL } same as _1
+dict_12 = { ESCAPED NONLOCAL }
 
 
-Alias information for unpack_trees
+Alias information for main
 
 Aliased symbols
 
@@ -923,566 +2135,41 @@ ESCAPED, points-to non-local, points-to NULL, points-to vars: { }
 
 Flow-insensitive points-to information
 
-t_4(D), points-to non-local, points-to NULL, points-to vars: { }
-
-unpack_trees (unsigned int len, struct tree_desc * t, struct unpack_trees_options * o)
-{
-  int len.2_1;
-
-  <bb 2> [0.00%]:
-  len.2_1 = (int) len_2(D);
-  traverse_trees (len.2_1, t_4(D), 0B);
-  return 0;
-
-}
-
-
-
-;; Function init_tree_desc (init_tree_desc, funcdef_no=7, decl_uid=2036, cgraph_uid=7, symbol_order=8)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-desc = &NONLOCAL
-buffer = &NONLOCAL
-size = &NONLOCAL
-err = &NULL
-err = &NULL
-strbuf_slopbuf = NONLOCAL
-err = &strbuf_slopbuf
-ESCAPED = desc
-ESCAPED = buffer
-ESCAPED = size
-ESCAPED = &err
-tmp_10 = NONLOCAL
-_1 = err
-ESCAPED = &STRING
-ESCAPED = _1
-ESCAPED = &NONLOCAL
-ESCAPED = &err
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { NULL STRING ESCAPED NONLOCAL err strbuf_slopbuf }
-NONLOCAL = { ESCAPED NONLOCAL } same as tmp_10
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-desc = { NONLOCAL }
-buffer = { NONLOCAL } same as desc
-size = { NONLOCAL } same as desc
-err = { NULL ESCAPED NONLOCAL strbuf_slopbuf } same as _1
-strbuf_slopbuf = { ESCAPED NONLOCAL }
-init_tree_desc_internal = { }
-tmp_10 = { ESCAPED NONLOCAL }
-_1 = { NULL ESCAPED NONLOCAL strbuf_slopbuf }
-printf = { }
-exit = { }
-strbuf_release = { }
-
-
-Alias information for init_tree_desc
-
-Aliased symbols
-
-err, UID D.2038, struct strbuf, is addressable
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.1960 D.2038 } (nonlocal, escaped, interposable)
-
-Flow-insensitive points-to information
-
-_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.1960 } (nonlocal, escaped, interposable)
-desc_6(D), points-to non-local, points-to NULL, points-to vars: { }
-buffer_7(D), points-to non-local, points-to NULL, points-to vars: { }
-
-init_tree_desc (struct tree_desc * desc, const void * buffer, long unsigned int size)
-{
-  int tmp;
-  struct strbuf err;
-  char * _1;
-
-  <bb 2> [0.00%]:
-  err.alloc = 0;
-  err.len = 0;
-  err.buf = &strbuf_slopbuf;
-  tmp_10 = init_tree_desc_internal (desc_6(D), buffer_7(D), size_8(D), &err);
-  if (tmp_10 != 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _1 = err.buf;
-  printf ("%s", _1);
-  exit (1);
-
-  <bb 4> [0.00%]:
-  strbuf_release (&err);
-  err ={v} {CLOBBER};
-  return;
-
-}
-
-
-
-;; Function fill_tree_descriptor (fill_tree_descriptor, funcdef_no=8, decl_uid=2043, cgraph_uid=8, symbol_order=9)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-desc = &NONLOCAL
-oid = &NONLOCAL
-ESCAPED = &NONLOCAL
-buf_8 = &HEAP(12)
-ESCAPED = oid
-tmp_10 = NONLOCAL
-ESCAPED = &STRING
-ESCAPED = tmp_10
-ESCAPED = &NONLOCAL
-buf_1 = &NULL
-buf_1 = buf_8
-ESCAPED = desc
-ESCAPED = buf_1
-ESCAPED = &NULL
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { NULL STRING ESCAPED NONLOCAL HEAP(12) }
-NONLOCAL = { ESCAPED NONLOCAL } same as tmp_10
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-desc = { NONLOCAL }
-oid = { NONLOCAL } same as desc
-malloc = { }
-buf_8 = { HEAP(12) }
-HEAP(12) = { ESCAPED NONLOCAL }
-oid_to_hex = { }
-tmp_10 = { ESCAPED NONLOCAL }
-printf = { }
-exit = { }
-buf_1 = { NULL HEAP(12) }
-init_tree_desc = { }
-
-
-Alias information for fill_tree_descriptor
-
-Aliased symbols
-
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.2164 } (escaped, escaped heap)
-
-Flow-insensitive points-to information
-
-buf_1, points-to NULL, points-to vars: { D.2164 } (escaped, escaped heap)
-oid_5(D), points-to non-local, points-to NULL, points-to vars: { }
-buf_8, points-to NULL, points-to vars: { D.2164 } (escaped, escaped heap)
-desc_13(D), points-to non-local, points-to NULL, points-to vars: { }
-
-fill_tree_descriptor (struct tree_desc * desc, const struct object_id * oid)
-{
-  int tmp;
-  void * buf;
-  long unsigned int size;
-
-  <bb 2> [0.00%]:
-  if (oid_5(D) != 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 3> [0.00%]:
-  buf_8 = malloc (100);
-  if (buf_8 == 0B)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  tmp_10 = oid_to_hex (oid_5(D));
-  printf ("unable to read tree %s", tmp_10);
-  exit (1);
-
-  <bb 5> [0.00%]:
-  # buf_1 = PHI <0B(2), buf_8(3)>
-  init_tree_desc (desc_13(D), buf_1, 0);
-  return;
-
-}
-
-
-
-;; Function reset_index (reset_index, funcdef_no=9, decl_uid=2058, cgraph_uid=9, symbol_order=10)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-oid = &NONLOCAL
-reset_type = &NONLOCAL
-quiet = &NONLOCAL
-ESCAPED = &opts
-ESCAPED = &NULL
-ESCAPED = &NONLOCAL
-opts = &NONLOCAL
-the_index = NONLOCAL
-opts = &the_index
-opts = &the_index
-opts = &oneway_merge
-opts = &NONLOCAL
-opts = &NONLOCAL
-opts = &NONLOCAL
-opts = &NONLOCAL
-opts = &NONLOCAL
-ESCAPED = &STRING
-ESCAPED = &head_oid
-tmp___1_35 = NONLOCAL
-ESCAPED = &STRING
-tmp_40 = NONLOCAL
-ESCAPED = tmp_40
-tmp___0_42 = NONLOCAL
-ESCAPED = &desc
-ESCAPED = &head_oid
-opts = &twoway_merge
-nr_11 = &NULL
-nr_11 = &NONLOCAL
-_4 = nr_11
-_5 = _4
-_5 = &NONLOCAL
-_6 = &desc
-ESCAPED = _6
-ESCAPED = oid
-nr_46 = nr_11
-nr_46 = &NONLOCAL
-_7 = desc
-ESCAPED = &STRING
-ESCAPED = _7
-nr.3_8 = nr_46
-ESCAPED = nr.3_8
-ESCAPED = &desc
-ESCAPED = &opts
-tmp___2_49 = NONLOCAL
-ESCAPED = oid
-tmp___3_55 = NONLOCAL
-_9 = tmp___3_55
-tree_56 = _9
-ESCAPED = &the_index
-ESCAPED = tree_56
-ESCAPED = oid
-tmp___3_51 = NONLOCAL
-_10 = tmp___3_51
-tree_52 = _10
-ESCAPED = &the_index
-ESCAPED = tree_52
-_12 = tmp___0_42
-_12 = &NONLOCAL
-_12 = &NULL
-ESCAPED = _12
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { NULL STRING ESCAPED NONLOCAL opts the_index oneway_merge head_oid desc twoway_merge }
-NONLOCAL = { ESCAPED NONLOCAL } same as tmp___1_35
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-oid = { NONLOCAL }
-reset_type = { NONLOCAL } same as oid
-quiet = { NONLOCAL } same as oid
-memset = { }
-opts = { ESCAPED NONLOCAL the_index oneway_merge twoway_merge }
-the_index = { ESCAPED NONLOCAL }
-oneway_merge = { ESCAPED NONLOCAL }
-read_cache_unmerged = { }
-get_oid = { }
-head_oid = { ESCAPED NONLOCAL }
-tmp___1_35 = { ESCAPED NONLOCAL }
-_ = { }
-tmp_40 = { ESCAPED NONLOCAL } same as tmp___1_35
-error = { }
-tmp___0_42 = { ESCAPED NONLOCAL } same as tmp___1_35
-fill_tree_descriptor = { }
-desc = { ESCAPED NONLOCAL } same as _7
-twoway_merge = { ESCAPED NONLOCAL }
-nr_11 = { NULL NONLOCAL }
-_4 = { NULL NONLOCAL } same as nr_11
-_5 = { NULL NONLOCAL } same as nr_11
-_6 = { desc }
-nr_46 = { NULL NONLOCAL } same as nr_11
-_7 = { ESCAPED NONLOCAL }
-printf = { }
-nr.3_8 = { NULL NONLOCAL } same as nr_11
-unpack_trees = { }
-tmp___2_49 = { ESCAPED NONLOCAL } same as tmp___1_35
-parse_tree_indirect = { }
-tmp___3_55 = { ESCAPED NONLOCAL } same as tmp___1_35
-_9 = { ESCAPED NONLOCAL } same as tmp___1_35
-tree_56 = { ESCAPED NONLOCAL } same as tmp___1_35
-prime_cache_tree = { }
-tmp___3_51 = { ESCAPED NONLOCAL } same as tmp___1_35
-_10 = { ESCAPED NONLOCAL } same as tmp___1_35
-tree_52 = { ESCAPED NONLOCAL } same as tmp___1_35
-_12 = { NULL ESCAPED NONLOCAL }
-
-
-Alias information for reset_index
-
-Aliased symbols
-
-head_oid, UID D.2064, struct object_id, is addressable
-opts, UID D.2063, struct unpack_trees_options, is addressable
-desc, UID D.2061, struct tree_desc[2], is addressable
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.1959 D.2061 D.2063 D.2064 } (nonlocal, escaped, interposable)
-
-Flow-insensitive points-to information
-
-_6, points-to NULL, points-to vars: { D.2061 } (escaped)
-_7, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-oid_44(D), points-to non-local, points-to NULL, points-to vars: { }
-tree_52, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-tree_56, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
-
-reset_index (const struct object_id * oid, int reset_type, int quiet)
-{
-  int tmp___3;
-  int tmp___2;
-  int tmp___1;
-  int tmp___0;
-  int tmp;
-  struct object_id head_oid;
-  struct unpack_trees_options opts;
-  struct tree * tree;
-  struct tree_desc desc[2];
-  int nr;
-  long unsigned int _4;
-  long unsigned int _5;
-  struct tree_desc * _6;
-  const void * _7;
-  unsigned int nr.3_8;
-  long int _9;
-  long int _10;
-  int _12;
-
-  <bb 2> [0.00%]:
-  memset (&opts, 0, 640);
-  opts.head_idx = 1;
-  opts.src_index = &the_index;
-  opts.dst_index = &the_index;
-  opts.fn = oneway_merge;
-  opts.merge = 1;
-  if (quiet_27(D) == 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  opts.verbose_update = 1;
-
-  <bb 4> [0.00%]:
-  switch (reset_type_29(D)) <default: <L5> [0.00%], case 2: <L4> [0.00%], case 3 ... 4: <L2> [0.00%]>
-
-<L2> [0.00%]:
-  opts.update = 1;
-  goto <bb 8>; [0.00%]
-
-<L4> [0.00%]:
-  opts.update = 1;
-
-<L5> [0.00%]:
-  opts.reset = 1;
-
-  <bb 8> [0.00%]:
-  read_cache_unmerged ();
-  if (reset_type_29(D) == 4)
-    goto <bb 9>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 9> [0.00%]:
-  tmp___1_35 = get_oid ("HEAD", &head_oid);
-  if (tmp___1_35 != 0)
-    goto <bb 10>; [0.00%]
-  else
-    goto <bb 11>; [0.00%]
-
-  <bb 10> [0.00%]:
-  tmp_40 = _ ("You do not have a valid HEAD.");
-  tmp___0_42 = error (tmp_40);
-  goto <bb 18>; [0.00%]
-
-  <bb 11> [0.00%]:
-  fill_tree_descriptor (&desc, &head_oid);
-  opts.fn = twoway_merge;
-
-  <bb 12> [0.00%]:
-  # nr_11 = PHI <0(8), 1(11)>
-  _4 = (long unsigned int) nr_11;
-  _5 = _4 * 40;
-  _6 = &desc + _5;
-  fill_tree_descriptor (_6, oid_44(D));
-  nr_46 = nr_11 + 1;
-  _7 = desc[nr_46].buffer;
-  printf ("%d\n", _7);
-  nr.3_8 = (unsigned int) nr_46;
-  tmp___2_49 = unpack_trees (nr.3_8, &desc, &opts);
-  if (tmp___2_49 != 0)
-    goto <bb 18>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
-
-  <bb 13> [0.00%]:
-  if (reset_type_29(D) == 0)
-    goto <bb 14>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 14> [0.00%]:
-  tmp___3_55 = parse_tree_indirect (oid_44(D));
-  _9 = (long int) tmp___3_55;
-  tree_56 = (struct tree *) _9;
-  prime_cache_tree (&the_index, tree_56);
-  goto <bb 17>; [0.00%]
-
-  <bb 15> [0.00%]:
-  if (reset_type_29(D) == 2)
-    goto <bb 16>; [0.00%]
-  else
-    goto <bb 17>; [0.00%]
-
-  <bb 16> [0.00%]:
-  tmp___3_51 = parse_tree_indirect (oid_44(D));
-  _10 = (long int) tmp___3_51;
-  tree_52 = (struct tree *) _10;
-  prime_cache_tree (&the_index, tree_52);
-
-  <bb 17> [0.00%]:
-
-  <bb 18> [0.00%]:
-  # _12 = PHI <tmp___0_42(10), -1(12), 0(17)>
-  desc ={v} {CLOBBER};
-  opts ={v} {CLOBBER};
-  head_oid ={v} {CLOBBER};
-  return _12;
-
-}
-
-
-
-;; Function main (main, funcdef_no=10, decl_uid=2076, cgraph_uid=10, symbol_order=11)
-
-Points-to analysis
-
-Constraints:
-
-ANYTHING = &ANYTHING
-ESCAPED = *ESCAPED
-ESCAPED = ESCAPED + UNKNOWN
-*ESCAPED = NONLOCAL
-NONLOCAL = &NONLOCAL
-NONLOCAL = &ESCAPED
-INTEGER = &ANYTHING
-ESCAPED = &oid
-ESCAPED = type_2
-ESCAPED = quiet_3
-ESCAPED = &NULL
-
-Collapsing static cycles and doing variable substitution
-Building predecessor graph
-Detecting pointer and location equivalences
-Rewriting constraints and unifying variables
-Uniting pointer but not location equivalent variables
-Finding indirect cycles
-Solving graph
-
-Points-to sets
-
-ANYTHING = { ANYTHING }
-ESCAPED = { NULL ESCAPED NONLOCAL oid }
-NONLOCAL = { ESCAPED NONLOCAL }
-STOREDANYTHING = { }
-INTEGER = { ANYTHING }
-reset_index = { }
-oid = { ESCAPED NONLOCAL }
-type_2 = { }
-quiet_3 = { }
-
-
-Alias information for main
-
-Aliased symbols
-
-oid, UID D.2078, struct object_id, is addressable
-
-Call clobber information
-
-ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.2078 } (escaped)
-
-Flow-insensitive points-to information
-
+_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+dict_3, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+dict_8, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+dict_12, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
 
 main ()
 {
-  int quiet;
-  int type;
-  struct object_id oid;
+  int D.3417;
+  char * string;
+  struct dict_type * dict;
+  char * _1;
+  char * _2;
+  int _13;
 
   <bb 2> [0.00%]:
-  reset_index (&oid, type_2(D), quiet_3(D));
-  oid ={v} {CLOBBER};
+  compile ("var second : stored_in_dict 5 ; : next");
+  dict_8 = root;
+  goto <bb 4>; [0.00%]
+
+  <bb 3> [100.00%]:
+  _1 = dict_3->word;
+  _13 = __printf_chk (1, "%s\n", _1);
+  _2 = dict_3->word;
+  free (_2);
+  dict_12 = dict_3->next;
+
+  <bb 4> [0.00%]:
+  # dict_3 = PHI <dict_8(2), dict_12(3)>
+  if (dict_3 != 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 5> [0.00%]:
   return 0;
 
 }

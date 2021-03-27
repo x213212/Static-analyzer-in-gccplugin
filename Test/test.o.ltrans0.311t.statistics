@@ -1,7 +1,30 @@
-84 inline "Symbol to SSA rewrite" "fill_tree_descriptor" 2
-84 inline "unused VAR_DECLs removed" "reset_index" 8
-84 inline "Symbol to SSA rewrite" "reset_index" 1
-84 inline "Symbol to SSA rewrite" "reset_index" 5
-84 inline "unused VAR_DECLs removed" "main" 13
-84 inline "Symbol to SSA rewrite" "main" 1
+84 inline "Symbol to SSA rewrite" "main" 3
 90 pta "Symbol to SSA rewrite" "(nofn)" 3
+115 copyprop "Statements deleted" "newentry" 1
+115 copyprop "Copies propagated" "nextword" 5
+115 copyprop "Statements deleted" "nextword" 7
+120 ch "Incremental SSA update" "nextword" 1
+124 dom "Copies propagated" "nextword" 13
+124 dom "Constants propagated" "nextword" 5
+124 dom "Redundant expressions eliminated" "nextword" 14
+124 dom "Jumps threaded" "nextword" 2
+132 ccp "Statements deleted" "nextword" 12
+140 sink "Sunk statements" "nextword" 2
+147 loopinit "Incremental SSA update" "nextword" 1
+153 copyprop "Statements deleted" "nextword" 6
+184 dom "Copies propagated" "nextword" 13
+184 dom "Redundant expressions eliminated" "nextword" 8
+184 dom "Jumps threaded" "nextword" 1
+266 combine "two-insn combine" "nextword" 4
+97 ccp "Statements deleted" "main" 1
+120 ch "Incremental SSA update" "main" 1
+124 dom "Incremental SSA update" "main" 1
+124 dom "Copies propagated" "main" 10
+124 dom "Redundant expressions eliminated" "main" 9
+132 ccp "Statements deleted" "main" 9
+147 loopinit "Incremental SSA update" "main" 1
+184 dom "Incremental SSA update" "main" 1
+184 dom "Copies propagated" "main" 1
+233 optimized "unused VAR_DECLs removed" "main" 2
+266 combine "three-insn combine" "main" 1
+266 combine "two-insn combine" "main" 3

@@ -1,775 +1,509 @@
 
-;; Function strbuf_release (strbuf_release, funcdef_no=0, decl_uid=4045, cgraph_uid=8, symbol_order=52)
+;; Function newentry (newentry, funcdef_no=0, decl_uid=4000, cgraph_uid=5, symbol_order=60)
 
-strbuf_release (struct strbuf * sb)
+newentry (char * word)
 {
-  long unsigned int _1;
-  char * _2;
+  struct dict_type * new_d;
+  struct dict_type * _1;
+  void * _2;
+  struct dict_type * _14;
 
   <bb 2> [100.00%]:
-  _1 = sb_5(D)->alloc;
-  if (_1 != 0)
-    goto <bb 3>; [36.64%]
-  else
-    goto <bb 4>; [63.36%]
-
-  <bb 3> [36.64%]:
-  _2 = sb_5(D)->buf;
-  free (_2);
-  strbuf_init (sb_5(D), 0);
-
-  <bb 4> [100.00%]:
-  return;
+  new_d_5 = malloc (40);
+  new_d_5->word = word_6(D);
+  _1 = root;
+  new_d_5->next = _1;
+  root = new_d_5;
+  _2 = malloc (8);
+  new_d_5->code = _2;
+  new_d_5->code_length = 1;
+  new_d_5->code_end = 0;
+  _14 = new_d_5;
+  return new_d_5;
 
 }
 
 
 
-;; Function main (main, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=57) (executed once)
+;; Function nextword (nextword, funcdef_no=1, decl_uid=3990, cgraph_uid=4, symbol_order=63)
+
+nextword (char * string, char * * word)
+{
+  int length;
+  char * src;
+  char * dst;
+  int idx;
+  char * word_start;
+  char _1;
+  _Bool _2;
+  _Bool _3;
+  _Bool _4;
+  char _5;
+  unsigned char _6;
+  int _7;
+  int _8;
+  char _9;
+  char _10;
+  char _11;
+  char _12;
+  char _13;
+  char _14;
+  unsigned char _15;
+  int _16;
+  int _17;
+  int _18;
+  long unsigned int _19;
+  void * _20;
+  sizetype _21;
+  char * _22;
+  char _23;
+  sizetype _24;
+  sizetype _25;
+  char * _26;
+  char _27;
+  int _28;
+  char * _29;
+  sizetype _30;
+  sizetype _31;
+  char * _32;
+  char * _33;
+  char _34;
+  char * _35;
+  sizetype _36;
+  char * _37;
+  char * _38;
+  char _39;
+  char * _40;
+  char _41;
+  char * _56;
+  char * _77;
+  char _90;
+
+  <bb 2> [6.05%]:
+  if (string_61(D) == 0B)
+    goto <bb 28>; [4.07%]
+  else
+    goto <bb 8>; [95.93%]
+
+  <bb 3> [71.53%]:
+  _1 = *string_43;
+  if (_1 == 45)
+    goto <bb 5>; [20.97%]
+  else
+    goto <bb 6>; [79.03%]
+
+  <bb 4> [85.00%]:
+  string_91 = string_42 + 1;
+
+  <bb 5> [100.00%]:
+  # string_42 = PHI <string_43(3), string_91(4)>
+  _90 = *string_42;
+  _2 = _90 != 0;
+  _3 = _90 != 10;
+  _4 = _2 & _3;
+  if (_4 != 0)
+    goto <bb 4>; [85.00%]
+  else
+    goto <bb 7>; [15.00%]
+
+  <bb 6> [56.53%]:
+  string_89 = string_43 + 1;
+
+  <bb 7> [71.53%]:
+  # string_60 = PHI <string_42(5), string_89(6)>
+
+  <bb 8> [77.33%]:
+  # string_43 = PHI <string_61(D)(2), string_60(7)>
+  _5 = *string_43;
+  _6 = (unsigned char) _5;
+  _7 = (int) _6;
+  _8 = isspace (_7);
+  if (_8 != 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 9> [38.67%]:
+  _9 = *string_43;
+  if (_9 == 45)
+    goto <bb 3>; [85.00%]
+  else
+    goto <bb 10>; [15.00%]
+
+  <bb 10> [5.80%]:
+  _10 = *string_43;
+  if (_10 == 0)
+    goto <bb 28>; [9.00%]
+  else
+    goto <bb 11>; [91.00%]
+
+  <bb 11> [5.28%]:
+  word_start_63 = string_43;
+  _11 = *string_43;
+  if (_11 == 34)
+    goto <bb 12>; [34.00%]
+  else
+    goto <bb 16>; [66.00%]
+
+  <bb 12> [11.96%]:
+  # string_44 = PHI <string_43(11), string_45(14)>
+  # length_52 = PHI <0(11), length_53(14)>
+  string_66 = string_44 + 1;
+  length_67 = length_52 + 1;
+  _12 = MEM[(char *)string_44 + 1B];
+  if (_12 == 92)
+    goto <bb 13>; [34.00%]
+  else
+    goto <bb 14>; [66.00%]
+
+  <bb 13> [4.07%]:
+  string_68 = &MEM[(void *)string_44 + 3B];
+  length_69 = length_52 + 3;
+
+  <bb 14> [11.96%]:
+  # string_45 = PHI <string_66(12), string_68(13)>
+  # length_53 = PHI <length_67(12), length_69(13)>
+  _13 = *string_45;
+  if (_13 != 34)
+    goto <bb 12>; [85.00%]
+  else
+    goto <bb 17>; [15.00%]
+
+  <bb 15> [19.74%]:
+  string_64 = string_46 + 1;
+  length_65 = length_54 + 1;
+
+  <bb 16> [23.22%]:
+  # string_46 = PHI <string_43(11), string_64(15)>
+  # length_54 = PHI <0(11), length_65(15)>
+  _14 = *string_46;
+  _15 = (unsigned char) _14;
+  _16 = (int) _15;
+  _17 = isspace (_16);
+  if (_17 == 0)
+    goto <bb 15>; [85.00%]
+  else
+    goto <bb 17>; [15.00%]
+
+  <bb 17> [5.28%]:
+  # string_47 = PHI <string_45(14), string_46(16)>
+  # length_55 = PHI <length_53(14), length_54(16)>
+  _18 = length_55 + 1;
+  _19 = (long unsigned int) _18;
+  _20 = malloc (_19);
+  *word_71(D) = _20;
+  dst_73 = *word_71(D);
+  src_74 = string_43;
+  goto <bb 25>; [100.00%]
+
+  <bb 18> [29.90%]:
+  _21 = (sizetype) idx_49;
+  _22 = string_43 + _21;
+  _23 = *_22;
+  if (_23 == 92)
+    goto <bb 19>; [34.00%]
+  else
+    goto <bb 23>; [66.00%]
+
+  <bb 19> [10.17%]:
+  _24 = (sizetype) idx_49;
+  _25 = _24 + 1;
+  _26 = string_43 + _25;
+  _27 = *_26;
+  _28 = (int) _27;
+  switch (_27) <default: <L2> [33.33%], case 34: <L1> [33.33%], case 92: <L1> [33.33%], case 110: <L0> [33.33%]>
+
+<L0> [3.39%]:
+  _29 = dst_51;
+  dst_80 = dst_51 + 1;
+  *_29 = 10;
+  idx_82 = idx_49 + 1;
+  goto <bb 24>; [100.00%]
+
+<L1> [3.39%]:
+  _30 = (sizetype) idx_49;
+  _31 = _30 + 1;
+  _32 = string_43 + _31;
+  _33 = dst_51;
+  dst_83 = dst_51 + 1;
+  _34 = *_32;
+  *_33 = _34;
+  idx_85 = idx_49 + 1;
+  goto <bb 24>; [100.00%]
+
+<L2> [3.39%]:
+  _35 = dst_51;
+  dst_86 = dst_51 + 1;
+  *_35 = 92;
+  goto <bb 24>; [100.00%]
+
+  <bb 23> [19.74%]:
+  _36 = (sizetype) idx_49;
+  _37 = string_43 + _36;
+  _38 = dst_51;
+  dst_78 = dst_51 + 1;
+  _39 = *_37;
+  *_38 = _39;
+
+  <bb 24> [29.90%]:
+  # idx_48 = PHI <idx_82(20), idx_85(21), idx_49(22), idx_49(23)>
+  # dst_50 = PHI <dst_80(20), dst_83(21), dst_86(22), dst_78(23)>
+  idx_88 = idx_48 + 1;
+
+  <bb 25> [35.18%]:
+  # idx_49 = PHI <0(17), idx_88(24)>
+  # dst_51 = PHI <dst_73(17), dst_50(24)>
+  if (idx_49 < length_55)
+    goto <bb 18>; [85.00%]
+  else
+    goto <bb 26>; [15.00%]
+
+  <bb 26> [5.28%]:
+  _40 = dst_51;
+  dst_75 = dst_51 + 1;
+  *_40 = 0;
+  _41 = *string_47;
+  if (_41 != 0)
+    goto <bb 27>; [91.00%]
+  else
+    goto <bb 28>; [9.00%]
+
+  <bb 27> [4.80%]:
+  _77 = string_47 + 1;
+
+  <bb 28> [6.04%]:
+  # _56 = PHI <0B(2), 0B(10), 0B(26), _77(27)>
+  return _56;
+
+}
+
+
+
+;; Function main (main, funcdef_no=2, decl_uid=3985, cgraph_uid=0, symbol_order=65) (executed once)
 
 main ()
 {
-  unsigned char _swap_buffer[24];
-  void * ret;
-  void * D.4293;
-  int new_buf;
-  size_t oldalloc;
-  int len;
-  int D.4273;
-  size_t hint;
-  struct files_ref_store * refs;
-  struct strbuf sb_contents;
-  struct strbuf sb_path;
-  const char * path;
-  const char * buf;
-  int fd;
-  int ret;
-  int save_errno;
-  int remaining_retries;
-  struct stat st;
-  int save_errno;
-  int D.4258;
-  struct ref_lock * lock;
-  struct strbuf ref_file;
-  int ret;
-  int D.4207;
-  struct strbuf referent;
-  int mustexist;
-  int ret;
-  struct ref_lock * lock;
-  char * reason;
-  char * write_err;
-  int D.4174;
-  struct strbuf err;
-  struct string_list affected_refnames;
-  char * head_ref;
-  struct ref_transaction transaction;
-  struct ref_update update;
-  struct files_ref_store refs;
-  int _15;
-  long int _16;
+  unsigned int D.4100;
+  struct dict_type * new_d;
+  char * word;
+  struct dict_type * ptr;
+  char * string;
+  struct dict_type * dict;
+  char * _1;
+  char * _2;
+  int _10;
   int _18;
-  struct ref_lock * _19;
-  unsigned int _20;
-  unsigned int _21;
-  unsigned int _22;
-  unsigned int _23;
-  struct ref_lock * _24;
-  unsigned char[20] * _25;
+  char * _19;
+  int _20;
+  char * _22;
+  char * _24;
+  char _25;
   char * _26;
-  int _28;
-  unsigned int _29;
-  unsigned int _30;
-  int _31;
-  struct ref_lock * _32;
-  struct object_id * _33;
-  int _34;
+  char * _28;
+  char * _31;
+  char _32;
+  int _33;
+  char * _34;
   char * _35;
-  struct ref_lock * _37;
-  struct object_id * _38;
-  int _39;
-  unsigned int _40;
-  unsigned int _41;
-  unsigned int _42;
-  unsigned int _43;
-  struct ref_lock * _45;
-  struct object_id * _46;
+  void (*<Ta03>) () _36;
+  int _37;
+  int _38;
+  char * _39;
+  int _40;
+  int _41;
+  char * _42;
+  char * _45;
+  char _46;
   int _47;
-  struct ref_lock * _49;
-  int _50;
-  int _51;
-  long int _52;
-  unsigned int _54;
-  unsigned int _55;
-  unsigned int _56;
-  unsigned int _57;
-  struct ref_lock * _58;
+  int _48;
+  char * _51;
+  struct FILE * _52;
+  int _53;
+  char _54;
+  char * _55;
+  char _56;
   int _59;
   int _60;
-  char * _62;
-  unsigned char[20] * _63;
-  int * _66;
-  int _67;
+  int _61;
+  int _62;
+  int _63;
+  long unsigned int _64;
+  long unsigned int _65;
+  void (*stinst_type) () * _66;
+  void * _67;
+  void (*stinst_type) () * _68;
   int _69;
-  int _70;
-  long int _71;
-  int _75;
-  int _77;
-  int * _78;
-  int _79;
-  int _80;
-  int * _81;
-  int * _83;
-  int _84;
-  _Bool _85;
-  _Bool _86;
-  _Bool _87;
-  char * _88;
-  int _89;
-  char * _90;
-  int _91;
-  unsigned int _92;
-  unsigned int _93;
-  int _95;
-  int * _96;
-  int * _98;
-  int _100;
-  char _104;
-  int _105;
-  int _106;
-  unsigned int _107;
-  unsigned int _108;
-  int _109;
-  char _110;
-  char _111;
-  int _112;
-  int _113;
-  unsigned int _114;
-  unsigned int _115;
-  int * _116;
-  int * _117;
-  int * _119;
-  char * _123;
-  int * _125;
-  int _126;
-  long unsigned int _127;
-  int _129;
-  long unsigned int _131;
-  _Bool _132;
-  int _134;
-  long unsigned int _135;
-  long unsigned int _136;
-  int _137;
-  int _138;
-  long unsigned int _139;
-  long unsigned int _140;
-  long unsigned int _141;
-  long unsigned int _142;
-  long unsigned int _143;
-  int _144;
-  long unsigned int _145;
-  long unsigned int _146;
-  long unsigned int _147;
-  long unsigned int _148;
-  long unsigned int _149;
-  long unsigned int _150;
-  long unsigned int _151;
-  long unsigned int _152;
-  int _153;
-  long unsigned int _154;
-  long unsigned int _155;
-  int _156;
-  long unsigned int _157;
-  char * _158;
-  void * _159;
-  char * _160;
-  _Bool _162;
-  _Bool _163;
-  _Bool _164;
-  _Bool _168;
-  _Bool _169;
-  _Bool _170;
-  int _173;
-  void * _175;
+  long unsigned int _70;
+  long unsigned int _71;
+  void (*stinst_type) () * _72;
+  int _73;
+  int _74;
+  unsigned int _75;
 
-  <bb 2> [6.76%]:
-  referent.alloc = 0;
-  referent.len = 0;
-  referent.buf = &strbuf_slopbuf;
-  if (head_ref_2(D) != 0B)
-    goto <bb 3>; [70.00%]
+  <bb 2> [14.27%]:
+  string_16 = nextword ("var second : stored_in_dict 5 ; : next", &word);
+  goto <bb 18>; [100.00%]
+
+  <bb 3> [85.74%]:
+  _18 = __printf_chk (1, "string: %s\n", string_17);
+  _19 = word;
+  _20 = strcmp (_19, "var");
+  if (_20 == 0)
+    goto <bb 4>; [33.00%]
   else
-    goto <bb 4>; [30.00%]
+    goto <bb 5>; [67.00%]
 
-  <bb 3> [4.73%]:
-  ret_10 = split_head_update (&update, &transaction, head_ref_2(D), &affected_refnames, &err);
-  if (ret_10 != 0)
-    goto <bb 77>; [46.00%]
+  <bb 4> [28.29%]:
+  string_21 = nextword (string_17, &word);
+  _22 = word;
+  new_d_58 = newentry (_22);
+  string_23 = nextword (string_21, &word);
+  goto <bb 17>; [100.00%]
+
+  <bb 5> [57.44%]:
+  _24 = word;
+  _25 = *_24;
+  if (_25 == 58)
+    goto <bb 6>; [20.97%]
   else
-    goto <bb 4>; [54.00%]
+    goto <bb 16>; [79.03%]
 
-  <bb 4> [4.58%]:
-  ref_file.alloc = 0;
-  ref_file.len = 0;
-  ref_file.buf = &strbuf_slopbuf;
-  MEM[(unsigned int *)&update + 56B] = 0;
-  lock_61 = calloc (1, 40);
-  lock_299 = lock_61;
-  _62 = strdup (&update.refname);
-  lock_61->ref_name = _62;
-  files_ref_path (&refs, &ref_file, &update.refname);
-  _63 = &lock_61->old_oid.hash;
-  _70 = files_downcast (&refs.base, 1, "read_raw_ref");
-  _71 = (long int) _70;
-  refs_72 = (struct files_ref_store *) _71;
-  sb_contents.alloc = 0;
-  sb_contents.len = 0;
-  sb_contents.buf = &strbuf_slopbuf;
-  sb_path.alloc = 0;
-  sb_path.len = 0;
-  sb_path.buf = &strbuf_slopbuf;
-  MEM[(unsigned int *)&update + 56B] = 0;
-  strbuf_reset (&sb_path);
-  files_ref_path (refs_72, &sb_path, &update.refname);
-  path_73 = sb_path.buf;
+  <bb 6> [12.05%]:
+  _26 = word;
+  free (_26);
+  string_27 = nextword (string_17, &word);
+  _28 = word;
+  ptr_29 = newentry (_28);
+  string_30 = nextword (string_27, &word);
+  goto <bb 14>; [100.00%]
 
-  # remaining_retries_74 = PHI <3(4), remaining_retries_76(39)>
-stat_ref [13.61%]:
-  _75 = remaining_retries_74;
-  remaining_retries_76 = remaining_retries_74 + -1;
-  if (remaining_retries_74 <= 0)
-    goto <bb 54> (out); [25.00%]
+  <bb 7> [77.13%]:
+  _31 = word;
+  _32 = *_31;
+  _33 = (int) _32;
+  switch (_32) <default: <L2> [33.33%], case 34: <L0> [33.33%], case 48 ... 57: <L1> [33.33%]>
+
+<L0> [25.71%]:
+  _34 = word;
+  _35 = _34 + 1;
+  _36 = (void (*<Ta03>) ()) _35;
+  _59 = ptr_29->code_end;
+  _60 = ptr_29->code_length;
+  if (_59 == _60)
+    goto <bb 9>; [22.95%]
   else
-    goto <bb 6>; [75.00%]
+    goto <bb 10>; [77.05%]
 
-  <bb 6> [10.21%]:
-  _77 = __lxstat (1, path_73, &st);
-  if (_77 < 0)
-    goto <bb 7>; [3.75%]
+  <bb 9> [5.90%]:
+  _61 = ptr_29->code_length;
+  _62 = _61 + 2;
+  ptr_29->code_length = _62;
+  _63 = ptr_29->code_length;
+  _64 = (long unsigned int) _63;
+  _65 = _64 * 8;
+  _66 = ptr_29->code;
+  _67 = realloc (_66, _65);
+  ptr_29->code = _67;
+
+  <bb 10> [25.71%]:
+  _68 = ptr_29->code;
+  _69 = ptr_29->code_end;
+  _70 = (long unsigned int) _69;
+  _71 = _70 * 8;
+  _72 = _68 + _71;
+  *_72 = _36;
+  _73 = ptr_29->code_end;
+  _74 = _73 + 1;
+  ptr_29->code_end = _74;
+  _75 = (unsigned int) _73;
+  goto <bb 13>; [100.00%]
+
+<L1> [25.71%]:
+  _37 = MEM[(int *)ptr_29];
+  _38 = __printf_chk (1, "%d\n", _37);
+  _39 = word;
+  free (_39);
+  goto <bb 13>; [100.00%]
+
+<L2> [25.71%]:
+  _40 = MEM[(int *)ptr_29];
+  _41 = __printf_chk (1, "%d\n", _40);
+  _42 = word;
+  free (_42);
+
+  <bb 13> [77.12%]:
+  string_44 = nextword (string_43, &word);
+  if (string_44 == 0B)
+    goto <bb 15>; [7.50%]
   else
-    goto <bb 10>; [96.25%]
+    goto <bb 14>; [92.50%]
 
-  <bb 7> [0.38%]:
-  _78 = __errno_location ();
-  _79 = *_78;
-  if (_79 != 2)
-    goto <bb 54> (out); [7.44%]
+  <bb 14> [83.39%]:
+  # string_43 = PHI <string_30(6), string_44(13)>
+  _45 = word;
+  _46 = *_45;
+  if (_46 != 59)
+    goto <bb 7>; [92.50%]
   else
-    goto <bb 8>; [92.56%]
+    goto <bb 15>; [7.50%]
 
-  <bb 8> [0.35%]:
-  _80 = resolve_packed_ref (refs_72, &update.refname, _63, &update.type);
-  if (_80 != 0)
-    goto <bb 9>; [2.00%]
+  <bb 15> [12.04%]:
+  # string_49 = PHI <string_44(13), string_43(14)>
+  _47 = MEM[(int *)ptr_29];
+  _48 = __printf_chk (1, "%d\n", _47);
+  string_50 = nextword (string_49, &word);
+  goto <bb 17>; [100.00%]
+
+  <bb 16> [45.40%]:
+  _51 = string_17 + 18446744073709551615;
+  _52 = stderr;
+  _53 = __fprintf_chk (_52, 1, "syntax error at %s\n", _51);
+
+  <bb 17> [85.73%]:
+  # string_57 = PHI <string_23(4), string_50(15), string_17(16)>
+
+  <bb 18> [100.00%]:
+  # string_17 = PHI <string_16(2), string_57(17)>
+  if (string_17 != 0B)
+    goto <bb 19>; [95.00%]
   else
-    goto <bb 54> (out); [98.00%]
+    goto <bb 21>; [5.00%]
 
-  <bb 9> [0.01%]:
-  _81 = __errno_location ();
-  *_81 = 2;
-  goto <bb 54> (out); [100.00%]
-
-  <bb 10> [9.82%]:
-  strbuf_reset (&sb_contents);
-  oldalloc_121 = sb_contents.alloc;
-  goto <bb 35>; [100.00%]
-
-  <bb 11> [95.00%]:
-  _131 = sb_contents.alloc;
-  _132 = _131 == 0;
-  new_buf_133 = (int) _132;
-  _134 = unsigned_add_overflows (hint_122, 1);
-  if (_134 != 0)
-    goto <bb 13>; [0.04%]
+  <bb 19> [95.00%]:
+  _54 = *string_17;
+  if (_54 != 0)
+    goto <bb 20>; [95.00%]
   else
-    goto <bb 12>; [99.96%]
+    goto <bb 21>; [5.00%]
 
-  <bb 12> [94.96%]:
-  _135 = hint_122 + 1;
-  _136 = sb_contents.len;
-  _137 = unsigned_add_overflows (_136, _135);
-  if (_137 != 0)
-    goto <bb 13>; [0.04%]
+  <bb 20> [90.25%]:
+  _55 = word;
+  _56 = *_55;
+  if (_56 != 0)
+    goto <bb 3>; [95.00%]
   else
-    goto <bb 14>; [99.96%]
+    goto <bb 21>; [5.00%]
 
-  <bb 13> [0.08%]:
-  _138 = __printf_chk (1, "you want to use way too much memory%s", "");
-  exit (1);
+  <bb 21> [14.26%]:
+  word ={v} {CLOBBER};
+  dict_7 = root;
+  goto <bb 23>; [100.00%]
 
-  <bb 14> [94.92%]:
-  if (_131 == 0)
-    goto <bb 15>; [50.00%]
+  <bb 22> [80.82%]:
+  _1 = dict_3->word;
+  _10 = __printf_chk (1, "%s\n", _1);
+  _2 = dict_3->word;
+  free (_2);
+  dict_9 = dict_3->next;
+
+  <bb 23> [95.08%]:
+  # dict_3 = PHI <dict_7(21), dict_9(22)>
+  if (dict_3 != 0B)
+    goto <bb 22>; [85.00%]
   else
-    goto <bb 16>; [50.00%]
+    goto <bb 24>; [15.00%]
 
-  <bb 15> [47.46%]:
-  sb_contents.buf = 0B;
-
-  <bb 16> [94.92%]:
-  _139 = sb_contents.len;
-  _140 = hint_122 + _139;
-  _141 = _140 + 1;
-  _142 = sb_contents.alloc;
-  if (_141 > _142)
-    goto <bb 17>; [33.00%]
-  else
-    goto <bb 28>; [67.00%]
-
-  <bb 17> [31.32%]:
-  _143 = sb_contents.alloc;
-  _144 = alloc_nr (_143);
-  _145 = (long unsigned int) _144;
-  _146 = sb_contents.len;
-  _147 = hint_122 + _146;
-  _148 = _147 + 1;
-  if (_145 < _148)
-    goto <bb 18>; [67.00%]
-  else
-    goto <bb 19>; [33.00%]
-
-  <bb 18> [20.99%]:
-  _149 = sb_contents.len;
-  _150 = hint_122 + _149;
-  _151 = _150 + 1;
-  sb_contents.alloc = _151;
-  goto <bb 20>; [100.00%]
-
-  <bb 19> [10.34%]:
-  _152 = sb_contents.alloc;
-  _153 = alloc_nr (_152);
-  _154 = (long unsigned int) _153;
-  sb_contents.alloc = _154;
-
-  <bb 20> [31.32%]:
-  _155 = sb_contents.alloc;
-  _156 = st_mult (1, _155);
-  _157 = (long unsigned int) _156;
-  _158 = sb_contents.buf;
-  ret_161 = realloc (_158, _157);
-  _162 = ret_161 == 0B;
-  _163 = _157 == 0;
-  _164 = _162 & _163;
-  if (_164 != 0)
-    goto <bb 21>; [33.00%]
-  else
-    goto <bb 22>; [67.00%]
-
-  <bb 21> [10.34%]:
-  ret_165 = realloc (_158, 1);
-
-  <bb 22> [31.32%]:
-  # ret_166 = PHI <ret_161(20), ret_165(21)>
-  if (ret_166 == 0B)
-    goto <bb 23>; [19.86%]
-  else
-    goto <bb 27>; [80.14%]
-
-  <bb 23> [6.22%]:
-  ret_167 = realloc (_158, _157);
-  _168 = ret_167 == 0B;
-  _169 = _157 == 0;
-  _170 = _168 & _169;
-  if (_170 != 0)
-    goto <bb 24>; [33.00%]
-  else
-    goto <bb 25>; [67.00%]
-
-  <bb 24> [2.05%]:
-  ret_171 = realloc (_158, 1);
-
-  <bb 25> [6.22%]:
-  # ret_172 = PHI <ret_167(23), ret_171(24)>
-  if (ret_172 == 0B)
-    goto <bb 26>; [0.04%]
-  else
-    goto <bb 27>; [99.96%]
-
-  <bb 26> [0.00%]:
-  _173 = __printf_chk (1, "Out of memory, realloc failed%s", "");
-  exit (1);
-
-  <bb 27> [31.32%]:
-  # ret_174 = PHI <ret_166(22), ret_172(25)>
-  _175 = ret_174;
-  _235 = ret_174;
-  _159 = ret_174;
-  sb_contents.buf = ret_174;
-
-  <bb 28> [94.92%]:
-  if (_131 == 0)
-    goto <bb 29>; [54.00%]
-  else
-    goto <bb 30>; [46.00%]
-
-  <bb 29> [51.26%]:
-  _160 = sb_contents.buf;
-  *_160 = 0;
-
-  <bb 30> [94.92%]:
-  _123 = sb_contents.buf;
-  len_124 = readlink (path_73, _123, hint_122);
-  if (len_124 < 0)
-    goto <bb 31>; [36.00%]
-  else
-    goto <bb 32>; [64.00%]
-
-  <bb 31> [34.17%]:
-  _125 = __errno_location ();
-  _126 = *_125;
-  if (_126 != 34)
-    goto <bb 36>; [5.00%]
-  else
-    goto <bb 34>; [95.00%]
-
-  <bb 32> [60.75%]:
-  _127 = (long unsigned int) len_124;
-  if (hint_122 > _127)
-    goto <bb 33>; [5.00%]
-  else
-    goto <bb 34>; [95.00%]
-
-  <bb 33> [3.04%]:
-  strbuf_setlen (&sb_contents, len_124);
-  goto <bb 38>; [100.00%]
-
-  <bb 34> [90.18%]:
-  hint_128 = hint_122 * 2;
-
-  <bb 35> [100.00%]:
-  # hint_122 = PHI <32(10), hint_128(34)>
-  if (hint_122 <= 8191)
-    goto <bb 11>; [95.00%]
-  else
-    goto <bb 36>; [5.00%]
-
-  <bb 36> [6.71%]:
-  if (oldalloc_121 == 0)
-    goto <bb 37>; [33.00%]
-  else
-    goto <bb 38>; [67.00%]
-
-  <bb 37> [2.21%]:
-  strbuf_release (&sb_contents);
-
-  <bb 38> [9.75%]:
-  # _129 = PHI <0(33), -1(36), -1(37)>
-  if (_129 < 0)
-    goto <bb 39>; [96.25%]
-  else
-    goto <bb 40>; [3.75%]
-
-  <bb 39> [9.38%]:
-  _83 = __errno_location ();
-  _84 = *_83;
-  _85 = _84 == 2;
-  _86 = _84 == 22;
-  _87 = _85 | _86;
-  if (_87 != 0)
-    goto <bb 5> (stat_ref); [96.25%]
-  else
-    goto <bb 54> (out); [3.75%]
-
-  <bb 40> [0.37%]:
-  _88 = sb_contents.buf;
-  _89 = starts_with (_88, "refs/");
-  if (_89 != 0)
-    goto <bb 41>; [50.00%]
-  else
-    goto <bb 43>; [50.00%]
-
-  <bb 41> [0.18%]:
-  _90 = sb_contents.buf;
-  _91 = check_refname_format (_90, 0);
-  if (_91 == 0)
-    goto <bb 42>; [29.56%]
-  else
-    goto <bb 43>; [70.44%]
-
-  <bb 42> [0.05%]:
-  MEM[(char * {ref-all})&_swap_buffer] = MEM[(char * {ref-all})&sb_contents];
-  MEM[(char * {ref-all})&sb_contents] = MEM[(char * {ref-all})&referent];
-  MEM[(char * {ref-all})&referent] = MEM[(char * {ref-all})&_swap_buffer];
-  _swap_buffer ={v} {CLOBBER};
-  _92 = MEM[(unsigned int *)&update + 56B];
-  _93 = _92 | 1;
-  MEM[(unsigned int *)&update + 56B] = _93;
-  goto <bb 54> (out); [100.00%]
-
-  <bb 43> [0.31%]:
-  strbuf_reset (&sb_contents);
-  _95 = strbuf_read (&sb_contents, fd_94(D), 256);
-  if (_95 < 0)
-    goto <bb 44>; [1.13%]
-  else
-    goto <bb 45>; [98.87%]
-
-  <bb 44> [0.00%]:
-  _96 = __errno_location ();
-  save_errno_97 = *_96;
-  close (fd_94(D));
-  _98 = __errno_location ();
-  *_98 = save_errno_97;
-  goto <bb 54> (out); [100.00%]
-
-  <bb 45> [0.31%]:
-  strbuf_rtrim (&sb_contents);
-  buf_99 = sb_contents.buf;
-  _100 = starts_with (buf_99, "ref:");
-  if (_100 != 0)
-    goto <bb 46>; [67.00%]
-  else
-    goto <bb 50>; [33.00%]
-
-  <bb 46> [0.21%]:
-  buf_101 = buf_99 + 4;
-  goto <bb 48>; [100.00%]
-
-  <bb 47> [1.17%]:
-  buf_103 = buf_102 + 1;
-
-  <bb 48> [1.38%]:
-  # buf_102 = PHI <buf_101(46), buf_103(47)>
-  _104 = *buf_102;
-  _105 = (int) _104;
-  _106 = isspace (_105);
-  if (_106 != 0)
-    goto <bb 47>; [85.00%]
-  else
-    goto <bb 49>; [15.00%]
-
-  <bb 49> [0.21%]:
-  strbuf_reset (&referent);
-  strbuf_addstr (&referent, buf_102);
-  _107 = MEM[(unsigned int *)&update + 56B];
-  _108 = _107 | 1;
-  MEM[(unsigned int *)&update + 56B] = _108;
-  goto <bb 54> (out); [100.00%]
-
-  <bb 50> [0.10%]:
-  _109 = get_sha1_hex (buf_99, _63);
-  if (_109 != 0)
-    goto <bb 53>; [2.00%]
-  else
-    goto <bb 51>; [98.00%]
-
-  <bb 51> [0.10%]:
-  _110 = MEM[(const char *)buf_99 + 40B];
-  if (_110 != 0)
-    goto <bb 52>; [54.00%]
-  else
-    goto <bb 54> (out); [46.00%]
-
-  <bb 52> [0.05%]:
-  _111 = MEM[(const char *)buf_99 + 40B];
-  _112 = (int) _111;
-  _113 = isspace (_112);
-  if (_113 == 0)
-    goto <bb 53>; [2.00%]
-  else
-    goto <bb 54> (out); [98.00%]
-
-  <bb 53> [0.00%]:
-  _114 = MEM[(unsigned int *)&update + 56B];
-  _115 = _114 | 4;
-  MEM[(unsigned int *)&update + 56B] = _115;
-  _116 = __errno_location ();
-  *_116 = 22;
-
-  # ret_120 = PHI <-1(5), -1(7), 0(8), -1(9), -1(39), 0(42), -1(44), 0(49), 0(51), 0(52), -1(53)>
-out [4.50%]:
-  _117 = __errno_location ();
-  save_errno_118 = *_117;
-  strbuf_release (&sb_path);
-  strbuf_release (&sb_contents);
-  _119 = __errno_location ();
-  *_119 = save_errno_118;
-  sb_contents ={v} {CLOBBER};
-  sb_path ={v} {CLOBBER};
-  st ={v} {CLOBBER};
-  if (ret_120 != 0)
-    goto <bb 55>; [54.00%]
-  else
-    goto <bb 58> (out); [46.00%]
-
-  <bb 55> [2.43%]:
-  _66 = __errno_location ();
-  _67 = *_66;
-  if (_67 == 2)
-    goto <bb 56>; [37.68%]
-  else
-    goto <bb 58> (out); [62.32%]
-
-  <bb 56> [0.92%]:
-  if (mustexist_13(D) != 0)
-    goto <bb 57>; [1.00%]
-  else
-    goto <bb 58> (out); [99.00%]
-
-  <bb 57> [0.01%]:
-  strbuf_addf (&err, "unable to resolve reference \'%s\'", &update.refname);
-  unlock_ref (lock_61);
-
-  # ret_68 = PHI <0(54), 0(55), 0(56), -2(57)>
-  # lock_298 = PHI <lock_61(54), lock_61(55), lock_61(56), 0B(57)>
-out [4.50%]:
-  strbuf_release (&ref_file);
-  _69 = ret_68;
-  ref_file ={v} {CLOBBER};
-  _277 = ret_68;
-  ret_14 = ret_68;
-  if (ret_68 != 0)
-    goto <bb 59>; [29.56%]
-  else
-    goto <bb 60>; [70.44%]
-
-  <bb 59> [1.33%]:
-  _15 = strbuf_detach (&err, 0B);
-  _16 = (long int) _15;
-  reason_17 = (char *) _16;
-  _18 = original_update_refname (&update);
-  strbuf_addf (&err, "cannot lock ref \'%s\': %s", _18, reason_17);
-  free (reason_17);
-  goto <bb 77>; [100.00%]
-
-  <bb 60> [3.17%]:
-  _19 = lock_298;
-  update.backend_data = lock_298;
-  _20 = update.type;
-  _21 = _20 & 1;
-  if (_21 != 0)
-    goto <bb 61>; [67.00%]
-  else
-    goto <bb 67>; [33.00%]
-
-  <bb 61> [2.12%]:
-  _22 = update.flags;
-  _23 = _22 & 1;
-  if (_23 != 0)
-    goto <bb 62>; [50.00%]
-  else
-    goto <bb 66>; [50.00%]
-
-  <bb 62> [1.06%]:
-  _24 = lock_298;
-  _25 = &_24->old_oid.hash;
-  _26 = referent.buf;
-  _28 = refs_read_ref_full (&refs.base, _26, 0, _25, 0B);
-  if (_28 != 0)
-    goto <bb 63>; [67.00%]
-  else
-    goto <bb 65>; [33.00%]
-
-  <bb 63> [0.71%]:
-  _29 = update.flags;
-  _30 = _29 & 16;
-  if (_30 != 0)
-    goto <bb 64>; [1.00%]
-  else
-    goto <bb 68>; [99.00%]
-
-  <bb 64> [0.01%]:
-  _31 = original_update_refname (&update);
-  strbuf_addf (&err, "cannot lock ref \'%s\': error reading reference", _31);
-  goto <bb 77>; [100.00%]
-
-  <bb 65> [0.35%]:
-  _32 = lock_298;
-  _33 = &_32->old_oid;
-  _34 = check_old_oid (&update, _33, &err);
-  if (_34 != 0)
-    goto <bb 77>; [2.00%]
-  else
-    goto <bb 68>; [98.00%]
-
-  <bb 66> [1.06%]:
-  _35 = referent.buf;
-  ret_36 = split_symref_update (&refs, &update, _35, &transaction, &affected_refnames, &err);
-  if (ret_36 != 0)
-    goto <bb 77>; [46.00%]
-  else
-    goto <bb 68>; [54.00%]
-
-  <bb 67> [1.05%]:
-  _37 = lock_298;
-  _38 = &_37->old_oid;
-  _39 = check_old_oid (&update, _38, &err);
-  if (_39 != 0)
-    goto <bb 77>; [2.00%]
-  else
-    goto <bb 68>; [98.00%]
-
-  <bb 68> [2.65%]:
-  _40 = BIT_FIELD_REF <update, 32, 320>;
-  _41 = _40 & 138;
-  if (_41 == 8)
-    goto <bb 69>; [34.00%]
-  else
-    goto <bb 74>; [66.00%]
-
-  <bb 69> [0.90%]:
-  _42 = update.type;
-  _43 = _42 & 1;
-  if (_43 == 0)
-    goto <bb 70>; [50.00%]
-  else
-    goto <bb 71>; [50.00%]
-
-  <bb 70> [0.45%]:
-  _45 = lock_298;
-  _46 = &_45->old_oid;
-  _47 = oidcmp (_46, &update.new_oid);
-  if (_47 == 0)
-    goto <bb 74>; [50.00%]
-  else
-    goto <bb 71>; [50.00%]
-
-  <bb 71> [0.68%]:
-  _49 = lock_298;
-  _50 = write_ref_to_lockfile (_49, &update.new_oid, &err);
-  if (_50 != 0)
-    goto <bb 72>; [1.00%]
-  else
-    goto <bb 73>; [99.00%]
-
-  <bb 72> [0.01%]:
-  _51 = strbuf_detach (&err, 0B);
-  _52 = (long int) _51;
-  write_err_53 = (char *) _52;
-  update.backend_data = 0B;
-  goto <bb 77>; [100.00%]
-
-  <bb 73> [0.67%]:
-  _54 = update.flags;
-  _55 = _54 | 32;
-  update.flags = _55;
-
-  <bb 74> [2.64%]:
-  _56 = update.flags;
-  _57 = _56 & 32;
-  if (_57 == 0)
-    goto <bb 75>; [36.64%]
-  else
-    goto <bb 77>; [63.36%]
-
-  <bb 75> [0.97%]:
-  _58 = lock_298;
-  _59 = close_ref (_58);
-  if (_59 != 0)
-    goto <bb 77>; [2.00%]
-  else
-    goto <bb 76>; [98.00%]
-
-  <bb 76> [0.95%]:
-
-  <bb 77> [6.68%]:
-  # _60 = PHI <ret_10(3), ret_68(59), -1(64), -2(65), ret_36(66), -2(67), -2(72), 0(74), -2(75), 0(76)>
-  referent ={v} {CLOBBER};
-  refs ={v} {CLOBBER};
-  update ={v} {CLOBBER};
-  transaction ={v} {CLOBBER};
-  affected_refnames ={v} {CLOBBER};
-  err ={v} {CLOBBER};
+  <bb 24> [14.26%]:
   return 0;
 
 }
