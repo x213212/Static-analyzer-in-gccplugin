@@ -11,13 +11,13 @@ LTO=-flto
 WHOLE=-fwhole-program
 FLAGS=-O1    -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -fdump-tree-all -pthread -fno-diagnostics-color 
 #FLAGS=-O1    -fno-tree-dse  -fno-tree-fre -fno-tree-dce   -nostartfiles -g  -fdump-tree-all -fno-dce -fno-dse -fno-tree-dce    -fno-tree-builtin-call-dce -fipa-pta -pthread -fno-strict-aliasing
-PLUGIN=-fplugin=../Compiler/misra.so
+PLUGIN=-fplugin=../Compiler/misra.so 
 all: test.o
 
 
 test.o:  
 	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
-	$(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 2> check.log
+	$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
 clean:
 	-rm -rf ./test ./test.dSYM *.o
 

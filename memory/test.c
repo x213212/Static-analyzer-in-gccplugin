@@ -1,31 +1,18 @@
 #include <stdlib.h>
-
-#include <memory>
-
-struct GlobalAlloc {
-	  void *p;
-	    GlobalAlloc() {
-		        p = malloc(1024);
-			  }
-
-	      ~GlobalAlloc() {
-		          free(p);
-			    }
-};
-
-GlobalAlloc g;
-
 int main(int argc, char *argv[])
 {
-	  (void)argc;
-	    (void)argv;
+	    int i;
+	        void *data[10];
 
+		    printf("Hello World\n");
 
-	      char *array = new char[4096];
+		        for (i = 0; i < 10; ++i) {
+				        data[i] = malloc(i+10);
+					    }
 
+			    for (i = 0; i < 9; ++i) {
+				            free(data[i]);
+					        }
 
-	        (void)array;
-		  std::unique_ptr<char[]> pchar(new char[512]);
-		    return 0;
+			        return 0;
 }
-

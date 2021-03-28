@@ -1,20 +1,5 @@
 
-;; Function fprintf (fprintf, funcdef_no=14, decl_uid=776, cgraph_uid=14, symbol_order=14)
-
-__attribute__((__artificial__, __gnu_inline__, __always_inline__))
-fprintf (struct FILE * restrict __stream, const char * restrict __fmt)
-{
-  int _5;
-
-  <bb 2> [0.00%]:
-  _5 = __fprintf_chk (__stream_2(D), 1, __fmt_3(D), __builtin_va_arg_pack ());
-  return _5;
-
-}
-
-
-
-;; Function printf (printf, funcdef_no=15, decl_uid=798, cgraph_uid=15, symbol_order=15)
+;; Function printf (printf, funcdef_no=31, decl_uid=798, cgraph_uid=31, symbol_order=31)
 
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
@@ -29,858 +14,297 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function do_my_cleanups (do_my_cleanups, funcdef_no=48, decl_uid=3170, cgraph_uid=48, symbol_order=53)
+;; Function foo3 (foo3, funcdef_no=51, decl_uid=4311, cgraph_uid=51, symbol_order=53)
 
-  Inlining printf into do_my_cleanups (always_inline).
-  Inlining printf into do_my_cleanups (always_inline).
 Iterations: 0
-Merging blocks 3 and 11
-Merging blocks 3 and 10
-Merging blocks 3 and 9
-Merging blocks 3 and 8
-
-Symbols to be put in SSA form
-{ D.3377 D.3395 D.3397 }
-Incremental SSA update started at block: 0
-Number of blocks in CFG: 8
-Number of blocks to update: 7 ( 88%)
-
-
-do_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
+__attribute__((noinline))
+foo3 (int * z)
 {
-  int D.3397;
-  int D.3395;
-  struct cleanup * ptr;
-  struct cleanup * _1;
-  void (*<Ted>) (void *) _2;
-  void * _3;
-  void * _4;
-  void (*<Ted>) (void *) _5;
-  void (*<Ted>) (void *) _6;
-  void * _7;
-  int _20;
-  int _21;
+  void * _1;
+  long int _2;
+  int _3;
 
   <bb 2> [0.00%]:
-  goto <bb 6>; [0.00%]
-
-  <bb 3> [100.00%]:
-  _1 = ptr_12->next;
-  *pmy_chain_11(D) = _1;
-  _2 = ptr_12->function;
-  _3 = ptr_12->arg;
-  _2 (_3);
-  _21 = __printf_chk (1, "cleanup!!!!! =========\n");
-  _23 = _21;
-  _4 = ptr_12->arg;
-  _20 = __printf_chk (1, "%x\n", _4);
-  _25 = _20;
-  _5 = ptr_12->free_arg;
-  if (_5 != 0B)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _6 = ptr_12->free_arg;
-  _7 = ptr_12->arg;
-  _6 (_7);
-
-  <bb 5> [0.00%]:
-  free (ptr_12);
-
-  <bb 6> [0.00%]:
-  ptr_12 = *pmy_chain_11(D);
-  if (ptr_12 != old_chain_13(D))
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 7> [0.00%]:
+  _1 = malloc (1);
+  _2 = (long int) _1;
+  _3 = (int) _2;
+  *z_6(D) = _3;
   return;
 
 }
 
 
 
-;; Function make_my_cleanup2 (make_my_cleanup2, funcdef_no=50, decl_uid=3178, cgraph_uid=50, symbol_order=55)
+;; Function foo2 (foo2, funcdef_no=52, decl_uid=4309, cgraph_uid=52, symbol_order=54)
 
 Iterations: 0
-make_my_cleanup2 (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg, void (*<Ted>) (void *) free_arg)
+__attribute__((noinline))
+foo2 (int z)
 {
-  struct cleanup * old_chain;
-  struct cleanup * new;
-  struct cleanup * _1;
-  struct cleanup * _15;
+  int tmp;
+  int * p4;
+  int * p3;
+  int * a2;
+  long unsigned int _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  int * _5;
+  int * _19;
+  int * _24;
 
   <bb 2> [0.00%]:
-  new_4 = malloc (32);
-  old_chain_6 = *pmy_chain_5(D);
-  _1 = *pmy_chain_5(D);
-  new_4->next = _1;
-  new_4->function = function_8(D);
-  new_4->free_arg = free_arg_10(D);
-  new_4->arg = arg_12(D);
-  *pmy_chain_5(D) = new_4;
-  if (old_chain_6 == 0B)
+  _1 = (long unsigned int) z_7(D);
+  a2_10 = malloc (_1);
+  _2 = (long unsigned int) z_7(D);
+  p3_12 = malloc (_2);
+  _3 = (long unsigned int) z_7(D);
+  p4_14 = malloc (_3);
+  *a2_10 = 10;
+  if (tmp_16(D) > 10)
     goto <bb 3>; [0.00%]
   else
     goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
-  exit (1);
+  pthread_mutex_unlock (&mLock);
+  _4 = (long unsigned int) z_7(D);
+  p3_22 = malloc (_4);
+  free (p3_22);
+  _24 = p3_22;
+  goto <bb 5>; [0.00%]
 
   <bb 4> [0.00%]:
-  _15 = old_chain_6;
-  return _15;
-
-}
-
-
-
-;; Function make_my_cleanup (make_my_cleanup, funcdef_no=51, decl_uid=3182, cgraph_uid=51, symbol_order=56)
-
-Iterations: 0
-make_my_cleanup (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg)
-{
-  struct cleanup * _6;
-
-  <bb 2> [0.00%]:
-  _6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
-  return _6;
-
-}
-
-
-
-;; Function discard_my_cleanups (discard_my_cleanups, funcdef_no=47, decl_uid=3165, cgraph_uid=47, symbol_order=52)
-
-  Inlining printf into discard_my_cleanups (always_inline).
-Iterations: 0
-Merging blocks 7 and 9
-Merging blocks 7 and 8
-
-Symbols to be put in SSA form
-{ D.3380 D.3400 }
-Incremental SSA update started at block: 0
-Number of blocks in CFG: 8
-Number of blocks to update: 7 ( 88%)
-
-
-discard_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
-{
-  int D.3400;
-  struct cleanup * ptr;
-  struct cleanup * _1;
-  void (*<Ted>) (void *) _2;
-  void (*<Ted>) (void *) _3;
-  void * _4;
-  void * _5;
-  int _16;
-
-  <bb 2> [0.00%]:
-  goto <bb 6>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _1 = ptr_10->next;
-  *pmy_chain_9(D) = _1;
-  _2 = ptr_10->free_arg;
-  if (_2 != 0B)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _3 = ptr_10->free_arg;
-  _4 = ptr_10->arg;
-  _3 (_4);
+  *p3_12 = 10;
+  free (p4_14);
+  _19 = p4_14;
 
   <bb 5> [0.00%]:
-  free (ptr_10);
-
-  <bb 6> [0.00%]:
-  ptr_10 = *pmy_chain_9(D);
-  if (ptr_10 != old_chain_11(D))
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 7> [100.00%]:
-  _5 = ptr_10->arg;
-  _16 = __printf_chk (1, "freearg: %x\n", _5);
-  _18 = _16;
-  return;
-
-}
-
-
-
-;; Function discard_cleanups (discard_cleanups, funcdef_no=45, decl_uid=3162, cgraph_uid=45, symbol_order=50)
-
-Iterations: 0
-discard_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [0.00%]:
-  discard_my_cleanups (&cleanup_chain, old_chain_2(D));
-  return;
-
-}
-
-
-
-;; Function discard_final_cleanups (discard_final_cleanups, funcdef_no=46, decl_uid=3167, cgraph_uid=46, symbol_order=51)
-
-Iterations: 0
-discard_final_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [0.00%]:
-  discard_my_cleanups (&final_cleanup_chain, old_chain_2(D));
-  return;
-
-}
-
-
-
-;; Function do_cleanups (do_cleanups, funcdef_no=49, decl_uid=3172, cgraph_uid=49, symbol_order=54)
-
-Iterations: 0
-do_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [0.00%]:
-  do_my_cleanups (&cleanup_chain, old_chain_2(D));
-  return;
-
-}
-
-
-
-;; Function make_cleanup (make_cleanup, funcdef_no=52, decl_uid=3185, cgraph_uid=52, symbol_order=57)
-
-Iterations: 0
-make_cleanup (void (*<Ta1d>) (void *) function, void * arg)
-{
-  struct cleanup * _5;
-
-  <bb 2> [0.00%]:
-  _5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
+  # _5 = PHI <_24(3), _19(4)>
   return _5;
 
 }
 
 
 
-;; Function newentry (newentry, funcdef_no=53, decl_uid=3247, cgraph_uid=53, symbol_order=60)
+;; Function foo4 (foo4, funcdef_no=53, decl_uid=4319, cgraph_uid=53, symbol_order=55)
 
 Iterations: 0
-newentry (char * word)
+foo4 (int z)
 {
-  struct dict_type * new_d;
-  struct dict_type * root.0_1;
-  void * _2;
-  struct dict_type * _14;
+  int * p2;
+  int * b;
+  void * _1;
+  int * b.0_2;
+  int * _12;
 
   <bb 2> [0.00%]:
-  new_d_5 = malloc (40);
-  new_d_5->word = word_6(D);
-  root.0_1 = root;
-  new_d_5->next = root.0_1;
-  root = new_d_5;
-  _2 = malloc (8);
-  new_d_5->code = _2;
-  new_d_5->code_length = 1;
-  new_d_5->code_end = 0;
-  _14 = new_d_5;
-  return _14;
+  _1 = malloc (1);
+  b = _1;
+  p2_7 = malloc (1);
+  b.0_2 = b;
+  *b.0_2 = 2;
+  *p2_7 = 1;
+  p2_10 = &b;
+  free (p2_10);
+  _12 = p2_10;
+  b ={v} {CLOBBER};
+  return _12;
 
 }
 
 
 
-;; Function add_var (add_var, funcdef_no=54, decl_uid=3250, cgraph_uid=54, symbol_order=61)
+;; Function foo (foo, funcdef_no=54, decl_uid=4307, cgraph_uid=54, symbol_order=56)
 
 Iterations: 0
-add_var (char * name)
+__attribute__((noinline))
+foo (int z)
 {
-  struct dict_type * new_d;
+  int * p2;
+  int * _7;
 
   <bb 2> [0.00%]:
-  new_d_4 = newentry (name_2(D));
+  p2_3 = malloc (1);
+  *p2_3 = 1;
+  _7 = foo2 (z_5(D));
+  return _7;
+
+}
+
+
+
+;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
+
+Iterations: 0
+child (void * data)
+{
+  int data2;
+  int * a;
+  int * pData;
+  int * * ppData;
+  union pthread_mutex_t mLock2;
+  void * _1;
+  int * _2;
+  int * * _3;
+  int * _4;
+  int * * _5;
+  int * _6;
+  int * _7;
+  int * pData.1_8;
+
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&mLock2);
+  pthread_mutex_lock (&mLock2);
+  pthread_mutex_lock (&mLock);
+  pthread_mutex_lock (&mLock);
+  ppData_15 = malloc (10);
+  _1 = malloc (20);
+  pData = _1;
+  a_19 = foo (1);
+  data2 = 0;
+  ppData_21 = &pData;
+  pData = &data2;
+  _2 = *ppData_21;
+  *_2 = 10;
+  _3 = ppData_21 + 8;
+  _4 = *_3;
+  *_4 = 10;
+  _5 = ppData_21 + 16;
+  _6 = *_5;
+  *_6 = 10;
+  _7 = *ppData_21;
+  *_7 = 12;
+  pData.1_8 = pData;
+  free (pData.1_8);
+  pthread_mutex_unlock (&mLock);
+  free (ppData_21);
+  mLock2 ={v} {CLOBBER};
+  pData ={v} {CLOBBER};
+  data2 ={v} {CLOBBER};
   return;
 
 }
 
 
 
-;; Function add_to_definition (add_to_definition, funcdef_no=55, decl_uid=3254, cgraph_uid=55, symbol_order=62)
+;; Function boo (boo, funcdef_no=56, decl_uid=4351, cgraph_uid=56, symbol_order=58)
 
+  Inlining printf into boo (always_inline).
 Iterations: 0
-add_to_definition (struct dict_type * entry, void (*stinst_type) () word)
+Merging blocks 2 and 4
+Merging blocks 2 and 3
+
+Symbols to be put in SSA form
+{ D.4392 D.4409 }
+Incremental SSA update started at block: 0
+Number of blocks in CFG: 3
+Number of blocks to update: 2 ( 67%)
+
+
+boo (int * b)
 {
-  int _1;
-  int _2;
-  int _3;
-  int _4;
+  int D.4409;
   int _5;
-  long unsigned int _6;
-  long unsigned int _7;
-  void (*stinst_type) () * _8;
-  void * _9;
-  void (*stinst_type) () * _10;
-  int _11;
-  long unsigned int _12;
-  long unsigned int _13;
-  void (*stinst_type) () * _14;
-  int _15;
-  int _16;
-  int _17;
-  unsigned int _27;
 
-  <bb 2> [0.00%]:
-  _1 = entry_20(D)->code_end;
-  _2 = entry_20(D)->code_length;
-  if (_1 == _2)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _3 = entry_20(D)->code_length;
-  _4 = _3 + 2;
-  entry_20(D)->code_length = _4;
-  _5 = entry_20(D)->code_length;
-  _6 = (long unsigned int) _5;
-  _7 = _6 * 8;
-  _8 = entry_20(D)->code;
-  _9 = realloc (_8, _7);
-  entry_20(D)->code = _9;
-
-  <bb 4> [0.00%]:
-  _10 = entry_20(D)->code;
-  _11 = entry_20(D)->code_end;
-  _12 = (long unsigned int) _11;
-  _13 = _12 * 8;
-  _14 = _10 + _13;
-  *_14 = word_24(D);
-  _15 = entry_20(D)->code_end;
-  _16 = _15;
-  _17 = _16 + 1;
-  entry_20(D)->code_end = _17;
-  _27 = (unsigned int) _16;
-  return _27;
-
-}
-
-
-
-;; Function nextword (nextword, funcdef_no=56, decl_uid=3258, cgraph_uid=56, symbol_order=63)
-
-Iterations: 0
-nextword (char * string, char * * word)
-{
-  int length;
-  char * src;
-  char * dst;
-  int idx;
-  char * word_start;
-  char _1;
-  _Bool _2;
-  _Bool _3;
-  _Bool _4;
-  char _5;
-  unsigned char _6;
-  int _7;
-  int _8;
-  char _9;
-  char _10;
-  char _11;
-  char _12;
-  char _13;
-  char _14;
-  unsigned char _15;
-  int _16;
-  int _17;
-  int _18;
-  long unsigned int _19;
-  void * _20;
-  sizetype _21;
-  char * _22;
-  char _23;
-  sizetype _24;
-  sizetype _25;
-  char * _26;
-  char _27;
-  int _28;
-  char * dst.1_29;
-  sizetype _30;
-  sizetype _31;
-  char * _32;
-  char * dst.2_33;
-  char _34;
-  char * dst.3_35;
-  sizetype _36;
-  char * _37;
-  char * dst.4_38;
-  char _39;
-  char * dst.5_40;
-  char _41;
-  char * _56;
-  char * _78;
-  char * _79;
-  char * _91;
-  char _93;
-  char * _95;
-
-  <bb 2> [0.00%]:
-  length_60 = 0;
-  if (string_61(D) == 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _95 = 0B;
-  goto <bb 30>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _1 = *string_43;
-  if (_1 == 45)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 5> [0.00%]:
-  string_94 = string_42 + 1;
-
-  <bb 6> [0.00%]:
-  # string_42 = PHI <string_43(4), string_94(5)>
-  _93 = *string_42;
-  _2 = _93 != 0;
-  _3 = _93 != 10;
-  _4 = _2 & _3;
-  if (_4 != 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 7> [0.00%]:
-  string_92 = string_43 + 1;
-
-  <bb 8> [0.00%]:
-  # string_43 = PHI <string_61(D)(2), string_42(6), string_92(7)>
-  _5 = *string_43;
-  _6 = (unsigned char) _5;
-  _7 = (int) _6;
-  _8 = isspace (_7);
-  if (_8 != 0)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 9> [0.00%]:
-  _9 = *string_43;
-  if (_9 == 45)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 10>; [0.00%]
-
-  <bb 10> [0.00%]:
-  _10 = *string_43;
-  if (_10 == 0)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 11> [0.00%]:
-  _91 = 0B;
-  goto <bb 30>; [0.00%]
-
-  <bb 12> [0.00%]:
-  word_start_63 = string_43;
-  _11 = *string_43;
-  if (_11 == 34)
-    goto <bb 13>; [0.00%]
-  else
-    goto <bb 17>; [0.00%]
-
-  <bb 13> [0.00%]:
-  # string_44 = PHI <string_43(12), string_45(15)>
-  # length_52 = PHI <length_60(12), length_53(15)>
-  string_66 = string_44 + 1;
-  length_67 = length_52 + 1;
-  _12 = *string_66;
-  if (_12 == 92)
-    goto <bb 14>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 14> [0.00%]:
-  string_68 = string_66 + 2;
-  length_69 = length_67 + 2;
-
-  <bb 15> [0.00%]:
-  # string_45 = PHI <string_66(13), string_68(14)>
-  # length_53 = PHI <length_67(13), length_69(14)>
-  _13 = *string_45;
-  if (_13 != 34)
-    goto <bb 13>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 16> [0.00%]:
-  string_64 = string_46 + 1;
-  length_65 = length_54 + 1;
-
-  <bb 17> [0.00%]:
-  # string_46 = PHI <string_43(12), string_64(16)>
-  # length_54 = PHI <length_60(12), length_65(16)>
-  _14 = *string_46;
-  _15 = (unsigned char) _14;
-  _16 = (int) _15;
-  _17 = isspace (_16);
-  if (_17 == 0)
-    goto <bb 16>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 18> [0.00%]:
-  # string_47 = PHI <string_45(15), string_46(17)>
-  # length_55 = PHI <length_53(15), length_54(17)>
-  _18 = length_55 + 1;
-  _19 = (long unsigned int) _18;
-  _20 = malloc (_19);
-  *word_71(D) = _20;
-  dst_73 = *word_71(D);
-  src_74 = word_start_63;
-  idx_75 = 0;
-  goto <bb 26>; [0.00%]
-
-  <bb 19> [0.00%]:
-  _21 = (sizetype) idx_49;
-  _22 = src_74 + _21;
-  _23 = *_22;
-  if (_23 == 92)
-    goto <bb 20>; [0.00%]
-  else
-    goto <bb 24>; [0.00%]
-
-  <bb 20> [0.00%]:
-  _24 = (sizetype) idx_49;
-  _25 = _24 + 1;
-  _26 = src_74 + _25;
-  _27 = *_26;
-  _28 = (int) _27;
-  switch (_28) <default: <L29> [0.00%], case 34: <L27> [0.00%], case 92: <L27> [0.00%], case 110: <L26> [0.00%]>
-
-<L26> [0.00%]:
-  dst.1_29 = dst_51;
-  dst_82 = dst.1_29 + 1;
-  *dst.1_29 = 10;
-  idx_84 = idx_49 + 1;
-  goto <bb 25>; [0.00%]
-
-<L27> [0.00%]:
-  _30 = (sizetype) idx_49;
-  _31 = _30 + 1;
-  _32 = src_74 + _31;
-  dst.2_33 = dst_51;
-  dst_85 = dst.2_33 + 1;
-  _34 = *_32;
-  *dst.2_33 = _34;
-  idx_87 = idx_49 + 1;
-  goto <bb 25>; [0.00%]
-
-<L29> [0.00%]:
-  dst.3_35 = dst_51;
-  dst_88 = dst.3_35 + 1;
-  *dst.3_35 = 92;
-  goto <bb 25>; [0.00%]
-
-  <bb 24> [0.00%]:
-  _36 = (sizetype) idx_49;
-  _37 = src_74 + _36;
-  dst.4_38 = dst_51;
-  dst_80 = dst.4_38 + 1;
-  _39 = *_37;
-  *dst.4_38 = _39;
-
-  <bb 25> [0.00%]:
-  # idx_48 = PHI <idx_87(22), idx_49(24), idx_84(21), idx_49(23)>
-  # dst_50 = PHI <dst_85(22), dst_80(24), dst_82(21), dst_88(23)>
-  idx_90 = idx_48 + 1;
-
-  <bb 26> [0.00%]:
-  # idx_49 = PHI <idx_75(18), idx_90(25)>
-  # dst_51 = PHI <dst_73(18), dst_50(25)>
-  if (idx_49 < length_55)
-    goto <bb 19>; [0.00%]
-  else
-    goto <bb 27>; [0.00%]
-
-  <bb 27> [0.00%]:
-  dst.5_40 = dst_51;
-  dst_76 = dst.5_40 + 1;
-  *dst.5_40 = 0;
-  _41 = *string_47;
-  if (_41 != 0)
-    goto <bb 28>; [0.00%]
-  else
-    goto <bb 29>; [0.00%]
-
-  <bb 28> [0.00%]:
-  _79 = string_47 + 1;
-  goto <bb 30>; [0.00%]
-
-  <bb 29> [0.00%]:
-  _78 = 0B;
-
-  <bb 30> [0.00%]:
-  # _56 = PHI <_95(3), _91(11), _79(28), _78(29)>
-  return _56;
-
-}
-
-
-
-;; Function compile (compile, funcdef_no=57, decl_uid=3289, cgraph_uid=57, symbol_order=64)
-
-  Inlining fprintf into compile (always_inline).
-  Inlining printf into compile (always_inline).
-  Inlining printf into compile (always_inline).
-  Inlining printf into compile (always_inline).
-  Inlining printf into compile (always_inline).
-Iterations: 0
-Removing basic block 3
-Merging blocks 9 and 22
-Merging blocks 10 and 24
-Merging blocks 13 and 26
-Merging blocks 14 and 28
-Merging blocks 20 and 19
-Removing basic block 27
-Merging blocks 9 and 21
-Merging blocks 10 and 23
-Merging blocks 13 and 25
-
-Symbols to be put in SSA form
-{ D.3389 D.3406 D.3408 D.3410 D.3412 D.3415 }
-Incremental SSA update started at block: 0
-Number of blocks in CFG: 19
-Number of blocks to update: 18 ( 95%)
-
-
-compile (char * string)
-{
-  int D.3415;
-  int D.3412;
-  int D.3410;
-  int D.3408;
-  int D.3406;
-  struct dict_type * ptr;
-  char * word;
-  char * word.6_1;
-  int _2;
-  char * word.7_3;
-  char * word.8_4;
-  char _5;
-  char * word.9_6;
-  char * word.10_7;
-  char * word.11_8;
-  char _9;
-  int _10;
-  char * word.12_11;
-  char * _12;
-  void (*<T1d2>) () _13;
-  int _14;
-  char * word.13_15;
-  int _16;
-  char * word.14_17;
-  char * word.15_18;
-  char _19;
-  int _20;
-  char * _21;
-  struct FILE * stderr.16_22;
-  char _23;
-  char * word.17_24;
-  char _25;
-  int _62;
-  int _63;
-  int _64;
-  int _65;
-  int _66;
-
-  <bb 2> [0.00%]:
-  string_36 = nextword (string_34(D), &word);
-  goto <bb 15>; [0.00%]
-
-  <bb 3> [100.00%]:
-  _62 = __printf_chk (1, "string: %s\n", string_28);
-  _68 = _62;
-  word.6_1 = word;
-  _2 = strcmp (word.6_1, "var");
-  if (_2 == 0)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  string_57 = nextword (string_28, &word);
-  word.7_3 = word;
-  add_var (word.7_3);
-  string_60 = nextword (string_57, &word);
-  goto <bb 15>; [0.00%]
-
-  <bb 5> [0.00%]:
-  word.8_4 = word;
-  _5 = *word.8_4;
-  if (_5 == 58)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 6> [0.00%]:
-  word.9_6 = word;
-  free (word.9_6);
-  string_41 = nextword (string_28, &word);
-  word.10_7 = word;
-  ptr_43 = newentry (word.10_7);
-  string_45 = nextword (string_41, &word);
-  goto <bb 12>; [0.00%]
-
-  <bb 7> [0.00%]:
-  word.11_8 = word;
-  _9 = *word.11_8;
-  _10 = (int) _9;
-  switch (_10) <default: <L16> [0.00%], case 34: <L5> [0.00%], case 48 ... 57: <L6> [0.00%]>
-
-<L5> [0.00%]:
-  word.12_11 = word;
-  _12 = word.12_11 + 1;
-  _13 = (void (*<T1d2>) ()) _12;
-  add_to_definition (ptr_43, _13);
-  goto <bb 11>; [0.00%]
-
-<L6> [100.00%]:
-  _14 = MEM[(int *)ptr_43];
-  _63 = __printf_chk (1, "%d\n", _14);
-  _72 = _63;
-  word.13_15 = word;
-  free (word.13_15);
-  goto <bb 11>; [0.00%]
-
-<L16> [100.00%]:
-  _16 = MEM[(int *)ptr_43];
-  _64 = __printf_chk (1, "%d\n", _16);
-  _74 = _64;
-  word.14_17 = word;
-  free (word.14_17);
-
-  <bb 11> [0.00%]:
-  string_52 = nextword (string_26, &word);
-  if (string_52 == 0B)
-    goto <bb 13>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 12> [0.00%]:
-  # string_26 = PHI <string_45(6), string_52(11)>
-  word.15_18 = word;
-  _19 = *word.15_18;
-  if (_19 != 59)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
-
-  <bb 13> [100.00%]:
-  # string_27 = PHI <string_52(11), string_26(12)>
-  _20 = MEM[(int *)ptr_43];
-  _65 = __printf_chk (1, "%d\n", _20);
-  _76 = _65;
-  string_55 = nextword (string_27, &word);
-  goto <bb 15>; [0.00%]
-
-  <bb 14> [100.00%]:
-  _21 = string_28 + 18446744073709551615;
-  stderr.16_22 = stderr;
-  _66 = __fprintf_chk (stderr.16_22, 1, "syntax error at %s\n", _21);
-  _70 = _66;
-
-  <bb 15> [0.00%]:
-  # string_28 = PHI <string_36(2), string_60(4), string_55(13), string_28(14)>
-  if (string_28 != 0B)
-    goto <bb 16>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 16> [0.00%]:
-  _23 = *string_28;
-  if (_23 != 0)
-    goto <bb 17>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 17> [0.00%]:
-  word.17_24 = word;
-  _25 = *word.17_24;
-  if (_25 != 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 18> [0.00%]:
-  word ={v} {CLOBBER};
+  <bb 2> [100.00%]:
+  free (b_2(D));
+  _5 = __printf_chk (1, "asdda\n");
+  _7 = _5;
   return;
 
 }
 
 
 
-;; Function main (main, funcdef_no=58, decl_uid=3313, cgraph_uid=58, symbol_order=65)
+;; Function test44 (test44, funcdef_no=57, decl_uid=4317, cgraph_uid=57, symbol_order=59)
 
-  Inlining printf into main (always_inline).
 Iterations: 0
-Merging blocks 3 and 7
-Merging blocks 3 and 6
+__attribute__((noinline))
+test44 (int * k)
+{
+  <bb 2> [0.00%]:
+  free (k_2(D));
+  return;
 
-Symbols to be put in SSA form
-{ D.3390 D.3417 }
-Incremental SSA update started at block: 0
-Number of blocks in CFG: 6
-Number of blocks to update: 5 ( 83%)
+}
 
 
+
+;; Function test33 (test33, funcdef_no=58, decl_uid=4315, cgraph_uid=58, symbol_order=60)
+
+Iterations: 0
+__attribute__((noinline))
+test33 (int * k)
+{
+  <bb 2> [0.00%]:
+  test44 (k_2(D));
+  return;
+
+}
+
+
+
+;; Function test22 (test22, funcdef_no=59, decl_uid=4313, cgraph_uid=59, symbol_order=61)
+
+Iterations: 0
+__attribute__((noinline))
+test22 (int * k)
+{
+  <bb 2> [0.00%]:
+  test22 (k_2(D));
+  free (k_2(D));
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=60, decl_uid=4362, cgraph_uid=60, symbol_order=62)
+
+Iterations: 0
 main ()
 {
-  int D.3417;
-  char * string;
-  struct dict_type * dict;
-  char * _1;
-  char * _2;
-  int _9;
-  int _13;
+  pthread_t t;
+  int * q;
+  char buff[50];
+  int * p3;
+  int * p2;
+  int * p;
+  long int q.2_1;
+  int _2;
+  long int _3;
+  void * _4;
+  long unsigned int t.3_5;
+  int _28;
 
   <bb 2> [0.00%]:
-  string_5 = "var second : stored_in_dict 5 ; : next";
-  compile (string_5);
-  dict_8 = root;
-  goto <bb 4>; [0.00%]
-
-  <bb 3> [100.00%]:
-  _1 = dict_3->word;
-  _13 = __printf_chk (1, "%s\n", _1);
-  _15 = _13;
-  _2 = dict_3->word;
-  free (_2);
-  dict_12 = dict_3->next;
-
-  <bb 4> [0.00%]:
-  # dict_3 = PHI <dict_8(2), dict_12(3)>
-  if (dict_3 != 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 5> [0.00%]:
-  _9 = 0;
-  return _9;
+  p3_8 = foo (2);
+  *p3_8 = 1;
+  free (p3_8);
+  p_12 = foo2 (2);
+  *p_12 = 2;
+  p2_15 = foo2 (2);
+  *p2_15 = 4;
+  free (p_12);
+  free (p2_15);
+  q_20 = malloc (5);
+  *q_20 = 10;
+  test22 (q_20);
+  q.2_1 = (long int) q_20;
+  _2 = (int) q.2_1;
+  _3 = (long int) _2;
+  _4 = (void *) _3;
+  child (_4);
+  pthread_mutex_destroy (&mLock);
+  pthread_create (&t, 0B, child, &buff);
+  t.3_5 = t;
+  pthread_join (t.3_5, 0B);
+  pthread_mutex_destroy (&mLock);
+  _28 = 0;
+  buff ={v} {CLOBBER};
+  t ={v} {CLOBBER};
+  return _28;
 
 }
 

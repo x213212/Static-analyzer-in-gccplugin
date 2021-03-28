@@ -1,663 +1,260 @@
 
-;; Function fprintf (fprintf, funcdef_no=14, decl_uid=776, cgraph_uid=14, symbol_order=14)
-
-__attribute__((__artificial__, __gnu_inline__, __always_inline__))
-fprintf (struct FILE * restrict __stream, const char * restrict __fmt)
-{
-  int D.3371;
-
-  <bb 2> [0.00%]:
-  D.3371 = __fprintf_chk (__stream, 1, __fmt, __builtin_va_arg_pack ());
-  return D.3371;
-
-}
-
-
-
-;; Function printf (printf, funcdef_no=15, decl_uid=798, cgraph_uid=15, symbol_order=15)
+;; Function printf (printf, funcdef_no=31, decl_uid=798, cgraph_uid=31, symbol_order=31)
 
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
 printf (const char * restrict __fmt)
 {
-  int D.3323;
+  int D.4381;
 
   <bb 2> [0.00%]:
-  D.3323 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  return D.3323;
+  D.4381 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.4381;
 
 }
 
 
 
-;; Function do_my_cleanups (do_my_cleanups, funcdef_no=48, decl_uid=3170, cgraph_uid=48, symbol_order=53)
+;; Function foo3 (foo3, funcdef_no=51, decl_uid=4311, cgraph_uid=51, symbol_order=53)
 
-do_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
+__attribute__((noinline))
+foo3 (int * z)
 {
-  struct cleanup * ptr;
+  <bb 2> [0.00%]:
+  _1 = malloc (1);
+  _2 = (long int) _1;
+  _3 = (int) _2;
+  *z = _3;
+  return;
+
+}
+
+
+
+;; Function foo2 (foo2, funcdef_no=52, decl_uid=4309, cgraph_uid=52, symbol_order=54)
+
+__attribute__((noinline))
+foo2 (int z)
+{
+  int tmp;
+  int * p4;
+  int * p3;
+  int * a2;
+  int * D.4374;
 
   <bb 2> [0.00%]:
-  goto <bb 6>; [0.00%]
+  _1 = (long unsigned int) z;
+  a2 = malloc (_1);
+  _2 = (long unsigned int) z;
+  p3 = malloc (_2);
+  _3 = (long unsigned int) z;
+  p4 = malloc (_3);
+  *a2 = 10;
+  if (tmp > 10)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
-  _1 = ptr->next;
-  *pmy_chain = _1;
-  _2 = ptr->function;
-  _3 = ptr->arg;
-  _2 (_3);
-  printf ("cleanup!!!!! =========\n");
-  _4 = ptr->arg;
-  printf ("%x\n", _4);
-  _5 = ptr->free_arg;
-  if (_5 != 0B)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
+  pthread_mutex_unlock (&mLock);
+  _4 = (long unsigned int) z;
+  p3 = malloc (_4);
+  free (p3);
+  D.4374 = p3;
+  goto <bb 5>; [0.00%]
 
   <bb 4> [0.00%]:
-  _6 = ptr->free_arg;
-  _7 = ptr->arg;
-  _6 (_7);
+  *p3 = 10;
+  free (p4);
+  D.4374 = p4;
 
   <bb 5> [0.00%]:
-  free (ptr);
+  return D.4374;
 
-  <bb 6> [0.00%]:
-  ptr = *pmy_chain;
-  if (ptr != old_chain)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
+}
 
-  <bb 7> [0.00%]:
+
+
+;; Function foo4 (foo4, funcdef_no=53, decl_uid=4319, cgraph_uid=53, symbol_order=55)
+
+foo4 (int z)
+{
+  int * p2;
+  int * b;
+  int * D.4376;
+
+  <bb 2> [0.00%]:
+  _1 = malloc (1);
+  b = _1;
+  p2 = malloc (1);
+  b.0_2 = b;
+  *b.0_2 = 2;
+  *p2 = 1;
+  p2 = &b;
+  free (p2);
+  D.4376 = p2;
+  b = {CLOBBER};
+  return D.4376;
+
+}
+
+
+
+;; Function foo (foo, funcdef_no=54, decl_uid=4307, cgraph_uid=54, symbol_order=56)
+
+__attribute__((noinline))
+foo (int z)
+{
+  int * p2;
+  int * D.4379;
+
+  <bb 2> [0.00%]:
+  p2 = malloc (1);
+  *p2 = 1;
+  D.4379 = foo2 (z);
+  return D.4379;
+
+}
+
+
+
+;; Function child (child, funcdef_no=55, decl_uid=4340, cgraph_uid=55, symbol_order=57)
+
+child (void * data)
+{
+  int data2;
+  int * a;
+  int * pData;
+  int * * ppData;
+  union pthread_mutex_t mLock2;
+
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&mLock2);
+  pthread_mutex_lock (&mLock2);
+  pthread_mutex_lock (&mLock);
+  pthread_mutex_lock (&mLock);
+  ppData = malloc (10);
+  _1 = malloc (20);
+  pData = _1;
+  a = foo (1);
+  data2 = 0;
+  ppData = &pData;
+  pData = &data2;
+  _2 = *ppData;
+  *_2 = 10;
+  _3 = ppData + 8;
+  _4 = *_3;
+  *_4 = 10;
+  _5 = ppData + 16;
+  _6 = *_5;
+  *_6 = 10;
+  _7 = *ppData;
+  *_7 = 12;
+  pData.1_8 = pData;
+  free (pData.1_8);
+  pthread_mutex_unlock (&mLock);
+  free (ppData);
+  mLock2 = {CLOBBER};
+  pData = {CLOBBER};
+  data2 = {CLOBBER};
   return;
 
 }
 
 
 
-;; Function make_my_cleanup2 (make_my_cleanup2, funcdef_no=50, decl_uid=3178, cgraph_uid=50, symbol_order=55)
+;; Function boo (boo, funcdef_no=56, decl_uid=4351, cgraph_uid=56, symbol_order=58)
 
-make_my_cleanup2 (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg, void (*<Ted>) (void *) free_arg)
+boo (int * b)
 {
-  struct cleanup * old_chain;
-  struct cleanup * new;
-  struct cleanup * D.3333;
-
   <bb 2> [0.00%]:
-  new = malloc (32);
-  old_chain = *pmy_chain;
-  _1 = *pmy_chain;
-  new->next = _1;
-  new->function = function;
-  new->free_arg = free_arg;
-  new->arg = arg;
-  *pmy_chain = new;
-  if (old_chain == 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  exit (1);
-
-  <bb 4> [0.00%]:
-  D.3333 = old_chain;
-  return D.3333;
-
-}
-
-
-
-;; Function make_my_cleanup (make_my_cleanup, funcdef_no=51, decl_uid=3182, cgraph_uid=51, symbol_order=56)
-
-make_my_cleanup (struct cleanup * * pmy_chain, void (*<Ta1d>) (void *) function, void * arg)
-{
-  struct cleanup * D.3329;
-
-  <bb 2> [0.00%]:
-  D.3329 = make_my_cleanup2 (pmy_chain, function, arg, 0B);
-  return D.3329;
-
-}
-
-
-
-;; Function discard_my_cleanups (discard_my_cleanups, funcdef_no=47, decl_uid=3165, cgraph_uid=47, symbol_order=52)
-
-discard_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
-{
-  struct cleanup * ptr;
-
-  <bb 2> [0.00%]:
-  goto <bb 6>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _1 = ptr->next;
-  *pmy_chain = _1;
-  _2 = ptr->free_arg;
-  if (_2 != 0B)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _3 = ptr->free_arg;
-  _4 = ptr->arg;
-  _3 (_4);
-
-  <bb 5> [0.00%]:
-  free (ptr);
-
-  <bb 6> [0.00%]:
-  ptr = *pmy_chain;
-  if (ptr != old_chain)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 7> [0.00%]:
-  _5 = ptr->arg;
-  printf ("freearg: %x\n", _5);
+  free (b);
+  printf ("asdda\n");
   return;
 
 }
 
 
 
-;; Function discard_cleanups (discard_cleanups, funcdef_no=45, decl_uid=3162, cgraph_uid=45, symbol_order=50)
+;; Function test44 (test44, funcdef_no=57, decl_uid=4317, cgraph_uid=57, symbol_order=59)
 
-discard_cleanups (struct cleanup * old_chain)
+__attribute__((noinline))
+test44 (int * k)
 {
   <bb 2> [0.00%]:
-  discard_my_cleanups (&cleanup_chain, old_chain);
+  free (k);
   return;
 
 }
 
 
 
-;; Function discard_final_cleanups (discard_final_cleanups, funcdef_no=46, decl_uid=3167, cgraph_uid=46, symbol_order=51)
+;; Function test33 (test33, funcdef_no=58, decl_uid=4315, cgraph_uid=58, symbol_order=60)
 
-discard_final_cleanups (struct cleanup * old_chain)
+__attribute__((noinline))
+test33 (int * k)
 {
   <bb 2> [0.00%]:
-  discard_my_cleanups (&final_cleanup_chain, old_chain);
+  test44 (k);
   return;
 
 }
 
 
 
-;; Function do_cleanups (do_cleanups, funcdef_no=49, decl_uid=3172, cgraph_uid=49, symbol_order=54)
+;; Function test22 (test22, funcdef_no=59, decl_uid=4313, cgraph_uid=59, symbol_order=61)
 
-do_cleanups (struct cleanup * old_chain)
+__attribute__((noinline))
+test22 (int * k)
 {
   <bb 2> [0.00%]:
-  do_my_cleanups (&cleanup_chain, old_chain);
+  test22 (k);
+  free (k);
   return;
 
 }
 
 
 
-;; Function make_cleanup (make_cleanup, funcdef_no=52, decl_uid=3185, cgraph_uid=52, symbol_order=57)
-
-make_cleanup (void (*<Ta1d>) (void *) function, void * arg)
-{
-  struct cleanup * D.3327;
-
-  <bb 2> [0.00%]:
-  D.3327 = make_my_cleanup (&cleanup_chain, function, arg);
-  return D.3327;
-
-}
-
-
-
-;; Function newentry (newentry, funcdef_no=53, decl_uid=3247, cgraph_uid=53, symbol_order=60)
-
-newentry (char * word)
-{
-  struct dict_type * new_d;
-  struct dict_type * D.3335;
-
-  <bb 2> [0.00%]:
-  new_d = malloc (40);
-  new_d->word = word;
-  root.0_1 = root;
-  new_d->next = root.0_1;
-  root = new_d;
-  _2 = malloc (8);
-  new_d->code = _2;
-  new_d->code_length = 1;
-  new_d->code_end = 0;
-  D.3335 = new_d;
-  return D.3335;
-
-}
-
-
-
-;; Function add_var (add_var, funcdef_no=54, decl_uid=3250, cgraph_uid=54, symbol_order=61)
-
-add_var (char * name)
-{
-  struct dict_type * new_d;
-
-  <bb 2> [0.00%]:
-  new_d = newentry (name);
-  return;
-
-}
-
-
-
-;; Function add_to_definition (add_to_definition, funcdef_no=55, decl_uid=3254, cgraph_uid=55, symbol_order=62)
-
-add_to_definition (struct dict_type * entry, void (*stinst_type) () word)
-{
-  unsigned int D.3339;
-
-  <bb 2> [0.00%]:
-  _1 = entry->code_end;
-  _2 = entry->code_length;
-  if (_1 == _2)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _3 = entry->code_length;
-  _4 = _3 + 2;
-  entry->code_length = _4;
-  _5 = entry->code_length;
-  _6 = (long unsigned int) _5;
-  _7 = _6 * 8;
-  _8 = entry->code;
-  _9 = realloc (_8, _7);
-  entry->code = _9;
-
-  <bb 4> [0.00%]:
-  _10 = entry->code;
-  _11 = entry->code_end;
-  _12 = (long unsigned int) _11;
-  _13 = _12 * 8;
-  _14 = _10 + _13;
-  *_14 = word;
-  _15 = entry->code_end;
-  _16 = _15;
-  _17 = _16 + 1;
-  entry->code_end = _17;
-  D.3339 = (unsigned int) _16;
-  return D.3339;
-
-}
-
-
-
-;; Function nextword (nextword, funcdef_no=56, decl_uid=3258, cgraph_uid=56, symbol_order=63)
-
-nextword (char * string, char * * word)
-{
-  int length;
-  char * src;
-  char * dst;
-  int idx;
-  char * word_start;
-  char D.3346;
-  char * D.3343;
-
-  <bb 2> [0.00%]:
-  length = 0;
-  if (string == 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 3> [0.00%]:
-  D.3343 = 0B;
-  goto <bb 30>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _1 = *string;
-  if (_1 == 45)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 5> [0.00%]:
-  string = string + 1;
-
-  <bb 6> [0.00%]:
-  D.3346 = *string;
-  _2 = D.3346 != 0;
-  _3 = D.3346 != 10;
-  _4 = _2 & _3;
-  if (_4 != 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
-
-  <bb 7> [0.00%]:
-  string = string + 1;
-
-  <bb 8> [0.00%]:
-  _5 = *string;
-  _6 = (unsigned char) _5;
-  _7 = (int) _6;
-  _8 = isspace (_7);
-  if (_8 != 0)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 9> [0.00%]:
-  _9 = *string;
-  if (_9 == 45)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 10>; [0.00%]
-
-  <bb 10> [0.00%]:
-  _10 = *string;
-  if (_10 == 0)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 11> [0.00%]:
-  D.3343 = 0B;
-  goto <bb 30>; [0.00%]
-
-  <bb 12> [0.00%]:
-  word_start = string;
-  _11 = *string;
-  if (_11 == 34)
-    goto <bb 13>; [0.00%]
-  else
-    goto <bb 17>; [0.00%]
-
-  <bb 13> [0.00%]:
-  string = string + 1;
-  length = length + 1;
-  _12 = *string;
-  if (_12 == 92)
-    goto <bb 14>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 14> [0.00%]:
-  string = string + 2;
-  length = length + 2;
-
-  <bb 15> [0.00%]:
-  _13 = *string;
-  if (_13 != 34)
-    goto <bb 13>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 16> [0.00%]:
-  string = string + 1;
-  length = length + 1;
-
-  <bb 17> [0.00%]:
-  _14 = *string;
-  _15 = (unsigned char) _14;
-  _16 = (int) _15;
-  _17 = isspace (_16);
-  if (_17 == 0)
-    goto <bb 16>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 18> [0.00%]:
-  _18 = length + 1;
-  _19 = (long unsigned int) _18;
-  _20 = malloc (_19);
-  *word = _20;
-  dst = *word;
-  src = word_start;
-  idx = 0;
-  goto <bb 26>; [0.00%]
-
-  <bb 19> [0.00%]:
-  _21 = (sizetype) idx;
-  _22 = src + _21;
-  _23 = *_22;
-  if (_23 == 92)
-    goto <bb 20>; [0.00%]
-  else
-    goto <bb 24>; [0.00%]
-
-  <bb 20> [0.00%]:
-  _24 = (sizetype) idx;
-  _25 = _24 + 1;
-  _26 = src + _25;
-  _27 = *_26;
-  _28 = (int) _27;
-  switch (_28) <default: <L29> [0.00%], case 34: <L27> [0.00%], case 92: <L27> [0.00%], case 110: <L26> [0.00%]>
-
-<L26> [0.00%]:
-  dst.1_29 = dst;
-  dst = dst.1_29 + 1;
-  *dst.1_29 = 10;
-  idx = idx + 1;
-  goto <bb 25>; [0.00%]
-
-<L27> [0.00%]:
-  _30 = (sizetype) idx;
-  _31 = _30 + 1;
-  _32 = src + _31;
-  dst.2_33 = dst;
-  dst = dst.2_33 + 1;
-  _34 = *_32;
-  *dst.2_33 = _34;
-  idx = idx + 1;
-  goto <bb 25>; [0.00%]
-
-<L29> [0.00%]:
-  dst.3_35 = dst;
-  dst = dst.3_35 + 1;
-  *dst.3_35 = 92;
-  goto <bb 25>; [0.00%]
-
-  <bb 24> [0.00%]:
-  _36 = (sizetype) idx;
-  _37 = src + _36;
-  dst.4_38 = dst;
-  dst = dst.4_38 + 1;
-  _39 = *_37;
-  *dst.4_38 = _39;
-
-  <bb 25> [0.00%]:
-  idx = idx + 1;
-
-  <bb 26> [0.00%]:
-  if (idx < length)
-    goto <bb 19>; [0.00%]
-  else
-    goto <bb 27>; [0.00%]
-
-  <bb 27> [0.00%]:
-  dst.5_40 = dst;
-  dst = dst.5_40 + 1;
-  *dst.5_40 = 0;
-  _41 = *string;
-  if (_41 != 0)
-    goto <bb 28>; [0.00%]
-  else
-    goto <bb 29>; [0.00%]
-
-  <bb 28> [0.00%]:
-  D.3343 = string + 1;
-  goto <bb 30>; [0.00%]
-
-  <bb 29> [0.00%]:
-  D.3343 = 0B;
-
-  <bb 30> [0.00%]:
-  return D.3343;
-
-}
-
-
-
-;; Function compile (compile, funcdef_no=57, decl_uid=3289, cgraph_uid=57, symbol_order=64)
-
-compile (char * string)
-{
-  struct dict_type * ptr;
-  char * word;
-
-  <bb 2> [0.00%]:
-  string = nextword (string, &word);
-  goto <bb 15>; [0.00%]
-
-  <bb 3> [0.00%]:
-  printf ("string: %s\n", string);
-  word.6_1 = word;
-  _2 = strcmp (word.6_1, "var");
-  if (_2 == 0)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  string = nextword (string, &word);
-  word.7_3 = word;
-  add_var (word.7_3);
-  string = nextword (string, &word);
-  goto <bb 15>; [0.00%]
-
-  <bb 5> [0.00%]:
-  word.8_4 = word;
-  _5 = *word.8_4;
-  if (_5 == 58)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 6> [0.00%]:
-  word.9_6 = word;
-  free (word.9_6);
-  string = nextword (string, &word);
-  word.10_7 = word;
-  ptr = newentry (word.10_7);
-  string = nextword (string, &word);
-  goto <bb 12>; [0.00%]
-
-  <bb 7> [0.00%]:
-  word.11_8 = word;
-  _9 = *word.11_8;
-  _10 = (int) _9;
-  switch (_10) <default: <L16> [0.00%], case 34: <L5> [0.00%], case 48 ... 57: <L6> [0.00%]>
-
-<L5> [0.00%]:
-  word.12_11 = word;
-  _12 = word.12_11 + 1;
-  _13 = (void (*<T1d2>) ()) _12;
-  add_to_definition (ptr, _13);
-  goto <bb 11>; [0.00%]
-
-<L6> [0.00%]:
-  _14 = MEM[(int *)ptr];
-  printf ("%d\n", _14);
-  word.13_15 = word;
-  free (word.13_15);
-  goto <bb 11>; [0.00%]
-
-<L16> [0.00%]:
-  _16 = MEM[(int *)ptr];
-  printf ("%d\n", _16);
-  word.14_17 = word;
-  free (word.14_17);
-
-  <bb 11> [0.00%]:
-  string = nextword (string, &word);
-  if (string == 0B)
-    goto <bb 13>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 12> [0.00%]:
-  word.15_18 = word;
-  _19 = *word.15_18;
-  if (_19 != 59)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
-
-  <bb 13> [0.00%]:
-  _20 = MEM[(int *)ptr];
-  printf ("%d\n", _20);
-  string = nextword (string, &word);
-  goto <bb 15>; [0.00%]
-
-  <bb 14> [0.00%]:
-  _21 = string + 18446744073709551615;
-  stderr.16_22 = stderr;
-  fprintf (stderr.16_22, "syntax error at %s\n", _21);
-
-  <bb 15> [0.00%]:
-  if (string != 0B)
-    goto <bb 16>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 16> [0.00%]:
-  _23 = *string;
-  if (_23 != 0)
-    goto <bb 17>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 17> [0.00%]:
-  word.17_24 = word;
-  _25 = *word.17_24;
-  if (_25 != 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 18> [0.00%]:
-  word = {CLOBBER};
-  return;
-
-}
-
-
-
-;; Function main (main, funcdef_no=58, decl_uid=3313, cgraph_uid=58, symbol_order=65)
+;; Function main (main, funcdef_no=60, decl_uid=4362, cgraph_uid=60, symbol_order=62)
 
 main ()
 {
-  char * string;
-  struct dict_type * dict;
-  int D.3373;
+  pthread_t t;
+  int n;
+  int * q;
+  char buff[50];
+  int * p3;
+  int * p2;
+  int * p;
+  int D.4383;
 
   <bb 2> [0.00%]:
-  string = "var second : stored_in_dict 5 ; : next";
-  compile (string);
-  dict = root;
-  goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _1 = dict->word;
-  printf ("%s\n", _1);
-  _2 = dict->word;
-  free (_2);
-  dict = dict->next;
-
-  <bb 4> [0.00%]:
-  if (dict != 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 5> [0.00%]:
-  D.3373 = 0;
-  return D.3373;
+  p3 = foo (2);
+  *p3 = 1;
+  free (p3);
+  p = foo2 (2);
+  *p = 2;
+  p2 = foo2 (2);
+  *p2 = 4;
+  free (p);
+  free (p2);
+  q = malloc (5);
+  *q = 10;
+  test22 (q);
+  q.2_1 = (long int) q;
+  _2 = (int) q.2_1;
+  _3 = (long int) _2;
+  _4 = (void *) _3;
+  child (_4);
+  pthread_mutex_destroy (&mLock);
+  pthread_create (&t, 0B, child, &buff);
+  t.3_5 = t;
+  pthread_join (t.3_5, 0B);
+  pthread_mutex_destroy (&mLock);
+  D.4383 = 0;
+  buff = {CLOBBER};
+  t = {CLOBBER};
+  return D.4383;
 
 }
 

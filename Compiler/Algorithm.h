@@ -1357,6 +1357,8 @@ void analyze_func_body(tree t, int level)
 // 	stmtStack.push(stmt);
 // 	return 0;
 // }
+static int totalsize; //宣告一個整數型態size變數，用來儲存x的位元組大小
+
 int check_stmtStack(tree target)
 {
 	for (int o = 0; o < stmtStack.size(); o++)
@@ -1372,6 +1374,8 @@ int check_stmtStack(tree target)
 			return 1;
 		}
 	}
+	int size = sizeof(tree);
+	totalsize += size;
 	stmtStack.push(target);
 	return 0;
 }
@@ -1616,6 +1620,23 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 							// set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), target, NULL);
 							// new_search_imm_use(used_stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt));
 						}
+
+						if (gimple_code((assign_array.assign_type_array)[i].stmt) == GIMPLE_CALL)
+						{
+	
+							// tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
+							const char *name;
+							name = get_tree_code_name(TREE_CODE(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)));
+
+							if (name != NULL)
+								if (!strcmp(name, "addr_expr"))
+									if (!check_stmtStack(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)))
+									{
+										debug(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0));
+										set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_call_arg(gc, 0), target, NULL);
+									}
+						}
+
 						// else if (TREE_CODE(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)) == VAR_DECL)
 						// {
 						// gimple *def_stmt = SSA_NAME_DEF_STMT(used_stmt->target);
@@ -1635,6 +1656,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						// 		new_search_imm_use(used_stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), NULL);
 						// }
 					}
+						fprintf(stderr, "=======VAR_DECL Unfold========\n");
 					// 	}
 					// }
 					// else
@@ -2332,9 +2354,9 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					{
 						fprintf(stderr, "白癡展開-------\n");
 						tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
-						if (TREE_CODE(second) == VAR_DECL)
 						{
-							debug_tree(second);
+							if (TREE_CODE(second) == VAR_DECL)
+								debug_tree(second);
 							// debug_tree(gimple_assign_lhs(gc));
 
 							function_assign_array assign_array;
@@ -2357,7 +2379,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 							struct assign_type assign_type;
 
 							assign_type.stmt = gc;
-							assign_type.assign_tree = gimple_call_fn(gc);
+							assign_type.assign_tree = gimple_call_arg(gc, 0);
 							// ret_type.reutnr_type_num = 0;
 							assign_array.assign_type_array.push_back(assign_type);
 							function_assign_collect->put(second, assign_array);
@@ -3218,10 +3240,11 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				debug(stmtStack.top());
 				stmtStack.pop();
 			}
-			int size; //宣告一個整數型態size變數，用來儲存x的位元組大小
-			tree teewtetqq;
-			size = sizeof(teewtetqq);
-			fprintf(stderr, " used_stmt size of : %d\n", size);
+
+			// tree teewtetqq;
+			// size = sizeof(teewtetqq);
+			// fprintf(stderr, " used_stmt array size of : %d\n", totalsize);
+			// totalsize =0 ;
 			FOR_EACH_USE_TABLE(used_stmt, u_stmt)
 			{
 
@@ -3309,7 +3332,6 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	dump_fucntion(node, ptable, used_stmt);
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
-
 	fprintf(stderr, "    =()=\n");
 	fprintf(stderr, " ,/'\_||_\n");
 	fprintf(stderr, "  (___  `.\n");
@@ -3318,16 +3340,18 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "    ~~~~~~~~~~~  \n");
 	fprintf(stderr, " ~~~~~~\n");
 	fprintf(stderr, "           ~~~~~~~\n");
+	fprintf(stderr, "\033[40;34m    used_stmt array stack totalsize of : %d\n \033[4m\n", totalsize);
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
-
+	totalsize = 0;
 	// // printfunctionCollect(ptable, used_stmt);
 
 	// printfunctionCollect(ptable, used_stmt);
 	// printfunctionCollect2(ptable, used_stmt);
-	printfBasicblock();
 	// printfPointerConstraint2(ptable, used_stmt);
-	printfunctionCollect(ptable, used_stmt);
+	printfBasicblock();
+	// printfunctionCollect(ptable, used_stmt);
+	// fprintf(stderr, " used_stmt array size of : %d\n", totalsize);
 
 	free(table1);
 	// free(table3);
@@ -3550,9 +3574,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						{
 							if (user_tmp->ret_stmt != NULL)
 							{
-								warning_at(gimple_location(u_stmt), 0, "use location");
+
 								if (gimple_code(user_tmp->ret_stmt) == GIMPLE_RETURN)
 								{
+									debug(user_tmp->ret_stmt);
+									warning_at(gimple_location(user_tmp->ret_stmt), 0, "use location");
 									find_mallocstmt = -1;
 									continue;
 								}

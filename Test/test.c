@@ -1,254 +1,218 @@
-/*
-	buggy parent: db9537d
-	commit id: 8a286b63457628b0a55d395f14005f254512e27d
-*/
+#include <stdlib.h>
+#include <stdio.h>
+#include <pthread.h>
+#include <unistd.h>
+#define xstrdup(a) strdup(a)
+///home/cc/gcc/ins/bin/gcc  -fplugin=/home/cc/gcc/myfile/Compiler/misra.so -I/home/cc/gcc/ins/lib/gcc/x86_64-pc-linux-gnu/7.3.0/plugin/include openssl_df_2.c  -O1  -flto  -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta   -fno-inline-functions-called-once   -o  openssl_df_2.o
+// 子執行緒函數
+pthread_mutex_t mLock;
+int *test;
+int *foo(int z)  __attribute__((noinline));
+int *foo2(int z) __attribute__((noinline));
+void foo3(int *z) __attribute__((noinline));
+void test22(int *k) __attribute__((noinline));
+void test33(int *k) __attribute__((noinline));
+void test44(int *k) __attribute__((noinline));
+// void *child(void *data) __attribute__((noinline));
+// int *foo(int z);
+int *foo4(int z);
+// int *foo2(int z);
+// void foo3(int *z);
 
-#include "./common.h"
-
-typedef void (*stinst_type)();
-
-struct dict_struct
+void foo3(int *z)
 {
-  char *word;
-  struct dict_struct *next;
-  stinst_type *code;
-  int code_length;
-  int code_end;
-  int var;
-};
-
-typedef struct dict_struct dict_type;
-
-typedef struct buffer
-{
-	char *ptr;
-	unsigned long write_idx;
-	unsigned long size;
-} string_type;
-
-typedef int *word_type;
-
-string_type *ptr; /* and the buffer */
-
-dict_type *root;
-
-dict_type *newentry (char *word)
-{
-  dict_type *new_d = (dict_type *) malloc (sizeof (dict_type));
-  new_d->word = word;
-  new_d->next = root;
-  root = new_d;
-  new_d->code = (stinst_type *) malloc (sizeof (stinst_type));
-  new_d->code_length = 1;
-  new_d->code_end = 0;
-  return new_d;
+	// int *p2;
+	// p2=foo2(2);
+	// p2[0]=10;
+	///error
+	// p2=10;
+	//printf("%d",p2);
+	*z = malloc(1);
 }
-
-void
-add_var (name)
-     char *name;
+int *foo2(int z)
 {
-  dict_type *new_d = newentry (name);
-}
 
-unsigned int
-add_to_definition (entry, word)
-     dict_type *entry;
-     stinst_type word;
-{
-  if (entry->code_end == entry->code_length)
-    {
-      entry->code_length += 2;
-      entry->code =
-	(stinst_type *) realloc ((char *) (entry->code),
-				 entry->code_length * sizeof (word_type));
-    }
-  entry->code[entry->code_end] = word;
-
-  return entry->code_end++;
-}
-
-char *
-nextword (string, word)
-     char *string;
-     char **word;
-
-{
-  char *word_start;
-  int idx;
-  char *dst;
-  char *src;
-
-  int length = 0;
-
-	if (!string)
-		return NULL;
-
-  while (isspace ((unsigned char) *string) || *string == '-')
-		{
-      if (*string == '-')
-				{
-					while (*string && *string != '\n')
-						string++;
-
-				}
-			else
-				{
-					string++;
-				}
-		}
-
-	if (!*string)
-		return 0;	
-
-	/* *string is not NULL here */
-	word_start = string;
-	if (*string == '"')
-		{
-			do
-				{
-					string++;
-					length++;
-					if (*string == '\\')
-						{
-							string += 2;
-							length += 2;
-						}
-				}
-			while (*string != '"');
-    }
-
-  else
-    {
-      while (!isspace ((unsigned char) *string))
-			{
-				string++;
-				length++;
-
-			}
-    }
-
-  *word = (char *) malloc (length + 1); /* allocation site */
-
-  dst = *word;
-  src = word_start;
-
-	for (idx = 0; idx < length; idx++)
-    {
-      if (src[idx] == '\\')
-	switch (src[idx + 1])
-	  {
-	  case 'n':
-	    *dst++ = '\n';
-	    idx++;
-	    break;
-	  case '"':
-	  case '\\':
-	    *dst++ = src[idx + 1];
-	    idx++;
-	    break;
-	  default:
-	    *dst++ = '\\';
-	    break;
-	  }
-      else
-	*dst++ = src[idx];
-    }
-  *dst++ = 0;
-
-  if (*string)
-    return string + 1;
-  else
-    return 0;
-}
-
-void compile (char *string)
-{
-  /* Add words to the dictionary.  */
-  char *word;
-  string = nextword (string, &word);
-  while (string && *string && word[0])
-    {
-
-			printf ("string: %s\n", string);
-      if (strcmp (word, "var") == 0)
+	int *a2 = malloc(z);
+	int *p3 =malloc(z);
+	int *p4 = malloc(z);
+	int tmp;
+	a2[0] = 10;
+	//  free(a2);
+	if (tmp > 10)
 	{
-	  string = nextword (string, &word);
-
-		/* word escapes through root dict in add_var (newentry)  */
-	  add_var (word);
-	  string = nextword (string, &word); /* memory leak */
+		pthread_mutex_unlock(&mLock);
+		p3 =malloc(z);
+		free(p3);
+		return p3;
 	}
-      else if (word[0] == ':')
+	else
 	{
-	  dict_type *ptr;
-	  /* Compile a word and add to dictionary.  */
-		free(word);
-	  string = nextword (string, &word);
-
-		/* word escapes through ptr and root dict in newentry */
-	  ptr = newentry (word);
-	  string = nextword (string, &word); /* memory leak */
-
-	  while (word[0] != ';')
-	    {
-	      switch (word[0])
-					{
-					case '"':
-						/* got a string, embed magic push string
-							 function */
-						add_to_definition (ptr, (stinst_type) (word + 1));
-						break;
-					case '0':
-					case '1':
-					case '2':
-					case '3':
-					case '4':
-					case '5':
-					case '6':
-					case '7':
-					case '8':
-					case '9':
-						/* Got a number, embedd the magic push number
-							 function */
-						__USE(ptr);
-						/* memory leak */
-						free(word);
-						break;
-					default:
-						__USE(ptr);
-						free(word);
-						/* memory leak */
-					}
-
-				string = nextword (string, &word);
-				if (!string)
-					break;
-	    }
-		__USE(ptr);
-	  string = nextword (string, &word);
+		p3[0] = 10;
+		free(p4);
+		return p4;
 	}
-      else
-	{
-	  fprintf (stderr, "syntax error at %s\n", string - 1);
-	}
-    }
 
-	/* memory leak */
+	//char tmp ;
+	// return (char)tmp;
+	return a2;
 }
+int *foo4(int z)
+{
+	int *b = malloc(1);
+	int *p2 = malloc(1);
 
+	// b=2;
+	//  p2=foo2(2);
+	b[0] = 2;
+	p2[0] = 1;
+	p2 = &b;
+
+	free(p2);
+	//int *a=malloc(1);
+	// for(int i = 0;i < 3;++i) {
+	// printf("qwdwqd%d\n", i);
+	//  }
+	//   free(a);
+	return p2;
+}
+int *foo(int z)
+{
+	// int *b = malloc(1);
+	int *p2 = malloc(1);
+	p2[0] = 1;
+	// free(p2);
+	// b=2;
+	//  p2=foo2(2);
+	// b[0] = 2;
+	// p2[0] = 1;
+	// p2 = &b;
+
+	// free(p2);
+	//int *a=malloc(1);
+	// for(int i = 0;i < 3;++i) {
+	// printf("qwdwqd%d\n", i);
+	//  }
+	//   free(a);
+
+	return foo2(z);
+}
+void *child(void *data)
+{
+	pthread_mutex_t mLock2;
+		pthread_mutex_lock(&mLock2);
+			pthread_mutex_lock(&mLock2);
+	//a1
+	//   pthread_mutex_lock(&mLock);
+	//   //   char *str = (char*) data; // 取得輸入資料
+	//   // int *p;e
+	//   // p=foo(2);
+	//   int *b = malloc(2);
+	//   int *p2 = malloc(2);
+	//   // p2 = &b;
+	// //   MEM[(int *)&b] = 1;
+	// //  <mem_ref 0x7fbe6f4e27d0
+	//   // b[0] = 2;
+	//   p2[0] = 1;
+	//   p2[1] = 1;
+
+	//   free(p2);
+	//   // free(test);
+	//   // 	str=malloc(5);
+	//   pthread_mutex_unlock(&mLock);
+	//   pthread_exit(NULL); // 離開子執行緒
+	//a2
+	pthread_mutex_lock(&mLock);
+	pthread_mutex_lock(&mLock);
+	int **ppData = malloc(10);
+	int *pData = malloc(20);
+	int *a = foo(1);
+	int data2 = 0;
+
+	ppData = &pData;
+	pData = &data2;
+	*ppData[0] = 10;
+	*ppData[1] = 10;
+	*ppData[2] = 10;
+	**ppData = 12;
+	free(pData);
+	// free(ppData);
+	pthread_mutex_unlock(&mLock);
+	free(ppData);
+	//  pthread_exit(NULL); // 離開子執行緒
+
+	//a3
+	// pthread_mutex_lock(&mLock);
+	// int a = 10;
+	// int *ptr1 = &a;
+	// int **ptr2 = &ptr1;
+	// int ***ptr3 = &ptr2;
+	// pthread_mutex_unlock(&mLock);
+	// pthread_exit(NULL); // 離開子執行緒
+}
+int *foo(int z);
+void boo(int *b)
+{
+	free(b);
+	printf("asdda\n");
+}
+void test44(int *k)
+{
+	free(k);
+}
+void test33(int *k)
+{
+	test44(k);
+}
+void test22(int *k)
+{
+	test22(k);
+	free(k);
+}
 int main()
 {
-	dict_type *dict;
-	char *string = "var second : stored_in_dict 5 ; : next";
+	int *p;
+	int *p2;
+	int *p3;
+	// test= malloc (sizeof (int ) * 10);
+	// foo3(p);
+	p3 = foo(2);
+	p3[0] = 1;
+	free(p3);
+	p = foo2(2);
+	p[0] = 2;
+	p2 = foo2(2);
+	p2[0] = 4;
+	// test22(p);
+	// test22(p);
+	// test33(p2);
+	free(p);
+	free(p2);
+	char buff[50];
+	int *q = malloc(5);
+	q[0] = 10;
+	test22(q);
+	child((int)q);
+	int n;
+	pthread_t t; // 宣告 pthread 變數
+	pthread_mutex_destroy(&mLock);
+	pthread_create(&t, NULL, child, buff); // 建立子執行緒
 
-	compile(string);
-	dict = root;
+	// 主執行緒工作
+	//   for(int i = 0;i < 3;++i) {
+	//     printf("Master\n"); // 每秒輸出文字
+	//     sleep(1);
+	//   }
 
-	while (dict != NULL) {
-		printf("%s\n", dict->word);
-		free(dict->word);
-		dict = dict->next;
-	}
-
+	pthread_join(t, NULL); // 等待子執行緒執行完成
+	pthread_mutex_destroy(&mLock);
+	// scanf("%d",n);
+	// p=foo(2);
+	// if(n)
+	// 	free(p);
+	// else
+	// 	boo(p);
+	// q=p;
+	// free(q);
+	// printf("%d",q);
+	return 0;
 }
