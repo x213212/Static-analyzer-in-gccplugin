@@ -33,7 +33,7 @@ int *foo2(int z)
 {
 
 	int *a2 = malloc(z);
-	int *p3 =malloc(z);
+	int *p3 = malloc(z);
 	int *p4 = malloc(z);
 	int tmp;
 	a2[0] = 10;
@@ -41,13 +41,13 @@ int *foo2(int z)
 	if (tmp > 10)
 	{
 		pthread_mutex_unlock(&mLock);
-		p3 =malloc(z);
+		p3[0] = 10;
 		free(p3);
 		return p3;
 	}
 	else
 	{
-		p3[0] = 10;
+		p4[0] = 10;
 		free(p4);
 		return p4;
 	}
@@ -137,7 +137,7 @@ void *child(void *data)
 	free(pData);
 	// free(ppData);
 	pthread_mutex_unlock(&mLock);
-	free(ppData);
+		free(ppData);
 	//  pthread_exit(NULL); // 離開子執行緒
 
 	//a3

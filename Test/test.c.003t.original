@@ -740,13 +740,13 @@
   if (tmp > 10)
     {
       pthread_mutex_unlock (&mLock);
-      p3 = (int *) malloc ((size_t) z);
+      *p3 = 10;
       free ((void *) p3);
       return p3;
     }
   else
     {
-      *p3 = 10;
+      *p4 = 10;
       free ((void *) p4);
       return p4;
     }

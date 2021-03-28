@@ -56,25 +56,25 @@ foo3 (int * z)
 
 
  local analysis of foo2
-   scanning: _1 = (long unsigned int) z_7(D);
-  scanning: a2_10 = malloc (_1);
-  scanning: _2 = (long unsigned int) z_7(D);
-  scanning: p3_12 = malloc (_2);
-  scanning: _3 = (long unsigned int) z_7(D);
-  scanning: p4_14 = malloc (_3);
-  scanning: *a2_10 = 10;
+   scanning: _1 = (long unsigned int) z_6(D);
+  scanning: a2_9 = malloc (_1);
+  scanning: _2 = (long unsigned int) z_6(D);
+  scanning: p3_11 = malloc (_2);
+  scanning: _3 = (long unsigned int) z_6(D);
+  scanning: p4_13 = malloc (_3);
+  scanning: *a2_9 = 10;
     Indirect ref to local memory is OK
-  scanning: if (tmp_16(D) > 10)
+  scanning: if (tmp_15(D) > 10)
   scanning: pthread_mutex_unlock (&mLock);
-  scanning: _4 = (long unsigned int) z_7(D);
-  scanning: p3_22 = malloc (_4);
-  scanning: free (p3_22);
-  scanning: _24 = p3_22;
-  scanning: *p3_12 = 10;
-    Indirect ref to local memory is OK
-  scanning: free (p4_14);
-  scanning: _19 = p4_14;
-  scanning: return _5;
+  scanning: *p3_11 = 10;
+    Indirect ref write is not const/pure
+  scanning: free (p3_11);
+  scanning: _22 = p3_11;
+  scanning: *p4_13 = 10;
+    Indirect ref write is not const/pure
+  scanning: free (p4_13);
+  scanning: _18 = p4_13;
+  scanning: return _4;
 Function is locally looping.
 Function can locally free.
 __attribute__((noinline))
@@ -87,40 +87,38 @@ foo2 (int z)
   long unsigned int _1;
   long unsigned int _2;
   long unsigned int _3;
-  long unsigned int _4;
-  int * _5;
-  int * _19;
-  int * _24;
+  int * _4;
+  int * _18;
+  int * _22;
 
   <bb 2> [100.00%]:
-  _1 = (long unsigned int) z_7(D);
-  a2_10 = malloc (_1);
-  _2 = (long unsigned int) z_7(D);
-  p3_12 = malloc (_2);
-  _3 = (long unsigned int) z_7(D);
-  p4_14 = malloc (_3);
-  *a2_10 = 10;
-  if (tmp_16(D) > 10)
+  _1 = (long unsigned int) z_6(D);
+  a2_9 = malloc (_1);
+  _2 = (long unsigned int) z_6(D);
+  p3_11 = malloc (_2);
+  _3 = (long unsigned int) z_6(D);
+  p4_13 = malloc (_3);
+  *a2_9 = 10;
+  if (tmp_15(D) > 10)
     goto <bb 3>; [46.00%]
   else
     goto <bb 4>; [54.00%]
 
   <bb 3> [46.00%]:
   pthread_mutex_unlock (&mLock);
-  _4 = (long unsigned int) z_7(D);
-  p3_22 = malloc (_4);
-  free (p3_22);
-  _24 = p3_22;
+  *p3_11 = 10;
+  free (p3_11);
+  _22 = p3_11;
   goto <bb 5>; [100.00%]
 
   <bb 4> [54.00%]:
-  *p3_12 = 10;
-  free (p4_14);
-  _19 = p4_14;
+  *p4_13 = 10;
+  free (p4_13);
+  _18 = p4_13;
 
   <bb 5> [100.00%]:
-  # _5 = PHI <p3_22(3), p4_14(4)>
-  return _5;
+  # _4 = PHI <p3_11(3), p4_13(4)>
+  return _4;
 
 }
 
@@ -290,7 +288,7 @@ Function is locally looping.
 Function can locally free.
 boo (int * b)
 {
-  int D.4409;
+  int D.4408;
   int _5;
 
   <bb 2> [100.00%]:

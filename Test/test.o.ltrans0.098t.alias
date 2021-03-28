@@ -17,7 +17,7 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-k_2(D), points-to NULL, points-to vars: { D.4061 } (nonlocal, escaped, escaped heap)
+k_2(D), points-to NULL, points-to vars: { D.4060 } (nonlocal, escaped, escaped heap)
 
 __attribute__((noinline))
 test22 (int * k)
@@ -49,13 +49,12 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-_5, points-to NULL, points-to vars: { D.4056 D.4057 } (nonlocal)
-a2_10, points-to NULL, points-to vars: { D.4054 } (nonlocal, escaped, escaped heap)
-p3_12, points-to NULL, points-to vars: { D.4055 } (nonlocal, escaped, escaped heap)
-p4_14, points-to NULL, points-to vars: { D.4056 } (nonlocal)
-_19, points-to NULL, points-to vars: { D.4056 } (nonlocal)
-p3_22, points-to NULL, points-to vars: { D.4057 } (nonlocal)
-_24, points-to NULL, points-to vars: { D.4057 } (nonlocal)
+_4, points-to NULL, points-to vars: { D.4055 D.4056 } (nonlocal, escaped, escaped heap)
+a2_9, points-to NULL, points-to vars: { D.4054 } (nonlocal, escaped, escaped heap)
+p3_11, points-to NULL, points-to vars: { D.4055 } (nonlocal, escaped, escaped heap)
+p4_13, points-to NULL, points-to vars: { D.4056 } (nonlocal, escaped, escaped heap)
+_18, points-to NULL, points-to vars: { D.4056 } (nonlocal, escaped, escaped heap)
+_22, points-to NULL, points-to vars: { D.4055 } (nonlocal, escaped, escaped heap)
 
 __attribute__((noinline))
 foo2 (int z)
@@ -67,40 +66,38 @@ foo2 (int z)
   long unsigned int _1;
   long unsigned int _2;
   long unsigned int _3;
-  long unsigned int _4;
-  int * _5;
-  int * _19;
-  int * _24;
+  int * _4;
+  int * _18;
+  int * _22;
 
   <bb 2> [100.00%]:
-  _1 = (long unsigned int) z_7(D);
-  a2_10 = malloc (_1);
-  _2 = (long unsigned int) z_7(D);
-  p3_12 = malloc (_2);
-  _3 = (long unsigned int) z_7(D);
-  p4_14 = malloc (_3);
-  *a2_10 = 10;
-  if (tmp_16(D) > 10)
+  _1 = (long unsigned int) z_6(D);
+  a2_9 = malloc (_1);
+  _2 = (long unsigned int) z_6(D);
+  p3_11 = malloc (_2);
+  _3 = (long unsigned int) z_6(D);
+  p4_13 = malloc (_3);
+  *a2_9 = 10;
+  if (tmp_15(D) > 10)
     goto <bb 3>; [46.00%]
   else
     goto <bb 4>; [54.00%]
 
   <bb 3> [46.00%]:
   pthread_mutex_unlock (&mLock);
-  _4 = (long unsigned int) z_7(D);
-  p3_22 = malloc (_4);
-  free (p3_22);
-  _24 = p3_22;
+  *p3_11 = 10;
+  free (p3_11);
+  _22 = p3_11;
   goto <bb 5>; [100.00%]
 
   <bb 4> [54.00%]:
-  *p3_12 = 10;
-  free (p4_14);
-  _19 = p4_14;
+  *p4_13 = 10;
+  free (p4_13);
+  _18 = p4_13;
 
   <bb 5> [100.00%]:
-  # _5 = PHI <p3_22(3), p4_14(4)>
-  return _5;
+  # _4 = PHI <p3_11(3), p4_13(4)>
+  return _4;
 
 }
 
@@ -124,8 +121,8 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-p2_3, points-to NULL, points-to vars: { D.4058 } (nonlocal, escaped, escaped heap)
-_7, points-to NULL, points-to vars: { D.4056 D.4057 } (nonlocal)
+p2_3, points-to NULL, points-to vars: { D.4057 } (nonlocal, escaped, escaped heap)
+_7, points-to NULL, points-to vars: { D.4055 D.4056 } (nonlocal, escaped, escaped heap)
 
 __attribute__((noinline))
 foo (int z)
@@ -164,14 +161,14 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4060 } (nonlocal, escaped, escaped heap)
-_2, points-to NULL, points-to vars: { D.4039 D.4060 } (nonlocal, escaped, escaped heap)
-_3, points-to NULL, points-to vars: { D.4039 D.4060 } (nonlocal, escaped, escaped heap)
-_4, points-to NULL, points-to vars: { D.4039 D.4060 } (nonlocal, escaped, escaped heap)
-_5, points-to NULL, points-to vars: { D.4039 D.4060 } (nonlocal, escaped, escaped heap)
-_6, points-to NULL, points-to vars: { D.4039 D.4060 } (nonlocal, escaped, escaped heap)
-ppData_13, points-to NULL, points-to vars: { D.4059 } (nonlocal)
-a_17, points-to NULL, points-to vars: { D.4056 D.4057 } (nonlocal)
+_1, points-to NULL, points-to vars: { D.4059 } (nonlocal, escaped, escaped heap)
+_2, points-to NULL, points-to vars: { D.4039 D.4059 } (nonlocal, escaped, escaped heap)
+_3, points-to NULL, points-to vars: { D.4039 D.4059 } (nonlocal, escaped, escaped heap)
+_4, points-to NULL, points-to vars: { D.4039 D.4059 } (nonlocal, escaped, escaped heap)
+_5, points-to NULL, points-to vars: { D.4039 D.4059 } (nonlocal, escaped, escaped heap)
+_6, points-to NULL, points-to vars: { D.4039 D.4059 } (nonlocal, escaped, escaped heap)
+ppData_13, points-to NULL, points-to vars: { D.4058 } (nonlocal)
+a_17, points-to NULL, points-to vars: { D.4055 D.4056 } (nonlocal, escaped, escaped heap)
 
 child (void * data)
 {
@@ -239,11 +236,11 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-_4, points-to NULL, points-to vars: { D.4061 } (nonlocal, escaped, escaped heap)
-p3_8, points-to NULL, points-to vars: { D.4056 D.4057 } (nonlocal)
-p_12, points-to NULL, points-to vars: { D.4056 D.4057 } (nonlocal)
-p2_15, points-to NULL, points-to vars: { D.4056 D.4057 } (nonlocal)
-q_20, points-to NULL, points-to vars: { D.4061 } (nonlocal, escaped, escaped heap)
+_4, points-to NULL, points-to vars: { D.4060 } (nonlocal, escaped, escaped heap)
+p3_8, points-to NULL, points-to vars: { D.4055 D.4056 } (nonlocal, escaped, escaped heap)
+p_12, points-to NULL, points-to vars: { D.4055 D.4056 } (nonlocal, escaped, escaped heap)
+p2_15, points-to NULL, points-to vars: { D.4055 D.4056 } (nonlocal, escaped, escaped heap)
+q_20, points-to NULL, points-to vars: { D.4060 } (nonlocal, escaped, escaped heap)
 
 main ()
 {

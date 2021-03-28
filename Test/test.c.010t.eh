@@ -34,13 +34,12 @@ foo2 (int z)
   if (tmp > 10) goto <D.4372>; else goto <D.4373>;
   <D.4372>:
   pthread_mutex_unlock (&mLock);
-  _4 = (long unsigned int) z;
-  p3 = malloc (_4);
+  *p3 = 10;
   free (p3);
   D.4374 = p3;
   goto <D.4375>;
   <D.4373>:
-  *p3 = 10;
+  *p4 = 10;
   free (p4);
   D.4374 = p4;
   goto <D.4375>;

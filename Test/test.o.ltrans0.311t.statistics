@@ -1,8 +1,8 @@
 90 pta "Symbol to SSA rewrite" "(nofn)" 5
 115 copyprop "Statements deleted" "foo2" 2
-124 dom "Copies propagated" "foo2" 3
-124 dom "Redundant expressions eliminated" "foo2" 3
-132 ccp "Statements deleted" "foo2" 3
+124 dom "Copies propagated" "foo2" 2
+124 dom "Redundant expressions eliminated" "foo2" 2
+132 ccp "Statements deleted" "foo2" 2
 266 combine "two-insn combine" "foo2" 1
 124 dom "Redundant expressions eliminated" "child" 3
 124 dom "Constants propagated" "child" 3

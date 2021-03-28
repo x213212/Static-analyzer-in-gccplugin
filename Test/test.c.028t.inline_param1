@@ -76,22 +76,20 @@ foo3 (int * z)
 Analyzing function body size: foo2
 
 Inline summary for foo2/54
-  self time:       87
+  self time:       76
   global time:     0
-  self size:       25
+  self size:       23
   global size:     0
   min size:       0
   self stack:      0
   global stack:    0
-    size:4.000000, time:4.000000, predicate:(true)
+    size:5.000000, time:5.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
     free/65 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
     free/65 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    malloc/63 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
     pthread_mutex_unlock/64 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
        op0 is compile time invariant
@@ -112,40 +110,38 @@ foo2 (int z)
   long unsigned int _1;
   long unsigned int _2;
   long unsigned int _3;
-  long unsigned int _4;
-  int * _5;
-  int * _19;
-  int * _24;
+  int * _4;
+  int * _18;
+  int * _22;
 
   <bb 2> [0.00%]:
-  _1 = (long unsigned int) z_7(D);
-  a2_10 = malloc (_1);
-  _2 = (long unsigned int) z_7(D);
-  p3_12 = malloc (_2);
-  _3 = (long unsigned int) z_7(D);
-  p4_14 = malloc (_3);
-  *a2_10 = 10;
-  if (tmp_16(D) > 10)
+  _1 = (long unsigned int) z_6(D);
+  a2_9 = malloc (_1);
+  _2 = (long unsigned int) z_6(D);
+  p3_11 = malloc (_2);
+  _3 = (long unsigned int) z_6(D);
+  p4_13 = malloc (_3);
+  *a2_9 = 10;
+  if (tmp_15(D) > 10)
     goto <bb 3>; [0.00%]
   else
     goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
   pthread_mutex_unlock (&mLock);
-  _4 = (long unsigned int) z_7(D);
-  p3_22 = malloc (_4);
-  free (p3_22);
-  _24 = p3_22;
+  *p3_11 = 10;
+  free (p3_11);
+  _22 = p3_11;
   goto <bb 5>; [0.00%]
 
   <bb 4> [0.00%]:
-  *p3_12 = 10;
-  free (p4_14);
-  _19 = p4_14;
+  *p4_13 = 10;
+  free (p4_13);
+  _18 = p4_13;
 
   <bb 5> [0.00%]:
-  # _5 = PHI <_24(3), _19(4)>
-  return _5;
+  # _4 = PHI <_22(3), _18(4)>
+  return _4;
 
 }
 
@@ -218,7 +214,7 @@ Inline summary for foo/56
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
     foo2/54 function not considered for inlining
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size:12 stack: 0
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size:11 stack: 0
     malloc/63 function body not available
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
        op0 is compile time invariant
@@ -504,10 +500,10 @@ Inline summary for main/62 inlinable
     free/65 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
     foo2/54 function not considered for inlining
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size:12 stack: 0
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size:11 stack: 0
        op0 is compile time invariant
     foo2/54 function not considered for inlining
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size:12 stack: 0
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size:11 stack: 0
        op0 is compile time invariant
     free/65 function body not available
       loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
