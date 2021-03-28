@@ -16,7 +16,7 @@ endif
 FOO:= $(shell echo $(UNAME))
 #GCCPLUGINS_DIR:= $(shell $(GCC) -print-file-name=plugin)
 GCCPLUGINS_DIR:= $(shell $(GCC) -print-file-name=plugin)
-CFLAGS+=  -I${GMPDIR}/include/ -I${GCCSRCDIR}/include -I$(GCCPLUGINS_DIR)/include -fPIC  -fopenmp -g -fno-rtti $(RDOPTS) 
+CFLAGS+=  -I${GMPDIR}/include/ -I${GCCSRCDIR}/include -I$(GCCPLUGINS_DIR)/include -fPIC  -fopenmp -g -fno-rtti $(RDOPTS)  -w
 X=-I${GMPDIR}/include/ -I${GCCSRCDIR}/include
 #-fopenmp
 LDFLAGS+= -shared  -fopenmp -flto 

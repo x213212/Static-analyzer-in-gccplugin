@@ -1279,32 +1279,33 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 			function_free_collect->put(node->get_fun()->decl, fun_array);
 		}
 
-		else if (!strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
+		else if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
 		{
+			debug_tree(gimple_call_lhs(gc));
 			set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
 		}
 		// warning_at(gimple_location(gc), 0, "use location");
-		else if (!strcmp(name, "pthread_mutex_lock"))
-		{
-			fprintf(stderr, "================================================\n");
-			debug(gc);
+		// else if (!strcmp(name, "pthread_mutex_lock"))
+		// {
+		// 	fprintf(stderr, "================================================\n");
+		// 	debug(gc);
 
-			debug_tree(gimple_call_arg(gc, 0));
-			fprintf(stderr, "================================================\n");
-			tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
-			debug_tree(second);
-			set_ptb(bb, locktable, second, loc, 0, gc, node);
-		}
-		else if (!strcmp(name, "pthread_mutex_unlock"))
-		{
-			fprintf(stderr, "================================================\n");
-			debug(gc);
-			debug_tree(gimple_call_arg(gc, 0));
-			fprintf(stderr, "================================================\n");
-			tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
-			debug_tree(second);
-			set_ptb(bb, unlocktable, second, loc, 0, gc, node);
-		}
+		// 	debug_tree(gimple_call_arg(gc, 0));
+		// 	fprintf(stderr, "================================================\n");
+		// 	tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
+		// 	debug_tree(second);
+		// 	set_ptb(bb, locktable, second, loc, 0, gc, node);
+		// }
+		// else if (!strcmp(name, "pthread_mutex_unlock"))
+		// {
+		// 	fprintf(stderr, "================================================\n");
+		// 	debug(gc);
+		// 	debug_tree(gimple_call_arg(gc, 0));
+		// 	fprintf(stderr, "================================================\n");
+		// 	tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
+		// 	debug_tree(second);
+		// 	set_ptb(bb, unlocktable, second, loc, 0, gc, node);
+		// }
 }
 
 void indent(int level)
@@ -2504,7 +2505,10 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 						fprintf(stderr, "--------------------collect_FunctionMappingENNNNNNNNDDDDDDD------------------\n");
 						fprintf(stderr, "--------------------collect_FunctionMappingENNNNNNNNDDDDDDD------------------\n");
 						fprintf(stderr, "--------------------collect_FunctionMappingENNNNNNNNDDDDDDD------------------\n");
-
+						// debug_tree(gimple_call_num_args(gimple_call_arg(gc, 0)));
+						if(gimple_call_num_args(gc) ==0)
+						set_ptb(bb, ptable, gimple_call_fn(gc), loc, 0, gc, node);
+						else
 						set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
 						// }
 					}
@@ -2871,7 +2875,7 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 			if (name != NULL)
 				// 		debug(u_stmt);
 				// fprintf(stderr, "%s\n",name);
-				if (!strcmp(name, "malloc") || !strcmp(name, "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
+				if (!strcmp(name, "realloc") ||!strcmp(name, "malloc") || !strcmp(name, "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
 				{
 
 					debug(table_temp->last_stmt);
@@ -3208,11 +3212,16 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
 	// printfunctionCollect(ptable, used_stmt);
 	// return  ;
-	tree t2;
+	tree t2 =NULL_TREE;
+	printfBasicblock();
 	if (ptable->size >= 0)
 	{
+		
 		FOR_EACH_TABLE(table1, t2)
 		{
+			// if(t2 != NULL_TREE){
+			// debug(t2);
+			// fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");}
 			if (TREE_CODE(TREE_TYPE(t2)) == METHOD_TYPE || TREE_CODE(TREE_TYPE(t2)) == FUNCTION_TYPE || TREE_CODE(TREE_TYPE(t2)) == RECORD_TYPE || !(TREE_CODE(t2) == SSA_NAME))
 			{
 				continue;
@@ -3290,16 +3299,19 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 					fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
 					fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
 					fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-					gimple_array *user_tmp2;
-					user_tmp2 = treeGimpleArray->get(table1->target);
-					if (user_tmp2 != NULL)
+
+					if (treeGimpleArray->get(table1->target) != NULL)
 						break;
 
 					treeGimpleArray->put(table1->target, *used_stmt);
-					free(user_tmp2);
-					break;
+					fprintf(stderr, "------------------幹oooooooooooooooooooooooooooooooo\n");
+		
 				}
 			}
+			// if(table1->next == NULL)
+			// 	fprintf(stderr, "weritjroti;ejhoerjhio;rtjhojert\n");
+			// break;
+			// debug(table1->next->target);
 		}
 	}
 	FunctionStmtMappingRet(ptable, ftable, used_stmt);
@@ -3353,7 +3365,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	// printfunctionCollect(ptable, used_stmt);
 	// fprintf(stderr, " used_stmt array size of : %d\n", totalsize);
 
-	free(table1);
+	// free(table1);
 	// free(table3);
 	// free(used_stmt);
 }
@@ -3540,7 +3552,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// warning_at(gimple_location(def_stmt), 0, "use location");
 				if (name != NULL)
 
-					if (
+					if (!strcmp(name, "realloc") ||
 						!strcmp(name, "malloc") ||
 						!strcmp(name, "xmalloc") ||
 						!strcmp(name, "calloc") ||
@@ -3636,6 +3648,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									}
 									if (name != NULL)
 										if (
+											!strcmp(name, "realloc") ||
 											!strcmp(name, "malloc") ||
 											!strcmp(name, "xmalloc") ||
 											!strcmp(name, "calloc") ||
@@ -3882,8 +3895,9 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 
 		if (cfun == NULL)
 			continue;
-		if (!strcmp(get_name(cfun->decl), "main"))
-		{
+			//mutlple entry point
+		// if (!strcmp(get_name(cfun->decl), "main"))
+		// {
 			fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
 			// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 			enum availability avail;
@@ -3894,7 +3908,7 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 			print_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
 			fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.top()));
 			pathStack.pop();
-		}
+		// }
 		pop_cfun();
 	}
 	fprintf(stderr, "fucntion collect path finsh\n");
@@ -4267,6 +4281,7 @@ void insert_always_inline()
 					if (!strcmp(name, "free") ||
 						!strcmp(name, "xfree") ||
 						!strcmp(name, "malloc") ||
+						!strcmp(name, "realloc") ||
 						!strcmp(name, "xmalloc") ||
 						!strcmp(name, "calloc") ||
 						!strcmp(name, "xcalloc") ||
