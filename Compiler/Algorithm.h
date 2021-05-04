@@ -3973,12 +3973,9 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 					int find_diff = 0;
 					for (int k2 = 0; k2 < funcalleeRetTypearray.size(); k2++)
 					{
-						if ((callerRetTypearray)[k].return_tree == (funcalleeRetTypearray)[k2].return_tree){
+						if ((callerRetTypearray)[k].return_tree == (funcalleeRetTypearray)[k2].return_tree)
 							find_diff = 1;
-							fprintf(stderr, "\033[40;46m =======add node_fun stack:========= \033[0m\n");
-								break;
-							}
-					
+
 					}
 					if (find_diff == 0)
 					{
