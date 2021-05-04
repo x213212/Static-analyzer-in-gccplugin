@@ -3527,16 +3527,20 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		fprintf(stderr, "\033[40;42m =======thread job funciton:%s========= \033[0m\n", get_name(function_tree));
 		find_fun_array = *(function_return_collect->get(function_tree));
 		vector<return_type> funcalleeRetTypearray = find_fun_array.return_type_array;
+		
 		int find_thread = 0;
+		int find_thread_count = 0;
 		for (int k = 0; k < funcalleeRetTypearray.size(); k++)
 		{
 			if ((funcalleeRetTypearray)[k].return_type_stmt_num == FUNCITON_THREAD)
 			{
 				fprintf(stderr, "\033[40;44m ======= print pthread lock stmt %d ========  \033[0m\n", (funcalleeRetTypearray)[k].return_type_stmt_num);
 				debug_gimple_stmt((funcalleeRetTypearray)[k].stmt);
-				debug_tree((funcalleeRetTypearray)[k].return_tree);
+				find_thread_count++;
+				// debug_tree((funcalleeRetTypearray)[k].return_tree);
 			}
 		}
+		fprintf(stderr, "\033[40;42m =======thread job funciton lock count :%d========= \033[0m\n", find_thread_count);
 	}
 	fprintf(stderr, "\033[40;42m =======start_check_funciton:%s========= \033[0m\n", get_name(function_tree));
 	FOR_EACH_TABLE(table_temp, t)
@@ -3969,9 +3973,12 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 					int find_diff = 0;
 					for (int k2 = 0; k2 < funcalleeRetTypearray.size(); k2++)
 					{
-						if ((callerRetTypearray)[k].return_tree == (funcalleeRetTypearray)[k2].return_tree)
+						if ((callerRetTypearray)[k].return_tree == (funcalleeRetTypearray)[k2].return_tree){
 							find_diff = 1;
-						break;
+							fprintf(stderr, "\033[40;46m =======add node_fun stack:========= \033[0m\n");
+								break;
+							}
+					
 					}
 					if (find_diff == 0)
 					{
