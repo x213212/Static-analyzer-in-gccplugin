@@ -1288,9 +1288,9 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 			debug_tree(gimple_call_lhs(gc));
 			set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
 		}
-		
+
 	// warning_at(gimple_location(gc), 0, "use location");
-	
+
 	// else if (!strcmp(name, "pthread_mutex_unlock"))
 	// {
 	// 	fprintf(stderr, "================================================\n");
@@ -1385,7 +1385,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 	gimple *def_stmt = SSA_NAME_DEF_STMT(target);
 	gimple *def_stmt2 = SSA_NAME_DEF_STMT(target);
 	int size = sizeof(used_stmt);
-	fprintf(stderr, "count size %d ",size);
+	fprintf(stderr, "count size %d ", size);
 	fprintf(stderr, "START NEW FOR_EACH_IMM_USE_STMT -------------------------------\n");
 	debug_tree(target);
 	fprintf(stderr, "TARGET NEW FOR_EACH_IMM_USE_STMT -------------------------------\n");
@@ -1460,8 +1460,8 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 		else if (gimple_code(use_stmt) == GIMPLE_ASSIGN)
 		{
 			fprintf(stderr, "GIMPLE ASSIGN\n");
-				fprintf(stderr, "測試fuck %d\n",TREE_STATIC(gimple_assign_lhs(use_stmt)));
-		
+			fprintf(stderr, "測試fuck %d\n", TREE_STATIC(gimple_assign_lhs(use_stmt)));
+
 			//debug_tree(gimple_assign_lhs(use_stmt));
 			// debug_gimple_stmt(use_stmt);
 			debug_tree(gimple_assign_lhs(use_stmt));
@@ -2396,7 +2396,9 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				// ret_type.reutnr_type_num = 0;
 				// fun_array.return_type_array.push_back(ret_type);
 				// function_return_collect->put(node->get_fun()->decl, fun_array);
-			}else if (!strcmp(name, "pthread_mutex_lock") || !strcmp(name, "pthread_mutex_unlock") ){
+			}
+			else if (!strcmp(name, "pthread_mutex_lock") || !strcmp(name, "pthread_mutex_unlock"))
+			{
 				fprintf(stderr, "======================pthread_mutex_lock unlock==========================\n");
 				debug(gc);
 
@@ -2418,7 +2420,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					// ret_type_array = fun_array.return_type_array;
 				}
 				fprintf(stderr, "======================pthread_mutex_lock unlock==========================\n");
-				
+
 				struct return_type ret_type;
 				ret_type.stmt = gc;
 				ret_type.return_tree = gimple_call_arg(gc, 0);
@@ -2537,12 +2539,12 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 	{
 		// if (TREE_CODE(gimple_assign_lhs(gc)) == VAR_DECL== NULL)
 		fprintf(stderr, "GIMPLE_ASSIGN\n");
-	
+
 		if ((gimple_assign_lhs(gc) == NULL) || (gimple_assign_rhs1(gc)) == NULL)
 			return;
-					fprintf(stderr, "GIMPLE ASSIGN\n");
-				fprintf(stderr, "測試fuck %d\n",TREE_STATIC(gimple_assign_lhs(gc)));
-		
+		fprintf(stderr, "GIMPLE ASSIGN\n");
+		fprintf(stderr, "測試fuck %d\n", TREE_STATIC(gimple_assign_lhs(gc)));
+
 		debug(gc);
 		debug_tree(gimple_assign_lhs(gc));
 		debug_tree(gimple_assign_rhs1(gc));
@@ -2672,7 +2674,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				// ret_type.reutnr_type_num = 0;
 				assign_array.assign_type_array.push_back(assign_type);
 				function_assign_collect->put(second, assign_array);
-				
+
 				// function_assign_collect->put(second, gc);
 			}
 		}
@@ -2921,7 +2923,7 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 									// debug(gc);
 									// set_ptb( table_temp->bb, ptable,  table_temp->target,  table_temp->loc, 0,  table_temp->last_stmt,  table_temp->node);
 									fun_array.return_type_num = 2;
-									
+
 									function_return_collect->put(function_tree, fun_array);
 									// return;
 									return;
@@ -3323,7 +3325,6 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 						break;
 
 					treeGimpleArray->put(table1->target, *used_stmt);
-					
 				}
 			}
 			// if(table1->next == NULL)
@@ -3519,18 +3520,21 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 	tree t;
 	//
 	fprintf(stderr, "\033[40;42m =======pre_check_funciton:%s========= \033[0m\n", get_name(function_tree));
-	if(threadcheck==FUNCITON_THREAD && threadmod ==true){
+	if (threadcheck == FUNCITON_THREAD && threadmod == true)
+	{
 		function_return_array find_fun_array;
 
 		fprintf(stderr, "\033[40;42m =======thread job funciton:%s========= \033[0m\n", get_name(function_tree));
 		find_fun_array = *(function_return_collect->get(function_tree));
 		vector<return_type> funcalleeRetTypearray = find_fun_array.return_type_array;
-		int find_thread=0;
-		for (int k = 0; k < funcalleeRetTypearray.size(); k++){	
-			if((funcalleeRetTypearray)[k].return_type_stmt_num == FUNCITON_THREAD){
-			fprintf(stderr, "\033[40;44m ======= print pthread lock stmt %d ========  \033[0m\n" ,(funcalleeRetTypearray)[k].return_type_stmt_num);			
-			debug_gimple_stmt((funcalleeRetTypearray)[k].stmt);
-			debug_tree((funcalleeRetTypearray)[k].return_tree);
+		int find_thread = 0;
+		for (int k = 0; k < funcalleeRetTypearray.size(); k++)
+		{
+			if ((funcalleeRetTypearray)[k].return_type_stmt_num == FUNCITON_THREAD)
+			{
+				fprintf(stderr, "\033[40;44m ======= print pthread lock stmt %d ========  \033[0m\n", (funcalleeRetTypearray)[k].return_type_stmt_num);
+				debug_gimple_stmt((funcalleeRetTypearray)[k].stmt);
+				debug_tree((funcalleeRetTypearray)[k].return_tree);
 			}
 		}
 	}
@@ -3543,8 +3547,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		int find_freestmt = 0;
 		int find_mallocstmt = 0;
 
-
-				
 		// fprintf(stderr, "\n ------------------------------------------\n");
 		// debug_tree(table_temp->target);
 		// debug_tree(function_tree);
@@ -3620,7 +3622,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					if (user_tmp->size > 0)
 						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 						{
-							
+
 							if (user_tmp->ret_stmt != NULL)
 							{
 
@@ -3634,9 +3636,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							}
 							else
 							{
-								
-								if (user_tmp->target != NULL){
-										gimple *finalstmt;
+
+								if (user_tmp->target != NULL)
+								{
+									gimple *finalstmt;
 									if (!strcmp(get_tree_code_name(TREE_CODE(user_tmp->target)), "addr_expr"))
 									{
 										// debug_ee(user_tmp->target);
@@ -3645,7 +3648,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										{
 											gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
 											debug(def_stmt);
-											finalstmt=def_stmt;
+											finalstmt = def_stmt;
 											warning_at(gimple_location(def_stmt), 0, "use location");
 										}
 										else
@@ -3653,7 +3656,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											gimple *def_stmt = SSA_NAME_DEF_STMT(second);
 											debug(second);
 											debug_tree(second);
-											finalstmt=def_stmt;
+											finalstmt = def_stmt;
 											fprintf(stderr, "addr_expr------vardecl onlay tree-------\n");
 											// warning_at(gimple_location(u_stmt), 0, "use location");
 											// debug(u_stmt);
@@ -3666,45 +3669,45 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									}
 									else
 									{
-											finalstmt=u_stmt;
+										finalstmt = u_stmt;
 										debug(u_stmt);
-										
+
 										warning_at(gimple_location(u_stmt), 0, "use location");
 										// fprintf(stderr, "addr_expraddr_expraddr_expraddr_expraddr_expr--------\n");
 									}
-									if(threadcheck==FUNCITON_THREAD && threadmod ==true){
-									if (gimple_code(finalstmt) == GIMPLE_ASSIGN)
+									if (threadcheck == FUNCITON_THREAD && threadmod == true)
 									{
-									//debug_tree(gimple_assign_lhs(use_stmt));
-									
-								
-									//global variable
-									if(!TREE_STATIC(gimple_assign_lhs(finalstmt) ) == true )
-									{
-									
-										fprintf(stderr, " \n LOCAL VARIBALE  \n");
-										debug_gimple_stmt(finalstmt);
-										fprintf(stderr, " \n LOCAL VARIBALE  \n");
-										continue;
-									}else
-									{		
-									fprintf(stderr, "\n ================== warring  ================== \n");
-									
-									fprintf(stderr, "\033[40;35m warring thread fucntion detction is on \033[0m\n");
-											// sfprintf(stderr, "function return value related stmt \n");
-									fprintf(stderr, "\033[40;35m Detect GLOBAL VARIBALE \033[0m\n");
-									debug_gimple_stmt(finalstmt);
-									fprintf(stderr, "\033[40;35m thread job function \033[0m\n");
-									fprintf(stderr, "\033[40;35m this stmt possible have Race Condition 。 \033[0m\n");
-									fprintf(stderr, "\n ================== warring  ================== \n");
-									
-										}
-									// else
-									// {
-									// //local variable
+										if (gimple_code(finalstmt) == GIMPLE_ASSIGN)
+										{
+											//debug_tree(gimple_assign_lhs(use_stmt));
 
-									// }
-									}
+											//global variable
+											if (!TREE_STATIC(gimple_assign_lhs(finalstmt)) == true)
+											{
+
+												fprintf(stderr, " \n LOCAL VARIBALE  \n");
+												debug_gimple_stmt(finalstmt);
+												fprintf(stderr, " \n LOCAL VARIBALE  \n");
+												continue;
+											}
+											else
+											{
+												fprintf(stderr, "\n ================== warring  ================== \n");
+
+												fprintf(stderr, "\033[40;35m warring thread fucntion detction is on \033[0m\n");
+												// sfprintf(stderr, "function return value related stmt \n");
+												fprintf(stderr, "\033[40;35m Detect GLOBAL VARIBALE \033[0m\n");
+												debug_gimple_stmt(finalstmt);
+												fprintf(stderr, "\033[40;35m thread job function \033[0m\n");
+												fprintf(stderr, "\033[40;35m this stmt possible have Race Condition 。 \033[0m\n");
+												fprintf(stderr, "\n ================== warring  ================== \n");
+											}
+											// else
+											// {
+											// //local variable
+
+											// }
+										}
 									}
 								}
 								// debug(u_stmt);
@@ -3918,11 +3921,10 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 
 	fucntion_level += 1;
 
-	
-	checkPointerConstraint(function_tree, ptable, user_tmp, NULL,0);
+	checkPointerConstraint(function_tree, ptable, user_tmp, NULL, 0);
 	fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 	int find = 0;
-		int find_thread=0;
+	int find_thread = 0;
 	for (int i = 0; i < function_path_array.size(); i++)
 	{
 		find = 0;
@@ -3949,26 +3951,31 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 			function_return_array find_fun_array;
 			vector<return_type> ret_type_find_fun_array;
 			tree getFucntionDecl = ((function_path_array)[i].next);
-			
-			if (function_return_collect->get(getFucntionDecl) == NULL){
+
+			if (function_return_collect->get(getFucntionDecl) == NULL)
+			{
 				find_fun_array.return_type_array = ret_type_find_fun_array;
-				
 			}
-			else{
+			else
+			{
 				find_fun_array = *(function_return_collect->get(getFucntionDecl));
 			}
 			vector<return_type> funcalleeRetTypearray = find_fun_array.return_type_array;
-		
-			for (int k = 0; k < callerRetTypearray.size(); k++){	
-				if((callerRetTypearray)[k].return_type_stmt_num == FUNCITON_THREAD){
-					int find_diff=0;
-					for (int k2 = 0; k2 < funcalleeRetTypearray.size(); k2++){	
-						if((callerRetTypearray)[k].return_tree==(funcalleeRetTypearray)[k2].return_tree)
+
+			for (int k = 0; k < callerRetTypearray.size(); k++)
+			{
+				if ((callerRetTypearray)[k].return_type_stmt_num == FUNCITON_THREAD)
+				{
+					int find_diff = 0;
+					for (int k2 = 0; k2 < funcalleeRetTypearray.size(); k2++)
+					{
+						if ((callerRetTypearray)[k].return_tree == (funcalleeRetTypearray)[k2].return_tree)
 							find_diff = 1;
-							break;
+						break;
 					}
-					if(find_diff ==0){
-						// fprintf(stderr, "\033[40;44m ======= print pthread lock stmt %d ========  \033[0m\n" ,(callerRetTypearray)[k].return_type_stmt_num);			
+					if (find_diff == 0)
+					{
+						// fprintf(stderr, "\033[40;44m ======= print pthread lock stmt %d ========  \033[0m\n" ,(callerRetTypearray)[k].return_type_stmt_num);
 						debug_gimple_stmt((callerRetTypearray)[k].stmt);
 						debug_tree((callerRetTypearray)[k].return_tree);
 						struct return_type ret_type;
@@ -3978,12 +3985,12 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 
 						find_fun_array.return_type_array.push_back(ret_type);
 						function_return_collect->put(getFucntionDecl, find_fun_array);
-						find_thread=FUNCITON_THREAD;
-						//fprintf(stderr, "\033[40;44m ============================================  \033[0m\n" ,(callerRetTypearray)[k].return_type_stmt_num);			
+						find_thread = FUNCITON_THREAD;
+						//fprintf(stderr, "\033[40;44m ============================================  \033[0m\n" ,(callerRetTypearray)[k].return_type_stmt_num);
 					}
 				}
 			}
-	
+
 			pathStack.push((function_path_array)[i].next);
 			// int find_type=0;
 			if (function_return_collect->get((function_path_array)[i].next) != NULL)
@@ -3996,7 +4003,6 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 				// 	if(TREE_STATIC((callerRetTypearray)[o].return_tree)) == true )
 				// 	{
 
-
 				// 	}
 				// 	else
 				// 	{
@@ -4004,21 +4010,19 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 
 				// 	}
 
-
 				// }
 				fprintf(stderr, "\033[40;44m =======print_function_type %d  ========  \033[0m\n", calleeFunArray.return_type_num);
 
 				// fprintf(stderr, "=======print_function_type %d  ========\n", calleeFunArray.return_type_num);
-			
-					for (int k = 0; k < callerRetTypearray.size(); k++)
-					{	
-						if (calleeFunArray.return_type_num == 2)
-							if ((callerRetTypearray)[k].return_tree == (function_path_array)[i].next)
-							{
-								checkPointerConstraint(function_tree, ptable, user_tmp, (callerRetTypearray)[k].return_tree,0);
-								break;
-							}
 
+				for (int k = 0; k < callerRetTypearray.size(); k++)
+				{
+					if (calleeFunArray.return_type_num == 2)
+						if ((callerRetTypearray)[k].return_tree == (function_path_array)[i].next)
+						{
+							checkPointerConstraint(function_tree, ptable, user_tmp, (callerRetTypearray)[k].return_tree, 0);
+							break;
+						}
 				}
 			}
 			print_function_path((function_path_array)[i].next, fucntion_level, ptable, user_tmp);
@@ -4026,9 +4030,10 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 			pathStack.pop();
 		}
 	}
-			if(find_thread == FUNCITON_THREAD){
-					checkPointerConstraint(function_tree, ptable, user_tmp, NULL,FUNCITON_THREAD);
-			}
+	if (find_thread == FUNCITON_THREAD)
+	{
+		checkPointerConstraint(function_tree, ptable, user_tmp, NULL, FUNCITON_THREAD);
+	}
 }
 
 void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
