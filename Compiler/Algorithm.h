@@ -3922,6 +3922,7 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 	checkPointerConstraint(function_tree, ptable, user_tmp, NULL,0);
 	fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 	int find = 0;
+		int find_thread=0;
 	for (int i = 0; i < function_path_array.size(); i++)
 	{
 		find = 0;
@@ -3940,6 +3941,7 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 		}
 		// if(find ==1)
 		// continue;
+
 		if (find == 0)
 		{
 			fprintf(stderr, "\033[40;46m =======add node_fun stack:%s========= \033[0m\n", get_name((function_path_array)[i].next));
@@ -3956,7 +3958,7 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 				find_fun_array = *(function_return_collect->get(getFucntionDecl));
 			}
 			vector<return_type> funcalleeRetTypearray = find_fun_array.return_type_array;
-			int find_thread=0;
+		
 			for (int k = 0; k < callerRetTypearray.size(); k++){	
 				if((callerRetTypearray)[k].return_type_stmt_num == FUNCITON_THREAD){
 					int find_diff=0;
@@ -3981,9 +3983,7 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 					}
 				}
 			}
-			if(find_thread == FUNCITON_THREAD){
-					checkPointerConstraint(function_tree, ptable, user_tmp, NULL,FUNCITON_THREAD);
-			}
+	
 			pathStack.push((function_path_array)[i].next);
 			// int find_type=0;
 			if (function_return_collect->get((function_path_array)[i].next) != NULL)
@@ -4026,6 +4026,9 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 			pathStack.pop();
 		}
 	}
+			if(find_thread == FUNCITON_THREAD){
+					checkPointerConstraint(function_tree, ptable, user_tmp, NULL,FUNCITON_THREAD);
+			}
 }
 
 void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
