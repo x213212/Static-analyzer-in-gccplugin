@@ -13,9 +13,11 @@ static int fuck = 0;
 int *foo(int z)  __attribute__((noinline));
 int *foo2(int z) __attribute__((noinline));
 void foo3(int *z) __attribute__((noinline));
+void boo(int *b) __attribute__((noinline));
 void test22(int *k) __attribute__((noinline));
 void test33(int *k) __attribute__((noinline));
 void test44(int *k) __attribute__((noinline));
+void *child(void *data) __attribute__((noinline));
 // void *child(void *data) __attribute__((noinline));
 // int *foo(int z);
 int *foo4(int z);
@@ -107,9 +109,9 @@ int *foo(int z)
 }
 void *child(void *data)
 {
-	pthread_mutex_t mLock2;
-		pthread_mutex_lock(&mLock2);
-			pthread_mutex_lock(&mLock2);
+	// pthread_mutex_t mLock2;
+	// pthread_mutex_lock(&mLock2);
+	// pthread_mutex_lock(&mLock2);
 	//a1
 	//   pthread_mutex_lock(&mLock);
 	//   //   char *str = (char*) data; // 取得輸入資料
@@ -130,23 +132,24 @@ void *child(void *data)
 	//   pthread_mutex_unlock(&mLock);
 	//   pthread_exit(NULL); // 離開子執行緒
 	//a2
-	pthread_mutex_lock(&mLock);
-	pthread_mutex_lock(&mLock);
-	int **ppData = malloc(10);
-	int *pData = malloc(20);
-	int *a = foo(1);
-	int data2 = 0;
+	// pthread_mutex_lock(&mLock);
+	// pthread_mutex_lock(&mLock);
+	// int **ppData = malloc(10);
+	// int *pData = malloc(20);
+	// int *a = foo(1);
+	// int data2 = 0;
 
-	ppData = &pData;
-	pData = &data2;
-	*ppData[0] = 10;
-	*ppData[1] = 10;
-	*ppData[2] = 10;
-	**ppData = 12;
-	free(pData);
+	// ppData = &pData;
+	// pData = &data2;
+	// *ppData[0] = 10;
+	// *ppData[1] = 10;
+	// *ppData[2] = 10;
+	// **ppData = 12;
+	// free(pData);
+	free(data);
 	// free(ppData);
-	pthread_mutex_unlock(&mLock);
-		free(ppData);
+	// pthread_mutex_unlock(&mLock);
+	// 	free(ppData);
 	//  pthread_exit(NULL); // 離開子執行緒
 
 	//a3
@@ -182,28 +185,29 @@ int main()
 {
 	int *p;
 	int *p2;
-	int *p3;
-	// test= malloc (sizeof (int ) * 10);
-	// foo3(p);
-	p3 = foo(2);
-	p3[0] = 1;
-	free(p3);
-	p = foo2(2);
-	p[0] = 2;
-	p2 = foo2(2);
-		p2=&fuck;
-	p2[0] = 4;
-	// test22(p);
-	// test22(p);
-	// test33(p2);
-	free(p);
-	free(p2);
-	char buff[50];
+	// int *p3;
+	// // test= malloc (sizeof (int ) * 10);
+	// // foo3(p);
+	// p3 = foo(2);
+	// p3[0] = 1;
+	// free(p3);
+	// p = foo2(2);
+	// p[0] = 2;
+	// p2 = foo2(2);
+	// 	// p2=&fuck;
+	// p2[0] = 4;
+	// // test22(p);
+	// // test22(p);
+	// // test33(p2);
+	// free(p);
+	// free(p2);
+	// boo(p);
+	// char buff[50];
 	int *q = malloc(5);
-
-	// q[0] = 10;
+	child (q);
+	q[0] = 10;
 	// test22(q);
-	// child((int)q);
+	
 	// int n;
 	// pthread_t t; // 宣告 pthread 變數
 	// pthread_mutex_destroy(&mLock);

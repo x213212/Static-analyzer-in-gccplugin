@@ -220,6 +220,10 @@ const unsigned int POINTER_NOT = 0;
 const unsigned int POINTER_MAY = 1;
 const unsigned int POINTER_MUST = 2;
 
+unsigned int IS_MALLOC_FUCNTION = 1;
+unsigned int IS_OTHRER_FUCNTION = 2;
+unsigned int IS_HEAP_FUCNTION = -1;
+unsigned int PTABLE_IS_NULL = -2;
 unsigned int FUNCITON_THREAD = 666;
 /*dump file */
 FILE *fp;
@@ -241,6 +245,7 @@ public:
 	using std::stack<gimple *>::c; // expose the container
 };
 CStack pathStack;
+CStack traceStack;
 CStack stmtStack;
 //stack<tree> pathStack;  // 建立堆疊
 function *main_fun;
@@ -253,7 +258,7 @@ void printfBasicblock();
 void print_function_return(tree function_tree);
 void print_function_return2(tree function_tree);
 void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb);
-
+void trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_tree);
 void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_array *user_tmp, ptb *table_temp, ptb *ptable);
 function_assign_array ret_function_varstmt(tree function_tree);
 bool bb_in_branch_p(ptb *table)
@@ -736,6 +741,7 @@ void new_use_after_free_analysis(ptb *ptable, ptb *ftable)
 	bool to_remove = false;
 	tree t;
 	struct ptr_info_def *pi;
+
 	struct pt_solution *pt;
 	fprintf(stderr, "start use after free analysis\n");
 	FOR_EACH_TABLE(table3, t)
@@ -1259,28 +1265,28 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 				set_ptb(bb, ftable, gimple_call_arg(gc, 0), loc, 0, gc, node);
 			}
 			// tree getreturnFucntionDecl = TREE_OPERAND(get_function_return_tree, 0);
-			tree getFucntionDecl = (node->get_fun()->decl);
+			// tree getFucntionDecl = (node->get_fun()->decl);
 
-			vector<free_type> free_type_array;
-			function_free_array fun_array;
-			if (function_free_collect->get(getFucntionDecl) == NULL)
-			{
-				// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
-				fun_array.free_type_array = free_type_array;
-			}
-			else
-			{
-				fun_array = *(function_free_collect->get(getFucntionDecl));
-				free_type_array = fun_array.free_type_array;
-			}
+			// vector<free_type> free_type_array;
+			// function_free_array fun_array;
+			// if (function_free_collect->get(getFucntionDecl) == NULL)
+			// {
+			// 	// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
+			// 	fun_array.free_type_array = free_type_array;
+			// }
+			// else
+			// {
+			// 	fun_array = *(function_free_collect->get(getFucntionDecl));
+			// 	free_type_array = fun_array.free_type_array;
+			// }
 
-			struct free_type free_type;
-			free_type.stmt = gc;
-			free_type.free_tree = gimple_call_arg(gc, 0);
-			// ret_type.return_tree = get_function_return_tree;
+			// struct free_type free_type;
+			// free_type.stmt = gc;
+			// free_type.free_tree = gimple_call_arg(gc, 0);
+			// // ret_type.return_tree = get_function_return_tree;
 
-			fun_array.free_type_array.push_back(free_type);
-			function_free_collect->put(node->get_fun()->decl, fun_array);
+			// fun_array.free_type_array.push_back(free_type);
+			// function_free_collect->put(node->get_fun()->decl, fun_array);
 		}
 
 		else if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
@@ -2341,7 +2347,9 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 						tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
 						{
 							if (TREE_CODE(second) == VAR_DECL)
+							{
 								debug_tree(second);
+							}
 							// debug_tree(gimple_assign_lhs(gc));
 
 							function_assign_array assign_array;
@@ -2373,8 +2381,30 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					else if (TREE_CODE(gimple_call_arg(gc, 0)) == SSA_NAME)
 					{
 						//free(ptr_ssaname)
-						fprintf(stderr, "ssa _name-------\n");
-						// set_ptb(bb, ftable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+						fprintf(stderr, "free stmt arg isssa _name-------\n");
+						debug_tree(gimple_call_arg(gc, 0));
+
+						tree getFucntionDecl = (node->get_fun()->decl);
+
+						vector<free_type> free_type_array;
+						function_free_array fun_array;
+						if (function_free_collect->get(getFucntionDecl) == NULL)
+						{
+							// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
+							fun_array.free_type_array = free_type_array;
+						}
+						else
+						{
+							fun_array = *(function_free_collect->get(getFucntionDecl));
+							free_type_array = fun_array.free_type_array;
+						}
+
+						struct free_type free_type;
+						free_type.stmt = gc;
+						free_type.free_tree = gimple_call_arg(gc, 0);
+
+						fun_array.free_type_array.push_back(free_type);
+						function_free_collect->put(getFucntionDecl, fun_array);
 					}
 				// tree getFucntionDecl = (node->get_fun()->decl);
 				// debug_tree(getFucntionDecl);
@@ -2461,8 +2491,50 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				function_return_collect->put(node->get_fun()->decl, fun_array);
 
 				debug(gc);
+				if (gimple_call_num_args(gc) != 0)
+				{
+					name = get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0)));
+					if (name != NULL)
+						if (!strcmp(name, "addr_expr"))
+						{
+							function_assign_array assign_array;
+							vector<assign_type> assign_type_array;
 
-				fprintf(stderr, "--------------------wwwwwwwwwwwwwSSSSSSSSSSSSSSSSSwwwwwwwwwwwwwwww------------------\n");
+							if (function_assign_collect->get(gimple_call_fn(gc)) == NULL)
+							{
+								fprintf(stderr, "other fucntion call addexpr-------\n");
+								debug(gc);
+								debug_tree(gimple_call_fn(gc));
+								// fprintf(stderr, "firstfirstfirstfirstfirstmappinggggggggggggggggggggggggggggggg-------\n");
+								assign_array.assign_type_array = assign_type_array;
+								// debug(gc);
+							}
+							else
+							{
+								fprintf(stderr, "other fucntion call addexpr-------\n");
+								debug(gc);
+								debug_tree(gimple_call_fn(gc));
+								assign_array = *(function_assign_collect->get(gimple_call_fn(gc)));
+								assign_type_array = assign_array.assign_type_array;
+							}
+
+							struct assign_type assign_type;
+
+							assign_type.stmt = gc;
+							assign_type.assign_tree = gimple_call_arg(gc, 0);
+							// ret_type.reutnr_type_num = 0;
+							assign_array.assign_type_array.push_back(assign_type);
+							tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
+							// debug_tree(second);
+							if (TREE_CODE(second) == VAR_DECL)
+							{
+								// debug_tree(second);
+								fprintf(stderr, "other fucntion call addexpr2-------\n");
+								function_assign_collect->put(second, assign_array);
+							}
+						}
+				}
+				fprintf(stderr, "------------w--------wwwwwwwwwwwwwSSSSSSSSSSSSSSSSSwwwwwwwwwwwwwwww------------------\n");
 				// 分歧點
 				// foo()
 				// p1 = foo2()
@@ -3527,7 +3599,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		fprintf(stderr, "\033[40;42m =======thread job funciton:%s========= \033[0m\n", get_name(function_tree));
 		find_fun_array = *(function_return_collect->get(function_tree));
 		vector<return_type> funcalleeRetTypearray = find_fun_array.return_type_array;
-		
+
 		int find_thread = 0;
 		int find_thread_count = 0;
 		for (int k = 0; k < funcalleeRetTypearray.size(); k++)
@@ -3601,7 +3673,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						!strcmp(name, "xcalloc") ||
 						!strcmp(name, "strdup"))
 					{
-						ptable_type = 1;
+
+						ptable_type = IS_MALLOC_FUCNTION;
 						debug(def_stmt);
 						// find_mallocstmt=1;
 						fprintf(stderr, "this Reserved word function ------%s-----\n", name);
@@ -3609,7 +3682,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					}
 					else
 					{
-						ptable_type = 2;
+						ptable_type = IS_OTHRER_FUCNTION;
 						fprintf(stderr, "this other function ------%s-----\n", name);
 					}
 
@@ -3634,7 +3707,18 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								{
 									debug(user_tmp->ret_stmt);
 									warning_at(gimple_location(user_tmp->ret_stmt), 0, "use location");
-									find_mallocstmt = -1;
+									if (checkTree != NULL)
+									{
+										fprintf(stderr, "\n ================== warring ================== \n");
+										// sfprintf(stderr, "function return value related stmt \n");
+										debug(checkTree);
+										fprintf(stderr, "\033[40;35m    function return value related stmt \033[0m\n");
+										fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+
+										// fprintf(stderr, "this stmt possible is heap-object 。\n");
+										fprintf(stderr, "\n ================== warring ================== \n");
+									}
+									find_mallocstmt = IS_HEAP_FUCNTION;
 									continue;
 								}
 							}
@@ -3677,6 +3761,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										debug(u_stmt);
 
 										warning_at(gimple_location(u_stmt), 0, "use location");
+
 										// fprintf(stderr, "addr_expraddr_expraddr_expraddr_expraddr_expr--------\n");
 									}
 									if (threadcheck == FUNCITON_THREAD && threadmod == true)
@@ -3706,24 +3791,20 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												fprintf(stderr, "\033[40;35m this stmt possible have Race Condition 。 \033[0m\n");
 												fprintf(stderr, "\n ================== warring  ================== \n");
 											}
-											// else
-											// {
-											// //local variable
-
-											// }
 										}
 									}
 								}
 								// debug(u_stmt);
 								if (user_tmp->target != NULL)
 								{
+
 									gimple *use_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
 
 									if (gimple_code(u_stmt) == GIMPLE_CALL)
 									{
 										name = get_name(gimple_call_fndecl(u_stmt));
 										if (name != NULL)
-											fprintf(stderr, "this other child function---%s-----\n", name);
+											fprintf(stderr, "this stmt is child function---%s-----\n", name);
 										else
 											fprintf(stderr, "this other child function---i null-----\n", name);
 									}
@@ -3741,15 +3822,17 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											!strcmp(name, "xcalloc") ||
 											!strcmp(name, "strdup"))
 										{
-											find_mallocstmt = 1;
+
+											find_mallocstmt = IS_MALLOC_FUCNTION;
 										}
 										else
 										{
 
-											find_mallocstmt = 2;
+											find_mallocstmt = IS_OTHRER_FUCNTION;
 										}
 								}
-								if (checkTree != NULL && gimple_code(def_stmt) == GIMPLE_CALL && gimple_code(u_stmt) == GIMPLE_CALL && find_mallocstmt == 2)
+
+								if (checkTree != NULL && gimple_code(def_stmt) == GIMPLE_CALL && gimple_code(u_stmt) == GIMPLE_CALL && find_mallocstmt == IS_OTHRER_FUCNTION)
 								{
 
 									tree gettreefucntionarg = TREE_OPERAND(gimple_call_fn(def_stmt), 0);
@@ -3757,7 +3840,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									if (name != NULL)
 										if (checkTree == gettreefucntionarg)
 										{
-											find_mallocstmt = 1;
+											find_mallocstmt = IS_MALLOC_FUCNTION;
 
 											fprintf(stderr, "\n ================== warring ================== \n");
 											// sfprintf(stderr, "function return value related stmt \n");
@@ -3786,6 +3869,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													{
 														fprintf(stderr, "\n ================== trace ================== \n");
 														fprintf(stderr, "trace fucntion name:%s \n", name);
+														trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target);
 														fprintf(stderr, "\n ================== trace ================== \n");
 													}
 											}
@@ -3794,11 +3878,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										{
 											if (gimple_code(u_stmt) == GIMPLE_CALL)
 											{
-												name = get_name(gimple_call_fndecl(u_stmt));
+												// name = get_name(gimple_call_fndecl(u_stmt));
+												name = get_name(gimple_call_fn(u_stmt));
 												if (name != NULL)
 												{
 													fprintf(stderr, "\n ================== trace ================== \n");
 													fprintf(stderr, "trace fucntion name:%s \n", name);
+													trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target);
 													fprintf(stderr, "\n ================== trace ================== \n");
 												}
 												// else
@@ -3808,10 +3894,21 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											find_mallocstmt = 0;
 										}
 								}
-								else if ((checkTree == NULL && gimple_code(u_stmt) == GIMPLE_CALL) && (find_mallocstmt == 1 || find_mallocstmt == 2))
+								else if (checkTree != NULL && gimple_code(u_stmt) == GIMPLE_RETURN && find_mallocstmt == IS_OTHRER_FUCNTION)
+								{
+									fprintf(stderr, "\n ================== warring ================== \n");
+									// sfprintf(stderr, "function return value related stmt \n");
+									debug(checkTree);
+									fprintf(stderr, "\033[40;35m    function return value related stmt \033[0m\n");
+									fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+
+									// fprintf(stderr, "this stmt possible is heap-object 。\n");
+									fprintf(stderr, "\n ================== warring ================== \n");
+								}
+								else if ((checkTree == NULL && gimple_code(u_stmt) == GIMPLE_CALL) && (find_mallocstmt == IS_MALLOC_FUCNTION || find_mallocstmt == IS_OTHRER_FUCNTION))
 								{
 
-									find_mallocstmt = 1;
+									find_mallocstmt = IS_MALLOC_FUCNTION;
 
 									// gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
 									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
@@ -3833,6 +3930,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										{
 											fprintf(stderr, "\n ================== trace ================== \n");
 											fprintf(stderr, "trace fucntion name:%s \n", name);
+											// debug_tree(gimple_call_fndecl(u_stmt));
+											trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target);
 											fprintf(stderr, "\n ================== trace ================== \n");
 										}
 								}
@@ -3841,14 +3940,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				}
 				else
 				{
-					find_mallocstmt = -2;
+					find_mallocstmt = PTABLE_IS_NULL;
 				}
 				//you are Reserved word function so always check
-				if (ptable_type == 1 && find_mallocstmt == 2)
-					find_mallocstmt = 1;
-				if (find_mallocstmt == 1)
+				if (ptable_type == IS_MALLOC_FUCNTION && find_mallocstmt == IS_OTHRER_FUCNTION)
+					find_mallocstmt = IS_MALLOC_FUCNTION;
+				if (find_mallocstmt == IS_MALLOC_FUCNTION)
 				{
-
 					if (find_freestmt == 0)
 					{
 						fprintf(stderr, "\n======================================================================\n");
@@ -3876,14 +3974,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						fprintf(stderr, "\n======================================================================\n\n");
 					}
 				}
-				else if (find_mallocstmt == -1)
+				else if (find_mallocstmt == IS_HEAP_FUCNTION)
 				{
 					fprintf(stderr, "\n======================================================================\n");
 					// fprintf(stderr, "	this fucntion return possible has heap-object\n");
 					fprintf(stderr, "\033[40;31m 	this fucntion return possible is heap-object \033[0m\n");
 					fprintf(stderr, "\n======================================================================\n\n");
 				}
-				else if (find_mallocstmt == -2)
+				else if (find_mallocstmt == PTABLE_IS_NULL)
 				{
 					fprintf(stderr, "\n======================================================================\n");
 					// fprintf(stderr, "	this fucntion return possible has heap-object\n");
@@ -3925,8 +4023,6 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 
 	fucntion_level += 1;
 
-	checkPointerConstraint(function_tree, ptable, user_tmp, NULL, 0);
-	fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 	int find = 0;
 	int find_thread = 0;
 	for (int i = 0; i < function_path_array.size(); i++)
@@ -3951,71 +4047,62 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 		if (find == 0)
 		{
 			fprintf(stderr, "\033[40;46m =======add node_fun stack:%s========= \033[0m\n", get_name((function_path_array)[i].next));
-			//thread lock set
-			function_return_array find_fun_array;
-			vector<return_type> ret_type_find_fun_array;
-			tree getFucntionDecl = ((function_path_array)[i].next);
-
-			if (function_return_collect->get(getFucntionDecl) == NULL)
-			{
-				find_fun_array.return_type_array = ret_type_find_fun_array;
-			}
-			else
-			{
-				find_fun_array = *(function_return_collect->get(getFucntionDecl));
-			}
-			vector<return_type> funcalleeRetTypearray = find_fun_array.return_type_array;
-
-			for (int k = 0; k < callerRetTypearray.size(); k++)
-			{
-				if ((callerRetTypearray)[k].return_type_stmt_num == FUNCITON_THREAD)
-				{
-					int find_diff = 0;
-					for (int k2 = 0; k2 < funcalleeRetTypearray.size(); k2++)
-					{
-						if ((callerRetTypearray)[k].return_tree == (funcalleeRetTypearray)[k2].return_tree)
-							find_diff = 1;
-
-					}
-					if (find_diff == 0)
-					{
-						// fprintf(stderr, "\033[40;44m ======= print pthread lock stmt %d ========  \033[0m\n" ,(callerRetTypearray)[k].return_type_stmt_num);
-						debug_gimple_stmt((callerRetTypearray)[k].stmt);
-						debug_tree((callerRetTypearray)[k].return_tree);
-						struct return_type ret_type;
-						ret_type.stmt = (callerRetTypearray)[k].stmt;
-						ret_type.return_tree = (callerRetTypearray)[k].return_tree;
-						ret_type.return_type_stmt_num = FUNCITON_THREAD;
-
-						find_fun_array.return_type_array.push_back(ret_type);
-						function_return_collect->put(getFucntionDecl, find_fun_array);
-						find_thread = FUNCITON_THREAD;
-						//fprintf(stderr, "\033[40;44m ============================================  \033[0m\n" ,(callerRetTypearray)[k].return_type_stmt_num);
-					}
-				}
-			}
 
 			pathStack.push((function_path_array)[i].next);
 			// int find_type=0;
 			if (function_return_collect->get((function_path_array)[i].next) != NULL)
 			{
-
 				function_return_array calleeFunArray = *(function_return_collect->get((function_path_array)[i].next));
-				// vector<return_type> calleeRetTypearray = calleeFunArray.return_type_array;
-				// for (int o= 0; o < callerRetTypearray.size(); o++){
-				// 	//global variable
-				// 	if(TREE_STATIC((callerRetTypearray)[o].return_tree)) == true )
-				// 	{
 
-				// 	}
-				// 	else
-				// 	{
-				// 	//local variable
-
-				// 	}
-
-				// }
 				fprintf(stderr, "\033[40;44m =======print_function_type %d  ========  \033[0m\n", calleeFunArray.return_type_num);
+
+				//thread lock set
+				function_return_array find_fun_array;
+				vector<return_type> ret_type_find_fun_array;
+				tree getFucntionDecl = ((function_path_array)[i].next);
+
+				if (function_return_collect->get(getFucntionDecl) == NULL)
+				{
+					find_fun_array.return_type_array = ret_type_find_fun_array;
+				}
+				else
+				{
+					find_fun_array = *(function_return_collect->get(getFucntionDecl));
+				}
+				vector<return_type> funcalleeRetTypearray = find_fun_array.return_type_array;
+
+				for (int k = 0; k < callerRetTypearray.size(); k++)
+				{
+					if ((callerRetTypearray)[k].return_type_stmt_num == FUNCITON_THREAD)
+					{
+						int find_diff = 0;
+						for (int k2 = 0; k2 < funcalleeRetTypearray.size(); k2++)
+						{
+							if ((callerRetTypearray)[k].return_tree == (funcalleeRetTypearray)[k2].return_tree)
+								find_diff = 1;
+						}
+						if (find_diff == 0)
+						{
+							// fprintf(stderr, "\033[40;44m ======= print pthread lock stmt %d ========  \033[0m\n" ,(callerRetTypearray)[k].return_type_stmt_num);
+							// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+							// debug_tree((callerRetTypearray)[k].return_tree);
+							struct return_type ret_type;
+							ret_type.stmt = (callerRetTypearray)[k].stmt;
+							ret_type.return_tree = (callerRetTypearray)[k].return_tree;
+							ret_type.return_type_stmt_num = FUNCITON_THREAD;
+
+							find_fun_array.return_type_array.push_back(ret_type);
+							function_return_collect->put(getFucntionDecl, find_fun_array);
+							find_thread = FUNCITON_THREAD;
+							if (find_thread == FUNCITON_THREAD)
+							{
+								checkPointerConstraint(function_tree, ptable, user_tmp, NULL, FUNCITON_THREAD);
+								// break;
+							}
+							//fprintf(stderr, "\033[40;44m ============================================  \033[0m\n" ,(callerRetTypearray)[k].return_type_stmt_num);
+						}
+					}
+				}
 
 				// fprintf(stderr, "=======print_function_type %d  ========\n", calleeFunArray.return_type_num);
 
@@ -4034,10 +4121,10 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 			pathStack.pop();
 		}
 	}
-	if (find_thread == FUNCITON_THREAD)
-	{
-		checkPointerConstraint(function_tree, ptable, user_tmp, NULL, FUNCITON_THREAD);
-	}
+	// if (check == 0)
+	//
+	checkPointerConstraint(function_tree, ptable, user_tmp, NULL, 0);
+	// fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 }
 
 void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
@@ -4073,7 +4160,59 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 	}
 	fprintf(stderr, "fucntion collect path finsh\n");
 }
-void print_function_path2(tree function_tree, int fucntion_level, ptb *ptable, gimple_array *user_tmp)
+
+// void print_function_path2(tree function_tree, int fucntion_level, ptb *ptable, gimple_array *user_tmp)
+// {
+// 	if (function_path_collect->get(function_tree) == NULL)
+// 		return;
+// 	function_path_array fun_array = *(function_path_collect->get(function_tree));
+
+// 	vector<function_path> function_path_array = fun_array.function_path_array;
+// 	//debug_tree(function_tree);
+// 	//vector<pair<fdecl,location_t>> loc;
+// 	if (function_return_collect->get(function_tree) == NULL)
+// 		return;
+// 	function_return_array callerFunArray = *(function_return_collect->get(function_tree));
+// 	vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
+
+// 	fprintf(stderr, "=======print_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(), fucntion_level);
+// 	fprintf(stderr, "=======print_function_type %d  ========\n", callerFunArray.return_type_num);
+// 	fucntion_level += 1;
+// 	fprintf(stderr, "[\n");
+
+// 	// checkPointerConstraint(function_tree,ptable,user_tmp);
+
+// 	fprintf(stderr, "=======print_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(), fucntion_level);
+// 	// pathStack.push(function_tree);
+// 	for (int i = 0; i < function_path_array.size(); i++)
+// 	{
+
+// 		int find = 0;
+
+// 		for (int o = 0; o < pathStack.size(); o++)
+// 		{
+
+// 			fprintf(stderr, "=======now node_fun stack:%s=========\n", get_name(pathStack.c[o]));
+// 			if (pathStack.c[o] == (function_path_array)[i].next)
+// 			{
+// 				find = 1;
+// 				fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(pathStack.c[o]));
+// 			}
+// 		}
+
+// 		if (find == 0)
+// 		{
+// 			fprintf(stderr, "=======add node_fun stack:%s=========\n", get_name((function_path_array)[i].next));
+// 			// debug_tree((function_path_array)[i].next);
+// 			pathStack.push((function_path_array)[i].next);
+// 			print_function_path((function_path_array)[i].next, fucntion_level, ptable, user_tmp);
+// 			pathStack.pop();
+// 		}
+// 	}
+
+// 	fprintf(stderr, "]\n");
+// }
+void trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_tree)
 {
 	if (function_path_collect->get(function_tree) == NULL)
 		return;
@@ -4084,45 +4223,59 @@ void print_function_path2(tree function_tree, int fucntion_level, ptb *ptable, g
 	//vector<pair<fdecl,location_t>> loc;
 	if (function_return_collect->get(function_tree) == NULL)
 		return;
-	function_return_array callerFunArray = *(function_return_collect->get(function_tree));
-	vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
+	// function_return_array callerFunArray = *(function_free_collect->get(function_tree));
+	// vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
+	fprintf(stderr, "=======trace_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(), fucntion_level);
+	if (function_free_collect->get(function_tree) != NULL)
+	{
+		function_free_array callerFunArray = *(function_free_collect->get(function_tree));
+		vector<free_type> callerRetTypearray = callerFunArray.free_type_array;
+		for (int k = 0; k < callerRetTypearray.size(); k++)
+		{
+			if (ptr_derefs_may_alias_p((callerRetTypearray)[k].free_tree, mallocStmt_tree))
+			{
 
-	fprintf(stderr, "=======print_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(), fucntion_level);
-	fprintf(stderr, "=======print_function_type %d  ========\n", callerFunArray.return_type_num);
+				fprintf(stderr, "find free stmt free same pointer\n");
+				debug_gimple_stmt((callerRetTypearray)[k].stmt);
+				warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+				// debug_tree((callerRetTypearray)[k].free_tree);
+			}
+			// debug_tree((callerRetTypearray)[k].free_tree);
+			// debug_tree (mallocStmt_tree);
+		}
+	}
 	fucntion_level += 1;
-	fprintf(stderr, "[\n");
 
 	// checkPointerConstraint(function_tree,ptable,user_tmp);
 
-	fprintf(stderr, "=======print_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(), fucntion_level);
+	fprintf(stderr, "=======trace_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 	// pathStack.push(function_tree);
 	for (int i = 0; i < function_path_array.size(); i++)
 	{
 
 		int find = 0;
 
-		for (int o = 0; o < pathStack.size(); o++)
+		for (int o = 0; o < traceStack.size(); o++)
 		{
 
-			fprintf(stderr, "=======now node_fun stack:%s=========\n", get_name(pathStack.c[o]));
-			if (pathStack.c[o] == (function_path_array)[i].next)
+			fprintf(stderr, "=======now node_fun trace stack:%s=========\n", get_name(traceStack.c[o]));
+			if (traceStack.c[o] == (function_path_array)[i].next)
 			{
 				find = 1;
-				fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(pathStack.c[o]));
+				fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(traceStack.c[o]));
 			}
 		}
 
 		if (find == 0)
 		{
-			fprintf(stderr, "=======add node_fun stack:%s=========\n", get_name((function_path_array)[i].next));
+			fprintf(stderr, "=======add node_fun trace stack:%s=========\n", get_name((function_path_array)[i].next));
 			// debug_tree((function_path_array)[i].next);
-			pathStack.push((function_path_array)[i].next);
-			print_function_path((function_path_array)[i].next, fucntion_level, ptable, user_tmp);
-			pathStack.pop();
+			traceStack.push((function_path_array)[i].next);
+			trace_function_path((function_path_array)[i].next, fucntion_level, mallocStmt_tree);
+			traceStack.pop();
 		}
 	}
 
-	fprintf(stderr, "]\n");
 }
 
 void tracefree_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
