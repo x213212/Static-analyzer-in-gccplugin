@@ -109,7 +109,7 @@ int *foo(int z)
 }
 void *child(void *data)
 {
-	// pthread_mutex_t mLock2;
+	pthread_mutex_t mLock2;
 	// pthread_mutex_lock(&mLock2);
 	// pthread_mutex_lock(&mLock2);
 	//a1
@@ -132,25 +132,26 @@ void *child(void *data)
 	//   pthread_mutex_unlock(&mLock);
 	//   pthread_exit(NULL); // 離開子執行緒
 	//a2
-	// pthread_mutex_lock(&mLock);
-	// pthread_mutex_lock(&mLock);
-	// int **ppData = malloc(10);
-	// int *pData = malloc(20);
-	// int *a = foo(1);
-	// int data2 = 0;
+	pthread_mutex_lock(&mLock);
+	pthread_mutex_lock(&mLock);
+	int **ppData = malloc(10);
+	int *pData = malloc(20);
+	int *a = foo(1);
+	int data2 = 0;
 
-	// ppData = &pData;
-	// pData = &data2;
-	// *ppData[0] = 10;
-	// *ppData[1] = 10;
-	// *ppData[2] = 10;
-	// **ppData = 12;
-	// free(pData);
+	ppData = &pData;
+	pData = &data2;
+	*ppData[0] = 10;
+	*ppData[1] = 10;
+	*ppData[2] = 10;
+	**ppData = 12;
+	free(pData);
 	free(data);
-	// free(ppData);
-	// pthread_mutex_unlock(&mLock);
-	// 	free(ppData);
-	//  pthread_exit(NULL); // 離開子執行緒
+	boo(data);
+	free(ppData);
+	pthread_mutex_unlock(&mLock);
+		free(ppData);
+	 pthread_exit(NULL); // 離開子執行緒
 
 	//a3
 	// pthread_mutex_lock(&mLock);
@@ -165,6 +166,8 @@ int *foo(int z);
 void boo(int *b)
 {
 	free(b);
+	free(b);
+	test22(b);
 	printf("asdda\n");
 }
 void test44(int *k)
@@ -177,8 +180,15 @@ void test33(int *k)
 }
 void test22(int *k)
 {
-	test22(k);
 	free(k);
+	free(k);
+	free(k);
+	free(k);
+	free(k);
+	free(k);
+	int *w = malloc(5);
+	free(w);
+	test22(k);
 }
 
 int main()

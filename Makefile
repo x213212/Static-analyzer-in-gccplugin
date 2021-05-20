@@ -1,7 +1,7 @@
 
 MAKE=make
 CC=gcc-7
-CFLAGS=-g
+CFLAGS=-g 
 
 
 
