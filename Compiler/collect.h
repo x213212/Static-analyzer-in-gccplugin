@@ -1,4 +1,3 @@
-
 void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 {
 

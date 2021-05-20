@@ -1,4 +1,3 @@
-
 void FunctionStmtMappingRet(ptb *ptable, ptb *ftable, gimple_array *user_tmp)
 {
 

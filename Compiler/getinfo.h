@@ -1,4 +1,3 @@
-
 function_assign_array ret_function_varstmt(tree function_tree)
 {
 	function_assign_array assign_array;

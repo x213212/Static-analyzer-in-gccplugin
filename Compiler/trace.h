@@ -1,4 +1,3 @@
-
 int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_tree, int *freecount)
 {
 	if (function_path_collect->get(function_tree) == NULL)
