@@ -12,23 +12,45 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 	// vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
 	// fprintf(stderr, "=======trace_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 	fprintf(stderr, "\033[40;44m =======trace_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
+	if (mallocStmt_tree != NULL_TREE)
+		if (function_free_collect->get(function_tree) != NULL)
+		{
+			function_free_array callerFunArray = *(function_free_collect->get(function_tree));
+			vector<free_type> callerRetTypearray = callerFunArray.free_type_array;
+			for (int k = 0; k < callerRetTypearray.size(); k++)
+			{
+				if (ptr_derefs_may_alias_p((callerRetTypearray)[k].free_tree, mallocStmt_tree))
+				{
+					fprintf(stderr, "\033[40;31m  find free stmt free same pointer \033[0m\n");
+					// fprintf(stderr, "find free stmt free same pointer\n");
+					debug_gimple_stmt((callerRetTypearray)[k].stmt);
+					warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+					++(*freecount);
 
-	if (function_free_collect->get(function_tree) != NULL)
+					// debug_tree((callerRetTypearray)[k].free_tree);
+				}
+				// debug_tree((callerRetTypearray)[k].free_tree);
+				// debug_tree (mallocStmt_tree);
+			}
+		}
+
+	if (function_pthread_detched_collect->get(function_tree) != NULL)
 	{
-		function_free_array callerFunArray = *(function_free_collect->get(function_tree));
-		vector<free_type> callerRetTypearray = callerFunArray.free_type_array;
+		function_pthread_detched_array callerFunArray = *(function_pthread_detched_collect->get(function_tree));
+		vector<pthread_detched_type> callerRetTypearray = callerFunArray.pthread_detched_array;
 		for (int k = 0; k < callerRetTypearray.size(); k++)
 		{
-			if (ptr_derefs_may_alias_p((callerRetTypearray)[k].free_tree, mallocStmt_tree))
-			{
-				fprintf(stderr, "\033[40;31m  find free stmt free same pointer \033[0m\n");
-				// fprintf(stderr, "find free stmt free same pointer\n");
-				debug_gimple_stmt((callerRetTypearray)[k].stmt);
-				warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-				++(*freecount);
+			// if (ptr_derefs_may_alias_p((callerRetTypearray)[k].free_tree, mallocStmt_tree))
+			// {
+			fprintf(stderr, "\033[40;31m  find pthread_detched stmt  \033[0m\n");
+			// fprintf(stderr, "find free stmt free same pointer\n");
+			debug_gimple_stmt((callerRetTypearray)[k].stmt);
+			warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+			++(*freecount);
+			// 	++(*freecount);
 
-				// debug_tree((callerRetTypearray)[k].free_tree);
-			}
+			// 	// debug_tree((callerRetTypearray)[k].free_tree);
+			// }
 			// debug_tree((callerRetTypearray)[k].free_tree);
 			// debug_tree (mallocStmt_tree);
 		}

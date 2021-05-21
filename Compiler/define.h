@@ -20,6 +20,10 @@ struct ptb
 	function *fun;
 	bool removed;
 	bool inbranch;
+	gimple *swap_stmt;
+	tree swap_target;
+	int swap_type;
+	int pthread_type=0;
 	int size = 0;
 };
 
@@ -87,6 +91,13 @@ struct assign_type
 	// int reutnr_type_num = 0;
 	//int return_type;
 };
+struct attr_type
+{
+	gimple *stmt;
+	tree attr_tree;
+	int attr_type_num = 0;
+	//int return_type;
+};
 
 struct free_type
 {
@@ -95,11 +106,19 @@ struct free_type
 	// int reutnr_type_num = 0;
 	//int return_type;
 };
+struct pthread_detched_type
+{
+	gimple *stmt;
+	tree pthread_detched_tree;
+	// int reutnr_type_num = 0;
+	//int return_type;
+};
 
 /*define return_type struct*/
 struct function_return_array
 {
 	int return_type_num = 0;
+	int pthread_type_num = -1;
 
 	vector<return_type> return_type_array;
 };
@@ -118,12 +137,27 @@ struct function_assign_array
 	vector<assign_type> assign_type_array;
 };
 
+/*define assign_type struct*/
+struct pthread_attr_array
+{
+	gimple *stmt;
+	tree attr_tree;
+	int attr_type_num = 0;
+	// int pass = 0;
+	// vector<attr_type> attr_type_array;
+};
+
 /*define free_type struct*/
 struct function_free_array
 {
 	vector<free_type> free_type_array;
 };
 
+/*define pthread_detched struct*/
+struct function_pthread_detched_array
+{
+	vector< pthread_detched_type> pthread_detched_array;
+};
 struct function_graph_array
 {
 	Graph graph_type_array;
@@ -133,6 +167,10 @@ struct function_graph_array
 hash_map<tree, function_return_array> *function_return_collect;
 /*collect function var decl ssa name */
 hash_map<tree, function_assign_array> *function_assign_collect;
+/*collect function pthread attr */
+hash_map<tree, pthread_attr_array> *pthread_attr_setdetachstates;
+/*collect function pthread_detched */
+hash_map<tree, function_pthread_detched_array> *function_pthread_detched_collect;
 /*collect function path */
 hash_map<tree, function_path_array> *function_path_collect;
 /*collect function free */
@@ -167,6 +205,8 @@ unsigned int IS_OTHRER_FUCNTION = 2;
 unsigned int IS_HEAP_FUCNTION = -1;
 unsigned int PTABLE_IS_NULL = -2;
 unsigned int FUNCITON_THREAD = 666;
+unsigned int CREATE_JOINABLE = 0;
+unsigned int CREATE_DETACHED = 1;
 /*dump file */
 FILE *fp;
 
@@ -213,8 +253,8 @@ void FunctionStmtMappingAssign(ptb *ptable, gimple_array *user_tmp);
 
 struct timespec diff(struct timespec start, struct timespec end);
 
-void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp);
 void printfBasicblock();
+void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp);
 void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp);
 void print_function_return(tree function_tree);
 void print_function_return2(tree function_tree);

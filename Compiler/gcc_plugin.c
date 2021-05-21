@@ -137,8 +137,8 @@ make_pass_detect (gcc::context *ctxt)
 }
 int plugin_init(struct plugin_name_args *plugin_info, struct plugin_gcc_version *version)
 {
-  fp = fopen ("file.txt", "a");
-	fprintf(fp,"test\n");
+  // fp = fopen ("file.txt", "a");
+	// fprintf(fp,"test\n");
 	if (!plugin_default_version_check(version, &gcc_version)){
 		printf("incompatible gcc/plugin versions\n");
 		return 1;

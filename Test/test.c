@@ -8,9 +8,9 @@
 pthread_mutex_t mLock;
 pthread_mutex_t mLock2;
 pthread_mutex_t mLock3;
-static	int *p99 ;
+static int *p99;
 static int fuck = 0;
-int *foo(int z)  __attribute__((noinline));
+int *foo(int z) __attribute__((noinline));
 int *foo2(int z) __attribute__((noinline));
 void foo3(int *z) __attribute__((noinline));
 void boo(int *b) __attribute__((noinline));
@@ -40,7 +40,7 @@ int *foo2(int z)
 	int *a2 = malloc(z);
 	int *p3 = malloc(z);
 	int *p4 = malloc(z);
-	p99 =malloc(z);
+	p99 = malloc(z);
 	int tmp;
 	a2[0] = 10;
 	p99[0] = 10;
@@ -110,6 +110,7 @@ int *foo(int z)
 void *child(void *data)
 {
 	pthread_mutex_t mLock2;
+	// pthread_detach(pthread_self());
 	// pthread_mutex_lock(&mLock2);
 	// pthread_mutex_lock(&mLock2);
 	//a1
@@ -150,8 +151,8 @@ void *child(void *data)
 	boo(data);
 	free(ppData);
 	pthread_mutex_unlock(&mLock);
-		free(ppData);
-	 pthread_exit(NULL); // 離開子執行緒
+	free(ppData);
+	pthread_exit(NULL); // 離開子執行緒
 
 	//a3
 	// pthread_mutex_lock(&mLock);
@@ -212,16 +213,43 @@ int main()
 	// free(p);
 	// free(p2);
 	// boo(p);
-	// char buff[50];
-	int *q = malloc(5);
-	child (q);
-	q[0] = 10;
-	// test22(q);
-	
 	// int n;
-	// pthread_t t; // 宣告 pthread 變數
+	char buff[50];
+
+	pthread_attr_t attr,attr2;
+	pthread_attr_init(&attr);
+	pthread_attr_init(&attr2);
+	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+	pthread_attr_setdetachstate(&attr2, PTHREAD_CREATE_JOINABLE);
+
+	pthread_t t,t2[3]; // 宣告 pthread 變數
+	pthread_create(&t, &attr2, child, NULL);
+
+	// pthread_join(t, NULL);
 	// pthread_mutex_destroy(&mLock);
-	// pthread_create(&t, NULL, child, buff); // 建立子執行緒
+	// pthread_create(&t, &attr, child, buff); // 建立子執行緒
+	for (int i = 0; i < 3; i++)
+	{
+		int err = pthread_create(&t2[i], &attr, child, NULL);
+
+		printf("%ld\n", t2[i]);
+	}
+	int *q = malloc(5);
+	if (q != NULL)
+	{
+
+		child(q);
+		q[0] = 10;
+	}
+	else
+		printf("fuck\n");
+
+	for (int i = 0; i < 3; i++)
+	{
+
+		pthread_join(t2[i], NULL);
+	}
+	// test22(q);
 
 	// // 主執行緒工作
 	// //   for(int i = 0;i < 3;++i) {

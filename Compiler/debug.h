@@ -1,72 +1,3 @@
-bool bb_in_loop_p(basic_block bb)
-{
-	return bb->loop_father->header->index != 0;
-}
-
-bool bb_in_branch_p(gimple *stmt)
-{
-	//function* fn = DECL_STRUCT_FUNCTION(gimple_get_lhs(stmt));
-	// fprintf(stderr, "backkkkkkkbackkkkkkkbackkkkkkkbackkkkkkkbackkkkkkkbackkkkkkk\n");
-	// debug_gimple_stmt(stmt);
-	// debug_bb(stmt->bb);
-	// fprintf(stderr, "prev_bbprev_bbprev_bbprev_bbprev_bbprev_bbprev_bbprev_bb\n");
-	// debug_bb(cfun->cfg->x_exit_block_ptr->prev_bb);
-	// debug_bb(cfun->cfg->x_entry_block_ptr->next_bb);
-	// debug_bb(stmt->bb);
-	// fprintf(stderr," %d\n",dominated_by_p(CDI_DOMINATORS,stmt->bb,cfun->cfg->x_exit_block_ptr->prev_bb));
-
-	return !dominated_by_p(CDI_DOMINATORS, stmt->bb, cfun->cfg->x_exit_block_ptr->prev_bb);
-}
-void init_table()
-{
-	//fprintf(stderr,"init_table.... \n");
-	start1.target = NULL_TREE;
-	start1.next = NULL;
-	start1.state = POINTER_NOT_EXIST;
-	ptable = &start1;
-
-	start2.target = NULL_TREE;
-	start2.next = NULL;
-	start2.state = POINTER_NOT_EXIST;
-	ftable = &start2;
-
-	start3.target = NULL_TREE;
-	start3.next = NULL;
-	start3.state = POINTER_NOT_EXIST;
-	retable = &start3;
-
-	start4.target = NULL_TREE;
-	start4.next = NULL;
-	start4.state = POINTER_NOT_EXIST;
-	phitable = &start4;
-
-	start5.target = NULL_TREE;
-	start5.next = NULL;
-	start5.state = POINTER_NOT_EXIST;
-	return_table = &start5;
-
-	start6.target = NULL_TREE;
-	start6.next = NULL;
-	start6.state = POINTER_NOT_EXIST;
-	use_table = &start6;
-
-	start7.target = NULL_TREE;
-	start7.next = NULL;
-	start7.state = POINTER_NOT_EXIST;
-	fopen_table = &start7;
-
-	start8.target = NULL_TREE;
-	start8.next = NULL;
-	start8.state = POINTER_NOT_EXIST;
-	locktable = &start8;
-
-	start9.target = NULL_TREE;
-	start9.next = NULL;
-	start9.state = POINTER_NOT_EXIST;
-	unlocktable = &start9;
-}
-
-
 void printfBasicblock()
 {
 
@@ -94,7 +25,7 @@ void printfBasicblock()
 		name = get_name(cfun->decl);
 		if (name != NULL)
 		{
-			
+
 			fprintf(stderr, "=======Mapping node_fun:%s=========\n", get_name(cfun->decl));
 			// debug_tree(cfun->decl);
 			// debug_tree(cfun->decl);
@@ -103,14 +34,12 @@ void printfBasicblock()
 		FOR_EACH_BB_FN(bb, cfun)
 		{
 			debug_bb(bb);
-		
+
 			fprintf(stderr, "=======is loop:%d=========\n", bb_in_loop_p(bb));
 		}
 		pop_cfun();
 	}
 }
-
-
 
 void print_function_path(vector<return_type> *path)
 {
@@ -123,7 +52,6 @@ void print_function_path(vector<return_type> *path)
 	fprintf(stderr, "]\n");
 	//fprintf(stderr, "	function ->%s in loc %d \n", IDENTIFIER_POINTER(DECL_NAME((*path)[i].first.fndecl)), LOCATION_LINE((*path)[i].second));
 }
-
 
 void print_function_return2(tree function_tree)
 {
@@ -174,7 +102,6 @@ void print_function_return(tree function_tree)
 	}
 	fprintf(stderr, "]\n");
 }
-
 
 void printfunctionCollect2(ptb *ptable, gimple_array *user_tmp)
 {
@@ -240,8 +167,6 @@ void printfunctionCollect(ptb *ptable, gimple_array *user_tmp)
 		pop_cfun();
 	}
 }
-
-
 
 void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp)
 {
@@ -356,7 +281,6 @@ void printfPointerConstraint2(ptb *ftable, gimple_array *user_tmp)
 	}
 }
 
-
 void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gimple_array *user_tmp)
 {
 	if (function_path_collect->get(function_tree) == NULL)
@@ -372,6 +296,9 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 	vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
 	fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 	fprintf(stderr, "\033[40;44m =======print_function_type %d  ========  \033[0m\n", callerFunArray.return_type_num);
+// fprintf(stderr, "rrrrrr%d-------\n", callerFunArray.pthread_type_num );
+	if(callerFunArray.pthread_type_num ==FUNCITON_THREAD)
+		fprintf(stderr, "\033[40;44m =======print_pthread_type_is thread_fucntion  ========  \033[0m\n");
 
 	fucntion_level += 1;
 
@@ -448,7 +375,7 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 							find_fun_array.return_type_array.push_back(ret_type);
 							function_return_collect->put(getFucntionDecl, find_fun_array);
 							find_thread = FUNCITON_THREAD;
-						
+
 							//fprintf(stderr, "\033[40;44m ============================================  \033[0m\n" ,(callerRetTypearray)[k].return_type_stmt_num);
 						}
 					}
@@ -471,9 +398,9 @@ void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gi
 			pathStack.pop();
 		}
 	}
-	if (find_thread == FUNCITON_THREAD){
+	if (find_thread == FUNCITON_THREAD)
+	{
 		checkPointerConstraint(function_tree, ptable, user_tmp, NULL, FUNCITON_THREAD);
-	
 	}
 	// if (check == 0)
 	//
@@ -485,14 +412,14 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 {
 
 	cgraph_edge *e;
-	if(node == NULL)
-	
-		fprintf(stderr, "=======node_fun: 幹=========\n");
+	if (node == NULL)
+
+		fprintf(stderr, "=======node_fun: =========\n");
 
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
-    //   if (!gimple_has_body_p (node->decl))
-    //       continue;
+		//   if (!gimple_has_body_p (node->decl))
+		//       continue;
 		int fucntion_level = 0;
 
 		push_cfun(node->get_fun());
@@ -504,16 +431,16 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 		//mutlple entry point
 		if (!strcmp(get_name(cfun->decl), "main"))
 		{
-		fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
-		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+			fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
+			// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 
-		fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
-		// fprintf(stderr, "fucntion collect path \n");
-		pathStack.push(cfun->decl);
+			fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
+			// fprintf(stderr, "fucntion collect path \n");
+			pathStack.push(cfun->decl);
 
-		print_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
-		fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.top()));
-		pathStack.pop();
+			print_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
+			fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.top()));
+			pathStack.pop();
 		}
 		pop_cfun();
 	}

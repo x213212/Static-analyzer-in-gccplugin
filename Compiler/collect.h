@@ -55,7 +55,69 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 			// debug_tree(gimple_call_lhs(gc));
 			set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
 		}
+		else if (!strcmp(name, "pthread_create"))
+		{
+			fprintf(stderr, "====================pthread_create============================\n");
+			gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
+			// debug_tree(gimple_call_arg(gc, 0));
+			set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+		}
+		else if (!strcmp(name, "pthread_attr_setdetachstate"))
+		{
+			fprintf(stderr, "====================pthread_attr_setdetachstate============================\n");
 
+			debug_tree(gimple_call_arg(gc, 0));
+			debug_tree(gimple_call_arg(gc, 1));
+			tree getvardecl = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
+			if (TREE_CODE(gimple_call_arg(gc, 1)) == INTEGER_CST)
+			{
+				// fprintf(stderr, "%d\n",	 int_cst_value (gimple_call_arg(gc, 1)));
+
+				//printf("<units>%d</units>\n", int_cst_value (gimple_call_arg(gc, 1)));
+			}
+			fprintf(stderr, "====================pthread_attr_setdetachstate============================\n");
+			//   printf("<units>%d</units>\n", TREE_INT_CST_NUNITS(gimple_call_arg(gc, 1)));
+			// gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
+			// // debug_tree(gimple_call_arg(gc, 0));
+			// set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+			pthread_attr_array pthread_attr_array;
+			// vector<attr_type> attr_type_array;
+
+			if (pthread_attr_setdetachstates->get(getvardecl) == NULL)
+			{
+				// fprintf(stderr, "firstfirstfirstfirstfirstmappinggggggggggggggggggggggggggggggg-------\n");
+				// pthread_attr_array.attr_type_array = attr_type_array;
+				// debug(gc);
+			}
+			else
+			{
+				// fprintf(stderr, "mappinggggggggggggggggggggggggggggggg-------\n");
+				// debug(gc);
+				pthread_attr_array = *(pthread_attr_setdetachstates->get(getvardecl));
+				// attr_type_array = pthread_attr_array.attr_type_array;
+			}
+			// struct attr_type attr_type;
+
+			// fprintf(stderr, "mappinggggggggggggggggggggggggggggggg-------\n");
+			// debug(gc);
+
+			pthread_attr_array.stmt = gc;
+			pthread_attr_array.attr_tree = gimple_call_arg(gc, 0);
+			if (TREE_CODE(gimple_call_arg(gc, 1)) == INTEGER_CST)
+			{
+				pthread_attr_array.attr_type_num = int_cst_value(gimple_call_arg(gc, 1));
+			}
+
+			// pthread_attr_array.attr_type_array.push_back(attr_type);
+			pthread_attr_setdetachstates->put(getvardecl, pthread_attr_array);
+		}
+	// else if (!strcmp(name, "pthread_join"))
+	// {
+	// 	fprintf(stderr, "====================pthread_join============================\n");
+	// 	gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
+	// 	debug_tree(gimple_call_arg(gc, 0));
+	// 	set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+	// }
 	// warning_at(gimple_location(gc), 0, "use location");
 
 	// else if (!strcmp(name, "pthread_mutex_unlock"))
@@ -232,6 +294,61 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 				fun_array.return_type_array.push_back(ret_type);
 				function_return_collect->put(node->get_fun()->decl, fun_array);
+			}
+			else if (!strcmp(name, "pthread_create"))
+			{
+				tree getFunctionAssignRHS = gimple_call_arg(gc, 0);
+				getFunctionAssignRHS = TREE_OPERAND(getFunctionAssignRHS, 0);
+				function_assign_array assign_array;
+				vector<assign_type> assign_type_array;
+				// fprintf(stderr, "firstfirstfirstfirstfirstmappinggggggggggggggggggggggggggggggg-------\n");
+				// debug(gc);
+				// debug_tree(getFunctionAssignRHS);
+				if (function_assign_collect->get(getFunctionAssignRHS) == NULL)
+				{
+					// fprintf(stderr, "firstfirstfirstfirstfirstmappinggggggggggggggggggggggggggggggg-------\n");
+					assign_array.assign_type_array = assign_type_array;
+					// debug(gc);
+				}
+				else
+				{
+					// fprintf(stderr, "mappinggggggggggggggggggggggggggggggg-------\n");
+					// debug(gc);
+					assign_array = *(function_assign_collect->get(getFunctionAssignRHS));
+					assign_type_array = assign_array.assign_type_array;
+				}
+				struct assign_type assign_type;
+
+				assign_type.stmt = gc;
+				assign_type.assign_tree = gimple_call_arg(gc, 0);
+				;
+				// ret_type.reutnr_type_num = 0;
+				assign_array.assign_type_array.push_back(assign_type);
+				function_assign_collect->put(getFunctionAssignRHS, assign_array);
+			}
+			else if (!strcmp(name, "pthread_detach"))
+			{
+				tree getFucntionDecl = (node->get_fun()->decl);
+
+				function_pthread_detched_array fun_array;
+				vector<pthread_detched_type> pthread_detched_array;
+				if (function_pthread_detched_collect->get(getFucntionDecl) == NULL)
+				{
+					// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
+					fun_array.pthread_detched_array = pthread_detched_array;
+				}
+				else
+				{
+					fun_array = *(function_pthread_detched_collect->get(getFucntionDecl));
+					pthread_detched_array = fun_array.pthread_detched_array;
+				}
+
+				struct pthread_detched_type pthread_detched_type;
+				pthread_detched_type.stmt = gc;
+				pthread_detched_type.pthread_detched_tree = gimple_call_arg(gc, 0);
+
+				fun_array.pthread_detched_array.push_back(pthread_detched_type);
+				function_pthread_detched_collect->put(getFucntionDecl, fun_array);
 			}
 			else
 			{
@@ -548,7 +665,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				{
 					// debug_gimple_stmt(gc);
 					// debug_tree(gimple_call_arg(gc, 0));
-					// fprintf(stderr, "sssssssssssssssssaaaaaaaaa name addr_expraddr_expraddr_expraddr_expraddr_expr--------\n");
+
 					tree second = TREE_OPERAND(first, 0);
 					// debug_tree(second);
 					function_assign_array assign_array;
@@ -598,11 +715,74 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				}
 				struct assign_type assign_type;
 
+				// fprintf(stderr, "mappinggggggggggggggggggggggggggggggg-------\n");
+				// debug(gc);
+
+				ptb *table1 = ptable;
+				tree t2 = NULL_TREE;
+				if (ptable->size >= 0)
+				{
+					FOR_EACH_TABLE(table1, t2)
+					{
+
+						if (!strcmp(get_tree_code_name(TREE_CODE(table1->target)), "addr_expr"))
+						{
+							tree second = TREE_OPERAND(table1->target, 0);
+							if (getFunctionAssignRHS == second)
+							{
+								debug_tree(getFunctionAssignLHS);
+								debug_tree(table1->target);
+								// debug_tree(second);
+								// fprintf(stderr, "okokokokokokok-------\n");
+								table1->swap_target = table1->target;
+								table1->swap_stmt = table1->last_stmt;
+								table1->target = getFunctionAssignLHS;
+								table1->last_stmt = gc;
+								table1->swap_type = FUNCITON_THREAD;
+								assign_type.stmt = table1->last_stmt;
+								assign_type.assign_tree = table1->target;
+								// ret_type.reutnr_type_num = 0;
+								// assign_array.assign_type_array.push_back(assign_type);
+								// function_assign_collect->put(getFunctionAssignRHS, assign_array);
+								// set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+							}
+							// debug_tree(getFunctionAssignRHS);
+						}
+					}
+				}
+			}
+			else if (TREE_CODE(getFunctionAssignRHS) == ARRAY_REF)
+			{
+				// fprintf(stderr, "sssssssssssssssssaaaaaaaaa name array_ref--------\n");
+				tree second = TREE_OPERAND(getFunctionAssignRHS, 0);
+				// debug_tree(second);
+
+				function_assign_array assign_array;
+				vector<assign_type> assign_type_array;
+
+				if (function_assign_collect->get(second) == NULL)
+				{
+					// fprintf(stderr, "firstfirstfirstfirstfirstmappinggggggggggggggggggggggggggggggg-------\n");
+					assign_array.assign_type_array = assign_type_array;
+					// debug(gc);
+				}
+				else
+				{
+					// fprintf(stderr, "mappinggggggggggggggggggggggggggggggg-------\n");
+					// debug(gc);
+					assign_array = *(function_assign_collect->get(second));
+					assign_type_array = assign_array.assign_type_array;
+				}
+
+				struct assign_type assign_type;
+
 				assign_type.stmt = gc;
 				assign_type.assign_tree = gimple_assign_lhs(gc);
+				// debug_tree(gimple_assign_lhs(gc));
 				// ret_type.reutnr_type_num = 0;
 				assign_array.assign_type_array.push_back(assign_type);
-				function_assign_collect->put(getFunctionAssignRHS, assign_array);
+				function_assign_collect->put(second, assign_array);
+				// debug_tree(gimple_assign_rhs1(getFunctionAssignRHS));
 			}
 		}
 	}
@@ -662,6 +842,8 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 		{
 			const char *name;
 			name = get_name(gimple_call_fn(table_temp->last_stmt));
+			// debug(table_temp->last_stmt);
+
 			if (name != NULL)
 				// 		debug(u_stmt);
 				// fprintf(stderr, "%s\n",name);
@@ -724,17 +906,114 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 
 					// debug(getmalloclhs);
 				}
-			if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+				else if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+				{
+
+					// fun_array.return_type_num = 3;
+					// fprintf(stderr, "RETURN with free ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+					// function_return_collect->put(function_tree, fun_array);
+					// return;
+				}
+				else if (!strcmp(name, "pthread_create") || !strcmp(name, "pthread_join"))
+				{
+					if (!strcmp(name, "pthread_create"))
+					{
+						// fprintf(stderr, "%sqqqqqqqqqqqqqqq\n", name);
+						pthread_attr_array pthread_attr_array;
+						// vector<attr_type> attr_type_array;
+						tree getvardecl = TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 1), 0);
+						// debug_tree(getvardecl);
+						if (pthread_attr_setdetachstates->get(getvardecl) != NULL)
+						{
+							// fprintf(stderr, "firstfirstfirstfirstfirstmappinggggggggggggggggggggggggggggggg-------\n");
+							// pthread_attr_array.attr_type_array = attr_type_array;
+							// debug(gc);
+
+							// fprintf(stderr, "mappinggggggggggggggggggggggggggggggg-------\n");
+							// debug(gc);
+							// if (fun_array.pthread_type_num == -1)
+							// {
+							// if (function_return_collect->get(function_tree) == NULL)
+							// 	return;
+							// function_return_array fun_array = *(function_return_collect->get(function_tree));
+
+							// vector<return_type> ret_type_array = fun_array.return_type_array;
+							// fprintf(stderr, "asdddddddddddddd%d-------\n", pthread_attr_array.attr_type_num);
+							// // debug_tree(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0));
+							// if (function_return_collect->get(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0)) == NULL)
+							// 	return;
+							// fun_array = *(function_return_collect->get(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0)));
+
+							// ret_type_array = fun_array.return_type_array;
+							//tree getvardecl = gimple_call_arg(table_temp->last_stmt, 2);
+							// debug_tree(getvardecl);
+							pthread_attr_array = *(pthread_attr_setdetachstates->get(getvardecl));
+							table_temp->swap_type = FUNCITON_THREAD;
+							table_temp->pthread_type = pthread_attr_array.attr_type_num;
+							// fun_array.pthread_type_num =FUNCITON_THREAD;
+							// function_return_collect->put(function_tree, fun_array);
+							// fprintf(stderr, "rrrrrr%d-------\n", pthread_attr_array.attr_type_num);
+							// }
+							// attr_type_array = pthread_attr_array.attr_type_array;
+						}
+					}
+					// fun_array.return_type_num = 3;
+					// fprintf(stderr, "RETURN with free ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+					// function_return_collect->put(function_tree, fun_array);
+					// return;
+				}
+		}
+		else if (gimple_code(table_temp->last_stmt) == GIMPLE_ASSIGN)
+		{
+			const char *name;
+			if (table_temp->swap_type == FUNCITON_THREAD)
 			{
-				// fun_array.return_type_num = 3;
-				// fprintf(stderr, "RETURN with free ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-				// function_return_collect->put(function_tree, fun_array);
-				// return;
+				name = get_name(gimple_call_fn(table_temp->swap_stmt));
+				if (!strcmp(name, "pthread_create") || !strcmp(name, "pthread_join"))
+				{
+					if (!strcmp(name, "pthread_create"))
+					{
+						// fprintf(stderr, "%sqqqqqqqqqqq2qqqq\n", name);
+						pthread_attr_array pthread_attr_array;
+						tree getvardecl = TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 1), 0);
+						// vector<attr_type> attr_type_array;
+						debug_tree(getvardecl);
+						if (pthread_attr_setdetachstates->get(getvardecl) != NULL)
+						{
+							// fprintf(stderr, "firstfirstfirstfirstfirstmappinggggggggggggggggggggggggggggggg-------\n");
+							// pthread_attr_array.attr_type_array = attr_type_array;
+							// debug(gc);
+
+							// fprintf(stderr, "mappingggggggggggggg222ggggggggggggggggg-------\n");
+							// debug(gc);
+							// if (fun_array.pthread_type_num == -1)
+							// {
+							// if (function_return_collect->get(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0)) == NULL)
+							// 	return;
+							// fun_array = *(function_return_collect->get(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0)));
+
+							// ret_type_array = fun_array.return_type_array;
+							pthread_attr_array = *(pthread_attr_setdetachstates->get(getvardecl));
+							table_temp->pthread_type = pthread_attr_array.attr_type_num;
+								fprintf(stderr, "rrrrsrr%d-------\n", pthread_attr_array.attr_type_num);
+							// fun_array.pthread_type_num =FUNCITON_THREAD;
+							// fprintf(stderr, "rrrrrr%d-------\n", pthread_attr_array.attr_type_num);
+							// function_return_collect->put(function_tree, fun_array);
+							// }
+							// attr_type_array = pthread_attr_array.attr_type_array;
+						}
+						// table_temp->pthread_type_num =
+						debug(table_temp->swap_stmt);
+					}
+					// fun_array.return_type_num = 3;
+					// fprintf(stderr, "RETURN with free ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+					// function_return_collect->put(function_tree, fun_array);
+					// return;
+				}
 			}
 		}
 	}
 }
-
 
 void collect_function_return(gimple *gc, cgraph_node *node, basic_block bb)
 {
