@@ -1,56 +1,12 @@
 #include "system.h"
 #include "config.h"
-#include <coretypes.h>
-#include "insn-constants.h"
-#include <pthread.h>
-#include <unistd.h>
-//#include "config/i386/i386.h"
-#include "is-a.h"
-#include "options.h"
-#include "backend.h"
-#include "rtl.h"
-#include "tree.h"
-#include "tree-pass.h"
-#include "gimple.h"
-#include "alloc-pool.h"
-#include "ssa.h"
-#include "cgraph.h"
-#include "tree-pretty-print.h"
-#include "diagnostic-core.h"
-#include "fold-const.h"
-#include "stor-layout.h"
-#include "stmt.h"
-#include "gimple-iterator.h"
-#include "tree-into-ssa.h"
-#include "tree-dfa.h"
-#include "params.h"
-#include "gimple-walk.h"
-#include "varasm.h"
-#include "options.h"
-#include "gimple-pretty-print.h"
-#include "print-tree.h"
-#include <string.h>
-#include "intl.h"
-#include "dominance.h"
-#include <et-forest.h>
-#include <cgraph.h>
-/*Algorithm 3*/
 #include "DFS.h"
 #include "cfgloop.h"
 #include <vector>
-// #include <omp.h>
 #include <time.h>
 #include <sys/time.h>
 #include <sys/resource.h>
 #include <fstream>
-#include "intl.h"
-#include "opts.h"
-#include "ssa.h"
-#include "alloc-pool.h"
-#include "tree-pass.h"
-#include "context.h"
-#include "tree.h"
-#include "tree-iterator.h"
 #include <iostream>
 #include <stack>
 
@@ -143,7 +99,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 			// 			if (TREE_CODE(gimple_assign_rhs1(def_stmt)) == VAR_DECL)
 			// 			{
-			// 				fprintf(stderr, "debug mo幹\n");
+			// 				fprintf(stderr, "debug mo\n");
 			// 			}
 			// 		}
 			// 	}
@@ -889,7 +845,9 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 					// debug_tree(gimple_assign_lhs(def_stmt));
 					// fprintf(stderr, "-----------------GIMPLE_PHI : INSERT------------------\n");
 					if (TREE_CODE(gimple_phi_result(use_stmt)) == SSA_NAME)
+					{
 						new_search_imm_use(used_stmt, gimple_phi_result(use_stmt), gimple_phi_result(use_stmt));
+					}
 				}
 				// }
 			}
@@ -1120,8 +1078,8 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	int Entrypoint = 0;
 
 	fprintf(stderr, "start PointerConstraint\n");
-	fprintf(stderr, "%d \n", ftable->size);
-	fprintf(stderr, "%d \n", ptable->size);
+	fprintf(stderr, "pointer ftable is %d \n", ftable->size);
+	fprintf(stderr, "pointer ptable is %d \n", ptable->size);
 
 	table3 = ptable;
 	//preproceess
@@ -1262,7 +1220,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	// // printfunctionCollect2(ptable, used_stmt);
 	struct cgraph_node *node;
 	record_fucntion(node);
-	
+
 	dump_fucntion(node, ptable, used_stmt);
 
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
@@ -1302,7 +1260,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 	ptb *table_temp = ptable;
 	tree t;
 	//
-	
+
 	fprintf(stderr, "\033[40;42m =======pre_check_funciton:%s========= \033[0m\n", get_name(function_tree));
 	if (threadcheck == FUNCITON_THREAD && threadmod == true)
 	{
@@ -1991,8 +1949,8 @@ void detect()
 	function_path_collect = new hash_map<tree, function_path_array>;
 	function_free_collect = new hash_map<tree, function_free_array>;
 	function_graph_collect = new hash_map<tree, function_graph_array>;
-	fDFS = new hash_map<cgraph_node *, Graph>;
-	fnode = new hash_map<tree, cgraph_node *>;
+	// fDFS = new hash_map<cgraph_node *, Graph>;
+	// fnode = new hash_map<tree, cgraph_node *>;
 	fprintf(stderr, "=======ipa_pta=========\n");
 	//ompfucntio();
 	/*initialization table*/
@@ -2007,18 +1965,93 @@ void detect()
 	stime = ru.ru_stime;
 	// fprintf(stderr,"%d\n",*tmp);
 	//cout << "----------------------------------------" <<tmp<<endl;
+	// debug_tree(gimple_call_fndecl(node->decl));
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
 		if (!ipa)
 			init_table();
 		push_cfun(node->get_fun());
+		//  ipa_ref *ref;
+		// FOR_EACH_ALIAS(node,ref){
+		// 		cout << "--------------ref--------------------------" <<endl;
+		// }
+		// function_args_iterator it;
+
+		// function_args_iter_init(&it, TREE_TYPE(node->get_fun()->decl));
+		// for (unsigned argno = 0;; ++argno, function_args_iter_next(&it))
+		// {
+		// 	// tree argtype = function_args_iter_cond(&it);
+		// 	cout << "--------------ref--------------------------" << endl;
+		// }
+		unsigned int nargs = 1;
+		function_args_iterator iter;
+		tree t;
+		int argct = 0;
+		fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+		// debug_tree(node->get_fun()->decl);
+		unsigned int i;
+		// tree parms, p;
+		// // debug_tree(DECL_ARGUMENTS(node->get_fun()->decl));
+		// // static_chain_decl
+		// // debug_tree(DECL_ARGUMENTS(node->get_fun()->decl));
+		// // debug_tree(DECL_CHAIN(DECL_ARGUMENTS(node->get_fun()->decl)));
+		// p = DECL_ARGUMENTS(node->get_fun()->decl);
+		// /* Fix up the types of parms passed by invisible reference.  */
+		// for (t = DECL_ARGUMENTS(node->get_fun()->decl); t; t = DECL_CHAIN(t)){
+		// 	debug_tree(t);
+		// }
+
+		// for (i = 0, p = DECL_ARGUMENTS(node->get_fun()->decl);
+		// 	DECL_CHAIN(p) != NULL;
+		// 	 i++, p = DECL_CHAIN(p))
+		// {
+		// 	tree arg;
+		// 	/* We cannot distinguish a varargs function from the case
+		//      of excess parameters, still deferring the inlining decision
+		//      to the callee is possible.  */
+		// 	// if (!p)
+		// 	// 	break;
+		// 	// arg = gimple_call_arg(stmt, i);
+
+		// 	debug_tree(p);
+		// 	// if( DECL_CHAIN(p) == NULL)
+		// 	// break;
+		// 	// if (p == error_mark_node || DECL_ARG_TYPE(p) == error_mark_node || arg == error_mark_node || (!types_compatible_p(DECL_ARG_TYPE(p), TREE_TYPE(arg)) && !fold_convertible_p(DECL_ARG_TYPE(p), arg)))
+		// 	// 	return false;
+		// }
+		// tree attr = lookup_attribute("sentinel", TYPE_ATTRIBUTES(TREE_TYPE(node->get_fun()->decl)));
+		// FOREACH_FUNCTION_ARGS(TREE_TYPE(node->get_fun()->decl), t, iter)
+		// {
+		// 	debug_tree(t);
+		// 	// if (t == void_type_node)
+		// 	// 	break;
+
+		// 	// gimple *def_stmt = SSA_NAME_DEF_STMT(t);
+		// 	// debug_tree(t);
+		// 	// debug_gimple_stmt(def_stmt);
+		// 	// tree_stmt_iterator it;
+		// 	// for (i = 0, it = tsi_start(t); !tsi_end_p(it); tsi_next(&it), i++)
+		// 	// {
+		// 	// 	char buffer[32];
+		// 	// 	sprintf(buffer, "%u", i);
+		// 	// 	dump_child(buffer, tsi_stmt(it));
+		// 	// }
+		// 	// if (TREE_VALUE(attr))
+		// 	// {
+		// 	// 	tree p = TREE_VALUE(TREE_VALUE(attr));
+		// 	// 	debug_tree(p);
+		// 	// 	// pos = TREE_INT_CST_LOW(p);
+		// 	// }
+		// 	argct++;
+		// 	// fprintf(stderr, "=======node_fun:%d=========\n", argct);
+		// }
+		fprintf(stderr, "=======node_fun:%d=========\n", argct);
 		// if (strcmp(get_name(cfun->decl), "main") == 0)
 
 		//tree test=DECL_SAVED_TREE(cfun->decl);
 		//analyze_func_body(DECL_SAVED_TREE(test), 0);
 		if (cfun == NULL)
 			continue;
-		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 		// debug_tree(cfun->decl);
 		// enum availability avail;
 		// for (e = node->callees; e; e = e->next_callee)
@@ -2089,6 +2122,28 @@ void detect()
 					collect_function_call(gc, node, bb);
 
 					// fprintf(stderr, "add collect_function_call\n");
+				}
+				if (is_gimple_assign(gc))
+				{
+					// debug_gimple_stmt(gc);
+					// if (gimple_assign_lhs(gc) != NULL)
+					// 	debug_tree(gimple_assign_lhs(gc));
+					tree parms, p;
+					// debug_tree(DECL_ARGUMENTS(node->get_fun()->decl));
+					// static_chain_decl
+					// debug_tree(DECL_ARGUMENTS(node->get_fun()->decl));
+					// debug_tree(DECL_CHAIN(DECL_ARGUMENTS(node->get_fun()->decl)));
+					p = DECL_ARGUMENTS(node->get_fun()->decl);
+					/* Fix up the types of parms passed by invisible reference.  */
+					for (t = DECL_ARGUMENTS(node->get_fun()->decl); t; t = DECL_CHAIN(t))
+					{
+						// debug_tree(t);
+						if (gimple_assign_lhs(gc) != NULL)
+							if (ptr_derefs_may_alias_p(t, gimple_assign_lhs(gc)))
+							{
+								debug_gimple_stmt(gc);
+							}
+					}
 				}
 				// print_function_return(cfun->decl);
 			}
@@ -2192,6 +2247,7 @@ void insert_always_inline()
 		{
 			//fprintf(stderr,"=======NULL=========\n");
 		}
+
 		FOR_EACH_BB_FN(bb, cfun)
 		{
 			//debug_bb(bb);

@@ -1,3 +1,100 @@
+
+void dump_fucntion2(cgraph_node *node, tree function_tree, tree mallocStmt_tree)
+{
+
+	cgraph_edge *e;
+	basic_block bb;
+	tree t;
+	if (node == NULL)
+
+		fprintf(stderr, "=======node_fun: =========\n");
+
+	FOR_EACH_DEFINED_FUNCTION(node)
+	{
+		//   if (!gimple_has_body_p (node->decl))
+		//       continue;
+		int fucntion_level = 0;
+
+		push_cfun(node->get_fun());
+
+		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+
+		if (cfun == NULL)
+			continue;
+		//mutlple entry point
+		if (cfun->decl == function_tree)
+		{
+			/*calculate dominator tree*/
+			calculate_dominance_info(CDI_DOMINATORS);
+
+			/*create DFS graph, Algorithm 1 and 2*/
+			FOR_EACH_BB_FN(bb, cfun)
+			{
+				// debug_bb(bb);
+				// if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
+				// {
+				// 	edge e;
+				// 	edge_iterator ei;
+				// 	//fprintf(stderr,"node:= %d \n succs:=",bb->index);
+				// 	FOR_EACH_EDGE(e, ei, bb->succs)
+				// 	{
+				// 		DFS.addEdge(bb->index, e->dest->index);
+				// 		//fprintf(stderr,"%d",e->dest->index);
+				// 	}
+				// }
+				for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
+				{
+					gimple *gc = gsi_stmt(gsi);
+
+					if (is_gimple_assign(gc))
+					{
+						// debug_gimple_stmt(gc);
+						// if (gimple_assign_lhs(gc) != NULL)
+						// 	debug_tree(gimple_assign_lhs(gc));
+						tree parms, p;
+						// debug_tree(DECL_ARGUMENTS(node->get_fun()->decl));
+						// static_chain_decl
+						// debug_tree(DECL_ARGUMENTS(node->get_fun()->decl));
+						// debug_tree(DECL_CHAIN(DECL_ARGUMENTS(node->get_fun()->decl)));
+						p = DECL_ARGUMENTS(node->get_fun()->decl);
+						/* Fix up the types of parms passed by invisible reference.  */
+						fprintf(stderr, "\033[40;36m  find relate stmt with malloc pointer \033[0m\n");
+						fprintf(stderr, "\033[40;36m =======node_fun:%s========= \033[0m\n", get_name(function_tree));
+
+						fprintf(stderr, "\033[40;36m =======relate malloc argument:%s========= \033[0m\n", get_name(mallocStmt_tree));
+						// debug_tree(mallocStmt_tree);
+						for (t = DECL_ARGUMENTS(node->get_fun()->decl); t; t = DECL_CHAIN(t))
+						{
+							// debug_tree(t);
+							if (gimple_assign_lhs(gc) != NULL)
+								if (ptr_derefs_may_alias_p(t, mallocStmt_tree) && ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
+								{
+									fprintf(stderr, "\033[40;36m =======relate node_fun argument:%s========= \033[0m\n", get_name(t));
+									// debug_tree(t);
+
+									fprintf(stderr, "\033[40;36m =======relate gimple_assign_lhs:%s========= \033[0m\n", gimple_assign_lhs(gc));
+									debug_gimple_stmt(gc);
+									warning_at(gimple_location(gc), 0, "use location");
+
+									fprintf(stderr, "\n ================== warring ================== \n");
+									// sfprintf(stderr, "function return value related stmt \n");
+									fprintf(stderr, "\033[40;35m    this pointer possible  reference other address \033[0m\n");
+									fprintf(stderr, "\033[40;35m    or assign other \033[0m\n");
+									// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+									// fprintf(stderr, "this stmt possible is heap-object 。\n");
+									fprintf(stderr, "\n ================== warring ================== \n");
+								}
+						}
+					
+					}
+				}
+			}
+		}
+		pop_cfun();
+	}
+	fprintf(stderr, "fucntion collect path finsh\n");
+}
+
 int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_tree, int *freecount)
 {
 	if (function_path_collect->get(function_tree) == NULL)
@@ -55,7 +152,12 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			// debug_tree (mallocStmt_tree);
 		}
 	}
-
+	if (tracerelatestmt == true)
+	{
+		struct cgraph_node *node;
+		if (mallocStmt_tree != NULL)
+			dump_fucntion2(node, function_tree, mallocStmt_tree);
+	}
 	fucntion_level += 1;
 
 	// checkPointerConstraint(function_tree,ptable,user_tmp);
@@ -123,7 +225,6 @@ void tracefree_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 	fprintf(stderr, "fucntion collect path finsh\n");
 }
 
-
 void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gimple_array *user_tmp)
 {
 	if (function_path_collect->get(function_tree) == NULL)
@@ -139,8 +240,8 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 	vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
 	fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 	fprintf(stderr, "\033[40;44m =======print_function_type %d  ========  \033[0m\n", callerFunArray.return_type_num);
-// fprintf(stderr, "rrrrrr%d-------\n", callerFunArray.pthread_type_num );
-	if(callerFunArray.pthread_type_num ==FUNCITON_THREAD)
+	// fprintf(stderr, "rrrrrr%d-------\n", callerFunArray.pthread_type_num );
+	if (callerFunArray.pthread_type_num == FUNCITON_THREAD)
 		fprintf(stderr, "\033[40;44m =======print_pthread_type_is thread_fucntion  ========  \033[0m\n");
 
 	fucntion_level += 1;
@@ -249,4 +350,43 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 	//
 	checkPointerConstraint(function_tree, ptable, user_tmp, NULL, 0);
 	// fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
+}
+
+void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
+{
+
+	cgraph_edge *e;
+	if (node == NULL)
+
+		fprintf(stderr, "=======node_fun: =========\n");
+
+	FOR_EACH_DEFINED_FUNCTION(node)
+	{
+		//   if (!gimple_has_body_p (node->decl))
+		//       continue;
+		int fucntion_level = 0;
+
+		push_cfun(node->get_fun());
+
+		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+
+		if (cfun == NULL)
+			continue;
+		//mutlple entry point
+		if (!strcmp(get_name(cfun->decl), "main"))
+		{
+			fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
+			// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+
+			fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
+			// fprintf(stderr, "fucntion collect path \n");
+			pathStack.push(cfun->decl);
+
+			walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
+			fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.top()));
+			pathStack.pop();
+		}
+		pop_cfun();
+	}
+	fprintf(stderr, "fucntion collect path finsh\n");
 }

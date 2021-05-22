@@ -13,6 +13,7 @@ static int fuck = 0;
 int *foo(int z) __attribute__((noinline));
 int *foo2(int z) __attribute__((noinline));
 void foo3(int *z) __attribute__((noinline));
+int foo5(int *z,int *y) __attribute__((noinline));
 void boo(int *b) __attribute__((noinline));
 void test22(int *k) __attribute__((noinline));
 void test33(int *k) __attribute__((noinline));
@@ -23,7 +24,20 @@ void *child(void *data) __attribute__((noinline));
 int *foo4(int z);
 // int *foo2(int z);
 // void foo3(int *z);
-
+int foo5(int *z,int *y)
+{
+	int p2=10;
+	
+	// p2=foo2(2);
+	// p2[0]=10;
+	///error
+			printf("fuck%d\n",*z);
+			printf("fuck%d\n",*y);	
+			printf("fuck%d\n",p2);
+	// p2=10;
+	//printf("%d",p2);
+	return p2;
+}
 void foo3(int *z)
 {
 	// int *p2;
@@ -191,6 +205,8 @@ void test22(int *k)
 	free(w);
 	test22(k);
 }
+static int staticTrue = 1; /* true */
+static int staticFalse = 0; /* false */
 
 int main()
 {
@@ -216,13 +232,13 @@ int main()
 	// int n;
 	char buff[50];
 
-	pthread_attr_t attr,attr2;
+	pthread_attr_t attr, attr2;
 	pthread_attr_init(&attr);
 	pthread_attr_init(&attr2);
 	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
 	pthread_attr_setdetachstate(&attr2, PTHREAD_CREATE_JOINABLE);
 
-	pthread_t t,t2[3]; // 宣告 pthread 變數
+	pthread_t t, t2[3]; // 宣告 pthread 變數
 	pthread_create(&t, &attr2, child, NULL);
 
 	// pthread_join(t, NULL);
@@ -249,6 +265,24 @@ int main()
 
 		pthread_join(t2[i], NULL);
 	}
+       int * data;
+    /* Initialize data */
+    data = NULL;
+    if(staticTrue)
+    {
+        data = (int *)malloc(100*sizeof(int));
+        if (data == NULL) {exit(-1);}
+        /* POTENTIAL FLAW: Free data in the source - the bad sink frees data as well */
+        free(data);
+    }
+    if(staticTrue)
+    {
+        /* POTENTIAL FLAW: Possibly freeing memory twice */
+        free(data);
+
+		
+    }
+	printf("fuck%d\n" , foo5(q,q));
 	// test22(q);
 
 	// // 主執行緒工作

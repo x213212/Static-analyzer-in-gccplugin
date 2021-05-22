@@ -57,17 +57,17 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 		}
 		else if (!strcmp(name, "pthread_create"))
 		{
-			fprintf(stderr, "====================pthread_create============================\n");
+			// fprintf(stderr, "====================pthread_create============================\n");
 			gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
 			// debug_tree(gimple_call_arg(gc, 0));
 			set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
 		}
 		else if (!strcmp(name, "pthread_attr_setdetachstate"))
 		{
-			fprintf(stderr, "====================pthread_attr_setdetachstate============================\n");
+			// fprintf(stderr, "====================pthread_attr_setdetachstate============================\n");
 
-			debug_tree(gimple_call_arg(gc, 0));
-			debug_tree(gimple_call_arg(gc, 1));
+			// debug_tree(gimple_call_arg(gc, 0));
+			// debug_tree(gimple_call_arg(gc, 1));
 			tree getvardecl = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
 			if (TREE_CODE(gimple_call_arg(gc, 1)) == INTEGER_CST)
 			{
@@ -75,7 +75,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 
 				//printf("<units>%d</units>\n", int_cst_value (gimple_call_arg(gc, 1)));
 			}
-			fprintf(stderr, "====================pthread_attr_setdetachstate============================\n");
+			// fprintf(stderr, "====================pthread_attr_setdetachstate============================\n");
 			//   printf("<units>%d</units>\n", TREE_INT_CST_NUNITS(gimple_call_arg(gc, 1)));
 			// gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
 			// // debug_tree(gimple_call_arg(gc, 0));
@@ -849,8 +849,23 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 				// fprintf(stderr, "%s\n",name);
 				if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(name, "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
 				{
-
+					// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+					// warning_at(gimple_location(gc), 0, "use location");
 					// debug(table_temp->last_stmt);
+					// debug(gc);
+
+					// debug_tree(table_temp->target);
+					// debug_tree((ret_type_array)[i].return_tree);
+					// gimple *def_stmt2 = SSA_NAME_DEF_STMT((ret_type_array)[i].return_tree);
+					// 	debug(def_stmt2);
+					// if (gimple_code(gc) == GIMPLE_ASSIGN)
+					// {
+					// 	debug_tree(gimple_assign_lhs(gc));
+					// 	if (gimple_assign_lhs(gc) != NULL)
+					// 		if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME)
+					// 			(ret_type_array)[i].return_tree = gimple_assign_lhs(gc);
+					// }
+
 					// // debug(u_stmt);
 					// debug(gc);
 
@@ -863,11 +878,20 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 						if (gimple_code(gc) == GIMPLE_RETURN)
 						{
 							// fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+							// debug(table_temp->last_stmt);
+							// debug(gc);
+							// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+							// warning_at(gimple_location(gc), 0, "use location");
 							// fprintf(stderr, "GIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGN CALLLLLLLLLLLLLLLLLLLLLLL\n");
 							//比對所有 ptable 有malloc 的stmt 假設有遇到 malloc 則可能為type2
 							if (TREE_CODE((ret_type_array)[i].return_tree) == SSA_NAME)
 								if (ptr_derefs_may_alias_p(table_temp->target, (ret_type_array)[i].return_tree))
 								{
+									// fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+									// debug(table_temp->last_stmt);
+									// debug(gc);
+									// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+									// warning_at(gimple_location(gc), 0, "use location");
 									// fprintf(stderr, "GIMPLE_ASSIGNGIMPLE_successssssssssssssssss\n");
 									// return value related malloc stmt
 									// debug(test);
@@ -880,10 +904,21 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 									// return;
 									return;
 								}
+							// else
+							// {
+							// 	if (function_return_collect->get((ret_type_array)[i].return_tree) == NULL)
+							// 		return;
+							// 			debug(gc);
+							// 	fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+							// 	function_return_array fun_array2 = *(function_return_collect->get(function_tree));
+
+							// 	vector<return_type> ret_type_array2 = fun_array.return_type_array;
+							// }
 						}
 					}
 					else
 					{
+
 						// fun_array.return_type_num = 1;
 						// function_return_collect->put(function_tree, fun_array);
 						// return ;
@@ -977,7 +1012,7 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 						pthread_attr_array pthread_attr_array;
 						tree getvardecl = TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 1), 0);
 						// vector<attr_type> attr_type_array;
-						debug_tree(getvardecl);
+						// debug_tree(getvardecl);
 						if (pthread_attr_setdetachstates->get(getvardecl) != NULL)
 						{
 							// fprintf(stderr, "firstfirstfirstfirstfirstmappinggggggggggggggggggggggggggggggg-------\n");
@@ -995,7 +1030,7 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 							// ret_type_array = fun_array.return_type_array;
 							pthread_attr_array = *(pthread_attr_setdetachstates->get(getvardecl));
 							table_temp->pthread_type = pthread_attr_array.attr_type_num;
-								fprintf(stderr, "rrrrsrr%d-------\n", pthread_attr_array.attr_type_num);
+							// fprintf(stderr, "rrrrsrr%d-------\n", pthread_attr_array.attr_type_num);
 							// fun_array.pthread_type_num =FUNCITON_THREAD;
 							// fprintf(stderr, "rrrrrr%d-------\n", pthread_attr_array.attr_type_num);
 							// function_return_collect->put(function_tree, fun_array);

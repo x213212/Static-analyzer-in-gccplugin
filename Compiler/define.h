@@ -214,6 +214,7 @@ ofstream cfginfo("cfginfo.txt");
 /*interprocedural analysis*/
 bool ipa = true;
 bool threadmod = true;
+bool tracerelatestmt = true;
 
 /*collect  function stack*/
 class CStack : public std::stack<tree>
