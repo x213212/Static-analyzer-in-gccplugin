@@ -1262,6 +1262,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	// // printfunctionCollect2(ptable, used_stmt);
 	struct cgraph_node *node;
 	record_fucntion(node);
+	
 	dump_fucntion(node, ptable, used_stmt);
 
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
@@ -1301,6 +1302,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 	ptb *table_temp = ptable;
 	tree t;
 	//
+	
 	fprintf(stderr, "\033[40;42m =======pre_check_funciton:%s========= \033[0m\n", get_name(function_tree));
 	if (threadcheck == FUNCITON_THREAD && threadmod == true)
 	{
@@ -2133,8 +2135,8 @@ void detect()
 	ofstream myfile("time.txt");
 	if (myfile.is_open())
 	{ //
-		myfile << "utime_used: " << time_used << "s;\n";
-		myfile << "stime_used: " << time_used << "s;\n";
+		myfile << "utime_used: " << time_used << " s;\n";
+		myfile << "stime_used: " << time_used << " s;\n";
 
 		myfile.close();
 	}

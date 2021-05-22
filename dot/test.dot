@@ -1,0 +1,15 @@
+digraph G {
+        
+        main -> child [label="no"];
+        main -> "pthread_mutex_lock (&mLock);\ntest.c:136:2: warning: use location"  [style=invis]; 
+        main -> "print pthread lock stmt"  [style=invis];
+        main -> "print pthread lock stmt"[style=invis];
+        foo -> foo2[label="Yes"] [style=invis];
+
+         main2 -> child [label="no"][style=invis];
+        main2 -> "pthread_mutex_lock (&mLock);\ntest.c:136:2: warning: use location"[style=invis];
+        main2 -> "print pthread lock stmt"[style=invis];
+        main2 -> "print pthread lock stmt"[style=invis];
+        foo -> foo2[label="Yes"][style=invis];
+}
+

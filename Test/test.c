@@ -110,7 +110,7 @@ int *foo(int z)
 void *child(void *data)
 {
 	pthread_mutex_t mLock2;
-	// pthread_detach(pthread_self());
+	pthread_detach(pthread_self());
 	// pthread_mutex_lock(&mLock2);
 	// pthread_mutex_lock(&mLock2);
 	//a1

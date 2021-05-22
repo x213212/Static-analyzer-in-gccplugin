@@ -8,48 +8,48 @@ test.c:79:5: warning: assignment from incompatible pointer type [-Wincompatible-
      ^
 =======ipa_pta=========
 ====================pthread_attr_setdetachstate============================
- <addr_expr 0x7fe2a9e4c380
-    type <pointer_type 0x7fe2a9e302a0
-        type <union_type 0x7fe2a9e28540 pthread_attr_t BLK
-            size <integer_cst 0x7fe2aa364c30 constant 448>
-            unit size <integer_cst 0x7fe2a9e2b1b0 constant 56>
-            align 64 symtab 0 alias set -1 canonical type 0x7fe2a9e28498 fields <field_decl 0x7fe2a9e2a390 __size> context <translation_unit_decl 0x7fe2aa2b6168 test.c>
-            pointer_to_this <pointer_type 0x7fe2a9e302a0> chain <type_decl 0x7fe2a9e2a428 D.4000>>
+ <addr_expr 0x7f1b0a71e380
+    type <pointer_type 0x7f1b0a7022a0
+        type <union_type 0x7f1b0a6fa540 pthread_attr_t BLK
+            size <integer_cst 0x7f1b0ac36c30 constant 448>
+            unit size <integer_cst 0x7f1b0a6fd1b0 constant 56>
+            align 64 symtab 0 alias set -1 canonical type 0x7f1b0a6fa498 fields <field_decl 0x7f1b0a6fc390 __size> context <translation_unit_decl 0x7f1b0ab88168 test.c>
+            pointer_to_this <pointer_type 0x7f1b0a7022a0> chain <type_decl 0x7f1b0a6fc428 D.4000>>
         unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7fe2a9e4ae10 attr type <union_type 0x7fe2a9e28540 pthread_attr_t>
-        addressable BLK file test.c line 219 col 17 size <integer_cst 0x7fe2aa364c30 448> unit size <integer_cst 0x7fe2a9e2b1b0 56>
-        align 128 context <function_decl 0x7fe2a9e29b00 main>
-        chain <var_decl 0x7fe2a9e4ad80 attr2 type <union_type 0x7fe2a9e28540 pthread_attr_t>
-            addressable BLK file test.c line 219 col 22 size <integer_cst 0x7fe2aa364c30 448> unit size <integer_cst 0x7fe2a9e2b1b0 56>
-            align 128 context <function_decl 0x7fe2a9e29b00 main> chain <var_decl 0x7fe2a9e4acf0 t>>>
+    arg 0 <var_decl 0x7f1b0a71ce10 attr type <union_type 0x7f1b0a6fa540 pthread_attr_t>
+        addressable BLK file test.c line 219 col 17 size <integer_cst 0x7f1b0ac36c30 448> unit size <integer_cst 0x7f1b0a6fd1b0 56>
+        align 128 context <function_decl 0x7f1b0a6fbb00 main>
+        chain <var_decl 0x7f1b0a71cd80 attr2 type <union_type 0x7f1b0a6fa540 pthread_attr_t>
+            addressable BLK file test.c line 219 col 22 size <integer_cst 0x7f1b0ac36c30 448> unit size <integer_cst 0x7f1b0a6fd1b0 56>
+            align 128 context <function_decl 0x7f1b0a6fbb00 main> chain <var_decl 0x7f1b0a71ccf0 t>>>
     test.c:222:2 start: test.c:222:2 finish: test.c:222:2>
- <integer_cst 0x7fe2aa2abf90 type <integer_type 0x7fe2aa2bf5e8 int> constant 1>
+ <integer_cst 0x7f1b0ab7df90 type <integer_type 0x7f1b0ab915e8 int> constant 1>
 ====================pthread_attr_setdetachstate============================
 ====================pthread_attr_setdetachstate============================
- <addr_expr 0x7fe2a9e4c3c0
-    type <pointer_type 0x7fe2a9e302a0
-        type <union_type 0x7fe2a9e28540 pthread_attr_t BLK
-            size <integer_cst 0x7fe2aa364c30 constant 448>
-            unit size <integer_cst 0x7fe2a9e2b1b0 constant 56>
-            align 64 symtab 0 alias set -1 canonical type 0x7fe2a9e28498 fields <field_decl 0x7fe2a9e2a390 __size> context <translation_unit_decl 0x7fe2aa2b6168 test.c>
-            pointer_to_this <pointer_type 0x7fe2a9e302a0> chain <type_decl 0x7fe2a9e2a428 D.4000>>
+ <addr_expr 0x7f1b0a71e3c0
+    type <pointer_type 0x7f1b0a7022a0
+        type <union_type 0x7f1b0a6fa540 pthread_attr_t BLK
+            size <integer_cst 0x7f1b0ac36c30 constant 448>
+            unit size <integer_cst 0x7f1b0a6fd1b0 constant 56>
+            align 64 symtab 0 alias set -1 canonical type 0x7f1b0a6fa498 fields <field_decl 0x7f1b0a6fc390 __size> context <translation_unit_decl 0x7f1b0ab88168 test.c>
+            pointer_to_this <pointer_type 0x7f1b0a7022a0> chain <type_decl 0x7f1b0a6fc428 D.4000>>
         unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7fe2a9e4ad80 attr2 type <union_type 0x7fe2a9e28540 pthread_attr_t>
-        addressable BLK file test.c line 219 col 22 size <integer_cst 0x7fe2aa364c30 448> unit size <integer_cst 0x7fe2a9e2b1b0 56>
-        align 128 context <function_decl 0x7fe2a9e29b00 main>
-        chain <var_decl 0x7fe2a9e4acf0 t type <integer_type 0x7fe2a9e28b28 pthread_t>
-            addressable unsigned DI file test.c line 225 col 12 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-            align 64 context <function_decl 0x7fe2a9e29b00 main> chain <var_decl 0x7fe2a9e4ac60 t2>>>
+    arg 0 <var_decl 0x7f1b0a71cd80 attr2 type <union_type 0x7f1b0a6fa540 pthread_attr_t>
+        addressable BLK file test.c line 219 col 22 size <integer_cst 0x7f1b0ac36c30 448> unit size <integer_cst 0x7f1b0a6fd1b0 56>
+        align 128 context <function_decl 0x7f1b0a6fbb00 main>
+        chain <var_decl 0x7f1b0a71ccf0 t type <integer_type 0x7f1b0a6fab28 pthread_t>
+            addressable unsigned DI file test.c line 225 col 12 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+            align 64 context <function_decl 0x7f1b0a6fbb00 main> chain <var_decl 0x7f1b0a71cc60 t2>>>
     test.c:223:2 start: test.c:223:2 finish: test.c:223:2>
- <integer_cst 0x7fe2aa2abf78 type <integer_type 0x7fe2aa2bf5e8 int> constant 0>
+ <integer_cst 0x7f1b0ab7df78 type <integer_type 0x7f1b0ab915e8 int> constant 0>
 ====================pthread_attr_setdetachstate============================
 ====================pthread_create============================
 ====================pthread_create============================
@@ -61,9 +61,9 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
-=======print_function_var -1425921360   1========
-=======print_function_var -1444633760   6========
-=======print_function_var -1444631456   2========
+=======print_function_var 193940144   1========
+=======print_function_var 175227744   6========
+=======print_function_var 175230048   2========
 [40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 [40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
     =()=
@@ -101,50 +101,50 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 [40;41m =======recursive_fun:test22========= [0m
 [40;42m =======pre_check_funciton:test22========= [0m
 [40;42m =======start_check_funciton:test22========= [0m
- <function_decl 0x7fe2a9e29d00 test22
-    type <function_type 0x7fe2a9e28930
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <function_decl 0x7f1b0a6fbd00 test22
+    type <function_type 0x7f1b0a6fa930
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a50 value <pointer_type 0x7fe2aa2c6a80>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33888>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 182 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e352a0>
-    result <result_decl 0x7fe2aa2b63c0 D.4049 type <void_type 0x7fe2aa2bff18 void>
+        arg-types <tree_list 0x7f1b0a6f9a50 value <pointer_type 0x7f1b0ab98a80>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705888>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 182 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a7072a0>
+    result <result_decl 0x7f1b0ab883c0 D.4049 type <void_type 0x7f1b0ab91f18 void>
         ignored VOID file test.c line 182 col 6
-        align 8 context <function_decl 0x7fe2a9e29d00 test22>>
-    arguments <parm_decl 0x7fe2a9e38600 k
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+        align 8 context <function_decl 0x7f1b0a6fbd00 test22>>
+    arguments <parm_decl 0x7f1b0a70a600 k
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-        unsigned DI file test.c line 182 col 18 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29d00 test22> arg-type <pointer_type 0x7fe2aa2c6a80>>
-    struct-function 0x7fe2a9e3d2c0>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+        unsigned DI file test.c line 182 col 18 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbd00 test22> arg-type <pointer_type 0x7f1b0ab98a80>>
+    struct-function 0x7f1b0a70f2c0>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45870
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a717870
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2a9e42c60 w>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0a714c60 w>
     def_stmt w_10 = malloc (5);
     version 10
-    ptr-info 0x7fe2a9e54018>
+    ptr-info 0x7f1b0a726018>
  
  Start check Pointer Collect  
 
@@ -168,50 +168,50 @@ test.c:191:2: warning: use location
 
 ======================================================================
 
- <function_decl 0x7fe2a9e29d00 test22
-    type <function_type 0x7fe2a9e28930
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <function_decl 0x7f1b0a6fbd00 test22
+    type <function_type 0x7f1b0a6fa930
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a50 value <pointer_type 0x7fe2aa2c6a80>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33888>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 182 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e352a0>
-    result <result_decl 0x7fe2aa2b63c0 D.4049 type <void_type 0x7fe2aa2bff18 void>
+        arg-types <tree_list 0x7f1b0a6f9a50 value <pointer_type 0x7f1b0ab98a80>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705888>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 182 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a7072a0>
+    result <result_decl 0x7f1b0ab883c0 D.4049 type <void_type 0x7f1b0ab91f18 void>
         ignored VOID file test.c line 182 col 6
-        align 8 context <function_decl 0x7fe2a9e29d00 test22>>
-    arguments <parm_decl 0x7fe2a9e38600 k
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+        align 8 context <function_decl 0x7f1b0a6fbd00 test22>>
+    arguments <parm_decl 0x7f1b0a70a600 k
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-        unsigned DI file test.c line 182 col 18 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29d00 test22> arg-type <pointer_type 0x7fe2aa2c6a80>>
-    struct-function 0x7fe2a9e3d2c0>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+        unsigned DI file test.c line 182 col 18 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbd00 test22> arg-type <pointer_type 0x7f1b0ab98a80>>
+    struct-function 0x7f1b0a70f2c0>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45828
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a717828
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <parm_decl 0x7fe2a9e38600 k>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <parm_decl 0x7f1b0a70a600 k>
     def_stmt GIMPLE_NOP
     version 2
-    ptr-info 0x7fe2a9e54000>
+    ptr-info 0x7f1b0a726000>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -419,50 +419,50 @@ test.c:153:2: warning: use location
   ^
 [40;42m =======thread job funciton lock count :3========= [0m
 [40;42m =======start_check_funciton:boo========= [0m
- <function_decl 0x7fe2a9e29e00 boo
-    type <function_type 0x7fe2a9e28930
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <function_decl 0x7f1b0a6fbe00 boo
+    type <function_type 0x7f1b0a6fa930
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a50 value <pointer_type 0x7fe2aa2c6a80>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33888>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 167 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35180>
-    result <result_decl 0x7fe2aa2b6348 D.4046 type <void_type 0x7fe2aa2bff18 void>
+        arg-types <tree_list 0x7f1b0a6f9a50 value <pointer_type 0x7f1b0ab98a80>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705888>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 167 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707180>
+    result <result_decl 0x7f1b0ab88348 D.4046 type <void_type 0x7f1b0ab91f18 void>
         ignored VOID file test.c line 167 col 6
-        align 8 context <function_decl 0x7fe2a9e29e00 boo>>
-    arguments <parm_decl 0x7fe2a9e38580 b
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+        align 8 context <function_decl 0x7f1b0a6fbe00 boo>>
+    arguments <parm_decl 0x7f1b0a70a580 b
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-        unsigned DI file test.c line 167 col 15 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29e00 boo> arg-type <pointer_type 0x7fe2aa2c6a80>>
-    struct-function 0x7fe2a9e3d210>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+        unsigned DI file test.c line 167 col 15 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbe00 boo> arg-type <pointer_type 0x7f1b0ab98a80>>
+    struct-function 0x7f1b0a70f210>
 
 ======================================================================
- <ssa_name 0x7fe2a9e455e8
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a7175e8
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <parm_decl 0x7fe2a9e38580 b>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <parm_decl 0x7f1b0a70a580 b>
     def_stmt GIMPLE_NOP
     version 2
-    ptr-info 0x7fe2a9e2bfd8>
+    ptr-info 0x7f1b0a6fdfd8>
  
  Start check Pointer Collect  
 
@@ -600,50 +600,50 @@ test.c:169:2: warning: use location
 ======================================================================
 [40;42m =======pre_check_funciton:boo========= [0m
 [40;42m =======start_check_funciton:boo========= [0m
- <function_decl 0x7fe2a9e29e00 boo
-    type <function_type 0x7fe2a9e28930
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <function_decl 0x7f1b0a6fbe00 boo
+    type <function_type 0x7f1b0a6fa930
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a50 value <pointer_type 0x7fe2aa2c6a80>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33888>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 167 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35180>
-    result <result_decl 0x7fe2aa2b6348 D.4046 type <void_type 0x7fe2aa2bff18 void>
+        arg-types <tree_list 0x7f1b0a6f9a50 value <pointer_type 0x7f1b0ab98a80>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705888>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 167 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707180>
+    result <result_decl 0x7f1b0ab88348 D.4046 type <void_type 0x7f1b0ab91f18 void>
         ignored VOID file test.c line 167 col 6
-        align 8 context <function_decl 0x7fe2a9e29e00 boo>>
-    arguments <parm_decl 0x7fe2a9e38580 b
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+        align 8 context <function_decl 0x7f1b0a6fbe00 boo>>
+    arguments <parm_decl 0x7f1b0a70a580 b
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-        unsigned DI file test.c line 167 col 15 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29e00 boo> arg-type <pointer_type 0x7fe2aa2c6a80>>
-    struct-function 0x7fe2a9e3d210>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+        unsigned DI file test.c line 167 col 15 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbe00 boo> arg-type <pointer_type 0x7f1b0ab98a80>>
+    struct-function 0x7f1b0a70f210>
 
 ======================================================================
- <ssa_name 0x7fe2a9e455e8
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a7175e8
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <parm_decl 0x7fe2a9e38580 b>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <parm_decl 0x7f1b0a70a580 b>
     def_stmt GIMPLE_NOP
     version 2
-    ptr-info 0x7fe2a9e2bfd8>
+    ptr-info 0x7f1b0a6fdfd8>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -786,45 +786,45 @@ test.c:169:2: warning: use location
 [40;44m =======print_function_type 2  ========  [0m
 [40;42m =======pre_check_funciton:child========= [0m
 [40;42m =======start_check_funciton:child========= [0m
- <function_decl 0x7fe2a9e29c00 child
-    type <function_type 0x7fe2a9e28888
-        type <pointer_type 0x7fe2aa2c60a8 type <void_type 0x7fe2aa2bff18 void>
+ <function_decl 0x7f1b0a6fbc00 child
+    type <function_type 0x7f1b0a6fa888
+        type <pointer_type 0x7f1b0ab980a8 type <void_type 0x7f1b0ab91f18 void>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+            pointer_to_this <pointer_type 0x7f1b0a6faa80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a00 value <pointer_type 0x7fe2aa2c60a8>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e282a0>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35300>
-    result <result_decl 0x7fe2aa2b6438 D.4053 type <pointer_type 0x7fe2aa2c60a8>
-        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child>>
-    arguments <parm_decl 0x7fe2a9e38680 data type <pointer_type 0x7fe2aa2c60a8>
-        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child> arg-type <pointer_type 0x7fe2aa2c60a8>>
-    struct-function 0x7fe2a9e3d370>
+        arg-types <tree_list 0x7f1b0a6f9a00 value <pointer_type 0x7f1b0ab980a8>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a6fa2a0>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707300>
+    result <result_decl 0x7f1b0ab88438 D.4053 type <pointer_type 0x7f1b0ab980a8>
+        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child>>
+    arguments <parm_decl 0x7f1b0a70a680 data type <pointer_type 0x7f1b0ab980a8>
+        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child> arg-type <pointer_type 0x7f1b0ab980a8>>
+    struct-function 0x7f1b0a70f370>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45d80
-    type <pointer_type 0x7fe2a9e335e8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <ssa_name 0x7f1b0a717d80
+    type <pointer_type 0x7f1b0a7055e8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-        public unsigned DI size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+        public unsigned DI size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fe2a9e4a3f0 ppData>
+    var <var_decl 0x7f1b0a71c3f0 ppData>
     def_stmt ppData_11 = malloc (10);
     version 11
-    ptr-info 0x7fe2a9e540c0>
+    ptr-info 0x7f1b0a7260c0>
 this other function ------ê…√UHâÂHÉÏ Hâ}ËHâu‡dHã%(-----
 
 ======================================================================
@@ -835,45 +835,45 @@ test.c:138:8: warning: use location
         ^
 
 ======================================================================
- <function_decl 0x7fe2a9e29c00 child
-    type <function_type 0x7fe2a9e28888
-        type <pointer_type 0x7fe2aa2c60a8 type <void_type 0x7fe2aa2bff18 void>
+ <function_decl 0x7f1b0a6fbc00 child
+    type <function_type 0x7f1b0a6fa888
+        type <pointer_type 0x7f1b0ab980a8 type <void_type 0x7f1b0ab91f18 void>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+            pointer_to_this <pointer_type 0x7f1b0a6faa80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a00 value <pointer_type 0x7fe2aa2c60a8>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e282a0>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35300>
-    result <result_decl 0x7fe2aa2b6438 D.4053 type <pointer_type 0x7fe2aa2c60a8>
-        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child>>
-    arguments <parm_decl 0x7fe2a9e38680 data type <pointer_type 0x7fe2aa2c60a8>
-        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child> arg-type <pointer_type 0x7fe2aa2c60a8>>
-    struct-function 0x7fe2a9e3d370>
+        arg-types <tree_list 0x7f1b0a6f9a00 value <pointer_type 0x7f1b0ab980a8>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a6fa2a0>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707300>
+    result <result_decl 0x7f1b0ab88438 D.4053 type <pointer_type 0x7f1b0ab980a8>
+        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child>>
+    arguments <parm_decl 0x7f1b0a70a680 data type <pointer_type 0x7f1b0ab980a8>
+        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child> arg-type <pointer_type 0x7f1b0ab980a8>>
+    struct-function 0x7f1b0a70f370>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45bd0
-    type <pointer_type 0x7fe2aa2c60a8
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <ssa_name 0x7f1b0a717bd0
+    type <pointer_type 0x7f1b0ab980a8
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+        pointer_to_this <pointer_type 0x7f1b0a6faa80>>
    
     def_stmt _1 = malloc (20);
     version 1
-    ptr-info 0x7fe2a9e54030>
+    ptr-info 0x7f1b0a726030>
 this other function ------ê…√UHâÂHÉÏ Hâ}ËHâu‡dHã%(-----
  
  Start check Pointer Collect  
@@ -924,47 +924,47 @@ trace fucntion name:free
 [40;31m 	this stmt need double check [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e29c00 child
-    type <function_type 0x7fe2a9e28888
-        type <pointer_type 0x7fe2aa2c60a8 type <void_type 0x7fe2aa2bff18 void>
+ <function_decl 0x7f1b0a6fbc00 child
+    type <function_type 0x7f1b0a6fa888
+        type <pointer_type 0x7f1b0ab980a8 type <void_type 0x7f1b0ab91f18 void>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+            pointer_to_this <pointer_type 0x7f1b0a6faa80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a00 value <pointer_type 0x7fe2aa2c60a8>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e282a0>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35300>
-    result <result_decl 0x7fe2aa2b6438 D.4053 type <pointer_type 0x7fe2aa2c60a8>
-        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child>>
-    arguments <parm_decl 0x7fe2a9e38680 data type <pointer_type 0x7fe2aa2c60a8>
-        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child> arg-type <pointer_type 0x7fe2aa2c60a8>>
-    struct-function 0x7fe2a9e3d370>
+        arg-types <tree_list 0x7f1b0a6f9a00 value <pointer_type 0x7f1b0ab980a8>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a6fa2a0>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707300>
+    result <result_decl 0x7f1b0ab88438 D.4053 type <pointer_type 0x7f1b0ab980a8>
+        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child>>
+    arguments <parm_decl 0x7f1b0a70a680 data type <pointer_type 0x7f1b0ab980a8>
+        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child> arg-type <pointer_type 0x7f1b0ab980a8>>
+    struct-function 0x7f1b0a70f370>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45dc8
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a717dc8
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2a9e4a2d0 a>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0a71c2d0 a>
     def_stmt a_15 = foo (1);
     version 15
-    ptr-info 0x7fe2a9e540d8>
+    ptr-info 0x7f1b0a7260d8>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -975,45 +975,45 @@ this other function ------free-----
 [40;31m 	this stmt need double check [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e29c00 child
-    type <function_type 0x7fe2a9e28888
-        type <pointer_type 0x7fe2aa2c60a8 type <void_type 0x7fe2aa2bff18 void>
+ <function_decl 0x7f1b0a6fbc00 child
+    type <function_type 0x7f1b0a6fa888
+        type <pointer_type 0x7f1b0ab980a8 type <void_type 0x7f1b0ab91f18 void>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+            pointer_to_this <pointer_type 0x7f1b0a6faa80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a00 value <pointer_type 0x7fe2aa2c60a8>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e282a0>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35300>
-    result <result_decl 0x7fe2aa2b6438 D.4053 type <pointer_type 0x7fe2aa2c60a8>
-        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child>>
-    arguments <parm_decl 0x7fe2a9e38680 data type <pointer_type 0x7fe2aa2c60a8>
-        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child> arg-type <pointer_type 0x7fe2aa2c60a8>>
-    struct-function 0x7fe2a9e3d370>
+        arg-types <tree_list 0x7f1b0a6f9a00 value <pointer_type 0x7f1b0ab980a8>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a6fa2a0>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707300>
+    result <result_decl 0x7f1b0ab88438 D.4053 type <pointer_type 0x7f1b0ab980a8>
+        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child>>
+    arguments <parm_decl 0x7f1b0a70a680 data type <pointer_type 0x7f1b0ab980a8>
+        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child> arg-type <pointer_type 0x7f1b0ab980a8>>
+    struct-function 0x7f1b0a70f370>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45e10
-    type <pointer_type 0x7fe2aa2c60a8
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <ssa_name 0x7f1b0a717e10
+    type <pointer_type 0x7f1b0ab980a8
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e28a80>>
-    var <parm_decl 0x7fe2a9e38680 data>
+        pointer_to_this <pointer_type 0x7f1b0a6faa80>>
+    var <parm_decl 0x7f1b0a70a680 data>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fe2a9e540f0>
+    ptr-info 0x7f1b0a7260f0>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -1041,52 +1041,52 @@ this stmt is child function---free-----
 [40;44m =======print_function_type 2  ========  [0m
 [40;42m =======pre_check_funciton:foo========= [0m
 [40;42m =======start_check_funciton:foo========= [0m
- <function_decl 0x7fe2a9e29f00 foo
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a6fbf00 foo
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 89 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35120>
-    result <result_decl 0x7fe2aa2b62d0 D.4042 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 89 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29f00 foo>>
-    arguments <parm_decl 0x7fe2a9e38500 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 89 col 14 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e29f00 foo> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d160>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 89 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707120>
+    result <result_decl 0x7f1b0ab882d0 D.4042 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 89 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbf00 foo>>
+    arguments <parm_decl 0x7f1b0a70a500 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 89 col 14 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a6fbf00 foo> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f160>
 
 ======================================================================
- <ssa_name 0x7fe2a9e453a8
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a7173a8
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2a9e42750 p2>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0a714750 p2>
     def_stmt p2_3 = malloc (1);
     version 3
-    ptr-info 0x7fe2a9e2bfa8>
+    ptr-info 0x7f1b0a6fdfa8>
 this other function ------ê…√UHâÂHÉÏ Hâ}ËHâu‡dHã%(-----
  
  Start check Pointer Collect  
@@ -1101,52 +1101,52 @@ test.c:93:8: warning: use location
 [40;31m 	this stmt need double check [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e29f00 foo
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a6fbf00 foo
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 89 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35120>
-    result <result_decl 0x7fe2aa2b62d0 D.4042 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 89 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29f00 foo>>
-    arguments <parm_decl 0x7fe2a9e38500 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 89 col 14 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e29f00 foo> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d160>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 89 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707120>
+    result <result_decl 0x7f1b0ab882d0 D.4042 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 89 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbf00 foo>>
+    arguments <parm_decl 0x7f1b0a70a500 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 89 col 14 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a6fbf00 foo> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f160>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45438
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a717438
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
    
     def_stmt _7 = foo2 (z_5(D));
     version 7
-    ptr-info 0x7fe2a9e2bfc0>
+    ptr-info 0x7f1b0a6fdfc0>
 this other function ------ê…√UHâÂHÉÏ Hâ}ËHâu‡dHã%(-----
  
  Start check Pointer Collect  
@@ -1177,48 +1177,48 @@ test.c:108:9: warning: use location
 [40;44m =======print_function_type 0  ========  [0m
 [40;42m =======pre_check_funciton:foo3========= [0m
 [40;42m =======start_check_funciton:foo3========= [0m
- <function_decl 0x7fe2a9e2e100 foo3
-    type <function_type 0x7fe2a9e28930
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <function_decl 0x7f1b0a700100 foo3
+    type <function_type 0x7f1b0a6fa930
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a50 value <pointer_type 0x7fe2aa2c6a80>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33888>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 27 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35060>
-    result <result_decl 0x7fe2aa2b61e0 D.4032 type <void_type 0x7fe2aa2bff18 void>
+        arg-types <tree_list 0x7f1b0a6f9a50 value <pointer_type 0x7f1b0ab98a80>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705888>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 27 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707060>
+    result <result_decl 0x7f1b0ab881e0 D.4032 type <void_type 0x7f1b0ab91f18 void>
         ignored VOID file test.c line 27 col 6
-        align 8 context <function_decl 0x7fe2a9e2e100 foo3>>
-    arguments <parm_decl 0x7fe2a9e38300 z
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+        align 8 context <function_decl 0x7f1b0a700100 foo3>>
+    arguments <parm_decl 0x7f1b0a70a300 z
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-        unsigned DI file test.c line 27 col 16 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e2e100 foo3> arg-type <pointer_type 0x7fe2aa2c6a80>>
-    struct-function 0x7fe2a9e3d000>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+        unsigned DI file test.c line 27 col 16 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a700100 foo3> arg-type <pointer_type 0x7f1b0ab98a80>>
+    struct-function 0x7f1b0a70f000>
 
 ======================================================================
- <ssa_name 0x7fe2aa2b38b8
-    type <pointer_type 0x7fe2aa2c60a8
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <ssa_name 0x7f1b0ab858b8
+    type <pointer_type 0x7f1b0ab980a8
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+        pointer_to_this <pointer_type 0x7f1b0a6faa80>>
    
     def_stmt _1 = malloc (1);
     version 1
-    ptr-info 0x7fe2a9e2beb8>
+    ptr-info 0x7f1b0a6fdeb8>
  
  Start check Pointer Collect  
 
@@ -1277,52 +1277,52 @@ test.c:153:2: warning: use location
   ^
 [40;42m =======thread job funciton lock count :6========= [0m
 [40;42m =======start_check_funciton:foo2========= [0m
- <function_decl 0x7fe2a9e2e000 foo2
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a700000 foo2
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e350c0>
-    result <result_decl 0x7fe2aa2b6258 D.4035 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e2e000 foo2>>
-    arguments <parm_decl 0x7fe2a9e38400 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 37 col 15 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e2e000 foo2> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d0b0>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a7070c0>
+    result <result_decl 0x7f1b0ab88258 D.4035 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a700000 foo2>>
+    arguments <parm_decl 0x7f1b0a70a400 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 37 col 15 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a700000 foo2> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f0b0>
 
 ======================================================================
- <ssa_name 0x7fe2aa2b3d38
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0ab85d38
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2a9e42090 a2>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0a714090 a2>
     def_stmt a2_12 = malloc (_1);
     version 12
-    ptr-info 0x7fe2a9e2bf30>
+    ptr-info 0x7f1b0a6fdf30>
  
  Start check Pointer Collect  
 
@@ -1343,52 +1343,52 @@ test.c:45:8: warning: use location
 [40;31m 	this stmt need double check [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e2e000 foo2
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a700000 foo2
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e350c0>
-    result <result_decl 0x7fe2aa2b6258 D.4035 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e2e000 foo2>>
-    arguments <parm_decl 0x7fe2a9e38400 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 37 col 15 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e2e000 foo2> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d0b0>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a7070c0>
+    result <result_decl 0x7f1b0ab88258 D.4035 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a700000 foo2>>
+    arguments <parm_decl 0x7f1b0a70a400 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 37 col 15 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a700000 foo2> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f0b0>
 
 ======================================================================
- <ssa_name 0x7fe2aa2b3d80
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0ab85d80
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2a9e42000 p3>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0a714000 p3>
     def_stmt p3_14 = malloc (_2);
     version 14
-    ptr-info 0x7fe2a9e2bf48>
+    ptr-info 0x7f1b0a6fdf48>
  
  Start check Pointer Collect  
 
@@ -1448,52 +1448,52 @@ lto1: warning: use location
 [40;31m 	this fucntion return possible is heap-object [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e2e000 foo2
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a700000 foo2
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e350c0>
-    result <result_decl 0x7fe2aa2b6258 D.4035 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e2e000 foo2>>
-    arguments <parm_decl 0x7fe2a9e38400 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 37 col 15 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e2e000 foo2> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d0b0>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a7070c0>
+    result <result_decl 0x7f1b0ab88258 D.4035 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a700000 foo2>>
+    arguments <parm_decl 0x7f1b0a70a400 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 37 col 15 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a700000 foo2> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f0b0>
 
 ======================================================================
- <ssa_name 0x7fe2aa2b3dc8
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0ab85dc8
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2ab022cf0 p4>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0b8f4cf0 p4>
     def_stmt p4_16 = malloc (_3);
     version 16
-    ptr-info 0x7fe2a9e2bf60>
+    ptr-info 0x7f1b0a6fdf60>
 this other function ------foo3-----
  
  Start check Pointer Collect  
@@ -1542,50 +1542,50 @@ lto1: warning: use location
 [40;31m 	this fucntion return possible is heap-object [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e2e000 foo2
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a700000 foo2
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e350c0>
-    result <result_decl 0x7fe2aa2b6258 D.4035 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e2e000 foo2>>
-    arguments <parm_decl 0x7fe2a9e38400 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 37 col 15 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e2e000 foo2> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d0b0>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a7070c0>
+    result <result_decl 0x7f1b0ab88258 D.4035 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a700000 foo2>>
+    arguments <parm_decl 0x7f1b0a70a400 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 37 col 15 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a700000 foo2> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f0b0>
 
 ======================================================================
- <ssa_name 0x7fe2aa2b3c18
-    type <pointer_type 0x7fe2aa2c60a8
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <ssa_name 0x7f1b0ab85c18
+    type <pointer_type 0x7f1b0ab980a8
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+        pointer_to_this <pointer_type 0x7f1b0a6faa80>>
    
     def_stmt _5 = malloc (_4);
     version 5
-    ptr-info 0x7fe2a9e2bee8>
+    ptr-info 0x7f1b0a6fdee8>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -1613,52 +1613,52 @@ test.c:43:6: warning: use location
 ======================================================================
 [40;42m =======pre_check_funciton:foo2========= [0m
 [40;42m =======start_check_funciton:foo2========= [0m
- <function_decl 0x7fe2a9e2e000 foo2
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a700000 foo2
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e350c0>
-    result <result_decl 0x7fe2aa2b6258 D.4035 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e2e000 foo2>>
-    arguments <parm_decl 0x7fe2a9e38400 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 37 col 15 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e2e000 foo2> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d0b0>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a7070c0>
+    result <result_decl 0x7f1b0ab88258 D.4035 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a700000 foo2>>
+    arguments <parm_decl 0x7f1b0a70a400 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 37 col 15 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a700000 foo2> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f0b0>
 
 ======================================================================
- <ssa_name 0x7fe2aa2b3d38
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0ab85d38
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2a9e42090 a2>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0a714090 a2>
     def_stmt a2_12 = malloc (_1);
     version 12
-    ptr-info 0x7fe2a9e2bf30>
+    ptr-info 0x7f1b0a6fdf30>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -1673,52 +1673,52 @@ test.c:45:8: warning: use location
 [40;31m 	this stmt need double check [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e2e000 foo2
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a700000 foo2
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e350c0>
-    result <result_decl 0x7fe2aa2b6258 D.4035 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e2e000 foo2>>
-    arguments <parm_decl 0x7fe2a9e38400 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 37 col 15 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e2e000 foo2> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d0b0>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a7070c0>
+    result <result_decl 0x7f1b0ab88258 D.4035 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a700000 foo2>>
+    arguments <parm_decl 0x7f1b0a70a400 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 37 col 15 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a700000 foo2> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f0b0>
 
 ======================================================================
- <ssa_name 0x7fe2aa2b3d80
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0ab85d80
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2a9e42000 p3>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0a714000 p3>
     def_stmt p3_14 = malloc (_2);
     version 14
-    ptr-info 0x7fe2a9e2bf48>
+    ptr-info 0x7f1b0a6fdf48>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -1766,52 +1766,52 @@ lto1: warning: use location
 [40;31m 	this fucntion return possible is heap-object [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e2e000 foo2
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a700000 foo2
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e350c0>
-    result <result_decl 0x7fe2aa2b6258 D.4035 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e2e000 foo2>>
-    arguments <parm_decl 0x7fe2a9e38400 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 37 col 15 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e2e000 foo2> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d0b0>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a7070c0>
+    result <result_decl 0x7f1b0ab88258 D.4035 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a700000 foo2>>
+    arguments <parm_decl 0x7f1b0a70a400 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 37 col 15 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a700000 foo2> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f0b0>
 
 ======================================================================
- <ssa_name 0x7fe2aa2b3dc8
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0ab85dc8
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2ab022cf0 p4>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0b8f4cf0 p4>
     def_stmt p4_16 = malloc (_3);
     version 16
-    ptr-info 0x7fe2a9e2bf60>
+    ptr-info 0x7f1b0a6fdf60>
 this other function ------foo3-----
  
  Start check Pointer Collect  
@@ -1847,50 +1847,50 @@ lto1: warning: use location
 [40;31m 	this fucntion return possible is heap-object [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e2e000 foo2
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a700000 foo2
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e350c0>
-    result <result_decl 0x7fe2aa2b6258 D.4035 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e2e000 foo2>>
-    arguments <parm_decl 0x7fe2a9e38400 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 37 col 15 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e2e000 foo2> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d0b0>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 37 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a7070c0>
+    result <result_decl 0x7f1b0ab88258 D.4035 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 37 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a700000 foo2>>
+    arguments <parm_decl 0x7f1b0a70a400 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 37 col 15 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a700000 foo2> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f0b0>
 
 ======================================================================
- <ssa_name 0x7fe2aa2b3c18
-    type <pointer_type 0x7fe2aa2c60a8
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <ssa_name 0x7f1b0ab85c18
+    type <pointer_type 0x7f1b0ab980a8
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+        pointer_to_this <pointer_type 0x7f1b0a6faa80>>
    
     def_stmt _5 = malloc (_4);
     version 5
-    ptr-info 0x7fe2a9e2bee8>
+    ptr-info 0x7f1b0a6fdee8>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -1928,52 +1928,52 @@ test.c:153:2: warning: use location
   ^
 [40;42m =======thread job funciton lock count :3========= [0m
 [40;42m =======start_check_funciton:foo========= [0m
- <function_decl 0x7fe2a9e29f00 foo
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a6fbf00 foo
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 89 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35120>
-    result <result_decl 0x7fe2aa2b62d0 D.4042 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 89 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29f00 foo>>
-    arguments <parm_decl 0x7fe2a9e38500 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 89 col 14 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e29f00 foo> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d160>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 89 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707120>
+    result <result_decl 0x7f1b0ab882d0 D.4042 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 89 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbf00 foo>>
+    arguments <parm_decl 0x7f1b0a70a500 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 89 col 14 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a6fbf00 foo> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f160>
 
 ======================================================================
- <ssa_name 0x7fe2a9e453a8
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a7173a8
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2a9e42750 p2>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0a714750 p2>
     def_stmt p2_3 = malloc (1);
     version 3
-    ptr-info 0x7fe2a9e2bfa8>
+    ptr-info 0x7f1b0a6fdfa8>
  
  Start check Pointer Collect  
 
@@ -1994,52 +1994,52 @@ test.c:93:8: warning: use location
 [40;31m 	this stmt need double check [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e29f00 foo
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a6fbf00 foo
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 89 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35120>
-    result <result_decl 0x7fe2aa2b62d0 D.4042 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 89 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29f00 foo>>
-    arguments <parm_decl 0x7fe2a9e38500 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 89 col 14 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e29f00 foo> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d160>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 89 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707120>
+    result <result_decl 0x7f1b0ab882d0 D.4042 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 89 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbf00 foo>>
+    arguments <parm_decl 0x7f1b0a70a500 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 89 col 14 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a6fbf00 foo> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f160>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45438
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a717438
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
    
     def_stmt _7 = foo2 (z_5(D));
     version 7
-    ptr-info 0x7fe2a9e2bfc0>
+    ptr-info 0x7f1b0a6fdfc0>
  
  Start check Pointer Collect  
 
@@ -2055,52 +2055,52 @@ test.c:108:9: warning: use location
 ======================================================================
 [40;42m =======pre_check_funciton:foo========= [0m
 [40;42m =======start_check_funciton:foo========= [0m
- <function_decl 0x7fe2a9e29f00 foo
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a6fbf00 foo
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 89 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35120>
-    result <result_decl 0x7fe2aa2b62d0 D.4042 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 89 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29f00 foo>>
-    arguments <parm_decl 0x7fe2a9e38500 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 89 col 14 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e29f00 foo> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d160>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 89 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707120>
+    result <result_decl 0x7f1b0ab882d0 D.4042 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 89 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbf00 foo>>
+    arguments <parm_decl 0x7f1b0a70a500 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 89 col 14 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a6fbf00 foo> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f160>
 
 ======================================================================
- <ssa_name 0x7fe2a9e453a8
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a7173a8
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2a9e42750 p2>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0a714750 p2>
     def_stmt p2_3 = malloc (1);
     version 3
-    ptr-info 0x7fe2a9e2bfa8>
+    ptr-info 0x7f1b0a6fdfa8>
  
  Start check Pointer Collect  
 
@@ -2114,52 +2114,52 @@ test.c:93:8: warning: use location
 [40;31m 	this stmt need double check [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e29f00 foo
-    type <function_type 0x7fe2a9e289d8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <function_decl 0x7f1b0a6fbf00 foo
+    type <function_type 0x7f1b0a6fa9d8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27ac8 value <integer_type 0x7fe2aa2bf5e8 int>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e33738>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 89 col 6 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35120>
-    result <result_decl 0x7fe2aa2b62d0 D.4042 type <pointer_type 0x7fe2aa2c6a80>
-        unsigned ignored DI file test.c line 89 col 6 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29f00 foo>>
-    arguments <parm_decl 0x7fe2a9e38500 z
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
-        SI file test.c line 89 col 14 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e29f00 foo> arg-type <integer_type 0x7fe2aa2bf5e8 int>>
-    struct-function 0x7fe2a9e3d160>
+        arg-types <tree_list 0x7f1b0a6f9ac8 value <integer_type 0x7f1b0ab915e8 int>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a705738>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 89 col 6 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707120>
+    result <result_decl 0x7f1b0ab882d0 D.4042 type <pointer_type 0x7f1b0ab98a80>
+        unsigned ignored DI file test.c line 89 col 6 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbf00 foo>>
+    arguments <parm_decl 0x7f1b0a70a500 z
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
+        SI file test.c line 89 col 14 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a6fbf00 foo> arg-type <integer_type 0x7f1b0ab915e8 int>>
+    struct-function 0x7f1b0a70f160>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45438
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a717438
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
    
     def_stmt _7 = foo2 (z_5(D));
     version 7
-    ptr-info 0x7fe2a9e2bfc0>
+    ptr-info 0x7f1b0a6fdfc0>
  
  Start check Pointer Collect  
 
@@ -2196,45 +2196,45 @@ test.c:153:2: warning: use location
   ^
 [40;42m =======thread job funciton lock count :3========= [0m
 [40;42m =======start_check_funciton:child========= [0m
- <function_decl 0x7fe2a9e29c00 child
-    type <function_type 0x7fe2a9e28888
-        type <pointer_type 0x7fe2aa2c60a8 type <void_type 0x7fe2aa2bff18 void>
+ <function_decl 0x7f1b0a6fbc00 child
+    type <function_type 0x7f1b0a6fa888
+        type <pointer_type 0x7f1b0ab980a8 type <void_type 0x7f1b0ab91f18 void>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+            pointer_to_this <pointer_type 0x7f1b0a6faa80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a00 value <pointer_type 0x7fe2aa2c60a8>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e282a0>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35300>
-    result <result_decl 0x7fe2aa2b6438 D.4053 type <pointer_type 0x7fe2aa2c60a8>
-        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child>>
-    arguments <parm_decl 0x7fe2a9e38680 data type <pointer_type 0x7fe2aa2c60a8>
-        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child> arg-type <pointer_type 0x7fe2aa2c60a8>>
-    struct-function 0x7fe2a9e3d370>
+        arg-types <tree_list 0x7f1b0a6f9a00 value <pointer_type 0x7f1b0ab980a8>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a6fa2a0>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707300>
+    result <result_decl 0x7f1b0ab88438 D.4053 type <pointer_type 0x7f1b0ab980a8>
+        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child>>
+    arguments <parm_decl 0x7f1b0a70a680 data type <pointer_type 0x7f1b0ab980a8>
+        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child> arg-type <pointer_type 0x7f1b0ab980a8>>
+    struct-function 0x7f1b0a70f370>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45d80
-    type <pointer_type 0x7fe2a9e335e8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <ssa_name 0x7f1b0a717d80
+    type <pointer_type 0x7f1b0a7055e8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-        public unsigned DI size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+        public unsigned DI size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fe2a9e4a3f0 ppData>
+    var <var_decl 0x7f1b0a71c3f0 ppData>
     def_stmt ppData_11 = malloc (10);
     version 11
-    ptr-info 0x7fe2a9e540c0>
+    ptr-info 0x7f1b0a7260c0>
 
 ======================================================================
 [40;31m 	Can't find this fucntion in Pointer table [0m
@@ -2244,45 +2244,45 @@ test.c:138:8: warning: use location
         ^
 
 ======================================================================
- <function_decl 0x7fe2a9e29c00 child
-    type <function_type 0x7fe2a9e28888
-        type <pointer_type 0x7fe2aa2c60a8 type <void_type 0x7fe2aa2bff18 void>
+ <function_decl 0x7f1b0a6fbc00 child
+    type <function_type 0x7f1b0a6fa888
+        type <pointer_type 0x7f1b0ab980a8 type <void_type 0x7f1b0ab91f18 void>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+            pointer_to_this <pointer_type 0x7f1b0a6faa80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a00 value <pointer_type 0x7fe2aa2c60a8>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e282a0>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35300>
-    result <result_decl 0x7fe2aa2b6438 D.4053 type <pointer_type 0x7fe2aa2c60a8>
-        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child>>
-    arguments <parm_decl 0x7fe2a9e38680 data type <pointer_type 0x7fe2aa2c60a8>
-        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child> arg-type <pointer_type 0x7fe2aa2c60a8>>
-    struct-function 0x7fe2a9e3d370>
+        arg-types <tree_list 0x7f1b0a6f9a00 value <pointer_type 0x7f1b0ab980a8>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a6fa2a0>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707300>
+    result <result_decl 0x7f1b0ab88438 D.4053 type <pointer_type 0x7f1b0ab980a8>
+        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child>>
+    arguments <parm_decl 0x7f1b0a70a680 data type <pointer_type 0x7f1b0ab980a8>
+        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child> arg-type <pointer_type 0x7f1b0ab980a8>>
+    struct-function 0x7f1b0a70f370>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45bd0
-    type <pointer_type 0x7fe2aa2c60a8
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <ssa_name 0x7f1b0a717bd0
+    type <pointer_type 0x7f1b0ab980a8
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+        pointer_to_this <pointer_type 0x7f1b0a6faa80>>
    
     def_stmt _1 = malloc (20);
     version 1
-    ptr-info 0x7fe2a9e54030>
+    ptr-info 0x7f1b0a726030>
  
  Start check Pointer Collect  
 
@@ -2371,47 +2371,47 @@ test.c:154:2: warning: use location
 [40;31m  	possible double free :2 [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e29c00 child
-    type <function_type 0x7fe2a9e28888
-        type <pointer_type 0x7fe2aa2c60a8 type <void_type 0x7fe2aa2bff18 void>
+ <function_decl 0x7f1b0a6fbc00 child
+    type <function_type 0x7f1b0a6fa888
+        type <pointer_type 0x7f1b0ab980a8 type <void_type 0x7f1b0ab91f18 void>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+            pointer_to_this <pointer_type 0x7f1b0a6faa80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a00 value <pointer_type 0x7fe2aa2c60a8>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e282a0>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35300>
-    result <result_decl 0x7fe2aa2b6438 D.4053 type <pointer_type 0x7fe2aa2c60a8>
-        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child>>
-    arguments <parm_decl 0x7fe2a9e38680 data type <pointer_type 0x7fe2aa2c60a8>
-        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child> arg-type <pointer_type 0x7fe2aa2c60a8>>
-    struct-function 0x7fe2a9e3d370>
+        arg-types <tree_list 0x7f1b0a6f9a00 value <pointer_type 0x7f1b0ab980a8>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a6fa2a0>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707300>
+    result <result_decl 0x7f1b0ab88438 D.4053 type <pointer_type 0x7f1b0ab980a8>
+        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child>>
+    arguments <parm_decl 0x7f1b0a70a680 data type <pointer_type 0x7f1b0ab980a8>
+        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child> arg-type <pointer_type 0x7f1b0ab980a8>>
+    struct-function 0x7f1b0a70f370>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45dc8
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a717dc8
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2a9e4a2d0 a>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0a71c2d0 a>
     def_stmt a_15 = foo (1);
     version 15
-    ptr-info 0x7fe2a9e540d8>
+    ptr-info 0x7f1b0a7260d8>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -2422,45 +2422,45 @@ this other function ------free-----
 [40;31m 	this stmt need double check [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e29c00 child
-    type <function_type 0x7fe2a9e28888
-        type <pointer_type 0x7fe2aa2c60a8 type <void_type 0x7fe2aa2bff18 void>
+ <function_decl 0x7f1b0a6fbc00 child
+    type <function_type 0x7f1b0a6fa888
+        type <pointer_type 0x7f1b0ab980a8 type <void_type 0x7f1b0ab91f18 void>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+            pointer_to_this <pointer_type 0x7f1b0a6faa80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a00 value <pointer_type 0x7fe2aa2c60a8>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e282a0>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35300>
-    result <result_decl 0x7fe2aa2b6438 D.4053 type <pointer_type 0x7fe2aa2c60a8>
-        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child>>
-    arguments <parm_decl 0x7fe2a9e38680 data type <pointer_type 0x7fe2aa2c60a8>
-        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child> arg-type <pointer_type 0x7fe2aa2c60a8>>
-    struct-function 0x7fe2a9e3d370>
+        arg-types <tree_list 0x7f1b0a6f9a00 value <pointer_type 0x7f1b0ab980a8>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a6fa2a0>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707300>
+    result <result_decl 0x7f1b0ab88438 D.4053 type <pointer_type 0x7f1b0ab980a8>
+        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child>>
+    arguments <parm_decl 0x7f1b0a70a680 data type <pointer_type 0x7f1b0ab980a8>
+        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child> arg-type <pointer_type 0x7f1b0ab980a8>>
+    struct-function 0x7f1b0a70f370>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45e10
-    type <pointer_type 0x7fe2aa2c60a8
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <ssa_name 0x7f1b0a717e10
+    type <pointer_type 0x7f1b0ab980a8
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e28a80>>
-    var <parm_decl 0x7fe2a9e38680 data>
+        pointer_to_this <pointer_type 0x7f1b0a6faa80>>
+    var <parm_decl 0x7f1b0a70a680 data>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fe2a9e540f0>
+    ptr-info 0x7f1b0a7260f0>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -2557,45 +2557,45 @@ test.c:150:2: warning: use location
 ======================================================================
 [40;42m =======pre_check_funciton:child========= [0m
 [40;42m =======start_check_funciton:child========= [0m
- <function_decl 0x7fe2a9e29c00 child
-    type <function_type 0x7fe2a9e28888
-        type <pointer_type 0x7fe2aa2c60a8 type <void_type 0x7fe2aa2bff18 void>
+ <function_decl 0x7f1b0a6fbc00 child
+    type <function_type 0x7f1b0a6fa888
+        type <pointer_type 0x7f1b0ab980a8 type <void_type 0x7f1b0ab91f18 void>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+            pointer_to_this <pointer_type 0x7f1b0a6faa80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a00 value <pointer_type 0x7fe2aa2c60a8>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e282a0>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35300>
-    result <result_decl 0x7fe2aa2b6438 D.4053 type <pointer_type 0x7fe2aa2c60a8>
-        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child>>
-    arguments <parm_decl 0x7fe2a9e38680 data type <pointer_type 0x7fe2aa2c60a8>
-        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child> arg-type <pointer_type 0x7fe2aa2c60a8>>
-    struct-function 0x7fe2a9e3d370>
+        arg-types <tree_list 0x7f1b0a6f9a00 value <pointer_type 0x7f1b0ab980a8>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a6fa2a0>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707300>
+    result <result_decl 0x7f1b0ab88438 D.4053 type <pointer_type 0x7f1b0ab980a8>
+        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child>>
+    arguments <parm_decl 0x7f1b0a70a680 data type <pointer_type 0x7f1b0ab980a8>
+        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child> arg-type <pointer_type 0x7f1b0ab980a8>>
+    struct-function 0x7f1b0a70f370>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45d80
-    type <pointer_type 0x7fe2a9e335e8
-        type <pointer_type 0x7fe2aa2c6a80 type <integer_type 0x7fe2aa2bf5e8 int>
+ <ssa_name 0x7f1b0a717d80
+    type <pointer_type 0x7f1b0a7055e8
+        type <pointer_type 0x7f1b0ab98a80 type <integer_type 0x7f1b0ab915e8 int>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-        public unsigned DI size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
+            pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+        public unsigned DI size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fe2a9e4a3f0 ppData>
+    var <var_decl 0x7f1b0a71c3f0 ppData>
     def_stmt ppData_11 = malloc (10);
     version 11
-    ptr-info 0x7fe2a9e540c0>
+    ptr-info 0x7f1b0a7260c0>
 this other function ------free-----
 
 ======================================================================
@@ -2606,45 +2606,45 @@ test.c:138:8: warning: use location
         ^
 
 ======================================================================
- <function_decl 0x7fe2a9e29c00 child
-    type <function_type 0x7fe2a9e28888
-        type <pointer_type 0x7fe2aa2c60a8 type <void_type 0x7fe2aa2bff18 void>
+ <function_decl 0x7f1b0a6fbc00 child
+    type <function_type 0x7f1b0a6fa888
+        type <pointer_type 0x7f1b0ab980a8 type <void_type 0x7f1b0ab91f18 void>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+            pointer_to_this <pointer_type 0x7f1b0a6faa80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a00 value <pointer_type 0x7fe2aa2c60a8>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e282a0>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35300>
-    result <result_decl 0x7fe2aa2b6438 D.4053 type <pointer_type 0x7fe2aa2c60a8>
-        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child>>
-    arguments <parm_decl 0x7fe2a9e38680 data type <pointer_type 0x7fe2aa2c60a8>
-        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child> arg-type <pointer_type 0x7fe2aa2c60a8>>
-    struct-function 0x7fe2a9e3d370>
+        arg-types <tree_list 0x7f1b0a6f9a00 value <pointer_type 0x7f1b0ab980a8>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a6fa2a0>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707300>
+    result <result_decl 0x7f1b0ab88438 D.4053 type <pointer_type 0x7f1b0ab980a8>
+        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child>>
+    arguments <parm_decl 0x7f1b0a70a680 data type <pointer_type 0x7f1b0ab980a8>
+        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child> arg-type <pointer_type 0x7f1b0ab980a8>>
+    struct-function 0x7f1b0a70f370>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45bd0
-    type <pointer_type 0x7fe2aa2c60a8
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <ssa_name 0x7f1b0a717bd0
+    type <pointer_type 0x7f1b0ab980a8
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+        pointer_to_this <pointer_type 0x7f1b0a6faa80>>
    
     def_stmt _1 = malloc (20);
     version 1
-    ptr-info 0x7fe2a9e54030>
+    ptr-info 0x7f1b0a726030>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -2699,47 +2699,47 @@ test.c:154:2: warning: use location
 [40;31m  	possible double free :2 [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e29c00 child
-    type <function_type 0x7fe2a9e28888
-        type <pointer_type 0x7fe2aa2c60a8 type <void_type 0x7fe2aa2bff18 void>
+ <function_decl 0x7f1b0a6fbc00 child
+    type <function_type 0x7f1b0a6fa888
+        type <pointer_type 0x7f1b0ab980a8 type <void_type 0x7f1b0ab91f18 void>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+            pointer_to_this <pointer_type 0x7f1b0a6faa80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a00 value <pointer_type 0x7fe2aa2c60a8>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e282a0>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35300>
-    result <result_decl 0x7fe2aa2b6438 D.4053 type <pointer_type 0x7fe2aa2c60a8>
-        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child>>
-    arguments <parm_decl 0x7fe2a9e38680 data type <pointer_type 0x7fe2aa2c60a8>
-        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child> arg-type <pointer_type 0x7fe2aa2c60a8>>
-    struct-function 0x7fe2a9e3d370>
+        arg-types <tree_list 0x7f1b0a6f9a00 value <pointer_type 0x7f1b0ab980a8>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a6fa2a0>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707300>
+    result <result_decl 0x7f1b0ab88438 D.4053 type <pointer_type 0x7f1b0ab980a8>
+        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child>>
+    arguments <parm_decl 0x7f1b0a70a680 data type <pointer_type 0x7f1b0ab980a8>
+        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child> arg-type <pointer_type 0x7f1b0ab980a8>>
+    struct-function 0x7f1b0a70f370>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45dc8
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a717dc8
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2a9e4a2d0 a>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0a71c2d0 a>
     def_stmt a_15 = foo (1);
     version 15
-    ptr-info 0x7fe2a9e540d8>
+    ptr-info 0x7f1b0a7260d8>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -2750,45 +2750,45 @@ this other function ------free-----
 [40;31m 	this stmt need double check [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e29c00 child
-    type <function_type 0x7fe2a9e28888
-        type <pointer_type 0x7fe2aa2c60a8 type <void_type 0x7fe2aa2bff18 void>
+ <function_decl 0x7f1b0a6fbc00 child
+    type <function_type 0x7f1b0a6fa888
+        type <pointer_type 0x7f1b0ab980a8 type <void_type 0x7f1b0ab91f18 void>
             public unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2a9e28a80>>
+            pointer_to_this <pointer_type 0x7f1b0a6faa80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7fe2a9e27a00 value <pointer_type 0x7fe2aa2c60a8>
-            chain <tree_list 0x7fe2aa2beac8 value <void_type 0x7fe2aa2bff18 void>>>
-        pointer_to_this <pointer_type 0x7fe2a9e282a0>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> attributes <tree_list 0x7fe2a9e279d8> initial <block 0x7fe2a9e35300>
-    result <result_decl 0x7fe2aa2b6438 D.4053 type <pointer_type 0x7fe2aa2c60a8>
-        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child>>
-    arguments <parm_decl 0x7fe2a9e38680 data type <pointer_type 0x7fe2aa2c60a8>
-        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29c00 child> arg-type <pointer_type 0x7fe2aa2c60a8>>
-    struct-function 0x7fe2a9e3d370>
+        arg-types <tree_list 0x7f1b0a6f9a00 value <pointer_type 0x7f1b0ab980a8>
+            chain <tree_list 0x7f1b0ab90ac8 value <void_type 0x7f1b0ab91f18 void>>>
+        pointer_to_this <pointer_type 0x7f1b0a6fa2a0>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 110 col 7 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> attributes <tree_list 0x7f1b0a6f99d8> initial <block 0x7f1b0a707300>
+    result <result_decl 0x7f1b0ab88438 D.4053 type <pointer_type 0x7f1b0ab980a8>
+        unsigned ignored DI file test.c line 110 col 7 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child>>
+    arguments <parm_decl 0x7f1b0a70a680 data type <pointer_type 0x7f1b0ab980a8>
+        unsigned DI file test.c line 110 col 19 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbc00 child> arg-type <pointer_type 0x7f1b0ab980a8>>
+    struct-function 0x7f1b0a70f370>
 
 ======================================================================
- <ssa_name 0x7fe2a9e45e10
-    type <pointer_type 0x7fe2aa2c60a8
-        type <void_type 0x7fe2aa2bff18 void VOID
+ <ssa_name 0x7f1b0a717e10
+    type <pointer_type 0x7f1b0ab980a8
+        type <void_type 0x7f1b0ab91f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fe2aa2c60a8>>
+            pointer_to_this <pointer_type 0x7f1b0ab980a8>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e28a80>>
-    var <parm_decl 0x7fe2a9e38680 data>
+        pointer_to_this <pointer_type 0x7f1b0a6faa80>>
+    var <parm_decl 0x7f1b0a70a680 data>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fe2a9e540f0>
+    ptr-info 0x7f1b0a7260f0>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -2886,42 +2886,42 @@ test.c:150:2: warning: use location
 [40;33m =======POP node_fun stack:child========= [0m
 [40;42m =======pre_check_funciton:main========= [0m
 [40;42m =======start_check_funciton:main========= [0m
- <function_decl 0x7fe2a9e29b00 main
-    type <function_type 0x7fe2a9e287e0
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <function_decl 0x7f1b0a6fbb00 main
+    type <function_type 0x7f1b0a6fa7e0
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality>
-    nothrow public static function-specific-target function-specific-opt QI file test.c line 195 col 5 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> initial <block 0x7fe2a9e35360>
-    result <result_decl 0x7fe2aa2b64b0 D.4060 type <integer_type 0x7fe2aa2bf5e8 int>
-        ignored SI file test.c line 195 col 5 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e29b00 main>>
-    struct-function 0x7fe2a9e3d420>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 195 col 5 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> initial <block 0x7f1b0a707360>
+    result <result_decl 0x7f1b0ab884b0 D.4060 type <integer_type 0x7f1b0ab915e8 int>
+        ignored SI file test.c line 195 col 5 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a6fbb00 main>>
+    struct-function 0x7f1b0a70f420>
 
 ======================================================================
- <addr_expr 0x7fe2a9e4c400
-    type <pointer_type 0x7fe2a9e300a8
-        type <integer_type 0x7fe2a9e28b28 pthread_t unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
-            align 64 symtab 0 alias set -1 canonical type 0x7fe2aa2bf738 precision 64 min <integer_cst 0x7fe2aa2abeb8 0> max <integer_cst 0x7fe2aa2ad500 18446744073709551615> context <translation_unit_decl 0x7fe2aa2b6168 test.c>
-            pointer_to_this <pointer_type 0x7fe2a9e300a8>>
-        unsigned DI size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
+ <addr_expr 0x7f1b0a71e400
+    type <pointer_type 0x7f1b0a7020a8
+        type <integer_type 0x7f1b0a6fab28 pthread_t unsigned DI
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f1b0ab91738 precision 64 min <integer_cst 0x7f1b0ab7deb8 0> max <integer_cst 0x7f1b0ab7f500 18446744073709551615> context <translation_unit_decl 0x7f1b0ab88168 test.c>
+            pointer_to_this <pointer_type 0x7f1b0a7020a8>>
+        unsigned DI size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7fe2a9e4acf0 t type <integer_type 0x7fe2a9e28b28 pthread_t>
-        addressable unsigned DI file test.c line 225 col 12 size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
-        align 64 context <function_decl 0x7fe2a9e29b00 main>
-        chain <var_decl 0x7fe2a9e4ac60 t2 type <array_type 0x7fe2a9e30c78>
+    arg 0 <var_decl 0x7f1b0a71ccf0 t type <integer_type 0x7f1b0a6fab28 pthread_t>
+        addressable unsigned DI file test.c line 225 col 12 size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
+        align 64 context <function_decl 0x7f1b0a6fbb00 main>
+        chain <var_decl 0x7f1b0a71cc60 t2 type <array_type 0x7f1b0a702c78>
             addressable BLK file test.c line 225 col 14
-            size <integer_cst 0x7fe2aa2c70a8 constant 192>
-            unit size <integer_cst 0x7fe2aa2c7078 constant 24>
-            align 128 context <function_decl 0x7fe2a9e29b00 main> chain <var_decl 0x7fe2a9e4abd0 q>>>
+            size <integer_cst 0x7f1b0ab990a8 constant 192>
+            unit size <integer_cst 0x7f1b0ab99078 constant 24>
+            align 128 context <function_decl 0x7f1b0a6fbb00 main> chain <var_decl 0x7f1b0a71cbd0 q>>>
     test.c:226:2 start: test.c:226:2 finish: test.c:226:2>
 
 ======================================================================
@@ -2932,37 +2932,37 @@ test.c:226:2: warning: use location
   ^
 
 ======================================================================
- <function_decl 0x7fe2a9e29b00 main
-    type <function_type 0x7fe2a9e287e0
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <function_decl 0x7f1b0a6fbb00 main
+    type <function_type 0x7f1b0a6fa7e0
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality>
-    nothrow public static function-specific-target function-specific-opt QI file test.c line 195 col 5 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> initial <block 0x7fe2a9e35360>
-    result <result_decl 0x7fe2aa2b64b0 D.4060 type <integer_type 0x7fe2aa2bf5e8 int>
-        ignored SI file test.c line 195 col 5 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e29b00 main>>
-    struct-function 0x7fe2a9e3d420>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 195 col 5 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> initial <block 0x7f1b0a707360>
+    result <result_decl 0x7f1b0ab884b0 D.4060 type <integer_type 0x7f1b0ab915e8 int>
+        ignored SI file test.c line 195 col 5 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a6fbb00 main>>
+    struct-function 0x7f1b0a70f420>
 
 ======================================================================
- <ssa_name 0x7fe2a9e4e3a8
-    type <pointer_type 0x7fe2a9e300a8
-        type <integer_type 0x7fe2a9e28b28 pthread_t unsigned DI
-            size <integer_cst 0x7fe2aa2abbe8 constant 64>
-            unit size <integer_cst 0x7fe2aa2abc00 constant 8>
-            align 64 symtab 0 alias set -1 canonical type 0x7fe2aa2bf738 precision 64 min <integer_cst 0x7fe2aa2abeb8 0> max <integer_cst 0x7fe2aa2ad500 18446744073709551615> context <translation_unit_decl 0x7fe2aa2b6168 test.c>
-            pointer_to_this <pointer_type 0x7fe2a9e300a8>>
-        unsigned DI size <integer_cst 0x7fe2aa2abbe8 64> unit size <integer_cst 0x7fe2aa2abc00 8>
+ <ssa_name 0x7f1b0a7203a8
+    type <pointer_type 0x7f1b0a7020a8
+        type <integer_type 0x7f1b0a6fab28 pthread_t unsigned DI
+            size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+            unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f1b0ab91738 precision 64 min <integer_cst 0x7f1b0ab7deb8 0> max <integer_cst 0x7f1b0ab7f500 18446744073709551615> context <translation_unit_decl 0x7f1b0ab88168 test.c>
+            pointer_to_this <pointer_type 0x7f1b0a7020a8>>
+        unsigned DI size <integer_cst 0x7f1b0ab7dbe8 64> unit size <integer_cst 0x7f1b0ab7dc00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _1 = &t2[i_4];
     version 1
-    ptr-info 0x7fe2a9e54108>
+    ptr-info 0x7f1b0a726108>
  
  Start is Pthread Job Collect  
 
@@ -3032,40 +3032,40 @@ test.c:233:7: warning: use location
 [40;31m    no free stmt possible memory leak [0m
 
 ======================================================================
- <function_decl 0x7fe2a9e29b00 main
-    type <function_type 0x7fe2a9e287e0
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <function_decl 0x7f1b0a6fbb00 main
+    type <function_type 0x7f1b0a6fa7e0
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         QI
-        size <integer_cst 0x7fe2aa2abcd8 constant 8>
-        unit size <integer_cst 0x7fe2aa2abcf0 constant 1>
+        size <integer_cst 0x7f1b0ab7dcd8 constant 8>
+        unit size <integer_cst 0x7f1b0ab7dcf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality>
-    nothrow public static function-specific-target function-specific-opt QI file test.c line 195 col 5 align 8 context <translation_unit_decl 0x7fe2aa2b6168 test.c> initial <block 0x7fe2a9e35360>
-    result <result_decl 0x7fe2aa2b64b0 D.4060 type <integer_type 0x7fe2aa2bf5e8 int>
-        ignored SI file test.c line 195 col 5 size <integer_cst 0x7fe2aa2abe28 32> unit size <integer_cst 0x7fe2aa2abe40 4>
-        align 32 context <function_decl 0x7fe2a9e29b00 main>>
-    struct-function 0x7fe2a9e3d420>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 195 col 5 align 8 context <translation_unit_decl 0x7f1b0ab88168 test.c> initial <block 0x7f1b0a707360>
+    result <result_decl 0x7f1b0ab884b0 D.4060 type <integer_type 0x7f1b0ab915e8 int>
+        ignored SI file test.c line 195 col 5 size <integer_cst 0x7f1b0ab7de28 32> unit size <integer_cst 0x7f1b0ab7de40 4>
+        align 32 context <function_decl 0x7f1b0a6fbb00 main>>
+    struct-function 0x7f1b0a70f420>
 
 ======================================================================
- <ssa_name 0x7fe2a9e4e558
-    type <pointer_type 0x7fe2aa2c6a80
-        type <integer_type 0x7fe2aa2bf5e8 int public SI
-            size <integer_cst 0x7fe2aa2abe28 constant 32>
-            unit size <integer_cst 0x7fe2aa2abe40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fe2aa2bf5e8 precision 32 min <integer_cst 0x7fe2aa2abde0 -2147483648> max <integer_cst 0x7fe2aa2abdf8 2147483647>
-            pointer_to_this <pointer_type 0x7fe2aa2c6a80>>
+ <ssa_name 0x7f1b0a720558
+    type <pointer_type 0x7f1b0ab98a80
+        type <integer_type 0x7f1b0ab915e8 int public SI
+            size <integer_cst 0x7f1b0ab7de28 constant 32>
+            unit size <integer_cst 0x7f1b0ab7de40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f1b0ab915e8 precision 32 min <integer_cst 0x7f1b0ab7dde0 -2147483648> max <integer_cst 0x7f1b0ab7ddf8 2147483647>
+            pointer_to_this <pointer_type 0x7f1b0ab98a80>>
         public unsigned DI
-        size <integer_cst 0x7fe2aa2abbe8 constant 64>
-        unit size <integer_cst 0x7fe2aa2abc00 constant 8>
+        size <integer_cst 0x7f1b0ab7dbe8 constant 64>
+        unit size <integer_cst 0x7f1b0ab7dc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fe2a9e335e8>>
-    var <var_decl 0x7fe2a9e4abd0 q>
+        pointer_to_this <pointer_type 0x7f1b0a7055e8>>
+    var <var_decl 0x7f1b0a71cbd0 q>
     def_stmt q_16 = malloc (5);
     version 16
-    ptr-info 0x7fe2a9e54120>
+    ptr-info 0x7f1b0a726120>
 this other function ------pthread_create-----
  
  Start check Pointer Collect  
@@ -3355,7 +3355,7 @@ t2 ={v} {CLOBBER};
 return 0;
 
 =======is loop:0=========
-time: 0.036658 s
+time: 0.039225 s
 test.c: In function ‚Äòchild‚Äô:
 test.c:149:2: warning: attempt to free a non-heap object ‚Äòdata2‚Äô [-Wfree-nonheap-object]
   free(pData);

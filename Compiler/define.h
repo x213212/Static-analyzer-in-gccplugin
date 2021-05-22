@@ -209,6 +209,7 @@ unsigned int CREATE_JOINABLE = 0;
 unsigned int CREATE_DETACHED = 1;
 /*dump file */
 FILE *fp;
+ofstream cfginfo("cfginfo.txt");
 
 /*interprocedural analysis*/
 bool ipa = true;
@@ -236,13 +237,13 @@ int check_stmtStack(tree target);
 void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_tmp, tree checkTree, int threadcheck);
 void record_fucntion(cgraph_node *node);
 
-void print_function_path(tree function_tree, int fucntion_level, ptb *ptable, gimple_array *user_tmp);
 
 void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb);
 void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb);
 void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_array *user_tmp, ptb *table_temp, ptb *ptable);
 
 int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_tree, int *freecount);
+void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gimple_array *user_tmp);
 void tracefree_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp);
 void tracefree_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp);
 
@@ -255,6 +256,7 @@ struct timespec diff(struct timespec start, struct timespec end);
 
 void printfBasicblock();
 void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp);
+
 void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp);
 void print_function_return(tree function_tree);
 void print_function_return2(tree function_tree);

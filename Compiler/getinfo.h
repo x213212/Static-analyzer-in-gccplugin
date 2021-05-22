@@ -41,7 +41,7 @@ void get_function_varstmt(tree function_tree, tree vartree)
 		fprintf(stderr, ",\n");
 		// }
 		// fprintf(stderr, "]\n");
-		// print_function_path(&ret_type_array);
+		// trace_function_path(&ret_type_array);
 	}
 	fprintf(stderr, "GIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGN CALLLLLLLLLLLLLLLLLLLLLLL\n");
 	fprintf(stderr, "]\n");
@@ -68,7 +68,7 @@ void get_function_specialstmt(tree function_tree, tree vartree)
 		fprintf(stderr, ",\n");
 		// }
 		// fprintf(stderr, "]\n");
-		// print_function_path(&ret_type_array);
+		// trace_function_path(&ret_type_array);
 	}
 	fprintf(stderr, "GIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGN CALLLLLLLLLLLLLLLLLLLLLLL\n");
 	fprintf(stderr, "]\n");
