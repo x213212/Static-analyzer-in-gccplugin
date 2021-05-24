@@ -897,7 +897,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 					if (!check_stmtStack(gimple_call_fn(use_stmt)))
 					{
-						// fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
+						fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
 						// debug(target);
 
 						tree second = NULL;
@@ -1254,10 +1254,17 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_tmp, tree checkTree, int threadcheck)
 {
 	gimple *u_stmt;
+	gimple *u_stmt2;
 	gimple_array start;
+	gimple_array start2;
+
 	start.stmt = NULL;
+	start2.stmt = NULL;
 	gimple_array *used_stmt = &start;
+	gimple_array *used_stmt2 = &start;
+	gimple_array *user_tmp2 = user_tmp;
 	ptb *table_temp = ptable;
+
 	tree t;
 	//
 
@@ -1308,6 +1315,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		if (table_temp->node->get_fun()->decl == function_tree)
 			if (table_temp->target != NULL)
 			{
+				vector<free_type> free_array;
 				find_freestmt = find_mallocstmt = find_phistmt = 0;
 				debug_tree(function_tree);
 				fprintf(stderr, "\n======================================================================\n");
@@ -1323,11 +1331,17 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
 				// if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "addr_expr"))
 				// 	continue;
-				// if (gimple_code(def_stmt) == GIMPLE_CALL)
-				// {
-				// 	name = get_name(gimple_call_fndecl(def_stmt));
-				// 	fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
-				// }
+				// debug_tree(table_temp->target);
+				if (TREE_CODE(table_temp->target) == INTEGER_CST)
+				{
+					debug_tree(table_temp->target);
+				}
+				// continue;
+				else if (gimple_code(def_stmt) == GIMPLE_CALL)
+				{
+					name = get_name(gimple_call_fndecl(def_stmt));
+					// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
+				}
 				// if (gimple_code(def_stmt) == GIMPLE_NOP)
 				// 	continue;
 
@@ -1365,7 +1379,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				user_tmp = treeGimpleArray->get(table_temp->target);
 				// debug_tree(table_temp->target);
 				// fprintf(stderr, "\n====================================ffff=================================\n");
-				tree userStart = NULL;
+
 				start.stmt = NULL;
 				used_stmt = &start;
 				if (user_tmp != NULL)
@@ -1378,6 +1392,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					if (user_tmp->size > 0)
 						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 						{
+							struct free_type free_type;
 
 							if (user_tmp->ret_stmt != NULL)
 							{
@@ -1540,7 +1555,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 													{
 														find_freestmt++;
-
+														free_type.stmt = u_stmt;
+														free_array.push_back(free_type);
 														fprintf(stderr, "\n ================== find ================== \n");
 														debug(u_stmt);
 														warning_at(gimple_location(u_stmt), 0, "use location");
@@ -1551,14 +1567,23 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													{
 														if (table_temp->swap_type == FUNCITON_THREAD)
 														{
+
 															fprintf(stderr, "\n ================== find ================== \n");
 															debug(u_stmt);
 															warning_at(gimple_location(u_stmt), 0, "use location");
 															fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED STMT  \033[0m\n");
 															//  callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
 															trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), 0, NULL_TREE, &find_pthread_detched);
+															tree findtree = gimple_call_arg(table_temp->last_stmt, 3);
+															if (findtree != NULL)
+																trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), 0, findtree, &find_freestmt);
 															if (table_temp->swap_stmt != NULL)
+															{
 																trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, NULL_TREE, &find_pthread_detched);
+																findtree = gimple_call_arg(table_temp->swap_stmt, 3);
+																if (findtree != NULL)
+																	trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, findtree, &find_freestmt);
+															}
 															if (find_pthread_detched == 0)
 															{
 																fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is %s  \033[0m\n", table_temp->pthread_type == 0 ? "CREATE_JOINABLE" : "CREATE_DETACHED");
@@ -1582,10 +1607,16 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													}
 													else
 													{
+														int freecount = find_freestmt;
 														fprintf(stderr, "\n ================== trace ================== \n");
 														fprintf(stderr, "trace fucntion name:%s \n", name);
 														trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target, &find_freestmt);
 														fprintf(stderr, "\n ================== trace ================== \n");
+														if (find_freestmt > freecount)
+														{
+															free_type.stmt = u_stmt;
+															free_array.push_back(free_type);
+														}
 													}
 											}
 										}
@@ -1597,10 +1628,16 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												name = get_name(gimple_call_fn(u_stmt));
 												if (name != NULL)
 												{
+													int freecount = find_freestmt;
 													fprintf(stderr, "\n ================== trace ================== \n");
 													fprintf(stderr, "trace fucntion name:%s \n", name);
 													trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target, &find_freestmt);
 													fprintf(stderr, "\n ================== trace ================== \n");
+													if (find_freestmt > freecount)
+													{
+														free_type.stmt = u_stmt;
+														free_array.push_back(free_type);
+													}
 												}
 												else if (!strcmp(name, "pthread_create"))
 												{
@@ -1612,8 +1649,25 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED STMT  \033[0m\n");
 														//  callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
 														trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), 0, NULL_TREE, &find_pthread_detched);
+														tree findtree = gimple_call_arg(table_temp->last_stmt, 3);
+														if (findtree != NULL)
+															trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), 0, findtree, &find_freestmt);
 														if (table_temp->swap_stmt != NULL)
+														{
 															trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, NULL_TREE, &find_pthread_detched);
+															findtree = gimple_call_arg(table_temp->swap_stmt, 3);
+															if (findtree != NULL)
+																trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, findtree, &find_freestmt);
+														}
+														// if (table_temp->swap_stmt != NULL)
+														// {
+														// 	trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, NULL_TREE, &find_pthread_detched);
+														// 	if (gimple_call_arg(table_temp->swap_stmt, 3) != NULL)
+														// 	{
+														// 		tree findtree = gimple_call_arg(table_temp->swap_stmt, 3);
+														// 		trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, findtree, &find_freestmt);
+														// 	}
+														// }
 														if (find_pthread_detched == 0)
 														{
 															fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is %s  \033[0m\n", table_temp->pthread_type == 0 ? "CREATE_JOINABLE" : "CREATE_DETACHED");
@@ -1668,6 +1722,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 										{
 											find_freestmt++;
+											free_type.stmt = u_stmt;
+											free_array.push_back(free_type);
 											fprintf(stderr, "\n ================== find ================== \n");
 											debug(u_stmt);
 											warning_at(gimple_location(u_stmt), 0, "use location");
@@ -1683,9 +1739,19 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												warning_at(gimple_location(u_stmt), 0, "use location");
 												fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED STMT  \033[0m\n");
 												//  callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
+												// debug_gimple_stmt(table_temp->last_stmt);
+
 												trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), 0, NULL_TREE, &find_pthread_detched);
+												tree findtree = gimple_call_arg(table_temp->last_stmt, 3);
+												if (findtree != NULL)
+													trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), 0, findtree, &find_freestmt);
 												if (table_temp->swap_stmt != NULL)
+												{
 													trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, NULL_TREE, &find_pthread_detched);
+													findtree = gimple_call_arg(table_temp->swap_stmt, 3);
+													if (findtree != NULL)
+														trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, findtree, &find_freestmt);
+												}
 												if (find_pthread_detched == 0)
 												{
 													fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is %s  \033[0m\n", table_temp->pthread_type == 0 ? "CREATE_JOINABLE" : "CREATE_DETACHED");
@@ -1709,13 +1775,56 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										}
 										else
 										{
+											int freecount = find_freestmt;
 											fprintf(stderr, "\n ================== trace ================== \n");
 											fprintf(stderr, "trace fucntion name:%s \n", name);
 											// debug_tree(gimple_call_fndecl(u_stmt));
 											trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target, &find_freestmt);
 											fprintf(stderr, "\n ================== trace ================== \n");
+											if (find_freestmt > freecount)
+											{
+												free_type.stmt = u_stmt;
+												free_array.push_back(free_type);
+											}
 										}
 								}
+							}
+						}
+					user_tmp = treeGimpleArray->get(table_temp->target);
+					// debug_tree(table_temp->target);
+					// fprintf(stderr, "\n====================================ffff=================================\n");
+					gimple_array start;
+					start.stmt = NULL;
+					used_stmt = &start;
+					fprintf(stderr, "\n ================== Start Use after free Check ================== \n");
+					if (user_tmp->size > 0)
+						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
+						{
+
+							// debug_gimple_stmt(u_stmt);
+
+							for (int i = 0; i < free_array.size(); i++)
+							{
+								//fprintf(stderr, "\n====================================ffff2=================================\n");
+								if (u_stmt != free_array.at(i).stmt)
+									if (gimple_bb(u_stmt)->index == gimple_bb(free_array.at(i).stmt)->index)
+									{
+										if (Location_b(free_array.at(i).stmt, u_stmt, gimple_bb(u_stmt)))
+										{
+											debug_gimple_stmt(free_array.at(i).stmt);
+											warning_at(gimple_location(free_array.at(i).stmt), 0, "Use after free error!: free location");
+											debug_gimple_stmt(u_stmt);
+											warning_at(gimple_location(u_stmt), 0, "use location");
+											fprintf(stderr, "\n ================== warring ================== \n");
+
+											// debug(checkTree);
+											fprintf(stderr, "\033[40;35m    Use after free error! \033[0m\n");
+											// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+
+											// fprintf(stderr, "this stmt possible is heap-object 。\n");
+											fprintf(stderr, "\n ================== warring ================== \n");
+										}
+									}
 							}
 						}
 				}
@@ -1983,13 +2092,13 @@ void detect()
 		// 	// tree argtype = function_args_iter_cond(&it);
 		// 	cout << "--------------ref--------------------------" << endl;
 		// }
-		unsigned int nargs = 1;
-		function_args_iterator iter;
-		tree t;
-		int argct = 0;
-		fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
-		// debug_tree(node->get_fun()->decl);
-		unsigned int i;
+		// unsigned int nargs = 1;
+		// function_args_iterator iter;
+		// tree t;
+		// int argct = 0;
+		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+		// // debug_tree(node->get_fun()->decl);
+		// unsigned int i;
 		// tree parms, p;
 		// // debug_tree(DECL_ARGUMENTS(node->get_fun()->decl));
 		// // static_chain_decl
@@ -2045,7 +2154,7 @@ void detect()
 		// 	argct++;
 		// 	// fprintf(stderr, "=======node_fun:%d=========\n", argct);
 		// }
-		fprintf(stderr, "=======node_fun:%d=========\n", argct);
+		// fprintf(stderr, "=======node_fun:%d=========\n", argct);
 		// if (strcmp(get_name(cfun->decl), "main") == 0)
 
 		//tree test=DECL_SAVED_TREE(cfun->decl);
@@ -2123,28 +2232,28 @@ void detect()
 
 					// fprintf(stderr, "add collect_function_call\n");
 				}
-				if (is_gimple_assign(gc))
-				{
-					// debug_gimple_stmt(gc);
-					// if (gimple_assign_lhs(gc) != NULL)
-					// 	debug_tree(gimple_assign_lhs(gc));
-					tree parms, p;
-					// debug_tree(DECL_ARGUMENTS(node->get_fun()->decl));
-					// static_chain_decl
-					// debug_tree(DECL_ARGUMENTS(node->get_fun()->decl));
-					// debug_tree(DECL_CHAIN(DECL_ARGUMENTS(node->get_fun()->decl)));
-					p = DECL_ARGUMENTS(node->get_fun()->decl);
-					/* Fix up the types of parms passed by invisible reference.  */
-					for (t = DECL_ARGUMENTS(node->get_fun()->decl); t; t = DECL_CHAIN(t))
-					{
-						// debug_tree(t);
-						if (gimple_assign_lhs(gc) != NULL)
-							if (ptr_derefs_may_alias_p(t, gimple_assign_lhs(gc)))
-							{
-								debug_gimple_stmt(gc);
-							}
-					}
-				}
+				// if (is_gimple_assign(gc))
+				// {
+				// 	// debug_gimple_stmt(gc);
+				// 	// if (gimple_assign_lhs(gc) != NULL)
+				// 	// 	debug_tree(gimple_assign_lhs(gc));
+				// 	tree parms, p;
+				// 	// debug_tree(DECL_ARGUMENTS(node->get_fun()->decl));
+				// 	// static_chain_decl
+				// 	// debug_tree(DECL_ARGUMENTS(node->get_fun()->decl));
+				// 	// debug_tree(DECL_CHAIN(DECL_ARGUMENTS(node->get_fun()->decl)));
+				// 	p = DECL_ARGUMENTS(node->get_fun()->decl);
+				// 	/* Fix up the types of parms passed by invisible reference.  */
+				// 	for (t = DECL_ARGUMENTS(node->get_fun()->decl); t; t = DECL_CHAIN(t))
+				// 	{
+				// 		// debug_tree(t);
+				// 		if (gimple_assign_lhs(gc) != NULL)
+				// 			if (ptr_derefs_may_alias_p(t, gimple_assign_lhs(gc)))
+				// 			{
+				// 				debug_gimple_stmt(gc);
+				// 			}
+				// 	}
+				// }
 				// print_function_return(cfun->decl);
 			}
 		}

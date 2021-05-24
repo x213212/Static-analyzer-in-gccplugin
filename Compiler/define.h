@@ -106,6 +106,7 @@ struct free_type
 	// int reutnr_type_num = 0;
 	//int return_type;
 };
+
 struct pthread_detched_type
 {
 	gimple *stmt;

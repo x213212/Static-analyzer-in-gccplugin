@@ -1,5 +1,5 @@
 
-void dump_fucntion2(cgraph_node *node, tree function_tree, tree mallocStmt_tree)
+void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mallocStmt_tree)
 {
 
 	cgraph_edge *e;
@@ -79,13 +79,12 @@ void dump_fucntion2(cgraph_node *node, tree function_tree, tree mallocStmt_tree)
 									fprintf(stderr, "\n ================== warring ================== \n");
 									// sfprintf(stderr, "function return value related stmt \n");
 									fprintf(stderr, "\033[40;35m    this pointer possible  reference other address \033[0m\n");
-									fprintf(stderr, "\033[40;35m    or assign other \033[0m\n");
+									fprintf(stderr, "\033[40;35m    or assign other value \033[0m\n");
 									// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
 									// fprintf(stderr, "this stmt possible is heap-object 。\n");
 									fprintf(stderr, "\n ================== warring ================== \n");
 								}
 						}
-					
 					}
 				}
 			}
@@ -155,8 +154,9 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 	if (tracerelatestmt == true)
 	{
 		struct cgraph_node *node;
-		if (mallocStmt_tree != NULL)
-			dump_fucntion2(node, function_tree, mallocStmt_tree);
+		if (mallocStmt_tree != NULL){
+			// deubg_tree(mallocStmt_tree);
+			trace_fucntion_relate_stmt(node, function_tree, mallocStmt_tree);}
 	}
 	fucntion_level += 1;
 

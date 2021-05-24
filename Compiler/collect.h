@@ -58,9 +58,11 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 		else if (!strcmp(name, "pthread_create"))
 		{
 			// fprintf(stderr, "====================pthread_create============================\n");
-			gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
+			// gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
 			// debug_tree(gimple_call_arg(gc, 0));
 			set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+			// if (gimple_call_arg(gc, 3) != NULL)
+			// 	set_ptb(bb, ptable, gimple_call_arg(gc, 3), loc, 0, gc, node);
 		}
 		else if (!strcmp(name, "pthread_attr_setdetachstate"))
 		{
@@ -321,10 +323,42 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 				assign_type.stmt = gc;
 				assign_type.assign_tree = gimple_call_arg(gc, 0);
-				;
+
 				// ret_type.reutnr_type_num = 0;
 				assign_array.assign_type_array.push_back(assign_type);
 				function_assign_collect->put(getFunctionAssignRHS, assign_array);
+
+				if (gimple_call_arg(gc, 3) != NULL)
+				{
+					getFunctionAssignRHS = gimple_call_arg(gc, 3);
+					getFunctionAssignRHS = TREE_OPERAND(getFunctionAssignRHS, 0);
+					// if (getFunctionAssignRHS != NULL)
+					// 	debug_tree(getFunctionAssignRHS);
+					// fprintf(stderr, "firstfirstfirstfirstfirstmappinggggggggggggggggggggggggggggggg-------\n");
+					// debug(gc);
+					// debug_tree(getFunctionAssignRHS);
+					if (function_assign_collect->get(getFunctionAssignRHS) == NULL)
+					{
+						// fprintf(stderr, "firstfirstfirstfirstfirstmappinggggggggggggggggggggggggggggggg-------\n");
+						assign_array.assign_type_array = assign_type_array;
+						// debug(gc);
+					}
+					else
+					{
+						// fprintf(stderr, "mappinggggggggggggggggggggggggggggggg-------\n");
+						// debug(gc);
+						assign_array = *(function_assign_collect->get(getFunctionAssignRHS));
+						assign_type_array = assign_array.assign_type_array;
+					}
+					struct assign_type assign_type;
+
+					assign_type.stmt = gc;
+					assign_type.assign_tree = gimple_call_arg(gc, 3);
+
+					// ret_type.reutnr_type_num = 0;
+					assign_array.assign_type_array.push_back(assign_type);
+					function_assign_collect->put(getFunctionAssignRHS, assign_array);
+				}
 			}
 			else if (!strcmp(name, "pthread_detach"))
 			{

@@ -65,3 +65,24 @@ void init_table()
 	start9.state = POINTER_NOT_EXIST;
 	unlocktable = &start9;
 }
+
+bool Location_b(gimple *a, gimple *b, basic_block bb)
+{
+	gimple *gc;
+	//debug_gimple_stmt(a);
+	//debug_gimple_stmt(b);
+	for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
+	{
+		gc = gsi_stmt(gsi);
+		//debug_gimple_stmt(gc);
+		if (gc == a)
+		{
+			return true;
+		}
+		else if (gc == b)
+		{
+			return false;
+		}
+	}
+	return false;
+}
