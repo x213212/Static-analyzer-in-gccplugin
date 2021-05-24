@@ -1588,7 +1588,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																		// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
 																		// tree findtree = gimple_call_arg(u_stmt, 3);
 																		// debug_tree(TREE_OPERAND(findtree, 0));
-																		trace_function_path(function_tree, 0, TREE_OPERAND(findtree, 0), &find_freestmt);
+																		trace_function_path(function_tree, -1, TREE_OPERAND(findtree, 0), &find_freestmt);
+																	}
+																	else if (TREE_CODE(findtree) == SSA_NAME)
+																	{
+																		// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+																		// tree findtree = gimple_call_arg(u_stmt, 3);
+																		// debug_tree(TREE_OPERAND(findtree, 0));
+																		trace_function_path(function_tree, -1, findtree, &find_freestmt);
 																	}
 																}
 																// debug_tree(findtree);
@@ -1684,7 +1691,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																	// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
 																	// tree findtree = gimple_call_arg(u_stmt, 3);
 																	// debug_tree(TREE_OPERAND(findtree, 0));
-																	trace_function_path(function_tree, 0, TREE_OPERAND(findtree, 0), &find_freestmt);
+																	trace_function_path(function_tree, -1, TREE_OPERAND(findtree, 0), &find_freestmt);
+																}
+																else if (TREE_CODE(findtree) == SSA_NAME)
+																{
+																	// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+																	// tree findtree = gimple_call_arg(u_stmt, 3);
+																	// debug_tree(TREE_OPERAND(findtree, 0));
+																	trace_function_path(function_tree, -1, findtree, &find_freestmt);
 																}
 															}
 															// debug_tree(findtree);
@@ -1797,7 +1811,15 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 															// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
 															// tree findtree = gimple_call_arg(u_stmt, 3);
 															// debug_tree(TREE_OPERAND(findtree, 0));
-															trace_function_path(function_tree, 0, TREE_OPERAND(findtree, 0), &find_freestmt);
+															trace_function_path(function_tree,-1, TREE_OPERAND(findtree, 0), &find_freestmt);
+														}
+														else if (TREE_CODE(findtree) == SSA_NAME)
+														{
+															// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+															// tree findtree = gimple_call_arg(u_stmt, 3);
+															// debug_tree(findtree);
+															trace_function_path(function_tree, -1, findtree, &find_freestmt);
+															
 														}
 													}
 													// debug_tree(findtree);

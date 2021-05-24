@@ -19,6 +19,8 @@ void test22(int *k) __attribute__((noinline));
 void test33(int *k) __attribute__((noinline));
 void test44(int *k) __attribute__((noinline));
 void *child(void *data) __attribute__((noinline));
+void *child2(void *data) __attribute__((noinline));
+void *child3(void *data) __attribute__((noinline));
 // void *child(void *data) __attribute__((noinline));
 // int *foo(int z);
 int *foo4(int z);
@@ -153,7 +155,7 @@ void *child(void *data)
 	int *pData = malloc(20);
 	int *a = foo(1);
 	int data2 = 0;
-	data=10;
+	data = 10;
 	ppData = &pData;
 	pData = &data2;
 	*ppData[0] = 10;
@@ -177,18 +179,48 @@ void *child(void *data)
 	// pthread_mutex_unlock(&mLock);
 	// pthread_exit(NULL); // 離開子執行緒
 }
+void *child3(void *data)
+{
+	int *pData = &data;
+	pData= pData+1;
+	// ++(*(int *)pData);
+	// int input[2] = {1, 2}; // 輸入的資料
+	// int input2; // 輸入的資料
+	// data=10;
+	// data=10;
+	// data=10;
+	// data=10;
+	// free(&pData);
+	free(data);
+	//
+	// printf("asdda%d\n" ,input2);
+	//a3
+	// pthread_mutex_lock(&mLock);
+	// int a = 10;
+	// int *ptr1 = &a;
+	// int **ptr2 = &ptr1;
+	// int ***ptr3 = &ptr2;
+	// pthread_mutex_unlock(&mLock);
+	// pthread_exit(NULL); // 離開子執行緒
+}
 void *child2(void *data)
 {
-	int *pData =&data;
-	
+	int *pData = &data;
+	// int input[2] = {1, 2}; // 輸入的資料
+	// int input2; // 輸入的資料
 	// data=10;
 	// data=10;
 	// data=10;
 	// data=10;
-	free(&pData);
+	// free(&pData);
+	// int a;
+
+	++(*(int *)data);
+	++(*(int *)pData);
+	child3(data);
 	free(data);
-
-
+	//
+	// printf("asdda%d\n" ,input2);
 	//a3
 	// pthread_mutex_lock(&mLock);
 	// int a = 10;
@@ -234,7 +266,7 @@ int main()
 	int *p;
 	int *p2;
 	int input[2] = {1, 2}; // 輸入的資料
-
+	int input2;			   // 輸入的資料
 	// int *p3;
 	// // test= malloc (sizeof (int ) * 10);
 	// // foo3(p);
@@ -262,7 +294,7 @@ int main()
 	pthread_attr_setdetachstate(&attr2, PTHREAD_CREATE_JOINABLE);
 
 	pthread_t t, t2[3]; // 宣告 pthread 變數
-	pthread_create(&t, &attr2, child2, (void*) input);
+	pthread_create(&t, &attr2, child2, (void *)input2);
 
 	pthread_join(t, NULL);
 	// pthread_mutex_destroy(&mLock);
