@@ -764,8 +764,8 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 							tree second = TREE_OPERAND(table1->target, 0);
 							if (getFunctionAssignRHS == second)
 							{
-								debug_tree(getFunctionAssignLHS);
-								debug_tree(table1->target);
+								// debug_tree(getFunctionAssignLHS);
+								// debug_tree(table1->target);
 								// debug_tree(second);
 								// fprintf(stderr, "okokokokokokok-------\n");
 								table1->swap_target = table1->target;
@@ -1072,7 +1072,7 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 							// attr_type_array = pthread_attr_array.attr_type_array;
 						}
 						// table_temp->pthread_type_num =
-						debug(table_temp->swap_stmt);
+						// debug(table_temp->swap_stmt);
 					}
 					// fun_array.return_type_num = 3;
 					// fprintf(stderr, "RETURN with free ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
