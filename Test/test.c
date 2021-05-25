@@ -182,6 +182,7 @@ void *child(void *data)
 void *child3(void *data)
 {
 	int *pData = &data;
+	int c = 10;
 	pData= pData+1;
 	// ++(*(int *)pData);
 	// int input[2] = {1, 2}; // 輸入的資料
@@ -193,7 +194,8 @@ void *child3(void *data)
 	// free(&pData);
 	free(data);
 	//
-	// printf("asdda%d\n" ,input2);
+	printf("asdda%d\n" ,pData);
+	printf("asdda%d\n" ,c);
 	//a3
 	// pthread_mutex_lock(&mLock);
 	// int a = 10;
