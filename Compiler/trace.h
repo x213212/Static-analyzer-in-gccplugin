@@ -28,6 +28,10 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 			calculate_dominance_info(CDI_DOMINATORS);
 
 			/*create DFS graph, Algorithm 1 and 2*/
+			fprintf(stderr, "\033[40;36m ======= node_fun:%s========= \033[0m\n", get_name(function_tree));
+			fprintf(stderr, "\033[40;36m ======= find relate stmt with %s ========= \033[0m\n", get_name(mallocStmt_tree));
+
+			fprintf(stderr, "\033[40;36m ======= relate stmt argument:%s ========= \033[0m\n", get_name(mallocStmt_tree));
 			FOR_EACH_BB_FN(bb, cfun)
 			{
 				// debug_bb(bb);
@@ -58,10 +62,6 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 						// debug_tree(DECL_CHAIN(DECL_ARGUMENTS(node->get_fun()->decl)));
 						p = DECL_ARGUMENTS(node->get_fun()->decl);
 						/* Fix up the types of parms passed by invisible reference.  */
-						fprintf(stderr, "\033[40;36m ======= node_fun:%s========= \033[0m\n", get_name(function_tree));
-						fprintf(stderr, "\033[40;36m ======= find relate stmt with %s ========= \033[0m\n", get_name(mallocStmt_tree));
-
-						fprintf(stderr, "\033[40;36m ======= relate stmt argument:%s ========= \033[0m\n", get_name(mallocStmt_tree));
 						// debug_tree(mallocStmt_tree);
 
 						if (DECL_ARGUMENTS(node->get_fun()->decl) != NULL)
