@@ -1803,6 +1803,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 															// debug_tree(findtree);
 															// debug_tree(TREE_OPERAND(TREE_OPERAND(findtree, 0), 0));
 														}
+														
 														if (findtree != NULL)
 															trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), 0, findtree, &find_freestmt);
 														if (table_temp->swap_stmt != NULL)
