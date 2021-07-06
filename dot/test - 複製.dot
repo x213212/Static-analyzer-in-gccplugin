@@ -1,0 +1,7 @@
+digraph {rankdir = LR
+"main" -> "_31 = foo5 (q_57, q_57);" -> B -> C -> D -> F [color = green]
+	"_31 = foo5 (q_57, q_57);" -> G [color = green]
+	"main2" -> "_31 = foo2 (q_57, q_57);" -> B -> C -> D -> F [color = green]
+		"_31 = foo2 (q_57, q_57);" -> G [color = green]
+	"main" -> "_31 = foo2 (q_57, q_57);" -> B -> C -> D -> F [color = green]
+}

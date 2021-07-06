@@ -1,0 +1,1479 @@
+
+" test22
+"->
+
+
+" # .MEM_18 = VDEF <.MEM_17>
+w_10 = malloc (5)
+
+"->
+
+
+" from test22 basic block 2"->
+
+" free (w_10)
+test.c:260:2: warning: use location
+"
+
+
+
+
+
+
+" test22
+"->
+
+
+" # .MEM_20 = VDEF <.MEM_19>
+test22 (k_2(D))
+
+"->
+
+
+" from test22 basic block 2"->
+
+" test22 (k_2(D))
+test.c:261:2: warning: use location
+"
+
+
+" # .MEM_20 = VDEF <.MEM_19>
+test22 (k_2(D))
+
+"->
+
+
+" from test22 basic block 2"->
+
+" free (k_2(D))
+test.c:258:2: warning: use location
+"
+
+
+" # .MEM_20 = VDEF <.MEM_19>
+test22 (k_2(D))
+
+"->
+
+
+" from test22 basic block 2"->
+
+" free (k_2(D))
+test.c:257:2: warning: use location
+"
+
+
+" # .MEM_20 = VDEF <.MEM_19>
+test22 (k_2(D))
+
+"->
+
+
+" from test22 basic block 2"->
+
+" free (k_2(D))
+test.c:256:2: warning: use location
+"
+
+
+" # .MEM_20 = VDEF <.MEM_19>
+test22 (k_2(D))
+
+"->
+
+
+" from test22 basic block 2"->
+
+" free (k_2(D))
+test.c:255:2: warning: use location
+"
+
+
+" # .MEM_20 = VDEF <.MEM_19>
+test22 (k_2(D))
+
+"->
+
+
+" from test22 basic block 2"->
+
+" free (k_2(D))
+test.c:254:2: warning: use location
+"
+
+
+" # .MEM_20 = VDEF <.MEM_19>
+test22 (k_2(D))
+
+"->
+
+
+" from test22 basic block 2"->
+
+" free (k_2(D))
+test.c:253:2: warning: use location
+"
+
+
+
+
+
+
+" boo
+"->
+
+
+" # .MEM_10 = VDEF <.MEM_9>
+test22 (b_2(D))
+
+"->
+
+
+" from boo basic block 2"->
+
+" test22 (b_2(D))
+test.c:240:2: warning: use location
+"
+
+
+" # .MEM_10 = VDEF <.MEM_9>
+test22 (b_2(D))
+
+"->
+
+
+" from boo basic block 2"->
+
+" free (b_2(D))
+test.c:239:2: warning: use location
+"
+
+
+" # .MEM_10 = VDEF <.MEM_9>
+test22 (b_2(D))
+
+"->
+
+
+" from boo basic block 2"->
+
+" free (b_2(D))
+test.c:238:2: warning: use location
+"
+
+
+
+
+
+
+" boo
+"->
+
+
+" # .MEM_10 = VDEF <.MEM_9>
+test22 (b_2(D))
+
+"->
+
+
+" from boo basic block 2"->
+
+" test22 (b_2(D))
+test.c:240:2: warning: use location
+"
+
+
+" # .MEM_10 = VDEF <.MEM_9>
+test22 (b_2(D))
+
+"->
+
+
+" from boo basic block 2"->
+
+" free (b_2(D))
+test.c:239:2: warning: use location
+"
+
+
+" # .MEM_10 = VDEF <.MEM_9>
+test22 (b_2(D))
+
+"->
+
+
+" from boo basic block 2"->
+
+" free (b_2(D))
+test.c:238:2: warning: use location
+"
+
+
+
+
+
+
+" child
+"->
+
+
+
+" child
+"->
+
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" pData = _2
+test.c:155:7: warning: use location
+"
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" _4 = MEM[(int * *)&pData + 8B]
+test.c:162:9: warning: use location
+"
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" *_4 = 10
+test.c:162:13: warning: use location
+"
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" _5 = MEM[(int * *)&pData + 16B]
+test.c:163:9: warning: use location
+"
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" *_5 = 10
+test.c:163:13: warning: use location
+"
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" free (&pData)
+test.c:168:2: warning: use location
+"
+
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" free (&pData)
+test.c:170:2: warning: use location
+"
+
+
+
+
+
+
+" child
+"->
+
+
+
+
+
+
+" child
+"->
+
+
+
+" foo
+"->
+
+
+" # .MEM_9 = VDEF <.MEM_8(D)>
+p2_3 = malloc (1)
+
+"->
+
+
+" from foo basic block 2"->
+
+" *p2_3 = 1
+test.c:109:8: warning: use location
+"
+
+
+
+
+
+
+" foo
+"->
+
+
+" # .MEM_11 = VDEF <.MEM_10>
+_7 = foo2 (z_5(D))
+
+"->
+
+
+" from foo basic block 2"->
+
+" return _7
+test.c:124:9: warning: use location
+"
+
+
+
+
+
+
+" foo3
+"->
+
+
+" # .MEM_8 = VDEF <.MEM_7(D)>
+_1 = malloc (1)
+
+"->
+
+
+" from foo3 basic block 2"->
+
+" _2 = (long int) _1
+test.c:51:5: warning: use location
+"
+
+" # .MEM_8 = VDEF <.MEM_7(D)>
+_1 = malloc (1)
+
+"->
+
+
+" from foo3 basic block 2"->
+
+" _3 = (int) _2
+test.c:51:5: warning: use location
+"
+
+" # .MEM_8 = VDEF <.MEM_7(D)>
+_1 = malloc (1)
+
+"->
+
+
+" from foo3 basic block 2"->
+
+" *z_6(D) = _3
+test.c:51:5: warning: use location
+"
+
+
+
+
+
+
+" foo2
+"->
+
+
+" # .MEM_34 = VDEF <.MEM_33(D)>
+a2_12 = malloc (_1)
+
+"->
+
+
+" from foo2 basic block 2"->
+
+" *a2_12 = 10
+test.c:61:8: warning: use location
+"
+
+
+
+
+
+
+" foo2
+"->
+
+
+" # .MEM_35 = VDEF <.MEM_34>
+p3_14 = malloc (_2)
+
+"->
+
+
+" from foo2 basic block 5"->
+
+" _7 = PHI <p3_14(3), p4_16(4)>
+lto1: warning: use location
+"
+
+
+" # .MEM_35 = VDEF <.MEM_34>
+p3_14 = malloc (_2)
+
+"->
+
+
+" from foo2 basic block 3"->
+
+" _31 = p3_14
+test.c:73:10: warning: use location
+"
+
+
+" # .MEM_35 = VDEF <.MEM_34>
+p3_14 = malloc (_2)
+
+"->
+
+
+" from foo2 basic block 3"->
+
+" free (p3_14)
+test.c:72:3: warning: use location
+"
+
+
+" # .MEM_35 = VDEF <.MEM_34>
+p3_14 = malloc (_2)
+
+"->
+
+
+" from foo2 basic block 3"->
+
+" *p3_14 = 10
+test.c:71:9: warning: use location
+"
+
+
+" # .MEM_35 = VDEF <.MEM_34>
+p3_14 = malloc (_2)
+
+"->
+
+
+" from foo2 basic block 2"->
+
+" foo3 (p3_14)
+test.c:67:2: warning: use location
+"
+
+
+" # .MEM_35 = VDEF <.MEM_34>
+p3_14 = malloc (_2)
+
+"->
+
+" from foo2 basic block 2"->
+
+" return _7
+lto1: warning: use location
+"
+
+
+
+
+
+
+" foo2
+"->
+
+
+" # .MEM_36 = VDEF <.MEM_35>
+p4_16 = malloc (_3)
+
+"->
+
+
+" from foo2 basic block 5"->
+
+" _7 = PHI <p3_14(3), p4_16(4)>
+lto1: warning: use location
+"
+
+
+" # .MEM_36 = VDEF <.MEM_35>
+p4_16 = malloc (_3)
+
+"->
+
+
+" from foo2 basic block 4"->
+
+" _28 = p4_16
+test.c:79:10: warning: use location
+"
+
+
+" # .MEM_36 = VDEF <.MEM_35>
+p4_16 = malloc (_3)
+
+"->
+
+
+" from foo2 basic block 4"->
+
+" free (p4_16)
+test.c:78:3: warning: use location
+"
+
+
+" # .MEM_36 = VDEF <.MEM_35>
+p4_16 = malloc (_3)
+
+"->
+
+
+" from foo2 basic block 4"->
+
+" *p4_16 = 10
+test.c:77:9: warning: use location
+"
+
+
+" # .MEM_36 = VDEF <.MEM_35>
+p4_16 = malloc (_3)
+
+"->
+
+" from foo2 basic block 2"->
+
+" return _7
+lto1: warning: use location
+"
+
+
+
+
+
+
+" foo2
+"->
+
+
+" # .MEM_37 = VDEF <.MEM_36>
+_5 = malloc (_4)
+
+"->
+
+
+" from foo2 basic block 2"->
+
+" p99 = _5
+test.c:59:6: warning: use location
+"
+
+
+
+
+
+
+" foo2
+"->
+
+
+" # .MEM_34 = VDEF <.MEM_33(D)>
+a2_12 = malloc (_1)
+
+"->
+
+
+" from foo2 basic block 2"->
+
+" *a2_12 = 10
+test.c:61:8: warning: use location
+"
+
+
+
+
+
+
+" foo2
+"->
+
+
+" # .MEM_35 = VDEF <.MEM_34>
+p3_14 = malloc (_2)
+
+"->
+
+
+" from foo2 basic block 5"->
+
+" _7 = PHI <p3_14(3), p4_16(4)>
+lto1: warning: use location
+"
+
+
+" # .MEM_35 = VDEF <.MEM_34>
+p3_14 = malloc (_2)
+
+"->
+
+
+" from foo2 basic block 3"->
+
+" _31 = p3_14
+test.c:73:10: warning: use location
+"
+
+" # .MEM_35 = VDEF <.MEM_34>
+p3_14 = malloc (_2)
+
+"->
+
+
+" from foo2 basic block 3"->
+
+" free (p3_14)
+test.c:72:3: warning: use location
+"
+
+
+" # .MEM_35 = VDEF <.MEM_34>
+p3_14 = malloc (_2)
+
+"->
+
+
+" from foo2 basic block 3"->
+
+" *p3_14 = 10
+test.c:71:9: warning: use location
+"
+
+" # .MEM_35 = VDEF <.MEM_34>
+p3_14 = malloc (_2)
+
+"->
+
+
+" from foo2 basic block 2"->
+
+" foo3 (p3_14)
+test.c:67:2: warning: use location
+"
+
+
+" # .MEM_35 = VDEF <.MEM_34>
+p3_14 = malloc (_2)
+
+"->
+
+" from foo2 basic block 2"->
+
+" return _7
+lto1: warning: use location
+"
+
+
+
+
+
+
+" foo2
+"->
+
+
+" # .MEM_36 = VDEF <.MEM_35>
+p4_16 = malloc (_3)
+
+"->
+
+
+" from foo2 basic block 5"->
+
+" _7 = PHI <p3_14(3), p4_16(4)>
+lto1: warning: use location
+"
+
+
+" # .MEM_36 = VDEF <.MEM_35>
+p4_16 = malloc (_3)
+
+"->
+
+
+" from foo2 basic block 4"->
+
+" _28 = p4_16
+test.c:79:10: warning: use location
+"
+
+" # .MEM_36 = VDEF <.MEM_35>
+p4_16 = malloc (_3)
+
+"->
+
+
+" from foo2 basic block 4"->
+
+" free (p4_16)
+test.c:78:3: warning: use location
+"
+
+
+" # .MEM_36 = VDEF <.MEM_35>
+p4_16 = malloc (_3)
+
+"->
+
+
+" from foo2 basic block 4"->
+
+" *p4_16 = 10
+test.c:77:9: warning: use location
+"
+
+
+" # .MEM_36 = VDEF <.MEM_35>
+p4_16 = malloc (_3)
+
+"->
+
+" from foo2 basic block 2"->
+
+" return _7
+lto1: warning: use location
+"
+
+
+
+
+
+
+" foo2
+"->
+
+
+" # .MEM_37 = VDEF <.MEM_36>
+_5 = malloc (_4)
+
+"->
+
+
+" from foo2 basic block 2"->
+
+" p99 = _5
+test.c:59:6: warning: use location
+"
+
+
+
+
+
+
+" foo
+"->
+
+
+" # .MEM_9 = VDEF <.MEM_8(D)>
+p2_3 = malloc (1)
+
+"->
+
+
+" from foo basic block 2"->
+
+" *p2_3 = 1
+test.c:109:8: warning: use location
+"
+
+
+
+
+
+
+" foo
+"->
+
+
+" # .MEM_11 = VDEF <.MEM_10>
+_7 = foo2 (z_5(D))
+
+"->
+
+
+" from foo basic block 2"->
+
+" return _7
+test.c:124:9: warning: use location
+"
+
+
+
+
+
+
+" foo
+"->
+
+
+" # .MEM_9 = VDEF <.MEM_8(D)>
+p2_3 = malloc (1)
+
+"->
+
+
+" from foo basic block 2"->
+
+" *p2_3 = 1
+test.c:109:8: warning: use location
+"
+
+
+
+
+
+
+" foo
+"->
+
+
+" # .MEM_11 = VDEF <.MEM_10>
+_7 = foo2 (z_5(D))
+
+"->
+
+
+" from foo basic block 2"->
+
+" return _7
+test.c:124:9: warning: use location
+"
+
+
+
+
+
+
+" child
+"->
+
+
+
+" child
+"->
+
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" pData = _2
+test.c:155:7: warning: use location
+"
+
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" _4 = MEM[(int * *)&pData + 8B]
+test.c:162:9: warning: use location
+"
+
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" *_4 = 10
+test.c:162:13: warning: use location
+"
+
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" _5 = MEM[(int * *)&pData + 16B]
+test.c:163:9: warning: use location
+"
+
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" *_5 = 10
+test.c:163:13: warning: use location
+"
+
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" free (&pData)
+test.c:168:2: warning: use location
+"
+
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" free (&pData)
+test.c:170:2: warning: use location
+"
+
+
+
+
+
+
+" child
+"->
+
+
+
+
+
+
+" child
+"->
+
+
+
+" child
+"->
+
+
+
+" child
+"->
+
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" pData = _2
+test.c:155:7: warning: use location
+"
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" _4 = MEM[(int * *)&pData + 8B]
+test.c:162:9: warning: use location
+"
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" *_4 = 10
+test.c:162:13: warning: use location
+"
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" _5 = MEM[(int * *)&pData + 16B]
+test.c:163:9: warning: use location
+"
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" *_5 = 10
+test.c:163:13: warning: use location
+"
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" free (&pData)
+test.c:168:2: warning: use location
+"
+
+
+" # .MEM_23 = VDEF <.MEM_22>
+_2 = malloc (20)
+
+"->
+
+
+" from child basic block 2"->
+
+" free (&pData)
+test.c:170:2: warning: use location
+"
+
+
+
+
+
+
+" child
+"->
+
+
+
+
+
+
+" child
+"->
+
+
+
+" main
+"->
+
+
+" # .MEM_93 = VDEF <.MEM_92(D)>
+a_46 = malloc (32)
+
+"->
+
+
+" from main basic block 5"->
+
+" _17 = a_46 + _16
+test.c:285:29: warning: use location
+"
+
+" # .MEM_93 = VDEF <.MEM_92(D)>
+a_46 = malloc (32)
+
+"->
+
+
+" from main basic block 5"->
+
+" _18 = _17->name
+test.c:285:9: warning: use location
+"
+
+" # .MEM_93 = VDEF <.MEM_92(D)>
+a_46 = malloc (32)
+
+"->
+
+
+" from main basic block 5"->
+
+" _40 = __printf_chk (1, s, d\n, _18, _14)
+"
+
+
+" # .MEM_93 = VDEF <.MEM_92(D)>
+a_46 = malloc (32)
+
+"->
+
+
+" from main basic block 5"->
+
+" _13 = a_46 + _12
+test.c:285:40: warning: use location
+"
+
+" # .MEM_93 = VDEF <.MEM_92(D)>
+a_46 = malloc (32)
+
+"->
+
+
+" from main basic block 5"->
+
+" _14 = _13->nummer
+test.c:285:9: warning: use location
+"
+
+" # .MEM_93 = VDEF <.MEM_92(D)>
+a_46 = malloc (32)
+
+"->
+
+
+" from main basic block 3"->
+
+" _9 = a_46 + _8
+test.c:281:10: warning: use location
+"
+
+" # .MEM_93 = VDEF <.MEM_92(D)>
+a_46 = malloc (32)
+
+"->
+
+
+" from main basic block 3"->
+
+" _9->nummer = 123
+test.c:281:21: warning: use location
+"
+
+" # .MEM_93 = VDEF <.MEM_92(D)>
+a_46 = malloc (32)
+
+"->
+
+
+" from main basic block 3"->
+
+" _6 = a_46 + _5
+test.c:280:10: warning: use location
+"
+
+" # .MEM_93 = VDEF <.MEM_92(D)>
+a_46 = malloc (32)
+
+"->
+
+
+" from main basic block 3"->
+
+" _6->name = Testname
+test.c:280:19: warning: use location
+"
+
+
+
+
+
+
+" main
+"->
+
+
+" # VUSE <.MEM_100>
+_22 = t
+
+"->
+
+
+" from main basic block 7"->
+
+" pthread_create (&t, &attr2, child2, _21)
+test.c:317:2: warning: use location
+"
+
+
+" # VUSE <.MEM_100>
+_22 = t
+
+"->
+
+
+" from main basic block 7"->
+
+" pthread_join (_22, 0B)
+test.c:319:2: warning: use location
+"
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_117 = VDEF <.MEM_88>
+err_79 = pthread_create (_23, &attr, child, 0B)
+
+"->
+
+
+" from main basic block 8"->
+
+" _24 = t2[i_34]
+test.c:326:3: warning: use location
+"
+
+" # .MEM_117 = VDEF <.MEM_88>
+err_79 = pthread_create (_23, &attr, child, 0B)
+
+"->
+
+
+" from main basic block 8"->
+
+" _62 = __printf_chk (1, ld\n, _24)
+"
+
+
+" # .MEM_117 = VDEF <.MEM_88>
+err_79 = pthread_create (_23, &attr, child, 0B)
+
+"->
+
+
+" from main basic block 13"->
+
+" _28 = t2[i_35]
+test.c:345:3: warning: use location
+"
+
+" # .MEM_117 = VDEF <.MEM_88>
+err_79 = pthread_create (_23, &attr, child, 0B)
+
+"->
+
+
+" from main basic block 13"->
+
+" pthread_join (_28, 0B)
+test.c:345:3: warning: use location
+"
+
+
+" # .MEM_117 = VDEF <.MEM_88>
+err_79 = pthread_create (_23, &attr, child, 0B)
+
+"->
+
+
+" from main basic block 8"->
+
+" err_79 = pthread_create (_23, &attr, child, 0B)
+test.c:324:7: warning: use location
+"
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_102 = VDEF <.MEM_88>
+q_57 = malloc (5)
+
+"->
+
+
+" from main basic block 11"->
+
+" child (q_57)
+test.c:333:3: warning: use location
+"
+
+
+" # .MEM_102 = VDEF <.MEM_88>
+q_57 = malloc (5)
+
+"->
+
+
+" from main basic block 21"->
+
+" _31 = foo5 (q_57, q_57)
+test.c:365:2: warning: use location
+"
+
+
+" # .MEM_102 = VDEF <.MEM_88>
+q_57 = malloc (5)
+
+"->
+
+
+" from main basic block 12"->
+
+" *q_57 = 20
+test.c:338:9: warning: use location
+"
+
+" # .MEM_102 = VDEF <.MEM_88>
+q_57 = malloc (5)
+
+"->
+
+
+" from main basic block 10"->
+
+" _25 = q_57 != 0B
+test.c:330:9: warning: use location
+"
+
+" # .MEM_102 = VDEF <.MEM_88>
+q_57 = malloc (5)
+
+"->
+
+
+" from main basic block 10"->
+
+" _27 = _25 & _26
+test.c:330:18: warning: use location
+"
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_105 = VDEF <.MEM_89>
+data_64 = malloc (400)
+
+"->
+
+
+" from main basic block 19"->
+
+" data_36 = PHI <0B(15), data_64(18)>
+lto1: warning: use location
+"
+
+
+" # .MEM_105 = VDEF <.MEM_89>
+data_64 = malloc (400)
+
+"->
+
+
+" from main basic block 20"->
+
+" free (data_36)
+test.c:363:3: warning: use location
+"
+
+
+" # .MEM_105 = VDEF <.MEM_89>
+data_64 = malloc (400)
+
+"->
+
+
+" from main basic block 18"->
+
+" free (data_64)
+test.c:358:3: warning: use location
+"
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_109 = VDEF <.MEM_91>
+_31 = foo5 (q_57, q_57)
+
+"->
+
+
+" from main basic block 21"->
+
+" _85 = __printf_chk (1, 123d\n, _31)
+"
+
+
+
+

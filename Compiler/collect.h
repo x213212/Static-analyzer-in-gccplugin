@@ -11,6 +11,20 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 
 	name = get_name(gimple_call_fn(gc));
 	if (name != NULL)
+	{
+
+		if (is_gimple_assign(gc))
+		if(gimple_assign_lhs(gc) != NULL)
+			if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME )
+			{
+				fprintf(stderr, "====================POINTER_TYPE============================\n");
+				debug(gimple_assign_lhs(gc));
+				// debug(gimple_assign_rhs1(gc));
+				debug_tree(gimple_assign_lhs(gc));
+					warning_at(gimple_location(gc), 0, "use location");
+					fprintf(stderr, "====================POINTER_TYPE============================\n");
+			}
+
 		if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 		{
 			// addr_expr free (&a)
@@ -52,8 +66,12 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 
 		else if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
 		{
-			// debug_tree(gimple_call_lhs(gc));
+			debug_tree(gimple_call_lhs(gc));
 			set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
+			warning_at(gimple_location(gc), 0, "use location");
+			// if(TREE_CODE(TREE_TYPE((gimple_call_lhs(gc))))==POINTER_TYPE){
+			// 	fprintf(stderr, "====================POINTER_TYPE============================\n");
+			// }
 		}
 		else if (!strcmp(name, "pthread_create"))
 		{
@@ -113,25 +131,26 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 			// pthread_attr_array.attr_type_array.push_back(attr_type);
 			pthread_attr_setdetachstates->put(getvardecl, pthread_attr_array);
 		}
-	// else if (!strcmp(name, "pthread_join"))
-	// {
-	// 	fprintf(stderr, "====================pthread_join============================\n");
-	// 	gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
-	// 	debug_tree(gimple_call_arg(gc, 0));
-	// 	set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
-	// }
-	// warning_at(gimple_location(gc), 0, "use location");
+		// else if (!strcmp(name, "pthread_join"))
+		// {
+		// 	fprintf(stderr, "====================pthread_join============================\n");
+		// 	gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
+		// 	debug_tree(gimple_call_arg(gc, 0));
+		// 	set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+		// }
+		// warning_at(gimple_location(gc), 0, "use location");
 
-	// else if (!strcmp(name, "pthread_mutex_unlock"))
-	// {
-	// 	fprintf(stderr, "================================================\n");
-	// 	debug(gc);
-	// 	debug_tree(gimple_call_arg(gc, 0));
-	// 	fprintf(stderr, "================================================\n");
-	// 	tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
-	// 	debug_tree(second);
-	// 	set_ptb(bb, unlocktable, second, loc, 0, gc, node);
-	// }
+		// else if (!strcmp(name, "pthread_mutex_unlock"))
+		// {
+		// 	fprintf(stderr, "================================================\n");
+		// 	debug(gc);
+		// 	debug_tree(gimple_call_arg(gc, 0));
+		// 	fprintf(stderr, "================================================\n");
+		// 	tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
+		// 	debug_tree(second);
+		// 	set_ptb(bb, unlocktable, second, loc, 0, gc, node);
+		// }
+	}
 }
 
 void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb)

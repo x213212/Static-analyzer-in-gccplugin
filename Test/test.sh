@@ -8,7 +8,7 @@ DST=""
 SRC=$(echo $SRC)
 DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
-SRC='-'
+SRC='--'
 DST=""
 SRC=$(echo $SRC)
 DST=$(echo $DST)
@@ -49,8 +49,6 @@ sed -i "s/$SRC/$DST/g" ./graph.log
 
 
 
-
-
 SRC="dot graph target loc start "
 DST='"'
 SRC=$(echo $SRC)
@@ -63,6 +61,19 @@ SRC=$(echo $SRC)
 DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
+
+
+SRC="dot graph target basicblock start "
+DST='"'
+SRC=$(echo $SRC)
+DST=$(echo $DST)
+sed -i "s/$SRC/$DST/g" ./graph.log
+
+SRC="dot graph target basicblock end"
+DST='"'"->"
+SRC=$(echo $SRC)
+DST=$(echo $DST)
+sed -i "s/$SRC/$DST/g" ./graph.log
 
 
 SRC="dot graph stmt start "
@@ -86,5 +97,6 @@ DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
 value=`cat graph.log`
-echo "digraph {rankdir = LR; rank=same;" "$value" "}" >> graph.dot
+echo "digraph {rankdir = LR; rank=same; nodesep=1.0;" "$value" "}" >> graph.dot
 dot -Tpng -o graph.png  graph.dot
+gvpr -f graphinfo.gvpr graph.dot
