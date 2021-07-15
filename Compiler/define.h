@@ -115,6 +115,14 @@ struct pthread_detched_type
 	//int return_type;
 };
 
+struct pthread_exit_type
+{
+	gimple *stmt;
+	tree pthread_exit_tree;
+	// int reutnr_type_num = 0;
+	//int return_type;
+};
+
 /*define return_type struct*/
 struct function_return_array
 {
@@ -159,6 +167,12 @@ struct function_pthread_detched_array
 {
 	vector< pthread_detched_type> pthread_detched_array;
 };
+
+/*define pthread_detched struct*/
+struct function_pthread_exit_array
+{
+	vector< pthread_exit_type> pthread_exit_array;
+};
 struct function_graph_array
 {
 	Graph graph_type_array;
@@ -172,6 +186,8 @@ hash_map<tree, function_assign_array> *function_assign_collect;
 hash_map<tree, pthread_attr_array> *pthread_attr_setdetachstates;
 /*collect function pthread_detched */
 hash_map<tree, function_pthread_detched_array> *function_pthread_detched_collect;
+/*collect function pthread_exit */
+hash_map<tree, function_pthread_exit_array> *function_pthread_exit_collect;
 /*collect function path */
 hash_map<tree, function_path_array> *function_path_collect;
 /*collect function free */

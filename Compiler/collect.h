@@ -14,16 +14,16 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 	{
 
 		if (is_gimple_assign(gc))
-		if(gimple_assign_lhs(gc) != NULL)
-			if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME )
-			{
-				fprintf(stderr, "====================POINTER_TYPE============================\n");
-				debug(gimple_assign_lhs(gc));
-				// debug(gimple_assign_rhs1(gc));
-				debug_tree(gimple_assign_lhs(gc));
+			if (gimple_assign_lhs(gc) != NULL)
+				if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME)
+				{
+					fprintf(stderr, "====================POINTER_TYPE============================\n");
+					debug(gimple_assign_lhs(gc));
+					// debug(gimple_assign_rhs1(gc));
+					debug_tree(gimple_assign_lhs(gc));
 					warning_at(gimple_location(gc), 0, "use location");
 					fprintf(stderr, "====================POINTER_TYPE============================\n");
-			}
+				}
 
 		if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 		{
@@ -402,6 +402,30 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 				fun_array.pthread_detched_array.push_back(pthread_detched_type);
 				function_pthread_detched_collect->put(getFucntionDecl, fun_array);
+			}
+			else if (!strcmp(name, "pthread_exit"))
+			{
+				tree getFucntionDecl = (node->get_fun()->decl);
+
+				function_pthread_exit_array fun_array;
+				vector<pthread_exit_type> pthread_exit_array;
+				if (function_pthread_exit_collect->get(getFucntionDecl) == NULL)
+				{
+					// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
+					fun_array.pthread_exit_array = pthread_exit_array;
+				}
+				else
+				{
+					fun_array = *(function_pthread_exit_collect->get(getFucntionDecl));
+					pthread_exit_array = fun_array.pthread_exit_array;
+				}
+
+				struct pthread_exit_type pthread_exit_type;
+				pthread_exit_type.stmt = gc;
+				pthread_exit_type.pthread_exit_tree = gimple_call_arg(gc, 0);
+
+				fun_array.pthread_exit_array.push_back(pthread_exit_type);
+				function_pthread_exit_collect->put(getFucntionDecl, fun_array);
 			}
 			else
 			{
@@ -849,6 +873,8 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 	function_return_array fun_array = *(function_return_collect->get(function_tree));
 
 	vector<return_type> ret_type_array = fun_array.return_type_array;
+	if (fun_array.return_type_num == 2)
+		return;
 	//debug_tree(function_tree);
 	//vector<pair<fdecl,location_t>> loc;
 	// fprintf(stderr, "=======print_function_return %d   %d========\n", function_tree, ret_type_array.size());
@@ -940,9 +966,11 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 							if (TREE_CODE((ret_type_array)[i].return_tree) == SSA_NAME)
 								if (ptr_derefs_may_alias_p(table_temp->target, (ret_type_array)[i].return_tree))
 								{
-									// fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+									fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 									// debug(table_temp->last_stmt);
 									// debug(gc);
+									debug_tree(table_temp->target);
+									debug_tree((ret_type_array)[i].return_tree);
 									// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
 									// warning_at(gimple_location(gc), 0, "use location");
 									// fprintf(stderr, "GIMPLE_ASSIGNGIMPLE_successssssssssssssssss\n");
@@ -957,6 +985,7 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 									// return;
 									return;
 								}
+
 							// else
 							// {
 							// 	if (function_return_collect->get((ret_type_array)[i].return_tree) == NULL)

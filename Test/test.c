@@ -42,13 +42,15 @@ int foo5(int *z, int *y)
 }
 void foo3(int *z)
 {
-	// int *p2;
-	// p2=foo2(2);
+	int *p2;
+	
 	// p2[0]=10;
 	///error
 	// p2=10;
-	//printf("%d",p2);
 	*z = malloc(1);
+	p2=malloc(2);
+	p2[0]=10;
+	printf("%d",p2);
 }
 int *foo2(int z)
 {
@@ -126,7 +128,7 @@ int *foo(int z)
 void *child(void *data)
 {
 	pthread_mutex_t mLock2;
-	pthread_detach(pthread_self());
+	
 	// pthread_mutex_lock(&mLock2);
 	// pthread_mutex_lock(&mLock2);
 	//a1
@@ -168,7 +170,8 @@ void *child(void *data)
 	free(ppData);
 	pthread_mutex_unlock(&mLock);
 	free(ppData);
-	pthread_exit(NULL); // 離開子執行緒
+	int test=100;
+	pthread_exit(test); // 離開子執行緒
 
 	//a3
 	// pthread_mutex_lock(&mLock);
@@ -181,6 +184,7 @@ void *child(void *data)
 }
 void *child3(void *data)
 {
+	// pthread_detach(pthread_self());
 	int *pData = &data;
 	int c = 10;
 	pData = pData + 1;
@@ -193,6 +197,7 @@ void *child3(void *data)
 	// data=10;
 	// free(&pData);
 	free(data);
+		// pthread_detach(pthread_self());
 	//
 	printf("asdda%d\n", pData);
 	printf("asdda%d\n", c);
@@ -207,7 +212,9 @@ void *child3(void *data)
 }
 void *child2(void *data)
 {
+
 	int *pData = &data;
+	
 	// int input[2] = {1, 2}; // 輸入的資料
 	// int input2; // 輸入的資料
 	// data=10;
@@ -238,6 +245,7 @@ void boo(int *b)
 	free(b);
 	free(b);
 	test22(b);
+	// pthread_detach(pthread_self());
 	printf("asdda\n");
 }
 void test44(int *k)
@@ -258,32 +266,34 @@ void test22(int *k)
 	free(k);
 	int *w = malloc(5);
 	free(w);
-	test22(k);
+	// test22(k);
 }
 static int staticTrue = 1;	/* true */
 static int staticFalse = 0; /* false */
-struct adresse {
-    char *name;
-    int nummer;
+struct adresse
+{
+	char *name;
+	int nummer;
 };
 int main()
 {
 	int *p;
 	int *p2;
-	
-	
-    int size = 2;
-	int *p3=&size;
-    struct adresse *a = (struct adresse *) malloc(sizeof(struct adresse) * size);
-	
-    for (int i = 0; i < size; i++) {
-        a[i].name = "Testname";
-        a[i].nummer = 123;
-    }
 
-    for (int i = 0; i < size; i++) {
-        printf("%s, %d\n", a[i].name, a[i].nummer);
-    }
+	int size = 2;
+	int *p3 = &size;
+	struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
+
+	for (int i = 0; i < size; i++)
+	{
+		a[i].name = "Testname";
+		a[i].nummer = 123;
+	}
+
+	for (int i = 0; i < size; i++)
+	{
+		printf("%s, %d\n", a[i].name, a[i].nummer);
+	}
 
 	int input[2] = {1, 2}; // 輸入的資料
 	int input2;			   // 輸入的資料
@@ -314,20 +324,20 @@ int main()
 	pthread_attr_setdetachstate(&attr2, PTHREAD_CREATE_JOINABLE);
 
 	pthread_t t, t2[3]; // 宣告 pthread 變數
-	pthread_create(&t, &attr2, child2, (void *)input2);
+	pthread_create(&t, &attr2, child2, input2);
 
 	pthread_join(t, NULL);
 	// pthread_mutex_destroy(&mLock);
 	// pthread_create(&t, &attr, child, buff); // 建立子執行緒
 	for (int i = 0; i < 3; i++)
 	{
-		int err = pthread_create(&t2[i], &attr, child, NULL);
+		int err = pthread_create(&t2[i], &attr2, child, NULL);
 
 		printf("%ld\n", t2[i]);
 	}
 	int *q = malloc(5);
 	int test;
-	if ((q != NULL) && test )
+	if ((q != NULL) && test)
 	{
 
 		child(q);
@@ -335,7 +345,7 @@ int main()
 	}
 	else
 	{
-			q[0] = 20;
+		q[0] = 20;
 		printf("fuck\n");
 	}
 
@@ -382,5 +392,6 @@ int main()
 	// q=p;
 	// free(q);
 	// printf("%d",q);
+	
 	return 0;
 }

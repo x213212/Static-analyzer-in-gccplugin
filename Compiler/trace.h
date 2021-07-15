@@ -49,7 +49,18 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 				for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 				{
 					gimple *gc = gsi_stmt(gsi);
+					const char *name;
+					if (is_gimple_call(gc))
+					{
+						name = get_name(gimple_call_fn(gc));
+						if (name != NULL)
+							if (!strcmp(name, "pthread_exit"))
+							{
+								// debug_tree("test");
 
+								debug_gimple_stmt(gc);
+							}
+					}
 					if (is_gimple_assign(gc))
 					{
 						// debug_gimple_stmt(gc);
@@ -64,51 +75,129 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 						/* Fix up the types of parms passed by invisible reference.  */
 						// debug_tree(mallocStmt_tree);
 
-						if (DECL_ARGUMENTS(node->get_fun()->decl) != NULL)
-							// else if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
-							for (t = DECL_ARGUMENTS(node->get_fun()->decl); t; t = DECL_CHAIN(t))
-							{
-								// debug_tree(t);
-								if (gimple_assign_lhs(gc) != NULL)
-								{
+						// debug_points_to_info_for( gimple_assign_lhs(gc));
 
-									// bool check_array_ref = false;
-									// debug_tree(gimple_assign_lhs(gc));
-									// debug_tree(t);
-									// debug_tree(mallocStmt_tree);
-									// if (TREE_CODE(gimple_assign_lhs(gc)) == ARRAY_REF)
-									// {
-									// 	fprintf(stderr, "\033[40;32m    qwdddddddddddddddddddddddd \033[0m\n");
-									// 	tree second = TREE_OPERAND(gimple_assign_lhs(gc), 0);
-									// 	debug_tree(second);
-									// }
+						// if (DECL_ARGUMENTS(node->get_fun()->decl) != NULL)
+						// 	// else if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
+						// 	for (t = DECL_ARGUMENTS(node->get_fun()->decl); t; t = DECL_CHAIN(t))
+						// 	{
+						// 		// debug_tree(t);
+						// 		if (gimple_assign_lhs(gc) != NULL)
+						// 		{
 
-									// if (test != NULL)
-									// {
-									// fprintf(stderr, "\033[40;32m    FIND PTHREAD22222_CREATED STMT  \033[0m\n");
-									// 	debug_tree(test);
-									// }
-									if (ptr_derefs_may_alias_p(t, gimple_assign_lhs(gc)) && ptr_derefs_may_alias_p(mallocStmt_tree, t) && ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
-									// if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
-									{
-										fprintf(stderr, "\033[40;36m ======= relate node_fun argument:%s========= \033[0m\n", get_name(t));
-										// debug_tree(t);
+						// 			// bool check_array_ref = false;
+						// 			// debug_tree(gimple_assign_lhs(gc));
+						// 			// debug_tree(t);
+						// 			// debug_tree(mallocStmt_tree);
+						// 			// if (TREE_CODE(gimple_assign_lhs(gc)) == ARRAY_REF)
+						// 			// {
+						// 			// 	fprintf(stderr, "\033[40;32m    qwdddddddddddddddddddddddd \033[0m\n");
+						// 			// 	tree second = TREE_OPERAND(gimple_assign_lhs(gc), 0);
+						// 			// 	debug_tree(second);
+						// 			// }
+						debug_gimple_stmt(gc);
 
-										fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", gimple_assign_lhs(gc));
-										debug_gimple_stmt(gc);
-										warning_at(gimple_location(gc), 0, "use location");
+						// 			// if (test != NULL)
+						// 			// {
+						// 			// fprintf(stderr, "\033[40;32m    FIND PTHREAD22222_CREATED STMT  \033[0m\n");
+						// 			// 	debug_tree(test);
+						// 			// }
+						// 			// struct ptr_info_def *pi1, *pi2, *pi3;
+						// 			// pi1 = SSA_NAME_PTR_INFO(gimple_assign_lhs(gc));
+						// 			// pi2 = SSA_NAME_PTR_INFO(mallocStmt_tree);
+						// 			// pi3 = SSA_NAME_PTR_INFO(t);
+						// 			// // struct pt_solution pt1 = pi1->pt;
+						// 			// // struct pt_solution pt2 = pi2->pt;
+						// 			// if (&pi1->pt && &pi2->pt &&  &pi3->pt)
+						// 			// {
+						// 			// 	fprintf(stderr, "\033[40;32m    qwwwwwwwwwwwwwwwwwww  \033[0m\n");
+						// 			// }
+						// 			fprintf(stderr, "\033[40;32m    qwwwwwwwwwwwwwwwwwww  \033[0m\n");
+						// 			debug_points_to_info_for(mallocStmt_tree);
+						// 			// debug_points_to_info_for(t);
+						// 			if(gimple_assign_rhs1(gc)!= NULL)
+						// 			if(TREE_CODE(gimple_assign_rhs1(gc))== SSA_NAME)
+						// 			debug_points_to_info_for(gimple_assign_rhs1(gc));
+						// 			else if(TREE_CODE(gimple_assign_lhs(gc))== SSA_NAME)
+						// 			debug_points_to_info_for(gimple_assign_lhs(gc));
+						// if (ptr_derefs_may_alias_p(t, gimple_assign_lhs(gc)) && ptr_derefs_may_alias_p(mallocStmt_tree, t) && ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
+						// // if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc) ))
+						// {
 
-										fprintf(stderr, "\n ================== warring ================== \n");
-										// sfprintf(stderr, "function return value related stmt \n");
-										fprintf(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
-										fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
-										// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
-										// fprintf(stderr, "this stmt possible is heap-object 。\n");
-										fprintf(stderr, "\n ================== warring ================== \n");
-									}
-								}
-							}
-						else if (TREE_CODE(gimple_assign_lhs(gc)) == ARRAY_REF || TREE_CODE(mallocStmt_tree) == SSA_NAME)
+						// 	// tree test =gimple_assign_lhs(gc);
+						// 	// debug_points_to_info_for(test);
+						// 	fprintf(stderr, "\033[40;36m ======= relate node_fun argument2:%s========= \033[0m\n", get_name(t));
+						// 	// debug_tree(t);
+
+						// 	fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs2:%s========= \033[0m\n", gimple_assign_lhs(gc));
+						// 	debug_gimple_stmt(gc);
+						// 	warning_at(gimple_location(gc), 0, "use location");
+
+						// 	fprintf(stderr, "\n ================== warring ================== \n");
+						// 	// sfprintf(stderr, "function return value related stmt \n");
+						// 	fprintf(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
+						// 	fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
+						// 	// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+						// 	// fprintf(stderr, "this stmt possible is heap-object 。\n");
+						// 	fprintf(stderr, "\n ================== warring ================== \n");
+						// }
+						// 		}
+						// 	}
+
+						// struct ptr_info_def *pi1, *pi2, *pi3;
+						// pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
+						// if (TREE_CODE(mallocStmt_tree) == SSA_NAME)
+						// 	if (&pi1->pt != NULL)
+						// 	{
+						// 		fprintf(stderr, "\033[40;36m ======= relate node_fun argument222:%s========= \033[0m\n", get_name(mallocStmt_tree));
+						// 		debug_points_to_info_for(mallocStmt_tree);
+						// 		if (gimple_assign_lhs(gc) != NULL)
+						// 			if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME)
+						// 			{
+						// 				// pi2 = SSA_NAME_PTR_INFO(gimple_assign_lhs(gc));
+						// 				// if (&pi2->pt != NULL)
+						// 				if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
+						// 				// if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc) ))
+						// 				{
+						// 					// tree test =gimple_assign_lhs(gc);
+						// 					// debug_points_to_info_for(test);
+
+						// 					// debug_tree(t);
+
+						// 					fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs2:%s========= \033[0m\n", gimple_assign_lhs(gc));
+						// 					debug_gimple_stmt(gc);
+
+						// 					warning_at(gimple_location(gc), 0, "use location");
+						// 				}
+						// 			}
+						// 		if (gimple_assign_rhs1(gc) != NULL)
+						// 			if (TREE_CODE(gimple_assign_rhs1(gc)) == SSA_NAME)
+						// 			{
+						// 				// pi3 = SSA_NAME_PTR_INFO(gimple_assign_rhs1(gc));
+						// 				// if (&pi3->pt != NULL)
+						// 				if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
+						// 				// if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc) ))
+						// 				{
+						// 					// tree test =gimple_assign_lhs(gc);
+						// 					// debug_points_to_info_for(test);
+
+						// 					// debug_tree(t);
+
+						// 					fprintf(stderr, "\033[40;36m ======= relate gimple_assign_rhs3:%s========= \033[0m\n", gimple_assign_rhs1(gc));
+						// 					debug_gimple_stmt(gc);
+						// 					// debug_points_to_info_for( gimple_assign_rhs1(gc));
+						// 					warning_at(gimple_location(gc), 0, "use location");
+						// 				}
+						// 			}
+						// 		fprintf(stderr, "\n ================== warring ================== \n");
+						// 		// sfprintf(stderr, "function return value related stmt \n");
+						// 		fprintf(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
+						// 		fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
+						// 		// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+						// 		// fprintf(stderr, "this stmt possible is heap-object 。\n");
+						// 		fprintf(stderr, "\n ================== warring ================== \n");
+						// 	}
+						if (TREE_CODE(gimple_assign_lhs(gc)) == ARRAY_REF || TREE_CODE(mallocStmt_tree) == SSA_NAME)
 						{
 							tree second = NULL_TREE;
 							if (TREE_CODE(gimple_assign_lhs(gc)) == ARRAY_REF)
@@ -147,10 +236,10 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 									if (def_stmt != NULL)
 										if ((gimple_code(def_stmt) != GIMPLE_PHI) && ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)) && ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
 										{
-											fprintf(stderr, "\033[40;36m ======= relate node_fun2 argument:%s========= \033[0m\n", get_name(function_tree));
+											fprintf(stderr, "\033[40;36m ======= relate node_fun argument:%s========= \033[0m\n", get_name(function_tree));
 											// debug_tree(t);
 
-											fprintf(stderr, "\033[40;36m ======= relate gimple_assig2n_lhs:%s========= \033[0m\n", gimple_assign_lhs(gc));
+											fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", gimple_assign_lhs(gc));
 
 											debug_gimple_stmt(gc);
 
@@ -178,6 +267,10 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 
 int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_tree, int *freecount)
 {
+	// srand(time(NULL));
+
+	// /* 產生亂數 */
+	// int x = rand();
 	if (function_path_collect->get(function_tree) == NULL)
 		return 0;
 	function_path_array fun_array = *(function_path_collect->get(function_tree));
@@ -212,7 +305,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			}
 		}
 
-	if (function_pthread_detched_collect->get(function_tree) != NULL)
+	if (function_pthread_detched_collect->get(function_tree) != NULL && fucntion_level ==-1)
 	{
 		function_pthread_detched_array callerFunArray = *(function_pthread_detched_collect->get(function_tree));
 		vector<pthread_detched_type> callerRetTypearray = callerFunArray.pthread_detched_array;
@@ -224,7 +317,9 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			// fprintf(stderr, "find free stmt free same pointer\n");
 			debug_gimple_stmt((callerRetTypearray)[k].stmt);
 			warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-			++(*freecount);
+			*freecount = *freecount + 1;
+			// (*freecount)+=1;
+			// 		fprintf(stderr, "\033[40;31m  wqeeeeeeeeeee %d  \033[0m\n",*freecount);
 			// 	++(*freecount);
 
 			// 	// debug_tree((callerRetTypearray)[k].free_tree);
@@ -233,7 +328,30 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			// debug_tree (mallocStmt_tree);
 		}
 	}
-	if (tracerelatestmt == true)
+
+	if (function_pthread_exit_collect->get(function_tree) != NULL && fucntion_level ==-1)
+	{
+		function_pthread_exit_array callerFunArray = *(function_pthread_exit_collect->get(function_tree));
+		vector<pthread_exit_type> callerRetTypearray = callerFunArray.pthread_exit_array;
+		for (int k = 0; k < callerRetTypearray.size(); k++)
+		{
+			// if (ptr_derefs_may_alias_p((callerRetTypearray)[k].free_tree, mallocStmt_tree))
+			// {
+			fprintf(stderr, "\033[40;31m  find pthread_exit stmt  \033[0m\n");
+			// fprintf(stderr, "find free stmt free same pointer\n");
+			debug_gimple_stmt((callerRetTypearray)[k].stmt);
+			warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+			// ++(*freecount);
+
+			// 	++(*freecount);
+
+			// 	// debug_tree((callerRetTypearray)[k].free_tree);
+			// }
+			// debug_tree((callerRetTypearray)[k].free_tree);
+			// debug_tree (mallocStmt_tree);
+		}
+	}
+	if (tracerelatestmt == true && fucntion_level != -1)
 	{
 		struct cgraph_node *node;
 		if (mallocStmt_tree != NULL)
@@ -250,34 +368,35 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 	fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 
 	// pathStack.push(function_tree);
-	if (fucntion_level != -1)
-		for (int i = 0; i < function_path_array.size(); i++)
+
+	for (int i = 0; i < function_path_array.size(); i++)
+	{
+
+		int find = 0;
+		fprintf(stderr, "\033[40;42m =======pre add _ fucntion:%s========= \033[0m\n", get_name((function_path_array)[i].next));
+
+		for (int o = 0; o < traceStack.size(); o++)
 		{
-
-			int find = 0;
-			fprintf(stderr, "\033[40;42m =======pre add _ fucntion:%s========= \033[0m\n", get_name((function_path_array)[i].next));
-
-			for (int o = 0; o < traceStack.size(); o++)
+			if (traceStack.c[o] == (function_path_array)[i].next)
 			{
-				if (traceStack.c[o] == (function_path_array)[i].next)
-				{
-					find = 1;
-					fprintf(stderr, "\033[40;41m =======recursive_fun:%s========= \033[0m\n", get_name(traceStack.c[o]));
-					//	fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(traceStack.c[o]));
-				}
-			}
-
-			if (find == 0)
-			{
-				fprintf(stderr, "\033[40;46m =======add node_fun stack:%s========= \033[0m\n", get_name((function_path_array)[i].next));
-
-				//fprintf(stderr, "=======add node_fun trace stack:%s=========\n", get_name((function_path_array)[i].next));
-				// debug_tree((function_path_array)[i].next);
-				traceStack.push((function_path_array)[i].next);
-				trace_function_path((function_path_array)[i].next, fucntion_level, mallocStmt_tree, freecount);
-				traceStack.pop();
+				find = 1;
+				fprintf(stderr, "\033[40;41m =======recursive_fun2:%s========= \033[0m\n", get_name(traceStack.c[o]));
+				//	fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(traceStack.c[o]));
 			}
 		}
+
+		if (find == 0)
+		{
+			fprintf(stderr, "\033[40;46m =======add node_fun stack:%s========= \033[0m\n", get_name((function_path_array)[i].next));
+
+			//fprintf(stderr, "=======add node_fun trace stack:%s=========\n", get_name((function_path_array)[i].next));
+			// debug_tree((function_path_array)[i].next);
+			traceStack.push((function_path_array)[i].next);
+
+			trace_function_path((function_path_array)[i].next, fucntion_level, mallocStmt_tree, freecount);
+			traceStack.pop();
+		}
+	}
 
 	// fprintf(stderr, "\033[40;31m  find free stmt free same pointer count:%d \033[0m\n", freecount);
 	// return freecount;

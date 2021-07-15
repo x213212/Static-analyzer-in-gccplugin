@@ -342,7 +342,7 @@ int trace_function_path(tree target_tree, int fucntion_level, tree mallocStmt_tr
 				//fprintf(stderr, "=======add node_fun trace stack:%s=========\n", get_name((function_path_array)[i].next));
 				// debug_tree((function_path_array)[i].next);
 				traceStack.push((function_path_array)[i].next);
-				trace_function_path((function_path_array)[i].next, fucntion_level, mallocStmt_tree, freecount, gc,  function_tree);
+				trace_function_path((function_path_array)[i].next, fucntion_level, mallocStmt_tree, freecount, gc, function_tree);
 				traceStack.pop();
 			}
 		}
