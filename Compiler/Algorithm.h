@@ -1960,11 +1960,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												{
 
 													fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is %s  \033[0m\n", table_temp->pthread_type == 0 ? "CREATE_JOINABLE" : "CREATE_DETACHED");
+													is_pthread_detched = 0;
 													if (table_temp->pthread_type == 1)
 														is_pthread_detched = 1;
 												}
 												else
 												{
+
 													fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is CREATE_DETACHED  \033[0m\n");
 													is_pthread_detched = 1;
 												}
@@ -2040,41 +2042,43 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					find_mallocstmt = PTABLE_IS_NULL;
 				}
 				//you are Reserved word function so always check
+				if (table_temp->swap_type == FUNCITON_THREAD)
+				{
+					if (is_pthread_detched == 0)
+					{
+						if (find_pthread_join == 0)
+						{
+							fprintf(stderr, "\n======================================================================\n");
+							// fprintf(stderr, "	no free stmt possible memory leak\n");
+							fprintf(stderr, "\033[40;31m    pthread is JOINABLE but no pthread_join stmt \033[0m\n");
+							fprintf(stderr, "\n======================================================================\n");
+						}
+						else
+						{
+							fprintf(stderr, "\n======================================================================\n");
+							// fprintf(stderr, "	no free stmt possible memory leak\n");
+							// fprintf(stderr, "\033[40;31m    pthread is JOINABLE and no memory leak \033[0m\n");
+							fprintf(stderr, "\033[40;32m    pthread is JOINABLE and no memory leak   \033[0m\n");
+							fprintf(stderr, "\n======================================================================\n");
+						}
+					}
+					else
+					{
+						fprintf(stderr, "\n======================================================================\n");
+						// fprintf(stderr, "	no free stmt possible memory leak\n");
+						fprintf(stderr, "\033[40;32m    pthread is DETACHED and no memory leak  \033[0m\n");
+						// fprintf(stderr, "\033[40;31m    pthread is DETACHED and no memory leak  \033[0m\n");
+						fprintf(stderr, "\n======================================================================\n");
+					}
+				}
 				if (ptable_type == IS_MALLOC_FUCNTION && find_mallocstmt == IS_OTHRER_FUCNTION)
 					find_mallocstmt = IS_MALLOC_FUCNTION;
 				if (find_mallocstmt == IS_MALLOC_FUCNTION)
 				{
+
 					if (find_freestmt == 0)
 					{
-						if (table_temp->swap_type == FUNCITON_THREAD)
-						{
-							if (is_pthread_detched == 0)
-							{
-								if (find_pthread_join == 0)
-								{
-									fprintf(stderr, "\n======================================================================\n");
-									// fprintf(stderr, "	no free stmt possible memory leak\n");
-									fprintf(stderr, "\033[40;31m    pthread is JOINABLE but no pthread_join stmt \033[0m\n");
-									fprintf(stderr, "\n======================================================================\n");
-								}
-								else
-								{
-									fprintf(stderr, "\n======================================================================\n");
-									// fprintf(stderr, "	no free stmt possible memory leak\n");
-									// fprintf(stderr, "\033[40;31m    pthread is JOINABLE and no memory leak \033[0m\n");
-									fprintf(stderr, "\033[40;32m    pthread is JOINABLE and no memory leak   \033[0m\n");
-									fprintf(stderr, "\n======================================================================\n");
-								}
-							}
-							else
-							{
-								fprintf(stderr, "\n======================================================================\n");
-								// fprintf(stderr, "	no free stmt possible memory leak\n");
-								fprintf(stderr, "\033[40;32m    pthread is DETACHED and no memory leak  \033[0m\n");
-								// fprintf(stderr, "\033[40;31m    pthread is DETACHED and no memory leak  \033[0m\n");
-								fprintf(stderr, "\n======================================================================\n");
-							}
-						}
+
 						fprintf(stderr, "\n======================================================================\n");
 						// fprintf(stderr, "	no free stmt possible memory leak\n");
 						fprintf(stderr, "\033[40;31m    no free stmt possible memory leak \033[0m\n");
