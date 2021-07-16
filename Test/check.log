@@ -11,10 +11,10 @@ test.c:102:5: warning: assignment from incompatible pointer type [-Wincompatible
   p2 = &b;
      ^
 test.c: In function ‚Äòchild‚Äô:
-test.c:167:7: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+test.c:168:7: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
   data = 10;
        ^
-test.c:181:15: warning: passing argument 1 of ‚Äòpthread_exit‚Äô makes pointer from integer without a cast [-Wint-conversion]
+test.c:182:15: warning: passing argument 1 of ‚Äòpthread_exit‚Äô makes pointer from integer without a cast [-Wint-conversion]
   pthread_exit(test); // Èõ¢ÈñãÂ≠êÂü∑Ë°åÁ∑í
                ^~~~
 In file included from test.c:3:0:
@@ -22,30 +22,30 @@ In file included from test.c:3:0:
  extern void pthread_exit (void *__retval) __attribute__ ((__noreturn__));
              ^~~~~~~~~~~~
 test.c: In function ‚Äòchild4‚Äô:
-test.c:195:15: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+test.c:196:15: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
   int *pData = &data;
                ^
-test.c:196:14: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+test.c:197:14: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
   int *test = &data;
               ^
-test.c:215:16: warning: format ‚Äò%d‚Äô expects argument of type ‚Äòint‚Äô, but argument 2 has type ‚Äòint *‚Äô [-Wformat=]
+test.c:216:16: warning: format ‚Äò%d‚Äô expects argument of type ‚Äòint‚Äô, but argument 2 has type ‚Äòint *‚Äô [-Wformat=]
   printf("asdda%d\n", pData);
                ~^
                %ls
 test.c: In function ‚Äòchild3‚Äô:
-test.c:229:15: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+test.c:230:15: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
   int *pData = &data;
                ^
-test.c:243:16: warning: format ‚Äò%d‚Äô expects argument of type ‚Äòint‚Äô, but argument 2 has type ‚Äòint *‚Äô [-Wformat=]
+test.c:244:16: warning: format ‚Äò%d‚Äô expects argument of type ‚Äòint‚Äô, but argument 2 has type ‚Äòint *‚Äô [-Wformat=]
   printf("asdda%d\n", pData);
                ~^
                %ls
 test.c: In function ‚Äòchild2‚Äô:
-test.c:257:15: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+test.c:258:15: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
   int *pData = &data;
                ^
 test.c: In function ‚Äòmain‚Äô:
-test.c:368:37: warning: passing argument 4 of ‚Äòpthread_create‚Äô makes pointer from integer without a cast [-Wint-conversion]
+test.c:369:37: warning: passing argument 4 of ‚Äòpthread_create‚Äô makes pointer from integer without a cast [-Wint-conversion]
   pthread_create(&t, &attr2, child2, input2);
                                      ^~~~~~
 In file included from test.c:3:0:
@@ -53,135 +53,118 @@ In file included from test.c:3:0:
  extern int pthread_create (pthread_t *__restrict __newthread,
             ^~~~~~~~~~~~~~
 =======ipa_pta=========
- <ssa_name 0x7f43a3d573f0
-    type <pointer_type 0x7f43a41c4a80
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <ssa_name 0x7f91172fc3f0
+    type <pointer_type 0x7f9117769a80
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
+        size <integer_cst 0x7f911774ebe8 constant 64>
+        unit size <integer_cst 0x7f911774ec00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f43a3d45498>>
-    var <var_decl 0x7f43a3d591b0 w>
+        pointer_to_this <pointer_type 0x7f91172ea498>>
+    var <var_decl 0x7f91172fe1b0 w>
     def_stmt w_10 = malloc (5);
     version 10
-    ptr-info 0x7f43a3d690d8>
+    ptr-info 0x7f911730e0c0>
 In function ‚Äòtest22‚Äô:
-test.c:308:7: warning: use location
+test.c:309:7: warning: use location
   int *w = malloc(5);
        ^
- <ssa_name 0x7f43a3d57990
-    type <pointer_type 0x7f43a3d45498
-        type <pointer_type 0x7f43a41c4a80 type <integer_type 0x7f43a41bd5e8 int>
+ <ssa_name 0x7f91172fca68
+    type <pointer_type 0x7f91172ea498
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
             public unsigned DI
-            size <integer_cst 0x7f43a41a9be8 constant 64>
-            unit size <integer_cst 0x7f43a41a9c00 constant 8>
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a3d45498>>
-        unsigned DI size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+        unsigned DI size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f43a3d59870 ppData>
-    def_stmt ppData_15 = malloc (10);
-    version 15
-    ptr-info 0x7f43a3d69198>
+    var <var_decl 0x7f91172fe870 ppData>
+    def_stmt ppData_18 = malloc (10);
+    version 18
+    ptr-info 0x7f911730e198>
 In function ‚Äòchild‚Äô:
 test.c:163:8: warning: use location
   int **ppData = malloc(10);
         ^
- <ssa_name 0x7f43a3d57798
-    type <pointer_type 0x7f43a41c40a8
-        type <void_type 0x7f43a41bdf18 void VOID
-            align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a41c40a8>>
+ <ssa_name 0x7f9117305dc8
+    type <pointer_type 0x7f91172e9150
+        type <record_type 0x7f91172e90a8 adresse TI
+            size <integer_cst 0x7f911774ec30 constant 128>
+            unit size <integer_cst 0x7f911774ec48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f91172e90a8 fields <field_decl 0x7f91172e8130 name> context <translation_unit_decl 0x7f9117759168 test.c>
+            pointer_to_this <pointer_type 0x7f91172e9150> chain <type_decl 0x7f91172e81c8 D.4033>>
         public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f43a3d391f8>>
-   
-    def_stmt _3 = malloc (20);
-    version 3
-    ptr-info 0x7f43a3d690f0>
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
- <ssa_name 0x7f43a3d61cf0
-    type <pointer_type 0x7f43a3d44150
-        type <record_type 0x7f43a3d440a8 adresse TI
-            size <integer_cst 0x7f43a41a9c30 constant 128>
-            unit size <integer_cst 0x7f43a41a9c48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f43a3d440a8 fields <field_decl 0x7f43a3d43130 name> context <translation_unit_decl 0x7f43a41b4168 test.c>
-            pointer_to_this <pointer_type 0x7f43a3d44150> chain <type_decl 0x7f43a3d431c8 D.4033>>
-        public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
+        size <integer_cst 0x7f911774ebe8 constant 64>
+        unit size <integer_cst 0x7f911774ec00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f43a3d60750 a>
+    var <var_decl 0x7f91173066c0 a>
     def_stmt a_46 = malloc (32);
     version 46
-    ptr-info 0x7f43a3d692b8>
+    ptr-info 0x7f911730e2b8>
 In function ‚Äòmain‚Äô:
-test.c:326:18: warning: use location
+test.c:327:18: warning: use location
   struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
                   ^
- <ssa_name 0x7f43a3d61d80
-    type <pointer_type 0x7f43a41c4a80
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <ssa_name 0x7f9117305e58
+    type <pointer_type 0x7f9117769a80
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
+        size <integer_cst 0x7f911774ebe8 constant 64>
+        unit size <integer_cst 0x7f911774ec00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f43a3d45498>>
-    var <var_decl 0x7f43a3d60360 q>
+        pointer_to_this <pointer_type 0x7f91172ea498>>
+    var <var_decl 0x7f91173062d0 q>
     def_stmt q_57 = malloc (10);
     version 57
-    ptr-info 0x7f43a3d692d0>
-test.c:379:7: warning: use location
+    ptr-info 0x7f911730e2d0>
+test.c:380:7: warning: use location
   int *q = malloc(10);
        ^
- <ssa_name 0x7f43a3d61ea0
-    type <pointer_type 0x7f43a41c4a80
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <ssa_name 0x7f9117305f78
+    type <pointer_type 0x7f9117769a80
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
+        size <integer_cst 0x7f911774ebe8 constant 64>
+        unit size <integer_cst 0x7f911774ec00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f43a3d45498>>
-    var <var_decl 0x7f43a3d60240 data>
+        pointer_to_this <pointer_type 0x7f91172ea498>>
+    var <var_decl 0x7f91173061b0 data>
     def_stmt data_64 = malloc (400);
     version 64
-    ptr-info 0x7f43a3d692e8>
-test.c:403:8: warning: use location
+    ptr-info 0x7f911730e2e8>
+test.c:404:8: warning: use location
    data = (int *)malloc(100 * sizeof(int));
         ^
- <ssa_name 0x7f43a3d61f30
-    type <pointer_type 0x7f43a41c4a80
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <ssa_name 0x7f911730a000
+    type <pointer_type 0x7f9117769a80
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
+        size <integer_cst 0x7f911774ebe8 constant 64>
+        unit size <integer_cst 0x7f911774ec00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f43a3d45498>>
-    var <var_decl 0x7f43a3d601b0 p4>
+        pointer_to_this <pointer_type 0x7f91172ea498>>
+    var <var_decl 0x7f9117306120 p4>
     def_stmt p4_71 = malloc (10);
     version 71
-    ptr-info 0x7f43a3d69300>
-test.c:417:7: warning: use location
+    ptr-info 0x7f911730e300>
+test.c:418:7: warning: use location
   int *p4 = malloc(10);
        ^
 start PointerConstraint
@@ -192,9 +175,8 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
-=======print_function_var -1546283040   6========
-=======print_function_var -1546255232   1========
-=======print_function_var -1546255376   2========
+=======print_function_var 389047280   1========
+=======print_function_var 389047136   2========
 [40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 [40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
     =()=
@@ -246,53 +228,52 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 [40;44m =======print_function_type 0  ========  [0m
 [40;42m =======pre_check_funciton:test22========= [0m
 [40;42m =======start_check_funciton:test22========= [0m
- <function_decl 0x7f43a3d3ae00 test22
-    type <function_type 0x7f43a3d39930
-        type <void_type 0x7f43a41bdf18 void VOID
+ <function_decl 0x7f91172dfe00 test22
+    type <function_type 0x7f91172de930
+        type <void_type 0x7f9117762f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a41c40a8>>
+            pointer_to_this <pointer_type 0x7f91177690a8>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7f43a3d38a78 value <pointer_type 0x7f43a41c4a80>
-            chain <tree_list 0x7f43a41bcac8 value <void_type 0x7f43a41bdf18 void>>>
-        pointer_to_this <pointer_type 0x7f43a3d455e8>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 300 col 6 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> attributes <tree_list 0x7f43a3d389d8> initial <block 0x7f43a3d49720>
-    result <result_decl 0x7f43a41b4438 D.4050 type <void_type 0x7f43a41bdf18 void>
-        ignored VOID file test.c line 300 col 6
-        align 8 context <function_decl 0x7f43a3d3ae00 test22>>
-    arguments <parm_decl 0x7f43a3d4b500 k
-        type <pointer_type 0x7f43a41c4a80 type <integer_type 0x7f43a41bd5e8 int>
+        arg-types <tree_list 0x7f91172dda78 value <pointer_type 0x7f9117769a80>
+            chain <tree_list 0x7f9117761ac8 value <void_type 0x7f9117762f18 void>>>
+        pointer_to_this <pointer_type 0x7f91172ea5e8>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 301 col 6 align 8 context <translation_unit_decl 0x7f9117759168 test.c> attributes <tree_list 0x7f91172dd9d8> initial <block 0x7f91172ee720>
+    result <result_decl 0x7f9117759438 D.4050 type <void_type 0x7f9117762f18 void>
+        ignored VOID file test.c line 301 col 6
+        align 8 context <function_decl 0x7f91172dfe00 test22>>
+    arguments <parm_decl 0x7f91172f0500 k
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
             public unsigned DI
-            size <integer_cst 0x7f43a41a9be8 constant 64>
-            unit size <integer_cst 0x7f43a41a9c00 constant 8>
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a3d45498>>
-        unsigned DI file test.c line 300 col 18 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3ae00 test22> arg-type <pointer_type 0x7f43a41c4a80>>
-    struct-function 0x7f43a3d4f2c0>
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+        unsigned DI file test.c line 301 col 18 size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
+        align 64 context <function_decl 0x7f91172dfe00 test22> arg-type <pointer_type 0x7f9117769a80>>
+    struct-function 0x7f91172f42c0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d573f0
-    type <pointer_type 0x7f43a41c4a80
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <ssa_name 0x7f91172fc3f0
+    type <pointer_type 0x7f9117769a80
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
+        size <integer_cst 0x7f911774ebe8 constant 64>
+        unit size <integer_cst 0x7f911774ec00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f43a3d45498>>
-    var <var_decl 0x7f43a3d591b0 w>
+        pointer_to_this <pointer_type 0x7f91172ea498>>
+    var <var_decl 0x7f91172fe1b0 w>
     def_stmt w_10 = malloc (5);
     version 10
-    ptr-info 0x7f43a3d690d8>
-w_10 = malloc (5);
+    ptr-info 0x7f911730e0c0>
 this Reserved word function ------malloc-----
  
  Start check Pointer Collect  
@@ -303,26 +284,26 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_18 = VDEF <.MEM_17>
 w_10 = malloc (5);
-test.c:308:7: warning: use location
+test.c:309:7: warning: use location
   int *w = malloc(5);
        ^
 dot graph target loc end
 
 free (w_10);
-test.c:309:2: warning: use location
+test.c:310:2: warning: use location
   free(w);
   ^
 dot graph target basicblock start from test22 basic block 2dot graph target basicblock end
 
 dot graph stmt start free (w_10);
-test.c:309:2: warning: use location
+test.c:310:2: warning: use location
 dot graph stmt end
 
 this stmt is child function---free-----
 
  ================== find ================== 
 free (w_10);
-test.c:309:2: warning: use location
+test.c:310:2: warning: use location
 [40;32m    HAS FREE STMT count:1 name:free [0m
 
  ================== find ================== 
@@ -340,71 +321,71 @@ dot graph END
 [40;42m =======pre_check_funciton:boo========= [0m
 [40;42m =======thread job funciton:boo========= [0m
 [40;44m ======= print pthread lock stmt 666 ========  [0m
-# .MEM_17 = VDEF <.MEM_16(D)>
+# .MEM_20 = VDEF <.MEM_19(D)>
 pthread_mutex_lock (&mLock);
 test.c:159:2: warning: use location
   pthread_mutex_lock(&mLock);
   ^
 [40;44m ======= print pthread lock stmt 666 ========  [0m
-# .MEM_18 = VDEF <.MEM_17>
+# .MEM_21 = VDEF <.MEM_20>
 pthread_mutex_lock (&mLock);
 test.c:160:2: warning: use location
   pthread_mutex_lock(&mLock);
   ^
 [40;44m ======= print pthread lock stmt 666 ========  [0m
-# .MEM_33 = VDEF <.MEM_32>
+# .MEM_36 = VDEF <.MEM_35>
 pthread_mutex_unlock (&mLock);
-test.c:178:2: warning: use location
+test.c:179:2: warning: use location
   pthread_mutex_unlock(&mLock);
   ^
 [40;42m =======thread job funciton lock count :3========= [0m
 [40;42m =======start_check_funciton:boo========= [0m
- <function_decl 0x7f43a3d3af00 boo
-    type <function_type 0x7f43a3d39930
-        type <void_type 0x7f43a41bdf18 void VOID
+ <function_decl 0x7f91172dff00 boo
+    type <function_type 0x7f91172de930
+        type <void_type 0x7f9117762f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a41c40a8>>
+            pointer_to_this <pointer_type 0x7f91177690a8>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7f43a3d38a78 value <pointer_type 0x7f43a41c4a80>
-            chain <tree_list 0x7f43a41bcac8 value <void_type 0x7f43a41bdf18 void>>>
-        pointer_to_this <pointer_type 0x7f43a3d455e8>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 284 col 6 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> attributes <tree_list 0x7f43a3d389d8> initial <block 0x7f43a3d49600>
-    result <result_decl 0x7f43a41b43c0 D.4047 type <void_type 0x7f43a41bdf18 void>
-        ignored VOID file test.c line 284 col 6
-        align 8 context <function_decl 0x7f43a3d3af00 boo>>
-    arguments <parm_decl 0x7f43a3d4b480 b
-        type <pointer_type 0x7f43a41c4a80 type <integer_type 0x7f43a41bd5e8 int>
+        arg-types <tree_list 0x7f91172dda78 value <pointer_type 0x7f9117769a80>
+            chain <tree_list 0x7f9117761ac8 value <void_type 0x7f9117762f18 void>>>
+        pointer_to_this <pointer_type 0x7f91172ea5e8>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 285 col 6 align 8 context <translation_unit_decl 0x7f9117759168 test.c> attributes <tree_list 0x7f91172dd9d8> initial <block 0x7f91172ee600>
+    result <result_decl 0x7f91177593c0 D.4047 type <void_type 0x7f9117762f18 void>
+        ignored VOID file test.c line 285 col 6
+        align 8 context <function_decl 0x7f91172dff00 boo>>
+    arguments <parm_decl 0x7f91172f0480 b
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
             public unsigned DI
-            size <integer_cst 0x7f43a41a9be8 constant 64>
-            unit size <integer_cst 0x7f43a41a9c00 constant 8>
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a3d45498>>
-        unsigned DI file test.c line 284 col 15 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3af00 boo> arg-type <pointer_type 0x7f43a41c4a80>>
-    struct-function 0x7f43a3d4f210>
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+        unsigned DI file test.c line 285 col 15 size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
+        align 64 context <function_decl 0x7f91172dff00 boo> arg-type <pointer_type 0x7f9117769a80>>
+    struct-function 0x7f91172f4210>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d57168
-    type <pointer_type 0x7f43a41c4a80
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <ssa_name 0x7f91172fc168
+    type <pointer_type 0x7f9117769a80
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
+        size <integer_cst 0x7f911774ebe8 constant 64>
+        unit size <integer_cst 0x7f911774ec00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f43a3d45498>>
-    var <parm_decl 0x7f43a3d4b480 b>
+        pointer_to_this <pointer_type 0x7f91172ea498>>
+    var <parm_decl 0x7f91172f0480 b>
     def_stmt GIMPLE_NOP
     version 2
-    ptr-info 0x7f43a3d690a8>
+    ptr-info 0x7f911730e090>
 this other function ------ê…√UHâÂHÉÏHâ}¯HâuHãMHãE¯∫-----
  
  Start check Pointer Collect  
@@ -415,17 +396,17 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_10 = VDEF <.MEM_9>
 test22 (b_2(D));
-test.c:288:2: warning: use location
+test.c:289:2: warning: use location
   test22(b);
   ^
 dot graph target loc end
 
 test22 (b_2(D));
-test.c:288:2: warning: use location
+test.c:289:2: warning: use location
 dot graph target basicblock start from boo basic block 2dot graph target basicblock end
 
 dot graph stmt start test22 (b_2(D));
-test.c:288:2: warning: use location
+test.c:289:2: warning: use location
 dot graph stmt end
 
 this stmt is child function---test22-----
@@ -436,49 +417,67 @@ trace fucntion name:test22
 [40;31m  find free stmt free same pointer [0m
 # .MEM_12 = VDEF <.MEM_11(D)>
 free (k_2(D));
-test.c:302:2: warning: use location
+test.c:303:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_13 = VDEF <.MEM_12>
 free (k_2(D));
-test.c:303:2: warning: use location
+test.c:304:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_14 = VDEF <.MEM_13>
 free (k_2(D));
-test.c:304:2: warning: use location
+test.c:305:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_15 = VDEF <.MEM_14>
 free (k_2(D));
-test.c:305:2: warning: use location
+test.c:306:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_16 = VDEF <.MEM_15>
 free (k_2(D));
-test.c:306:2: warning: use location
+test.c:307:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_17 = VDEF <.MEM_16>
 free (k_2(D));
-test.c:307:2: warning: use location
+test.c:308:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_19 = VDEF <.MEM_18>
 free (w_10);
-test.c:309:2: warning: use location
+test.c:310:2: warning: use location
   free(w);
   ^
 tx1
 [40;36m ======= node_fun:test22========= [0m
 [40;36m ======= find relate stmt with b ========= [0m
 [40;36m ======= relate stmt argument:b ========= [0m
+# .MEM_12 = VDEF <.MEM_11(D)>
+free (k_2(D));
+# .MEM_13 = VDEF <.MEM_12>
+free (k_2(D));
+# .MEM_14 = VDEF <.MEM_13>
+free (k_2(D));
+# .MEM_15 = VDEF <.MEM_14>
+free (k_2(D));
+# .MEM_16 = VDEF <.MEM_15>
+free (k_2(D));
+# .MEM_17 = VDEF <.MEM_16>
+free (k_2(D));
+# .MEM_18 = VDEF <.MEM_17>
+w_10 = malloc (5);
+# .MEM_19 = VDEF <.MEM_18>
+free (w_10);
+# VUSE <.MEM_19>
+return;
 fucntion collect path finsh
 [40;44m =======print_function_path test22  function_call count: 0 level :1========  [0m
 
@@ -488,26 +487,26 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_10 = VDEF <.MEM_9>
 test22 (b_2(D));
-test.c:288:2: warning: use location
+test.c:289:2: warning: use location
   test22(b);
   ^
 dot graph target loc end
 
 free (b_2(D));
-test.c:287:2: warning: use location
+test.c:288:2: warning: use location
   free(b);
   ^
 dot graph target basicblock start from boo basic block 2dot graph target basicblock end
 
 dot graph stmt start free (b_2(D));
-test.c:287:2: warning: use location
+test.c:288:2: warning: use location
 dot graph stmt end
 
 this stmt is child function---free-----
 
  ================== find ================== 
 free (b_2(D));
-test.c:287:2: warning: use location
+test.c:288:2: warning: use location
 [40;32m    HAS FREE STMT count:8 name:free [0m
 
  ================== find ================== 
@@ -516,26 +515,26 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_10 = VDEF <.MEM_9>
 test22 (b_2(D));
-test.c:288:2: warning: use location
+test.c:289:2: warning: use location
   test22(b);
   ^
 dot graph target loc end
 
 free (b_2(D));
-test.c:286:2: warning: use location
+test.c:287:2: warning: use location
   free(b);
   ^
 dot graph target basicblock start from boo basic block 2dot graph target basicblock end
 
 dot graph stmt start free (b_2(D));
-test.c:286:2: warning: use location
+test.c:287:2: warning: use location
 dot graph stmt end
 
 this stmt is child function---free-----
 
  ================== find ================== 
 free (b_2(D));
-test.c:286:2: warning: use location
+test.c:287:2: warning: use location
 [40;32m    HAS FREE STMT count:9 name:free [0m
 
  ================== find ================== 
@@ -543,12 +542,27 @@ test.c:286:2: warning: use location
  ================== Start Use after free Check ================== 
 # .MEM_9 = VDEF <.MEM_8>
 free (b_2(D));
+test.c:288:2: warning: Use after free error!: free location
+  free(b);
+  ^
+# .MEM_10 = VDEF <.MEM_9>
+test22 (b_2(D));
+test.c:289:2: warning: use location
+  test22(b);
+  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_8 = VDEF <.MEM_7(D)>
+free (b_2(D));
 test.c:287:2: warning: Use after free error!: free location
   free(b);
   ^
 # .MEM_10 = VDEF <.MEM_9>
 test22 (b_2(D));
-test.c:288:2: warning: use location
+test.c:289:2: warning: use location
   test22(b);
   ^
 
@@ -558,27 +572,12 @@ test.c:288:2: warning: use location
  ================== warring ================== 
 # .MEM_8 = VDEF <.MEM_7(D)>
 free (b_2(D));
-test.c:286:2: warning: Use after free error!: free location
-  free(b);
-  ^
-# .MEM_10 = VDEF <.MEM_9>
-test22 (b_2(D));
-test.c:288:2: warning: use location
-  test22(b);
-  ^
-
- ================== warring ================== 
-[40;35m    Use after free error! [0m
-
- ================== warring ================== 
-# .MEM_8 = VDEF <.MEM_7(D)>
-free (b_2(D));
-test.c:286:2: warning: Use after free error!: free location
+test.c:287:2: warning: Use after free error!: free location
   free(b);
   ^
 # .MEM_9 = VDEF <.MEM_8>
 free (b_2(D));
-test.c:287:2: warning: use location
+test.c:288:2: warning: use location
   free(b);
   ^
 
@@ -595,52 +594,52 @@ dot graph END
 ======================================================================
 [40;42m =======pre_check_funciton:boo========= [0m
 [40;42m =======start_check_funciton:boo========= [0m
- <function_decl 0x7f43a3d3af00 boo
-    type <function_type 0x7f43a3d39930
-        type <void_type 0x7f43a41bdf18 void VOID
+ <function_decl 0x7f91172dff00 boo
+    type <function_type 0x7f91172de930
+        type <void_type 0x7f9117762f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a41c40a8>>
+            pointer_to_this <pointer_type 0x7f91177690a8>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7f43a3d38a78 value <pointer_type 0x7f43a41c4a80>
-            chain <tree_list 0x7f43a41bcac8 value <void_type 0x7f43a41bdf18 void>>>
-        pointer_to_this <pointer_type 0x7f43a3d455e8>>
-    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 284 col 6 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> attributes <tree_list 0x7f43a3d389d8> initial <block 0x7f43a3d49600>
-    result <result_decl 0x7f43a41b43c0 D.4047 type <void_type 0x7f43a41bdf18 void>
-        ignored VOID file test.c line 284 col 6
-        align 8 context <function_decl 0x7f43a3d3af00 boo>>
-    arguments <parm_decl 0x7f43a3d4b480 b
-        type <pointer_type 0x7f43a41c4a80 type <integer_type 0x7f43a41bd5e8 int>
+        arg-types <tree_list 0x7f91172dda78 value <pointer_type 0x7f9117769a80>
+            chain <tree_list 0x7f9117761ac8 value <void_type 0x7f9117762f18 void>>>
+        pointer_to_this <pointer_type 0x7f91172ea5e8>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 285 col 6 align 8 context <translation_unit_decl 0x7f9117759168 test.c> attributes <tree_list 0x7f91172dd9d8> initial <block 0x7f91172ee600>
+    result <result_decl 0x7f91177593c0 D.4047 type <void_type 0x7f9117762f18 void>
+        ignored VOID file test.c line 285 col 6
+        align 8 context <function_decl 0x7f91172dff00 boo>>
+    arguments <parm_decl 0x7f91172f0480 b
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
             public unsigned DI
-            size <integer_cst 0x7f43a41a9be8 constant 64>
-            unit size <integer_cst 0x7f43a41a9c00 constant 8>
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a3d45498>>
-        unsigned DI file test.c line 284 col 15 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3af00 boo> arg-type <pointer_type 0x7f43a41c4a80>>
-    struct-function 0x7f43a3d4f210>
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+        unsigned DI file test.c line 285 col 15 size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
+        align 64 context <function_decl 0x7f91172dff00 boo> arg-type <pointer_type 0x7f9117769a80>>
+    struct-function 0x7f91172f4210>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d57168
-    type <pointer_type 0x7f43a41c4a80
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <ssa_name 0x7f91172fc168
+    type <pointer_type 0x7f9117769a80
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
+        size <integer_cst 0x7f911774ebe8 constant 64>
+        unit size <integer_cst 0x7f911774ec00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f43a3d45498>>
-    var <parm_decl 0x7f43a3d4b480 b>
+        pointer_to_this <pointer_type 0x7f91172ea498>>
+    var <parm_decl 0x7f91172f0480 b>
     def_stmt GIMPLE_NOP
     version 2
-    ptr-info 0x7f43a3d690a8>
+    ptr-info 0x7f911730e090>
 this other function ------free-----
  
  Start check Pointer Collect  
@@ -651,17 +650,17 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_10 = VDEF <.MEM_9>
 test22 (b_2(D));
-test.c:288:2: warning: use location
+test.c:289:2: warning: use location
   test22(b);
   ^
 dot graph target loc end
 
 test22 (b_2(D));
-test.c:288:2: warning: use location
+test.c:289:2: warning: use location
 dot graph target basicblock start from boo basic block 2dot graph target basicblock end
 
 dot graph stmt start test22 (b_2(D));
-test.c:288:2: warning: use location
+test.c:289:2: warning: use location
 dot graph stmt end
 
 this stmt is child function---test22-----
@@ -672,49 +671,67 @@ trace fucntion name:test22
 [40;31m  find free stmt free same pointer [0m
 # .MEM_12 = VDEF <.MEM_11(D)>
 free (k_2(D));
-test.c:302:2: warning: use location
+test.c:303:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_13 = VDEF <.MEM_12>
 free (k_2(D));
-test.c:303:2: warning: use location
+test.c:304:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_14 = VDEF <.MEM_13>
 free (k_2(D));
-test.c:304:2: warning: use location
+test.c:305:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_15 = VDEF <.MEM_14>
 free (k_2(D));
-test.c:305:2: warning: use location
+test.c:306:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_16 = VDEF <.MEM_15>
 free (k_2(D));
-test.c:306:2: warning: use location
+test.c:307:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_17 = VDEF <.MEM_16>
 free (k_2(D));
-test.c:307:2: warning: use location
+test.c:308:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_19 = VDEF <.MEM_18>
 free (w_10);
-test.c:309:2: warning: use location
+test.c:310:2: warning: use location
   free(w);
   ^
 tx1
 [40;36m ======= node_fun:test22========= [0m
 [40;36m ======= find relate stmt with b ========= [0m
 [40;36m ======= relate stmt argument:b ========= [0m
+# .MEM_12 = VDEF <.MEM_11(D)>
+free (k_2(D));
+# .MEM_13 = VDEF <.MEM_12>
+free (k_2(D));
+# .MEM_14 = VDEF <.MEM_13>
+free (k_2(D));
+# .MEM_15 = VDEF <.MEM_14>
+free (k_2(D));
+# .MEM_16 = VDEF <.MEM_15>
+free (k_2(D));
+# .MEM_17 = VDEF <.MEM_16>
+free (k_2(D));
+# .MEM_18 = VDEF <.MEM_17>
+w_10 = malloc (5);
+# .MEM_19 = VDEF <.MEM_18>
+free (w_10);
+# VUSE <.MEM_19>
+return;
 fucntion collect path finsh
 [40;44m =======print_function_path test22  function_call count: 0 level :1========  [0m
 
@@ -724,26 +741,26 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_10 = VDEF <.MEM_9>
 test22 (b_2(D));
-test.c:288:2: warning: use location
+test.c:289:2: warning: use location
   test22(b);
   ^
 dot graph target loc end
 
 free (b_2(D));
-test.c:287:2: warning: use location
+test.c:288:2: warning: use location
   free(b);
   ^
 dot graph target basicblock start from boo basic block 2dot graph target basicblock end
 
 dot graph stmt start free (b_2(D));
-test.c:287:2: warning: use location
+test.c:288:2: warning: use location
 dot graph stmt end
 
 this stmt is child function---free-----
 
  ================== find ================== 
 free (b_2(D));
-test.c:287:2: warning: use location
+test.c:288:2: warning: use location
 [40;32m    HAS FREE STMT count:8 name:free [0m
 
  ================== find ================== 
@@ -752,26 +769,26 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_10 = VDEF <.MEM_9>
 test22 (b_2(D));
-test.c:288:2: warning: use location
+test.c:289:2: warning: use location
   test22(b);
   ^
 dot graph target loc end
 
 free (b_2(D));
-test.c:286:2: warning: use location
+test.c:287:2: warning: use location
   free(b);
   ^
 dot graph target basicblock start from boo basic block 2dot graph target basicblock end
 
 dot graph stmt start free (b_2(D));
-test.c:286:2: warning: use location
+test.c:287:2: warning: use location
 dot graph stmt end
 
 this stmt is child function---free-----
 
  ================== find ================== 
 free (b_2(D));
-test.c:286:2: warning: use location
+test.c:287:2: warning: use location
 [40;32m    HAS FREE STMT count:9 name:free [0m
 
  ================== find ================== 
@@ -779,12 +796,27 @@ test.c:286:2: warning: use location
  ================== Start Use after free Check ================== 
 # .MEM_9 = VDEF <.MEM_8>
 free (b_2(D));
+test.c:288:2: warning: Use after free error!: free location
+  free(b);
+  ^
+# .MEM_10 = VDEF <.MEM_9>
+test22 (b_2(D));
+test.c:289:2: warning: use location
+  test22(b);
+  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_8 = VDEF <.MEM_7(D)>
+free (b_2(D));
 test.c:287:2: warning: Use after free error!: free location
   free(b);
   ^
 # .MEM_10 = VDEF <.MEM_9>
 test22 (b_2(D));
-test.c:288:2: warning: use location
+test.c:289:2: warning: use location
   test22(b);
   ^
 
@@ -794,27 +826,12 @@ test.c:288:2: warning: use location
  ================== warring ================== 
 # .MEM_8 = VDEF <.MEM_7(D)>
 free (b_2(D));
-test.c:286:2: warning: Use after free error!: free location
-  free(b);
-  ^
-# .MEM_10 = VDEF <.MEM_9>
-test22 (b_2(D));
-test.c:288:2: warning: use location
-  test22(b);
-  ^
-
- ================== warring ================== 
-[40;35m    Use after free error! [0m
-
- ================== warring ================== 
-# .MEM_8 = VDEF <.MEM_7(D)>
-free (b_2(D));
-test.c:286:2: warning: Use after free error!: free location
+test.c:287:2: warning: Use after free error!: free location
   free(b);
   ^
 # .MEM_9 = VDEF <.MEM_8>
 free (b_2(D));
-test.c:287:2: warning: use location
+test.c:288:2: warning: use location
   free(b);
   ^
 
@@ -833,67 +850,66 @@ dot graph END
 [40;42m =======pre_check_funciton:child========= [0m
 [40;42m =======thread job funciton:child========= [0m
 [40;44m ======= print pthread lock stmt 666 ========  [0m
-# .MEM_17 = VDEF <.MEM_16(D)>
+# .MEM_20 = VDEF <.MEM_19(D)>
 pthread_mutex_lock (&mLock);
 test.c:159:2: warning: use location
   pthread_mutex_lock(&mLock);
   ^
 [40;44m ======= print pthread lock stmt 666 ========  [0m
-# .MEM_18 = VDEF <.MEM_17>
+# .MEM_21 = VDEF <.MEM_20>
 pthread_mutex_lock (&mLock);
 test.c:160:2: warning: use location
   pthread_mutex_lock(&mLock);
   ^
 [40;44m ======= print pthread lock stmt 666 ========  [0m
-# .MEM_33 = VDEF <.MEM_32>
+# .MEM_36 = VDEF <.MEM_35>
 pthread_mutex_unlock (&mLock);
-test.c:178:2: warning: use location
+test.c:179:2: warning: use location
   pthread_mutex_unlock(&mLock);
   ^
 [40;42m =======thread job funciton lock count :3========= [0m
 [40;42m =======start_check_funciton:child========= [0m
- <function_decl 0x7f43a3d3ad00 child
-    type <function_type 0x7f43a3d39888
-        type <pointer_type 0x7f43a41c40a8 type <void_type 0x7f43a41bdf18 void>
+ <function_decl 0x7f91172dfd00 child
+    type <function_type 0x7f91172de888
+        type <pointer_type 0x7f91177690a8 type <void_type 0x7f9117762f18 void>
             public unsigned DI
-            size <integer_cst 0x7f43a41a9be8 constant 64>
-            unit size <integer_cst 0x7f43a41a9c00 constant 8>
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a3d391f8>>
+            pointer_to_this <pointer_type 0x7f91172de1f8>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7f43a3d38a00 value <pointer_type 0x7f43a41c40a8>
-            chain <tree_list 0x7f43a41bcac8 value <void_type 0x7f43a41bdf18 void>>>
-        pointer_to_this <pointer_type 0x7f43a3d39498>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 133 col 7 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> attributes <tree_list 0x7f43a3d389d8> initial <block 0x7f43a3d49780>
-    result <result_decl 0x7f43a41b44b0 D.4054 type <pointer_type 0x7f43a41c40a8>
-        unsigned ignored DI file test.c line 133 col 7 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3ad00 child>>
-    arguments <parm_decl 0x7f43a3d4b580 data type <pointer_type 0x7f43a41c40a8>
-        unsigned DI file test.c line 133 col 19 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3ad00 child> arg-type <pointer_type 0x7f43a41c40a8>>
-    struct-function 0x7f43a3d4f370>
+        arg-types <tree_list 0x7f91172dda00 value <pointer_type 0x7f91177690a8>
+            chain <tree_list 0x7f9117761ac8 value <void_type 0x7f9117762f18 void>>>
+        pointer_to_this <pointer_type 0x7f91172de498>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 133 col 7 align 8 context <translation_unit_decl 0x7f9117759168 test.c> attributes <tree_list 0x7f91172dd9d8> initial <block 0x7f91172ee780>
+    result <result_decl 0x7f91177594b0 D.4054 type <pointer_type 0x7f91177690a8>
+        unsigned ignored DI file test.c line 133 col 7 size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
+        align 64 context <function_decl 0x7f91172dfd00 child>>
+    arguments <parm_decl 0x7f91172f0580 data type <pointer_type 0x7f91177690a8>
+        unsigned DI file test.c line 133 col 19 size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
+        align 64 context <function_decl 0x7f91172dfd00 child> arg-type <pointer_type 0x7f91177690a8>>
+    struct-function 0x7f91172f4370>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d57990
-    type <pointer_type 0x7f43a3d45498
-        type <pointer_type 0x7f43a41c4a80 type <integer_type 0x7f43a41bd5e8 int>
+ <ssa_name 0x7f91172fca68
+    type <pointer_type 0x7f91172ea498
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
             public unsigned DI
-            size <integer_cst 0x7f43a41a9be8 constant 64>
-            unit size <integer_cst 0x7f43a41a9c00 constant 8>
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a3d45498>>
-        unsigned DI size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+        unsigned DI size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f43a3d59870 ppData>
-    def_stmt ppData_15 = malloc (10);
-    version 15
-    ptr-info 0x7f43a3d69198>
-ppData_15 = malloc (10);
+    var <var_decl 0x7f91172fe870 ppData>
+    def_stmt ppData_18 = malloc (10);
+    version 18
+    ptr-info 0x7f911730e198>
 this Reserved word function ------malloc-----
 
 ======================================================================
@@ -904,351 +920,88 @@ test.c:163:8: warning: use location
         ^
 
 ======================================================================
- <function_decl 0x7f43a3d3ad00 child
-    type <function_type 0x7f43a3d39888
-        type <pointer_type 0x7f43a41c40a8 type <void_type 0x7f43a41bdf18 void>
+ <function_decl 0x7f91172dfd00 child
+    type <function_type 0x7f91172de888
+        type <pointer_type 0x7f91177690a8 type <void_type 0x7f9117762f18 void>
             public unsigned DI
-            size <integer_cst 0x7f43a41a9be8 constant 64>
-            unit size <integer_cst 0x7f43a41a9c00 constant 8>
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a3d391f8>>
+            pointer_to_this <pointer_type 0x7f91172de1f8>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7f43a3d38a00 value <pointer_type 0x7f43a41c40a8>
-            chain <tree_list 0x7f43a41bcac8 value <void_type 0x7f43a41bdf18 void>>>
-        pointer_to_this <pointer_type 0x7f43a3d39498>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 133 col 7 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> attributes <tree_list 0x7f43a3d389d8> initial <block 0x7f43a3d49780>
-    result <result_decl 0x7f43a41b44b0 D.4054 type <pointer_type 0x7f43a41c40a8>
-        unsigned ignored DI file test.c line 133 col 7 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3ad00 child>>
-    arguments <parm_decl 0x7f43a3d4b580 data type <pointer_type 0x7f43a41c40a8>
-        unsigned DI file test.c line 133 col 19 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3ad00 child> arg-type <pointer_type 0x7f43a41c40a8>>
-    struct-function 0x7f43a3d4f370>
+        arg-types <tree_list 0x7f91172dda00 value <pointer_type 0x7f91177690a8>
+            chain <tree_list 0x7f9117761ac8 value <void_type 0x7f9117762f18 void>>>
+        pointer_to_this <pointer_type 0x7f91172de498>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 133 col 7 align 8 context <translation_unit_decl 0x7f9117759168 test.c> attributes <tree_list 0x7f91172dd9d8> initial <block 0x7f91172ee780>
+    result <result_decl 0x7f91177594b0 D.4054 type <pointer_type 0x7f91177690a8>
+        unsigned ignored DI file test.c line 133 col 7 size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
+        align 64 context <function_decl 0x7f91172dfd00 child>>
+    arguments <parm_decl 0x7f91172f0580 data type <pointer_type 0x7f91177690a8>
+        unsigned DI file test.c line 133 col 19 size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
+        align 64 context <function_decl 0x7f91172dfd00 child> arg-type <pointer_type 0x7f91177690a8>>
+    struct-function 0x7f91172f4370>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d57798
-    type <pointer_type 0x7f43a41c40a8
-        type <void_type 0x7f43a41bdf18 void VOID
-            align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a41c40a8>>
-        public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f43a3d391f8>>
-   
-    def_stmt _3 = malloc (20);
-    version 3
-    ptr-info 0x7f43a3d690f0>
-_3 = malloc (20);
+ <integer_cst 0x7f91172e1e10 type <pointer_type 0x7f91177690a8> constant 10>
+ <integer_cst 0x7f91172e1e10 type <pointer_type 0x7f91177690a8> constant 10>
 this Reserved word function ------malloc-----
- 
- Start check Pointer Collect  
-
-======================================================================
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-pData = _3;
-test.c:164:7: warning: use location
-  int *pData = malloc(20);
-       ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start pData = _3;
-test.c:164:7: warning: use location
-dot graph stmt end
-
- 
- LOCAL VARIBALE  
-# .MEM_22 = VDEF <.MEM_21>
-pData = _3;
-test.c:164:7: warning: use location
- 
- LOCAL VARIBALE  
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-_5 = MEM[(int * *)&pData + 8B];
-test.c:171:9: warning: use location
-  *ppData[1] = 10;
-         ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start _5 = MEM[(int * *)&pData + 8B];
-test.c:171:9: warning: use location
-dot graph stmt end
-
- 
- LOCAL VARIBALE  
-# VUSE <.MEM_25>
-_5 = MEM[(int * *)&pData + 8B];
-test.c:171:9: warning: use location
- 
- LOCAL VARIBALE  
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-*_5 = 10;
-test.c:171:13: warning: use location
-  *ppData[1] = 10;
-             ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start *_5 = 10;
-test.c:171:13: warning: use location
-dot graph stmt end
-
- 
- LOCAL VARIBALE  
-# .MEM_26 = VDEF <.MEM_25>
-*_5 = 10;
-test.c:171:13: warning: use location
- 
- LOCAL VARIBALE  
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-_6 = MEM[(int * *)&pData + 16B];
-test.c:172:9: warning: use location
-  *ppData[2] = 10;
-         ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start _6 = MEM[(int * *)&pData + 16B];
-test.c:172:9: warning: use location
-dot graph stmt end
-
- 
- LOCAL VARIBALE  
-# VUSE <.MEM_26>
-_6 = MEM[(int * *)&pData + 16B];
-test.c:172:9: warning: use location
- 
- LOCAL VARIBALE  
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-*_6 = 10;
-test.c:172:13: warning: use location
-  *ppData[2] = 10;
-             ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start *_6 = 10;
-test.c:172:13: warning: use location
-dot graph stmt end
-
- 
- LOCAL VARIBALE  
-# .MEM_27 = VDEF <.MEM_26>
-*_6 = 10;
-test.c:172:13: warning: use location
- 
- LOCAL VARIBALE  
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-free (&pData);
-test.c:177:2: warning: use location
-  free(ppData);
-  ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start free (&pData);
-test.c:177:2: warning: use location
-dot graph stmt end
-
-this stmt is child function---free-----
-
- ================== find ================== 
-free (&pData);
-test.c:177:2: warning: use location
-[40;32m    HAS FREE STMT count:1 name:free [0m
-
- ================== find ================== 
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-free (&pData);
-test.c:179:2: warning: use location
-  free(ppData);
-  ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start free (&pData);
-test.c:179:2: warning: use location
-dot graph stmt end
-
-this stmt is child function---free-----
-
- ================== find ================== 
-free (&pData);
-test.c:179:2: warning: use location
-[40;32m    HAS FREE STMT count:2 name:free [0m
-
- ================== find ================== 
-
- ================== Start Use after free Check ================== 
-# .MEM_32 = VDEF <.MEM_31>
-free (&pData);
-test.c:177:2: warning: Use after free error!: free location
-  free(ppData);
-  ^
-# .MEM_34 = VDEF <.MEM_33>
-free (&pData);
-test.c:179:2: warning: use location
-  free(ppData);
-  ^
-
- ================== warring ================== 
-[40;35m    Use after free error! [0m
-
- ================== warring ================== 
-
-dot graph END
-
-======================================================================
-[40;31m  	possible double free :2 [0m
-
-======================================================================
- <function_decl 0x7f43a3d3ad00 child
-    type <function_type 0x7f43a3d39888
-        type <pointer_type 0x7f43a41c40a8 type <void_type 0x7f43a41bdf18 void>
-            public unsigned DI
-            size <integer_cst 0x7f43a41a9be8 constant 64>
-            unit size <integer_cst 0x7f43a41a9c00 constant 8>
-            align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a3d391f8>>
-        QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
-        align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7f43a3d38a00 value <pointer_type 0x7f43a41c40a8>
-            chain <tree_list 0x7f43a41bcac8 value <void_type 0x7f43a41bdf18 void>>>
-        pointer_to_this <pointer_type 0x7f43a3d39498>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 133 col 7 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> attributes <tree_list 0x7f43a3d389d8> initial <block 0x7f43a3d49780>
-    result <result_decl 0x7f43a41b44b0 D.4054 type <pointer_type 0x7f43a41c40a8>
-        unsigned ignored DI file test.c line 133 col 7 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3ad00 child>>
-    arguments <parm_decl 0x7f43a3d4b580 data type <pointer_type 0x7f43a41c40a8>
-        unsigned DI file test.c line 133 col 19 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3ad00 child> arg-type <pointer_type 0x7f43a41c40a8>>
-    struct-function 0x7f43a3d4f370>
-
-dot graph START
-
-======================================================================
- <integer_cst 0x7f43a3d3ce28 type <pointer_type 0x7f43a41c40a8> constant 10>
- <integer_cst 0x7f43a3d3ce28 type <pointer_type 0x7f43a41c40a8> constant 10>
-this other function ------free-----
 
 ======================================================================
 [40;31m 	Can't find this fucntion in Pointer table [0m
 [40;31m 	Possiable no other stmt relate with this stmt [0m
-test.c:176:2: warning: use location
+test.c:177:2: warning: use location
   boo(data);
   ^
 
 ======================================================================
 [40;42m =======pre_check_funciton:child========= [0m
 [40;42m =======start_check_funciton:child========= [0m
- <function_decl 0x7f43a3d3ad00 child
-    type <function_type 0x7f43a3d39888
-        type <pointer_type 0x7f43a41c40a8 type <void_type 0x7f43a41bdf18 void>
+ <function_decl 0x7f91172dfd00 child
+    type <function_type 0x7f91172de888
+        type <pointer_type 0x7f91177690a8 type <void_type 0x7f9117762f18 void>
             public unsigned DI
-            size <integer_cst 0x7f43a41a9be8 constant 64>
-            unit size <integer_cst 0x7f43a41a9c00 constant 8>
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a3d391f8>>
+            pointer_to_this <pointer_type 0x7f91172de1f8>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7f43a3d38a00 value <pointer_type 0x7f43a41c40a8>
-            chain <tree_list 0x7f43a41bcac8 value <void_type 0x7f43a41bdf18 void>>>
-        pointer_to_this <pointer_type 0x7f43a3d39498>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 133 col 7 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> attributes <tree_list 0x7f43a3d389d8> initial <block 0x7f43a3d49780>
-    result <result_decl 0x7f43a41b44b0 D.4054 type <pointer_type 0x7f43a41c40a8>
-        unsigned ignored DI file test.c line 133 col 7 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3ad00 child>>
-    arguments <parm_decl 0x7f43a3d4b580 data type <pointer_type 0x7f43a41c40a8>
-        unsigned DI file test.c line 133 col 19 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3ad00 child> arg-type <pointer_type 0x7f43a41c40a8>>
-    struct-function 0x7f43a3d4f370>
+        arg-types <tree_list 0x7f91172dda00 value <pointer_type 0x7f91177690a8>
+            chain <tree_list 0x7f9117761ac8 value <void_type 0x7f9117762f18 void>>>
+        pointer_to_this <pointer_type 0x7f91172de498>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 133 col 7 align 8 context <translation_unit_decl 0x7f9117759168 test.c> attributes <tree_list 0x7f91172dd9d8> initial <block 0x7f91172ee780>
+    result <result_decl 0x7f91177594b0 D.4054 type <pointer_type 0x7f91177690a8>
+        unsigned ignored DI file test.c line 133 col 7 size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
+        align 64 context <function_decl 0x7f91172dfd00 child>>
+    arguments <parm_decl 0x7f91172f0580 data type <pointer_type 0x7f91177690a8>
+        unsigned DI file test.c line 133 col 19 size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
+        align 64 context <function_decl 0x7f91172dfd00 child> arg-type <pointer_type 0x7f91177690a8>>
+    struct-function 0x7f91172f4370>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d57990
-    type <pointer_type 0x7f43a3d45498
-        type <pointer_type 0x7f43a41c4a80 type <integer_type 0x7f43a41bd5e8 int>
+ <ssa_name 0x7f91172fca68
+    type <pointer_type 0x7f91172ea498
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
             public unsigned DI
-            size <integer_cst 0x7f43a41a9be8 constant 64>
-            unit size <integer_cst 0x7f43a41a9c00 constant 8>
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a3d45498>>
-        unsigned DI size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+        unsigned DI size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f43a3d59870 ppData>
-    def_stmt ppData_15 = malloc (10);
-    version 15
-    ptr-info 0x7f43a3d69198>
-ppData_15 = malloc (10);
+    var <var_decl 0x7f91172fe870 ppData>
+    def_stmt ppData_18 = malloc (10);
+    version 18
+    ptr-info 0x7f911730e198>
 this Reserved word function ------malloc-----
 
 ======================================================================
@@ -1259,268 +1012,41 @@ test.c:163:8: warning: use location
         ^
 
 ======================================================================
- <function_decl 0x7f43a3d3ad00 child
-    type <function_type 0x7f43a3d39888
-        type <pointer_type 0x7f43a41c40a8 type <void_type 0x7f43a41bdf18 void>
+ <function_decl 0x7f91172dfd00 child
+    type <function_type 0x7f91172de888
+        type <pointer_type 0x7f91177690a8 type <void_type 0x7f9117762f18 void>
             public unsigned DI
-            size <integer_cst 0x7f43a41a9be8 constant 64>
-            unit size <integer_cst 0x7f43a41a9c00 constant 8>
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a3d391f8>>
+            pointer_to_this <pointer_type 0x7f91172de1f8>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7f43a3d38a00 value <pointer_type 0x7f43a41c40a8>
-            chain <tree_list 0x7f43a41bcac8 value <void_type 0x7f43a41bdf18 void>>>
-        pointer_to_this <pointer_type 0x7f43a3d39498>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 133 col 7 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> attributes <tree_list 0x7f43a3d389d8> initial <block 0x7f43a3d49780>
-    result <result_decl 0x7f43a41b44b0 D.4054 type <pointer_type 0x7f43a41c40a8>
-        unsigned ignored DI file test.c line 133 col 7 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3ad00 child>>
-    arguments <parm_decl 0x7f43a3d4b580 data type <pointer_type 0x7f43a41c40a8>
-        unsigned DI file test.c line 133 col 19 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3ad00 child> arg-type <pointer_type 0x7f43a41c40a8>>
-    struct-function 0x7f43a3d4f370>
+        arg-types <tree_list 0x7f91172dda00 value <pointer_type 0x7f91177690a8>
+            chain <tree_list 0x7f9117761ac8 value <void_type 0x7f9117762f18 void>>>
+        pointer_to_this <pointer_type 0x7f91172de498>>
+    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 133 col 7 align 8 context <translation_unit_decl 0x7f9117759168 test.c> attributes <tree_list 0x7f91172dd9d8> initial <block 0x7f91172ee780>
+    result <result_decl 0x7f91177594b0 D.4054 type <pointer_type 0x7f91177690a8>
+        unsigned ignored DI file test.c line 133 col 7 size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
+        align 64 context <function_decl 0x7f91172dfd00 child>>
+    arguments <parm_decl 0x7f91172f0580 data type <pointer_type 0x7f91177690a8>
+        unsigned DI file test.c line 133 col 19 size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
+        align 64 context <function_decl 0x7f91172dfd00 child> arg-type <pointer_type 0x7f91177690a8>>
+    struct-function 0x7f91172f4370>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d57798
-    type <pointer_type 0x7f43a41c40a8
-        type <void_type 0x7f43a41bdf18 void VOID
-            align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a41c40a8>>
-        public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f43a3d391f8>>
-   
-    def_stmt _3 = malloc (20);
-    version 3
-    ptr-info 0x7f43a3d690f0>
-_3 = malloc (20);
+ <integer_cst 0x7f91172e1e10 type <pointer_type 0x7f91177690a8> constant 10>
+ <integer_cst 0x7f91172e1e10 type <pointer_type 0x7f91177690a8> constant 10>
 this Reserved word function ------malloc-----
- 
- Start check Pointer Collect  
-
-======================================================================
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-pData = _3;
-test.c:164:7: warning: use location
-  int *pData = malloc(20);
-       ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start pData = _3;
-test.c:164:7: warning: use location
-dot graph stmt end
-
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-_5 = MEM[(int * *)&pData + 8B];
-test.c:171:9: warning: use location
-  *ppData[1] = 10;
-         ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start _5 = MEM[(int * *)&pData + 8B];
-test.c:171:9: warning: use location
-dot graph stmt end
-
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-*_5 = 10;
-test.c:171:13: warning: use location
-  *ppData[1] = 10;
-             ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start *_5 = 10;
-test.c:171:13: warning: use location
-dot graph stmt end
-
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-_6 = MEM[(int * *)&pData + 16B];
-test.c:172:9: warning: use location
-  *ppData[2] = 10;
-         ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start _6 = MEM[(int * *)&pData + 16B];
-test.c:172:9: warning: use location
-dot graph stmt end
-
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-*_6 = 10;
-test.c:172:13: warning: use location
-  *ppData[2] = 10;
-             ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start *_6 = 10;
-test.c:172:13: warning: use location
-dot graph stmt end
-
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-free (&pData);
-test.c:177:2: warning: use location
-  free(ppData);
-  ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start free (&pData);
-test.c:177:2: warning: use location
-dot graph stmt end
-
-this stmt is child function---free-----
-
- ================== find ================== 
-free (&pData);
-test.c:177:2: warning: use location
-[40;32m    HAS FREE STMT count:1 name:free [0m
-
- ================== find ================== 
-dot graph entry child
-dot graph target entry end
-
-dot graph target loc start # .MEM_21 = VDEF <.MEM_20>
-_3 = malloc (20);
-test.c:164:15: warning: use location
-  int *pData = malloc(20);
-               ^
-dot graph target loc end
-
-free (&pData);
-test.c:179:2: warning: use location
-  free(ppData);
-  ^
-dot graph target basicblock start from child basic block 2dot graph target basicblock end
-
-dot graph stmt start free (&pData);
-test.c:179:2: warning: use location
-dot graph stmt end
-
-this stmt is child function---free-----
-
- ================== find ================== 
-free (&pData);
-test.c:179:2: warning: use location
-[40;32m    HAS FREE STMT count:2 name:free [0m
-
- ================== find ================== 
-
- ================== Start Use after free Check ================== 
-# .MEM_32 = VDEF <.MEM_31>
-free (&pData);
-test.c:177:2: warning: Use after free error!: free location
-  free(ppData);
-  ^
-# .MEM_34 = VDEF <.MEM_33>
-free (&pData);
-test.c:179:2: warning: use location
-  free(ppData);
-  ^
-
- ================== warring ================== 
-[40;35m    Use after free error! [0m
-
- ================== warring ================== 
-
-dot graph END
-
-======================================================================
-[40;31m  	possible double free :2 [0m
-
-======================================================================
- <function_decl 0x7f43a3d3ad00 child
-    type <function_type 0x7f43a3d39888
-        type <pointer_type 0x7f43a41c40a8 type <void_type 0x7f43a41bdf18 void>
-            public unsigned DI
-            size <integer_cst 0x7f43a41a9be8 constant 64>
-            unit size <integer_cst 0x7f43a41a9c00 constant 8>
-            align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f43a3d391f8>>
-        QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
-        align 8 symtab 0 alias set -1 structural equality
-        arg-types <tree_list 0x7f43a3d38a00 value <pointer_type 0x7f43a41c40a8>
-            chain <tree_list 0x7f43a41bcac8 value <void_type 0x7f43a41bdf18 void>>>
-        pointer_to_this <pointer_type 0x7f43a3d39498>>
-    addressable volatile nothrow static function-specific-target function-specific-opt QI file test.c line 133 col 7 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> attributes <tree_list 0x7f43a3d389d8> initial <block 0x7f43a3d49780>
-    result <result_decl 0x7f43a41b44b0 D.4054 type <pointer_type 0x7f43a41c40a8>
-        unsigned ignored DI file test.c line 133 col 7 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3ad00 child>>
-    arguments <parm_decl 0x7f43a3d4b580 data type <pointer_type 0x7f43a41c40a8>
-        unsigned DI file test.c line 133 col 19 size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
-        align 64 context <function_decl 0x7f43a3d3ad00 child> arg-type <pointer_type 0x7f43a41c40a8>>
-    struct-function 0x7f43a3d4f370>
-
-dot graph START
-
-======================================================================
- <integer_cst 0x7f43a3d3ce28 type <pointer_type 0x7f43a41c40a8> constant 10>
- <integer_cst 0x7f43a3d3ce28 type <pointer_type 0x7f43a41c40a8> constant 10>
-this other function ------free-----
 
 ======================================================================
 [40;31m 	Can't find this fucntion in Pointer table [0m
 [40;31m 	Possiable no other stmt relate with this stmt [0m
-test.c:176:2: warning: use location
+test.c:177:2: warning: use location
   boo(data);
   ^
 
@@ -1528,42 +1054,41 @@ test.c:176:2: warning: use location
 [40;33m =======POP node_fun stack:child========= [0m
 [40;42m =======pre_check_funciton:main========= [0m
 [40;42m =======start_check_funciton:main========= [0m
- <function_decl 0x7f43a3d3ab00 main
-    type <function_type 0x7f43a3d397e0
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <function_decl 0x7f91172dfb00 main
+    type <function_type 0x7f91172de7e0
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality>
-    nothrow public static function-specific-target function-specific-opt QI file test.c line 319 col 5 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> initial <block 0x7f43a3d49840>
-    result <result_decl 0x7f43a41b45a0 D.4063 type <integer_type 0x7f43a41bd5e8 int>
-        ignored SI file test.c line 319 col 5 size <integer_cst 0x7f43a41a9e28 32> unit size <integer_cst 0x7f43a41a9e40 4>
-        align 32 context <function_decl 0x7f43a3d3ab00 main>>
-    struct-function 0x7f43a3d4f4d0>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 320 col 5 align 8 context <translation_unit_decl 0x7f9117759168 test.c> initial <block 0x7f91172ee840>
+    result <result_decl 0x7f91177595a0 D.4063 type <integer_type 0x7f91177625e8 int>
+        ignored SI file test.c line 320 col 5 size <integer_cst 0x7f911774ee28 32> unit size <integer_cst 0x7f911774ee40 4>
+        align 32 context <function_decl 0x7f91172dfb00 main>>
+    struct-function 0x7f91172f44d0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d61cf0
-    type <pointer_type 0x7f43a3d44150
-        type <record_type 0x7f43a3d440a8 adresse TI
-            size <integer_cst 0x7f43a41a9c30 constant 128>
-            unit size <integer_cst 0x7f43a41a9c48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f43a3d440a8 fields <field_decl 0x7f43a3d43130 name> context <translation_unit_decl 0x7f43a41b4168 test.c>
-            pointer_to_this <pointer_type 0x7f43a3d44150> chain <type_decl 0x7f43a3d431c8 D.4033>>
+ <ssa_name 0x7f9117305dc8
+    type <pointer_type 0x7f91172e9150
+        type <record_type 0x7f91172e90a8 adresse TI
+            size <integer_cst 0x7f911774ec30 constant 128>
+            unit size <integer_cst 0x7f911774ec48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f91172e90a8 fields <field_decl 0x7f91172e8130 name> context <translation_unit_decl 0x7f9117759168 test.c>
+            pointer_to_this <pointer_type 0x7f91172e9150> chain <type_decl 0x7f91172e81c8 D.4033>>
         public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
+        size <integer_cst 0x7f911774ebe8 constant 64>
+        unit size <integer_cst 0x7f911774ec00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f43a3d60750 a>
+    var <var_decl 0x7f91173066c0 a>
     def_stmt a_46 = malloc (32);
     version 46
-    ptr-info 0x7f43a3d692b8>
-a_46 = malloc (32);
+    ptr-info 0x7f911730e2b8>
 this Reserved word function ------malloc-----
  
  Start check Pointer Collect  
@@ -1574,19 +1099,19 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_96 = VDEF <.MEM_95(D)>
 a_46 = malloc (32);
-test.c:326:18: warning: use location
+test.c:327:18: warning: use location
   struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
                   ^
 dot graph target loc end
 
 _17 = a_46 + _16;
-test.c:336:23: warning: use location
+test.c:337:23: warning: use location
    printf("%s, %d\n", a[i].name, a[i].nummer);
                        ^
 dot graph target basicblock start from main basic block 5dot graph target basicblock end
 
 dot graph stmt start _17 = a_46 + _16;
-test.c:336:23: warning: use location
+test.c:337:23: warning: use location
 dot graph stmt end
 
 dot graph entry main
@@ -1594,19 +1119,19 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_96 = VDEF <.MEM_95(D)>
 a_46 = malloc (32);
-test.c:326:18: warning: use location
+test.c:327:18: warning: use location
   struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
                   ^
 dot graph target loc end
 
 _18 = _17->name;
-test.c:336:3: warning: use location
+test.c:337:3: warning: use location
    printf("%s, %d\n", a[i].name, a[i].nummer);
    ^
 dot graph target basicblock start from main basic block 5dot graph target basicblock end
 
 dot graph stmt start _18 = _17->name;
-test.c:336:3: warning: use location
+test.c:337:3: warning: use location
 dot graph stmt end
 
 dot graph entry main
@@ -1614,7 +1139,7 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_96 = VDEF <.MEM_95(D)>
 a_46 = malloc (32);
-test.c:326:18: warning: use location
+test.c:327:18: warning: use location
   struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
                   ^
 dot graph target loc end
@@ -1636,17 +1161,17 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_96 = VDEF <.MEM_95(D)>
 a_46 = malloc (32);
-test.c:326:18: warning: use location
+test.c:327:18: warning: use location
 dot graph target loc end
 
 _13 = a_46 + _12;
-test.c:336:34: warning: use location
+test.c:337:34: warning: use location
    printf("%s, %d\n", a[i].name, a[i].nummer);
                                   ^
 dot graph target basicblock start from main basic block 5dot graph target basicblock end
 
 dot graph stmt start _13 = a_46 + _12;
-test.c:336:34: warning: use location
+test.c:337:34: warning: use location
 dot graph stmt end
 
 dot graph entry main
@@ -1654,19 +1179,19 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_96 = VDEF <.MEM_95(D)>
 a_46 = malloc (32);
-test.c:326:18: warning: use location
+test.c:327:18: warning: use location
   struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
                   ^
 dot graph target loc end
 
 _14 = _13->nummer;
-test.c:336:3: warning: use location
+test.c:337:3: warning: use location
    printf("%s, %d\n", a[i].name, a[i].nummer);
    ^
 dot graph target basicblock start from main basic block 5dot graph target basicblock end
 
 dot graph stmt start _14 = _13->nummer;
-test.c:336:3: warning: use location
+test.c:337:3: warning: use location
 dot graph stmt end
 
 dot graph entry main
@@ -1674,18 +1199,58 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_96 = VDEF <.MEM_95(D)>
 a_46 = malloc (32);
-test.c:326:18: warning: use location
+test.c:327:18: warning: use location
   struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
                   ^
 dot graph target loc end
 
 _9 = a_46 + _8;
-test.c:331:4: warning: use location
+test.c:332:4: warning: use location
    a[i].nummer = 123;
     ^
 dot graph target basicblock start from main basic block 3dot graph target basicblock end
 
 dot graph stmt start _9 = a_46 + _8;
+test.c:332:4: warning: use location
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+dot graph target loc start # .MEM_96 = VDEF <.MEM_95(D)>
+a_46 = malloc (32);
+test.c:327:18: warning: use location
+  struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
+                  ^
+dot graph target loc end
+
+_9->nummer = 123;
+test.c:332:15: warning: use location
+   a[i].nummer = 123;
+               ^
+dot graph target basicblock start from main basic block 3dot graph target basicblock end
+
+dot graph stmt start _9->nummer = 123;
+test.c:332:15: warning: use location
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+dot graph target loc start # .MEM_96 = VDEF <.MEM_95(D)>
+a_46 = malloc (32);
+test.c:327:18: warning: use location
+  struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
+                  ^
+dot graph target loc end
+
+_6 = a_46 + _5;
+test.c:331:4: warning: use location
+   a[i].name = "Testname";
+    ^
+dot graph target basicblock start from main basic block 3dot graph target basicblock end
+
+dot graph stmt start _6 = a_46 + _5;
 test.c:331:4: warning: use location
 dot graph stmt end
 
@@ -1694,59 +1259,19 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_96 = VDEF <.MEM_95(D)>
 a_46 = malloc (32);
-test.c:326:18: warning: use location
-  struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
-                  ^
-dot graph target loc end
-
-_9->nummer = 123;
-test.c:331:15: warning: use location
-   a[i].nummer = 123;
-               ^
-dot graph target basicblock start from main basic block 3dot graph target basicblock end
-
-dot graph stmt start _9->nummer = 123;
-test.c:331:15: warning: use location
-dot graph stmt end
-
-dot graph entry main
-dot graph target entry end
-
-dot graph target loc start # .MEM_96 = VDEF <.MEM_95(D)>
-a_46 = malloc (32);
-test.c:326:18: warning: use location
-  struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
-                  ^
-dot graph target loc end
-
-_6 = a_46 + _5;
-test.c:330:4: warning: use location
-   a[i].name = "Testname";
-    ^
-dot graph target basicblock start from main basic block 3dot graph target basicblock end
-
-dot graph stmt start _6 = a_46 + _5;
-test.c:330:4: warning: use location
-dot graph stmt end
-
-dot graph entry main
-dot graph target entry end
-
-dot graph target loc start # .MEM_96 = VDEF <.MEM_95(D)>
-a_46 = malloc (32);
-test.c:326:18: warning: use location
+test.c:327:18: warning: use location
   struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
                   ^
 dot graph target loc end
 
 _6->name = "Testname";
-test.c:330:13: warning: use location
+test.c:331:13: warning: use location
    a[i].name = "Testname";
              ^
 dot graph target basicblock start from main basic block 3dot graph target basicblock end
 
 dot graph stmt start _6->name = "Testname";
-test.c:330:13: warning: use location
+test.c:331:13: warning: use location
 dot graph stmt end
 
 
@@ -1758,32 +1283,32 @@ dot graph END
 [40;31m    no free stmt possible memory leak [0m
 
 ======================================================================
- <function_decl 0x7f43a3d3ab00 main
-    type <function_type 0x7f43a3d397e0
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <function_decl 0x7f91172dfb00 main
+    type <function_type 0x7f91172de7e0
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality>
-    nothrow public static function-specific-target function-specific-opt QI file test.c line 319 col 5 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> initial <block 0x7f43a3d49840>
-    result <result_decl 0x7f43a41b45a0 D.4063 type <integer_type 0x7f43a41bd5e8 int>
-        ignored SI file test.c line 319 col 5 size <integer_cst 0x7f43a41a9e28 32> unit size <integer_cst 0x7f43a41a9e40 4>
-        align 32 context <function_decl 0x7f43a3d3ab00 main>>
-    struct-function 0x7f43a3d4f4d0>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 320 col 5 align 8 context <translation_unit_decl 0x7f9117759168 test.c> initial <block 0x7f91172ee840>
+    result <result_decl 0x7f91177595a0 D.4063 type <integer_type 0x7f91177625e8 int>
+        ignored SI file test.c line 320 col 5 size <integer_cst 0x7f911774ee28 32> unit size <integer_cst 0x7f911774ee40 4>
+        align 32 context <function_decl 0x7f91172dfb00 main>>
+    struct-function 0x7f91172f44d0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d61870
-    type <integer_type 0x7f43a41bd7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f43a41bd738 precision 64 min <integer_cst 0x7f43a41a9eb8 0> max <integer_cst 0x7f43a41ab500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f43a41c99d8>>
+ <ssa_name 0x7f9117305948
+    type <integer_type 0x7f91177627e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f911774ebe8 constant 64>
+        unit size <integer_cst 0x7f911774ec00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f9117762738 precision 64 min <integer_cst 0x7f911774eeb8 0> max <integer_cst 0x7f9117750500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f911776e9d8>>
    
     def_stmt _22 = t;
     version 22>
@@ -1797,26 +1322,26 @@ dot graph target entry end
 
 dot graph target loc start # VUSE <.MEM_103>
 _22 = t;
-test.c:370:2: warning: use location
+test.c:371:2: warning: use location
   pthread_join(t, NULL);
   ^
 dot graph target loc end
 
 pthread_create (&t, &attr2, child2, _21);
-test.c:368:2: warning: use location
+test.c:369:2: warning: use location
   pthread_create(&t, &attr2, child2, input2);
   ^
 dot graph target basicblock start from main basic block 7dot graph target basicblock end
 
 dot graph stmt start pthread_create (&t, &attr2, child2, _21);
-test.c:368:2: warning: use location
+test.c:369:2: warning: use location
 dot graph stmt end
 
 this stmt is child function---pthread_create-----
 
  ================== find ================== 
 pthread_create (&t, &attr2, child2, _21);
-test.c:368:2: warning: use location
+test.c:369:2: warning: use location
 [40;32m    FIND PTHREAD_CREATED STMT  [0m
 
  ================== pre_pthread_detched ================== 
@@ -1837,9 +1362,9 @@ test.c:368:2: warning: use location
 [40;46m =======add node_fun stack:child========= [0m
 [40;44m =======trace_function_path child  function_call count: 1 level :-1========  [0m
 [40;31m  find pthread_exit stmt  [0m
-# .MEM_35 = VDEF <.MEM_34>
+# .MEM_38 = VDEF <.MEM_37>
 pthread_exit (100B);
-test.c:181:2: warning: use location
+test.c:182:2: warning: use location
   pthread_exit(test); // Èõ¢ÈñãÂ≠êÂü∑Ë°åÁ∑í
   ^
 [40;44m =======print_function_path child  function_call count: 1 level :-1========  [0m
@@ -1862,10 +1387,153 @@ test.c:181:2: warning: use location
 
  ================== pre_pthread_detched end ================== 
 [40;44m =======trace_function_path child2  function_call count: 1 level :0========  [0m
+tx1
+[40;36m ======= node_fun:child2========= [0m
+[40;36m ======= find relate stmt with (null) ========= [0m
+[40;36m ======= relate stmt argument:(null) ========= [0m
+# VUSE <.MEM_8(D)>
+_1 = data;
+_21, points-to NULL, points-to vars: { }
+tx
+# VUSE <.MEM_8(D)>
+_2 = MEM[(int *)_1];
+_21, points-to NULL, points-to vars: { }
+tx
+_3 = _2 + 1;
+_21, points-to NULL, points-to vars: { }
+tx
+[40;36m ======= relate node_fun argument:child2========= [0m
+[40;36m ======= relate gimple_assign_lhs:í========= [0m
+_3 = _2 + 1;
+In function ‚Äòchild2‚Äô:
+test.c:269:2: warning: use location
+  ++(*(int *)data);
+  ^
+
+ ================== warring ================== 
+[40;35m this pointer possible  reference other address [0m
+[40;35m or assign other value [0m
+
+ ================== warring ================== 
+# .MEM_9 = VDEF <.MEM_8(D)>
+MEM[(int *)_1] = _3;
+_21, points-to NULL, points-to vars: { }
+tx
+[40;36m ======= relate node_fun argument222:(null)========= [0m
+[40;36m ======= relate gimple_assign_lhs2:û========= [0m
+dot graph start relate form ID : 237758063
+from child2 basic block 2dot graph end relate end
+
+dot graph relate stmt start ID : 363502256 stmt(LHS) :MEM[(int *)_1] = _3;
+test.c:269:2: warning: use location
+MEM[(int *)_1]
+dot graph relate end
+
+
+ ================== warring ================== 
+[40;35m this pointer possible  reference other address [0m
+[40;35m or assign other value [0m
+
+ ================== warring ================== 
+[40;36m ======= relate node_fun argument:child2========= [0m
+[40;36m ======= relate gimple_assign_lhs:û========= [0m
+# .MEM_9 = VDEF <.MEM_8(D)>
+MEM[(int *)_1] = _3;
+test.c:269:2: warning: use location
+
+ ================== warring ================== 
+[40;35m this pointer possible  reference other address [0m
+[40;35m or assign other value [0m
+
+ ================== warring ================== 
+# VUSE <.MEM_9>
+_4 = MEM[(int *)&data];
+_21, points-to NULL, points-to vars: { }
+tx
+_5 = _4 + 1;
+_21, points-to NULL, points-to vars: { }
+tx
+[40;36m ======= relate node_fun argument:child2========= [0m
+[40;36m ======= relate gimple_assign_lhs:í========= [0m
+_5 = _4 + 1;
+test.c:270:2: warning: use location
+  ++(*(int *)pData);
+  ^
+
+ ================== warring ================== 
+[40;35m this pointer possible  reference other address [0m
+[40;35m or assign other value [0m
+
+ ================== warring ================== 
+# .MEM_10 = VDEF <.MEM_9>
+MEM[(int *)&data] = _5;
+_21, points-to NULL, points-to vars: { }
+tx
+[40;36m ======= relate node_fun argument222:(null)========= [0m
+[40;36m ======= relate gimple_assign_lhs2:û========= [0m
+dot graph start relate form ID : 237758063
+from child2 basic block 2dot graph end relate end
+
+dot graph relate stmt start ID : 1671075227 stmt(LHS) :MEM[(int *)&data] = _5;
+test.c:270:2: warning: use location
+  ++(*(int *)pData);
+  ^
+MEM[(int *)&data]
+dot graph relate end
+
+
+ ================== warring ================== 
+[40;35m this pointer possible  reference other address [0m
+[40;35m or assign other value [0m
+
+ ================== warring ================== 
+[40;36m ======= relate node_fun argument:child2========= [0m
+[40;36m ======= relate gimple_assign_lhs:û========= [0m
+# .MEM_10 = VDEF <.MEM_9>
+MEM[(int *)&data] = _5;
+test.c:270:2: warning: use location
+
+ ================== warring ================== 
+[40;35m this pointer possible  reference other address [0m
+[40;35m or assign other value [0m
+
+ ================== warring ================== 
+# VUSE <.MEM_10>
+_6 = data;
+_21, points-to NULL, points-to vars: { }
+tx
+# .MEM_11 = VDEF <.MEM_10>
+child3 (_6);
+# VUSE <.MEM_11>
+_7 = data;
+_21, points-to NULL, points-to vars: { }
+tx
+# .MEM_12 = VDEF <.MEM_11>
+free (_7);
+# VUSE <.MEM_12>
+return;
+fucntion collect path finsh
 [40;44m =======print_function_path child2  function_call count: 1 level :1========  [0m
 [40;42m =======pre add _ fucntion:child3========= [0m
 [40;46m =======add node_fun stack:child3========= [0m
 [40;44m =======trace_function_path child3  function_call count: 0 level :1========  [0m
+tx1
+[40;36m ======= node_fun:child3========= [0m
+[40;36m ======= find relate stmt with (null) ========= [0m
+[40;36m ======= relate stmt argument:(null) ========= [0m
+# VUSE <.MEM_6(D)>
+_1 = data;
+_21, points-to NULL, points-to vars: { }
+tx
+# .MEM_7 = VDEF <.MEM_6(D)>
+free (_1);
+# .MEM_8 = VDEF <.MEM_7>
+_5 = __printf_chk (1, "asdda%d\n", &MEM[(void *)&data + 4B]);
+# .MEM_9 = VDEF <.MEM_8>
+_4 = __printf_chk (1, "asdda%d\n", 10);
+# VUSE <.MEM_9>
+return;
+fucntion collect path finsh
 [40;44m =======print_function_path child3  function_call count: 0 level :2========  [0m
 [40;32m    FIND PTHREAD_CREATED TYPE is CREATE_JOINABLE  [0m
 
@@ -1875,17 +1543,18 @@ dot graph target entry end
 
 dot graph target loc start # VUSE <.MEM_103>
 _22 = t;
-test.c:370:2: warning: use location
+In function ‚Äòmain‚Äô:
+test.c:371:2: warning: use location
   pthread_join(t, NULL);
   ^
 dot graph target loc end
 
 pthread_join (_22, 0B);
-test.c:370:2: warning: use location
+test.c:371:2: warning: use location
 dot graph target basicblock start from main basic block 7dot graph target basicblock end
 
 dot graph stmt start pthread_join (_22, 0B);
-test.c:370:2: warning: use location
+test.c:371:2: warning: use location
 dot graph stmt end
 
 this stmt is child function---pthread_join-----
@@ -1904,39 +1573,39 @@ dot graph END
 [40;31m    no free stmt possible memory leak [0m
 
 ======================================================================
- <function_decl 0x7f43a3d3ab00 main
-    type <function_type 0x7f43a3d397e0
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <function_decl 0x7f91172dfb00 main
+    type <function_type 0x7f91172de7e0
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality>
-    nothrow public static function-specific-target function-specific-opt QI file test.c line 319 col 5 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> initial <block 0x7f43a3d49840>
-    result <result_decl 0x7f43a41b45a0 D.4063 type <integer_type 0x7f43a41bd5e8 int>
-        ignored SI file test.c line 319 col 5 size <integer_cst 0x7f43a41a9e28 32> unit size <integer_cst 0x7f43a41a9e40 4>
-        align 32 context <function_decl 0x7f43a3d3ab00 main>>
-    struct-function 0x7f43a3d4f4d0>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 320 col 5 align 8 context <translation_unit_decl 0x7f9117759168 test.c> initial <block 0x7f91172ee840>
+    result <result_decl 0x7f91177595a0 D.4063 type <integer_type 0x7f91177625e8 int>
+        ignored SI file test.c line 320 col 5 size <integer_cst 0x7f911774ee28 32> unit size <integer_cst 0x7f911774ee40 4>
+        align 32 context <function_decl 0x7f91172dfb00 main>>
+    struct-function 0x7f91172f44d0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d618b8
-    type <pointer_type 0x7f43a3d422a0
-        type <integer_type 0x7f43a3d392a0 pthread_t unsigned DI
-            size <integer_cst 0x7f43a41a9be8 constant 64>
-            unit size <integer_cst 0x7f43a41a9c00 constant 8>
-            align 64 symtab 0 alias set -1 canonical type 0x7f43a41bd738 precision 64 min <integer_cst 0x7f43a41a9eb8 0> max <integer_cst 0x7f43a41ab500 18446744073709551615> context <translation_unit_decl 0x7f43a41b4168 test.c>
-            pointer_to_this <pointer_type 0x7f43a3d422a0>>
-        unsigned DI size <integer_cst 0x7f43a41a9be8 64> unit size <integer_cst 0x7f43a41a9c00 8>
+ <ssa_name 0x7f9117305990
+    type <pointer_type 0x7f91172e72a0
+        type <integer_type 0x7f91172de2a0 pthread_t unsigned DI
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9117762738 precision 64 min <integer_cst 0x7f911774eeb8 0> max <integer_cst 0x7f9117750500 18446744073709551615> context <translation_unit_decl 0x7f9117759168 test.c>
+            pointer_to_this <pointer_type 0x7f91172e72a0>>
+        unsigned DI size <integer_cst 0x7f911774ebe8 64> unit size <integer_cst 0x7f911774ec00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _23 = &t2[i_34];
     version 23
-    ptr-info 0x7f43a3d69288>
+    ptr-info 0x7f911730e288>
 this other function ------pthread_join-----
  
  Start is Pthread Job Collect  
@@ -1947,19 +1616,19 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_122 = VDEF <.MEM_91>
 err_82 = pthread_create (_23, &attr2, child, 0B);
-test.c:375:7: warning: use location
+test.c:376:7: warning: use location
    int err = pthread_create(&t2[i], &attr2, child, NULL);
        ^
 dot graph target loc end
 
 _24 = t2[i_34];
-test.c:377:3: warning: use location
+test.c:378:3: warning: use location
    printf("%ld\n", t2[i]);
    ^
 dot graph target basicblock start from main basic block 8dot graph target basicblock end
 
 dot graph stmt start _24 = t2[i_34];
-test.c:377:3: warning: use location
+test.c:378:3: warning: use location
 dot graph stmt end
 
 dot graph entry main
@@ -1967,7 +1636,7 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_122 = VDEF <.MEM_91>
 err_82 = pthread_create (_23, &attr2, child, 0B);
-test.c:375:7: warning: use location
+test.c:376:7: warning: use location
    int err = pthread_create(&t2[i], &attr2, child, NULL);
        ^
 dot graph target loc end
@@ -1989,17 +1658,17 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_122 = VDEF <.MEM_91>
 err_82 = pthread_create (_23, &attr2, child, 0B);
-test.c:375:7: warning: use location
+test.c:376:7: warning: use location
 dot graph target loc end
 
 _28 = t2[i_35];
-test.c:396:3: warning: use location
+test.c:397:3: warning: use location
    pthread_join(t2[i], NULL);
    ^
 dot graph target basicblock start from main basic block 13dot graph target basicblock end
 
 dot graph stmt start _28 = t2[i_35];
-test.c:396:3: warning: use location
+test.c:397:3: warning: use location
 dot graph stmt end
 
 dot graph entry main
@@ -2007,19 +1676,19 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_122 = VDEF <.MEM_91>
 err_82 = pthread_create (_23, &attr2, child, 0B);
-test.c:375:7: warning: use location
+test.c:376:7: warning: use location
    int err = pthread_create(&t2[i], &attr2, child, NULL);
        ^
 dot graph target loc end
 
 pthread_join (_28, 0B);
-test.c:396:3: warning: use location
+test.c:397:3: warning: use location
    pthread_join(t2[i], NULL);
    ^
 dot graph target basicblock start from main basic block 13dot graph target basicblock end
 
 dot graph stmt start pthread_join (_28, 0B);
-test.c:396:3: warning: use location
+test.c:397:3: warning: use location
 dot graph stmt end
 
 this stmt is child function---pthread_join-----
@@ -2029,32 +1698,32 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_122 = VDEF <.MEM_91>
 err_82 = pthread_create (_23, &attr2, child, 0B);
-test.c:375:7: warning: use location
+test.c:376:7: warning: use location
    int err = pthread_create(&t2[i], &attr2, child, NULL);
        ^
 dot graph target loc end
 
 err_82 = pthread_create (_23, &attr2, child, 0B);
-test.c:375:7: warning: use location
+test.c:376:7: warning: use location
 dot graph target basicblock start from main basic block 8dot graph target basicblock end
 
 dot graph stmt start err_82 = pthread_create (_23, &attr2, child, 0B);
-test.c:375:7: warning: use location
+test.c:376:7: warning: use location
 dot graph stmt end
 
 this stmt is child function---pthread_create-----
 
  ================== find ================== 
 err_82 = pthread_create (_23, &attr2, child, 0B);
-test.c:375:7: warning: use location
+test.c:376:7: warning: use location
 [40;32m    FIND PTHREAD_CREATED STMT  [0m
 
  ================== pre_pthread_detched ================== 
 [40;44m =======trace_function_path child  function_call count: 1 level :-1========  [0m
 [40;31m  find pthread_exit stmt  [0m
-# .MEM_35 = VDEF <.MEM_34>
+# .MEM_38 = VDEF <.MEM_37>
 pthread_exit (100B);
-test.c:181:2: warning: use location
+test.c:182:2: warning: use location
   pthread_exit(test); // Èõ¢ÈñãÂ≠êÂü∑Ë°åÁ∑í
   ^
 [40;44m =======print_function_path child  function_call count: 1 level :-1========  [0m
@@ -2071,11 +1740,12 @@ test.c:181:2: warning: use location
 [40;31m  wqeeeeeeeeeee 0  [0m
 [40;44m =======trace_function_path child  function_call count: 1 level :0========  [0m
 [40;31m  find free stmt free same pointer [0m
-# .MEM_29 = VDEF <.MEM_28>
-free (_8);
-test.c:174:2: warning: use location
+# .MEM_32 = VDEF <.MEM_31>
+free (_11);
+test.c:175:2: warning: use location
   free(pData);
   ^
+tx0
 [40;44m =======print_function_path child  function_call count: 1 level :1========  [0m
 [40;42m =======pre add _ fucntion:boo========= [0m
 [40;46m =======add node_fun stack:boo========= [0m
@@ -2083,15 +1753,16 @@ test.c:174:2: warning: use location
 [40;31m  find free stmt free same pointer [0m
 # .MEM_8 = VDEF <.MEM_7(D)>
 free (b_2(D));
-test.c:286:2: warning: use location
+test.c:287:2: warning: use location
   free(b);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_9 = VDEF <.MEM_8>
 free (b_2(D));
-test.c:287:2: warning: use location
+test.c:288:2: warning: use location
   free(b);
   ^
+tx0
 [40;44m =======print_function_path boo  function_call count: 1 level :2========  [0m
 [40;42m =======pre add _ fucntion:test22========= [0m
 [40;46m =======add node_fun stack:test22========= [0m
@@ -2099,45 +1770,46 @@ test.c:287:2: warning: use location
 [40;31m  find free stmt free same pointer [0m
 # .MEM_12 = VDEF <.MEM_11(D)>
 free (k_2(D));
-test.c:302:2: warning: use location
+test.c:303:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_13 = VDEF <.MEM_12>
 free (k_2(D));
-test.c:303:2: warning: use location
+test.c:304:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_14 = VDEF <.MEM_13>
 free (k_2(D));
-test.c:304:2: warning: use location
+test.c:305:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_15 = VDEF <.MEM_14>
 free (k_2(D));
-test.c:305:2: warning: use location
+test.c:306:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_16 = VDEF <.MEM_15>
 free (k_2(D));
-test.c:306:2: warning: use location
+test.c:307:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_17 = VDEF <.MEM_16>
 free (k_2(D));
-test.c:307:2: warning: use location
+test.c:308:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_19 = VDEF <.MEM_18>
 free (w_10);
-test.c:309:2: warning: use location
+test.c:310:2: warning: use location
   free(w);
   ^
+tx0
 [40;44m =======print_function_path test22  function_call count: 0 level :3========  [0m
 [40;32m    FIND PTHREAD_CREATED TYPE is CREATE_JOINABLE  [0m
 
@@ -2156,43 +1828,42 @@ dot graph END
 [40;31m  	possible double free :10 [0m
 
 ======================================================================
- <function_decl 0x7f43a3d3ab00 main
-    type <function_type 0x7f43a3d397e0
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <function_decl 0x7f91172dfb00 main
+    type <function_type 0x7f91172de7e0
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality>
-    nothrow public static function-specific-target function-specific-opt QI file test.c line 319 col 5 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> initial <block 0x7f43a3d49840>
-    result <result_decl 0x7f43a41b45a0 D.4063 type <integer_type 0x7f43a41bd5e8 int>
-        ignored SI file test.c line 319 col 5 size <integer_cst 0x7f43a41a9e28 32> unit size <integer_cst 0x7f43a41a9e40 4>
-        align 32 context <function_decl 0x7f43a3d3ab00 main>>
-    struct-function 0x7f43a3d4f4d0>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 320 col 5 align 8 context <translation_unit_decl 0x7f9117759168 test.c> initial <block 0x7f91172ee840>
+    result <result_decl 0x7f91177595a0 D.4063 type <integer_type 0x7f91177625e8 int>
+        ignored SI file test.c line 320 col 5 size <integer_cst 0x7f911774ee28 32> unit size <integer_cst 0x7f911774ee40 4>
+        align 32 context <function_decl 0x7f91172dfb00 main>>
+    struct-function 0x7f91172f44d0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d61d80
-    type <pointer_type 0x7f43a41c4a80
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <ssa_name 0x7f9117305e58
+    type <pointer_type 0x7f9117769a80
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
+        size <integer_cst 0x7f911774ebe8 constant 64>
+        unit size <integer_cst 0x7f911774ec00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f43a3d45498>>
-    var <var_decl 0x7f43a3d60360 q>
+        pointer_to_this <pointer_type 0x7f91172ea498>>
+    var <var_decl 0x7f91173062d0 q>
     def_stmt q_57 = malloc (10);
     version 57
-    ptr-info 0x7f43a3d692d0>
-q_57 = malloc (10);
+    ptr-info 0x7f911730e2d0>
 this Reserved word function ------malloc-----
  
  Start check Pointer Collect  
@@ -2203,19 +1874,19 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_105 = VDEF <.MEM_91>
 q_57 = malloc (10);
-test.c:379:7: warning: use location
+test.c:380:7: warning: use location
   int *q = malloc(10);
        ^
 dot graph target loc end
 
 child (q_57);
-test.c:384:3: warning: use location
+test.c:385:3: warning: use location
    child(q);
    ^
 dot graph target basicblock start from main basic block 11dot graph target basicblock end
 
 dot graph stmt start child (q_57);
-test.c:384:3: warning: use location
+test.c:385:3: warning: use location
 dot graph stmt end
 
 this stmt is child function---child-----
@@ -2223,41 +1894,31 @@ this stmt is child function---child-----
  ================== trace ================== 
 trace fucntion name:child 
 [40;44m =======trace_function_path child  function_call count: 1 level :0========  [0m
+[40;31m  find free stmt free same pointer [0m
+# .MEM_32 = VDEF <.MEM_31>
+free (_11);
+test.c:175:2: warning: use location
+  free(pData);
+  ^
 tx1
 [40;36m ======= node_fun:child========= [0m
 [40;36m ======= find relate stmt with q ========= [0m
 [40;36m ======= relate stmt argument:q ========= [0m
-# VUSE <.MEM_18>
-_1 = MEM[(int *)data_12(D)];
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
+# .MEM_20 = VDEF <.MEM_19(D)>
+pthread_mutex_lock (&mLock);
+# .MEM_21 = VDEF <.MEM_20>
+pthread_mutex_lock (&mLock);
+# VUSE <.MEM_21>
+_1 = MEM[(int *)data_15(D)];
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
 tx
-[40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_rhs3:û========= [0m
-dot graph start relate form ID : 746553381
-from child basic block 2dot graph end relate end
-
-dot graph relate stmt start ID : 866213287 stmt(RHS) :_1 = MEM[(int *)data_12(D)];
-In function ‚Äòchild‚Äô:
-test.c:161:6: warning: use location
-   ++(*(int *)data);
-      ^
-MEM[(int *)data_12(D)]
-dot graph relate end
-
-
- ================== warring ================== 
-[40;35m this pointer possible  reference other address [0m
-[40;35m or assign other value [0m
-
- ================== warring ================== 
 _2 = _1 + 1;
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
 tx
 [40;36m ======= relate node_fun argument:child========= [0m
 [40;36m ======= relate gimple_assign_lhs:í========= [0m
 _2 = _1 + 1;
+In function ‚Äòchild‚Äô:
 test.c:161:3: warning: use location
    ++(*(int *)data);
    ^
@@ -2267,19 +1928,18 @@ test.c:161:3: warning: use location
 [40;35m or assign other value [0m
 
  ================== warring ================== 
-# .MEM_19 = VDEF <.MEM_18>
-MEM[(int *)data_12(D)] = _2;
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
+# .MEM_22 = VDEF <.MEM_21>
+MEM[(int *)data_15(D)] = _2;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
 tx
 [40;36m ======= relate node_fun argument222:q========= [0m
 [40;36m ======= relate gimple_assign_lhs2:û========= [0m
-dot graph start relate form ID : 746553381
+dot graph start relate form ID : 1707268689
 from child basic block 2dot graph end relate end
 
-dot graph relate stmt start ID : 1297747273 stmt(LHS) :MEM[(int *)data_12(D)] = _2;
+dot graph relate stmt start ID : 434919867 stmt(LHS) :MEM[(int *)data_15(D)] = _2;
 test.c:161:3: warning: use location
-MEM[(int *)data_12(D)]
+MEM[(int *)data_15(D)]
 dot graph relate end
 
 
@@ -2290,8 +1950,8 @@ dot graph relate end
  ================== warring ================== 
 [40;36m ======= relate node_fun argument:child========= [0m
 [40;36m ======= relate gimple_assign_lhs:û========= [0m
-# .MEM_19 = VDEF <.MEM_18>
-MEM[(int *)data_12(D)] = _2;
+# .MEM_22 = VDEF <.MEM_21>
+MEM[(int *)data_15(D)] = _2;
 test.c:161:3: warning: use location
 
  ================== warring ================== 
@@ -2299,67 +1959,39 @@ test.c:161:3: warning: use location
 [40;35m or assign other value [0m
 
  ================== warring ================== 
-# .MEM_22 = VDEF <.MEM_21>
-pData = _3;
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
+# .MEM_23 = VDEF <.MEM_22>
+ppData_18 = malloc (10);
+# .MEM_24 = VDEF <.MEM_23>
+pData = data_15(D);
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
 tx
-[40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_lhs2:#========= [0m
-dot graph start relate form ID : 746553381
-from child basic block 2dot graph end relate end
-
-dot graph relate stmt start ID : 1423924122 stmt(LHS) :pData = _3;
+[40;36m ======= relate node_fun argument:child========= [0m
+[40;36m ======= relate gimple_assign_lhs:#========= [0m
+# .MEM_24 = VDEF <.MEM_23>
+pData = data_15(D);
 test.c:164:7: warning: use location
-  int *pData = malloc(20);
+  int *pData = data;
        ^
 
-dot graph relate end
-
-
  ================== warring ================== 
 [40;35m this pointer possible  reference other address [0m
 [40;35m or assign other value [0m
 
  ================== warring ================== 
-# .MEM_23 = VDEF <.MEM_22>
-data2 = 0;
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
+# VUSE <.MEM_24>
+_3 = pData;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
 tx
 [40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_lhs2:#========= [0m
-dot graph start relate form ID : 746553381
+[40;36m ======= relate gimple_assign_lhs2:í========= [0m
+dot graph start relate form ID : 1707268689
 from child basic block 2dot graph end relate end
 
-dot graph relate stmt start ID : 1571615019 stmt(LHS) :data2 = 0;
-test.c:166:6: warning: use location
-  int data2 = 0;
-      ^
-
-dot graph relate end
-
-
- ================== warring ================== 
-[40;35m this pointer possible  reference other address [0m
-[40;35m or assign other value [0m
-
- ================== warring ================== 
-# .MEM_24 = VDEF <.MEM_23>
-pData = &data2;
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
-tx
-[40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_lhs2:#========= [0m
-dot graph start relate form ID : 746553381
-from child basic block 2dot graph end relate end
-
-dot graph relate stmt start ID : 1900154765 stmt(LHS) :pData = &data2;
-test.c:169:8: warning: use location
-  pData = &data2;
-        ^
-
+dot graph relate stmt start ID : 535183991 stmt(LHS) :_3 = pData;
+test.c:165:9: warning: use location
+  *pData += 1;
+         ^
+_3
 dot graph relate end
 
 
@@ -2369,22 +2001,36 @@ dot graph relate end
 
  ================== warring ================== 
 # VUSE <.MEM_24>
-_4 = pData;
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
+_4 = *_3;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
+tx
+# VUSE <.MEM_24>
+_5 = pData;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
 tx
 [40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_rhs3:#========= [0m
-dot graph start relate form ID : 746553381
+[40;36m ======= relate gimple_assign_lhs2:í========= [0m
+dot graph start relate form ID : 1707268689
 from child basic block 2dot graph end relate end
 
-dot graph relate stmt start ID : 328576703 stmt(RHS) :_4 = pData;
-test.c:170:9: warning: use location
-  *ppData[0] = 10;
-         ^
-
+dot graph relate stmt start ID : 1218979163 stmt(LHS) :_5 = pData;
+test.c:165:9: warning: use location
+_5
 dot graph relate end
 
+
+ ================== warring ================== 
+[40;35m this pointer possible  reference other address [0m
+[40;35m or assign other value [0m
+
+ ================== warring ================== 
+_6 = _4 + 1;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
+tx
+[40;36m ======= relate node_fun argument:child========= [0m
+[40;36m ======= relate gimple_assign_lhs:í========= [0m
+_6 = _4 + 1;
+test.c:165:9: warning: use location
 
  ================== warring ================== 
 [40;35m this pointer possible  reference other address [0m
@@ -2392,65 +2038,16 @@ dot graph relate end
 
  ================== warring ================== 
 # .MEM_25 = VDEF <.MEM_24>
-*_4 = 10;
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
+*_5 = _6;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
 tx
 [40;36m ======= relate node_fun argument222:q========= [0m
 [40;36m ======= relate gimple_assign_lhs2:û========= [0m
-dot graph start relate form ID : 746553381
+dot graph start relate form ID : 1707268689
 from child basic block 2dot graph end relate end
 
-dot graph relate stmt start ID : 1447916706 stmt(LHS) :*_4 = 10;
-test.c:170:13: warning: use location
-  *ppData[0] = 10;
-             ^
-*_4
-dot graph relate end
-
-
- ================== warring ================== 
-[40;35m this pointer possible  reference other address [0m
-[40;35m or assign other value [0m
-
- ================== warring ================== 
-# VUSE <.MEM_25>
-_5 = MEM[(int * *)&pData + 8B];
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
-tx
-[40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_rhs3:û========= [0m
-dot graph start relate form ID : 746553381
-from child basic block 2dot graph end relate end
-
-dot graph relate stmt start ID : 1820596199 stmt(RHS) :_5 = MEM[(int * *)&pData + 8B];
-test.c:171:9: warning: use location
-  *ppData[1] = 10;
-         ^
-MEM[(int * *)&pData + 8B]
-dot graph relate end
-
-
- ================== warring ================== 
-[40;35m this pointer possible  reference other address [0m
-[40;35m or assign other value [0m
-
- ================== warring ================== 
-# .MEM_26 = VDEF <.MEM_25>
-*_5 = 10;
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
-tx
-[40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_lhs2:û========= [0m
-dot graph start relate form ID : 746553381
-from child basic block 2dot graph end relate end
-
-dot graph relate stmt start ID : 473446175 stmt(LHS) :*_5 = 10;
-test.c:171:13: warning: use location
-  *ppData[1] = 10;
-             ^
+dot graph relate stmt start ID : 1642593015 stmt(LHS) :*_5 = _6;
+test.c:165:9: warning: use location
 *_5
 dot graph relate end
 
@@ -2460,67 +2057,39 @@ dot graph relate end
 [40;35m or assign other value [0m
 
  ================== warring ================== 
-# VUSE <.MEM_26>
-_6 = MEM[(int * *)&pData + 16B];
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
-tx
-[40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_rhs3:û========= [0m
-dot graph start relate form ID : 746553381
-from child basic block 2dot graph end relate end
-
-dot graph relate stmt start ID : 1858236817 stmt(RHS) :_6 = MEM[(int * *)&pData + 16B];
-test.c:172:9: warning: use location
-  *ppData[2] = 10;
-         ^
-MEM[(int * *)&pData + 16B]
-dot graph relate end
-
+[40;36m ======= relate node_fun argument:child========= [0m
+[40;36m ======= relate gimple_assign_lhs:û========= [0m
+# .MEM_25 = VDEF <.MEM_24>
+*_5 = _6;
+test.c:165:9: warning: use location
 
  ================== warring ================== 
 [40;35m this pointer possible  reference other address [0m
 [40;35m or assign other value [0m
 
  ================== warring ================== 
+# .MEM_26 = VDEF <.MEM_25>
+data2 = 0;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
+tx
 # .MEM_27 = VDEF <.MEM_26>
-*_6 = 10;
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
+pData = &data2;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
 tx
-[40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_lhs2:û========= [0m
-dot graph start relate form ID : 746553381
-from child basic block 2dot graph end relate end
-
-dot graph relate stmt start ID : 84484230 stmt(LHS) :*_6 = 10;
-test.c:172:13: warning: use location
-  *ppData[2] = 10;
-             ^
-*_6
-dot graph relate end
-
-
- ================== warring ================== 
-[40;35m this pointer possible  reference other address [0m
-[40;35m or assign other value [0m
-
- ================== warring ================== 
 # VUSE <.MEM_27>
 _7 = pData;
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
 tx
 [40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_rhs3:#========= [0m
-dot graph start relate form ID : 746553381
+[40;36m ======= relate gimple_assign_lhs2:í========= [0m
+dot graph start relate form ID : 1707268689
 from child basic block 2dot graph end relate end
 
-dot graph relate stmt start ID : 339811907 stmt(RHS) :_7 = pData;
-test.c:173:3: warning: use location
-  **ppData = 12;
-   ^
-
+dot graph relate stmt start ID : 1109698766 stmt(LHS) :_7 = pData;
+test.c:171:9: warning: use location
+  *ppData[0] = 10;
+         ^
+_7
 dot graph relate end
 
 
@@ -2530,20 +2099,63 @@ dot graph relate end
 
  ================== warring ================== 
 # .MEM_28 = VDEF <.MEM_27>
-*_7 = 12;
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
+*_7 = 10;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
+tx
+ <mem_ref 0x7f91172fa6e0
+    type <integer_type 0x7f91177625e8 int public SI
+        size <integer_cst 0x7f911774ee28 constant 32>
+        unit size <integer_cst 0x7f911774ee40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+        pointer_to_this <pointer_type 0x7f9117769a80>>
+   
+    arg 0 <ssa_name 0x7f91172fc8b8
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
+            public unsigned DI
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+       
+        def_stmt _7 = pData;
+        version 7
+        ptr-info 0x7f911730e108>
+    arg 1 <integer_cst 0x7f91172e1d20 type <pointer_type 0x7f9117769a80> constant 0>
+    test.c:171:2 start: test.c:171:2 finish: test.c:171:2>
+ <mem_ref 0x7f91172fa6e0
+    type <integer_type 0x7f91177625e8 int public SI
+        size <integer_cst 0x7f911774ee28 constant 32>
+        unit size <integer_cst 0x7f911774ee40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+        pointer_to_this <pointer_type 0x7f9117769a80>>
+   
+    arg 0 <ssa_name 0x7f91172fc8b8
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
+            public unsigned DI
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+       
+        def_stmt _7 = pData;
+        version 7
+        ptr-info 0x7f911730e108>
+    arg 1 <integer_cst 0x7f91172e1d20 type <pointer_type 0x7f9117769a80> constant 0>
+    test.c:171:2 start: test.c:171:2 finish: test.c:171:2>
+# VUSE <.MEM_28>
+_8 = MEM[(int * *)&pData + 8B];
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
 tx
 [40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_lhs2:û========= [0m
-dot graph start relate form ID : 746553381
+[40;36m ======= relate gimple_assign_lhs2:í========= [0m
+dot graph start relate form ID : 1707268689
 from child basic block 2dot graph end relate end
 
-dot graph relate stmt start ID : 1628915132 stmt(LHS) :*_7 = 12;
-test.c:173:11: warning: use location
-  **ppData = 12;
-           ^
-*_7
+dot graph relate stmt start ID : 524374511 stmt(LHS) :_8 = MEM[(int * *)&pData + 8B];
+test.c:172:9: warning: use location
+  *ppData[1] = 10;
+         ^
+_8
 dot graph relate end
 
 
@@ -2552,21 +2164,196 @@ dot graph relate end
 [40;35m or assign other value [0m
 
  ================== warring ================== 
-# VUSE <.MEM_28>
-_8 = pData;
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
+# .MEM_29 = VDEF <.MEM_28>
+*_8 = 10;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
+tx
+ <mem_ref 0x7f91172fa730
+    type <integer_type 0x7f91177625e8 int public SI
+        size <integer_cst 0x7f911774ee28 constant 32>
+        unit size <integer_cst 0x7f911774ee40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+        pointer_to_this <pointer_type 0x7f9117769a80>>
+   
+    arg 0 <ssa_name 0x7f91172fc900
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
+            public unsigned DI
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+       
+        def_stmt _8 = MEM[(int * *)&pData + 8B];
+        version 8
+        ptr-info 0x7f911730e120>
+    arg 1 <integer_cst 0x7f91172e1d20 type <pointer_type 0x7f9117769a80> constant 0>
+    test.c:172:2 start: test.c:172:2 finish: test.c:172:2>
+ <mem_ref 0x7f91172fa730
+    type <integer_type 0x7f91177625e8 int public SI
+        size <integer_cst 0x7f911774ee28 constant 32>
+        unit size <integer_cst 0x7f911774ee40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+        pointer_to_this <pointer_type 0x7f9117769a80>>
+   
+    arg 0 <ssa_name 0x7f91172fc900
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
+            public unsigned DI
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+       
+        def_stmt _8 = MEM[(int * *)&pData + 8B];
+        version 8
+        ptr-info 0x7f911730e120>
+    arg 1 <integer_cst 0x7f91172e1d20 type <pointer_type 0x7f9117769a80> constant 0>
+    test.c:172:2 start: test.c:172:2 finish: test.c:172:2>
+# VUSE <.MEM_29>
+_9 = MEM[(int * *)&pData + 16B];
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
 tx
 [40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_rhs3:#========= [0m
-dot graph start relate form ID : 746553381
+[40;36m ======= relate gimple_assign_lhs2:í========= [0m
+dot graph start relate form ID : 1707268689
 from child basic block 2dot graph end relate end
 
-dot graph relate stmt start ID : 1416828042 stmt(RHS) :_8 = pData;
-test.c:174:2: warning: use location
+dot graph relate stmt start ID : 1274911818 stmt(LHS) :_9 = MEM[(int * *)&pData + 16B];
+test.c:173:9: warning: use location
+  *ppData[2] = 10;
+         ^
+_9
+dot graph relate end
+
+
+ ================== warring ================== 
+[40;35m this pointer possible  reference other address [0m
+[40;35m or assign other value [0m
+
+ ================== warring ================== 
+# .MEM_30 = VDEF <.MEM_29>
+*_9 = 10;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
+tx
+ <mem_ref 0x7f91172fa780
+    type <integer_type 0x7f91177625e8 int public SI
+        size <integer_cst 0x7f911774ee28 constant 32>
+        unit size <integer_cst 0x7f911774ee40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+        pointer_to_this <pointer_type 0x7f9117769a80>>
+   
+    arg 0 <ssa_name 0x7f91172fc948
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
+            public unsigned DI
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+       
+        def_stmt _9 = MEM[(int * *)&pData + 16B];
+        version 9
+        ptr-info 0x7f911730e138>
+    arg 1 <integer_cst 0x7f91172e1d20 type <pointer_type 0x7f9117769a80> constant 0>
+    test.c:173:2 start: test.c:173:2 finish: test.c:173:2>
+ <mem_ref 0x7f91172fa780
+    type <integer_type 0x7f91177625e8 int public SI
+        size <integer_cst 0x7f911774ee28 constant 32>
+        unit size <integer_cst 0x7f911774ee40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+        pointer_to_this <pointer_type 0x7f9117769a80>>
+   
+    arg 0 <ssa_name 0x7f91172fc948
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
+            public unsigned DI
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+       
+        def_stmt _9 = MEM[(int * *)&pData + 16B];
+        version 9
+        ptr-info 0x7f911730e138>
+    arg 1 <integer_cst 0x7f91172e1d20 type <pointer_type 0x7f9117769a80> constant 0>
+    test.c:173:2 start: test.c:173:2 finish: test.c:173:2>
+# VUSE <.MEM_30>
+_10 = pData;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
+tx
+[40;36m ======= relate node_fun argument222:q========= [0m
+[40;36m ======= relate gimple_assign_lhs2:í========= [0m
+dot graph start relate form ID : 1707268689
+from child basic block 2dot graph end relate end
+
+dot graph relate stmt start ID : 1101901129 stmt(LHS) :_10 = pData;
+test.c:174:3: warning: use location
+  **ppData = 12;
+   ^
+_10
+dot graph relate end
+
+
+ ================== warring ================== 
+[40;35m this pointer possible  reference other address [0m
+[40;35m or assign other value [0m
+
+ ================== warring ================== 
+# .MEM_31 = VDEF <.MEM_30>
+*_10 = 12;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
+tx
+ <mem_ref 0x7f91172fa7a8
+    type <integer_type 0x7f91177625e8 int public SI
+        size <integer_cst 0x7f911774ee28 constant 32>
+        unit size <integer_cst 0x7f911774ee40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+        pointer_to_this <pointer_type 0x7f9117769a80>>
+   
+    arg 0 <ssa_name 0x7f91172fc990
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
+            public unsigned DI
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+       
+        def_stmt _10 = pData;
+        version 10
+        ptr-info 0x7f911730e150>
+    arg 1 <integer_cst 0x7f91172e1d20 type <pointer_type 0x7f9117769a80> constant 0>
+    test.c:174:2 start: test.c:174:2 finish: test.c:174:2>
+ <mem_ref 0x7f91172fa7a8
+    type <integer_type 0x7f91177625e8 int public SI
+        size <integer_cst 0x7f911774ee28 constant 32>
+        unit size <integer_cst 0x7f911774ee40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+        pointer_to_this <pointer_type 0x7f9117769a80>>
+   
+    arg 0 <ssa_name 0x7f91172fc990
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
+            public unsigned DI
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+       
+        def_stmt _10 = pData;
+        version 10
+        ptr-info 0x7f911730e150>
+    arg 1 <integer_cst 0x7f91172e1d20 type <pointer_type 0x7f9117769a80> constant 0>
+    test.c:174:2 start: test.c:174:2 finish: test.c:174:2>
+# VUSE <.MEM_31>
+_11 = pData;
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
+tx
+[40;36m ======= relate node_fun argument222:q========= [0m
+[40;36m ======= relate gimple_assign_lhs2:í========= [0m
+dot graph start relate form ID : 1707268689
+from child basic block 2dot graph end relate end
+
+dot graph relate stmt start ID : 1516846547 stmt(LHS) :_11 = pData;
+test.c:175:2: warning: use location
   free(pData);
   ^
-
+_11
 dot graph relate end
 
 
@@ -2575,7 +2362,21 @@ dot graph relate end
 [40;35m or assign other value [0m
 
  ================== warring ================== 
+# .MEM_32 = VDEF <.MEM_31>
+free (_11);
+# .MEM_33 = VDEF <.MEM_32>
+free (10B);
+# .MEM_34 = VDEF <.MEM_33>
+boo (10B);
 # .MEM_35 = VDEF <.MEM_34>
+free (&pData);
+# .MEM_36 = VDEF <.MEM_35>
+pthread_mutex_unlock (&mLock);
+# .MEM_37 = VDEF <.MEM_36>
+free (&pData);
+# .MEM_38 = VDEF <.MEM_37>
+pthread_exit (100B);
+# .MEM_38 = VDEF <.MEM_37>
 pthread_exit (100B);
 fucntion collect path finsh
 [40;44m =======print_function_path child  function_call count: 1 level :1========  [0m
@@ -2586,19 +2387,29 @@ fucntion collect path finsh
 # .MEM_8 = VDEF <.MEM_7(D)>
 free (b_2(D));
 In function ‚Äòmain‚Äô:
-test.c:286:2: warning: use location
+test.c:287:2: warning: use location
   free(b);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_9 = VDEF <.MEM_8>
 free (b_2(D));
-test.c:287:2: warning: use location
+test.c:288:2: warning: use location
   free(b);
   ^
 tx1
 [40;36m ======= node_fun:boo========= [0m
 [40;36m ======= find relate stmt with q ========= [0m
 [40;36m ======= relate stmt argument:q ========= [0m
+# .MEM_8 = VDEF <.MEM_7(D)>
+free (b_2(D));
+# .MEM_9 = VDEF <.MEM_8>
+free (b_2(D));
+# .MEM_10 = VDEF <.MEM_9>
+test22 (b_2(D));
+# .MEM_11 = VDEF <.MEM_10>
+_6 = __printf_chk (1, "asdda\n");
+# VUSE <.MEM_11>
+return;
 fucntion collect path finsh
 [40;44m =======print_function_path boo  function_call count: 1 level :2========  [0m
 [40;42m =======pre add _ fucntion:test22========= [0m
@@ -2607,43 +2418,61 @@ fucntion collect path finsh
 [40;31m  find free stmt free same pointer [0m
 # .MEM_12 = VDEF <.MEM_11(D)>
 free (k_2(D));
-test.c:302:2: warning: use location
+test.c:303:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_13 = VDEF <.MEM_12>
 free (k_2(D));
-test.c:303:2: warning: use location
+test.c:304:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_14 = VDEF <.MEM_13>
 free (k_2(D));
-test.c:304:2: warning: use location
+test.c:305:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_15 = VDEF <.MEM_14>
 free (k_2(D));
-test.c:305:2: warning: use location
+test.c:306:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_16 = VDEF <.MEM_15>
 free (k_2(D));
-test.c:306:2: warning: use location
+test.c:307:2: warning: use location
   free(k);
   ^
 [40;31m  find free stmt free same pointer [0m
 # .MEM_17 = VDEF <.MEM_16>
 free (k_2(D));
-test.c:307:2: warning: use location
+test.c:308:2: warning: use location
   free(k);
   ^
 tx1
 [40;36m ======= node_fun:test22========= [0m
 [40;36m ======= find relate stmt with q ========= [0m
 [40;36m ======= relate stmt argument:q ========= [0m
+# .MEM_12 = VDEF <.MEM_11(D)>
+free (k_2(D));
+# .MEM_13 = VDEF <.MEM_12>
+free (k_2(D));
+# .MEM_14 = VDEF <.MEM_13>
+free (k_2(D));
+# .MEM_15 = VDEF <.MEM_14>
+free (k_2(D));
+# .MEM_16 = VDEF <.MEM_15>
+free (k_2(D));
+# .MEM_17 = VDEF <.MEM_16>
+free (k_2(D));
+# .MEM_18 = VDEF <.MEM_17>
+w_10 = malloc (5);
+# .MEM_19 = VDEF <.MEM_18>
+free (w_10);
+# VUSE <.MEM_19>
+return;
 fucntion collect path finsh
 [40;44m =======print_function_path test22  function_call count: 0 level :3========  [0m
 
@@ -2653,19 +2482,19 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_105 = VDEF <.MEM_91>
 q_57 = malloc (10);
-test.c:379:7: warning: use location
+test.c:380:7: warning: use location
   int *q = malloc(10);
        ^
 dot graph target loc end
 
 _31 = foo5 (q_57, q_57);
-test.c:416:2: warning: use location
+test.c:417:2: warning: use location
   printf("123%d\n", foo5(q, q));
   ^
 dot graph target basicblock start from main basic block 21dot graph target basicblock end
 
 dot graph stmt start _31 = foo5 (q_57, q_57);
-test.c:416:2: warning: use location
+test.c:417:2: warning: use location
 dot graph stmt end
 
 this stmt is child function---foo5-----
@@ -2679,51 +2508,20 @@ tx1
 [40;36m ======= relate stmt argument:q ========= [0m
 # VUSE <.MEM_9(D)>
 _1 = *z_4(D);
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
 tx
-[40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_rhs3:û========= [0m
-dot graph start relate form ID : 741880138
-from foo5 basic block 2dot graph end relate end
-
-dot graph relate stmt start ID : 970023335 stmt(RHS) :_1 = *z_4(D);
-In function ‚Äòfoo5‚Äô:
-test.c:37:2: warning: use location
-  printf("test1%d\n", *z);
-  ^
-*z_4(D)
-dot graph relate end
-
-
- ================== warring ================== 
-[40;35m this pointer possible  reference other address [0m
-[40;35m or assign other value [0m
-
- ================== warring ================== 
+# .MEM_10 = VDEF <.MEM_9(D)>
+_8 = __printf_chk (1, "test1%d\n", _1);
 # VUSE <.MEM_10>
 _2 = *y_5(D);
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeeq_57, points-to NULL, points-to vars: { D.4087 } (nonlocal, escaped, escaped heap)
+q_57, points-to NULL, points-to vars: { D.4086 } (nonlocal, escaped, escaped heap)
 tx
-[40;36m ======= relate node_fun argument222:q========= [0m
-[40;36m ======= relate gimple_assign_rhs3:û========= [0m
-dot graph start relate form ID : 741880138
-from foo5 basic block 2dot graph end relate end
-
-dot graph relate stmt start ID : 314003072 stmt(RHS) :_2 = *y_5(D);
-test.c:38:2: warning: use location
-  printf("test2%d\n", *y);
-  ^
-*y_5(D)
-dot graph relate end
-
-
- ================== warring ================== 
-[40;35m this pointer possible  reference other address [0m
-[40;35m or assign other value [0m
-
- ================== warring ================== 
+# .MEM_11 = VDEF <.MEM_10>
+_7 = __printf_chk (1, "test2%d\n", _2);
+# .MEM_12 = VDEF <.MEM_11>
+_6 = __printf_chk (1, "test3%d\n", 10);
+# VUSE <.MEM_12>
+return 10;
 fucntion collect path finsh
 [40;44m =======print_function_path foo5  function_call count: 0 level :1========  [0m
 
@@ -2733,20 +2531,19 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_105 = VDEF <.MEM_91>
 q_57 = malloc (10);
-In function ‚Äòmain‚Äô:
-test.c:379:7: warning: use location
+test.c:380:7: warning: use location
   int *q = malloc(10);
        ^
 dot graph target loc end
 
 *q_57 = 20;
-test.c:389:8: warning: use location
+test.c:390:8: warning: use location
    q[0] = 20;
         ^
 dot graph target basicblock start from main basic block 12dot graph target basicblock end
 
 dot graph stmt start *q_57 = 20;
-test.c:389:8: warning: use location
+test.c:390:8: warning: use location
 dot graph stmt end
 
 dot graph entry main
@@ -2754,19 +2551,19 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_105 = VDEF <.MEM_91>
 q_57 = malloc (10);
-test.c:379:7: warning: use location
+test.c:380:7: warning: use location
   int *q = malloc(10);
        ^
 dot graph target loc end
 
 _25 = q_57 != 0B;
-test.c:381:9: warning: use location
+test.c:382:9: warning: use location
   if ((q != NULL) && test)
          ^
 dot graph target basicblock start from main basic block 10dot graph target basicblock end
 
 dot graph stmt start _25 = q_57 != 0B;
-test.c:381:9: warning: use location
+test.c:382:9: warning: use location
 dot graph stmt end
 
 dot graph entry main
@@ -2774,19 +2571,19 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_105 = VDEF <.MEM_91>
 q_57 = malloc (10);
-test.c:379:7: warning: use location
+test.c:380:7: warning: use location
   int *q = malloc(10);
        ^
 dot graph target loc end
 
 _27 = _25 & _26;
-test.c:381:18: warning: use location
+test.c:382:18: warning: use location
   if ((q != NULL) && test)
                   ^
 dot graph target basicblock start from main basic block 10dot graph target basicblock end
 
 dot graph stmt start _27 = _25 & _26;
-test.c:381:18: warning: use location
+test.c:382:18: warning: use location
 dot graph stmt end
 
 
@@ -2795,46 +2592,45 @@ dot graph stmt end
 dot graph END
 
 ======================================================================
-[40;31m  	possible double free :8 [0m
+[40;31m  	possible double free :9 [0m
 
 ======================================================================
- <function_decl 0x7f43a3d3ab00 main
-    type <function_type 0x7f43a3d397e0
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <function_decl 0x7f91172dfb00 main
+    type <function_type 0x7f91172de7e0
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality>
-    nothrow public static function-specific-target function-specific-opt QI file test.c line 319 col 5 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> initial <block 0x7f43a3d49840>
-    result <result_decl 0x7f43a41b45a0 D.4063 type <integer_type 0x7f43a41bd5e8 int>
-        ignored SI file test.c line 319 col 5 size <integer_cst 0x7f43a41a9e28 32> unit size <integer_cst 0x7f43a41a9e40 4>
-        align 32 context <function_decl 0x7f43a3d3ab00 main>>
-    struct-function 0x7f43a3d4f4d0>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 320 col 5 align 8 context <translation_unit_decl 0x7f9117759168 test.c> initial <block 0x7f91172ee840>
+    result <result_decl 0x7f91177595a0 D.4063 type <integer_type 0x7f91177625e8 int>
+        ignored SI file test.c line 320 col 5 size <integer_cst 0x7f911774ee28 32> unit size <integer_cst 0x7f911774ee40 4>
+        align 32 context <function_decl 0x7f91172dfb00 main>>
+    struct-function 0x7f91172f44d0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d61ea0
-    type <pointer_type 0x7f43a41c4a80
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <ssa_name 0x7f9117305f78
+    type <pointer_type 0x7f9117769a80
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
+        size <integer_cst 0x7f911774ebe8 constant 64>
+        unit size <integer_cst 0x7f911774ec00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f43a3d45498>>
-    var <var_decl 0x7f43a3d60240 data>
+        pointer_to_this <pointer_type 0x7f91172ea498>>
+    var <var_decl 0x7f91173061b0 data>
     def_stmt data_64 = malloc (400);
     version 64
-    ptr-info 0x7f43a3d692e8>
-data_64 = malloc (400);
+    ptr-info 0x7f911730e2e8>
 this Reserved word function ------malloc-----
  
  Start check Pointer Collect  
@@ -2845,7 +2641,7 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_108 = VDEF <.MEM_92>
 data_64 = malloc (400);
-test.c:403:8: warning: use location
+test.c:404:8: warning: use location
    data = (int *)malloc(100 * sizeof(int));
         ^
 dot graph target loc end
@@ -2864,24 +2660,24 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_108 = VDEF <.MEM_92>
 data_64 = malloc (400);
-test.c:403:8: warning: use location
+test.c:404:8: warning: use location
 dot graph target loc end
 
 free (data_36);
-test.c:414:3: warning: use location
+test.c:415:3: warning: use location
    free(data);
    ^
 dot graph target basicblock start from main basic block 20dot graph target basicblock end
 
 dot graph stmt start free (data_36);
-test.c:414:3: warning: use location
+test.c:415:3: warning: use location
 dot graph stmt end
 
 this stmt is child function---free-----
 
  ================== find ================== 
 free (data_36);
-test.c:414:3: warning: use location
+test.c:415:3: warning: use location
 [40;32m    HAS FREE STMT count:1 name:free [0m
 
  ================== find ================== 
@@ -2890,26 +2686,26 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_108 = VDEF <.MEM_92>
 data_64 = malloc (400);
-test.c:403:8: warning: use location
+test.c:404:8: warning: use location
    data = (int *)malloc(100 * sizeof(int));
         ^
 dot graph target loc end
 
 free (data_64);
-test.c:409:3: warning: use location
+test.c:410:3: warning: use location
    free(data);
    ^
 dot graph target basicblock start from main basic block 18dot graph target basicblock end
 
 dot graph stmt start free (data_64);
-test.c:409:3: warning: use location
+test.c:410:3: warning: use location
 dot graph stmt end
 
 this stmt is child function---free-----
 
  ================== find ================== 
 free (data_64);
-test.c:409:3: warning: use location
+test.c:410:3: warning: use location
 [40;32m    HAS FREE STMT count:2 name:free [0m
 
  ================== find ================== 
@@ -2922,43 +2718,42 @@ dot graph END
 [40;31m  	possible double free :2 [0m
 
 ======================================================================
- <function_decl 0x7f43a3d3ab00 main
-    type <function_type 0x7f43a3d397e0
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <function_decl 0x7f91172dfb00 main
+    type <function_type 0x7f91172de7e0
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality>
-    nothrow public static function-specific-target function-specific-opt QI file test.c line 319 col 5 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> initial <block 0x7f43a3d49840>
-    result <result_decl 0x7f43a41b45a0 D.4063 type <integer_type 0x7f43a41bd5e8 int>
-        ignored SI file test.c line 319 col 5 size <integer_cst 0x7f43a41a9e28 32> unit size <integer_cst 0x7f43a41a9e40 4>
-        align 32 context <function_decl 0x7f43a3d3ab00 main>>
-    struct-function 0x7f43a3d4f4d0>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 320 col 5 align 8 context <translation_unit_decl 0x7f9117759168 test.c> initial <block 0x7f91172ee840>
+    result <result_decl 0x7f91177595a0 D.4063 type <integer_type 0x7f91177625e8 int>
+        ignored SI file test.c line 320 col 5 size <integer_cst 0x7f911774ee28 32> unit size <integer_cst 0x7f911774ee40 4>
+        align 32 context <function_decl 0x7f91172dfb00 main>>
+    struct-function 0x7f91172f44d0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d61f30
-    type <pointer_type 0x7f43a41c4a80
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <ssa_name 0x7f911730a000
+    type <pointer_type 0x7f9117769a80
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         public unsigned DI
-        size <integer_cst 0x7f43a41a9be8 constant 64>
-        unit size <integer_cst 0x7f43a41a9c00 constant 8>
+        size <integer_cst 0x7f911774ebe8 constant 64>
+        unit size <integer_cst 0x7f911774ec00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f43a3d45498>>
-    var <var_decl 0x7f43a3d601b0 p4>
+        pointer_to_this <pointer_type 0x7f91172ea498>>
+    var <var_decl 0x7f9117306120 p4>
     def_stmt p4_71 = malloc (10);
     version 71
-    ptr-info 0x7f43a3d69300>
-p4_71 = malloc (10);
+    ptr-info 0x7f911730e300>
 this Reserved word function ------malloc-----
  
  Start check Pointer Collect  
@@ -2969,19 +2764,19 @@ dot graph target entry end
 
 dot graph target loc start # .MEM_114 = VDEF <.MEM_113>
 p4_71 = malloc (10);
-test.c:417:7: warning: use location
+test.c:418:7: warning: use location
   int *p4 = malloc(10);
        ^
 dot graph target loc end
 
 child4 (p4_71);
-test.c:418:2: warning: use location
+test.c:419:2: warning: use location
   child4(p4);
   ^
 dot graph target basicblock start from main basic block 21dot graph target basicblock end
 
 dot graph stmt start child4 (p4_71);
-test.c:418:2: warning: use location
+test.c:419:2: warning: use location
 dot graph stmt end
 
 this stmt is child function---child4-----
@@ -2993,19 +2788,19 @@ tx1
 [40;36m ======= node_fun:child4========= [0m
 [40;36m ======= find relate stmt with p4 ========= [0m
 [40;36m ======= relate stmt argument:p4 ========= [0m
+if (t_7(D) != 0)
 # VUSE <.MEM_13(D)>
 _1 = data;
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeep4_71, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)
+p4_71, points-to NULL, points-to vars: { D.4088 } (nonlocal, escaped, escaped heap)
 tx
 [40;36m ======= relate node_fun argument222:p4========= [0m
 [40;36m ======= relate gimple_assign_lhs2:í========= [0m
-dot graph start relate form ID : 1057331289
+dot graph start relate form ID : 59964798
 from child4 basic block 3dot graph end relate end
 
-dot graph relate stmt start ID : 1282912082 stmt(LHS) :_1 = data;
+dot graph relate stmt start ID : 640596315 stmt(LHS) :_1 = data;
 In function ‚Äòchild4‚Äô:
-test.c:200:11: warning: use location
+test.c:201:11: warning: use location
    *data = *data + 1;
            ^
 _1
@@ -3019,37 +2814,19 @@ dot graph relate end
  ================== warring ================== 
 # VUSE <.MEM_13(D)>
 _2 = *_1;
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeep4_71, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)
+p4_71, points-to NULL, points-to vars: { D.4088 } (nonlocal, escaped, escaped heap)
 tx
-[40;36m ======= relate node_fun argument222:p4========= [0m
-[40;36m ======= relate gimple_assign_rhs3:û========= [0m
-dot graph start relate form ID : 1057331289
-from child4 basic block 3dot graph end relate end
-
-dot graph relate stmt start ID : 535840268 stmt(RHS) :_2 = *_1;
-test.c:200:11: warning: use location
-*_1
-dot graph relate end
-
-
- ================== warring ================== 
-[40;35m this pointer possible  reference other address [0m
-[40;35m or assign other value [0m
-
- ================== warring ================== 
 # VUSE <.MEM_13(D)>
 _3 = data;
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeep4_71, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)
+p4_71, points-to NULL, points-to vars: { D.4088 } (nonlocal, escaped, escaped heap)
 tx
 [40;36m ======= relate node_fun argument222:p4========= [0m
 [40;36m ======= relate gimple_assign_lhs2:í========= [0m
-dot graph start relate form ID : 1057331289
+dot graph start relate form ID : 59964798
 from child4 basic block 3dot graph end relate end
 
-dot graph relate stmt start ID : 1991626853 stmt(LHS) :_3 = data;
-test.c:200:3: warning: use location
+dot graph relate stmt start ID : 2066242630 stmt(LHS) :_3 = data;
+test.c:201:3: warning: use location
    *data = *data + 1;
    ^
 _3
@@ -3062,13 +2839,12 @@ dot graph relate end
 
  ================== warring ================== 
 _4 = _2 + 1;
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeep4_71, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)
+p4_71, points-to NULL, points-to vars: { D.4088 } (nonlocal, escaped, escaped heap)
 tx
 [40;36m ======= relate node_fun argument:child4========= [0m
 [40;36m ======= relate gimple_assign_lhs:í========= [0m
 _4 = _2 + 1;
-test.c:200:17: warning: use location
+test.c:201:17: warning: use location
    *data = *data + 1;
                  ^
 
@@ -3079,16 +2855,15 @@ test.c:200:17: warning: use location
  ================== warring ================== 
 # .MEM_15 = VDEF <.MEM_13(D)>
 *_3 = _4;
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeep4_71, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)
+p4_71, points-to NULL, points-to vars: { D.4088 } (nonlocal, escaped, escaped heap)
 tx
 [40;36m ======= relate node_fun argument222:p4========= [0m
 [40;36m ======= relate gimple_assign_lhs2:û========= [0m
-dot graph start relate form ID : 1057331289
+dot graph start relate form ID : 59964798
 from child4 basic block 3dot graph end relate end
 
-dot graph relate stmt start ID : 1139294988 stmt(LHS) :*_3 = _4;
-test.c:200:9: warning: use location
+dot graph relate stmt start ID : 1389433290 stmt(LHS) :*_3 = _4;
+test.c:201:9: warning: use location
    *data = *data + 1;
          ^
 *_3
@@ -3104,7 +2879,7 @@ dot graph relate end
 [40;36m ======= relate gimple_assign_lhs:û========= [0m
 # .MEM_15 = VDEF <.MEM_13(D)>
 *_3 = _4;
-test.c:200:9: warning: use location
+test.c:201:9: warning: use location
 
  ================== warring ================== 
 [40;35m this pointer possible  reference other address [0m
@@ -3113,16 +2888,15 @@ test.c:200:9: warning: use location
  ================== warring ================== 
 # VUSE <.MEM_13(D)>
 _5 = data;
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeep4_71, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)
+p4_71, points-to NULL, points-to vars: { D.4088 } (nonlocal, escaped, escaped heap)
 tx
 [40;36m ======= relate node_fun argument222:p4========= [0m
 [40;36m ======= relate gimple_assign_lhs2:í========= [0m
-dot graph start relate form ID : 1057331289
+dot graph start relate form ID : 59964798
 from child4 basic block 4dot graph end relate end
 
-dot graph relate stmt start ID : 1275922441 stmt(LHS) :_5 = data;
-test.c:203:3: warning: use location
+dot graph relate stmt start ID : 2010461590 stmt(LHS) :_5 = data;
+test.c:204:3: warning: use location
    *data = 2;
    ^
 _5
@@ -3136,27 +2910,52 @@ dot graph relate end
  ================== warring ================== 
 # .MEM_14 = VDEF <.MEM_13(D)>
 *_5 = 2;
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeetx1
-, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)eeeeeeeeeeeeeeeeeeeep4_71, points-to NULL, points-to vars: { D.4089 } (nonlocal, escaped, escaped heap)
+p4_71, points-to NULL, points-to vars: { D.4088 } (nonlocal, escaped, escaped heap)
 tx
-[40;36m ======= relate node_fun argument222:p4========= [0m
-[40;36m ======= relate gimple_assign_lhs2:û========= [0m
-dot graph start relate form ID : 1057331289
-from child4 basic block 4dot graph end relate end
-
-dot graph relate stmt start ID : 1257610784 stmt(LHS) :*_5 = 2;
-test.c:203:9: warning: use location
-   *data = 2;
-         ^
-*_5
-dot graph relate end
-
-
- ================== warring ================== 
-[40;35m this pointer possible  reference other address [0m
-[40;35m or assign other value [0m
-
- ================== warring ================== 
+ <mem_ref 0x7f91172f6fc8
+    type <integer_type 0x7f91177625e8 int public SI
+        size <integer_cst 0x7f911774ee28 constant 32>
+        unit size <integer_cst 0x7f911774ee40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+        pointer_to_this <pointer_type 0x7f9117769a80>>
+   
+    arg 0 <ssa_name 0x7f9117756d80
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
+            public unsigned DI
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+       
+        def_stmt _5 = data;
+        version 5
+        ptr-info 0x7f911730e060>
+    arg 1 <integer_cst 0x7f91172e1d20 type <pointer_type 0x7f9117769a80> constant 0>
+    test.c:204:3 start: test.c:204:3 finish: test.c:204:3>
+ <mem_ref 0x7f91172f6fc8
+    type <integer_type 0x7f91177625e8 int public SI
+        size <integer_cst 0x7f911774ee28 constant 32>
+        unit size <integer_cst 0x7f911774ee40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+        pointer_to_this <pointer_type 0x7f9117769a80>>
+   
+    arg 0 <ssa_name 0x7f9117756d80
+        type <pointer_type 0x7f9117769a80 type <integer_type 0x7f91177625e8 int>
+            public unsigned DI
+            size <integer_cst 0x7f911774ebe8 constant 64>
+            unit size <integer_cst 0x7f911774ec00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f91172ea498>>
+       
+        def_stmt _5 = data;
+        version 5
+        ptr-info 0x7f911730e060>
+    arg 1 <integer_cst 0x7f91172e1d20 type <pointer_type 0x7f9117769a80> constant 0>
+    test.c:204:3 start: test.c:204:3 finish: test.c:204:3>
+# .MEM_16 = VDEF <.MEM_12>
+_11 = __printf_chk (1, "asdda%d\n", &data);
+# VUSE <.MEM_16>
+return;
 fucntion collect path finsh
 [40;44m =======print_function_path child4  function_call count: 0 level :1========  [0m
 
@@ -3170,32 +2969,32 @@ dot graph END
 [40;31m    no free stmt possible memory leak [0m
 
 ======================================================================
- <function_decl 0x7f43a3d3ab00 main
-    type <function_type 0x7f43a3d397e0
-        type <integer_type 0x7f43a41bd5e8 int public SI
-            size <integer_cst 0x7f43a41a9e28 constant 32>
-            unit size <integer_cst 0x7f43a41a9e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-            pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <function_decl 0x7f91172dfb00 main
+    type <function_type 0x7f91172de7e0
+        type <integer_type 0x7f91177625e8 int public SI
+            size <integer_cst 0x7f911774ee28 constant 32>
+            unit size <integer_cst 0x7f911774ee40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+            pointer_to_this <pointer_type 0x7f9117769a80>>
         QI
-        size <integer_cst 0x7f43a41a9cd8 constant 8>
-        unit size <integer_cst 0x7f43a41a9cf0 constant 1>
+        size <integer_cst 0x7f911774ecd8 constant 8>
+        unit size <integer_cst 0x7f911774ecf0 constant 1>
         align 8 symtab 0 alias set -1 structural equality>
-    nothrow public static function-specific-target function-specific-opt QI file test.c line 319 col 5 align 8 context <translation_unit_decl 0x7f43a41b4168 test.c> initial <block 0x7f43a3d49840>
-    result <result_decl 0x7f43a41b45a0 D.4063 type <integer_type 0x7f43a41bd5e8 int>
-        ignored SI file test.c line 319 col 5 size <integer_cst 0x7f43a41a9e28 32> unit size <integer_cst 0x7f43a41a9e40 4>
-        align 32 context <function_decl 0x7f43a3d3ab00 main>>
-    struct-function 0x7f43a3d4f4d0>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 320 col 5 align 8 context <translation_unit_decl 0x7f9117759168 test.c> initial <block 0x7f91172ee840>
+    result <result_decl 0x7f91177595a0 D.4063 type <integer_type 0x7f91177625e8 int>
+        ignored SI file test.c line 320 col 5 size <integer_cst 0x7f911774ee28 32> unit size <integer_cst 0x7f911774ee40 4>
+        align 32 context <function_decl 0x7f91172dfb00 main>>
+    struct-function 0x7f91172f44d0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f43a3d61af8
-    type <integer_type 0x7f43a41bd5e8 int public SI
-        size <integer_cst 0x7f43a41a9e28 constant 32>
-        unit size <integer_cst 0x7f43a41a9e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f43a41bd5e8 precision 32 min <integer_cst 0x7f43a41a9de0 -2147483648> max <integer_cst 0x7f43a41a9df8 2147483647>
-        pointer_to_this <pointer_type 0x7f43a41c4a80>>
+ <ssa_name 0x7f9117305bd0
+    type <integer_type 0x7f91177625e8 int public SI
+        size <integer_cst 0x7f911774ee28 constant 32>
+        unit size <integer_cst 0x7f911774ee40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f91177625e8 precision 32 min <integer_cst 0x7f911774ede0 -2147483648> max <integer_cst 0x7f911774edf8 2147483647>
+        pointer_to_this <pointer_type 0x7f9117769a80>>
    
     def_stmt _31 = foo5 (q_57, q_57);
     version 31>
@@ -3210,7 +3009,7 @@ dot graph target entry end
 dot graph target loc start # .MEM_112 = VDEF <.MEM_94>
 _31 = foo5 (q_57, q_57);
 In function ‚Äòmain‚Äô:
-test.c:416:2: warning: use location
+test.c:417:2: warning: use location
   printf("123%d\n", foo5(q, q));
   ^
 dot graph target loc end
@@ -3247,9 +3046,9 @@ fucntion collect path finsh
     ~~~~~~~~~~~  
  ~~~~~~
            ~~~~~~~
-[40;34m    find Entry point : 11
+[40;34m    find Entry point : 10
  [0m
-[40;34m    used_stmt array stack totalsize of : 320
+[40;34m    used_stmt array stack totalsize of : 264
  [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 =======Mapping node_fun:foo5=========
@@ -3324,24 +3123,28 @@ return;
 <bb 2> [100.00%]:
 pthread_mutex_lock (&mLock);
 pthread_mutex_lock (&mLock);
-_1 = MEM[(int *)data_12(D)];
+_1 = MEM[(int *)data_15(D)];
 _2 = _1 + 1;
-MEM[(int *)data_12(D)] = _2;
-ppData_15 = malloc (10);
-_3 = malloc (20);
-pData = _3;
+MEM[(int *)data_15(D)] = _2;
+ppData_18 = malloc (10);
+pData = data_15(D);
+_3 = pData;
+_4 = *_3;
+_5 = pData;
+_6 = _4 + 1;
+*_5 = _6;
 data2 = 0;
 pData = &data2;
-_4 = pData;
-*_4 = 10;
-_5 = MEM[(int * *)&pData + 8B];
-*_5 = 10;
-_6 = MEM[(int * *)&pData + 16B];
-*_6 = 10;
 _7 = pData;
-*_7 = 12;
-_8 = pData;
-free (_8);
+*_7 = 10;
+_8 = MEM[(int * *)&pData + 8B];
+*_8 = 10;
+_9 = MEM[(int * *)&pData + 16B];
+*_9 = 10;
+_10 = pData;
+*_10 = 12;
+_11 = pData;
+free (_11);
 free (10B);
 boo (10B);
 free (&pData);
@@ -3535,14 +3338,14 @@ t2 ={v} {CLOBBER};
 return 0;
 
 =======is loop:0=========
-time: 0.019830 s
+time: 0.023797 s
 test.c: In function ‚Äòchild‚Äô:
-test.c:174:2: warning: attempt to free a non-heap object ‚Äòdata2‚Äô [-Wfree-nonheap-object]
+test.c:175:2: warning: attempt to free a non-heap object ‚Äòdata2‚Äô [-Wfree-nonheap-object]
   free(pData);
   ^
-test.c:177:2: warning: attempt to free a non-heap object ‚ÄòpData‚Äô [-Wfree-nonheap-object]
+test.c:178:2: warning: attempt to free a non-heap object ‚ÄòpData‚Äô [-Wfree-nonheap-object]
   free(ppData);
   ^
-test.c:179:2: warning: attempt to free a non-heap object ‚ÄòpData‚Äô [-Wfree-nonheap-object]
+test.c:180:2: warning: attempt to free a non-heap object ‚ÄòpData‚Äô [-Wfree-nonheap-object]
   free(ppData);
   ^

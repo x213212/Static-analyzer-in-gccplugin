@@ -161,7 +161,8 @@ void *child(void *data)
 		++(*(int *)data);
 	// (data)+=1;
 	int **ppData = malloc(10);
-	int *pData = malloc(20);
+	int *pData = data;
+	*pData += 1;
 	// int *a = foo(1);
 	int data2 = 0;
 	data = 10;

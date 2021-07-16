@@ -1388,7 +1388,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					{
 
 						ptable_type = IS_MALLOC_FUCNTION;
-						debug(def_stmt);
+						// debug(def_stmt);
 						// find_mallocstmt=1;
 						fprintf(stderr, "this Reserved word function ------%s-----\n", name);
 						// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);

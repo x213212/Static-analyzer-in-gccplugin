@@ -6,9 +6,14 @@ int dump_points_to_solution2(FILE *file, struct pt_solution *pt)
 	if (pt->nonlocal)
 		fprintf(file, ", points-to non-local");
 	if (pt->escaped)
+	{
 		fprintf(file, ", points-to escaped");
+	}
 	if (pt->ipa_escaped)
+	{
 		fprintf(file, ", points-to unit escaped");
+		return 0;
+	}
 	if (pt->null)
 	{
 		fprintf(file, ", points-to NULL");
@@ -17,7 +22,7 @@ int dump_points_to_solution2(FILE *file, struct pt_solution *pt)
 	{
 
 		fprintf(file, ", points-to vars: ");
-		dump_decl_set(file, pt->vars);
+		// dump_decl_set(file, pt->vars);
 		if (pt->vars_contains_nonlocal || pt->vars_contains_escaped || pt->vars_contains_escaped_heap || pt->vars_contains_restrict)
 		{
 			const char *comma = "";
@@ -113,6 +118,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 								debug_gimple_stmt(gc);
 							}
 					}
+					debug_gimple_stmt(gc);
 					if (is_gimple_assign(gc))
 					{
 						// debug_gimple_stmt(gc);
@@ -147,7 +153,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 						// 			// 	tree second = TREE_OPERAND(gimple_assign_lhs(gc), 0);
 						// 			// 	debug_tree(second);
 						// 			// }
-						debug_gimple_stmt(gc);
+						
 
 						// 			// if (test != NULL)
 						// 			// {
@@ -200,20 +206,21 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 
 						pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
 						struct pt_solution *pt1 = &pi1->pt;
+
 						// dump_points_to_solution2(stderr, &pi1->pt);
-						fprintf(stderr, "tx%d\n", dump_points_to_solution2(stderr, &pi1->pt));
+						// fprintf(stderr, "tx%d\n", dump_points_to_solution2(stderr, &pi1->pt));
 						// pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
 						//  struct pt_solution *pt1 = &pi1->pt;
 						//  fprintf(stderr, "tx%u\n",  pt1->null);
 
-						if (pt1 && dump_points_to_solution2(stderr, &pi1->pt) != 0)
+						if (pt1)
 							if (TREE_CODE(mallocStmt_tree) == SSA_NAME)
 							{
 
 								debug_points_to_info_for(mallocStmt_tree);
 								fprintf(stderr, "tx\n");
 								if (gimple_assign_lhs(gc) != NULL)
-									if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME || TREE_CODE(gimple_assign_lhs(gc)) == MEM_REF || TREE_CODE(gimple_assign_lhs(gc)) == VAR_DECL)
+									if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME || TREE_CODE(gimple_assign_lhs(gc)) == MEM_REF )
 									{
 										pi2 = SSA_NAME_PTR_INFO(gimple_assign_lhs(gc));
 
@@ -223,93 +230,173 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 
 										// fprintf(stderr, "ptsoul%u",pt1->anything )	;}
 										if (pt2)
+											if (gimple_assign_rhs1(gc) != NULL)
+												// if (TREE_CODE(gimple_assign_rhs1(gc)) != INTEGER_CST)
 
-										if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)) && !refs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
-										// if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc) ))
-										{
-											// tree test =gimple_assign_lhs(gc);
-											// debug_points_to_info_for(test);
+												if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
+												// if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc) ))
+												{
 
-											// debug_tree(t);
-											//ready add dot graph
-											// debug_points_to_info_for(gimple_assign_lhs(gc));
-											fprintf(stderr, "\033[40;36m ======= relate node_fun argument222:%s========= \033[0m\n", get_name(mallocStmt_tree));
-											fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs2:%s========= \033[0m\n", gimple_assign_lhs(gc));
+													if (gimple_assign_rhs1(gc) != NULL)
+													{
 
-											fprintf(stderr, "dot graph start relate form ");
+														if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
+														{
+															// if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc) ))
 
-											fprintf(stderr, "ID : %lu\n", now_fucntion);
-											fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
-											fprintf(stderr, "dot graph end relate end\n\n");
-											//ready add dot graph
-											unsigned long x = rand();
+															if (TREE_CODE(gimple_assign_lhs(gc)) == ADDR_EXPR)
+															{
 
-											//ready add dot graph
-											fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(LHS) :", x);
-											debug(gc);
-											warning_at(gimple_location(gc), 0, "use location");
-											debug(gimple_assign_lhs(gc));
-											fprintf(stderr, "dot graph relate end\n\n");
-											//ready add dot graph
+																if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
+																{
+																	debug_tree(gimple_assign_rhs1(gc));
+																	fprintf(stderr, "\n ================== warring ================== \n");
+																	// sfprintf(stderr, "function return value related stmt \n");
+																	fprintf(stderr, "\033[40;35m this pointer possible  reference other address (rhs)\033[0m\n");
+																	fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
+																	// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+																	// fprintf(stderr, "this stmt possible is heap-object 。\n");
+																	fprintf(stderr, "\n ================== warring ================== \n");
+																}
+															}
+														}
+														// if (TREE_CODE(gimple_assign_rhs1(gc)) == VAR_DECL)
+														// {
+														// 	// debug_tree(gimple_assign_lhs(gc));
+														// 	// debug_tree(gimple_assign_lhs(gc));
+														// 	// pi3 = SSA_NAME_PTR_INFO(gimple_assign_lhs(gc));
+														// 	// struct pt_solution *pt4 = &pi2->pt;
+														// 	// if (dump_points_to_solution2(stderr, pt2) == 0)
+														// 		break;
+														// 	// break;
 
-											fprintf(stderr, "\n ================== warring ================== \n");
-											// sfprintf(stderr, "function return value related stmt \n");
-											fprintf(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
-											fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
-											// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
-											// fprintf(stderr, "this stmt possible is heap-object 。\n");
-											fprintf(stderr, "\n ================== warring ================== \n");
-										}
+														// 	fprintf(stderr, "\n ================== warring ================== \n");
+														// 	// sfprintf(stderr, "function return value related stmt \n");
+														// 	fprintf(stderr, "\033[40;35m this pointer possible  reference other address (lhs)\033[0m\n");
+														// 	fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
+														// 	// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+														// 	// fprintf(stderr, "this stmt possible is heap-object 。\n");
+														// 	fprintf(stderr, "\n ================== warring ================== \n");
+														// }
+														if (TREE_CODE(gimple_assign_rhs1(gc)) == INTEGER_CST)
+														{
+															debug_tree(gimple_assign_lhs(gc));
+															debug_tree(gimple_assign_lhs(gc));
+															// if (TREE_CODE(gimple_assign_lhs(gc)) == VAR_DECL)
+															// 	break;
+															// pi3 = SSA_NAME_PTR_INFO(gimple_assign_lhs(gc));
+															// struct pt_solution *pt4 = &pi2->pt;
+															// if (dump_points_to_solution2(stderr, pt2) == 0)
+															// 	continue;
+																continue;
+															// break;
+
+															fprintf(stderr, "\n ================== warring ================== \n");
+															// sfprintf(stderr, "function return value related stmt \n");
+															fprintf(stderr, "\033[40;35m this pointer possible  reference other address (lhs)\033[0m\n");
+															fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
+															// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+															// fprintf(stderr, "this stmt possible is heap-object 。\n");
+															fprintf(stderr, "\n ================== warring ================== \n");
+														}
+													}
+													// tree test =gimple_assign_lhs(gc);
+													// debug_points_to_info_for(test);
+
+													// debug_tree(t);
+													//ready add dot graph
+													// debug_points_to_info_for(gimple_assign_lhs(gc));
+
+													fprintf(stderr, "\033[40;36m ======= relate node_fun argument222:%s========= \033[0m\n", get_name(mallocStmt_tree));
+													fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs2:%s========= \033[0m\n", gimple_assign_lhs(gc));
+
+													fprintf(stderr, "dot graph start relate form ");
+
+													fprintf(stderr, "ID : %lu\n", now_fucntion);
+													fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
+													fprintf(stderr, "dot graph end relate end\n\n");
+													//ready add dot graph
+													unsigned long x = rand();
+
+													//ready add dot graph
+													fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(LHS) :", x);
+													debug(gc);
+													warning_at(gimple_location(gc), 0, "use location");
+													debug(gimple_assign_lhs(gc));
+													fprintf(stderr, "dot graph relate end\n\n");
+													//ready add dot graph
+													// if (gimple_assign_rhs1(gc) != NULL)
+													// {
+
+													// 	if (TREE_CODE(gimple_assign_rhs1(gc)) != INTEGER_CST)
+													// 	{
+
+													// 		// debug_tree(gimple_assign_rhs1(gc));
+													// 		// fprintf(stderr, "\n ================== warriwwwwwwwwwwwwwwwng ================== \n");
+													// 	}
+													// }
+													fprintf(stderr, "\n ================== warring ================== \n");
+													// sfprintf(stderr, "function return value related stmt \n");
+													fprintf(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
+													fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
+													// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+													// fprintf(stderr, "this stmt possible is heap-object 。\n");
+													fprintf(stderr, "\n ================== warring ================== \n");
+												}
 									}
-								if (gimple_assign_rhs1(gc) != NULL)
-									if (TREE_CODE(gimple_assign_rhs1(gc)) == SSA_NAME || TREE_CODE(gimple_assign_rhs1(gc)) == MEM_REF || TREE_CODE(gimple_assign_rhs1(gc)) == VAR_DECL)
-									{
+								// if (gimple_assign_rhs1(gc) != NULL)
+								// 	if (TREE_CODE(gimple_assign_rhs1(gc)) == SSA_NAME || TREE_CODE(gimple_assign_rhs1(gc)) == MEM_REF)
+								// 	{
 
-										pi3 = SSA_NAME_PTR_INFO(gimple_assign_rhs1(gc));
-										// fprintf(stderr, "ptsoul%d",&pi3->pt->anything )	;
-										// if (&pi3->pt != NULL)
-										// if (&pi3->pt )
-										struct pt_solution *pt3 = &pi3->pt;
-										if (pt3)
+								// 		pi3 = SSA_NAME_PTR_INFO(gimple_assign_rhs1(gc));
+								// 		// fprintf(stderr, "ptsoul%d",&pi3->pt->anything )	;
+								// 		// if (&pi3->pt != NULL)
+								// 		// if (&pi3->pt )
+								// 		struct pt_solution *pt3 = &pi3->pt;
+								// 		if (pt3)
 
-											if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)) && !refs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
-											// if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc) ))
-											{
-												// tree test =gimple_assign_lhs(gc);
-												// debug_points_to_info_for(test);
+								// 			if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)) && !refs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
+								// 			// if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc) ))
+								// 			{
+								// 				// tree test =gimple_assign_lhs(gc);
+								// 				// debug_points_to_info_for(test);
 
-												// debug_tree(t);
-												// debug_points_to_info_for(gimple_assign_rhs1(gc));
-												fprintf(stderr, "\033[40;36m ======= relate node_fun argument222:%s========= \033[0m\n", get_name(mallocStmt_tree));
-												fprintf(stderr, "\033[40;36m ======= relate gimple_assign_rhs3:%s========= \033[0m\n", gimple_assign_rhs1(gc));
-												//ready add dot graph
+								// 				// debug_tree(t);
+								// 				if (pt_solution_empty_p(pt3))
+								// 				{
+								// 					dump_points_to_solution2(stderr, pt3);
+								// 					fprintf(stderr, "tx\n");
+								// 				}
+								// 				fprintf(stderr, "\033[40;36m ======= relate node_fun argument222:%s========= \033[0m\n", get_name(mallocStmt_tree));
+								// 				fprintf(stderr, "\033[40;36m ======= relate gimple_assign_rhs3:%s========= \033[0m\n", gimple_assign_rhs1(gc));
+								// 				//ready add dot graph
 
-												//ready add dot graph
-												fprintf(stderr, "dot graph start relate form ");
+								// 				//ready add dot graph
+								// 				fprintf(stderr, "dot graph start relate form ");
 
-												fprintf(stderr, "ID : %lu\n", now_fucntion);
-												fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
-												fprintf(stderr, "dot graph end relate end\n\n");
-												//ready add dot graph
-												unsigned long x = rand();
+								// 				fprintf(stderr, "ID : %lu\n", now_fucntion);
+								// 				fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
+								// 				fprintf(stderr, "dot graph end relate end\n\n");
+								// 				//ready add dot graph
+								// 				unsigned long x = rand();
 
-												//ready add dot graph
-												fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(RHS) :", x);
-												debug(gc);
-												warning_at(gimple_location(gc), 0, "use location");
-												debug(gimple_assign_rhs1(gc));
-												fprintf(stderr, "dot graph relate end\n\n");
-												//ready add dot graph
+								// 				//ready add dot graph
+								// 				fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(RHS) :", x);
+								// 				debug(gc);
+								// 				warning_at(gimple_location(gc), 0, "use location");
+								// 				debug(gimple_assign_rhs1(gc));
+								// 				fprintf(stderr, "dot graph relate end\n\n");
+								// 				//ready add dot graph
 
-												fprintf(stderr, "\n ================== warring ================== \n");
-												// sfprintf(stderr, "function return value related stmt \n");
-												fprintf(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
-												fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
-												// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
-												// fprintf(stderr, "this stmt possible is heap-object 。\n");
-												fprintf(stderr, "\n ================== warring ================== \n");
-											}
-									}
+								// 				fprintf(stderr, "\n ================== warring ================== \n");
+								// 				// sfprintf(stderr, "function return value related stmt \n");
+								// 				fprintf(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
+								// 				fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
+								// 				// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+								// 				// fprintf(stderr, "this stmt possible is heap-object 。\n");
+								// 				fprintf(stderr, "\n ================== warring ================== \n");
+								// 			}
+								// 	}
 								// fprintf(stderr, "\033[40;36m ======= relate node_fun end:%s========= \033[0m\n", get_name(mallocStmt_tree));
 							}
 						if (TREE_CODE(gimple_assign_lhs(gc)) == ARRAY_REF || TREE_CODE(mallocStmt_tree) == SSA_NAME)
@@ -480,7 +567,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 		}
 	}
 	//避開 pthread
-	if (tracerelatestmt == true && fucntion_level != -1 && 	( strcmp(name, "pthread_create") ))
+	if (tracerelatestmt == true && fucntion_level != -1)
 	{
 		struct cgraph_node *node;
 		if (mallocStmt_tree != NULL)
