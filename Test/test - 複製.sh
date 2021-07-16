@@ -70,7 +70,7 @@ DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
 SRC="dot graph target basicblock end"
-DST='"'
+DST='"'"->"
 SRC=$(echo $SRC)
 DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
@@ -82,15 +82,14 @@ SRC=$(echo $SRC)
 DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
-
 SRC="dot graph end relate end"
-DST='"'"->"
+DST='"'
 SRC=$(echo $SRC)
 DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
 SRC="dot graph relate stmt start "
-DST='"'
+DST="->"'"'
 SRC=$(echo $SRC)
 DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
@@ -102,7 +101,7 @@ DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
 SRC="dot graph stmt start "
-DST="->"'"'
+DST='"'
 SRC=$(echo $SRC)
 DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log

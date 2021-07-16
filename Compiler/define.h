@@ -251,6 +251,8 @@ CStack stmtStack;
 //stack<tree> pathStack;  // 建立堆疊
 function *main_fun;
 //int check_stmtStack(gimple *stmt);
+static gimple* now_stmt ;
+unsigned int SDBMHash(char *str);
 int check_stmtStack(tree target);
 void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_tmp, tree checkTree, int threadcheck);
 void record_fucntion(cgraph_node *node);
@@ -278,3 +280,5 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp);
 void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp);
 void print_function_return(tree function_tree);
 void print_function_return2(tree function_tree);
+void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mallocStmt_tree);
+

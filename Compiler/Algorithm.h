@@ -9,7 +9,8 @@
 #include <fstream>
 #include <iostream>
 #include <stack>
-
+#include <string.h>
+#include <math.h>
 #include "define.h"
 #include "unit.h"
 #include "debug.h"
@@ -1332,8 +1333,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				debug_tree(function_tree);
 				//ready add dot graph
 				fprintf(stderr, "\ndot graph START\n");
-				fprintf(stderr, "dot graph entry %s\n", (char *)get_name(function_tree));
-				fprintf(stderr, "dot graph target entry end\n\n");
+				// fprintf(stderr, "dot graph entry %s\n", (char *)get_name(function_tree));
+				// fprintf(stderr, "dot graph target entry end\n\n");
 				//ready add dot graph
 
 				fprintf(stderr, "\n======================================================================\n");
@@ -1416,10 +1417,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					if (user_tmp->size > 0)
 						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 						{
+
 							struct free_type free_type;
 
 							if (user_tmp->ret_stmt != NULL)
 							{
+								fprintf(stderr, "dot graph entry %s\n", (char *)get_name(function_tree));
+								fprintf(stderr, "dot graph target entry end\n\n");
 
 								if (gimple_code(user_tmp->ret_stmt) == GIMPLE_RETURN)
 								{
@@ -1445,7 +1449,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 									//ready add dot graph
 									fprintf(stderr, "dot graph target basicblock start ");
-									fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(u_stmt)->index);
+									fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(user_tmp->ret_stmt)->index);
+									now_stmt = user_tmp->ret_stmt;
 									fprintf(stderr, "dot graph target basicblock end\n\n");
 									//ready add dot graph
 
@@ -1464,6 +1469,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 								if (user_tmp->target != NULL)
 								{
+									fprintf(stderr, "dot graph entry %s\n", (char *)get_name(function_tree));
+									fprintf(stderr, "dot graph target entry end\n\n");
 
 									gimple *finalstmt;
 
@@ -1490,6 +1497,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											//ready add dot graph
 											fprintf(stderr, "dot graph target basicblock start ");
 											fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(def_stmt)->index);
+											now_stmt = def_stmt;
 											fprintf(stderr, "dot graph target basicblock end\n\n");
 											//ready add dot graph
 
@@ -1518,6 +1526,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											//ready add dot graph
 											fprintf(stderr, "dot graph target basicblock start ");
 											fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(def_stmt)->index);
+											now_stmt = def_stmt;
 											fprintf(stderr, "dot graph target basicblock end\n\n");
 											//ready add dot graph
 
@@ -1554,6 +1563,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										//ready add dot graph
 										fprintf(stderr, "dot graph target basicblock start ");
 										fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(u_stmt)->index);
+										now_stmt = u_stmt;
 										fprintf(stderr, "dot graph target basicblock end\n\n");
 										//ready add dot graph
 
@@ -2270,6 +2280,8 @@ void detect()
 	function_path_collect = new hash_map<tree, function_path_array>;
 	function_free_collect = new hash_map<tree, function_free_array>;
 	function_graph_collect = new hash_map<tree, function_graph_array>;
+
+	srand((unsigned)time(NULL) + getpid());
 	// fDFS = new hash_map<cgraph_node *, Graph>;
 	// fnode = new hash_map<tree, cgraph_node *>;
 	fprintf(stderr, "=======ipa_pta=========\n");

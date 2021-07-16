@@ -9,7 +9,7 @@ pthread_mutex_t mLock;
 pthread_mutex_t mLock2;
 pthread_mutex_t mLock3;
 static int *p99;
-static int fuck = 0;
+
 int *foo(int z) __attribute__((noinline));
 int *foo2(int z) __attribute__((noinline));
 void foo3(int *z) __attribute__((noinline));
@@ -21,6 +21,7 @@ void test44(int *k) __attribute__((noinline));
 void *child(void *data) __attribute__((noinline));
 void *child2(void *data) __attribute__((noinline));
 void *child3(void *data) __attribute__((noinline));
+void *child4(int *data) __attribute__((noinline));
 // void *child(void *data) __attribute__((noinline));
 // int *foo(int z);
 int *foo4(int z);
@@ -33,9 +34,9 @@ int foo5(int *z, int *y)
 	// p2=foo2(2);
 	// p2[0]=10;
 	///error
-	printf("fuck%d\n", *z);
-	printf("fuck%d\n", *y);
-	printf("fuck%d\n", p2);
+	printf("test1%d\n", *z);
+	printf("test2%d\n", *y);
+	printf("test3%d\n", p2);
 	// p2=10;
 	//printf("%d",p2);
 	return p2;
@@ -43,14 +44,18 @@ int foo5(int *z, int *y)
 void foo3(int *z)
 {
 	int *p2;
-	
+	int test;
 	// p2[0]=10;
 	///error
 	// p2=10;
-	*z = malloc(1);
-	p2=malloc(2);
-	p2[0]=10;
-	printf("%d",p2);
+	if (test)
+	{
+		*z = malloc(1);
+	}
+	else
+		p2 = malloc(2);
+	p2[0] = 10;
+	printf("%d", p2);
 }
 int *foo2(int z)
 {
@@ -128,7 +133,7 @@ int *foo(int z)
 void *child(void *data)
 {
 	pthread_mutex_t mLock2;
-	
+
 	// pthread_mutex_lock(&mLock2);
 	// pthread_mutex_lock(&mLock2);
 	//a1
@@ -153,9 +158,11 @@ void *child(void *data)
 	//a2
 	pthread_mutex_lock(&mLock);
 	pthread_mutex_lock(&mLock);
+		++(*(int *)data);
+	// (data)+=1;
 	int **ppData = malloc(10);
 	int *pData = malloc(20);
-	int *a = foo(1);
+	// int *a = foo(1);
 	int data2 = 0;
 	data = 10;
 	ppData = &pData;
@@ -170,8 +177,42 @@ void *child(void *data)
 	free(ppData);
 	pthread_mutex_unlock(&mLock);
 	free(ppData);
-	int test=100;
+	int test = 100;
 	pthread_exit(test); // 離開子執行緒
+
+	//a3
+	// pthread_mutex_lock(&mLock);
+	// int a = 10;
+	// int *ptr1 = &a;
+	// int **ptr2 = &ptr1;
+	// int ***ptr3 = &ptr2;
+	// pthread_mutex_unlock(&mLock);
+	// pthread_exit(NULL); // 離開子執行緒
+}
+void *child4(int *data)
+{
+	// pthread_detach(pthread_self());
+	int *pData = &data;
+	int *test = &data;
+	int t;
+	if (t)
+	{
+		*data = *data + 1;
+	}
+	else
+		*data = 2;
+	// ++(*(int *)pData);
+	// int input[2] = {1, 2}; // 輸入的資料
+	// int input2; // 輸入的資料
+	// data=10;
+	// data=10;
+	// data=10;
+	// data=10;
+	// free(&pData);
+
+	// pthread_detach(pthread_self());
+	//
+	printf("asdda%d\n", pData);
 
 	//a3
 	// pthread_mutex_lock(&mLock);
@@ -197,7 +238,7 @@ void *child3(void *data)
 	// data=10;
 	// free(&pData);
 	free(data);
-		// pthread_detach(pthread_self());
+	// pthread_detach(pthread_self());
 	//
 	printf("asdda%d\n", pData);
 	printf("asdda%d\n", c);
@@ -214,7 +255,7 @@ void *child2(void *data)
 {
 
 	int *pData = &data;
-	
+
 	// int input[2] = {1, 2}; // 輸入的資料
 	// int input2; // 輸入的資料
 	// data=10;
@@ -306,7 +347,7 @@ int main()
 	// p = foo2(2);
 	// p[0] = 2;
 	// p2 = foo2(2);
-	// 	// p2=&fuck;
+
 	// p2[0] = 4;
 	// // test22(p);
 	// // test22(p);
@@ -335,7 +376,7 @@ int main()
 
 		printf("%ld\n", t2[i]);
 	}
-	int *q = malloc(5);
+	int *q = malloc(10);
 	int test;
 	if ((q != NULL) && test)
 	{
@@ -346,7 +387,7 @@ int main()
 	else
 	{
 		q[0] = 20;
-		printf("fuck\n");
+		printf("test\n");
 	}
 
 	for (int i = 0; i < 3; i++)
@@ -373,6 +414,8 @@ int main()
 		free(data);
 	}
 	printf("123%d\n", foo5(q, q));
+	int *p4 = malloc(10);
+	child4(p4);
 	// test22(q);
 
 	// // 主執行緒工作
@@ -392,6 +435,6 @@ int main()
 	// q=p;
 	// free(q);
 	// printf("%d",q);
-	
+
 	return 0;
 }
