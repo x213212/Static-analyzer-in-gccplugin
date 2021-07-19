@@ -314,19 +314,21 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 															// if (dump_points_to_solution2(stderr, pt2) == 0)
 															// 	continue;
 															
-															fprintf(stderr, "\n ================== warringWWWWWW ================== \n");
+															fprintf(stderr, "\n ================== warring================== \n");
+															//fix ssa_name = ssa_name (rhs ) no pt_solution
 															// debug_tree(gimple_assign_lhs(gc));
 															pi3 = SSA_NAME_PTR_INFO(gimple_assign_lhs(gc));
  															pi4 = SSA_NAME_PTR_INFO(gimple_assign_rhs1(gc));
 															struct pt_solution *pt3 = &pi3->pt;
 															struct pt_solution *pt4 = &pi4->pt;
 															if(!pt3 || !pt4)
-															continue;
+																continue;
+															else if (!ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
+																continue;
 																// dump_points_to_solution2(stderr,pt3);
 																// if(pt4)
 																// 	dump_points_to_solution2(stderr,pt4 );
-															if (!ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
-															continue;
+														
 															// break;
 
 															// // sfprintf(stderr, "function return value related stmt \n");
