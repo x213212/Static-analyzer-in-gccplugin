@@ -163,7 +163,7 @@ void *child(void *data)
 	// ++(*(int *)data);
 	// (data)+=1;
 	int **ppData = malloc(10);
-	int *pData = data;
+	int *pData =data;
 	int *pData2 = malloc(10);
 	*pData += 1;
 	// int *a = foo(1);
@@ -414,7 +414,7 @@ int main()
 	}
 	int *q = malloc(10);
 	int *q2 = malloc(20);
-	q =q2;
+	// q =q2;
 	int test;
 	if ((q != NULL) && test)
 	{
