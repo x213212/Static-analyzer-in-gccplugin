@@ -230,7 +230,13 @@ ofstream cfginfo("cfginfo.txt");
 
 /*interprocedural analysis*/
 bool ipa = true;
+bool debugmod = true;
 bool threadmod = true;
+bool relatemod = true;
+bool freemod = false;
+bool freemodv2 = false;
+bool pthread_detachedmod = false;
+bool pthread_exitmod = false;
 bool tracerelatestmt = true;
 
 /*collect  function stack*/

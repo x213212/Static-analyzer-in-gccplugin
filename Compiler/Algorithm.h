@@ -1422,9 +1422,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 							if (user_tmp->ret_stmt != NULL)
 							{
-								fprintf(stderr, "dot graph entry %s\n", (char *)get_name(function_tree));
-								fprintf(stderr, "dot graph target entry end\n\n");
-
+								if (debugmod)
+								{
+									fprintf(stderr, "dot graph entry %s\n", (char *)get_name(function_tree));
+									fprintf(stderr, "dot graph target entry end\n\n");
+								}
 								if (gimple_code(user_tmp->ret_stmt) == GIMPLE_RETURN)
 								{
 									debug(user_tmp->ret_stmt);
@@ -1440,26 +1442,35 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										// fprintf(stderr, "this stmt possible is heap-object 。\n");
 										fprintf(stderr, "\n ================== warring ================== \n");
 									}
-									//ready add dot graph
-									fprintf(stderr, "dot graph target loc start ");
-									debug_gimple_stmt(table_temp->last_stmt);
-									warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-									fprintf(stderr, "dot graph target loc end\n\n");
-									//ready add dot graph
-
-									//ready add dot graph
-									fprintf(stderr, "dot graph target basicblock start ");
-									fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(user_tmp->ret_stmt)->index);
 									now_stmt = user_tmp->ret_stmt;
-									fprintf(stderr, "dot graph target basicblock end\n\n");
-									//ready add dot graph
+									if (debugmod)
+									{
+										//ready add dot graph
+										fprintf(stderr, "dot graph target loc start ");
+										debug_gimple_stmt(user_tmp->ret_stmt);
+										warning_at(gimple_location(user_tmp->ret_stmt), 0, "use location");
+										fprintf(stderr, "dot graph target loc en1\n\n");
 
-									//ready add dot graph
-									fprintf(stderr, "dot graph stmt start ");
-									debug(user_tmp->ret_stmt);
-									warning_at(gimple_location(user_tmp->ret_stmt), 0, "use location");
-									fprintf(stderr, "dot graph stmt end\n\n");
-									//ready add dot graph
+										fprintf(stderr, "dot graph target line desc form basic block %d: ", gimple_bb(user_tmp->ret_stmt)->index);
+										debug_gimple_stmt(user_tmp->ret_stmt);
+										warning_at(gimple_location(user_tmp->ret_stmt), 0, "use location");
+										fprintf(stderr, "dot graph target line desend\n\n");
+
+										fprintf(stderr, "dot graph target loc start ");
+										debug_gimple_stmt(user_tmp->ret_stmt);
+										warning_at(gimple_location(user_tmp->ret_stmt), 0, "use location");
+										fprintf(stderr, "dot graph target loc end\n\n");
+
+										fprintf(stderr, "dot graph target basicblock start ");
+										fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(user_tmp->ret_stmt)->index);
+										fprintf(stderr, "dot graph target basicblock end\n\n");
+
+										fprintf(stderr, "dot graph stmt start ");
+										debug(user_tmp->ret_stmt);
+										warning_at(gimple_location(user_tmp->ret_stmt), 0, "use location");
+										fprintf(stderr, "dot graph stmt end\n\n");
+										//ready add dot graph
+									}
 									find_mallocstmt = IS_HEAP_FUCNTION;
 									continue;
 								}
@@ -1469,9 +1480,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 								if (user_tmp->target != NULL)
 								{
-									fprintf(stderr, "dot graph entry %s\n", (char *)get_name(function_tree));
-									fprintf(stderr, "dot graph target entry end\n\n");
-
+									if (debugmod)
+									{
+										fprintf(stderr, "dot graph entry %s\n", (char *)get_name(function_tree));
+										fprintf(stderr, "dot graph target entry end\n\n");
+									}
 									gimple *finalstmt;
 
 									if (!strcmp(get_tree_code_name(TREE_CODE(user_tmp->target)), "addr_expr"))
@@ -1481,41 +1494,44 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										if (TREE_CODE(second) != VAR_DECL)
 										{
 
-											//ready add dot graph
-											fprintf(stderr, "dot graph target loc start ");
-											debug_gimple_stmt(table_temp->last_stmt);
-											warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-											fprintf(stderr, "dot graph target loc end\n\n");
-											//ready add dot graph
-
 											gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
 
 											debug(def_stmt);
 											finalstmt = def_stmt;
 											warning_at(gimple_location(def_stmt), 0, "use location");
-
-											//ready add dot graph
-											fprintf(stderr, "dot graph target basicblock start ");
-											fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(def_stmt)->index);
 											now_stmt = def_stmt;
-											fprintf(stderr, "dot graph target basicblock end\n\n");
-											//ready add dot graph
 
-											//ready add dot graph
-											fprintf(stderr, "dot graph target stmt start [addr_expr]");
-											debug(def_stmt);
-											warning_at(gimple_location(def_stmt), 0, "use location");
-											fprintf(stderr, "dot graph target stmt end\n\n");
-											//ready add dot graph
+											if (debugmod)
+											{
+												//ready add dot graph
+												fprintf(stderr, "dot graph target loc start ");
+												debug_gimple_stmt(table_temp->last_stmt);
+												warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+												fprintf(stderr, "dot graph target loc en1\n\n");
+
+												fprintf(stderr, "dot graph target line desc form basic block %d: ", gimple_bb(def_stmt)->index);
+												debug(def_stmt);
+												warning_at(gimple_location(def_stmt), 0, "use location");
+												fprintf(stderr, "dot graph target line desend\n\n");
+
+												fprintf(stderr, "dot graph target loc start ");
+												debug_gimple_stmt(def_stmt);
+												warning_at(gimple_location(def_stmt), 0, "use location");
+												fprintf(stderr, "dot graph target loc end\n\n");
+
+												fprintf(stderr, "dot graph target basicblock start ");
+												fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(def_stmt)->index);
+												fprintf(stderr, "dot graph target basicblock end\n\n");
+
+												fprintf(stderr, "dot graph target stmt start [addr_expr]");
+												debug(def_stmt);
+												warning_at(gimple_location(def_stmt), 0, "use location");
+												fprintf(stderr, "dot graph target stmt end\n\n");
+												//ready add dot graph
+											}
 										}
 										else
 										{
-											//ready add dot graph
-											fprintf(stderr, "dot graph target loc start ");
-											debug_gimple_stmt(table_temp->last_stmt);
-											warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-											fprintf(stderr, "dot graph target loc end\n\n");
-											//ready add dot graph
 
 											gimple *def_stmt = SSA_NAME_DEF_STMT(second);
 											debug(second);
@@ -1523,18 +1539,65 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											finalstmt = def_stmt;
 											fprintf(stderr, "addr_expr------vardecl onlay tree-------\n");
 
-											//ready add dot graph
-											fprintf(stderr, "dot graph target basicblock start ");
-											fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(def_stmt)->index);
 											now_stmt = def_stmt;
-											fprintf(stderr, "dot graph target basicblock end\n\n");
 											//ready add dot graph
+											if (debugmod)
+											{
+												fprintf(stderr, "dot graph target loc start ");
+												debug_gimple_stmt(table_temp->last_stmt);
+												warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+												fprintf(stderr, "dot graph target loc en1\n\n");
 
-											//ready add dot graph
-											fprintf(stderr, "dot graph target stmt start [nomal]");
-											debug(def_stmt);
-											warning_at(gimple_location(def_stmt), 0, "use location");
-											fprintf(stderr, "dot graph target stmt end\n\n");
+												fprintf(stderr, "dot graph target line desc ");
+												debug(def_stmt);
+												warning_at(gimple_location(def_stmt), 0, "use location");
+												fprintf(stderr, "dot graph target line desend\n\n");
+
+												fprintf(stderr, "dot graph target line desc form basic block %d: ", gimple_bb(def_stmt)->index);
+												debug_gimple_stmt(def_stmt);
+												warning_at(gimple_location(def_stmt), 0, "use location");
+												fprintf(stderr, "dot graph target loc end\n\n");
+
+												fprintf(stderr, "dot graph target basicblock start ");
+												fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(def_stmt)->index);
+												fprintf(stderr, "dot graph target basicblock en1\n\n");
+
+												if (gimple_code(def_stmt) == GIMPLE_CALL)
+												{
+													name = get_name(gimple_call_fn(def_stmt));
+													if (name != NULL)
+														if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+														{
+															fprintf(stderr, "dot graph stmt start ");
+															debug(def_stmt);
+															warning_at(gimple_location(def_stmt), 0, "use location");
+
+															fprintf(stderr, "dot graph stmt end\n\n");
+															if (freemod)
+															{
+
+																fprintf(stderr, "dot graph target color desc");
+																fprintf(stderr, "green");
+																fprintf(stderr, "dot graph target color desend\n\n");
+															}
+														}
+														else
+														{
+															fprintf(stderr, "dot graph stmt start ");
+															debug(u_stmt);
+															warning_at(gimple_location(u_stmt), 0, "use location");
+
+															fprintf(stderr, "dot graph stmt end\n\n");
+														}
+												}
+												else
+												{
+													fprintf(stderr, "dot graph stmt start ");
+													debug(def_stmt);
+													warning_at(gimple_location(def_stmt), 0, "use location");
+													fprintf(stderr, "dot graph stmt end\n\n");
+												}
+											}
 											//ready add dot graph
 
 											// warning_at(gimple_location(u_stmt), 0, "use location");
@@ -1549,30 +1612,71 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									else
 									{
 
-										//ready add dot graph
-										fprintf(stderr, "dot graph target loc start ");
-										debug_gimple_stmt(table_temp->last_stmt);
-										warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-										fprintf(stderr, "dot graph target loc end\n\n");
-										//ready add dot graph
-
 										finalstmt = u_stmt;
+
 										debug(u_stmt);
 										warning_at(gimple_location(u_stmt), 0, "use location");
-
-										//ready add dot graph
-										fprintf(stderr, "dot graph target basicblock start ");
-										fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(u_stmt)->index);
 										now_stmt = u_stmt;
-										fprintf(stderr, "dot graph target basicblock end\n\n");
 										//ready add dot graph
+										if (debugmod)
+										{
+											fprintf(stderr, "dot graph target loc start ");
+											debug_gimple_stmt(table_temp->last_stmt);
+											warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+											fprintf(stderr, "dot graph target loc en1\n\n");
 
-										//ready add dot graph
-										fprintf(stderr, "dot graph stmt start ");
-										debug(u_stmt);
-										warning_at(gimple_location(u_stmt), 0, "use location");
-										//ready add dot graph
-										fprintf(stderr, "dot graph stmt end\n\n");
+											fprintf(stderr, "dot graph target line desc form basic block %d: ", gimple_bb(u_stmt)->index);
+											debug(u_stmt);
+											warning_at(gimple_location(u_stmt), 0, "use location");
+											fprintf(stderr, "dot graph target line desend\n\n");
+
+											fprintf(stderr, "dot graph target loc start ");
+											debug_gimple_stmt(table_temp->last_stmt);
+											warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+											fprintf(stderr, "dot graph target loc end\n\n");
+
+											fprintf(stderr, "dot graph target basicblock start ");
+											fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(u_stmt)->index);
+											fprintf(stderr, "dot graph target basicblock en1\n\n");
+
+											if (gimple_code(u_stmt) == GIMPLE_CALL)
+											{
+												name = get_name(gimple_call_fn(u_stmt));
+												if (name != NULL)
+													if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+													{
+														fprintf(stderr, "dot graph stmt start ");
+														debug(u_stmt);
+														warning_at(gimple_location(u_stmt), 0, "use location");
+
+														fprintf(stderr, "dot graph stmt end\n\n");
+
+														if (freemod)
+														{
+
+															fprintf(stderr, "dot graph target color desc");
+															fprintf(stderr, "green");
+															fprintf(stderr, "dot graph target color desend\n\n");
+														}
+													}
+													else
+													{
+														fprintf(stderr, "dot graph stmt start ");
+														debug(u_stmt);
+														warning_at(gimple_location(u_stmt), 0, "use location");
+
+														fprintf(stderr, "dot graph stmt end\n\n");
+													}
+											}
+											else
+											{
+												fprintf(stderr, "dot graph stmt start ");
+												debug(u_stmt);
+												warning_at(gimple_location(u_stmt), 0, "use location");
+												fprintf(stderr, "dot graph stmt end\n\n");
+											}
+											//ready add dot graph
+										}
 
 										// fprintf(stderr, "addr_expraddr_expraddr_expraddr_expraddr_expr--------\n");
 									}
@@ -1691,7 +1795,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 															fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED STMT  \033[0m\n");
 															//  callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
 															fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
-															trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
+															if (gimple_call_num_args(table_temp->last_stmt) != 0)
+															{
+																if (is_gimple_assign(table_temp->last_stmt))
+																	// debug_tree(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0));
+																	trace_function_path(gimple_assign_lhs(table_temp->last_stmt), -1, NULL_TREE, &find_pthread_detched);
+																else
+																	trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
+															}
 															fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
 															tree findtree = gimple_call_arg(table_temp->last_stmt, 3);
 															// debug_gimple_stmt(table_temp->last_stmt);
@@ -1701,9 +1812,12 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																tree findtree;
 																if (gimple_call_num_args(u_stmt) != 0)
 																{
+																	// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+																	// debug_gimple_stmt(u_stmt);
 																	findtree = gimple_call_arg(u_stmt, 3);
 																	if (!strcmp(get_tree_code_name(TREE_CODE(findtree)), "addr_expr"))
 																	{
+																		// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
 																		// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
 																		// tree findtree = gimple_call_arg(u_stmt, 3);
 																		// debug_tree(TREE_OPERAND(findtree, 0));
@@ -1798,7 +1912,15 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 														//  callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
 														fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
-														trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
+
+														if (gimple_call_num_args(table_temp->last_stmt) != 0)
+														{
+															if (is_gimple_assign(table_temp->last_stmt))
+																// debug_tree(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0));
+																trace_function_path(gimple_assign_lhs(table_temp->last_stmt), -1, NULL_TREE, &find_pthread_detched);
+															else
+																trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
+														}
 														fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
 														tree findtree = gimple_call_arg(table_temp->last_stmt, 3);
 
@@ -1809,9 +1931,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 															tree findtree;
 															if (gimple_call_num_args(u_stmt) != 0)
 															{
+																// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+																// debug_gimple_stmt(u_stmt);
 																findtree = gimple_call_arg(u_stmt, 3);
+														
 																if (!strcmp(get_tree_code_name(TREE_CODE(findtree)), "addr_expr"))
 																{
+																	// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
 																	// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
 																	// tree findtree = gimple_call_arg(u_stmt, 3);
 																	// debug_tree(TREE_OPERAND(findtree, 0));
@@ -1915,7 +2041,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												//  callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
 												// debug_gimple_stmt(table_temp->last_stmt);
 												fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
-												trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
+												if (gimple_call_num_args(table_temp->last_stmt) != 0)
+												{
+													if (is_gimple_assign(table_temp->last_stmt))
+														// debug_tree(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0));
+														trace_function_path(gimple_assign_lhs(table_temp->last_stmt), -1, NULL_TREE, &find_pthread_detched);
+													else
+														trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
+												}
 												fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
 												fprintf(stderr, "\033[40;31m  wqeeeeeeeeeee %d  \033[0m\n", find_pthread_detched);
 												tree findtree = gimple_call_arg(table_temp->last_stmt, 3);
@@ -1927,10 +2060,12 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													tree findtree;
 													if (gimple_call_num_args(u_stmt) != 0)
 													{
+														// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+														// debug_gimple_stmt(u_stmt);
 														findtree = gimple_call_arg(u_stmt, 3);
 														if (!strcmp(get_tree_code_name(TREE_CODE(findtree)), "addr_expr"))
 														{
-															// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+															
 															// tree findtree = gimple_call_arg(u_stmt, 3);
 															// debug_tree(TREE_OPERAND(findtree, 0));
 															trace_function_path(function_tree, -1, TREE_OPERAND(findtree, 0), &find_freestmt);

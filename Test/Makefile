@@ -9,7 +9,7 @@ NO_OF_FILES := $(words $(FILE_NAME))
 
 LTO=-flto
 WHOLE=-fwhole-program
-FLAGS=-O1   -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -pthread   -Wl,--print-memory-usage
+FLAGS=-O1   -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -pthread   
 #FLAGS=-O1    -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -fdump-tree-all -pthread -fno-diagnostics-color 
 #FLAGS=-O1    -fno-tree-dse  -fno-tree-fre -fno-tree-dce   -nostartfiles -g  -fdump-tree-all -fno-dce -fno-dse -fno-tree-dce    -fno-tree-builtin-call-dce -fipa-pta -pthread -fno-strict-aliasing
 PLUGIN=-fplugin=../Compiler/misra.so 
@@ -19,7 +19,7 @@ all: test.o
 test.o:  
 	#   $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 	$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
-	@sh ./test.sh 
+	@sh ./test.sh $(FILE_NAME)
 clean:
 	-rm -rf ./test ./test.dSYM *.o
 

@@ -22,6 +22,7 @@ void *child(void *data) __attribute__((noinline));
 void *child2(void *data) __attribute__((noinline));
 void *child3(void *data) __attribute__((noinline));
 void *child4(int *data) __attribute__((noinline));
+void *child5(void *data) __attribute__((noinline));
 // void *child(void *data) __attribute__((noinline));
 // int *foo(int z);
 int *foo4(int z);
@@ -156,12 +157,14 @@ void *child(void *data)
 	//   pthread_mutex_unlock(&mLock);
 	//   pthread_exit(NULL); // 離開子執行緒
 	//a2
+	// pthread_detach(pthread_self());
 	pthread_mutex_lock(&mLock);
 	pthread_mutex_lock(&mLock);
-		++(*(int *)data);
+	// ++(*(int *)data);
 	// (data)+=1;
 	int **ppData = malloc(10);
 	int *pData = data;
+	int *pData2 = malloc(10);
 	*pData += 1;
 	// int *a = foo(1);
 	int data2 = 0;
@@ -169,9 +172,12 @@ void *child(void *data)
 	ppData = &pData;
 	pData = &data2;
 	*ppData[0] = 10;
-	*ppData[1] = 10;
-	*ppData[2] = 10;
+	// *ppData[1] = 10;
+	// *ppData[2] = 10;
 	**ppData = 12;
+	child4(&data);
+	child3(&data);
+	child5(pData2);
 	free(pData);
 	free(data);
 	boo(data);
@@ -179,7 +185,8 @@ void *child(void *data)
 	pthread_mutex_unlock(&mLock);
 	free(ppData);
 	int test = 100;
-	pthread_exit(test); // 離開子執行緒
+	//會影響強迫程式結束
+	// pthread_exit(test); // 離開子執行緒
 
 	//a3
 	// pthread_mutex_lock(&mLock);
@@ -226,7 +233,7 @@ void *child4(int *data)
 }
 void *child3(void *data)
 {
-	// pthread_detach(pthread_self());
+	pthread_detach(pthread_self());
 	int *pData = &data;
 	int c = 10;
 	pData = pData + 1;
@@ -238,11 +245,39 @@ void *child3(void *data)
 	// data=10;
 	// data=10;
 	// free(&pData);
-	free(data);
-	// pthread_detach(pthread_self());
-	//
 	printf("asdda%d\n", pData);
 	printf("asdda%d\n", c);
+	free(&data);
+	// pthread_detach(pthread_self());
+	//
+	//a3
+	// pthread_mutex_lock(&mLock);
+	// int a = 10;
+	// int *ptr1 = &a;
+	// int **ptr2 = &ptr1;
+	// int ***ptr3 = &ptr2;
+	// pthread_mutex_unlock(&mLock);
+	// pthread_exit(NULL); // 離開子執行緒
+}
+void *child5(void *data)
+{
+	pthread_detach(pthread_self());
+	int *pData = data;
+	int c = 10;
+	pData = pData + 1;
+	// ++(*(int *)pData);
+	// int input[2] = {1, 2}; // 輸入的資料
+	// int input2; // 輸入的資料
+	// data=10;
+	// data=10;
+	// data=10;
+	// data=10;
+	// free(&pData);
+	printf("asdda%d\n", pData);
+	printf("asdda%d\n", c);
+	free(&data);
+	// pthread_detach(pthread_self());
+	//
 	//a3
 	// pthread_mutex_lock(&mLock);
 	// int a = 10;
@@ -266,8 +301,8 @@ void *child2(void *data)
 	// free(&pData);
 	// int a;
 
-	++(*(int *)data);
-	++(*(int *)pData);
+	// ++(*(int *)data);
+	// ++(*(int *)pData);
 	child3(data);
 	free(data);
 	//
@@ -331,7 +366,7 @@ int main()
 		a[i].name = "Testname";
 		a[i].nummer = 123;
 	}
-
+	free(a);
 	for (int i = 0; i < size; i++)
 	{
 		printf("%s, %d\n", a[i].name, a[i].nummer);
@@ -378,16 +413,20 @@ int main()
 		printf("%ld\n", t2[i]);
 	}
 	int *q = malloc(10);
+	int *q2 = malloc(20);
+	q =q2;
 	int test;
 	if ((q != NULL) && test)
 	{
 
 		child(q);
+
 		q[0] = 10;
 	}
 	else
 	{
 		q[0] = 20;
+		child(q2);
 		printf("test\n");
 	}
 
@@ -415,8 +454,13 @@ int main()
 		free(data);
 	}
 	printf("123%d\n", foo5(q, q));
+	
 	int *p4 = malloc(10);
+	p4 =NULL;
+	p4 =1;
+	
 	child4(p4);
+
 	// test22(q);
 
 	// // 主執行緒工作

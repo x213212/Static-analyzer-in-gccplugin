@@ -1,0 +1,144 @@
+digraph {rankdir = LR; rank=same; nodesep=1.0; 
+
+
+" CWE401_Memory_Leak__char_calloc_01_bad
+"->
+
+
+" # .MEM_2 = VDEF <.MEM_1(D)>
+data_3 = calloc (100, 1)
+
+"
+
+[label=" form basic block 4: printLine (data_3)
+CWE401_Memory_Leak__char_calloc_01.c:32:5: warning: use location
+
+" ]
+
+" # .MEM_2 = VDEF <.MEM_1(D)>
+data_3 = calloc (100, 1)
+
+"->
+
+" from CWE401_Memory_Leak__char_calloc_01_bad basic block 4"
+
+->" printLine (data_3)
+CWE401_Memory_Leak__char_calloc_01.c:32:5: warning: use location
+
+"
+
+
+" CWE401_Memory_Leak__char_calloc_01_bad
+"->
+
+
+" # .MEM_2 = VDEF <.MEM_1(D)>
+data_3 = calloc (100, 1)
+
+"
+
+[label=" form basic block 4: __builtin_memcpy (data_3, A String, 9)
+CWE401_Memory_Leak__char_calloc_01.c:31:5: warning: use location
+
+" ]
+
+" # .MEM_2 = VDEF <.MEM_1(D)>
+data_3 = calloc (100, 1)
+
+"->
+
+" from CWE401_Memory_Leak__char_calloc_01_bad basic block 4"
+
+->" __builtin_memcpy (data_3, A String, 9)
+CWE401_Memory_Leak__char_calloc_01.c:31:5: warning: use location
+
+"
+
+
+
+
+
+
+
+
+" CWE401_Memory_Leak__char_calloc_01_good
+"->
+
+
+" # .MEM_11 = VDEF <.MEM_10>
+data_4 = calloc (100, 1)
+
+"
+
+[label=" form basic block 4: free (data_4)
+CWE401_Memory_Leak__char_calloc_01.c:64:5: warning: use location
+
+" ]
+
+" # .MEM_11 = VDEF <.MEM_10>
+data_4 = calloc (100, 1)
+
+"->
+
+" from CWE401_Memory_Leak__char_calloc_01_good basic block 4"
+
+->" free (data_4)
+CWE401_Memory_Leak__char_calloc_01.c:64:5: warning: use location
+
+"
+
+
+" CWE401_Memory_Leak__char_calloc_01_good
+"->
+
+
+" # .MEM_11 = VDEF <.MEM_10>
+data_4 = calloc (100, 1)
+
+"
+
+[label=" form basic block 4: printLine (data_4)
+CWE401_Memory_Leak__char_calloc_01.c:62:5: warning: use location
+
+" ]
+
+" # .MEM_11 = VDEF <.MEM_10>
+data_4 = calloc (100, 1)
+
+"->
+
+" from CWE401_Memory_Leak__char_calloc_01_good basic block 4"
+
+->" printLine (data_4)
+CWE401_Memory_Leak__char_calloc_01.c:62:5: warning: use location
+
+"
+
+
+" CWE401_Memory_Leak__char_calloc_01_good
+"->
+
+
+" # .MEM_11 = VDEF <.MEM_10>
+data_4 = calloc (100, 1)
+
+"
+
+[label=" form basic block 4: __builtin_memcpy (data_4, A String, 9)
+CWE401_Memory_Leak__char_calloc_01.c:61:5: warning: use location
+
+" ]
+
+" # .MEM_11 = VDEF <.MEM_10>
+data_4 = calloc (100, 1)
+
+"->
+
+" from CWE401_Memory_Leak__char_calloc_01_good basic block 4"
+
+->" __builtin_memcpy (data_4, A String, 9)
+CWE401_Memory_Leak__char_calloc_01.c:61:5: warning: use location
+
+" }
+
+digraph {rankdir = LR; rank=same; nodesep=1.0;  }

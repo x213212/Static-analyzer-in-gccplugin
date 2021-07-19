@@ -1,14 +1,7 @@
-i=1;
-for user in "$@" 
-do
-   
-    i=$((i + 1));
-done
-
 rm -rf graph.log
-rm -rf graph.dot
+#rm -rf graph.dot
 rm -rf graph.png
-grep 'dot graph' check.log -A1   >> graph.log
+#grep 'dot graph' check.log -A1   >> graph.log
 
 SRC=';'
 DST=""
@@ -219,4 +212,3 @@ value=`cat graph.log`
 echo "digraph {rankdir = LR; rank=same; nodesep=1.0;" "$value" "}" >> graph.dot
 dot -Tpng -o graph2.png  graph.dot
 gvpr -f graphinfo.gvpr graph.dot
-echo "Username: $user";
