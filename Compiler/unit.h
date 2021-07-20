@@ -87,10 +87,54 @@ bool Location_b(gimple *a, gimple *b, basic_block bb)
 	return false;
 }
 
+bool Location_b2(gimple *a, gimple *b, tree function_tree)
+{
+	struct cgraph_node *node;
+	basic_block bb;
+	FOR_EACH_DEFINED_FUNCTION(node)
+	{
+		//   if (!gimple_has_body_p (node->decl))
+		//       continue;
+
+		push_cfun(DECL_STRUCT_FUNCTION(node->decl));
+
+		// fprintf(stderr, "=====www==node_fun:%s=========\n", get_name(cfun->decl));
+
+		if (cfun == NULL)
+			continue;
+		//mutlple entry point
+		if (cfun->decl == function_tree)
+		{
+
+			calculate_dominance_info(CDI_DOMINATORS);
+
+			FOR_EACH_BB_FN(bb, cfun)
+			{
+
+				for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
+				{
+					gimple *gc = gsi_stmt(gsi);
+					if (gc == a)
+					{
+						pop_cfun();
+						return true;
+					}
+					else if (gc == b)
+					{
+						pop_cfun();
+						return false;
+					}
+				}
+			}
+		}
+				pop_cfun();
+	}
+	return false;
+}
 
 unsigned int SDBMHash(char *str)
 {
-	unsigned int hash = rand()%10;
+	unsigned int hash = rand() % 10;
 
 	while (*str)
 	{

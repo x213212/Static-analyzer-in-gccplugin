@@ -263,7 +263,7 @@ void *child5(void *data)
 {
 	pthread_detach(pthread_self());
 	int *pData = data;
-	int c = 10;
+	int c ;
 	pData = pData + 1;
 	// ++(*(int *)pData);
 	// int input[2] = {1, 2}; // 輸入的資料
@@ -273,9 +273,14 @@ void *child5(void *data)
 	// data=10;
 	// data=10;
 	// free(&pData);
-	printf("asdda%d\n", pData);
+	if(c){
+
+	
+	printf("asdda%d\n", pData);}
+	else{
 	printf("asdda%d\n", c);
-	free(&data);
+	free(pData);
+	}
 	// pthread_detach(pthread_self());
 	//
 	//a3
@@ -414,7 +419,7 @@ int main()
 	}
 	int *q = malloc(10);
 	int *q2 = malloc(20);
-	// q =q2;
+	
 	int test;
 	if ((q != NULL) && test)
 	{
@@ -460,7 +465,7 @@ int main()
 	p4 =1;
 	
 	child4(p4);
-
+	
 	// test22(q);
 
 	// // 主執行緒工作

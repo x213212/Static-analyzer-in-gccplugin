@@ -1934,7 +1934,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
 																// debug_gimple_stmt(u_stmt);
 																findtree = gimple_call_arg(u_stmt, 3);
-														
+
 																if (!strcmp(get_tree_code_name(TREE_CODE(findtree)), "addr_expr"))
 																{
 																	// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
@@ -2065,7 +2065,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														findtree = gimple_call_arg(u_stmt, 3);
 														if (!strcmp(get_tree_code_name(TREE_CODE(findtree)), "addr_expr"))
 														{
-															
+
 															// tree findtree = gimple_call_arg(u_stmt, 3);
 															// debug_tree(TREE_OPERAND(findtree, 0));
 															trace_function_path(function_tree, -1, TREE_OPERAND(findtree, 0), &find_freestmt);
@@ -2158,26 +2158,26 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 							for (int i = 0; i < free_array.size(); i++)
 							{
-								//fprintf(stderr, "\n====================================ffff2=================================\n");
+
 								if (u_stmt != free_array.at(i).stmt)
-									if (gimple_bb(u_stmt)->index == gimple_bb(free_array.at(i).stmt)->index)
+								{
+
+									if (Location_b2(free_array.at(i).stmt, u_stmt, function_tree))
 									{
-										if (Location_b(free_array.at(i).stmt, u_stmt, gimple_bb(u_stmt)))
-										{
-											debug_gimple_stmt(free_array.at(i).stmt);
-											warning_at(gimple_location(free_array.at(i).stmt), 0, "Use after free error!: free location");
-											debug_gimple_stmt(u_stmt);
-											warning_at(gimple_location(u_stmt), 0, "use location");
-											fprintf(stderr, "\n ================== warring ================== \n");
+										debug_gimple_stmt(free_array.at(i).stmt);
+										warning_at(gimple_location(free_array.at(i).stmt), 0, "Use after free error!: free location");
+										debug_gimple_stmt(u_stmt);
+										warning_at(gimple_location(u_stmt), 0, "use location");
+										fprintf(stderr, "\n ================== warring ================== \n");
 
-											// debug(checkTree);
-											fprintf(stderr, "\033[40;35m    Use after free error! \033[0m\n");
-											// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+										// debug(checkTree);
+										fprintf(stderr, "\033[40;35m    Use after free error! \033[0m\n");
+										// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
 
-											// fprintf(stderr, "this stmt possible is heap-object 。\n");
-											fprintf(stderr, "\n ================== warring ================== \n");
-										}
+										// fprintf(stderr, "this stmt possible is heap-object 。\n");
+										fprintf(stderr, "\n ================== warring ================== \n");
 									}
+								}
 							}
 						}
 					fprintf(stderr, "\ndot graph END\n");

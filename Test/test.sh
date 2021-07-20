@@ -217,6 +217,6 @@ sed -i "s/$SRC/$DST/g" ./graph.log
 
 value=`cat graph.log`
 echo "digraph {rankdir = LR; rank=same; nodesep=1.0;" "$value" "}" >> graph.dot
-dot -Tpng -o graph2.png  graph.dot
-gvpr -f graphinfo.gvpr graph.dot
+dot -Tsvg -o graph2.svg  graph.dot 
+gvpr -f graphinfo.gvpr graph.dot 
 echo "Username: $user";
