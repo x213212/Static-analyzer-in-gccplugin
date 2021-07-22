@@ -88,6 +88,7 @@ struct assign_type
 {
 	gimple *stmt;
 	tree assign_tree;
+	tree form_tree;
 	// int reutnr_type_num = 0;
 	//int return_type;
 };
@@ -222,6 +223,7 @@ unsigned int IS_OTHRER_FUCNTION = 2;
 unsigned int IS_HEAP_FUCNTION = -1;
 unsigned int PTABLE_IS_NULL = -2;
 unsigned int FUNCITON_THREAD = 666;
+unsigned int FUNCITON_HEAP = 777;
 unsigned int CREATE_JOINABLE = 0;
 unsigned int CREATE_DETACHED = 1;
 /*dump file */
@@ -230,7 +232,7 @@ ofstream cfginfo("cfginfo.txt");
 
 /*interprocedural analysis*/
 bool ipa = true;
-bool debugmod = false;
+bool debugmod = true;
 bool threadmod = true;
 bool relatemod = true;
 bool freemod = false;

@@ -30,40 +30,40 @@ void FunctionStmtMappingRet(ptb *ptable, ptb *ftable, gimple_array *user_tmp)
 							// if (!strcmp(get_tree_code_name(TREE_CODE(user_tmp->target)), "addr_expr"))
 							// {
 							// 	// debug_tree(user_tmp->target);
-							// 	// fprintf(stderr, "addr_expraddr_expraddr_expraddr_expraddr_expr--------\n");
 
 							// else
 							// 	// debug_tree(user_tmp->target);
 							// 	debug(u_stmt);
-							struct cgraph_node *node;
-							FOR_EACH_DEFINED_FUNCTION(node)
-							{
-								// if (!ipa)
-								// 	init_table();
-								push_cfun(node->get_fun());
-								// if (strcmp(get_name(cfun->decl), "main") == 0)
-								if (cfun == NULL)
-									continue;
+							// struct cgraph_node *node;
+							// FOR_EACH_DEFINED_FUNCTION(node)
+							// {
+							// 	// if (!ipa)
+							// 	// 	init_table();
+							// 	push_cfun(node->get_fun());
+							// 	// if (strcmp(get_name(cfun->decl), "main") == 0)
+							// 	if (cfun == NULL)
+							// 		continue;
+							// debug_tree(cfun->decl);
+							// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+							// calculate_dominance_info(CDI_DOMINATORS);
+							// if (table_temp->node->get_fun()->decl == node->get_fun()->decl)
+							// {
+							// fprintf(stderr, "oooooooooooooooooooooooooooooooooooooooo%s\n", get_name(table_temp->node->get_fun()->decl));
 
-								// debug_tree(cfun->decl);
-								// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
-								calculate_dominance_info(CDI_DOMINATORS);
-								// fprintf(stderr, "oooooooooooooooooooooooooooooooooooooooo\n", get_name(cfun->decl));
-
-								collect_FunctionMapping_Ret(cfun->decl, u_stmt, user_tmp, table_temp, ptable);
-								pop_cfun();
-							}
+							collect_FunctionMapping_Ret(table_temp->node->get_fun()->decl, u_stmt, user_tmp, table_temp, ptable);
+							// }
+							// pop_cfun();
 						}
-
-						// user_tmp->
 					}
+
+				// user_tmp->
 			}
-			// else
-			// {
-			// 	fprintf(stderr, " \n Pointer to set  is size 0 :[ \n");
-			// 	fprintf(stderr, "] \n");
-			// }
 		}
+		// else
+		// {
+		// 	fprintf(stderr, " \n Pointer to set  is size 0 :[ \n");
+		// 	fprintf(stderr, "] \n");
+		// }
 	}
 }
 

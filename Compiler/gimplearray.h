@@ -61,7 +61,7 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 	}
 }
 
-void set_gimple_array(gimple_array *table, gimple *used_stmt, tree a, tree target, gimple *ret_stmt)
+void set_gimple_array(gimple_array *table, gimple *used_stmt, tree fucntion, tree target, gimple *ret_stmt)
 {
 	// fprintf(stderr, "set_gimple_array----------------\n");
 	// 	gimple_array *user_tmp ;
@@ -81,7 +81,7 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree a, tree targe
 	{
 		table->stmt = used_stmt;
 		table->ret_stmt = ret_stmt;
-		table->aptr = a;
+		table->aptr = fucntion;
 		table->target = target;
 		table->size = 1;
 		table->next = NULL;
@@ -113,7 +113,7 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree a, tree targe
 			table->ret_stmt = ret_stmt;
 			table->target = target;
 			table->size = size_tmp;
-			table->aptr = a;
+			table->aptr = fucntion;
 			table->next = NULL;
 		}
 	}

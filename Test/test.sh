@@ -106,6 +106,12 @@ SRC=$(echo $SRC)
 DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
+SRC="dot graph target basicblock star1 "
+DST="->"'"'
+SRC=$(echo $SRC)
+DST=$(echo $DST)
+sed -i "s/$SRC/$DST/g" ./graph.log
+
 SRC="dot graph target basicblock end"
 DST='"'
 SRC=$(echo $SRC)
@@ -119,6 +125,11 @@ DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
 
+SRC="dot graph target basicblock en2"
+DST='"'"->"
+SRC=$(echo $SRC)
+DST=$(echo $DST)
+sed -i "s/$SRC/$DST/g" ./graph.log
 
 
 SRC="dot graph start relate form "
