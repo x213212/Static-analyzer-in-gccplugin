@@ -31,10 +31,20 @@ void printfBasicblock()
 			// debug_tree(cfun->decl);
 		}
 		calculate_dominance_info(CDI_DOMINATORS);
+		// FOR_EACH_BB_FN(bb, cfun)
+		// 	{
+		// 		for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
+		// 		{
+		// 			gimple *gc = gsi_stmt(gsi);
 		FOR_EACH_BB_FN(bb, cfun)
 		{
 			debug_bb(bb);
-
+			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
+			{
+				gimple *gc = gsi_stmt(gsi);
+				if(gimple_location_safe(gc))
+					warning_at(gimple_location_safe(gc), 0, "use location");
+			}
 			fprintf(stderr, "=======is loop:%d=========\n", bb_in_loop_p(bb));
 		}
 		pop_cfun();
@@ -280,4 +290,3 @@ void printfPointerConstraint2(ptb *ftable, gimple_array *user_tmp)
 		}
 	}
 }
-

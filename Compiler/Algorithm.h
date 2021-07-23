@@ -1182,6 +1182,8 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
 	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
 	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
+	struct timespec astart, aend;
+	clock_gettime(CLOCK_MONOTONIC, &astart);
 	// printfunctionCollect(ptable, used_stmt);
 	// return  ;
 	tree t2 = NULL_TREE;
@@ -1262,6 +1264,22 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 				if (ptr_derefs_may_alias_p(used_stmt->target, table1->target))
 				{
+					if (gimple_location_safe(u_stmt))
+					{
+						location_t loc = gimple_location_safe(u_stmt);
+						loc = gimple_location(u_stmt);
+						debug(u_stmt);
+						warning_at(gimple_location_safe(u_stmt), 0, "use location");
+						if (LOCATION_LINE(loc) != 562 && LOCATION_LINE(loc) != 561)
+						{
+
+							continue;
+						}
+					}
+					else
+						continue;
+					fprintf(stderr, "filter\n\n");
+
 					// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
 					// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
 					// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
@@ -1328,7 +1346,11 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "\033[40;34m    find Entry point : %d\n \033[0m\n", Entrypoint);
 	fprintf(stderr, "\033[40;34m    used_stmt array stack totalsize of : %d\n \033[0m\n", totalsize);
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
-
+	clock_gettime(CLOCK_MONOTONIC, &aend);
+	struct timespec temp = diff(astart, aend);
+	double time_used;
+	time_used = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
+	fprintf(stderr, "algorithm time: %f s\n", time_used);
 	totalsize = 0;
 	// // printfunctionCollect(ptable, used_stmt);
 
@@ -2659,11 +2681,13 @@ void detect()
 	// omp_set_num_threads(4);
 	double s = 0.0;
 	struct timespec start, end;
+
 	// start = clock();
 	clock_gettime(CLOCK_MONOTONIC, &start);
 	getrusage(RUSAGE_SELF, &ru);
 	utime = ru.ru_utime;
 	stime = ru.ru_stime;
+
 	// fprintf(stderr,"%d\n",*tmp);
 	//cout << "----------------------------------------" <<tmp<<endl;
 	// debug_tree(gimple_call_fndecl(node->decl));

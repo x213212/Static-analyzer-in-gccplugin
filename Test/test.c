@@ -506,7 +506,7 @@ int main()
 
 		printf("%ld\n", t2[i]);
 	}
-	int *q = malloc(10);
+	int *q = malloc(70);
 	int *q2 = malloc(20);
 
 	int test;
@@ -515,8 +515,8 @@ int main()
 
 		child(q);
 		child6(test, q);
-		// q=child7(test,q);
-		// free(q);
+		q=child7(test,q);
+		free(q);
 		q[0] = 10;
 	}
 	else
@@ -559,7 +559,7 @@ int main()
 	p4 = child7(test, p4);
 	free(p4);
 	p98 = malloc(201);
-	p98 = child7(test, p98);
+	child(p98);
 	free(p98);
 	// test22(q);
 

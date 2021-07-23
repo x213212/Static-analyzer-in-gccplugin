@@ -667,8 +667,10 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 								if (TREE_CODE(gimple_call_arg(gc, 0)) == SSA_NAME || ((!strcmp(get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0))), "addr_expr"))))
 									if (name != NULL)
 									{
-										// if (!strcmp(name, "free") || !strcmp(name, "xfree"))
-										// {
+										if (!strcmp(name, "pthread_mutex_lock") || !strcmp(name, "pthread_mutex_unlock")|| !strcmp(name, "pthread_exit"))
+										{
+											continue;
+										}
 										pi2 = SSA_NAME_PTR_INFO(gimple_call_arg(gc, 0));
 
 										struct pt_solution *pt2 = &pi2->pt;
@@ -676,7 +678,8 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 										// 	fprintf(stderr, "ptsoul%u", *pt1.anything);
 										// debug_points_to_info_for(mallocStmt_tree);
 										// debug_points_to_info_for(gimple_call_arg(gc, 0));
-										// fprintf(stderr, "ptsoul%u",pt1->anything )	;}
+										// fprintf(stderr, "testttt");
+										debug_tree(gimple_call_arg(gc, 0));
 										if (pt2)
 										{
 											if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_call_arg(gc, 0)))
@@ -1193,6 +1196,7 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 		if (cfun == NULL)
 			continue;
 		//mutlple entry point
+			// fprintf(stderr, "filter\n\n");
 		if (!strcmp(get_name(cfun->decl), "main"))
 		{
 			fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));

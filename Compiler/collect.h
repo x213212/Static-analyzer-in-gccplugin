@@ -2,12 +2,22 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 {
 
 	location_t loc = gimple_location(gc);
+	
 	tree a;
 	cgraph_node *node2;
 	const char *name;
 	if (is_gimple_call(gc))
 		if (gimple_call_fn(gc) == NULL)
 			return;
+
+	// location_t loc;
+	// loc = gimple_location(gc);
+	// if( LOCATION_LINE(loc) != 561)
+	// 	fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
+	// else
+	// return ;
+	// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
+	// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
 
 	if (is_gimple_call(gc))
 	{
