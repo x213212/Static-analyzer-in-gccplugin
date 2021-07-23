@@ -559,7 +559,7 @@ int main()
 	p4 = child7(test, p4);
 	free(p4);
 	p98 = malloc(201);
-	child(p98);
+	p98 = child7(test, p98);
 	free(p98);
 	// test22(q);
 

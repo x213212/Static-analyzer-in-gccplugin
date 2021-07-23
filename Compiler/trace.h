@@ -667,7 +667,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 								if (TREE_CODE(gimple_call_arg(gc, 0)) == SSA_NAME || ((!strcmp(get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0))), "addr_expr"))))
 									if (name != NULL)
 									{
-										if (!strcmp(name, "pthread_mutex_lock") || !strcmp(name, "pthread_mutex_unlock")|| !strcmp(name, "pthread_exit"))
+										if (!strcmp(name, "pthread_mutex_lock") || !strcmp(name, "pthread_mutex_unlock") || !strcmp(name, "pthread_exit"))
 										{
 											continue;
 										}
@@ -978,6 +978,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			{
 				find = 1;
 				fprintf(stderr, "\033[40;41m =======recursive_fun2:%s========= \033[0m\n", get_name(traceStack.c[o]));
+				break;
 				//	fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(traceStack.c[o]));
 			}
 		}
@@ -1125,21 +1126,13 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 							//fprintf(stderr, "\033[40;44m ============================================  \033[0m\n" ,(callerRetTypearray)[k].return_type_stmt_num);
 						}
 					}
-					else if (calleeFunArray.return_type_num == 2)
+
+					if (calleeFunArray.return_type_num == 2)
 						if ((callerRetTypearray)[k].return_tree == (function_path_array)[i].next)
 						{
-							// fprintf(stderr, "asdddddddd");
-							// debug_tree((function_path_array)[i].next);
-							checkPointerConstraint(function_tree, ptable, user_tmp, (callerRetTypearray)[k].return_tree, FUNCITON_HEAP);
-
+							checkPointerConstraint(function_tree, ptable, user_tmp, (callerRetTypearray)[k].return_tree, 0);
 							break;
 						}
-					// else if (calleeFunArray.return_type_num == 2)
-					// 	if ((callerRetTypearray)[k].return_tree == (function_path_array)[i].next)
-					// 	{
-					// 		checkPointerConstraint(function_tree, ptable, user_tmp, (callerRetTypearray)[k].return_tree, 0);
-					// 		break;
-					// 	}
 				}
 
 				// fprintf(stderr, "=======print_function_type %d  ========\n", calleeFunArray.return_type_num);
@@ -1154,7 +1147,7 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 				// 			// debug_tree((function_path_array)[i].next);
 				// 			checkPointerConstraint(function_tree, ptable, user_tmp, (callerRetTypearray)[k].return_tree, FUNCITON_HEAP);
 
-				// 			break;
+				// 			// break;
 				// 		}
 				// }
 			}
@@ -1196,7 +1189,7 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 		if (cfun == NULL)
 			continue;
 		//mutlple entry point
-			// fprintf(stderr, "filter\n\n");
+		// fprintf(stderr, "filter\n\n");
 		if (!strcmp(get_name(cfun->decl), "main"))
 		{
 			fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));

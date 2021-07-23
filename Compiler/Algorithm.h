@@ -1264,20 +1264,20 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 				if (ptr_derefs_may_alias_p(used_stmt->target, table1->target))
 				{
-					if (gimple_location_safe(u_stmt))
-					{
-						location_t loc = gimple_location_safe(u_stmt);
-						loc = gimple_location(u_stmt);
-						debug(u_stmt);
-						warning_at(gimple_location_safe(u_stmt), 0, "use location");
-						if (LOCATION_LINE(loc) != 562 && LOCATION_LINE(loc) != 561)
-						{
+					// if (gimple_location_safe(u_stmt))
+					// {
+					// 	location_t loc = gimple_location_safe(u_stmt);
+					// 	loc = gimple_location(u_stmt);
+					// 	debug(u_stmt);
+					// 	warning_at(gimple_location_safe(u_stmt), 0, "use location");
+					// 	if (LOCATION_LINE(loc) != 562 && LOCATION_LINE(loc) != 561)
+					// 	{
 
-							continue;
-						}
-					}
-					else
-						continue;
+					// 		continue;
+					// 	}
+					// }
+					// else
+					// 	continue;
 					fprintf(stderr, "filter\n\n");
 
 					// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
@@ -1455,7 +1455,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 				fprintf(stderr, "\n======================================================================\n");
 				// debug_tree(function_tree);
-				const char *name;
+				const char *name = "";
 				//fprintf(stderr ,"dot graph target %s\n", (char *)get_name(table_temp->target));
 				// //ready add dot graph
 				// fprintf(stderr, "dot graph target loc start ");
@@ -1475,6 +1475,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				if (TREE_CODE(table_temp->target) == INTEGER_CST)
 				{
 					debug_tree(table_temp->target);
+					return ;
 				}
 				// continue;
 				else if (gimple_code(def_stmt) == GIMPLE_CALL)
@@ -1491,7 +1492,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// debug(def_stmt);
 				// debug_tree(gimple_assign_rhs1(def_stmt));
 				// 	debug(def_stmt);
-				// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
+				fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
+				// if(def_stmt != NULL)
+				// debug_tree(table_temp->target);
 				// warning_at(gimple_location(def_stmt), 0, "use location");
 				if (name != NULL)
 
