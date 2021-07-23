@@ -5,30 +5,30 @@
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
-[label=" form basic block 6: _17 = a_53 + _16
-test.c:465:23: warning: use location
+[label=" form basic block 6: _17 = a_56 + _16
+test.c:466:23: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
 " from main basic block 6"
 
 
-->" _17 = a_53 + _16
-a_53 = malloc (32)
+->" _17 = a_56 + _16
+a_56 = malloc (32)
 "
 
-->" _17 = a_53 + _16
-test.c:465:23: warning: use location
+->" _17 = a_56 + _16
+test.c:466:23: warning: use location
 
 "
 
@@ -36,18 +36,18 @@ test.c:465:23: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
 [label=" form basic block 6: _18 = _17->name
-test.c:465:3: warning: use location
+test.c:466:3: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
@@ -55,11 +55,11 @@ a_53 = malloc (32)
 
 
 ->" _18 = _17->name
-a_53 = malloc (32)
+a_56 = malloc (32)
 "
 
 ->" _18 = _17->name
-test.c:465:3: warning: use location
+test.c:466:3: warning: use location
 
 "
 
@@ -67,27 +67,27 @@ test.c:465:3: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
-[label=" form basic block 6: _94 = __printf_chk (1, s, d\n, _18, _14)
+[label=" form basic block 6: _98 = __printf_chk (1, s, d\n, _18, _14)
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
 " from main basic block 6"
 
 
-->" _94 = __printf_chk (1, s, d\n, _18, _14)
-a_53 = malloc (32)
+->" _98 = __printf_chk (1, s, d\n, _18, _14)
+a_56 = malloc (32)
 "
 
-->" _94 = __printf_chk (1, s, d\n, _18, _14)
+->" _98 = __printf_chk (1, s, d\n, _18, _14)
 "
 
 
@@ -95,30 +95,30 @@ a_53 = malloc (32)
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
-[label=" form basic block 6: _13 = a_53 + _12
-test.c:465:34: warning: use location
+[label=" form basic block 6: _13 = a_56 + _12
+test.c:466:34: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
 " from main basic block 6"
 
 
-->" _13 = a_53 + _12
-a_53 = malloc (32)
+->" _13 = a_56 + _12
+a_56 = malloc (32)
 "
 
-->" _13 = a_53 + _12
-test.c:465:34: warning: use location
+->" _13 = a_56 + _12
+test.c:466:34: warning: use location
 
 "
 
@@ -126,18 +126,18 @@ test.c:465:34: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
 [label=" form basic block 6: _14 = _13->nummer
-test.c:465:3: warning: use location
+test.c:466:3: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
@@ -145,11 +145,11 @@ a_53 = malloc (32)
 
 
 ->" _14 = _13->nummer
-a_53 = malloc (32)
+a_56 = malloc (32)
 "
 
 ->" _14 = _13->nummer
-test.c:465:3: warning: use location
+test.c:466:3: warning: use location
 
 "
 
@@ -157,30 +157,30 @@ test.c:465:3: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
-[label=" form basic block 5: free (a_53)
-test.c:462:2: warning: use location
+[label=" form basic block 5: free (a_56)
+test.c:463:2: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
 " from main basic block 5"
 
 
-->" free (a_53)
-a_53 = malloc (32)
+->" free (a_56)
+a_56 = malloc (32)
 "
 
-->" free (a_53)
-test.c:462:2: warning: use location
+->" free (a_56)
+test.c:463:2: warning: use location
 
 "
 
@@ -189,30 +189,30 @@ test.c:462:2: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
-[label=" form basic block 3: _9 = a_53 + _8
-test.c:460:4: warning: use location
+[label=" form basic block 3: _9 = a_56 + _8
+test.c:461:4: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
 " from main basic block 3"
 
 
-->" _9 = a_53 + _8
-a_53 = malloc (32)
+->" _9 = a_56 + _8
+a_56 = malloc (32)
 "
 
-->" _9 = a_53 + _8
-test.c:460:4: warning: use location
+->" _9 = a_56 + _8
+test.c:461:4: warning: use location
 
 "
 
@@ -220,18 +220,18 @@ test.c:460:4: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
 [label=" form basic block 3: _9->nummer = 123
-test.c:460:15: warning: use location
+test.c:461:15: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
@@ -239,11 +239,11 @@ a_53 = malloc (32)
 
 
 ->" _9->nummer = 123
-a_53 = malloc (32)
+a_56 = malloc (32)
 "
 
 ->" _9->nummer = 123
-test.c:460:15: warning: use location
+test.c:461:15: warning: use location
 
 "
 
@@ -251,30 +251,30 @@ test.c:460:15: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
-[label=" form basic block 3: _6 = a_53 + _5
-test.c:459:4: warning: use location
+[label=" form basic block 3: _6 = a_56 + _5
+test.c:460:4: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
 " from main basic block 3"
 
 
-->" _6 = a_53 + _5
-a_53 = malloc (32)
+->" _6 = a_56 + _5
+a_56 = malloc (32)
 "
 
-->" _6 = a_53 + _5
-test.c:459:4: warning: use location
+->" _6 = a_56 + _5
+test.c:460:4: warning: use location
 
 "
 
@@ -282,18 +282,18 @@ test.c:459:4: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
 [label=" form basic block 3: _6->name = Testname
-test.c:459:13: warning: use location
+test.c:460:13: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
@@ -301,11 +301,11 @@ a_53 = malloc (32)
 
 
 ->" _6->name = Testname
-a_53 = malloc (32)
+a_56 = malloc (32)
 "
 
 ->" _6->name = Testname
-test.c:459:13: warning: use location
+test.c:460:13: warning: use location
 
 "
 
@@ -320,17 +320,17 @@ test.c:459:13: warning: use location
 "->
 
 
-" # VUSE <.MEM_127>
+" # VUSE <.MEM_131>
 _22 = t
 
 "
 
 [label=" form basic block 8: pthread_create (&t, &attr2, child2, _21)
-test.c:497:2: warning: use location
+test.c:498:2: warning: use location
 
 " ]
 
-" # VUSE <.MEM_127>
+" # VUSE <.MEM_131>
 _22 = t
 
 "->
@@ -338,7 +338,7 @@ _22 = t
 " from main basic block 8"
 
 ->" pthread_create (&t, &attr2, child2, _21)
-test.c:497:2: warning: use location
+test.c:498:2: warning: use location
 
 "
 
@@ -347,16 +347,16 @@ test.c:497:2: warning: use location
 "->
 
 
-" # VUSE <.MEM_127>
+" # VUSE <.MEM_131>
 _22 = t
 
 "
 
 [label=" form basic block 8: pthread_join (_22, 0B)
-test.c:499:2: warning: use location
+test.c:500:2: warning: use location
 " ]
 
-" # VUSE <.MEM_127>
+" # VUSE <.MEM_131>
 _22 = t
 
 "->
@@ -364,7 +364,7 @@ _22 = t
 " from main basic block 8"
 
 ->" pthread_join (_22, 0B)
-test.c:499:2: warning: use location
+test.c:500:2: warning: use location
 "
 
 
@@ -378,26 +378,25 @@ test.c:499:2: warning: use location
 "->
 
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "
 
-[label=" form basic block 9: _24 = t2[i_41]
-test.c:506:3: warning: use location
+[label=" form basic block 9: _24 = t2[i_44]
+test.c:507:3: warning: use location
 
 " ]
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "->
 
 " from main basic block 9"
 
-
-->" _24 = t2[i_41]
-test.c:506:3: warning: use location
+->" _24 = t2[i_44]
+test.c:507:3: warning: use location
 
 "
 
@@ -405,23 +404,22 @@ test.c:506:3: warning: use location
 "->
 
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "
 
-[label=" form basic block 9: _108 = __printf_chk (1, ld\n, _24)
+[label=" form basic block 9: _112 = __printf_chk (1, ld\n, _24)
 " ]
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "->
 
 " from main basic block 9"
 
-
-->" _108 = __printf_chk (1, ld\n, _24)
+->" _112 = __printf_chk (1, ld\n, _24)
 "
 
 
@@ -429,26 +427,25 @@ err_102 = pthread_create (_23, &attr2, child, 0B)
 "->
 
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "
 
-[label=" form basic block 15: _30 = t2[i_42]
-test.c:531:3: warning: use location
+[label=" form basic block 15: _30 = t2[i_45]
+test.c:532:3: warning: use location
 
 " ]
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "->
 
 " from main basic block 15"
 
-
-->" _30 = t2[i_42]
-test.c:531:3: warning: use location
+->" _30 = t2[i_45]
+test.c:532:3: warning: use location
 
 "
 
@@ -456,26 +453,25 @@ test.c:531:3: warning: use location
 "->
 
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "
 
 [label=" form basic block 15: pthread_join (_30, 0B)
-test.c:531:3: warning: use location
+test.c:532:3: warning: use location
 
 " ]
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "->
 
 " from main basic block 15"
 
-
 ->" pthread_join (_30, 0B)
-test.c:531:3: warning: use location
+test.c:532:3: warning: use location
 
 "
 
@@ -484,25 +480,24 @@ test.c:531:3: warning: use location
 "->
 
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "
 
-[label=" form basic block 9: err_102 = pthread_create (_23, &attr2, child, 0B)
-test.c:504:7: warning: use location
+[label=" form basic block 9: err_106 = pthread_create (_23, &attr2, child, 0B)
+test.c:505:7: warning: use location
 " ]
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "->
 
 " from main basic block 9"
 
-
-->" err_102 = pthread_create (_23, &attr2, child, 0B)
-test.c:504:7: warning: use location
+->" err_106 = pthread_create (_23, &attr2, child, 0B)
+test.c:505:7: warning: use location
 "
 
 
@@ -516,30 +511,30 @@ test.c:504:7: warning: use location
 "->
 
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "
 
-[label=" form basic block 23: _33 = foo5 (q_65, q_65)
-test.c:551:2: warning: use location
+[label=" form basic block 23: _33 = foo5 (q_68, q_68)
+test.c:552:2: warning: use location
 
 " ]
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "->
 
 " from main basic block 23"
 
 
-->" _33 = foo5 (q_65, q_65)
-q_65 = malloc (10)
+->" _33 = foo5 (q_68, q_68)
+q_68 = malloc (10)
 "
 
-->" _33 = foo5 (q_65, q_65)
-test.c:551:2: warning: use location
+->" _33 = foo5 (q_68, q_68)
+test.c:552:2: warning: use location
 
 "
 
@@ -548,61 +543,30 @@ test.c:551:2: warning: use location
 "->
 
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "
 
-[label=" form basic block 14: *q_65 = 20
-test.c:523:8: warning: use location
+[label=" form basic block 14: *q_68 = 20
+test.c:524:8: warning: use location
 
 " ]
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "->
 
 " from main basic block 14"
 
 
-->" *q_65 = 20
-q_65 = malloc (10)
+->" *q_68 = 20
+q_68 = malloc (10)
 "
 
-->" *q_65 = 20
-test.c:523:8: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
-
-"
-
-[label=" form basic block 12: *q_65 = 10
-test.c:519:8: warning: use location
-
-" ]
-
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
-
-"->
-
-" from main basic block 12"
-
-
-->" *q_65 = 10
-q_65 = malloc (10)
-"
-
-->" *q_65 = 10
-test.c:519:8: warning: use location
+->" *q_68 = 20
+test.c:524:8: warning: use location
 
 "
 
@@ -610,60 +574,90 @@ test.c:519:8: warning: use location
 "->
 
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "
 
-[label=" form basic block 12: child6 (_29, q_65)
-test.c:516:3: warning: use location
+[label=" form basic block 12: *q_68 = 10
+test.c:520:8: warning: use location
 
 " ]
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "->
 
 " from main basic block 12"
 
 
-->" child6 (_29, q_65)
-q_65 = malloc (10)
+->" *q_68 = 10
+q_68 = malloc (10)
 "
 
-->" child6 (_29, q_65)
-test.c:516:3: warning: use location
+->" *q_68 = 10
+test.c:520:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"
+
+[label=" form basic block 12: child6 (_29, q_68)
+test.c:517:3: warning: use location
+
+" ]
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"->
+
+" from main basic block 12"
+
+
+->" child6 (_29, q_68)
+q_68 = malloc (10)
+"
+
+->" child6 (_29, q_68)
+test.c:517:3: warning: use location
 
 "
 
 
-->"ID : 1419642292
+->"ID : 1323437748
 from child6 basic block 3"->
 
 
-" ID : 822542104 stmt(LHS) :pData_9 = &MEM[(void *)test_5(D) + 84B]
-test.c:325:9: warning: use location
+" ID : 1416958921 stmt(LHS) :pData_9 = &MEM[(void *)test_5(D) + 84B]
+test.c:326:9: warning: use location
 
 "
 
 
-->"ID : 1419642292
+->"ID : 1323437748
 from child6 basic block 4"->
 
 
-" ID : 1881964864 stmt(LHS) :pData_7 = &MEM[(void *)test_5(D) + 84B]
-test.c:330:9: warning: use location
+" ID : 950720098 stmt(LHS) :pData_7 = &MEM[(void *)test_5(D) + 84B]
+test.c:331:9: warning: use location
 
 "
 
 
-"ID : 1419642292
+"ID : 1323437748
 from child6 basic block 4"->
 
-
-" ID : 54861413 stmt(call) :free (pData_7)
-test.c:332:3: warning: use location
+" ID : 177810529 stmt(call) :free (pData_7)
+test.c:333:3: warning: use location
 
 "
 
@@ -672,253 +666,241 @@ test.c:332:3: warning: use location
 "->
 
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "
 
-[label=" form basic block 12: child (q_65)
-test.c:515:3: warning: use location
+[label=" form basic block 12: child (q_68)
+test.c:516:3: warning: use location
 
 " ]
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "->
 
 " from main basic block 12"
 
 
-->" child (q_65)
-q_65 = malloc (10)
+->" child (q_68)
+q_68 = malloc (10)
 "
 
-->" child (q_65)
-test.c:515:3: warning: use location
+->" child (q_68)
+test.c:516:3: warning: use location
 
 "
 
 
-->"ID : 2113115928
+->"ID : 1711870465
 from child basic block 2"->
 
 
-" ID : 933776785 stmt(LHS) :_1 = data
-test.c:175:7: warning: use location
+" ID : 123271793 stmt(LHS) :_1 = data
+test.c:176:7: warning: use location
 
 "
 
 
-"ID : 2113115928
+"ID : 1711870465
 from child basic block 2"->
 
 
-" ID : 1142883861 stmt(LHS) :_2 = pData
-test.c:177:9: warning: use location
+" ID : 81712483 stmt(LHS) :_2 = pData
+test.c:178:9: warning: use location
 
 "
 
 
-"ID : 2113115928
+"ID : 1711870465
 from child basic block 2"->
 
 
-" ID : 739638986 stmt(LHS) :_4 = pData
-test.c:177:9: warning: use location
+" ID : 744081328 stmt(LHS) :_4 = pData
+test.c:178:9: warning: use location
 
 "
 
 
-"ID : 2113115928
+"ID : 1711870465
 from child basic block 2"->
 
 
-" ID : 107742083 stmt(LHS) :_6 = pData
-test.c:184:9: warning: use location
+" ID : 1974880205 stmt(LHS) :_6 = pData
+test.c:185:9: warning: use location
 
 "
 
 
-"ID : 2113115928
+"ID : 1711870465
 from child basic block 2"->
 
 
-" ID : 1778782721 stmt(LHS) :_7 = pData
-test.c:187:3: warning: use location
+" ID : 181221612 stmt(LHS) :_7 = pData
+test.c:188:3: warning: use location
 
 "
 
 
-"ID : 2113115928
+"ID : 1711870465
 from child basic block 2"->
 
 
-" ID : 1356061294 stmt(LHS) :_9 = pData
-test.c:192:2: warning: use location
-
-"
-
-
-"ID : 2113115928
-from child basic block 2"->
-
-
-" ID : 141003998 stmt(call) :free (_9)
-test.c:192:2: warning: use location
-
-"
-
-
-"ID : 2113115928
-from child basic block 2"->
-
-
-" ID : 543844311 stmt(LHS) :_10 = data
+" ID : 430733368 stmt(LHS) :_9 = pData
 test.c:193:2: warning: use location
 
 "
 
 
-"ID : 2113115928
+"ID : 1711870465
 from child basic block 2"->
 
-
-" ID : 301408640 stmt(call) :free (_10)
+" ID : 2141378891 stmt(call) :free (_9)
 test.c:193:2: warning: use location
 
 "
 
 
-"ID : 2113115928
+"ID : 1711870465
 from child basic block 2"->
 
 
-" ID : 1204013111 stmt(LHS) :_11 = data
+" ID : 48517036 stmt(LHS) :_10 = data
 test.c:194:2: warning: use location
 
 "
 
 
-"ID : 2113115928
+"ID : 1711870465
 from child basic block 2"->
 
-
-" ID : 153217865 stmt(call) :boo (_11)
+" ID : 1268227930 stmt(call) :free (_10)
 test.c:194:2: warning: use location
 
 "
 
 
-->"ID : 924948092
+"ID : 1711870465
+from child basic block 2"->
+
+
+" ID : 1619685110 stmt(LHS) :_11 = data
+test.c:195:2: warning: use location
+
+"
+
+
+"ID : 1711870465
+from child basic block 2"->
+
+" ID : 472792243 stmt(call) :boo (_11)
+test.c:195:2: warning: use location
+
+"
+
+
+->"ID : 1504319395
 from boo basic block 2"->
 
-
-" ID : 285629381 stmt(call) :free (b_2(D))
+" ID : 10203622 stmt(call) :free (b_2(D))
 In function ‘boo’:
 
 "
 
-"ID : 924948092
+"ID : 1504319395
 from boo basic block 2"->
 
-
-" ID : 668780029 stmt(call) :free (b_2(D))
-test.c:416:2: warning: use location
-
-"
-
-"ID : 924948092
-from boo basic block 2"->
-
-
-" ID : 156922620 stmt(call) :test22 (b_2(D))
+" ID : 1394034016 stmt(call) :free (b_2(D))
 test.c:417:2: warning: use location
 
 "
 
+"ID : 1504319395
+from boo basic block 2"->
 
-->"ID : 1254761666
+" ID : 1101753118 stmt(call) :test22 (b_2(D))
+test.c:418:2: warning: use location
+
+"
+
+
+->"ID : 1649846785
 from test22 basic block 2"->
 
-
-" ID : 80222550 stmt(call) :free (k_2(D))
+" ID : 1420551033 stmt(call) :free (k_2(D))
 In function ‘test22’:
 
 "
 
-"ID : 1254761666
+"ID : 1649846785
 from test22 basic block 2"->
 
-
-" ID : 231201488 stmt(call) :free (k_2(D))
-test.c:432:2: warning: use location
-
-"
-
-"ID : 1254761666
-from test22 basic block 2"->
-
-
-" ID : 981235504 stmt(call) :free (k_2(D))
+" ID : 718037560 stmt(call) :free (k_2(D))
 test.c:433:2: warning: use location
 
 "
 
-"ID : 1254761666
+"ID : 1649846785
 from test22 basic block 2"->
 
-
-" ID : 996983700 stmt(call) :free (k_2(D))
+" ID : 191882599 stmt(call) :free (k_2(D))
 test.c:434:2: warning: use location
 
 "
 
-"ID : 1254761666
+"ID : 1649846785
 from test22 basic block 2"->
 
-
-" ID : 556519378 stmt(call) :free (k_2(D))
+" ID : 1585728193 stmt(call) :free (k_2(D))
 test.c:435:2: warning: use location
 
 "
 
-"ID : 1254761666
+"ID : 1649846785
 from test22 basic block 2"->
 
-
-" ID : 2136288535 stmt(call) :free (k_2(D))
+" ID : 2007660403 stmt(call) :free (k_2(D))
 test.c:436:2: warning: use location
 
 "
 
+"ID : 1649846785
+from test22 basic block 2"->
 
-->"ID : 1034964290
-from child4 basic block 3"->
-
-
-" ID : 2091769446 stmt(LHS) :_1 = data
-test.c:219:11: warning: use location
+" ID : 1083844000 stmt(call) :free (k_2(D))
+test.c:437:2: warning: use location
 
 "
 
 
-"ID : 1034964290
+->"ID : 1004265227
 from child4 basic block 3"->
 
 
-" ID : 540987135 stmt(LHS) :_3 = data
-test.c:219:3: warning: use location
+" ID : 674305370 stmt(LHS) :_1 = data
+test.c:220:11: warning: use location
 
 "
 
 
-->"ID : 1034964290
+"ID : 1004265227
+from child4 basic block 3"->
+
+
+" ID : 949767547 stmt(LHS) :_3 = data
+test.c:220:3: warning: use location
+
+"
+
+
+->"ID : 1004265227
 from child4 basic block 4"->
 
 
-" ID : 1857506394 stmt(LHS) :_5 = data
-test.c:222:3: warning: use location
+" ID : 273740501 stmt(LHS) :_5 = data
+test.c:223:3: warning: use location
 
 "
 
@@ -927,30 +909,30 @@ test.c:222:3: warning: use location
 "->
 
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "
 
-[label=" form basic block 11: _25 = q_65 != 0B
-test.c:512:9: warning: use location
+[label=" form basic block 11: _25 = q_68 != 0B
+test.c:513:9: warning: use location
 
 " ]
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "->
 
 " from main basic block 11"
 
 
-->" _25 = q_65 != 0B
-q_65 = malloc (10)
+->" _25 = q_68 != 0B
+q_68 = malloc (10)
 "
 
-->" _25 = q_65 != 0B
-test.c:512:9: warning: use location
+->" _25 = q_68 != 0B
+test.c:513:9: warning: use location
 
 "
 
@@ -958,18 +940,18 @@ test.c:512:9: warning: use location
 "->
 
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "
 
 [label=" form basic block 11: _27 = _25 & _26
-test.c:512:18: warning: use location
+test.c:513:18: warning: use location
 
 " ]
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "->
 
@@ -977,11 +959,11 @@ q_65 = malloc (10)
 
 
 ->" _27 = _25 & _26
-q_65 = malloc (10)
+q_68 = malloc (10)
 "
 
 ->" _27 = _25 & _26
-test.c:512:18: warning: use location
+test.c:513:18: warning: use location
 
 "
 
@@ -996,253 +978,241 @@ test.c:512:18: warning: use location
 "->
 
 
-" # .MEM_130 = VDEF <.MEM_129>
-q2_67 = malloc (20)
+" # .MEM_134 = VDEF <.MEM_133>
+q2_70 = malloc (20)
 
 "
 
-[label=" form basic block 14: child (q2_67)
-test.c:524:3: warning: use location
+[label=" form basic block 14: child (q2_70)
+test.c:525:3: warning: use location
 
 " ]
 
-" # .MEM_130 = VDEF <.MEM_129>
-q2_67 = malloc (20)
+" # .MEM_134 = VDEF <.MEM_133>
+q2_70 = malloc (20)
 
 "->
 
 " from main basic block 14"
 
 
-->" child (q2_67)
-q2_67 = malloc (20)
+->" child (q2_70)
+q2_70 = malloc (20)
 "
 
-->" child (q2_67)
-test.c:524:3: warning: use location
+->" child (q2_70)
+test.c:525:3: warning: use location
 
 "
 
 
-->"ID : 612543800
+->"ID : 1748297261
 from child basic block 2"->
 
 
-" ID : 1738732410 stmt(LHS) :_1 = data
-test.c:175:7: warning: use location
+" ID : 1209290559 stmt(LHS) :_1 = data
+test.c:176:7: warning: use location
 
 "
 
 
-"ID : 612543800
+"ID : 1748297261
 from child basic block 2"->
 
 
-" ID : 415294012 stmt(LHS) :_2 = pData
-test.c:177:9: warning: use location
+" ID : 582208646 stmt(LHS) :_2 = pData
+test.c:178:9: warning: use location
 
 "
 
 
-"ID : 612543800
+"ID : 1748297261
 from child basic block 2"->
 
 
-" ID : 720285883 stmt(LHS) :_4 = pData
-test.c:177:9: warning: use location
+" ID : 1575693818 stmt(LHS) :_4 = pData
+test.c:178:9: warning: use location
 
 "
 
 
-"ID : 612543800
+"ID : 1748297261
 from child basic block 2"->
 
 
-" ID : 1370031483 stmt(LHS) :_6 = pData
-test.c:184:9: warning: use location
+" ID : 1390512171 stmt(LHS) :_6 = pData
+test.c:185:9: warning: use location
 
 "
 
 
-"ID : 612543800
+"ID : 1748297261
 from child basic block 2"->
 
 
-" ID : 1771355307 stmt(LHS) :_7 = pData
-test.c:187:3: warning: use location
+" ID : 1012942015 stmt(LHS) :_7 = pData
+test.c:188:3: warning: use location
 
 "
 
 
-"ID : 612543800
+"ID : 1748297261
 from child basic block 2"->
 
 
-" ID : 861289881 stmt(LHS) :_9 = pData
-test.c:192:2: warning: use location
-
-"
-
-
-"ID : 612543800
-from child basic block 2"->
-
-
-" ID : 1913875794 stmt(call) :free (_9)
-test.c:192:2: warning: use location
-
-"
-
-
-"ID : 612543800
-from child basic block 2"->
-
-
-" ID : 2072763947 stmt(LHS) :_10 = data
+" ID : 1569589062 stmt(LHS) :_9 = pData
 test.c:193:2: warning: use location
 
 "
 
 
-"ID : 612543800
+"ID : 1748297261
 from child basic block 2"->
 
-
-" ID : 2065302992 stmt(call) :free (_10)
+" ID : 1439029207 stmt(call) :free (_9)
 test.c:193:2: warning: use location
 
 "
 
 
-"ID : 612543800
+"ID : 1748297261
 from child basic block 2"->
 
 
-" ID : 2067093659 stmt(LHS) :_11 = data
+" ID : 133686297 stmt(LHS) :_10 = data
 test.c:194:2: warning: use location
 
 "
 
 
-"ID : 612543800
+"ID : 1748297261
 from child basic block 2"->
 
-
-" ID : 850228392 stmt(call) :boo (_11)
+" ID : 1041790524 stmt(call) :free (_10)
 test.c:194:2: warning: use location
 
 "
 
 
-->"ID : 203448726
+"ID : 1748297261
+from child basic block 2"->
+
+
+" ID : 1911821450 stmt(LHS) :_11 = data
+test.c:195:2: warning: use location
+
+"
+
+
+"ID : 1748297261
+from child basic block 2"->
+
+" ID : 1638005692 stmt(call) :boo (_11)
+test.c:195:2: warning: use location
+
+"
+
+
+->"ID : 1051994146
 from boo basic block 2"->
 
-
-" ID : 588390040 stmt(call) :free (b_2(D))
+" ID : 1158371818 stmt(call) :free (b_2(D))
 In function ‘boo’:
 
 "
 
-"ID : 203448726
+"ID : 1051994146
 from boo basic block 2"->
 
-
-" ID : 1007151012 stmt(call) :free (b_2(D))
-test.c:416:2: warning: use location
-
-"
-
-"ID : 203448726
-from boo basic block 2"->
-
-
-" ID : 1458210392 stmt(call) :test22 (b_2(D))
+" ID : 592275162 stmt(call) :free (b_2(D))
 test.c:417:2: warning: use location
 
 "
 
+"ID : 1051994146
+from boo basic block 2"->
 
-->"ID : 668612590
+" ID : 554357284 stmt(call) :test22 (b_2(D))
+test.c:418:2: warning: use location
+
+"
+
+
+->"ID : 431439203
 from test22 basic block 2"->
 
-
-" ID : 1238352500 stmt(call) :free (k_2(D))
+" ID : 1310312722 stmt(call) :free (k_2(D))
 In function ‘test22’:
 
 "
 
-"ID : 668612590
+"ID : 431439203
 from test22 basic block 2"->
 
-
-" ID : 291962248 stmt(call) :free (k_2(D))
-test.c:432:2: warning: use location
-
-"
-
-"ID : 668612590
-from test22 basic block 2"->
-
-
-" ID : 1665596290 stmt(call) :free (k_2(D))
+" ID : 746239883 stmt(call) :free (k_2(D))
 test.c:433:2: warning: use location
 
 "
 
-"ID : 668612590
+"ID : 431439203
 from test22 basic block 2"->
 
-
-" ID : 1794871878 stmt(call) :free (k_2(D))
+" ID : 2017167397 stmt(call) :free (k_2(D))
 test.c:434:2: warning: use location
 
 "
 
-"ID : 668612590
+"ID : 431439203
 from test22 basic block 2"->
 
-
-" ID : 280767135 stmt(call) :free (k_2(D))
+" ID : 1170489477 stmt(call) :free (k_2(D))
 test.c:435:2: warning: use location
 
 "
 
-"ID : 668612590
+"ID : 431439203
 from test22 basic block 2"->
 
-
-" ID : 1373213987 stmt(call) :free (k_2(D))
+" ID : 1830083884 stmt(call) :free (k_2(D))
 test.c:436:2: warning: use location
 
 "
 
+"ID : 431439203
+from test22 basic block 2"->
 
-->"ID : 1317499786
-from child4 basic block 3"->
-
-
-" ID : 1457203857 stmt(LHS) :_1 = data
-test.c:219:11: warning: use location
+" ID : 1188151227 stmt(call) :free (k_2(D))
+test.c:437:2: warning: use location
 
 "
 
 
-"ID : 1317499786
+->"ID : 1862456598
 from child4 basic block 3"->
 
 
-" ID : 1025754171 stmt(LHS) :_3 = data
-test.c:219:3: warning: use location
+" ID : 1746586823 stmt(LHS) :_1 = data
+test.c:220:11: warning: use location
 
 "
 
 
-->"ID : 1317499786
+"ID : 1862456598
+from child4 basic block 3"->
+
+
+" ID : 960605964 stmt(LHS) :_3 = data
+test.c:220:3: warning: use location
+
+"
+
+
+->"ID : 1862456598
 from child4 basic block 4"->
 
 
-" ID : 996266800 stmt(LHS) :_5 = data
-test.c:222:3: warning: use location
+" ID : 1339998418 stmt(LHS) :_5 = data
+test.c:223:3: warning: use location
 
 "
 
@@ -1257,28 +1227,28 @@ test.c:222:3: warning: use location
 "->
 
 
-" # .MEM_137 = VDEF <.MEM_117>
-data_76 = malloc (400)
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
 
 "
 
-[label=" form basic block 21: data_43 = PHI <0B(17), data_76(20)>
+[label=" form basic block 21: data_46 = PHI <0B(17), data_79(20)>
 lto1: warning: use location
 " ]
 
-" # .MEM_137 = VDEF <.MEM_117>
-data_76 = malloc (400)
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
 
 "->
 
 " from main basic block 21"
 
 
-->" data_43 = PHI <0B(17), data_76(20)>
-data_76 = malloc (400)
+->" data_46 = PHI <0B(17), data_79(20)>
+data_79 = malloc (400)
 "
 
-->" data_43 = PHI <0B(17), data_76(20)>
+->" data_46 = PHI <0B(17), data_79(20)>
 lto1: warning: use location
 "
 
@@ -1287,30 +1257,30 @@ lto1: warning: use location
 "->
 
 
-" # .MEM_137 = VDEF <.MEM_117>
-data_76 = malloc (400)
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
 
 "
 
-[label=" form basic block 22: free (data_43)
-test.c:549:3: warning: use location
+[label=" form basic block 22: free (data_46)
+test.c:550:3: warning: use location
 
 " ]
 
-" # .MEM_137 = VDEF <.MEM_117>
-data_76 = malloc (400)
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
 
 "->
 
 " from main basic block 22"
 
 
-->" free (data_43)
-data_76 = malloc (400)
+->" free (data_46)
+data_79 = malloc (400)
 "
 
-->" free (data_43)
-test.c:549:3: warning: use location
+->" free (data_46)
+test.c:550:3: warning: use location
 
 "
 
@@ -1319,30 +1289,30 @@ test.c:549:3: warning: use location
 "->
 
 
-" # .MEM_137 = VDEF <.MEM_117>
-data_76 = malloc (400)
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
 
 "
 
-[label=" form basic block 20: free (data_76)
-test.c:544:3: warning: use location
+[label=" form basic block 20: free (data_79)
+test.c:545:3: warning: use location
 
 " ]
 
-" # .MEM_137 = VDEF <.MEM_117>
-data_76 = malloc (400)
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
 
 "->
 
 " from main basic block 20"
 
 
-->" free (data_76)
-data_76 = malloc (400)
+->" free (data_79)
+data_79 = malloc (400)
 "
 
-->" free (data_76)
-test.c:544:3: warning: use location
+->" free (data_79)
+test.c:545:3: warning: use location
 
 "
 
@@ -1360,17 +1330,17 @@ test.c:544:3: warning: use location
 "->
 
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "
 
 [label=" form basic block 23: p98 = _36
-test.c:560:6: warning: use location
+test.c:561:6: warning: use location
 
 " ]
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "->
@@ -1383,7 +1353,7 @@ _36 = malloc (201)
 "
 
 ->" p98 = _36
-test.c:560:6: warning: use location
+test.c:561:6: warning: use location
 
 "
 
@@ -1391,17 +1361,50 @@ test.c:560:6: warning: use location
 "->
 
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "
 
-[label=" form basic block 4: MEM[(int *)_2 + 8B] = 300
-test.c:367:10: warning: use location
+[label=" form basic block 3: MEM[(int *)_2 + 12B] = 300
+test.c:362:9: warning: use location
 
 " ]
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"->
+
+" from main basic block 3"
+
+
+->" from child7 basic block 3"
+
+->" MEM[(int *)_2 + 12B] = 300
+_36 = malloc (201)
+"
+
+->" MEM[(int *)_2 + 12B] = 300
+test.c:362:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"
+
+[label=" form basic block 4: MEM[(int *)_3 + 8B] = 300
+test.c:368:10: warning: use location
+
+" ]
+
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "->
@@ -1411,13 +1414,12 @@ _36 = malloc (201)
 
 ->" from child7 basic block 4"
 
-
-->" MEM[(int *)_2 + 8B] = 300
+->" MEM[(int *)_3 + 8B] = 300
 _36 = malloc (201)
 "
 
-->" MEM[(int *)_2 + 8B] = 300
-test.c:367:10: warning: use location
+->" MEM[(int *)_3 + 8B] = 300
+test.c:368:10: warning: use location
 
 "
 
@@ -1425,17 +1427,17 @@ test.c:367:10: warning: use location
 "->
 
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "
 
 [label=" form basic block 2: *_8 = 98
-test.c:191:9: warning: use location
+test.c:192:9: warning: use location
 
 " ]
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "->
@@ -1445,13 +1447,12 @@ _36 = malloc (201)
 
 ->" from child basic block 2"
 
-
 ->" *_8 = 98
 _36 = malloc (201)
 "
 
 ->" *_8 = 98
-test.c:191:9: warning: use location
+test.c:192:9: warning: use location
 
 "
 
@@ -1459,17 +1460,17 @@ test.c:191:9: warning: use location
 "->
 
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "
 
 [label=" form basic block 2: MEM[(int *)_1 + 4B] = 99
-test.c:387:8: warning: use location
+test.c:388:8: warning: use location
 
 " ]
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "->
@@ -1479,13 +1480,12 @@ _36 = malloc (201)
 
 ->" from child2 basic block 2"
 
-
 ->" MEM[(int *)_1 + 4B] = 99
 _36 = malloc (201)
 "
 
 ->" MEM[(int *)_1 + 4B] = 99
-test.c:387:8: warning: use location
+test.c:388:8: warning: use location
 
 "
 
@@ -1493,17 +1493,17 @@ test.c:387:8: warning: use location
 "->
 
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "
 
-[label=" form basic block 23: *_37 = 97
-test.c:561:9: warning: use location
+[label=" form basic block 23: free (_41)
+test.c:563:2: warning: use location
 
 " ]
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "->
@@ -1511,43 +1511,120 @@ _36 = malloc (201)
 " from main basic block 23"
 
 
-->" *_37 = 97
+->" free (_41)
 _36 = malloc (201)
 "
 
-->" *_37 = 97
-test.c:561:9: warning: use location
+->" free (_41)
+test.c:563:2: warning: use location
 
 "
+
+
+
+
+
+
+
 
 " main
 "->
 
 
-" # .MEM_147 = VDEF <.MEM_146>
-_36 = malloc (201)
+" # .MEM_139 = VDEF <.MEM_138>
+child6 (_29, q_68)
 
 "
 
-[label=" form basic block 23: free (_38)
-test.c:562:2: warning: use location
-
+[label=" form basic block 12: child6 (_29, q_68)
+test.c:517:3: warning: use location
 " ]
 
-" # .MEM_147 = VDEF <.MEM_146>
-_36 = malloc (201)
+" # .MEM_139 = VDEF <.MEM_138>
+child6 (_29, q_68)
+
+"->
+
+" from main basic block 12"
+
+->" child6 (_29, q_68)
+test.c:517:3: warning: use location
+"
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_145 = VDEF <.MEM_120>
+_33 = foo5 (q_68, q_68)
+
+"
+
+[label=" form basic block 23: _114 = __printf_chk (1, 123d\n, _33)
+" ]
+
+" # .MEM_145 = VDEF <.MEM_120>
+_33 = foo5 (q_68, q_68)
 
 "->
 
 " from main basic block 23"
 
 
-->" free (_38)
-_36 = malloc (201)
+->" _114 = __printf_chk (1, 123d\n, _33)
+_33 = foo5 (q_68, q_68)
 "
 
-->" free (_38)
-test.c:562:2: warning: use location
+
+->" _114 = __printf_chk (1, 123d\n, _33)
+"
+
+
+
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_149 = VDEF <.MEM_148>
+p4_89 = child7 (_35, 1B)
+
+"
+
+[label=" form basic block 23: free (p4_89)
+test.c:560:2: warning: use location
+
+" ]
+
+" # .MEM_149 = VDEF <.MEM_148>
+p4_89 = child7 (_35, 1B)
+
+"->
+
+" from main basic block 23"
+
+
+->" free (p4_89)
+p4_89 = child7 (_35, 1B)
+"
+
+
+->" free (p4_89)
+test.c:560:2: warning: use location
 
 "
 
@@ -1562,25 +1639,1271 @@ test.c:562:2: warning: use location
 "->
 
 
-" # .MEM_135 = VDEF <.MEM_134>
-child6 (_29, q_65)
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
 
 "
 
-[label=" form basic block 12: child6 (_29, q_65)
-test.c:516:3: warning: use location
+[label=" form basic block 23: p98 = _40
+test.c:562:6: warning: use location
+
 " ]
 
-" # .MEM_135 = VDEF <.MEM_134>
-child6 (_29, q_65)
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 23"
+
+
+->" p98 = _40
+_40 = child7 (_39, _37)
+"
+
+
+->" p98 = _40
+test.c:562:6: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 3: MEM[(int *)_2 + 12B] = 300
+test.c:362:9: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 3"
+
+
+->" from child7 basic block 3"
+
+->" MEM[(int *)_2 + 12B] = 300
+_40 = child7 (_39, _37)
+"
+
+
+->" MEM[(int *)_2 + 12B] = 300
+test.c:362:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 4: MEM[(int *)_3 + 8B] = 300
+test.c:368:10: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 4"
+
+
+->" from child7 basic block 4"
+
+->" MEM[(int *)_3 + 8B] = 300
+_40 = child7 (_39, _37)
+"
+
+
+->" MEM[(int *)_3 + 8B] = 300
+test.c:368:10: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 2: *_8 = 98
+test.c:192:9: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 2"
+
+
+->" from child basic block 2"
+
+->" *_8 = 98
+_40 = child7 (_39, _37)
+"
+
+
+->" *_8 = 98
+test.c:192:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 2: MEM[(int *)_1 + 4B] = 99
+test.c:388:8: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 2"
+
+
+->" from child2 basic block 2"
+
+->" MEM[(int *)_1 + 4B] = 99
+_40 = child7 (_39, _37)
+"
+
+
+->" MEM[(int *)_1 + 4B] = 99
+test.c:388:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 23: free (_41)
+test.c:563:2: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 23"
+
+
+->" free (_41)
+_40 = child7 (_39, _37)
+"
+
+
+->" free (_41)
+test.c:563:2: warning: use location
+
+"
+
+
+
+
+
+
+
+
+" child7
+"->
+
+
+" # .MEM_24 = VDEF <.MEM_23>
+_15 = malloc (10)
+
+"
+
+[label=" form basic block 5: _4 = PHI <_15(3), _12(4)>
+lto1: warning: use location
+" ]
+
+" # .MEM_24 = VDEF <.MEM_23>
+_15 = malloc (10)
+
+"->
+
+" from child7 basic block 5"
+
+
+->" _4 = PHI <_15(3), _12(4)>
+_15 = malloc (10)
+"
+
+->" _4 = PHI <_15(3), _12(4)>
+lto1: warning: use location
+"
+
+
+" child7
+"->
+
+
+" # VUSE <.MEM_17>
+return _4
+
+"
+
+[label=" form basic block 5: # VUSE <.MEM_17>
+return _4
+
+" ]
+
+" # VUSE <.MEM_17>
+return _4
+
+"->
+
+" from child7 basic block 5"
+
+->" return _4
+lto1: warning: use location
+"
+
+
+
+
+
+
+
+
+" child7
+"->
+
+
+" # .MEM_22 = VDEF <.MEM_21>
+_12 = malloc (30)
+
+"
+
+[label=" form basic block 5: _4 = PHI <_15(3), _12(4)>
+lto1: warning: use location
+" ]
+
+" # .MEM_22 = VDEF <.MEM_21>
+_12 = malloc (30)
+
+"->
+
+" from child7 basic block 5"
+
+
+->" _4 = PHI <_15(3), _12(4)>
+_12 = malloc (30)
+"
+
+->" _4 = PHI <_15(3), _12(4)>
+lto1: warning: use location
+"
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"
+
+[label=" form basic block 6: _17 = a_56 + _16
+test.c:466:23: warning: use location
+
+" ]
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"->
+
+" from main basic block 6"
+
+
+->" _17 = a_56 + _16
+a_56 = malloc (32)
+"
+
+->" _17 = a_56 + _16
+test.c:466:23: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"
+
+[label=" form basic block 6: _18 = _17->name
+test.c:466:3: warning: use location
+
+" ]
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"->
+
+" from main basic block 6"
+
+
+->" _18 = _17->name
+a_56 = malloc (32)
+"
+
+->" _18 = _17->name
+test.c:466:3: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"
+
+[label=" form basic block 6: _98 = __printf_chk (1, s, d\n, _18, _14)
+" ]
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"->
+
+" from main basic block 6"
+
+
+->" _98 = __printf_chk (1, s, d\n, _18, _14)
+a_56 = malloc (32)
+"
+
+->" _98 = __printf_chk (1, s, d\n, _18, _14)
+"
+
+
+" main
+"->
+
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"
+
+[label=" form basic block 6: _13 = a_56 + _12
+test.c:466:34: warning: use location
+
+" ]
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"->
+
+" from main basic block 6"
+
+
+->" _13 = a_56 + _12
+a_56 = malloc (32)
+"
+
+->" _13 = a_56 + _12
+test.c:466:34: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"
+
+[label=" form basic block 6: _14 = _13->nummer
+test.c:466:3: warning: use location
+
+" ]
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"->
+
+" from main basic block 6"
+
+
+->" _14 = _13->nummer
+a_56 = malloc (32)
+"
+
+->" _14 = _13->nummer
+test.c:466:3: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"
+
+[label=" form basic block 5: free (a_56)
+test.c:463:2: warning: use location
+
+" ]
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"->
+
+" from main basic block 5"
+
+
+->" free (a_56)
+a_56 = malloc (32)
+"
+
+->" free (a_56)
+test.c:463:2: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"
+
+[label=" form basic block 3: _9 = a_56 + _8
+test.c:461:4: warning: use location
+
+" ]
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"->
+
+" from main basic block 3"
+
+
+->" _9 = a_56 + _8
+a_56 = malloc (32)
+"
+
+->" _9 = a_56 + _8
+test.c:461:4: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"
+
+[label=" form basic block 3: _9->nummer = 123
+test.c:461:15: warning: use location
+
+" ]
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"->
+
+" from main basic block 3"
+
+
+->" _9->nummer = 123
+a_56 = malloc (32)
+"
+
+->" _9->nummer = 123
+test.c:461:15: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"
+
+[label=" form basic block 3: _6 = a_56 + _5
+test.c:460:4: warning: use location
+
+" ]
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"->
+
+" from main basic block 3"
+
+
+->" _6 = a_56 + _5
+a_56 = malloc (32)
+"
+
+->" _6 = a_56 + _5
+test.c:460:4: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"
+
+[label=" form basic block 3: _6->name = Testname
+test.c:460:13: warning: use location
+
+" ]
+
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
+
+"->
+
+" from main basic block 3"
+
+
+->" _6->name = Testname
+a_56 = malloc (32)
+"
+
+->" _6->name = Testname
+test.c:460:13: warning: use location
+
+"
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # VUSE <.MEM_131>
+_22 = t
+
+"
+
+[label=" form basic block 8: pthread_create (&t, &attr2, child2, _21)
+test.c:498:2: warning: use location
+
+" ]
+
+" # VUSE <.MEM_131>
+_22 = t
+
+"->
+
+" from main basic block 8"
+
+->" pthread_create (&t, &attr2, child2, _21)
+test.c:498:2: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # VUSE <.MEM_131>
+_22 = t
+
+"
+
+[label=" form basic block 8: pthread_join (_22, 0B)
+test.c:500:2: warning: use location
+" ]
+
+" # VUSE <.MEM_131>
+_22 = t
+
+"->
+
+" from main basic block 8"
+
+->" pthread_join (_22, 0B)
+test.c:500:2: warning: use location
+"
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
+
+"
+
+[label=" form basic block 9: _24 = t2[i_44]
+test.c:507:3: warning: use location
+
+" ]
+
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
+
+"->
+
+" from main basic block 9"
+
+->" _24 = t2[i_44]
+test.c:507:3: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
+
+"
+
+[label=" form basic block 9: _112 = __printf_chk (1, ld\n, _24)
+" ]
+
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
+
+"->
+
+" from main basic block 9"
+
+->" _112 = __printf_chk (1, ld\n, _24)
+"
+
+
+" main
+"->
+
+
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
+
+"
+
+[label=" form basic block 15: _30 = t2[i_45]
+test.c:532:3: warning: use location
+
+" ]
+
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
+
+"->
+
+" from main basic block 15"
+
+->" _30 = t2[i_45]
+test.c:532:3: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
+
+"
+
+[label=" form basic block 15: pthread_join (_30, 0B)
+test.c:532:3: warning: use location
+
+" ]
+
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
+
+"->
+
+" from main basic block 15"
+
+->" pthread_join (_30, 0B)
+test.c:532:3: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
+
+"
+
+[label=" form basic block 9: err_106 = pthread_create (_23, &attr2, child, 0B)
+test.c:505:7: warning: use location
+" ]
+
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
+
+"->
+
+" from main basic block 9"
+
+->" err_106 = pthread_create (_23, &attr2, child, 0B)
+test.c:505:7: warning: use location
+"
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"
+
+[label=" form basic block 23: _33 = foo5 (q_68, q_68)
+test.c:552:2: warning: use location
+
+" ]
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"->
+
+" from main basic block 23"
+
+
+->" _33 = foo5 (q_68, q_68)
+q_68 = malloc (10)
+"
+
+->" _33 = foo5 (q_68, q_68)
+test.c:552:2: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"
+
+[label=" form basic block 14: *q_68 = 20
+test.c:524:8: warning: use location
+
+" ]
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"->
+
+" from main basic block 14"
+
+
+->" *q_68 = 20
+q_68 = malloc (10)
+"
+
+->" *q_68 = 20
+test.c:524:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"
+
+[label=" form basic block 12: *q_68 = 10
+test.c:520:8: warning: use location
+
+" ]
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "->
 
 " from main basic block 12"
 
 
-->" child6 (_29, q_65)
+->" *q_68 = 10
+q_68 = malloc (10)
+"
+
+->" *q_68 = 10
+test.c:520:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"
+
+[label=" form basic block 12: child6 (_29, q_68)
+test.c:517:3: warning: use location
+
+" ]
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"->
+
+" from main basic block 12"
+
+
+->" child6 (_29, q_68)
+q_68 = malloc (10)
+"
+
+->" child6 (_29, q_68)
+test.c:517:3: warning: use location
+
+"
+
+
+->"ID : 2018092285
+from child6 basic block 3"->
+
+
+" ID : 1884912287 stmt(LHS) :pData_9 = &MEM[(void *)test_5(D) + 84B]
+test.c:326:9: warning: use location
+
+"
+
+
+->"ID : 2018092285
+from child6 basic block 4"->
+
+
+" ID : 1393255513 stmt(LHS) :pData_7 = &MEM[(void *)test_5(D) + 84B]
+test.c:331:9: warning: use location
+
+"
+
+
+"ID : 2018092285
+from child6 basic block 4"->
+
+" ID : 462883799 stmt(call) :free (pData_7)
+test.c:333:3: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"
+
+[label=" form basic block 12: child (q_68)
 test.c:516:3: warning: use location
+
+" ]
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"->
+
+" from main basic block 12"
+
+
+->" child (q_68)
+q_68 = malloc (10)
+"
+
+->" child (q_68)
+test.c:516:3: warning: use location
+
+"
+
+
+->"ID : 291785923
+from child basic block 2"->
+
+
+" ID : 1824694716 stmt(LHS) :_1 = data
+test.c:176:7: warning: use location
+
+"
+
+
+"ID : 291785923
+from child basic block 2"->
+
+
+" ID : 1773196522 stmt(LHS) :_2 = pData
+test.c:178:9: warning: use location
+
+"
+
+
+"ID : 291785923
+from child basic block 2"->
+
+
+" ID : 1038025806 stmt(LHS) :_4 = pData
+test.c:178:9: warning: use location
+
+"
+
+
+"ID : 291785923
+from child basic block 2"->
+
+
+" ID : 1694378465 stmt(LHS) :_6 = pData
+test.c:185:9: warning: use location
+
+"
+
+
+"ID : 291785923
+from child basic block 2"->
+
+
+" ID : 796202351 stmt(LHS) :_7 = pData
+test.c:188:3: warning: use location
+
+"
+
+
+"ID : 291785923
+from child basic block 2"->
+
+
+" ID : 720626042 stmt(LHS) :_9 = pData
+test.c:193:2: warning: use location
+
+"
+
+
+"ID : 291785923
+from child basic block 2"->
+
+" ID : 735046045 stmt(call) :free (_9)
+test.c:193:2: warning: use location
+
+"
+
+
+"ID : 291785923
+from child basic block 2"->
+
+
+" ID : 1593021627 stmt(LHS) :_10 = data
+test.c:194:2: warning: use location
+
+"
+
+
+"ID : 291785923
+from child basic block 2"->
+
+" ID : 1407491506 stmt(call) :free (_10)
+test.c:194:2: warning: use location
+
+"
+
+
+"ID : 291785923
+from child basic block 2"->
+
+
+" ID : 450018995 stmt(LHS) :_11 = data
+test.c:195:2: warning: use location
+
+"
+
+
+"ID : 291785923
+from child basic block 2"->
+
+" ID : 1192124802 stmt(call) :boo (_11)
+test.c:195:2: warning: use location
+
+"
+
+
+->"ID : 220613822
+from boo basic block 2"->
+
+" ID : 1790017413 stmt(call) :free (b_2(D))
+In function ‘boo’:
+
+"
+
+"ID : 220613822
+from boo basic block 2"->
+
+" ID : 1918806053 stmt(call) :free (b_2(D))
+test.c:417:2: warning: use location
+
+"
+
+"ID : 220613822
+from boo basic block 2"->
+
+" ID : 1019347105 stmt(call) :test22 (b_2(D))
+test.c:418:2: warning: use location
+
+"
+
+
+->"ID : 583345797
+from test22 basic block 2"->
+
+" ID : 1707294215 stmt(call) :free (k_2(D))
+In function ‘test22’:
+
+"
+
+"ID : 583345797
+from test22 basic block 2"->
+
+" ID : 252805386 stmt(call) :free (k_2(D))
+test.c:433:2: warning: use location
+
+"
+
+"ID : 583345797
+from test22 basic block 2"->
+
+" ID : 952368000 stmt(call) :free (k_2(D))
+test.c:434:2: warning: use location
+
+"
+
+"ID : 583345797
+from test22 basic block 2"->
+
+" ID : 738810900 stmt(call) :free (k_2(D))
+test.c:435:2: warning: use location
+
+"
+
+"ID : 583345797
+from test22 basic block 2"->
+
+" ID : 499205682 stmt(call) :free (k_2(D))
+test.c:436:2: warning: use location
+
+"
+
+"ID : 583345797
+from test22 basic block 2"->
+
+" ID : 743495616 stmt(call) :free (k_2(D))
+test.c:437:2: warning: use location
+
+"
+
+
+->"ID : 1576413757
+from child4 basic block 3"->
+
+
+" ID : 1444240487 stmt(LHS) :_1 = data
+test.c:220:11: warning: use location
+
+"
+
+
+"ID : 1576413757
+from child4 basic block 3"->
+
+
+" ID : 749900912 stmt(LHS) :_3 = data
+test.c:220:3: warning: use location
+
+"
+
+
+->"ID : 1576413757
+from child4 basic block 4"->
+
+
+" ID : 1313842396 stmt(LHS) :_5 = data
+test.c:223:3: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"
+
+[label=" form basic block 11: _25 = q_68 != 0B
+test.c:513:9: warning: use location
+
+" ]
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"->
+
+" from main basic block 11"
+
+
+->" _25 = q_68 != 0B
+q_68 = malloc (10)
+"
+
+->" _25 = q_68 != 0B
+test.c:513:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"
+
+[label=" form basic block 11: _27 = _25 & _26
+test.c:513:18: warning: use location
+
+" ]
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"->
+
+" from main basic block 11"
+
+
+->" _27 = _25 & _26
+q_68 = malloc (10)
+"
+
+->" _27 = _25 & _26
+test.c:513:18: warning: use location
+
 "
 
 
@@ -1594,28 +2917,342 @@ test.c:516:3: warning: use location
 "->
 
 
-" # .MEM_141 = VDEF <.MEM_116>
-_33 = foo5 (q_65, q_65)
+" # .MEM_134 = VDEF <.MEM_133>
+q2_70 = malloc (20)
 
 "
 
-[label=" form basic block 23: _110 = __printf_chk (1, 123d\n, _33)
+[label=" form basic block 14: child (q2_70)
+test.c:525:3: warning: use location
+
 " ]
 
-" # .MEM_141 = VDEF <.MEM_116>
-_33 = foo5 (q_65, q_65)
+" # .MEM_134 = VDEF <.MEM_133>
+q2_70 = malloc (20)
 
 "->
 
-" from main basic block 23"
+" from main basic block 14"
 
 
-->" _110 = __printf_chk (1, 123d\n, _33)
-_33 = foo5 (q_65, q_65)
+->" child (q2_70)
+q2_70 = malloc (20)
+"
+
+->" child (q2_70)
+test.c:525:3: warning: use location
+
 "
 
 
-->" _110 = __printf_chk (1, 123d\n, _33)
+->"ID : 367223420
+from child basic block 2"->
+
+
+" ID : 838497585 stmt(LHS) :_1 = data
+test.c:176:7: warning: use location
+
+"
+
+
+"ID : 367223420
+from child basic block 2"->
+
+
+" ID : 496170477 stmt(LHS) :_2 = pData
+test.c:178:9: warning: use location
+
+"
+
+
+"ID : 367223420
+from child basic block 2"->
+
+
+" ID : 2061601886 stmt(LHS) :_4 = pData
+test.c:178:9: warning: use location
+
+"
+
+
+"ID : 367223420
+from child basic block 2"->
+
+
+" ID : 1634699937 stmt(LHS) :_6 = pData
+test.c:185:9: warning: use location
+
+"
+
+
+"ID : 367223420
+from child basic block 2"->
+
+
+" ID : 1216796520 stmt(LHS) :_7 = pData
+test.c:188:3: warning: use location
+
+"
+
+
+"ID : 367223420
+from child basic block 2"->
+
+
+" ID : 649164283 stmt(LHS) :_9 = pData
+test.c:193:2: warning: use location
+
+"
+
+
+"ID : 367223420
+from child basic block 2"->
+
+" ID : 1080237916 stmt(call) :free (_9)
+test.c:193:2: warning: use location
+
+"
+
+
+"ID : 367223420
+from child basic block 2"->
+
+
+" ID : 476804378 stmt(LHS) :_10 = data
+test.c:194:2: warning: use location
+
+"
+
+
+"ID : 367223420
+from child basic block 2"->
+
+" ID : 1099183278 stmt(call) :free (_10)
+test.c:194:2: warning: use location
+
+"
+
+
+"ID : 367223420
+from child basic block 2"->
+
+
+" ID : 124879071 stmt(LHS) :_11 = data
+test.c:195:2: warning: use location
+
+"
+
+
+"ID : 367223420
+from child basic block 2"->
+
+" ID : 697418200 stmt(call) :boo (_11)
+test.c:195:2: warning: use location
+
+"
+
+
+->"ID : 741717043
+from boo basic block 2"->
+
+" ID : 2043685124 stmt(call) :free (b_2(D))
+In function ‘boo’:
+
+"
+
+"ID : 741717043
+from boo basic block 2"->
+
+" ID : 1716765305 stmt(call) :free (b_2(D))
+test.c:417:2: warning: use location
+
+"
+
+"ID : 741717043
+from boo basic block 2"->
+
+" ID : 1325062841 stmt(call) :test22 (b_2(D))
+test.c:418:2: warning: use location
+
+"
+
+
+->"ID : 1603495692
+from test22 basic block 2"->
+
+" ID : 1969570691 stmt(call) :free (k_2(D))
+In function ‘test22’:
+
+"
+
+"ID : 1603495692
+from test22 basic block 2"->
+
+" ID : 129947193 stmt(call) :free (k_2(D))
+test.c:433:2: warning: use location
+
+"
+
+"ID : 1603495692
+from test22 basic block 2"->
+
+" ID : 194822944 stmt(call) :free (k_2(D))
+test.c:434:2: warning: use location
+
+"
+
+"ID : 1603495692
+from test22 basic block 2"->
+
+" ID : 321292725 stmt(call) :free (k_2(D))
+test.c:435:2: warning: use location
+
+"
+
+"ID : 1603495692
+from test22 basic block 2"->
+
+" ID : 873442809 stmt(call) :free (k_2(D))
+test.c:436:2: warning: use location
+
+"
+
+"ID : 1603495692
+from test22 basic block 2"->
+
+" ID : 1404179737 stmt(call) :free (k_2(D))
+test.c:437:2: warning: use location
+
+"
+
+
+->"ID : 700936576
+from child4 basic block 3"->
+
+
+" ID : 1950485912 stmt(LHS) :_1 = data
+test.c:220:11: warning: use location
+
+"
+
+
+"ID : 700936576
+from child4 basic block 3"->
+
+
+" ID : 1616215314 stmt(LHS) :_3 = data
+test.c:220:3: warning: use location
+
+"
+
+
+->"ID : 700936576
+from child4 basic block 4"->
+
+
+" ID : 1390948928 stmt(LHS) :_5 = data
+test.c:223:3: warning: use location
+
+"
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
+
+"
+
+[label=" form basic block 21: data_46 = PHI <0B(17), data_79(20)>
+lto1: warning: use location
+" ]
+
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
+
+"->
+
+" from main basic block 21"
+
+
+->" data_46 = PHI <0B(17), data_79(20)>
+data_79 = malloc (400)
+"
+
+->" data_46 = PHI <0B(17), data_79(20)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
+
+"
+
+[label=" form basic block 22: free (data_46)
+test.c:550:3: warning: use location
+
+" ]
+
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
+
+"->
+
+" from main basic block 22"
+
+
+->" free (data_46)
+data_79 = malloc (400)
+"
+
+->" free (data_46)
+test.c:550:3: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
+
+"
+
+[label=" form basic block 20: free (data_79)
+test.c:545:3: warning: use location
+
+" ]
+
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
+
+"->
+
+" from main basic block 20"
+
+
+->" free (data_79)
+data_79 = malloc (400)
+"
+
+->" free (data_79)
+test.c:545:3: warning: use location
+
 "
 
 
@@ -1632,31 +3269,508 @@ _33 = foo5 (q_65, q_65)
 "->
 
 
-" # .MEM_145 = VDEF <.MEM_144>
-p4_86 = child7 (_35, 1B)
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
 
 "
 
-[label=" form basic block 23: free (p4_86)
-test.c:559:2: warning: use location
+[label=" form basic block 23: p98 = _36
+test.c:561:6: warning: use location
 
 " ]
 
-" # .MEM_145 = VDEF <.MEM_144>
-p4_86 = child7 (_35, 1B)
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
 
 "->
 
 " from main basic block 23"
 
 
-->" free (p4_86)
-p4_86 = child7 (_35, 1B)
+->" p98 = _36
+_36 = malloc (201)
+"
+
+->" p98 = _36
+test.c:561:6: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"
+
+[label=" form basic block 3: MEM[(int *)_2 + 12B] = 300
+test.c:362:9: warning: use location
+
+" ]
+
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"->
+
+" from main basic block 3"
+
+
+->" from child7 basic block 3"
+
+->" MEM[(int *)_2 + 12B] = 300
+_36 = malloc (201)
+"
+
+->" MEM[(int *)_2 + 12B] = 300
+test.c:362:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"
+
+[label=" form basic block 4: MEM[(int *)_3 + 8B] = 300
+test.c:368:10: warning: use location
+
+" ]
+
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"->
+
+" from main basic block 4"
+
+
+->" from child7 basic block 4"
+
+->" MEM[(int *)_3 + 8B] = 300
+_36 = malloc (201)
+"
+
+->" MEM[(int *)_3 + 8B] = 300
+test.c:368:10: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"
+
+[label=" form basic block 2: *_8 = 98
+test.c:192:9: warning: use location
+
+" ]
+
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"->
+
+" from main basic block 2"
+
+
+->" from child basic block 2"
+
+->" *_8 = 98
+_36 = malloc (201)
+"
+
+->" *_8 = 98
+test.c:192:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"
+
+[label=" form basic block 2: MEM[(int *)_1 + 4B] = 99
+test.c:388:8: warning: use location
+
+" ]
+
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"->
+
+" from main basic block 2"
+
+
+->" from child2 basic block 2"
+
+->" MEM[(int *)_1 + 4B] = 99
+_36 = malloc (201)
+"
+
+->" MEM[(int *)_1 + 4B] = 99
+test.c:388:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"
+
+[label=" form basic block 23: free (_41)
+test.c:563:2: warning: use location
+
+" ]
+
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"->
+
+" from main basic block 23"
+
+
+->" free (_41)
+_36 = malloc (201)
+"
+
+->" free (_41)
+test.c:563:2: warning: use location
+
 "
 
 
-->" free (p4_86)
-test.c:559:2: warning: use location
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_139 = VDEF <.MEM_138>
+child6 (_29, q_68)
+
+"
+
+[label=" form basic block 12: child6 (_29, q_68)
+test.c:517:3: warning: use location
+" ]
+
+" # .MEM_139 = VDEF <.MEM_138>
+child6 (_29, q_68)
+
+"->
+
+" from main basic block 12"
+
+->" child6 (_29, q_68)
+test.c:517:3: warning: use location
+"
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_145 = VDEF <.MEM_120>
+_33 = foo5 (q_68, q_68)
+
+"
+
+[label=" form basic block 23: _114 = __printf_chk (1, 123d\n, _33)
+" ]
+
+" # .MEM_145 = VDEF <.MEM_120>
+_33 = foo5 (q_68, q_68)
+
+"->
+
+" from main basic block 23"
+
+
+->" _114 = __printf_chk (1, 123d\n, _33)
+_33 = foo5 (q_68, q_68)
+"
+
+
+->" _114 = __printf_chk (1, 123d\n, _33)
+"
+
+
+
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_149 = VDEF <.MEM_148>
+p4_89 = child7 (_35, 1B)
+
+"
+
+[label=" form basic block 23: free (p4_89)
+test.c:560:2: warning: use location
+
+" ]
+
+" # .MEM_149 = VDEF <.MEM_148>
+p4_89 = child7 (_35, 1B)
+
+"->
+
+" from main basic block 23"
+
+
+->" free (p4_89)
+p4_89 = child7 (_35, 1B)
+"
+
+
+->" free (p4_89)
+test.c:560:2: warning: use location
+
+"
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 23: p98 = _40
+test.c:562:6: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 23"
+
+
+->" p98 = _40
+_40 = child7 (_39, _37)
+"
+
+
+->" p98 = _40
+test.c:562:6: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 3: MEM[(int *)_2 + 12B] = 300
+test.c:362:9: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 3"
+
+
+->" from child7 basic block 3"
+
+->" MEM[(int *)_2 + 12B] = 300
+_40 = child7 (_39, _37)
+"
+
+
+->" MEM[(int *)_2 + 12B] = 300
+test.c:362:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 4: MEM[(int *)_3 + 8B] = 300
+test.c:368:10: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 4"
+
+
+->" from child7 basic block 4"
+
+->" MEM[(int *)_3 + 8B] = 300
+_40 = child7 (_39, _37)
+"
+
+
+->" MEM[(int *)_3 + 8B] = 300
+test.c:368:10: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 2: *_8 = 98
+test.c:192:9: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 2"
+
+
+->" from child basic block 2"
+
+->" *_8 = 98
+_40 = child7 (_39, _37)
+"
+
+
+->" *_8 = 98
+test.c:192:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 2: MEM[(int *)_1 + 4B] = 99
+test.c:388:8: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 2"
+
+
+->" from child2 basic block 2"
+
+->" MEM[(int *)_1 + 4B] = 99
+_40 = child7 (_39, _37)
+"
+
+
+->" MEM[(int *)_1 + 4B] = 99
+test.c:388:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 23: free (_41)
+test.c:563:2: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 23"
+
+
+->" free (_41)
+_40 = child7 (_39, _37)
+"
+
+
+->" free (_41)
+test.c:563:2: warning: use location
 
 "
 
@@ -1671,28 +3785,28 @@ test.c:559:2: warning: use location
 "->
 
 
-" # .MEM_21 = VDEF <.MEM_17>
-_13 = malloc (10)
+" # .MEM_24 = VDEF <.MEM_23>
+_15 = malloc (10)
 
 "
 
-[label=" form basic block 5: _3 = PHI <_13(3), _11(4)>
+[label=" form basic block 5: _4 = PHI <_15(3), _12(4)>
 lto1: warning: use location
 " ]
 
-" # .MEM_21 = VDEF <.MEM_17>
-_13 = malloc (10)
+" # .MEM_24 = VDEF <.MEM_23>
+_15 = malloc (10)
 
 "->
 
 " from child7 basic block 5"
 
 
-->" _3 = PHI <_13(3), _11(4)>
-_13 = malloc (10)
+->" _4 = PHI <_15(3), _12(4)>
+_15 = malloc (10)
 "
 
-->" _3 = PHI <_13(3), _11(4)>
+->" _4 = PHI <_15(3), _12(4)>
 lto1: warning: use location
 "
 
@@ -1701,24 +3815,24 @@ lto1: warning: use location
 "->
 
 
-" # VUSE <.MEM_15>
-return _3
+" # VUSE <.MEM_17>
+return _4
 
 "
 
-[label=" form basic block 5: # VUSE <.MEM_15>
-return _3
+[label=" form basic block 5: # VUSE <.MEM_17>
+return _4
 
 " ]
 
-" # VUSE <.MEM_15>
-return _3
+" # VUSE <.MEM_17>
+return _4
 
 "->
 
 " from child7 basic block 5"
 
-->" return _3
+->" return _4
 lto1: warning: use location
 "
 
@@ -1733,28 +3847,28 @@ lto1: warning: use location
 "->
 
 
-" # .MEM_20 = VDEF <.MEM_19>
-_11 = malloc (30)
+" # .MEM_22 = VDEF <.MEM_21>
+_12 = malloc (30)
 
 "
 
-[label=" form basic block 5: _3 = PHI <_13(3), _11(4)>
+[label=" form basic block 5: _4 = PHI <_15(3), _12(4)>
 lto1: warning: use location
 " ]
 
-" # .MEM_20 = VDEF <.MEM_19>
-_11 = malloc (30)
+" # .MEM_22 = VDEF <.MEM_21>
+_12 = malloc (30)
 
 "->
 
 " from child7 basic block 5"
 
 
-->" _3 = PHI <_13(3), _11(4)>
-_11 = malloc (30)
+->" _4 = PHI <_15(3), _12(4)>
+_12 = malloc (30)
 "
 
-->" _3 = PHI <_13(3), _11(4)>
+->" _4 = PHI <_15(3), _12(4)>
 lto1: warning: use location
 "
 
@@ -1775,7 +3889,7 @@ w_10 = malloc (5)
 "
 
 [label=" form basic block 2: free (w_10)
-test.c:438:2: warning: use location
+test.c:439:2: warning: use location
 
 " ]
 
@@ -1792,7 +3906,7 @@ w_10 = malloc (5)
 "
 
 ->" free (w_10)
-test.c:438:2: warning: use location
+test.c:439:2: warning: use location
 
 "
 
@@ -1813,7 +3927,7 @@ test22 (b_2(D))
 "
 
 [label=" form basic block 2: test22 (b_2(D))
-test.c:417:2: warning: use location
+test.c:418:2: warning: use location
 " ]
 
 " # .MEM_10 = VDEF <.MEM_9>
@@ -1823,72 +3937,64 @@ test22 (b_2(D))
 
 " from boo basic block 2"
 
-
 ->" test22 (b_2(D))
-test.c:417:2: warning: use location
+test.c:418:2: warning: use location
 "
 
 
-->"ID : 866849004
+->"ID : 399134190
 from test22 basic block 2"->
 
-
-" ID : 740574869 stmt(call) :free (k_2(D))
+" ID : 1814065913 stmt(call) :free (k_2(D))
 In function ‘test22’:
 
 "
 
-"ID : 866849004
+"ID : 399134190
 from test22 basic block 2"->
 
-
-" ID : 1042902717 stmt(call) :free (k_2(D))
-test.c:432:2: warning: use location
-
-"
-
-"ID : 866849004
-from test22 basic block 2"->
-
-
-" ID : 633241150 stmt(call) :free (k_2(D))
+" ID : 2014871543 stmt(call) :free (k_2(D))
 test.c:433:2: warning: use location
 
 "
 
-"ID : 866849004
+"ID : 399134190
 from test22 basic block 2"->
 
-
-" ID : 665855169 stmt(call) :free (k_2(D))
+" ID : 295335666 stmt(call) :free (k_2(D))
 test.c:434:2: warning: use location
 
 "
 
-"ID : 866849004
+"ID : 399134190
 from test22 basic block 2"->
 
-
-" ID : 960722062 stmt(call) :free (k_2(D))
+" ID : 1383347571 stmt(call) :free (k_2(D))
 test.c:435:2: warning: use location
 
 "
 
-"ID : 866849004
+"ID : 399134190
 from test22 basic block 2"->
 
-
-" ID : 552851162 stmt(call) :free (k_2(D))
+" ID : 1192450736 stmt(call) :free (k_2(D))
 test.c:436:2: warning: use location
 
 "
 
-"ID : 866849004
+"ID : 399134190
 from test22 basic block 2"->
 
+" ID : 1898831358 stmt(call) :free (k_2(D))
+test.c:437:2: warning: use location
 
-" ID : 1516083561 stmt(call) :free (w_10)
-test.c:438:2: warning: use location
+"
+
+"ID : 399134190
+from test22 basic block 2"->
+
+" ID : 1205434614 stmt(call) :free (w_10)
+test.c:439:2: warning: use location
 
 "
 
@@ -1903,69 +4009,8 @@ test22 (b_2(D))
 "
 
 [label=" form basic block 2: free (b_2(D))
-test.c:416:2: warning: use location
-
-" ]
-
-" # .MEM_10 = VDEF <.MEM_9>
-test22 (b_2(D))
-
-"->
-
-" from boo basic block 2"
-
-
-->" free (b_2(D))
-test.c:416:2: warning: use location
-
-"
-
-
-" boo
-"->
-
-
-" # .MEM_10 = VDEF <.MEM_9>
-test22 (b_2(D))
-
-"
-
-[label=" form basic block 2: free (b_2(D))
-test.c:415:2: warning: use location
-
-" ]
-
-" # .MEM_10 = VDEF <.MEM_9>
-test22 (b_2(D))
-
-"->
-
-" from boo basic block 2"
-
-
-->" free (b_2(D))
-test.c:415:2: warning: use location
-
-"
-
-
-
-
-
-
-
-
-" boo
-"->
-
-
-" # .MEM_10 = VDEF <.MEM_9>
-test22 (b_2(D))
-
-"
-
-[label=" form basic block 2: test22 (b_2(D))
 test.c:417:2: warning: use location
+
 " ]
 
 " # .MEM_10 = VDEF <.MEM_9>
@@ -1975,72 +4020,8 @@ test22 (b_2(D))
 
 " from boo basic block 2"
 
-
-->" test22 (b_2(D))
+->" free (b_2(D))
 test.c:417:2: warning: use location
-"
-
-
-->"ID : 1164170788
-from test22 basic block 2"->
-
-
-" ID : 1141241202 stmt(call) :free (k_2(D))
-In function ‘test22’:
-
-"
-
-"ID : 1164170788
-from test22 basic block 2"->
-
-
-" ID : 375750925 stmt(call) :free (k_2(D))
-test.c:432:2: warning: use location
-
-"
-
-"ID : 1164170788
-from test22 basic block 2"->
-
-
-" ID : 474897532 stmt(call) :free (k_2(D))
-test.c:433:2: warning: use location
-
-"
-
-"ID : 1164170788
-from test22 basic block 2"->
-
-
-" ID : 1809853793 stmt(call) :free (k_2(D))
-test.c:434:2: warning: use location
-
-"
-
-"ID : 1164170788
-from test22 basic block 2"->
-
-
-" ID : 1614103425 stmt(call) :free (k_2(D))
-test.c:435:2: warning: use location
-
-"
-
-"ID : 1164170788
-from test22 basic block 2"->
-
-
-" ID : 766859780 stmt(call) :free (k_2(D))
-test.c:436:2: warning: use location
-
-"
-
-"ID : 1164170788
-from test22 basic block 2"->
-
-
-" ID : 1327966435 stmt(call) :free (w_10)
-test.c:438:2: warning: use location
 
 "
 
@@ -2066,37 +4047,8 @@ test22 (b_2(D))
 
 " from boo basic block 2"
 
-
 ->" free (b_2(D))
 test.c:416:2: warning: use location
-
-"
-
-
-" boo
-"->
-
-
-" # .MEM_10 = VDEF <.MEM_9>
-test22 (b_2(D))
-
-"
-
-[label=" form basic block 2: free (b_2(D))
-test.c:415:2: warning: use location
-
-" ]
-
-" # .MEM_10 = VDEF <.MEM_9>
-test22 (b_2(D))
-
-"->
-
-" from boo basic block 2"
-
-
-->" free (b_2(D))
-test.c:415:2: warning: use location
 
 "
 
@@ -2117,7 +4069,7 @@ p2_5 = malloc (1)
 "
 
 [label=" form basic block 2: *p2_5 = 1
-test.c:121:8: warning: use location
+test.c:122:8: warning: use location
 
 " ]
 
@@ -2134,7 +4086,7 @@ p2_5 = malloc (1)
 "
 
 ->" *p2_5 = 1
-test.c:121:8: warning: use location
+test.c:122:8: warning: use location
 
 "
 
@@ -2155,7 +4107,7 @@ _11 = foo2 (z_9(D))
 "
 
 [label=" form basic block 2: return _11
-test.c:138:9: warning: use location
+test.c:139:9: warning: use location
 " ]
 
 " # .MEM_17 = VDEF <.MEM_16>
@@ -2171,51 +4123,49 @@ _11 = foo2 (z_9(D))
 "
 
 
-->"ID : 1261491656
+->"ID : 1322397929
 from foo2 basic block 2"->
 
-
-" ID : 1047626915 stmt(call) :foo3 (p3_14)
+" ID : 2093654303 stmt(call) :foo3 (p3_15)
 In function ‘foo2’:
 
 "
 
-->"ID : 1261491656
+
+->"ID : 1322397929
+from foo2 basic block 3"->
+
+" ID : 1526727340 stmt(call) :free (p3_15)
+test.c:85:3: warning: use location
+
+"
+
+
+"ID : 1322397929
 from foo2 basic block 3"->
 
 
-" ID : 553696775 stmt(call) :free (p3_14)
-test.c:84:3: warning: use location
+" ID : 48357090 stmt(LHS) :_33 = p3_15
+test.c:86:10: warning: use location
 
 "
 
 
-"ID : 1261491656
-from foo2 basic block 3"->
+->"ID : 1322397929
+from foo2 basic block 4"->
 
-
-" ID : 30224729 stmt(LHS) :_31 = p3_14
-test.c:85:10: warning: use location
+" ID : 1350350392 stmt(call) :free (p4_17)
+test.c:91:3: warning: use location
 
 "
 
 
-->"ID : 1261491656
+"ID : 1322397929
 from foo2 basic block 4"->
 
 
-" ID : 215874693 stmt(call) :free (p4_16)
-test.c:90:3: warning: use location
-
-"
-
-
-"ID : 1261491656
-from foo2 basic block 4"->
-
-
-" ID : 1871196561 stmt(LHS) :_27 = p4_16
-test.c:91:10: warning: use location
+" ID : 579828692 stmt(LHS) :_29 = p4_17
+test.c:92:10: warning: use location
 
 "
 
@@ -2432,8 +4382,8 @@ test.c:60:8: warning: use location
 "->
 
 
-" # .MEM_34 = VDEF <.MEM_33(D)>
-a2_12 = malloc (_1)
+" # .MEM_36 = VDEF <.MEM_35(D)>
+a2_13 = malloc (_1)
 
 "
 
@@ -2442,8 +4392,8 @@ test.c:60:8: warning: use location
 
 " ]
 
-" # .MEM_34 = VDEF <.MEM_33(D)>
-a2_12 = malloc (_1)
+" # .MEM_36 = VDEF <.MEM_35(D)>
+a2_13 = malloc (_1)
 
 "->
 
@@ -2451,333 +4401,11 @@ a2_12 = malloc (_1)
 
 
 ->" *p2_4 = 10
-a2_12 = malloc (_1)
+a2_13 = malloc (_1)
 "
 
 ->" *p2_4 = 10
 test.c:60:8: warning: use location
-
-"
-
-
-
-
-
-
-
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 5: _7 = PHI <p3_14(3), p4_16(4)>
-lto1: warning: use location
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 5"
-
-
-->" _7 = PHI <p3_14(3), p4_16(4)>
-p3_14 = malloc (_2)
-"
-
-->" _7 = PHI <p3_14(3), p4_16(4)>
-lto1: warning: use location
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 3: _31 = p3_14
-test.c:85:10: warning: use location
-
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 3"
-
-
-->" _31 = p3_14
-p3_14 = malloc (_2)
-"
-
-->" _31 = p3_14
-test.c:85:10: warning: use location
-
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 3: free (p3_14)
-test.c:84:3: warning: use location
-
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 3"
-
-
-->" free (p3_14)
-p3_14 = malloc (_2)
-"
-
-->" free (p3_14)
-test.c:84:3: warning: use location
-
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 3: *p3_14 = 10
-test.c:83:9: warning: use location
-
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 3"
-
-
-->" *p3_14 = 10
-p3_14 = malloc (_2)
-"
-
-->" *p3_14 = 10
-test.c:83:9: warning: use location
-
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 2: foo3 (p3_14)
-test.c:78:2: warning: use location
-
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 2"
-
-
-->" foo3 (p3_14)
-p3_14 = malloc (_2)
-"
-
-->" foo3 (p3_14)
-test.c:78:2: warning: use location
-
-"
-
-
-" foo2
-"->
-
-
-" # VUSE <.MEM_32>
-return _7
-
-"
-
-[label=" form basic block 5: # VUSE <.MEM_32>
-return _7
-
-" ]
-
-" # VUSE <.MEM_32>
-return _7
-
-"->
-
-" from foo2 basic block 5"
-
-->" return _7
-lto1: warning: use location
-"
-
-
-
-
-
-
-
-
-" foo2
-"->
-
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"
-
-[label=" form basic block 5: _7 = PHI <p3_14(3), p4_16(4)>
-lto1: warning: use location
-" ]
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"->
-
-" from foo2 basic block 5"
-
-
-->" _7 = PHI <p3_14(3), p4_16(4)>
-p4_16 = malloc (_3)
-"
-
-->" _7 = PHI <p3_14(3), p4_16(4)>
-lto1: warning: use location
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"
-
-[label=" form basic block 4: _27 = p4_16
-test.c:91:10: warning: use location
-
-" ]
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"->
-
-" from foo2 basic block 4"
-
-
-->" _27 = p4_16
-p4_16 = malloc (_3)
-"
-
-->" _27 = p4_16
-test.c:91:10: warning: use location
-
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"
-
-[label=" form basic block 4: free (p4_16)
-test.c:90:3: warning: use location
-
-" ]
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"->
-
-" from foo2 basic block 4"
-
-
-->" free (p4_16)
-p4_16 = malloc (_3)
-"
-
-->" free (p4_16)
-test.c:90:3: warning: use location
-
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"
-
-[label=" form basic block 4: *p4_16 = 10
-test.c:89:9: warning: use location
-
-" ]
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"->
-
-" from foo2 basic block 4"
-
-
-->" *p4_16 = 10
-p4_16 = malloc (_3)
-"
-
-->" *p4_16 = 10
-test.c:89:9: warning: use location
 
 "
 
@@ -2793,6 +4421,328 @@ test.c:89:9: warning: use location
 
 
 " # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"
+
+[label=" form basic block 5: _8 = PHI <p3_15(3), p4_17(4)>
+lto1: warning: use location
+" ]
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"->
+
+" from foo2 basic block 5"
+
+
+->" _8 = PHI <p3_15(3), p4_17(4)>
+p3_15 = malloc (_2)
+"
+
+->" _8 = PHI <p3_15(3), p4_17(4)>
+lto1: warning: use location
+"
+
+
+" foo2
+"->
+
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"
+
+[label=" form basic block 3: _33 = p3_15
+test.c:86:10: warning: use location
+
+" ]
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"->
+
+" from foo2 basic block 3"
+
+
+->" _33 = p3_15
+p3_15 = malloc (_2)
+"
+
+->" _33 = p3_15
+test.c:86:10: warning: use location
+
+"
+
+
+" foo2
+"->
+
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"
+
+[label=" form basic block 3: free (p3_15)
+test.c:85:3: warning: use location
+
+" ]
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"->
+
+" from foo2 basic block 3"
+
+
+->" free (p3_15)
+p3_15 = malloc (_2)
+"
+
+->" free (p3_15)
+test.c:85:3: warning: use location
+
+"
+
+
+" foo2
+"->
+
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"
+
+[label=" form basic block 3: *p3_15 = 10
+test.c:84:9: warning: use location
+
+" ]
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"->
+
+" from foo2 basic block 3"
+
+
+->" *p3_15 = 10
+p3_15 = malloc (_2)
+"
+
+->" *p3_15 = 10
+test.c:84:9: warning: use location
+
+"
+
+
+" foo2
+"->
+
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"
+
+[label=" form basic block 2: foo3 (p3_15)
+test.c:79:2: warning: use location
+
+" ]
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"->
+
+" from foo2 basic block 2"
+
+
+->" foo3 (p3_15)
+p3_15 = malloc (_2)
+"
+
+->" foo3 (p3_15)
+test.c:79:2: warning: use location
+
+"
+
+
+" foo2
+"->
+
+
+" # VUSE <.MEM_34>
+return _8
+
+"
+
+[label=" form basic block 5: # VUSE <.MEM_34>
+return _8
+
+" ]
+
+" # VUSE <.MEM_34>
+return _8
+
+"->
+
+" from foo2 basic block 5"
+
+->" return _8
+lto1: warning: use location
+"
+
+
+
+
+
+
+
+
+" foo2
+"->
+
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"
+
+[label=" form basic block 5: _8 = PHI <p3_15(3), p4_17(4)>
+lto1: warning: use location
+" ]
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"->
+
+" from foo2 basic block 5"
+
+
+->" _8 = PHI <p3_15(3), p4_17(4)>
+p4_17 = malloc (_3)
+"
+
+->" _8 = PHI <p3_15(3), p4_17(4)>
+lto1: warning: use location
+"
+
+
+" foo2
+"->
+
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"
+
+[label=" form basic block 4: _29 = p4_17
+test.c:92:10: warning: use location
+
+" ]
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"->
+
+" from foo2 basic block 4"
+
+
+->" _29 = p4_17
+p4_17 = malloc (_3)
+"
+
+->" _29 = p4_17
+test.c:92:10: warning: use location
+
+"
+
+
+" foo2
+"->
+
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"
+
+[label=" form basic block 4: free (p4_17)
+test.c:91:3: warning: use location
+
+" ]
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"->
+
+" from foo2 basic block 4"
+
+
+->" free (p4_17)
+p4_17 = malloc (_3)
+"
+
+->" free (p4_17)
+test.c:91:3: warning: use location
+
+"
+
+
+" foo2
+"->
+
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"
+
+[label=" form basic block 4: *p4_17 = 10
+test.c:90:9: warning: use location
+
+" ]
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"->
+
+" from foo2 basic block 4"
+
+
+->" *p4_17 = 10
+p4_17 = malloc (_3)
+"
+
+->" *p4_17 = 10
+test.c:90:9: warning: use location
+
+"
+
+
+
+
+
+
+
+
+" foo2
+"->
+
+
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "
@@ -2802,7 +4752,7 @@ test.c:69:6: warning: use location
 
 " ]
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "->
@@ -2824,7 +4774,7 @@ test.c:69:6: warning: use location
 "->
 
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "
@@ -2834,7 +4784,7 @@ test.c:70:9: warning: use location
 
 " ]
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "->
@@ -2856,30 +4806,30 @@ test.c:70:9: warning: use location
 "->
 
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "
 
-[label=" form basic block 3: MEM[(int *)_6 + 4B] = 200
-test.c:81:10: warning: use location
+[label=" form basic block 2: MEM[(int *)_6 + 4B] = 100
+test.c:71:9: warning: use location
 
 " ]
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "->
 
-" from foo2 basic block 3"
+" from foo2 basic block 2"
 
 
-->" MEM[(int *)_6 + 4B] = 200
+->" MEM[(int *)_6 + 4B] = 100
 _4 = malloc (200)
 "
 
-->" MEM[(int *)_6 + 4B] = 200
-test.c:81:10: warning: use location
+->" MEM[(int *)_6 + 4B] = 100
+test.c:71:9: warning: use location
 
 "
 
@@ -2888,17 +4838,49 @@ test.c:81:10: warning: use location
 "->
 
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
+_4 = malloc (200)
+
+"
+
+[label=" form basic block 3: MEM[(int *)_7 + 4B] = 200
+test.c:82:10: warning: use location
+
+" ]
+
+" # .MEM_39 = VDEF <.MEM_38>
+_4 = malloc (200)
+
+"->
+
+" from foo2 basic block 3"
+
+
+->" MEM[(int *)_7 + 4B] = 200
+_4 = malloc (200)
+"
+
+->" MEM[(int *)_7 + 4B] = 200
+test.c:82:10: warning: use location
+
+"
+
+
+" foo2
+"->
+
+
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "
 
 [label=" form basic block 2: MEM[(int *)_1 + 4B] = 1000
-test.c:122:10: warning: use location
+test.c:123:10: warning: use location
 
 " ]
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "->
@@ -2908,13 +4890,12 @@ _4 = malloc (200)
 
 ->" from foo basic block 2"
 
-
 ->" MEM[(int *)_1 + 4B] = 1000
 _4 = malloc (200)
 "
 
 ->" MEM[(int *)_1 + 4B] = 1000
-test.c:122:10: warning: use location
+test.c:123:10: warning: use location
 
 "
 
@@ -2923,17 +4904,17 @@ test.c:122:10: warning: use location
 "->
 
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "
 
 [label=" form basic block 2: MEM[(int *)_2 + 8B] = 200
-test.c:123:10: warning: use location
+test.c:124:10: warning: use location
 
 " ]
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "->
@@ -2943,538 +4924,12 @@ _4 = malloc (200)
 
 ->" from foo basic block 2"
 
-
 ->" MEM[(int *)_2 + 8B] = 200
 _4 = malloc (200)
 "
 
 ->" MEM[(int *)_2 + 8B] = 200
-test.c:123:10: warning: use location
-
-"
-
-
-
-
-
-
-
-
-" foo2
-"->
-
-
-" # .MEM_34 = VDEF <.MEM_33(D)>
-a2_12 = malloc (_1)
-
-"
-
-[label=" form basic block 5: *p2_4 = 10
-test.c:60:8: warning: use location
-
-" ]
-
-" # .MEM_34 = VDEF <.MEM_33(D)>
-a2_12 = malloc (_1)
-
-"->
-
-" from foo2 basic block 5"
-
-
-->" *p2_4 = 10
-a2_12 = malloc (_1)
-"
-
-->" *p2_4 = 10
-test.c:60:8: warning: use location
-
-"
-
-
-
-
-
-
-
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 5: _7 = PHI <p3_14(3), p4_16(4)>
-lto1: warning: use location
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 5"
-
-
-->" _7 = PHI <p3_14(3), p4_16(4)>
-p3_14 = malloc (_2)
-"
-
-->" _7 = PHI <p3_14(3), p4_16(4)>
-lto1: warning: use location
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 3: _31 = p3_14
-test.c:85:10: warning: use location
-
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 3"
-
-
-->" _31 = p3_14
-p3_14 = malloc (_2)
-"
-
-->" _31 = p3_14
-test.c:85:10: warning: use location
-
-"
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 3: free (p3_14)
-test.c:84:3: warning: use location
-
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 3"
-
-
-->" free (p3_14)
-p3_14 = malloc (_2)
-"
-
-->" free (p3_14)
-test.c:84:3: warning: use location
-
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 3: *p3_14 = 10
-test.c:83:9: warning: use location
-
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 3"
-
-
-->" *p3_14 = 10
-p3_14 = malloc (_2)
-"
-
-->" *p3_14 = 10
-test.c:83:9: warning: use location
-
-"
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 2: foo3 (p3_14)
-test.c:78:2: warning: use location
-
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 2"
-
-
-->" foo3 (p3_14)
-p3_14 = malloc (_2)
-"
-
-->" foo3 (p3_14)
-test.c:78:2: warning: use location
-
-"
-
-
-" foo2
-"->
-
-
-" # VUSE <.MEM_32>
-return _7
-
-"
-
-[label=" form basic block 5: # VUSE <.MEM_32>
-return _7
-
-" ]
-
-" # VUSE <.MEM_32>
-return _7
-
-"->
-
-" from foo2 basic block 5"
-
-->" return _7
-lto1: warning: use location
-"
-
-
-
-
-
-
-
-
-" foo2
-"->
-
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"
-
-[label=" form basic block 5: _7 = PHI <p3_14(3), p4_16(4)>
-lto1: warning: use location
-" ]
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"->
-
-" from foo2 basic block 5"
-
-
-->" _7 = PHI <p3_14(3), p4_16(4)>
-p4_16 = malloc (_3)
-"
-
-->" _7 = PHI <p3_14(3), p4_16(4)>
-lto1: warning: use location
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"
-
-[label=" form basic block 4: _27 = p4_16
-test.c:91:10: warning: use location
-
-" ]
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"->
-
-" from foo2 basic block 4"
-
-
-->" _27 = p4_16
-p4_16 = malloc (_3)
-"
-
-->" _27 = p4_16
-test.c:91:10: warning: use location
-
-"
-
-" foo2
-"->
-
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"
-
-[label=" form basic block 4: free (p4_16)
-test.c:90:3: warning: use location
-
-" ]
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"->
-
-" from foo2 basic block 4"
-
-
-->" free (p4_16)
-p4_16 = malloc (_3)
-"
-
-->" free (p4_16)
-test.c:90:3: warning: use location
-
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"
-
-[label=" form basic block 4: *p4_16 = 10
-test.c:89:9: warning: use location
-
-" ]
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"->
-
-" from foo2 basic block 4"
-
-
-->" *p4_16 = 10
-p4_16 = malloc (_3)
-"
-
-->" *p4_16 = 10
-test.c:89:9: warning: use location
-
-"
-
-
-
-
-
-
-
-
-" foo2
-"->
-
-
-" # .MEM_37 = VDEF <.MEM_36>
-_4 = malloc (200)
-
-"
-
-[label=" form basic block 2: p99 = _4
-test.c:69:6: warning: use location
-
-" ]
-
-" # .MEM_37 = VDEF <.MEM_36>
-_4 = malloc (200)
-
-"->
-
-" from foo2 basic block 2"
-
-
-->" p99 = _4
-_4 = malloc (200)
-"
-
-->" p99 = _4
-test.c:69:6: warning: use location
-
-"
-
-" foo2
-"->
-
-
-" # .MEM_37 = VDEF <.MEM_36>
-_4 = malloc (200)
-
-"
-
-[label=" form basic block 2: *_5 = 99
-test.c:70:9: warning: use location
-
-" ]
-
-" # .MEM_37 = VDEF <.MEM_36>
-_4 = malloc (200)
-
-"->
-
-" from foo2 basic block 2"
-
-
-->" *_5 = 99
-_4 = malloc (200)
-"
-
-->" *_5 = 99
-test.c:70:9: warning: use location
-
-"
-
-" foo2
-"->
-
-
-" # .MEM_37 = VDEF <.MEM_36>
-_4 = malloc (200)
-
-"
-
-[label=" form basic block 3: MEM[(int *)_6 + 4B] = 200
-test.c:81:10: warning: use location
-
-" ]
-
-" # .MEM_37 = VDEF <.MEM_36>
-_4 = malloc (200)
-
-"->
-
-" from foo2 basic block 3"
-
-
-->" MEM[(int *)_6 + 4B] = 200
-_4 = malloc (200)
-"
-
-->" MEM[(int *)_6 + 4B] = 200
-test.c:81:10: warning: use location
-
-"
-
-" foo2
-"->
-
-
-" # .MEM_37 = VDEF <.MEM_36>
-_4 = malloc (200)
-
-"
-
-[label=" form basic block 2: MEM[(int *)_1 + 4B] = 1000
-test.c:122:10: warning: use location
-
-" ]
-
-" # .MEM_37 = VDEF <.MEM_36>
-_4 = malloc (200)
-
-"->
-
-" from foo2 basic block 2"
-
-
-->" from foo basic block 2"
-
-
-->" MEM[(int *)_1 + 4B] = 1000
-_4 = malloc (200)
-"
-
-->" MEM[(int *)_1 + 4B] = 1000
-test.c:122:10: warning: use location
-
-"
-
-" foo2
-"->
-
-
-" # .MEM_37 = VDEF <.MEM_36>
-_4 = malloc (200)
-
-"
-
-[label=" form basic block 2: MEM[(int *)_2 + 8B] = 200
-test.c:123:10: warning: use location
-
-" ]
-
-" # .MEM_37 = VDEF <.MEM_36>
-_4 = malloc (200)
-
-"->
-
-" from foo2 basic block 2"
-
-
-->" from foo basic block 2"
-
-
-->" MEM[(int *)_2 + 8B] = 200
-_4 = malloc (200)
-"
-
-->" MEM[(int *)_2 + 8B] = 200
-test.c:123:10: warning: use location
+test.c:124:10: warning: use location
 
 "
 
@@ -3495,7 +4950,7 @@ p2_5 = malloc (1)
 "
 
 [label=" form basic block 2: *p2_5 = 1
-test.c:121:8: warning: use location
+test.c:122:8: warning: use location
 
 " ]
 
@@ -3512,7 +4967,7 @@ p2_5 = malloc (1)
 "
 
 ->" *p2_5 = 1
-test.c:121:8: warning: use location
+test.c:122:8: warning: use location
 
 "
 
@@ -3533,7 +4988,7 @@ _11 = foo2 (z_9(D))
 "
 
 [label=" form basic block 2: return _11
-test.c:138:9: warning: use location
+test.c:139:9: warning: use location
 " ]
 
 " # .MEM_17 = VDEF <.MEM_16>
@@ -3549,176 +5004,49 @@ _11 = foo2 (z_9(D))
 "
 
 
-->"ID : 1392997344
+->"ID : 382830957
 from foo2 basic block 2"->
 
-
-" ID : 1943038062 stmt(call) :foo3 (p3_14)
+" ID : 1966945323 stmt(call) :foo3 (p3_15)
 In function ‘foo2’:
 
 "
 
-->"ID : 1392997344
+
+->"ID : 382830957
+from foo2 basic block 3"->
+
+" ID : 1294752248 stmt(call) :free (p3_15)
+test.c:85:3: warning: use location
+
+"
+
+
+"ID : 382830957
 from foo2 basic block 3"->
 
 
-" ID : 181306666 stmt(call) :free (p3_14)
-test.c:84:3: warning: use location
+" ID : 1398617933 stmt(LHS) :_33 = p3_15
+test.c:86:10: warning: use location
 
 "
 
 
-"ID : 1392997344
-from foo2 basic block 3"->
+->"ID : 382830957
+from foo2 basic block 4"->
 
-
-" ID : 889814865 stmt(LHS) :_31 = p3_14
-test.c:85:10: warning: use location
+" ID : 893821661 stmt(call) :free (p4_17)
+test.c:91:3: warning: use location
 
 "
 
 
-->"ID : 1392997344
+"ID : 382830957
 from foo2 basic block 4"->
 
 
-" ID : 912257625 stmt(call) :free (p4_16)
-test.c:90:3: warning: use location
-
-"
-
-
-"ID : 1392997344
-from foo2 basic block 4"->
-
-
-" ID : 362919502 stmt(LHS) :_27 = p4_16
-test.c:91:10: warning: use location
-
-"
-
-
-->" return _11
-In function ‘main’:
-
-"
-
-
-
-
-
-
-
-
-" foo
-"->
-
-
-" # .MEM_13 = VDEF <.MEM_12(D)>
-p2_5 = malloc (1)
-
-"
-
-[label=" form basic block 2: *p2_5 = 1
-test.c:121:8: warning: use location
-
-" ]
-
-" # .MEM_13 = VDEF <.MEM_12(D)>
-p2_5 = malloc (1)
-
-"->
-
-" from foo basic block 2"
-
-
-->" *p2_5 = 1
-p2_5 = malloc (1)
-"
-
-->" *p2_5 = 1
-test.c:121:8: warning: use location
-
-"
-
-
-
-
-
-
-
-
-" foo
-"->
-
-
-" # .MEM_17 = VDEF <.MEM_16>
-_11 = foo2 (z_9(D))
-
-"
-
-[label=" form basic block 2: return _11
-test.c:138:9: warning: use location
-" ]
-
-" # .MEM_17 = VDEF <.MEM_16>
-_11 = foo2 (z_9(D))
-
-"->
-
-" from foo basic block 2"
-
-
-->" return _11
-_11 = foo2 (z_9(D))
-"
-
-
-->"ID : 1652832494
-from foo2 basic block 2"->
-
-
-" ID : 1405822219 stmt(call) :foo3 (p3_14)
-In function ‘foo2’:
-
-"
-
-->"ID : 1652832494
-from foo2 basic block 3"->
-
-
-" ID : 242421371 stmt(call) :free (p3_14)
-test.c:84:3: warning: use location
-
-"
-
-
-"ID : 1652832494
-from foo2 basic block 3"->
-
-
-" ID : 171204015 stmt(LHS) :_31 = p3_14
-test.c:85:10: warning: use location
-
-"
-
-
-->"ID : 1652832494
-from foo2 basic block 4"->
-
-
-" ID : 219060633 stmt(call) :free (p4_16)
-test.c:90:3: warning: use location
-
-"
-
-
-"ID : 1652832494
-from foo2 basic block 4"->
-
-
-" ID : 795272533 stmt(LHS) :_27 = p4_16
-test.c:91:10: warning: use location
+" ID : 905440948 stmt(LHS) :_29 = p4_17
+test.c:92:10: warning: use location
 
 "
 
@@ -3748,7 +5076,7 @@ pData2_21 = malloc (10)
 "
 
 [label=" form basic block 2: child5 (pData2_21)
-test.c:190:2: warning: use location
+test.c:191:2: warning: use location
 
 " ]
 
@@ -3765,27 +5093,26 @@ pData2_21 = malloc (10)
 "
 
 ->" child5 (pData2_21)
-test.c:190:2: warning: use location
+test.c:191:2: warning: use location
 
 "
 
 
-->"ID : 1383231421
+->"ID : 316868476
 from child5 basic block 2"->
 
 
-" ID : 1936513736 stmt(LHS) :pData_6 = data_5(D) + 4
-test.c:278:8: warning: use location
+" ID : 430247887 stmt(LHS) :pData_6 = data_5(D) + 4
+test.c:279:8: warning: use location
 
 "
 
 
-->"ID : 1383231421
+->"ID : 316868476
 from child5 basic block 4"->
 
-
-" ID : 2063038501 stmt(call) :free (pData_6)
-test.c:295:3: warning: use location
+" ID : 299436049 stmt(call) :free (pData_6)
+test.c:296:3: warning: use location
 
 "
 
@@ -3821,51 +5148,49 @@ a99_16 = foo (20)
 "
 
 
-->"ID : 1598883881
+->"ID : 604219108
 from foo2 basic block 2"->
 
-
-" ID : 1529658279 stmt(call) :foo3 (p3_14)
+" ID : 573691168 stmt(call) :foo3 (p3_15)
 In function ‘foo2’:
 
 "
 
-->"ID : 1598883881
+
+->"ID : 604219108
+from foo2 basic block 3"->
+
+" ID : 2073359524 stmt(call) :free (p3_15)
+test.c:85:3: warning: use location
+
+"
+
+
+"ID : 604219108
 from foo2 basic block 3"->
 
 
-" ID : 477505085 stmt(call) :free (p3_14)
-test.c:84:3: warning: use location
+" ID : 1877373608 stmt(LHS) :_33 = p3_15
+test.c:86:10: warning: use location
 
 "
 
 
-"ID : 1598883881
-from foo2 basic block 3"->
+->"ID : 604219108
+from foo2 basic block 4"->
 
-
-" ID : 779366668 stmt(LHS) :_31 = p3_14
-test.c:85:10: warning: use location
+" ID : 972825358 stmt(call) :free (p4_17)
+test.c:91:3: warning: use location
 
 "
 
 
-->"ID : 1598883881
+"ID : 604219108
 from foo2 basic block 4"->
 
 
-" ID : 643666287 stmt(call) :free (p4_16)
-test.c:90:3: warning: use location
-
-"
-
-
-"ID : 1598883881
-from foo2 basic block 4"->
-
-
-" ID : 1525132001 stmt(LHS) :_27 = p4_16
-test.c:91:10: warning: use location
+" ID : 1739941789 stmt(LHS) :_29 = p4_17
+test.c:92:10: warning: use location
 
 "
 
@@ -3896,7 +5221,7 @@ boo (_11)
 "
 
 [label=" form basic block 2: boo (_11)
-test.c:194:2: warning: use location
+test.c:195:2: warning: use location
 " ]
 
 " # .MEM_59 = VDEF <.MEM_58>
@@ -3906,375 +5231,89 @@ boo (_11)
 
 " from child basic block 2"
 
-
 ->" boo (_11)
-test.c:194:2: warning: use location
+test.c:195:2: warning: use location
 "
 
 
-->"ID : 673891016
+->"ID : 1268161024
 from boo basic block 2"->
 
-
-" ID : 1741006694 stmt(call) :free (b_2(D))
+" ID : 975805712 stmt(call) :free (b_2(D))
 In function ‘boo’:
 
 "
 
-"ID : 673891016
+"ID : 1268161024
 from boo basic block 2"->
 
-
-" ID : 1056776356 stmt(call) :free (b_2(D))
-test.c:416:2: warning: use location
-
-"
-
-"ID : 673891016
-from boo basic block 2"->
-
-
-" ID : 13835955 stmt(call) :test22 (b_2(D))
+" ID : 789728591 stmt(call) :free (b_2(D))
 test.c:417:2: warning: use location
 
 "
 
+"ID : 1268161024
+from boo basic block 2"->
 
-->"ID : 835151910
+" ID : 1019508735 stmt(call) :test22 (b_2(D))
+test.c:418:2: warning: use location
+
+"
+
+
+->"ID : 33756679
 from test22 basic block 2"->
 
-
-" ID : 1776756070 stmt(call) :free (k_2(D))
+" ID : 2112126520 stmt(call) :free (k_2(D))
 In function ‘test22’:
 
 "
 
-"ID : 835151910
+"ID : 33756679
 from test22 basic block 2"->
 
-
-" ID : 1406833299 stmt(call) :free (k_2(D))
-test.c:432:2: warning: use location
-
-"
-
-"ID : 835151910
-from test22 basic block 2"->
-
-
-" ID : 630706325 stmt(call) :free (k_2(D))
+" ID : 965679390 stmt(call) :free (k_2(D))
 test.c:433:2: warning: use location
 
 "
 
-"ID : 835151910
+"ID : 33756679
 from test22 basic block 2"->
 
-
-" ID : 1958062736 stmt(call) :free (k_2(D))
+" ID : 1560484019 stmt(call) :free (k_2(D))
 test.c:434:2: warning: use location
 
 "
 
-"ID : 835151910
+"ID : 33756679
 from test22 basic block 2"->
 
-
-" ID : 149164516 stmt(call) :free (k_2(D))
+" ID : 12999962 stmt(call) :free (k_2(D))
 test.c:435:2: warning: use location
 
 "
 
-"ID : 835151910
+"ID : 33756679
 from test22 basic block 2"->
 
-
-" ID : 1542963950 stmt(call) :free (k_2(D))
+" ID : 168546134 stmt(call) :free (k_2(D))
 test.c:436:2: warning: use location
 
 "
 
-"ID : 835151910
+"ID : 33756679
 from test22 basic block 2"->
 
-
-" ID : 173498590 stmt(call) :free (w_10)
-test.c:438:2: warning: use location
-
-"
-
-
-
-
-
-
-
-
-
-
-
-" child
-"->
-
-
-" # .MEM_46 = VDEF <.MEM_45>
-pData2_21 = malloc (10)
+" ID : 2140312711 stmt(call) :free (k_2(D))
+test.c:437:2: warning: use location
 
 "
 
-[label=" form basic block 2: child5 (pData2_21)
-test.c:190:2: warning: use location
-
-" ]
-
-" # .MEM_46 = VDEF <.MEM_45>
-pData2_21 = malloc (10)
-
-"->
-
-" from child basic block 2"
-
-
-->" child5 (pData2_21)
-pData2_21 = malloc (10)
-"
-
-->" child5 (pData2_21)
-test.c:190:2: warning: use location
-
-"
-
-
-->"ID : 1905828385
-from child5 basic block 2"->
-
-
-" ID : 1048312796 stmt(LHS) :pData_6 = data_5(D) + 4
-test.c:278:8: warning: use location
-
-"
-
-
-->"ID : 1905828385
-from child5 basic block 4"->
-
-
-" ID : 1579320809 stmt(call) :free (pData_6)
-test.c:295:3: warning: use location
-
-"
-
-
-
-
-
-
-
-
-" child
-"->
-
-
-" # .MEM_42 = VDEF <.MEM_41>
-a99_16 = foo (20)
-
-"
-
-[label=" form basic block 2: _38 = __printf_chk (1, asddad\n, a99_16)
-" ]
-
-" # .MEM_42 = VDEF <.MEM_41>
-a99_16 = foo (20)
-
-"->
-
-" from child basic block 2"
-
-
-->" _38 = __printf_chk (1, asddad\n, a99_16)
-a99_16 = foo (20)
-"
-
-
-->"ID : 1219516812
-from foo2 basic block 2"->
-
-
-" ID : 1798381443 stmt(call) :foo3 (p3_14)
-In function ‘foo2’:
-
-"
-
-->"ID : 1219516812
-from foo2 basic block 3"->
-
-
-" ID : 796038642 stmt(call) :free (p3_14)
-test.c:84:3: warning: use location
-
-"
-
-
-"ID : 1219516812
-from foo2 basic block 3"->
-
-
-" ID : 759320740 stmt(LHS) :_31 = p3_14
-test.c:85:10: warning: use location
-
-"
-
-
-->"ID : 1219516812
-from foo2 basic block 4"->
-
-
-" ID : 1034129216 stmt(call) :free (p4_16)
-test.c:90:3: warning: use location
-
-"
-
-
-"ID : 1219516812
-from foo2 basic block 4"->
-
-
-" ID : 585068730 stmt(LHS) :_27 = p4_16
-test.c:91:10: warning: use location
-
-"
-
-
-->" _38 = __printf_chk (1, asddad\n, a99_16)
-"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-" child
-"->
-
-
-" # .MEM_59 = VDEF <.MEM_58>
-boo (_11)
-
-"
-
-[label=" form basic block 2: boo (_11)
-test.c:194:2: warning: use location
-" ]
-
-" # .MEM_59 = VDEF <.MEM_58>
-boo (_11)
-
-"->
-
-" from child basic block 2"
-
-
-->" boo (_11)
-test.c:194:2: warning: use location
-"
-
-
-->"ID : 744774522
-from boo basic block 2"->
-
-
-" ID : 36468963 stmt(call) :free (b_2(D))
-In function ‘boo’:
-
-"
-
-"ID : 744774522
-from boo basic block 2"->
-
-
-" ID : 57050225 stmt(call) :free (b_2(D))
-test.c:416:2: warning: use location
-
-"
-
-"ID : 744774522
-from boo basic block 2"->
-
-
-" ID : 1222279607 stmt(call) :test22 (b_2(D))
-test.c:417:2: warning: use location
-
-"
-
-
-->"ID : 815835632
+"ID : 33756679
 from test22 basic block 2"->
 
-
-" ID : 700716512 stmt(call) :free (k_2(D))
-In function ‘test22’:
-
-"
-
-"ID : 815835632
-from test22 basic block 2"->
-
-
-" ID : 599927960 stmt(call) :free (k_2(D))
-test.c:432:2: warning: use location
-
-"
-
-"ID : 815835632
-from test22 basic block 2"->
-
-
-" ID : 1415427 stmt(call) :free (k_2(D))
-test.c:433:2: warning: use location
-
-"
-
-"ID : 815835632
-from test22 basic block 2"->
-
-
-" ID : 1374607528 stmt(call) :free (k_2(D))
-test.c:434:2: warning: use location
-
-"
-
-"ID : 815835632
-from test22 basic block 2"->
-
-
-" ID : 193451006 stmt(call) :free (k_2(D))
-test.c:435:2: warning: use location
-
-"
-
-"ID : 815835632
-from test22 basic block 2"->
-
-
-" ID : 1058191784 stmt(call) :free (k_2(D))
-test.c:436:2: warning: use location
-
-"
-
-"ID : 815835632
-from test22 basic block 2"->
-
-
-" ID : 1388443483 stmt(call) :free (w_10)
-test.c:438:2: warning: use location
+" ID : 363729971 stmt(call) :free (w_10)
+test.c:439:2: warning: use location
 
 "
 
@@ -4295,7 +5334,7 @@ w_10 = malloc (5)
 "
 
 [label=" form basic block 2: free (w_10)
-test.c:438:2: warning: use location
+test.c:439:2: warning: use location
 
 " ]
 
@@ -4312,7 +5351,7 @@ w_10 = malloc (5)
 "
 
 ->" free (w_10)
-test.c:438:2: warning: use location
+test.c:439:2: warning: use location
 
 "
 
@@ -4333,7 +5372,7 @@ test22 (b_2(D))
 "
 
 [label=" form basic block 2: test22 (b_2(D))
-test.c:417:2: warning: use location
+test.c:418:2: warning: use location
 " ]
 
 " # .MEM_10 = VDEF <.MEM_9>
@@ -4343,72 +5382,91 @@ test22 (b_2(D))
 
 " from boo basic block 2"
 
-
 ->" test22 (b_2(D))
-test.c:417:2: warning: use location
+test.c:418:2: warning: use location
 "
 
 
-->"ID : 1028602917
+->"ID : 72349454
 from test22 basic block 2"->
 
-
-" ID : 687464206 stmt(call) :free (k_2(D))
+" ID : 375660020 stmt(call) :free (k_2(D))
 In function ‘test22’:
 
 "
 
-"ID : 1028602917
+"ID : 72349454
 from test22 basic block 2"->
 
-
-" ID : 647793135 stmt(call) :free (k_2(D))
-test.c:432:2: warning: use location
-
-"
-
-"ID : 1028602917
-from test22 basic block 2"->
-
-
-" ID : 1659309242 stmt(call) :free (k_2(D))
+" ID : 183191647 stmt(call) :free (k_2(D))
 test.c:433:2: warning: use location
 
 "
 
-"ID : 1028602917
+"ID : 72349454
 from test22 basic block 2"->
 
-
-" ID : 498043294 stmt(call) :free (k_2(D))
+" ID : 1367101702 stmt(call) :free (k_2(D))
 test.c:434:2: warning: use location
 
 "
 
-"ID : 1028602917
+"ID : 72349454
 from test22 basic block 2"->
 
-
-" ID : 796957651 stmt(call) :free (k_2(D))
+" ID : 1774277953 stmt(call) :free (k_2(D))
 test.c:435:2: warning: use location
 
 "
 
-"ID : 1028602917
+"ID : 72349454
 from test22 basic block 2"->
 
-
-" ID : 1054789544 stmt(call) :free (k_2(D))
+" ID : 1077013308 stmt(call) :free (k_2(D))
 test.c:436:2: warning: use location
 
 "
 
-"ID : 1028602917
+"ID : 72349454
 from test22 basic block 2"->
 
+" ID : 125059002 stmt(call) :free (k_2(D))
+test.c:437:2: warning: use location
 
-" ID : 671541884 stmt(call) :free (w_10)
-test.c:438:2: warning: use location
+"
+
+"ID : 72349454
+from test22 basic block 2"->
+
+" ID : 732213152 stmt(call) :free (w_10)
+test.c:439:2: warning: use location
+
+"
+
+
+" boo
+"->
+
+
+" # .MEM_10 = VDEF <.MEM_9>
+test22 (b_2(D))
+
+"
+
+[label=" form basic block 2: free (b_2(D))
+test.c:417:2: warning: use location
+
+" ]
+
+" # .MEM_10 = VDEF <.MEM_9>
+test22 (b_2(D))
+
+"->
+
+" from boo basic block 2"
+
+->" free (b_2(D))
+test.c:417:2: warning: use location
 
 "
 
@@ -4434,37 +5492,8 @@ test22 (b_2(D))
 
 " from boo basic block 2"
 
-
 ->" free (b_2(D))
 test.c:416:2: warning: use location
-
-"
-
-
-" boo
-"->
-
-
-" # .MEM_10 = VDEF <.MEM_9>
-test22 (b_2(D))
-
-"
-
-[label=" form basic block 2: free (b_2(D))
-test.c:415:2: warning: use location
-
-" ]
-
-" # .MEM_10 = VDEF <.MEM_9>
-test22 (b_2(D))
-
-"->
-
-" from boo basic block 2"
-
-
-->" free (b_2(D))
-test.c:415:2: warning: use location
 
 "
 
@@ -4485,7 +5514,7 @@ p2_5 = malloc (1)
 "
 
 [label=" form basic block 2: *p2_5 = 1
-test.c:121:8: warning: use location
+test.c:122:8: warning: use location
 
 " ]
 
@@ -4502,7 +5531,7 @@ p2_5 = malloc (1)
 "
 
 ->" *p2_5 = 1
-test.c:121:8: warning: use location
+test.c:122:8: warning: use location
 
 "
 
@@ -4523,7 +5552,7 @@ _11 = foo2 (z_9(D))
 "
 
 [label=" form basic block 2: return _11
-test.c:138:9: warning: use location
+test.c:139:9: warning: use location
 " ]
 
 " # .MEM_17 = VDEF <.MEM_16>
@@ -4539,51 +5568,49 @@ _11 = foo2 (z_9(D))
 "
 
 
-->"ID : 555302389
+->"ID : 1393881784
 from foo2 basic block 2"->
 
-
-" ID : 2103102340 stmt(call) :foo3 (p3_14)
+" ID : 555306889 stmt(call) :foo3 (p3_15)
 In function ‘foo2’:
 
 "
 
-->"ID : 555302389
+
+->"ID : 1393881784
+from foo2 basic block 3"->
+
+" ID : 1031649201 stmt(call) :free (p3_15)
+test.c:85:3: warning: use location
+
+"
+
+
+"ID : 1393881784
 from foo2 basic block 3"->
 
 
-" ID : 103379045 stmt(call) :free (p3_14)
-test.c:84:3: warning: use location
+" ID : 203109947 stmt(LHS) :_33 = p3_15
+test.c:86:10: warning: use location
 
 "
 
 
-"ID : 555302389
-from foo2 basic block 3"->
+->"ID : 1393881784
+from foo2 basic block 4"->
 
-
-" ID : 556068498 stmt(LHS) :_31 = p3_14
-test.c:85:10: warning: use location
+" ID : 1159525998 stmt(call) :free (p4_17)
+test.c:91:3: warning: use location
 
 "
 
 
-->"ID : 555302389
+"ID : 1393881784
 from foo2 basic block 4"->
 
 
-" ID : 1175135504 stmt(call) :free (p4_16)
-test.c:90:3: warning: use location
-
-"
-
-
-"ID : 555302389
-from foo2 basic block 4"->
-
-
-" ID : 1901760488 stmt(LHS) :_27 = p4_16
-test.c:91:10: warning: use location
+" ID : 1605340369 stmt(LHS) :_29 = p4_17
+test.c:92:10: warning: use location
 
 "
 
@@ -4800,8 +5827,8 @@ test.c:60:8: warning: use location
 "->
 
 
-" # .MEM_34 = VDEF <.MEM_33(D)>
-a2_12 = malloc (_1)
+" # .MEM_36 = VDEF <.MEM_35(D)>
+a2_13 = malloc (_1)
 
 "
 
@@ -4810,8 +5837,8 @@ test.c:60:8: warning: use location
 
 " ]
 
-" # .MEM_34 = VDEF <.MEM_33(D)>
-a2_12 = malloc (_1)
+" # .MEM_36 = VDEF <.MEM_35(D)>
+a2_13 = malloc (_1)
 
 "->
 
@@ -4819,330 +5846,11 @@ a2_12 = malloc (_1)
 
 
 ->" *p2_4 = 10
-a2_12 = malloc (_1)
+a2_13 = malloc (_1)
 "
 
 ->" *p2_4 = 10
 test.c:60:8: warning: use location
-
-"
-
-
-
-
-
-
-
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 5: _7 = PHI <p3_14(3), p4_16(4)>
-lto1: warning: use location
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 5"
-
-
-->" _7 = PHI <p3_14(3), p4_16(4)>
-p3_14 = malloc (_2)
-"
-
-->" _7 = PHI <p3_14(3), p4_16(4)>
-lto1: warning: use location
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 3: _31 = p3_14
-test.c:85:10: warning: use location
-
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 3"
-
-
-->" _31 = p3_14
-p3_14 = malloc (_2)
-"
-
-->" _31 = p3_14
-test.c:85:10: warning: use location
-
-"
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 3: free (p3_14)
-test.c:84:3: warning: use location
-
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 3"
-
-
-->" free (p3_14)
-p3_14 = malloc (_2)
-"
-
-->" free (p3_14)
-test.c:84:3: warning: use location
-
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 3: *p3_14 = 10
-test.c:83:9: warning: use location
-
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 3"
-
-
-->" *p3_14 = 10
-p3_14 = malloc (_2)
-"
-
-->" *p3_14 = 10
-test.c:83:9: warning: use location
-
-"
-
-" foo2
-"->
-
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"
-
-[label=" form basic block 2: foo3 (p3_14)
-test.c:78:2: warning: use location
-
-" ]
-
-" # .MEM_35 = VDEF <.MEM_34>
-p3_14 = malloc (_2)
-
-"->
-
-" from foo2 basic block 2"
-
-
-->" foo3 (p3_14)
-p3_14 = malloc (_2)
-"
-
-->" foo3 (p3_14)
-test.c:78:2: warning: use location
-
-"
-
-
-" foo2
-"->
-
-
-" # VUSE <.MEM_32>
-return _7
-
-"
-
-[label=" form basic block 5: # VUSE <.MEM_32>
-return _7
-
-" ]
-
-" # VUSE <.MEM_32>
-return _7
-
-"->
-
-" from foo2 basic block 5"
-
-->" return _7
-lto1: warning: use location
-"
-
-
-
-
-
-
-
-
-" foo2
-"->
-
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"
-
-[label=" form basic block 5: _7 = PHI <p3_14(3), p4_16(4)>
-lto1: warning: use location
-" ]
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"->
-
-" from foo2 basic block 5"
-
-
-->" _7 = PHI <p3_14(3), p4_16(4)>
-p4_16 = malloc (_3)
-"
-
-->" _7 = PHI <p3_14(3), p4_16(4)>
-lto1: warning: use location
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"
-
-[label=" form basic block 4: _27 = p4_16
-test.c:91:10: warning: use location
-
-" ]
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"->
-
-" from foo2 basic block 4"
-
-
-->" _27 = p4_16
-p4_16 = malloc (_3)
-"
-
-->" _27 = p4_16
-test.c:91:10: warning: use location
-
-"
-
-" foo2
-"->
-
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"
-
-[label=" form basic block 4: free (p4_16)
-test.c:90:3: warning: use location
-
-" ]
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"->
-
-" from foo2 basic block 4"
-
-
-->" free (p4_16)
-p4_16 = malloc (_3)
-"
-
-->" free (p4_16)
-test.c:90:3: warning: use location
-
-"
-
-
-" foo2
-"->
-
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"
-
-[label=" form basic block 4: *p4_16 = 10
-test.c:89:9: warning: use location
-
-" ]
-
-" # .MEM_36 = VDEF <.MEM_35>
-p4_16 = malloc (_3)
-
-"->
-
-" from foo2 basic block 4"
-
-
-->" *p4_16 = 10
-p4_16 = malloc (_3)
-"
-
-->" *p4_16 = 10
-test.c:89:9: warning: use location
 
 "
 
@@ -5158,6 +5866,325 @@ test.c:89:9: warning: use location
 
 
 " # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"
+
+[label=" form basic block 5: _8 = PHI <p3_15(3), p4_17(4)>
+lto1: warning: use location
+" ]
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"->
+
+" from foo2 basic block 5"
+
+
+->" _8 = PHI <p3_15(3), p4_17(4)>
+p3_15 = malloc (_2)
+"
+
+->" _8 = PHI <p3_15(3), p4_17(4)>
+lto1: warning: use location
+"
+
+
+" foo2
+"->
+
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"
+
+[label=" form basic block 3: _33 = p3_15
+test.c:86:10: warning: use location
+
+" ]
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"->
+
+" from foo2 basic block 3"
+
+
+->" _33 = p3_15
+p3_15 = malloc (_2)
+"
+
+->" _33 = p3_15
+test.c:86:10: warning: use location
+
+"
+
+" foo2
+"->
+
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"
+
+[label=" form basic block 3: free (p3_15)
+test.c:85:3: warning: use location
+
+" ]
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"->
+
+" from foo2 basic block 3"
+
+
+->" free (p3_15)
+p3_15 = malloc (_2)
+"
+
+->" free (p3_15)
+test.c:85:3: warning: use location
+
+"
+
+
+" foo2
+"->
+
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"
+
+[label=" form basic block 3: *p3_15 = 10
+test.c:84:9: warning: use location
+
+" ]
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"->
+
+" from foo2 basic block 3"
+
+
+->" *p3_15 = 10
+p3_15 = malloc (_2)
+"
+
+->" *p3_15 = 10
+test.c:84:9: warning: use location
+
+"
+
+" foo2
+"->
+
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"
+
+[label=" form basic block 2: foo3 (p3_15)
+test.c:79:2: warning: use location
+
+" ]
+
+" # .MEM_37 = VDEF <.MEM_36>
+p3_15 = malloc (_2)
+
+"->
+
+" from foo2 basic block 2"
+
+
+->" foo3 (p3_15)
+p3_15 = malloc (_2)
+"
+
+->" foo3 (p3_15)
+test.c:79:2: warning: use location
+
+"
+
+
+" foo2
+"->
+
+
+" # VUSE <.MEM_34>
+return _8
+
+"
+
+[label=" form basic block 5: # VUSE <.MEM_34>
+return _8
+
+" ]
+
+" # VUSE <.MEM_34>
+return _8
+
+"->
+
+" from foo2 basic block 5"
+
+->" return _8
+lto1: warning: use location
+"
+
+
+
+
+
+
+
+
+" foo2
+"->
+
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"
+
+[label=" form basic block 5: _8 = PHI <p3_15(3), p4_17(4)>
+lto1: warning: use location
+" ]
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"->
+
+" from foo2 basic block 5"
+
+
+->" _8 = PHI <p3_15(3), p4_17(4)>
+p4_17 = malloc (_3)
+"
+
+->" _8 = PHI <p3_15(3), p4_17(4)>
+lto1: warning: use location
+"
+
+
+" foo2
+"->
+
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"
+
+[label=" form basic block 4: _29 = p4_17
+test.c:92:10: warning: use location
+
+" ]
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"->
+
+" from foo2 basic block 4"
+
+
+->" _29 = p4_17
+p4_17 = malloc (_3)
+"
+
+->" _29 = p4_17
+test.c:92:10: warning: use location
+
+"
+
+" foo2
+"->
+
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"
+
+[label=" form basic block 4: free (p4_17)
+test.c:91:3: warning: use location
+
+" ]
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"->
+
+" from foo2 basic block 4"
+
+
+->" free (p4_17)
+p4_17 = malloc (_3)
+"
+
+->" free (p4_17)
+test.c:91:3: warning: use location
+
+"
+
+
+" foo2
+"->
+
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"
+
+[label=" form basic block 4: *p4_17 = 10
+test.c:90:9: warning: use location
+
+" ]
+
+" # .MEM_38 = VDEF <.MEM_37>
+p4_17 = malloc (_3)
+
+"->
+
+" from foo2 basic block 4"
+
+
+->" *p4_17 = 10
+p4_17 = malloc (_3)
+"
+
+->" *p4_17 = 10
+test.c:90:9: warning: use location
+
+"
+
+
+
+
+
+
+
+
+" foo2
+"->
+
+
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "
@@ -5167,7 +6194,7 @@ test.c:69:6: warning: use location
 
 " ]
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "->
@@ -5188,7 +6215,7 @@ test.c:69:6: warning: use location
 "->
 
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "
@@ -5198,7 +6225,7 @@ test.c:70:9: warning: use location
 
 " ]
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "->
@@ -5219,17 +6246,48 @@ test.c:70:9: warning: use location
 "->
 
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "
 
-[label=" form basic block 3: MEM[(int *)_6 + 4B] = 200
-test.c:81:10: warning: use location
+[label=" form basic block 2: MEM[(int *)_6 + 4B] = 100
+test.c:71:9: warning: use location
 
 " ]
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
+_4 = malloc (200)
+
+"->
+
+" from foo2 basic block 2"
+
+
+->" MEM[(int *)_6 + 4B] = 100
+_4 = malloc (200)
+"
+
+->" MEM[(int *)_6 + 4B] = 100
+test.c:71:9: warning: use location
+
+"
+
+" foo2
+"->
+
+
+" # .MEM_39 = VDEF <.MEM_38>
+_4 = malloc (200)
+
+"
+
+[label=" form basic block 3: MEM[(int *)_7 + 4B] = 200
+test.c:82:10: warning: use location
+
+" ]
+
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "->
@@ -5237,12 +6295,12 @@ _4 = malloc (200)
 " from foo2 basic block 3"
 
 
-->" MEM[(int *)_6 + 4B] = 200
+->" MEM[(int *)_7 + 4B] = 200
 _4 = malloc (200)
 "
 
-->" MEM[(int *)_6 + 4B] = 200
-test.c:81:10: warning: use location
+->" MEM[(int *)_7 + 4B] = 200
+test.c:82:10: warning: use location
 
 "
 
@@ -5250,17 +6308,17 @@ test.c:81:10: warning: use location
 "->
 
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "
 
 [label=" form basic block 2: MEM[(int *)_1 + 4B] = 1000
-test.c:122:10: warning: use location
+test.c:123:10: warning: use location
 
 " ]
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "->
@@ -5270,13 +6328,12 @@ _4 = malloc (200)
 
 ->" from foo basic block 2"
 
-
 ->" MEM[(int *)_1 + 4B] = 1000
 _4 = malloc (200)
 "
 
 ->" MEM[(int *)_1 + 4B] = 1000
-test.c:122:10: warning: use location
+test.c:123:10: warning: use location
 
 "
 
@@ -5284,17 +6341,17 @@ test.c:122:10: warning: use location
 "->
 
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "
 
 [label=" form basic block 2: MEM[(int *)_2 + 8B] = 200
-test.c:123:10: warning: use location
+test.c:124:10: warning: use location
 
 " ]
 
-" # .MEM_37 = VDEF <.MEM_36>
+" # .MEM_39 = VDEF <.MEM_38>
 _4 = malloc (200)
 
 "->
@@ -5304,13 +6361,12 @@ _4 = malloc (200)
 
 ->" from foo basic block 2"
 
-
 ->" MEM[(int *)_2 + 8B] = 200
 _4 = malloc (200)
 "
 
 ->" MEM[(int *)_2 + 8B] = 200
-test.c:123:10: warning: use location
+test.c:124:10: warning: use location
 
 "
 
@@ -5331,7 +6387,7 @@ p2_5 = malloc (1)
 "
 
 [label=" form basic block 2: *p2_5 = 1
-test.c:121:8: warning: use location
+test.c:122:8: warning: use location
 
 " ]
 
@@ -5348,7 +6404,7 @@ p2_5 = malloc (1)
 "
 
 ->" *p2_5 = 1
-test.c:121:8: warning: use location
+test.c:122:8: warning: use location
 
 "
 
@@ -5369,7 +6425,7 @@ _11 = foo2 (z_9(D))
 "
 
 [label=" form basic block 2: return _11
-test.c:138:9: warning: use location
+test.c:139:9: warning: use location
 " ]
 
 " # .MEM_17 = VDEF <.MEM_16>
@@ -5385,51 +6441,49 @@ _11 = foo2 (z_9(D))
 "
 
 
-->"ID : 788406057
+->"ID : 430682079
 from foo2 basic block 2"->
 
-
-" ID : 1937175871 stmt(call) :foo3 (p3_14)
+" ID : 1868927612 stmt(call) :foo3 (p3_15)
 In function ‘foo2’:
 
 "
 
-->"ID : 788406057
+
+->"ID : 430682079
+from foo2 basic block 3"->
+
+" ID : 486693813 stmt(call) :free (p3_15)
+test.c:85:3: warning: use location
+
+"
+
+
+"ID : 430682079
 from foo2 basic block 3"->
 
 
-" ID : 461848191 stmt(call) :free (p3_14)
-test.c:84:3: warning: use location
+" ID : 1698843103 stmt(LHS) :_33 = p3_15
+test.c:86:10: warning: use location
 
 "
 
 
-"ID : 788406057
-from foo2 basic block 3"->
+->"ID : 430682079
+from foo2 basic block 4"->
 
-
-" ID : 1533180579 stmt(LHS) :_31 = p3_14
-test.c:85:10: warning: use location
+" ID : 697249677 stmt(call) :free (p4_17)
+test.c:91:3: warning: use location
 
 "
 
 
-->"ID : 788406057
+"ID : 430682079
 from foo2 basic block 4"->
 
 
-" ID : 1973644834 stmt(call) :free (p4_16)
-test.c:90:3: warning: use location
-
-"
-
-
-"ID : 788406057
-from foo2 basic block 4"->
-
-
-" ID : 518898416 stmt(LHS) :_27 = p4_16
-test.c:91:10: warning: use location
+" ID : 1276422404 stmt(LHS) :_29 = p4_17
+test.c:92:10: warning: use location
 
 "
 
@@ -5459,7 +6513,7 @@ pData2_21 = malloc (10)
 "
 
 [label=" form basic block 2: child5 (pData2_21)
-test.c:190:2: warning: use location
+test.c:191:2: warning: use location
 
 " ]
 
@@ -5476,27 +6530,26 @@ pData2_21 = malloc (10)
 "
 
 ->" child5 (pData2_21)
-test.c:190:2: warning: use location
+test.c:191:2: warning: use location
 
 "
 
 
-->"ID : 641996818
+->"ID : 731006356
 from child5 basic block 2"->
 
 
-" ID : 1219614928 stmt(LHS) :pData_6 = data_5(D) + 4
-test.c:278:8: warning: use location
+" ID : 1241065276 stmt(LHS) :pData_6 = data_5(D) + 4
+test.c:279:8: warning: use location
 
 "
 
 
-->"ID : 641996818
+->"ID : 731006356
 from child5 basic block 4"->
 
-
-" ID : 1207904499 stmt(call) :free (pData_6)
-test.c:295:3: warning: use location
+" ID : 1536547580 stmt(call) :free (pData_6)
+test.c:296:3: warning: use location
 
 "
 
@@ -5532,51 +6585,49 @@ a99_16 = foo (20)
 "
 
 
-->"ID : 446738808
+->"ID : 1254065238
 from foo2 basic block 2"->
 
-
-" ID : 1401355505 stmt(call) :foo3 (p3_14)
+" ID : 1705093714 stmt(call) :foo3 (p3_15)
 In function ‘foo2’:
 
 "
 
-->"ID : 446738808
+
+->"ID : 1254065238
+from foo2 basic block 3"->
+
+" ID : 136835790 stmt(call) :free (p3_15)
+test.c:85:3: warning: use location
+
+"
+
+
+"ID : 1254065238
 from foo2 basic block 3"->
 
 
-" ID : 1701604030 stmt(call) :free (p3_14)
-test.c:84:3: warning: use location
+" ID : 1617795210 stmt(LHS) :_33 = p3_15
+test.c:86:10: warning: use location
 
 "
 
 
-"ID : 446738808
-from foo2 basic block 3"->
+->"ID : 1254065238
+from foo2 basic block 4"->
 
-
-" ID : 1835182292 stmt(LHS) :_31 = p3_14
-test.c:85:10: warning: use location
+" ID : 1777443168 stmt(call) :free (p4_17)
+test.c:91:3: warning: use location
 
 "
 
 
-->"ID : 446738808
+"ID : 1254065238
 from foo2 basic block 4"->
 
 
-" ID : 282474774 stmt(call) :free (p4_16)
-test.c:90:3: warning: use location
-
-"
-
-
-"ID : 446738808
-from foo2 basic block 4"->
-
-
-" ID : 241584588 stmt(LHS) :_27 = p4_16
-test.c:91:10: warning: use location
+" ID : 512495811 stmt(LHS) :_29 = p4_17
+test.c:92:10: warning: use location
 
 "
 
@@ -5607,7 +6658,7 @@ boo (_11)
 "
 
 [label=" form basic block 2: boo (_11)
-test.c:194:2: warning: use location
+test.c:195:2: warning: use location
 " ]
 
 " # .MEM_59 = VDEF <.MEM_58>
@@ -5617,100 +6668,89 @@ boo (_11)
 
 " from child basic block 2"
 
-
 ->" boo (_11)
-test.c:194:2: warning: use location
+test.c:195:2: warning: use location
 "
 
 
-->"ID : 1941784016
+->"ID : 997061222
 from boo basic block 2"->
 
-
-" ID : 739627882 stmt(call) :free (b_2(D))
+" ID : 139290116 stmt(call) :free (b_2(D))
 In function ‘boo’:
 
 "
 
-"ID : 1941784016
+"ID : 997061222
 from boo basic block 2"->
 
-
-" ID : 1132449430 stmt(call) :free (b_2(D))
-test.c:416:2: warning: use location
-
-"
-
-"ID : 1941784016
-from boo basic block 2"->
-
-
-" ID : 849089912 stmt(call) :test22 (b_2(D))
+" ID : 730516517 stmt(call) :free (b_2(D))
 test.c:417:2: warning: use location
 
 "
 
+"ID : 997061222
+from boo basic block 2"->
 
-->"ID : 1411169766
+" ID : 1122120225 stmt(call) :test22 (b_2(D))
+test.c:418:2: warning: use location
+
+"
+
+
+->"ID : 871503268
 from test22 basic block 2"->
 
-
-" ID : 1687751819 stmt(call) :free (k_2(D))
+" ID : 2124398301 stmt(call) :free (k_2(D))
 In function ‘test22’:
 
 "
 
-"ID : 1411169766
+"ID : 871503268
 from test22 basic block 2"->
 
-
-" ID : 804708605 stmt(call) :free (k_2(D))
-test.c:432:2: warning: use location
-
-"
-
-"ID : 1411169766
-from test22 basic block 2"->
-
-
-" ID : 1514548811 stmt(call) :free (k_2(D))
+" ID : 1677427114 stmt(call) :free (k_2(D))
 test.c:433:2: warning: use location
 
 "
 
-"ID : 1411169766
+"ID : 871503268
 from test22 basic block 2"->
 
-
-" ID : 96336669 stmt(call) :free (k_2(D))
+" ID : 1903152469 stmt(call) :free (k_2(D))
 test.c:434:2: warning: use location
 
 "
 
-"ID : 1411169766
+"ID : 871503268
 from test22 basic block 2"->
 
-
-" ID : 1979844109 stmt(call) :free (k_2(D))
+" ID : 180024600 stmt(call) :free (k_2(D))
 test.c:435:2: warning: use location
 
 "
 
-"ID : 1411169766
+"ID : 871503268
 from test22 basic block 2"->
 
-
-" ID : 1268825652 stmt(call) :free (k_2(D))
+" ID : 689469464 stmt(call) :free (k_2(D))
 test.c:436:2: warning: use location
 
 "
 
-"ID : 1411169766
+"ID : 871503268
 from test22 basic block 2"->
 
+" ID : 1361009190 stmt(call) :free (k_2(D))
+test.c:437:2: warning: use location
 
-" ID : 1448443810 stmt(call) :free (w_10)
-test.c:438:2: warning: use location
+"
+
+"ID : 871503268
+from test22 basic block 2"->
+
+" ID : 309010423 stmt(call) :free (w_10)
+test.c:439:2: warning: use location
 
 "
 
@@ -5725,30 +6765,30 @@ test.c:438:2: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
-[label=" form basic block 6: _17 = a_53 + _16
-test.c:465:23: warning: use location
+[label=" form basic block 6: _17 = a_56 + _16
+test.c:466:23: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
 " from main basic block 6"
 
 
-->" _17 = a_53 + _16
-a_53 = malloc (32)
+->" _17 = a_56 + _16
+a_56 = malloc (32)
 "
 
-->" _17 = a_53 + _16
-test.c:465:23: warning: use location
+->" _17 = a_56 + _16
+test.c:466:23: warning: use location
 
 "
 
@@ -5756,18 +6796,18 @@ test.c:465:23: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
 [label=" form basic block 6: _18 = _17->name
-test.c:465:3: warning: use location
+test.c:466:3: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
@@ -5775,11 +6815,11 @@ a_53 = malloc (32)
 
 
 ->" _18 = _17->name
-a_53 = malloc (32)
+a_56 = malloc (32)
 "
 
 ->" _18 = _17->name
-test.c:465:3: warning: use location
+test.c:466:3: warning: use location
 
 "
 
@@ -5787,27 +6827,27 @@ test.c:465:3: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
-[label=" form basic block 6: _94 = __printf_chk (1, s, d\n, _18, _14)
+[label=" form basic block 6: _98 = __printf_chk (1, s, d\n, _18, _14)
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
 " from main basic block 6"
 
 
-->" _94 = __printf_chk (1, s, d\n, _18, _14)
-a_53 = malloc (32)
+->" _98 = __printf_chk (1, s, d\n, _18, _14)
+a_56 = malloc (32)
 "
 
-->" _94 = __printf_chk (1, s, d\n, _18, _14)
+->" _98 = __printf_chk (1, s, d\n, _18, _14)
 "
 
 
@@ -5815,30 +6855,30 @@ a_53 = malloc (32)
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
-[label=" form basic block 6: _13 = a_53 + _12
-test.c:465:34: warning: use location
+[label=" form basic block 6: _13 = a_56 + _12
+test.c:466:34: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
 " from main basic block 6"
 
 
-->" _13 = a_53 + _12
-a_53 = malloc (32)
+->" _13 = a_56 + _12
+a_56 = malloc (32)
 "
 
-->" _13 = a_53 + _12
-test.c:465:34: warning: use location
+->" _13 = a_56 + _12
+test.c:466:34: warning: use location
 
 "
 
@@ -5846,18 +6886,18 @@ test.c:465:34: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
 [label=" form basic block 6: _14 = _13->nummer
-test.c:465:3: warning: use location
+test.c:466:3: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
@@ -5865,11 +6905,11 @@ a_53 = malloc (32)
 
 
 ->" _14 = _13->nummer
-a_53 = malloc (32)
+a_56 = malloc (32)
 "
 
 ->" _14 = _13->nummer
-test.c:465:3: warning: use location
+test.c:466:3: warning: use location
 
 "
 
@@ -5877,30 +6917,30 @@ test.c:465:3: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
-[label=" form basic block 5: free (a_53)
-test.c:462:2: warning: use location
+[label=" form basic block 5: free (a_56)
+test.c:463:2: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
 " from main basic block 5"
 
 
-->" free (a_53)
-a_53 = malloc (32)
+->" free (a_56)
+a_56 = malloc (32)
 "
 
-->" free (a_53)
-test.c:462:2: warning: use location
+->" free (a_56)
+test.c:463:2: warning: use location
 
 "
 
@@ -5909,30 +6949,30 @@ test.c:462:2: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
-[label=" form basic block 3: _9 = a_53 + _8
-test.c:460:4: warning: use location
+[label=" form basic block 3: _9 = a_56 + _8
+test.c:461:4: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
 " from main basic block 3"
 
 
-->" _9 = a_53 + _8
-a_53 = malloc (32)
+->" _9 = a_56 + _8
+a_56 = malloc (32)
 "
 
-->" _9 = a_53 + _8
-test.c:460:4: warning: use location
+->" _9 = a_56 + _8
+test.c:461:4: warning: use location
 
 "
 
@@ -5940,18 +6980,18 @@ test.c:460:4: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
 [label=" form basic block 3: _9->nummer = 123
-test.c:460:15: warning: use location
+test.c:461:15: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
@@ -5959,11 +6999,11 @@ a_53 = malloc (32)
 
 
 ->" _9->nummer = 123
-a_53 = malloc (32)
+a_56 = malloc (32)
 "
 
 ->" _9->nummer = 123
-test.c:460:15: warning: use location
+test.c:461:15: warning: use location
 
 "
 
@@ -5971,30 +7011,30 @@ test.c:460:15: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
-[label=" form basic block 3: _6 = a_53 + _5
-test.c:459:4: warning: use location
+[label=" form basic block 3: _6 = a_56 + _5
+test.c:460:4: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
 " from main basic block 3"
 
 
-->" _6 = a_53 + _5
-a_53 = malloc (32)
+->" _6 = a_56 + _5
+a_56 = malloc (32)
 "
 
-->" _6 = a_53 + _5
-test.c:459:4: warning: use location
+->" _6 = a_56 + _5
+test.c:460:4: warning: use location
 
 "
 
@@ -6002,18 +7042,18 @@ test.c:459:4: warning: use location
 "->
 
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "
 
 [label=" form basic block 3: _6->name = Testname
-test.c:459:13: warning: use location
+test.c:460:13: warning: use location
 
 " ]
 
-" # .MEM_119 = VDEF <.MEM_118(D)>
-a_53 = malloc (32)
+" # .MEM_123 = VDEF <.MEM_122(D)>
+a_56 = malloc (32)
 
 "->
 
@@ -6021,11 +7061,11 @@ a_53 = malloc (32)
 
 
 ->" _6->name = Testname
-a_53 = malloc (32)
+a_56 = malloc (32)
 "
 
 ->" _6->name = Testname
-test.c:459:13: warning: use location
+test.c:460:13: warning: use location
 
 "
 
@@ -6040,17 +7080,17 @@ test.c:459:13: warning: use location
 "->
 
 
-" # VUSE <.MEM_127>
+" # VUSE <.MEM_131>
 _22 = t
 
 "
 
 [label=" form basic block 8: pthread_create (&t, &attr2, child2, _21)
-test.c:497:2: warning: use location
+test.c:498:2: warning: use location
 
 " ]
 
-" # VUSE <.MEM_127>
+" # VUSE <.MEM_131>
 _22 = t
 
 "->
@@ -6058,7 +7098,7 @@ _22 = t
 " from main basic block 8"
 
 ->" pthread_create (&t, &attr2, child2, _21)
-test.c:497:2: warning: use location
+test.c:498:2: warning: use location
 
 "
 
@@ -6067,16 +7107,16 @@ test.c:497:2: warning: use location
 "->
 
 
-" # VUSE <.MEM_127>
+" # VUSE <.MEM_131>
 _22 = t
 
 "
 
 [label=" form basic block 8: pthread_join (_22, 0B)
-test.c:499:2: warning: use location
+test.c:500:2: warning: use location
 " ]
 
-" # VUSE <.MEM_127>
+" # VUSE <.MEM_131>
 _22 = t
 
 "->
@@ -6084,7 +7124,7 @@ _22 = t
 " from main basic block 8"
 
 ->" pthread_join (_22, 0B)
-test.c:499:2: warning: use location
+test.c:500:2: warning: use location
 "
 
 
@@ -6098,26 +7138,25 @@ test.c:499:2: warning: use location
 "->
 
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "
 
-[label=" form basic block 9: _24 = t2[i_41]
-test.c:506:3: warning: use location
+[label=" form basic block 9: _24 = t2[i_44]
+test.c:507:3: warning: use location
 
 " ]
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "->
 
 " from main basic block 9"
 
-
-->" _24 = t2[i_41]
-test.c:506:3: warning: use location
+->" _24 = t2[i_44]
+test.c:507:3: warning: use location
 
 "
 
@@ -6125,23 +7164,22 @@ test.c:506:3: warning: use location
 "->
 
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "
 
-[label=" form basic block 9: _108 = __printf_chk (1, ld\n, _24)
+[label=" form basic block 9: _112 = __printf_chk (1, ld\n, _24)
 " ]
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "->
 
 " from main basic block 9"
 
-
-->" _108 = __printf_chk (1, ld\n, _24)
+->" _112 = __printf_chk (1, ld\n, _24)
 "
 
 
@@ -6149,26 +7187,25 @@ err_102 = pthread_create (_23, &attr2, child, 0B)
 "->
 
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "
 
-[label=" form basic block 15: _30 = t2[i_42]
-test.c:531:3: warning: use location
+[label=" form basic block 15: _30 = t2[i_45]
+test.c:532:3: warning: use location
 
 " ]
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "->
 
 " from main basic block 15"
 
-
-->" _30 = t2[i_42]
-test.c:531:3: warning: use location
+->" _30 = t2[i_45]
+test.c:532:3: warning: use location
 
 "
 
@@ -6176,26 +7213,25 @@ test.c:531:3: warning: use location
 "->
 
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "
 
 [label=" form basic block 15: pthread_join (_30, 0B)
-test.c:531:3: warning: use location
+test.c:532:3: warning: use location
 
 " ]
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "->
 
 " from main basic block 15"
 
-
 ->" pthread_join (_30, 0B)
-test.c:531:3: warning: use location
+test.c:532:3: warning: use location
 
 "
 
@@ -6204,25 +7240,24 @@ test.c:531:3: warning: use location
 "->
 
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "
 
-[label=" form basic block 9: err_102 = pthread_create (_23, &attr2, child, 0B)
-test.c:504:7: warning: use location
+[label=" form basic block 9: err_106 = pthread_create (_23, &attr2, child, 0B)
+test.c:505:7: warning: use location
 " ]
 
-" # .MEM_157 = VDEF <.MEM_113>
-err_102 = pthread_create (_23, &attr2, child, 0B)
+" # .MEM_162 = VDEF <.MEM_117>
+err_106 = pthread_create (_23, &attr2, child, 0B)
 
 "->
 
 " from main basic block 9"
 
-
-->" err_102 = pthread_create (_23, &attr2, child, 0B)
-test.c:504:7: warning: use location
+->" err_106 = pthread_create (_23, &attr2, child, 0B)
+test.c:505:7: warning: use location
 "
 
 
@@ -6236,30 +7271,30 @@ test.c:504:7: warning: use location
 "->
 
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "
 
-[label=" form basic block 23: _33 = foo5 (q_65, q_65)
-test.c:551:2: warning: use location
+[label=" form basic block 23: _33 = foo5 (q_68, q_68)
+test.c:552:2: warning: use location
 
 " ]
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "->
 
 " from main basic block 23"
 
 
-->" _33 = foo5 (q_65, q_65)
-q_65 = malloc (10)
+->" _33 = foo5 (q_68, q_68)
+q_68 = malloc (10)
 "
 
-->" _33 = foo5 (q_65, q_65)
-test.c:551:2: warning: use location
+->" _33 = foo5 (q_68, q_68)
+test.c:552:2: warning: use location
 
 "
 
@@ -6268,61 +7303,30 @@ test.c:551:2: warning: use location
 "->
 
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "
 
-[label=" form basic block 14: *q_65 = 20
-test.c:523:8: warning: use location
+[label=" form basic block 14: *q_68 = 20
+test.c:524:8: warning: use location
 
 " ]
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "->
 
 " from main basic block 14"
 
 
-->" *q_65 = 20
-q_65 = malloc (10)
+->" *q_68 = 20
+q_68 = malloc (10)
 "
 
-->" *q_65 = 20
-test.c:523:8: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
-
-"
-
-[label=" form basic block 12: *q_65 = 10
-test.c:519:8: warning: use location
-
-" ]
-
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
-
-"->
-
-" from main basic block 12"
-
-
-->" *q_65 = 10
-q_65 = malloc (10)
-"
-
-->" *q_65 = 10
-test.c:519:8: warning: use location
+->" *q_68 = 20
+test.c:524:8: warning: use location
 
 "
 
@@ -6330,60 +7334,90 @@ test.c:519:8: warning: use location
 "->
 
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "
 
-[label=" form basic block 12: child6 (_29, q_65)
-test.c:516:3: warning: use location
+[label=" form basic block 12: *q_68 = 10
+test.c:520:8: warning: use location
 
 " ]
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "->
 
 " from main basic block 12"
 
 
-->" child6 (_29, q_65)
-q_65 = malloc (10)
+->" *q_68 = 10
+q_68 = malloc (10)
 "
 
-->" child6 (_29, q_65)
-test.c:516:3: warning: use location
+->" *q_68 = 10
+test.c:520:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"
+
+[label=" form basic block 12: child6 (_29, q_68)
+test.c:517:3: warning: use location
+
+" ]
+
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
+
+"->
+
+" from main basic block 12"
+
+
+->" child6 (_29, q_68)
+q_68 = malloc (10)
+"
+
+->" child6 (_29, q_68)
+test.c:517:3: warning: use location
 
 "
 
 
-->"ID : 1826535080
+->"ID : 1344891013
 from child6 basic block 3"->
 
 
-" ID : 1869943583 stmt(LHS) :pData_9 = &MEM[(void *)test_5(D) + 84B]
-test.c:325:9: warning: use location
+" ID : 1083698937 stmt(LHS) :pData_9 = &MEM[(void *)test_5(D) + 84B]
+test.c:326:9: warning: use location
 
 "
 
 
-->"ID : 1826535080
+->"ID : 1344891013
 from child6 basic block 4"->
 
 
-" ID : 2029891513 stmt(LHS) :pData_7 = &MEM[(void *)test_5(D) + 84B]
-test.c:330:9: warning: use location
+" ID : 439431749 stmt(LHS) :pData_7 = &MEM[(void *)test_5(D) + 84B]
+test.c:331:9: warning: use location
 
 "
 
 
-"ID : 1826535080
+"ID : 1344891013
 from child6 basic block 4"->
 
-
-" ID : 1968675257 stmt(call) :free (pData_7)
-test.c:332:3: warning: use location
+" ID : 685021023 stmt(call) :free (pData_7)
+test.c:333:3: warning: use location
 
 "
 
@@ -6392,253 +7426,241 @@ test.c:332:3: warning: use location
 "->
 
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "
 
-[label=" form basic block 12: child (q_65)
-test.c:515:3: warning: use location
+[label=" form basic block 12: child (q_68)
+test.c:516:3: warning: use location
 
 " ]
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "->
 
 " from main basic block 12"
 
 
-->" child (q_65)
-q_65 = malloc (10)
+->" child (q_68)
+q_68 = malloc (10)
 "
 
-->" child (q_65)
-test.c:515:3: warning: use location
+->" child (q_68)
+test.c:516:3: warning: use location
 
 "
 
 
-->"ID : 164432965
+->"ID : 1327554154
 from child basic block 2"->
 
 
-" ID : 619963353 stmt(LHS) :_1 = data
-test.c:175:7: warning: use location
+" ID : 1835927895 stmt(LHS) :_1 = data
+test.c:176:7: warning: use location
 
 "
 
 
-"ID : 164432965
+"ID : 1327554154
 from child basic block 2"->
 
 
-" ID : 1095781216 stmt(LHS) :_2 = pData
-test.c:177:9: warning: use location
+" ID : 1147271257 stmt(LHS) :_2 = pData
+test.c:178:9: warning: use location
 
 "
 
 
-"ID : 164432965
+"ID : 1327554154
 from child basic block 2"->
 
 
-" ID : 1455495907 stmt(LHS) :_4 = pData
-test.c:177:9: warning: use location
+" ID : 295428992 stmt(LHS) :_4 = pData
+test.c:178:9: warning: use location
 
 "
 
 
-"ID : 164432965
+"ID : 1327554154
 from child basic block 2"->
 
 
-" ID : 621204959 stmt(LHS) :_6 = pData
-test.c:184:9: warning: use location
+" ID : 1061855046 stmt(LHS) :_6 = pData
+test.c:185:9: warning: use location
 
 "
 
 
-"ID : 164432965
+"ID : 1327554154
 from child basic block 2"->
 
 
-" ID : 1910638995 stmt(LHS) :_7 = pData
-test.c:187:3: warning: use location
+" ID : 1139464958 stmt(LHS) :_7 = pData
+test.c:188:3: warning: use location
 
 "
 
 
-"ID : 164432965
+"ID : 1327554154
 from child basic block 2"->
 
 
-" ID : 1403783807 stmt(LHS) :_9 = pData
-test.c:192:2: warning: use location
-
-"
-
-
-"ID : 164432965
-from child basic block 2"->
-
-
-" ID : 2136995376 stmt(call) :free (_9)
-test.c:192:2: warning: use location
-
-"
-
-
-"ID : 164432965
-from child basic block 2"->
-
-
-" ID : 674349796 stmt(LHS) :_10 = data
+" ID : 1166456300 stmt(LHS) :_9 = pData
 test.c:193:2: warning: use location
 
 "
 
 
-"ID : 164432965
+"ID : 1327554154
 from child basic block 2"->
 
-
-" ID : 1184432168 stmt(call) :free (_10)
+" ID : 467806797 stmt(call) :free (_9)
 test.c:193:2: warning: use location
 
 "
 
 
-"ID : 164432965
+"ID : 1327554154
 from child basic block 2"->
 
 
-" ID : 626644150 stmt(LHS) :_11 = data
+" ID : 1821128124 stmt(LHS) :_10 = data
 test.c:194:2: warning: use location
 
 "
 
 
-"ID : 164432965
+"ID : 1327554154
 from child basic block 2"->
 
-
-" ID : 886504406 stmt(call) :boo (_11)
+" ID : 1251009150 stmt(call) :free (_10)
 test.c:194:2: warning: use location
 
 "
 
 
-->"ID : 584413587
+"ID : 1327554154
+from child basic block 2"->
+
+
+" ID : 182768971 stmt(LHS) :_11 = data
+test.c:195:2: warning: use location
+
+"
+
+
+"ID : 1327554154
+from child basic block 2"->
+
+" ID : 1934193064 stmt(call) :boo (_11)
+test.c:195:2: warning: use location
+
+"
+
+
+->"ID : 979769621
 from boo basic block 2"->
 
-
-" ID : 1173524632 stmt(call) :free (b_2(D))
+" ID : 2075669181 stmt(call) :free (b_2(D))
 In function ‘boo’:
 
 "
 
-"ID : 584413587
+"ID : 979769621
 from boo basic block 2"->
 
-
-" ID : 189311402 stmt(call) :free (b_2(D))
-test.c:416:2: warning: use location
-
-"
-
-"ID : 584413587
-from boo basic block 2"->
-
-
-" ID : 65576256 stmt(call) :test22 (b_2(D))
+" ID : 1965353591 stmt(call) :free (b_2(D))
 test.c:417:2: warning: use location
 
 "
 
+"ID : 979769621
+from boo basic block 2"->
 
-->"ID : 1015850107
+" ID : 2051580818 stmt(call) :test22 (b_2(D))
+test.c:418:2: warning: use location
+
+"
+
+
+->"ID : 401306159
 from test22 basic block 2"->
 
-
-" ID : 556415617 stmt(call) :free (k_2(D))
+" ID : 1043548462 stmt(call) :free (k_2(D))
 In function ‘test22’:
 
 "
 
-"ID : 1015850107
+"ID : 401306159
 from test22 basic block 2"->
 
-
-" ID : 146818591 stmt(call) :free (k_2(D))
-test.c:432:2: warning: use location
-
-"
-
-"ID : 1015850107
-from test22 basic block 2"->
-
-
-" ID : 761597112 stmt(call) :free (k_2(D))
+" ID : 742343634 stmt(call) :free (k_2(D))
 test.c:433:2: warning: use location
 
 "
 
-"ID : 1015850107
+"ID : 401306159
 from test22 basic block 2"->
 
-
-" ID : 482330222 stmt(call) :free (k_2(D))
+" ID : 185653557 stmt(call) :free (k_2(D))
 test.c:434:2: warning: use location
 
 "
 
-"ID : 1015850107
+"ID : 401306159
 from test22 basic block 2"->
 
-
-" ID : 2047755519 stmt(call) :free (k_2(D))
+" ID : 409842953 stmt(call) :free (k_2(D))
 test.c:435:2: warning: use location
 
 "
 
-"ID : 1015850107
+"ID : 401306159
 from test22 basic block 2"->
 
-
-" ID : 1618670146 stmt(call) :free (k_2(D))
+" ID : 736089298 stmt(call) :free (k_2(D))
 test.c:436:2: warning: use location
 
 "
 
+"ID : 401306159
+from test22 basic block 2"->
 
-->"ID : 693457420
-from child4 basic block 3"->
-
-
-" ID : 494947722 stmt(LHS) :_1 = data
-test.c:219:11: warning: use location
+" ID : 1572718103 stmt(call) :free (k_2(D))
+test.c:437:2: warning: use location
 
 "
 
 
-"ID : 693457420
+->"ID : 404368291
 from child4 basic block 3"->
 
 
-" ID : 1599209985 stmt(LHS) :_3 = data
-test.c:219:3: warning: use location
+" ID : 1091754422 stmt(LHS) :_1 = data
+test.c:220:11: warning: use location
 
 "
 
 
-->"ID : 693457420
+"ID : 404368291
+from child4 basic block 3"->
+
+
+" ID : 787835242 stmt(LHS) :_3 = data
+test.c:220:3: warning: use location
+
+"
+
+
+->"ID : 404368291
 from child4 basic block 4"->
 
 
-" ID : 415917355 stmt(LHS) :_5 = data
-test.c:222:3: warning: use location
+" ID : 1488067228 stmt(LHS) :_5 = data
+test.c:223:3: warning: use location
 
 "
 
@@ -6647,30 +7669,30 @@ test.c:222:3: warning: use location
 "->
 
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "
 
-[label=" form basic block 11: _25 = q_65 != 0B
-test.c:512:9: warning: use location
+[label=" form basic block 11: _25 = q_68 != 0B
+test.c:513:9: warning: use location
 
 " ]
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "->
 
 " from main basic block 11"
 
 
-->" _25 = q_65 != 0B
-q_65 = malloc (10)
+->" _25 = q_68 != 0B
+q_68 = malloc (10)
 "
 
-->" _25 = q_65 != 0B
-test.c:512:9: warning: use location
+->" _25 = q_68 != 0B
+test.c:513:9: warning: use location
 
 "
 
@@ -6678,18 +7700,18 @@ test.c:512:9: warning: use location
 "->
 
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "
 
 [label=" form basic block 11: _27 = _25 & _26
-test.c:512:18: warning: use location
+test.c:513:18: warning: use location
 
 " ]
 
-" # .MEM_129 = VDEF <.MEM_113>
-q_65 = malloc (10)
+" # .MEM_133 = VDEF <.MEM_117>
+q_68 = malloc (10)
 
 "->
 
@@ -6697,11 +7719,11 @@ q_65 = malloc (10)
 
 
 ->" _27 = _25 & _26
-q_65 = malloc (10)
+q_68 = malloc (10)
 "
 
 ->" _27 = _25 & _26
-test.c:512:18: warning: use location
+test.c:513:18: warning: use location
 
 "
 
@@ -6716,253 +7738,241 @@ test.c:512:18: warning: use location
 "->
 
 
-" # .MEM_130 = VDEF <.MEM_129>
-q2_67 = malloc (20)
+" # .MEM_134 = VDEF <.MEM_133>
+q2_70 = malloc (20)
 
 "
 
-[label=" form basic block 14: child (q2_67)
-test.c:524:3: warning: use location
+[label=" form basic block 14: child (q2_70)
+test.c:525:3: warning: use location
 
 " ]
 
-" # .MEM_130 = VDEF <.MEM_129>
-q2_67 = malloc (20)
+" # .MEM_134 = VDEF <.MEM_133>
+q2_70 = malloc (20)
 
 "->
 
 " from main basic block 14"
 
 
-->" child (q2_67)
-q2_67 = malloc (20)
+->" child (q2_70)
+q2_70 = malloc (20)
 "
 
-->" child (q2_67)
-test.c:524:3: warning: use location
+->" child (q2_70)
+test.c:525:3: warning: use location
 
 "
 
 
-->"ID : 997318940
+->"ID : 1219630419
 from child basic block 2"->
 
 
-" ID : 368699162 stmt(LHS) :_1 = data
-test.c:175:7: warning: use location
+" ID : 472643874 stmt(LHS) :_1 = data
+test.c:176:7: warning: use location
 
 "
 
 
-"ID : 997318940
+"ID : 1219630419
 from child basic block 2"->
 
 
-" ID : 2035846227 stmt(LHS) :_2 = pData
-test.c:177:9: warning: use location
+" ID : 963566727 stmt(LHS) :_2 = pData
+test.c:178:9: warning: use location
 
 "
 
 
-"ID : 997318940
+"ID : 1219630419
 from child basic block 2"->
 
 
-" ID : 1618523899 stmt(LHS) :_4 = pData
-test.c:177:9: warning: use location
+" ID : 134001817 stmt(LHS) :_4 = pData
+test.c:178:9: warning: use location
 
 "
 
 
-"ID : 997318940
+"ID : 1219630419
 from child basic block 2"->
 
 
-" ID : 131854510 stmt(LHS) :_6 = pData
-test.c:184:9: warning: use location
+" ID : 1612108833 stmt(LHS) :_6 = pData
+test.c:185:9: warning: use location
 
 "
 
 
-"ID : 997318940
+"ID : 1219630419
 from child basic block 2"->
 
 
-" ID : 1292146386 stmt(LHS) :_7 = pData
-test.c:187:3: warning: use location
+" ID : 2130023027 stmt(LHS) :_7 = pData
+test.c:188:3: warning: use location
 
 "
 
 
-"ID : 997318940
+"ID : 1219630419
 from child basic block 2"->
 
 
-" ID : 1608035627 stmt(LHS) :_9 = pData
-test.c:192:2: warning: use location
-
-"
-
-
-"ID : 997318940
-from child basic block 2"->
-
-
-" ID : 806204306 stmt(call) :free (_9)
-test.c:192:2: warning: use location
-
-"
-
-
-"ID : 997318940
-from child basic block 2"->
-
-
-" ID : 329094906 stmt(LHS) :_10 = data
+" ID : 601808615 stmt(LHS) :_9 = pData
 test.c:193:2: warning: use location
 
 "
 
 
-"ID : 997318940
+"ID : 1219630419
 from child basic block 2"->
 
-
-" ID : 87196129 stmt(call) :free (_10)
+" ID : 1285753309 stmt(call) :free (_9)
 test.c:193:2: warning: use location
 
 "
 
 
-"ID : 997318940
+"ID : 1219630419
 from child basic block 2"->
 
 
-" ID : 1692708712 stmt(LHS) :_11 = data
+" ID : 1233548529 stmt(LHS) :_10 = data
 test.c:194:2: warning: use location
 
 "
 
 
-"ID : 997318940
+"ID : 1219630419
 from child basic block 2"->
 
-
-" ID : 913508494 stmt(call) :boo (_11)
+" ID : 784577586 stmt(call) :free (_10)
 test.c:194:2: warning: use location
 
 "
 
 
-->"ID : 1260720762
+"ID : 1219630419
+from child basic block 2"->
+
+
+" ID : 1072462725 stmt(LHS) :_11 = data
+test.c:195:2: warning: use location
+
+"
+
+
+"ID : 1219630419
+from child basic block 2"->
+
+" ID : 65834503 stmt(call) :boo (_11)
+test.c:195:2: warning: use location
+
+"
+
+
+->"ID : 712763119
 from boo basic block 2"->
 
-
-" ID : 1882020114 stmt(call) :free (b_2(D))
+" ID : 890332668 stmt(call) :free (b_2(D))
 In function ‘boo’:
 
 "
 
-"ID : 1260720762
+"ID : 712763119
 from boo basic block 2"->
 
-
-" ID : 979084750 stmt(call) :free (b_2(D))
-test.c:416:2: warning: use location
-
-"
-
-"ID : 1260720762
-from boo basic block 2"->
-
-
-" ID : 129087221 stmt(call) :test22 (b_2(D))
+" ID : 2117415321 stmt(call) :free (b_2(D))
 test.c:417:2: warning: use location
 
 "
 
+"ID : 712763119
+from boo basic block 2"->
 
-->"ID : 290952083
+" ID : 1114069278 stmt(call) :test22 (b_2(D))
+test.c:418:2: warning: use location
+
+"
+
+
+->"ID : 1933881131
 from test22 basic block 2"->
 
-
-" ID : 1125903341 stmt(call) :free (k_2(D))
+" ID : 712275307 stmt(call) :free (k_2(D))
 In function ‘test22’:
 
 "
 
-"ID : 290952083
+"ID : 1933881131
 from test22 basic block 2"->
 
-
-" ID : 890684333 stmt(call) :free (k_2(D))
-test.c:432:2: warning: use location
-
-"
-
-"ID : 290952083
-from test22 basic block 2"->
-
-
-" ID : 773282305 stmt(call) :free (k_2(D))
+" ID : 1299722836 stmt(call) :free (k_2(D))
 test.c:433:2: warning: use location
 
 "
 
-"ID : 290952083
+"ID : 1933881131
 from test22 basic block 2"->
 
-
-" ID : 1026175212 stmt(call) :free (k_2(D))
+" ID : 196240436 stmt(call) :free (k_2(D))
 test.c:434:2: warning: use location
 
 "
 
-"ID : 290952083
+"ID : 1933881131
 from test22 basic block 2"->
 
-
-" ID : 361870831 stmt(call) :free (k_2(D))
+" ID : 1448364605 stmt(call) :free (k_2(D))
 test.c:435:2: warning: use location
 
 "
 
-"ID : 290952083
+"ID : 1933881131
 from test22 basic block 2"->
 
-
-" ID : 1383749768 stmt(call) :free (k_2(D))
+" ID : 724957291 stmt(call) :free (k_2(D))
 test.c:436:2: warning: use location
 
 "
 
+"ID : 1933881131
+from test22 basic block 2"->
 
-->"ID : 1878697490
-from child4 basic block 3"->
-
-
-" ID : 250576454 stmt(LHS) :_1 = data
-test.c:219:11: warning: use location
+" ID : 1514542737 stmt(call) :free (k_2(D))
+test.c:437:2: warning: use location
 
 "
 
 
-"ID : 1878697490
+->"ID : 458813511
 from child4 basic block 3"->
 
 
-" ID : 1471245606 stmt(LHS) :_3 = data
-test.c:219:3: warning: use location
+" ID : 1679144075 stmt(LHS) :_1 = data
+test.c:220:11: warning: use location
 
 "
 
 
-->"ID : 1878697490
+"ID : 458813511
+from child4 basic block 3"->
+
+
+" ID : 469909163 stmt(LHS) :_3 = data
+test.c:220:3: warning: use location
+
+"
+
+
+->"ID : 458813511
 from child4 basic block 4"->
 
 
-" ID : 108569429 stmt(LHS) :_5 = data
-test.c:222:3: warning: use location
+" ID : 1989999683 stmt(LHS) :_5 = data
+test.c:223:3: warning: use location
 
 "
 
@@ -6977,28 +7987,28 @@ test.c:222:3: warning: use location
 "->
 
 
-" # .MEM_137 = VDEF <.MEM_117>
-data_76 = malloc (400)
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
 
 "
 
-[label=" form basic block 21: data_43 = PHI <0B(17), data_76(20)>
+[label=" form basic block 21: data_46 = PHI <0B(17), data_79(20)>
 lto1: warning: use location
 " ]
 
-" # .MEM_137 = VDEF <.MEM_117>
-data_76 = malloc (400)
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
 
 "->
 
 " from main basic block 21"
 
 
-->" data_43 = PHI <0B(17), data_76(20)>
-data_76 = malloc (400)
+->" data_46 = PHI <0B(17), data_79(20)>
+data_79 = malloc (400)
 "
 
-->" data_43 = PHI <0B(17), data_76(20)>
+->" data_46 = PHI <0B(17), data_79(20)>
 lto1: warning: use location
 "
 
@@ -7007,30 +8017,30 @@ lto1: warning: use location
 "->
 
 
-" # .MEM_137 = VDEF <.MEM_117>
-data_76 = malloc (400)
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
 
 "
 
-[label=" form basic block 22: free (data_43)
-test.c:549:3: warning: use location
+[label=" form basic block 22: free (data_46)
+test.c:550:3: warning: use location
 
 " ]
 
-" # .MEM_137 = VDEF <.MEM_117>
-data_76 = malloc (400)
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
 
 "->
 
 " from main basic block 22"
 
 
-->" free (data_43)
-data_76 = malloc (400)
+->" free (data_46)
+data_79 = malloc (400)
 "
 
-->" free (data_43)
-test.c:549:3: warning: use location
+->" free (data_46)
+test.c:550:3: warning: use location
 
 "
 
@@ -7039,30 +8049,30 @@ test.c:549:3: warning: use location
 "->
 
 
-" # .MEM_137 = VDEF <.MEM_117>
-data_76 = malloc (400)
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
 
 "
 
-[label=" form basic block 20: free (data_76)
-test.c:544:3: warning: use location
+[label=" form basic block 20: free (data_79)
+test.c:545:3: warning: use location
 
 " ]
 
-" # .MEM_137 = VDEF <.MEM_117>
-data_76 = malloc (400)
+" # .MEM_141 = VDEF <.MEM_121>
+data_79 = malloc (400)
 
 "->
 
 " from main basic block 20"
 
 
-->" free (data_76)
-data_76 = malloc (400)
+->" free (data_79)
+data_79 = malloc (400)
 "
 
-->" free (data_76)
-test.c:544:3: warning: use location
+->" free (data_79)
+test.c:545:3: warning: use location
 
 "
 
@@ -7080,17 +8090,17 @@ test.c:544:3: warning: use location
 "->
 
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "
 
 [label=" form basic block 23: p98 = _36
-test.c:560:6: warning: use location
+test.c:561:6: warning: use location
 
 " ]
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "->
@@ -7103,7 +8113,7 @@ _36 = malloc (201)
 "
 
 ->" p98 = _36
-test.c:560:6: warning: use location
+test.c:561:6: warning: use location
 
 "
 
@@ -7111,17 +8121,50 @@ test.c:560:6: warning: use location
 "->
 
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "
 
-[label=" form basic block 4: MEM[(int *)_2 + 8B] = 300
-test.c:367:10: warning: use location
+[label=" form basic block 3: MEM[(int *)_2 + 12B] = 300
+test.c:362:9: warning: use location
 
 " ]
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"->
+
+" from main basic block 3"
+
+
+->" from child7 basic block 3"
+
+->" MEM[(int *)_2 + 12B] = 300
+_36 = malloc (201)
+"
+
+->" MEM[(int *)_2 + 12B] = 300
+test.c:362:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_151 = VDEF <.MEM_150>
+_36 = malloc (201)
+
+"
+
+[label=" form basic block 4: MEM[(int *)_3 + 8B] = 300
+test.c:368:10: warning: use location
+
+" ]
+
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "->
@@ -7131,13 +8174,12 @@ _36 = malloc (201)
 
 ->" from child7 basic block 4"
 
-
-->" MEM[(int *)_2 + 8B] = 300
+->" MEM[(int *)_3 + 8B] = 300
 _36 = malloc (201)
 "
 
-->" MEM[(int *)_2 + 8B] = 300
-test.c:367:10: warning: use location
+->" MEM[(int *)_3 + 8B] = 300
+test.c:368:10: warning: use location
 
 "
 
@@ -7145,17 +8187,17 @@ test.c:367:10: warning: use location
 "->
 
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "
 
 [label=" form basic block 2: *_8 = 98
-test.c:191:9: warning: use location
+test.c:192:9: warning: use location
 
 " ]
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "->
@@ -7165,13 +8207,12 @@ _36 = malloc (201)
 
 ->" from child basic block 2"
 
-
 ->" *_8 = 98
 _36 = malloc (201)
 "
 
 ->" *_8 = 98
-test.c:191:9: warning: use location
+test.c:192:9: warning: use location
 
 "
 
@@ -7179,17 +8220,17 @@ test.c:191:9: warning: use location
 "->
 
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "
 
 [label=" form basic block 2: MEM[(int *)_1 + 4B] = 99
-test.c:387:8: warning: use location
+test.c:388:8: warning: use location
 
 " ]
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "->
@@ -7199,13 +8240,12 @@ _36 = malloc (201)
 
 ->" from child2 basic block 2"
 
-
 ->" MEM[(int *)_1 + 4B] = 99
 _36 = malloc (201)
 "
 
 ->" MEM[(int *)_1 + 4B] = 99
-test.c:387:8: warning: use location
+test.c:388:8: warning: use location
 
 "
 
@@ -7213,17 +8253,17 @@ test.c:387:8: warning: use location
 "->
 
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "
 
-[label=" form basic block 23: *_37 = 97
-test.c:561:9: warning: use location
+[label=" form basic block 23: free (_41)
+test.c:563:2: warning: use location
 
 " ]
 
-" # .MEM_147 = VDEF <.MEM_146>
+" # .MEM_151 = VDEF <.MEM_150>
 _36 = malloc (201)
 
 "->
@@ -7231,43 +8271,12 @@ _36 = malloc (201)
 " from main basic block 23"
 
 
-->" *_37 = 97
+->" free (_41)
 _36 = malloc (201)
 "
 
-->" *_37 = 97
-test.c:561:9: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_147 = VDEF <.MEM_146>
-_36 = malloc (201)
-
-"
-
-[label=" form basic block 23: free (_38)
-test.c:562:2: warning: use location
-
-" ]
-
-" # .MEM_147 = VDEF <.MEM_146>
-_36 = malloc (201)
-
-"->
-
-" from main basic block 23"
-
-
-->" free (_38)
-_36 = malloc (201)
-"
-
-->" free (_38)
-test.c:562:2: warning: use location
+->" free (_41)
+test.c:563:2: warning: use location
 
 "
 
@@ -7282,25 +8291,24 @@ test.c:562:2: warning: use location
 "->
 
 
-" # .MEM_135 = VDEF <.MEM_134>
-child6 (_29, q_65)
+" # .MEM_139 = VDEF <.MEM_138>
+child6 (_29, q_68)
 
 "
 
-[label=" form basic block 12: child6 (_29, q_65)
-test.c:516:3: warning: use location
+[label=" form basic block 12: child6 (_29, q_68)
+test.c:517:3: warning: use location
 " ]
 
-" # .MEM_135 = VDEF <.MEM_134>
-child6 (_29, q_65)
+" # .MEM_139 = VDEF <.MEM_138>
+child6 (_29, q_68)
 
 "->
 
 " from main basic block 12"
 
-
-->" child6 (_29, q_65)
-test.c:516:3: warning: use location
+->" child6 (_29, q_68)
+test.c:517:3: warning: use location
 "
 
 
@@ -7314,28 +8322,28 @@ test.c:516:3: warning: use location
 "->
 
 
-" # .MEM_141 = VDEF <.MEM_116>
-_33 = foo5 (q_65, q_65)
+" # .MEM_145 = VDEF <.MEM_120>
+_33 = foo5 (q_68, q_68)
 
 "
 
-[label=" form basic block 23: _110 = __printf_chk (1, 123d\n, _33)
+[label=" form basic block 23: _114 = __printf_chk (1, 123d\n, _33)
 " ]
 
-" # .MEM_141 = VDEF <.MEM_116>
-_33 = foo5 (q_65, q_65)
+" # .MEM_145 = VDEF <.MEM_120>
+_33 = foo5 (q_68, q_68)
 
 "->
 
 " from main basic block 23"
 
 
-->" _110 = __printf_chk (1, 123d\n, _33)
-_33 = foo5 (q_65, q_65)
+->" _114 = __printf_chk (1, 123d\n, _33)
+_33 = foo5 (q_68, q_68)
 "
 
 
-->" _110 = __printf_chk (1, 123d\n, _33)
+->" _114 = __printf_chk (1, 123d\n, _33)
 "
 
 
@@ -7352,31 +8360,238 @@ _33 = foo5 (q_65, q_65)
 "->
 
 
-" # .MEM_145 = VDEF <.MEM_144>
-p4_86 = child7 (_35, 1B)
+" # .MEM_149 = VDEF <.MEM_148>
+p4_89 = child7 (_35, 1B)
 
 "
 
-[label=" form basic block 23: free (p4_86)
-test.c:559:2: warning: use location
+[label=" form basic block 23: free (p4_89)
+test.c:560:2: warning: use location
 
 " ]
 
-" # .MEM_145 = VDEF <.MEM_144>
-p4_86 = child7 (_35, 1B)
+" # .MEM_149 = VDEF <.MEM_148>
+p4_89 = child7 (_35, 1B)
 
 "->
 
 " from main basic block 23"
 
 
-->" free (p4_86)
-p4_86 = child7 (_35, 1B)
+->" free (p4_89)
+p4_89 = child7 (_35, 1B)
 "
 
 
-->" free (p4_86)
-test.c:559:2: warning: use location
+->" free (p4_89)
+test.c:560:2: warning: use location
+
+"
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 23: p98 = _40
+test.c:562:6: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 23"
+
+
+->" p98 = _40
+_40 = child7 (_39, _37)
+"
+
+
+->" p98 = _40
+test.c:562:6: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 3: MEM[(int *)_2 + 12B] = 300
+test.c:362:9: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 3"
+
+
+->" from child7 basic block 3"
+
+->" MEM[(int *)_2 + 12B] = 300
+_40 = child7 (_39, _37)
+"
+
+
+->" MEM[(int *)_2 + 12B] = 300
+test.c:362:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 4: MEM[(int *)_3 + 8B] = 300
+test.c:368:10: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 4"
+
+
+->" from child7 basic block 4"
+
+->" MEM[(int *)_3 + 8B] = 300
+_40 = child7 (_39, _37)
+"
+
+
+->" MEM[(int *)_3 + 8B] = 300
+test.c:368:10: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 2: *_8 = 98
+test.c:192:9: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 2"
+
+
+->" from child basic block 2"
+
+->" *_8 = 98
+_40 = child7 (_39, _37)
+"
+
+
+->" *_8 = 98
+test.c:192:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 2: MEM[(int *)_1 + 4B] = 99
+test.c:388:8: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 2"
+
+
+->" from child2 basic block 2"
+
+->" MEM[(int *)_1 + 4B] = 99
+_40 = child7 (_39, _37)
+"
+
+
+->" MEM[(int *)_1 + 4B] = 99
+test.c:388:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"
+
+[label=" form basic block 23: free (_41)
+test.c:563:2: warning: use location
+
+" ]
+
+" # .MEM_153 = VDEF <.MEM_152>
+_40 = child7 (_39, _37)
+
+"->
+
+" from main basic block 23"
+
+
+->" free (_41)
+_40 = child7 (_39, _37)
+"
+
+
+->" free (_41)
+test.c:563:2: warning: use location
 
 "
 

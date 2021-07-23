@@ -68,6 +68,7 @@ int *foo2(int z)
 	int *p4 = malloc(z);
 	p99 = malloc(200);
 	p99[0] = 99;
+	p99[1] = 100;
 	int tmp;
 	// a2[0] = 10;
 
@@ -358,7 +359,7 @@ int *child7(void *data, void *test)
 	// free(&pData);
 	if (c)
 	{
-
+	p98[3] = 300;
 		return malloc(10);
 		printf("asdda%d\n", pData);
 	}
@@ -558,7 +559,7 @@ int main()
 	p4 = child7(test, p4);
 	free(p4);
 	p98 = malloc(201);
-	p98[0] = 97;
+	p98 = child7(test, p98);
 	free(p98);
 	// test22(q);
 

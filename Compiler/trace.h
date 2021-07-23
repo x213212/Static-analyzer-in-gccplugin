@@ -22,7 +22,6 @@ int dump_points_to_solution2(FILE *file, struct pt_solution *pt)
 	}
 	if (pt->vars)
 	{
-
 		fprintf(file, ", points-to vars: ");
 		// dump_decl_set(file, pt->vars);
 		// if (pt->vars_contains_nonlocal || pt->vars_contains_escaped || pt->vars_contains_escaped_heap || pt->vars_contains_restrict)
@@ -64,9 +63,9 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 	basic_block bb;
 	tree t;
 	if (node == NULL)
-
-		fprintf(stderr, "=======node_fun: =========\n");
-	debug(now_laststmt);
+		return;
+	// fprintf(stderr, "=======node_fun: =========\n");
+	// debug(now_laststmt);
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
 		//   if (!gimple_has_body_p (node->decl))
@@ -206,11 +205,9 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 						// 		}
 						// 	}
 
-						struct ptr_info_def *pi1, *pi2, *pi3, *pi4, *pi5;
-
+						struct ptr_info_def *pi1, *pi2, *pi3, *pi4;
 						pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
 						struct pt_solution *pt1 = &pi1->pt;
-
 						// dump_points_to_solution2(stderr, &pi1->pt);
 						// fprintf(stderr, "tx%d\n", dump_points_to_solution2(stderr, &pi1->pt));
 						// pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
@@ -298,8 +295,6 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 															// 	}
 															// }
 
-
-
 															// if (TREE_CODE(gimple_assign_lhs(gc)) == VAR_DECL)
 															// 	break;
 															// pi3 = SSA_NAME_PTR_INFO(gimple_assign_lhs(gc));
@@ -344,13 +339,15 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 															// }
 															if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
 															{
+																// fprintf(stderr, "\n ================== wasssssssssVVA33333============= \n");
 
-																// debug_tree(mallocStmt_tree);
-																// debug_tree(gimple_assign_lhs(gc));
+																debug_tree(mallocStmt_tree);
+																debug_tree(gimple_assign_lhs(gc));
+																fprintf(stderr, "\n ================== wasssssssssVVA33333============= \n");
 																// debug(gc);
-																// debug_points_to_info_for(mallocStmt_tree);
-																// debug_points_to_info_for(gimple_assign_lhs(gc));
-																gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_assign_lhs(gc));
+																debug_points_to_info_for(mallocStmt_tree);
+																debug_points_to_info_for(gimple_assign_lhs(gc));
+																// gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_assign_lhs(gc));
 																// tree second = NULL_TREE;
 																// second = TREE_OPERAND(gimple_assign_lhs(gc), 0);
 																// if (ptr_derefs_may_alias_p(mallocStmt_tree, second))
@@ -732,7 +729,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 												fprintf(stderr, "ID : %lu\n", now_fucntion);
 												fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
 												fprintf(stderr, "dot graph end relate end\n\n");
-												debug_tree(gimple_call_arg(gc, 0));
+												// debug_tree(gimple_call_arg(gc, 0));
 
 												fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(call) :", x);
 												debug(gc);
@@ -773,25 +770,25 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 	vector<function_path> function_path_array = fun_array.function_path_array;
 	const char *name;
 
-	if (is_gimple_call(now_stmt))
-	{
-		if (gimple_call_fn(now_stmt) != NULL)
-		{
-			name = get_name(gimple_call_fn(now_stmt));
-			// if (!strcmp(name, "free") || !strcmp(name, "xfree"))
-			// {
-			// fprintf(stderr, "dot graph stmt start ");
-			// debug(now_stmt);
-			// warning_at(gimple_location(now_stmt), 0, "use location");
+	// if (is_gimple_call(now_stmt))
+	// {
+	// 	if (gimple_call_fn(now_stmt) != NULL)
+	// 	{
+	// 		name = get_name(gimple_call_fn(now_stmt));
+	// 		// if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+	// 		// {
+	// 		// fprintf(stderr, "dot graph stmt start ");
+	// 		// debug(now_stmt);
+	// 		// warning_at(gimple_location(now_stmt), 0, "use location");
 
-			// fprintf(stderr, "dot graph stmt en1\n\n");
-			// fprintf(stderr, "dot graph arrow\n\n");
-			// }
-			// if (!strcmp(name, "pthread_create"))
-			// 	// debug();
-			// 	fprintf(stderr, "\033[40;44m =======qwdwqdqwd %s\n", get_name(gimple_call_fn(now_stmt)));
-		}
-	}
+	// 		// fprintf(stderr, "dot graph stmt en1\n\n");
+	// 		// fprintf(stderr, "dot graph arrow\n\n");
+	// 		// }
+	// 		// if (!strcmp(name, "pthread_create"))
+	// 		// 	// debug();
+	// 		// 	fprintf(stderr, "\033[40;44m =======qwdwqdqwd %s\n", get_name(gimple_call_fn(now_stmt)));
+	// 	}
+	// }
 	//debug_tree(function_tree);
 	//vector<pair<fdecl,location_t>> loc;
 	fistconunt = 0;
@@ -1125,6 +1122,15 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 							//fprintf(stderr, "\033[40;44m ============================================  \033[0m\n" ,(callerRetTypearray)[k].return_type_stmt_num);
 						}
 					}
+					else if (calleeFunArray.return_type_num == 2)
+						if ((callerRetTypearray)[k].return_tree == (function_path_array)[i].next)
+						{
+							// fprintf(stderr, "asdddddddd");
+							// debug_tree((function_path_array)[i].next);
+							checkPointerConstraint(function_tree, ptable, user_tmp, (callerRetTypearray)[k].return_tree, FUNCITON_HEAP);
+
+							break;
+						}
 					// else if (calleeFunArray.return_type_num == 2)
 					// 	if ((callerRetTypearray)[k].return_tree == (function_path_array)[i].next)
 					// 	{
@@ -1135,19 +1141,19 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 
 				// fprintf(stderr, "=======print_function_type %d  ========\n", calleeFunArray.return_type_num);
 
-				for (int k = 0; k < callerRetTypearray.size(); k++)
-				{
+				// for (int k = 0; k < callerRetTypearray.size(); k++)
+				// {
 
-					if (calleeFunArray.return_type_num == 2)
-						if ((callerRetTypearray)[k].return_tree == (function_path_array)[i].next)
-						{
-							// fprintf(stderr, "asdddddddd");
-							// debug_tree((function_path_array)[i].next);
-							checkPointerConstraint(function_tree, ptable, user_tmp, (callerRetTypearray)[k].return_tree, FUNCITON_HEAP);
+				// 	if (calleeFunArray.return_type_num == 2)
+				// 		if ((callerRetTypearray)[k].return_tree == (function_path_array)[i].next)
+				// 		{
+				// 			// fprintf(stderr, "asdddddddd");
+				// 			// debug_tree((function_path_array)[i].next);
+				// 			checkPointerConstraint(function_tree, ptable, user_tmp, (callerRetTypearray)[k].return_tree, FUNCITON_HEAP);
 
-							break;
-						}
-				}
+				// 			break;
+				// 		}
+				// }
 			}
 			walk_function_path((function_path_array)[i].next, fucntion_level, ptable, user_tmp);
 			fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.top()));
@@ -1158,9 +1164,11 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 	{
 		checkPointerConstraint(function_tree, ptable, user_tmp, NULL, FUNCITON_THREAD);
 	}
+	else
+		checkPointerConstraint(function_tree, ptable, user_tmp, NULL, 0);
 	// if (check == 0)
 	//
-	checkPointerConstraint(function_tree, ptable, user_tmp, NULL, 0);
+
 	// fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 }
 
