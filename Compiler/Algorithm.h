@@ -1264,20 +1264,22 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 				if (ptr_derefs_may_alias_p(used_stmt->target, table1->target))
 				{
-					// if (gimple_location_safe(u_stmt))
-					// {
-					// 	location_t loc = gimple_location_safe(u_stmt);
-					// 	loc = gimple_location(u_stmt);
-					// 	debug(u_stmt);
-					// 	warning_at(gimple_location_safe(u_stmt), 0, "use location");
-					// 	if (LOCATION_LINE(loc) != 562 && LOCATION_LINE(loc) != 561)
-					// 	{
+					fprintf(stderr, "filterstart\n\n");
+					if (gimple_location_safe(table1->last_stmt))
+					{
+						location_t loc = gimple_location_safe(table1->last_stmt);
+						loc = gimple_location(table1->last_stmt);
+						debug(table1->last_stmt);
+						warning_at(gimple_location_safe(table1->last_stmt), 0, "use location");
+						if (LOCATION_LINE(loc) != 171)
+						{
 
-					// 		continue;
-					// 	}
-					// }
-					// else
-					// 	continue;
+							continue;
+						}
+
+					}
+					else
+						continue;
 					fprintf(stderr, "filter\n\n");
 
 					// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
@@ -1304,6 +1306,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// debug(table1->next->target);
 		}
 	}
+	// FunctionStmtMappingAssign(ptable, used_stmt);
 	FunctionStmtMappingRet(ptable, ftable, used_stmt);
 
 	fprintf(stderr, "\033[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
@@ -1426,6 +1429,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		int childptable_type = 0;
 		int find_phistmt = 0;
 		int find_freestmt = 0;
+		int find_retheapstmt = -2;
 		int find_pthread_detched = 0;
 		int find_pthread_join = 0;
 		int is_pthread_detched = 0;
@@ -1444,8 +1448,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 			{
 				vector<free_type> free_array;
 				find_freestmt = find_mallocstmt = find_phistmt = 0;
-				// debug_tree(function_tree);
-				// debug_tree(table_temp->target);
+				debug_tree(function_tree);
+				debug_tree(table_temp->target);
 
 				//ready add dot graph
 				fprintf(stderr, "\ndot graph START\n");
@@ -1469,13 +1473,33 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// if (!strcmp(get_tree_code_name(TREE_CODE(table_temp->target)), "addr_expr"))
 				// 	continue;
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
+				fprintf(stderr, "\n ================== trace ptable================== \n");
+				if (is_gimple_call(def_stmt))
+					if (gimple_call_fn(def_stmt))
+					{
+						const char *name;
+						name = get_name(gimple_call_fn(def_stmt));
+						fprintf(stderr, "trace fucntion name:%s \n", name);
+						// debug_tree(gimple_call_fndecl(u_stmt));
+						trace_function_path(gimple_call_fndecl(def_stmt), -100, table_temp->target, &find_retheapstmt);
+						if (find_retheapstmt > 0)
+							fprintf(stderr, "this is fucntion return value is heap-object %d\n", find_retheapstmt);
+
+						// while (traceStack.size())
+						// {
+						// 	// fprintf(stderr, "check stmt\n");
+						// 	// debug(stmtStack.top());
+						// 	traceStack.pop();
+						// }
+					}
+				fprintf(stderr, "\n ================== trace ptable ================== \n");
 				// if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "addr_expr"))
 				// 	continue;
 				// debug_tree(table_temp->target);
 				if (TREE_CODE(table_temp->target) == INTEGER_CST)
 				{
 					debug_tree(table_temp->target);
-					return ;
+					return;
 				}
 				// continue;
 				else if (gimple_code(def_stmt) == GIMPLE_CALL)
@@ -1541,6 +1565,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 							if (user_tmp->ret_stmt != NULL)
 							{
+
 								if (debugmod)
 								{
 									fprintf(stderr, "dot graph entry %s\n", (char *)get_name(function_tree));
@@ -1599,7 +1624,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										fprintf(stderr, "dot graph stmt end\n\n");
 										//ready add dot graph
 									}
-									find_mallocstmt = IS_HEAP_FUCNTION;
+									// find_mallocstmt = IS_HEAP_FUCNTION;
 									continue;
 								}
 							}
@@ -1991,413 +2016,426 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 											find_mallocstmt = IS_OTHRER_FUCNTION;
 										}
-								}
-								// if( calleetype==FUNCITON_HEAP){
 
-								// 	debug_tree(function_tree);
-								// }
-								if (checkTree != NULL && find_mallocstmt == IS_OTHRER_FUCNTION && calleetype == FUNCITON_HEAP)
-								{
-									if (gimple_code(u_stmt) == GIMPLE_CALL)
+									if (calleetype == FUNCITON_HEAP)
 									{
 
-										tree gettreefucntionarg = TREE_OPERAND(gimple_call_fn(u_stmt), 0);
+										debug_tree(function_tree);
+									}
+									// if (checkTree != NULL && find_mallocstmt == IS_OTHRER_FUCNTION)
+									// {
+									// 	if (gimple_code(u_stmt) == GIMPLE_CALL)
+									// 	{
+
+									// 		tree gettreefucntionarg = TREE_OPERAND(gimple_call_fn(u_stmt), 0);
+									// 		name = get_name(gimple_call_fn(u_stmt));
+									// 		if (name != NULL)
+									// 			if (checkTree == gettreefucntionarg)
+									// 			{
+									// 				find_mallocstmt = IS_MALLOC_FUCNTION;
+									// 				// fprintf(stderr, "\n ================== qweqwe ================== \n");
+									// 				// debug_tree(checkTree);
+									// 				// debug_tree(gettreefucntionarg);
+									// 				// debug_tree(function_tree);
+									// 				// debug(def_stmt);
+									// 				// debug(u_stmt);
+									// 				// fprintf(stderr , "\n twwwwwwwwwest%d\n", calleetype);
+									// 				// fprintf(stderr, "\n ================== warring ================== \n");
+									// 				// // sfprintf(stderr, "function return value related stmt \n");
+									// 				// debug(checkTree);
+									// 				// fprintf(stderr, "\033[40;35m    function return value related stmt \033[0m\n");
+									// 				// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+
+									// 				// // fprintf(stderr, "this stmt possible is heap-object 。\n");
+									// 				// fprintf(stderr, "\n ================== warring ================== \n");
+
+									// 				if (gimple_code(u_stmt) == GIMPLE_CALL)
+									// 				{
+									// 					name = get_name(gimple_call_fn(u_stmt));
+									// 					if (name != NULL)
+									// 						if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+									// 						{
+									// 							find_freestmt++;
+									// 							free_type.stmt = u_stmt;
+									// 							free_array.push_back(free_type);
+									// 							fprintf(stderr, "\n ================== find ================== \n");
+									// 							debug(u_stmt);
+									// 							warning_at(gimple_location(u_stmt), 0, "use location");
+									// 							fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
+									// 							fprintf(stderr, "\n ================== find ================== \n");
+									// 						}
+									// 						else if (!strcmp(name, "pthread_create"))
+									// 						{
+									// 							if (table_temp->swap_type == FUNCITON_THREAD)
+									// 							{
+
+									// 								fprintf(stderr, "\n ================== find ================== \n");
+									// 								debug(u_stmt);
+									// 								warning_at(gimple_location(u_stmt), 0, "use location");
+									// 								fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED STMT  \033[0m\n");
+									// 								//  callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
+									// 								fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
+									// 								if (gimple_call_num_args(table_temp->last_stmt) != 0)
+									// 								{
+									// 									if (is_gimple_assign(table_temp->last_stmt))
+									// 										// debug_tree(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0));
+									// 										trace_function_path(gimple_assign_lhs(table_temp->last_stmt), -1, NULL_TREE, &find_pthread_detched);
+									// 									else
+									// 										trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
+									// 								}
+									// 								fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
+									// 								tree findtree = gimple_call_arg(table_temp->last_stmt, 3);
+									// 								// debug_gimple_stmt(table_temp->last_stmt);
+									// 								// debug_gimple_stmt(u_stmt);
+									// 								if (is_gimple_call(u_stmt))
+									// 								{
+									// 									tree findtree;
+									// 									if (gimple_call_num_args(u_stmt) != 0)
+									// 									{
+									// 										// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+									// 										// debug_gimple_stmt(u_stmt);
+									// 										findtree = gimple_call_arg(u_stmt, 3);
+									// 										if (!strcmp(get_tree_code_name(TREE_CODE(findtree)), "addr_expr"))
+									// 										{
+									// 											// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+									// 											// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+									// 											// tree findtree = gimple_call_arg(u_stmt, 3);
+									// 											// debug_tree(TREE_OPERAND(findtree, 0));
+									// 											trace_function_path(function_tree, -1, TREE_OPERAND(findtree, 0), &find_freestmt);
+									// 										}
+									// 										else if (TREE_CODE(findtree) == SSA_NAME)
+									// 										{
+									// 											// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+									// 											// tree findtree = gimple_call_arg(u_stmt, 3);
+									// 											// debug_tree(TREE_OPERAND(findtree, 0));
+									// 											trace_function_path(function_tree, -1, findtree, &find_freestmt);
+									// 										}
+									// 									}
+									// 									// debug_tree(findtree);
+									// 									// debug_tree(TREE_OPERAND(TREE_OPERAND(findtree, 0), 0));
+									// 								}
+									// 								if (findtree != NULL)
+									// 									trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), 0, findtree, &find_freestmt);
+									// 								if (table_temp->swap_stmt != NULL)
+									// 								{
+									// 									fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
+									// 									trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
+									// 									fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
+									// 									findtree = gimple_call_arg(table_temp->swap_stmt, 3);
+									// 									if (findtree != NULL)
+									// 										trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, findtree, &find_freestmt);
+									// 								}
+									// 								if (find_pthread_detched == 0)
+									// 								{
+									// 									fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is %s  \033[0m\n", table_temp->pthread_type == 0 ? "CREATE_JOINABLE" : "CREATE_DETACHED");
+									// 									if (table_temp->pthread_type == 1)
+									// 										is_pthread_detched = 1;
+									// 								}
+									// 								else
+									// 								{
+									// 									fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is CREATE_DETACHED  \033[0m\n");
+									// 									is_pthread_detched = 1;
+									// 								}
+									// 								fprintf(stderr, "\n ================== find ================== \n");
+									// 							}
+									// 						}
+									// 						else if (!strcmp(name, "pthread_join"))
+									// 						{
+									// 							if (table_temp->swap_type == FUNCITON_THREAD)
+									// 							{
+									// 								fprintf(stderr, "\033[40;32m    FIND PTHREAD_JOIN \033[0m\n");
+									// 								find_pthread_join++;
+									// 							}
+									// 						}
+									// 						else
+									// 						{
+									// 							int freecount = find_freestmt;
+									// 							fprintf(stderr, "\n ================== trace ================== \n");
+									// 							fprintf(stderr, "trace fucntion name:%s \n", name);
+									// 							trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target, &find_freestmt);
+									// 							fprintf(stderr, "\n ================== trace ================== \n");
+									// 							if (find_freestmt > freecount)
+									// 							{
+									// 								free_type.stmt = u_stmt;
+									// 								free_array.push_back(free_type);
+									// 							}
+									// 						}
+									// 				}
+									// 			}
+									// 			else
+									// 			{
+									// 				if (gimple_code(u_stmt) == GIMPLE_CALL)
+									// 				{
+									// 					// name = get_name(gimple_call_fndecl(u_stmt));
+									// 					name = get_name(gimple_call_fn(u_stmt));
+									// 					if (name != NULL)
+									// 					{
+									// 						int freecount = find_freestmt;
+									// 						fprintf(stderr, "\n ================== trace ================== \n");
+									// 						fprintf(stderr, "trace fucntion name:%s \n", name);
+									// 						trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target, &find_freestmt);
+									// 						fprintf(stderr, "\n ================== trace ================== \n");
+									// 						if (find_freestmt > freecount)
+									// 						{
+									// 							free_type.stmt = u_stmt;
+									// 							free_array.push_back(free_type);
+									// 						}
+									// 					}
+									// 					else if (!strcmp(name, "pthread_create"))
+									// 					{
+									// 						if (table_temp->swap_type == FUNCITON_THREAD)
+									// 						{
+									// 							fprintf(stderr, "\n ================== find ================== \n");
+									// 							debug(u_stmt);
+									// 							warning_at(gimple_location(u_stmt), 0, "use location");
+									// 							fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED STMT  \033[0m\n");
+
+									// 							//  callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
+									// 							fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
+
+									// 							if (gimple_call_num_args(table_temp->last_stmt) != 0)
+									// 							{
+									// 								if (is_gimple_assign(table_temp->last_stmt))
+									// 									// debug_tree(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0));
+									// 									trace_function_path(gimple_assign_lhs(table_temp->last_stmt), -1, NULL_TREE, &find_pthread_detched);
+									// 								else
+									// 									trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
+									// 							}
+									// 							fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
+									// 							tree findtree = gimple_call_arg(table_temp->last_stmt, 3);
+
+									// 							// debug_gimple_stmt(table_temp->last_stmt);
+									// 							// debug_gimple_stmt(u_stmt);
+									// 							if (is_gimple_call(u_stmt))
+									// 							{
+									// 								tree findtree;
+									// 								if (gimple_call_num_args(u_stmt) != 0)
+									// 								{
+									// 									// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+									// 									// debug_gimple_stmt(u_stmt);
+									// 									findtree = gimple_call_arg(u_stmt, 3);
+
+									// 									if (!strcmp(get_tree_code_name(TREE_CODE(findtree)), "addr_expr"))
+									// 									{
+									// 										// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+									// 										// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+									// 										// tree findtree = gimple_call_arg(u_stmt, 3);
+									// 										// debug_tree(TREE_OPERAND(findtree, 0));
+									// 										trace_function_path(function_tree, -1, TREE_OPERAND(findtree, 0), &find_freestmt);
+									// 									}
+									// 									else if (TREE_CODE(findtree) == SSA_NAME)
+									// 									{
+									// 										// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+									// 										// tree findtree = gimple_call_arg(u_stmt, 3);
+									// 										// debug_tree(TREE_OPERAND(findtree, 0));
+									// 										trace_function_path(function_tree, -1, findtree, &find_freestmt);
+									// 									}
+									// 								}
+									// 								// debug_tree(findtree);
+									// 								// debug_tree(TREE_OPERAND(TREE_OPERAND(findtree, 0), 0));
+									// 							}
+
+									// 							if (findtree != NULL)
+									// 								trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), 0, findtree, &find_freestmt);
+									// 							if (table_temp->swap_stmt != NULL)
+									// 							{
+									// 								fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
+									// 								trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
+									// 								findtree = gimple_call_arg(table_temp->swap_stmt, 3);
+									// 								fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
+									// 								if (findtree != NULL)
+									// 									trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, findtree, &find_freestmt);
+									// 							}
+
+									// 							if (find_pthread_detched == 0)
+									// 							{
+									// 								fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is %s  \033[0m\n", table_temp->pthread_type == 0 ? "CREATE_JOINABLE" : "CREATE_DETACHED");
+									// 								if (table_temp->pthread_type == 1)
+									// 									is_pthread_detched = 1;
+									// 							}
+									// 							else
+									// 							{
+									// 								fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is CREATE_DETACHED  \033[0m\n");
+									// 								is_pthread_detched = 1;
+									// 							}
+									// 							fprintf(stderr, "\n ================== find ================== \n");
+									// 						}
+									// 					}
+									// 					else if (!strcmp(name, "pthread_join"))
+									// 					{
+									// 						if (table_temp->swap_type == FUNCITON_THREAD)
+									// 						{
+									// 							fprintf(stderr, "\033[40;32m    FIND PTHREAD_JOIN \033[0m\n");
+									// 							find_pthread_join++;
+									// 						}
+									// 					}
+									// 					// else
+									// 					// 	fprintf(stderr, "this other child function---i null-----\n", name);
+									// 				}
+
+									// 				find_mallocstmt = 0;
+									// 			}
+									// 	}
+									// 	else if (gimple_code(u_stmt) == GIMPLE_RETURN)
+									// 	{
+									// 		fprintf(stderr, "\n twwwwwwwwwest%d\n", calleetype);
+									// 		fprintf(stderr, "\n ================== warring ================== \n");
+									// 		// sfprintf(stderr, "function return value related stmt \n");
+									// 		debug(checkTree);
+									// 		fprintf(stderr, "\033[40;35m    function return value related stmt \033[0m\n");
+									// 		fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+
+									// 		// fprintf(stderr, "this stmt possible is heap-object 。\n");
+									// 		fprintf(stderr, "\n ================== warring ================== \n");
+									// 	}
+									// }
+									// fprintf(stderr, "\n ================== trace ptable================== \n");
+									// if (is_gimple_call(def_stmt))
+									// 	if (gimple_call_fn(def_stmt))
+									// 	{
+									// 		const char *name;
+									// 		name = get_name(gimple_call_fn(def_stmt));
+									// 		fprintf(stderr, "trace fucntion name:%s \n", name);
+									// 		// debug_tree(gimple_call_fndecl(u_stmt));
+									// 		trace_function_path(gimple_call_fndecl(def_stmt), 0, table_temp->target, &find_freestmt);
+									// 	}
+									// fprintf(stderr, "\n ================== trace ptable ================== \n");
+									if ((gimple_code(u_stmt) == GIMPLE_CALL) && (find_mallocstmt == IS_MALLOC_FUCNTION || find_mallocstmt == IS_OTHRER_FUCNTION))
+									{
+
+										find_mallocstmt = IS_MALLOC_FUCNTION;
+
+										// gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
+										// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
+										gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
+										// debug(def_stmt);
+										const char *name;
 										name = get_name(gimple_call_fn(u_stmt));
 										if (name != NULL)
-											if (checkTree == gettreefucntionarg)
+											if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 											{
-												find_mallocstmt = IS_MALLOC_FUCNTION;
-												// debug_tree(checkTree);
-												// debug_tree(gettreefucntionarg);
-												// debug_tree(function_tree);
-												// debug(def_stmt);
-												// debug(u_stmt);
-												// fprintf(stderr , "\n twwwwwwwwwest%d\n", calleetype);
-												fprintf(stderr, "\n ================== warring ================== \n");
-												// sfprintf(stderr, "function return value related stmt \n");
-												debug(checkTree);
-												fprintf(stderr, "\033[40;35m    function return value related stmt \033[0m\n");
-												fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
-
-												// fprintf(stderr, "this stmt possible is heap-object 。\n");
-												fprintf(stderr, "\n ================== warring ================== \n");
-
-												if (gimple_code(u_stmt) == GIMPLE_CALL)
+												find_freestmt++;
+												free_type.stmt = u_stmt;
+												free_array.push_back(free_type);
+												fprintf(stderr, "\n ================== find ================== \n");
+												debug(u_stmt);
+												warning_at(gimple_location(u_stmt), 0, "use location");
+												fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
+												fprintf(stderr, "\n ================== find ================== \n");
+											}
+											else if (!strcmp(name, "pthread_create"))
+											{
+												if (table_temp->swap_type == FUNCITON_THREAD)
 												{
-													name = get_name(gimple_call_fn(u_stmt));
-													if (name != NULL)
-														if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+													fprintf(stderr, "\n ================== find ================== \n");
+													debug(u_stmt);
+													warning_at(gimple_location(u_stmt), 0, "use location");
+													fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED STMT  \033[0m\n");
+													//  callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
+													// debug_gimple_stmt(table_temp->last_stmt);
+													fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
+													if (gimple_call_num_args(table_temp->last_stmt) != 0)
+													{
+														if (is_gimple_assign(table_temp->last_stmt))
+															// debug_tree(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0));
+															trace_function_path(gimple_assign_lhs(table_temp->last_stmt), -1, NULL_TREE, &find_pthread_detched);
+														else
+															trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
+													}
+													fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
+													// fprintf(stderr, "\033[40;31m  wqeeeeeeeeeee %d  \033[0m\n", find_pthread_detched);
+													tree findtree = gimple_call_arg(table_temp->last_stmt, 3);
+
+													// debug_gimple_stmt(table_temp->last_stmt);
+													// debug_gimple_stmt(u_stmt);
+													if (is_gimple_call(u_stmt))
+													{
+														tree findtree;
+														if (gimple_call_num_args(u_stmt) != 0)
 														{
-															find_freestmt++;
-															free_type.stmt = u_stmt;
-															free_array.push_back(free_type);
-															fprintf(stderr, "\n ================== find ================== \n");
-															debug(u_stmt);
-															warning_at(gimple_location(u_stmt), 0, "use location");
-															fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
-															fprintf(stderr, "\n ================== find ================== \n");
-														}
-														else if (!strcmp(name, "pthread_create"))
-														{
-															if (table_temp->swap_type == FUNCITON_THREAD)
+															// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+															// debug_gimple_stmt(u_stmt);
+															findtree = gimple_call_arg(u_stmt, 3);
+															if (!strcmp(get_tree_code_name(TREE_CODE(findtree)), "addr_expr"))
 															{
 
-																fprintf(stderr, "\n ================== find ================== \n");
-																debug(u_stmt);
-																warning_at(gimple_location(u_stmt), 0, "use location");
-																fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED STMT  \033[0m\n");
-																//  callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
-																fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
-																if (gimple_call_num_args(table_temp->last_stmt) != 0)
-																{
-																	if (is_gimple_assign(table_temp->last_stmt))
-																		// debug_tree(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0));
-																		trace_function_path(gimple_assign_lhs(table_temp->last_stmt), -1, NULL_TREE, &find_pthread_detched);
-																	else
-																		trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
-																}
-																fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
-																tree findtree = gimple_call_arg(table_temp->last_stmt, 3);
-																// debug_gimple_stmt(table_temp->last_stmt);
-																// debug_gimple_stmt(u_stmt);
-																if (is_gimple_call(u_stmt))
-																{
-																	tree findtree;
-																	if (gimple_call_num_args(u_stmt) != 0)
-																	{
-																		// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-																		// debug_gimple_stmt(u_stmt);
-																		findtree = gimple_call_arg(u_stmt, 3);
-																		if (!strcmp(get_tree_code_name(TREE_CODE(findtree)), "addr_expr"))
-																		{
-																			// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-																			// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-																			// tree findtree = gimple_call_arg(u_stmt, 3);
-																			// debug_tree(TREE_OPERAND(findtree, 0));
-																			trace_function_path(function_tree, -1, TREE_OPERAND(findtree, 0), &find_freestmt);
-																		}
-																		else if (TREE_CODE(findtree) == SSA_NAME)
-																		{
-																			// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-																			// tree findtree = gimple_call_arg(u_stmt, 3);
-																			// debug_tree(TREE_OPERAND(findtree, 0));
-																			trace_function_path(function_tree, -1, findtree, &find_freestmt);
-																		}
-																	}
-																	// debug_tree(findtree);
-																	// debug_tree(TREE_OPERAND(TREE_OPERAND(findtree, 0), 0));
-																}
-																if (findtree != NULL)
-																	trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), 0, findtree, &find_freestmt);
-																if (table_temp->swap_stmt != NULL)
-																{
-																	fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
-																	trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
-																	fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
-																	findtree = gimple_call_arg(table_temp->swap_stmt, 3);
-																	if (findtree != NULL)
-																		trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, findtree, &find_freestmt);
-																}
-																if (find_pthread_detched == 0)
-																{
-																	fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is %s  \033[0m\n", table_temp->pthread_type == 0 ? "CREATE_JOINABLE" : "CREATE_DETACHED");
-																	if (table_temp->pthread_type == 1)
-																		is_pthread_detched = 1;
-																}
-																else
-																{
-																	fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is CREATE_DETACHED  \033[0m\n");
-																	is_pthread_detched = 1;
-																}
-																fprintf(stderr, "\n ================== find ================== \n");
+																// tree findtree = gimple_call_arg(u_stmt, 3);
+																// debug_tree(TREE_OPERAND(findtree, 0));
+																trace_function_path(function_tree, -1, TREE_OPERAND(findtree, 0), &find_freestmt);
 															}
-														}
-														else if (!strcmp(name, "pthread_join"))
-														{
-															if (table_temp->swap_type == FUNCITON_THREAD)
+															else if (TREE_CODE(findtree) == SSA_NAME)
 															{
-																fprintf(stderr, "\033[40;32m    FIND PTHREAD_JOIN \033[0m\n");
-																find_pthread_join++;
+																// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
+																// tree findtree = gimple_call_arg(u_stmt, 3);
+																// debug_tree(findtree);
+																trace_function_path(function_tree, -1, findtree, &find_freestmt);
 															}
 														}
-														else
-														{
-															int freecount = find_freestmt;
-															fprintf(stderr, "\n ================== trace ================== \n");
-															fprintf(stderr, "trace fucntion name:%s \n", name);
-															trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target, &find_freestmt);
-															fprintf(stderr, "\n ================== trace ================== \n");
-															if (find_freestmt > freecount)
-															{
-																free_type.stmt = u_stmt;
-																free_array.push_back(free_type);
-															}
-														}
+														// debug_tree(findtree);
+														// debug_tree(TREE_OPERAND(TREE_OPERAND(findtree, 0), 0));
+													}
+													// tree findtree2 = gimple_call_arg(u_stmt, 3);
+													// if(findtree2 != NULL_TREE)
+													// debug_tree(findtree2);
+													// debug_tree(findtree);
+													// tree findtree2 = gimple_call_arg(u_stmt, 3);
+													// if(findtree2 != NULL)
+													// debug_tree(findtree2);
+													// debug_gimple_stmt(table_temp->last_stmt);
+
+													if (findtree != NULL)
+														if (gimple_call_num_args(table_temp->last_stmt) != 0 && is_gimple_call(table_temp->last_stmt))
+															trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), 0, findtree, &find_freestmt);
+													if (table_temp->swap_stmt != NULL && gimple_call_num_args(table_temp->swap_stmt) != 0)
+													{
+														fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
+														trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
+														fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
+														findtree = gimple_call_arg(table_temp->swap_stmt, 3);
+														if (findtree != NULL)
+															trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, findtree, &find_freestmt);
+													}
+
+													if (find_pthread_detched == 0)
+													{
+
+														fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is %s  \033[0m\n", table_temp->pthread_type == 0 ? "CREATE_JOINABLE" : "CREATE_DETACHED");
+														is_pthread_detched = 0;
+														if (table_temp->pthread_type == 1)
+															is_pthread_detched = 1;
+													}
+													else
+													{
+
+														fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is CREATE_DETACHED  \033[0m\n");
+														is_pthread_detched = 1;
+													}
+													fprintf(stderr, "\n ================== find ================== \n");
+												}
+											}
+											else if (!strcmp(name, "pthread_join"))
+											{
+												if (table_temp->swap_type == FUNCITON_THREAD)
+												{
+													fprintf(stderr, "\033[40;32m    FIND PTHREAD_JOIN \033[0m\n");
+													find_pthread_join++;
 												}
 											}
 											else
 											{
-												if (gimple_code(u_stmt) == GIMPLE_CALL)
+												int freecount = find_freestmt;
+												fprintf(stderr, "\n ================== trace ================== \n");
+												fprintf(stderr, "trace fucntion name:%s \n", name);
+												// debug_tree(gimple_call_fndecl(u_stmt));
+												trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target, &find_freestmt);
+												fprintf(stderr, "\n ================== trace ================== \n");
+												if (find_freestmt > freecount)
 												{
-													// name = get_name(gimple_call_fndecl(u_stmt));
-													name = get_name(gimple_call_fn(u_stmt));
-													if (name != NULL)
-													{
-														int freecount = find_freestmt;
-														fprintf(stderr, "\n ================== trace ================== \n");
-														fprintf(stderr, "trace fucntion name:%s \n", name);
-														trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target, &find_freestmt);
-														fprintf(stderr, "\n ================== trace ================== \n");
-														if (find_freestmt > freecount)
-														{
-															free_type.stmt = u_stmt;
-															free_array.push_back(free_type);
-														}
-													}
-													else if (!strcmp(name, "pthread_create"))
-													{
-														if (table_temp->swap_type == FUNCITON_THREAD)
-														{
-															fprintf(stderr, "\n ================== find ================== \n");
-															debug(u_stmt);
-															warning_at(gimple_location(u_stmt), 0, "use location");
-															fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED STMT  \033[0m\n");
-
-															//  callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
-															fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
-
-															if (gimple_call_num_args(table_temp->last_stmt) != 0)
-															{
-																if (is_gimple_assign(table_temp->last_stmt))
-																	// debug_tree(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0));
-																	trace_function_path(gimple_assign_lhs(table_temp->last_stmt), -1, NULL_TREE, &find_pthread_detched);
-																else
-																	trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
-															}
-															fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
-															tree findtree = gimple_call_arg(table_temp->last_stmt, 3);
-
-															// debug_gimple_stmt(table_temp->last_stmt);
-															// debug_gimple_stmt(u_stmt);
-															if (is_gimple_call(u_stmt))
-															{
-																tree findtree;
-																if (gimple_call_num_args(u_stmt) != 0)
-																{
-																	// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-																	// debug_gimple_stmt(u_stmt);
-																	findtree = gimple_call_arg(u_stmt, 3);
-
-																	if (!strcmp(get_tree_code_name(TREE_CODE(findtree)), "addr_expr"))
-																	{
-																		// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-																		// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-																		// tree findtree = gimple_call_arg(u_stmt, 3);
-																		// debug_tree(TREE_OPERAND(findtree, 0));
-																		trace_function_path(function_tree, -1, TREE_OPERAND(findtree, 0), &find_freestmt);
-																	}
-																	else if (TREE_CODE(findtree) == SSA_NAME)
-																	{
-																		// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-																		// tree findtree = gimple_call_arg(u_stmt, 3);
-																		// debug_tree(TREE_OPERAND(findtree, 0));
-																		trace_function_path(function_tree, -1, findtree, &find_freestmt);
-																	}
-																}
-																// debug_tree(findtree);
-																// debug_tree(TREE_OPERAND(TREE_OPERAND(findtree, 0), 0));
-															}
-
-															if (findtree != NULL)
-																trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), 0, findtree, &find_freestmt);
-															if (table_temp->swap_stmt != NULL)
-															{
-																fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
-																trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
-																findtree = gimple_call_arg(table_temp->swap_stmt, 3);
-																fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
-																if (findtree != NULL)
-																	trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, findtree, &find_freestmt);
-															}
-
-															if (find_pthread_detched == 0)
-															{
-																fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is %s  \033[0m\n", table_temp->pthread_type == 0 ? "CREATE_JOINABLE" : "CREATE_DETACHED");
-																if (table_temp->pthread_type == 1)
-																	is_pthread_detched = 1;
-															}
-															else
-															{
-																fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is CREATE_DETACHED  \033[0m\n");
-																is_pthread_detched = 1;
-															}
-															fprintf(stderr, "\n ================== find ================== \n");
-														}
-													}
-													else if (!strcmp(name, "pthread_join"))
-													{
-														if (table_temp->swap_type == FUNCITON_THREAD)
-														{
-															fprintf(stderr, "\033[40;32m    FIND PTHREAD_JOIN \033[0m\n");
-															find_pthread_join++;
-														}
-													}
-													// else
-													// 	fprintf(stderr, "this other child function---i null-----\n", name);
+													free_type.stmt = u_stmt;
+													free_array.push_back(free_type);
 												}
-
-												find_mallocstmt = 0;
 											}
 									}
-									else if (gimple_code(u_stmt) == GIMPLE_RETURN)
-									{
-										fprintf(stderr, "\n twwwwwwwwwest%d\n", calleetype);
-										fprintf(stderr, "\n ================== warring ================== \n");
-										// sfprintf(stderr, "function return value related stmt \n");
-										debug(checkTree);
-										fprintf(stderr, "\033[40;35m    function return value related stmt \033[0m\n");
-										fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
-
-										// fprintf(stderr, "this stmt possible is heap-object 。\n");
-										fprintf(stderr, "\n ================== warring ================== \n");
-									}
-								}
-
-								else if ((checkTree == NULL && gimple_code(u_stmt) == GIMPLE_CALL) && (find_mallocstmt == IS_MALLOC_FUCNTION || find_mallocstmt == IS_OTHRER_FUCNTION))
-								{
-
-									find_mallocstmt = IS_MALLOC_FUCNTION;
-
-									// gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
-									// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
-									gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
-									// debug(def_stmt);
-									const char *name;
-									name = get_name(gimple_call_fn(u_stmt));
-									if (name != NULL)
-										if (!strcmp(name, "free") || !strcmp(name, "xfree"))
-										{
-											find_freestmt++;
-											free_type.stmt = u_stmt;
-											free_array.push_back(free_type);
-											fprintf(stderr, "\n ================== find ================== \n");
-											debug(u_stmt);
-											warning_at(gimple_location(u_stmt), 0, "use location");
-											fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
-											fprintf(stderr, "\n ================== find ================== \n");
-										}
-										else if (!strcmp(name, "pthread_create"))
-										{
-											if (table_temp->swap_type == FUNCITON_THREAD)
-											{
-												fprintf(stderr, "\n ================== find ================== \n");
-												debug(u_stmt);
-												warning_at(gimple_location(u_stmt), 0, "use location");
-												fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED STMT  \033[0m\n");
-												//  callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
-												// debug_gimple_stmt(table_temp->last_stmt);
-												fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
-												if (gimple_call_num_args(table_temp->last_stmt) != 0)
-												{
-													if (is_gimple_assign(table_temp->last_stmt))
-														// debug_tree(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0));
-														trace_function_path(gimple_assign_lhs(table_temp->last_stmt), -1, NULL_TREE, &find_pthread_detched);
-													else
-														trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
-												}
-												fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
-												// fprintf(stderr, "\033[40;31m  wqeeeeeeeeeee %d  \033[0m\n", find_pthread_detched);
-												tree findtree = gimple_call_arg(table_temp->last_stmt, 3);
-
-												// debug_gimple_stmt(table_temp->last_stmt);
-												// debug_gimple_stmt(u_stmt);
-												if (is_gimple_call(u_stmt))
-												{
-													tree findtree;
-													if (gimple_call_num_args(u_stmt) != 0)
-													{
-														// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-														// debug_gimple_stmt(u_stmt);
-														findtree = gimple_call_arg(u_stmt, 3);
-														if (!strcmp(get_tree_code_name(TREE_CODE(findtree)), "addr_expr"))
-														{
-
-															// tree findtree = gimple_call_arg(u_stmt, 3);
-															// debug_tree(TREE_OPERAND(findtree, 0));
-															trace_function_path(function_tree, -1, TREE_OPERAND(findtree, 0), &find_freestmt);
-														}
-														else if (TREE_CODE(findtree) == SSA_NAME)
-														{
-															// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-															// tree findtree = gimple_call_arg(u_stmt, 3);
-															// debug_tree(findtree);
-															trace_function_path(function_tree, -1, findtree, &find_freestmt);
-														}
-													}
-													// debug_tree(findtree);
-													// debug_tree(TREE_OPERAND(TREE_OPERAND(findtree, 0), 0));
-												}
-												// tree findtree2 = gimple_call_arg(u_stmt, 3);
-												// if(findtree2 != NULL_TREE)
-												// debug_tree(findtree2);
-												// debug_tree(findtree);
-												// tree findtree2 = gimple_call_arg(u_stmt, 3);
-												// if(findtree2 != NULL)
-												// debug_tree(findtree2);
-												// debug_gimple_stmt(table_temp->last_stmt);
-
-												if (findtree != NULL)
-													if (gimple_call_num_args(table_temp->last_stmt) != 0 && is_gimple_call(table_temp->last_stmt))
-														trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), 0, findtree, &find_freestmt);
-												if (table_temp->swap_stmt != NULL && gimple_call_num_args(table_temp->swap_stmt) != 0)
-												{
-													fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
-													trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
-													fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
-													findtree = gimple_call_arg(table_temp->swap_stmt, 3);
-													if (findtree != NULL)
-														trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 2), 0), 0, findtree, &find_freestmt);
-												}
-
-												if (find_pthread_detched == 0)
-												{
-
-													fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is %s  \033[0m\n", table_temp->pthread_type == 0 ? "CREATE_JOINABLE" : "CREATE_DETACHED");
-													is_pthread_detched = 0;
-													if (table_temp->pthread_type == 1)
-														is_pthread_detched = 1;
-												}
-												else
-												{
-
-													fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is CREATE_DETACHED  \033[0m\n");
-													is_pthread_detched = 1;
-												}
-												fprintf(stderr, "\n ================== find ================== \n");
-											}
-										}
-										else if (!strcmp(name, "pthread_join"))
-										{
-											if (table_temp->swap_type == FUNCITON_THREAD)
-											{
-												fprintf(stderr, "\033[40;32m    FIND PTHREAD_JOIN \033[0m\n");
-												find_pthread_join++;
-											}
-										}
-										else
-										{
-											int freecount = find_freestmt;
-											fprintf(stderr, "\n ================== trace ================== \n");
-											fprintf(stderr, "trace fucntion name:%s \n", name);
-											// debug_tree(gimple_call_fndecl(u_stmt));
-											trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target, &find_freestmt);
-											fprintf(stderr, "\n ================== trace ================== \n");
-											if (find_freestmt > freecount)
-											{
-												free_type.stmt = u_stmt;
-												free_array.push_back(free_type);
-											}
-										}
 								}
 							}
 						}
@@ -2819,6 +2857,24 @@ void detect()
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
+
+				// debug_gimple_stmt(gc);
+				if (is_gimple_call(gc))
+				{
+
+					/*collect malloc and free information*/
+					collect_function_call(gc, node, bb);
+
+					// fprintf(stderr, "add collect_function_call\n");
+				}
+				if (is_gimple_assign(gc))
+				{
+
+					/*collect malloc and free information*/
+					collect_function_call(gc, node, bb);
+
+					// fprintf(stderr, "add collect_function_call\n");
+				}
 				if (gimple_code(gc) == GIMPLE_RETURN)
 				{
 
@@ -2840,24 +2896,6 @@ void detect()
 					//
 					//function_return_collect->put(cfun->decl,*get_function_return);
 					//get_function_return->return_type_array->stmt=gc;
-				}
-
-				// debug_gimple_stmt(gc);
-				if (is_gimple_call(gc))
-				{
-
-					/*collect malloc and free information*/
-					collect_function_call(gc, node, bb);
-
-					// fprintf(stderr, "add collect_function_call\n");
-				}
-				if (is_gimple_assign(gc))
-				{
-
-					/*collect malloc and free information*/
-					collect_function_call(gc, node, bb);
-
-					// fprintf(stderr, "add collect_function_call\n");
 				}
 				// if (is_gimple_assign(gc))
 				// {

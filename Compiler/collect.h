@@ -2,7 +2,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 {
 
 	location_t loc = gimple_location(gc);
-	
+
 	tree a;
 	cgraph_node *node2;
 	const char *name;
@@ -1137,6 +1137,7 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 				return;
 			}
 		}
+
 		else if (gimple_code(table_temp->last_stmt) == GIMPLE_CALL)
 		{
 			const char *name;
@@ -1146,103 +1147,108 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 			if (name != NULL)
 				// 		debug(u_stmt);
 				// fprintf(stderr, "%s\n",name);
-				if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(name, "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
-				{
-					// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-					// warning_at(gimple_location(gc), 0, "use location");
-					// debug(table_temp->last_stmt);
-					// debug(gc);
+				// if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(name, "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
+				// {
+				// 	// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+				// 	// warning_at(gimple_location(gc), 0, "use location");
+				// 	// debug(table_temp->last_stmt);
+				// 	// debug(gc);
 
-					// debug_tree(table_temp->target);
-					// debug_tree((ret_type_array)[i].return_tree);
-					// gimple *def_stmt2 = SSA_NAME_DEF_STMT((ret_type_array)[i].return_tree);
-					// 	debug(def_stmt2);
-					// if (gimple_code(gc) == GIMPLE_ASSIGN)
-					// {
-					// 	debug_tree(gimple_assign_lhs(gc));
-					// 	if (gimple_assign_lhs(gc) != NULL)
-					// 		if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME)
-					// 			(ret_type_array)[i].return_tree = gimple_assign_lhs(gc);
-					// }
+				// 	// debug_tree(table_temp->target);
+				// 	// debug_tree((ret_type_array)[i].return_tree);
+				// 	// gimple *def_stmt2 = SSA_NAME_DEF_STMT((ret_type_array)[i].return_tree);
+				// 	// 	debug(def_stmt2);
+				// 	// if (gimple_code(gc) == GIMPLE_ASSIGN)
+				// 	// {
+				// 	// 	debug_tree(gimple_assign_lhs(gc));
+				// 	// 	if (gimple_assign_lhs(gc) != NULL)
+				// 	// 		if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME)
+				// 	// 			(ret_type_array)[i].return_tree = gimple_assign_lhs(gc);
+				// 	// }
 
-					// // debug(u_stmt);
-					// debug(gc);
+				// 	// // debug(u_stmt);
+				// 	// debug(gc);
 
-					// gimple *test2 =   test;
-					tree getmalloclhs = table_temp->target;
-					// debug_tree (getmalloclhs);
-					if ((ret_type_array)[i].return_tree != NULL && getmalloclhs != NULL)
-					{
+				// 	// gimple *test2 =   test;
+				// 	tree getmalloclhs = table_temp->target;
+				// 	// debug_tree (getmalloclhs);
+				// 	if ((ret_type_array)[i].return_tree != NULL && getmalloclhs != NULL)
+				// 	{
 
-						if (gimple_code(gc) == GIMPLE_RETURN)
-						{
-							// fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-							// debug(table_temp->last_stmt);
-							// debug(gc);
-							// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-							// warning_at(gimple_location(gc), 0, "use location");
-							// fprintf(stderr, "GIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGN CALLLLLLLLLLLLLLLLLLLLLLL\n");
-							//比對所有 ptable 有malloc 的stmt 假設有遇到 malloc 則可能為type2
-							if (TREE_CODE((ret_type_array)[i].return_tree) == SSA_NAME)
-								if (ptr_derefs_may_alias_p(table_temp->target, (ret_type_array)[i].return_tree))
-								{
-									fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-									// debug(table_temp->last_stmt);
-									// debug(gc);
-									// debug_tree(table_temp->target);
-									// debug_tree((ret_type_array)[i].return_tree);
-									// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-									// warning_at(gimple_location(gc), 0, "use location");
-									// fprintf(stderr, "GIMPLE_ASSIGNGIMPLE_successssssssssssssssss\n");
-									// return value related malloc stmt
-									// debug(test);
-									// debug(u_stmt);
-									// debug(gc);
-									// set_ptb( table_temp->bb, ptable,  table_temp->target,  table_temp->loc, 0,  table_temp->last_stmt,  table_temp->node);
-									fun_array.return_type_num = 2;
+				// 		// if (gimple_code(gc) == GIMPLE_RETURN)
+				// 		// {
+				// 		// fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+				// 		// debug(table_temp->last_stmt);
+				// 		// debug(gc);
+				// 		// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+				// 		// warning_at(gimple_location(gc), 0, "use location");
+				// 		// fprintf(stderr, "GIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGNGIMPLE_ASSIGN CALLLLLLLLLLLLLLLLLLLLLLL\n");
+				// 		//比對所有 ptable 有malloc 的stmt 假設有遇到 malloc 則可能為type2
+				// 		if (TREE_CODE((ret_type_array)[i].return_tree) == SSA_NAME)
+				// 		{
+				// 			fprintf(stderr, "RETURN with possible malloc2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+				// 			debug(table_temp->last_stmt);
+				// 			debug(gc);
+				// 			if (ptr_derefs_may_alias_p(table_temp->target, (ret_type_array)[i].return_tree))
+				// 			{
+				// 				fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+				// 				// debug(table_temp->last_stmt);
+				// 				// debug(gc);
+				// 				// debug_tree(table_temp->target);
+				// 				// debug_tree((ret_type_array)[i].return_tree);
+				// 				// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+				// 				// warning_at(gimple_location(gc), 0, "use location");
+				// 				// fprintf(stderr, "GIMPLE_ASSIGNGIMPLE_successssssssssssssssss\n");
+				// 				// return value related malloc stmt
+				// 				// debug(test);
+				// 				// debug(u_stmt);
+				// 				// debug(gc);
+				// 				// set_ptb( table_temp->bb, ptable,  table_temp->target,  table_temp->loc, 0,  table_temp->last_stmt,  table_temp->node);
+				// 				fun_array.return_type_num = 2;
 
-									function_return_collect->put(function_tree, fun_array);
-									// return;
-									// return;
-								}
+				// 				function_return_collect->put(function_tree, fun_array);
+				// 				// return;
+				// 				// return;
+				// 			}
+				// 		}
 
-							// else
-							// {
-							// 	if (function_return_collect->get((ret_type_array)[i].return_tree) == NULL)
-							// 		return;
-							// 			debug(gc);
-							// 	fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-							// 	function_return_array fun_array2 = *(function_return_collect->get(function_tree));
+				// 		// else
+				// 		// {
+				// 		// 	if (function_return_collect->get((ret_type_array)[i].return_tree) == NULL)
+				// 		// 		return;
+				// 		// 			debug(gc);
+				// 		// 	fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+				// 		// 	function_return_array fun_array2 = *(function_return_collect->get(function_tree));
 
-							// 	vector<return_type> ret_type_array2 = fun_array.return_type_array;
-							// }
-						}
-					}
-					// else
-					// {
+				// 		// 	vector<return_type> ret_type_array2 = fun_array.return_type_array;
+				// 		// }
+				// 		// }
+				// 	}
+				// 	// else
+				// 	// {
 
-					// 	// fun_array.return_type_num = 1;
-					// 	// function_return_collect->put(function_tree, fun_array);
-					// 	// return ;
-					// }
-					// 			if ((ret_type_array)[i].return_tree == NULL || getmalloclhs == NULL ){
-					// 			debug_tree((ret_type_array)[i].return_tree );
-					// 			debug_tree(getmalloclhs);
-					// fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-					// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-					// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-					// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-					// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-					// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-					// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-					// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-					// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-					// return;
+				// 	// 	// fun_array.return_type_num = 1;
+				// 	// 	// function_return_collect->put(function_tree, fun_array);
+				// 	// 	// return ;
+				// 	// }
+				// 	// 			if ((ret_type_array)[i].return_tree == NULL || getmalloclhs == NULL ){
+				// 	// 			debug_tree((ret_type_array)[i].return_tree );
+				// 	// 			debug_tree(getmalloclhs);
+				// 	// fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+				// 	// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+				// 	// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+				// 	// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+				// 	// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+				// 	// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+				// 	// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+				// 	// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+				// 	// 					fprintf(stderr, "RETURN with malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+				// 	// return;
 
-					// 			}
+				// 	// 			}
 
-					// debug(getmalloclhs);
-				}
+				// 	// debug(getmalloclhs);
+				// }
 				// else if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 				// {
 
@@ -1251,7 +1257,7 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 				// 	// function_return_collect->put(function_tree, fun_array);
 				// 	// return;
 				// }
-				else if (!strcmp(name, "pthread_create") || !strcmp(name, "pthread_join"))
+				if (!strcmp(name, "pthread_create") || !strcmp(name, "pthread_join"))
 				{
 					if (!strcmp(name, "pthread_create"))
 					{
@@ -1355,19 +1361,25 @@ void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_arra
 void collect_function_return(gimple *gc, cgraph_node *node, basic_block bb)
 {
 
-	// fprintf(stderr, "GIMPLE_RETURN\n");
 	function_return_array fun_array;
 	tree get_function_return_tree = gimple_return_retval(as_a<greturn *>(gc));
 	vector<return_type> ret_type_array;
 
-	fun_array.return_type_array = ret_type_array;
-	struct return_type ret_type;
-	ret_type.stmt = gc;
-	ret_type.return_tree = get_function_return_tree;
-	// ret_type.reutnr_type_num = 0;
-	fun_array.return_type_array.push_back(ret_type);
-	function_return_collect->put(node->get_fun()->decl, fun_array);
-
+	if (get_function_return_tree)
+	{
+		fprintf(stderr, "GIMPLE_RETURN\n");
+		debug_gimple_stmt(gc);
+		debug_tree(get_function_return_tree);
+		debug_tree(node->get_fun()->decl);
+		// debug_tree(get_function_return_tree);
+		fun_array.return_type_array = ret_type_array;
+		struct return_type ret_type;
+		ret_type.stmt = gc;
+		ret_type.return_tree = get_function_return_tree;
+		// ret_type.reutnr_type_num = 0;
+		fun_array.return_type_array.push_back(ret_type);
+		function_return_collect->put(node->get_fun()->decl, fun_array);
+	}
 	//debug_tree(get_function_return_tree);
 
 	//tree test = cfun->decl;
