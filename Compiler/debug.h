@@ -42,7 +42,7 @@ void printfBasicblock()
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
-				if(gimple_location_safe(gc))
+				if (gimple_location_safe(gc))
 					warning_at(gimple_location_safe(gc), 0, "use location");
 			}
 			fprintf(stderr, "=======is loop:%d=========\n", bb_in_loop_p(bb));
@@ -164,7 +164,10 @@ void printfunctionCollect(ptb *ptable, gimple_array *user_tmp)
 		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 		// debug_tree(cfun->decl);
 		if (cfun == NULL)
+		{
+			pop_cfun();
 			continue;
+		}
 		name = get_name(cfun->decl);
 		if (name != NULL)
 		{

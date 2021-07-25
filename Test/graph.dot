@@ -1,132 +1,4677 @@
 digraph {rankdir = LR; rank=same; nodesep=1.0; 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-" child
+" main
 "->
 
 
-" # .MEM_42 = VDEF <.MEM_41>
-a99_16 = foo (20)
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
 
 "
 
-[label=" form basic block 2: _38 = __printf_chk (1, asddad
-, a99_16)
+[label=" form basic block 3: list_262 = new_list_21
+test.c:35:10: warning: use location
+
 " ]
 
-" # .MEM_42 = VDEF <.MEM_41>
-a99_16 = foo (20)
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
 
 "->
 
-" from child basic block 2"
+" from main basic block 3"
 
 
-->" _38 = __printf_chk (1, asddad
-, a99_16)
-a99_16 = foo (20)
+->" list_262 = new_list_21
+new_list_21 = malloc (16)
+"
+
+->" list_262 = new_list_21
+test.c:35:10: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 4: list_255 = PHI <list_256(D)(2), list_262(3)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 4"
+
+
+->" list_255 = PHI <list_256(D)(2), list_262(3)>
+new_list_21 = malloc (16)
+"
+
+->" list_255 = PHI <list_256(D)(2), list_262(3)>
+lto1: warning: use location
 "
 
 
-->" ID : 2091020372
-from foo2 basic block 3"->
+" main
+"->
 
-" ID : 77648554 stmt(free) :free (p3_15)
-test.c:85:3: warning: use location
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 3: _22 = list_255
+test.c:34:19: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 3"
+
+
+->" _22 = list_255
+new_list_21 = malloc (16)
+"
+
+->" _22 = list_255
+test.c:34:19: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 3: new_list_21->next = _22
+test.c:34:17: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 3"
+
+
+->" new_list_21->next = _22
+new_list_21 = malloc (16)
+"
+
+->" new_list_21->next = _22
+test.c:34:17: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 5: p_25 = list_255
+test.c:227:40: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 5"
+
+
+->" p_25 = list_255
+new_list_21 = malloc (16)
+"
+
+->" p_25 = list_255
+test.c:227:40: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 12: p_26 = PHI <p_25(5), p_49(11)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 12"
+
+
+->" p_26 = PHI <p_25(5), p_49(11)>
+new_list_21 = malloc (16)
+"
+
+->" p_26 = PHI <p_25(5), p_49(11)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 8: p_26->next = last_33
+test.c:237:11: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 8"
+
+
+->" p_26->next = last_33
+new_list_21 = malloc (16)
+"
+
+->" p_26->next = last_33
+test.c:237:11: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 8: p_26->next = last_33
+test.c:237:11: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 8"
+
+
+->" p_26->next = last_33
+new_list_21 = malloc (16)
+"
+
+->" p_26->next = last_33
+test.c:237:11: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 11: last_50 = PHI <last_33(7), p_26(10)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 11"
+
+
+->" last_50 = PHI <last_33(7), p_26(10)>
+new_list_21 = malloc (16)
+"
+
+->" last_50 = PHI <last_33(7), p_26(10)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 13: list_41 = last_33
+test.c:243:7: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 13"
+
+
+->" list_41 = last_33
+new_list_21 = malloc (16)
+"
+
+->" list_41 = last_33
+test.c:243:7: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 53: show_list (bisection 2 counted all, counted_106, nr_37, list_41)
+test.c:206:2: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 53"
+
+
+->" show_list (bisection 2 counted all, counted_106, nr_37, list_41)
+new_list_21 = malloc (16)
+"
+
+->" show_list (bisection 2 counted all, counted_106, nr_37, list_41)
+test.c:206:2: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 44: show_list (bisection 2 count one, counted_101, nr_37, list_41)
+test.c:194:5: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 44"
+
+
+->" show_list (bisection 2 count one, counted_101, nr_37, list_41)
+new_list_21 = malloc (16)
+"
+
+->" show_list (bisection 2 count one, counted_101, nr_37, list_41)
+test.c:194:5: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 32: show_list (bisection 2 count_distance, counted_78, nr_37, list_41)
+test.c:168:2: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 32"
+
+
+->" show_list (bisection 2 count_distance, counted_78, nr_37, list_41)
+new_list_21 = malloc (16)
+"
+
+->" show_list (bisection 2 count_distance, counted_78, nr_37, list_41)
+test.c:168:2: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 26: clear_distance (list_41)
+test.c:160:3: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 26"
+
+
+->" clear_distance (list_41)
+new_list_21 = malloc (16)
+"
+
+->" clear_distance (list_41)
+test.c:160:3: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 21: show_list (bisection 2 initialize, counted_65, nr_37, list_41)
+test.c:138:2: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 21"
+
+
+->" show_list (bisection 2 initialize, counted_65, nr_37, list_41)
+new_list_21 = malloc (16)
+"
+
+->" show_list (bisection 2 initialize, counted_65, nr_37, list_41)
+test.c:138:2: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 16: show_list (bisection 2 count one, counted_66, nr_37, list_41)
+test.c:121:5: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 16"
+
+
+->" show_list (bisection 2 count one, counted_66, nr_37, list_41)
+new_list_21 = malloc (16)
+"
+
+->" show_list (bisection 2 count one, counted_66, nr_37, list_41)
+test.c:121:5: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 13: show_list (bisection 2 sorted, 0, nr_37, list_41)
+test.c:244:2: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 13"
+
+
+->" show_list (bisection 2 sorted, 0, nr_37, list_41)
+new_list_21 = malloc (16)
+"
+
+->" show_list (bisection 2 sorted, 0, nr_37, list_41)
+test.c:244:2: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 74: p_168 = PHI <list_41(70), p_174(73)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 74"
+
+
+->" p_168 = PHI <list_41(70), p_174(73)>
+new_list_21 = malloc (16)
+"
+
+->" p_168 = PHI <list_41(70), p_174(73)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 75: p_168->next = 0B
+test.c:95:10: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 75"
+
+
+->" p_168->next = 0B
+new_list_21 = malloc (16)
+"
+
+->" p_168->next = 0B
+test.c:95:10: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 75: _172 = p_168->next
+test.c:94:2: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 75"
+
+
+->" _172 = p_168->next
+new_list_21 = malloc (16)
+"
+
+->" _172 = p_168->next
+test.c:94:2: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 75: free_commit_list (_172)
+test.c:94:2: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 75"
+
+
+->" free_commit_list (_172)
+new_list_21 = malloc (16)
+"
+
+->" free_commit_list (_172)
+test.c:94:2: warning: use location
+
+"
+
+
+->" ID : 579430541
+from free_commit_list basic block 6"->
+
+" ID : 1279607749 stmt(free) :free (top_5)
+test.c:19:3: warning: use location
 "
 
 [color="green" ]
 
-" ID : 77648554 stmt(free) :free (p3_15)
-test.c:85:3: warning: use location
+" ID : 1279607749 stmt(free) :free (top_5)
+test.c:19:3: warning: use location
 "
 
 
-->" ID : 2091020372
-from foo2 basic block 4"->
+->"ID : 579430541
+from free_commit_list basic block 3"->
 
-" ID : 1014211959 stmt(free) :free (p4_17)
-test.c:91:3: warning: use location
+
+" ID : 2018049243 stmt(LHS) :top_5 = list_14
+test.c:14:22: warning: use location
+
+"
+
+
+->"ID : 579430541
+from free_commit_list basic block 4"->
+
+
+" ID : 1280543392 stmt(LHS) :_6 = top_5->item
+test.c:15:40: warning: use location
+
+"
+
+
+->"ID : 579430541
+from free_commit_list basic block 6"->
+
+
+" ID : 1225705398 stmt(LHS) :_7 = top_5->next
+test.c:18:15: warning: use location
+
+"
+
+
+->"ID : 579430541
+from free_commit_list basic block 6"->
+
+
+" ID : 1993773955 stmt(LHS) :list_16 = _7
+test.c:18:10: warning: use location
+
+"
+
+
+->"ID : 579430541
+from free_commit_list basic block 6"->
+
+" ID : 530130203 stmt(call) :free (top_5)
+test.c:19:3: warning: use location
+
+"
+
+
+->"ID : 579430541
+from free_commit_list basic block 7"->
+
+
+" ID : 1039386654 stmt(LHS) :_12 = _8
+lto1: warning: use location
+
+"
+
+
+->"ID : 579430541
+from free_commit_list basic block 8"->
+
+
+" ID : 935189304 stmt(LHS) :_1 = list_14
+test.c:26:9: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 72: p_170 = p_168->next
+test.c:92:6: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 72"
+
+
+->" p_170 = p_168->next
+new_list_21 = malloc (16)
+"
+
+->" p_170 = p_168->next
+test.c:92:6: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 73: p_174 = PHI <p_168(71), p_170(72)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 73"
+
+
+->" p_174 = PHI <p_168(71), p_170(72)>
+new_list_21 = malloc (16)
+"
+
+->" p_174 = PHI <p_168(71), p_170(72)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 71: p_168->item = _167
+test.c:90:11: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 71"
+
+
+->" p_168->item = _167
+new_list_21 = malloc (16)
+"
+
+->" p_168->item = _167
+test.c:90:11: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 71: p_168->item = _167
+test.c:90:11: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 71"
+
+
+->" p_168->item = _167
+new_list_21 = malloc (16)
+"
+
+->" p_168->item = _167
+test.c:90:11: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 61: best_127 = PHI <list_41(53), best_129(60)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 61"
+
+
+->" best_127 = PHI <list_41(53), best_129(60)>
+new_list_21 = malloc (16)
+"
+
+->" best_127 = PHI <list_41(53), best_129(60)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 60: best_129 = PHI <best_127(55), best_127(58), p_114(59)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 60"
+
+
+->" best_129 = PHI <best_127(55), best_127(58), p_114(59)>
+new_list_21 = malloc (16)
+"
+
+->" best_129 = PHI <best_127(55), best_127(58), p_114(59)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 62: _221 = best_127
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 62"
+
+
+->" _221 = best_127
+new_list_21 = malloc (16)
+"
+
+->" _221 = best_127
+lto1: warning: use location
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 62: _107 = _221
+test.c:209:10: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 62"
+
+
+->" _107 = _221
+new_list_21 = malloc (16)
+"
+
+->" _107 = _221
+test.c:209:10: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 76: _109 = PHI <p_68(28), p_81(48), _107(62), _108(75)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 76"
+
+
+->" _109 = PHI <p_68(28), p_81(48), _107(62), _108(75)>
+new_list_21 = malloc (16)
+"
+
+->" _109 = PHI <p_68(28), p_81(48), _107(62), _108(75)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 76: _236 = _109
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 76"
+
+
+->" _236 = _109
+new_list_21 = malloc (16)
+"
+
+->" _236 = _109
+lto1: warning: use location
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 76: best_44 = _236
+test.c:250:7: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 76"
+
+
+->" best_44 = _236
+new_list_21 = malloc (16)
+"
+
+->" best_44 = _236
+test.c:250:7: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 80: list_259 = best_44
+test.c:257:15: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 80"
+
+
+->" list_259 = best_44
+new_list_21 = malloc (16)
+"
+
+->" list_259 = best_44
+test.c:257:15: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 80: _1 = list_259
+test.c:268:5: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 80"
+
+
+->" _1 = list_259
+new_list_21 = malloc (16)
+"
+
+->" _1 = list_259
+test.c:268:5: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 80: free_commit_list (_1)
+test.c:268:5: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 80"
+
+
+->" free_commit_list (_1)
+new_list_21 = malloc (16)
+"
+
+->" free_commit_list (_1)
+test.c:268:5: warning: use location
+
+"
+
+
+->" ID : 835340471
+from free_commit_list basic block 6"->
+
+" ID : 182840037 stmt(free) :free (top_5)
+test.c:19:3: warning: use location
 "
 
 [color="green" ]
 
-" ID : 1014211959 stmt(free) :free (p4_17)
-test.c:91:3: warning: use location
+" ID : 182840037 stmt(free) :free (top_5)
+test.c:19:3: warning: use location
 "
 
 
-->"ID : 2091020372
-from foo2 basic block 2"->
-
-" ID : 27051147 stmt(call) :foo3 (p3_15)
-In function ‘foo2’:
-
-"
+->"ID : 835340471
+from free_commit_list basic block 3"->
 
 
-->"ID : 2091020372
-from foo2 basic block 3"->
-
-" ID : 2034605008 stmt(call) :free (p3_15)
-test.c:85:3: warning: use location
+" ID : 2142663454 stmt(LHS) :top_5 = list_14
+test.c:14:22: warning: use location
 
 "
 
 
-->"ID : 2091020372
-from foo2 basic block 3"->
+->"ID : 835340471
+from free_commit_list basic block 4"->
 
 
-" ID : 220001436 stmt(LHS) :_33 = p3_15
-test.c:86:10: warning: use location
-
-"
-
-
-->"ID : 2091020372
-from foo2 basic block 4"->
-
-" ID : 329451725 stmt(call) :free (p4_17)
-test.c:91:3: warning: use location
+" ID : 1283192529 stmt(LHS) :_6 = top_5->item
+test.c:15:40: warning: use location
 
 "
 
 
-->"ID : 2091020372
-from foo2 basic block 4"->
+->"ID : 835340471
+from free_commit_list basic block 6"->
 
 
-" ID : 1744459120 stmt(LHS) :_29 = p4_17
-test.c:92:10: warning: use location
+" ID : 1685800158 stmt(LHS) :_7 = top_5->next
+test.c:18:15: warning: use location
 
 "
 
 
-->" _38 = __printf_chk (1, asddad
-, a99_16)
+->"ID : 835340471
+from free_commit_list basic block 6"->
+
+
+" ID : 1343745261 stmt(LHS) :list_16 = _7
+test.c:18:10: warning: use location
+
+"
+
+
+->"ID : 835340471
+from free_commit_list basic block 6"->
+
+" ID : 2080691572 stmt(call) :free (top_5)
+test.c:19:3: warning: use location
+
+"
+
+
+->"ID : 835340471
+from free_commit_list basic block 7"->
+
+
+" ID : 1492501299 stmt(LHS) :_12 = _8
+lto1: warning: use location
+
+"
+
+
+->"ID : 835340471
+from free_commit_list basic block 8"->
+
+
+" ID : 180112609 stmt(LHS) :_1 = list_14
+test.c:26:9: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 79: _45 = weight (best_44)
+test.c:254:14: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 79"
+
+
+->" _45 = weight (best_44)
+new_list_21 = malloc (16)
+"
+
+->" _45 = weight (best_44)
+test.c:254:14: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 78: best_44->next = 0B
+test.c:253:15: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 78"
+
+
+->" best_44->next = 0B
+new_list_21 = malloc (16)
+"
+
+->" best_44->next = 0B
+test.c:253:15: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 62: _128 = best_127
+test.c:60:9: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 62"
+
+
+->" _128 = best_127
+new_list_21 = malloc (16)
+"
+
+->" _128 = best_127
+test.c:60:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 61: p_114 = PHI <list_41(53), p_126(60)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 61"
+
+
+->" p_114 = PHI <list_41(53), p_126(60)>
+new_list_21 = malloc (16)
+"
+
+->" p_114 = PHI <list_41(53), p_126(60)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 60: p_126 = p_114->next
+test.c:45:22: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 60"
+
+
+->" p_126 = p_114->next
+new_list_21 = malloc (16)
+"
+
+->" p_126 = p_114->next
+test.c:45:22: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 56: distance_120 = weight (p_114)
+test.c:51:12: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 56"
+
+
+->" distance_120 = weight (p_114)
+new_list_21 = malloc (16)
+"
+
+->" distance_120 = weight (p_114)
+test.c:51:12: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 54: _115 = p_114->item
+test.c:47:21: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 54"
+
+
+->" _115 = p_114->item
+new_list_21 = malloc (16)
+"
+
+->" _115 = p_114->item
+test.c:47:21: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 54: _116 = _115->object.flags
+test.c:47:35: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 54"
+
+
+->" _116 = _115->object.flags
+new_list_21 = malloc (16)
+"
+
+->" _116 = _115->object.flags
+test.c:47:35: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 54: _118 = _116 & 4
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 54"
+
+
+->" _118 = _116 & 4
+new_list_21 = malloc (16)
+"
+
+->" _118 = _116 & 4
+lto1: warning: use location
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 54: _119 = (unsigned int) _118
+test.c:49:13: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 54"
+
+
+->" _119 = (unsigned int) _118
+new_list_21 = malloc (16)
+"
+
+->" _119 = (unsigned int) _118
+test.c:49:13: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 54: flags_117 = (unsigned int) _116
+test.c:47:12: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 54"
+
+
+->" flags_117 = (unsigned int) _116
+new_list_21 = malloc (16)
+"
+
+->" flags_117 = (unsigned int) _116
+test.c:47:12: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 59: best_125 = p_114
+test.c:55:9: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 59"
+
+
+->" best_125 = p_114
+new_list_21 = malloc (16)
+"
+
+->" best_125 = p_114
+test.c:55:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 70: p_133 = PHI <list_41(63), p_152(69)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 70"
+
+
+->" p_133 = PHI <list_41(63), p_152(69)>
+new_list_21 = malloc (16)
+"
+
+->" p_133 = PHI <list_41(63), p_152(69)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 69: p_152 = p_133->next
+test.c:70:31: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 69"
+
+
+->" p_152 = p_133->next
+new_list_21 = malloc (16)
+"
+
+->" p_152 = p_133->next
+test.c:70:31: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 68: _146 = p_133->item
+test.c:79:24: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 68"
+
+
+->" _146 = p_133->item
+new_list_21 = malloc (16)
+"
+
+->" _146 = p_133->item
+test.c:79:24: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 68: _145->commit = _146
+test.c:79:21: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 68"
+
+
+->" _145->commit = _146
+new_list_21 = malloc (16)
+"
+
+->" _145->commit = _146
+test.c:79:21: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 66: distance_139 = weight (p_133)
+test.c:76:12: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 66"
+
+
+->" distance_139 = weight (p_133)
+new_list_21 = malloc (16)
+"
+
+->" distance_139 = weight (p_133)
+test.c:76:12: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 64: _134 = p_133->item
+test.c:72:21: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 64"
+
+
+->" _134 = p_133->item
+new_list_21 = malloc (16)
+"
+
+->" _134 = p_133->item
+test.c:72:21: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 64: _135 = _134->object.flags
+test.c:72:35: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 64"
+
+
+->" _135 = _134->object.flags
+new_list_21 = malloc (16)
+"
+
+->" _135 = _134->object.flags
+test.c:72:35: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 64: _137 = _135 & 4
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 64"
+
+
+->" _137 = _135 & 4
+new_list_21 = malloc (16)
+"
+
+->" _137 = _135 & 4
+lto1: warning: use location
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 64: _138 = (unsigned int) _137
+test.c:74:13: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 64"
+
+
+->" _138 = (unsigned int) _137
+new_list_21 = malloc (16)
+"
+
+->" _138 = (unsigned int) _137
+test.c:74:13: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 64: flags_136 = (unsigned int) _135
+test.c:72:12: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 64"
+
+
+->" flags_136 = (unsigned int) _135
+new_list_21 = malloc (16)
+"
+
+->" flags_136 = (unsigned int) _135
+test.c:72:12: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 75: _213 = list_41
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 75"
+
+
+->" _213 = list_41
+new_list_21 = malloc (16)
+"
+
+->" _213 = list_41
+lto1: warning: use location
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 75: _108 = _213
+test.c:211:10: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 75"
+
+
+->" _108 = _213
+new_list_21 = malloc (16)
+"
+
+->" _108 = _213
+test.c:211:10: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 50: p_81 = PHI <p_105(49), list_41(52)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 50"
+
+
+->" p_81 = PHI <p_105(49), list_41(52)>
+new_list_21 = malloc (16)
+"
+
+->" p_81 = PHI <p_105(49), list_41(52)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 49: p_105 = p_81->next
+test.c:171:23: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 49"
+
+
+->" p_105 = p_81->next
+new_list_21 = malloc (16)
+"
+
+->" p_105 = p_81->next
+test.c:171:23: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 47: _103 = halfway (p_81, nr_37)
+test.c:201:21: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 47"
+
+
+->" _103 = halfway (p_81, nr_37)
+new_list_21 = malloc (16)
+"
+
+->" _103 = halfway (p_81, nr_37)
+test.c:201:21: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 45: weight_set (p_81, _102)
+test.c:198:5: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 45"
+
+
+->" weight_set (p_81, _102)
+new_list_21 = malloc (16)
+"
+
+->" weight_set (p_81, _102)
+test.c:198:5: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 44: weight_set (p_81, _99)
+test.c:192:5: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 44"
+
+
+->" weight_set (p_81, _99)
+new_list_21 = malloc (16)
+"
+
+->" weight_set (p_81, _99)
+test.c:192:5: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 35: _86 = p_81->item
+test.c:177:14: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 35"
+
+
+->" _86 = p_81->item
+new_list_21 = malloc (16)
+"
+
+->" _86 = p_81->item
+test.c:177:14: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 35: q_87 = _86->parents
+test.c:177:11: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 35"
+
+
+->" q_87 = _86->parents
+new_list_21 = malloc (16)
+"
+
+->" q_87 = _86->parents
+test.c:177:11: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 40: q_88 = PHI <q_87(35), q_95(39)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 40"
+
+
+->" q_88 = PHI <q_87(35), q_95(39)>
+new_list_21 = malloc (16)
+"
+
+->" q_88 = PHI <q_87(35), q_95(39)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 45: _102 = weight (q_88)
+test.c:198:5: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 45"
+
+
+->" _102 = weight (q_88)
+new_list_21 = malloc (16)
+"
+
+->" _102 = weight (q_88)
+test.c:198:5: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 44: _98 = weight (q_88)
+test.c:192:19: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 44"
+
+
+->" _98 = weight (q_88)
+new_list_21 = malloc (16)
+"
+
+->" _98 = weight (q_88)
+test.c:192:19: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 39: q_95 = q_88->next
+test.c:177:36: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 39"
+
+
+->" q_95 = q_88->next
+new_list_21 = malloc (16)
+"
+
+->" q_95 = q_88->next
+test.c:177:36: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 38: _94 = weight (q_88)
+test.c:180:14: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 38"
+
+
+->" _94 = weight (q_88)
+new_list_21 = malloc (16)
+"
+
+->" _94 = weight (q_88)
+test.c:180:14: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 36: _89 = q_88->item
+test.c:178:10: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 36"
+
+
+->" _89 = q_88->item
+new_list_21 = malloc (16)
+"
+
+->" _89 = q_88->item
+test.c:178:10: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 36: _90 = _89->object.flags
+test.c:178:24: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 36"
+
+
+->" _90 = _89->object.flags
+new_list_21 = malloc (16)
+"
+
+->" _90 = _89->object.flags
+test.c:178:24: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 36: _92 = _90 & 2
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 36"
+
+
+->" _92 = _90 & 2
+new_list_21 = malloc (16)
+"
+
+->" _92 = _90 & 2
+lto1: warning: use location
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 36: _93 = (unsigned int) _92
+test.c:178:31: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 36"
+
+
+->" _93 = (unsigned int) _92
+new_list_21 = malloc (16)
+"
+
+->" _93 = (unsigned int) _92
+test.c:178:31: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 36: _91 = (unsigned int) _90
+test.c:178:31: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 36"
+
+
+->" _91 = (unsigned int) _90
+new_list_21 = malloc (16)
+"
+
+->" _91 = (unsigned int) _90
+test.c:178:31: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 33: _85 = weight (p_81)
+test.c:175:13: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 33"
+
+
+->" _85 = weight (p_81)
+new_list_21 = malloc (16)
+"
+
+->" _85 = weight (p_81)
+test.c:175:13: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 33: _82 = p_81->item
+test.c:173:22: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 33"
+
+
+->" _82 = p_81->item
+new_list_21 = malloc (16)
+"
+
+->" _82 = p_81->item
+test.c:173:22: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 33: _83 = _82->object.flags
+test.c:173:36: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 33"
+
+
+->" _83 = _82->object.flags
+new_list_21 = malloc (16)
+"
+
+->" _83 = _82->object.flags
+test.c:173:36: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 43: _96 = _83 & 4
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 43"
+
+
+->" _96 = _83 & 4
+new_list_21 = malloc (16)
+"
+
+->" _96 = _83 & 4
+lto1: warning: use location
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 43: _97 = (unsigned int) _96
+test.c:191:16: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 43"
+
+
+->" _97 = (unsigned int) _96
+new_list_21 = malloc (16)
+"
+
+->" _97 = (unsigned int) _96
+test.c:191:16: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 33: flags_84 = (unsigned int) _83
+test.c:173:13: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 33"
+
+
+->" flags_84 = (unsigned int) _83
+new_list_21 = malloc (16)
+"
+
+->" flags_84 = (unsigned int) _83
+test.c:173:13: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 48: _104 = p_81
+test.c:202:12: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 48"
+
+
+->" _104 = p_81
+new_list_21 = malloc (16)
+"
+
+->" _104 = p_81
+test.c:202:12: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 31: p_68 = PHI <list_41(21), p_80(30)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 31"
+
+
+->" p_68 = PHI <list_41(21), p_80(30)>
+new_list_21 = malloc (16)
+"
+
+->" p_68 = PHI <list_41(21), p_80(30)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 30: p_80 = p_68->next
+test.c:154:22: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 30"
+
+
+->" p_80 = p_68->next
+new_list_21 = malloc (16)
+"
+
+->" p_80 = p_68->next
+test.c:154:22: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 27: _76 = halfway (p_68, nr_37)
+test.c:163:20: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 27"
+
+
+->" _76 = halfway (p_68, nr_37)
+new_list_21 = malloc (16)
+"
+
+->" _76 = halfway (p_68, nr_37)
+test.c:163:20: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 26: weight_set (p_68, _75)
+test.c:159:3: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 26"
+
+
+->" weight_set (p_68, _75)
+new_list_21 = malloc (16)
+"
+
+->" weight_set (p_68, _75)
+test.c:159:3: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 26: _75 = count_distance (p_68)
+test.c:159:3: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 26"
+
+
+->" _75 = count_distance (p_68)
+new_list_21 = malloc (16)
+"
+
+->" _75 = count_distance (p_68)
+test.c:159:3: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 24: _74 = weight (p_68)
+test.c:157:7: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 24"
+
+
+->" _74 = weight (p_68)
+new_list_21 = malloc (16)
+"
+
+->" _74 = weight (p_68)
+test.c:157:7: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 22: _69 = p_68->item
+test.c:155:8: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 22"
+
+
+->" _69 = p_68->item
+new_list_21 = malloc (16)
+"
+
+->" _69 = p_68->item
+test.c:155:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 22: _70 = _69->object.flags
+test.c:155:22: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 22"
+
+
+->" _70 = _69->object.flags
+new_list_21 = malloc (16)
+"
+
+->" _70 = _69->object.flags
+test.c:155:22: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 22: _72 = _70 & 2
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 22"
+
+
+->" _72 = _70 & 2
+new_list_21 = malloc (16)
+"
+
+->" _72 = _70 & 2
+lto1: warning: use location
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 22: _73 = (unsigned int) _72
+test.c:155:29: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 22"
+
+
+->" _73 = (unsigned int) _72
+new_list_21 = malloc (16)
+"
+
+->" _73 = (unsigned int) _72
+test.c:155:29: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 22: _71 = (unsigned int) _70
+test.c:155:29: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 22"
+
+
+->" _71 = (unsigned int) _70
+new_list_21 = malloc (16)
+"
+
+->" _71 = (unsigned int) _70
+test.c:155:29: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 28: _77 = p_68
+test.c:164:11: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 28"
+
+
+->" _77 = p_68
+new_list_21 = malloc (16)
+"
+
+->" _77 = p_68
+test.c:164:11: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 20: p_51 = PHI <list_41(13), p_67(19)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 20"
+
+
+->" p_51 = PHI <list_41(13), p_67(19)>
+new_list_21 = malloc (16)
+"
+
+->" p_51 = PHI <list_41(13), p_67(19)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 19: p_67 = p_51->next
+test.c:111:29: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 19"
+
+
+->" p_67 = p_51->next
+new_list_21 = malloc (16)
+"
+
+->" p_67 = p_51->next
+test.c:111:29: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 18: weight_set (p_51, -2)
+test.c:133:4: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 18"
+
+
+->" weight_set (p_51, -2)
+new_list_21 = malloc (16)
+"
+
+->" weight_set (p_51, -2)
+test.c:133:4: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 17: weight_set (p_51, -1)
+test.c:130:4: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 17"
+
+
+->" weight_set (p_51, -1)
+new_list_21 = malloc (16)
+"
+
+->" weight_set (p_51, -1)
+test.c:130:4: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 16: weight_set (p_51, 1)
+test.c:119:5: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 16"
+
+
+->" weight_set (p_51, 1)
+new_list_21 = malloc (16)
+"
+
+->" weight_set (p_51, 1)
+test.c:119:5: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 14: _60 = p_51->item
+test.c:115:4: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 14"
+
+
+->" _60 = p_51->item
+new_list_21 = malloc (16)
+"
+
+->" _60 = p_51->item
+test.c:115:4: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 14: _60->util = _61
+test.c:115:17: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 14"
+
+
+->" _60->util = _61
+new_list_21 = malloc (16)
+"
+
+->" _60->util = _61
+test.c:115:17: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 14: _60->util = _61
+test.c:115:17: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 14"
+
+
+->" _60->util = _61
+new_list_21 = malloc (16)
+"
+
+->" _60->util = _61
+test.c:115:17: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 14: commit_52 = p_51->item
+test.c:112:18: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 14"
+
+
+->" commit_52 = p_51->item
+new_list_21 = malloc (16)
+"
+
+->" commit_52 = p_51->item
+test.c:112:18: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 14: _62 = count_interesting_parents (commit_52)
+test.c:116:11: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 14"
+
+
+->" _62 = count_interesting_parents (commit_52)
+new_list_21 = malloc (16)
+"
+
+->" _62 = count_interesting_parents (commit_52)
+test.c:116:11: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 14: _53 = commit_52->object.flags
+test.c:113:34: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 14"
+
+
+->" _53 = commit_52->object.flags
+new_list_21 = malloc (16)
+"
+
+->" _53 = commit_52->object.flags
+test.c:113:34: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 15: _63 = _53 & 4
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 15"
+
+
+->" _63 = _53 & 4
+new_list_21 = malloc (16)
+"
+
+->" _63 = _53 & 4
+lto1: warning: use location
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 15: _64 = (unsigned int) _63
+test.c:118:16: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 15"
+
+
+->" _64 = (unsigned int) _63
+new_list_21 = malloc (16)
+"
+
+->" _64 = (unsigned int) _63
+test.c:118:16: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 14: flags_54 = (unsigned int) _53
+test.c:113:12: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 14"
+
+
+->" flags_54 = (unsigned int) _53
+new_list_21 = malloc (16)
+"
+
+->" flags_54 = (unsigned int) _53
+test.c:113:12: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 7: free (p_26)
+test.c:234:4: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 7"
+
+
+->" free (p_26)
+new_list_21 = malloc (16)
+"
+
+->" free (p_26)
+test.c:234:4: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 6: next_30 = p_26->next
+test.c:232:8: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 6"
+
+
+->" next_30 = p_26->next
+new_list_21 = malloc (16)
+"
+
+->" next_30 = p_26->next
+test.c:232:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 11: p_49 = PHI <next_30(7), next_30(10)>
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 11"
+
+
+->" p_49 = PHI <next_30(7), next_30(10)>
+new_list_21 = malloc (16)
+"
+
+->" p_49 = PHI <next_30(7), next_30(10)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 6: _27 = p_26->item
+test.c:230:21: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 6"
+
+
+->" _27 = p_26->item
+new_list_21 = malloc (16)
+"
+
+->" _27 = p_26->item
+test.c:230:21: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 6: _28 = _27->object.flags
+test.c:230:35: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 6"
+
+
+->" _28 = _27->object.flags
+new_list_21 = malloc (16)
+"
+
+->" _28 = _27->object.flags
+test.c:230:35: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 8: _35 = _28 & 4
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 8"
+
+
+->" _35 = _28 & 4
+new_list_21 = malloc (16)
+"
+
+->" _35 = _28 & 4
+lto1: warning: use location
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 8: _36 = (unsigned int) _35
+test.c:239:15: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 8"
+
+
+->" _36 = (unsigned int) _35
+new_list_21 = malloc (16)
+"
+
+->" _36 = (unsigned int) _35
+test.c:239:15: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 6: _31 = _28 & 2
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 6"
+
+
+->" _31 = _28 & 2
+new_list_21 = malloc (16)
+"
+
+->" _31 = _28 & 2
+lto1: warning: use location
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 6: _32 = (unsigned int) _31
+test.c:233:13: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 6"
+
+
+->" _32 = (unsigned int) _31
+new_list_21 = malloc (16)
+"
+
+->" _32 = (unsigned int) _31
+test.c:233:13: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 6: flags_29 = (unsigned int) _28
+test.c:230:12: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 6"
+
+
+->" flags_29 = (unsigned int) _28
+new_list_21 = malloc (16)
+"
+
+->" flags_29 = (unsigned int) _28
+test.c:230:12: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 8: last_34 = p_26
+test.c:238:8: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 8"
+
+
+->" last_34 = p_26
+new_list_21 = malloc (16)
+"
+
+->" last_34 = p_26
+test.c:238:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 5: _24 = list_255
+test.c:221:2: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 5"
+
+
+->" _24 = list_255
+new_list_21 = malloc (16)
+"
+
+->" _24 = list_255
+test.c:221:2: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 5: show_list (bisection 2 entry, 0, 0, _24)
+test.c:221:2: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 5"
+
+
+->" show_list (bisection 2 entry, 0, 0, _24)
+new_list_21 = malloc (16)
+"
+
+->" show_list (bisection 2 entry, 0, 0, _24)
+test.c:221:2: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 3: new_list_21->item = 0B
+test.c:33:17: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 3"
+
+
+->" new_list_21->item = 0B
+new_list_21 = malloc (16)
+"
+
+->" new_list_21->item = 0B
+test.c:33:17: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 3: _254 = new_list_21
+lto1: warning: use location
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 3"
+
+
+->" _254 = new_list_21
+new_list_21 = malloc (16)
+"
+
+->" _254 = new_list_21
+lto1: warning: use location
+"
+
+" main
+"->
+
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"
+
+[label=" form basic block 3: _23 = new_list_21
+test.c:36:9: warning: use location
+
+" ]
+
+" # .MEM_250 = VDEF <.MEM_13>
+new_list_21 = malloc (16)
+
+"->
+
+" from main basic block 3"
+
+
+->" _23 = new_list_21
+new_list_21 = malloc (16)
+"
+
+->" _23 = new_list_21
+test.c:36:9: warning: use location
+
+"
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_200 = VDEF <.MEM_198>
+weights_43 = calloc (_42, 4)
+
+"
+
+[label=" form basic block 80: free (weights_43)
+test.c:256:2: warning: use location
+
+" ]
+
+" # .MEM_200 = VDEF <.MEM_198>
+weights_43 = calloc (_42, 4)
+
+"->
+
+" from main basic block 80"
+
+
+->" free (weights_43)
+weights_43 = calloc (_42, 4)
+"
+
+->" free (weights_43)
+test.c:256:2: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_200 = VDEF <.MEM_198>
+weights_43 = calloc (_42, 4)
+
+"
+
+[label=" form basic block 14: _61 = weights_43 + _59
+test.c:115:19: warning: use location
+
+" ]
+
+" # .MEM_200 = VDEF <.MEM_198>
+weights_43 = calloc (_42, 4)
+
+"->
+
+" from main basic block 14"
+
+
+->" _61 = weights_43 + _59
+weights_43 = calloc (_42, 4)
+"
+
+->" _61 = weights_43 + _59
+test.c:115:19: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_200 = VDEF <.MEM_198>
+weights_43 = calloc (_42, 4)
+
+"
+
+[label=" form basic block 14: _60->util = _61
+test.c:115:17: warning: use location
+
+" ]
+
+" # .MEM_200 = VDEF <.MEM_198>
+weights_43 = calloc (_42, 4)
+
+"->
+
+" from main basic block 14"
+
+
+->" _60->util = _61
+weights_43 = calloc (_42, 4)
+"
+
+->" _60->util = _61
+test.c:115:17: warning: use location
+
+"
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 75: free (array_132)
+test.c:97:2: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 75"
+
+
+->" free (array_132)
+array_132 = calloc (_131, 16)
+"
+
+->" free (array_132)
+test.c:97:2: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 71: _166 = array_132 + _165
+test.c:90:18: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 71"
+
+
+->" _166 = array_132 + _165
+array_132 = calloc (_131, 16)
+"
+
+->" _166 = array_132 + _165
+test.c:90:18: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 71: _167 = _166->commit
+test.c:90:21: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 71"
+
+
+->" _167 = _166->commit
+array_132 = calloc (_131, 16)
+"
+
+->" _167 = _166->commit
+test.c:90:21: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 71: p_168->item = _167
+test.c:90:11: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 71"
+
+
+->" p_168->item = _167
+array_132 = calloc (_131, 16)
+"
+
+->" p_168->item = _167
+test.c:90:11: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 71: _161 = array_132 + _160
+test.c:87:37: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 71"
+
+
+->" _161 = array_132 + _160
+array_132 = calloc (_131, 16)
+"
+
+->" _161 = array_132 + _160
+test.c:87:37: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 71: _162 = _161->distance
+test.c:87:3: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 71"
+
+
+->" _162 = _161->distance
+array_132 = calloc (_131, 16)
+"
+
+->" _162 = _161->distance
+test.c:87:3: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 71: strbuf_addf (&buf, dist=d, _162)
+test.c:87:3: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 71"
+
+
+->" strbuf_addf (&buf, dist=d, _162)
+array_132 = calloc (_131, 16)
+"
+
+->" strbuf_addf (&buf, dist=d, _162)
+test.c:87:3: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 71: _156 = array_132 + _155
+test.c:84:31: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 71"
+
+
+->" _156 = array_132 + _155
+array_132 = calloc (_131, 16)
+"
+
+->" _156 = array_132 + _155
+test.c:84:31: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 71: _157 = _156->commit
+test.c:84:34: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 71"
+
+
+->" _157 = _156->commit
+array_132 = calloc (_131, 16)
+"
+
+->" _157 = _156->commit
+test.c:84:34: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 71: obj_158 = &_157->object
+test.c:84:18: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 71"
+
+
+->" obj_158 = &_157->object
+array_132 = calloc (_131, 16)
+"
+
+->" obj_158 = &_157->object
+test.c:84:18: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 71: add_name_decoration (0, _163, obj_158)
+test.c:88:3: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 71"
+
+
+->" add_name_decoration (0, _163, obj_158)
+array_132 = calloc (_131, 16)
+"
+
+->" add_name_decoration (0, _163, obj_158)
+test.c:88:3: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 68: _149 = array_132 + _148
+test.c:80:8: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 68"
+
+
+->" _149 = array_132 + _148
+array_132 = calloc (_131, 16)
+"
+
+->" _149 = array_132 + _148
+test.c:80:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 68: _149->distance = distance_150
+test.c:80:23: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 68"
+
+
+->" _149->distance = distance_150
+array_132 = calloc (_131, 16)
+"
+
+->" _149->distance = distance_150
+test.c:80:23: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 68: _149->distance = distance_150
+test.c:80:23: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 68"
+
+
+->" _149->distance = distance_150
+array_132 = calloc (_131, 16)
+"
+
+->" _149->distance = distance_150
+test.c:80:23: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 68: _145 = array_132 + _144
+test.c:79:8: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 68"
+
+
+->" _145 = array_132 + _144
+array_132 = calloc (_131, 16)
+"
+
+->" _145 = array_132 + _144
+test.c:79:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 68: _145->commit = _146
+test.c:79:21: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 68"
+
+
+->" _145->commit = _146
+array_132 = calloc (_131, 16)
+"
+
+->" _145->commit = _146
+test.c:79:21: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"
+
+[label=" form basic block 68: _145->commit = _146
+test.c:79:21: warning: use location
+
+" ]
+
+" # .MEM_204 = VDEF <.MEM_203>
+array_132 = calloc (_131, 16)
+
+"->
+
+" from main basic block 68"
+
+
+->" _145->commit = _146
+array_132 = calloc (_131, 16)
+"
+
+->" _145->commit = _146
+test.c:79:21: warning: use location
+
 " }

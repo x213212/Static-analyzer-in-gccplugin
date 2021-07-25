@@ -121,12 +121,12 @@ void FunctionStmtMappingRet(ptb *ptable, ptb *ftable, gimple_array *user_tmp)
 
 									if (TREE_CODE((ret_type_array)[i].return_tree) == SSA_NAME)
 									{
-										fprintf(stderr, "RETURN with possible malloc2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-										debug(table_temp->last_stmt);
-										debug((ret_type_array)[i].stmt);
+										// fprintf(stderr, "RETURN with possible malloc2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+										// debug(table_temp->last_stmt);
+										// debug((ret_type_array)[i].stmt);
 										if (ptr_derefs_may_alias_p(table_temp->target, (ret_type_array)[i].return_tree))
 										{
-											fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+											// fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 											// debug(table_temp->last_stmt);
 											// debug(gc);
 											// debug_tree(table_temp->target);

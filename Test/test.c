@@ -1,585 +1,272 @@
-#include <stdlib.h>
+/*
+    buggy parent :  7c11718 
+    commit id : f4e45cb3eb6fad4570ff63eecb37bae8102992fc
+*/
+
 #include <stdio.h>
-#include <pthread.h>
-#include <unistd.h>
-#define xstrdup(a) strdup(a)
-///home/cc/gcc/ins/bin/gcc  -fplugin=/home/cc/gcc/myfile/Compiler/misra.so -I/home/cc/gcc/ins/lib/gcc/x86_64-pc-linux-gnu/7.3.0/plugin/include openssl_df_2.c  -O1  -flto  -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta   -fno-inline-functions-called-once   -o  openssl_df_2.o
-// 子執行緒函數
-pthread_mutex_t mLock;
-pthread_mutex_t mLock2;
-pthread_mutex_t mLock3;
-static int *p99;
-static int *p98;
-int *foo(int z) __attribute__((noinline));
-int *foo2(int z) __attribute__((noinline));
-void foo3(int *z) __attribute__((noinline));
-int foo5(int *z, int *y) __attribute__((noinline));
-void boo(int *b) __attribute__((noinline));
-void test22(int *k) __attribute__((noinline));
-void test33(int *k) __attribute__((noinline));
-void test44(int *k) __attribute__((noinline));
-void *child(void *data) __attribute__((noinline));
-void *child2(void *data) __attribute__((noinline));
-void *child3(void *data) __attribute__((noinline));
-void *child4(int *data) __attribute__((noinline));
-void *child5(void *data) __attribute__((noinline));
-void *child6(void *test, void *data) __attribute__((noinline));
-int *child7(void *test, void *data) __attribute__((noinline));
-// void *child(void *data) __attribute__((noinline));
-// int *foo(int z);
-int *foo4(int z);
-// int *foo2(int z);
-// void foo3(int *z);
-int foo5(int *z, int *y)
-{
-	int p2 = 10;
+#include <stdlib.h>
 
-	// p2=foo2(2);
-	// p2[0]=10;
-	///error
-	printf("test1%d\n", *z);
-	printf("test2%d\n", *y);
-	printf("test3%d\n", p2);
-	// p2=10;
-	//printf("%d",p2);
-	return p2;
-}
-void foo3(int *z)
+#include "stdio.h"
+#include "git.h"
+
+struct commit *pop_commit(struct commit_list **stack)
 {
-	int *p2;
-	int test;
-	// p2[0]=10;
-	///error
-	// p2=10;
-	if (test)
-	{
-		*z = malloc(1);
+	struct commit_list *top = *stack;
+	struct commit *item = top ? top->item : NULL;
+
+	if (top) {
+		*stack = top->next;
+		free(top);
 	}
-	else
-		p2 = malloc(2);
-	p2[0] = 10;
-	printf("%d", p2);
+	return item;
 }
-int *foo2(int z)
+
+void free_commit_list(struct commit_list *list)
 {
-
-	int *a2 = malloc(z);
-	int *p3 = malloc(z);
-	int *p4 = malloc(z);
-	p99 = malloc(200);
-	p99[0] = 99;
-	p99[1] = 100;
-	int tmp;
-	// a2[0] = 10;
-
-	//  free(a2);
-	pthread_mutex_lock(&mLock);
-	pthread_mutex_lock(&mLock2);
-	pthread_mutex_lock(&mLock3);
-	foo3(p3);
-	if (tmp > 10)
-	{
-		p99[1] = 200;
-		// pthread_mutex_unlock(&mLock);
-		p3[0] = 10;
-		free(p3);
-		return p3;
-	}
-	else
-	{
-		p4[0] = 10;
-		free(p4);
-		return p4;
-	}
-
-	//char tmp ;
-	// return (char)tmp;
-	return a2;
+	while (list)
+		pop_commit(&list);
 }
-int *foo4(int z)
+
+struct commit_list *commit_list_insert(struct commit *item, struct commit_list **list_p)
 {
-	int *b = malloc(1);
-	int *p2 = malloc(1);
-
-	// b=2;
-	//  p2=foo2(2);
-	b[0] = 2;
-	p2[0] = 1;
-	p2 = &b;
-
-	free(p2);
-	//int *a=malloc(1);
-	// for(int i = 0;i < 3;++i) {
-	// printf("qwdwqd%d\n", i);
-	//  }
-	//   free(a);
-	return p2;
+	struct commit_list *new_list = xmalloc(sizeof(struct commit_list)); /* allocation site */
+	new_list->item = item;
+	new_list->next = *list_p;
+	*list_p = new_list;
+	return new_list;
 }
-int *foo(int z)
+
+static struct commit_list *best_bisection(struct commit_list *list, int nr)
 {
-	// int *b = malloc(1);
-	int *p2 = malloc(1);
-	p2[0] = 1;
-		p99[1] = 1000;
-		p99[2] = 200;
-	// free(p2);
-	// b=2;
-	//  p2=foo2(2);
-	// b[0] = 2;
-	// p2[0] = 1;
-	// p2 = &b;
+	struct commit_list *p, *best;
+	int best_distance = -1;
 
-	// free(p2);
-	//int *a=malloc(1);
-	// for(int i = 0;i < 3;++i) {
-	// printf("qwdwqd%d\n", i);
-	//  }
-	//   free(a);
+	best = list;
+	for (p = list; p; p = p->next) {
+		int distance;
+		unsigned flags = p->item->object.flags;
 
-	return foo2(z);
-}
-void *child(void *data)
-{
-	pthread_mutex_t mLock2;
-
-	// pthread_mutex_lock(&mLock2);
-	// pthread_mutex_lock(&mLock2);
-	//a1
-	//   pthread_mutex_lock(&mLock);
-	//   //   char *str = (char*) data; // 取得輸入資料
-	//   // int *p;e
-	//   // p=foo(2);
-	//   int *b = malloc(2);
-	//   int *p2 = malloc(2);
-	//   // p2 = &b;
-	// //   MEM[(int *)&b] = 1;
-	// //  <mem_ref 0x7fbe6f4e27d0
-	//   // b[0] = 2;
-	//   p2[0] = 1;
-	//   p2[1] = 1;
-
-	//   free(p2);
-	//   // free(test);
-	//   // 	str=malloc(5);
-	//   pthread_mutex_unlock(&mLock);
-	//   pthread_exit(NULL); // 離開子執行緒
-	//a2
-	// pthread_detach(pthread_self());
-	pthread_mutex_lock(&mLock);
-	pthread_mutex_lock(&mLock);
-
-	int *a99 = foo(20);
-	printf("asdda%d\n", a99);
-	// ++(*(int *)data);
-	// (data)+=1;
-	int **ppData = malloc(10);
-	int *pData = data;
-	int *pData2 = malloc(10);
-	*pData += 1;
-	// int *a = foo(20);
-	// printf("asdda%d\n", a);
-	int data2 = 0;
-	data = 10;
-	ppData = &pData;
-	pData = &data2;
-	*ppData[0] = 10;
-	// *ppData[1] = 10;
-	// *ppData[2] = 10;
-	**ppData = 12;
-	child4(&data);
-	child3(&data);
-	child5(pData2);
-	p98[0] = 98;
-	free(pData);
-	free(data);
-	boo(data);
-	free(ppData);
-	pthread_mutex_unlock(&mLock);
-	free(ppData);
-	int test = 100;
-	//會影響強迫程式結束
-	// pthread_exit(test); // 離開子執行緒
-
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-void *child4(int *data)
-{
-	// pthread_detach(pthread_self());
-	int *pData = &data;
-	int *test = &data;
-	int t;
-	if (t)
-	{
-		*data = *data + 1;
-	}
-	else
-		*data = 2;
-	// ++(*(int *)pData);
-	// int input[2] = {1, 2}; // 輸入的資料
-	// int input2; // 輸入的資料
-	// data=10;
-	// data=10;
-	// data=10;
-	// data=10;
-	// free(&pData);
-
-	// pthread_detach(pthread_self());
-	//
-	printf("asdda%d\n", pData);
-
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-void *child3(void *data)
-{
-	pthread_detach(pthread_self());
-	int *pData = &data;
-	int c = 10;
-	pData = pData + 1;
-	// ++(*(int *)pData);
-	// int input[2] = {1, 2}; // 輸入的資料
-	// int input2; // 輸入的資料
-	// data=10;
-	// data=10;
-	// data=10;
-	// data=10;
-	// free(&pData);
-	printf("asdda%d\n", pData);
-	printf("asdda%d\n", c);
-	free(&data);
-	// pthread_detach(pthread_self());
-	//
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-void *child5(void *data)
-{
-	pthread_detach(pthread_self());
-	int *pData = data;
-	int c;
-	pData = pData + 1;
-	// ++(*(int *)pData);
-	// int input[2] = {1, 2}; // 輸入的資料
-	// int input2; // 輸入的資料
-	// data=10;
-	// data=10;
-	// data=10;
-	// data=10;
-	// free(&pData);
-	if (c)
-	{
-
-		printf("asdda%d\n", pData);
-	}
-	else
-	{
-		printf("asdda%d\n", c);
-		free(pData);
-	}
-	// pthread_detach(pthread_self());
-	//
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-void *child6(void *data, void *test)
-{
-	pthread_detach(pthread_self());
-	int *pData = test;
-	int c;
-	pData = pData + 1;
-	// ++(*(int *)pData);
-	// int input[2] = {1, 2}; // 輸入的資料
-	// int input2; // 輸入的資料
-	// data=10;
-	// data=10;
-	// data=10;
-	// data=10;
-	// free(&pData);
-	if (c)
-	{
-
-		pData = pData + 20;
-		printf("asdda%d\n", pData);
-	}
-	else
-	{
-		pData = pData + 20;
-		printf("asdda%d\n", c);
-		free(pData);
-	}
-	// pthread_detach(pthread_self());
-	//
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-int *child7(void *data, void *test)
-{
-	pthread_detach(pthread_self());
-	int *pData = test;
-	int c;
-	pData = pData + 1;
-	// ++(*(int *)pData);
-	// int input[2] = {1, 2}; // 輸入的資料
-	// int input2; // 輸入的資料
-	// data=10;
-	// data=10;
-	// data=10;
-	// data=10;
-	// free(&pData);
-	if (c)
-	{
-	p98[3] = 300;
-		return malloc(10);
-		printf("asdda%d\n", pData);
-	}
-	else
-	{
-		p98[2] = 300;
-		pData = pData + 20;
-		printf("asdda%d\n", c);
-		return malloc(30);
-	}
-	// pthread_detach(pthread_self());
-	//
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-void *child2(void *data)
-{
-
-	int *pData = &data;
-p98[1] = 99;
-	// int input[2] = {1, 2}; // 輸入的資料
-	// int input2; // 輸入的資料
-	// data=10;
-	// data=10;
-	// data=10;
-	// data=10;
-	// free(&pData);
-	// int a;
-
-	// ++(*(int *)data);
-	// ++(*(int *)pData);
-	child3(data);
-	free(data);
-	//
-	// printf("asdda%d\n" ,input2);
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-int *foo(int z);
-void boo(int *b)
-{
-	free(b);
-	free(b);
-	test22(b);
-	// pthread_detach(pthread_self());
-	printf("asdda\n");
-}
-void test44(int *k)
-{
-	free(k);
-}
-void test33(int *k)
-{
-	test44(k);
-}
-void test22(int *k)
-{
-	free(k);
-	free(k);
-	free(k);
-	free(k);
-	free(k);
-	free(k);
-	int *w = malloc(5);
-	free(w);
-	// test22(k);
-}
-static int staticTrue = 1;	/* true */
-static int staticFalse = 0; /* false */
-struct adresse
-{
-	char *name;
-	int nummer;
-};
-int main()
-{
-	int *p;
-	int *p2;
-
-	int size = 2;
-	int *p3 = &size;
-	struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
-
-	for (int i = 0; i < size; i++)
-	{
-		a[i].name = "Testname";
-		a[i].nummer = 123;
-	}
-	free(a);
-	for (int i = 0; i < size; i++)
-	{
-		printf("%s, %d\n", a[i].name, a[i].nummer);
-	}
-
-	int input[2] = {1, 2}; // 輸入的資料
-	int input2;			   // 輸入的資料
-	// int *p3;
-	// // test= malloc (sizeof (int ) * 10);
-	// // foo3(p);
-	// p3 = foo(2);
-	// p3[0] = 1;
-	// free(p3);
-	// p = foo2(2);
-	// p[0] = 2;
-	// p2 = foo2(2);
-
-	// p2[0] = 4;
-	// // test22(p);
-	// // test22(p);
-	// // test33(p2);
-	// free(p);
-	// free(p2);
-	// boo(p);
-	// int n;
-	char buff[50];
-
-	pthread_attr_t attr, attr2;
-	pthread_attr_init(&attr);
-	pthread_attr_init(&attr2);
-	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
-	pthread_attr_setdetachstate(&attr2, PTHREAD_CREATE_JOINABLE);
-
-	pthread_t t, t2[3]; // 宣告 pthread 變數
-	pthread_create(&t, &attr2, child2, input2);
-
-	pthread_join(t, NULL);
-	// pthread_mutex_destroy(&mLock);
-	// pthread_create(&t, &attr, child, buff); // 建立子執行緒
-	for (int i = 0; i < 3; i++)
-	{
-		int err = pthread_create(&t2[i], &attr2, child, NULL);
-
-		printf("%ld\n", t2[i]);
-	}
-	int *q = malloc(70);
-	int *q2 = malloc(20);
-
-	int test;
-	if ((q != NULL) && test)
-	{
-
-		child(q);
-		child6(test, q);
-		q=child7(test,q);
-		free(q);
-		q[0] = 10;
-	}
-	else
-	{
-		q[0] = 20;
-		child(q2);
-		printf("test\n");
-	}
-
-	for (int i = 0; i < 3; i++)
-	{
-
-		pthread_join(t2[i], NULL);
-	}
-	int *data;
-	/* Initialize data */
-	data = NULL;
-	if (staticTrue)
-	{
-		data = (int *)malloc(100 * sizeof(int));
-		if (data == NULL)
-		{
-			exit(-1);
+		if (flags & TREESAME)
+			continue;
+		distance = weight(p);
+		if (nr - distance < distance)
+			distance = nr - distance;
+		if (distance > best_distance) {
+			best = p;
+			best_distance = distance;
 		}
-		/* POTENTIAL FLAW: Free data in the source - the bad sink frees data as well */
-		free(data);
 	}
-	if (staticTrue)
-	{
-		/* POTENTIAL FLAW: Possibly freeing memory twice */
-		free(data);
-	}
-	printf("123%d\n", foo5(q, q));
 
-	int *p4 = malloc(10);
-	p4 = NULL;
-	p4 = 1;
-
-	child4(p4);
-	p4 = child7(test, p4);
-	free(p4);
-	p98 = malloc(201);
-	p98 = child7(test, p98);
-	free(p98);
-	// test22(q);
-
-	// // 主執行緒工作
-	// //   for(int i = 0;i < 3;++i) {
-	// //     printf("Master\n"); // 每秒輸出文字
-	// //     sleep(1);
-	// //   }
-
-	// pthread_join(t, NULL); // 等待子執行緒執行完成
-	// pthread_mutex_destroy(&mLock);
-	// scanf("%d",n);
-	// p=foo(2);
-	// if(n)
-	// 	free(p);
-	// else
-	// 	boo(p);
-	// q=p;
-	// free(q);
-	// printf("%d",q);
-
-	return 0;
+	return best;
 }
+
+static struct commit_list *best_bisection_sorted(struct commit_list *list, int nr)
+{
+	struct commit_list *p;
+	struct commit_dist *array = xcalloc(nr, sizeof(*array));
+	struct strbuf buf = STRBUF_INIT;
+	int cnt, i;
+
+	for (p = list, cnt = 0; p; p = p->next) {
+		int distance;
+		unsigned flags = p->item->object.flags;
+
+		if (flags & TREESAME)
+			continue;
+		distance = weight(p);
+		if (nr - distance < distance)
+			distance = nr - distance;
+		array[cnt].commit = p->item;
+		array[cnt].distance = distance;
+		cnt++;
+	}
+	for (p = list, i = 0; i < cnt; i++) {
+		struct object *obj = &(array[i].commit->object);
+
+		strbuf_reset(&buf);
+		strbuf_addf(&buf, "dist=%d", array[i].distance);
+		add_name_decoration(DECORATION_NONE, buf.buf, obj);
+
+		p->item = array[i].commit;
+		if (i < cnt - 1)
+			p = p->next;
+	}
+	free_commit_list(p->next);
+	p->next = NULL;
+	strbuf_release(&buf);
+	free(array);
+	return list;
+}
+
+
+static struct commit_list *do_find_bisection(struct commit_list *list,
+					     int nr, int *weights,
+					     int find_all)
+{
+	int n, counted;
+	struct commit_list *p;
+
+	counted = 0;
+
+	for (n = 0, p = list; p; p = p->next) {
+		struct commit *commit = p->item;
+		unsigned flags = commit->object.flags;
+
+		p->item->util = &weights[n++];
+		switch (count_interesting_parents(commit)) {
+		case 0:
+			if (!(flags & TREESAME)) {
+				weight_set(p, 1);
+				counted++;
+				show_list("bisection 2 count one",
+					  counted, nr, list);
+			}
+			/*
+			 * otherwise, it is known not to reach any
+			 * tree-changing commit and gets weight 0.
+			 */
+			break;
+		case 1:
+			weight_set(p, -1);
+			break;
+		default:
+			weight_set(p, -2);
+			break;
+		}
+	}
+
+	show_list("bisection 2 initialize", counted, nr, list);
+
+	/*
+	 * If you have only one parent in the resulting set
+	 * then you can reach one commit more than that parent
+	 * can reach.  So we do not have to run the expensive
+	 * count_distance() for single strand of pearls.
+	 *
+	 * However, if you have more than one parents, you cannot
+	 * just add their distance and one for yourself, since
+	 * they usually reach the same ancestor and you would
+	 * end up counting them twice that way.
+	 *
+	 * So we will first count distance of merges the usual
+	 * way, and then fill the blanks using cheaper algorithm.
+	 */
+	for (p = list; p; p = p->next) {
+		if (p->item->object.flags & UNINTERESTING)
+			continue;
+		if (weight(p) != -2)
+			continue;
+		weight_set(p, count_distance(p));
+		clear_distance(list);
+
+		/* Does it happen to be at exactly half-way? */
+		if (!find_all && halfway(p, nr))
+			return p;
+		counted++;
+	}
+
+	show_list("bisection 2 count_distance", counted, nr, list);
+
+	while (counted < nr) {
+		for (p = list; p; p = p->next) {
+			struct commit_list *q;
+			unsigned flags = p->item->object.flags;
+
+			if (0 <= weight(p))
+				continue;
+			for (q = p->item->parents; q; q = q->next) {
+				if (q->item->object.flags & UNINTERESTING)
+					continue;
+				if (0 <= weight(q))
+					break;
+			}
+			if (!q)
+				continue;
+
+			/*
+			 * weight for p is unknown but q is known.
+			 * add one for p itself if p is to be counted,
+			 * otherwise inherit it from q directly.
+			 */
+			if (!(flags & TREESAME)) {
+				weight_set(p, weight(q)+1);
+				counted++;
+				show_list("bisection 2 count one",
+					  counted, nr, list);
+			}
+			else
+				weight_set(p, weight(q));
+
+			/* Does it happen to be at exactly half-way? */
+			if (!find_all && halfway(p, nr))
+				return p;
+		}
+	}
+
+	show_list("bisection 2 counted all", counted, nr, list);
+
+	if (!find_all)
+		return best_bisection(list, nr);
+	else
+		return best_bisection_sorted(list, nr);
+}
+
+void find_bisection(struct commit_list **commit_list, int *reaches,
+		    int *all, int find_all)
+{
+	int nr, on_list;
+	struct commit_list *list, *p, *best, *next, *last;
+	int *weights;
+
+	show_list("bisection 2 entry", 0, 0, *commit_list);
+
+	/*
+	 * Count the number of total and tree-changing items on the
+	 * list, while reversing the list.
+	 */
+	for (nr = on_list = 0, last = NULL, p = *commit_list;
+	     p;
+	     p = next) {
+		unsigned flags = p->item->object.flags;
+
+		next = p->next;
+		if (flags & UNINTERESTING) {
+			free(p);
+			continue;
+		}
+		p->next = last;
+		last = p;
+		if (!(flags & TREESAME))
+			nr++;
+		on_list++;
+	}
+	list = last;
+	show_list("bisection 2 sorted", 0, nr, list);
+
+	*all = nr;
+	weights = xcalloc(on_list, sizeof(*weights));
+
+	/* Do the real work of finding bisection commit. */
+	best = do_find_bisection(list, nr, weights, find_all);
+	if (best) {
+		if (!find_all)
+			best->next = NULL;              /* memory leak */
+		*reaches = weight(best);
+	}
+	free(weights);
+	*commit_list = best;
+}
+int main()
+{   
+    struct commit_list *list;
+    int reaches, all, find_all;
+    for(int i = 0; i < 10; i++)
+    {
+        commit_list_insert(NULL, &list);
+    }
+    find_bisection(&list, &reaches, &all, find_all);
+    free_commit_list(list);
+    return 0;
+}
+
+

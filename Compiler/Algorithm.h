@@ -1192,6 +1192,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	{
 		FOR_EACH_TABLE(table1, t2)
 		{
+			// debug_tree(table1->target);
 			// if(t2 != NULL_TREE){
 			// debug(t2);
 			// fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");}
@@ -1222,84 +1223,97 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				// debug(stmtStack.top());
 				stmtStack.pop();
 			}
-
+			// debug_tree(used_stmt->target);
+			// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// debug_tree(table1->target);
 			// tree teewtetqq;
 			// size = sizeof(teewtetqq);
 			// fprintf(stderr, " used_stmt array size of : %d\n", totalsize);
 			// totalsize =0 ;
-			FOR_EACH_USE_TABLE(used_stmt, u_stmt)
-			{
+			// FOR_EACH_USE_TABLE(used_stmt, u_stmt)
+			// {
 
-				// pi2 = SSA_NAME_PTR_INFO(used_stmt->target);
-				// pt2 = &pi2->pt;
-				// debug_tree(used_stmt->target);
-				// if()
-				// if (pt2 == NULL)
-				// 	continue;
-				// if (pt2->vars == NULL)
-				// 	continue;
-				// debug(used_stmt->target);
-				// fprintf(stderr, "%s\n", get_tree_code_name(TREE_CODE(used_stmt->target)));
-				// debug_tree(table1->target);
+			// 	// pi2 = SSA_NAME_PTR_INFO(used_stmt->target);
+			// 	// pt2 = &pi2->pt;
+			// 	// debug_tree(used_stmt->target);
+			// 	// if()
+			// 	// if (pt2 == NULL)
+			// 	// 	continue;
+			// 	// if (pt2->vars == NULL)
+			// 	// 	continue;
+			// 	// debug(used_stmt->target);
+			// 	// fprintf(stderr, "%s\n", get_tree_code_name(TREE_CODE(used_stmt->target)));
+			// 	// debug_tree(table1->target);
 
-				// if (bitmap_intersect_p(pt1->vars, pt2->vars))
-				// {
+			// 	// if (bitmap_intersect_p(pt1->vars, pt2->vars))
+			// 	// {
 
-				// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-				// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-				// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-				// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-				// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-				// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-				// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-				// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-				// 	gimple_array *user_tmp2;
-				// 	user_tmp2 = tvpt2->get(table1->target);
-				// 	if (user_tmp2 != NULL)
-				// 		break;
+			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 	// 	gimple_array *user_tmp2;
+			// 	// 	user_tmp2 = tvpt2->get(table1->target);
+			// 	// 	if (user_tmp2 != NULL)
+			// 	// 		break;
 
-				// 	tvpt2->put(table1->target, *used_stmt);
-				// 	break;
-				// }
+			// 	// 	tvpt2->put(table1->target, *used_stmt);
+			// 	// 	break;
+			// 	// }
+			// 	// debug_tree(table1->target);
+			// 	// debug_gimple_stmt(table1->last_stmt);
+			// 	if (ptr_derefs_may_alias_p(used_stmt->target, table1->target))
+			// 	{
+			// 		debug_tree(used_stmt->target);
+			// 		debug_tree(table1->target);
+			// 		debug_gimple_stmt(table1->last_stmt);
+			// 		fprintf(stderr, "filterstart\n\n");
+			// 		// if (gimple_location_safe(table1->last_stmt))
+			// 		// {
+			// 		// 	location_t loc = gimple_location_safe(table1->last_stmt);
+			// 		// 	loc = gimple_location(table1->last_stmt);
+			// 		// 	debug(table1->last_stmt);
+			// 		// 	warning_at(gimple_location_safe(table1->last_stmt), 0, "use location");
+			// 		// 	// if (LOCATION_LINE(loc) != 171)
+			// 		// 	// {
 
-				if (ptr_derefs_may_alias_p(used_stmt->target, table1->target))
-				{
-					fprintf(stderr, "filterstart\n\n");
-					if (gimple_location_safe(table1->last_stmt))
-					{
-						location_t loc = gimple_location_safe(table1->last_stmt);
-						loc = gimple_location(table1->last_stmt);
-						debug(table1->last_stmt);
-						warning_at(gimple_location_safe(table1->last_stmt), 0, "use location");
-						if (LOCATION_LINE(loc) != 171)
-						{
+			// 		// 	// 	continue;
+			// 		// 	// }
+			// 		// }
+			// 		// else
+			// 			continue;
+			// 		fprintf(stderr, "filter\n\n");
 
-							continue;
-						}
+			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
 
-					}
-					else
-						continue;
-					fprintf(stderr, "filter\n\n");
+			// 		if (treeGimpleArray->get(table1->target) != NULL)
+			// 			break;
+			// 		// fprintf(stderr, "check stmt\n");
+			// 		// debug_tree(used_stmt->target);
+			// 		// debug_tree(table1->target);
+			// 		treeGimpleArray->put(table1->target, *used_stmt);
+			// 		Entrypoint++;
+			// 	}
+			// }
 
-					// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-					// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-					// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-					// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-					// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-					// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-					// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-					// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-
-					if (treeGimpleArray->get(table1->target) != NULL)
-						break;
-					// fprintf(stderr, "check stmt\n");
-					// debug_tree(used_stmt->target);
-					// debug_tree(table1->target);
-					treeGimpleArray->put(table1->target, *used_stmt);
-					Entrypoint++;
-				}
-			}
+			if (treeGimpleArray->get(table1->target) != NULL)
+				break;
+			// fprintf(stderr, "check stmt\n");
+			// debug_tree(used_stmt->target);
+			// debug_tree(table1->target);
+			treeGimpleArray->put(table1->target, *used_stmt);
+			Entrypoint++;
 			// if(table1->next == NULL)
 			// 	fprintf(stderr, "weritjroti;ejhoerjhio;rtjhojert\n");
 			// break;
@@ -1435,8 +1449,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		int is_pthread_detched = 0;
 		int find_mallocstmt = 0;
 
-		// fprintf(stderr, "\n ------------------------------------------\n");
 		// debug_tree(table_temp->target);
+		// debug_tree(table_temp->node->get_fun()->decl);
+		// fprintf(stderr, "\n ------------------------------------------\n");
+		// debug_tree(function_tree);
 		// debug_tree(function_tree);
 		// debug_tree(table_temp->node->get_fun()->decl);
 		//  fprintf(stderr, "%d\n",int(table_temp->node->get_fun()->decl==function_tree));
@@ -1472,7 +1488,22 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// 	continue;
 				// if (!strcmp(get_tree_code_name(TREE_CODE(table_temp->target)), "addr_expr"))
 				// 	continue;
+				// if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "addr_expr"))
+				// 	continue;
+				// debug_tree(table_temp->target);
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
+				if (TREE_CODE(table_temp->target) == INTEGER_CST)
+				{
+					debug_tree(table_temp->target);
+					continue;
+				}
+				// continue;
+				else if (gimple_code(def_stmt) == GIMPLE_CALL)
+				{
+					name = get_name(gimple_call_fndecl(def_stmt));
+					// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
+				}
+				// debug_gimple_stmt(def_stmt);
 				fprintf(stderr, "\n ================== trace ptable================== \n");
 				if (is_gimple_call(def_stmt))
 					if (gimple_call_fn(def_stmt))
@@ -1493,20 +1524,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						// }
 					}
 				fprintf(stderr, "\n ================== trace ptable ================== \n");
-				// if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "addr_expr"))
-				// 	continue;
-				// debug_tree(table_temp->target);
-				if (TREE_CODE(table_temp->target) == INTEGER_CST)
-				{
-					debug_tree(table_temp->target);
-					return;
-				}
-				// continue;
-				else if (gimple_code(def_stmt) == GIMPLE_CALL)
-				{
-					name = get_name(gimple_call_fndecl(def_stmt));
-					// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
-				}
 				// if (gimple_code(def_stmt) == GIMPLE_NOP)
 				// 	continue;
 
@@ -2645,8 +2662,11 @@ void record_fucntion(cgraph_node *node)
 		//tree test=DECL_SAVED_TREE(cfun->decl);
 		//analyze_func_body(DECL_SAVED_TREE(test), 0);
 		if (cfun == NULL)
+		{
+			pop_cfun();
 			continue;
-		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+		}
+		fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 		enum availability avail;
 
 		// fprintf(stderr, "fucntion collect \n");
@@ -2664,13 +2684,25 @@ void record_fucntion(cgraph_node *node)
 			// fprintf(stderr, "=======child node_fun:%s=========\n", get_name(callee->decl));
 			if (callee != NULL)
 			{
-				if (!gimple_has_body_p(callee->decl))
-					continue;
+				// if (!gimple_has_body_p(callee->decl))
+				// 	continue;
 				//
-				struct function_path path_type;
-				path_type.cgnext = callee;
-				path_type.next = callee->decl;
-				fun_array.function_path_array.push_back(path_type);
+				int find = 0;
+				vector<function_path>::iterator it_i;
+				for (it_i = fun_array.function_path_array.begin(); it_i != fun_array.function_path_array.end(); ++it_i)
+				{
+					if (it_i->next == callee->decl)
+						find = 1;
+				}
+				// cout << *it_i << " "
+				if (find == 0)
+				{
+					// fprintf(stderr, "=======child node_fun:%s=========\n", get_name(callee->decl));
+					struct function_path path_type;
+					path_type.cgnext = callee;
+					path_type.next = callee->decl;
+					fun_array.function_path_array.push_back(path_type);
+				}
 
 				//pop_cfun();
 				//		dump_fucntion(callee);
@@ -2678,6 +2710,8 @@ void record_fucntion(cgraph_node *node)
 
 			//analyze_function=	analyze_function (caller ,true);
 		}
+		//  DECL_STRUCT_FUNCTION (cfun->decl);
+		// debug_tree(node->get_fun()->decl);
 		function_path_collect->put(node->get_fun()->decl, fun_array);
 		pop_cfun();
 	}
@@ -2817,7 +2851,10 @@ void detect()
 		//tree test=DECL_SAVED_TREE(cfun->decl);
 		//analyze_func_body(DECL_SAVED_TREE(test), 0);
 		if (cfun == NULL)
+		{
+			pop_cfun();
 			continue;
+		}
 		// debug_tree(cfun->decl);
 		// enum availability avail;
 		// for (e = node->callees; e; e = e->next_callee)
