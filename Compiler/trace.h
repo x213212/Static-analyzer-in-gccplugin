@@ -369,9 +369,12 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 																// fprintf(stderr, "\n ================== wasssssssssVVA33333=====%d========= \n", ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)));
 																if (is_global_var(gimple_assign_rhs1(gc)))
 																{
-																	// debug_tree(gimple_assign_rhs1(gc));
-																	// debug_tree(gimple_call_lhs(gc));
-																	// fprintf(stderr, "\n ================== wasssssssssVVAR555======%d========= \n", ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)));
+																	debug_tree(gimple_assign_rhs1(gc));
+																	debug_tree(gimple_assign_lhs(gc));
+
+																	debug_points_to_info_for(mallocStmt_tree);
+																	debug_points_to_info_for(gimple_assign_lhs(gc));
+																	fprintf(stderr, "\n ================== wasssssssssVVAR555======%d========= \n", ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)));
 																	// debug_tree(gimple_assign_lhs(gc));
 																	// gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_assign_lhs(gc));
 																	// debug_tree(gimple_assign_rhs1(def_stmt));
@@ -1408,8 +1411,8 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
-		//   if (!gimple_has_body_p (node->decl))
-		//       continue;
+		if (!gimple_has_body_p(node->decl))
+			continue;
 		int fucntion_level = 0;
 
 		push_cfun(node->get_fun());

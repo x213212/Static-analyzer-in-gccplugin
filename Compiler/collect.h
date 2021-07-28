@@ -165,44 +165,44 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 			// }
 		}
 	}
-	if (is_gimple_assign(gc))
-	{
-		fprintf(stderr, "============gimple assign==================\n");
-		debug_gimple_stmt(gc);
-		debug_tree(gimple_assign_rhs1(gc));
-		// location_t loc;
-		// loc = gimple_location_safe(gc);
-		// if (gimple_location_safe(gc))
-		// {
-		// 	if (LOCATION_LINE(loc) == 561)
-		// 		fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-		// }
+	// if (is_gimple_assign(gc))
+	// {
+	// 	fprintf(stderr, "============gimple assign==================\n");
+	// 	debug_gimple_stmt(gc);
+	// 	debug_tree(gimple_assign_rhs1(gc));
+	// 	// location_t loc;
+	// 	// loc = gimple_location_safe(gc);
+	// 	// if (gimple_location_safe(gc))
+	// 	// {
+	// 	// 	if (LOCATION_LINE(loc) == 561)
+	// 	// 		fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
+	// 	// }
 
-		// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-		// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-		if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME)
-		{
-			fprintf(stderr, "============COMPONEN2T_REF==================\n");
-			// if (TREE_CODE(gimple_assign_rhs1(gc)) == ADDR_EXPR)
-			// {
-			tree second = TREE_OPERAND(gimple_assign_rhs1(gc), 0);
-			warning_at(gimple_location_safe(gc), 0, "use location");
-			if (second)
-				if (TREE_CODE(second) == COMPONENT_REF)
-				{
-					loc = gimple_location(gc);
-					// if (gimple_location(gc))
+	// 	// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
+	// 	// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
+	// 	if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME)
+	// 	{
+	// 		fprintf(stderr, "============COMPONEN2T_REF==================\n");
+	// 		// if (TREE_CODE(gimple_assign_rhs1(gc)) == ADDR_EXPR)
+	// 		// {
+	// 		tree second = TREE_OPERAND(gimple_assign_rhs1(gc), 0);
+	// 		warning_at(gimple_location_safe(gc), 0, "use location");
+	// 		if (second)
+	// 			if (TREE_CODE(second) == COMPONENT_REF)
+	// 			{
+	// 				loc = gimple_location(gc);
+	// 				// if (gimple_location(gc))
 
-					if (LOCATION_LINE(loc) == 104 || LOCATION_LINE(loc) == 105)
-					{
-						fprintf(stderr, "============COMPONENT_REF==================\n");
-						// debug_tree(gimple_assign_rhs1(gc));
-						set_ptb(bb, ptable, gimple_assign_lhs(gc), loc, 0, gc, node);
-					}
-				}
-			// }
-		}
-	}
+	// 				if (LOCATION_LINE(loc) == 104 || LOCATION_LINE(loc) == 105)
+	// 				{
+	// 					fprintf(stderr, "============COMPONENT_REF==================\n");
+	// 					// debug_tree(gimple_assign_rhs1(gc));
+	// 					set_ptb(bb, ptable, gimple_assign_lhs(gc), loc, 0, gc, node);
+	// 				}
+	// 			}
+	// 		// }
+	// 	}
+	// }
 }
 
 void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb)
