@@ -1,34 +1,260 @@
 
 
 
+" main
+"->
 
 
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"
+
+[label=" form basic block 2: a = _1
+test.c:528:4: warning: use location
+
+" ]
+
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"->
+
+" from main basic block 2"
 
 
+->" a = _1
+_1 = malloc (10)
+"
+
+->" a = _1
+test.c:528:4: warning: use location
+
+"
+
+" main
+"->
 
 
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"
+
+[label=" form basic block 2: _2 = a
+test.c:529:2: warning: use location
+
+" ]
+
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"->
+
+" from main basic block 2"
 
 
+->" _2 = a
+_1 = malloc (10)
+"
+
+->" _2 = a
+test.c:529:2: warning: use location
+
+"
+
+" main
+"->
 
 
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"
+
+[label=" form basic block 2: *_2 = 10
+test.c:529:4: warning: use location
+
+" ]
+
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"->
+
+" from main basic block 2"
 
 
+->" *_2 = 10
+_1 = malloc (10)
+"
+
+->" *_2 = 10
+test.c:529:4: warning: use location
+
+"
+
+" main
+"->
 
 
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"
+
+[label=" form basic block 2: _3 = a
+test.c:530:2: warning: use location
+
+" ]
+
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"->
+
+" from main basic block 2"
 
 
+->" _3 = a
+_1 = malloc (10)
+"
+
+->" _3 = a
+test.c:530:2: warning: use location
+
+"
+
+" main
+"->
 
 
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"
+
+[label=" form basic block 2: child9 (_3)
+test.c:530:2: warning: use location
+
+" ]
+
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"->
+
+" from main basic block 2"
 
 
+->" child9 (_3)
+_1 = malloc (10)
+"
+
+->" child9 (_3)
+test.c:530:2: warning: use location
+
+"
 
 
+->"ID : 1686528194
+from child9 basic block 2"->
 
 
+" ID : 2020157998 stmt(LHS) :MEM[(int *)data_1(D)] = 1
+test.c:463:5: warning: use location
+
+"
 
 
+" main
+"->
 
 
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"
+
+[label=" form basic block 2: _4 = a
+test.c:531:2: warning: use location
+
+" ]
+
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"->
+
+" from main basic block 2"
+
+
+->" _4 = a
+_1 = malloc (10)
+"
+
+->" _4 = a
+test.c:531:2: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"
+
+[label=" form basic block 2: _5 = *_4
+test.c:531:2: warning: use location
+
+" ]
+
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"->
+
+" from main basic block 2"
+
+
+->" _5 = *_4
+_1 = malloc (10)
+"
+
+->" _5 = *_4
+test.c:531:2: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"
+
+[label=" form basic block 2: _15 = __printf_chk (1, d\n, _5)
+" ]
+
+" # .MEM_21 = VDEF <.MEM_20>
+_1 = malloc (10)
+
+"->
+
+" from main basic block 2"
+
+
+->" _15 = __printf_chk (1, d\n, _5)
+_1 = malloc (10)
+"
+
+->" _15 = __printf_chk (1, d\n, _5)
+"
 
 
 

@@ -232,12 +232,12 @@ ofstream cfginfo("cfginfo.txt");
 
 /*interprocedural analysis*/
 bool ipa = true;
-bool debugmod = false;
+bool debugmod = true;
 bool threadmod = true;
 bool relatemod = true;
 bool freemod = true;
 bool freemodv2 = false;
-bool retmod = false;
+bool retmod = true;
 bool pthread_detachedmod = false;
 bool pthread_exitmod = false;
 bool tracerelatestmt = true;

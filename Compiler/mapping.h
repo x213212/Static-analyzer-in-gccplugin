@@ -67,6 +67,7 @@ void FunctionStmtMappingRet(ptb *ptable, ptb *ftable, gimple_array *user_tmp)
 											// fprintf(stderr, "RETURN with possible malloc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 											// debug(table_temp->last_stmt);
 											// debug(gc);
+											// debug((ret_type_array)[i].stmt);
 											// debug_tree(table_temp->target);
 											// debug_tree((ret_type_array)[i].return_tree);
 											// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
