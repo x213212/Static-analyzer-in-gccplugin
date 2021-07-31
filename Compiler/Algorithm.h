@@ -60,7 +60,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 	// // fprintf(stderr, "START NEW FOR_EACH_IMM_USE_STMT -------------------------------\n");
 	// debug_tree(target);
 	// fprintf(stderr, "TARGET NEW FOR_EACH_IMM_USE_STMT -------------------------------\n");
-	if (!strcmp(get_tree_code_name(TREE_CODE(target)), "addr_expr"))
+	if (TREE_CODE(target) == ADDR_EXPR)
 	{
 		// fprintf(stderr, "GIMPLE CODE :addr_expr--------\n");
 		return;
@@ -75,7 +75,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 				if (gimple_cond_lhs(use_stmt))
 				{
 					debug_gimple_stmt(use_stmt);
-					fprintf(stderr, "--------GIMPLE Cond -------\n");
+					// fprintf(stderr, "--------GIMPLE Cond -------\n");
 
 					const gcond *gc = GIMPLE_CHECK2<const gcond *>(use_stmt);
 					// fprintf(stderr, "		true-------------------------------\n");
@@ -99,13 +99,13 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						{
 							// if (check_stmtStack(gimple_cond_lhs(gc)))
 							// {
-							fprintf(stderr, "--------GIMPLE true-------\n");
+							// fprintf(stderr, "--------GIMPLE true-------\n");
 							set_gimple_array(used_stmt, use_stmt, gimple_cond_lhs(gc), target, NULL);
 							// }
 							// if (TREE_CODE(gimple_cond_lhs(gc)) == SSA_NAME)
 							// 	new_search_imm_use(used_stmt, gimple_cond_lhs(gc), gimple_cond_lhs(gc));
 						}
-					fprintf(stderr, "--------GIMPLE Cond222 -------\n");
+					// fprintf(stderr, "--------GIMPLE Cond222 -------\n");
 				}
 		}
 		// if(gimple_goto_dest (use_stmt)){
@@ -286,18 +286,18 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						{
 
 							// tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
-							const char *name;
-							name = get_tree_code_name(TREE_CODE(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)));
+							// const char *name;
+							// name = get_tree_code_name(TREE_CODE(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)));
+							// ADDR_EXPR
+							// if (name != NULL)
+							// {
+							if (TREE_CODE(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)) == ADDR_EXPR)
+								if (!check_stmtStack(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)))
+								{
 
-							if (name != NULL)
-							{
-								if (!strcmp(name, "addr_expr"))
-									if (!check_stmtStack(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)))
-									{
-
-										set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0), target, NULL);
-									}
-							}
+									set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0), target, NULL);
+								}
+							// }
 							if (!check_stmtStack(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)))
 							{
 								if (TREE_CODE(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)) == SSA_NAME)
@@ -324,7 +324,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 				if (!check_stmtStack(gimple_assign_lhs(use_stmt)))
 				{
 					// fprintf(stderr, "ewwwwwwwwwwwwwwwwwwwwww");
-					debug_gimple_stmt(use_stmt);
+					// debug_gimple_stmt(use_stmt);
 					set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target, NULL);
 				}
 			}
@@ -413,7 +413,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 						tree second = NULL;
 						int isVardecl = 0;
-						if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "addr_expr"))
+						if (TREE_CODE(gimple_assign_rhs1(def_stmt)) == ADDR_EXPR)
 						{
 							second = TREE_OPERAND(gimple_assign_rhs1(def_stmt), 0);
 							second = TREE_OPERAND(second, 0);
@@ -506,16 +506,16 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 										{
 
 											// tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
-											const char *name;
-											name = get_tree_code_name(TREE_CODE(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)));
-
-											if (name != NULL)
-												if (!strcmp(name, "addr_expr"))
-													if (!check_stmtStack(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)))
-													{
-														// debug(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0));
-														set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0), target, NULL);
-													}
+											// 											const char *name;
+											// 											name = get_tree_code_name(TREE_CODE(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)));
+											// ADDR_EXPR
+											// 											if (name != NULL)
+											if (TREE_CODE(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)) == ADDR_EXPR)
+												if (!check_stmtStack(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)))
+												{
+													// debug(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0));
+													set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0), target, NULL);
+												}
 										}
 
 										// else if (TREE_CODE(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)) == VAR_DECL)
@@ -847,12 +847,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		traceStack.pop();
 	}
 
-	// //
-	// 		//ready add dot graph
-
-	// 			fprintf(stderr, "dot graph entry %s\n", (char *)get_name(function_tree));
-	// 			fprintf(stderr, "dot graph target entry end\n\n");
-	// 			//ready add dot graph
 	fprintf(stderr, "\033[40;42m =======pre_check_funciton:%s========= \033[0m\n", get_name(function_tree));
 	if (calleetype == FUNCITON_THREAD && threadmod == true)
 	{
@@ -1120,8 +1114,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										fprintf(stderr, "dot graph target entry end\n\n");
 									}
 									gimple *finalstmt;
-
-									if (!strcmp(get_tree_code_name(TREE_CODE(user_tmp->target)), "addr_expr"))
+									// ADDR_EXPR
+									if (TREE_CODE(user_tmp->target) == ADDR_EXPR)
 									{
 										// debug_ee(user_tmp->target);
 										tree second = TREE_OPERAND(user_tmp->target, 0);
@@ -1643,7 +1637,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 															// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
 															// debug_gimple_stmt(u_stmt);
 															findtree = gimple_call_arg(u_stmt, 3);
-															if (!strcmp(get_tree_code_name(TREE_CODE(findtree)), "addr_expr"))
+
+															if (TREE_CODE(findtree) == ADDR_EXPR)
 															{
 
 																// tree findtree = gimple_call_arg(u_stmt, 3);
@@ -1945,7 +1940,7 @@ void record_fucntion(cgraph_node *node)
 			pop_cfun();
 			continue;
 		}
-		fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 		enum availability avail;
 
 		// fprintf(stderr, "fucntion collect \n");
@@ -2190,10 +2185,10 @@ void detect()
 
 					/*collect malloc and free information*/
 					collect_function_call(gc, node, bb);
-					debug_gimple_stmt(gc);
-					debug_tree(gimple_assign_lhs(gc));
-					warning_at(gimple_location(gc), 0, "use location");
-					fprintf(stderr, "add collect_function_call\n");
+					// debug_gimple_stmt(gc);
+					// debug_tree(gimple_assign_lhs(gc));
+					// warning_at(gimple_location(gc), 0, "use location");
+					// fprintf(stderr, "add collect_function_call\n");
 				}
 				if (gimple_code(gc) == GIMPLE_RETURN)
 				{

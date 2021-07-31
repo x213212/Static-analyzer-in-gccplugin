@@ -25,8 +25,6 @@ void *child4(int *data) __attribute__((noinline));
 void *child5(void *data) __attribute__((noinline));
 void *child6(void *test, void *data) __attribute__((noinline));
 int *child7(void *test, void *data) __attribute__((noinline));
-int *child8(void *data) __attribute__((noinline));
-int *child9(void *data) __attribute__((noinline));
 // void *child(void *data) __attribute__((noinline));
 // int *foo(int z);
 int *foo4(int z);
@@ -122,8 +120,8 @@ int *foo(int z)
 	// int *b = malloc(1);
 	int *p2 = malloc(1);
 	p2[0] = 1;
-	p99[1] = 1000;
-	p99[2] = 200;
+		p99[1] = 1000;
+		p99[2] = 200;
 	// free(p2);
 	// b=2;
 	//  p2=foo2(2);
@@ -351,7 +349,6 @@ int *child7(void *data, void *test)
 	int *pData = test;
 	int c;
 	pData = pData + 1;
-	// *(test) = test+1;
 	// ++(*(int *)pData);
 	// int input[2] = {1, 2}; // 輸入的資料
 	// int input2; // 輸入的資料
@@ -362,7 +359,7 @@ int *child7(void *data, void *test)
 	// free(&pData);
 	if (c)
 	{
-		p98[3] = 300;
+	p98[3] = 300;
 		return malloc(10);
 		printf("asdda%d\n", pData);
 	}
@@ -384,18 +381,11 @@ int *child7(void *data, void *test)
 	// pthread_mutex_unlock(&mLock);
 	// pthread_exit(NULL); // 離開子執行緒
 }
-int *child8(void *data)
-{
-	pthread_detach(pthread_self());
-
-	return data;
-}
-
 void *child2(void *data)
 {
 
 	int *pData = &data;
-	p98[1] = 99;
+p98[1] = 99;
 	// int input[2] = {1, 2}; // 輸入的資料
 	// int input2; // 輸入的資料
 	// data=10;
@@ -456,13 +446,6 @@ struct adresse
 	char *name;
 	int nummer;
 };
-int *a;
-int *child9(void *data)
-{
-	int *b = data;
-	*b = 1;
-	// return data;
-}
 int main()
 {
 	int *p;
@@ -470,30 +453,30 @@ int main()
 
 	int size = 2;
 	int *p3 = &size;
-	// struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
+	struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
 
-	// for (int i = 0; i < size; i++)
-	// {
-	// 	a[i].name = "Testname";
-	// 	a[i].nummer = 123;
-	// }
-	// for (int i = 0; i < size; i++)
-	// {
-	// 	printf("%s, %d\n", a[i].name, a[i].nummer);
-	// }
-	// free(a);
+	for (int i = 0; i < size; i++)
+	{
+		a[i].name = "Testname";
+		a[i].nummer = 123;
+	}
+	free(a);
+	for (int i = 0; i < size; i++)
+	{
+		printf("%s, %d\n", a[i].name, a[i].nummer);
+	}
 
 	int input[2] = {1, 2}; // 輸入的資料
 	int input2;			   // 輸入的資料
-						   // int *p3;
-						   // // test= malloc (sizeof (int ) * 10);
-						   // // foo3(p);
-						   // p3 = foo(2);
-						   // p3[0] = 1;
-						   // free(p3);
-						   // p = foo2(2);
-						   // p[0] = 2;
-						   // p2 = foo2(2);
+	// int *p3;
+	// // test= malloc (sizeof (int ) * 10);
+	// // foo3(p);
+	// p3 = foo(2);
+	// p3[0] = 1;
+	// free(p3);
+	// p = foo2(2);
+	// p[0] = 2;
+	// p2 = foo2(2);
 
 	// p2[0] = 4;
 	// // test22(p);
@@ -503,67 +486,81 @@ int main()
 	// free(p2);
 	// boo(p);
 	// int n;
-	// char buff[50];
+	char buff[50];
 
-	// pthread_attr_t attr, attr2;
-	// pthread_attr_init(&attr);
-	// pthread_attr_init(&attr2);
-	// pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
-	// pthread_attr_setdetachstate(&attr2, PTHREAD_CREATE_JOINABLE);
+	pthread_attr_t attr, attr2;
+	pthread_attr_init(&attr);
+	pthread_attr_init(&attr2);
+	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+	pthread_attr_setdetachstate(&attr2, PTHREAD_CREATE_JOINABLE);
 
-	// pthread_t t, t2[3]; // 宣告 pthread 變數
-	// pthread_create(&t, &attr2, child2, input2);
+	pthread_t t, t2[3]; // 宣告 pthread 變數
+	pthread_create(&t, &attr2, child2, input2);
 
-	// pthread_join(t, NULL);
+	pthread_join(t, NULL);
 	// pthread_mutex_destroy(&mLock);
 	// pthread_create(&t, &attr, child, buff); // 建立子執行緒
-	// for (int i = 0; i < 3; i++)
-	// {
-	// 	int err = pthread_create(&t2[i], &attr2, child, NULL);
+	for (int i = 0; i < 3; i++)
+	{
+		int err = pthread_create(&t2[i], &attr2, child, NULL);
 
-	// 	printf("%ld\n", t2[i]);
-	// }
-	// int *a;
-	
-	a = malloc(10);
-	*a=10;
-	child9(a);
-	printf("%d\n",*a);
-	// for (int i = 0; i < 3; i++)
-	// {
+		printf("%ld\n", t2[i]);
+	}
+	int *q = malloc(70);
+	int *q2 = malloc(20);
 
-	// 	pthread_join(t2[i], NULL);
-	// // }
-	// int *data;
-	// /* Initialize data */
-	// data = NULL;
-	// if (staticTrue)
-	// {
-	// 	data = (int *)malloc(100 * sizeof(int));
-	// 	if (data == NULL)
-	// 	{
-	// 		exit(-1);
-	// 	}
-	// 	/* POTENTIAL FLAW: Free data in the source - the bad sink frees data as well */
-	// 	free(data);
-	// }
-	// if (staticTrue)
-	// {
-	// 	/* POTENTIAL FLAW: Possibly freeing memory twice */
-	// 	free(data);
-	// }
-	// printf("123%d\n", foo5(q, q));
+	int test;
+	if ((q != NULL) && test)
+	{
 
-	// int *p4 = malloc(10);
-	// p4 = NULL;
-	// p4 = 1;
+		child(q);
+		// child6(test, q);
+		// q=child7(test,q);
+		free(q);
+		q[0] = 10;
+	}
+	else
+	{
+		q[0] = 20;
+		child(q2);
+		printf("test\n");
+	}
 
-	// child4(p4);
-	// p4 = child7(test, p4);
-	// free(p4);
-	// p98 = malloc(201);
-	// p98 = child7(test, p98);
-	// free(p98);
+	for (int i = 0; i < 3; i++)
+	{
+
+		pthread_join(t2[i], NULL);
+	}
+	int *data;
+	/* Initialize data */
+	data = NULL;
+	if (staticTrue)
+	{
+		data = (int *)malloc(100 * sizeof(int));
+		if (data == NULL)
+		{
+			exit(-1);
+		}
+		/* POTENTIAL FLAW: Free data in the source - the bad sink frees data as well */
+		free(data);
+	}
+	if (staticTrue)
+	{
+		/* POTENTIAL FLAW: Possibly freeing memory twice */
+		free(data);
+	}
+	printf("123%d\n", foo5(q, q));
+
+	int *p4 = malloc(10);
+	p4 = NULL;
+	p4 = 1;
+
+	child4(p4);
+	p4 = child7(test, p4);
+	free(p4);
+	p98 = malloc(201);
+	child(p98);
+	free(p98);
 	// test22(q);
 
 	// // 主執行緒工作

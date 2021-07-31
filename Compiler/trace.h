@@ -287,9 +287,9 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 														// }
 														if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME && TREE_CODE(gimple_assign_rhs1(gc)) == INTEGER_CST)
 														{
-															fprintf(stderr, "\n ================== test ================== \n");
-															debug_gimple_stmt(gc);
-															debug_tree(mallocStmt_tree);
+															// fprintf(stderr, "\n ================== test ================== \n");
+															// debug_gimple_stmt(gc);
+															// debug_tree(mallocStmt_tree);
 															// debug_tree(gimple_assign_lhs(gc));
 															// tree second = NULL_TREE;
 															// second = TREE_OPERAND(gimple_assign_lhs(gc), 0);
@@ -323,9 +323,9 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 														}
 														if (TREE_CODE(gimple_assign_lhs(gc)) == MEM_REF && TREE_CODE(gimple_assign_rhs1(gc)) == INTEGER_CST)
 														{
-															fprintf(stderr, "\n ================== warring GLOBOBLBOLBO================== \n");
-															debug_tree(mallocStmt_tree);
-															debug_tree(gimple_assign_lhs(gc));
+															// fprintf(stderr, "\n ================== warring GLOBOBLBOLBO================== \n");
+															// debug_tree(mallocStmt_tree);
+															// debug_tree(gimple_assign_lhs(gc));
 															tree first = TREE_OPERAND(gimple_assign_lhs(gc), 0);
 															gimple *def_stmt = SSA_NAME_DEF_STMT(first);
 															gimple *def_stmt2 = SSA_NAME_DEF_STMT(mallocStmt_tree);
@@ -338,7 +338,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 																if (!pt1 || pt1->anything)
 																	continue;
 																// if (pt1->ipa_escaped && pt2->ipa_escaped )
-																fprintf(stderr, "\n ==================wwww================== \n");
+																// fprintf(stderr, "\n ==================wwww================== \n");
 
 																// if()
 																if (!pt1->nonlocal && !pt2->nonlocal)
@@ -349,10 +349,10 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 																		if (pt1)
 																			if (is_global_var(gimple_assign_rhs1(def_stmt)))
 																			{
-																				debug_points_to_info_for(mallocStmt_tree);
-																				debug_points_to_info_for(first);
+																				// debug_points_to_info_for(mallocStmt_tree);
+																				// debug_points_to_info_for(first);
 
-																				fprintf(stderr, "\n ==================local vs global================== \n");
+																				// fprintf(stderr, "\n ==================local vs global================== \n");
 																				if (!ptr_derefs_may_alias_p(mallocStmt_tree, first))
 																				{
 																					continue;
@@ -361,12 +361,12 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 																	}
 																	else
 																	{
-																		debug_points_to_info_for(mallocStmt_tree);
-																		debug_points_to_info_for(first);
-																		pi3 = SSA_NAME_PTR_INFO(mallocStmt_tree);
-																		pi4 = SSA_NAME_PTR_INFO(first);
+																		// debug_points_to_info_for(mallocStmt_tree);
+																		// debug_points_to_info_for(first);
+																		// pi3 = SSA_NAME_PTR_INFO(mallocStmt_tree);
+																		// pi4 = SSA_NAME_PTR_INFO(first);
 
-																		fprintf(stderr, "\n ================== global vs global================== \n");
+																		// fprintf(stderr, "\n ================== global vs global================== \n");
 																		continue;
 																	}
 																}
@@ -374,8 +374,8 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 																{
 																	// debug_points_to_info_for(mallocStmt_tree);
 																	// debug_points_to_info_for(first);
-																			fprintf(stderr, "\n ==================wwww==%d================ \n",pt1->nonlocal );
-																					fprintf(stderr, "\n ==================wwww=====%d============= \n", pt2->nonlocal);
+																			// fprintf(stderr, "\n ==================wwww==%d================ \n",pt1->nonlocal );
+																			// 		fprintf(stderr, "\n ==================wwww=====%d============= \n", pt2->nonlocal);
 																	continue;
 																}
 															}
@@ -434,12 +434,13 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 																// fprintf(stderr, "\n ================== wasssssssssVVA33333=====%d========= \n", ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)));
 																if (is_global_var(gimple_assign_rhs1(gc)))
 																{
-																	debug_tree(gimple_assign_rhs1(gc));
-																	debug_tree(gimple_assign_lhs(gc));
+																	// debug_tree(gimple_assign_rhs1(gc));
+																	// debug_tree(gimple_assign_lhs(gc));
 
-																	debug_points_to_info_for(mallocStmt_tree);
-																	debug_points_to_info_for(gimple_assign_lhs(gc));
-																	fprintf(stderr, "\n ================== wasssssssssVVAR555======%d========= \n", ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)));
+																	// debug_points_to_info_for(mallocStmt_tree);
+																	// debug_points_to_info_for(gimple_assign_lhs(gc));
+																	// fprintf(stderr, "\n ================== wasssssssssVVAR555======%d========= \n", ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)));
+																	
 																	// debug_tree(gimple_assign_lhs(gc));
 																	// gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_assign_lhs(gc));
 																	// debug_tree(gimple_assign_rhs1(def_stmt));

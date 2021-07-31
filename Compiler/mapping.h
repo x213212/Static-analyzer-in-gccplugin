@@ -22,38 +22,50 @@ void FunctionStmtMappingRet(ptb *ptable, ptb *ftable, gimple_array *user_tmp)
 			{
 
 				// fprintf(stderr, " \n Pointer to set  is size %d :[ \n", user_tmp->size);
-				if (user_tmp->size > 0)
-					FOR_EACH_USE_TABLE(user_tmp, u_stmt)
-					{
-						if (u_stmt != NULL)
-						{
+				// if (user_tmp->size > 0)
+				// 	FOR_EACH_USE_TABLE(user_tmp, u_stmt)
+				// 	{
+				// 		if (u_stmt != NULL)
+				// 		{
 
-							collect_FunctionMapping_Ret(table_temp->node->get_fun()->decl, u_stmt, user_tmp, table_temp, ptable);
-						}
-					}
+				// 			// collect_FunctionMapping_Ret(table_temp->node->get_fun()->decl, u_stmt, user_tmp, table_temp, ptable);
+				// 		}
+				// 	}
 
-				if (gimple_code(table_temp->last_stmt) == GIMPLE_CALL)
+				const char *name;
+				name = get_name(gimple_call_fn(table_temp->last_stmt));
+
+				// if (name != NULL)
+
+				// debug_tree(table_temp->node->get_fun()->decl);
+				if (function_return_collect->get(table_temp->node->get_fun()->decl) == NULL)
+					continue;
+				function_return_array fun_array = *(function_return_collect->get(table_temp->node->get_fun()->decl));
+				if (fun_array.return_type_num == 2)
+					continue;
+
+				vector<return_type> ret_type_array = fun_array.return_type_array;
+
+				if (TREE_CODE(table_temp->target) == ADDR_EXPR)
+				{
+					tree second = TREE_OPERAND(table_temp->target, 0);
+					gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
+					// debug(def_stmt);
+					// debug_tree(second);
+					table_temp->target = second;
+					table_temp->last_stmt = def_stmt;
+					// fprintf(stderr, "addr_expraddr_expraddr_expraddr_expraddr_expr--------\n");
+				}
+				for (int i = 0; i < ret_type_array.size(); i++)
 				{
 
-					const char *name;
-					name = get_name(gimple_call_fn(table_temp->last_stmt));
-
-					if (name != NULL)
-
-						if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(name, "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
+					if (gimple_code(table_temp->last_stmt) == GIMPLE_CALL)
+					{
+						if (name != NULL)
 						{
-
-							debug_tree(table_temp->node->get_fun()->decl);
-							if (function_return_collect->get(table_temp->node->get_fun()->decl) == NULL)
-								continue;
-							function_return_array fun_array = *(function_return_collect->get(table_temp->node->get_fun()->decl));
-
-							vector<return_type> ret_type_array = fun_array.return_type_array;
-
-							if (fun_array.return_type_num == 2)
-								continue;
-							for (int i = 0; i < ret_type_array.size(); i++)
+							if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(name, "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
 							{
+
 								if ((ret_type_array)[i].return_tree != NULL && table_temp->target != NULL)
 								{
 
@@ -87,7 +99,67 @@ void FunctionStmtMappingRet(ptb *ptable, ptb *ftable, gimple_array *user_tmp)
 									}
 								}
 							}
+							else if (!strcmp(name, "pthread_create") || !strcmp(name, "pthread_join"))
+							{
+								if (!strcmp(name, "pthread_create"))
+								{
+									// fprintf(stderr, "%sqqqqqqqqqqqqqqq\n", name);
+									pthread_attr_array pthread_attr_array;
+									// vector<attr_type> attr_type_array;
+									tree getvardecl = TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 1), 0);
+									// debug_tree(getvardecl);
+									if (pthread_attr_setdetachstates->get(getvardecl) != NULL)
+									{
+
+										pthread_attr_array = *(pthread_attr_setdetachstates->get(getvardecl));
+										table_temp->swap_type = FUNCITON_THREAD;
+										table_temp->pthread_type = pthread_attr_array.attr_type_num;
+									}
+								}
+							}
 						}
+					}
+
+					else if (gimple_code(table_temp->last_stmt) == GIMPLE_ASSIGN)
+					{
+						const char *name;
+						if (table_temp->swap_type == FUNCITON_THREAD)
+						{
+							name = get_name(gimple_call_fn(table_temp->swap_stmt));
+							if (!strcmp(name, "pthread_create") || !strcmp(name, "pthread_join"))
+							{
+								if (!strcmp(name, "pthread_create"))
+								{
+									// fprintf(stderr, "%sqqqqqqqqqqq2qqqq\n", name);
+									pthread_attr_array pthread_attr_array;
+									tree getvardecl = TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 1), 0);
+									// vector<attr_type> attr_type_array;
+									// debug_tree(getvardecl);
+									if (pthread_attr_setdetachstates->get(getvardecl) != NULL)
+									{
+
+										pthread_attr_array = *(pthread_attr_setdetachstates->get(getvardecl));
+										table_temp->pthread_type = pthread_attr_array.attr_type_num;
+									}
+								}
+							}
+						}
+					}
+					else if (gimple_code(table_temp->last_stmt) == GIMPLE_PHI)
+					{
+
+						if ((ret_type_array)[i].return_tree == gimple_phi_result(table_temp->last_stmt))
+						{
+							// debug((ret_type_array)[i].stmt);
+							// debug(u_stmt);
+
+							// tree fundecl = TREE_OPERAND(gimple_assign_lhs(u_stmt), 0);
+							// gimple *def_stmt = SSA_NAME_DEF_STMT(u_stmt);
+							// debug(def_stmt);
+							set_gimple_array(user_tmp, table_temp->last_stmt, (ret_type_array)[i].return_tree, (ret_type_array)[i].return_tree, (ret_type_array)[i].stmt);
+							continue;
+						}
+					}
 				}
 			}
 		}
@@ -110,7 +182,7 @@ void FunctionStmtMappingAssign(ptb *ptable, gimple_array *user_tmp)
 	{
 		if (!ipa)
 			init_table();
-			
+
 		if (!gimple_has_body_p(node->decl))
 			continue;
 		push_cfun(node->get_fun());
