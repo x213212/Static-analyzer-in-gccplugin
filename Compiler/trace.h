@@ -1,6 +1,8 @@
 static unsigned long now_fucntion = 0;
 static gimple *now_laststmt;
+static gimple *now_relatelaststmt;
 static unsigned long now_laststmtid = 0;
+static unsigned long now_relatelaststmtid = 0;
 static int fistconunt = 0;
 int dump_points_to_solution2(FILE *file, struct pt_solution *pt)
 {
@@ -84,6 +86,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 		//mutlple entry point
 		if (cfun->decl == function_tree)
 		{
+			now_relatelaststmt = NULL;
 			/*calculate dominator tree*/
 			calculate_dominance_info(CDI_DOMINATORS);
 
@@ -197,7 +200,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 						// 	debug_gimple_stmt(gc);
 						// 	warning_at(gimple_location(gc), 0, "use location");
 
-							// fprintf(stderr, "\n ================== warring ================== \n");
+						// fprintf(stderr, "\n ================== warring ================== \n");
 						// 	// sfprintf(stderr, "function return value related stmt \n");
 						// 	fprintf(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
 						// 	fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
@@ -216,7 +219,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 						// pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
 						//  struct pt_solution *pt1 = &pi1->pt;
 						//  fprintf(stderr, "tx%u\n",  pt1->null);
-
+						// now_relatelaststmt = NULL;
 						if (pt1 && relatemod && debugmod)
 							if (TREE_CODE(mallocStmt_tree) == SSA_NAME)
 							{
@@ -374,8 +377,8 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 																{
 																	// debug_points_to_info_for(mallocStmt_tree);
 																	// debug_points_to_info_for(first);
-																			// fprintf(stderr, "\n ==================wwww==%d================ \n",pt1->nonlocal );
-																			// 		fprintf(stderr, "\n ==================wwww=====%d============= \n", pt2->nonlocal);
+																	// fprintf(stderr, "\n ==================wwww==%d================ \n",pt1->nonlocal );
+																	// 		fprintf(stderr, "\n ==================wwww=====%d============= \n", pt2->nonlocal);
 																	continue;
 																}
 															}
@@ -440,7 +443,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 																	// debug_points_to_info_for(mallocStmt_tree);
 																	// debug_points_to_info_for(gimple_assign_lhs(gc));
 																	// fprintf(stderr, "\n ================== wasssssssssVVAR555======%d========= \n", ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)));
-																	
+
 																	// debug_tree(gimple_assign_lhs(gc));
 																	// gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_assign_lhs(gc));
 																	// debug_tree(gimple_assign_rhs1(def_stmt));
@@ -597,7 +600,9 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 													debug(gimple_assign_lhs(gc));
 													fprintf(stderr, "dot graph relate end\n\n");
 													//ready add dot graph
-
+													now_relatelaststmt = gc;
+													now_relatelaststmtid = x;
+													now_laststmtid =x;
 													// if (gimple_assign_rhs1(gc) != NULL)
 													// {
 
@@ -745,7 +750,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 						pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
 
 						struct pt_solution *pt1 = &pi1->pt;
-
+						// now_relatelaststmt = NULL;
 						if (pt1 && relatemod && debugmod)
 							if (gimple_call_num_args(gc) != 0)
 							{
@@ -816,6 +821,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 												}
 
 												fistconunt++;
+												
 												fprintf(stderr, "ID : %lu\n", now_fucntion);
 												fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
 												fprintf(stderr, "dot graph end relate end\n\n");
@@ -826,6 +832,9 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 												warning_at(gimple_location(gc), 0, "use location");
 												debug(gimple_call_arg(gc, 0));
 												fprintf(stderr, "dot graph relate end\n\n");
+												now_relatelaststmt = gc;
+												now_relatelaststmtid = x;
+												now_laststmtid =x;
 											}
 											// }
 										}
@@ -834,6 +843,63 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 					}
 				}
 			}
+			// if (now_relatelaststmt != NULL)
+			// {
+			// 	// fprintf(stderr, "dot graph subgraph\n");
+			// 	fprintf(stderr, "dot graph subgraph start ID : %lu stmt(free) :", now_relatelaststmtid);
+			// 	debug(now_relatelaststmt);
+			// 	warning_at(gimple_location(now_relatelaststmt), 0, "use location");
+			// 	fprintf(stderr, "dot graph subgrapend\n\n");
+			// }
+
+			// now_relatelaststmt =gc;
+
+			vector<relate_type> relate_type_array;
+			function_relate_array fun_array;
+			fprintf(stderr, "\n====================================ffff=================================\n");
+			// debug_tree(mallocStmt_tree);
+			// debug_gimple_stmt(now_relatelaststmt);
+			if (now_relatelaststmt != NULL)
+			{
+					// fprintf(stderr, "\n====================================ffff===========%d======================\n", now_laststmtid);
+					 debug_tree(mallocStmt_tree);
+					debug_gimple_stmt(now_relatelaststmt);
+					
+				if (function_relate_collect->get(mallocStmt_tree) == NULL)
+				{
+					// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
+					fun_array.relate_type_array = relate_type_array;
+				}
+				else
+				{
+					fun_array = *(function_relate_collect->get(mallocStmt_tree));
+					relate_type_array = fun_array.relate_type_array;
+				}
+
+				struct relate_type relate_type;
+				relate_type.stmt = now_relatelaststmt;
+				relate_type.relate_tree = mallocStmt_tree;
+				relate_type.relate_funtree = function_tree;
+				relate_type.now_fucntion = now_fucntion;
+				relate_type.now_stmt = now_laststmtid;
+
+				fun_array.relate_type_array.push_back(relate_type);
+				function_relate_collect->put(mallocStmt_tree, fun_array);
+				
+			}
+			// if (function_relate_collect->get(function_tree) == NULL)
+			// {
+			// 	// debug_tree(function_tree);
+			// 	// fprintf(stderr, "\033[40;31m  find fwwwwwwwwwwwww \033[0m\n");
+			// 		pop_cfun();
+			// 		return;
+			// }
+			// now_fucntion = rand();
+			// now_laststmtid = 0;
+
+			// pop_cfun();
+			// fprintf(stderr, "fucntion collect path finsh\n");
+			// return;
 		}
 		pop_cfun();
 	}
@@ -1203,7 +1269,17 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			// fprintf(stderr, "tx%u\n", pt1->null);
 
 			if (pt1 && pt1->null)
+			{
 				trace_fucntion_relate_stmt(node, function_tree, mallocStmt_tree);
+				// if (now_relatelaststmt != NULL)
+				// {
+				// 	// fprintf(stderr, "dot graph subgraph\n");
+				// 	fprintf(stderr, "dot graph subgraph start ID : %lu stmt(free) :", now_relatelaststmtid);
+				// 	debug(now_relatelaststmt);
+				// 	warning_at(gimple_location(now_relatelaststmt), 0, "use location");
+				// 	fprintf(stderr, "dot graph subgrapend\n\n");
+				// }
+			}
 		}
 	}
 	if (fucntion_level != -1 && fucntion_level != -100)

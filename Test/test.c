@@ -516,13 +516,13 @@ int main()
 		child(q);
 		// child6(test, q);
 		// q=child7(test,q);
-		free(q);
 		q[0] = 10;
+		free(q);
 	}
 	else
 	{
 		q[0] = 20;
-		child(q2);
+		// child(q2);
 		printf("test\n");
 	}
 

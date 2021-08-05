@@ -224,10 +224,28 @@ SRC=$(echo $SRC)
 DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
+SRC="subgraph cluster_"
+DST="subgraph cluster_"
+SRC=$(echo $SRC)
+DST=$(echo $DST)
+sed -i "s/$SRC/$DST/g" ./graph.log
+
+SRC="dot graph subgraph"
+DST=" { style ="'"'"dashed"'"'";"'"'
+SRC=$(echo $SRC)
+DST=$(echo $DST)
+sed -i "s/$SRC/$DST/g" ./graph.log
+
+
+SRC="dot graph subgrapend"
+DST='"'";}"
+SRC=$(echo $SRC)
+DST=$(echo $DST)
+sed -i "s/$SRC/$DST/g" ./graph.log
 
 
 value=`cat graph.log`
-echo "digraph {rankdir = LR; rank=same; nodesep=1.0;" "$value" "}" >> graph.dot
+echo "digraph {constraint=false ;rankdir = LR; rank=same; nodesep=1.0;" "$value" "}" >> graph.dot
 dot -Tsvg -o graph.svg  graph.dot 
 gvpr -f graphinfo.gvpr graph.dot 
 echo "Username: $user";

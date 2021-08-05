@@ -107,6 +107,16 @@ struct free_type
 	// int reutnr_type_num = 0;
 	//int return_type;
 };
+struct relate_type
+{
+	gimple *stmt;
+	tree relate_tree;
+	tree relate_funtree;
+	unsigned int now_fucntion=0;
+	unsigned int now_stmt=0;
+	// int reutnr_type_num = 0;
+	//int return_type;
+};
 
 struct pthread_detched_type
 {
@@ -179,6 +189,17 @@ struct function_graph_array
 	Graph graph_type_array;
 	cgraph_node *graph_node;
 };
+/*define free_type struct*/
+struct function_relate_array
+{
+	vector<relate_type> relate_type_array;
+};
+
+// struct function_relate_array
+// {
+// 	Graph graph_type_array;
+// 	cgraph_node *graph_node;
+// };
 /*collect function return types */
 hash_map<tree, function_return_array> *function_return_collect;
 /*collect function var decl ssa name */
@@ -195,6 +216,9 @@ hash_map<tree, function_path_array> *function_path_collect;
 hash_map<tree, function_free_array> *function_free_collect;
 /*collect fucntion graph_array*/
 hash_map<tree, function_graph_array> *function_graph_collect;
+/*collect fucntion graph_array*/
+hash_map<tree, function_relate_array> *function_relate_collect;
+
 
 /*record each DFS graph*/
 hash_map<cgraph_node *, Graph> *fDFS;
@@ -235,9 +259,9 @@ bool ipa = true;
 bool debugmod = true;
 bool threadmod = true;
 bool relatemod = true;
-bool freemod = true;
+bool freemod = false;
 bool freemodv2 = false;
-bool retmod = true;
+bool retmod = false;
 bool pthread_detachedmod = false;
 bool pthread_exitmod = false;
 bool tracerelatestmt = true;
