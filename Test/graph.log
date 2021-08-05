@@ -11,7 +11,7 @@ w_10 = malloc (5)
 "
 
 [label=" form basic block 2: free (w_10)
-test.c:439:2: warning: use location
+test.c:442:2: warning: use location
 
 " ]
 
@@ -22,9 +22,12 @@ w_10 = malloc (5)
 
 " from test22 basic block 2"
 
+->" free (w_10)
+w_10 = malloc (5)
+"
 
 ->" free (w_10)
-test.c:439:2: warning: use location
+test.c:442:2: warning: use location
 
 "
 
@@ -45,7 +48,7 @@ _1 = malloc (1)
 "
 
 [label=" form basic block 3: _2 = (long int) _1
-test.c:56:6: warning: use location
+test.c:57:6: warning: use location
 
 " ]
 
@@ -56,9 +59,12 @@ _1 = malloc (1)
 
 " from foo3 basic block 3"
 
+->" _2 = (long int) _1
+_1 = malloc (1)
+"
 
 ->" _2 = (long int) _1
-test.c:56:6: warning: use location
+test.c:57:6: warning: use location
 
 "
 
@@ -72,7 +78,7 @@ _1 = malloc (1)
 "
 
 [label=" form basic block 3: _3 = (int) _2
-test.c:56:6: warning: use location
+test.c:57:6: warning: use location
 
 " ]
 
@@ -83,9 +89,12 @@ _1 = malloc (1)
 
 " from foo3 basic block 3"
 
+->" _3 = (int) _2
+_1 = malloc (1)
+"
 
 ->" _3 = (int) _2
-test.c:56:6: warning: use location
+test.c:57:6: warning: use location
 
 "
 
@@ -99,7 +108,7 @@ _1 = malloc (1)
 "
 
 [label=" form basic block 3: *z_11(D) = _3
-test.c:56:6: warning: use location
+test.c:57:6: warning: use location
 
 " ]
 
@@ -110,9 +119,12 @@ _1 = malloc (1)
 
 " from foo3 basic block 3"
 
+->" *z_11(D) = _3
+_1 = malloc (1)
+"
 
 ->" *z_11(D) = _3
-test.c:56:6: warning: use location
+test.c:57:6: warning: use location
 
 "
 
@@ -143,7 +155,6 @@ p2_9 = malloc (2)
 
 " from foo3 basic block 5"
 
-
 ->" p2_4 = PHI <p2_13(D)(3), p2_9(4)>
 p2_9 = malloc (2)
 "
@@ -172,7 +183,6 @@ p2_9 = malloc (2)
 
 " from foo3 basic block 5"
 
-
 ->" _15 = __printf_chk (1, d, p2_4)
 "
 
@@ -187,7 +197,7 @@ p2_9 = malloc (2)
 "
 
 [label=" form basic block 5: *p2_4 = 10
-test.c:60:8: warning: use location
+test.c:62:8: warning: use location
 
 " ]
 
@@ -198,9 +208,12 @@ p2_9 = malloc (2)
 
 " from foo3 basic block 5"
 
+->" *p2_4 = 10
+p2_9 = malloc (2)
+"
 
 ->" *p2_4 = 10
-test.c:60:8: warning: use location
+test.c:62:8: warning: use location
 
 "
 
@@ -236,7 +249,6 @@ p3_15 = malloc (_2)
 "->
 
 " from foo2 basic block 5"
-
 
 ->" _8 = PHI <p3_15(3), p4_17(4)>
 p3_15 = malloc (_2)
@@ -257,7 +269,7 @@ p3_15 = malloc (_2)
 "
 
 [label=" form basic block 3: _33 = p3_15
-test.c:86:10: warning: use location
+test.c:88:10: warning: use location
 
 " ]
 
@@ -268,9 +280,12 @@ p3_15 = malloc (_2)
 
 " from foo2 basic block 3"
 
+->" _33 = p3_15
+p3_15 = malloc (_2)
+"
 
 ->" _33 = p3_15
-test.c:86:10: warning: use location
+test.c:88:10: warning: use location
 
 "
 
@@ -284,7 +299,7 @@ p3_15 = malloc (_2)
 "
 
 [label=" form basic block 3: free (p3_15)
-test.c:85:3: warning: use location
+test.c:87:3: warning: use location
 
 " ]
 
@@ -295,9 +310,12 @@ p3_15 = malloc (_2)
 
 " from foo2 basic block 3"
 
+->" free (p3_15)
+p3_15 = malloc (_2)
+"
 
 ->" free (p3_15)
-test.c:85:3: warning: use location
+test.c:87:3: warning: use location
 
 "
 
@@ -312,7 +330,7 @@ p3_15 = malloc (_2)
 "
 
 [label=" form basic block 3: *p3_15 = 10
-test.c:84:9: warning: use location
+test.c:86:9: warning: use location
 
 " ]
 
@@ -323,9 +341,12 @@ p3_15 = malloc (_2)
 
 " from foo2 basic block 3"
 
+->" *p3_15 = 10
+p3_15 = malloc (_2)
+"
 
 ->" *p3_15 = 10
-test.c:84:9: warning: use location
+test.c:86:9: warning: use location
 
 "
 
@@ -339,7 +360,7 @@ p3_15 = malloc (_2)
 "
 
 [label=" form basic block 2: foo3 (p3_15)
-test.c:79:2: warning: use location
+test.c:81:2: warning: use location
 
 " ]
 
@@ -350,11 +371,33 @@ p3_15 = malloc (_2)
 
 " from foo2 basic block 2"
 
+->" foo3 (p3_15)
+p3_15 = malloc (_2)
+"
 
 ->" foo3 (p3_15)
-test.c:79:2: warning: use location
+test.c:81:2: warning: use location
 
 "
+
+
+->"ID : 1000459799
+from foo3 basic block 5"->
+
+
+" ID : 1201491168 stmt(LHS) :*p2_4 = 10
+test.c:62:8: warning: use location
+
+"
+
+
+"ID : 1000459799
+from foo3 basic block 5"->
+
+subgraph cluster_229585305 { style ="dashed";"  start ID : 1201491168 stmt(relate) ， Tree ID : 1000459799 : *p2_4 = 10
+In function ‘main’:
+
+";}
 
 
 
@@ -383,7 +426,6 @@ p4_17 = malloc (_3)
 
 " from foo2 basic block 5"
 
-
 ->" _8 = PHI <p3_15(3), p4_17(4)>
 p4_17 = malloc (_3)
 "
@@ -403,7 +445,7 @@ p4_17 = malloc (_3)
 "
 
 [label=" form basic block 4: _29 = p4_17
-test.c:92:10: warning: use location
+test.c:95:10: warning: use location
 
 " ]
 
@@ -414,9 +456,12 @@ p4_17 = malloc (_3)
 
 " from foo2 basic block 4"
 
+->" _29 = p4_17
+p4_17 = malloc (_3)
+"
 
 ->" _29 = p4_17
-test.c:92:10: warning: use location
+test.c:95:10: warning: use location
 
 "
 
@@ -430,7 +475,7 @@ p4_17 = malloc (_3)
 "
 
 [label=" form basic block 4: free (p4_17)
-test.c:91:3: warning: use location
+test.c:94:3: warning: use location
 
 " ]
 
@@ -441,9 +486,12 @@ p4_17 = malloc (_3)
 
 " from foo2 basic block 4"
 
+->" free (p4_17)
+p4_17 = malloc (_3)
+"
 
 ->" free (p4_17)
-test.c:91:3: warning: use location
+test.c:94:3: warning: use location
 
 "
 
@@ -458,7 +506,7 @@ p4_17 = malloc (_3)
 "
 
 [label=" form basic block 4: *p4_17 = 10
-test.c:90:9: warning: use location
+test.c:92:9: warning: use location
 
 " ]
 
@@ -469,9 +517,12 @@ p4_17 = malloc (_3)
 
 " from foo2 basic block 4"
 
+->" *p4_17 = 10
+p4_17 = malloc (_3)
+"
 
 ->" *p4_17 = 10
-test.c:90:9: warning: use location
+test.c:92:9: warning: use location
 
 "
 
@@ -492,7 +543,7 @@ _4 = malloc (200)
 "
 
 [label=" form basic block 2: p99 = _4
-test.c:69:6: warning: use location
+test.c:71:6: warning: use location
 
 " ]
 
@@ -503,9 +554,12 @@ _4 = malloc (200)
 
 " from foo2 basic block 2"
 
+->" p99 = _4
+_4 = malloc (200)
+"
 
 ->" p99 = _4
-test.c:69:6: warning: use location
+test.c:71:6: warning: use location
 
 "
 
@@ -519,7 +573,7 @@ _4 = malloc (200)
 "
 
 [label=" form basic block 2: _5 = p99
-test.c:70:5: warning: use location
+test.c:72:5: warning: use location
 
 " ]
 
@@ -530,9 +584,12 @@ _4 = malloc (200)
 
 " from foo2 basic block 2"
 
+->" _5 = p99
+_4 = malloc (200)
+"
 
 ->" _5 = p99
-test.c:70:5: warning: use location
+test.c:72:5: warning: use location
 
 "
 
@@ -546,7 +603,7 @@ _4 = malloc (200)
 "
 
 [label=" form basic block 2: *_5 = 99
-test.c:70:9: warning: use location
+test.c:72:9: warning: use location
 
 " ]
 
@@ -557,9 +614,12 @@ _4 = malloc (200)
 
 " from foo2 basic block 2"
 
+->" *_5 = 99
+_4 = malloc (200)
+"
 
 ->" *_5 = 99
-test.c:70:9: warning: use location
+test.c:72:9: warning: use location
 
 "
 
@@ -573,7 +633,7 @@ _4 = malloc (200)
 "
 
 [label=" form basic block 2: _6 = p99
-test.c:71:5: warning: use location
+test.c:73:5: warning: use location
 
 " ]
 
@@ -584,9 +644,12 @@ _4 = malloc (200)
 
 " from foo2 basic block 2"
 
+->" _6 = p99
+_4 = malloc (200)
+"
 
 ->" _6 = p99
-test.c:71:5: warning: use location
+test.c:73:5: warning: use location
 
 "
 
@@ -600,7 +663,7 @@ _4 = malloc (200)
 "
 
 [label=" form basic block 2: MEM[(int *)_6 + 4B] = 100
-test.c:71:9: warning: use location
+test.c:73:9: warning: use location
 
 " ]
 
@@ -611,9 +674,12 @@ _4 = malloc (200)
 
 " from foo2 basic block 2"
 
+->" MEM[(int *)_6 + 4B] = 100
+_4 = malloc (200)
+"
 
 ->" MEM[(int *)_6 + 4B] = 100
-test.c:71:9: warning: use location
+test.c:73:9: warning: use location
 
 "
 
@@ -627,7 +693,7 @@ _4 = malloc (200)
 "
 
 [label=" form basic block 3: _7 = p99
-test.c:82:6: warning: use location
+test.c:84:6: warning: use location
 
 " ]
 
@@ -638,9 +704,12 @@ _4 = malloc (200)
 
 " from foo2 basic block 3"
 
+->" _7 = p99
+_4 = malloc (200)
+"
 
 ->" _7 = p99
-test.c:82:6: warning: use location
+test.c:84:6: warning: use location
 
 "
 
@@ -654,7 +723,7 @@ _4 = malloc (200)
 "
 
 [label=" form basic block 3: MEM[(int *)_7 + 4B] = 200
-test.c:82:10: warning: use location
+test.c:84:10: warning: use location
 
 " ]
 
@@ -665,9 +734,12 @@ _4 = malloc (200)
 
 " from foo2 basic block 3"
 
+->" MEM[(int *)_7 + 4B] = 200
+_4 = malloc (200)
+"
 
 ->" MEM[(int *)_7 + 4B] = 200
-test.c:82:10: warning: use location
+test.c:84:10: warning: use location
 
 "
 
@@ -681,7 +753,7 @@ _4 = malloc (200)
 "
 
 [label=" form basic block 2: _1 = p99
-test.c:123:6: warning: use location
+test.c:126:6: warning: use location
 
 " ]
 
@@ -692,11 +764,14 @@ _4 = malloc (200)
 
 " from foo2 basic block 2"
 
-
 ->" from foo basic block 2"
 
 ->" _1 = p99
-test.c:123:6: warning: use location
+_4 = malloc (200)
+"
+
+->" _1 = p99
+test.c:126:6: warning: use location
 
 "
 
@@ -710,7 +785,7 @@ _4 = malloc (200)
 "
 
 [label=" form basic block 2: MEM[(int *)_1 + 4B] = 1000
-test.c:123:10: warning: use location
+test.c:126:10: warning: use location
 
 " ]
 
@@ -721,11 +796,14 @@ _4 = malloc (200)
 
 " from foo2 basic block 2"
 
-
 ->" from foo basic block 2"
 
 ->" MEM[(int *)_1 + 4B] = 1000
-test.c:123:10: warning: use location
+_4 = malloc (200)
+"
+
+->" MEM[(int *)_1 + 4B] = 1000
+test.c:126:10: warning: use location
 
 "
 
@@ -739,7 +817,7 @@ _4 = malloc (200)
 "
 
 [label=" form basic block 2: _2 = p99
-test.c:124:6: warning: use location
+test.c:127:6: warning: use location
 
 " ]
 
@@ -750,11 +828,14 @@ _4 = malloc (200)
 
 " from foo2 basic block 2"
 
-
 ->" from foo basic block 2"
 
 ->" _2 = p99
-test.c:124:6: warning: use location
+_4 = malloc (200)
+"
+
+->" _2 = p99
+test.c:127:6: warning: use location
 
 "
 
@@ -768,7 +849,7 @@ _4 = malloc (200)
 "
 
 [label=" form basic block 2: MEM[(int *)_2 + 8B] = 200
-test.c:124:10: warning: use location
+test.c:127:10: warning: use location
 
 " ]
 
@@ -779,11 +860,14 @@ _4 = malloc (200)
 
 " from foo2 basic block 2"
 
-
 ->" from foo basic block 2"
 
 ->" MEM[(int *)_2 + 8B] = 200
-test.c:124:10: warning: use location
+_4 = malloc (200)
+"
+
+->" MEM[(int *)_2 + 8B] = 200
+test.c:127:10: warning: use location
 
 "
 
@@ -804,7 +888,7 @@ p2_5 = malloc (1)
 "
 
 [label=" form basic block 2: *p2_5 = 1
-test.c:122:8: warning: use location
+test.c:125:8: warning: use location
 
 " ]
 
@@ -815,9 +899,12 @@ p2_5 = malloc (1)
 
 " from foo basic block 2"
 
+->" *p2_5 = 1
+p2_5 = malloc (1)
+"
 
 ->" *p2_5 = 1
-test.c:122:8: warning: use location
+test.c:125:8: warning: use location
 
 "
 
@@ -838,7 +925,7 @@ _11 = foo2 (z_9(D))
 "
 
 [label=" form basic block 2: return _11
-test.c:139:9: warning: use location
+test.c:142:9: warning: use location
 " ]
 
 " # .MEM_17 = VDEF <.MEM_16>
@@ -848,9 +935,12 @@ _11 = foo2 (z_9(D))
 
 " from foo basic block 2"
 
+->" return _11
+_11 = foo2 (z_9(D))
+"
 
 ->" return _11
-test.c:139:9: warning: use location
+test.c:142:9: warning: use location
 "
 
 
@@ -876,7 +966,7 @@ pData2_21 = malloc (10)
 "
 
 [label=" form basic block 2: child5 (pData2_21)
-test.c:191:2: warning: use location
+test.c:194:2: warning: use location
 
 " ]
 
@@ -887,36 +977,39 @@ pData2_21 = malloc (10)
 
 " from child basic block 2"
 
+->" child5 (pData2_21)
+pData2_21 = malloc (10)
+"
 
 ->" child5 (pData2_21)
-test.c:191:2: warning: use location
+test.c:194:2: warning: use location
 
 "
 
 
-->"ID : 1831165140
+->"ID : 1695141213
 from child5 basic block 2"->
 
 
-" ID : 1394795494 stmt(LHS) :pData_6 = data_5(D) + 4
-test.c:279:8: warning: use location
+" ID : 534077249 stmt(LHS) :pData_6 = data_5(D) + 4
+test.c:282:8: warning: use location
 
 "
 
 
-->"ID : 1831165140
+->"ID : 1695141213
 from child5 basic block 4"->
 
-" ID : 101057024 stmt(call) :free (pData_6)
-test.c:296:3: warning: use location
+" ID : 1642510221 stmt(call) :free (pData_6)
+test.c:299:3: warning: use location
 
 "
 
 
-"ID : 1831165140
+"ID : 1695141213
 from child5 basic block 4"->
 
-subgraph cluster_803213364 { style ="dashed";"  start ID : 101057024 stmt(relate) ， Tree ID : 1831165140 : free (pData_6)
+subgraph cluster_479437686 { style ="dashed";"  start ID : 1642510221 stmt(relate) ， Tree ID : 1695141213 : free (pData_6)
 In function ‘main’:
 
 ";}
@@ -946,7 +1039,6 @@ a99_16 = foo (20)
 "->
 
 " from child basic block 2"
-
 
 ->" _38 = __printf_chk (1, asddad\n, a99_16)
 "
@@ -978,7 +1070,6 @@ _15 = malloc (10)
 
 " from child7 basic block 5"
 
-
 ->" _4 = PHI <_15(3), _12(4)>
 _15 = malloc (10)
 "
@@ -1014,7 +1105,6 @@ _12 = malloc (30)
 
 " from child7 basic block 5"
 
-
 ->" _4 = PHI <_15(3), _12(4)>
 _12 = malloc (30)
 "
@@ -1040,7 +1130,7 @@ a_51 = malloc (32)
 "
 
 [label=" form basic block 6: _17 = a_51 + _16
-test.c:466:23: warning: use location
+test.c:469:23: warning: use location
 
 " ]
 
@@ -1051,9 +1141,12 @@ a_51 = malloc (32)
 
 " from main basic block 6"
 
+->" _17 = a_51 + _16
+a_51 = malloc (32)
+"
 
 ->" _17 = a_51 + _16
-test.c:466:23: warning: use location
+test.c:469:23: warning: use location
 
 "
 
@@ -1067,7 +1160,7 @@ a_51 = malloc (32)
 "
 
 [label=" form basic block 6: _18 = _17->name
-test.c:466:3: warning: use location
+test.c:469:3: warning: use location
 
 " ]
 
@@ -1078,9 +1171,12 @@ a_51 = malloc (32)
 
 " from main basic block 6"
 
+->" _18 = _17->name
+a_51 = malloc (32)
+"
 
 ->" _18 = _17->name
-test.c:466:3: warning: use location
+test.c:469:3: warning: use location
 
 "
 
@@ -1103,7 +1199,6 @@ a_51 = malloc (32)
 
 " from main basic block 6"
 
-
 ->" _91 = __printf_chk (1, s, d\n, _18, _14)
 "
 
@@ -1118,7 +1213,7 @@ a_51 = malloc (32)
 "
 
 [label=" form basic block 6: _13 = a_51 + _12
-test.c:466:34: warning: use location
+test.c:469:34: warning: use location
 
 " ]
 
@@ -1129,9 +1224,12 @@ a_51 = malloc (32)
 
 " from main basic block 6"
 
+->" _13 = a_51 + _12
+a_51 = malloc (32)
+"
 
 ->" _13 = a_51 + _12
-test.c:466:34: warning: use location
+test.c:469:34: warning: use location
 
 "
 
@@ -1145,7 +1243,7 @@ a_51 = malloc (32)
 "
 
 [label=" form basic block 6: _14 = _13->nummer
-test.c:466:3: warning: use location
+test.c:469:3: warning: use location
 
 " ]
 
@@ -1156,9 +1254,12 @@ a_51 = malloc (32)
 
 " from main basic block 6"
 
+->" _14 = _13->nummer
+a_51 = malloc (32)
+"
 
 ->" _14 = _13->nummer
-test.c:466:3: warning: use location
+test.c:469:3: warning: use location
 
 "
 
@@ -1172,7 +1273,7 @@ a_51 = malloc (32)
 "
 
 [label=" form basic block 5: free (a_51)
-test.c:463:2: warning: use location
+test.c:466:2: warning: use location
 
 " ]
 
@@ -1183,9 +1284,12 @@ a_51 = malloc (32)
 
 " from main basic block 5"
 
+->" free (a_51)
+a_51 = malloc (32)
+"
 
 ->" free (a_51)
-test.c:463:2: warning: use location
+test.c:466:2: warning: use location
 
 "
 
@@ -1200,7 +1304,7 @@ a_51 = malloc (32)
 "
 
 [label=" form basic block 3: _9 = a_51 + _8
-test.c:461:4: warning: use location
+test.c:464:4: warning: use location
 
 " ]
 
@@ -1211,9 +1315,12 @@ a_51 = malloc (32)
 
 " from main basic block 3"
 
+->" _9 = a_51 + _8
+a_51 = malloc (32)
+"
 
 ->" _9 = a_51 + _8
-test.c:461:4: warning: use location
+test.c:464:4: warning: use location
 
 "
 
@@ -1227,7 +1334,7 @@ a_51 = malloc (32)
 "
 
 [label=" form basic block 3: _9->nummer = 123
-test.c:461:15: warning: use location
+test.c:464:15: warning: use location
 
 " ]
 
@@ -1238,9 +1345,12 @@ a_51 = malloc (32)
 
 " from main basic block 3"
 
+->" _9->nummer = 123
+a_51 = malloc (32)
+"
 
 ->" _9->nummer = 123
-test.c:461:15: warning: use location
+test.c:464:15: warning: use location
 
 "
 
@@ -1254,7 +1364,7 @@ a_51 = malloc (32)
 "
 
 [label=" form basic block 3: _6 = a_51 + _5
-test.c:460:4: warning: use location
+test.c:463:4: warning: use location
 
 " ]
 
@@ -1265,9 +1375,12 @@ a_51 = malloc (32)
 
 " from main basic block 3"
 
+->" _6 = a_51 + _5
+a_51 = malloc (32)
+"
 
 ->" _6 = a_51 + _5
-test.c:460:4: warning: use location
+test.c:463:4: warning: use location
 
 "
 
@@ -1281,7 +1394,7 @@ a_51 = malloc (32)
 "
 
 [label=" form basic block 3: _6->name = Testname
-test.c:460:13: warning: use location
+test.c:463:13: warning: use location
 
 " ]
 
@@ -1292,9 +1405,12 @@ a_51 = malloc (32)
 
 " from main basic block 3"
 
+->" _6->name = Testname
+a_51 = malloc (32)
+"
 
 ->" _6->name = Testname
-test.c:460:13: warning: use location
+test.c:463:13: warning: use location
 
 "
 
@@ -1318,7 +1434,7 @@ err_99 = pthread_create (_23, &attr2, child, 0B)
 "
 
 [label=" form basic block 9: _24 = t2[i_39]
-test.c:507:3: warning: use location
+test.c:510:3: warning: use location
 
 " ]
 
@@ -1330,7 +1446,11 @@ err_99 = pthread_create (_23, &attr2, child, 0B)
 " from main basic block 9"
 
 ->" _24 = t2[i_39]
-test.c:507:3: warning: use location
+err_99 = pthread_create (_23, &attr2, child, 0B)
+"
+
+->" _24 = t2[i_39]
+test.c:510:3: warning: use location
 
 "
 
@@ -1367,7 +1487,7 @@ err_99 = pthread_create (_23, &attr2, child, 0B)
 "
 
 [label=" form basic block 15: _28 = t2[i_40]
-test.c:532:3: warning: use location
+test.c:535:3: warning: use location
 
 " ]
 
@@ -1379,7 +1499,11 @@ err_99 = pthread_create (_23, &attr2, child, 0B)
 " from main basic block 15"
 
 ->" _28 = t2[i_40]
-test.c:532:3: warning: use location
+err_99 = pthread_create (_23, &attr2, child, 0B)
+"
+
+->" _28 = t2[i_40]
+test.c:535:3: warning: use location
 
 "
 
@@ -1393,7 +1517,7 @@ err_99 = pthread_create (_23, &attr2, child, 0B)
 "
 
 [label=" form basic block 15: pthread_join (_28, 0B)
-test.c:532:3: warning: use location
+test.c:535:3: warning: use location
 
 " ]
 
@@ -1405,7 +1529,11 @@ err_99 = pthread_create (_23, &attr2, child, 0B)
 " from main basic block 15"
 
 ->" pthread_join (_28, 0B)
-test.c:532:3: warning: use location
+err_99 = pthread_create (_23, &attr2, child, 0B)
+"
+
+->" pthread_join (_28, 0B)
+test.c:535:3: warning: use location
 
 "
 
@@ -1420,7 +1548,7 @@ err_99 = pthread_create (_23, &attr2, child, 0B)
 "
 
 [label=" form basic block 9: err_99 = pthread_create (_23, &attr2, child, 0B)
-test.c:505:7: warning: use location
+test.c:508:7: warning: use location
 " ]
 
 " # .MEM_153 = VDEF <.MEM_110>
@@ -1431,7 +1559,7 @@ err_99 = pthread_create (_23, &attr2, child, 0B)
 " from main basic block 9"
 
 ->" err_99 = pthread_create (_23, &attr2, child, 0B)
-test.c:505:7: warning: use location
+test.c:508:7: warning: use location
 "
 
 
@@ -1451,7 +1579,7 @@ q_63 = malloc (70)
 "
 
 [label=" form basic block 23: _31 = foo5 (q_63, q_63)
-test.c:552:2: warning: use location
+test.c:555:2: warning: use location
 
 " ]
 
@@ -1462,9 +1590,8 @@ q_63 = malloc (70)
 
 " from main basic block 23"
 
-
 ->" _31 = foo5 (q_63, q_63)
-test.c:552:2: warning: use location
+test.c:555:2: warning: use location
 
 "
 
@@ -1479,7 +1606,7 @@ q_63 = malloc (70)
 "
 
 [label=" form basic block 14: *q_63 = 20
-test.c:524:8: warning: use location
+test.c:527:8: warning: use location
 
 " ]
 
@@ -1490,9 +1617,12 @@ q_63 = malloc (70)
 
 " from main basic block 14"
 
+->" *q_63 = 20
+q_63 = malloc (70)
+"
 
 ->" *q_63 = 20
-test.c:524:8: warning: use location
+test.c:527:8: warning: use location
 
 "
 
@@ -1506,7 +1636,7 @@ q_63 = malloc (70)
 "
 
 [label=" form basic block 12: free (q_63)
-test.c:520:3: warning: use location
+test.c:523:3: warning: use location
 
 " ]
 
@@ -1517,9 +1647,12 @@ q_63 = malloc (70)
 
 " from main basic block 12"
 
+->" free (q_63)
+q_63 = malloc (70)
+"
 
 ->" free (q_63)
-test.c:520:3: warning: use location
+test.c:523:3: warning: use location
 
 "
 
@@ -1534,7 +1667,7 @@ q_63 = malloc (70)
 "
 
 [label=" form basic block 12: *q_63 = 10
-test.c:519:8: warning: use location
+test.c:522:8: warning: use location
 
 " ]
 
@@ -1545,9 +1678,12 @@ q_63 = malloc (70)
 
 " from main basic block 12"
 
+->" *q_63 = 10
+q_63 = malloc (70)
+"
 
 ->" *q_63 = 10
-test.c:519:8: warning: use location
+test.c:522:8: warning: use location
 
 "
 
@@ -1561,7 +1697,7 @@ q_63 = malloc (70)
 "
 
 [label=" form basic block 12: child (q_63)
-test.c:516:3: warning: use location
+test.c:519:3: warning: use location
 
 " ]
 
@@ -1572,250 +1708,263 @@ q_63 = malloc (70)
 
 " from main basic block 12"
 
+->" child (q_63)
+q_63 = malloc (70)
+"
 
 ->" child (q_63)
-test.c:516:3: warning: use location
+test.c:519:3: warning: use location
 
 "
 
 
-->"ID : 273835148
+->"ID : 1248249205
 from child basic block 2"->
 
 
-" ID : 1327012258 stmt(LHS) :_1 = data
-test.c:176:7: warning: use location
+" ID : 741600514 stmt(LHS) :_1 = data
+test.c:179:7: warning: use location
 
 "
 
 
-"ID : 273835148
+"ID : 1248249205
 from child basic block 2"->
 
 
-" ID : 1483589226 stmt(LHS) :_2 = pData
-test.c:178:9: warning: use location
+" ID : 980811535 stmt(LHS) :_2 = pData
+test.c:181:9: warning: use location
 
 "
 
 
-"ID : 273835148
+"ID : 1248249205
 from child basic block 2"->
 
 
-" ID : 1821918241 stmt(LHS) :_4 = pData
-test.c:178:9: warning: use location
+" ID : 992935354 stmt(LHS) :_4 = pData
+test.c:181:9: warning: use location
 
 "
 
 
-"ID : 273835148
+"ID : 1248249205
 from child basic block 2"->
 
 
-" ID : 1797902581 stmt(LHS) :_6 = pData
-test.c:185:9: warning: use location
+" ID : 261277092 stmt(LHS) :_6 = pData
+test.c:188:9: warning: use location
 
 "
 
 
-"ID : 273835148
+"ID : 1248249205
 from child basic block 2"->
 
 
-" ID : 1167270718 stmt(LHS) :_7 = pData
-test.c:188:3: warning: use location
+" ID : 528469100 stmt(LHS) :_7 = pData
+test.c:191:3: warning: use location
 
 "
 
 
-"ID : 273835148
+"ID : 1248249205
 from child basic block 2"->
 
 
-" ID : 1069230088 stmt(LHS) :_9 = pData
-test.c:193:2: warning: use location
+" ID : 1527012603 stmt(LHS) :_9 = pData
+test.c:196:2: warning: use location
 
 "
 
 
-"ID : 273835148
+"ID : 1248249205
 from child basic block 2"->
 
-" ID : 1898959606 stmt(call) :free (_9)
-test.c:193:2: warning: use location
+" ID : 1903787313 stmt(call) :free (_9)
+test.c:196:2: warning: use location
 
 "
 
 
-"ID : 273835148
-from child basic block 2"->
-
-
-" ID : 1970484082 stmt(LHS) :_10 = data
-test.c:194:2: warning: use location
-
-"
-
-
-"ID : 273835148
-from child basic block 2"->
-
-" ID : 1718333672 stmt(call) :free (_10)
-test.c:194:2: warning: use location
-
-"
-
-
-"ID : 273835148
+"ID : 1248249205
 from child basic block 2"->
 
 
-" ID : 1819173523 stmt(LHS) :_11 = data
-test.c:195:2: warning: use location
+" ID : 1007906786 stmt(LHS) :_10 = data
+test.c:197:2: warning: use location
 
 "
 
 
-"ID : 273835148
+"ID : 1248249205
 from child basic block 2"->
 
-" ID : 1557890483 stmt(call) :boo (_11)
-test.c:195:2: warning: use location
+" ID : 1271619161 stmt(call) :free (_10)
+test.c:197:2: warning: use location
 
 "
 
 
-->"ID : 1758358837
+"ID : 1248249205
+from child basic block 2"->
+
+
+" ID : 1662848697 stmt(LHS) :_11 = data
+test.c:198:2: warning: use location
+
+"
+
+
+"ID : 1248249205
+from child basic block 2"->
+
+" ID : 307820680 stmt(call) :boo (_11)
+test.c:198:2: warning: use location
+
+"
+
+
+->"ID : 1550791618
 from boo basic block 2"->
 
-" ID : 812508332 stmt(call) :free (b_2(D))
+" ID : 1531009292 stmt(call) :free (b_2(D))
 In function ‘boo’:
 
 "
 
-"ID : 1758358837
+"ID : 1550791618
 from boo basic block 2"->
 
-" ID : 671954211 stmt(call) :free (b_2(D))
-test.c:417:2: warning: use location
+" ID : 137847703 stmt(call) :free (b_2(D))
+test.c:420:2: warning: use location
 
 "
 
-"ID : 1758358837
+"ID : 1550791618
 from boo basic block 2"->
 
-" ID : 303654722 stmt(call) :test22 (b_2(D))
-test.c:418:2: warning: use location
+" ID : 272474475 stmt(call) :test22 (b_2(D))
+test.c:421:2: warning: use location
 
 "
 
 
-->"ID : 1766813075
+->"ID : 1201855133
 from test22 basic block 2"->
 
-" ID : 47053497 stmt(call) :free (k_2(D))
+" ID : 47280515 stmt(call) :free (k_2(D))
 In function ‘test22’:
 
 "
 
-"ID : 1766813075
+"ID : 1201855133
 from test22 basic block 2"->
 
-" ID : 914853767 stmt(call) :free (k_2(D))
-test.c:433:2: warning: use location
-
-"
-
-"ID : 1766813075
-from test22 basic block 2"->
-
-" ID : 1223660419 stmt(call) :free (k_2(D))
-test.c:434:2: warning: use location
-
-"
-
-"ID : 1766813075
-from test22 basic block 2"->
-
-" ID : 1632899415 stmt(call) :free (k_2(D))
-test.c:435:2: warning: use location
-
-"
-
-"ID : 1766813075
-from test22 basic block 2"->
-
-" ID : 1768794995 stmt(call) :free (k_2(D))
+" ID : 1124460240 stmt(call) :free (k_2(D))
 test.c:436:2: warning: use location
 
 "
 
-"ID : 1766813075
+"ID : 1201855133
 from test22 basic block 2"->
 
-" ID : 1043912372 stmt(call) :free (k_2(D))
+" ID : 73381322 stmt(call) :free (k_2(D))
 test.c:437:2: warning: use location
 
 "
 
+"ID : 1201855133
+from test22 basic block 2"->
 
-->"ID : 564737914
-from child4 basic block 3"->
+" ID : 193882223 stmt(call) :free (k_2(D))
+test.c:438:2: warning: use location
 
+"
 
-" ID : 509610409 stmt(LHS) :_1 = data
-test.c:220:11: warning: use location
+"ID : 1201855133
+from test22 basic block 2"->
+
+" ID : 1424946357 stmt(call) :free (k_2(D))
+test.c:439:2: warning: use location
+
+"
+
+"ID : 1201855133
+from test22 basic block 2"->
+
+" ID : 1947363021 stmt(call) :free (k_2(D))
+test.c:440:2: warning: use location
 
 "
 
 
-"ID : 564737914
+->"ID : 556609216
 from child4 basic block 3"->
 
 
-" ID : 1102556458 stmt(LHS) :_3 = data
-test.c:220:3: warning: use location
+" ID : 2042815423 stmt(LHS) :_1 = data
+test.c:223:11: warning: use location
 
 "
 
 
-->"ID : 564737914
-from child4 basic block 4"->
+"ID : 556609216
+from child4 basic block 3"->
 
 
-" ID : 736227524 stmt(LHS) :_5 = data
+" ID : 566361886 stmt(LHS) :_3 = data
 test.c:223:3: warning: use location
 
 "
 
 
-->"ID : 1749925442
+->"ID : 556609216
+from child4 basic block 4"->
+
+
+" ID : 804398621 stmt(LHS) :_5 = data
+test.c:226:3: warning: use location
+
+"
+
+
+->"ID : 1582924769
 from foo basic block 2"->
 
 
-" ID : 362530965 stmt(LHS) :*p2_5 = 1
-test.c:122:8: warning: use location
+" ID : 1317588117 stmt(LHS) :*p2_5 = 1
+test.c:125:8: warning: use location
 
 "
 
 
-->"ID : 1010062672
+->"ID : 2052647826
 from foo2 basic block 3"->
 
 
-" ID : 929454052 stmt(LHS) :*p3_15 = 10
-test.c:84:9: warning: use location
+" ID : 177041635 stmt(LHS) :*p3_15 = 10
+test.c:86:9: warning: use location
 
 "
 
 
-->"ID : 1010062672
+->"ID : 2052647826
 from foo2 basic block 4"->
 
 
-" ID : 1846120191 stmt(LHS) :*p4_17 = 10
-test.c:90:9: warning: use location
+" ID : 150916004 stmt(LHS) :*p4_17 = 10
+test.c:92:9: warning: use location
+
+"
+
+
+->"ID : 898099533
+from foo3 basic block 5"->
+
+
+" ID : 438318727 stmt(LHS) :*p2_4 = 10
+test.c:62:8: warning: use location
 
 "
 
@@ -1830,7 +1979,7 @@ q_63 = malloc (70)
 "
 
 [label=" form basic block 11: _25 = q_63 != 0B
-test.c:513:9: warning: use location
+test.c:516:9: warning: use location
 
 " ]
 
@@ -1841,9 +1990,12 @@ q_63 = malloc (70)
 
 " from main basic block 11"
 
+->" _25 = q_63 != 0B
+q_63 = malloc (70)
+"
 
 ->" _25 = q_63 != 0B
-test.c:513:9: warning: use location
+test.c:516:9: warning: use location
 
 "
 
@@ -1857,7 +2009,7 @@ q_63 = malloc (70)
 "
 
 [label=" form basic block 11: _27 = _25 & _26
-test.c:513:18: warning: use location
+test.c:516:18: warning: use location
 
 " ]
 
@@ -1868,9 +2020,12 @@ q_63 = malloc (70)
 
 " from main basic block 11"
 
+->" _27 = _25 & _26
+q_63 = malloc (70)
+"
 
 ->" _27 = _25 & _26
-test.c:513:18: warning: use location
+test.c:516:18: warning: use location
 
 "
 
@@ -1884,7 +2039,7 @@ q_63 = malloc (70)
 "
 
 [label=" form basic block 11: if (_27 != 0)
-test.c:513:5: warning: use location
+test.c:516:5: warning: use location
 
 " ]
 
@@ -1895,58 +2050,69 @@ q_63 = malloc (70)
 
 " from main basic block 11"
 
+->" if (_27 != 0)
+q_63 = malloc (70)
+"
 
 ->" if (_27 != 0)
-test.c:513:5: warning: use location
+test.c:516:5: warning: use location
 
 "
 
 
-"ID : 273835148
+"ID : 1248249205
 from child basic block 2"->
 
-subgraph cluster_579872986 { style ="dashed";"  start ID : 1557890483 stmt(relate) ， Tree ID : 273835148 : boo (_11)
-test.c:195:2: warning: use location
+subgraph cluster_679385105 { style ="dashed";"  start ID : 307820680 stmt(relate) ， Tree ID : 1248249205 : boo (_11)
+test.c:198:2: warning: use location
 
 ";}
 
-"ID : 1758358837
+"ID : 1550791618
 from boo basic block 2"->
 
-subgraph cluster_865907261 { style ="dashed";"  start ID : 303654722 stmt(relate) ， Tree ID : 1758358837 : test22 (b_2(D))
-test.c:418:2: warning: use location
+subgraph cluster_277628488 { style ="dashed";"  start ID : 272474475 stmt(relate) ， Tree ID : 1550791618 : test22 (b_2(D))
+test.c:421:2: warning: use location
 
 ";}
 
-"ID : 1766813075
+"ID : 1201855133
 from test22 basic block 2"->
 
-subgraph cluster_1753727354 { style ="dashed";"  start ID : 1043912372 stmt(relate) ， Tree ID : 1766813075 : free (k_2(D))
-test.c:437:2: warning: use location
+subgraph cluster_194622393 { style ="dashed";"  start ID : 1947363021 stmt(relate) ， Tree ID : 1201855133 : free (k_2(D))
+test.c:440:2: warning: use location
 
 ";}
 
-"ID : 564737914
+"ID : 556609216
 from child4 basic block 4"->
 
-subgraph cluster_331348944 { style ="dashed";"  start ID : 736227524 stmt(relate) ， Tree ID : 564737914 : _5 = data
-test.c:223:3: warning: use location
+subgraph cluster_1687291891 { style ="dashed";"  start ID : 804398621 stmt(relate) ， Tree ID : 556609216 : _5 = data
+test.c:226:3: warning: use location
 
 ";}
 
-"ID : 1749925442
+"ID : 1582924769
 from foo basic block 2"->
 
-subgraph cluster_688907695 { style ="dashed";"  start ID : 362530965 stmt(relate) ， Tree ID : 1749925442 : *p2_5 = 1
-test.c:122:8: warning: use location
+subgraph cluster_1549247649 { style ="dashed";"  start ID : 1317588117 stmt(relate) ， Tree ID : 1582924769 : *p2_5 = 1
+test.c:125:8: warning: use location
 
 ";}
 
-"ID : 1010062672
+"ID : 2052647826
 from foo2 basic block 4"->
 
-subgraph cluster_1324577378 { style ="dashed";"  start ID : 1846120191 stmt(relate) ， Tree ID : 1010062672 : *p4_17 = 10
-test.c:90:9: warning: use location
+subgraph cluster_1857471090 { style ="dashed";"  start ID : 150916004 stmt(relate) ， Tree ID : 2052647826 : *p4_17 = 10
+test.c:92:9: warning: use location
+
+";}
+
+"ID : 898099533
+from foo3 basic block 5"->
+
+subgraph cluster_1995112572 { style ="dashed";"  start ID : 438318727 stmt(relate) ， Tree ID : 898099533 : *p2_4 = 10
+test.c:62:8: warning: use location
 
 ";}
 
@@ -1983,7 +2149,6 @@ data_73 = malloc (400)
 
 " from main basic block 21"
 
-
 ->" data_41 = PHI <0B(17), data_73(20)>
 data_73 = malloc (400)
 "
@@ -2003,7 +2168,7 @@ data_73 = malloc (400)
 "
 
 [label=" form basic block 22: free (data_41)
-test.c:550:3: warning: use location
+test.c:553:3: warning: use location
 
 " ]
 
@@ -2014,9 +2179,12 @@ data_73 = malloc (400)
 
 " from main basic block 22"
 
+->" free (data_41)
+data_73 = malloc (400)
+"
 
 ->" free (data_41)
-test.c:550:3: warning: use location
+test.c:553:3: warning: use location
 
 "
 
@@ -2031,7 +2199,7 @@ data_73 = malloc (400)
 "
 
 [label=" form basic block 20: free (data_73)
-test.c:545:3: warning: use location
+test.c:548:3: warning: use location
 
 " ]
 
@@ -2042,9 +2210,12 @@ data_73 = malloc (400)
 
 " from main basic block 20"
 
+->" free (data_73)
+data_73 = malloc (400)
+"
 
 ->" free (data_73)
-test.c:545:3: warning: use location
+test.c:548:3: warning: use location
 
 "
 
@@ -2059,7 +2230,7 @@ data_73 = malloc (400)
 "
 
 [label=" form basic block 18: if (data_73 == 0B)
-test.c:540:6: warning: use location
+test.c:543:6: warning: use location
 
 " ]
 
@@ -2070,9 +2241,12 @@ data_73 = malloc (400)
 
 " from main basic block 18"
 
+->" if (data_73 == 0B)
+data_73 = malloc (400)
+"
 
 ->" if (data_73 == 0B)
-test.c:540:6: warning: use location
+test.c:543:6: warning: use location
 
 "
 
@@ -2099,7 +2273,7 @@ _34 = malloc (201)
 "
 
 [label=" form basic block 23: p98 = _34
-test.c:561:6: warning: use location
+test.c:564:6: warning: use location
 
 " ]
 
@@ -2110,9 +2284,12 @@ _34 = malloc (201)
 
 " from main basic block 23"
 
+->" p98 = _34
+_34 = malloc (201)
+"
 
 ->" p98 = _34
-test.c:561:6: warning: use location
+test.c:564:6: warning: use location
 
 "
 
@@ -2126,7 +2303,7 @@ _34 = malloc (201)
 "
 
 [label=" form basic block 3: _2 = p98
-test.c:362:5: warning: use location
+test.c:365:5: warning: use location
 
 " ]
 
@@ -2137,11 +2314,14 @@ _34 = malloc (201)
 
 " from main basic block 3"
 
-
 ->" from child7 basic block 3"
 
 ->" _2 = p98
-test.c:362:5: warning: use location
+_34 = malloc (201)
+"
+
+->" _2 = p98
+test.c:365:5: warning: use location
 
 "
 
@@ -2155,7 +2335,7 @@ _34 = malloc (201)
 "
 
 [label=" form basic block 3: MEM[(int *)_2 + 12B] = 300
-test.c:362:9: warning: use location
+test.c:365:9: warning: use location
 
 " ]
 
@@ -2166,11 +2346,14 @@ _34 = malloc (201)
 
 " from main basic block 3"
 
-
 ->" from child7 basic block 3"
 
 ->" MEM[(int *)_2 + 12B] = 300
-test.c:362:9: warning: use location
+_34 = malloc (201)
+"
+
+->" MEM[(int *)_2 + 12B] = 300
+test.c:365:9: warning: use location
 
 "
 
@@ -2184,7 +2367,7 @@ _34 = malloc (201)
 "
 
 [label=" form basic block 4: _3 = p98
-test.c:368:6: warning: use location
+test.c:371:6: warning: use location
 
 " ]
 
@@ -2195,11 +2378,14 @@ _34 = malloc (201)
 
 " from main basic block 4"
 
-
 ->" from child7 basic block 4"
 
 ->" _3 = p98
-test.c:368:6: warning: use location
+_34 = malloc (201)
+"
+
+->" _3 = p98
+test.c:371:6: warning: use location
 
 "
 
@@ -2213,7 +2399,7 @@ _34 = malloc (201)
 "
 
 [label=" form basic block 4: MEM[(int *)_3 + 8B] = 300
-test.c:368:10: warning: use location
+test.c:371:10: warning: use location
 
 " ]
 
@@ -2224,11 +2410,14 @@ _34 = malloc (201)
 
 " from main basic block 4"
 
-
 ->" from child7 basic block 4"
 
 ->" MEM[(int *)_3 + 8B] = 300
-test.c:368:10: warning: use location
+_34 = malloc (201)
+"
+
+->" MEM[(int *)_3 + 8B] = 300
+test.c:371:10: warning: use location
 
 "
 
@@ -2242,7 +2431,7 @@ _34 = malloc (201)
 "
 
 [label=" form basic block 2: _8 = p98
-test.c:192:5: warning: use location
+test.c:195:5: warning: use location
 
 " ]
 
@@ -2253,11 +2442,14 @@ _34 = malloc (201)
 
 " from main basic block 2"
 
-
 ->" from child basic block 2"
 
 ->" _8 = p98
-test.c:192:5: warning: use location
+_34 = malloc (201)
+"
+
+->" _8 = p98
+test.c:195:5: warning: use location
 
 "
 
@@ -2271,7 +2463,7 @@ _34 = malloc (201)
 "
 
 [label=" form basic block 2: *_8 = 98
-test.c:192:9: warning: use location
+test.c:195:9: warning: use location
 
 " ]
 
@@ -2282,11 +2474,14 @@ _34 = malloc (201)
 
 " from main basic block 2"
 
-
 ->" from child basic block 2"
 
 ->" *_8 = 98
-test.c:192:9: warning: use location
+_34 = malloc (201)
+"
+
+->" *_8 = 98
+test.c:195:9: warning: use location
 
 "
 
@@ -2300,7 +2495,7 @@ _34 = malloc (201)
 "
 
 [label=" form basic block 2: _1 = p98
-test.c:388:4: warning: use location
+test.c:391:4: warning: use location
 
 " ]
 
@@ -2311,11 +2506,14 @@ _34 = malloc (201)
 
 " from main basic block 2"
 
-
 ->" from child2 basic block 2"
 
 ->" _1 = p98
-test.c:388:4: warning: use location
+_34 = malloc (201)
+"
+
+->" _1 = p98
+test.c:391:4: warning: use location
 
 "
 
@@ -2329,7 +2527,7 @@ _34 = malloc (201)
 "
 
 [label=" form basic block 2: MEM[(int *)_1 + 4B] = 99
-test.c:388:8: warning: use location
+test.c:391:8: warning: use location
 
 " ]
 
@@ -2340,11 +2538,14 @@ _34 = malloc (201)
 
 " from main basic block 2"
 
-
 ->" from child2 basic block 2"
 
 ->" MEM[(int *)_1 + 4B] = 99
-test.c:388:8: warning: use location
+_34 = malloc (201)
+"
+
+->" MEM[(int *)_1 + 4B] = 99
+test.c:391:8: warning: use location
 
 "
 
@@ -2358,7 +2559,7 @@ _34 = malloc (201)
 "
 
 [label=" form basic block 23: _35 = p98
-test.c:562:2: warning: use location
+test.c:565:2: warning: use location
 
 " ]
 
@@ -2369,9 +2570,12 @@ _34 = malloc (201)
 
 " from main basic block 23"
 
+->" _35 = p98
+_34 = malloc (201)
+"
 
 ->" _35 = p98
-test.c:562:2: warning: use location
+test.c:565:2: warning: use location
 
 "
 
@@ -2385,7 +2589,7 @@ _34 = malloc (201)
 "
 
 [label=" form basic block 23: child (_35)
-test.c:562:2: warning: use location
+test.c:565:2: warning: use location
 
 " ]
 
@@ -2396,250 +2600,263 @@ _34 = malloc (201)
 
 " from main basic block 23"
 
+->" child (_35)
+_34 = malloc (201)
+"
 
 ->" child (_35)
-test.c:562:2: warning: use location
+test.c:565:2: warning: use location
 
 "
 
 
-->"ID : 3038819
+->"ID : 952555619
 from child basic block 2"->
 
 
-" ID : 99314530 stmt(LHS) :_1 = data
-test.c:176:7: warning: use location
+" ID : 1240996734 stmt(LHS) :_1 = data
+test.c:179:7: warning: use location
 
 "
 
 
-"ID : 3038819
+"ID : 952555619
 from child basic block 2"->
 
 
-" ID : 935452567 stmt(LHS) :_2 = pData
-test.c:178:9: warning: use location
+" ID : 2132960275 stmt(LHS) :_2 = pData
+test.c:181:9: warning: use location
 
 "
 
 
-"ID : 3038819
+"ID : 952555619
 from child basic block 2"->
 
 
-" ID : 815547151 stmt(LHS) :_4 = pData
-test.c:178:9: warning: use location
+" ID : 1225030094 stmt(LHS) :_4 = pData
+test.c:181:9: warning: use location
 
 "
 
 
-"ID : 3038819
+"ID : 952555619
 from child basic block 2"->
 
 
-" ID : 771268741 stmt(LHS) :_6 = pData
-test.c:185:9: warning: use location
+" ID : 295368219 stmt(LHS) :_6 = pData
+test.c:188:9: warning: use location
 
 "
 
 
-"ID : 3038819
+"ID : 952555619
 from child basic block 2"->
 
 
-" ID : 1239107290 stmt(LHS) :_7 = pData
-test.c:188:3: warning: use location
+" ID : 32757142 stmt(LHS) :_7 = pData
+test.c:191:3: warning: use location
 
 "
 
 
-"ID : 3038819
+"ID : 952555619
 from child basic block 2"->
 
 
-" ID : 434876578 stmt(LHS) :_9 = pData
-test.c:193:2: warning: use location
+" ID : 202006686 stmt(LHS) :_9 = pData
+test.c:196:2: warning: use location
 
 "
 
 
-"ID : 3038819
+"ID : 952555619
 from child basic block 2"->
 
-" ID : 818322239 stmt(call) :free (_9)
-test.c:193:2: warning: use location
+" ID : 368749541 stmt(call) :free (_9)
+test.c:196:2: warning: use location
 
 "
 
 
-"ID : 3038819
-from child basic block 2"->
-
-
-" ID : 6477409 stmt(LHS) :_10 = data
-test.c:194:2: warning: use location
-
-"
-
-
-"ID : 3038819
-from child basic block 2"->
-
-" ID : 1658536998 stmt(call) :free (_10)
-test.c:194:2: warning: use location
-
-"
-
-
-"ID : 3038819
+"ID : 952555619
 from child basic block 2"->
 
 
-" ID : 303738006 stmt(LHS) :_11 = data
-test.c:195:2: warning: use location
+" ID : 226639366 stmt(LHS) :_10 = data
+test.c:197:2: warning: use location
 
 "
 
 
-"ID : 3038819
+"ID : 952555619
 from child basic block 2"->
 
-" ID : 1775272405 stmt(call) :boo (_11)
-test.c:195:2: warning: use location
+" ID : 1626953044 stmt(call) :free (_10)
+test.c:197:2: warning: use location
 
 "
 
 
-->"ID : 554965722
+"ID : 952555619
+from child basic block 2"->
+
+
+" ID : 168628915 stmt(LHS) :_11 = data
+test.c:198:2: warning: use location
+
+"
+
+
+"ID : 952555619
+from child basic block 2"->
+
+" ID : 132609715 stmt(call) :boo (_11)
+test.c:198:2: warning: use location
+
+"
+
+
+->"ID : 689606444
 from boo basic block 2"->
 
-" ID : 1003352956 stmt(call) :free (b_2(D))
+" ID : 725238131 stmt(call) :free (b_2(D))
 In function ‘boo’:
 
 "
 
-"ID : 554965722
+"ID : 689606444
 from boo basic block 2"->
 
-" ID : 1606048470 stmt(call) :free (b_2(D))
-test.c:417:2: warning: use location
+" ID : 27941490 stmt(call) :free (b_2(D))
+test.c:420:2: warning: use location
 
 "
 
-"ID : 554965722
+"ID : 689606444
 from boo basic block 2"->
 
-" ID : 1119703636 stmt(call) :test22 (b_2(D))
-test.c:418:2: warning: use location
+" ID : 1255968330 stmt(call) :test22 (b_2(D))
+test.c:421:2: warning: use location
 
 "
 
 
-->"ID : 1512963365
+->"ID : 1529636752
 from test22 basic block 2"->
 
-" ID : 561121280 stmt(call) :free (k_2(D))
+" ID : 1610866259 stmt(call) :free (k_2(D))
 In function ‘test22’:
 
 "
 
-"ID : 1512963365
+"ID : 1529636752
 from test22 basic block 2"->
 
-" ID : 1855931161 stmt(call) :free (k_2(D))
-test.c:433:2: warning: use location
-
-"
-
-"ID : 1512963365
-from test22 basic block 2"->
-
-" ID : 1115405160 stmt(call) :free (k_2(D))
-test.c:434:2: warning: use location
-
-"
-
-"ID : 1512963365
-from test22 basic block 2"->
-
-" ID : 923652246 stmt(call) :free (k_2(D))
-test.c:435:2: warning: use location
-
-"
-
-"ID : 1512963365
-from test22 basic block 2"->
-
-" ID : 718510185 stmt(call) :free (k_2(D))
+" ID : 426072799 stmt(call) :free (k_2(D))
 test.c:436:2: warning: use location
 
 "
 
-"ID : 1512963365
+"ID : 1529636752
 from test22 basic block 2"->
 
-" ID : 2044859212 stmt(call) :free (k_2(D))
+" ID : 1434800931 stmt(call) :free (k_2(D))
 test.c:437:2: warning: use location
 
 "
 
+"ID : 1529636752
+from test22 basic block 2"->
 
-->"ID : 477248550
-from child4 basic block 3"->
+" ID : 1787907894 stmt(call) :free (k_2(D))
+test.c:438:2: warning: use location
 
+"
 
-" ID : 1488196051 stmt(LHS) :_1 = data
-test.c:220:11: warning: use location
+"ID : 1529636752
+from test22 basic block 2"->
+
+" ID : 576988804 stmt(call) :free (k_2(D))
+test.c:439:2: warning: use location
+
+"
+
+"ID : 1529636752
+from test22 basic block 2"->
+
+" ID : 185416816 stmt(call) :free (k_2(D))
+test.c:440:2: warning: use location
 
 "
 
 
-"ID : 477248550
+->"ID : 463045304
 from child4 basic block 3"->
 
 
-" ID : 1009251157 stmt(LHS) :_3 = data
-test.c:220:3: warning: use location
+" ID : 273365366 stmt(LHS) :_1 = data
+test.c:223:11: warning: use location
 
 "
 
 
-->"ID : 477248550
-from child4 basic block 4"->
+"ID : 463045304
+from child4 basic block 3"->
 
 
-" ID : 808597494 stmt(LHS) :_5 = data
+" ID : 796182152 stmt(LHS) :_3 = data
 test.c:223:3: warning: use location
 
 "
 
 
-->"ID : 29620098
+->"ID : 463045304
+from child4 basic block 4"->
+
+
+" ID : 2012292954 stmt(LHS) :_5 = data
+test.c:226:3: warning: use location
+
+"
+
+
+->"ID : 2130836456
 from foo basic block 2"->
 
 
-" ID : 186344887 stmt(LHS) :*p2_5 = 1
-test.c:122:8: warning: use location
+" ID : 643811076 stmt(LHS) :*p2_5 = 1
+test.c:125:8: warning: use location
 
 "
 
 
-->"ID : 811636314
+->"ID : 817364925
 from foo2 basic block 3"->
 
 
-" ID : 128934629 stmt(LHS) :*p3_15 = 10
-test.c:84:9: warning: use location
+" ID : 1224349542 stmt(LHS) :*p3_15 = 10
+test.c:86:9: warning: use location
 
 "
 
 
-->"ID : 811636314
+->"ID : 817364925
 from foo2 basic block 4"->
 
 
-" ID : 1121797455 stmt(LHS) :*p4_17 = 10
-test.c:90:9: warning: use location
+" ID : 629287704 stmt(LHS) :*p4_17 = 10
+test.c:92:9: warning: use location
+
+"
+
+
+->"ID : 2042395020
+from foo3 basic block 5"->
+
+
+" ID : 1519717762 stmt(LHS) :*p2_4 = 10
+test.c:62:8: warning: use location
 
 "
 
@@ -2654,7 +2871,7 @@ _34 = malloc (201)
 "
 
 [label=" form basic block 23: _36 = p98
-test.c:563:2: warning: use location
+test.c:566:2: warning: use location
 
 " ]
 
@@ -2665,9 +2882,12 @@ _34 = malloc (201)
 
 " from main basic block 23"
 
+->" _36 = p98
+_34 = malloc (201)
+"
 
 ->" _36 = p98
-test.c:563:2: warning: use location
+test.c:566:2: warning: use location
 
 "
 
@@ -2681,7 +2901,7 @@ _34 = malloc (201)
 "
 
 [label=" form basic block 23: free (_36)
-test.c:563:2: warning: use location
+test.c:566:2: warning: use location
 
 " ]
 
@@ -2692,58 +2912,69 @@ _34 = malloc (201)
 
 " from main basic block 23"
 
+->" free (_36)
+_34 = malloc (201)
+"
 
 ->" free (_36)
-test.c:563:2: warning: use location
+test.c:566:2: warning: use location
 
 "
 
 
-"ID : 3038819
+"ID : 952555619
 from child basic block 2"->
 
-subgraph cluster_900203370 { style ="dashed";"  start ID : 1775272405 stmt(relate) ， Tree ID : 3038819 : boo (_11)
-test.c:195:2: warning: use location
+subgraph cluster_662044846 { style ="dashed";"  start ID : 132609715 stmt(relate) ， Tree ID : 952555619 : boo (_11)
+test.c:198:2: warning: use location
 
 ";}
 
-"ID : 554965722
+"ID : 689606444
 from boo basic block 2"->
 
-subgraph cluster_213421097 { style ="dashed";"  start ID : 1119703636 stmt(relate) ， Tree ID : 554965722 : test22 (b_2(D))
-test.c:418:2: warning: use location
+subgraph cluster_96918058 { style ="dashed";"  start ID : 1255968330 stmt(relate) ， Tree ID : 689606444 : test22 (b_2(D))
+test.c:421:2: warning: use location
 
 ";}
 
-"ID : 1512963365
+"ID : 1529636752
 from test22 basic block 2"->
 
-subgraph cluster_2062060044 { style ="dashed";"  start ID : 2044859212 stmt(relate) ， Tree ID : 1512963365 : free (k_2(D))
-test.c:437:2: warning: use location
+subgraph cluster_1888467303 { style ="dashed";"  start ID : 185416816 stmt(relate) ， Tree ID : 1529636752 : free (k_2(D))
+test.c:440:2: warning: use location
 
 ";}
 
-"ID : 477248550
+"ID : 463045304
 from child4 basic block 4"->
 
-subgraph cluster_1718525609 { style ="dashed";"  start ID : 808597494 stmt(relate) ， Tree ID : 477248550 : _5 = data
-test.c:223:3: warning: use location
+subgraph cluster_888684212 { style ="dashed";"  start ID : 2012292954 stmt(relate) ， Tree ID : 463045304 : _5 = data
+test.c:226:3: warning: use location
 
 ";}
 
-"ID : 29620098
+"ID : 2130836456
 from foo basic block 2"->
 
-subgraph cluster_219898506 { style ="dashed";"  start ID : 186344887 stmt(relate) ， Tree ID : 29620098 : *p2_5 = 1
-test.c:122:8: warning: use location
+subgraph cluster_1723871102 { style ="dashed";"  start ID : 643811076 stmt(relate) ， Tree ID : 2130836456 : *p2_5 = 1
+test.c:125:8: warning: use location
 
 ";}
 
-"ID : 811636314
+"ID : 817364925
 from foo2 basic block 4"->
 
-subgraph cluster_1573113394 { style ="dashed";"  start ID : 1121797455 stmt(relate) ， Tree ID : 811636314 : *p4_17 = 10
-test.c:90:9: warning: use location
+subgraph cluster_2057096218 { style ="dashed";"  start ID : 629287704 stmt(relate) ， Tree ID : 817364925 : *p4_17 = 10
+test.c:92:9: warning: use location
+
+";}
+
+"ID : 2042395020
+from foo3 basic block 5"->
+
+subgraph cluster_1021293927 { style ="dashed";"  start ID : 1519717762 stmt(relate) ， Tree ID : 2042395020 : *p2_4 = 10
+test.c:62:8: warning: use location
 
 ";}
 
@@ -2773,7 +3004,6 @@ _31 = foo5 (q_63, q_63)
 
 " from main basic block 23"
 
-
 ->" _107 = __printf_chk (1, 123d\n, _31)
 "
 
@@ -2794,7 +3024,7 @@ p4_83 = child7 (_33, 1B)
 "
 
 [label=" form basic block 23: free (p4_83)
-test.c:560:2: warning: use location
+test.c:563:2: warning: use location
 
 " ]
 
@@ -2805,9 +3035,12 @@ p4_83 = child7 (_33, 1B)
 
 " from main basic block 23"
 
+->" free (p4_83)
+p4_83 = child7 (_33, 1B)
+"
 
 ->" free (p4_83)
-test.c:560:2: warning: use location
+test.c:563:2: warning: use location
 
 "
 
@@ -2828,7 +3061,7 @@ child (_35)
 "
 
 [label=" form basic block 23: child (_35)
-test.c:562:2: warning: use location
+test.c:565:2: warning: use location
 " ]
 
 " # .MEM_145 = VDEF <.MEM_144>
@@ -2839,364 +3072,368 @@ child (_35)
 " from main basic block 23"
 
 ->" child (_35)
-test.c:562:2: warning: use location
+child (_35)
+"
+
+->" child (_35)
+test.c:565:2: warning: use location
 "
 
 
-->"ID : 2128079116
+->"ID : 1049235417
 from child basic block 2"->
 
 
-" ID : 878132924 stmt(LHS) :_1 = data
-test.c:176:7: warning: use location
-
-"
-
-
-"ID : 2128079116
-from child basic block 2"->
-
-
-" ID : 1453735733 stmt(LHS) :_2 = pData
-test.c:178:9: warning: use location
+" ID : 1521962229 stmt(LHS) :_1 = data
+test.c:179:7: warning: use location
 
 "
 
 
-"ID : 2128079116
+"ID : 1049235417
 from child basic block 2"->
 
 
-" ID : 1100299104 stmt(LHS) :_4 = pData
-test.c:178:9: warning: use location
+" ID : 17003806 stmt(LHS) :_2 = pData
+test.c:181:9: warning: use location
 
 "
 
 
-"ID : 2128079116
+"ID : 1049235417
 from child basic block 2"->
 
 
-" ID : 243612641 stmt(LHS) :_6 = pData
-test.c:185:9: warning: use location
+" ID : 512618028 stmt(LHS) :_4 = pData
+test.c:181:9: warning: use location
 
 "
 
 
-"ID : 2128079116
+"ID : 1049235417
 from child basic block 2"->
 
 
-" ID : 2014857014 stmt(LHS) :_7 = pData
-test.c:188:3: warning: use location
+" ID : 1948035028 stmt(LHS) :_6 = pData
+test.c:188:9: warning: use location
 
 "
 
 
-"ID : 2128079116
+"ID : 1049235417
 from child basic block 2"->
 
-" ID : 808746617 stmt(call) :child4 (&data)
-test.c:189:2: warning: use location
 
-"
-
-"ID : 2128079116
-from child basic block 2"->
-
-" ID : 1359017801 stmt(call) :child3 (&data)
-test.c:190:2: warning: use location
-
-"
-
-"ID : 2128079116
-from child basic block 2"->
-
-" ID : 791025612 stmt(call) :child5 (pData2_21)
-test.c:191:2: warning: use location
+" ID : 1451804737 stmt(LHS) :_7 = pData
+test.c:191:3: warning: use location
 
 "
 
 
-"ID : 2128079116
+"ID : 1049235417
 from child basic block 2"->
 
+" ID : 153042274 stmt(call) :child4 (&data)
+test.c:192:2: warning: use location
 
-" ID : 1527256803 stmt(LHS) :_9 = pData
+"
+
+"ID : 1049235417
+from child basic block 2"->
+
+" ID : 377540184 stmt(call) :child3 (&data)
 test.c:193:2: warning: use location
 
 "
 
-
-"ID : 2128079116
+"ID : 1049235417
 from child basic block 2"->
 
-" ID : 1256393366 stmt(call) :free (_9)
-test.c:193:2: warning: use location
-
-"
-
-
-"ID : 2128079116
-from child basic block 2"->
-
-
-" ID : 1413314401 stmt(LHS) :_10 = data
+" ID : 1637221553 stmt(call) :child5 (pData2_21)
 test.c:194:2: warning: use location
 
 "
 
 
-"ID : 2128079116
+"ID : 1049235417
 from child basic block 2"->
 
-" ID : 782780606 stmt(call) :free (_10)
-test.c:194:2: warning: use location
+
+" ID : 231785248 stmt(LHS) :_9 = pData
+test.c:196:2: warning: use location
 
 "
 
 
-"ID : 2128079116
+"ID : 1049235417
 from child basic block 2"->
 
-
-" ID : 1733641916 stmt(LHS) :_11 = data
-test.c:195:2: warning: use location
+" ID : 1633914093 stmt(call) :free (_9)
+test.c:196:2: warning: use location
 
 "
 
 
-"ID : 2128079116
+"ID : 1049235417
 from child basic block 2"->
 
-" ID : 754026804 stmt(call) :boo (_11)
-test.c:195:2: warning: use location
+
+" ID : 2100266857 stmt(LHS) :_10 = data
+test.c:197:2: warning: use location
 
 "
 
 
-->"ID : 1792031764
+"ID : 1049235417
+from child basic block 2"->
+
+" ID : 505150614 stmt(call) :free (_10)
+test.c:197:2: warning: use location
+
+"
+
+
+"ID : 1049235417
+from child basic block 2"->
+
+
+" ID : 282612598 stmt(LHS) :_11 = data
+test.c:198:2: warning: use location
+
+"
+
+
+"ID : 1049235417
+from child basic block 2"->
+
+" ID : 1965076163 stmt(call) :boo (_11)
+test.c:198:2: warning: use location
+
+"
+
+
+->"ID : 488503423
 from boo basic block 2"->
 
-" ID : 394755763 stmt(call) :free (b_2(D))
+" ID : 926423674 stmt(call) :free (b_2(D))
 In function ‘boo’:
 
 "
 
-"ID : 1792031764
+"ID : 488503423
 from boo basic block 2"->
 
-" ID : 783646903 stmt(call) :free (b_2(D))
-test.c:417:2: warning: use location
+" ID : 634957441 stmt(call) :free (b_2(D))
+test.c:420:2: warning: use location
 
 "
 
-"ID : 1792031764
+"ID : 488503423
 from boo basic block 2"->
 
-" ID : 1978376651 stmt(call) :test22 (b_2(D))
-test.c:418:2: warning: use location
+" ID : 1712852965 stmt(call) :test22 (b_2(D))
+test.c:421:2: warning: use location
 
 "
 
 
-->"ID : 1206392077
+->"ID : 1555711378
 from test22 basic block 2"->
 
-" ID : 912581532 stmt(call) :free (k_2(D))
+" ID : 529868813 stmt(call) :free (k_2(D))
 In function ‘test22’:
 
 "
 
-"ID : 1206392077
+"ID : 1555711378
 from test22 basic block 2"->
 
-" ID : 952690458 stmt(call) :free (k_2(D))
-test.c:433:2: warning: use location
-
-"
-
-"ID : 1206392077
-from test22 basic block 2"->
-
-" ID : 686091894 stmt(call) :free (k_2(D))
-test.c:434:2: warning: use location
-
-"
-
-"ID : 1206392077
-from test22 basic block 2"->
-
-" ID : 1812784902 stmt(call) :free (k_2(D))
-test.c:435:2: warning: use location
-
-"
-
-"ID : 1206392077
-from test22 basic block 2"->
-
-" ID : 1166111555 stmt(call) :free (k_2(D))
+" ID : 1085087079 stmt(call) :free (k_2(D))
 test.c:436:2: warning: use location
 
 "
 
-"ID : 1206392077
+"ID : 1555711378
 from test22 basic block 2"->
 
-" ID : 600668290 stmt(call) :free (k_2(D))
+" ID : 70272577 stmt(call) :free (k_2(D))
 test.c:437:2: warning: use location
 
 "
 
-"ID : 1206392077
+"ID : 1555711378
 from test22 basic block 2"->
 
-" ID : 1383826864 stmt(call) :free (w_10)
+" ID : 626786871 stmt(call) :free (k_2(D))
+test.c:438:2: warning: use location
+
+"
+
+"ID : 1555711378
+from test22 basic block 2"->
+
+" ID : 826070735 stmt(call) :free (k_2(D))
 test.c:439:2: warning: use location
 
 "
 
+"ID : 1555711378
+from test22 basic block 2"->
 
-->"ID : 1386010062
+" ID : 958956789 stmt(call) :free (k_2(D))
+test.c:440:2: warning: use location
+
+"
+
+"ID : 1555711378
+from test22 basic block 2"->
+
+" ID : 203174326 stmt(call) :free (w_10)
+test.c:442:2: warning: use location
+
+"
+
+
+->"ID : 735683305
 from child5 basic block 2"->
 
 
-" ID : 26298036 stmt(LHS) :pData_6 = data_5(D) + 4
-test.c:279:8: warning: use location
+" ID : 1980250717 stmt(LHS) :pData_6 = data_5(D) + 4
+test.c:282:8: warning: use location
 
 "
 
 
-->"ID : 1386010062
+->"ID : 735683305
 from child5 basic block 4"->
 
-" ID : 1258606831 stmt(call) :free (pData_6)
-test.c:296:3: warning: use location
+" ID : 469168224 stmt(call) :free (pData_6)
+test.c:299:3: warning: use location
 
 "
 
 
-->"ID : 6893504
+->"ID : 882002486
 from child4 basic block 3"->
 
 
-" ID : 2136739755 stmt(LHS) :_1 = data
-test.c:220:11: warning: use location
+" ID : 1991130453 stmt(LHS) :_1 = data
+test.c:223:11: warning: use location
 
 "
 
 
-"ID : 6893504
+"ID : 882002486
 from child4 basic block 3"->
 
 
-" ID : 539949411 stmt(LHS) :_3 = data
-test.c:220:3: warning: use location
-
-"
-
-
-->"ID : 6893504
-from child4 basic block 4"->
-
-
-" ID : 1107192609 stmt(LHS) :_5 = data
+" ID : 1387537813 stmt(LHS) :_3 = data
 test.c:223:3: warning: use location
 
 "
 
 
-->"ID : 407322777
+->"ID : 882002486
+from child4 basic block 4"->
+
+
+" ID : 1394620515 stmt(LHS) :_5 = data
+test.c:226:3: warning: use location
+
+"
+
+
+->"ID : 691858902
 from foo2 basic block 2"->
 
-" ID : 1915939226 stmt(call) :foo3 (p3_15)
+" ID : 1547662789 stmt(call) :foo3 (p3_15)
 In function ‘foo2’:
 
 "
 
-->"ID : 407322777
+->"ID : 691858902
 from foo2 basic block 3"->
 
-" ID : 1591886550 stmt(call) :free (p3_15)
-test.c:85:3: warning: use location
+" ID : 21738370 stmt(call) :free (p3_15)
+test.c:87:3: warning: use location
 
 "
 
 
-"ID : 407322777
+"ID : 691858902
 from foo2 basic block 3"->
 
 
-" ID : 1198348389 stmt(LHS) :_33 = p3_15
-test.c:86:10: warning: use location
+" ID : 181596807 stmt(LHS) :_33 = p3_15
+test.c:88:10: warning: use location
 
 "
 
 
-->"ID : 407322777
+->"ID : 691858902
 from foo2 basic block 4"->
 
-" ID : 1295712381 stmt(call) :free (p4_17)
-test.c:91:3: warning: use location
+" ID : 1779448037 stmt(call) :free (p4_17)
+test.c:94:3: warning: use location
 
 "
 
 
-"ID : 407322777
+"ID : 691858902
 from foo2 basic block 4"->
 
 
-" ID : 700796268 stmt(LHS) :_29 = p4_17
-test.c:92:10: warning: use location
+" ID : 1655652464 stmt(LHS) :_29 = p4_17
+test.c:95:10: warning: use location
 
 "
 
 
-"ID : 2128079116
+"ID : 1049235417
 from child basic block 2"->
 
-subgraph cluster_2078492988 { style ="dashed";"  start ID : 754026804 stmt(relate) ， Tree ID : 2128079116 : boo (_11)
+subgraph cluster_137115004 { style ="dashed";"  start ID : 1965076163 stmt(relate) ， Tree ID : 1049235417 : boo (_11)
 In function ‘main’:
 
 ";}
 
-"ID : 1792031764
+"ID : 488503423
 from boo basic block 2"->
 
-subgraph cluster_286954537 { style ="dashed";"  start ID : 1978376651 stmt(relate) ， Tree ID : 1792031764 : test22 (b_2(D))
-test.c:418:2: warning: use location
+subgraph cluster_1938265062 { style ="dashed";"  start ID : 1712852965 stmt(relate) ， Tree ID : 488503423 : test22 (b_2(D))
+test.c:421:2: warning: use location
 
 ";}
 
-"ID : 1206392077
+"ID : 1555711378
 from test22 basic block 2"->
 
-subgraph cluster_1218205947 { style ="dashed";"  start ID : 1383826864 stmt(relate) ， Tree ID : 1206392077 : free (w_10)
-test.c:439:2: warning: use location
+subgraph cluster_2099456180 { style ="dashed";"  start ID : 203174326 stmt(relate) ， Tree ID : 1555711378 : free (w_10)
+test.c:442:2: warning: use location
 
 ";}
 
-"ID : 1386010062
+"ID : 735683305
 from child5 basic block 4"->
 
-subgraph cluster_1723041104 { style ="dashed";"  start ID : 1258606831 stmt(relate) ， Tree ID : 1386010062 : free (pData_6)
-test.c:296:3: warning: use location
+subgraph cluster_625618427 { style ="dashed";"  start ID : 469168224 stmt(relate) ， Tree ID : 735683305 : free (pData_6)
+test.c:299:3: warning: use location
 
 ";}
 
-"ID : 6893504
+"ID : 882002486
 from child4 basic block 4"->
 
-subgraph cluster_681710300 { style ="dashed";"  start ID : 1107192609 stmt(relate) ， Tree ID : 6893504 : _5 = data
-test.c:223:3: warning: use location
+subgraph cluster_717205088 { style ="dashed";"  start ID : 1394620515 stmt(relate) ， Tree ID : 882002486 : _5 = data
+test.c:226:3: warning: use location
 
 ";}
 
-"ID : 407322777
+"ID : 691858902
 from foo2 basic block 4"->
 
-subgraph cluster_2001852850 { style ="dashed";"  start ID : 700796268 stmt(relate) ， Tree ID : 407322777 : _29 = p4_17
-test.c:92:10: warning: use location
+subgraph cluster_586929973 { style ="dashed";"  start ID : 1655652464 stmt(relate) ， Tree ID : 691858902 : _29 = p4_17
+test.c:95:10: warning: use location
 
 ";}
 

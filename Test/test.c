@@ -50,6 +50,7 @@ void foo3(int *z)
 	int test;
 	// p2[0]=10;
 	///error
+	
 	// p2=10;
 	if (test)
 	{
@@ -57,6 +58,7 @@ void foo3(int *z)
 	}
 	else
 		p2 = malloc(2);
+		
 	p2[0] = 10;
 	printf("%d", p2);
 }
@@ -88,6 +90,7 @@ int *foo2(int z)
 	else
 	{
 		p4[0] = 10;
+		
 		free(p4);
 		return p4;
 	}

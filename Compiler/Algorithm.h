@@ -922,7 +922,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// 	relate_type_array = fun_array.relate_type_array;
 				// }
 
-			
 				// debug_tree(function_tree);
 				const char *name = "";
 				//fprintf(stderr ,"dot graph target %s\n", (char *)get_name(table_temp->target));
@@ -1028,7 +1027,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						{
 
 							struct free_type free_type;
-
+							
 							if (user_tmp->ret_stmt != NULL)
 							{
 
@@ -1041,17 +1040,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								{
 									debug(user_tmp->ret_stmt);
 									warning_at(gimple_location(user_tmp->ret_stmt), 0, "use location");
-									if (checkTree != NULL)
-									{
-										fprintf(stderr, "\n ================== warring ================== \n");
-										// sfprintf(stderr, "function return value related stmt \n");
-										debug(checkTree);
-										fprintf(stderr, "\033[40;35m    function return value related stmt \033[0m\n");
-										fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
 
-										// fprintf(stderr, "this stmt possible is heap-object 。\n");
-										fprintf(stderr, "\n ================== warring ================== \n");
-									}
 									now_stmt = user_tmp->ret_stmt;
 									if (debugmod)
 									{
@@ -1093,7 +1082,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										//ready add dot graph
 									}
 									// find_mallocstmt = IS_HEAP_FUCNTION;
-									continue;
+									// continue;
 								}
 							}
 							else
@@ -1120,6 +1109,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								// debug_tree(gimple_call_fndecl (u_stmt));
 								// if(gimple_call_fndecl  (u_stmt) != NULL)
 								// debug_tree (gimple_call_fn (u_stmt));
+								gimple *finalstmt;
 								if (user_tmp->target != NULL)
 								{
 									if (debugmod)
@@ -1127,310 +1117,220 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										fprintf(stderr, "dot graph entry %s\n", (char *)get_name(function_tree));
 										fprintf(stderr, "dot graph target entry end\n\n");
 									}
-									gimple *finalstmt;
 									// ADDR_EXPR
-									if (TREE_CODE(user_tmp->target) == ADDR_EXPR)
+									// if (TREE_CODE(user_tmp->target) == ADDR_EXPR)
+									// {
+									// 			fprintf(stderr, "addr_expr------vardecl onlay tree-------\n");
+									// 	// debug_ee(user_tmp->target);
+									// 	tree second = TREE_OPERAND(user_tmp->target, 0);
+									// 	if (TREE_CODE(second) != VAR_DECL)
+									// 	{
+
+									// 		gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
+
+									// 		debug(def_stmt);
+									// 		finalstmt = def_stmt;
+									// 		warning_at(gimple_location(def_stmt), 0, "use location");
+									// 		now_stmt = def_stmt;
+
+									// 		if (debugmod)
+									// 		{
+									// 			//ready add dot graph
+									// 			fprintf(stderr, "dot graph target loc start ");
+									// 			debug_gimple_stmt(table_temp->last_stmt);
+									// 			warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+									// 			fprintf(stderr, "dot graph target loc en1\n\n");
+
+									// 			fprintf(stderr, "dot graph target line desc form basic block %d: ", gimple_bb(def_stmt)->index);
+									// 			debug(def_stmt);
+									// 			warning_at(gimple_location(def_stmt), 0, "use location");
+									// 			fprintf(stderr, "dot graph target line desend\n\n");
+
+									// 			fprintf(stderr, "dot graph target loc start ");
+									// 			debug_gimple_stmt(def_stmt);
+									// 			warning_at(gimple_location(def_stmt), 0, "use location");
+									// 			fprintf(stderr, "dot graph target loc end\n\n");
+
+									// 			fprintf(stderr, "dot graph target basicblock start ");
+									// 			fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(def_stmt)->index);
+									// 			fprintf(stderr, "dot graph target basicblock end\n\n");
+
+									// 			if (gimple_block(def_stmt))
+									// 				if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(def_stmt))))
+									// 				{
+									// 					// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
+									// 					// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
+									// 					fprintf(stderr, "dot graph target basicblock star1 ");
+									// 					fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))), gimple_bb(def_stmt)->index);
+									// 					fprintf(stderr, "dot graph target basicblock end\n\n");
+									// 					// debug(user_tmp->aptr);
+									// 				}
+									// 			fprintf(stderr, "dot graph target stmt start [addr_expr]");
+									// 			debug(def_stmt);
+									// 			warning_at(gimple_location(def_stmt), 0, "use location");
+									// 			fprintf(stderr, "dot graph target stmt end\n\n");
+									// 			//ready add dot graph
+									// 		}
+									// 	}
+									// 	else
+									// 	{
+
+									// 		gimple *def_stmt = SSA_NAME_DEF_STMT(second);
+									// 		debug(second);
+									// 		warning_at(gimple_location(def_stmt), 0, "use location");
+									// 		// debug_tree(second);
+									// 		finalstmt = def_stmt;
+									// 		fprintf(stderr, "addr_expr------vardecl onlay tree-------\n");
+
+									// 		now_stmt = def_stmt;
+									// 		//ready add dot graph
+									// 		if (debugmod)
+									// 		{
+									// 			fprintf(stderr, "dot graph target loc start ");
+									// 			debug_gimple_stmt(table_temp->last_stmt);
+									// 			warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+									// 			fprintf(stderr, "dot graph target loc en1\n\n");
+
+									// 			fprintf(stderr, "dot graph target line desc ");
+									// 			debug(def_stmt);
+									// 			warning_at(gimple_location(def_stmt), 0, "use location");
+									// 			fprintf(stderr, "dot graph target line desend\n\n");
+
+									// 			fprintf(stderr, "dot graph target line desc form basic block %d: ", gimple_bb(def_stmt)->index);
+									// 			debug_gimple_stmt(def_stmt);
+									// 			warning_at(gimple_location(def_stmt), 0, "use location");
+									// 			fprintf(stderr, "dot graph target loc end\n\n");
+
+									// 			fprintf(stderr, "dot graph target basicblock start ");
+									// 			fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(def_stmt)->index);
+									// 			fprintf(stderr, "dot graph target basicblock en1\n\n");
+									// 			if (gimple_block(def_stmt))
+									// 				if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(def_stmt))))
+									// 				{
+									// 					// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
+									// 					// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
+									// 					fprintf(stderr, "dot graph target basicblock star1 ");
+									// 					fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))), gimple_bb(def_stmt)->index);
+									// 					fprintf(stderr, "dot graph target basicblock end\n\n");
+									// 					// debug(user_tmp->aptr);
+									// 				}
+									// 			if (gimple_code(def_stmt) == GIMPLE_CALL)
+									// 			{
+									// 				// if (gimple_block(def_stmt))
+									// 				// 	if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(def_stmt))))
+									// 				// 	{
+									// 				// 		// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
+									// 				// 		// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
+									// 				// 		fprintf(stderr, "dot graph target basicblock star1 ");
+									// 				// 		fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))), gimple_bb(def_stmt)->index);
+									// 				// 		fprintf(stderr, "dot graph target basicblock end\n\n");
+									// 				// 		// debug(user_tmp->aptr);
+									// 				// 	}
+									// 				name = get_name(gimple_call_fn(def_stmt));
+									// 				if (name != NULL)
+									// 					if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+									// 					{
+									// 						fprintf(stderr, "dot graph stmt start ");
+									// 						debug(def_stmt);
+									// 						warning_at(gimple_location(def_stmt), 0, "use location");
+
+									// 						fprintf(stderr, "dot graph stmt end\n\n");
+									// 						if (freemod)
+									// 						{
+
+									// 							fprintf(stderr, "dot graph target color desc");
+									// 							fprintf(stderr, "green");
+									// 							fprintf(stderr, "dot graph target color desend\n\n");
+									// 						}
+									// 					}
+									// 					else
+									// 					{
+									// 						fprintf(stderr, "dot graph stmt start ");
+									// 						debug(u_stmt);
+									// 						warning_at(gimple_location(u_stmt), 0, "use location");
+
+									// 						fprintf(stderr, "dot graph stmt end\n\n");
+									// 					}
+									// 			}
+									// 			else
+									// 			{
+									// 				// if (gimple_block(def_stmt))
+									// 				// 	if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(def_stmt))))
+									// 				// 	{
+									// 				// 		// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
+									// 				// 		// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
+									// 				// 		fprintf(stderr, "dot graph target basicblock star1 ");
+									// 				// 		fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))), gimple_bb(def_stmt)->index);
+									// 				// 		fprintf(stderr, "dot graph target basicblock end\n\n");
+									// 				// 		// debug(user_tmp->aptr);
+									// 				// 	}
+									// 				fprintf(stderr, "dot graph stmt start ");
+									// 				debug(def_stmt);
+									// 				warning_at(gimple_location(def_stmt), 0, "use location");
+									// 				fprintf(stderr, "dot graph stmt end\n\n");
+									// 			}
+									// 		}
+									// 		//ready add dot graph
+
+									// 		// warning_at(gimple_location(u_stmt), 0, "use location");
+									// 		// debug(u_stmt);
+									// 		// warning_at(gimple_location(u_stmt), 0, "use location");
+									// 	}
+									// 	// user_tmp->target = second;
+									// 	// user_tmp->last_stmt = def_stmt;
+
+									// 	// fprintf(stderr, "addr_expraddr_expraddr_expraddr_expraddr_expr--------\n");
+									// }
+									// else
+									// {
+
+									finalstmt = u_stmt;
+
+									debug(u_stmt);
+									warning_at(gimple_location(u_stmt), 0, "use location");
+									now_stmt = u_stmt;
+									//ready add dot graph
+									if (debugmod)
 									{
-										// debug_ee(user_tmp->target);
-										tree second = TREE_OPERAND(user_tmp->target, 0);
-										if (TREE_CODE(second) != VAR_DECL)
-										{
 
-											gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
+										fprintf(stderr, "dot graph target loc start ");
+										debug_gimple_stmt(table_temp->last_stmt);
+										warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+										fprintf(stderr, "dot graph target loc en1\n\n");
 
-											debug(def_stmt);
-											finalstmt = def_stmt;
-											warning_at(gimple_location(def_stmt), 0, "use location");
-											now_stmt = def_stmt;
-
-											if (debugmod)
-											{
-												//ready add dot graph
-												fprintf(stderr, "dot graph target loc start ");
-												debug_gimple_stmt(table_temp->last_stmt);
-												warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-												fprintf(stderr, "dot graph target loc en1\n\n");
-
-												fprintf(stderr, "dot graph target line desc form basic block %d: ", gimple_bb(def_stmt)->index);
-												debug(def_stmt);
-												warning_at(gimple_location(def_stmt), 0, "use location");
-												fprintf(stderr, "dot graph target line desend\n\n");
-
-												fprintf(stderr, "dot graph target loc start ");
-												debug_gimple_stmt(def_stmt);
-												warning_at(gimple_location(def_stmt), 0, "use location");
-												fprintf(stderr, "dot graph target loc end\n\n");
-
-												fprintf(stderr, "dot graph target basicblock start ");
-												fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(def_stmt)->index);
-												fprintf(stderr, "dot graph target basicblock end\n\n");
-
-												if (gimple_block(def_stmt))
-													if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(def_stmt))))
-													{
-														// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-														// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-														fprintf(stderr, "dot graph target basicblock star1 ");
-														fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))), gimple_bb(def_stmt)->index);
-														fprintf(stderr, "dot graph target basicblock end\n\n");
-														// debug(user_tmp->aptr);
-													}
-												fprintf(stderr, "dot graph target stmt start [addr_expr]");
-												debug(def_stmt);
-												warning_at(gimple_location(def_stmt), 0, "use location");
-												fprintf(stderr, "dot graph target stmt end\n\n");
-												//ready add dot graph
-											}
-										}
-										else
-										{
-
-											gimple *def_stmt = SSA_NAME_DEF_STMT(second);
-											debug(second);
-											warning_at(gimple_location(def_stmt), 0, "use location");
-											// debug_tree(second);
-											finalstmt = def_stmt;
-											fprintf(stderr, "addr_expr------vardecl onlay tree-------\n");
-
-											now_stmt = def_stmt;
-											//ready add dot graph
-											if (debugmod)
-											{
-												fprintf(stderr, "dot graph target loc start ");
-												debug_gimple_stmt(table_temp->last_stmt);
-												warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-												fprintf(stderr, "dot graph target loc en1\n\n");
-
-												fprintf(stderr, "dot graph target line desc ");
-												debug(def_stmt);
-												warning_at(gimple_location(def_stmt), 0, "use location");
-												fprintf(stderr, "dot graph target line desend\n\n");
-
-												fprintf(stderr, "dot graph target line desc form basic block %d: ", gimple_bb(def_stmt)->index);
-												debug_gimple_stmt(def_stmt);
-												warning_at(gimple_location(def_stmt), 0, "use location");
-												fprintf(stderr, "dot graph target loc end\n\n");
-
-												fprintf(stderr, "dot graph target basicblock start ");
-												fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(def_stmt)->index);
-												fprintf(stderr, "dot graph target basicblock en1\n\n");
-												if (gimple_block(def_stmt))
-													if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(def_stmt))))
-													{
-														// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-														// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-														fprintf(stderr, "dot graph target basicblock star1 ");
-														fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))), gimple_bb(def_stmt)->index);
-														fprintf(stderr, "dot graph target basicblock end\n\n");
-														// debug(user_tmp->aptr);
-													}
-												if (gimple_code(def_stmt) == GIMPLE_CALL)
-												{
-													// if (gimple_block(def_stmt))
-													// 	if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(def_stmt))))
-													// 	{
-													// 		// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-													// 		// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-													// 		fprintf(stderr, "dot graph target basicblock star1 ");
-													// 		fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))), gimple_bb(def_stmt)->index);
-													// 		fprintf(stderr, "dot graph target basicblock end\n\n");
-													// 		// debug(user_tmp->aptr);
-													// 	}
-													name = get_name(gimple_call_fn(def_stmt));
-													if (name != NULL)
-														if (!strcmp(name, "free") || !strcmp(name, "xfree"))
-														{
-															fprintf(stderr, "dot graph stmt start ");
-															debug(def_stmt);
-															warning_at(gimple_location(def_stmt), 0, "use location");
-
-															fprintf(stderr, "dot graph stmt end\n\n");
-															if (freemod)
-															{
-
-																fprintf(stderr, "dot graph target color desc");
-																fprintf(stderr, "green");
-																fprintf(stderr, "dot graph target color desend\n\n");
-															}
-														}
-														else
-														{
-															fprintf(stderr, "dot graph stmt start ");
-															debug(u_stmt);
-															warning_at(gimple_location(u_stmt), 0, "use location");
-
-															fprintf(stderr, "dot graph stmt end\n\n");
-														}
-												}
-												else
-												{
-													// if (gimple_block(def_stmt))
-													// 	if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(def_stmt))))
-													// 	{
-													// 		// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-													// 		// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-													// 		fprintf(stderr, "dot graph target basicblock star1 ");
-													// 		fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(def_stmt))), gimple_bb(def_stmt)->index);
-													// 		fprintf(stderr, "dot graph target basicblock end\n\n");
-													// 		// debug(user_tmp->aptr);
-													// 	}
-													fprintf(stderr, "dot graph stmt start ");
-													debug(def_stmt);
-													warning_at(gimple_location(def_stmt), 0, "use location");
-													fprintf(stderr, "dot graph stmt end\n\n");
-												}
-											}
-											//ready add dot graph
-
-											// warning_at(gimple_location(u_stmt), 0, "use location");
-											// debug(u_stmt);
-											// warning_at(gimple_location(u_stmt), 0, "use location");
-										}
-										// user_tmp->target = second;
-										// user_tmp->last_stmt = def_stmt;
-
-										// fprintf(stderr, "addr_expraddr_expraddr_expraddr_expraddr_expr--------\n");
-									}
-									else
-									{
-
-										finalstmt = u_stmt;
-
+										fprintf(stderr, "dot graph target line desc form basic block %d: ", gimple_bb(u_stmt)->index);
 										debug(u_stmt);
 										warning_at(gimple_location(u_stmt), 0, "use location");
-										now_stmt = u_stmt;
-										//ready add dot graph
-										if (debugmod)
-										{
+										fprintf(stderr, "dot graph target line desend\n\n");
 
-											fprintf(stderr, "dot graph target loc start ");
-											debug_gimple_stmt(table_temp->last_stmt);
-											warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-											fprintf(stderr, "dot graph target loc en1\n\n");
+										fprintf(stderr, "dot graph target loc start ");
+										debug_gimple_stmt(table_temp->last_stmt);
+										warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+										fprintf(stderr, "dot graph target loc end\n\n");
 
-											fprintf(stderr, "dot graph target line desc form basic block %d: ", gimple_bb(u_stmt)->index);
-											debug(u_stmt);
-											warning_at(gimple_location(u_stmt), 0, "use location");
-											fprintf(stderr, "dot graph target line desend\n\n");
+										fprintf(stderr, "dot graph target basicblock start ");
+										fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(u_stmt)->index);
+										fprintf(stderr, "dot graph target basicblock en1\n\n");
 
-											fprintf(stderr, "dot graph target loc start ");
-											debug_gimple_stmt(table_temp->last_stmt);
-											warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-											fprintf(stderr, "dot graph target loc end\n\n");
-
-											fprintf(stderr, "dot graph target basicblock start ");
-											fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(u_stmt)->index);
-											fprintf(stderr, "dot graph target basicblock en1\n\n");
-
-											// fprintf(stderr, "qwdqwdqwd \n");
-											if (is_gimple_call(table_temp->last_stmt))
+										if (gimple_block(u_stmt))
+											if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(u_stmt))))
 											{
-												// debug(table_temp->last_stmt);
-												// debug_tree(table_temp->target);
-												gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
-												if (def_stmt != NULL)
-													if (is_gimple_call(def_stmt))
-													{
-														tree findtree = table_temp->target;
-														debug_points_to_info_for(findtree);
-														if (gimple_call_num_args(def_stmt) != 0)
-														{
 
-															// debug_gimple_stmt(u_stmt);
-															// findtree = gimple_call_arg(def_stmt, 3);
-
-															// if (!strcmp(get_tree_code_name(TREE_CODE(findtree)), "addr_expr"))
-															// {
-															// 	// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-															// 	// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-															// 	// tree findtree = gimple_call_arg(u_stmt, 3);
-															// 	// debug_tree(TREE_OPERAND(findtree, 0));
-															// 	trace_function_path(function_tree, -1, TREE_OPERAND(findtree, 0), &find_freestmt);
-															// }
-															// if (TREE_CODE(user_tmp->aptr) == FUNCTION_DECL && (function_tree != user_tmp->aptr))
-															// {
-															// 	// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-															// 	// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-															// 	fprintf(stderr, "dot graph target basicblock star1 ");
-															// 	fprintf(stderr, "from %s basic block %d", (char *)get_name(user_tmp->aptr), gimple_bb(user_tmp->stmt)->index);
-															// 	fprintf(stderr, "dot graph target basicblock end\n\n");
-															// 	// debug(user_tmp->aptr);
-															// }
-															if (gimple_block(u_stmt))
-																if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(u_stmt))))
-																{
-																	// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-																	// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-																	fprintf(stderr, "dot graph target basicblock star1 ");
-																	fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))), gimple_bb(u_stmt)->index);
-																	fprintf(stderr, "dot graph target basicblock end\n\n");
-																	// debug(user_tmp->aptr);
-																}
-															if (TREE_CODE(findtree) == SSA_NAME)
-															{
-																// fprintf(stderr, "aptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptr");
-																// debug_tree(user_tmp->aptr);
-																// fprintf(stderr , "aptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptraptr%d\n" , (function_tree != user_tmp->aptr )&& TREE_CODE(user_tmp->aptr) == FUNCTION_DECL);
-																// debug_tree(function_tree);
-																// debug_tree(table_temp->target);
-																// debug_tree(gimple_call_lhs(table_temp->last_stmt));
-																// if (is_global_var(gimple_call_lhs(table_temp->last_stmt))){
-																// 	debug_tree(table_temp->target);
-																// 	debug_tree(gimple_call_lhs(table_temp->last_stmt));
-																// 	fprintf(stderr , "qweeeeeeeeeeeeeeee");
-																// }
-																if (gimple_block(u_stmt))
-																{
-
-																	// if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(u_stmt))))
-																	// {
-																	// 	// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-																	// 	// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-																	// 	fprintf(stderr, "dot graph target basicblock star1 ");
-																	// 	fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))), gimple_bb(u_stmt)->index);
-																	// 	fprintf(stderr, "dot graph target basicblock end\n\n");
-																	// 	// debug(user_tmp->aptr);
-																	// }
-																	// else
-																	// {
-																	// 	fprintf(stderr, "---------ss2s---");
-																	// 	debug_gimple_stmt(u_stmt);
-																	// 	debug(table_temp->last_stmt);
-																	// }
-																}
-																else
-																{
-																	// fprintf(stderr, "---------sss---");
-																	// debug_gimple_stmt(u_stmt);
-																	fprintf(stderr, "dot graph stmt start ");
-																	debug(u_stmt);
-																	debug(table_temp->last_stmt);
-																	// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-																	fprintf(stderr, "dot graph stmt end\n\n");
-																}
-																// debug_tree(BLOCK_SUPERCONTEXT(gimple_block(u_stmt)));
-																// fprintf(stderr, "dot graph stmt start ");
-																// debug(u_stmt);
-																// debug(table_temp->last_stmt);
-																// // warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-																// fprintf(stderr, "dot graph stmt end\n\n");
-																// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-																// // tree findtree = gimple_call_arg(u_stmt, 3);
-																// // debug_tree(TREE_OPERAND(findtree, 0));
-																// trace_function_path(gimple_call_fndecl(def_stmt), 0, findtree, &find_freestmt);
-																// debug(u_stmt);
-																// debug(table_temp->last_stmt);
-																// // debug(def_stmt);
-																// debug_tree(gimple_call_fndecl(def_stmt));
-																//debug_tree(gimple_call_fndecl(def_stmt));
-																// if (is_gimple_call(def_stmt))
-																// {
-																// 	fprintf(stderr, "dot graph stmt end\n\n");
-																// }
-															}
-														}
-													}
+												fprintf(stderr, "dot graph target basicblock star1 ");
+												fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))), gimple_bb(u_stmt)->index);
+												fprintf(stderr, "dot graph target basicblock end\n\n");
 											}
+										if (gimple_code(u_stmt) == GIMPLE_CALL)
+										{
+											// if(is_gimple_call (u_stmt) &&!gimple_call_lhs (u_stmt)){
+											// 						fprintf(stderr, "dot graph stmt start ");
+											// 					debug(finalstmt);
+											// 					debug(table_temp->last_stmt);
+											// 					// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+											// 					fprintf(stderr, "dot graph stmt end\n\n");
+											// 					// fprintf(stderr, "---------ss3s---");
+											// 					}
+
 											// if (gimple_block(u_stmt))
 											// 	if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(u_stmt))))
 											// 	{
@@ -1441,100 +1341,69 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											// 		fprintf(stderr, "dot graph target basicblock end\n\n");
 											// 		// debug(user_tmp->aptr);
 											// 	}
-											if (gimple_code(u_stmt) == GIMPLE_CALL)
+											if (is_gimple_call(u_stmt) && !gimple_call_lhs(u_stmt))
 											{
-
-												if (gimple_block(u_stmt))
-													if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(u_stmt))))
-													{
-														// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-														// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-														fprintf(stderr, "dot graph target basicblock star1 ");
-														fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))), gimple_bb(u_stmt)->index);
-														fprintf(stderr, "dot graph target basicblock end\n\n");
-														// debug(user_tmp->aptr);
-													}
-												name = get_name(gimple_call_fn(u_stmt));
-												if (name != NULL)
-													if (!strcmp(name, "free") || !strcmp(name, "xfree"))
-													{
-														fprintf(stderr, "dot graph stmt start ");
-														debug(u_stmt);
-														warning_at(gimple_location(u_stmt), 0, "use location");
-
-														fprintf(stderr, "dot graph stmt end\n\n");
-
-														if (freemod)
-														{
-
-															fprintf(stderr, "dot graph target color desc");
-															fprintf(stderr, "green");
-															fprintf(stderr, "dot graph target color desend\n\n");
-														}
-													}
-													else
-													{
-														fprintf(stderr, "dot graph stmt start ");
-														debug(u_stmt);
-														warning_at(gimple_location(u_stmt), 0, "use location");
-
-														fprintf(stderr, "dot graph stmt end\n\n");
-													}
-											}
-											else
-											{
-												// if (gimple_block(u_stmt))
-												// 	if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(u_stmt))))
-												// 	{
-												// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-												// 		// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-												// fprintf(stderr, "--------------------------------------");
-												// 		fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))), gimple_bb(u_stmt)->index);
-												// 		fprintf(stderr, "dot graph target basicblock end\n\n");
-												// 		// debug(user_tmp->aptr);
-												// 	}
 												fprintf(stderr, "dot graph stmt start ");
-												debug(u_stmt);
-												warning_at(gimple_location(u_stmt), 0, "use location");
+												debug(finalstmt);
+												debug(table_temp->last_stmt);
+												// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
 												fprintf(stderr, "dot graph stmt end\n\n");
+												// fprintf(stderr, "---------ss3s---");
 											}
 
-											//ready add dot graph
-										}
+											name = get_name(gimple_call_fn(u_stmt));
+											if (name != NULL)
+												if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+												{
+													fprintf(stderr, "dot graph stmt start ");
+													debug(u_stmt);
+													warning_at(gimple_location(u_stmt), 0, "use location");
 
-										// fprintf(stderr, "addr_expraddr_expraddr_expraddr_expraddr_expr--------\n");
-									}
-									if (calleetype == FUNCITON_THREAD && threadmod == true)
-									{
-										if (gimple_code(finalstmt) == GIMPLE_ASSIGN)
+													fprintf(stderr, "dot graph stmt end\n\n");
+
+													if (freemod)
+													{
+
+														fprintf(stderr, "dot graph target color desc");
+														fprintf(stderr, "green");
+														fprintf(stderr, "dot graph target color desend\n\n");
+													}
+												}
+												else
+												{
+
+													fprintf(stderr, "dot graph stmt start ");
+													debug(u_stmt);
+													warning_at(gimple_location(u_stmt), 0, "use location");
+
+													fprintf(stderr, "dot graph stmt end\n\n");
+												}
+										}
+										else
 										{
-											//debug_tree(gimple_assign_lhs(use_stmt));
+											// if (gimple_block(u_stmt))
+											// 	if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(u_stmt))))
+											// 	{
+											// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
+											// 		// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
+											// fprintf(stderr, "--------------------------------------");
+											// 		fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))), gimple_bb(u_stmt)->index);
+											// 		fprintf(stderr, "dot graph target basicblock end\n\n");
+											// 		// debug(user_tmp->aptr);
+											// 	}
+											fprintf(stderr, "dot graph stmt start ");
+											debug(u_stmt);
+											debug(table_temp->last_stmt);
+											// warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+											fprintf(stderr, "dot graph stmt end\n\n");
 
-											//global variable
-											if (!TREE_STATIC(gimple_assign_lhs(finalstmt)) == true)
-											{
-
-												fprintf(stderr, " \n LOCAL VARIBALE  \n");
-												debug_gimple_stmt(finalstmt);
-												warning_at(gimple_location(finalstmt), 0, "use location");
-												fprintf(stderr, " \n LOCAL VARIBALE  \n");
-												continue;
-											}
-											else
-											{
-												fprintf(stderr, "\n ================== warring  ================== \n");
-
-												fprintf(stderr, "\033[40;35m warring thread fucntion detction is on \033[0m\n");
-												// sfprintf(stderr, "function return value related stmt \n");
-												fprintf(stderr, "\033[40;35m Detect GLOBAL VARIBALE \033[0m\n");
-												debug_gimple_stmt(finalstmt);
-												warning_at(gimple_location(finalstmt), 0, "use location");
-												fprintf(stderr, "\033[40;35m thread job function \033[0m\n");
-												fprintf(stderr, "\033[40;35m this stmt possible have Race Condition 。 \033[0m\n");
-												fprintf(stderr, "\n ================== warring  ================== \n");
-											}
+											fprintf(stderr, "dot graph stmt start ");
+											debug(u_stmt);
+											warning_at(gimple_location(u_stmt), 0, "use location");
+											fprintf(stderr, "dot graph stmt end\n\n");
 										}
 									}
+									// }
 								}
 								// debug(u_stmt);
 								if (user_tmp->target != NULL)
@@ -1577,6 +1446,37 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									{
 
 										debug_tree(function_tree);
+									}
+									else if (calleetype == FUNCITON_THREAD && threadmod == true)
+									{
+										if (gimple_code(finalstmt) == GIMPLE_ASSIGN)
+										{
+											//debug_tree(gimple_assign_lhs(use_stmt));
+
+											//global variable
+											if (!TREE_STATIC(gimple_assign_lhs(finalstmt)) == true)
+											{
+
+												fprintf(stderr, " \n LOCAL VARIBALE  \n");
+												debug_gimple_stmt(finalstmt);
+												warning_at(gimple_location(finalstmt), 0, "use location");
+												fprintf(stderr, " \n LOCAL VARIBALE  \n");
+												continue;
+											}
+											else
+											{
+												fprintf(stderr, "\n ================== warring  ================== \n");
+
+												fprintf(stderr, "\033[40;35m warring thread fucntion detction is on \033[0m\n");
+												// sfprintf(stderr, "function return value related stmt \n");
+												fprintf(stderr, "\033[40;35m Detect GLOBAL VARIBALE \033[0m\n");
+												debug_gimple_stmt(finalstmt);
+												warning_at(gimple_location(finalstmt), 0, "use location");
+												fprintf(stderr, "\033[40;35m thread job function \033[0m\n");
+												fprintf(stderr, "\033[40;35m this stmt possible have Race Condition 。 \033[0m\n");
+												fprintf(stderr, "\n ================== warring  ================== \n");
+											}
+										}
 									}
 									// fprintf(stderr, "\n ================== function ================ \n");
 									// debug_tree(gimple_call_builtin_p (u_stmt));
@@ -1796,7 +1696,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					if (function_relate_collect->get(table_temp->target) != NULL)
 					{
 						// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
-						
 
 						fun_array = *(function_relate_collect->get(table_temp->target));
 						relate_type_array = fun_array.relate_type_array;
@@ -1807,25 +1706,25 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						// relate_type.relate_funtree = function_tree;
 						for (int k = 0; k < relate_type_array.size(); k++)
 						{
-							
+
 							// debug((relate_type_array)[k].stmt);
 							// debug_tree((relate_type_array)[k].relate_funtree);
 							// fprintf(stderr, "dot graph subgraph\n");
-								// fprintf(stderr, "dot graph target loc start ");
-								// 				debug_gimple_stmt(table_temp->last_stmt);
-								// 				warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-								// 				fprintf(stderr, "dot graph target loc end\n\n");
-												// fprintf(stderr, "dot graph start relate for1");
-												// fprintf(stderr, "ID : %lu\n", (relate_type_array)[k].now_fucntion);
-												// fprintf(stderr, "from %s basic block %d", (char *)get_name((relate_type_array)[k].relate_funtree), gimple_bb((relate_type_array)[k].stmt)->index);
-												// fprintf(stderr, "dot graph end relate end\n\n");
+							// fprintf(stderr, "dot graph target loc start ");
+							// 				debug_gimple_stmt(table_temp->last_stmt);
+							// 				warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+							// 				fprintf(stderr, "dot graph target loc end\n\n");
+							// fprintf(stderr, "dot graph start relate for1");
+							// fprintf(stderr, "ID : %lu\n", (relate_type_array)[k].now_fucntion);
+							// fprintf(stderr, "from %s basic block %d", (char *)get_name((relate_type_array)[k].relate_funtree), gimple_bb((relate_type_array)[k].stmt)->index);
+							// fprintf(stderr, "dot graph end relate end\n\n");
 							unsigned long x = rand();
 							fprintf(stderr, "dot graph start relate for1");
 							fprintf(stderr, "ID : %lu\n", (relate_type_array)[k].now_fucntion);
 							fprintf(stderr, "from %s basic block %d", (char *)get_name((relate_type_array)[k].relate_funtree), gimple_bb((relate_type_array)[k].stmt)->index);
 							fprintf(stderr, "dot graph end relate end\n\n");
-							fprintf(stderr, "subgraph cluster_%lu dot graph subgraph  start ID : %lu stmt(relate) ， Tree ID : %lu : ", x,(relate_type_array)[k].now_stmt,(relate_type_array)[k].now_fucntion);
-							debug( (relate_type_array)[k].stmt);
+							fprintf(stderr, "subgraph cluster_%lu dot graph subgraph  start ID : %lu stmt(relate) ， Tree ID : %lu : ", x, (relate_type_array)[k].now_stmt, (relate_type_array)[k].now_fucntion);
+							debug((relate_type_array)[k].stmt);
 							warning_at(gimple_location((relate_type_array)[k].stmt), 0, "use location");
 
 							fprintf(stderr, "dot graph subgrapend\n\n");
