@@ -13,6 +13,7 @@ static int *p98;
 int *foo(int z) __attribute__((noinline));
 int *foo2(int z) __attribute__((noinline));
 void foo3(int *z) __attribute__((noinline));
+int *foo6(int z) __attribute__((noinline));
 int foo5(int *z, int *y) __attribute__((noinline));
 void boo(int *b) __attribute__((noinline));
 void test22(int *k) __attribute__((noinline));
@@ -98,6 +99,30 @@ int *foo2(int z)
 	//char tmp ;
 	// return (char)tmp;
 	return a2;
+}
+int *foo6(int z)
+{
+
+	int *a2 = malloc(z);
+	int *p3 = malloc(z);
+	int *p4 = malloc(z);
+	
+	int tmp;
+	// foo3(p3);
+	if (tmp > 10)
+	{
+	
+		return p3;
+	}
+	else
+	{
+	
+		return p4;
+	}
+
+	// //char tmp ;
+	// // return (char)tmp;
+	// return a2;
 }
 int *foo4(int z)
 {
@@ -516,9 +541,9 @@ int main()
 	if ((q != NULL) && test)
 	{
 
-		child(q);
+		// child(q);
 		// child6(test, q);
-		// q=child7(test,q);
+		q=child7(test,q);
 		q[0] = 10;
 		free(q);
 	}
@@ -528,7 +553,15 @@ int main()
 		// child(q2);
 		printf("test\n");
 	}
-
+	int *q3 ;
+	if(test ){
+		q3 = malloc (10);
+		// printf("tes%dt\n" ,q3);
+	}else {
+		q3 = foo6(10);
+		// printf("tes%dt\n" ,q3);
+	}
+printf("tes%dt\n" ,q3);
 	for (int i = 0; i < 3; i++)
 	{
 

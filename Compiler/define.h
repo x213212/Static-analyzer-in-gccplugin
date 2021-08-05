@@ -261,8 +261,8 @@ bool threadmod = true;
 bool relatemod = true;
 bool freemod = false;
 bool freemodv2 = false;
-bool retmod = false;
-bool pthread_detachedmod = false;
+bool retmod = true;
+bool pthread_detachedmod = true;
 bool pthread_exitmod = false;
 bool tracerelatestmt = true;
 

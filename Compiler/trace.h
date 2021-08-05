@@ -856,14 +856,14 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 
 			vector<relate_type> relate_type_array;
 			function_relate_array fun_array;
-			fprintf(stderr, "\n====================================ffff=================================\n");
+			// fprintf(stderr, "\n====================================ffff=================================\n");
 			// debug_tree(mallocStmt_tree);
 			// debug_gimple_stmt(now_relatelaststmt);
 			if (now_relatelaststmt != NULL)
 			{
 					// fprintf(stderr, "\n====================================ffff===========%d======================\n", now_laststmtid);
-					 debug_tree(mallocStmt_tree);
-					debug_gimple_stmt(now_relatelaststmt);
+					//  debug_tree(mallocStmt_tree);
+					// debug_gimple_stmt(now_relatelaststmt);
 					
 				if (function_relate_collect->get(mallocStmt_tree) == NULL)
 				{
@@ -1002,31 +1002,31 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 									// debug_points_to_info_for((callerRetTypearray)[k].return_tree);
 									debug_gimple_stmt((callerRetTypearray)[k].stmt);
 									warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-									if (retmod && debugmod)
-									{
-										// if (fistconunt == 0)
-										// {
-										fprintf(stderr, "dot graph start relate form ");
-										// 	fistconunt++;
-										// }
-										// else
-										// 	fprintf(stderr, "dot graph start relate for1 ");
-										fprintf(stderr, "ID : %lu\n", now_fucntion);
-										fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb((callerRetTypearray)[k].stmt)->index);
-										fprintf(stderr, "dot graph end relate end\n\n");
-										//ready add dot graph
-										// unsigned long x = rand();
-										now_laststmt = (callerRetTypearray)[k].stmt;
-										//ready add dot graph
-										unsigned long x = rand();
-										now_laststmtid = x;
-										//ready add dot graph
-										fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(return) :", x);
-										debug((callerRetTypearray)[k].stmt);
-										warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-										// debug(gimple_assign_lhs((callerRetTypearray)[k].stmt));
-										fprintf(stderr, "dot graph relate end\n\n");
-									}
+									// if (retmod && debugmod)
+									// {
+									// 	// if (fistconunt == 0)
+									// 	// {
+									// 	fprintf(stderr, "dot graph start relate form ");
+									// 	// 	fistconunt++;
+									// 	// }
+									// 	// else
+									// 	// 	fprintf(stderr, "dot graph start relate for1 ");
+									// 	fprintf(stderr, "ID : %lu\n", now_fucntion);
+									// 	fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb((callerRetTypearray)[k].stmt)->index);
+									// 	fprintf(stderr, "dot graph end relate end\n\n");
+									// 	//ready add dot graph
+									// 	// unsigned long x = rand();
+									// 	now_laststmt = (callerRetTypearray)[k].stmt;
+									// 	//ready add dot graph
+									// 	unsigned long x = rand();
+									// 	now_laststmtid = x;
+									// 	//ready add dot graph
+									// 	fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(return) :", x);
+									// 	debug((callerRetTypearray)[k].stmt);
+									// 	warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+									// 	// debug(gimple_assign_lhs((callerRetTypearray)[k].stmt));
+									// 	fprintf(stderr, "dot graph relate end\n\n");
+									// }
 								}
 						}
 				}
@@ -1296,7 +1296,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 		{
 			function_return_array callerFunArray = *(function_return_collect->get(function_tree));
 			if (function_return_collect->get(function_tree) != NULL && callerFunArray.return_type_num == 2)
-				fprintf(stderr, "%s this is fucntion return value is heap-object \n", get_name(function_tree));
+				fprintf(stderr, "%s this fucntion return value is heap-object \n", get_name(function_tree));
 		}
 	}
 
@@ -1348,8 +1348,8 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 				if (calleeFunArray.return_type_num == 2)
 					if ((callerRetTypearray)[k].return_tree == (function_path_array)[i].next)
 					{
-						fprintf(stderr, "%s this is fucntion return value is heap-object \n", get_name((function_path_array)[i].next));
-						fprintf(stderr, "%s this is fucntion return value is heap-object %s\n", get_name(function_tree), get_name((callerRetTypearray)[k].return_tree));
+						fprintf(stderr, "%s this fucntion return value is heap-object \n", get_name((function_path_array)[i].next));
+						fprintf(stderr, "%s this fucntion return value is heap-object %s\n", get_name(function_tree), get_name((callerRetTypearray)[k].return_tree));
 						if (fucntion_level == -100)
 							(*freecount) = 100;
 						// break;
