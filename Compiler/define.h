@@ -110,10 +110,12 @@ struct free_type
 struct relate_type
 {
 	gimple *stmt;
+	gimple *laststmt;
 	tree relate_tree;
 	tree relate_funtree;
 	unsigned int now_fucntion=0;
 	unsigned int now_stmt=0;
+	int now_basicblock=0;
 	// int reutnr_type_num = 0;
 	//int return_type;
 };
@@ -194,7 +196,10 @@ struct function_relate_array
 {
 	vector<relate_type> relate_type_array;
 };
-
+// struct function_relate_array2
+// {
+// 	<relate_type> relate_type_array;
+// };
 // struct function_relate_array
 // {
 // 	Graph graph_type_array;
@@ -218,6 +223,8 @@ hash_map<tree, function_free_array> *function_free_collect;
 hash_map<tree, function_graph_array> *function_graph_collect;
 /*collect fucntion graph_array*/
 hash_map<tree, function_relate_array> *function_relate_collect;
+// /*collect fucntion maxbasicblock*/
+// hash_map<tree, int> *function_maxbasicblock_collect;
 
 
 /*record each DFS graph*/
