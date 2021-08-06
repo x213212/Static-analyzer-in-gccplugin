@@ -1,151 +1,151 @@
 /*
-	buggy parent : 2f5404b
-	commit id : f978cb06dbfbd93dbd52bd39d992f8644b0c639e
+    buggy parent : ad36c6c
+    commit id : 3f2a3564b1c3872e4a380f2484d40ce2495a4835
 */
 
+#include "filenames.h"
 #include "common.h"
-#include "vec.h"
+#include "binutils.h"
 
-struct other_sections
-{
-	char *name;
-	int secindex;
-};
+#define LC_ALL "LC_ALL"
 
-struct section_addr_info
-{
-	size_t num_sections;
-	struct other_sections other[1];
-};
+char *python_libdir = 0;
 
-struct sect_opt
+const char *
+unix_lbasename (const char *name)
 {
-	const char *name;
-	const char *value;
-};
+  const char *base;
 
-void
-null_cleanup (void *arg)
-{
+  for (base = name; *name; name++)
+     base = name + 1;
+
+  return base;
 }
 
-void *
-xrealloc (void *oldmem, size_t size)
+const char *
+lbasename (const char *name)
 {
-  void *newmem;
-
-  if (size == 0)
-    size = 1;
-
-  newmem = realloc (oldmem, size); /* allocation site */
-
-  if (!newmem)
-		exit(1);
-
-  return (newmem);
+  return unix_lbasename (name);
 }
+
+char *
+ldirname (const char *filename)
+{
+  const char *base = lbasename (filename);
+  char *dirname;
+
+  while (base > filename && IS_DIR_SEPARATOR (base[-1]))
+    --base;
+
+  if (base == filename)
+    return NULL;
+
+  dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+  memcpy (dirname, filename, base - filename);
+
+  /* On DOS based file systems, convert "d:foo" to "d:.", so that we
+     create "d:./bar" later instead of the (different) "d:/bar".  */
+  if (base - filename == 2 && IS_ABSOLUTE_PATH (base)
+      && !IS_DIR_SEPARATOR (filename[0]))
+    dirname[base++ - filename] = '.';
+
+  dirname[base - filename] = '\0';
+  return dirname;
+}
+
+static inline char *
+vconcat_copy (char *dst, const char *first, const char* arg)
+{
+  char *end = dst;
+
+	unsigned long length = strlen (arg);
+	memcpy (end, arg, length);
+	end += length;
 	
-static void
-add_symbol_file_command (char **args)
-{
-	int section_index = 0;
-  int sec_num = 0;
-  char *arg;
-	int expecting_sec_addr = 0;
-  int expecting_sec_name = 0;
-  int argcnt = 0;
-	int i;
+	*end = '\000';
 
-	struct cleanup *my_cleanups = make_cleanup (null_cleanup, NULL);
-
-	struct section_addr_info *section_addrs;
-	struct sect_opt *sect_opts = NULL;
-	size_t num_sect_opts = 0;
-
-	num_sect_opts = 4;
-	sect_opts = xmalloc (sizeof(struct sect_opt) * num_sect_opts); /* allocation site */
-
-
-	if (args == NULL) exit (1);
-
-	for (arg = args[0]; arg != NULL; arg = args[++argcnt])
-		{
-			if (argcnt == 0)
-				continue;
-
-			else if (argcnt == 1)
-				{
-					sect_opts[section_index].name = ".text";
-					sect_opts[section_index].value = arg;
-					if (++section_index >= num_sect_opts)
-						{
-							num_sect_opts *= 2;
-							sect_opts = ((struct sect_opt *)
-										xrealloc (sect_opts, num_sect_opts
-									* sizeof (struct sect_opt)));
-						}
-				}
-			else
-				{
-					if (expecting_sec_name)
-						{
-							sect_opts[section_index].value = arg;
-							expecting_sec_addr = 0;
-						}
-					else if (expecting_sec_addr)
-						{
-							sect_opts[section_index].value = arg;
-							expecting_sec_addr = 0;
-
-							if (++section_index >= num_sect_opts)
-								{
-									num_sect_opts *= 2;
-									sect_opts = ((struct sect_opt *)
-												 xrealloc (sect_opts, num_sect_opts
-											 * sizeof (struct sect_opt)));
-								}
-						}
-					else if (strcmp (arg, "-s") == 0)
-						{
-							expecting_sec_name = 1;
-							expecting_sec_addr = 1;
-						}
-					else
-						exit (1);
-				}
-		}
-	
-		if (section_index < 1)
-			exit (1);
-
-		section_addrs = malloc (sizeof(struct section_addr_info));
-		make_cleanup (free, section_addrs);
-		
-		for (i = 0; i < section_index; i++)
-			{
-				const char *val = sect_opts[i].value;
-				const char *sec = sect_opts[i].name;
-
-				/* Here we store the section offsets in the order they were
-					 entered on the command line.  */
-				section_addrs->other[sec_num].name = (char *) sec;
-				sec_num++;
-				/* The object's sections are initialized when a
-		 call is made to build_objfile_section_table (objfile).
-		 This happens in reread_symbols.
-		 At this point, we don't know what file type this is,
-		 so we can't determine what section names are valid.  */
-			}
-		section_addrs->num_sections = sec_num;
-
-		do_cleanups (my_cleanups);
-
-		return; /* memory leak */
+	return dst;
 }
 
-int main ()
+char *
+concat (const char *first, const char *arg)
 {
-	const char *args[6] = {"prog", "v", "-s", "idx", "addr", NULL};
-	add_symbol_file_command(args);
+  char *newstr;
 
+  /* First compute the size of the result and get sufficient memory.  */
+  newstr = XNEWVEC (char, 1);
+
+  /* Now copy the individual pieces to the result string. */
+  vconcat_copy (newstr, first, arg);
+
+  return newstr;
+}
+
+void *PyMem_Malloc (size_t size)
+{
+	void *ret = malloc(size);
+	return ret;
+}
+void Py_SetProgramName (const wchar_t *progname)
+{
+	__USE(progname);
+}
+
+static bool
+do_start_initialization ()
+{
+  char *progname;
+  int i;
+  size_t progsize, count;
+  char *oldloc;
+  wchar_t *progname_copy;
+
+  /* Work around problem where python gets confused about where it is,
+     and then can't find its libraries, etc.
+     NOTE: Python assumes the following layout:
+     /foo/bin/python
+     /foo/lib/pythonX.Y/...
+     This must be done before calling Py_Initialize.  */
+  progname = concat (ldirname (python_libdir), "bin");
+  oldloc = xstrdup (setlocale (LC_ALL, NULL));
+  setlocale (LC_ALL, "");
+  progsize = strlen (progname);
+  progname_copy = (wchar_t *) PyMem_Malloc ((progsize + 1) * sizeof (wchar_t));
+  if (!progname_copy)
+    {
+      xfree (oldloc);
+      fprintf (stderr, "out of memory\n");
+      return false;
+    }
+  count = mbstowcs (progname_copy, progname, progsize + 1);
+  if (count == (size_t) -1)
+    {
+      xfree (oldloc);
+			xfree(progname_copy);
+      fprintf (stderr, "Could not convert python path to string\n");
+      return false;
+    }
+  setlocale (LC_ALL, oldloc);
+  xfree (oldloc);
+
+  /* Note that Py_SetProgramName expects the string it is passed to
+     remain alive for the duration of the program's execution, so
+     it is not freed after this call.  */
+  Py_SetProgramName (progname_copy);
+	xfree(progname_copy);
+  return true;
+}
+
+int main()
+{
+    do_start_initialization();
+		/*
+			ldirname and concat can be called at multiple callsite in
+			the original program. We insert a USE for the first argument of
+			concat to prevent inserting a free inside the function
+		*/
+		char *dummy = "dummy";
+		concat(dummy, "");
+		__USE(dummy);
+    return 0;
 }

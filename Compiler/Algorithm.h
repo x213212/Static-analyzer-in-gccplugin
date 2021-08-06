@@ -1498,14 +1498,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												// fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
 
 												//
-												table_temp->node;
+												// table_temp->node;
 												basic_block bb;
 												FOR_EACH_BB_FN(bb, table_temp->node->get_fun())
 												{
 													// debug_tree( table_temp->node->get_fun()->decl);
 													if (bb->index == gimple_bb(u_stmt)->index)
 													{
-														if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
+														if (bb != table_temp->node->get_fun()->cfg->x_exit_block_ptr->prev_bb)
 														{
 															edge e;
 															edge_iterator ei;
