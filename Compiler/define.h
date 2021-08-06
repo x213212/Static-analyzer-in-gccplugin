@@ -237,6 +237,9 @@ hash_map<tree, cgraph_node *> *fnode;
 hash_map<tree, var_points_to> *tvpt;
 hash_map<tree, gimple_array> *treeGimpleArray;
 
+vector<gimple *> new_gimple_array;
+vector<tree> new_gimpletree_array;
+
 /*state*/
 unsigned int POINTER_NOT_EXIST = 0;
 unsigned int POINTER_STATE_IS_FREE = 1;

@@ -27,10 +27,10 @@ static int totalsize; //宣告一個整數型態size變數，用來儲存x的位
 
 int check_stmtStack(tree target)
 {
-	for (int o = 0; o < stmtStack.size(); o++)
+	for (int o = 0; o < new_gimpletree_array.size(); o++)
 	{
 
-		if (stmtStack.c[o] == target)
+		if (new_gimpletree_array[o] == target)
 		{
 			// find = 1;
 			// fprintf(stderr, "\033[40;41m =======recursive_stmt========= \033[0m\n");
@@ -42,15 +42,17 @@ int check_stmtStack(tree target)
 	}
 	int size = sizeof(tree);
 	totalsize += size;
-	stmtStack.push(target);
+	new_gimpletree_array.push_back(target);
 	return 0;
 }
 int check_stmtStack2(gimple *stmt)
 {
-	for (int o = 0; o < stmtStack.size(); o++)
+
+	
+	for (int o = 0; o < new_gimple_array.size(); o++)
 	{
 
-		if (stmtStack2.c[o] == stmt)
+		if (new_gimple_array[o] == stmt)
 		{
 			// find = 1;
 			fprintf(stderr, "\033[40;41m =======recursive_stmt========= \033[0m\n");
@@ -62,7 +64,7 @@ int check_stmtStack2(gimple *stmt)
 	}
 	int size = sizeof(stmt);
 	totalsize += size;
-	stmtStack2.push(stmt);
+	new_gimple_array.push_back(stmt);
 	return 0;
 }
 /*new_search_imm_use */
@@ -366,25 +368,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 							new_search_imm_use(used_stmt, gimple_assign_rhs1(use_stmt), gimple_assign_rhs1(use_stmt));
 					}
 				}
-				// debug_tree(gimple_assign_lhs(use_stmt));
-	// 			tree second = TREE_OPERAND(gimple_assign_lhs(use_stmt), 0);
-	// 			if(second)
-	// 			if (TREE_CODE(second) == MEM_REF)
-	// 			{
-	// 				tree three = TREE_OPERAND(second, 0);
-	// 				if(three)
-	// 				if (TREE_CODE(three) == SSA_NAME)
-	// 				{
-	// 					if (!check_stmtStack(three))
-	// 					{
-	// fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
-	// 						// set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target, NULL);
-	// 						debug_tree(three);
-	// 						// if (gimple_assign_lhs(use_stmt) != target2)
-	// 						// new_search_imm_use(used_stmt, three, three);
-	// 					}
-	// 				}
-	// 			}
+		
 
 			}
 			else if (gimple_assign_rhs1(use_stmt) && TREE_CODE(gimple_assign_rhs1(use_stmt)) == COMPONENT_REF)
@@ -401,24 +385,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 							new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt), gimple_assign_lhs(use_stmt));
 					}
 				}
-	// 			tree second = TREE_OPERAND(gimple_assign_rhs1(use_stmt), 0);
-	// 			if(second)
-	// 			if (TREE_CODE(second) == MEM_REF)
-	// 			{
-	// 				tree three = TREE_OPERAND(second, 0);
-	// 				if(three)
-	// 				if (TREE_CODE(three) == SSA_NAME)
-	// 				{
-	// 					if (!check_stmtStack(three))
-	// 					{
-	// fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
-	// 						// set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target, NULL);
-	// 						debug_tree(three);
-	// 						// if (gimple_assign_lhs(use_stmt) != target2)
-	// 						// new_search_imm_use(used_stmt, three, three);
-	// 					}
-	// 				}
-	// 			}
+	
 			}
 		}
 		else if (gimple_code(use_stmt) == GIMPLE_PHI)
@@ -435,7 +402,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						// debug_tree(gimple_phi_result(use_stmt));
 						if (gimple_phi_result(use_stmt) != target2)
 						{
-							fprintf(stderr, "tewtw\n");
+							// fprintf(stderr, "tewtw\n");
 							new_search_imm_use(used_stmt, gimple_phi_result(use_stmt), gimple_phi_result(use_stmt));
 						}
 					}
@@ -691,8 +658,9 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 		FOR_EACH_TABLE(table1, t2)
 		{
 			// debug_tree(table1->target);
-			// if(t2 != NULL_TREE){
-			// debug(t2);
+			// if(t2 != NULL_TREE)
+			// if( SSA_NAME_CHECK   (table1->target) )
+			// continue;
 			// fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");}
 			if (TREE_CODE(TREE_TYPE(t2)) == METHOD_TYPE || TREE_CODE(TREE_TYPE(t2)) == FUNCTION_TYPE || TREE_CODE(TREE_TYPE(t2)) == RECORD_TYPE || !(TREE_CODE(t2) == SSA_NAME))
 			{

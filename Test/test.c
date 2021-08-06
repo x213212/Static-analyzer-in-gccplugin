@@ -1,151 +1,347 @@
 /*
-    buggy parent : ad36c6c
-    commit id : 3f2a3564b1c3872e4a380f2484d40ce2495a4835
+	buggy parent: 9d2cdc8
+	commit id : aba19b625f34fb3d61263fe8044cf0c6d8804570
 */
 
-#include "filenames.h"
 #include "common.h"
 #include "binutils.h"
 
-#define LC_ALL "LC_ALL"
+#define INT_MAX       (int)(((unsigned int) ~0) >> 1)          /* 0x7FFFFFFF */ 
+#define ISASCII(c) 1
+#define ISLOWER(c) ('a' <= (c) && (c) <= 'z')
+#define ISDIGIT(c) (ISASCII (c) && isdigit (c))
 
-char *python_libdir = 0;
+typedef struct string		/* Beware: these aren't required to be */
+{				/*  '\0' terminated.  */
+  char *b;			/* pointer to start of string */
+  char *p;			/* pointer after last character */
+  char *e;			/* pointer after end of allocated space */
+} string;
 
-const char *
-unix_lbasename (const char *name)
+static void
+string_init (string *s)
 {
-  const char *base;
-
-  for (base = name; *name; name++)
-     base = name + 1;
-
-  return base;
+  s->b = s->p = s->e = NULL;
 }
 
-const char *
-lbasename (const char *name)
+static void
+string_append (string *p, const char *s)
 {
-  return unix_lbasename (name);
-}
+	/* We don't care about p in the modeled program
+	*/
+	__USE(s);
+} 
 
 char *
-ldirname (const char *filename)
+ada_demangle (const char *mangled)
 {
-  const char *base = lbasename (filename);
-  char *dirname;
+	int len0;
+	const char *p;
+	char *d;
+	char *demangled;
 
-  while (base > filename && IS_DIR_SEPARATOR (base[-1]))
-    --base;
+	/* Discard leading _ada, which is used for library level subprograms */
+	if (strncmp (mangled, "_ada_", 5) == 0)
+		mangled += 5;
 
-  if (base == filename)
-    return NULL;
+	/* All ada unit names are lower-case */
+	if (!ISLOWER (mangled[0]))
+		goto unknown;
 
-  dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
-  memcpy (dirname, filename, base - filename);
 
-  /* On DOS based file systems, convert "d:foo" to "d:.", so that we
-     create "d:./bar" later instead of the (different) "d:/bar".  */
-  if (base - filename == 2 && IS_ABSOLUTE_PATH (base)
-      && !IS_DIR_SEPARATOR (filename[0]))
-    dirname[base++ - filename] = '.';
+	len0 = strlen (mangled) + 7 + 1;
+	demangled = XNEWVEC (char, len0); // allocation site
 
-  dirname[base - filename] = '\0';
-  return dirname;
-}
+	d = demangled;
+	p = mangled;
 
-static inline char *
-vconcat_copy (char *dst, const char *first, const char* arg)
-{
-  char *end = dst;
+	while (1)
+		{
+			/* An entity name is expected */
+			if (!ISLOWER (*p))
+				{
+					do
+						/* An identifer, which is always lower case */
+						*d++ = *p++;
+					while (ISLOWER (*p) || ISDIGIT (*p)
+							|| (p[0] == '_' && (ISLOWER (p[1]) || ISDIGIT (p[1]))));
+				}
 
-	unsigned long length = strlen (arg);
-	memcpy (end, arg, length);
-	end += length;
+			else if (p[0] == 'O')
+				{
+					/* An operator name.  */
+          static const char * const operators[][2] =
+            {{"Oabs", "abs"},  {"Oand", "and"},    {"Omod", "mod"},
+             {"Onot", "not"},  {"Oor", "or"},      {"Orem", "rem"},
+             {"Oxor", "xor"},  {"Oeq", "="},       {"One", "/="},
+             {"Olt", "<"},     {"Ole", "<="},      {"Ogt", ">"},
+             {"Oge", ">="},    {"Oadd", "+"},      {"Osubtract", "-"},
+             {"Oconcat", "&"}, {"Omultiply", "*"}, {"Odivide", "/"},
+             {"Oexpon", "**"}, {NULL, NULL}};
+          int k;
+
+					for (k = 0; operators[k][0] != NULL; k++)
+            {
+              size_t slen = strlen (operators[k][0]);
+              if (strncmp (p, operators[k][0], slen) == 0)
+                {
+                  p += slen;
+                  slen = strlen (operators[k][1]);
+                  *d++ = '"';
+                  memcpy (d, operators[k][1], slen);
+                  d += slen;
+                  *d++ = '"';
+                  break;
+                }
+            }
+          /* Operator not found.  */
+          if (operators[k][0] == NULL)
+            goto unknown;
+        }
+
+      else
+        {
+          /* Not a GNAT encoding.  */
+          goto unknown;
+        }
 	
-	*end = '\000';
+      /* The name can be directly followed by some uppercase letters.  */
+      if (p[0] == 'T' && p[1] == 'K')
+        {
+          /* Task stuff.  */
+          if (p[2] == 'B' && p[3] == 0)
+            {
+              /* Subprogram for task body.  */
+              break;
+            }
+          else if (p[2] == '_' && p[3] == '_')
+            {
+              /* Inner declarations in a task.  */
+              p += 4;
+              *d++ = '.';
+              continue;
+            }
+          else
+            goto unknown;
+        }
+      if (p[0] == 'E' && p[1] == 0)
+        {
+          /* Exception name.  */
+          goto unknown;
+        }
+      if ((p[0] == 'P' || p[0] == 'N') && p[1] == 0)
+        {
+          /* Protected type subprogram.  */
+          break;
+        }
+      if ((*p == 'N' || *p == 'S') && p[1] == 0)
+        {
+          /* Enumerated type name table.  */
+          goto unknown;
+        }
+      if (p[0] == 'X')
+        {
+          /* Body nested.  */
+          p++;
+          while (p[0] == 'n' || p[0] == 'b')
+            p++;
+        }
+      if (p[0] == 'S' && p[1] != 0 && (p[2] == '_' || p[2] == 0))
+        {
+          /* Stream operations.  */
+          const char *name;
+          switch (p[1])
+            {
+            case 'R':
+              name = "'Read";
+              break;
+            case 'W':
+              name = "'Write";
+              break;
+            case 'I':
+              name = "'Input";
+              break;
+            case 'O':
+              name = "'Output";
+              break;
+            default:
+              goto unknown;
+            }
+          p += 2;
+          strcpy (d, name);
+          d += strlen (name);
+        }
+      else if (p[0] == 'D')
+        {
+          /* Controlled type operation.  */
+          const char *name;
+          switch (p[1])
+            {
+            case 'F':
+              name = ".Finalize";
+              break;
+            case 'A':
+              name = ".Adjust";
+              break;
+            default:
+              goto unknown;
+            }
+          strcpy (d, name);
+          d += strlen (name);
+          break;
+        }
 
-	return dst;
+      if (p[0] == '_')
+        {
+          /* Separator.  */
+          if (p[1] == '_')
+            {
+              /* Standard separator.  Handled first.  */
+              p += 2;
+
+              if (ISDIGIT (*p))
+                {
+                  /* Overloading number.  */
+                  do
+                    p++;
+                  while (ISDIGIT (*p) || (p[0] == '_' && ISDIGIT (p[1])));
+                  if (*p == 'X')
+                    {
+                      p++;
+                      while (p[0] == 'n' || p[0] == 'b')
+                        p++;
+                    }
+                }
+              else if (p[0] == '_' && p[1] != '_')
+                {
+                  /* Special names.  */
+                  static const char * const special[][2] = {
+                    { "_elabb", "'Elab_Body" },
+                    { "_elabs", "'Elab_Spec" },
+                    { "_size", "'Size" },
+                    { "_alignment", "'Alignment" },
+                    { "_assign", ".\":=\"" },
+                    { NULL, NULL }
+                  };
+                  int k;
+
+                  for (k = 0; special[k][0] != NULL; k++)
+                    {
+                      size_t slen = strlen (special[k][0]);
+                      if (strncmp (p, special[k][0], slen) == 0)
+                        {
+                          p += slen;
+                          slen = strlen (special[k][1]);
+                          memcpy (d, special[k][1], slen);
+                          d += slen;
+                          break;
+                        }
+                    }
+                  if (special[k][0] != NULL)
+                    break;
+                  else
+                    goto unknown;
+                }
+              else
+                {
+                  *d++ = '.';
+                  continue;
+                }
+            }
+          else if (p[1] == 'B' || p[1] == 'E')
+            {
+              /* Entry Body or barrier Evaluation.  */
+              p += 2;
+              while (ISDIGIT (*p))
+                p++;
+              if (p[0] == 's' && p[1] == 0)
+                break;
+              else
+                goto unknown;
+            }
+          else
+            goto unknown;
+        }
+
+      if (p[0] == '.' && ISDIGIT (p[1]))
+        {
+          /* Nested subprogram.  */
+          p += 2;
+          while (ISDIGIT (*p))
+            p++;
+        }
+      if (*p == 0)
+        {
+          /* End of mangled name.  */
+          break;
+        }
+      else
+        goto unknown;
+    }
+  *d = 0;
+  return demangled;
+
+ unknown:
+  len0 = strlen (mangled);
+  demangled = XNEWVEC (char, len0 + 3); /* memory leak */
+
+  if (mangled[0] == '<')
+     strcpy (demangled, mangled);
+  else
+    sprintf (demangled, "<%s>", mangled);
+
+  return demangled;
 }
 
 char *
-concat (const char *first, const char *arg)
+cplus_demangle (const char *mangled)
 {
-  char *newstr;
+	if (__RANDBOOL)
+		return xstrdup (mangled);
 
-  /* First compute the size of the result and get sufficient memory.  */
-  newstr = XNEWVEC (char, 1);
-
-  /* Now copy the individual pieces to the result string. */
-  vconcat_copy (newstr, first, arg);
-
-  return newstr;
+	if (__RANDBOOL)
+		return ada_demangle (mangled);
+	
+	return NULL;
 }
 
-void *PyMem_Malloc (size_t size)
+void
+demangle_template_value_parm (const char **mangled, string *s)
 {
-	void *ret = malloc(size);
-	return ret;
-}
-void Py_SetProgramName (const wchar_t *progname)
-{
-	__USE(progname);
-}
+	int symbol_len = 3;
 
-static bool
-do_start_initialization ()
-{
-  char *progname;
-  int i;
-  size_t progsize, count;
-  char *oldloc;
-  wchar_t *progname_copy;
+	if (__RANDBOOL)
+		{
+			char *p = XNEWVEC (char, symbol_len + 1), *q;
+			strncpy (p, *mangled, symbol_len);
+			p [symbol_len] = '\0';
 
-  /* Work around problem where python gets confused about where it is,
-     and then can't find its libraries, etc.
-     NOTE: Python assumes the following layout:
-     /foo/bin/python
-     /foo/lib/pythonX.Y/...
-     This must be done before calling Py_Initialize.  */
-  progname = concat (ldirname (python_libdir), "bin");
-  oldloc = xstrdup (setlocale (LC_ALL, NULL));
-  setlocale (LC_ALL, "");
-  progsize = strlen (progname);
-  progname_copy = (wchar_t *) PyMem_Malloc ((progsize + 1) * sizeof (wchar_t));
-  if (!progname_copy)
-    {
-      xfree (oldloc);
-      fprintf (stderr, "out of memory\n");
-      return false;
-    }
-  count = mbstowcs (progname_copy, progname, progsize + 1);
-  if (count == (size_t) -1)
-    {
-      xfree (oldloc);
-			xfree(progname_copy);
-      fprintf (stderr, "Could not convert python path to string\n");
-      return false;
-    }
-  setlocale (LC_ALL, oldloc);
-  xfree (oldloc);
+			q = cplus_demangle (p);
+			if (q)
+				{
+					string_append (s, q);
+					free (q);
+				}
+			else {
+				string_append (s, p);
+				free(p);
+			}
+		}
+		*mangled += symbol_len;
 
-  /* Note that Py_SetProgramName expects the string it is passed to
-     remain alive for the duration of the program's execution, so
-     it is not freed after this call.  */
-  Py_SetProgramName (progname_copy);
-	xfree(progname_copy);
-  return true;
+		return;
 }
 
 int main()
 {
-    do_start_initialization();
-		/*
-			ldirname and concat can be called at multiple callsite in
-			the original program. We insert a USE for the first argument of
-			concat to prevent inserting a free inside the function
-		*/
-		char *dummy = "dummy";
-		concat(dummy, "");
-		__USE(dummy);
-    return 0;
+	time_t t;
+	char *p;
+	string s;
+	const char *mangled = "123456";
+	srand(time(&t));
+
+	string_init(&s);
+	demangle_template_value_parm(&mangled, &s);
 }
+	
+

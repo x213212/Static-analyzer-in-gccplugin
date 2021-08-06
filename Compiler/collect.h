@@ -189,29 +189,34 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 			debug_tree(gimple_assign_rhs1(gc));
 			if (TREE_CODE(gimple_assign_rhs1(gc)) != INTEGER_CST)
 			{
-			tree second = TREE_OPERAND(gimple_assign_rhs1(gc), 0);
-				warning_at(gimple_location_safe(gc), 0, "use location");
 
-				if (second)
+				warning_at(gimple_location_safe(gc), 0, "use location");
+				
 					if (TREE_CODE(gimple_assign_rhs1(gc)) == COMPONENT_REF)
 					{
+				tree second = TREE_OPERAND(gimple_assign_rhs1(gc), 0);
+				if (second){
+					if(TREE_CODE (second) == MEM_REF){
 						tree three = TREE_OPERAND(second, 0);
-						if(three){
-						// loc = gimple_location(gc);
-						// if (gimple_location(gc))
-
-						// if (LOCATION_LINE(loc) == 104 || LOCATION_LINE(loc) == 105)
-						// {
-						fprintf(stderr, "============COMPONENT_REF==================\n");
-						// debug_tree(gimple_assign_rhs1(gc));
-						set_ptb(bb, ptable, three, loc, 0, gc, node);
+						if (three)
+							{
+								// loc = gimple_location(gc);
+								// if (gimple_location(gc))
+								debug_tree(three);
+								// if (LOCATION_LINE(loc) == 104 || LOCATION_LINE(loc) == 105)
+								// {
+								fprintf(stderr, "============COMPONENT_REF==================\n");
+								// debug_tree(gimple_assign_rhs1(gc));
+								if (TREE_CODE(three) == SSA_NAME)
+									set_ptb(bb, ptable, three, loc, 0, gc, node);
+							}
+							// }
 						}
-						// }
 					}
+				}
 			}
 			// }
 		}
-			
 	}
 }
 
