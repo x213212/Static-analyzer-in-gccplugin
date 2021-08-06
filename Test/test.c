@@ -1,621 +1,151 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <pthread.h>
-#include <unistd.h>
-#define xstrdup(a) strdup(a)
-///home/cc/gcc/ins/bin/gcc  -fplugin=/home/cc/gcc/myfile/Compiler/misra.so -I/home/cc/gcc/ins/lib/gcc/x86_64-pc-linux-gnu/7.3.0/plugin/include openssl_df_2.c  -O1  -flto  -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta   -fno-inline-functions-called-once   -o  openssl_df_2.o
-// 子執行緒函數
-pthread_mutex_t mLock;
-pthread_mutex_t mLock2;
-pthread_mutex_t mLock3;
-static int *p99;
-static int *p98;
-int *foo(int z) __attribute__((noinline));
-int *foo2(int z) __attribute__((noinline));
-void foo3(int *z) __attribute__((noinline));
-int *foo6(int z) __attribute__((noinline));
-int foo5(int *z, int *y) __attribute__((noinline));
-void boo(int *b) __attribute__((noinline));
-void test22(int *k) __attribute__((noinline));
-void test33(int *k) __attribute__((noinline));
-void test44(int *k) __attribute__((noinline));
-void *child(void *data) __attribute__((noinline));
-void *child2(void *data) __attribute__((noinline));
-void *child3(void *data) __attribute__((noinline));
-void *child4(int *data) __attribute__((noinline));
-void *child5(void *data) __attribute__((noinline));
-void *child6(void *test, void *data) __attribute__((noinline));
-int *child7(void *test, void *data) __attribute__((noinline));
-// void *child(void *data) __attribute__((noinline));
-// int *foo(int z);
-int *foo4(int z);
-// int *foo2(int z);
-// void foo3(int *z);
-int foo5(int *z, int *y)
-{
-	int p2 = 10;
+/*
+	buggy parent : 2f5404b
+	commit id : f978cb06dbfbd93dbd52bd39d992f8644b0c639e
+*/
 
-	// p2=foo2(2);
-	// p2[0]=10;
-	///error
-	printf("test1%d\n", *z);
-	printf("test2%d\n", *y);
-	printf("test3%d\n", p2);
-	// p2=10;
-	//printf("%d",p2);
-	return p2;
-}
-void foo3(int *z)
-{
-	int *p2;
-	int test;
-	// p2[0]=10;
-	///error
-	
-	// p2=10;
-	if (test)
-	{
-		*z = malloc(1);
-	}
-	else
-		p2 = malloc(2);
-		
-	p2[0] = 10;
-	printf("%d", p2);
-}
-int *foo2(int z)
-{
+#include "common.h"
+#include "vec.h"
 
-	int *a2 = malloc(z);
-	int *p3 = malloc(z);
-	int *p4 = malloc(z);
-	p99 = malloc(200);
-	p99[0] = 99;
-	p99[1] = 100;
-	int tmp;
-	// a2[0] = 10;
-
-	//  free(a2);
-	pthread_mutex_lock(&mLock);
-	pthread_mutex_lock(&mLock2);
-	pthread_mutex_lock(&mLock3);
-	foo3(p3);
-	if (tmp > 10)
-	{
-		p99[1] = 200;
-		// pthread_mutex_unlock(&mLock);
-		p3[0] = 10;
-		free(p3);
-		return p3;
-	}
-	else
-	{
-		p4[0] = 10;
-		
-		free(p4);
-		return p4;
-	}
-
-	//char tmp ;
-	// return (char)tmp;
-	return a2;
-}
-int *foo6(int z)
-{
-
-	int *a2 = malloc(z);
-	int *p3 = malloc(z);
-	int *p4 = malloc(z);
-	
-	int tmp;
-	// foo3(p3);
-	if (tmp > 10)
-	{
-	
-		return p3;
-	}
-	else
-	{
-	
-		return p4;
-	}
-
-	// //char tmp ;
-	// // return (char)tmp;
-	// return a2;
-}
-int *foo4(int z)
-{
-	int *b = malloc(1);
-	int *p2 = malloc(1);
-
-	// b=2;
-	//  p2=foo2(2);
-	b[0] = 2;
-	p2[0] = 1;
-	p2 = &b;
-
-	free(p2);
-	//int *a=malloc(1);
-	// for(int i = 0;i < 3;++i) {
-	// printf("qwdwqd%d\n", i);
-	//  }
-	//   free(a);
-	return p2;
-}
-int *foo(int z)
-{
-	// int *b = malloc(1);
-	int *p2 = malloc(1);
-	p2[0] = 1;
-		p99[1] = 1000;
-		p99[2] = 200;
-	// free(p2);
-	// b=2;
-	//  p2=foo2(2);
-	// b[0] = 2;
-	// p2[0] = 1;
-	// p2 = &b;
-
-	// free(p2);
-	//int *a=malloc(1);
-	// for(int i = 0;i < 3;++i) {
-	// printf("qwdwqd%d\n", i);
-	//  }
-	//   free(a);
-
-	return foo2(z);
-}
-void *child(void *data)
-{
-	pthread_mutex_t mLock2;
-
-	// pthread_mutex_lock(&mLock2);
-	// pthread_mutex_lock(&mLock2);
-	//a1
-	//   pthread_mutex_lock(&mLock);
-	//   //   char *str = (char*) data; // 取得輸入資料
-	//   // int *p;e
-	//   // p=foo(2);
-	//   int *b = malloc(2);
-	//   int *p2 = malloc(2);
-	//   // p2 = &b;
-	// //   MEM[(int *)&b] = 1;
-	// //  <mem_ref 0x7fbe6f4e27d0
-	//   // b[0] = 2;
-	//   p2[0] = 1;
-	//   p2[1] = 1;
-
-	//   free(p2);
-	//   // free(test);
-	//   // 	str=malloc(5);
-	//   pthread_mutex_unlock(&mLock);
-	//   pthread_exit(NULL); // 離開子執行緒
-	//a2
-	// pthread_detach(pthread_self());
-	pthread_mutex_lock(&mLock);
-	pthread_mutex_lock(&mLock);
-
-	int *a99 = foo(20);
-	printf("asdda%d\n", a99);
-	// ++(*(int *)data);
-	// (data)+=1;
-	int **ppData = malloc(10);
-	int *pData = data;
-	int *pData2 = malloc(10);
-	*pData += 1;
-	// int *a = foo(20);
-	// printf("asdda%d\n", a);
-	int data2 = 0;
-	data = 10;
-	ppData = &pData;
-	pData = &data2;
-	*ppData[0] = 10;
-	// *ppData[1] = 10;
-	// *ppData[2] = 10;
-	**ppData = 12;
-	child4(&data);
-	child3(&data);
-	child5(pData2);
-	p98[0] = 98;
-	free(pData);
-	free(data);
-	boo(data);
-	free(ppData);
-	pthread_mutex_unlock(&mLock);
-	free(ppData);
-	int test = 100;
-	//會影響強迫程式結束
-	// pthread_exit(test); // 離開子執行緒
-
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-void *child4(int *data)
-{
-	// pthread_detach(pthread_self());
-	int *pData = &data;
-	int *test = &data;
-	int t;
-	if (t)
-	{
-		*data = *data + 1;
-	}
-	else
-		*data = 2;
-	// ++(*(int *)pData);
-	// int input[2] = {1, 2}; // 輸入的資料
-	// int input2; // 輸入的資料
-	// data=10;
-	// data=10;
-	// data=10;
-	// data=10;
-	// free(&pData);
-
-	// pthread_detach(pthread_self());
-	//
-	printf("asdda%d\n", pData);
-
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-void *child3(void *data)
-{
-	pthread_detach(pthread_self());
-	int *pData = &data;
-	int c = 10;
-	pData = pData + 1;
-	// ++(*(int *)pData);
-	// int input[2] = {1, 2}; // 輸入的資料
-	// int input2; // 輸入的資料
-	// data=10;
-	// data=10;
-	// data=10;
-	// data=10;
-	// free(&pData);
-	printf("asdda%d\n", pData);
-	printf("asdda%d\n", c);
-	free(&data);
-	// pthread_detach(pthread_self());
-	//
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-void *child5(void *data)
-{
-	pthread_detach(pthread_self());
-	int *pData = data;
-	int c;
-	pData = pData + 1;
-	// ++(*(int *)pData);
-	// int input[2] = {1, 2}; // 輸入的資料
-	// int input2; // 輸入的資料
-	// data=10;
-	// data=10;
-	// data=10;
-	// data=10;
-	// free(&pData);
-	if (c)
-	{
-
-		printf("asdda%d\n", pData);
-	}
-	else
-	{
-		printf("asdda%d\n", c);
-		free(pData);
-	}
-	// pthread_detach(pthread_self());
-	//
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-void *child6(void *data, void *test)
-{
-	pthread_detach(pthread_self());
-	int *pData = test;
-	int c;
-	pData = pData + 1;
-	// ++(*(int *)pData);
-	// int input[2] = {1, 2}; // 輸入的資料
-	// int input2; // 輸入的資料
-	// data=10;
-	// data=10;
-	// data=10;
-	// data=10;
-	// free(&pData);
-	if (c)
-	{
-
-		pData = pData + 20;
-		printf("asdda%d\n", pData);
-	}
-	else
-	{
-		pData = pData + 20;
-		printf("asdda%d\n", c);
-		free(pData);
-	}
-	// pthread_detach(pthread_self());
-	//
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-int *child7(void *data, void *test)
-{
-	pthread_detach(pthread_self());
-	int *pData = test;
-	int c;
-	pData = pData + 1;
-	// ++(*(int *)pData);
-	// int input[2] = {1, 2}; // 輸入的資料
-	// int input2; // 輸入的資料
-	// data=10;
-	// data=10;
-	// data=10;
-	// data=10;
-	// free(&pData);
-	if (c)
-	{
-	p98[3] = 300;
-		return malloc(10);
-		printf("asdda%d\n", pData);
-	}
-	else
-	{
-		p98[2] = 300;
-		pData = pData + 20;
-		printf("asdda%d\n", c);
-		return malloc(30);
-	}
-	// pthread_detach(pthread_self());
-	//
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-void *child2(void *data)
-{
-
-	int *pData = &data;
-p98[1] = 99;
-	// int input[2] = {1, 2}; // 輸入的資料
-	// int input2; // 輸入的資料
-	// data=10;
-	// data=10;
-	// data=10;
-	// data=10;
-	// free(&pData);
-	// int a;
-
-	// ++(*(int *)data);
-	// ++(*(int *)pData);
-	child3(data);
-	free(data);
-	//
-	// printf("asdda%d\n" ,input2);
-	//a3
-	// pthread_mutex_lock(&mLock);
-	// int a = 10;
-	// int *ptr1 = &a;
-	// int **ptr2 = &ptr1;
-	// int ***ptr3 = &ptr2;
-	// pthread_mutex_unlock(&mLock);
-	// pthread_exit(NULL); // 離開子執行緒
-}
-int *foo(int z);
-void boo(int *b)
-{
-	free(b);
-	free(b);
-	test22(b);
-	// pthread_detach(pthread_self());
-	printf("asdda\n");
-}
-void test44(int *k)
-{
-	free(k);
-}
-void test33(int *k)
-{
-	test44(k);
-}
-void test22(int *k)
-{
-	free(k);
-	free(k);
-	free(k);
-	free(k);
-	free(k);
-	free(k);
-	int *w = malloc(5);
-	free(w);
-	// test22(k);
-}
-static int staticTrue = 1;	/* true */
-static int staticFalse = 0; /* false */
-struct adresse
+struct other_sections
 {
 	char *name;
-	int nummer;
+	int secindex;
 };
-int main()
+
+struct section_addr_info
 {
-	int *p;
-	int *p2;
+	size_t num_sections;
+	struct other_sections other[1];
+};
 
-	int size = 2;
-	int *p3 = &size;
-	struct adresse *a = (struct adresse *)malloc(sizeof(struct adresse) * size);
+struct sect_opt
+{
+	const char *name;
+	const char *value;
+};
 
-	for (int i = 0; i < size; i++)
-	{
-		a[i].name = "Testname";
-		a[i].nummer = 123;
-	}
-	free(a);
-	for (int i = 0; i < size; i++)
-	{
-		printf("%s, %d\n", a[i].name, a[i].nummer);
-	}
+void
+null_cleanup (void *arg)
+{
+}
 
-	int input[2] = {1, 2}; // 輸入的資料
-	int input2;			   // 輸入的資料
-	// int *p3;
-	// // test= malloc (sizeof (int ) * 10);
-	// // foo3(p);
-	// p3 = foo(2);
-	// p3[0] = 1;
-	// free(p3);
-	// p = foo2(2);
-	// p[0] = 2;
-	// p2 = foo2(2);
+void *
+xrealloc (void *oldmem, size_t size)
+{
+  void *newmem;
 
-	// p2[0] = 4;
-	// // test22(p);
-	// // test22(p);
-	// // test33(p2);
-	// free(p);
-	// free(p2);
-	// boo(p);
-	// int n;
-	char buff[50];
+  if (size == 0)
+    size = 1;
 
-	pthread_attr_t attr, attr2;
-	pthread_attr_init(&attr);
-	pthread_attr_init(&attr2);
-	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
-	pthread_attr_setdetachstate(&attr2, PTHREAD_CREATE_JOINABLE);
+  newmem = realloc (oldmem, size); /* allocation site */
 
-	pthread_t t, t2[3]; // 宣告 pthread 變數
-	pthread_create(&t, &attr2, child2, input2);
+  if (!newmem)
+		exit(1);
 
-	pthread_join(t, NULL);
-	// pthread_mutex_destroy(&mLock);
-	// pthread_create(&t, &attr, child, buff); // 建立子執行緒
-	for (int i = 0; i < 3; i++)
-	{
-		int err = pthread_create(&t2[i], &attr2, child, NULL);
+  return (newmem);
+}
+	
+static void
+add_symbol_file_command (char **args)
+{
+	int section_index = 0;
+  int sec_num = 0;
+  char *arg;
+	int expecting_sec_addr = 0;
+  int expecting_sec_name = 0;
+  int argcnt = 0;
+	int i;
 
-		printf("%ld\n", t2[i]);
-	}
-	int *q = malloc(70);
-	int *q2 = malloc(20);
+	struct cleanup *my_cleanups = make_cleanup (null_cleanup, NULL);
 
-	int test;
-	if ((q != NULL) && test)
-	{
+	struct section_addr_info *section_addrs;
+	struct sect_opt *sect_opts = NULL;
+	size_t num_sect_opts = 0;
 
-		// child(q);
-		// child6(test, q);
-		q=child7(test,q);
-		q[0] = 10;
-		free(q);
-	}
-	else
-	{
-		q[0] = 20;
-		// child(q2);
-		printf("test\n");
-	}
-	int *q3 ;
-	if(test ){
-		q3 = malloc (10);
-		// printf("tes%dt\n" ,q3);
-	}else {
-		q3 = foo6(10);
-		// printf("tes%dt\n" ,q3);
-	}
-printf("tes%dt\n" ,q3);
-	for (int i = 0; i < 3; i++)
-	{
+	num_sect_opts = 4;
+	sect_opts = xmalloc (sizeof(struct sect_opt) * num_sect_opts); /* allocation site */
 
-		pthread_join(t2[i], NULL);
-	}
-	int *data;
-	/* Initialize data */
-	data = NULL;
-	if (staticTrue)
-	{
-		data = (int *)malloc(100 * sizeof(int));
-		if (data == NULL)
+
+	if (args == NULL) exit (1);
+
+	for (arg = args[0]; arg != NULL; arg = args[++argcnt])
 		{
-			exit(-1);
+			if (argcnt == 0)
+				continue;
+
+			else if (argcnt == 1)
+				{
+					sect_opts[section_index].name = ".text";
+					sect_opts[section_index].value = arg;
+					if (++section_index >= num_sect_opts)
+						{
+							num_sect_opts *= 2;
+							sect_opts = ((struct sect_opt *)
+										xrealloc (sect_opts, num_sect_opts
+									* sizeof (struct sect_opt)));
+						}
+				}
+			else
+				{
+					if (expecting_sec_name)
+						{
+							sect_opts[section_index].value = arg;
+							expecting_sec_addr = 0;
+						}
+					else if (expecting_sec_addr)
+						{
+							sect_opts[section_index].value = arg;
+							expecting_sec_addr = 0;
+
+							if (++section_index >= num_sect_opts)
+								{
+									num_sect_opts *= 2;
+									sect_opts = ((struct sect_opt *)
+												 xrealloc (sect_opts, num_sect_opts
+											 * sizeof (struct sect_opt)));
+								}
+						}
+					else if (strcmp (arg, "-s") == 0)
+						{
+							expecting_sec_name = 1;
+							expecting_sec_addr = 1;
+						}
+					else
+						exit (1);
+				}
 		}
-		/* POTENTIAL FLAW: Free data in the source - the bad sink frees data as well */
-		free(data);
-	}
-	if (staticTrue)
-	{
-		/* POTENTIAL FLAW: Possibly freeing memory twice */
-		free(data);
-	}
-	printf("123%d\n", foo5(q, q));
+	
+		if (section_index < 1)
+			exit (1);
 
-	int *p4 = malloc(10);
-	p4 = NULL;
-	p4 = 1;
+		section_addrs = malloc (sizeof(struct section_addr_info));
+		make_cleanup (free, section_addrs);
+		
+		for (i = 0; i < section_index; i++)
+			{
+				const char *val = sect_opts[i].value;
+				const char *sec = sect_opts[i].name;
 
-	child4(p4);
-	p4 = child7(test, p4);
-	free(p4);
-	p98 = malloc(201);
-	child(p98);
-	free(p98);
-	// test22(q);
+				/* Here we store the section offsets in the order they were
+					 entered on the command line.  */
+				section_addrs->other[sec_num].name = (char *) sec;
+				sec_num++;
+				/* The object's sections are initialized when a
+		 call is made to build_objfile_section_table (objfile).
+		 This happens in reread_symbols.
+		 At this point, we don't know what file type this is,
+		 so we can't determine what section names are valid.  */
+			}
+		section_addrs->num_sections = sec_num;
 
-	// // 主執行緒工作
-	// //   for(int i = 0;i < 3;++i) {
-	// //     printf("Master\n"); // 每秒輸出文字
-	// //     sleep(1);
-	// //   }
+		do_cleanups (my_cleanups);
 
-	// pthread_join(t, NULL); // 等待子執行緒執行完成
-	// pthread_mutex_destroy(&mLock);
-	// scanf("%d",n);
-	// p=foo(2);
-	// if(n)
-	// 	free(p);
-	// else
-	// 	boo(p);
-	// q=p;
-	// free(q);
-	// printf("%d",q);
+		return; /* memory leak */
+}
 
-	return 0;
+int main ()
+{
+	const char *args[6] = {"prog", "v", "-s", "idx", "addr", NULL};
+	add_symbol_file_command(args);
+
 }

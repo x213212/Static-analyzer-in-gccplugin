@@ -45,6 +45,26 @@ int check_stmtStack(tree target)
 	stmtStack.push(target);
 	return 0;
 }
+int check_stmtStack2(gimple *stmt)
+{
+	for (int o = 0; o < stmtStack.size(); o++)
+	{
+
+		if (stmtStack2.c[o] == stmt)
+		{
+			// find = 1;
+			fprintf(stderr, "\033[40;41m =======recursive_stmt========= \033[0m\n");
+			// debug_tree(stmtStack.c[o]);
+			// fprintf(stderr, "\033[40;41m =======recursive_fun:%s========= \033[0m\n", get_name(stmtStack.c[o]));
+			// pathStack.push((function_path_array)[i].next);
+			return 1;
+		}
+	}
+	int size = sizeof(stmt);
+	totalsize += size;
+	stmtStack2.push(stmt);
+	return 0;
+}
 /*new_search_imm_use */
 void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 {
@@ -108,6 +128,9 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 					// fprintf(stderr, "--------GIMPLE Cond222 -------\n");
 				}
 		}
+
+		// fprintf(stderr, "--------GIMPLE goto -------\n");
+		// debug_gimple_stmt(use_stmt);
 		// if(gimple_goto_dest (use_stmt)){
 		// 	fprintf(stderr, "--------GIMPLE goto -------\n");
 		// 	debug_gimple_stmt(use_stmt);
@@ -331,25 +354,6 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 			else if (gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == COMPONENT_REF)
 			{
-
-				if (TREE_CODE(gimple_assign_lhs(use_stmt)) == SSA_NAME)
-				{
-					if (!check_stmtStack(gimple_assign_lhs(use_stmt)))
-					{
-
-						set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target, NULL);
-
-						new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt), gimple_assign_lhs(use_stmt));
-					}
-				}
-				else
-				{
-					if (!check_stmtStack(gimple_assign_lhs(use_stmt)))
-					{
-
-						set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target, NULL);
-					}
-				}
 				if (TREE_CODE(gimple_assign_rhs1(use_stmt)) == SSA_NAME)
 				{
 
@@ -362,6 +366,59 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 							new_search_imm_use(used_stmt, gimple_assign_rhs1(use_stmt), gimple_assign_rhs1(use_stmt));
 					}
 				}
+				// debug_tree(gimple_assign_lhs(use_stmt));
+	// 			tree second = TREE_OPERAND(gimple_assign_lhs(use_stmt), 0);
+	// 			if(second)
+	// 			if (TREE_CODE(second) == MEM_REF)
+	// 			{
+	// 				tree three = TREE_OPERAND(second, 0);
+	// 				if(three)
+	// 				if (TREE_CODE(three) == SSA_NAME)
+	// 				{
+	// 					if (!check_stmtStack(three))
+	// 					{
+	// fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
+	// 						// set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target, NULL);
+	// 						debug_tree(three);
+	// 						// if (gimple_assign_lhs(use_stmt) != target2)
+	// 						// new_search_imm_use(used_stmt, three, three);
+	// 					}
+	// 				}
+	// 			}
+
+			}
+			else if (gimple_assign_rhs1(use_stmt) && TREE_CODE(gimple_assign_rhs1(use_stmt)) == COMPONENT_REF)
+			{
+				if (TREE_CODE(gimple_assign_lhs(use_stmt)) == SSA_NAME)
+				{
+
+					if (!check_stmtStack(gimple_assign_lhs(use_stmt)))
+					{
+
+						set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target, NULL);
+
+						if (gimple_assign_lhs(use_stmt) != target2)
+							new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt), gimple_assign_lhs(use_stmt));
+					}
+				}
+	// 			tree second = TREE_OPERAND(gimple_assign_rhs1(use_stmt), 0);
+	// 			if(second)
+	// 			if (TREE_CODE(second) == MEM_REF)
+	// 			{
+	// 				tree three = TREE_OPERAND(second, 0);
+	// 				if(three)
+	// 				if (TREE_CODE(three) == SSA_NAME)
+	// 				{
+	// 					if (!check_stmtStack(three))
+	// 					{
+	// fprintf(stderr, "-----------------GIMPLE_CALL : FIN22D------------------\n");
+	// 						// set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target, NULL);
+	// 						debug_tree(three);
+	// 						// if (gimple_assign_lhs(use_stmt) != target2)
+	// 						// new_search_imm_use(used_stmt, three, three);
+	// 					}
+	// 				}
+	// 			}
 			}
 		}
 		else if (gimple_code(use_stmt) == GIMPLE_PHI)
@@ -370,16 +427,20 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 			if (gimple_phi_result(use_stmt) && TREE_CODE(gimple_phi_result(use_stmt)) == SSA_NAME)
 			{
 
-				if (!check_stmtStack(gimple_phi_result(use_stmt)))
+				if (TREE_CODE(gimple_phi_result(use_stmt)) == SSA_NAME)
 				{
-
-					set_gimple_array(used_stmt, use_stmt, gimple_phi_result(use_stmt), target, NULL);
-
-					if (TREE_CODE(gimple_phi_result(use_stmt)) == SSA_NAME)
+					if (!check_stmtStack(gimple_phi_result(use_stmt)) && !check_stmtStack2(use_stmt))
 					{
-						new_search_imm_use(used_stmt, gimple_phi_result(use_stmt), gimple_phi_result(use_stmt));
+						set_gimple_array(used_stmt, use_stmt, gimple_phi_result(use_stmt), target, NULL);
+						// debug_tree(gimple_phi_result(use_stmt));
+						if (gimple_phi_result(use_stmt) != target2)
+						{
+							fprintf(stderr, "tewtw\n");
+							new_search_imm_use(used_stmt, gimple_phi_result(use_stmt), gimple_phi_result(use_stmt));
+						}
 					}
 				}
+
 				// }
 			}
 		}
@@ -661,6 +722,13 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				// fprintf(stderr, "check stmt\n");
 				// debug(stmtStack.top());
 				stmtStack.pop();
+			}
+			while (stmtStack2.size())
+			{
+				// colectCount++;
+				// fprintf(stderr, "check stmt\n");
+				// debug(stmtStack.top());
+				stmtStack2.pop();
 			}
 			// table1->size
 			// debug_tree(used_stmt->target);
@@ -1016,13 +1084,22 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				used_stmt = &start;
 				if (user_tmp != NULL)
 				{
-					hash_map<tree, function_relate_array> *function_relate_collect2;
-					function_relate_collect2 = new hash_map<tree, function_relate_array>;
+					hash_map<tree, function_relate_array> *function_maxbb_collect;
+					function_maxbb_collect = new hash_map<tree, function_relate_array>;
 					tree lastfucntion = NULL;
 					gimple *laststmt = NULL;
-					vector<relate_type> relate_type_array2;
-					function_relate_array fun_array2;
-
+					vector<relate_type> maxbb_type_array;
+					function_relate_array maxbb_array;
+					if (function_maxbb_collect->get(table_temp->target) == NULL)
+					{
+						// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
+						maxbb_array.relate_type_array = maxbb_type_array;
+					}
+					else
+					{
+						maxbb_array = *(function_maxbb_collect->get(table_temp->target));
+						maxbb_type_array = maxbb_array.relate_type_array;
+					}
 					int lastbasicblock = -1;
 					if (table_temp->swap_type == FUNCITON_THREAD)
 						fprintf(stderr, " \n Start is Pthread Job Collect  \n");
@@ -1099,16 +1176,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							}
 							else
 							{
-								if (function_relate_collect2->get(table_temp->target) == NULL)
-								{
-									// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
-									fun_array2.relate_type_array = relate_type_array2;
-								}
-								else
-								{
-									fun_array2 = *(function_relate_collect2->get(table_temp->target));
-									relate_type_array2 = fun_array2.relate_type_array;
-								}
 
 								gimple *finalstmt;
 								if (user_tmp->target != NULL)
@@ -1172,24 +1239,24 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												fprintf(stderr, "dot graph target basicblock end\n\n");
 												// if ((gimple_bb(u_stmt)->index > fun_array2.relate_type_array.now_basicblock) && BLOCK_SUPERCONTEXT(gimple_block(u_stmt)) == fun_array2.relate_type_array.relate_funtree)
 												// {
-												fprintf(stderr, "\n===================================wwwwwwwwwwwww=================%d===\n", gimple_bb(u_stmt)->index);
-												debug_gimple_stmt(u_stmt);
+												// fprintf(stderr, "\n===================================wwwwwwwwwwwww=================%d===\n", gimple_bb(u_stmt)->index);
+												// debug_gimple_stmt(u_stmt);
 												relate_type.relate_funtree = BLOCK_SUPERCONTEXT(gimple_block(u_stmt));
 												// }
 												// relate_type.relate_funtree = BLOCK_SUPERCONTEXT(gimple_block(u_stmt));
 											}
 											else
 											{
-												fprintf(stderr, "\n==================================zzzzzzzzz================%d===\n", gimple_bb(u_stmt)->index);
-												debug_gimple_stmt(u_stmt);
-												// debug_tree( BLOCK_SUPERCONTEXT(gimple_block(u_stmt)));
-												tree TEST = BLOCK_SUPERCONTEXT(gimple_block(u_stmt));
+												// fprintf(stderr, "\n==================================zzzzzzzzz================%d===\n", gimple_bb(u_stmt)->index);
+												// debug_gimple_stmt(u_stmt);
+												// // debug_tree( BLOCK_SUPERCONTEXT(gimple_block(u_stmt)));
+												// tree TEST = BLOCK_SUPERCONTEXT(gimple_block(u_stmt));
 
 												// while(TREE_CODE(TEST)!=FUNCTION_DECL){
 												// 	TEST = BLOCK_SUPERCONTEXT(TEST);
 												// }
 												// debug_tree( TEST);
-												debug_tree(function_tree);
+												// debug_tree(function_tree);
 												relate_type.relate_funtree = function_tree;
 											}
 										// if (gimple_bb(u_stmt)->index  > fun_array2.relate_type_array.now_basicblock && ())
@@ -1200,8 +1267,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										relate_type.relate_tree = user_tmp->target;
 										// relate_type.relate_funtree = function_tree;
 										relate_type.now_basicblock = gimple_bb(u_stmt)->index;
-										fun_array2.relate_type_array.push_back(relate_type);
-										function_relate_collect2->put(table_temp->target, fun_array2);
+										maxbb_array.relate_type_array.push_back(relate_type);
+										function_maxbb_collect->put(table_temp->target, maxbb_array);
 										// int find = 0;
 										// for (int i = 0; i < relate_type_array2.size(); i++)
 										// {
@@ -1622,51 +1689,54 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							// fprintf(stderr, "\n========================================================================\n");
 							// if (laststmt)
 						}
-						lastbasicblock = -1;
-						fun_array2 = *(function_relate_collect2->get(table_temp->target));
-						relate_type_array2 = fun_array2.relate_type_array;
-						hash_map<tree, int> *function_maxbasicblock_collect = new hash_map<tree, int>;
-						for (int i = 0; i < relate_type_array2.size(); i++)
+						if (debugmod)
 						{
-							function_maxbasicblock_collect->put(relate_type_array2[i].relate_funtree, relate_type_array2[i].now_basicblock);
-							for (int j = 0; j < relate_type_array2.size(); j++)
+							lastbasicblock = -1;
+							maxbb_array = *(function_maxbb_collect->get(table_temp->target));
+							maxbb_type_array = maxbb_array.relate_type_array;
+							hash_map<tree, int> *function_maxbasicblock_collect = new hash_map<tree, int>;
+							for (int i = 0; i < maxbb_type_array.size(); i++)
 							{
-								// if (i != j)
-								// {
-								if (relate_type_array2[i].relate_funtree == relate_type_array2[j].relate_funtree)
+								function_maxbasicblock_collect->put(maxbb_type_array[i].relate_funtree, maxbb_type_array[i].now_basicblock);
+								for (int j = 0; j < maxbb_type_array.size(); j++)
 								{
-									int max_bb;
-							// debug_tree(it_i->relate_funtree);
-									max_bb = *(function_maxbasicblock_collect)->get(relate_type_array2[i].relate_funtree);
-									if (relate_type_array2[j].now_basicblock >= max_bb)
-										function_maxbasicblock_collect->put(relate_type_array2[j].relate_funtree, relate_type_array2[j].now_basicblock);
+									// if (i != j)
+									// {
+									if (maxbb_type_array[i].relate_funtree == maxbb_type_array[j].relate_funtree)
+									{
+										int max_bb;
+										// debug_tree(it_i->relate_funtree);
+										max_bb = *(function_maxbasicblock_collect)->get(maxbb_type_array[i].relate_funtree);
+										if (maxbb_type_array[j].now_basicblock >= max_bb)
+											function_maxbasicblock_collect->put(maxbb_type_array[j].relate_funtree, maxbb_type_array[j].now_basicblock);
+									}
+									// }
 								}
-								// }
 							}
-						}
-						vector<relate_type>::iterator it_i;
-						for (it_i = relate_type_array2.begin(); it_i != relate_type_array2.end(); ++it_i)
-						{
-							int max_bb;
-							debug_tree(it_i->relate_funtree);
-							max_bb = *(function_maxbasicblock_collect)->get(it_i->relate_funtree);
-							// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===%d==%s===============\n", it_i->now_basicblock, get_name(it_i->relate_funtree));
-							// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===%d==%s===============\n", max_bb, get_name(it_i->relate_funtree));
-							if (max_bb == (it_i->now_basicblock))
+							vector<relate_type>::iterator it_i;
+							for (it_i = maxbb_type_array.begin(); it_i != maxbb_type_array.end(); ++it_i)
 							{
+								int max_bb;
+								// debug_tree(it_i->relate_funtree);
+								max_bb = *(function_maxbasicblock_collect)->get(it_i->relate_funtree);
+								// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===%d==%s===============\n", it_i->now_basicblock, get_name(it_i->relate_funtree));
 								// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===%d==%s===============\n", max_bb, get_name(it_i->relate_funtree));
-								// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===============%d=====\n", lastbasicblock);
-								gimple *def_stmt = SSA_NAME_DEF_STMT(it_i->relate_tree);
-								fprintf(stderr, "dot graph target basicblock start ");
-								fprintf(stderr, "from %s basic block %d", (char *)get_name(it_i->relate_funtree), gimple_bb(it_i->stmt)->index);
-								fprintf(stderr, "dot graph target basicblock en1\n\n");
-								unsigned long x = rand();
-								fprintf(stderr, "dot graph arrow");
-								fprintf(stderr, "subgraph cluster_%lu dot graph subgraph  ", x);
-								debug(it_i->stmt);
-								debug(def_stmt);
+								if (max_bb == (it_i->now_basicblock))
+								{
+									// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===%d==%s===============\n", max_bb, get_name(it_i->relate_funtree));
+									// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===============%d=====\n", lastbasicblock);
+									gimple *def_stmt = SSA_NAME_DEF_STMT(it_i->relate_tree);
+									fprintf(stderr, "dot graph target basicblock start ");
+									fprintf(stderr, "from %s basic block %d", (char *)get_name(it_i->relate_funtree), gimple_bb(it_i->stmt)->index);
+									fprintf(stderr, "dot graph target basicblock en1\n\n");
+									unsigned long x = rand();
+									fprintf(stderr, "dot graph arrow");
+									fprintf(stderr, "subgraph cluster_%lu dot graph subgraph  ", x);
+									debug(it_i->stmt);
+									debug(def_stmt);
 
-								fprintf(stderr, "dot graph subgrapend\n\n");
+									fprintf(stderr, "dot graph subgrapend\n\n");
+								}
 							}
 						}
 					}
@@ -1676,50 +1746,52 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					}
 					// fprintf(stderr, "\n===================================wwwwwwwwwwwww==========================\n");
 					// fprintf(stderr, "\n====================================zzz=================================\n");
-					vector<relate_type> relate_type_array;
-					function_relate_array fun_array;
-					debug_tree(table_temp->target);
-					if (function_relate_collect->get(table_temp->target) != NULL)
+					if (debugmod)
 					{
-						// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
-
-						fun_array = *(function_relate_collect->get(table_temp->target));
-						relate_type_array = fun_array.relate_type_array;
-
-						// struct relate_type relate_type;
-						// relate_type.stmt = now_relatelaststmt;
-						// relate_type.relate_tree = mallocStmt_tree;
-						// relate_type.relate_funtree = function_tree;
-						for (int k = 0; k < relate_type_array.size(); k++)
+						vector<relate_type> relate_type_array;
+						function_relate_array fun_array;
+						debug_tree(table_temp->target);
+						if (function_relate_collect->get(table_temp->target) != NULL)
 						{
+							// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
 
-							// debug((relate_type_array)[k].stmt);
-							// debug_tree((relate_type_array)[k].relate_funtree);
-							// fprintf(stderr, "dot graph subgraph\n");
-							// fprintf(stderr, "dot graph target loc start ");
-							// 				debug_gimple_stmt(table_temp->last_stmt);
-							// 				warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
-							// 				fprintf(stderr, "dot graph target loc end\n\n");
-							// fprintf(stderr, "dot graph start relate for1");
-							// fprintf(stderr, "ID : %lu\n", (relate_type_array)[k].now_fucntion);
-							// fprintf(stderr, "from %s basic block %d", (char *)get_name((relate_type_array)[k].relate_funtree), gimple_bb((relate_type_array)[k].stmt)->index);
-							// fprintf(stderr, "dot graph end relate end\n\n");
-							unsigned long x = rand();
-							fprintf(stderr, "dot graph start relate for1");
-							fprintf(stderr, "ID : %lu\n", (relate_type_array)[k].now_fucntion);
-							fprintf(stderr, "from %s basic block %d", (char *)get_name((relate_type_array)[k].relate_funtree), gimple_bb((relate_type_array)[k].stmt)->index);
-							fprintf(stderr, "dot graph end relate end\n\n");
-							fprintf(stderr, "subgraph cluster_%lu dot graph subgraph  start ID : %lu stmt(relate) ， Tree ID : %lu : ", x, (relate_type_array)[k].now_stmt, (relate_type_array)[k].now_fucntion);
-							debug((relate_type_array)[k].stmt);
-							warning_at(gimple_location((relate_type_array)[k].stmt), 0, "use location");
+							fun_array = *(function_relate_collect->get(table_temp->target));
+							relate_type_array = fun_array.relate_type_array;
 
-							fprintf(stderr, "dot graph subgrapend\n\n");
-							// warning_at(gimple_location(now_relatelaststmt), 0, "use location");
+							// struct relate_type relate_type;
+							// relate_type.stmt = now_relatelaststmt;
+							// relate_type.relate_tree = mallocStmt_tree;
+							// relate_type.relate_funtree = function_tree;
+							for (int k = 0; k < relate_type_array.size(); k++)
+							{
+
+								// debug((relate_type_array)[k].stmt);
+								// debug_tree((relate_type_array)[k].relate_funtree);
+								// fprintf(stderr, "dot graph subgraph\n");
+								// fprintf(stderr, "dot graph target loc start ");
+								// 				debug_gimple_stmt(table_temp->last_stmt);
+								// 				warning_at(gimple_location(table_temp->last_stmt), 0, "use location");
+								// 				fprintf(stderr, "dot graph target loc end\n\n");
+								// fprintf(stderr, "dot graph start relate for1");
+								// fprintf(stderr, "ID : %lu\n", (relate_type_array)[k].now_fucntion);
+								// fprintf(stderr, "from %s basic block %d", (char *)get_name((relate_type_array)[k].relate_funtree), gimple_bb((relate_type_array)[k].stmt)->index);
+								// fprintf(stderr, "dot graph end relate end\n\n");
+								unsigned long x = rand();
+								fprintf(stderr, "dot graph start relate for1");
+								fprintf(stderr, "ID : %lu\n", (relate_type_array)[k].now_fucntion);
+								fprintf(stderr, "from %s basic block %d", (char *)get_name((relate_type_array)[k].relate_funtree), gimple_bb((relate_type_array)[k].stmt)->index);
+								fprintf(stderr, "dot graph end relate end\n\n");
+								fprintf(stderr, "subgraph cluster_%lu dot graph subgraph  start ID : %lu stmt(relate) ， Tree ID : %lu : ", x, (relate_type_array)[k].now_stmt, (relate_type_array)[k].now_fucntion);
+								debug((relate_type_array)[k].stmt);
+								warning_at(gimple_location((relate_type_array)[k].stmt), 0, "use location");
+
+								fprintf(stderr, "dot graph subgrapend\n\n");
+								// warning_at(gimple_location(now_relatelaststmt), 0, "use location");
+							}
+							// fun_array.relate_type_array.push_back(relate_type);
+							// function_relate_collect->put(mallocStmt_tree, fun_array);
 						}
-						// fun_array.relate_type_array.push_back(relate_type);
-						// function_relate_collect->put(mallocStmt_tree, fun_array);
 					}
-
 					// fprintf(stderr, "\n====================================ffff=================================\n");
 					// vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
 					// for (int k = 0; k < callerRetTypearray.size(); k++)

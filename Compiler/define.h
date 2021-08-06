@@ -266,7 +266,7 @@ bool ipa = true;
 bool debugmod = true;
 bool threadmod = true;
 bool relatemod = true;
-bool freemod = false;
+bool freemod = true;
 bool freemodv2 = false;
 bool retmod = true;
 bool pthread_detachedmod = true;
@@ -288,6 +288,7 @@ public:
 CStack pathStack;
 CStack traceStack;
 CStack stmtStack;
+CstmtStack stmtStack2;
 //stack<tree> pathStack;  // 建立堆疊
 function *main_fun;
 //int check_stmtStack(gimple *stmt);
