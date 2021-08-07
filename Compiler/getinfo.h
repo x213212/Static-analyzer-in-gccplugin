@@ -8,9 +8,13 @@ function_assign_array ret_function_varstmt(tree function_tree)
 
 		vector<assign_type> assign_type_array = assign_array.assign_type_array;
 		assign_array.pass = 1;
-		//debug_tree(function_tree);
+		// debug_tree(function_tree);
 		//vector<pair<fdecl,location_t>> loc;
-		fprintf(stderr, "=======print_function_var %d   %d========\n", function_tree, assign_type_array.size());
+		// fprintf(stderr, "=======prinst_function_var %d   %d========\n", function_tree, assign_type_array.size());
+		// for (int i =0 ; i < assign_type_array.size() ; i++)
+		// {
+		// 	debug_gimple_stmt( assign_type_array[i].stmt);
+		// }
 		function_assign_collect->put(function_tree, assign_array);
 	}
 	// fprintf(stderr, "[\n");

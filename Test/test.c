@@ -1,168 +1,95 @@
-/*
-    commit id : 7e960b208fdec3205dd64747ed8b6a142f75e51e
-*/
+// commit id : 66d2e229baa9fe57b86
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
 
-#include "common.h"
-#include "binutils.h"
+#include "stdio.h"
+#include "openssh.h"
 
-#define DEBUG_SUBDIRECTORY ".debug"
-#define LONGEST BFD_HOST_64_BIT
-#define ULONGEST BFD_HOST_U_64_BIT
-char *debug_file_directory = NULL;
-char *gdb_sysroot = 0;
+#define fds_bits __fds_bits
+# define howmany(x,y)	(((x)+((y)-1))/(y))
 
-
-typedef struct {} asection;
-typedef double DOUBLEST;
-typedef bfd_byte gdb_byte;
-struct objfile{
-    struct build_id *obfd;
-    char *name;
-};
-
-char *
-lrealpath (const char *filename)
+int select(int a, fd_set *b, fd_set *c, fd_set *d, struct timeval *e)
 {
-  /* This system is a lost cause, just duplicate the filename.  */
-  return strdup (filename); /* allocation site */
+    if(b) b->fds_bits[0] = a;
+    if(c) c->fds_bits[0] = a;
+    if(d) d->fds_bits[0] = a;
+    return 1;
 }
-static char *
-find_separate_debug_file (struct objfile *objfile)
+
+void
+ms_to_timeval(struct timeval *tv, int ms)
 {
-  asection *sect;
-  char *basename;
-  char *dir;
-  char *debugfile;
-  char *name_copy;
-  char *canon_name;
-  bfd_size_type debuglink_size;
-  unsigned long crc32;
-  int i;
-  struct build_id *build_id;
+	if (ms < 0)
+		ms = 0;
+	tv->tv_sec = ms / 1000;
+	tv->tv_usec = (ms % 1000) * 1000;
+}
 
-  build_id = build_id_bfd_get (objfile->obfd);
-  if (build_id != NULL)
-    {
-      char *build_id_name;
+int
+ssh_packet_write_wait(struct ssh *ssh)
+{
+	fd_set *setp;
+	int ret, r, ms_remain = 0;
+	struct timeval start, timeout, *timeoutp = NULL;
+	struct session_state *state = ssh->state;
 
-      build_id_name = build_id_to_debug_filename (build_id);
-      xfree (build_id);
-      /* Prevent looping on a stripped .debug file.  */
-      if (build_id_name != NULL && strcmp (build_id_name, objfile->name) == 0)
-        {
-	  warning (_("\"%s\": separate debug info file has no debug info"),
-		   build_id_name);
-	  xfree (build_id_name);
+	setp = malloc(howmany(state->connection_out + 1,
+	    NFDBITS) * sizeof(fd_mask));	/* allocation site */
+	if (setp == NULL)
+		return SSH_ERR_ALLOC_FAIL;
+	if ((r = __RANDBOOL) != 0) {
+		// free(setp);						/* memory leak */
+		return r;
 	}
-      else if (build_id_name != NULL)
-        return build_id_name;
-    }
+	while (__RANDBOOL) {
+		memset(setp, 0, howmany(state->connection_out + 1,
+		    NFDBITS) * sizeof(fd_mask));
+		FD_SET(state->connection_out, setp);
 
-  basename = get_debug_link_info (objfile, &crc32);
-
-  if (basename == NULL)
-    return NULL;
-
-  dir = xstrdup (objfile->name);
-
-  /* Strip off the final filename part, leaving the directory name,
-     followed by a slash.  Objfile names should always be absolute and
-     tilde-expanded, so there should always be a slash in there
-     somewhere.  */
-  for (i = strlen(dir) - 1; i >= 0; i--)
-    {
-      if (IS_DIR_SEPARATOR (dir[i]))
-	break;
-    }
-  gdb_assert (i >= 0 && IS_DIR_SEPARATOR (dir[i]));
-  dir[i+1] = '\0';
-
-  /* Set I to max (strlen (canon_name), strlen (dir)). */
-  canon_name = lrealpath (dir);
-  i = strlen (dir);
-  if (canon_name && strlen (canon_name) > i)
-    i = strlen (canon_name);
-
-  debugfile = alloca (strlen (debug_file_directory) + 1
-                      + i
-                      + strlen (DEBUG_SUBDIRECTORY)
-                      + strlen ("/")
-                      + strlen (basename)
-                      + 1);
-
-  /* First try in the same directory as the original file.  */
-  strcpy (debugfile, dir);
-  strcat (debugfile, basename);
-
-  if (separate_debug_file_exists (debugfile, crc32))
-    {
-      xfree (basename);
-      xfree (dir);
-      xfree (canon_name);
-      return xstrdup (debugfile);
-    }
-
-  /* Then try in the subdirectory named DEBUG_SUBDIRECTORY.  */
-  strcpy (debugfile, dir);
-  strcat (debugfile, DEBUG_SUBDIRECTORY);
-  strcat (debugfile, "/");
-  strcat (debugfile, basename);
-
-  if (separate_debug_file_exists (debugfile, crc32))
-    {
-      xfree (basename);
-      xfree (dir);
-      xfree (canon_name);
-      return xstrdup (debugfile);
-    }
-
-  /* Then try in the global debugfile directory.  */
-  strcpy (debugfile, debug_file_directory);
-  strcat (debugfile, "/");
-  strcat (debugfile, dir);
-  strcat (debugfile, basename);
-
-  if (separate_debug_file_exists (debugfile, crc32))
-    {
-      xfree (basename);
-      xfree (dir);
-      xfree (canon_name);
-      return xstrdup (debugfile);
-    }
-
-  /* If the file is in the sysroot, try using its base path in the
-     global debugfile directory.  */
-  if (canon_name
-      && strncmp (canon_name, gdb_sysroot, strlen (gdb_sysroot)) == 0
-      && IS_DIR_SEPARATOR (canon_name[strlen (gdb_sysroot)]))
-    {
-      strcpy (debugfile, debug_file_directory);
-      strcat (debugfile, canon_name + strlen (gdb_sysroot));
-      strcat (debugfile, "/");
-      strcat (debugfile, basename);
-
-      if (separate_debug_file_exists (debugfile, crc32))
-	{
-	  xfree (canon_name);	/* double-free */
-	  xfree (basename);
-	  xfree (dir);
-	  xfree (canon_name);	/* double-free */
-	  return xstrdup (debugfile);
+		if (state->packet_timeout_ms > 0) {
+			ms_remain = state->packet_timeout_ms;
+			timeoutp = &timeout;
+		}
+		for (;;) {
+			if (state->packet_timeout_ms != -1) {
+				ms_to_timeval(&timeout, ms_remain);
+				gettimeofday(&start, NULL);
+			}
+			if ((ret = select(state->connection_out + 1,
+			    NULL, setp, NULL, timeoutp)) >= 0)
+				break;
+			if (errno != EAGAIN && errno != EINTR &&
+			    errno != EWOULDBLOCK)
+				break;
+			if (state->packet_timeout_ms == -1)
+				continue;
+			ms_remain = rand();
+			if (ms_remain <= 0) {
+				ret = 0;
+				break;
+			}
+		}
+		if (ret == 0) {
+			free(setp);
+			return SSH_ERR_CONN_TIMEOUT;
+		}
+		if ((r = __RANDBOOL) != 0) {
+			free(setp);
+			return r;
+		}
 	}
-    }
-  
-  if (canon_name)
-    xfree (canon_name);
+	free(setp);
+	return 0;
+}
 
-  xfree (basename);
-  xfree (dir);
-  return NULL;
+
+int main (int argc, char **argv) {
+        struct ssh ssh;
+        srand(time(NULL));
+		ssh_packet_write_wait(&ssh);
+        return 0;
 }
-int main()
-{
-    struct objfile objfile;
-    find_separate_debug_file(&objfile);
-    return 0;
-}
+
 
 

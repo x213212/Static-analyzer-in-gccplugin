@@ -1,191 +1,40 @@
 digraph {constraint=false ;rankdir = LR; rank=same; nodesep=1.0; 
 
 
-" find_separate_debug_file
+" run_processes_parallel
 "->
 
 
-" # VUSE <.MEM_157(D)>
-_1 = objfile_74(D)->obfd
+" # .MEM_294 = VDEF <.MEM_293>
+_53 = calloc (_52, 120)
 
 "
 
-[label=" form basic block 8: _11 = objfile_74(D)->name
-test.c:66:9: warning: use location
+[label=" form basic block 10: pp.children = _53
+test.c:191:15: warning: use location
 
 " ]
 
-" # VUSE <.MEM_157(D)>
-_1 = objfile_74(D)->obfd
+" # .MEM_294 = VDEF <.MEM_293>
+_53 = calloc (_52, 120)
 
 "->
 
-" from find_separate_debug_file basic block 8"
+" from run_processes_parallel basic block 10"
 
-->" _11 = objfile_74(D)->name
-_1 = objfile_74(D)->obfd
+->" pp.children = _53
+_53 = calloc (_52, 120)
 "
 
-->" _11 = objfile_74(D)->name
-test.c:66:9: warning: use location
-
-"
-
-" find_separate_debug_file
-"->
-
-
-" # VUSE <.MEM_157(D)>
-_1 = objfile_74(D)->obfd
+->" pp.children = _53
+test.c:191:15: warning: use location
 
 "
 
-[label=" form basic block 4: _6 = objfile_74(D)->name
-test.c:51:36: warning: use location
+" from run_processes_parallel basic block 10"
 
-" ]
-
-" # VUSE <.MEM_157(D)>
-_1 = objfile_74(D)->obfd
-
-"->
-
-" from find_separate_debug_file basic block 4"
-
-->" _6 = objfile_74(D)->name
-_1 = objfile_74(D)->obfd
-"
-
-->" _6 = objfile_74(D)->name
-test.c:51:36: warning: use location
-
-"
-
-" find_separate_debug_file
-"->
-
-
-" # VUSE <.MEM_157(D)>
-_1 = objfile_74(D)->obfd
-
-"
-
-[label=" form basic block 32: _64 = PHI <build_id_name_78(6), 0B(7), _149(19), _144(21), _139(23), _131(28), 0B(31)>
-lto1: warning: use location
-" ]
-
-" # VUSE <.MEM_157(D)>
-_1 = objfile_74(D)->obfd
-
-"->
-
-" from find_separate_debug_file basic block 32"
-
-->" _64 = PHI <build_id_name_78(6), 0B(7), _149(19), _144(21), _139(23), _131(28), 0B(31)>
-_1 = objfile_74(D)->obfd
-"
-
-->" _64 = PHI <build_id_name_78(6), 0B(7), _149(19), _144(21), _139(23), _131(28), 0B(31)>
-lto1: warning: use location
-"
-
-
-" find_separate_debug_file
-"->
-
-
-" # VUSE <.MEM_157(D)>
-_1 = objfile_74(D)->obfd
-
-"
-
-[label=" form basic block 5: free (build_id_name_78)
-test.c:55:4: warning: use location
-
-" ]
-
-" # VUSE <.MEM_157(D)>
-_1 = objfile_74(D)->obfd
-
-"->
-
-" from find_separate_debug_file basic block 5"
-
-->" free (build_id_name_78)
-_1 = objfile_74(D)->obfd
-"
-
-->" free (build_id_name_78)
-test.c:55:4: warning: use location
-
-"
-
-[color="green" ]
-
-
-" find_separate_debug_file
-"->
-
-
-" # VUSE <.MEM_157(D)>
-_1 = objfile_74(D)->obfd
-
-"
-
-[label=" form basic block 5: warning (_8, build_id_name_78)
-test.c:53:4: warning: use location
-
-" ]
-
-" # VUSE <.MEM_157(D)>
-_1 = objfile_74(D)->obfd
-
-"->
-
-" from find_separate_debug_file basic block 5"
-
-->" warning (_8, build_id_name_78)
-_1 = objfile_74(D)->obfd
-"
-
-->" warning (_8, build_id_name_78)
-test.c:53:4: warning: use location
-
-"
-
-
-" find_separate_debug_file
-"->
-
-
-" # VUSE <.MEM_157(D)>
-_1 = objfile_74(D)->obfd
-
-"
-
-[label=" form basic block 2: _1 = objfile_74(D)->obfd
-test.c:43:14: warning: use location
-" ]
-
-" # VUSE <.MEM_157(D)>
-_1 = objfile_74(D)->obfd
-
-"->
-
-" from find_separate_debug_file basic block 2"
-
-->" _1 = objfile_74(D)->obfd
-_1 = objfile_74(D)->obfd
-"
-
-->" _1 = objfile_74(D)->obfd
-test.c:43:14: warning: use location
-"
-
-" from find_separate_debug_file basic block 32"
-
-->subgraph cluster_1091108872 { style ="dashed";"  _64 = PHI <build_id_name_78(6), 0B(7), _149(19), _144(21), _139(23), _131(28), 0B(31)>
-build_id_name_78 = (char *) _5
+->subgraph cluster_1642849145 { style ="dashed";"  pp.children = _53
+_53 = calloc (_52, 120)
 ";}
 
 
@@ -195,189 +44,164 @@ build_id_name_78 = (char *) _5
 
 
 
-" find_separate_debug_file
+" run_processes_parallel
 "->
 
 
-" # VUSE <.MEM_160>
-_6 = objfile_74(D)->name
+" # .MEM_296 = VDEF <.MEM_295>
+_55 = calloc (_54, 8)
 
 "
 
-[label=" form basic block 8: _11 = objfile_74(D)->name
-test.c:66:9: warning: use location
+[label=" form basic block 10: pp.pfd = _55
+test.c:192:10: warning: use location
 
 " ]
 
-" # VUSE <.MEM_160>
-_6 = objfile_74(D)->name
+" # .MEM_296 = VDEF <.MEM_295>
+_55 = calloc (_54, 8)
 
 "->
 
-" from find_separate_debug_file basic block 8"
+" from run_processes_parallel basic block 10"
 
-->" _11 = objfile_74(D)->name
-_6 = objfile_74(D)->name
+->" pp.pfd = _55
+_55 = calloc (_54, 8)
 "
 
-->" _11 = objfile_74(D)->name
-test.c:66:9: warning: use location
+->" pp.pfd = _55
+test.c:192:10: warning: use location
 
 "
 
-" find_separate_debug_file
+" from run_processes_parallel basic block 10"
+
+->subgraph cluster_1731308215 { style ="dashed";"  pp.pfd = _55
+_55 = calloc (_54, 8)
+";}
+
+
+
+
+
+
+
+
+" main
 "->
 
 
-" # VUSE <.MEM_160>
-_6 = objfile_74(D)->name
+" # .MEM_61 = VDEF <.MEM_55>
+_16 = run_processes_parallel (_46, parallel_next, 0B, 0B, &proc)
 
 "
 
-[label=" form basic block 4: _6 = objfile_74(D)->name
-test.c:51:36: warning: use location
+[label=" form basic block 10: exit (_16)
+test.c:432:3: warning: use location
 " ]
 
-" # VUSE <.MEM_160>
-_6 = objfile_74(D)->name
+" # .MEM_61 = VDEF <.MEM_55>
+_16 = run_processes_parallel (_46, parallel_next, 0B, 0B, &proc)
 
 "->
 
-" from find_separate_debug_file basic block 4"
+" from main basic block 10"
 
-->" _6 = objfile_74(D)->name
-_6 = objfile_74(D)->name
+->" exit (_16)
+_16 = run_processes_parallel (_46, parallel_next, 0B, 0B, &proc)
 "
 
-->" _6 = objfile_74(D)->name
-test.c:51:36: warning: use location
+->" exit (_16)
+test.c:432:3: warning: use location
 "
 
-" find_separate_debug_file
+
+" from main basic block 10"
+
+->subgraph cluster_1037003979 { style ="dashed";"  exit (_16)
+_16 = run_processes_parallel (_46, parallel_next, 0B, 0B, &proc)
+";}
+
+
+
+
+
+
+
+
+" main
 "->
 
 
-" # VUSE <.MEM_160>
-_6 = objfile_74(D)->name
+" # .MEM_59 = VDEF <.MEM_55>
+_19 = run_processes_parallel (_46, parallel_next, 0B, task_finished, &proc)
 
 "
 
-[label=" form basic block 32: _64 = PHI <build_id_name_78(6), 0B(7), _149(19), _144(21), _139(23), _131(28), 0B(31)>
-lto1: warning: use location
+[label=" form basic block 12: exit (_19)
+test.c:436:3: warning: use location
 " ]
 
-" # VUSE <.MEM_160>
-_6 = objfile_74(D)->name
+" # .MEM_59 = VDEF <.MEM_55>
+_19 = run_processes_parallel (_46, parallel_next, 0B, task_finished, &proc)
 
 "->
 
-" from find_separate_debug_file basic block 32"
+" from main basic block 12"
 
-->" _64 = PHI <build_id_name_78(6), 0B(7), _149(19), _144(21), _139(23), _131(28), 0B(31)>
-_6 = objfile_74(D)->name
+->" exit (_19)
+_19 = run_processes_parallel (_46, parallel_next, 0B, task_finished, &proc)
 "
 
-->" _64 = PHI <build_id_name_78(6), 0B(7), _149(19), _144(21), _139(23), _131(28), 0B(31)>
-lto1: warning: use location
+->" exit (_19)
+test.c:436:3: warning: use location
 "
 
 
-" find_separate_debug_file
+" from main basic block 12"
+
+->subgraph cluster_1584349908 { style ="dashed";"  exit (_19)
+_19 = run_processes_parallel (_46, parallel_next, 0B, task_finished, &proc)
+";}
+
+
+
+
+
+
+
+
+" main
 "->
 
 
-" # VUSE <.MEM_160>
-_6 = objfile_74(D)->name
+" # .MEM_57 = VDEF <.MEM_55>
+_22 = run_processes_parallel (_46, no_job, 0B, task_finished, &proc)
 
 "
 
-[label=" form basic block 5: free (build_id_name_78)
-test.c:55:4: warning: use location
-
+[label=" form basic block 14: exit (_22)
+test.c:440:3: warning: use location
 " ]
 
-" # VUSE <.MEM_160>
-_6 = objfile_74(D)->name
+" # .MEM_57 = VDEF <.MEM_55>
+_22 = run_processes_parallel (_46, no_job, 0B, task_finished, &proc)
 
 "->
 
-" from find_separate_debug_file basic block 5"
+" from main basic block 14"
 
-->" free (build_id_name_78)
-_6 = objfile_74(D)->name
+->" exit (_22)
+_22 = run_processes_parallel (_46, no_job, 0B, task_finished, &proc)
 "
 
-->" free (build_id_name_78)
-test.c:55:4: warning: use location
-
-"
-
-[color="green" ]
-
-
-" find_separate_debug_file
-"->
-
-
-" # VUSE <.MEM_160>
-_6 = objfile_74(D)->name
-
-"
-
-[label=" form basic block 5: warning (_8, build_id_name_78)
-test.c:53:4: warning: use location
-
-" ]
-
-" # VUSE <.MEM_160>
-_6 = objfile_74(D)->name
-
-"->
-
-" from find_separate_debug_file basic block 5"
-
-->" warning (_8, build_id_name_78)
-_6 = objfile_74(D)->name
-"
-
-->" warning (_8, build_id_name_78)
-test.c:53:4: warning: use location
-
+->" exit (_22)
+test.c:440:3: warning: use location
 "
 
 
-" find_separate_debug_file
-"->
+" from main basic block 14"
 
-
-" # VUSE <.MEM_160>
-_6 = objfile_74(D)->name
-
-"
-
-[label=" form basic block 2: _1 = objfile_74(D)->obfd
-test.c:43:14: warning: use location
-
-" ]
-
-" # VUSE <.MEM_160>
-_6 = objfile_74(D)->name
-
-"->
-
-" from find_separate_debug_file basic block 2"
-
-->" _1 = objfile_74(D)->obfd
-_6 = objfile_74(D)->name
-"
-
-->" _1 = objfile_74(D)->obfd
-test.c:43:14: warning: use location
-
-"
-
-" from find_separate_debug_file basic block 32"
-
-->subgraph cluster_1222942087 { style ="dashed";"  _64 = PHI <build_id_name_78(6), 0B(7), _149(19), _144(21), _139(23), _131(28), 0B(31)>
-build_id_name_78 = (char *) _5
+->subgraph cluster_940277166 { style ="dashed";"  exit (_22)
+_22 = run_processes_parallel (_46, no_job, 0B, task_finished, &proc)
 ";} }

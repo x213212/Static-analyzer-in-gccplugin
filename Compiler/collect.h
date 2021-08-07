@@ -50,7 +50,8 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 				}
 				else
 				{
-					// debug_tree(gimple_call_arg(gc, 0));
+					
+					debug_tree(gimple_call_arg(gc, 0));
 					set_ptb(bb, ftable, gimple_call_arg(gc, 0), loc, 0, gc, node);
 				}
 				// tree getreturnFucntionDecl = TREE_OPERAND(get_function_return_tree, 0);
@@ -78,13 +79,13 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 				// function_free_collect->put(node->get_fun()->decl, fun_array);
 			}
 
-			else if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup") || !strcmp(name, "xstrdup")  )
+			else if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup") || !strcmp(name, "xstrdup"))
 			{
-				// debug_tree(gimple_call_lhs(gc));
+				debug_tree(gimple_call_lhs(gc));
 				set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
 				// warning_at(gimple_location(gc), 0, "use location");
 				// if(TREE_CODE(TREE_TYPE((gimple_call_lhs(gc))))==POINTER_TYPE){
-				// fprintf(stderr, "====================POINTER_TYPE============================\n");
+				fprintf(stderr, "====================POINTER_TYPE============================\n");
 				// }
 			}
 			else if (!strcmp(name, "pthread_create"))
@@ -166,58 +167,49 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 			// }
 		}
 	}
-	if (is_gimple_assign(gc))
-	{
-		fprintf(stderr, "============gimple assign==================\n");
-		debug_gimple_stmt(gc);
-		debug_tree(gimple_assign_rhs1(gc));
-		// location_t loc;
-		// loc = gimple_location_safe(gc);
-		// if (gimple_location_safe(gc))
-		// {
-		// 	if (LOCATION_LINE(loc) == 561)
-		// 		fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-		// }
+	// if (is_gimple_assign(gc))
+	// {
+	// 	fprintf(stderr, "============gimple assign==================\n");
+	// 	debug_gimple_stmt(gc);
+	// 	debug_tree(gimple_assign_rhs1(gc));
 
-		// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-		// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-		if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME)
-		{
-			fprintf(stderr, "============COMPONEN2T_REF==================\n");
-			// if (TREE_CODE(gimple_assign_rhs1(gc)) == ADDR_EXPR)
-			// {
-			debug_tree(gimple_assign_rhs1(gc));
-			if (TREE_CODE(gimple_assign_rhs1(gc)) != INTEGER_CST)
-			{
+	// 	if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME)
+	// 	{
+	// 		fprintf(stderr, "============COMPONEN2T_REF==================\n");
+	// 		// if (TREE_CODE(gimple_assign_rhs1(gc)) == ADDR_EXPR)
+	// 		// {
+	// 		debug_tree(gimple_assign_rhs1(gc));
+	// 		if (TREE_CODE(gimple_assign_rhs1(gc)) != INTEGER_CST)
+	// 		{
 
-				warning_at(gimple_location_safe(gc), 0, "use location");
-				
-					if (TREE_CODE(gimple_assign_rhs1(gc)) == COMPONENT_REF)
-					{
-				tree second = TREE_OPERAND(gimple_assign_rhs1(gc), 0);
-				if (second){
-					if(TREE_CODE (second) == MEM_REF){
-						tree three = TREE_OPERAND(second, 0);
-						if (three)
-							{
-								// loc = gimple_location(gc);
-								// if (gimple_location(gc))
-								debug_tree(three);
-								// if (LOCATION_LINE(loc) == 104 || LOCATION_LINE(loc) == 105)
-								// {
-								fprintf(stderr, "============COMPONENT_REF==================\n");
-								// debug_tree(gimple_assign_rhs1(gc));
-								if (TREE_CODE(three) == SSA_NAME)
-									set_ptb(bb, ptable, three, loc, 0, gc, node);
-							}
-							// }
-						}
-					}
-				}
-			}
-			// }
-		}
-	}
+	// 			warning_at(gimple_location_safe(gc), 0, "use location");
+
+	// 				if (TREE_CODE(gimple_assign_rhs1(gc)) == COMPONENT_REF)
+	// 				{
+	// 			tree second = TREE_OPERAND(gimple_assign_rhs1(gc), 0);
+	// 			if (second){
+	// 				if(TREE_CODE (second) == MEM_REF){
+	// 					tree three = TREE_OPERAND(second, 0);
+	// 					if (three)
+	// 						{
+	// 							// loc = gimple_location(gc);
+	// 							// if (gimple_location(gc))
+	// 							debug_tree(three);
+	// 							// if (LOCATION_LINE(loc) == 104 || LOCATION_LINE(loc) == 105)
+	// 							// {
+	// 							fprintf(stderr, "============COMPONENT_REF==================\n");
+	// 							// debug_tree(gimple_assign_rhs1(gc));
+	// 							if (TREE_CODE(three) == SSA_NAME)
+	// 								set_ptb(bb, ptable, gimple_assign_lhs(gc), loc, 0, gc, node);
+	// 						}
+	// 						// }
+	// 					}
+	// 				}
+	// 			}
+	// 		}
+	// 		// }
+	// 	}
+	// }
 }
 
 void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb)
@@ -336,6 +328,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					if (TREE_CODE(gimple_call_arg(gc, 0)) == SSA_NAME)
 					{
 						// fprintf(stderr, "firstfirstfirstfirswwwwwwwwwwggggggggggggggggggggggggggggggg-------\n");
+						//  debug((gc));
 						// debug_tree(second);
 						// second = TREE_OPERAND(gimple_assign_lhs(gc), 0);
 						function_assign_array assign_array;
@@ -651,6 +644,8 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				// if lhs tree is null this is fucntion call
 				if (checklhstree != NULL)
 				{
+						// fprintf(stderr, "--------------------wwwwwwwwwwwwSSSSSSSSSSSSSSSSSwwwwwwwwwwwwwwwww------------------\n");
+						// fprintf(stderr, "--------------------wwwwwwwwwwwwSSSSSSSSSSSSSSSSSwwwwwwwwwwwwwwwww------------------\n");
 					if (TREE_CODE(gimple_call_lhs(gc)) == SSA_NAME)
 						set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
 				}
@@ -659,6 +654,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					name = get_name(gimple_call_fn(gc));
 					if (name != NULL)
 					{
+						
 						// fprintf(stderr, "functionname %s\n", name);
 						// debug_gimple_stmt(gc);
 						// fprintf(stderr, "functionname %s\n", name);
@@ -778,8 +774,9 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			}
 			else if (TREE_CODE(getFunctionAssignRHS) == SSA_NAME)
 			{
-				// fprintf(stderr, "--------------------xxxxxxxxxxxxxxxxxxxxxxx------------------\n");
-				// debug_gimple_stmt(gc);
+				fprintf(stderr, "--------------------xxxxxxxxxxxxxxxxxxxxxxx------------------\n");
+				debug_gimple_stmt(gc);
+				debug_tree(getFunctionAssignLHS);
 				function_assign_array assign_array;
 				vector<assign_type> assign_type_array;
 
@@ -1089,6 +1086,69 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				assign_array.assign_type_array.push_back(assign_type);
 				function_assign_collect->put(second, assign_array);
 				// debug_tree(gimple_assign_rhs1(getFunctionAssignRHS));
+			}
+			else if (TREE_CODE(getFunctionAssignRHS) == COMPONENT_REF)
+			{
+				// fprintf(stderr, "--------------OOOOOOOOOOOOOOO------------------\n");
+				// debug_gimple_stmt(gc);
+				tree second = TREE_OPERAND(getFunctionAssignRHS, 0);
+				if (second)
+				{
+					if (TREE_CODE(second) == MEM_REF)
+					{
+						tree three = TREE_OPERAND(second, 0);
+						if (three)
+						{
+							// loc = gimple_location(gc);
+							// if (gimple_location(gc))
+							// debug_tree(three);
+							// if (LOCATION_LINE(loc) == 104 || LOCATION_LINE(loc) == 105)
+							// {
+							// fprintf(stderr, "============COMPONENT_REF==================\n");
+							// debug_tree(gimple_assign_rhs1(gc));
+							if (TREE_CODE(three) == SSA_NAME)
+							{
+								gimple *def_stmt = SSA_NAME_DEF_STMT(three);
+
+								if (is_gimple_assign(def_stmt))
+
+									if (TREE_CODE(gimple_assign_rhs1(def_stmt)) == VAR_DECL)
+									{
+										function_assign_array assign_array;
+										vector<assign_type> assign_type_array;
+
+										if (function_assign_collect->get(gimple_assign_rhs1(def_stmt)) == NULL)
+										{
+											// fprintf(stderr, "firstfirstfirstfirstfirstmappinggggggggggggggggggggggggggggggg-------\n");
+											assign_array.assign_type_array = assign_type_array;
+											// debug(gc);
+										}
+										else
+										{
+											// fprintf(stderr, "mappinggggggggggggggggggggggggggggggg-------\n");
+											// debug(gc);
+											assign_array = *(function_assign_collect->get(gimple_assign_rhs1(def_stmt)));
+											assign_type_array = assign_array.assign_type_array;
+										}
+										// fprintf(stderr, "mappinggggggggggggggggggggggggggggggg-------\n");
+										struct assign_type assign_type;
+
+										assign_type.stmt = gc;
+										assign_type.assign_tree = gimple_assign_lhs(def_stmt);
+										assign_type.form_tree = node->get_fun()->decl;
+										// debug_tree(gimple_assign_lhs(gc));
+										// ret_type.reutnr_type_num = 0;
+										assign_array.assign_type_array.push_back(assign_type);
+										function_assign_collect->put(gimple_assign_rhs1(def_stmt), assign_array);
+										debug_tree(gimple_assign_rhs1(def_stmt));
+										debug_gimple_stmt(def_stmt);
+									}
+								// new_search_imm_use(used_stmt, gimple_assign_rhs1(use_stmt), gimple_assign_rhs1(use_stmt));
+							}
+						}
+						// }
+					}
+				}
 			}
 
 			// else if (TREE_CODE(getFunctionAssignRHS) == INTEGER_CST)

@@ -237,8 +237,6 @@ hash_map<tree, cgraph_node *> *fnode;
 hash_map<tree, var_points_to> *tvpt;
 hash_map<tree, gimple_array> *treeGimpleArray;
 
-vector<gimple *> new_gimple_array;
-vector<tree> new_gimpletree_array;
 
 /*state*/
 unsigned int POINTER_NOT_EXIST = 0;
@@ -288,8 +286,14 @@ class CstmtStack : public std::stack<gimple *>
 public:
 	using std::stack<gimple *>::c; // expose the container
 };
-CStack pathStack;
-CStack traceStack;
+
+vector<gimple *> new_gimple_array;
+vector<tree> new_gimpletree_array;
+vector<tree> traceStack;
+vector<tree> pathStack;
+
+// CStack pathStack;
+// CStack traceStack;
 CStack stmtStack;
 CstmtStack stmtStack2;
 //stack<tree> pathStack;  // 建立堆疊
@@ -320,7 +324,8 @@ struct timespec diff(struct timespec start, struct timespec end);
 
 void printfBasicblock();
 void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp);
-
+void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2);
+void Prenew_search_imm_use(gimple_array *used_stmt, tree target, tree target2);
 void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp);
 void print_function_return(tree function_tree);
 void print_function_return2(tree function_tree);

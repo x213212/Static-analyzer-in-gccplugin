@@ -1308,10 +1308,10 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 
 		for (int o = 0; o < traceStack.size(); o++)
 		{
-			if (traceStack.c[o] == (function_path_array)[i].next)
+			if (traceStack[o] == (function_path_array)[i].next)
 			{
 				find = 1;
-				fprintf(stderr, "\033[40;41m =======recursive_fun2:%s========= \033[0m\n", get_name(traceStack.c[o]));
+				fprintf(stderr, "\033[40;41m =======recursive_fun2:%s========= \033[0m\n", get_name(traceStack[o]));
 				break;
 				//	fprintf(stderr, "				=======recursive_fun:%s=========\n", get_name(traceStack.c[o]));
 			}
@@ -1362,13 +1362,13 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 
 			//fprintf(stderr, "=======add node_fun trace stack:%s=========\n", get_name((function_path_array)[i].next));
 			// debug_tree((function_path_array)[i].next);
-			traceStack.push((function_path_array)[i].next);
+			traceStack.push_back((function_path_array)[i].next);
 			// 	function_return_array callerFunArray = *(function_return_collect->get(function_tree));
 
 			// vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
 
 			trace_function_path((function_path_array)[i].next, fucntion_level, mallocStmt_tree, freecount);
-			traceStack.pop();
+			traceStack.pop_back();
 		}
 	}
 
@@ -1397,11 +1397,11 @@ void tracefree_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 		enum availability avail;
 
 		fprintf(stderr, "fucntion collect path \n");
-		pathStack.push(cfun->decl);
+		pathStack.push_back(cfun->decl);
 
 		walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
 
-		pathStack.pop();
+		pathStack.pop_back();
 		pop_cfun();
 	}
 	fprintf(stderr, "fucntion collect path finsh\n");
@@ -1448,11 +1448,11 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 		for (int o = 0; o < pathStack.size(); o++)
 		{
 
-			if (pathStack.c[o] == (function_path_array)[i].next)
+			if (pathStack[o] == (function_path_array)[i].next)
 			{
 				find = 1;
 
-				fprintf(stderr, "\033[40;41m =======recursive_fun:%s========= \033[0m\n", get_name(pathStack.c[o]));
+				fprintf(stderr, "\033[40;41m =======recursive_fun:%s========= \033[0m\n", get_name(pathStack[o]));
 
 				// pathStack.push((function_path_array)[i].next);
 				break;
@@ -1465,7 +1465,7 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 		{
 			// fprintf(stderr, "\033[40;46m =======add node_fun stack2:%s========= \033[0m\n", get_name((function_path_array)[i].next));
 
-			pathStack.push((function_path_array)[i].next);
+			pathStack.push_back((function_path_array)[i].next);
 			// checkPointerConstraint((function_path_array)[i].next, ptable, user_tmp, NULL, 0);
 
 			// int find_type=0;
@@ -1544,8 +1544,10 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 				// }
 			}
 			walk_function_path((function_path_array)[i].next, fucntion_level, ptable, user_tmp);
-			fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.top()));
-			pathStack.pop();
+			//vec.front() - 回傳 vector 第一個元素的值。
+			//vec.back() - 回傳 vector 最尾元素的值。
+			fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
+			pathStack.pop_back();
 		}
 	}
 	// fprintf(stderr, "\033[40;33m =======POP 222ode_fun stack:%s========= \033[0m\n", get_name(pathStack.top()));
@@ -1597,11 +1599,11 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 
 			fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
 			// fprintf(stderr, "fucntion collect path \n");
-			pathStack.push(cfun->decl);
+			pathStack.push_back(cfun->decl);
 			// debug_tree(node->get_fun()->decl );
 			walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
-			fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.top()));
-			pathStack.pop();
+			fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
+			pathStack.pop_back();
 		}
 		pop_cfun();
 	}

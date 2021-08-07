@@ -1,6 +1,7 @@
 /*set allocation and deallocation table*/
 void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stmt, cgraph_node *node)
 {
+
 	if (table->target == NULL_TREE)
 	{
 		table->bb = b;
@@ -22,6 +23,8 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 	}
 	else
 	{
+		// fprintf(stderr, "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n");
+		// debug_tree(t);
 		bool same = false;
 		while (table->next != NULL)
 		{
