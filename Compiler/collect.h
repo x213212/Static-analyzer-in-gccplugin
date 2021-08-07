@@ -78,7 +78,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 				// function_free_collect->put(node->get_fun()->decl, fun_array);
 			}
 
-			else if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup"))
+			else if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup") || !strcmp(name, "xstrdup")  )
 			{
 				// debug_tree(gimple_call_lhs(gc));
 				set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);

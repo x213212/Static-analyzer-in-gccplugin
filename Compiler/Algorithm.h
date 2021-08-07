@@ -48,7 +48,6 @@ int check_stmtStack(tree target)
 int check_stmtStack2(gimple *stmt)
 {
 
-	
 	for (int o = 0; o < new_gimple_array.size(); o++)
 	{
 
@@ -368,8 +367,21 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 							new_search_imm_use(used_stmt, gimple_assign_rhs1(use_stmt), gimple_assign_rhs1(use_stmt));
 					}
 				}
-		
+			}
+			else if (gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == COMPONENT_REF)
+			{
+				if (TREE_CODE(gimple_assign_rhs1(use_stmt)) == SSA_NAME)
+				{
 
+					if (!check_stmtStack(gimple_assign_rhs1(use_stmt)))
+					{
+
+						set_gimple_array(used_stmt, use_stmt, gimple_assign_rhs1(use_stmt), target, NULL);
+
+						if (gimple_assign_rhs1(use_stmt) != target2)
+							new_search_imm_use(used_stmt, gimple_assign_rhs1(use_stmt), gimple_assign_rhs1(use_stmt));
+					}
+				}
 			}
 			else if (gimple_assign_rhs1(use_stmt) && TREE_CODE(gimple_assign_rhs1(use_stmt)) == COMPONENT_REF)
 			{
@@ -385,9 +397,9 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 							new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt), gimple_assign_lhs(use_stmt));
 					}
 				}
-	
 			}
 		}
+
 		else if (gimple_code(use_stmt) == GIMPLE_PHI)
 		{
 
@@ -589,6 +601,34 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						// 	new_search_imm_use(used_stmt, gimple_call_fn(use_stmt), gimple_call_fn(use_stmt));
 					}
 				}
+				else if (gimple_call_lhs(use_stmt) && TREE_CODE(gimple_call_lhs(use_stmt)) == SSA_NAME)
+				{
+					if (gimple_assign_rhs1(use_stmt))
+					{
+						// fprintf(stderr, "-------always in therealways in therealways in there--------------------------\n");
+						if (gimple_call_num_args(use_stmt) != 0)
+						{
+							for (int i = 0; i < gimple_call_num_args(use_stmt); i++)
+							{
+								if (!check_stmtStack(gimple_call_arg(use_stmt, i)))
+								{
+									if (TREE_CODE(gimple_call_arg(use_stmt, i)) == SSA_NAME)
+									{
+										if (gimple_call_arg(use_stmt, i) != target2)
+
+											new_search_imm_use(used_stmt, gimple_call_arg(use_stmt, i), gimple_call_arg(use_stmt, i));
+									}
+								}
+								// debug_tree(gimple_call_arg(use_stmt, i));
+							}
+						}
+						// debug_gimple_stmt(use_stmt);
+						// debug_tree(gimple_call_lhs(use_stmt));
+
+						// debug_tree(gimple_assign_rhs1(use_stmt));
+					}
+				}
+
 				else
 				{
 					if (!check_stmtStack(gimple_call_fn(use_stmt)))
@@ -1028,7 +1068,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						!strcmp(name, "xmalloc") ||
 						!strcmp(name, "calloc") ||
 						!strcmp(name, "xcalloc") ||
-						!strcmp(name, "strdup"))
+						!strcmp(name, "strdup") ||
+						!strcmp(name, "xstrdup"))
+
 					{
 
 						ptable_type = IS_MALLOC_FUCNTION;
@@ -1395,13 +1437,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										fprintf(stderr, "this stmt have mutiple branch ---%s-----\n", name);
 									}
 									if (name != NULL)
-										if (
-											!strcmp(name, "realloc") ||
+										if (!strcmp(name, "realloc") ||
 											!strcmp(name, "malloc") ||
 											!strcmp(name, "xmalloc") ||
 											!strcmp(name, "calloc") ||
 											!strcmp(name, "xcalloc") ||
-											!strcmp(name, "strdup"))
+											!strcmp(name, "strdup") ||
+											!strcmp(name, "xstrdup"))
 										{
 
 											find_mallocstmt = IS_MALLOC_FUCNTION;
