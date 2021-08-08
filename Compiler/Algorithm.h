@@ -1326,7 +1326,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "addr_expr"))
 				// 	continue;
 				// debug_tree(table_temp->target);
-				if (TREE_CODE(table_temp->target) == INTEGER_CST)
+			
+				if (TREE_CODE(table_temp->target) == INTEGER_CST || TREE_CODE(table_temp->target) == STRING_CST)
 				{
 					debug_tree(table_temp->target);
 					continue;
@@ -1334,6 +1335,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// continue;
 				// debug_tree(table_temp->target);
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
+				debug_tree(table_temp->target);
 				if (TREE_CODE(table_temp->target) != VAR_DECL)
 				{
 					if (def_stmt)

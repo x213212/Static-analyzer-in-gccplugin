@@ -1,39 +1,3739 @@
 In file included from test.c:7:0:
-openssh.h:675:49: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
-  int (*verify_host_key)(struct sshkey *, struct ssh *);
-                                                 ^~~
-openssh.h:676:58: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
-  struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
-                                                          ^~~
-openssh.h:677:59: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
-  struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
-                                                           ^~~
-openssh.h:678:53: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
-  int (*host_key_index)(struct sshkey *, int, struct ssh *);
-                                                     ^~~
-openssh.h:681:29: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
-  int (*kex[KEX_MAX])(struct ssh *);
-                             ^~~
-openssh.h:1044:5: error: expected specifier-qualifier-list before ‘TAILQ_HEAD’
-     TAILQ_HEAD(, key_entry) private_keys;
-     ^~~~~~~~~~
-openssh.h:1062:2: error: expected specifier-qualifier-list before ‘TAILQ_ENTRY’
-  TAILQ_ENTRY(packet) next;
-  ^~~~~~~~~~~
-openssh.h:1189:2: error: expected specifier-qualifier-list before ‘TAILQ_HEAD’
-  TAILQ_HEAD(, packet) outgoing;
-  ^~~~~~~~~~
-test.c: In function ‘ssh_packet_write_wait’:
-test.c:46:3: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
-   memset(setp, 0, howmany(state->connection_out + 1,
+common.h: In function ‘discard_my_cleanups’:
+common.h:94:21: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘void *’ [-Wformat=]
+   printf("freearg: %x\n", ptr->arg);
+                    ~^     ~~~~~~~~
+                    %p
+common.h: In function ‘do_my_cleanups’:
+common.h:108:13: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘void *’ [-Wformat=]
+    printf("%x\n", ptr->arg);
+            ~^     ~~~~~~~~
+            %p
+test.c: In function ‘ldirname’:
+test.c:44:3: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   memcpy (dirname, filename, base - filename);
    ^~~~~~
-test.c:46:3: warning: incompatible implicit declaration of built-in function ‘memset’
-test.c:46:3: note: include ‘<string.h>’ or provide a declaration of ‘memset’
-test.c:57:5: warning: implicit declaration of function ‘gettimeofday’ [-Wimplicit-function-declaration]
-     gettimeofday(&start, NULL);
-     ^~~~~~~~~~~~
-test.c: In function ‘main’:
-test.c:89:15: warning: implicit declaration of function ‘time’; did you mean ‘die’? [-Wimplicit-function-declaration]
-         srand(time(NULL));
-               ^~~~
-               die
+test.c:44:3: warning: incompatible implicit declaration of built-in function ‘memcpy’
+test.c:44:3: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+test.c: In function ‘vconcat_copy’:
+test.c:61:25: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+  unsigned long length = strlen (arg);
+                         ^~~~~~
+test.c:61:25: warning: incompatible implicit declaration of built-in function ‘strlen’
+test.c:61:25: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+test.c:62:2: warning: incompatible implicit declaration of built-in function ‘memcpy’
+  memcpy (end, arg, length);
+  ^~~~~~
+test.c:62:2: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+In file included from test.c:7:0:
+test.c: In function ‘do_start_initialization’:
+common.h:22:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+ #define xstrdup(a) strdup(a)
+                    ^
+test.c:110:12: note: in expansion of macro ‘xstrdup’
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+            ^~~~~~~
+common.h:22:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+test.c:110:12: note: in expansion of macro ‘xstrdup’
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+            ^~~~~~~
+test.c:110:21: warning: implicit declaration of function ‘setlocale’; did you mean ‘setstate’? [-Wimplicit-function-declaration]
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+                     ^
+common.h:22:27: note: in definition of macro ‘xstrdup’
+ #define xstrdup(a) strdup(a)
+                           ^
+test.c:110:21: warning: passing argument 1 of ‘strdup’ makes pointer from integer without a cast [-Wint-conversion]
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+                     ^
+common.h:22:27: note: in definition of macro ‘xstrdup’
+ #define xstrdup(a) strdup(a)
+                           ^
+test.c:110:21: note: expected ‘const char *’ but argument is of type ‘int’
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+                     ^
+common.h:22:27: note: in definition of macro ‘xstrdup’
+ #define xstrdup(a) strdup(a)
+                           ^
+test.c:112:14: warning: incompatible implicit declaration of built-in function ‘strlen’
+   progsize = strlen (progname);
+              ^~~~~~
+test.c:112:14: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+=======ipa_pta=========
+ <ssa_name 0x7fdf8365e900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebd80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7fdf831c8108>
+====================POINTER_TYPE============================
+ <ssa_name 0x7fdf831ca900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c6a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7fdf831c82d0>
+====================POINTER_TYPE============================
+ <ssa_name 0x7fdf831c20d8
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c0510 oldloc>
+    def_stmt oldloc_15 = strdup (_14);
+    version 15
+    ptr-info 0x7fdf831c81f8>
+====================POINTER_TYPE============================
+ <ssa_name 0x7fdf831c29d8
+    type <pointer_type 0x7fdf836710a8
+        type <void_type 0x7fdf8366af18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fdf836710a8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fdf83676bd0>>
+    var <var_decl 0x7fdf831c63f0 ret>
+    def_stmt ret_41 = malloc (_18);
+    version 41
+    ptr-info 0x7fdf831c8258>
+====================POINTER_TYPE============================
+ <ssa_name 0x7fdf831c20d8
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c0510 oldloc>
+    def_stmt oldloc_15 = strdup (_14);
+    version 15
+    ptr-info 0x7fdf831c81f8>
+ <ssa_name 0x7fdf831c20d8
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c0510 oldloc>
+    def_stmt oldloc_15 = strdup (_14);
+    version 15
+    ptr-info 0x7fdf831c81f8>
+ <ssa_name 0x7fdf831c21f8
+    type <pointer_type 0x7fdf8319d1f8
+        type <integer_type 0x7fdf8319da80 wchar_t SI
+            size <integer_cst 0x7fdf83656e28 constant 32>
+            unit size <integer_cst 0x7fdf83656e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fdf8366a5e8 precision 32 min <integer_cst 0x7fdf83656de0 -2147483648> max <integer_cst 0x7fdf83656df8 2147483647> context <translation_unit_decl 0x7fdf83661168 test.c>
+            pointer_to_this <pointer_type 0x7fdf8319d1f8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831c05a0 progname_copy>
+    def_stmt progname_copy_19 = _102;
+    version 19
+    ptr-info 0x7fdf831c8210>
+ <ssa_name 0x7fdf831c20d8
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c0510 oldloc>
+    def_stmt oldloc_15 = strdup (_14);
+    version 15
+    ptr-info 0x7fdf831c81f8>
+ <ssa_name 0x7fdf831c21f8
+    type <pointer_type 0x7fdf8319d1f8
+        type <integer_type 0x7fdf8319da80 wchar_t SI
+            size <integer_cst 0x7fdf83656e28 constant 32>
+            unit size <integer_cst 0x7fdf83656e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fdf8366a5e8 precision 32 min <integer_cst 0x7fdf83656de0 -2147483648> max <integer_cst 0x7fdf83656df8 2147483647> context <translation_unit_decl 0x7fdf83661168 test.c>
+            pointer_to_this <pointer_type 0x7fdf8319d1f8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831c05a0 progname_copy>
+    def_stmt progname_copy_19 = _102;
+    version 19
+    ptr-info 0x7fdf831c8210>
+start PointerConstraint
+pointer ftable is 1 
+pointer ptable is 1 
+------------------------------
+end_12 = newstr_3 + length_11;
+ <ssa_name 0x7fdf8365e900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebd80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7fdf831c8108>
+------------------------------
+_15 = newstr_3;
+ <ssa_name 0x7fdf8365e900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebd80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7fdf831c8108>
+------------------------------
+_7 = newstr_3;
+ <ssa_name 0x7fdf8365e900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebd80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7fdf831c8108>
+------------------------------
+_9 = 0B;
+ <integer_cst 0x7fdf831a03c0 type <pointer_type 0x7fdf8319d5e8> constant 0>
+------------------------------
+base_79 = name_78 + 1;
+ <ssa_name 0x7fdf8365e7e0
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831d1090 name>
+    def_stmt name_78 = PHI <_9(2), name_80(3)>
+    version 78
+    ptr-info 0x7fdf831c83a8>
+------------------------------
+name_80 = name_78 + 1;
+ <ssa_name 0x7fdf8365e7e0
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831d1090 name>
+    def_stmt name_78 = PHI <_9(2), name_80(3)>
+    version 78
+    ptr-info 0x7fdf831c83a8>
+------------------------------
+# VUSE <.MEM_5(D)>
+_81 = *name_78;
+ <mem_ref 0x7fdf831cf5a0
+    type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+        size <integer_cst 0x7fdf83656cd8 constant 8>
+        unit size <integer_cst 0x7fdf83656cf0 constant 1>
+        align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+        pointer_to_this <pointer_type 0x7fdf8319df18>>
+   
+    arg 0 <ssa_name 0x7fdf8365e7e0
+        type <pointer_type 0x7fdf8319df18 type <integer_type 0x7fdf8319de70 char>
+            public unsigned DI
+            size <integer_cst 0x7fdf83656be8 constant 64>
+            unit size <integer_cst 0x7fdf83656c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality>
+        var <var_decl 0x7fdf831d1090 name>
+        def_stmt name_78 = PHI <_9(2), name_80(3)>
+        version 78
+        ptr-info 0x7fdf831c83a8>
+    arg 1 <integer_cst 0x7fdf831c8060 type <pointer_type 0x7fdf8319df18> constant 0>>
+------------------------------
+_83 = base_82;
+ <ssa_name 0x7fdf831d0438
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831d1120 base>
+    def_stmt base_82 = PHI <_9(2), base_79(3)>
+    version 82
+    ptr-info 0x7fdf831c83f0>
+------------------------------
+_90 = base_82;
+ <ssa_name 0x7fdf831d0438
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831d1120 base>
+    def_stmt base_82 = PHI <_9(2), base_79(3)>
+    version 82
+    ptr-info 0x7fdf831c83f0>
+------------------------------
+_77 = _90;
+ <ssa_name 0x7fdf831d07e0
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831d11b0 D.4119>
+    def_stmt _90 = base_82;
+    version 90
+    ptr-info 0x7fdf831c8420>
+------------------------------
+_91 = _77;
+ <ssa_name 0x7fdf8365e798
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _77 = _90;
+    version 77
+    ptr-info 0x7fdf831c8390>
+------------------------------
+base_43 = _91;
+ <ssa_name 0x7fdf831d0828
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831c6e10 D.4112>
+    def_stmt _91 = _77;
+    version 91
+    ptr-info 0x7fdf831c8438>
+------------------------------
+base_45 = base_44 + 18446744073709551615;
+ <ssa_name 0x7fdf831ca6c0
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831c6990 base>
+    def_stmt base_44 = PHI <base_43(5), base_45(6)>
+    version 44
+    ptr-info 0x7fdf831c82a0>
+------------------------------
+# VUSE <.MEM_5(D)>
+_46 = MEM[(const char *)base_44 + -1B];
+ <mem_ref 0x7fdf831c7c08
+    type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+        size <integer_cst 0x7fdf83656cd8 constant 8>
+        unit size <integer_cst 0x7fdf83656cf0 constant 1>
+        align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+        pointer_to_this <pointer_type 0x7fdf8319df18>>
+   
+    arg 0 <ssa_name 0x7fdf831ca6c0
+        type <pointer_type 0x7fdf8319df18 type <integer_type 0x7fdf8319de70 char>
+            public unsigned DI
+            size <integer_cst 0x7fdf83656be8 constant 64>
+            unit size <integer_cst 0x7fdf83656c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality>
+        var <var_decl 0x7fdf831c6990 base>
+        def_stmt base_44 = PHI <base_43(5), base_45(6)>
+        version 44
+        ptr-info 0x7fdf831c82a0>
+    arg 1 <integer_cst 0x7fdf831c1ae0 type <pointer_type 0x7fdf8319df18> constant 18446744073709551615>>
+------------------------------
+_47 = (long int) base_44;
+ <ssa_name 0x7fdf831ca6c0
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831c6990 base>
+    def_stmt base_44 = PHI <base_43(5), base_45(6)>
+    version 44
+    ptr-info 0x7fdf831c82a0>
+------------------------------
+_48 = (long int) _9;
+ <ssa_name 0x7fdf831bef30
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+   
+    def_stmt _9 = 0B;
+    version 9
+    ptr-info 0x7fdf831c8198>
+------------------------------
+_49 = _47 - _48;
+ <ssa_name 0x7fdf831ca798
+    type <integer_type 0x7fdf8366a738 long int public DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656e70 -9223372036854775808> max <integer_cst 0x7fdf83656e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7fdf83676930>>
+   
+    def_stmt _47 = (long int) base_44;
+    version 47>
+------------------------------
+_50 = _49 + 2;
+ <ssa_name 0x7fdf831ca828
+    type <integer_type 0x7fdf8366a738 long int public DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656e70 -9223372036854775808> max <integer_cst 0x7fdf83656e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7fdf83676930>>
+   
+    def_stmt _49 = _47 - _48;
+    version 49>
+------------------------------
+_51 = (long unsigned int) _50;
+ <ssa_name 0x7fdf831ca870
+    type <integer_type 0x7fdf8366a738 long int public DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656e70 -9223372036854775808> max <integer_cst 0x7fdf83656e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7fdf83676930>>
+   
+    def_stmt _50 = _49 + 2;
+    version 50>
+------------------------------
+_53 = (long int) base_44;
+ <ssa_name 0x7fdf831ca6c0
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831c6990 base>
+    def_stmt base_44 = PHI <base_43(5), base_45(6)>
+    version 44
+    ptr-info 0x7fdf831c82a0>
+------------------------------
+_54 = (long int) _9;
+ <ssa_name 0x7fdf831bef30
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+   
+    def_stmt _9 = 0B;
+    version 9
+    ptr-info 0x7fdf831c8198>
+------------------------------
+_55 = _53 - _54;
+ <ssa_name 0x7fdf831ca948
+    type <integer_type 0x7fdf8366a738 long int public DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656e70 -9223372036854775808> max <integer_cst 0x7fdf83656e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7fdf83676930>>
+   
+    def_stmt _53 = (long int) base_44;
+    version 53>
+------------------------------
+_56 = (long unsigned int) _55;
+ <ssa_name 0x7fdf831ca9d8
+    type <integer_type 0x7fdf8366a738 long int public DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656e70 -9223372036854775808> max <integer_cst 0x7fdf83656e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7fdf83676930>>
+   
+    def_stmt _55 = _53 - _54;
+    version 55>
+------------------------------
+_57 = (long int) base_44;
+ <ssa_name 0x7fdf831ca6c0
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831c6990 base>
+    def_stmt base_44 = PHI <base_43(5), base_45(6)>
+    version 44
+    ptr-info 0x7fdf831c82a0>
+------------------------------
+_58 = (long int) _9;
+ <ssa_name 0x7fdf831bef30
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+   
+    def_stmt _9 = 0B;
+    version 9
+    ptr-info 0x7fdf831c8198>
+------------------------------
+_59 = _57 - _58;
+ <ssa_name 0x7fdf831caa68
+    type <integer_type 0x7fdf8366a738 long int public DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656e70 -9223372036854775808> max <integer_cst 0x7fdf83656e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7fdf83676930>>
+   
+    def_stmt _57 = (long int) base_44;
+    version 57>
+------------------------------
+# VUSE <.MEM_93>
+_60 = *base_44;
+ <mem_ref 0x7fdf831c7c58
+    type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+        size <integer_cst 0x7fdf83656cd8 constant 8>
+        unit size <integer_cst 0x7fdf83656cf0 constant 1>
+        align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+        pointer_to_this <pointer_type 0x7fdf8319df18>>
+   
+    arg 0 <ssa_name 0x7fdf831ca6c0
+        type <pointer_type 0x7fdf8319df18 type <integer_type 0x7fdf8319de70 char>
+            public unsigned DI
+            size <integer_cst 0x7fdf83656be8 constant 64>
+            unit size <integer_cst 0x7fdf83656c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality>
+        var <var_decl 0x7fdf831c6990 base>
+        def_stmt base_44 = PHI <base_43(5), base_45(6)>
+        version 44
+        ptr-info 0x7fdf831c82a0>
+    arg 1 <integer_cst 0x7fdf831c8060 type <pointer_type 0x7fdf8319df18> constant 0>>
+------------------------------
+# VUSE <.MEM_93>
+_61 = MEM[(const char *)_9];
+ <mem_ref 0x7fdf831c7ca8
+    type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+        size <integer_cst 0x7fdf83656cd8 constant 8>
+        unit size <integer_cst 0x7fdf83656cf0 constant 1>
+        align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+        pointer_to_this <pointer_type 0x7fdf8319df18>>
+   
+    arg 0 <ssa_name 0x7fdf831bef30
+        type <pointer_type 0x7fdf8319d5e8 type <integer_type 0x7fdf8319ddc8 char>
+            public unsigned DI
+            size <integer_cst 0x7fdf83656be8 constant 64>
+            unit size <integer_cst 0x7fdf83656c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+            pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+       
+        def_stmt _9 = 0B;
+        version 9
+        ptr-info 0x7fdf831c8198>
+    arg 1 <integer_cst 0x7fdf831c8060 type <pointer_type 0x7fdf8319df18> constant 0>>
+------------------------------
+_62 = base_44;
+ <ssa_name 0x7fdf831ca6c0
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831c6990 base>
+    def_stmt base_44 = PHI <base_43(5), base_45(6)>
+    version 44
+    ptr-info 0x7fdf831c82a0>
+------------------------------
+base_63 = base_44 + 1;
+ <ssa_name 0x7fdf831ca6c0
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831c6990 base>
+    def_stmt base_44 = PHI <base_43(5), base_45(6)>
+    version 44
+    ptr-info 0x7fdf831c82a0>
+------------------------------
+_64 = (long int) base_44;
+ <ssa_name 0x7fdf831ca6c0
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831c6990 base>
+    def_stmt base_44 = PHI <base_43(5), base_45(6)>
+    version 44
+    ptr-info 0x7fdf831c82a0>
+------------------------------
+_65 = (long int) _9;
+ <ssa_name 0x7fdf831bef30
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+   
+    def_stmt _9 = 0B;
+    version 9
+    ptr-info 0x7fdf831c8198>
+------------------------------
+_66 = _64 - _65;
+ <ssa_name 0x7fdf831cac60
+    type <integer_type 0x7fdf8366a738 long int public DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656e70 -9223372036854775808> max <integer_cst 0x7fdf83656e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7fdf83676930>>
+   
+    def_stmt _64 = (long int) base_44;
+    version 64>
+------------------------------
+_67 = (sizetype) _66;
+ <ssa_name 0x7fdf831cacf0
+    type <integer_type 0x7fdf8366a738 long int public DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656e70 -9223372036854775808> max <integer_cst 0x7fdf83656e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7fdf83676930>>
+   
+    def_stmt _66 = _64 - _65;
+    version 66>
+------------------------------
+_68 = dirname_52 + _67;
+ <ssa_name 0x7fdf831ca900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c6a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7fdf831c82d0>
+------------------------------
+_70 = (long int) base_69;
+ <ssa_name 0x7fdf831cadc8
+    type <pointer_type 0x7fdf8319df18
+        type <integer_type 0x7fdf8319de70 char readonly public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319df18>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831c6990 base>
+    def_stmt base_69 = PHI <base_44(10), base_44(11), base_44(12), base_63(13)>
+    version 69
+    ptr-info 0x7fdf831c8330>
+------------------------------
+_71 = (long int) _9;
+ <ssa_name 0x7fdf831bef30
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+   
+    def_stmt _9 = 0B;
+    version 9
+    ptr-info 0x7fdf831c8198>
+------------------------------
+_72 = _70 - _71;
+ <ssa_name 0x7fdf831cae10
+    type <integer_type 0x7fdf8366a738 long int public DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656e70 -9223372036854775808> max <integer_cst 0x7fdf83656e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7fdf83676930>>
+   
+    def_stmt _70 = (long int) base_69;
+    version 70>
+------------------------------
+_73 = (sizetype) _72;
+ <ssa_name 0x7fdf831caea0
+    type <integer_type 0x7fdf8366a738 long int public DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656e70 -9223372036854775808> max <integer_cst 0x7fdf83656e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7fdf83676930>>
+   
+    def_stmt _72 = _70 - _71;
+    version 72>
+------------------------------
+_74 = dirname_52 + _73;
+ <ssa_name 0x7fdf831ca900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c6a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7fdf831c82d0>
+------------------------------
+_75 = dirname_52;
+ <ssa_name 0x7fdf831ca900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c6a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7fdf831c82d0>
+------------------------------
+_96 = _76;
+ <ssa_name 0x7fdf8365e750
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+   
+    def_stmt _76 = PHI <0B(9), dirname_52(14)>
+    version 76
+    ptr-info 0x7fdf831c8378>
+------------------------------
+_10 = _96;
+ <ssa_name 0x7fdf831d0990
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c6ab0 D.4107>
+    def_stmt _96 = _76;
+    version 96
+    ptr-info 0x7fdf831c8450>
+------------------------------
+_13 = (long int) _12;
+ <ssa_name 0x7fdf831c2000
+    type <integer_type 0x7fdf8366a5e8 int public SI
+        size <integer_cst 0x7fdf83656e28 constant 32>
+        unit size <integer_cst 0x7fdf83656e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fdf8366a5e8 precision 32 min <integer_cst 0x7fdf83656de0 -2147483648> max <integer_cst 0x7fdf83656df8 2147483647>
+        pointer_to_this <pointer_type 0x7fdf83671a80>>
+   
+    def_stmt _12 = setlocale ("LC_ALL", 0B);
+    version 12>
+------------------------------
+_14 = (const char *) _13;
+ <ssa_name 0x7fdf831c2048
+    type <integer_type 0x7fdf8366a738 long int public DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656e70 -9223372036854775808> max <integer_cst 0x7fdf83656e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7fdf83676930>>
+   
+    def_stmt _13 = (long int) _12;
+    version 13>
+------------------------------
+_17 = progsize_16 + 1;
+ <ssa_name 0x7fdf831c2120
+    type <integer_type 0x7fdf8319dd20 size_t public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656eb8 0> max <integer_cst 0x7fdf83658500 18446744073709551615> context <translation_unit_decl 0x7fdf83661168 test.c>>
+    var <var_decl 0x7fdf831c0480 progsize>
+    def_stmt progsize_16 = strlen (progname_11);
+    version 16>
+------------------------------
+_18 = _17 * 4;
+ <ssa_name 0x7fdf831c2168
+    type <integer_type 0x7fdf8366a7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656eb8 0> max <integer_cst 0x7fdf83658500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdf836769d8>>
+   
+    def_stmt _17 = progsize_16 + 1;
+    version 17>
+------------------------------
+_42 = ret_41;
+ <ssa_name 0x7fdf831c29d8
+    type <pointer_type 0x7fdf836710a8
+        type <void_type 0x7fdf8366af18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fdf836710a8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fdf83676bd0>>
+    var <var_decl 0x7fdf831c63f0 ret>
+    def_stmt ret_41 = malloc (_18);
+    version 41
+    ptr-info 0x7fdf831c8258>
+------------------------------
+_102 = ret_41;
+ <ssa_name 0x7fdf831c29d8
+    type <pointer_type 0x7fdf836710a8
+        type <void_type 0x7fdf8366af18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fdf836710a8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fdf83676bd0>>
+    var <var_decl 0x7fdf831c63f0 ret>
+    def_stmt ret_41 = malloc (_18);
+    version 41
+    ptr-info 0x7fdf831c8258>
+------------------------------
+progname_copy_19 = _102;
+ <ssa_name 0x7fdf831d0b40
+    type <pointer_type 0x7fdf836710a8
+        type <void_type 0x7fdf8366af18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fdf836710a8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fdf83676bd0>>
+    var <var_decl 0x7fdf831c6480 D.4097>
+    def_stmt _102 = ret_41;
+    version 102
+    ptr-info 0x7fdf831c8468>
+------------------------------
+_22 = 0;
+ <integer_cst 0x7fdf83656f78 type <integer_type 0x7fdf8366a5e8 int> constant 0>
+------------------------------
+_23 = progsize_16 + 1;
+ <ssa_name 0x7fdf831c2120
+    type <integer_type 0x7fdf8319dd20 size_t public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656eb8 0> max <integer_cst 0x7fdf83658500 18446744073709551615> context <translation_unit_decl 0x7fdf83661168 test.c>>
+    var <var_decl 0x7fdf831c0480 progsize>
+    def_stmt progsize_16 = strlen (progname_11);
+    version 16>
+------------------------------
+_27 = _26 / 4;
+ <ssa_name 0x7fdf831c23f0
+    type <integer_type 0x7fdf8366a7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656eb8 0> max <integer_cst 0x7fdf83658500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdf836769d8>>
+   
+    def_stmt _26 = __builtin_object_size (progname_copy_19, 1);
+    version 26>
+------------------------------
+_30 = _29 / 4;
+ <ssa_name 0x7fdf831c24c8
+    type <integer_type 0x7fdf8366a7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656eb8 0> max <integer_cst 0x7fdf83658500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdf836769d8>>
+   
+    def_stmt _29 = __builtin_object_size (progname_copy_19, 1);
+    version 29>
+------------------------------
+_32 = _31 / 4;
+ <ssa_name 0x7fdf831c2558
+    type <integer_type 0x7fdf8366a7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656eb8 0> max <integer_cst 0x7fdf83658500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdf836769d8>>
+   
+    def_stmt _31 = __builtin_object_size (progname_copy_19, 1);
+    version 31>
+------------------------------
+_38 = 0;
+ <integer_cst 0x7fdf83656f78 type <integer_type 0x7fdf8366a5e8 int> constant 0>
+------------------------------
+# VUSE <.MEM_107>
+_84 = MEM[(int *)progname_copy_19];
+ <mem_ref 0x7fdf831cf910
+    type <integer_type 0x7fdf8366a5e8 int public SI
+        size <integer_cst 0x7fdf83656e28 constant 32>
+        unit size <integer_cst 0x7fdf83656e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fdf8366a5e8 precision 32 min <integer_cst 0x7fdf83656de0 -2147483648> max <integer_cst 0x7fdf83656df8 2147483647>
+        pointer_to_this <pointer_type 0x7fdf83671a80>>
+   
+    arg 0 <ssa_name 0x7fdf831c21f8
+        type <pointer_type 0x7fdf8319d1f8 type <integer_type 0x7fdf8319da80 wchar_t>
+            public unsigned DI
+            size <integer_cst 0x7fdf83656be8 constant 64>
+            unit size <integer_cst 0x7fdf83656c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality>
+        var <var_decl 0x7fdf831c05a0 progname_copy>
+        def_stmt progname_copy_19 = _102;
+        version 19
+        ptr-info 0x7fdf831c8210>
+    arg 1 <integer_cst 0x7fdf831c80d8 type <pointer_type 0x7fdf83671a80> constant 0>>
+------------------------------
+_39 = 1;
+ <integer_cst 0x7fdf83656f90 type <integer_type 0x7fdf8366a5e8 int> constant 1>
+------------------------------
+_115 = _40;
+ <ssa_name 0x7fdf831c27e0
+    type <integer_type 0x7fdf8366a5e8 int public SI
+        size <integer_cst 0x7fdf83656e28 constant 32>
+        unit size <integer_cst 0x7fdf83656e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fdf8366a5e8 precision 32 min <integer_cst 0x7fdf83656de0 -2147483648> max <integer_cst 0x7fdf83656df8 2147483647>
+        pointer_to_this <pointer_type 0x7fdf83671a80>>
+   
+    def_stmt _40 = PHI <_22(16), _38(24), _39(25)>
+    version 40>
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+ <ssa_name 0x7fdf8365e900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebd80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7fdf831c8108>
+qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
+-------always in therealways in therealways in there--------------------------
+ <ssa_name 0x7fdf8365e900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebd80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7fdf831c8108>
+--------GIMPLE goto -------
+_15 = newstr_3;
+ <ssa_name 0x7fdf8365eea0
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831bb480 D.4074>
+    def_stmt _15 = newstr_3;
+    version 15
+    ptr-info 0x7fdf831c8180>
+--------GIMPLE goto -------
+end_12 = newstr_3 + length_11;
+ <ssa_name 0x7fdf8365edc8
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831bb360 end>
+    def_stmt end_12 = newstr_3 + length_11;
+    version 12
+    ptr-info 0x7fdf831c8168>
+--------GIMPLE goto -------
+# .MEM_14 = VDEF <.MEM_13>
+*end_12 = 0;
+--------GIMPLE goto -------
+# .MEM_13 = VDEF <.MEM_9>
+memcpy (newstr_3, arg_5(D), length_11);
+--------GIMPLE goto -------
+# VUSE <.MEM_14>
+return newstr_3;
+--------GIMPLE goto -------
+_7 = newstr_3;
+ <ssa_name 0x7fdf8365e9d8
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+   
+    def_stmt _7 = newstr_3;
+    version 7
+    ptr-info 0x7fdf831c8150>
+ <ssa_name 0x7fdf831ca900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c6a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7fdf831c82d0>
+qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
+-------always in therealways in therealways in there--------------------------
+ <ssa_name 0x7fdf831ca900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c6a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7fdf831c82d0>
+--------GIMPLE goto -------
+_76 = PHI <0B(9), dirname_52(14)>
+ <ssa_name 0x7fdf8365e750
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+   
+    def_stmt _76 = PHI <0B(9), dirname_52(14)>
+    version 76
+    ptr-info 0x7fdf831c8378>
+--------GIMPLE goto -------
+_96 = _76;
+ <ssa_name 0x7fdf831d0990
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c6ab0 D.4107>
+    def_stmt _96 = _76;
+    version 96
+    ptr-info 0x7fdf831c8450>
+--------GIMPLE goto -------
+_10 = _96;
+ <ssa_name 0x7fdf831bef78
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+   
+    def_stmt _10 = _96;
+    version 10
+    ptr-info 0x7fdf831c81b0>
+--------GIMPLE goto -------
+# .MEM_97 = VDEF <.MEM_87>
+progname_11 = concat (_10, "bin");
+--------GIMPLE goto -------
+_75 = dirname_52;
+ <ssa_name 0x7fdf831caf78
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+   
+    def_stmt _75 = dirname_52;
+    version 75
+    ptr-info 0x7fdf831c8360>
+--------GIMPLE goto -------
+_74 = dirname_52 + _73;
+ <ssa_name 0x7fdf831caf30
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+   
+    def_stmt _74 = dirname_52 + _73;
+    version 74
+    ptr-info 0x7fdf831c8348>
+--------GIMPLE goto -------
+# .MEM_95 = VDEF <.MEM_86>
+*_74 = 0;
+--------GIMPLE goto -------
+_68 = dirname_52 + _67;
+ <ssa_name 0x7fdf831cad80
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+   
+    def_stmt _68 = dirname_52 + _67;
+    version 68
+    ptr-info 0x7fdf831c8318>
+--------GIMPLE goto -------
+# .MEM_94 = VDEF <.MEM_93>
+*_68 = 46;
+--------GIMPLE goto -------
+# .MEM_93 = VDEF <.MEM_92>
+memcpy (dirname_52, _9, _56);
+ <ssa_name 0x7fdf831c20d8
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c0510 oldloc>
+    def_stmt oldloc_15 = strdup (_14);
+    version 15
+    ptr-info 0x7fdf831c81f8>
+qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
+-------always in therealways in therealways in there--------------------------
+ <ssa_name 0x7fdf831c20d8
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c0510 oldloc>
+    def_stmt oldloc_15 = strdup (_14);
+    version 15
+    ptr-info 0x7fdf831c81f8>
+--------GIMPLE goto -------
+# .MEM_107 = VDEF <.MEM_106>
+free (oldloc_15);
+--------GIMPLE goto -------
+# .MEM_106 = VDEF <.MEM_88>
+setlocale ("LC_ALL", oldloc_15);
+--------GIMPLE goto -------
+# .MEM_110 = VDEF <.MEM_88>
+free (oldloc_15);
+--------GIMPLE goto -------
+# .MEM_113 = VDEF <.MEM_101>
+free (oldloc_15);
+ <ssa_name 0x7fdf831c29d8
+    type <pointer_type 0x7fdf836710a8
+        type <void_type 0x7fdf8366af18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fdf836710a8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fdf83676bd0>>
+    var <var_decl 0x7fdf831c63f0 ret>
+    def_stmt ret_41 = malloc (_18);
+    version 41
+    ptr-info 0x7fdf831c8258>
+qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
+-------always in therealways in therealways in there--------------------------
+ <ssa_name 0x7fdf831c29d8
+    type <pointer_type 0x7fdf836710a8
+        type <void_type 0x7fdf8366af18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fdf836710a8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fdf83676bd0>>
+    var <var_decl 0x7fdf831c63f0 ret>
+    def_stmt ret_41 = malloc (_18);
+    version 41
+    ptr-info 0x7fdf831c8258>
+--------GIMPLE goto -------
+_102 = ret_41;
+ <ssa_name 0x7fdf831d0b40
+    type <pointer_type 0x7fdf836710a8
+        type <void_type 0x7fdf8366af18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fdf836710a8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fdf83676bd0>>
+    var <var_decl 0x7fdf831c6480 D.4097>
+    def_stmt _102 = ret_41;
+    version 102
+    ptr-info 0x7fdf831c8468>
+--------GIMPLE goto -------
+progname_copy_19 = _102;
+ <ssa_name 0x7fdf831c21f8
+    type <pointer_type 0x7fdf8319d1f8
+        type <integer_type 0x7fdf8319da80 wchar_t SI
+            size <integer_cst 0x7fdf83656e28 constant 32>
+            unit size <integer_cst 0x7fdf83656e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fdf8366a5e8 precision 32 min <integer_cst 0x7fdf83656de0 -2147483648> max <integer_cst 0x7fdf83656df8 2147483647> context <translation_unit_decl 0x7fdf83661168 test.c>
+            pointer_to_this <pointer_type 0x7fdf8319d1f8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831c05a0 progname_copy>
+    def_stmt progname_copy_19 = _102;
+    version 19
+    ptr-info 0x7fdf831c8210>
+--------GIMPLE goto -------
+# VUSE <.MEM_101>
+_31 = __builtin_object_size (progname_copy_19, 1);
+--------GIMPLE goto -------
+# VUSE <.MEM_101>
+_29 = __builtin_object_size (progname_copy_19, 1);
+--------GIMPLE goto -------
+# VUSE <.MEM_101>
+_26 = __builtin_object_size (progname_copy_19, 1);
+--------GIMPLE goto -------
+# VUSE <.MEM_101>
+_24 = __builtin_object_size (progname_copy_19, 1);
+--------GIMPLE goto -------
+# VUSE <.MEM_107>
+_84 = MEM[(int *)progname_copy_19];
+ <ssa_name 0x7fdf8365e6c0
+    type <integer_type 0x7fdf8366a5e8 int public SI
+        size <integer_cst 0x7fdf83656e28 constant 32>
+        unit size <integer_cst 0x7fdf83656e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fdf8366a5e8 precision 32 min <integer_cst 0x7fdf83656de0 -2147483648> max <integer_cst 0x7fdf83656df8 2147483647>
+        pointer_to_this <pointer_type 0x7fdf83671a80>>
+   
+    def_stmt _84 = MEM[(int *)progname_copy_19];
+    version 84>
+--------GIMPLE goto -------
+# .MEM_108 = VDEF <.MEM_107>
+_85 = __printf_chk (1, "%d\n", _84);
+--------GIMPLE goto -------
+# .MEM_109 = VDEF <.MEM_108>
+free (progname_copy_19);
+--------GIMPLE goto -------
+# .MEM_111 = VDEF <.MEM_110>
+free (progname_copy_19);
+--------GIMPLE goto -------
+# .MEM_105 = VDEF <.MEM_101>
+_34 = __mbstowcs_alias (progname_copy_19, progname_11, _23);
+ <ssa_name 0x7fdf8365e678
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebcf0 progname>
+    def_stmt progname_11 = concat (_10, "bin");
+    version 11
+    ptr-info 0x7fdf831c81c8>
+ <ssa_name 0x7fdf831c2318
+    type <integer_type 0x7fdf8366a7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656eb8 0> max <integer_cst 0x7fdf83658500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdf836769d8>>
+   
+    def_stmt _23 = progsize_16 + 1;
+    version 23>
+--------GIMPLE goto -------
+# .MEM_103 = VDEF <.MEM_101>
+_33 = __mbstowcs_chk_warn (progname_copy_19, progname_11, _23, _32);
+ <ssa_name 0x7fdf831c25a0
+    type <integer_type 0x7fdf8366a7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656eb8 0> max <integer_cst 0x7fdf83658500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdf836769d8>>
+   
+    def_stmt _32 = _31 / 4;
+    version 32>
+--------GIMPLE goto -------
+# .MEM_104 = VDEF <.MEM_101>
+_28 = __mbstowcs_chk (progname_copy_19, progname_11, _23, _27);
+ <ssa_name 0x7fdf831c2438
+    type <integer_type 0x7fdf8366a7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656eb8 0> max <integer_cst 0x7fdf83658500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdf836769d8>>
+   
+    def_stmt _27 = _26 / 4;
+    version 27>
+--------GIMPLE goto -------
+if (progname_copy_19 == 0B)
+if (progname_copy_19 == 0B)
+--------GIMPLE goto -------
+_42 = ret_41;
+ <ssa_name 0x7fdf831c2a20
+    type <pointer_type 0x7fdf836710a8
+        type <void_type 0x7fdf8366af18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fdf836710a8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fdf83676bd0>>
+   
+    def_stmt _42 = ret_41;
+    version 42
+    ptr-info 0x7fdf831c8270>
+ <ssa_name 0x7fdf8365e678
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebcf0 progname>
+    def_stmt progname_11 = concat (_10, "bin");
+    version 11
+    ptr-info 0x7fdf831c81c8>
+qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
+-------always in therealways in therealways in there--------------------------
+ <ssa_name 0x7fdf8365e678
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebcf0 progname>
+    def_stmt progname_11 = concat (_10, "bin");
+    version 11
+    ptr-info 0x7fdf831c81c8>
+--------GIMPLE goto -------
+# VUSE <.MEM_100>
+progsize_16 = strlen (progname_11);
+--------GIMPLE goto -------
+# .MEM_105 = VDEF <.MEM_101>
+_34 = __mbstowcs_alias (progname_copy_19, progname_11, _23);
+ <ssa_name 0x7fdf831c21f8
+    type <pointer_type 0x7fdf8319d1f8
+        type <integer_type 0x7fdf8319da80 wchar_t SI
+            size <integer_cst 0x7fdf83656e28 constant 32>
+            unit size <integer_cst 0x7fdf83656e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fdf8366a5e8 precision 32 min <integer_cst 0x7fdf83656de0 -2147483648> max <integer_cst 0x7fdf83656df8 2147483647> context <translation_unit_decl 0x7fdf83661168 test.c>
+            pointer_to_this <pointer_type 0x7fdf8319d1f8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7fdf831c05a0 progname_copy>
+    def_stmt progname_copy_19 = _102;
+    version 19
+    ptr-info 0x7fdf831c8210>
+ <ssa_name 0x7fdf831c2318
+    type <integer_type 0x7fdf8366a7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656eb8 0> max <integer_cst 0x7fdf83658500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdf836769d8>>
+   
+    def_stmt _23 = progsize_16 + 1;
+    version 23>
+--------GIMPLE goto -------
+# .MEM_103 = VDEF <.MEM_101>
+_33 = __mbstowcs_chk_warn (progname_copy_19, progname_11, _23, _32);
+ <ssa_name 0x7fdf831c25a0
+    type <integer_type 0x7fdf8366a7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656eb8 0> max <integer_cst 0x7fdf83658500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdf836769d8>>
+   
+    def_stmt _32 = _31 / 4;
+    version 32>
+--------GIMPLE goto -------
+# .MEM_104 = VDEF <.MEM_101>
+_28 = __mbstowcs_chk (progname_copy_19, progname_11, _23, _27);
+ <ssa_name 0x7fdf831c2438
+    type <integer_type 0x7fdf8366a7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656eb8 0> max <integer_cst 0x7fdf83658500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdf836769d8>>
+   
+    def_stmt _27 = _26 / 4;
+    version 27>
+ <addr_expr 0x7fdf83191b60
+    type <pointer_type 0x7fdf831a9738
+        type <array_type 0x7fdf831a9690 type <integer_type 0x7fdf8319ddc8 char>
+            BLK
+            size <integer_cst 0x7fdf831a0408 constant 48>
+            unit size <integer_cst 0x7fdf831a03f0 constant 6>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fdf831a95e8>
+            pointer_to_this <pointer_type 0x7fdf831a9738>>
+        unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    readonly constant
+    arg 0 <string_cst 0x7fdf83191b40 type <array_type 0x7fdf831a9690>
+        readonly constant static "dummy\000">
+    test.c:147:17 start: test.c:147:17 finish: test.c:147:17>
+qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 13 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:__printf_chk========= [0m
+[40;33m =======POP node_fun stack:__printf_chk========= [0m
+[40;42m =======pre add _ fucntion:concat========= [0m
+[40;44m =======print_function_type 2  ========  [0m
+[40;44m =======print_function_path concat  function_call count: 3 level :1========  [0m
+[40;44m =======print_function_type 2  ========  [0m
+[40;42m =======pre add _ fucntion:memcpy========= [0m
+[40;33m =======POP node_fun stack:memcpy========= [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;33m =======POP node_fun stack:strlen========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre_check_funciton:concat========= [0m
+[40;42m =======start_check_funciton:concat========= [0m
+ <function_decl 0x7fdf831a5400 concat
+    type <function_type 0x7fdf831a60a8
+        type <pointer_type 0x7fdf8319d5e8 type <integer_type 0x7fdf8319ddc8 char>
+            public unsigned DI
+            size <integer_cst 0x7fdf83656be8 constant 64>
+            unit size <integer_cst 0x7fdf83656c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+            pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+        QI
+        size <integer_cst 0x7fdf83656cd8 constant 8>
+        unit size <integer_cst 0x7fdf83656cf0 constant 1>
+        align 8 symtab 0 alias set -1 structural equality
+        arg-types <tree_list 0x7fdf8319cd70 value <pointer_type 0x7fdf8319df18>
+            chain <tree_list 0x7fdf8319ccd0 value <pointer_type 0x7fdf8319df18>
+                chain <tree_list 0x7fdf83669ac8 value <void_type 0x7fdf8366af18 void>>>>
+        pointer_to_this <pointer_type 0x7fdf831a9540>>
+    addressable nothrow static function-specific-target function-specific-opt QI file test.c line 71 col 1 align 8 context <translation_unit_decl 0x7fdf83661168 test.c> initial <block 0x7fdf831a4060>
+    result <result_decl 0x7fdf83661258 D.4055 type <pointer_type 0x7fdf8319d5e8>
+        unsigned ignored DI file test.c line 71 col 1 size <integer_cst 0x7fdf83656be8 64> unit size <integer_cst 0x7fdf83656c00 8>
+        align 64 context <function_decl 0x7fdf831a5400 concat>>
+    arguments <parm_decl 0x7fdf831ac300 first
+        type <pointer_type 0x7fdf8319df18 type <integer_type 0x7fdf8319de70 char>
+            public unsigned DI size <integer_cst 0x7fdf83656be8 64> unit size <integer_cst 0x7fdf83656c00 8>
+            align 64 symtab 0 alias set -1 structural equality>
+        unsigned DI file test.c line 71 col 21 size <integer_cst 0x7fdf83656be8 64> unit size <integer_cst 0x7fdf83656c00 8>
+        align 64 context <function_decl 0x7fdf831a5400 concat> arg-type <pointer_type 0x7fdf8319df18>
+        chain <parm_decl 0x7fdf831ac380 arg type <pointer_type 0x7fdf8319df18>
+            unsigned DI file test.c line 71 col 40 size <integer_cst 0x7fdf83656be8 64> unit size <integer_cst 0x7fdf83656c00 8>
+            align 64 context <function_decl 0x7fdf831a5400 concat> arg-type <pointer_type 0x7fdf8319df18>>>
+    struct-function 0x7fdf831b5000>
+ <ssa_name 0x7fdf8365e900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebd80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7fdf831c8108>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdf8365e900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebd80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7fdf831c8108>
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+dot graph entry concat
+dot graph target entry end
+
+_15 = newstr_3;
+In function ‘main’:
+lto1: warning: use location
+dot graph target loc start # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1);
+test.c:76:10: warning: use location
+   newstr = XNEWVEC (char, 1);
+          ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: _15 = newstr_3;
+lto1: warning: use location
+dot graph target line desend
+
+dot graph target loc start # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1);
+test.c:76:10: warning: use location
+dot graph target loc end
+
+dot graph target basicblock start from concat basic block 2dot graph target basicblock en1
+
+dot graph stmt start _15 = newstr_3;
+newstr_3 = malloc (1);
+dot graph stmt end
+
+dot graph stmt start _15 = newstr_3;
+lto1: warning: use location
+dot graph stmt end
+
+dot graph entry concat
+dot graph target entry end
+
+end_12 = newstr_3 + length_11;
+test.c:63:6: warning: use location
+  end += length;
+      ^
+dot graph target loc start # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1);
+test.c:76:10: warning: use location
+   newstr = XNEWVEC (char, 1);
+          ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: end_12 = newstr_3 + length_11;
+test.c:63:6: warning: use location
+  end += length;
+      ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1);
+test.c:76:10: warning: use location
+   newstr = XNEWVEC (char, 1);
+          ^
+dot graph target loc end
+
+dot graph target basicblock start from concat basic block 2dot graph target basicblock en1
+
+dot graph stmt start end_12 = newstr_3 + length_11;
+newstr_3 = malloc (1);
+dot graph stmt end
+
+dot graph stmt start end_12 = newstr_3 + length_11;
+test.c:63:6: warning: use location
+  end += length;
+      ^
+dot graph stmt end
+
+dot graph entry concat
+dot graph target entry end
+
+*end_12 = 0;
+test.c:65:7: warning: use location
+  *end = '\000';
+       ^
+dot graph target loc start # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1);
+test.c:76:10: warning: use location
+   newstr = XNEWVEC (char, 1);
+          ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: *end_12 = 0;
+test.c:65:7: warning: use location
+  *end = '\000';
+       ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1);
+test.c:76:10: warning: use location
+   newstr = XNEWVEC (char, 1);
+          ^
+dot graph target loc end
+
+dot graph target basicblock start from concat basic block 2dot graph target basicblock en1
+
+dot graph stmt start *end_12 = 0;
+newstr_3 = malloc (1);
+dot graph stmt end
+
+dot graph stmt start *end_12 = 0;
+test.c:65:7: warning: use location
+  *end = '\000';
+       ^
+dot graph stmt end
+
+dot graph entry concat
+dot graph target entry end
+
+memcpy (newstr_3, arg_5(D), length_11);
+test.c:62:2: warning: use location
+  memcpy (end, arg, length);
+  ^
+dot graph target loc start # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1);
+test.c:76:10: warning: use location
+   newstr = XNEWVEC (char, 1);
+          ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: memcpy (newstr_3, arg_5(D), length_11);
+test.c:62:2: warning: use location
+  memcpy (end, arg, length);
+  ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1);
+test.c:76:10: warning: use location
+   newstr = XNEWVEC (char, 1);
+          ^
+dot graph target loc end
+
+dot graph target basicblock start from concat basic block 2dot graph target basicblock en1
+
+dot graph stmt start memcpy (newstr_3, arg_5(D), length_11);
+newstr_3 = malloc (1);
+dot graph stmt end
+
+dot graph stmt start memcpy (newstr_3, arg_5(D), length_11);
+test.c:62:2: warning: use location
+  memcpy (end, arg, length);
+  ^
+dot graph stmt end
+
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7fdf8365e900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebd80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7fdf831c8108>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+dot graph entry concat
+dot graph target entry end
+
+_7 = newstr_3;
+test.c:81:10: warning: use location
+   return newstr;
+          ^
+dot graph target loc start # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1);
+test.c:76:10: warning: use location
+   newstr = XNEWVEC (char, 1);
+          ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: _7 = newstr_3;
+test.c:81:10: warning: use location
+   return newstr;
+          ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1);
+test.c:76:10: warning: use location
+   newstr = XNEWVEC (char, 1);
+          ^
+dot graph target loc end
+
+dot graph target basicblock start from concat basic block 2dot graph target basicblock en1
+
+dot graph stmt start _7 = newstr_3;
+newstr_3 = malloc (1);
+dot graph stmt end
+
+dot graph stmt start _7 = newstr_3;
+test.c:81:10: warning: use location
+   return newstr;
+          ^
+dot graph stmt end
+
+dot graph target basicblock start from concat basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1373767220 dot graph subgraph  _15 = newstr_3;
+newstr_3 = malloc (1);
+dot graph subgrapend
+
+dot graph target basicblock start from concat basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_9001862 dot graph subgraph  end_12 = newstr_3 + length_11;
+newstr_3 = malloc (1);
+dot graph subgrapend
+
+dot graph target basicblock start from concat basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1061855517 dot graph subgraph  *end_12 = 0;
+end_12 = newstr_3 + length_11;
+dot graph subgrapend
+
+dot graph target basicblock start from concat basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_932246352 dot graph subgraph  memcpy (newstr_3, arg_5(D), length_11);
+newstr_3 = malloc (1);
+dot graph subgrapend
+
+dot graph target basicblock start from concat basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_697927104 dot graph subgraph  _7 = newstr_3;
+newstr_3 = malloc (1);
+dot graph subgrapend
+
+ <ssa_name 0x7fdf8365e900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebd80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7fdf831c8108>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+ ================== Start Use after free Check ================== 
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:concat========= [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:setlocale========= [0m
+[40;33m =======POP node_fun stack:setlocale========= [0m
+[40;42m =======pre add _ fucntion:__fprintf_chk========= [0m
+[40;33m =======POP node_fun stack:__fprintf_chk========= [0m
+[40;42m =======pre add _ fucntion:__mbstowcs_alias========= [0m
+[40;33m =======POP node_fun stack:__mbstowcs_alias========= [0m
+[40;42m =======pre add _ fucntion:__mbstowcs_chk_warn========= [0m
+[40;33m =======POP node_fun stack:__mbstowcs_chk_warn========= [0m
+[40;42m =======pre add _ fucntion:__builtin_object_size========= [0m
+[40;33m =======POP node_fun stack:__builtin_object_size========= [0m
+[40;42m =======pre add _ fucntion:__builtin_constant_p========= [0m
+[40;33m =======POP node_fun stack:__builtin_constant_p========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;33m =======POP node_fun stack:strlen========= [0m
+[40;42m =======pre add _ fucntion:strdup========= [0m
+[40;33m =======POP node_fun stack:strdup========= [0m
+[40;42m =======pre add _ fucntion:memcpy========= [0m
+[40;33m =======POP node_fun stack:memcpy========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+ <function_decl 0x7fdf8319eb00 main
+    type <function_type 0x7fdf8319d7e0
+        type <integer_type 0x7fdf8366a5e8 int public SI
+            size <integer_cst 0x7fdf83656e28 constant 32>
+            unit size <integer_cst 0x7fdf83656e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fdf8366a5e8 precision 32 min <integer_cst 0x7fdf83656de0 -2147483648> max <integer_cst 0x7fdf83656df8 2147483647>
+            pointer_to_this <pointer_type 0x7fdf83671a80>>
+        QI
+        size <integer_cst 0x7fdf83656cd8 constant 8>
+        unit size <integer_cst 0x7fdf83656cf0 constant 1>
+        align 8 symtab 0 alias set -1 structural equality>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 139 col 5 align 8 context <translation_unit_decl 0x7fdf83661168 test.c> initial <block 0x7fdf831a41e0>
+    result <result_decl 0x7fdf83661348 D.4075 type <integer_type 0x7fdf8366a5e8 int>
+        ignored SI file test.c line 139 col 5 size <integer_cst 0x7fdf83656e28 32> unit size <integer_cst 0x7fdf83656e40 4>
+        align 32 context <function_decl 0x7fdf8319eb00 main>>
+    struct-function 0x7fdf831b5160>
+ <ssa_name 0x7fdf831ca900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c6a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7fdf831c82d0>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdf831ca900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c6a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7fdf831c82d0>
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+dot graph entry main
+dot graph target entry end
+
+_76 = PHI <0B(9), dirname_52(14)>
+lto1: warning: use location
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 15: _76 = PHI <0B(9), dirname_52(14)>
+lto1: warning: use location
+dot graph target line desend
+
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 15dot graph target basicblock en1
+
+dot graph stmt start _76 = PHI <0B(9), dirname_52(14)>
+dirname_52 = malloc (_51);
+dot graph stmt end
+
+dot graph stmt start _76 = PHI <0B(9), dirname_52(14)>
+lto1: warning: use location
+dot graph stmt end
+
+this stmt have mutiple branch ---malloc-----
+dot graph entry main
+dot graph target entry end
+
+_96 = _76;
+lto1: warning: use location
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+dot graph target loc en1
+
+dot graph target line desc form basic block 15: _96 = _76;
+lto1: warning: use location
+dot graph target line desend
+
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 15dot graph target basicblock en1
+
+dot graph stmt start _96 = _76;
+dirname_52 = malloc (_51);
+dot graph stmt end
+
+dot graph stmt start _96 = _76;
+lto1: warning: use location
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+_10 = _96;
+test.c:109:22: warning: use location
+   progname = concat (ldirname (python_libdir), "bin");
+                      ^
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 15: _10 = _96;
+test.c:109:22: warning: use location
+   progname = concat (ldirname (python_libdir), "bin");
+                      ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 15dot graph target basicblock en1
+
+dot graph stmt start _10 = _96;
+dirname_52 = malloc (_51);
+dot graph stmt end
+
+dot graph stmt start _10 = _96;
+test.c:109:22: warning: use location
+   progname = concat (ldirname (python_libdir), "bin");
+                      ^
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+_75 = dirname_52;
+test.c:53:10: warning: use location
+   return dirname;
+          ^
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 14: _75 = dirname_52;
+test.c:53:10: warning: use location
+   return dirname;
+          ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 14dot graph target basicblock en1
+
+dot graph stmt start _75 = dirname_52;
+dirname_52 = malloc (_51);
+dot graph stmt end
+
+dot graph stmt start _75 = dirname_52;
+test.c:53:10: warning: use location
+   return dirname;
+          ^
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+_74 = dirname_52 + _73;
+test.c:52:10: warning: use location
+   dirname[base - filename] = '\0';
+          ^
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 14: _74 = dirname_52 + _73;
+test.c:52:10: warning: use location
+   dirname[base - filename] = '\0';
+          ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 14dot graph target basicblock en1
+
+dot graph stmt start _74 = dirname_52 + _73;
+dirname_52 = malloc (_51);
+dot graph stmt end
+
+dot graph stmt start _74 = dirname_52 + _73;
+test.c:52:10: warning: use location
+   dirname[base - filename] = '\0';
+          ^
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+*_74 = 0;
+test.c:52:28: warning: use location
+   dirname[base - filename] = '\0';
+                            ^
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 14: *_74 = 0;
+test.c:52:28: warning: use location
+   dirname[base - filename] = '\0';
+                            ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 14dot graph target basicblock en1
+
+dot graph stmt start *_74 = 0;
+dirname_52 = malloc (_51);
+dot graph stmt end
+
+dot graph stmt start *_74 = 0;
+test.c:52:28: warning: use location
+   dirname[base - filename] = '\0';
+                            ^
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+_68 = dirname_52 + _67;
+test.c:50:12: warning: use location
+     dirname[base++ - filename] = '.';
+            ^
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 13: _68 = dirname_52 + _67;
+test.c:50:12: warning: use location
+     dirname[base++ - filename] = '.';
+            ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 13dot graph target basicblock en1
+
+dot graph stmt start _68 = dirname_52 + _67;
+dirname_52 = malloc (_51);
+dot graph stmt end
+
+dot graph stmt start _68 = dirname_52 + _67;
+test.c:50:12: warning: use location
+     dirname[base++ - filename] = '.';
+            ^
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+*_68 = 46;
+test.c:50:32: warning: use location
+     dirname[base++ - filename] = '.';
+                                ^
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 13: *_68 = 46;
+test.c:50:32: warning: use location
+     dirname[base++ - filename] = '.';
+                                ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 13dot graph target basicblock en1
+
+dot graph stmt start *_68 = 46;
+dirname_52 = malloc (_51);
+dot graph stmt end
+
+dot graph stmt start *_68 = 46;
+test.c:50:32: warning: use location
+     dirname[base++ - filename] = '.';
+                                ^
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+memcpy (dirname_52, _9, _56);
+test.c:44:3: warning: use location
+   memcpy (dirname, filename, base - filename);
+   ^
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 10: memcpy (dirname_52, _9, _56);
+test.c:44:3: warning: use location
+   memcpy (dirname, filename, base - filename);
+   ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+test.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 10dot graph target basicblock en1
+
+dot graph stmt start memcpy (dirname_52, _9, _56);
+dirname_52 = malloc (_51);
+dot graph stmt end
+
+dot graph stmt start memcpy (dirname_52, _9, _56);
+test.c:44:3: warning: use location
+   memcpy (dirname, filename, base - filename);
+   ^
+dot graph stmt end
+
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7fdf831ca900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c6a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7fdf831c82d0>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+dot graph target basicblock start from main basic block 15dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_971685521 dot graph subgraph  _76 = PHI <0B(9), dirname_52(14)>
+dirname_52 = malloc (_51);
+dot graph subgrapend
+
+dot graph target basicblock start from main basic block 15dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_399343144 dot graph subgraph  _96 = _76;
+_76 = PHI <0B(9), dirname_52(14)>
+dot graph subgrapend
+
+dot graph target basicblock start from main basic block 15dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1393492390 dot graph subgraph  _10 = _96;
+_96 = _76;
+dot graph subgrapend
+
+ <ssa_name 0x7fdf831ca900
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c6a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7fdf831c82d0>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+ ================== Start Use after free Check ================== 
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+ <function_decl 0x7fdf8319eb00 main
+    type <function_type 0x7fdf8319d7e0
+        type <integer_type 0x7fdf8366a5e8 int public SI
+            size <integer_cst 0x7fdf83656e28 constant 32>
+            unit size <integer_cst 0x7fdf83656e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fdf8366a5e8 precision 32 min <integer_cst 0x7fdf83656de0 -2147483648> max <integer_cst 0x7fdf83656df8 2147483647>
+            pointer_to_this <pointer_type 0x7fdf83671a80>>
+        QI
+        size <integer_cst 0x7fdf83656cd8 constant 8>
+        unit size <integer_cst 0x7fdf83656cf0 constant 1>
+        align 8 symtab 0 alias set -1 structural equality>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 139 col 5 align 8 context <translation_unit_decl 0x7fdf83661168 test.c> initial <block 0x7fdf831a41e0>
+    result <result_decl 0x7fdf83661348 D.4075 type <integer_type 0x7fdf8366a5e8 int>
+        ignored SI file test.c line 139 col 5 size <integer_cst 0x7fdf83656e28 32> unit size <integer_cst 0x7fdf83656e40 4>
+        align 32 context <function_decl 0x7fdf8319eb00 main>>
+    struct-function 0x7fdf831b5160>
+ <ssa_name 0x7fdf831c20d8
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c0510 oldloc>
+    def_stmt oldloc_15 = strdup (_14);
+    version 15
+    ptr-info 0x7fdf831c81f8>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdf831c20d8
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c0510 oldloc>
+    def_stmt oldloc_15 = strdup (_14);
+    version 15
+    ptr-info 0x7fdf831c81f8>
+
+ ================== trace ptable================== 
+trace fucntion name:strdup 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---strdup-----
+this Reserved word function ------strdup-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+dot graph entry main
+dot graph target entry end
+
+free (oldloc_15);
+test.c:129:3: warning: use location
+   xfree (oldloc);
+   ^
+dot graph target loc start # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14);
+test.c:110:10: warning: use location
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+          ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 25: free (oldloc_15);
+test.c:129:3: warning: use location
+   xfree (oldloc);
+   ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14);
+test.c:110:10: warning: use location
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+          ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 25dot graph target basicblock en1
+
+dot graph stmt start free (oldloc_15);
+oldloc_15 = strdup (_14);
+dot graph stmt end
+
+dot graph stmt start free (oldloc_15);
+test.c:129:3: warning: use location
+   xfree (oldloc);
+   ^
+dot graph stmt end
+
+dot graph target color descgreendot graph target color desend
+
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (oldloc_15);
+test.c:129:3: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+dot graph entry main
+dot graph target entry end
+
+setlocale ("LC_ALL", oldloc_15);
+test.c:128:3: warning: use location
+   setlocale (LC_ALL, oldloc);
+   ^
+dot graph target loc start # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14);
+test.c:110:10: warning: use location
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+          ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 25: setlocale ("LC_ALL", oldloc_15);
+test.c:128:3: warning: use location
+   setlocale (LC_ALL, oldloc);
+   ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14);
+test.c:110:10: warning: use location
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+          ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 25dot graph target basicblock en1
+
+dot graph stmt start setlocale ("LC_ALL", oldloc_15);
+oldloc_15 = strdup (_14);
+dot graph stmt end
+
+dot graph stmt start setlocale ("LC_ALL", oldloc_15);
+test.c:128:3: warning: use location
+   setlocale (LC_ALL, oldloc);
+   ^
+dot graph stmt end
+
+this stmt is child function---setlocale-----
+
+ ================== trace ================== 
+ <ssa_name 0x7fdf831c20d8
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c0510 oldloc>
+    def_stmt oldloc_15 = strdup (_14);
+    version 15
+    ptr-info 0x7fdf831c81f8>
+trace fucntion name:setlocale 
+
+ ================== trace ================== 
+dot graph entry main
+dot graph target entry end
+
+free (oldloc_15);
+test.c:123:7: warning: use location
+       xfree (oldloc);
+       ^
+dot graph target loc start # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14);
+test.c:110:10: warning: use location
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+          ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 24: free (oldloc_15);
+test.c:123:7: warning: use location
+       xfree (oldloc);
+       ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14);
+test.c:110:10: warning: use location
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+          ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 24dot graph target basicblock en1
+
+dot graph stmt start free (oldloc_15);
+oldloc_15 = strdup (_14);
+dot graph stmt end
+
+dot graph stmt start free (oldloc_15);
+test.c:123:7: warning: use location
+       xfree (oldloc);
+       ^
+dot graph stmt end
+
+dot graph target color descgreendot graph target color desend
+
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (oldloc_15);
+test.c:123:7: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find ================== 
+dot graph entry main
+dot graph target entry end
+
+free (oldloc_15);
+test.c:116:7: warning: use location
+       xfree (oldloc);
+       ^
+dot graph target loc start # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14);
+test.c:110:10: warning: use location
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+          ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 16: free (oldloc_15);
+test.c:116:7: warning: use location
+       xfree (oldloc);
+       ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14);
+test.c:110:10: warning: use location
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+          ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 16dot graph target basicblock en1
+
+dot graph stmt start free (oldloc_15);
+oldloc_15 = strdup (_14);
+dot graph stmt end
+
+dot graph stmt start free (oldloc_15);
+test.c:116:7: warning: use location
+       xfree (oldloc);
+       ^
+dot graph stmt end
+
+dot graph target color descgreendot graph target color desend
+
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (oldloc_15);
+test.c:116:7: warning: use location
+[40;32m    HAS FREE STMT count:3 name:free [0m
+
+ ================== find ================== 
+dot graph target basicblock start from main basic block 25dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_633448211 dot graph subgraph  free (oldloc_15);
+oldloc_15 = strdup (_14);
+dot graph subgrapend
+
+dot graph target basicblock start from main basic block 25dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_2032048241 dot graph subgraph  setlocale ("LC_ALL", oldloc_15);
+oldloc_15 = strdup (_14);
+dot graph subgrapend
+
+ <ssa_name 0x7fdf831c20d8
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf831c0510 oldloc>
+    def_stmt oldloc_15 = strdup (_14);
+    version 15
+    ptr-info 0x7fdf831c81f8>
+
+ ================== Start Use after free Check ================== 
+# .MEM_110 = VDEF <.MEM_88>
+free (oldloc_15);
+At top level:
+test.c:123:7: warning: Use after free error!: free location 
+       xfree (oldloc);
+       ^
+# .MEM_107 = VDEF <.MEM_106>
+free (oldloc_15);
+test.c:129:3: warning: use location
+   xfree (oldloc);
+   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_113 = VDEF <.MEM_101>
+free (oldloc_15);
+test.c:116:7: warning: Use after free error!: free location 
+       xfree (oldloc);
+       ^
+# .MEM_107 = VDEF <.MEM_106>
+free (oldloc_15);
+test.c:129:3: warning: use location
+   xfree (oldloc);
+   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_110 = VDEF <.MEM_88>
+free (oldloc_15);
+test.c:123:7: warning: Use after free error!: free location 
+       xfree (oldloc);
+       ^
+# .MEM_106 = VDEF <.MEM_88>
+setlocale ("LC_ALL", oldloc_15);
+test.c:128:3: warning: use location
+   setlocale (LC_ALL, oldloc);
+   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_113 = VDEF <.MEM_101>
+free (oldloc_15);
+test.c:116:7: warning: Use after free error!: free location 
+       xfree (oldloc);
+       ^
+# .MEM_106 = VDEF <.MEM_88>
+setlocale ("LC_ALL", oldloc_15);
+test.c:128:3: warning: use location
+   setlocale (LC_ALL, oldloc);
+   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_113 = VDEF <.MEM_101>
+free (oldloc_15);
+test.c:116:7: warning: Use after free error!: free location 
+       xfree (oldloc);
+       ^
+# .MEM_110 = VDEF <.MEM_88>
+free (oldloc_15);
+test.c:123:7: warning: use location
+       xfree (oldloc);
+       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+ ================== Start Use after free Check ================== 
+
+======================================================================
+[40;31m  	possible double free :3 [0m
+
+======================================================================
+ <function_decl 0x7fdf8319eb00 main
+    type <function_type 0x7fdf8319d7e0
+        type <integer_type 0x7fdf8366a5e8 int public SI
+            size <integer_cst 0x7fdf83656e28 constant 32>
+            unit size <integer_cst 0x7fdf83656e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fdf8366a5e8 precision 32 min <integer_cst 0x7fdf83656de0 -2147483648> max <integer_cst 0x7fdf83656df8 2147483647>
+            pointer_to_this <pointer_type 0x7fdf83671a80>>
+        QI
+        size <integer_cst 0x7fdf83656cd8 constant 8>
+        unit size <integer_cst 0x7fdf83656cf0 constant 1>
+        align 8 symtab 0 alias set -1 structural equality>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 139 col 5 align 8 context <translation_unit_decl 0x7fdf83661168 test.c> initial <block 0x7fdf831a41e0>
+    result <result_decl 0x7fdf83661348 D.4075 type <integer_type 0x7fdf8366a5e8 int>
+        ignored SI file test.c line 139 col 5 size <integer_cst 0x7fdf83656e28 32> unit size <integer_cst 0x7fdf83656e40 4>
+        align 32 context <function_decl 0x7fdf8319eb00 main>>
+    struct-function 0x7fdf831b5160>
+ <ssa_name 0x7fdf831c29d8
+    type <pointer_type 0x7fdf836710a8
+        type <void_type 0x7fdf8366af18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fdf836710a8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fdf83676bd0>>
+    var <var_decl 0x7fdf831c63f0 ret>
+    def_stmt ret_41 = malloc (_18);
+    version 41
+    ptr-info 0x7fdf831c8258>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdf831c29d8
+    type <pointer_type 0x7fdf836710a8
+        type <void_type 0x7fdf8366af18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fdf836710a8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fdf83676bd0>>
+    var <var_decl 0x7fdf831c63f0 ret>
+    def_stmt ret_41 = malloc (_18);
+    version 41
+    ptr-info 0x7fdf831c8258>
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+dot graph entry main
+dot graph target entry end
+
+_102 = ret_41;
+lto1: warning: use location
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 15: _102 = ret_41;
+lto1: warning: use location
+dot graph target line desend
+
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 15dot graph target basicblock en1
+
+dot graph stmt start _102 = ret_41;
+ret_41 = malloc (_18);
+dot graph stmt end
+
+dot graph stmt start _102 = ret_41;
+lto1: warning: use location
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+progname_copy_19 = _102;
+test.c:113:17: warning: use location
+   progname_copy = (wchar_t *) PyMem_Malloc ((progsize + 1) * sizeof (wchar_t));
+                 ^
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 15: progname_copy_19 = _102;
+test.c:113:17: warning: use location
+   progname_copy = (wchar_t *) PyMem_Malloc ((progsize + 1) * sizeof (wchar_t));
+                 ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 15dot graph target basicblock en1
+
+dot graph stmt start progname_copy_19 = _102;
+ret_41 = malloc (_18);
+dot graph stmt end
+
+dot graph stmt start progname_copy_19 = _102;
+test.c:113:17: warning: use location
+   progname_copy = (wchar_t *) PyMem_Malloc ((progsize + 1) * sizeof (wchar_t));
+                 ^
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+_84 = MEM[(int *)progname_copy_19];
+test.c:91:2: warning: use location
+  __USE(progname);
+  ^
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 25: _84 = MEM[(int *)progname_copy_19];
+test.c:91:2: warning: use location
+  __USE(progname);
+  ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 25dot graph target basicblock en1
+
+dot graph stmt start _84 = MEM[(int *)progname_copy_19];
+ret_41 = malloc (_18);
+dot graph stmt end
+
+dot graph stmt start _84 = MEM[(int *)progname_copy_19];
+test.c:91:2: warning: use location
+  __USE(progname);
+  ^
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+free (progname_copy_19);
+test.c:135:2: warning: use location
+  xfree(progname_copy);
+  ^
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 25: free (progname_copy_19);
+test.c:135:2: warning: use location
+  xfree(progname_copy);
+  ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 25dot graph target basicblock en1
+
+dot graph stmt start free (progname_copy_19);
+ret_41 = malloc (_18);
+dot graph stmt end
+
+dot graph stmt start free (progname_copy_19);
+test.c:135:2: warning: use location
+  xfree(progname_copy);
+  ^
+dot graph stmt end
+
+dot graph target color descgreendot graph target color desend
+
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (progname_copy_19);
+test.c:135:2: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+dot graph entry main
+dot graph target entry end
+
+free (progname_copy_19);
+test.c:124:4: warning: use location
+    xfree(progname_copy);
+    ^
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 24: free (progname_copy_19);
+test.c:124:4: warning: use location
+    xfree(progname_copy);
+    ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 24dot graph target basicblock en1
+
+dot graph stmt start free (progname_copy_19);
+ret_41 = malloc (_18);
+dot graph stmt end
+
+dot graph stmt start free (progname_copy_19);
+test.c:124:4: warning: use location
+    xfree(progname_copy);
+    ^
+dot graph stmt end
+
+dot graph target color descgreendot graph target color desend
+
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (progname_copy_19);
+test.c:124:4: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find ================== 
+dot graph entry main
+dot graph target entry end
+
+if (progname_copy_19 == 0B)
+test.c:114:6: warning: use location
+   if (!progname_copy)
+      ^
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 15: if (progname_copy_19 == 0B)
+test.c:114:6: warning: use location
+   if (!progname_copy)
+      ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 15dot graph target basicblock en1
+
+dot graph stmt start if (progname_copy_19 == 0B)
+ret_41 = malloc (_18);
+dot graph stmt end
+
+dot graph stmt start if (progname_copy_19 == 0B)
+test.c:114:6: warning: use location
+   if (!progname_copy)
+      ^
+dot graph stmt end
+
+if (progname_copy_19 == 0B)
+
+ ================== find cond branch ================= 
+if (progname_copy_19 == 0B)
+Cond in fucntion main basic block 15
+ ================== possiable direct basic block ================= 
+from main basic block 16
+ ================== possiable direct basic block ================= 
+from main basic block 17
+ ================== warring ================== 
+[40;35m    need check this branch possiable have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+dot graph entry main
+dot graph target entry end
+
+_42 = ret_41;
+test.c:87:9: warning: use location
+  return ret;
+         ^
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 15: _42 = ret_41;
+test.c:87:9: warning: use location
+  return ret;
+         ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+test.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 15dot graph target basicblock en1
+
+dot graph stmt start _42 = ret_41;
+ret_41 = malloc (_18);
+dot graph stmt end
+
+dot graph stmt start _42 = ret_41;
+test.c:87:9: warning: use location
+  return ret;
+         ^
+dot graph stmt end
+
+dot graph target basicblock start from main basic block 25dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_237995542 dot graph subgraph  _84 = MEM[(int *)progname_copy_19];
+progname_copy_19 = _102;
+dot graph subgrapend
+
+dot graph target basicblock start from main basic block 25dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1975602497 dot graph subgraph  free (progname_copy_19);
+progname_copy_19 = _102;
+dot graph subgrapend
+
+ <ssa_name 0x7fdf831c29d8
+    type <pointer_type 0x7fdf836710a8
+        type <void_type 0x7fdf8366af18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fdf836710a8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fdf83676bd0>>
+    var <var_decl 0x7fdf831c63f0 ret>
+    def_stmt ret_41 = malloc (_18);
+    version 41
+    ptr-info 0x7fdf831c8258>
+
+ ================== Start Use after free Check ================== 
+# .MEM_111 = VDEF <.MEM_110>
+free (progname_copy_19);
+test.c:124:4: warning: Use after free error!: free location 
+    xfree(progname_copy);
+    ^
+# VUSE <.MEM_107>
+_84 = MEM[(int *)progname_copy_19];
+test.c:91:2: warning: use location
+  __USE(progname);
+  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_111 = VDEF <.MEM_110>
+free (progname_copy_19);
+test.c:124:4: warning: Use after free error!: free location 
+    xfree(progname_copy);
+    ^
+# .MEM_109 = VDEF <.MEM_108>
+free (progname_copy_19);
+test.c:135:2: warning: use location
+  xfree(progname_copy);
+  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+ ================== Start Use after free Check ================== 
+
+======================================================================
+[40;31m  	possible double free :2 [0m
+
+======================================================================
+ <function_decl 0x7fdf8319eb00 main
+    type <function_type 0x7fdf8319d7e0
+        type <integer_type 0x7fdf8366a5e8 int public SI
+            size <integer_cst 0x7fdf83656e28 constant 32>
+            unit size <integer_cst 0x7fdf83656e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fdf8366a5e8 precision 32 min <integer_cst 0x7fdf83656de0 -2147483648> max <integer_cst 0x7fdf83656df8 2147483647>
+            pointer_to_this <pointer_type 0x7fdf83671a80>>
+        QI
+        size <integer_cst 0x7fdf83656cd8 constant 8>
+        unit size <integer_cst 0x7fdf83656cf0 constant 1>
+        align 8 symtab 0 alias set -1 structural equality>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 139 col 5 align 8 context <translation_unit_decl 0x7fdf83661168 test.c> initial <block 0x7fdf831a41e0>
+    result <result_decl 0x7fdf83661348 D.4075 type <integer_type 0x7fdf8366a5e8 int>
+        ignored SI file test.c line 139 col 5 size <integer_cst 0x7fdf83656e28 32> unit size <integer_cst 0x7fdf83656e40 4>
+        align 32 context <function_decl 0x7fdf8319eb00 main>>
+    struct-function 0x7fdf831b5160>
+ <ssa_name 0x7fdf8365e678
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebcf0 progname>
+    def_stmt progname_11 = concat (_10, "bin");
+    version 11
+    ptr-info 0x7fdf831c81c8>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdf8365e678
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebcf0 progname>
+    def_stmt progname_11 = concat (_10, "bin");
+    version 11
+    ptr-info 0x7fdf831c81c8>
+
+ ================== trace ptable================== 
+trace fucntion name:concat 
+[40;44m =======trace_function_path concat  function_call count: 3 level :-100========  [0m
+[40;31m  find return stmt  [0m
+[40;31m  this fucntion return heap-object  [0m
+# VUSE <.MEM_14>
+return newstr_3;
+test.c:81:10: warning: use location
+   return newstr;
+          ^
+[40;42m =======pre add _ fucntion:memcpy========= [0m
+[40;46m =======add node_fun stack:memcpy========= [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;46m =======add node_fun stack:strlen========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;46m =======add node_fun stack:malloc========= [0m
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---concat-----
+this other function ------concat-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+ <ssa_name 0x7fdf8365e678
+    type <pointer_type 0x7fdf8319d5e8
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        public unsigned DI
+        size <integer_cst 0x7fdf83656be8 constant 64>
+        unit size <integer_cst 0x7fdf83656c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdf83661168 test.c>
+        pointer_to_this <pointer_type 0x7fdf831a9bd0>>
+    var <var_decl 0x7fdf843ebcf0 progname>
+    def_stmt progname_11 = concat (_10, "bin");
+    version 11
+    ptr-info 0x7fdf831c81c8>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+ ================== Start Use after free Check ================== 
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+ <function_decl 0x7fdf8319eb00 main
+    type <function_type 0x7fdf8319d7e0
+        type <integer_type 0x7fdf8366a5e8 int public SI
+            size <integer_cst 0x7fdf83656e28 constant 32>
+            unit size <integer_cst 0x7fdf83656e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fdf8366a5e8 precision 32 min <integer_cst 0x7fdf83656de0 -2147483648> max <integer_cst 0x7fdf83656df8 2147483647>
+            pointer_to_this <pointer_type 0x7fdf83671a80>>
+        QI
+        size <integer_cst 0x7fdf83656cd8 constant 8>
+        unit size <integer_cst 0x7fdf83656cf0 constant 1>
+        align 8 symtab 0 alias set -1 structural equality>
+    nothrow public static function-specific-target function-specific-opt QI file test.c line 139 col 5 align 8 context <translation_unit_decl 0x7fdf83661168 test.c> initial <block 0x7fdf831a41e0>
+    result <result_decl 0x7fdf83661348 D.4075 type <integer_type 0x7fdf8366a5e8 int>
+        ignored SI file test.c line 139 col 5 size <integer_cst 0x7fdf83656e28 32> unit size <integer_cst 0x7fdf83656e40 4>
+        align 32 context <function_decl 0x7fdf8319eb00 main>>
+    struct-function 0x7fdf831b5160>
+ <string_cst 0x7fdf83191b40
+    type <array_type 0x7fdf831a9690
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        BLK
+        size <integer_cst 0x7fdf831a0408 constant 48>
+        unit size <integer_cst 0x7fdf831a03f0 constant 6>
+        align 8 symtab 0 alias set -1 structural equality
+        domain <integer_type 0x7fdf831a95e8 type <integer_type 0x7fdf8366a000 sizetype>
+            DI
+            size <integer_cst 0x7fdf83656be8 constant 64>
+            unit size <integer_cst 0x7fdf83656c00 constant 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656c18 0> max <integer_cst 0x7fdf831a03d8 5>>
+        pointer_to_this <pointer_type 0x7fdf831a9738>>
+    readonly constant static "dummy\000">
+
+dot graph START
+
+======================================================================
+ <string_cst 0x7fdf83191b40
+    type <array_type 0x7fdf831a9690
+        type <integer_type 0x7fdf8319ddc8 char public string-flag QI
+            size <integer_cst 0x7fdf83656cd8 constant 8>
+            unit size <integer_cst 0x7fdf83656cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdf8366a3f0 precision 8 min <integer_cst 0x7fdf831a01b0 -128> max <integer_cst 0x7fdf831a0198 127>
+            pointer_to_this <pointer_type 0x7fdf8319d5e8>>
+        BLK
+        size <integer_cst 0x7fdf831a0408 constant 48>
+        unit size <integer_cst 0x7fdf831a03f0 constant 6>
+        align 8 symtab 0 alias set -1 structural equality
+        domain <integer_type 0x7fdf831a95e8 type <integer_type 0x7fdf8366a000 sizetype>
+            DI
+            size <integer_cst 0x7fdf83656be8 constant 64>
+            unit size <integer_cst 0x7fdf83656c00 constant 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdf8366a738 precision 64 min <integer_cst 0x7fdf83656c18 0> max <integer_cst 0x7fdf831a03d8 5>>
+        pointer_to_this <pointer_type 0x7fdf831a9738>>
+    readonly constant static "dummy\000">
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 6
+ [0m
+[40;34m    used_stmt array stack totalsize of : 328
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+algorithm time: 0.025431 s
+=======Mapping node_fun:concat=========
+<bb 2> [100.00%]:
+newstr_3 = malloc (1);
+length_11 = strlen (arg_5(D));
+memcpy (newstr_3, arg_5(D), length_11);
+end_12 = newstr_3 + length_11;
+*end_12 = 0;
+_15 = newstr_3;
+_7 = newstr_3;
+return newstr_3;
+
+=======is loop:0=========
+=======Mapping node_fun:main=========
+<bb 2> [14.44%]:
+_9 = 0B;
+goto <bb 4>; [100.00%]
+
+=======is loop:0=========
+<bb 3> [81.81%]:
+base_79 = name_78 + 1;
+name_80 = name_78 + 1;
+
+=======is loop:1=========
+<bb 4> [96.25%]:
+# name_78 = PHI <_9(2), name_80(3)>
+# base_82 = PHI <_9(2), base_79(3)>
+_81 = *name_78;
+if (_81 != 0)
+  goto <bb 3>; [85.00%]
+else
+  goto <bb 5>; [15.00%]
+
+=======is loop:1=========
+<bb 5> [14.44%]:
+_83 = base_82;
+_90 = base_82;
+_77 = _90;
+_91 = _77;
+base_43 = _91;
+goto <bb 7>; [100.00%]
+
+=======is loop:0=========
+<bb 6> [85.56%]:
+base_45 = base_44 + 18446744073709551615;
+
+=======is loop:1=========
+<bb 7> [100.00%]:
+# base_44 = PHI <base_43(5), base_45(6)>
+if (_9 < base_44)
+  goto <bb 8>; [92.50%]
+else
+  goto <bb 9>; [7.50%]
+
+=======is loop:1=========
+<bb 8> [92.50%]:
+_46 = MEM[(const char *)base_44 + -1B];
+if (_46 == 47)
+  goto <bb 6>; [92.50%]
+else
+  goto <bb 9>; [7.50%]
+
+=======is loop:1=========
+<bb 9> [14.44%]:
+if (_9 == base_44)
+  goto <bb 15>; [7.92%]
+else
+  goto <bb 10>; [92.08%]
+
+=======is loop:0=========
+<bb 10> [13.29%]:
+_47 = (long int) base_44;
+_48 = (long int) _9;
+_49 = _47 - _48;
+_50 = _49 + 2;
+_51 = (long unsigned int) _50;
+dirname_52 = malloc (_51);
+_53 = (long int) base_44;
+_54 = (long int) _9;
+_55 = _53 - _54;
+_56 = (long unsigned int) _55;
+memcpy (dirname_52, _9, _56);
+_57 = (long int) base_44;
+_58 = (long int) _9;
+_59 = _57 - _58;
+if (_59 == 2)
+  goto <bb 11>; [34.00%]
+else
+  goto <bb 14>; [66.00%]
+
+=======is loop:0=========
+<bb 11> [4.52%]:
+_60 = *base_44;
+if (_60 == 47)
+  goto <bb 12>; [34.00%]
+else
+  goto <bb 14>; [66.00%]
+
+=======is loop:0=========
+<bb 12> [1.54%]:
+_61 = MEM[(const char *)_9];
+if (_61 != 47)
+  goto <bb 13>; [66.00%]
+else
+  goto <bb 14>; [34.00%]
+
+=======is loop:0=========
+<bb 13> [1.01%]:
+_62 = base_44;
+base_63 = base_44 + 1;
+_64 = (long int) base_44;
+_65 = (long int) _9;
+_66 = _64 - _65;
+_67 = (sizetype) _66;
+_68 = dirname_52 + _67;
+*_68 = 46;
+
+=======is loop:0=========
+<bb 14> [13.29%]:
+# base_69 = PHI <base_44(10), base_44(11), base_44(12), base_63(13)>
+_70 = (long int) base_69;
+_71 = (long int) _9;
+_72 = _70 - _71;
+_73 = (sizetype) _72;
+_74 = dirname_52 + _73;
+*_74 = 0;
+_75 = dirname_52;
+
+=======is loop:0=========
+<bb 15> [14.44%]:
+# _76 = PHI <0B(9), dirname_52(14)>
+_96 = _76;
+_10 = _96;
+progname_11 = concat (_10, "bin");
+_12 = setlocale ("LC_ALL", 0B);
+_13 = (long int) _12;
+_14 = (const char *) _13;
+oldloc_15 = strdup (_14);
+setlocale ("LC_ALL", "");
+progsize_16 = strlen (progname_11);
+_17 = progsize_16 + 1;
+_18 = _17 * 4;
+ret_41 = malloc (_18);
+_42 = ret_41;
+_102 = ret_41;
+progname_copy_19 = _102;
+if (progname_copy_19 == 0B)
+  goto <bb 16>; [15.24%]
+else
+  goto <bb 17>; [84.76%]
+
+=======is loop:0=========
+<bb 16> [2.20%]:
+free (oldloc_15);
+_20 = stderr;
+_21 = __fprintf_chk (_20, 1, "out of memory\n");
+_22 = 0;
+goto <bb 26>; [100.00%]
+
+=======is loop:0=========
+<bb 17> [12.24%]:
+_23 = progsize_16 + 1;
+_24 = __builtin_object_size (progname_copy_19, 1);
+if (_24 != 18446744073709551615)
+  goto <bb 18>; [79.76%]
+else
+  goto <bb 22>; [20.24%]
+
+=======is loop:0=========
+<bb 18> [9.76%]:
+_25 = __builtin_constant_p (_23);
+if (_25 == 0)
+  goto <bb 19>; [33.00%]
+else
+  goto <bb 20>; [67.00%]
+
+=======is loop:0=========
+<bb 19> [3.22%]:
+_26 = __builtin_object_size (progname_copy_19, 1);
+_27 = _26 / 4;
+_28 = __mbstowcs_chk (progname_copy_19, progname_11, _23, _27);
+goto <bb 23>; [100.00%]
+
+=======is loop:0=========
+<bb 20> [6.54%]:
+_29 = __builtin_object_size (progname_copy_19, 1);
+_30 = _29 / 4;
+if (_23 > _30)
+  goto <bb 21>; [33.00%]
+else
+  goto <bb 22>; [67.00%]
+
+=======is loop:0=========
+<bb 21> [2.16%]:
+_31 = __builtin_object_size (progname_copy_19, 1);
+_32 = _31 / 4;
+_33 = __mbstowcs_chk_warn (progname_copy_19, progname_11, _23, _32);
+goto <bb 23>; [100.00%]
+
+=======is loop:0=========
+<bb 22> [6.86%]:
+_34 = __mbstowcs_alias (progname_copy_19, progname_11, _23);
+
+=======is loop:0=========
+<bb 23> [12.24%]:
+# _35 = PHI <_28(19), _33(21), _34(22)>
+if (_35 == 18446744073709551615)
+  goto <bb 24>; [30.50%]
+else
+  goto <bb 25>; [69.50%]
+
+=======is loop:0=========
+<bb 24> [3.73%]:
+free (oldloc_15);
+free (progname_copy_19);
+_36 = stderr;
+_37 = __fprintf_chk (_36, 1, "Could not convert python path to string\n");
+_38 = 0;
+goto <bb 26>; [100.00%]
+
+=======is loop:0=========
+<bb 25> [8.50%]:
+setlocale ("LC_ALL", oldloc_15);
+free (oldloc_15);
+_84 = MEM[(int *)progname_copy_19];
+_85 = __printf_chk (1, "%d\n", _84);
+free (progname_copy_19);
+_39 = 1;
+
+=======is loop:0=========
+<bb 26> [14.44%]:
+# _40 = PHI <_22(16), _38(24), _39(25)>
+_115 = _40;
+concat ("dummy", "");
+_4 = __printf_chk (1, "%d\n", 1835890020);
+return 0;
+
+=======is loop:0=========
+time: 0.045460 s

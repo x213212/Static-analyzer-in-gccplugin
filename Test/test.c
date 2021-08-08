@@ -1,95 +1,151 @@
-// commit id : 66d2e229baa9fe57b86
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
+/*
+    buggy parent : ad36c6c
+    commit id : 3f2a3564b1c3872e4a380f2484d40ce2495a4835
+*/
 
-#include "stdio.h"
-#include "openssh.h"
+#include "filenames.h"
+#include "common.h"
+#include "binutils.h"
 
-#define fds_bits __fds_bits
-# define howmany(x,y)	(((x)+((y)-1))/(y))
+#define LC_ALL "LC_ALL"
 
-int select(int a, fd_set *b, fd_set *c, fd_set *d, struct timeval *e)
+char *python_libdir = 0;
+
+const char *
+unix_lbasename (const char *name)
 {
-    if(b) b->fds_bits[0] = a;
-    if(c) c->fds_bits[0] = a;
-    if(d) d->fds_bits[0] = a;
-    return 1;
+  const char *base;
+
+  for (base = name; *name; name++)
+     base = name + 1;
+
+  return base;
 }
 
-void
-ms_to_timeval(struct timeval *tv, int ms)
+const char *
+lbasename (const char *name)
 {
-	if (ms < 0)
-		ms = 0;
-	tv->tv_sec = ms / 1000;
-	tv->tv_usec = (ms % 1000) * 1000;
+  return unix_lbasename (name);
 }
 
-int
-ssh_packet_write_wait(struct ssh *ssh)
+char *
+ldirname (const char *filename)
 {
-	fd_set *setp;
-	int ret, r, ms_remain = 0;
-	struct timeval start, timeout, *timeoutp = NULL;
-	struct session_state *state = ssh->state;
+  const char *base = lbasename (filename);
+  char *dirname;
 
-	setp = malloc(howmany(state->connection_out + 1,
-	    NFDBITS) * sizeof(fd_mask));	/* allocation site */
-	if (setp == NULL)
-		return SSH_ERR_ALLOC_FAIL;
-	if ((r = __RANDBOOL) != 0) {
-		// free(setp);						/* memory leak */
-		return r;
-	}
-	while (__RANDBOOL) {
-		memset(setp, 0, howmany(state->connection_out + 1,
-		    NFDBITS) * sizeof(fd_mask));
-		FD_SET(state->connection_out, setp);
+  while (base > filename && IS_DIR_SEPARATOR (base[-1]))
+    --base;
 
-		if (state->packet_timeout_ms > 0) {
-			ms_remain = state->packet_timeout_ms;
-			timeoutp = &timeout;
-		}
-		for (;;) {
-			if (state->packet_timeout_ms != -1) {
-				ms_to_timeval(&timeout, ms_remain);
-				gettimeofday(&start, NULL);
-			}
-			if ((ret = select(state->connection_out + 1,
-			    NULL, setp, NULL, timeoutp)) >= 0)
-				break;
-			if (errno != EAGAIN && errno != EINTR &&
-			    errno != EWOULDBLOCK)
-				break;
-			if (state->packet_timeout_ms == -1)
-				continue;
-			ms_remain = rand();
-			if (ms_remain <= 0) {
-				ret = 0;
-				break;
-			}
-		}
-		if (ret == 0) {
-			free(setp);
-			return SSH_ERR_CONN_TIMEOUT;
-		}
-		if ((r = __RANDBOOL) != 0) {
-			free(setp);
-			return r;
-		}
-	}
-	free(setp);
-	return 0;
+  if (base == filename)
+    return NULL;
+
+  dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+  memcpy (dirname, filename, base - filename);
+
+  /* On DOS based file systems, convert "d:foo" to "d:.", so that we
+     create "d:./bar" later instead of the (different) "d:/bar".  */
+  if (base - filename == 2 && IS_ABSOLUTE_PATH (base)
+      && !IS_DIR_SEPARATOR (filename[0]))
+    dirname[base++ - filename] = '.';
+
+  dirname[base - filename] = '\0';
+  return dirname;
 }
 
+static inline char *
+vconcat_copy (char *dst, const char *first, const char* arg)
+{
+  char *end = dst;
 
-int main (int argc, char **argv) {
-        struct ssh ssh;
-        srand(time(NULL));
-		ssh_packet_write_wait(&ssh);
-        return 0;
+	unsigned long length = strlen (arg);
+	memcpy (end, arg, length);
+	end += length;
+	
+	*end = '\000';
+
+	return dst;
 }
 
+char *
+concat (const char *first, const char *arg)
+{
+  char *newstr;
 
+  /* First compute the size of the result and get sufficient memory.  */
+  newstr = XNEWVEC (char, 1);
 
+  /* Now copy the individual pieces to the result string. */
+  vconcat_copy (newstr, first, arg);
+
+  return newstr;
+}
+
+void *PyMem_Malloc (size_t size)
+{
+	void *ret = malloc(size);
+	return ret;
+}
+void Py_SetProgramName (const wchar_t *progname)
+{
+	__USE(progname);
+}
+
+static bool
+do_start_initialization ()
+{
+  char *progname;
+  int i;
+  size_t progsize, count;
+  char *oldloc;
+  wchar_t *progname_copy;
+
+  /* Work around problem where python gets confused about where it is,
+     and then can't find its libraries, etc.
+     NOTE: Python assumes the following layout:
+     /foo/bin/python
+     /foo/lib/pythonX.Y/...
+     This must be done before calling Py_Initialize.  */
+  progname = concat (ldirname (python_libdir), "bin");
+  oldloc = xstrdup (setlocale (LC_ALL, NULL));
+  setlocale (LC_ALL, "");
+  progsize = strlen (progname);
+  progname_copy = (wchar_t *) PyMem_Malloc ((progsize + 1) * sizeof (wchar_t));
+  if (!progname_copy)
+    {
+      xfree (oldloc);
+      fprintf (stderr, "out of memory\n");
+      return false;
+    }
+  count = mbstowcs (progname_copy, progname, progsize + 1);
+  if (count == (size_t) -1)
+    {
+      xfree (oldloc);
+			xfree(progname_copy);
+      fprintf (stderr, "Could not convert python path to string\n");
+      return false;
+    }
+  setlocale (LC_ALL, oldloc);
+  xfree (oldloc);
+
+  /* Note that Py_SetProgramName expects the string it is passed to
+     remain alive for the duration of the program's execution, so
+     it is not freed after this call.  */
+  Py_SetProgramName (progname_copy);
+	xfree(progname_copy);
+  return true;
+}
+
+int main()
+{
+    do_start_initialization();
+		/*
+			ldirname and concat can be called at multiple callsite in
+			the original program. We insert a USE for the first argument of
+			concat to prevent inserting a free inside the function
+		*/
+		char *dummy = "dummy";
+		concat(dummy, "");
+		__USE(dummy);
+    return 0;
+}

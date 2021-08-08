@@ -1,83 +1,183 @@
 digraph {constraint=false ;rankdir = LR; rank=same; nodesep=1.0; 
 
 
-" run_processes_parallel
+" concat
 "->
 
 
-" # .MEM_294 = VDEF <.MEM_293>
-_53 = calloc (_52, 120)
+" # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1)
 
 "
 
-[label=" form basic block 10: pp.children = _53
-test.c:191:15: warning: use location
+[label=" form basic block 2: _15 = newstr_3
+lto1: warning: use location
+" ]
+
+" # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1)
+
+"->
+
+" from concat basic block 2"
+
+->" _15 = newstr_3
+newstr_3 = malloc (1)
+"
+
+->" _15 = newstr_3
+lto1: warning: use location
+"
+
+" concat
+"->
+
+
+" # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1)
+
+"
+
+[label=" form basic block 2: end_12 = newstr_3 + length_11
+test.c:63:6: warning: use location
 
 " ]
 
-" # .MEM_294 = VDEF <.MEM_293>
-_53 = calloc (_52, 120)
+" # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1)
 
 "->
 
-" from run_processes_parallel basic block 10"
+" from concat basic block 2"
 
-->" pp.children = _53
-_53 = calloc (_52, 120)
+->" end_12 = newstr_3 + length_11
+newstr_3 = malloc (1)
 "
 
-->" pp.children = _53
-test.c:191:15: warning: use location
+->" end_12 = newstr_3 + length_11
+test.c:63:6: warning: use location
 
 "
 
-" from run_processes_parallel basic block 10"
+" concat
+"->
 
-->subgraph cluster_1642849145 { style ="dashed";"  pp.children = _53
-_53 = calloc (_52, 120)
+
+" # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1)
+
+"
+
+[label=" form basic block 2: *end_12 = 0
+test.c:65:7: warning: use location
+
+" ]
+
+" # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1)
+
+"->
+
+" from concat basic block 2"
+
+->" *end_12 = 0
+newstr_3 = malloc (1)
+"
+
+->" *end_12 = 0
+test.c:65:7: warning: use location
+
+"
+
+" concat
+"->
+
+
+" # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1)
+
+"
+
+[label=" form basic block 2: memcpy (newstr_3, arg_5(D), length_11)
+test.c:62:2: warning: use location
+
+" ]
+
+" # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1)
+
+"->
+
+" from concat basic block 2"
+
+->" memcpy (newstr_3, arg_5(D), length_11)
+newstr_3 = malloc (1)
+"
+
+->" memcpy (newstr_3, arg_5(D), length_11)
+test.c:62:2: warning: use location
+
+"
+
+
+" concat
+"->
+
+
+" # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1)
+
+"
+
+[label=" form basic block 2: _7 = newstr_3
+test.c:81:10: warning: use location
+
+" ]
+
+" # .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1)
+
+"->
+
+" from concat basic block 2"
+
+->" _7 = newstr_3
+newstr_3 = malloc (1)
+"
+
+->" _7 = newstr_3
+test.c:81:10: warning: use location
+
+"
+
+" from concat basic block 2"
+
+->subgraph cluster_1373767220 { style ="dashed";"  _15 = newstr_3
+newstr_3 = malloc (1)
 ";}
 
+" from concat basic block 2"
 
+->subgraph cluster_9001862 { style ="dashed";"  end_12 = newstr_3 + length_11
+newstr_3 = malloc (1)
+";}
 
+" from concat basic block 2"
 
+->subgraph cluster_1061855517 { style ="dashed";"  *end_12 = 0
+end_12 = newstr_3 + length_11
+";}
 
+" from concat basic block 2"
 
+->subgraph cluster_932246352 { style ="dashed";"  memcpy (newstr_3, arg_5(D), length_11)
+newstr_3 = malloc (1)
+";}
 
+" from concat basic block 2"
 
-" run_processes_parallel
-"->
-
-
-" # .MEM_296 = VDEF <.MEM_295>
-_55 = calloc (_54, 8)
-
-"
-
-[label=" form basic block 10: pp.pfd = _55
-test.c:192:10: warning: use location
-
-" ]
-
-" # .MEM_296 = VDEF <.MEM_295>
-_55 = calloc (_54, 8)
-
-"->
-
-" from run_processes_parallel basic block 10"
-
-->" pp.pfd = _55
-_55 = calloc (_54, 8)
-"
-
-->" pp.pfd = _55
-test.c:192:10: warning: use location
-
-"
-
-" from run_processes_parallel basic block 10"
-
-->subgraph cluster_1731308215 { style ="dashed";"  pp.pfd = _55
-_55 = calloc (_54, 8)
+->subgraph cluster_697927104 { style ="dashed";"  _7 = newstr_3
+newstr_3 = malloc (1)
 ";}
 
 
@@ -91,117 +191,667 @@ _55 = calloc (_54, 8)
 "->
 
 
-" # .MEM_61 = VDEF <.MEM_55>
-_16 = run_processes_parallel (_46, parallel_next, 0B, 0B, &proc)
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
 
 "
 
-[label=" form basic block 10: exit (_16)
-test.c:432:3: warning: use location
+[label=" form basic block 15: _76 = PHI <0B(9), dirname_52(14)>
+lto1: warning: use location
 " ]
 
-" # .MEM_61 = VDEF <.MEM_55>
-_16 = run_processes_parallel (_46, parallel_next, 0B, 0B, &proc)
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
 
 "->
 
-" from main basic block 10"
+" from main basic block 15"
 
-->" exit (_16)
-_16 = run_processes_parallel (_46, parallel_next, 0B, 0B, &proc)
+->" _76 = PHI <0B(9), dirname_52(14)>
+dirname_52 = malloc (_51)
 "
 
-->" exit (_16)
-test.c:432:3: warning: use location
+->" _76 = PHI <0B(9), dirname_52(14)>
+lto1: warning: use location
 "
-
-
-" from main basic block 10"
-
-->subgraph cluster_1037003979 { style ="dashed";"  exit (_16)
-_16 = run_processes_parallel (_46, parallel_next, 0B, 0B, &proc)
-";}
-
-
-
-
-
-
 
 
 " main
 "->
 
 
-" # .MEM_59 = VDEF <.MEM_55>
-_19 = run_processes_parallel (_46, parallel_next, 0B, task_finished, &proc)
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
 
 "
 
-[label=" form basic block 12: exit (_19)
-test.c:436:3: warning: use location
+[label=" form basic block 15: _96 = _76
+lto1: warning: use location
 " ]
 
-" # .MEM_59 = VDEF <.MEM_55>
-_19 = run_processes_parallel (_46, parallel_next, 0B, task_finished, &proc)
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
 
 "->
 
-" from main basic block 12"
+" from main basic block 15"
 
-->" exit (_19)
-_19 = run_processes_parallel (_46, parallel_next, 0B, task_finished, &proc)
+->" _96 = _76
+dirname_52 = malloc (_51)
 "
 
-->" exit (_19)
-test.c:436:3: warning: use location
+->" _96 = _76
+lto1: warning: use location
 "
-
-
-" from main basic block 12"
-
-->subgraph cluster_1584349908 { style ="dashed";"  exit (_19)
-_19 = run_processes_parallel (_46, parallel_next, 0B, task_finished, &proc)
-";}
-
-
-
-
-
-
-
 
 " main
 "->
 
 
-" # .MEM_57 = VDEF <.MEM_55>
-_22 = run_processes_parallel (_46, no_job, 0B, task_finished, &proc)
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
 
 "
 
-[label=" form basic block 14: exit (_22)
-test.c:440:3: warning: use location
+[label=" form basic block 15: _10 = _96
+test.c:109:22: warning: use location
+
 " ]
 
-" # .MEM_57 = VDEF <.MEM_55>
-_22 = run_processes_parallel (_46, no_job, 0B, task_finished, &proc)
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
+
+"->
+
+" from main basic block 15"
+
+->" _10 = _96
+dirname_52 = malloc (_51)
+"
+
+->" _10 = _96
+test.c:109:22: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
+
+"
+
+[label=" form basic block 14: _75 = dirname_52
+test.c:53:10: warning: use location
+
+" ]
+
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
 
 "->
 
 " from main basic block 14"
 
-->" exit (_22)
-_22 = run_processes_parallel (_46, no_job, 0B, task_finished, &proc)
+->" _75 = dirname_52
+dirname_52 = malloc (_51)
 "
 
-->" exit (_22)
-test.c:440:3: warning: use location
+->" _75 = dirname_52
+test.c:53:10: warning: use location
+
 "
 
+" main
+"->
+
+
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
+
+"
+
+[label=" form basic block 14: _74 = dirname_52 + _73
+test.c:52:10: warning: use location
+
+" ]
+
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
+
+"->
 
 " from main basic block 14"
 
-->subgraph cluster_940277166 { style ="dashed";"  exit (_22)
-_22 = run_processes_parallel (_46, no_job, 0B, task_finished, &proc)
+->" _74 = dirname_52 + _73
+dirname_52 = malloc (_51)
+"
+
+->" _74 = dirname_52 + _73
+test.c:52:10: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
+
+"
+
+[label=" form basic block 14: *_74 = 0
+test.c:52:28: warning: use location
+
+" ]
+
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
+
+"->
+
+" from main basic block 14"
+
+->" *_74 = 0
+dirname_52 = malloc (_51)
+"
+
+->" *_74 = 0
+test.c:52:28: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
+
+"
+
+[label=" form basic block 13: _68 = dirname_52 + _67
+test.c:50:12: warning: use location
+
+" ]
+
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
+
+"->
+
+" from main basic block 13"
+
+->" _68 = dirname_52 + _67
+dirname_52 = malloc (_51)
+"
+
+->" _68 = dirname_52 + _67
+test.c:50:12: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
+
+"
+
+[label=" form basic block 13: *_68 = 46
+test.c:50:32: warning: use location
+
+" ]
+
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
+
+"->
+
+" from main basic block 13"
+
+->" *_68 = 46
+dirname_52 = malloc (_51)
+"
+
+->" *_68 = 46
+test.c:50:32: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
+
+"
+
+[label=" form basic block 10: memcpy (dirname_52, _9, _56)
+test.c:44:3: warning: use location
+
+" ]
+
+" # .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51)
+
+"->
+
+" from main basic block 10"
+
+->" memcpy (dirname_52, _9, _56)
+dirname_52 = malloc (_51)
+"
+
+->" memcpy (dirname_52, _9, _56)
+test.c:44:3: warning: use location
+
+"
+
+
+" from main basic block 15"
+
+->subgraph cluster_971685521 { style ="dashed";"  _76 = PHI <0B(9), dirname_52(14)>
+dirname_52 = malloc (_51)
+";}
+
+" from main basic block 15"
+
+->subgraph cluster_399343144 { style ="dashed";"  _96 = _76
+_76 = PHI <0B(9), dirname_52(14)>
+";}
+
+" from main basic block 15"
+
+->subgraph cluster_1393492390 { style ="dashed";"  _10 = _96
+_96 = _76
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14)
+
+"
+
+[label=" form basic block 25: free (oldloc_15)
+test.c:129:3: warning: use location
+
+" ]
+
+" # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14)
+
+"->
+
+" from main basic block 25"
+
+->" free (oldloc_15)
+oldloc_15 = strdup (_14)
+"
+
+->" free (oldloc_15)
+test.c:129:3: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14)
+
+"
+
+[label=" form basic block 25: setlocale (LC_ALL, oldloc_15)
+test.c:128:3: warning: use location
+
+" ]
+
+" # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14)
+
+"->
+
+" from main basic block 25"
+
+->" setlocale (LC_ALL, oldloc_15)
+oldloc_15 = strdup (_14)
+"
+
+->" setlocale (LC_ALL, oldloc_15)
+test.c:128:3: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14)
+
+"
+
+[label=" form basic block 24: free (oldloc_15)
+test.c:123:7: warning: use location
+
+" ]
+
+" # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14)
+
+"->
+
+" from main basic block 24"
+
+->" free (oldloc_15)
+oldloc_15 = strdup (_14)
+"
+
+->" free (oldloc_15)
+test.c:123:7: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14)
+
+"
+
+[label=" form basic block 16: free (oldloc_15)
+test.c:116:7: warning: use location
+
+" ]
+
+" # .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14)
+
+"->
+
+" from main basic block 16"
+
+->" free (oldloc_15)
+oldloc_15 = strdup (_14)
+"
+
+->" free (oldloc_15)
+test.c:116:7: warning: use location
+
+"
+
+[color="green" ]
+
+
+" from main basic block 25"
+
+->subgraph cluster_633448211 { style ="dashed";"  free (oldloc_15)
+oldloc_15 = strdup (_14)
+";}
+
+" from main basic block 25"
+
+->subgraph cluster_2032048241 { style ="dashed";"  setlocale (LC_ALL, oldloc_15)
+oldloc_15 = strdup (_14)
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"
+
+[label=" form basic block 15: _102 = ret_41
+lto1: warning: use location
+" ]
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"->
+
+" from main basic block 15"
+
+->" _102 = ret_41
+ret_41 = malloc (_18)
+"
+
+->" _102 = ret_41
+lto1: warning: use location
+"
+
+" main
+"->
+
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"
+
+[label=" form basic block 15: progname_copy_19 = _102
+test.c:113:17: warning: use location
+
+" ]
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"->
+
+" from main basic block 15"
+
+->" progname_copy_19 = _102
+ret_41 = malloc (_18)
+"
+
+->" progname_copy_19 = _102
+test.c:113:17: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"
+
+[label=" form basic block 25: _84 = MEM[(int *)progname_copy_19]
+test.c:91:2: warning: use location
+
+" ]
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"->
+
+" from main basic block 25"
+
+->" _84 = MEM[(int *)progname_copy_19]
+ret_41 = malloc (_18)
+"
+
+->" _84 = MEM[(int *)progname_copy_19]
+test.c:91:2: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"
+
+[label=" form basic block 25: free (progname_copy_19)
+test.c:135:2: warning: use location
+
+" ]
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"->
+
+" from main basic block 25"
+
+->" free (progname_copy_19)
+ret_41 = malloc (_18)
+"
+
+->" free (progname_copy_19)
+test.c:135:2: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"
+
+[label=" form basic block 24: free (progname_copy_19)
+test.c:124:4: warning: use location
+
+" ]
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"->
+
+" from main basic block 24"
+
+->" free (progname_copy_19)
+ret_41 = malloc (_18)
+"
+
+->" free (progname_copy_19)
+test.c:124:4: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"
+
+[label=" form basic block 15: if (progname_copy_19 == 0B)
+test.c:114:6: warning: use location
+
+" ]
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"->
+
+" from main basic block 15"
+
+->" if (progname_copy_19 == 0B)
+ret_41 = malloc (_18)
+"
+
+->" if (progname_copy_19 == 0B)
+test.c:114:6: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"
+
+[label=" form basic block 15: _42 = ret_41
+test.c:87:9: warning: use location
+
+" ]
+
+" # .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18)
+
+"->
+
+" from main basic block 15"
+
+->" _42 = ret_41
+ret_41 = malloc (_18)
+"
+
+->" _42 = ret_41
+test.c:87:9: warning: use location
+
+"
+
+" from main basic block 25"
+
+->subgraph cluster_237995542 { style ="dashed";"  _84 = MEM[(int *)progname_copy_19]
+progname_copy_19 = _102
+";}
+
+" from main basic block 25"
+
+->subgraph cluster_1975602497 { style ="dashed";"  free (progname_copy_19)
+progname_copy_19 = _102
 ";} }
