@@ -1,151 +1,485 @@
-/*
-    buggy parent : ad36c6c
-    commit id : 3f2a3564b1c3872e4a380f2484d40ce2495a4835
-*/
-
-#include "filenames.h"
-#include "common.h"
-#include "binutils.h"
-
-#define LC_ALL "LC_ALL"
-
-char *python_libdir = 0;
-
-const char *
-unix_lbasename (const char *name)
+#include <stdlib.h>
+#include <stdio.h>
+#include <pthread.h>
+#include <unistd.h>
+#define xstrdup(a) strdup(a)
+///home/cc/gcc/ins/bin/gcc  -fplugin=/home/cc/gcc/myfile/Compiler/misra.so -I/home/cc/gcc/ins/lib/gcc/x86_64-pc-linux-gnu/7.3.0/plugin/include openssl_df_2.c  -O1  -flto  -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta   -fno-inline-functions-called-once   -o  openssl_df_2.o
+// 子執行緒函數
+pthread_mutex_t mLock;
+pthread_mutex_t mLock2;
+pthread_mutex_t mLock3;
+static int *p99;
+static int *p98;
+int *foo(int z) __attribute__((noinline));
+int *foo2(int z) __attribute__((noinline));
+void foo3(int *z) __attribute__((noinline));
+int foo5(int *z, int *y) __attribute__((noinline));
+void boo(int *b) __attribute__((noinline));
+void test22(int *k) __attribute__((noinline));
+void test33(int *k) __attribute__((noinline));
+void test44(int *k) __attribute__((noinline));
+void *child(void *data) __attribute__((noinline));
+void *child2(void *data) __attribute__((noinline));
+void *child3(void *data) __attribute__((noinline));
+void *child4(int *data) __attribute__((noinline));
+void *child5(void *data) __attribute__((noinline));
+void *child6(void *test, void *data) __attribute__((noinline));
+int *child7(void *test, void *data) __attribute__((noinline));
+// void *child(void *data) __attribute__((noinline));
+// int *foo(int z);
+int *foo4(int z);
+// int *foo2(int z);
+// void foo3(int *z);
+int foo5(int *z, int *y)
 {
-  const char *base;
+	int p2 = 10;
 
-  for (base = name; *name; name++)
-     base = name + 1;
-
-  return base;
+	// p2=foo2(2);
+	// p2[0]=10;
+	///error
+	printf("test1%d\n", *z);
+	printf("test2%d\n", *y);
+	printf("test3%d\n", p2);
+	// p2=10;
+	//printf("%d",p2);
+	return p2;
 }
-
-const char *
-lbasename (const char *name)
+void foo3(int *z)
 {
-  return unix_lbasename (name);
-}
-
-char *
-ldirname (const char *filename)
-{
-  const char *base = lbasename (filename);
-  char *dirname;
-
-  while (base > filename && IS_DIR_SEPARATOR (base[-1]))
-    --base;
-
-  if (base == filename)
-    return NULL;
-
-  dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
-  memcpy (dirname, filename, base - filename);
-
-  /* On DOS based file systems, convert "d:foo" to "d:.", so that we
-     create "d:./bar" later instead of the (different) "d:/bar".  */
-  if (base - filename == 2 && IS_ABSOLUTE_PATH (base)
-      && !IS_DIR_SEPARATOR (filename[0]))
-    dirname[base++ - filename] = '.';
-
-  dirname[base - filename] = '\0';
-  return dirname;
-}
-
-static inline char *
-vconcat_copy (char *dst, const char *first, const char* arg)
-{
-  char *end = dst;
-
-	unsigned long length = strlen (arg);
-	memcpy (end, arg, length);
-	end += length;
+	int *p2;
+	int test;
+	// p2[0]=10;
+	///error
 	
-	*end = '\000';
-
-	return dst;
+	// p2=10;
+	if (test)
+	{
+		*z = malloc(1);
+	}
+	else
+		p2 = malloc(2);
+		
+	p2[0] = 10;
+	printf("%d", p2);
 }
-
-char *
-concat (const char *first, const char *arg)
+int *foo2(int z)
 {
-  char *newstr;
 
-  /* First compute the size of the result and get sufficient memory.  */
-  newstr = XNEWVEC (char, 1);
+	int *a2 = malloc(z);
+	int *p3 = malloc(z);
+	int *p4 = malloc(z);
+	p99 = malloc(200);
+	p99[0] = 99;
+	p99[1] = 100;
+	int tmp;
+	// a2[0] = 10;
 
-  /* Now copy the individual pieces to the result string. */
-  vconcat_copy (newstr, first, arg);
+	//  free(a2);
+	pthread_mutex_lock(&mLock);
+	pthread_mutex_lock(&mLock2);
+	pthread_mutex_lock(&mLock3);
+	foo3(p3);
+	if (tmp > 10)
+	{
+		p99[1] = 200;
+		// pthread_mutex_unlock(&mLock);
+		p3[0] = 10;
+		free(p3);
+		return p3;
+	}
+	else
+	{
+		p4[0] = 10;
+		
+		free(p4);
+		return p4;
+	}
 
-  return newstr;
+	//char tmp ;
+	// return (char)tmp;
+	return a2;
 }
-
-void *PyMem_Malloc (size_t size)
+int *foo4(int z)
 {
-	void *ret = malloc(size);
-	return ret;
+	int *b = malloc(1);
+	int *p2 = malloc(1);
+
+	// b=2;
+	//  p2=foo2(2);
+	b[0] = 2;
+	p2[0] = 1;
+	p2 = &b;
+
+	free(p2);
+	//int *a=malloc(1);
+	// for(int i = 0;i < 3;++i) {
+	// printf("qwdwqd%d\n", i);
+	//  }
+	//   free(a);
+	return p2;
 }
-void Py_SetProgramName (const wchar_t *progname)
+int *foo(int z)
 {
-	__USE(progname);
-}
+	// int *b = malloc(1);
+	int *p2 = malloc(1);
+	p2[0] = 1;
+		p99[1] = 1000;
+		p99[2] = 200;
+	// free(p2);
+	// b=2;
+	//  p2=foo2(2);
+	// b[0] = 2;
+	// p2[0] = 1;
+	// p2 = &b;
 
-static bool
-do_start_initialization ()
+	// free(p2);
+	//int *a=malloc(1);
+	// for(int i = 0;i < 3;++i) {
+	// printf("qwdwqd%d\n", i);
+	//  }
+	//   free(a);
+
+	return foo2(z);
+}
+void *child(void *data)
 {
-  char *progname;
-  int i;
-  size_t progsize, count;
-  char *oldloc;
-  wchar_t *progname_copy;
+	pthread_mutex_t mLock2;
 
-  /* Work around problem where python gets confused about where it is,
-     and then can't find its libraries, etc.
-     NOTE: Python assumes the following layout:
-     /foo/bin/python
-     /foo/lib/pythonX.Y/...
-     This must be done before calling Py_Initialize.  */
-  progname = concat (ldirname (python_libdir), "bin");
-  oldloc = xstrdup (setlocale (LC_ALL, NULL));
-  setlocale (LC_ALL, "");
-  progsize = strlen (progname);
-  progname_copy = (wchar_t *) PyMem_Malloc ((progsize + 1) * sizeof (wchar_t));
-  if (!progname_copy)
-    {
-      xfree (oldloc);
-      fprintf (stderr, "out of memory\n");
-      return false;
-    }
-  count = mbstowcs (progname_copy, progname, progsize + 1);
-  if (count == (size_t) -1)
-    {
-      xfree (oldloc);
-			xfree(progname_copy);
-      fprintf (stderr, "Could not convert python path to string\n");
-      return false;
-    }
-  setlocale (LC_ALL, oldloc);
-  xfree (oldloc);
+	// pthread_mutex_lock(&mLock2);
+	// pthread_mutex_lock(&mLock2);
+	//a1
+	//   pthread_mutex_lock(&mLock);
+	//   //   char *str = (char*) data; // 取得輸入資料
+	//   // int *p;e
+	//   // p=foo(2);
+	//   int *b = malloc(2);
+	//   int *p2 = malloc(2);
+	//   // p2 = &b;
+	// //   MEM[(int *)&b] = 1;
+	// //  <mem_ref 0x7fbe6f4e27d0
+	//   // b[0] = 2;
+	//   p2[0] = 1;
+	//   p2[1] = 1;
 
-  /* Note that Py_SetProgramName expects the string it is passed to
-     remain alive for the duration of the program's execution, so
-     it is not freed after this call.  */
-  Py_SetProgramName (progname_copy);
-	xfree(progname_copy);
-  return true;
+	//   free(p2);
+	//   // free(test);
+	//   // 	str=malloc(5);
+	//   pthread_mutex_unlock(&mLock);
+	//   pthread_exit(NULL); // 離開子執行緒
+	//a2
+	// pthread_detach(pthread_self());
+	pthread_mutex_lock(&mLock);
+	pthread_mutex_lock(&mLock);
+
+	int *a99 = foo(20);
+	printf("asdda%d\n", a99);
+	// ++(*(int *)data);
+	// (data)+=1;
+	int **ppData = malloc(10);
+	int *pData = data;
+	int *pData2 = malloc(10);
+	*pData += 1;
+	// int *a = foo(20);
+	// printf("asdda%d\n", a);
+	int data2 = 0;
+	data = 10;
+	ppData = &pData;
+	pData = &data2;
+	*ppData[0] = 10;
+	// *ppData[1] = 10;
+	// *ppData[2] = 10;
+	**ppData = 12;
+	child4(&data);
+	child3(&data);
+	child5(pData2);
+	p98[0] = 98;
+	free(pData);
+	free(data);
+	boo(data);
+	free(ppData);
+	pthread_mutex_unlock(&mLock);
+	free(ppData);
+	int test = 100;
+	//會影響強迫程式結束
+	// pthread_exit(test); // 離開子執行緒
+
+	//a3
+	// pthread_mutex_lock(&mLock);
+	// int a = 10;
+	// int *ptr1 = &a;
+	// int **ptr2 = &ptr1;
+	// int ***ptr3 = &ptr2;
+	// pthread_mutex_unlock(&mLock);
+	// pthread_exit(NULL); // 離開子執行緒
 }
+void *child4(int *data)
+{
+	// pthread_detach(pthread_self());
+	int *pData = &data;
+	int *test = &data;
+	int t;
+	if (t)
+	{
+		*data = *data + 1;
+	}
+	else
+		*data = 2;
+	// ++(*(int *)pData);
+	// int input[2] = {1, 2}; // 輸入的資料
+	// int input2; // 輸入的資料
+	// data=10;
+	// data=10;
+	// data=10;
+	// data=10;
+	// free(&pData);
 
+	// pthread_detach(pthread_self());
+	//
+	printf("asdda%d\n", pData);
+
+	//a3
+	// pthread_mutex_lock(&mLock);
+	// int a = 10;
+	// int *ptr1 = &a;
+	// int **ptr2 = &ptr1;
+	// int ***ptr3 = &ptr2;
+	// pthread_mutex_unlock(&mLock);
+	// pthread_exit(NULL); // 離開子執行緒
+}
+void *child3(void *data)
+{
+	pthread_detach(pthread_self());
+	int *pData = &data;
+	int c = 10;
+	pData = pData + 1;
+	// ++(*(int *)pData);
+	// int input[2] = {1, 2}; // 輸入的資料
+	// int input2; // 輸入的資料
+	// data=10;
+	// data=10;
+	// data=10;
+	// data=10;
+	// free(&pData);
+	printf("asdda%d\n", pData);
+	printf("asdda%d\n", c);
+	free(&data);
+	// pthread_detach(pthread_self());
+	//
+	//a3
+	// pthread_mutex_lock(&mLock);
+	// int a = 10;
+	// int *ptr1 = &a;
+	// int **ptr2 = &ptr1;
+	// int ***ptr3 = &ptr2;
+	// pthread_mutex_unlock(&mLock);
+	// pthread_exit(NULL); // 離開子執行緒
+}
+void *child5(void *data)
+{
+	pthread_detach(pthread_self());
+	int *pData = data;
+	int c;
+	pData = pData + 1;
+	// ++(*(int *)pData);
+	// int input[2] = {1, 2}; // 輸入的資料
+	// int input2; // 輸入的資料
+	// data=10;
+	// data=10;
+	// data=10;
+	// data=10;
+	// free(&pData);
+	if (c)
+	{
+
+		printf("asdda%d\n", pData);
+	}
+	else
+	{
+		printf("asdda%d\n", c);
+		free(pData);
+	}
+	// pthread_detach(pthread_self());
+	//
+	//a3
+	// pthread_mutex_lock(&mLock);
+	// int a = 10;
+	// int *ptr1 = &a;
+	// int **ptr2 = &ptr1;
+	// int ***ptr3 = &ptr2;
+	// pthread_mutex_unlock(&mLock);
+	// pthread_exit(NULL); // 離開子執行緒
+}
+void *child6(void *data, void *test)
+{
+	pthread_detach(pthread_self());
+	int *pData = test;
+	int c;
+	pData = pData + 1;
+	// ++(*(int *)pData);
+	// int input[2] = {1, 2}; // 輸入的資料
+	// int input2; // 輸入的資料
+	// data=10;
+	// data=10;
+	// data=10;
+	// data=10;
+	// free(&pData);
+	if (c)
+	{
+
+		pData = pData + 20;
+		printf("asdda%d\n", pData);
+	}
+	else
+	{
+		pData = pData + 20;
+		printf("asdda%d\n", c);
+		free(pData);
+	}
+	// pthread_detach(pthread_self());
+	//
+	//a3
+	// pthread_mutex_lock(&mLock);
+	// int a = 10;
+	// int *ptr1 = &a;
+	// int **ptr2 = &ptr1;
+	// int ***ptr3 = &ptr2;
+	// pthread_mutex_unlock(&mLock);
+	// pthread_exit(NULL); // 離開子執行緒
+}
+int *child7(void *data, void *test)
+{
+	pthread_detach(pthread_self());
+	int *pData = test;
+	int c;
+	pData = pData + 1;
+	// ++(*(int *)pData);
+	// int input[2] = {1, 2}; // 輸入的資料
+	// int input2; // 輸入的資料
+	// data=10;
+	// data=10;
+	// data=10;
+	// data=10;
+	// free(&pData);
+	if (c)
+	{
+	p98[3] = 300;
+		return malloc(10);
+		printf("asdda%d\n", pData);
+	}
+	else
+	{
+		p98[2] = 300;
+		pData = pData + 20;
+		printf("asdda%d\n", c);
+		return malloc(30);
+	}
+	// pthread_detach(pthread_self());
+	//
+	//a3
+	// pthread_mutex_lock(&mLock);
+	// int a = 10;
+	// int *ptr1 = &a;
+	// int **ptr2 = &ptr1;
+	// int ***ptr3 = &ptr2;
+	// pthread_mutex_unlock(&mLock);
+	// pthread_exit(NULL); // 離開子執行緒
+}
+void *child2(void *data)
+{
+
+	int *pData = &data;
+p98[1] = 99;
+	// int input[2] = {1, 2}; // 輸入的資料
+	// int input2; // 輸入的資料
+	// data=10;
+	// data=10;
+	// data=10;
+	// data=10;
+	// free(&pData);
+	// int a;
+
+	// ++(*(int *)data);
+	// ++(*(int *)pData);
+	child3(data);
+	free(data);
+	//
+	// printf("asdda%d\n" ,input2);
+	//a3
+	// pthread_mutex_lock(&mLock);
+	// int a = 10;
+	// int *ptr1 = &a;
+	// int **ptr2 = &ptr1;
+	// int ***ptr3 = &ptr2;
+	// pthread_mutex_unlock(&mLock);
+	// pthread_exit(NULL); // 離開子執行緒
+}
+int *foo(int z);
+void boo(int *b)
+{
+	free(b);
+	free(b);
+	test22(b);
+	// pthread_detach(pthread_self());
+	printf("asdda\n");
+}
+void test44(int *k)
+{
+	free(k);
+}
+void test33(int *k)
+{
+	test44(k);
+}
+void test22(int *k)
+{
+	free(k);
+	free(k);
+	free(k);
+	free(k);
+	free(k);
+	free(k);
+	int *w = malloc(5);
+	free(w);
+	// test22(k);
+}
+static int staticTrue = 1;	/* true */
+static int staticFalse = 0; /* false */
+struct adresse
+{
+	char *name;
+	int nummer;
+};
 int main()
 {
-    do_start_initialization();
-		/*
-			ldirname and concat can be called at multiple callsite in
-			the original program. We insert a USE for the first argument of
-			concat to prevent inserting a free inside the function
-		*/
-		char *dummy = "dummy";
-		concat(dummy, "");
-		__USE(dummy);
-    return 0;
+	    char * data;
+    /* Initialize data */
+    data = NULL;
+    data = (char *)malloc(100*sizeof(char));
+    if (data == NULL) {exit(-1);}
+    memset(data, 'A', 100-1);
+    data[100-1] = '\0';
+    /* POTENTIAL FLAW: Free data in the source - the bad sink attempts to use data */
+    free(data);
+    /* POTENTIAL FLAW: Use of data that may have been freed */
+    printf("%s" , data);
+
+	// // 主執行緒工作
+	// //   for(int i = 0;i < 3;++i) {
+	// //     printf("Master\n"); // 每秒輸出文字
+	// //     sleep(1);
+	// //   }
+
+	// pthread_join(t, NULL); // 等待子執行緒執行完成
+	// pthread_mutex_destroy(&mLock);
+	// scanf("%d",n);
+	// p=foo(2);
+	// if(n)
+	// 	free(p);
+	// else
+	// 	boo(p);
+	// q=p;
+	// free(q);
+	// printf("%d",q);
+
+	return 0;
 }

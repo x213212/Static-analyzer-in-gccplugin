@@ -714,6 +714,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						if (gimple_phi_result(use_stmt) != target2)
 						{
 							// fprintf(stderr, "tewtw\n");
+							if (has_zero_uses(gimple_phi_result(use_stmt)))
 							new_search_imm_use(used_stmt, gimple_phi_result(use_stmt), gimple_phi_result(use_stmt));
 						}
 					}
@@ -903,8 +904,22 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 				else if (gimple_call_lhs(use_stmt) && TREE_CODE(gimple_call_lhs(use_stmt)) == SSA_NAME)
 				{
+						// fprintf(stderr, "-------always in therealways in therealways in there--------------------------\n");
+						// debug_tree(gimple_call_lhs(use_stmt));
+						if (!check_stmtStack(gimple_call_lhs(use_stmt)) )
+						{
+							set_gimple_array(used_stmt, use_stmt, gimple_call_lhs(use_stmt), target, NULL);
+							// debug_tree(gimple_phi_result(use_stmt));
+							if (gimple_call_lhs(use_stmt) != target2)
+							{
+								// fprintf(stderr, "tewtw\n");
+								if (has_zero_uses(gimple_call_lhs(use_stmt)))
+								new_search_imm_use(used_stmt,gimple_call_lhs(use_stmt), gimple_call_lhs(use_stmt));
+							}
+						}
 					if (gimple_assign_rhs1(use_stmt))
 					{
+						
 						// fprintf(stderr, "-------always in therealways in therealways in there--------------------------\n");
 						if (gimple_call_num_args(use_stmt) != 0)
 						{
@@ -917,7 +932,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 										if (gimple_call_arg(use_stmt, i))
 											if (gimple_call_arg(use_stmt, i) != target2)
 											{
-												debug_tree(gimple_call_arg(use_stmt, i));
+												// debug_tree(gimple_call_arg(use_stmt, i));
 												// if(!has_zero_uses (target))
 												// fprintf(stderr, "-------always in therealways in therealways in there------%d--------------------\n", has_zero_uses (gimple_call_arg(use_stmt, i)));
 												if (has_zero_uses(gimple_call_arg(use_stmt, i)))
@@ -937,6 +952,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 				else
 				{
+				
 					if (!check_stmtStack(gimple_call_fn(use_stmt)))
 					{
 						// debug_gimple_stmt(use_stmt);
@@ -2166,7 +2182,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 							for (int i = 0; i < free_array.size(); i++)
 							{
-
+								// _deb
 								if (u_stmt != free_array.at(i).stmt)
 								{
 
