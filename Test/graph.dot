@@ -1,178 +1,500 @@
 digraph {constraint=false ;rankdir = LR; rank=same; nodesep=1.0; 
 
 
-" main
+" CWE415_Double_Free__malloc_free_char_07_bad
 "->
 
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-data_3 = malloc (100)
+" # .MEM_7 = VDEF <.MEM_6(D)>
+data_8 = malloc (100)
 
 "
 
-[label=" form basic block 4: _8 = __printf_chk (1, s, data_3)
+[label=" form basic block 6: data_3 = PHI <0B(2), data_8(5)>
+cc1: warning: use location
 " ]
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-data_3 = malloc (100)
+" # .MEM_7 = VDEF <.MEM_6(D)>
+data_8 = malloc (100)
 
 "->
 
-" from main basic block 4"
+" from CWE415_Double_Free__malloc_free_char_07_bad basic block 6"
 
-->" _8 = __printf_chk (1, s, data_3)
-data_3 = malloc (100)
+->" data_3 = PHI <0B(2), data_8(5)>
+data_8 = malloc (100)
 "
 
-->" _8 = __printf_chk (1, s, data_3)
+->" data_3 = PHI <0B(2), data_8(5)>
+cc1: warning: use location
 "
 
 
-" main
+" CWE415_Double_Free__malloc_free_char_07_bad
 "->
 
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-data_3 = malloc (100)
+" # .MEM_7 = VDEF <.MEM_6(D)>
+data_8 = malloc (100)
 
 "
 
-[label=" form basic block 4: free (data_3)
-test.c:462:5: warning: use location
+[label=" form basic block 7: free (data_3)
+CWE415_Double_Free__malloc_free_char_07.c:44:9: warning: use location
 
 " ]
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-data_3 = malloc (100)
+" # .MEM_7 = VDEF <.MEM_6(D)>
+data_8 = malloc (100)
 
 "->
 
-" from main basic block 4"
+" from CWE415_Double_Free__malloc_free_char_07_bad basic block 7"
 
 ->" free (data_3)
-data_3 = malloc (100)
+data_8 = malloc (100)
 "
 
 ->" free (data_3)
-test.c:462:5: warning: use location
+CWE415_Double_Free__malloc_free_char_07.c:44:9: warning: use location
 
 "
 
 [color="green" ]
 
 
-" main
+" CWE415_Double_Free__malloc_free_char_07_bad
 "->
 
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-data_3 = malloc (100)
+" # .MEM_7 = VDEF <.MEM_6(D)>
+data_8 = malloc (100)
 
 "
 
-[label=" form basic block 4: MEM[(char *)data_3 + 99B] = 0
-test.c:460:17: warning: use location
+[label=" form basic block 5: free (data_8)
+CWE415_Double_Free__malloc_free_char_07.c:39:9: warning: use location
 
 " ]
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-data_3 = malloc (100)
+" # .MEM_7 = VDEF <.MEM_6(D)>
+data_8 = malloc (100)
 
 "->
 
-" from main basic block 4"
+" from CWE415_Double_Free__malloc_free_char_07_bad basic block 5"
 
-->" MEM[(char *)data_3 + 99B] = 0
-data_3 = malloc (100)
+->" free (data_8)
+data_8 = malloc (100)
 "
 
-->" MEM[(char *)data_3 + 99B] = 0
-test.c:460:17: warning: use location
+->" free (data_8)
+CWE415_Double_Free__malloc_free_char_07.c:39:9: warning: use location
 
 "
 
-" main
+[color="green" ]
+
+
+" CWE415_Double_Free__malloc_free_char_07_bad
 "->
 
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-data_3 = malloc (100)
+" # .MEM_7 = VDEF <.MEM_6(D)>
+data_8 = malloc (100)
 
 "
 
-[label=" form basic block 4: memset (data_3, 65, 99)
-test.c:459:5: warning: use location
+[label=" form basic block 3: if (data_8 == 0B)
+CWE415_Double_Free__malloc_free_char_07.c:37:12: warning: use location
 
 " ]
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-data_3 = malloc (100)
+" # .MEM_7 = VDEF <.MEM_6(D)>
+data_8 = malloc (100)
 
 "->
 
-" from main basic block 4"
+" from CWE415_Double_Free__malloc_free_char_07_bad basic block 3"
 
-->" memset (data_3, 65, 99)
-data_3 = malloc (100)
+->" if (data_8 == 0B)
+data_8 = malloc (100)
 "
 
-->" memset (data_3, 65, 99)
-test.c:459:5: warning: use location
+->" if (data_8 == 0B)
+CWE415_Double_Free__malloc_free_char_07.c:37:12: warning: use location
 
 "
 
 
-" main
+" from CWE415_Double_Free__malloc_free_char_07_bad basic block 7"
+
+->subgraph cluster_544538270 { style ="dashed";"  free (data_3)
+data_3 = PHI <0B(2), data_8(5)>
+";}
+
+
+
+
+
+
+
+
+" CWE415_Double_Free__malloc_free_char_07_good
 "->
 
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-data_3 = malloc (100)
+" # .MEM_27 = VDEF <.MEM_1(D)>
+data_18 = malloc (100)
 
 "
 
-[label=" form basic block 2: if (data_3 == 0B)
-test.c:458:8: warning: use location
+[label=" form basic block 5: free (data_18)
+CWE415_Double_Free__malloc_free_char_07.c:63:9: warning: use location
 
 " ]
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-data_3 = malloc (100)
+" # .MEM_27 = VDEF <.MEM_1(D)>
+data_18 = malloc (100)
 
 "->
 
-" from main basic block 2"
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 5"
 
-->" if (data_3 == 0B)
-data_3 = malloc (100)
+->" free (data_18)
+data_18 = malloc (100)
 "
 
-->" if (data_3 == 0B)
-test.c:458:8: warning: use location
+->" free (data_18)
+CWE415_Double_Free__malloc_free_char_07.c:63:9: warning: use location
+
+"
+
+[color="green" ]
+
+
+" CWE415_Double_Free__malloc_free_char_07_good
+"->
+
+
+" # .MEM_27 = VDEF <.MEM_1(D)>
+data_18 = malloc (100)
+
+"
+
+[label=" form basic block 3: if (data_18 == 0B)
+CWE415_Double_Free__malloc_free_char_07.c:61:12: warning: use location
+
+" ]
+
+" # .MEM_27 = VDEF <.MEM_1(D)>
+data_18 = malloc (100)
+
+"->
+
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 3"
+
+->" if (data_18 == 0B)
+data_18 = malloc (100)
+"
+
+->" if (data_18 == 0B)
+CWE415_Double_Free__malloc_free_char_07.c:61:12: warning: use location
 
 "
 
 
-" from main basic block 4"
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 5"
 
-->subgraph cluster_2024001148 { style ="dashed";"  _8 = __printf_chk (1, s, data_3)
-data_3 = malloc (100)
+->subgraph cluster_1896271391 { style ="dashed";"  free (data_18)
+data_18 = malloc (100)
 ";}
 
-" from main basic block 4"
 
-->subgraph cluster_290201720 { style ="dashed";"  free (data_3)
-data_3 = malloc (100)
+
+
+
+
+
+
+" CWE415_Double_Free__malloc_free_char_07_good
+"->
+
+
+" # .MEM_31 = VDEF <.MEM_21>
+data_15 = malloc (100)
+
+"
+
+[label=" form basic block 11: free (data_15)
+CWE415_Double_Free__malloc_free_char_07.c:89:9: warning: use location
+
+" ]
+
+" # .MEM_31 = VDEF <.MEM_21>
+data_15 = malloc (100)
+
+"->
+
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 11"
+
+->" free (data_15)
+data_15 = malloc (100)
+"
+
+->" free (data_15)
+CWE415_Double_Free__malloc_free_char_07.c:89:9: warning: use location
+
+"
+
+[color="green" ]
+
+
+" CWE415_Double_Free__malloc_free_char_07_good
+"->
+
+
+" # .MEM_31 = VDEF <.MEM_21>
+data_15 = malloc (100)
+
+"
+
+[label=" form basic block 9: if (data_15 == 0B)
+CWE415_Double_Free__malloc_free_char_07.c:87:12: warning: use location
+
+" ]
+
+" # .MEM_31 = VDEF <.MEM_21>
+data_15 = malloc (100)
+
+"->
+
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 9"
+
+->" if (data_15 == 0B)
+data_15 = malloc (100)
+"
+
+->" if (data_15 == 0B)
+CWE415_Double_Free__malloc_free_char_07.c:87:12: warning: use location
+
+"
+
+
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 11"
+
+->subgraph cluster_1191182110 { style ="dashed";"  free (data_15)
+data_15 = malloc (100)
 ";}
 
-" from main basic block 4"
 
-->subgraph cluster_57111811 { style ="dashed";"  MEM[(char *)data_3 + 99B] = 0
-data_3 = malloc (100)
+
+
+
+
+
+
+" CWE415_Double_Free__malloc_free_char_07_good
+"->
+
+
+" # .MEM_34 = VDEF <.MEM_22>
+data_11 = malloc (100)
+
+"
+
+[label=" form basic block 16: data_13 = PHI <0B(13), data_11(14)>
+cc1: warning: use location
+" ]
+
+" # .MEM_34 = VDEF <.MEM_22>
+data_11 = malloc (100)
+
+"->
+
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 16"
+
+->" data_13 = PHI <0B(13), data_11(14)>
+data_11 = malloc (100)
+"
+
+->" data_13 = PHI <0B(13), data_11(14)>
+cc1: warning: use location
+"
+
+
+" CWE415_Double_Free__malloc_free_char_07_good
+"->
+
+
+" # .MEM_34 = VDEF <.MEM_22>
+data_11 = malloc (100)
+
+"
+
+[label=" form basic block 17: free (data_13)
+CWE415_Double_Free__malloc_free_char_07.c:119:9: warning: use location
+
+" ]
+
+" # .MEM_34 = VDEF <.MEM_22>
+data_11 = malloc (100)
+
+"->
+
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 17"
+
+->" free (data_13)
+data_11 = malloc (100)
+"
+
+->" free (data_13)
+CWE415_Double_Free__malloc_free_char_07.c:119:9: warning: use location
+
+"
+
+[color="green" ]
+
+
+" CWE415_Double_Free__malloc_free_char_07_good
+"->
+
+
+" # .MEM_34 = VDEF <.MEM_22>
+data_11 = malloc (100)
+
+"
+
+[label=" form basic block 14: if (data_11 == 0B)
+CWE415_Double_Free__malloc_free_char_07.c:113:12: warning: use location
+
+" ]
+
+" # .MEM_34 = VDEF <.MEM_22>
+data_11 = malloc (100)
+
+"->
+
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 14"
+
+->" if (data_11 == 0B)
+data_11 = malloc (100)
+"
+
+->" if (data_11 == 0B)
+CWE415_Double_Free__malloc_free_char_07.c:113:12: warning: use location
+
+"
+
+
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 17"
+
+->subgraph cluster_1596555126 { style ="dashed";"  free (data_13)
+data_13 = PHI <0B(13), data_11(14)>
 ";}
 
-" from main basic block 4"
 
-->subgraph cluster_1995921780 { style ="dashed";"  memset (data_3, 65, 99)
-data_3 = malloc (100)
+
+
+
+
+
+
+" CWE415_Double_Free__malloc_free_char_07_good
+"->
+
+
+" # .MEM_38 = VDEF <.MEM_24>
+data_7 = malloc (100)
+
+"
+
+[label=" form basic block 21: data_9 = PHI <0B(18), data_7(19)>
+cc1: warning: use location
+" ]
+
+" # .MEM_38 = VDEF <.MEM_24>
+data_7 = malloc (100)
+
+"->
+
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 21"
+
+->" data_9 = PHI <0B(18), data_7(19)>
+data_7 = malloc (100)
+"
+
+->" data_9 = PHI <0B(18), data_7(19)>
+cc1: warning: use location
+"
+
+
+" CWE415_Double_Free__malloc_free_char_07_good
+"->
+
+
+" # .MEM_38 = VDEF <.MEM_24>
+data_7 = malloc (100)
+
+"
+
+[label=" form basic block 22: free (data_9)
+CWE415_Double_Free__malloc_free_char_07.c:138:9: warning: use location
+
+" ]
+
+" # .MEM_38 = VDEF <.MEM_24>
+data_7 = malloc (100)
+
+"->
+
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 22"
+
+->" free (data_9)
+data_7 = malloc (100)
+"
+
+->" free (data_9)
+CWE415_Double_Free__malloc_free_char_07.c:138:9: warning: use location
+
+"
+
+[color="green" ]
+
+
+" CWE415_Double_Free__malloc_free_char_07_good
+"->
+
+
+" # .MEM_38 = VDEF <.MEM_24>
+data_7 = malloc (100)
+
+"
+
+[label=" form basic block 19: if (data_7 == 0B)
+CWE415_Double_Free__malloc_free_char_07.c:132:12: warning: use location
+
+" ]
+
+" # .MEM_38 = VDEF <.MEM_24>
+data_7 = malloc (100)
+
+"->
+
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 19"
+
+->" if (data_7 == 0B)
+data_7 = malloc (100)
+"
+
+->" if (data_7 == 0B)
+CWE415_Double_Free__malloc_free_char_07.c:132:12: warning: use location
+
+"
+
+
+" from CWE415_Double_Free__malloc_free_char_07_good basic block 22"
+
+->subgraph cluster_251175422 { style ="dashed";"  free (data_9)
+data_9 = PHI <0B(18), data_7(19)>
 ";} }
