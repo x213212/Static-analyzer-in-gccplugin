@@ -600,11 +600,11 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 												// debug_tree(target2);
 												// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
 												// debug_gimple_stmt(use_stmt);
-											
-													// if ( !check_stmtStack2((assign_array.assign_type_array)[i].stmt))
+
+												// if ( !check_stmtStack2((assign_array.assign_type_array)[i].stmt))
 												// if (has_zero_uses(gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt)))
 												if (gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt) != target2 && !check_stmtStack2((assign_array.assign_type_array)[i].stmt))
-												new_search_imm_use(used_stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt));
+													new_search_imm_use(used_stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt));
 											}
 										}
 									}
@@ -629,7 +629,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 									// fprintf(stderr, "=======fist hit4========\n");
 									// debug_tree(gimple_assign_lhs(use_stmt));
 									// debug_tree(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0));.
-									if (!check_stmtStack(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)) )
+									if (!check_stmtStack(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)))
 									{
 										if (TREE_CODE(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0)) == SSA_NAME)
 										{
@@ -885,7 +885,6 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 															}
 															else
 																set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), target, NULL);
-
 
 															new_search_imm_use(used_stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt));
 														}
@@ -1448,7 +1447,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								// debug_tree(gimple_call_fndecl(u_stmt));
 								trace_function_path(gimple_call_fndecl(def_stmt), -100, table_temp->target, &find_retheapstmt);
 								if (find_retheapstmt > 0)
-									fprintf(stderr, "this is fucntion return value is heap-object \n");
+									fprintf(stderr, "some fucntion return value is heap-object and with Collection SSA_NAME alias relation\n");
 
 								// while (traceStack.size())
 								// {
@@ -2098,6 +2097,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												// debug_tree(gimple_call_fndecl(u_stmt));
 												trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target, &find_freestmt);
 												fprintf(stderr, "\n ================== trace ================== \n");
+												fprintf(stderr, "trace fucntion free:%d \n", find_freestmt);
 												if (find_freestmt > freecount)
 												{
 													free_type.stmt = u_stmt;
@@ -2319,7 +2319,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				}
 				if (ptable_type == IS_MALLOC_FUCNTION && find_mallocstmt == IS_OTHRER_FUCNTION)
 					find_mallocstmt = IS_MALLOC_FUCNTION;
-				if ((find_mallocstmt == IS_MALLOC_FUCNTION ) )
+				if ((find_mallocstmt == IS_MALLOC_FUCNTION))
 				{
 
 					if (find_freestmt == 0)
@@ -2377,18 +2377,40 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				}
 				else
 				{
-					
+
 					fprintf(stderr, "\n======================================================================\n");
 					// fprintf(stderr, "	this stmt need double check\n");
 
 					fprintf(stderr, "\033[40;31m 	this stmt need double check \033[0m\n");
-					if(find_freestmt)
-					if (find_freestmt > 2)
+					if (find_retheapstmt > 0)
 					{
-						fprintf(stderr, "\n======================================================================\n");
-						// fprintf(stderr, "	possible double free\n");
-						fprintf(stderr, "\033[40;31m  	possible double free :%d \033[0m\n", find_freestmt);
-						fprintf(stderr, "\n======================================================================\n");
+						if (find_freestmt > 2)
+						{
+							fprintf(stderr, "\n======================================================================\n");
+							// fprintf(stderr, "	possible double free\n");
+							fprintf(stderr, "\033[40;31m    this function with other function alias that other function return value is heap-object \033[0m\n");
+							fprintf(stderr, "\033[40;31m  	possible double free :%d \033[0m\n", find_freestmt);
+							fprintf(stderr, "\n======================================================================\n");
+						}
+						else if (find_freestmt == 1)
+						{
+
+							fprintf(stderr, "\n======================================================================\n");
+							fprintf(stderr, "\033[40;31m    this function with other function alias that other function return value is heap-object \033[0m\n");
+							if (find_phistmt == 1)
+								fprintf(stderr, "\033[40;31m   need check branch because multiple direction varible\033[0m\n");
+							else
+								fprintf(stderr, "\033[40;32m   Maybe you don't have memory leak.... need more checks  \033[0m\n");
+							// 	fprintf(stderr, "\033[40;32m    NO memory leak \033[0m\n");
+							fprintf(stderr, "\n======================================================================\n\n");
+						}
+						else if (find_freestmt == 0)
+						{
+							fprintf(stderr, "\n======================================================================\n");
+							fprintf(stderr, "\033[40;31m    this function with other function alias that other function return value is heap-object \033[0m\n");
+							fprintf(stderr, "\033[40;31m    no free stmt possible memory leak \033[0m\n");
+							fprintf(stderr, "\n======================================================================\n");
+						}
 					}
 					fprintf(stderr, "\n======================================================================\n");
 				}

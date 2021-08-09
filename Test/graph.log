@@ -1,610 +1,874 @@
 
 
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "
 
-[label=" form basic block 2: cleanup_chain = new_69
+[label=" form basic block 5: cleanup_chain = new_70
 common.h:133:14: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "->
 
-" from main basic block 2"
+" from find_oload_champ_namespace_loop basic block 5"
 
-->" cleanup_chain = new_69
-new_69 = malloc (32)
+->" cleanup_chain = new_70
+new_70 = malloc (32)
 "
 
-->" cleanup_chain = new_69
+->" cleanup_chain = new_70
 common.h:133:14: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "
 
-[label=" form basic block 2: old_chain_70 = cleanup_chain
+[label=" form basic block 5: old_chain_71 = cleanup_chain
 common.h:127:19: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "->
 
-" from main basic block 2"
+" from find_oload_champ_namespace_loop basic block 5"
 
-->" old_chain_70 = cleanup_chain
-new_69 = malloc (32)
+->" old_chain_71 = cleanup_chain
+new_70 = malloc (32)
 "
 
-->" old_chain_70 = cleanup_chain
+->" old_chain_71 = cleanup_chain
 common.h:127:19: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "
 
-[label=" form basic block 4: _104 = old_chain_70
+[label=" form basic block 7: _86 = old_chain_71
 lto1: warning: use location
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "->
 
-" from main basic block 4"
+" from find_oload_champ_namespace_loop basic block 7"
 
-->" _104 = old_chain_70
-new_69 = malloc (32)
+->" _86 = old_chain_71
+new_70 = malloc (32)
 "
 
-->" _104 = old_chain_70
+->" _86 = old_chain_71
 lto1: warning: use location
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "
 
-[label=" form basic block 2: if (old_chain_70 == 0B)
+[label=" form basic block 5: if (old_chain_71 == 0B)
 common.h:135:5: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "->
 
-" from main basic block 2"
+" from find_oload_champ_namespace_loop basic block 5"
 
-->" if (old_chain_70 == 0B)
-new_69 = malloc (32)
+->" if (old_chain_71 == 0B)
+new_70 = malloc (32)
 "
 
-->" if (old_chain_70 == 0B)
+->" if (old_chain_71 == 0B)
 common.h:135:5: warning: use location
 
 "
 
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "
 
-[label=" form basic block 2: _71 = cleanup_chain
+[label=" form basic block 5: _72 = cleanup_chain
 common.h:129:15: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "->
 
-" from main basic block 2"
+" from find_oload_champ_namespace_loop basic block 5"
 
-->" _71 = cleanup_chain
-new_69 = malloc (32)
+->" _72 = cleanup_chain
+new_70 = malloc (32)
 "
 
-->" _71 = cleanup_chain
+->" _72 = cleanup_chain
 common.h:129:15: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "
 
-[label=" form basic block 29: old_chain_81 = cleanup_chain
+[label=" form basic block 7: old_chain_75 = cleanup_chain
 common.h:127:19: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "->
 
-" from main basic block 29"
+" from find_oload_champ_namespace_loop basic block 7"
 
-->" old_chain_81 = cleanup_chain
-new_69 = malloc (32)
+->" old_chain_75 = cleanup_chain
+new_70 = malloc (32)
 "
 
-->" old_chain_81 = cleanup_chain
+->" old_chain_75 = cleanup_chain
 common.h:127:19: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "
 
-[label=" form basic block 31: _115 = old_chain_81
+[label=" form basic block 9: _95 = old_chain_75
 lto1: warning: use location
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "->
 
-" from main basic block 31"
+" from find_oload_champ_namespace_loop basic block 9"
 
-->" _115 = old_chain_81
-new_69 = malloc (32)
+->" _95 = old_chain_75
+new_70 = malloc (32)
 "
 
-->" _115 = old_chain_81
+->" _95 = old_chain_75
 lto1: warning: use location
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "
 
-[label=" form basic block 29: _82 = cleanup_chain
+[label=" form basic block 7: _76 = cleanup_chain
 common.h:129:15: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "->
 
-" from main basic block 29"
+" from find_oload_champ_namespace_loop basic block 7"
 
-->" _82 = cleanup_chain
-new_69 = malloc (32)
+->" _76 = cleanup_chain
+new_70 = malloc (32)
 "
 
-->" _82 = cleanup_chain
+->" _76 = cleanup_chain
 common.h:129:15: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "
 
-[label=" form basic block 29: cleanup_chain = new_80
+[label=" form basic block 7: cleanup_chain = new_74
 common.h:133:14: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "->
 
-" from main basic block 29"
+" from find_oload_champ_namespace_loop basic block 7"
 
-->" cleanup_chain = new_80
-new_69 = malloc (32)
+->" cleanup_chain = new_74
+new_70 = malloc (32)
 "
 
-->" cleanup_chain = new_80
+->" cleanup_chain = new_74
 common.h:133:14: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "
 
-[label=" form basic block 35: _84 = ptr_83->next
-common.h:105:23: warning: use location
+[label=" form basic block 7: new_74->arg = _9
+common.h:132:12: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "->
 
-" from main basic block 35"
+" from find_oload_champ_namespace_loop basic block 7"
 
-->" _84 = ptr_83->next
-new_69 = malloc (32)
+->" new_74->arg = _9
+new_70 = malloc (32)
 "
 
-->" _84 = ptr_83->next
-common.h:105:23: warning: use location
+->" new_74->arg = _9
+common.h:132:12: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "
 
-[label=" form basic block 35: _85 = ptr_83->function
-common.h:106:8: warning: use location
+[label=" form basic block 5: new_70->arg = _8
+common.h:132:12: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_80 = VDEF <.MEM_42>
+new_70 = malloc (32)
 
 "->
 
-" from main basic block 35"
+" from find_oload_champ_namespace_loop basic block 5"
 
-->" _85 = ptr_83->function
-new_69 = malloc (32)
+->" new_70->arg = _8
+new_70 = malloc (32)
 "
 
-->" _85 = ptr_83->function
-common.h:106:8: warning: use location
+->" new_70->arg = _8
+common.h:132:12: warning: use location
 
 "
 
-" main
+" from find_oload_champ_namespace_loop basic block 9"
+
+->subgraph cluster_1984260702 { style ="dashed";"  _95 = old_chain_75
+old_chain_75 = cleanup_chain
+";}
+
+
+
+
+
+
+
+
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
 
 "
 
-[label=" form basic block 35: _86 = ptr_83->arg
-common.h:106:8: warning: use location
+[label=" form basic block 7: cleanup_chain = new_74
+common.h:133:14: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
 
 "->
 
-" from main basic block 35"
+" from find_oload_champ_namespace_loop basic block 7"
 
-->" _86 = ptr_83->arg
-new_69 = malloc (32)
+->" cleanup_chain = new_74
+new_74 = malloc (32)
 "
 
-->" _86 = ptr_83->arg
-common.h:106:8: warning: use location
+->" cleanup_chain = new_74
+common.h:133:14: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
 
 "
 
-[label=" form basic block 35: _88 = ptr_83->arg
-common.h:108:4: warning: use location
+[label=" form basic block 5: old_chain_71 = cleanup_chain
+common.h:127:19: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
 
 "->
 
-" from main basic block 35"
+" from find_oload_champ_namespace_loop basic block 5"
 
-->" _88 = ptr_83->arg
-new_69 = malloc (32)
+->" old_chain_71 = cleanup_chain
+new_74 = malloc (32)
 "
 
-->" _88 = ptr_83->arg
-common.h:108:4: warning: use location
+->" old_chain_71 = cleanup_chain
+common.h:127:19: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
 
 "
 
-[label=" form basic block 35: _90 = ptr_83->free_arg
-common.h:109:14: warning: use location
+[label=" form basic block 7: _86 = old_chain_71
+lto1: warning: use location
+" ]
+
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 7"
+
+->" _86 = old_chain_71
+new_74 = malloc (32)
+"
+
+->" _86 = old_chain_71
+lto1: warning: use location
+"
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
+
+"
+
+[label=" form basic block 5: if (old_chain_71 == 0B)
+common.h:135:5: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
 
 "->
 
-" from main basic block 35"
+" from find_oload_champ_namespace_loop basic block 5"
 
-->" _90 = ptr_83->free_arg
-new_69 = malloc (32)
+->" if (old_chain_71 == 0B)
+new_74 = malloc (32)
 "
 
-->" _90 = ptr_83->free_arg
-common.h:109:14: warning: use location
+->" if (old_chain_71 == 0B)
+common.h:135:5: warning: use location
 
 "
 
-" main
+
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
 
 "
 
-[label=" form basic block 36: _91 = ptr_83->free_arg
-common.h:110:6: warning: use location
+[label=" form basic block 5: _72 = cleanup_chain
+common.h:129:15: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
 
 "->
 
-" from main basic block 36"
+" from find_oload_champ_namespace_loop basic block 5"
 
-->" _91 = ptr_83->free_arg
-new_69 = malloc (32)
+->" _72 = cleanup_chain
+new_74 = malloc (32)
 "
 
-->" _91 = ptr_83->free_arg
-common.h:110:6: warning: use location
+->" _72 = cleanup_chain
+common.h:129:15: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
 
 "
 
-[label=" form basic block 36: _92 = ptr_83->arg
-common.h:110:6: warning: use location
+[label=" form basic block 5: cleanup_chain = new_70
+common.h:133:14: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
 
 "->
 
-" from main basic block 36"
+" from find_oload_champ_namespace_loop basic block 5"
 
-->" _92 = ptr_83->arg
-new_69 = malloc (32)
+->" cleanup_chain = new_70
+new_74 = malloc (32)
 "
 
-->" _92 = ptr_83->arg
-common.h:110:6: warning: use location
+->" cleanup_chain = new_70
+common.h:133:14: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
 
 "
 
-[label=" form basic block 37: free (ptr_83)
-common.h:112:4: warning: use location
+[label=" form basic block 7: old_chain_75 = cleanup_chain
+common.h:127:19: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
 
 "->
 
-" from main basic block 37"
+" from find_oload_champ_namespace_loop basic block 7"
 
-->" free (ptr_83)
-new_69 = malloc (32)
+->" old_chain_75 = cleanup_chain
+new_74 = malloc (32)
 "
 
-->" free (ptr_83)
-common.h:112:4: warning: use location
+->" old_chain_75 = cleanup_chain
+common.h:127:19: warning: use location
+
+"
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
+
+"
+
+[label=" form basic block 9: _95 = old_chain_75
+lto1: warning: use location
+" ]
+
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 9"
+
+->" _95 = old_chain_75
+new_74 = malloc (32)
+"
+
+->" _95 = old_chain_75
+lto1: warning: use location
+"
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
+
+"
+
+[label=" form basic block 7: _76 = cleanup_chain
+common.h:129:15: warning: use location
+
+" ]
+
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 7"
+
+->" _76 = cleanup_chain
+new_74 = malloc (32)
+"
+
+->" _76 = cleanup_chain
+common.h:129:15: warning: use location
+
+"
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
+
+"
+
+[label=" form basic block 5: new_70->arg = _8
+common.h:132:12: warning: use location
+
+" ]
+
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 5"
+
+->" new_70->arg = _8
+new_74 = malloc (32)
+"
+
+->" new_70->arg = _8
+common.h:132:12: warning: use location
+
+"
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
+
+"
+
+[label=" form basic block 7: new_74->arg = _9
+common.h:132:12: warning: use location
+
+" ]
+
+" # .MEM_89 = VDEF <.MEM_85>
+new_74 = malloc (32)
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 7"
+
+->" new_74->arg = _9
+new_74 = malloc (32)
+"
+
+->" new_74->arg = _9
+common.h:132:12: warning: use location
+
+"
+
+" from find_oload_champ_namespace_loop basic block 9"
+
+->subgraph cluster_955363841 { style ="dashed";"  _95 = old_chain_75
+old_chain_75 = cleanup_chain
+";}
+
+
+
+
+
+
+
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_51 = VDEF <.MEM_94>
+new_oload_syms_38 = malloc (800)
+
+"
+
+[label=" form basic block 15: *oload_syms_26(D) = new_oload_syms_38
+test.c:101:19: warning: use location
+
+" ]
+
+" # .MEM_51 = VDEF <.MEM_94>
+new_oload_syms_38 = malloc (800)
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 15"
+
+->" *oload_syms_26(D) = new_oload_syms_38
+new_oload_syms_38 = malloc (800)
+"
+
+->" *oload_syms_26(D) = new_oload_syms_38
+test.c:101:19: warning: use location
+
+"
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_51 = VDEF <.MEM_94>
+new_oload_syms_38 = malloc (800)
+
+"
+
+[label=" form basic block 14: free (new_oload_syms_38)
+test.c:94:4: warning: use location
+
+" ]
+
+" # .MEM_51 = VDEF <.MEM_94>
+new_oload_syms_38 = malloc (800)
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 14"
+
+->" free (new_oload_syms_38)
+new_oload_syms_38 = malloc (800)
+"
+
+->" free (new_oload_syms_38)
+test.c:94:4: warning: use location
 
 "
 
 [color="green" ]
 
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_51 = VDEF <.MEM_94>
+new_oload_syms_38 = malloc (800)
 
 "
 
-[label=" form basic block 29: new_80->arg = section_addrs_48
-common.h:132:12: warning: use location
+[label=" form basic block 12: *oload_syms_26(D) = new_oload_syms_38
+test.c:86:16: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_51 = VDEF <.MEM_94>
+new_oload_syms_38 = malloc (800)
 
 "->
 
-" from main basic block 29"
+" from find_oload_champ_namespace_loop basic block 12"
 
-->" new_80->arg = section_addrs_48
-new_69 = malloc (32)
+->" *oload_syms_26(D) = new_oload_syms_38
+new_oload_syms_38 = malloc (800)
 "
 
-->" new_80->arg = section_addrs_48
-common.h:132:12: warning: use location
+->" *oload_syms_26(D) = new_oload_syms_38
+test.c:86:16: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_51 = VDEF <.MEM_94>
+new_oload_syms_38 = malloc (800)
 
 "
 
-[label=" form basic block 34: section_addrs_48->num_sections = _61
-test.c:139:31: warning: use location
+[label=" form basic block 11: _77 = MEM[(int *)new_oload_syms_38]
+test.c:21:2: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_51 = VDEF <.MEM_94>
+new_oload_syms_38 = malloc (800)
 
 "->
 
-" from main basic block 34"
+" from find_oload_champ_namespace_loop basic block 11"
 
-->" section_addrs_48->num_sections = _61
-new_69 = malloc (32)
+->" _77 = MEM[(int *)new_oload_syms_38]
+new_oload_syms_38 = malloc (800)
 "
 
-->" section_addrs_48->num_sections = _61
-test.c:139:31: warning: use location
+->" _77 = MEM[(int *)new_oload_syms_38]
+test.c:21:2: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_51 = VDEF <.MEM_94>
+new_oload_syms_38 = malloc (800)
 
 "
 
-[label=" form basic block 32: section_addrs_48->other[sec_num_58].name = sec_57
-test.c:131:40: warning: use location
+[label=" form basic block 11: *new_oload_syms_38 = 0B
+test.c:80:20: warning: use location
 
 " ]
 
-" # .MEM_98 = VDEF <.MEM_7>
-new_69 = malloc (32)
+" # .MEM_51 = VDEF <.MEM_94>
+new_oload_syms_38 = malloc (800)
 
 "->
 
-" from main basic block 32"
+" from find_oload_champ_namespace_loop basic block 11"
 
-->" section_addrs_48->other[sec_num_58].name = sec_57
-new_69 = malloc (32)
+->" *new_oload_syms_38 = 0B
+new_oload_syms_38 = malloc (800)
 "
 
-->" section_addrs_48->other[sec_num_58].name = sec_57
-test.c:131:40: warning: use location
+->" *new_oload_syms_38 = 0B
+test.c:80:20: warning: use location
 
 "
 
-" from main basic block 37"
+" find_oload_champ_namespace_loop
+"->
 
-->subgraph cluster_1033786418 { style ="dashed";"  free (ptr_83)
-new_80 = malloc (32)
+
+" # .MEM_51 = VDEF <.MEM_94>
+new_oload_syms_38 = malloc (800)
+
+"
+
+[label=" form basic block 9: if (new_oload_syms_38 == 0B)
+test.c:78:5: warning: use location
+
+" ]
+
+" # .MEM_51 = VDEF <.MEM_94>
+new_oload_syms_38 = malloc (800)
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 9"
+
+->" if (new_oload_syms_38 == 0B)
+new_oload_syms_38 = malloc (800)
+"
+
+->" if (new_oload_syms_38 == 0B)
+test.c:78:5: warning: use location
+
+"
+
+
+" from find_oload_champ_namespace_loop basic block 15"
+
+->subgraph cluster_1060508872 { style ="dashed";"  *oload_syms_26(D) = new_oload_syms_38
+new_oload_syms_38 = malloc (800)
 ";}
 
 
@@ -620,1468 +884,528 @@ new_80 = malloc (32)
 
 
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
 
 "
 
-[label=" form basic block 20: newmem_76 = realloc (sect_opts_17, size_75)
-test.c:40:10: warning: use location
-
+[label=" form basic block 4: _7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+test.c:65:7: warning: use location
 " ]
 
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
 
 "->
 
-" from main basic block 20"
+" from find_oload_champ_namespace_loop basic block 4"
 
-->" newmem_76 = realloc (sect_opts_17, size_75)
-newmem_73 = realloc (sect_opts_17, size_72)
+->" _7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
 "
 
-->" newmem_76 = realloc (sect_opts_17, size_75)
-test.c:40:10: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"
-
-[label=" form basic block 11: newmem_73 = realloc (sect_opts_17, size_72)
-test.c:40:10: warning: use location
-" ]
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"->
-
-" from main basic block 11"
-
-->" newmem_73 = realloc (sect_opts_17, size_72)
-newmem_73 = realloc (sect_opts_17, size_72)
-"
-
-->" newmem_73 = realloc (sect_opts_17, size_72)
-test.c:40:10: warning: use location
-"
-
-
-" main
-"->
-
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"
-
-[label=" form basic block 25: sect_opts_65 = PHI <sect_opts_17(6), sect_opts_17(8), sect_opts_28(13), sect_opts_17(15), sect_opts_17(17), sect_opts_41(22), sect_opts_17(23)>
-lto1: warning: use location
-" ]
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"->
-
-" from main basic block 25"
-
-->" sect_opts_65 = PHI <sect_opts_17(6), sect_opts_17(8), sect_opts_28(13), sect_opts_17(15), sect_opts_17(17), sect_opts_41(22), sect_opts_17(23)>
-newmem_73 = realloc (sect_opts_17, size_72)
-"
-
-->" sect_opts_65 = PHI <sect_opts_17(6), sect_opts_17(8), sect_opts_28(13), sect_opts_17(15), sect_opts_17(17), sect_opts_41(22), sect_opts_17(23)>
-lto1: warning: use location
-"
-
-
-" main
-"->
-
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"
-
-[label=" form basic block 32: _56 = sect_opts_17 + _55
-test.c:127:32: warning: use location
-
-" ]
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"->
-
-" from main basic block 32"
-
-->" _56 = sect_opts_17 + _55
-newmem_73 = realloc (sect_opts_17, size_72)
-"
-
-->" _56 = sect_opts_17 + _55
-test.c:127:32: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"
-
-[label=" form basic block 32: _52 = sect_opts_17 + _51
-test.c:126:32: warning: use location
-
-" ]
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"->
-
-" from main basic block 32"
-
-->" _52 = sect_opts_17 + _51
-newmem_73 = realloc (sect_opts_17, size_72)
-"
-
-->" _52 = sect_opts_17 + _51
-test.c:126:32: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"
-
-[label=" form basic block 17: _36 = sect_opts_17 + _35
-test.c:97:17: warning: use location
-
-" ]
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"->
-
-" from main basic block 17"
-
-->" _36 = sect_opts_17 + _35
-newmem_73 = realloc (sect_opts_17, size_72)
-"
-
-->" _36 = sect_opts_17 + _35
-test.c:97:17: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"
-
-[label=" form basic block 15: _32 = sect_opts_17 + _31
-test.c:92:17: warning: use location
-
-" ]
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"->
-
-" from main basic block 15"
-
-->" _32 = sect_opts_17 + _31
-newmem_73 = realloc (sect_opts_17, size_72)
-"
-
-->" _32 = sect_opts_17 + _31
-test.c:92:17: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"
-
-[label=" form basic block 8: _21 = sect_opts_17 + _20
-test.c:79:15: warning: use location
-
-" ]
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"->
-
-" from main basic block 8"
-
-->" _21 = sect_opts_17 + _20
-newmem_73 = realloc (sect_opts_17, size_72)
-"
-
-->" _21 = sect_opts_17 + _20
-test.c:79:15: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"
-
-[label=" form basic block 8: _18 = sect_opts_17 + _16
-test.c:78:15: warning: use location
-
-" ]
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"->
-
-" from main basic block 8"
-
-->" _18 = sect_opts_17 + _16
-newmem_73 = realloc (sect_opts_17, size_72)
-"
-
-->" _18 = sect_opts_17 + _16
-test.c:78:15: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"
-
-[label=" form basic block 13: _137 = newmem_73
-lto1: warning: use location
-" ]
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"->
-
-" from main basic block 13"
-
-->" _137 = newmem_73
-newmem_73 = realloc (sect_opts_17, size_72)
-"
-
-->" _137 = newmem_73
-lto1: warning: use location
-"
-
-" main
-"->
-
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"
-
-[label=" form basic block 13: _74 = newmem_73
-test.c:45:10: warning: use location
-
-" ]
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"->
-
-" from main basic block 13"
-
-->" _74 = newmem_73
-newmem_73 = realloc (sect_opts_17, size_72)
-"
-
-->" _74 = newmem_73
-test.c:45:10: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"
-
-[label=" form basic block 11: if (newmem_73 == 0B)
-test.c:42:6: warning: use location
-
-" ]
-
-" # .MEM_136 = VDEF <.MEM_135>
-newmem_73 = realloc (sect_opts_17, size_72)
-
-"->
-
-" from main basic block 11"
-
-->" if (newmem_73 == 0B)
-newmem_73 = realloc (sect_opts_17, size_72)
-"
-
-->" if (newmem_73 == 0B)
-test.c:42:6: warning: use location
-
-"
-
-
-" from main basic block 32"
-
-->subgraph cluster_582485955 { style ="dashed";"  _56 = sect_opts_17 + _55
-sect_opts_17 = PHI <sect_opts_11(4), sect_opts_65(25)>
-";}
-
-" from main basic block 32"
-
-->subgraph cluster_834571634 { style ="dashed";"  _52 = sect_opts_17 + _51
-sect_opts_17 = PHI <sect_opts_11(4), sect_opts_65(25)>
-";}
-
-
-
-
-
-
-
-
-" main
-"->
-
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"
-
-[label=" form basic block 20: newmem_76 = realloc (sect_opts_17, size_75)
-test.c:40:10: warning: use location
-" ]
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"->
-
-" from main basic block 20"
-
-->" newmem_76 = realloc (sect_opts_17, size_75)
-newmem_76 = realloc (sect_opts_17, size_75)
-"
-
-->" newmem_76 = realloc (sect_opts_17, size_75)
-test.c:40:10: warning: use location
-"
-
-
-" main
-"->
-
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"
-
-[label=" form basic block 11: newmem_73 = realloc (sect_opts_17, size_72)
-test.c:40:10: warning: use location
-
-" ]
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"->
-
-" from main basic block 11"
-
-->" newmem_73 = realloc (sect_opts_17, size_72)
-newmem_76 = realloc (sect_opts_17, size_75)
-"
-
-->" newmem_73 = realloc (sect_opts_17, size_72)
-test.c:40:10: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"
-
-[label=" form basic block 25: sect_opts_65 = PHI <sect_opts_17(6), sect_opts_17(8), sect_opts_28(13), sect_opts_17(15), sect_opts_17(17), sect_opts_41(22), sect_opts_17(23)>
-lto1: warning: use location
-" ]
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"->
-
-" from main basic block 25"
-
-->" sect_opts_65 = PHI <sect_opts_17(6), sect_opts_17(8), sect_opts_28(13), sect_opts_17(15), sect_opts_17(17), sect_opts_41(22), sect_opts_17(23)>
-newmem_76 = realloc (sect_opts_17, size_75)
-"
-
-->" sect_opts_65 = PHI <sect_opts_17(6), sect_opts_17(8), sect_opts_28(13), sect_opts_17(15), sect_opts_17(17), sect_opts_41(22), sect_opts_17(23)>
-lto1: warning: use location
-"
-
-
-" main
-"->
-
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"
-
-[label=" form basic block 32: _56 = sect_opts_17 + _55
-test.c:127:32: warning: use location
-
-" ]
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"->
-
-" from main basic block 32"
-
-->" _56 = sect_opts_17 + _55
-newmem_76 = realloc (sect_opts_17, size_75)
-"
-
-->" _56 = sect_opts_17 + _55
-test.c:127:32: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"
-
-[label=" form basic block 32: _52 = sect_opts_17 + _51
-test.c:126:32: warning: use location
-
-" ]
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"->
-
-" from main basic block 32"
-
-->" _52 = sect_opts_17 + _51
-newmem_76 = realloc (sect_opts_17, size_75)
-"
-
-->" _52 = sect_opts_17 + _51
-test.c:126:32: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"
-
-[label=" form basic block 17: _36 = sect_opts_17 + _35
-test.c:97:17: warning: use location
-
-" ]
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"->
-
-" from main basic block 17"
-
-->" _36 = sect_opts_17 + _35
-newmem_76 = realloc (sect_opts_17, size_75)
-"
-
-->" _36 = sect_opts_17 + _35
-test.c:97:17: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"
-
-[label=" form basic block 15: _32 = sect_opts_17 + _31
-test.c:92:17: warning: use location
-
-" ]
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"->
-
-" from main basic block 15"
-
-->" _32 = sect_opts_17 + _31
-newmem_76 = realloc (sect_opts_17, size_75)
-"
-
-->" _32 = sect_opts_17 + _31
-test.c:92:17: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"
-
-[label=" form basic block 8: _21 = sect_opts_17 + _20
-test.c:79:15: warning: use location
-
-" ]
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"->
-
-" from main basic block 8"
-
-->" _21 = sect_opts_17 + _20
-newmem_76 = realloc (sect_opts_17, size_75)
-"
-
-->" _21 = sect_opts_17 + _20
-test.c:79:15: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"
-
-[label=" form basic block 8: _18 = sect_opts_17 + _16
-test.c:78:15: warning: use location
-
-" ]
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"->
-
-" from main basic block 8"
-
-->" _18 = sect_opts_17 + _16
-newmem_76 = realloc (sect_opts_17, size_75)
-"
-
-->" _18 = sect_opts_17 + _16
-test.c:78:15: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"
-
-[label=" form basic block 22: _131 = newmem_76
-lto1: warning: use location
-" ]
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"->
-
-" from main basic block 22"
-
-->" _131 = newmem_76
-newmem_76 = realloc (sect_opts_17, size_75)
-"
-
-->" _131 = newmem_76
-lto1: warning: use location
-"
-
-" main
-"->
-
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"
-
-[label=" form basic block 22: _77 = newmem_76
-test.c:45:10: warning: use location
-
-" ]
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"->
-
-" from main basic block 22"
-
-->" _77 = newmem_76
-newmem_76 = realloc (sect_opts_17, size_75)
-"
-
-->" _77 = newmem_76
-test.c:45:10: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"
-
-[label=" form basic block 20: if (newmem_76 == 0B)
-test.c:42:6: warning: use location
-
-" ]
-
-" # .MEM_130 = VDEF <.MEM_129>
-newmem_76 = realloc (sect_opts_17, size_75)
-
-"->
-
-" from main basic block 20"
-
-->" if (newmem_76 == 0B)
-newmem_76 = realloc (sect_opts_17, size_75)
-"
-
-->" if (newmem_76 == 0B)
-test.c:42:6: warning: use location
-
-"
-
-
-" from main basic block 32"
-
-->subgraph cluster_1401780708 { style ="dashed";"  _56 = sect_opts_17 + _55
-sect_opts_17 = PHI <sect_opts_11(4), sect_opts_65(25)>
-";}
-
-" from main basic block 32"
-
-->subgraph cluster_1289962386 { style ="dashed";"  _52 = sect_opts_17 + _51
-sect_opts_17 = PHI <sect_opts_11(4), sect_opts_65(25)>
-";}
-
-
-
-
-
-
-
-
-" main
-"->
-
-
-" # .MEM_108 = VDEF <.MEM_94>
-section_addrs_48 = malloc (24)
-
-"
-
-[label=" form basic block 29: new_80->arg = section_addrs_48
-common.h:132:12: warning: use location
-
-" ]
-
-" # .MEM_108 = VDEF <.MEM_94>
-section_addrs_48 = malloc (24)
-
-"->
-
-" from main basic block 29"
-
-->" new_80->arg = section_addrs_48
-section_addrs_48 = malloc (24)
-"
-
-->" new_80->arg = section_addrs_48
-common.h:132:12: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_108 = VDEF <.MEM_94>
-section_addrs_48 = malloc (24)
-
-"
-
-[label=" form basic block 34: section_addrs_48->num_sections = _61
-test.c:139:31: warning: use location
-
-" ]
-
-" # .MEM_108 = VDEF <.MEM_94>
-section_addrs_48 = malloc (24)
-
-"->
-
-" from main basic block 34"
-
-->" section_addrs_48->num_sections = _61
-section_addrs_48 = malloc (24)
-"
-
-->" section_addrs_48->num_sections = _61
-test.c:139:31: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_108 = VDEF <.MEM_94>
-section_addrs_48 = malloc (24)
-
-"
-
-[label=" form basic block 32: section_addrs_48->other[sec_num_58].name = sec_57
-test.c:131:40: warning: use location
-
-" ]
-
-" # .MEM_108 = VDEF <.MEM_94>
-section_addrs_48 = malloc (24)
-
-"->
-
-" from main basic block 32"
-
-->" section_addrs_48->other[sec_num_58].name = sec_57
-section_addrs_48 = malloc (24)
-"
-
-->" section_addrs_48->other[sec_num_58].name = sec_57
-test.c:131:40: warning: use location
-
-"
-
-" from main basic block 34"
-
-->subgraph cluster_1940500652 { style ="dashed";"  section_addrs_48->num_sections = _61
-section_addrs_48 = malloc (24)
-";}
-
-
-
-
-
-
-
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 29: cleanup_chain = new_80
-common.h:133:14: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 29"
-
-->" cleanup_chain = new_80
-new_80 = malloc (32)
-"
-
-->" cleanup_chain = new_80
-common.h:133:14: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 2: old_chain_70 = cleanup_chain
-common.h:127:19: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 2"
-
-->" old_chain_70 = cleanup_chain
-new_80 = malloc (32)
-"
-
-->" old_chain_70 = cleanup_chain
-common.h:127:19: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 4: _104 = old_chain_70
-lto1: warning: use location
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 4"
-
-->" _104 = old_chain_70
-new_80 = malloc (32)
-"
-
-->" _104 = old_chain_70
-lto1: warning: use location
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 2: if (old_chain_70 == 0B)
-common.h:135:5: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 2"
-
-->" if (old_chain_70 == 0B)
-new_80 = malloc (32)
-"
-
-->" if (old_chain_70 == 0B)
-common.h:135:5: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 2: _71 = cleanup_chain
-common.h:129:15: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 2"
-
-->" _71 = cleanup_chain
-new_80 = malloc (32)
-"
-
-->" _71 = cleanup_chain
-common.h:129:15: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 2: cleanup_chain = new_69
-common.h:133:14: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 2"
-
-->" cleanup_chain = new_69
-new_80 = malloc (32)
-"
-
-->" cleanup_chain = new_69
-common.h:133:14: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 29: old_chain_81 = cleanup_chain
-common.h:127:19: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 29"
-
-->" old_chain_81 = cleanup_chain
-new_80 = malloc (32)
-"
-
-->" old_chain_81 = cleanup_chain
-common.h:127:19: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 31: _115 = old_chain_81
-lto1: warning: use location
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 31"
-
-->" _115 = old_chain_81
-new_80 = malloc (32)
-"
-
-->" _115 = old_chain_81
-lto1: warning: use location
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 29: _82 = cleanup_chain
-common.h:129:15: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 29"
-
-->" _82 = cleanup_chain
-new_80 = malloc (32)
-"
-
-->" _82 = cleanup_chain
-common.h:129:15: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 35: _84 = ptr_83->next
-common.h:105:23: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 35"
-
-->" _84 = ptr_83->next
-new_80 = malloc (32)
-"
-
-->" _84 = ptr_83->next
-common.h:105:23: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 35: _85 = ptr_83->function
-common.h:106:8: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 35"
-
-->" _85 = ptr_83->function
-new_80 = malloc (32)
-"
-
-->" _85 = ptr_83->function
-common.h:106:8: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 35: _86 = ptr_83->arg
-common.h:106:8: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 35"
-
-->" _86 = ptr_83->arg
-new_80 = malloc (32)
-"
-
-->" _86 = ptr_83->arg
-common.h:106:8: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 35: _88 = ptr_83->arg
-common.h:108:4: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 35"
-
-->" _88 = ptr_83->arg
-new_80 = malloc (32)
-"
-
-->" _88 = ptr_83->arg
-common.h:108:4: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 35: _90 = ptr_83->free_arg
-common.h:109:14: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 35"
-
-->" _90 = ptr_83->free_arg
-new_80 = malloc (32)
-"
-
-->" _90 = ptr_83->free_arg
-common.h:109:14: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 36: _91 = ptr_83->free_arg
-common.h:110:6: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 36"
-
-->" _91 = ptr_83->free_arg
-new_80 = malloc (32)
+->" _7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+test.c:65:7: warning: use location
 "
 
-->" _91 = ptr_83->free_arg
-common.h:110:6: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 36: _92 = ptr_83->arg
-common.h:110:6: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 36"
-
-->" _92 = ptr_83->arg
-new_80 = malloc (32)
-"
-
-->" _92 = ptr_83->arg
-common.h:110:6: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"
-
-[label=" form basic block 37: free (ptr_83)
-common.h:112:4: warning: use location
-
-" ]
-
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
-
-"->
-
-" from main basic block 37"
-
-->" free (ptr_83)
-new_80 = malloc (32)
-"
 
-->" free (ptr_83)
-common.h:112:4: warning: use location
+->" ID : 716101528
+from find_oload_champ_namespace_loop basic block 14"->
 
+" ID : 590858545 stmt(free) :free (new_oload_syms_38)
+test.c:94:4: warning: use location
 "
 
 [color="green" ]
 
+" ID : 590858545 stmt(free) :free (new_oload_syms_38)
+test.c:94:4: warning: use location
+"
 
-" main
+
+->" ID : 716101528
+from find_oload_champ_namespace_loop basic block 14"->
+
+" ID : 1588520649 stmt(free) :free (_14)
+test.c:95:4: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1588520649 stmt(free) :free (_14)
+test.c:95:4: warning: use location
+"
+
+
+->" ID : 1971970455
+from discard_my_cleanups basic block 5"->
+
+" ID : 763490266 stmt(free) :free (ptr_10)
+common.h:91:7: warning: use location
+"
+
+[color="green" ]
+
+" ID : 763490266 stmt(free) :free (ptr_10)
+common.h:91:7: warning: use location
+"
+
+
+->" ID : 1142199561
+from do_my_cleanups basic block 5"->
+
+" ID : 1037445846 stmt(free) :free (ptr_12)
+common.h:112:4: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1037445846 stmt(free) :free (ptr_12)
+common.h:112:4: warning: use location
+"
+
+
+->" ID : 810710674
+from find_oload_champ_namespace_loop basic block 14"->
+
+" ID : 409563439 stmt(free) :free (new_oload_syms_38)
+test.c:94:4: warning: use location
+"
+
+[color="green" ]
+
+" ID : 409563439 stmt(free) :free (new_oload_syms_38)
+test.c:94:4: warning: use location
+"
+
+
+->" ID : 810710674
+from find_oload_champ_namespace_loop basic block 14"->
+
+" ID : 77234259 stmt(free) :free (_14)
+test.c:95:4: warning: use location
+"
+
+[color="green" ]
+
+" ID : 77234259 stmt(free) :free (_14)
+test.c:95:4: warning: use location
+"
+
+
+->" ID : 2143009837
+from discard_my_cleanups basic block 5"->
+
+" ID : 1776393374 stmt(free) :free (ptr_10)
+common.h:91:7: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1776393374 stmt(free) :free (ptr_10)
+common.h:91:7: warning: use location
+"
+
+
+->" ID : 1823704774
+from do_my_cleanups basic block 5"->
+
+" ID : 436200183 stmt(free) :free (ptr_12)
+common.h:112:4: warning: use location
+"
+
+[color="green" ]
+
+" ID : 436200183 stmt(free) :free (ptr_12)
+common.h:112:4: warning: use location
+"
+
+
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
 
 "
 
-[label=" form basic block 29: new_80->arg = section_addrs_48
-common.h:132:12: warning: use location
+[label=" form basic block 15: *oload_syms_26(D) = new_oload_syms_38
+test.c:101:19: warning: use location
 
 " ]
 
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
 
 "->
 
-" from main basic block 29"
+" from find_oload_champ_namespace_loop basic block 15"
 
-->" new_80->arg = section_addrs_48
-new_80 = malloc (32)
+->" *oload_syms_26(D) = new_oload_syms_38
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
 "
 
-->" new_80->arg = section_addrs_48
-common.h:132:12: warning: use location
+->" *oload_syms_26(D) = new_oload_syms_38
+test.c:101:19: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
 
 "
 
-[label=" form basic block 34: section_addrs_48->num_sections = _61
-test.c:139:31: warning: use location
+[label=" form basic block 12: *oload_syms_26(D) = new_oload_syms_38
+test.c:86:16: warning: use location
 
 " ]
 
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
 
 "->
 
-" from main basic block 34"
+" from find_oload_champ_namespace_loop basic block 12"
 
-->" section_addrs_48->num_sections = _61
-new_80 = malloc (32)
+->" *oload_syms_26(D) = new_oload_syms_38
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
 "
 
-->" section_addrs_48->num_sections = _61
-test.c:139:31: warning: use location
+->" *oload_syms_26(D) = new_oload_syms_38
+test.c:86:16: warning: use location
 
 "
 
-" main
+" find_oload_champ_namespace_loop
 "->
 
 
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
 
 "
 
-[label=" form basic block 32: section_addrs_48->other[sec_num_58].name = sec_57
-test.c:131:40: warning: use location
+[label=" form basic block 5: _8 = *oload_syms_26(D)
+test.c:73:18: warning: use location
 
 " ]
 
-" # .MEM_109 = VDEF <.MEM_108>
-new_80 = malloc (32)
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
 
 "->
 
-" from main basic block 32"
+" from find_oload_champ_namespace_loop basic block 5"
 
-->" section_addrs_48->other[sec_num_58].name = sec_57
-new_80 = malloc (32)
+->" _8 = *oload_syms_26(D)
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
 "
 
-->" section_addrs_48->other[sec_num_58].name = sec_57
-test.c:131:40: warning: use location
+->" _8 = *oload_syms_26(D)
+test.c:73:18: warning: use location
 
 "
 
-" from main basic block 37"
+" find_oload_champ_namespace_loop
+"->
 
-->subgraph cluster_1682637125 { style ="dashed";"  free (ptr_83)
-new_69 = malloc (32)
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"
+
+[label=" form basic block 2: *oload_syms_26(D) = 0B
+test.c:57:15: warning: use location
+
+" ]
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 2"
+
+->" *oload_syms_26(D) = 0B
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+"
+
+->" *oload_syms_26(D) = 0B
+test.c:57:15: warning: use location
+
+"
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"
+
+[label=" form basic block 15: *oload_champ_bv_28(D) = _15
+test.c:103:23: warning: use location
+
+" ]
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 15"
+
+->" *oload_champ_bv_28(D) = _15
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+"
+
+->" *oload_champ_bv_28(D) = _15
+test.c:103:23: warning: use location
+
+"
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"
+
+[label=" form basic block 12: *oload_champ_bv_28(D) = _13
+test.c:88:20: warning: use location
+
+" ]
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 12"
+
+->" *oload_champ_bv_28(D) = _13
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+"
+
+->" *oload_champ_bv_28(D) = _13
+test.c:88:20: warning: use location
+
+"
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"
+
+[label=" form basic block 7: _9 = *oload_champ_bv_28(D)
+test.c:74:18: warning: use location
+
+" ]
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 7"
+
+->" _9 = *oload_champ_bv_28(D)
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+"
+
+->" _9 = *oload_champ_bv_28(D)
+test.c:74:18: warning: use location
+
+"
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"
+
+[label=" form basic block 2: *oload_champ_bv_28(D) = 0B
+test.c:58:19: warning: use location
+
+" ]
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 2"
+
+->" *oload_champ_bv_28(D) = 0B
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+"
+
+->" *oload_champ_bv_28(D) = 0B
+test.c:58:19: warning: use location
+
+"
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"
+
+[label=" form basic block 15: *oload_champ_31(D) = new_oload_champ_41
+test.c:102:20: warning: use location
+
+" ]
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 15"
+
+->" *oload_champ_31(D) = new_oload_champ_41
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+"
+
+->" *oload_champ_31(D) = new_oload_champ_41
+test.c:102:20: warning: use location
+
+"
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"
+
+[label=" form basic block 12: *oload_champ_31(D) = new_oload_champ_41
+test.c:87:17: warning: use location
+
+" ]
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 12"
+
+->" *oload_champ_31(D) = new_oload_champ_41
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+"
+
+->" *oload_champ_31(D) = new_oload_champ_41
+test.c:87:17: warning: use location
+
+"
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"
+
+[label=" form basic block 2: _3 = strlen (qualified_name_24(D))
+test.c:54:17: warning: use location
+
+" ]
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 2"
+
+->" _3 = strlen (qualified_name_24(D))
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+"
+
+->" _3 = strlen (qualified_name_24(D))
+test.c:54:17: warning: use location
+
+"
+
+
+" find_oload_champ_namespace_loop
+"->
+
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"
+
+[label=" form basic block 3: _5 = qualified_name_24(D) + _4
+test.c:60:55: warning: use location
+
+" ]
+
+" # .MEM_48 = VDEF <.MEM_47>
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+
+"->
+
+" from find_oload_champ_namespace_loop basic block 3"
+
+->" _5 = qualified_name_24(D) + _4
+_7 = find_oload_champ_namespace_loop (qualified_name_24(D), next_namespace_len_30, oload_syms_26(D), oload_champ_bv_28(D), oload_champ_31(D))
+"
+
+->" _5 = qualified_name_24(D) + _4
+test.c:60:55: warning: use location
+
+"
+
+" from find_oload_champ_namespace_loop basic block 15"
+
+->subgraph cluster_1632818273 { style ="dashed";"  *oload_syms_26(D) = new_oload_syms_38
+GIMPLE_NOP
 ";}
+
+" from find_oload_champ_namespace_loop basic block 15"
+
+->subgraph cluster_1902923515 { style ="dashed";"  *oload_champ_bv_28(D) = _15
+GIMPLE_NOP
+";}
+
+" from find_oload_champ_namespace_loop basic block 15"
+
+->subgraph cluster_47714028 { style ="dashed";"  *oload_champ_31(D) = new_oload_champ_41
+GIMPLE_NOP
+";}
+
+
+
 
 
 

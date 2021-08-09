@@ -1,151 +1,118 @@
 /*
-	buggy parent : 2f5404b
-	commit id : f978cb06dbfbd93dbd52bd39d992f8644b0c639e
+	buggy parent: e4b0fe2
+	commit id: ec32282347dc5dbd1d58cbc16427e2e24ca6b14c
 */
 
 #include "common.h"
-#include "vec.h"
 
-struct other_sections
+typedef char symbol;
+
+struct badness_vector
 {
-	char *name;
-	int secindex;
+	int length;
+	int *rank;
 };
 
-struct section_addr_info
+static int
+find_oload_champ (struct symbol **oload_syms,
+		struct badness_vector **oload_champ_bv)
 {
-	size_t num_sections;
-	struct other_sections other[1];
-};
+	int ret;
+	__USE(oload_syms)
 
-struct sect_opt
-{
-	const char *name;
-	const char *value;
-};
+	struct badness_vector *bv ;
 
-void
-null_cleanup (void *arg)
-{
+	bv = malloc(sizeof(struct badness_vector));
+	*oload_champ_bv = bv;
+
+	ret = -1;
+
+	return ret;
 }
 
-void *
-xrealloc (void *oldmem, size_t size)
+static int
+find_oload_champ_namespace_loop (
+		const char *qualified_name,
+		int namespace_len,
+		struct symbol ***oload_syms,
+		struct badness_vector **oload_champ_bv,
+		int *oload_champ)
 {
-  void *newmem;
+	int next_namespace_len = namespace_len;
+	int searched_deeper = 0;
+	static int static_calls;
+	int new_oload_champ;
+  struct cleanup *old_cleanups;
 
-  if (size == 0)
-    size = 1;
+  struct symbol **new_oload_syms;
+  struct badness_vector *new_oload_champ_bv;
 
-  newmem = realloc (oldmem, size); /* allocation site */
+	static int static_call_num;
+	static_call_num++;
+	int call_num = static_call_num;
 
-  if (!newmem)
-		exit(1);
-
-  return (newmem);
-}
+	int name_len = strlen(qualified_name);
 	
-static void
-add_symbol_file_command (char **args)
-{
-	int section_index = 0;
-  int sec_num = 0;
-  char *arg;
-	int expecting_sec_addr = 0;
-  int expecting_sec_name = 0;
-  int argcnt = 0;
-	int i;
+  /* Initialize these to values that can safely be xfree'd.  */
+  *oload_syms = NULL;
+  *oload_champ_bv = NULL;
 
-	struct cleanup *my_cleanups = make_cleanup (null_cleanup, NULL);
+	if ((next_namespace_len < name_len) && qualified_name[next_namespace_len] == ':')
+	{
+		next_namespace_len += 3;
+		searched_deeper = 1;
 
-	struct section_addr_info *section_addrs;
-	struct sect_opt *sect_opts = NULL;
-	size_t num_sect_opts = 0;
-
-	num_sect_opts = 4;
-	sect_opts = xmalloc (sizeof(struct sect_opt) * num_sect_opts); /* allocation site */
-
-
-	if (args == NULL) exit (1);
-
-	for (arg = args[0]; arg != NULL; arg = args[++argcnt])
-		{
-			if (argcnt == 0)
-				continue;
-
-			else if (argcnt == 1)
-				{
-					sect_opts[section_index].name = ".text";
-					sect_opts[section_index].value = arg;
-					if (++section_index >= num_sect_opts)
-						{
-							num_sect_opts *= 2;
-							sect_opts = ((struct sect_opt *)
-										xrealloc (sect_opts, num_sect_opts
-									* sizeof (struct sect_opt)));
-						}
-				}
-			else
-				{
-					if (expecting_sec_name)
-						{
-							sect_opts[section_index].value = arg;
-							expecting_sec_addr = 0;
-						}
-					else if (expecting_sec_addr)
-						{
-							sect_opts[section_index].value = arg;
-							expecting_sec_addr = 0;
-
-							if (++section_index >= num_sect_opts)
-								{
-									num_sect_opts *= 2;
-									sect_opts = ((struct sect_opt *)
-												 xrealloc (sect_opts, num_sect_opts
-											 * sizeof (struct sect_opt)));
-								}
-						}
-					else if (strcmp (arg, "-s") == 0)
-						{
-							expecting_sec_name = 1;
-							expecting_sec_addr = 1;
-						}
-					else
-						exit (1);
-				}
-		}
-	
-		if (section_index < 1)
-			exit (1);
-
-		section_addrs = malloc (sizeof(struct section_addr_info));
-		make_cleanup (free, section_addrs);
-		
-		for (i = 0; i < section_index; i++)
+		if (find_oload_champ_namespace_loop (qualified_name, next_namespace_len,
+					oload_syms, oload_champ_bv,
+					oload_champ))
 			{
-				const char *val = sect_opts[i].value;
-				const char *sec = sect_opts[i].name;
-
-				/* Here we store the section offsets in the order they were
-					 entered on the command line.  */
-				section_addrs->other[sec_num].name = (char *) sec;
-				sec_num++;
-				/* The object's sections are initialized when a
-		 call is made to build_objfile_section_table (objfile).
-		 This happens in reread_symbols.
-		 At this point, we don't know what file type this is,
-		 so we can't determine what section names are valid.  */
+				return 1;
 			}
-		section_addrs->num_sections = sec_num;
+	}
 
-		do_cleanups (my_cleanups);
+  old_cleanups = make_cleanup (free, *oload_syms);			/* double-free */
+  old_cleanups = make_cleanup (free, *oload_champ_bv);
 
-		return; /* memory leak */
+	new_oload_syms = malloc(100 * sizeof(struct symbol *));	/* allocation site */
+
+	if (!new_oload_syms)
+		exit(1);
+	new_oload_syms[0] = NULL;
+
+  new_oload_champ = find_oload_champ (new_oload_syms, &new_oload_champ_bv);
+
+	if (new_oload_champ != -1 || call_num == 1)
+		{
+			*oload_syms = new_oload_syms;
+			*oload_champ = new_oload_champ;
+			*oload_champ_bv = new_oload_champ_bv;
+			do_cleanups (old_cleanups);
+			return 1;
+		}
+	else if (searched_deeper)
+		{
+			free (new_oload_syms);							
+			free (new_oload_champ_bv);
+			discard_cleanups (old_cleanups);
+			return 0;
+		}
+	else
+		{
+      *oload_syms = new_oload_syms;
+      *oload_champ = new_oload_champ;
+      *oload_champ_bv = new_oload_champ_bv;
+			discard_cleanups (old_cleanups);
+			return 0;
+		}
 }
 
-int main ()
-{
-	const char *args[6] = {"prog", "v", "-s", "idx", "addr", NULL};
-	add_symbol_file_command(args);
+int main() {
+	symbol **symvec[10];
+	struct badness_vector *bvvec[10];
+	int oload_champ;
+	const char *namespace = "A::B::C";
 
+	find_oload_champ_namespace_loop(namespace, 1, &symvec, &bvvec, &oload_champ);
+	do_cleanups(NULL);
 }
+	
