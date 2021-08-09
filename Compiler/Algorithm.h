@@ -232,6 +232,13 @@ void Prenew_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 											}
 										}
 									}
+								}else if (TREE_CODE(gimple_call_arg(def_stmt, i)) == SSA_NAME)
+								{
+									// fprintf(stderr , "testtesttesttesttesttest \n "  );
+									// debug_tree(gimple_call_arg(def_stmt, i));
+									// debug_gimple_stmt(def_stmt);
+									new_search_imm_use(used_stmt, gimple_call_arg(def_stmt, i),gimple_call_arg(def_stmt, i));
+
 								}
 							}
 						}
@@ -319,12 +326,14 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 				use_stmt = USE_STMT(head->next);
 
 				goto has_single_use_jump;
-			}else
-			return ;
-		}else
+			}
+			else
+				return;
+		}
+		else
 
-		// if(!check_stmtStack(target))
-		if (num_imm_uses(target) && head->next != NULL)
+			// if(!check_stmtStack(target))
+			if (num_imm_uses(target) && head->next != NULL)
 			FOR_EACH_IMM_USE_STMT(use_stmt, imm_iter, target)
 			{
 			// fprintf(stderr, "--------GIMPLE goto -------\n");
@@ -956,37 +965,37 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 							// 			new_search_imm_use(used_stmt,gimple_call_lhs(use_stmt), gimple_call_lhs(use_stmt));
 							// 		}
 							// 	}
-							if (!check_stmtStack(gimple_call_lhs(use_stmt)) && !check_stmtStack2(use_stmt))
-								{
-									set_gimple_array(used_stmt, use_stmt, gimple_call_lhs(use_stmt), target, NULL);
-								}
+							if (!check_stmtStack(gimple_call_lhs(use_stmt)))
+							{
+								set_gimple_array(used_stmt, use_stmt, gimple_call_lhs(use_stmt), target, NULL);
+							}
 							if (gimple_assign_rhs1(use_stmt))
 							{
-								
-								
+
 								// fprintf(stderr, "-------always in therealways in therealways in there--------------------------\n");
-								if (gimple_call_num_args(use_stmt) != 0)
+								if (gimple_call_num_args(use_stmt) != 0 && !check_stmtStack2(use_stmt))
 								{
 									for (int i = 0; i < gimple_call_num_args(use_stmt); i++)
 									{
+														debug_tree(gimple_call_arg(use_stmt, i));
 										if (!check_stmtStack(gimple_call_arg(use_stmt, i)))
 										{
-											if (TREE_CODE(gimple_call_arg(use_stmt, i)) == SSA_NAME)
-											{
-												if (gimple_call_arg(use_stmt, i))
-													if (gimple_call_arg(use_stmt, i) != target2)
+
+											if (gimple_call_arg(use_stmt, i))
+												if (gimple_call_arg(use_stmt, i) != target2)
+												{
+													if (TREE_CODE(gimple_call_arg(use_stmt, i)) == SSA_NAME)
 													{
-														fprintf(stderr, "-------always in therealways in th222erealways in there------%d--------------------\n", has_zero_uses (gimple_call_arg(use_stmt, i)));
-														debug_tree(gimple_call_arg(use_stmt, i));
+														fprintf(stderr, "-------always in therealways in th222erealways in there------%d--------------------\n", has_zero_uses(gimple_call_arg(use_stmt, i)));
 														// if(!has_zero_uses (target))
 														// if (has_zero_uses(gimple_call_arg(use_stmt, i)))
-															set_gimple_array(used_stmt, use_stmt, gimple_call_arg(use_stmt, i), target, NULL);
+														// set_gimple_array(used_stmt, use_stmt, gimple_call_arg(use_stmt, i), target, NULL);
 
-														if (gimple_call_arg(use_stmt, i) != target2 )
-							
-														new_search_imm_use(used_stmt, gimple_call_arg(use_stmt, i), gimple_call_arg(use_stmt, i));
+														if (gimple_call_arg(use_stmt, i) != target2)
+
+															new_search_imm_use(used_stmt, gimple_call_arg(use_stmt, i), gimple_call_arg(use_stmt, i));
 													}
-											}
+												}
 										}
 										// debug_tree(gimple_call_arg(use_stmt, i));
 									}
