@@ -1935,14 +1935,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 															FOR_EACH_EDGE(e, ei, bb->succs)
 															{
 																// DFS.addEdge(bb->index, e->dest->index);
-																fprintf(stderr, "\n ================== possiable direct basic block ================= \n");
+																fprintf(stderr, "\n ================== possible direct basic block ================= \n");
 																fprintf(stderr, "from %s basic block %d", (char *)get_name(table_temp->node->get_fun()->decl), e->dest->index);
 																// fprintf(stderr, "succs:= %d\n", e->dest->index);
 															}
 															fprintf(stderr, "\n ================== warring ================== \n");
 
 															// debug(checkTree);
-															fprintf(stderr, "\033[40;35m    need check this branch possiable have return or exit stmt \033[0m\n");
+															fprintf(stderr, "\033[40;35m    need check this branch possible have return or exit stmt \033[0m\n");
 															// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
 
 															// fprintf(stderr, "this stmt possible is heap-object 。\n");
