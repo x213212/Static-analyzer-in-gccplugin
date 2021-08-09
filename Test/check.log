@@ -1,511 +1,312 @@
 =======ipa_pta=========
- <ssa_name 0x7f1d2ec1ad80
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+ <ssa_name 0x7f4fc07e4360
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23630 data>
-    def_stmt data_18 = malloc (100);
-    version 18
-    ptr-info 0x7f1d2ec03dc8>
-====================POINTER_TYPE============================
- <ssa_name 0x7f1d2ec1ad80
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23630 data>
-    def_stmt data_18 = malloc (100);
-    version 18
-    ptr-info 0x7f1d2ec03dc8>
- <ssa_name 0x7f1d2ec1aca8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec233f0 data>
-    def_stmt data_15 = malloc (100);
-    version 15
-    ptr-info 0x7f1d2ec03db0>
-====================POINTER_TYPE============================
- <ssa_name 0x7f1d2ec1aca8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec233f0 data>
-    def_stmt data_15 = malloc (100);
-    version 15
-    ptr-info 0x7f1d2ec03db0>
- <ssa_name 0x7f1d2ec1ab88
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23120 data>
-    def_stmt data_11 = malloc (100);
-    version 11
-    ptr-info 0x7f1d2ec03d80>
-====================POINTER_TYPE============================
- <ssa_name 0x7f1d2ec1ac18
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23120 data>
-    def_stmt data_13 = PHI <0B(13), data_11(14)>
-    version 13
-    ptr-info 0x7f1d2ec03d98>
- <ssa_name 0x7f1d2ec1aa68
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec0fea0 data>
-    def_stmt data_7 = malloc (100);
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb2d0 data>
+    def_stmt data_7 = malloc (400);
     version 7
-    ptr-info 0x7f1d2ec03d50>
+    ptr-info 0x7f4fc07d1a08>
 ====================POINTER_TYPE============================
- <ssa_name 0x7f1d2ec1aaf8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+ <ssa_name 0x7f4fc07e4360
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec0fea0 data>
-    def_stmt data_9 = PHI <0B(18), data_7(19)>
-    version 9
-    ptr-info 0x7f1d2ec03d68>
- <ssa_name 0x7f1d2ec1a4c8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb2d0 data>
+    def_stmt data_7 = malloc (400);
+    version 7
+    ptr-info 0x7f4fc07d1a08>
+ <ssa_name 0x7f4fc07e4318
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2eb7f990 data>
-    def_stmt data_8 = malloc (100);
-    version 8
-    ptr-info 0x7f1d2ec03d08>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb000 data>
+    def_stmt data_6 = malloc (400);
+    version 6
+    ptr-info 0x7f4fc07d19f0>
 ====================POINTER_TYPE============================
- <ssa_name 0x7f1d2ec1a4c8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+ <ssa_name 0x7f4fc07e4318
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2eb7f990 data>
-    def_stmt data_8 = malloc (100);
-    version 8
-    ptr-info 0x7f1d2ec03d08>
- <ssa_name 0x7f1d2ec1a318
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb000 data>
+    def_stmt data_6 = malloc (400);
+    version 6
+    ptr-info 0x7f4fc07d19f0>
+ <ssa_name 0x7f4fc07e42d0
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2eb7f990 data>
-    def_stmt data_3 = PHI <0B(2), data_8(5)>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07dbd80 data>
+    def_stmt data_5 = malloc (400);
+    version 5
+    ptr-info 0x7f4fc07d19d8>
+====================POINTER_TYPE============================
+ <ssa_name 0x7f4fc07aed38
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
+        sizes-gimplified public unsigned DI
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc074d990 data>
+    def_stmt data_3 = malloc (400);
     version 3
-    ptr-info 0x7f1d2ec03cf0>
+    ptr-info 0x7f4fc07d1990>
+====================POINTER_TYPE============================
+ <ssa_name 0x7f4fc07aed38
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
+        sizes-gimplified public unsigned DI
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc074d990 data>
+    def_stmt data_3 = malloc (400);
+    version 3
+    ptr-info 0x7f4fc07d1990>
 start PointerConstraint
 pointer ftable is 1 
 pointer ptable is 1 
 ------------------------------
 _2 = (unsigned int) _1;
- <ssa_name 0x7f1d2ebe0828
-    type <integer_type 0x7f1d2f034738 long int public DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f034738 precision 64 min <integer_cst 0x7f1d2f01cf60 -9223372036854775808> max <integer_cst 0x7f1d2f01cf78 9223372036854775807> context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f041e70>>
+ <ssa_name 0x7f4fc07ae510
+    type <integer_type 0x7f4fc0c02738 long int public DI
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c02738 precision 64 min <integer_cst 0x7f4fc0beaf60 -9223372036854775808> max <integer_cst 0x7f4fc0beaf78 9223372036854775807> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+        pointer_to_this <pointer_type 0x7f4fc0c0fe70>>
    
     def_stmt _1 = time (0B);
     version 1>
-------------------------------
-staticFive.2_17 = 5;
- <integer_cst 0x7f1d2f0393f0 type <integer_type 0x7f1d2f0345e8 int> constant 5>
-------------------------------
-staticFive.3_19 = 5;
- <integer_cst 0x7f1d2f0393f0 type <integer_type 0x7f1d2f0345e8 int> constant 5>
-------------------------------
-staticFive.4_14 = 5;
- <integer_cst 0x7f1d2f0393f0 type <integer_type 0x7f1d2f0345e8 int> constant 5>
-------------------------------
-staticFive.5_16 = 5;
- <integer_cst 0x7f1d2f0393f0 type <integer_type 0x7f1d2f0345e8 int> constant 5>
-------------------------------
-staticFive.6_10 = 5;
- <integer_cst 0x7f1d2f0393f0 type <integer_type 0x7f1d2f0345e8 int> constant 5>
-------------------------------
-staticFive.7_12 = 5;
- <integer_cst 0x7f1d2f0393f0 type <integer_type 0x7f1d2f0345e8 int> constant 5>
-------------------------------
-staticFive.8_6 = 5;
- <integer_cst 0x7f1d2f0393f0 type <integer_type 0x7f1d2f0345e8 int> constant 5>
-------------------------------
-staticFive.9_8 = 5;
- <integer_cst 0x7f1d2f0393f0 type <integer_type 0x7f1d2f0345e8 int> constant 5>
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
- <ssa_name 0x7f1d2ec1ad80
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+ <ssa_name 0x7f4fc07e4360
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23630 data>
-    def_stmt data_18 = malloc (100);
-    version 18
-    ptr-info 0x7f1d2ec03dc8>
-qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
--------always in therealways in therealways in there--------------------------
- <ssa_name 0x7f1d2ec1ad80
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23630 data>
-    def_stmt data_18 = malloc (100);
-    version 18
-    ptr-info 0x7f1d2ec03dc8>
-testqwdddddddddd 2 
---------GIMPLE goto -------
-# .MEM_28 = VDEF <.MEM_27>
-free (data_18);
-if (data_18 == 0B)
---------GIMPLE goto -------
-if (data_18 == 0B)
- <ssa_name 0x7f1d2ec1aca8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec233f0 data>
-    def_stmt data_15 = malloc (100);
-    version 15
-    ptr-info 0x7f1d2ec03db0>
-qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
--------always in therealways in therealways in there--------------------------
- <ssa_name 0x7f1d2ec1aca8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec233f0 data>
-    def_stmt data_15 = malloc (100);
-    version 15
-    ptr-info 0x7f1d2ec03db0>
-testqwdddddddddd 2 
---------GIMPLE goto -------
-# .MEM_32 = VDEF <.MEM_31>
-free (data_15);
-if (data_15 == 0B)
---------GIMPLE goto -------
-if (data_15 == 0B)
- <ssa_name 0x7f1d2ec1ab88
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23120 data>
-    def_stmt data_11 = malloc (100);
-    version 11
-    ptr-info 0x7f1d2ec03d80>
-qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
--------always in therealways in therealways in there--------------------------
- <ssa_name 0x7f1d2ec1ab88
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23120 data>
-    def_stmt data_11 = malloc (100);
-    version 11
-    ptr-info 0x7f1d2ec03d80>
-testqwdddddddddd 2 
---------GIMPLE goto -------
-data_13 = PHI <0B(13), data_11(14)>
-tewtw
- <ssa_name 0x7f1d2ec1ac18
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23120 data>
-    def_stmt data_13 = PHI <0B(13), data_11(14)>
-    version 13
-    ptr-info 0x7f1d2ec03d98>
-testqwdddddddddd 1 
-testqwdddddddddd 1 
-# .MEM_37 = VDEF <.MEM_23>
-free (data_13);
---------GIMPLE goto -------
-# .MEM_37 = VDEF <.MEM_23>
-free (data_13);
--------has_single_usehas_single_usehas_single_use-------------------------
-
-if (data_11 == 0B)
---------GIMPLE goto -------
-if (data_11 == 0B)
- <ssa_name 0x7f1d2ec1aa68
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec0fea0 data>
-    def_stmt data_7 = malloc (100);
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb2d0 data>
+    def_stmt data_7 = malloc (400);
     version 7
-    ptr-info 0x7f1d2ec03d50>
+    ptr-info 0x7f4fc07d1a08>
 qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
 -------always in therealways in therealways in there--------------------------
- <ssa_name 0x7f1d2ec1aa68
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+ <ssa_name 0x7f4fc07e4360
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec0fea0 data>
-    def_stmt data_7 = malloc (100);
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb2d0 data>
+    def_stmt data_7 = malloc (400);
     version 7
-    ptr-info 0x7f1d2ec03d50>
-testqwdddddddddd 2 
---------GIMPLE goto -------
-data_9 = PHI <0B(18), data_7(19)>
-tewtw
- <ssa_name 0x7f1d2ec1aaf8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec0fea0 data>
-    def_stmt data_9 = PHI <0B(18), data_7(19)>
-    version 9
-    ptr-info 0x7f1d2ec03d68>
-testqwdddddddddd 1 
-testqwdddddddddd 1 
-# .MEM_40 = VDEF <.MEM_25>
-free (data_9);
---------GIMPLE goto -------
-# .MEM_40 = VDEF <.MEM_25>
-free (data_9);
--------has_single_usehas_single_usehas_single_use-------------------------
-
-if (data_7 == 0B)
---------GIMPLE goto -------
-if (data_7 == 0B)
- <ssa_name 0x7f1d2ec1a4c8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2eb7f990 data>
-    def_stmt data_8 = malloc (100);
-    version 8
-    ptr-info 0x7f1d2ec03d08>
-qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
--------always in therealways in therealways in there--------------------------
- <ssa_name 0x7f1d2ec1a4c8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2eb7f990 data>
-    def_stmt data_8 = malloc (100);
-    version 8
-    ptr-info 0x7f1d2ec03d08>
+    ptr-info 0x7f4fc07d1a08>
 testqwdddddddddd 3 
 --------GIMPLE goto -------
-data_3 = PHI <0B(2), data_8(5)>
-tewtw
- <ssa_name 0x7f1d2ec1a318
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+# .MEM_11 = VDEF <.MEM_10>
+CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink (data_7);
+--------GIMPLE goto -------
+# .MEM_9 = VDEF <.MEM_8>
+free (data_7);
+if (data_7 == 0B)
+--------GIMPLE goto -------
+if (data_7 == 0B)
+ <ssa_name 0x7f4fc07e4318
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2eb7f990 data>
-    def_stmt data_3 = PHI <0B(2), data_8(5)>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb000 data>
+    def_stmt data_6 = malloc (400);
+    version 6
+    ptr-info 0x7f4fc07d19f0>
+qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
+-------always in therealways in therealways in there--------------------------
+ <ssa_name 0x7f4fc07e4318
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
+        sizes-gimplified public unsigned DI
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb000 data>
+    def_stmt data_6 = malloc (400);
+    version 6
+    ptr-info 0x7f4fc07d19f0>
+testqwdddddddddd 3 
+--------GIMPLE goto -------
+# .MEM_15 = VDEF <.MEM_14>
+CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink (data_6);
+--------GIMPLE goto -------
+# .MEM_13 = VDEF <.MEM_12>
+free (data_6);
+if (data_6 == 0B)
+--------GIMPLE goto -------
+if (data_6 == 0B)
+ <ssa_name 0x7f4fc07e42d0
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
+        sizes-gimplified public unsigned DI
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07dbd80 data>
+    def_stmt data_5 = malloc (400);
+    version 5
+    ptr-info 0x7f4fc07d19d8>
+qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
+-------always in therealways in therealways in there--------------------------
+ <ssa_name 0x7f4fc07e42d0
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
+        sizes-gimplified public unsigned DI
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07dbd80 data>
+    def_stmt data_5 = malloc (400);
+    version 5
+    ptr-info 0x7f4fc07d19d8>
+testqwdddddddddd 2 
+--------GIMPLE goto -------
+# .MEM_18 = VDEF <.MEM_17>
+CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink (data_5);
+if (data_5 == 0B)
+--------GIMPLE goto -------
+if (data_5 == 0B)
+ <ssa_name 0x7f4fc07aed38
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
+        sizes-gimplified public unsigned DI
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc074d990 data>
+    def_stmt data_3 = malloc (400);
     version 3
-    ptr-info 0x7f1d2ec03cf0>
-testqwdddddddddd 1 
-testqwdddddddddd 1 
-# .MEM_11 = VDEF <.MEM_4>
+    ptr-info 0x7f4fc07d1990>
+qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw-1dqwdqwdqwdqwd
+-------always in therealways in therealways in there--------------------------
+ <ssa_name 0x7f4fc07aed38
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
+        sizes-gimplified public unsigned DI
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc074d990 data>
+    def_stmt data_3 = malloc (400);
+    version 3
+    ptr-info 0x7f4fc07d1990>
+testqwdddddddddd 3 
+--------GIMPLE goto -------
+# .MEM_6 = VDEF <.MEM_5>
+CWE415_Double_Free__malloc_free_wchar_t_22_badSink (data_3);
+--------GIMPLE goto -------
+# .MEM_4 = VDEF <.MEM_2>
 free (data_3);
+if (data_3 == 0B)
 --------GIMPLE goto -------
-# .MEM_11 = VDEF <.MEM_4>
-free (data_3);
--------has_single_usehas_single_usehas_single_use-------------------------
-
---------GIMPLE goto -------
-# .MEM_9 = VDEF <.MEM_7>
-free (data_8);
-if (data_8 == 0B)
---------GIMPLE goto -------
-if (data_8 == 0B)
+if (data_3 == 0B)
 [40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 [40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
     =()=
@@ -525,67 +326,69 @@ if (data_8 == 0B)
 [40;44m =======print_function_type 0  ========  [0m
 [40;42m =======pre add _ fucntion:printLine========= [0m
 [40;33m =======POP node_fun stack:printLine========= [0m
-[40;42m =======pre add _ fucntion:CWE415_Double_Free__malloc_free_char_07_bad========= [0m
-[40;44m =======print_function_path CWE415_Double_Free__malloc_free_char_07_bad  function_call count: 3 level :1========  [0m
+[40;42m =======pre add _ fucntion:CWE415_Double_Free__malloc_free_wchar_t_22_bad========= [0m
+[40;44m =======print_function_path CWE415_Double_Free__malloc_free_wchar_t_22_bad  function_call count: 4 level :1========  [0m
+[40;42m =======pre add _ fucntion:CWE415_Double_Free__malloc_free_wchar_t_22_badSink========= [0m
+[40;33m =======POP node_fun stack:CWE415_Double_Free__malloc_free_wchar_t_22_badSink========= [0m
 [40;42m =======pre add _ fucntion:free========= [0m
 [40;33m =======POP node_fun stack:free========= [0m
 [40;42m =======pre add _ fucntion:exit========= [0m
 [40;33m =======POP node_fun stack:exit========= [0m
 [40;42m =======pre add _ fucntion:malloc========= [0m
 [40;33m =======POP node_fun stack:malloc========= [0m
-[40;42m =======pre_check_funciton:CWE415_Double_Free__malloc_free_char_07_bad========= [0m
-[40;42m =======start_check_funciton:CWE415_Double_Free__malloc_free_char_07_bad========= [0m
- <function_decl 0x7f1d2ec00b00 CWE415_Double_Free__malloc_free_char_07_bad
-    type <function_type 0x7f1d2ebff1f8
-        type <void_type 0x7f1d2f034f18 void VOID
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f034f18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-            pointer_to_this <pointer_type 0x7f1d2f03c0a8>>
+[40;42m =======pre_check_funciton:CWE415_Double_Free__malloc_free_wchar_t_22_bad========= [0m
+[40;42m =======start_check_funciton:CWE415_Double_Free__malloc_free_wchar_t_22_bad========= [0m
+ <function_decl 0x7f4fc07cec00 CWE415_Double_Free__malloc_free_wchar_t_22_bad
+    type <function_type 0x7f4fc07cd498
+        type <void_type 0x7f4fc0c02f18 void VOID
+            align 8 symtab 0 alias set -1 canonical type 0x7f4fc0c02f18 context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0c0a0a8>>
         QI
-        size <integer_cst 0x7f1d2f01cdc8 constant 8>
-        unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-        align 8 symtab 0 alias set -1 canonical type 0x7f1d2f059000
-        pointer_to_this <pointer_type 0x7f1d2ec0b0a8>>
-    addressable used nothrow public static decl_5 QI file CWE415_Double_Free__malloc_free_char_07.c line 29 col 6 align 8 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c> initial <block 0x7f1d2ebcbb40>
-    result <result_decl 0x7f1d2ebf54b0 D.4263 type <void_type 0x7f1d2f034f18 void>
-        ignored VOID file CWE415_Double_Free__malloc_free_char_07.c line 29 col 6
-        align 8 context <function_decl 0x7f1d2ec00b00 CWE415_Double_Free__malloc_free_char_07_bad>>
-    struct-function 0x7f1d2ebed8f0 chain <function_decl 0x7f1d2ec09300 CWE415_Double_Free__malloc_free_char_07_good>>
- <ssa_name 0x7f1d2ec1a4c8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+        size <integer_cst 0x7f4fc0beadc8 constant 8>
+        unit size <integer_cst 0x7f4fc0beade0 constant 1>
+        align 8 symtab 0 alias set -1 canonical type 0x7f4fc0c27000
+        pointer_to_this <pointer_type 0x7f4fc07d7150>>
+    addressable used nothrow public static decl_5 QI file CWE415_Double_Free__malloc_free_wchar_t_22a.c line 29 col 6 align 8 context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c> initial <block 0x7f4fc0799b40>
+    result <result_decl 0x7f4fc07c34b0 D.4265 type <void_type 0x7f4fc0c02f18 void>
+        ignored VOID file CWE415_Double_Free__malloc_free_wchar_t_22a.c line 29 col 6
+        align 8 context <function_decl 0x7f4fc07cec00 CWE415_Double_Free__malloc_free_wchar_t_22_bad>>
+    struct-function 0x7f4fc07bb8f0 chain <var_decl 0x7f4fc074da20 CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Global>>
+ <ssa_name 0x7f4fc07aed38
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2eb7f990 data>
-    def_stmt data_8 = malloc (100);
-    version 8
-    ptr-info 0x7f1d2ec03d08>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc074d990 data>
+    def_stmt data_3 = malloc (400);
+    version 3
+    ptr-info 0x7f4fc07d1990>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f1d2ec1a4c8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+ <ssa_name 0x7f4fc07aed38
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2eb7f990 data>
-    def_stmt data_8 = malloc (100);
-    version 8
-    ptr-info 0x7f1d2ec03d08>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc074d990 data>
+    def_stmt data_3 = malloc (400);
+    version 3
+    ptr-info 0x7f4fc07d1990>
 
  ================== trace ptable================== 
 trace fucntion name:malloc 
@@ -597,76 +400,105 @@ this Reserved word function ------malloc-----
  Start check Pointer Collect  
 
 ======================================================================
-dot graph entry CWE415_Double_Free__malloc_free_char_07_bad
+dot graph entry CWE415_Double_Free__malloc_free_wchar_t_22_bad
 dot graph target entry end
 
-data_3 = PHI <0B(2), data_8(5)>
-CWE415_Double_Free__malloc_free_char_07.c: In function ‘main’:
-cc1: warning: use location
-dot graph target loc start # .MEM_7 = VDEF <.MEM_6(D)>
-data_8 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:36:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CWE415_Double_Free__malloc_free_wchar_t_22_badSink (data_3);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c: In function ‘main’:
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:39:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_badSink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph target loc start # .MEM_2 = VDEF <.MEM_1(D)>
+data_3 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:34:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc en1
 
-dot graph target line desc form basic block 6: data_3 = PHI <0B(2), data_8(5)>
-cc1: warning: use location
+dot graph target line desc form basic block 4: CWE415_Double_Free__malloc_free_wchar_t_22_badSink (data_3);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:39:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_badSink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target line desend
 
-dot graph target loc start # .MEM_7 = VDEF <.MEM_6(D)>
-data_8 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:36:14: warning: use location
+dot graph target loc start # .MEM_2 = VDEF <.MEM_1(D)>
+data_3 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:34:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc end
 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_bad basic block 6dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_bad basic block 4dot graph target basicblock en1
 
-dot graph stmt start data_3 = PHI <0B(2), data_8(5)>
-data_8 = malloc (100);
+dot graph stmt start CWE415_Double_Free__malloc_free_wchar_t_22_badSink (data_3);
+data_3 = malloc (400);
 dot graph stmt end
 
-dot graph stmt start data_3 = PHI <0B(2), data_8(5)>
-cc1: warning: use location
+dot graph stmt start CWE415_Double_Free__malloc_free_wchar_t_22_badSink (data_3);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:39:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_badSink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph stmt end
 
-this stmt have mutiple branch ---malloc-----
-dot graph entry CWE415_Double_Free__malloc_free_char_07_bad
+this stmt is child function---CWE415_Double_Free__malloc_free_wchar_t_22_badSink-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4fc07aed38
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
+        sizes-gimplified public unsigned DI
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc074d990 data>
+    def_stmt data_3 = malloc (400);
+    version 3
+    ptr-info 0x7f4fc07d1990>
+trace fucntion name:CWE415_Double_Free__malloc_free_wchar_t_22_badSink 
+
+ ================== trace ================== 
+dot graph entry CWE415_Double_Free__malloc_free_wchar_t_22_bad
 dot graph target entry end
 
 free (data_3);
-CWE415_Double_Free__malloc_free_char_07.c:44:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
-dot graph target loc start # .MEM_7 = VDEF <.MEM_6(D)>
-data_8 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:36:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:37:5: warning: use location
+     free(data);
+     ^~~~~~~~~~
+dot graph target loc start # .MEM_2 = VDEF <.MEM_1(D)>
+data_3 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:34:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc en1
 
-dot graph target line desc form basic block 7: free (data_3);
-CWE415_Double_Free__malloc_free_char_07.c:44:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
+dot graph target line desc form basic block 4: free (data_3);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:37:5: warning: use location
+     free(data);
+     ^~~~~~~~~~
 dot graph target line desend
 
-dot graph target loc start # .MEM_7 = VDEF <.MEM_6(D)>
-data_8 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:36:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph target loc start # .MEM_2 = VDEF <.MEM_1(D)>
+data_3 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:34:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc end
 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_bad basic block 7dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_bad basic block 4dot graph target basicblock en1
 
 dot graph stmt start free (data_3);
-data_8 = malloc (100);
+data_3 = malloc (400);
 dot graph stmt end
 
 dot graph stmt start free (data_3);
-CWE415_Double_Free__malloc_free_char_07.c:44:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:37:5: warning: use location
+     free(data);
+     ^~~~~~~~~~
 dot graph stmt end
 
 dot graph target color descgreendot graph target color desend
@@ -675,385 +507,109 @@ this stmt is child function---free-----
 
  ================== find ================== 
 free (data_3);
-CWE415_Double_Free__malloc_free_char_07.c:44:9: warning: use location
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:37:5: warning: use location
 [40;32m    HAS FREE STMT count:1 name:free [0m
 
  ================== find ================== 
-dot graph entry CWE415_Double_Free__malloc_free_char_07_bad
+dot graph entry CWE415_Double_Free__malloc_free_wchar_t_22_bad
 dot graph target entry end
 
-free (data_8);
-CWE415_Double_Free__malloc_free_char_07.c:39:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
-dot graph target loc start # .MEM_7 = VDEF <.MEM_6(D)>
-data_8 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:36:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if (data_3 == 0B)
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:35:8: warning: use location
+     if (data == NULL) {exit(-1);}
+        ^
+dot graph target loc start # .MEM_2 = VDEF <.MEM_1(D)>
+data_3 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:34:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc en1
 
-dot graph target line desc form basic block 5: free (data_8);
-CWE415_Double_Free__malloc_free_char_07.c:39:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
+dot graph target line desc form basic block 2: if (data_3 == 0B)
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:35:8: warning: use location
+     if (data == NULL) {exit(-1);}
+        ^
 dot graph target line desend
 
-dot graph target loc start # .MEM_7 = VDEF <.MEM_6(D)>
-data_8 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:36:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph target loc start # .MEM_2 = VDEF <.MEM_1(D)>
+data_3 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:34:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc end
 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_bad basic block 5dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_bad basic block 2dot graph target basicblock en1
 
-dot graph stmt start free (data_8);
-data_8 = malloc (100);
+dot graph stmt start if (data_3 == 0B)
+data_3 = malloc (400);
 dot graph stmt end
 
-dot graph stmt start free (data_8);
-CWE415_Double_Free__malloc_free_char_07.c:39:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
+dot graph stmt start if (data_3 == 0B)
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:35:8: warning: use location
+     if (data == NULL) {exit(-1);}
+        ^
 dot graph stmt end
 
-dot graph target color descgreendot graph target color desend
-
-this stmt is child function---free-----
-
- ================== find ================== 
-free (data_8);
-CWE415_Double_Free__malloc_free_char_07.c:39:9: warning: use location
-[40;32m    HAS FREE STMT count:2 name:free [0m
-
- ================== find ================== 
-dot graph entry CWE415_Double_Free__malloc_free_char_07_bad
-dot graph target entry end
-
-if (data_8 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:37:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
-dot graph target loc start # .MEM_7 = VDEF <.MEM_6(D)>
-data_8 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:36:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-dot graph target loc en1
-
-dot graph target line desc form basic block 3: if (data_8 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:37:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
-dot graph target line desend
-
-dot graph target loc start # .MEM_7 = VDEF <.MEM_6(D)>
-data_8 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:36:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-dot graph target loc end
-
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_bad basic block 3dot graph target basicblock en1
-
-dot graph stmt start if (data_8 == 0B)
-data_8 = malloc (100);
-dot graph stmt end
-
-dot graph stmt start if (data_8 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:37:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
-dot graph stmt end
-
-if (data_8 == 0B)
+if (data_3 == 0B)
 
  ================== find cond branch ================= 
-if (data_8 == 0B)
-Cond in fucntion CWE415_Double_Free__malloc_free_char_07_bad basic block 3
+if (data_3 == 0B)
+Cond in fucntion CWE415_Double_Free__malloc_free_wchar_t_22_bad basic block 2
  ================== possiable direct basic block ================= 
-from CWE415_Double_Free__malloc_free_char_07_bad basic block 4
+from CWE415_Double_Free__malloc_free_wchar_t_22_bad basic block 3
  ================== possiable direct basic block ================= 
-from CWE415_Double_Free__malloc_free_char_07_bad basic block 5
+from CWE415_Double_Free__malloc_free_wchar_t_22_bad basic block 4
  ================== warring ================== 
 [40;35m    need check this branch possiable have return or exit stmt [0m
 
  ================== warring ================== 
 
  ================== find cond branch ================= 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_bad basic block 7dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_bad basic block 4dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_544538270 dot graph subgraph  free (data_3);
-data_3 = PHI <0B(2), data_8(5)>
+dot graph arrowsubgraph cluster_803437420 dot graph subgraph  CWE415_Double_Free__malloc_free_wchar_t_22_badSink (data_3);
+data_3 = malloc (400);
 dot graph subgrapend
 
- <ssa_name 0x7f1d2ec1a4c8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2eb7f990 data>
-    def_stmt data_8 = malloc (100);
-    version 8
-    ptr-info 0x7f1d2ec03d08>
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_bad basic block 4dot graph target basicblock en1
 
- ================== Start Use after free Check ================== 
-# .MEM_11 = VDEF <.MEM_4>
-free (data_3);
-CWE415_Double_Free__malloc_free_char_07.c:44:9: warning: Use after free error!: free location 
-         free(data);
-         ^~~~~~~~~~
-data_3 = PHI <0B(2), data_8(5)>
-cc1: warning: use location
-
- ================== warring ================== 
-[40;35m    Use after free error! [0m
-
- ================== warring ================== 
-# .MEM_9 = VDEF <.MEM_7>
-free (data_8);
-CWE415_Double_Free__malloc_free_char_07.c:39:9: warning: Use after free error!: free location 
-         free(data);
-         ^~~~~~~~~~
-data_3 = PHI <0B(2), data_8(5)>
-cc1: warning: use location
-
- ================== warring ================== 
-[40;35m    Use after free error! [0m
-
- ================== warring ================== 
-# .MEM_9 = VDEF <.MEM_7>
-free (data_8);
-CWE415_Double_Free__malloc_free_char_07.c:39:9: warning: Use after free error!: free location 
-# .MEM_11 = VDEF <.MEM_4>
-free (data_3);
-CWE415_Double_Free__malloc_free_char_07.c:44:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
-
- ================== warring ================== 
-[40;35m    Use after free error! [0m
-
- ================== warring ================== 
-
-dot graph END
-
- ================== Start Use after free Check ================== 
-
-======================================================================
-[40;31m  	possible double free :2 [0m
-
-======================================================================
-[40;33m =======POP node_fun stack:CWE415_Double_Free__malloc_free_char_07_bad========= [0m
-[40;42m =======pre add _ fucntion:CWE415_Double_Free__malloc_free_char_07_good========= [0m
-[40;44m =======print_function_path CWE415_Double_Free__malloc_free_char_07_good  function_call count: 4 level :1========  [0m
-[40;42m =======pre add _ fucntion:free========= [0m
-[40;33m =======POP node_fun stack:free========= [0m
-[40;42m =======pre add _ fucntion:exit========= [0m
-[40;33m =======POP node_fun stack:exit========= [0m
-[40;42m =======pre add _ fucntion:malloc========= [0m
-[40;33m =======POP node_fun stack:malloc========= [0m
-[40;42m =======pre add _ fucntion:printLine========= [0m
-[40;33m =======POP node_fun stack:printLine========= [0m
-[40;42m =======pre_check_funciton:CWE415_Double_Free__malloc_free_char_07_good========= [0m
-[40;42m =======start_check_funciton:CWE415_Double_Free__malloc_free_char_07_good========= [0m
- <function_decl 0x7f1d2ec09300 CWE415_Double_Free__malloc_free_char_07_good
-    type <function_type 0x7f1d2ec0b348
-        type <void_type 0x7f1d2f034f18 void VOID
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f034f18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-            pointer_to_this <pointer_type 0x7f1d2f03c0a8>>
-        QI
-        size <integer_cst 0x7f1d2f01cdc8 constant 8>
-        unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-        align 8 symtab 0 alias set -1 canonical type 0x7f1d2f059000
-        pointer_to_this <pointer_type 0x7f1d2ec0bbd0>>
-    addressable used nothrow public static decl_5 QI file CWE415_Double_Free__malloc_free_char_07.c line 142 col 6 align 8 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c> initial <block 0x7f1d2ebcbd20>
-    result <result_decl 0x7f1d2ebf5708 D.4278 type <void_type 0x7f1d2f034f18 void>
-        ignored VOID file CWE415_Double_Free__malloc_free_char_07.c line 142 col 6
-        align 8 context <function_decl 0x7f1d2ec09300 CWE415_Double_Free__malloc_free_char_07_good>>
-    struct-function 0x7f1d2ebedc60 chain <function_decl 0x7f1d2ec09500 main>>
- <ssa_name 0x7f1d2ec1ad80
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23630 data>
-    def_stmt data_18 = malloc (100);
-    version 18
-    ptr-info 0x7f1d2ec03dc8>
-
-dot graph START
-
-======================================================================
- <ssa_name 0x7f1d2ec1ad80
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
-        sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23630 data>
-    def_stmt data_18 = malloc (100);
-    version 18
-    ptr-info 0x7f1d2ec03dc8>
-
- ================== trace ptable================== 
-trace fucntion name:malloc 
-
- ================== trace ptable ================== 
-GIMPLE CODE :addr_expr---malloc-----
-this Reserved word function ------malloc-----
- 
- Start check Pointer Collect  
-
-======================================================================
-dot graph entry CWE415_Double_Free__malloc_free_char_07_good
-dot graph target entry end
-
-free (data_18);
-CWE415_Double_Free__malloc_free_char_07.c:63:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
-dot graph target loc start # .MEM_27 = VDEF <.MEM_1(D)>
-data_18 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:60:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-dot graph target loc en1
-
-dot graph target line desc form basic block 5: free (data_18);
-CWE415_Double_Free__malloc_free_char_07.c:63:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
-dot graph target line desend
-
-dot graph target loc start # .MEM_27 = VDEF <.MEM_1(D)>
-data_18 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:60:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-dot graph target loc end
-
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 5dot graph target basicblock en1
-
-dot graph stmt start free (data_18);
-data_18 = malloc (100);
-dot graph stmt end
-
-dot graph stmt start free (data_18);
-CWE415_Double_Free__malloc_free_char_07.c:63:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
-dot graph stmt end
-
-dot graph target color descgreendot graph target color desend
-
-this stmt is child function---free-----
-
- ================== find ================== 
-free (data_18);
-CWE415_Double_Free__malloc_free_char_07.c:63:9: warning: use location
-[40;32m    HAS FREE STMT count:1 name:free [0m
-
- ================== find ================== 
-dot graph entry CWE415_Double_Free__malloc_free_char_07_good
-dot graph target entry end
-
-if (data_18 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:61:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
-dot graph target loc start # .MEM_27 = VDEF <.MEM_1(D)>
-data_18 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:60:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-dot graph target loc en1
-
-dot graph target line desc form basic block 3: if (data_18 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:61:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
-dot graph target line desend
-
-dot graph target loc start # .MEM_27 = VDEF <.MEM_1(D)>
-data_18 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:60:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-dot graph target loc end
-
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 3dot graph target basicblock en1
-
-dot graph stmt start if (data_18 == 0B)
-data_18 = malloc (100);
-dot graph stmt end
-
-dot graph stmt start if (data_18 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:61:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
-dot graph stmt end
-
-if (data_18 == 0B)
-
- ================== find cond branch ================= 
-if (data_18 == 0B)
-Cond in fucntion CWE415_Double_Free__malloc_free_char_07_good basic block 3
- ================== possiable direct basic block ================= 
-from CWE415_Double_Free__malloc_free_char_07_good basic block 4
- ================== possiable direct basic block ================= 
-from CWE415_Double_Free__malloc_free_char_07_good basic block 5
- ================== warring ================== 
-[40;35m    need check this branch possiable have return or exit stmt [0m
-
- ================== warring ================== 
-
- ================== find cond branch ================= 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 5dot graph target basicblock en1
-
-dot graph arrowsubgraph cluster_1896271391 dot graph subgraph  free (data_18);
-data_18 = malloc (100);
+dot graph arrowsubgraph cluster_1450594994 dot graph subgraph  free (data_3);
+data_3 = malloc (400);
 dot graph subgrapend
 
- <ssa_name 0x7f1d2ec1ad80
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+ <ssa_name 0x7f4fc07aed38
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23630 data>
-    def_stmt data_18 = malloc (100);
-    version 18
-    ptr-info 0x7f1d2ec03dc8>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc074d990 data>
+    def_stmt data_3 = malloc (400);
+    version 3
+    ptr-info 0x7f4fc07d1990>
 
  ================== Start Use after free Check ================== 
+# .MEM_4 = VDEF <.MEM_2>
+free (data_3);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:37:5: warning: Use after free error!: free location 
+     free(data);
+     ^~~~~~~~~~
+# .MEM_6 = VDEF <.MEM_5>
+CWE415_Double_Free__malloc_free_wchar_t_22_badSink (data_3);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:39:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_badSink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
 
 dot graph END
 
@@ -1064,57 +620,74 @@ dot graph END
 
 ======================================================================
 
- <function_decl 0x7f1d2ec09300 CWE415_Double_Free__malloc_free_char_07_good
-    type <function_type 0x7f1d2ec0b348
-        type <void_type 0x7f1d2f034f18 void VOID
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f034f18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-            pointer_to_this <pointer_type 0x7f1d2f03c0a8>>
+[40;33m =======POP node_fun stack:CWE415_Double_Free__malloc_free_wchar_t_22_bad========= [0m
+[40;42m =======pre add _ fucntion:CWE415_Double_Free__malloc_free_wchar_t_22_good========= [0m
+[40;44m =======print_function_path CWE415_Double_Free__malloc_free_wchar_t_22_good  function_call count: 6 level :1========  [0m
+[40;42m =======pre add _ fucntion:CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink========= [0m
+[40;33m =======POP node_fun stack:CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink========= [0m
+[40;42m =======pre add _ fucntion:exit========= [0m
+[40;33m =======POP node_fun stack:exit========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink========= [0m
+[40;33m =======POP node_fun stack:CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink========= [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink========= [0m
+[40;33m =======POP node_fun stack:CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink========= [0m
+[40;42m =======pre_check_funciton:CWE415_Double_Free__malloc_free_wchar_t_22_good========= [0m
+[40;42m =======start_check_funciton:CWE415_Double_Free__malloc_free_wchar_t_22_good========= [0m
+ <function_decl 0x7f4fc07d8500 CWE415_Double_Free__malloc_free_wchar_t_22_good
+    type <function_type 0x7f4fc07d75e8
+        type <void_type 0x7f4fc0c02f18 void VOID
+            align 8 symtab 0 alias set -1 canonical type 0x7f4fc0c02f18 context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0c0a0a8>>
         QI
-        size <integer_cst 0x7f1d2f01cdc8 constant 8>
-        unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-        align 8 symtab 0 alias set -1 canonical type 0x7f1d2f059000
-        pointer_to_this <pointer_type 0x7f1d2ec0bbd0>>
-    addressable used nothrow public static decl_5 QI file CWE415_Double_Free__malloc_free_char_07.c line 142 col 6 align 8 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c> initial <block 0x7f1d2ebcbd20>
-    result <result_decl 0x7f1d2ebf5708 D.4278 type <void_type 0x7f1d2f034f18 void>
-        ignored VOID file CWE415_Double_Free__malloc_free_char_07.c line 142 col 6
-        align 8 context <function_decl 0x7f1d2ec09300 CWE415_Double_Free__malloc_free_char_07_good>>
-    struct-function 0x7f1d2ebedc60 chain <function_decl 0x7f1d2ec09500 main>>
- <ssa_name 0x7f1d2ec1aca8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+        size <integer_cst 0x7f4fc0beadc8 constant 8>
+        unit size <integer_cst 0x7f4fc0beade0 constant 1>
+        align 8 symtab 0 alias set -1 canonical type 0x7f4fc0c27000
+        pointer_to_this <pointer_type 0x7f4fc07d7e70>>
+    addressable used nothrow public static decl_5 QI file CWE415_Double_Free__malloc_free_wchar_t_22a.c line 98 col 6 align 8 context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c> initial <block 0x7f4fc0799cc0>
+    result <result_decl 0x7f4fc07c3690 D.4286 type <void_type 0x7f4fc0c02f18 void>
+        ignored VOID file CWE415_Double_Free__malloc_free_wchar_t_22a.c line 98 col 6
+        align 8 context <function_decl 0x7f4fc07d8500 CWE415_Double_Free__malloc_free_wchar_t_22_good>>
+    struct-function 0x7f4fc07bbbb0 chain <function_decl 0x7f4fc07d8700 main>>
+ <ssa_name 0x7f4fc07e4360
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec233f0 data>
-    def_stmt data_15 = malloc (100);
-    version 15
-    ptr-info 0x7f1d2ec03db0>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb2d0 data>
+    def_stmt data_7 = malloc (400);
+    version 7
+    ptr-info 0x7f4fc07d1a08>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f1d2ec1aca8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+ <ssa_name 0x7f4fc07e4360
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec233f0 data>
-    def_stmt data_15 = malloc (100);
-    version 15
-    ptr-info 0x7f1d2ec03db0>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb2d0 data>
+    def_stmt data_7 = malloc (400);
+    version 7
+    ptr-info 0x7f4fc07d1a08>
 
  ================== trace ptable================== 
 trace fucntion name:malloc 
@@ -1126,43 +699,104 @@ this Reserved word function ------malloc-----
  Start check Pointer Collect  
 
 ======================================================================
-dot graph entry CWE415_Double_Free__malloc_free_char_07_good
+dot graph entry CWE415_Double_Free__malloc_free_wchar_t_22_good
 dot graph target entry end
 
-free (data_15);
-CWE415_Double_Free__malloc_free_char_07.c:89:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
-dot graph target loc start # .MEM_31 = VDEF <.MEM_21>
-data_15 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:86:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink (data_7);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:64:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph target loc start # .MEM_8 = VDEF <.MEM_1(D)>
+data_7 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:59:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc en1
 
-dot graph target line desc form basic block 11: free (data_15);
-CWE415_Double_Free__malloc_free_char_07.c:89:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
+dot graph target line desc form basic block 4: CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink (data_7);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:64:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target line desend
 
-dot graph target loc start # .MEM_31 = VDEF <.MEM_21>
-data_15 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:86:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph target loc start # .MEM_8 = VDEF <.MEM_1(D)>
+data_7 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:59:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc end
 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 11dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 4dot graph target basicblock en1
 
-dot graph stmt start free (data_15);
-data_15 = malloc (100);
+dot graph stmt start CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink (data_7);
+data_7 = malloc (400);
 dot graph stmt end
 
-dot graph stmt start free (data_15);
-CWE415_Double_Free__malloc_free_char_07.c:89:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
+dot graph stmt start CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink (data_7);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:64:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph stmt end
+
+this stmt is child function---CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4fc07e4360
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
+        sizes-gimplified public unsigned DI
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb2d0 data>
+    def_stmt data_7 = malloc (400);
+    version 7
+    ptr-info 0x7f4fc07d1a08>
+trace fucntion name:CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink 
+
+ ================== trace ================== 
+dot graph entry CWE415_Double_Free__malloc_free_wchar_t_22_good
+dot graph target entry end
+
+free (data_7);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:62:5: warning: use location
+     free(data);
+     ^~~~~~~~~~
+dot graph target loc start # .MEM_8 = VDEF <.MEM_1(D)>
+data_7 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:59:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph target loc en1
+
+dot graph target line desc form basic block 4: free (data_7);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:62:5: warning: use location
+     free(data);
+     ^~~~~~~~~~
+dot graph target line desend
+
+dot graph target loc start # .MEM_8 = VDEF <.MEM_1(D)>
+data_7 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:59:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph target loc end
+
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 4dot graph target basicblock en1
+
+dot graph stmt start free (data_7);
+data_7 = malloc (400);
+dot graph stmt end
+
+dot graph stmt start free (data_7);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:62:5: warning: use location
+     free(data);
+     ^~~~~~~~~~
 dot graph stmt end
 
 dot graph target color descgreendot graph target color desend
@@ -1170,89 +804,110 @@ dot graph target color descgreendot graph target color desend
 this stmt is child function---free-----
 
  ================== find ================== 
-free (data_15);
-CWE415_Double_Free__malloc_free_char_07.c:89:9: warning: use location
+free (data_7);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:62:5: warning: use location
 [40;32m    HAS FREE STMT count:1 name:free [0m
 
  ================== find ================== 
-dot graph entry CWE415_Double_Free__malloc_free_char_07_good
+dot graph entry CWE415_Double_Free__malloc_free_wchar_t_22_good
 dot graph target entry end
 
-if (data_15 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:87:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
-dot graph target loc start # .MEM_31 = VDEF <.MEM_21>
-data_15 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:86:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if (data_7 == 0B)
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:60:8: warning: use location
+     if (data == NULL) {exit(-1);}
+        ^
+dot graph target loc start # .MEM_8 = VDEF <.MEM_1(D)>
+data_7 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:59:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc en1
 
-dot graph target line desc form basic block 9: if (data_15 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:87:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
+dot graph target line desc form basic block 2: if (data_7 == 0B)
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:60:8: warning: use location
+     if (data == NULL) {exit(-1);}
+        ^
 dot graph target line desend
 
-dot graph target loc start # .MEM_31 = VDEF <.MEM_21>
-data_15 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:86:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph target loc start # .MEM_8 = VDEF <.MEM_1(D)>
+data_7 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:59:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc end
 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 9dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 2dot graph target basicblock en1
 
-dot graph stmt start if (data_15 == 0B)
-data_15 = malloc (100);
+dot graph stmt start if (data_7 == 0B)
+data_7 = malloc (400);
 dot graph stmt end
 
-dot graph stmt start if (data_15 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:87:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
+dot graph stmt start if (data_7 == 0B)
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:60:8: warning: use location
+     if (data == NULL) {exit(-1);}
+        ^
 dot graph stmt end
 
-if (data_15 == 0B)
+if (data_7 == 0B)
 
  ================== find cond branch ================= 
-if (data_15 == 0B)
-Cond in fucntion CWE415_Double_Free__malloc_free_char_07_good basic block 9
+if (data_7 == 0B)
+Cond in fucntion CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 2
  ================== possiable direct basic block ================= 
-from CWE415_Double_Free__malloc_free_char_07_good basic block 10
+from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 3
  ================== possiable direct basic block ================= 
-from CWE415_Double_Free__malloc_free_char_07_good basic block 11
+from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 4
  ================== warring ================== 
 [40;35m    need check this branch possiable have return or exit stmt [0m
 
  ================== warring ================== 
 
  ================== find cond branch ================= 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 11dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 4dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_1191182110 dot graph subgraph  free (data_15);
-data_15 = malloc (100);
+dot graph arrowsubgraph cluster_818455077 dot graph subgraph  CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink (data_7);
+data_7 = malloc (400);
 dot graph subgrapend
 
- <ssa_name 0x7f1d2ec1aca8
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 4dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1489491909 dot graph subgraph  free (data_7);
+data_7 = malloc (400);
+dot graph subgrapend
+
+ <ssa_name 0x7f4fc07e4360
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec233f0 data>
-    def_stmt data_15 = malloc (100);
-    version 15
-    ptr-info 0x7f1d2ec03db0>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb2d0 data>
+    def_stmt data_7 = malloc (400);
+    version 7
+    ptr-info 0x7f4fc07d1a08>
 
  ================== Start Use after free Check ================== 
+# .MEM_9 = VDEF <.MEM_8>
+free (data_7);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:62:5: warning: Use after free error!: free location 
+     free(data);
+     ^~~~~~~~~~
+# .MEM_11 = VDEF <.MEM_10>
+CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink (data_7);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:64:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
 
 dot graph END
 
@@ -1263,57 +918,57 @@ dot graph END
 
 ======================================================================
 
- <function_decl 0x7f1d2ec09300 CWE415_Double_Free__malloc_free_char_07_good
-    type <function_type 0x7f1d2ec0b348
-        type <void_type 0x7f1d2f034f18 void VOID
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f034f18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-            pointer_to_this <pointer_type 0x7f1d2f03c0a8>>
+ <function_decl 0x7f4fc07d8500 CWE415_Double_Free__malloc_free_wchar_t_22_good
+    type <function_type 0x7f4fc07d75e8
+        type <void_type 0x7f4fc0c02f18 void VOID
+            align 8 symtab 0 alias set -1 canonical type 0x7f4fc0c02f18 context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0c0a0a8>>
         QI
-        size <integer_cst 0x7f1d2f01cdc8 constant 8>
-        unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-        align 8 symtab 0 alias set -1 canonical type 0x7f1d2f059000
-        pointer_to_this <pointer_type 0x7f1d2ec0bbd0>>
-    addressable used nothrow public static decl_5 QI file CWE415_Double_Free__malloc_free_char_07.c line 142 col 6 align 8 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c> initial <block 0x7f1d2ebcbd20>
-    result <result_decl 0x7f1d2ebf5708 D.4278 type <void_type 0x7f1d2f034f18 void>
-        ignored VOID file CWE415_Double_Free__malloc_free_char_07.c line 142 col 6
-        align 8 context <function_decl 0x7f1d2ec09300 CWE415_Double_Free__malloc_free_char_07_good>>
-    struct-function 0x7f1d2ebedc60 chain <function_decl 0x7f1d2ec09500 main>>
- <ssa_name 0x7f1d2ec1ab88
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+        size <integer_cst 0x7f4fc0beadc8 constant 8>
+        unit size <integer_cst 0x7f4fc0beade0 constant 1>
+        align 8 symtab 0 alias set -1 canonical type 0x7f4fc0c27000
+        pointer_to_this <pointer_type 0x7f4fc07d7e70>>
+    addressable used nothrow public static decl_5 QI file CWE415_Double_Free__malloc_free_wchar_t_22a.c line 98 col 6 align 8 context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c> initial <block 0x7f4fc0799cc0>
+    result <result_decl 0x7f4fc07c3690 D.4286 type <void_type 0x7f4fc0c02f18 void>
+        ignored VOID file CWE415_Double_Free__malloc_free_wchar_t_22a.c line 98 col 6
+        align 8 context <function_decl 0x7f4fc07d8500 CWE415_Double_Free__malloc_free_wchar_t_22_good>>
+    struct-function 0x7f4fc07bbbb0 chain <function_decl 0x7f4fc07d8700 main>>
+ <ssa_name 0x7f4fc07e4318
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23120 data>
-    def_stmt data_11 = malloc (100);
-    version 11
-    ptr-info 0x7f1d2ec03d80>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb000 data>
+    def_stmt data_6 = malloc (400);
+    version 6
+    ptr-info 0x7f4fc07d19f0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f1d2ec1ab88
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+ <ssa_name 0x7f4fc07e4318
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23120 data>
-    def_stmt data_11 = malloc (100);
-    version 11
-    ptr-info 0x7f1d2ec03d80>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb000 data>
+    def_stmt data_6 = malloc (400);
+    version 6
+    ptr-info 0x7f4fc07d19f0>
 
  ================== trace ptable================== 
 trace fucntion name:malloc 
@@ -1325,75 +980,104 @@ this Reserved word function ------malloc-----
  Start check Pointer Collect  
 
 ======================================================================
-dot graph entry CWE415_Double_Free__malloc_free_char_07_good
+dot graph entry CWE415_Double_Free__malloc_free_wchar_t_22_good
 dot graph target entry end
 
-data_13 = PHI <0B(13), data_11(14)>
-cc1: warning: use location
-dot graph target loc start # .MEM_34 = VDEF <.MEM_22>
-data_11 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:112:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink (data_6);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:80:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph target loc start # .MEM_12 = VDEF <.MEM_11>
+data_6 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:75:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc en1
 
-dot graph target line desc form basic block 16: data_13 = PHI <0B(13), data_11(14)>
-cc1: warning: use location
+dot graph target line desc form basic block 6: CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink (data_6);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:80:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target line desend
 
-dot graph target loc start # .MEM_34 = VDEF <.MEM_22>
-data_11 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:112:14: warning: use location
+dot graph target loc start # .MEM_12 = VDEF <.MEM_11>
+data_6 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:75:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc end
 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 16dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 6dot graph target basicblock en1
 
-dot graph stmt start data_13 = PHI <0B(13), data_11(14)>
-data_11 = malloc (100);
+dot graph stmt start CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink (data_6);
+data_6 = malloc (400);
 dot graph stmt end
 
-dot graph stmt start data_13 = PHI <0B(13), data_11(14)>
-cc1: warning: use location
+dot graph stmt start CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink (data_6);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:80:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph stmt end
 
-this stmt have mutiple branch ---malloc-----
-dot graph entry CWE415_Double_Free__malloc_free_char_07_good
+this stmt is child function---CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4fc07e4318
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
+        sizes-gimplified public unsigned DI
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb000 data>
+    def_stmt data_6 = malloc (400);
+    version 6
+    ptr-info 0x7f4fc07d19f0>
+trace fucntion name:CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink 
+
+ ================== trace ================== 
+dot graph entry CWE415_Double_Free__malloc_free_wchar_t_22_good
 dot graph target entry end
 
-free (data_13);
-CWE415_Double_Free__malloc_free_char_07.c:119:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
-dot graph target loc start # .MEM_34 = VDEF <.MEM_22>
-data_11 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:112:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+free (data_6);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:78:5: warning: use location
+     free(data);
+     ^~~~~~~~~~
+dot graph target loc start # .MEM_12 = VDEF <.MEM_11>
+data_6 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:75:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc en1
 
-dot graph target line desc form basic block 17: free (data_13);
-CWE415_Double_Free__malloc_free_char_07.c:119:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
+dot graph target line desc form basic block 6: free (data_6);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:78:5: warning: use location
+     free(data);
+     ^~~~~~~~~~
 dot graph target line desend
 
-dot graph target loc start # .MEM_34 = VDEF <.MEM_22>
-data_11 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:112:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph target loc start # .MEM_12 = VDEF <.MEM_11>
+data_6 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:75:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc end
 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 17dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 6dot graph target basicblock en1
 
-dot graph stmt start free (data_13);
-data_11 = malloc (100);
+dot graph stmt start free (data_6);
+data_6 = malloc (400);
 dot graph stmt end
 
-dot graph stmt start free (data_13);
-CWE415_Double_Free__malloc_free_char_07.c:119:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
+dot graph stmt start free (data_6);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:78:5: warning: use location
+     free(data);
+     ^~~~~~~~~~
 dot graph stmt end
 
 dot graph target color descgreendot graph target color desend
@@ -1401,96 +1085,105 @@ dot graph target color descgreendot graph target color desend
 this stmt is child function---free-----
 
  ================== find ================== 
-free (data_13);
-CWE415_Double_Free__malloc_free_char_07.c:119:9: warning: use location
+free (data_6);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:78:5: warning: use location
 [40;32m    HAS FREE STMT count:1 name:free [0m
 
  ================== find ================== 
-dot graph entry CWE415_Double_Free__malloc_free_char_07_good
+dot graph entry CWE415_Double_Free__malloc_free_wchar_t_22_good
 dot graph target entry end
 
-if (data_11 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:113:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
-dot graph target loc start # .MEM_34 = VDEF <.MEM_22>
-data_11 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:112:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if (data_6 == 0B)
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:76:8: warning: use location
+     if (data == NULL) {exit(-1);}
+        ^
+dot graph target loc start # .MEM_12 = VDEF <.MEM_11>
+data_6 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:75:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc en1
 
-dot graph target line desc form basic block 14: if (data_11 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:113:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
+dot graph target line desc form basic block 4: if (data_6 == 0B)
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:76:8: warning: use location
+     if (data == NULL) {exit(-1);}
+        ^
 dot graph target line desend
 
-dot graph target loc start # .MEM_34 = VDEF <.MEM_22>
-data_11 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:112:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph target loc start # .MEM_12 = VDEF <.MEM_11>
+data_6 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:75:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc end
 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 14dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 4dot graph target basicblock en1
 
-dot graph stmt start if (data_11 == 0B)
-data_11 = malloc (100);
+dot graph stmt start if (data_6 == 0B)
+data_6 = malloc (400);
 dot graph stmt end
 
-dot graph stmt start if (data_11 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:113:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
+dot graph stmt start if (data_6 == 0B)
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:76:8: warning: use location
+     if (data == NULL) {exit(-1);}
+        ^
 dot graph stmt end
 
-if (data_11 == 0B)
+if (data_6 == 0B)
 
  ================== find cond branch ================= 
-if (data_11 == 0B)
-Cond in fucntion CWE415_Double_Free__malloc_free_char_07_good basic block 14
+if (data_6 == 0B)
+Cond in fucntion CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 4
  ================== possiable direct basic block ================= 
-from CWE415_Double_Free__malloc_free_char_07_good basic block 15
+from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 5
  ================== possiable direct basic block ================= 
-from CWE415_Double_Free__malloc_free_char_07_good basic block 16
+from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 6
  ================== warring ================== 
 [40;35m    need check this branch possiable have return or exit stmt [0m
 
  ================== warring ================== 
 
  ================== find cond branch ================= 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 17dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 6dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_1596555126 dot graph subgraph  free (data_13);
-data_13 = PHI <0B(13), data_11(14)>
+dot graph arrowsubgraph cluster_1852339113 dot graph subgraph  CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink (data_6);
+data_6 = malloc (400);
 dot graph subgrapend
 
- <ssa_name 0x7f1d2ec1ab88
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 6dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_456072538 dot graph subgraph  free (data_6);
+data_6 = malloc (400);
+dot graph subgrapend
+
+ <ssa_name 0x7f4fc07e4318
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec23120 data>
-    def_stmt data_11 = malloc (100);
-    version 11
-    ptr-info 0x7f1d2ec03d80>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07eb000 data>
+    def_stmt data_6 = malloc (400);
+    version 6
+    ptr-info 0x7f4fc07d19f0>
 
  ================== Start Use after free Check ================== 
-# .MEM_37 = VDEF <.MEM_23>
-free (data_13);
-CWE415_Double_Free__malloc_free_char_07.c:119:9: warning: Use after free error!: free location 
-         free(data);
-         ^~~~~~~~~~
-data_13 = PHI <0B(13), data_11(14)>
-cc1: warning: use location
+# .MEM_13 = VDEF <.MEM_12>
+free (data_6);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:78:5: warning: Use after free error!: free location 
+     free(data);
+     ^~~~~~~~~~
+# .MEM_15 = VDEF <.MEM_14>
+CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink (data_6);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:80:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
@@ -1502,61 +1195,61 @@ dot graph END
  ================== Start Use after free Check ================== 
 
 ======================================================================
-[40;31m   need check branch because multiple direction varible[0m
+[40;32m   Maybe you don't have memory leak.... need more checks  [0m
 
 ======================================================================
 
- <function_decl 0x7f1d2ec09300 CWE415_Double_Free__malloc_free_char_07_good
-    type <function_type 0x7f1d2ec0b348
-        type <void_type 0x7f1d2f034f18 void VOID
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f034f18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-            pointer_to_this <pointer_type 0x7f1d2f03c0a8>>
+ <function_decl 0x7f4fc07d8500 CWE415_Double_Free__malloc_free_wchar_t_22_good
+    type <function_type 0x7f4fc07d75e8
+        type <void_type 0x7f4fc0c02f18 void VOID
+            align 8 symtab 0 alias set -1 canonical type 0x7f4fc0c02f18 context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0c0a0a8>>
         QI
-        size <integer_cst 0x7f1d2f01cdc8 constant 8>
-        unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-        align 8 symtab 0 alias set -1 canonical type 0x7f1d2f059000
-        pointer_to_this <pointer_type 0x7f1d2ec0bbd0>>
-    addressable used nothrow public static decl_5 QI file CWE415_Double_Free__malloc_free_char_07.c line 142 col 6 align 8 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c> initial <block 0x7f1d2ebcbd20>
-    result <result_decl 0x7f1d2ebf5708 D.4278 type <void_type 0x7f1d2f034f18 void>
-        ignored VOID file CWE415_Double_Free__malloc_free_char_07.c line 142 col 6
-        align 8 context <function_decl 0x7f1d2ec09300 CWE415_Double_Free__malloc_free_char_07_good>>
-    struct-function 0x7f1d2ebedc60 chain <function_decl 0x7f1d2ec09500 main>>
- <ssa_name 0x7f1d2ec1aa68
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+        size <integer_cst 0x7f4fc0beadc8 constant 8>
+        unit size <integer_cst 0x7f4fc0beade0 constant 1>
+        align 8 symtab 0 alias set -1 canonical type 0x7f4fc0c27000
+        pointer_to_this <pointer_type 0x7f4fc07d7e70>>
+    addressable used nothrow public static decl_5 QI file CWE415_Double_Free__malloc_free_wchar_t_22a.c line 98 col 6 align 8 context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c> initial <block 0x7f4fc0799cc0>
+    result <result_decl 0x7f4fc07c3690 D.4286 type <void_type 0x7f4fc0c02f18 void>
+        ignored VOID file CWE415_Double_Free__malloc_free_wchar_t_22a.c line 98 col 6
+        align 8 context <function_decl 0x7f4fc07d8500 CWE415_Double_Free__malloc_free_wchar_t_22_good>>
+    struct-function 0x7f4fc07bbbb0 chain <function_decl 0x7f4fc07d8700 main>>
+ <ssa_name 0x7f4fc07e42d0
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec0fea0 data>
-    def_stmt data_7 = malloc (100);
-    version 7
-    ptr-info 0x7f1d2ec03d50>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07dbd80 data>
+    def_stmt data_5 = malloc (400);
+    version 5
+    ptr-info 0x7f4fc07d19d8>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f1d2ec1aa68
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+ <ssa_name 0x7f4fc07e42d0
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec0fea0 data>
-    def_stmt data_7 = malloc (100);
-    version 7
-    ptr-info 0x7f1d2ec03d50>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07dbd80 data>
+    def_stmt data_5 = malloc (400);
+    version 5
+    ptr-info 0x7f4fc07d19d8>
 
  ================== trace ptable================== 
 trace fucntion name:malloc 
@@ -1568,188 +1261,155 @@ this Reserved word function ------malloc-----
  Start check Pointer Collect  
 
 ======================================================================
-dot graph entry CWE415_Double_Free__malloc_free_char_07_good
+dot graph entry CWE415_Double_Free__malloc_free_wchar_t_22_good
 dot graph target entry end
 
-data_9 = PHI <0B(18), data_7(19)>
-cc1: warning: use location
-dot graph target loc start # .MEM_38 = VDEF <.MEM_24>
-data_7 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:131:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink (data_5);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:95:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph target loc start # .MEM_16 = VDEF <.MEM_15>
+data_5 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:91:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc en1
 
-dot graph target line desc form basic block 21: data_9 = PHI <0B(18), data_7(19)>
-cc1: warning: use location
+dot graph target line desc form basic block 8: CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink (data_5);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:95:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target line desend
 
-dot graph target loc start # .MEM_38 = VDEF <.MEM_24>
-data_7 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:131:14: warning: use location
+dot graph target loc start # .MEM_16 = VDEF <.MEM_15>
+data_5 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:91:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc end
 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 21dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 8dot graph target basicblock en1
 
-dot graph stmt start data_9 = PHI <0B(18), data_7(19)>
-data_7 = malloc (100);
+dot graph stmt start CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink (data_5);
+data_5 = malloc (400);
 dot graph stmt end
 
-dot graph stmt start data_9 = PHI <0B(18), data_7(19)>
-cc1: warning: use location
+dot graph stmt start CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink (data_5);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:95:5: warning: use location
+     CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph stmt end
 
-this stmt have mutiple branch ---malloc-----
-dot graph entry CWE415_Double_Free__malloc_free_char_07_good
+this stmt is child function---CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4fc07e42d0
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
+        sizes-gimplified public unsigned DI
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07dbd80 data>
+    def_stmt data_5 = malloc (400);
+    version 5
+    ptr-info 0x7f4fc07d19d8>
+trace fucntion name:CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink 
+
+ ================== trace ================== 
+dot graph entry CWE415_Double_Free__malloc_free_wchar_t_22_good
 dot graph target entry end
 
-free (data_9);
-CWE415_Double_Free__malloc_free_char_07.c:138:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
-dot graph target loc start # .MEM_38 = VDEF <.MEM_24>
-data_7 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:131:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if (data_5 == 0B)
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:92:8: warning: use location
+     if (data == NULL) {exit(-1);}
+        ^
+dot graph target loc start # .MEM_16 = VDEF <.MEM_15>
+data_5 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:91:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc en1
 
-dot graph target line desc form basic block 22: free (data_9);
-CWE415_Double_Free__malloc_free_char_07.c:138:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
+dot graph target line desc form basic block 6: if (data_5 == 0B)
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:92:8: warning: use location
+     if (data == NULL) {exit(-1);}
+        ^
 dot graph target line desend
 
-dot graph target loc start # .MEM_38 = VDEF <.MEM_24>
-data_7 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:131:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dot graph target loc start # .MEM_16 = VDEF <.MEM_15>
+data_5 = malloc (400);
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:91:10: warning: use location
+     data = (wchar_t *)malloc(100*sizeof(wchar_t));
+     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dot graph target loc end
 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 22dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 6dot graph target basicblock en1
 
-dot graph stmt start free (data_9);
-data_7 = malloc (100);
+dot graph stmt start if (data_5 == 0B)
+data_5 = malloc (400);
 dot graph stmt end
 
-dot graph stmt start free (data_9);
-CWE415_Double_Free__malloc_free_char_07.c:138:9: warning: use location
-         free(data);
-         ^~~~~~~~~~
+dot graph stmt start if (data_5 == 0B)
+CWE415_Double_Free__malloc_free_wchar_t_22a.c:92:8: warning: use location
+     if (data == NULL) {exit(-1);}
+        ^
 dot graph stmt end
 
-dot graph target color descgreendot graph target color desend
-
-this stmt is child function---free-----
-
- ================== find ================== 
-free (data_9);
-CWE415_Double_Free__malloc_free_char_07.c:138:9: warning: use location
-[40;32m    HAS FREE STMT count:1 name:free [0m
-
- ================== find ================== 
-dot graph entry CWE415_Double_Free__malloc_free_char_07_good
-dot graph target entry end
-
-if (data_7 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:132:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
-dot graph target loc start # .MEM_38 = VDEF <.MEM_24>
-data_7 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:131:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-dot graph target loc en1
-
-dot graph target line desc form basic block 19: if (data_7 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:132:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
-dot graph target line desend
-
-dot graph target loc start # .MEM_38 = VDEF <.MEM_24>
-data_7 = malloc (100);
-CWE415_Double_Free__malloc_free_char_07.c:131:14: warning: use location
-         data = (char *)malloc(100*sizeof(char));
-         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-dot graph target loc end
-
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 19dot graph target basicblock en1
-
-dot graph stmt start if (data_7 == 0B)
-data_7 = malloc (100);
-dot graph stmt end
-
-dot graph stmt start if (data_7 == 0B)
-CWE415_Double_Free__malloc_free_char_07.c:132:12: warning: use location
-         if (data == NULL) {exit(-1);}
-            ^
-dot graph stmt end
-
-if (data_7 == 0B)
+if (data_5 == 0B)
 
  ================== find cond branch ================= 
-if (data_7 == 0B)
-Cond in fucntion CWE415_Double_Free__malloc_free_char_07_good basic block 19
+if (data_5 == 0B)
+Cond in fucntion CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 6
  ================== possiable direct basic block ================= 
-from CWE415_Double_Free__malloc_free_char_07_good basic block 20
+from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 7
  ================== possiable direct basic block ================= 
-from CWE415_Double_Free__malloc_free_char_07_good basic block 21
+from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 8
  ================== warring ================== 
 [40;35m    need check this branch possiable have return or exit stmt [0m
 
  ================== warring ================== 
 
  ================== find cond branch ================= 
-dot graph target basicblock start from CWE415_Double_Free__malloc_free_char_07_good basic block 22dot graph target basicblock en1
+dot graph target basicblock start from CWE415_Double_Free__malloc_free_wchar_t_22_good basic block 8dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_251175422 dot graph subgraph  free (data_9);
-data_9 = PHI <0B(18), data_7(19)>
+dot graph arrowsubgraph cluster_357739879 dot graph subgraph  CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink (data_5);
+data_5 = malloc (400);
 dot graph subgrapend
 
- <ssa_name 0x7f1d2ec1aa68
-    type <pointer_type 0x7f1d2f03ff18
-        type <integer_type 0x7f1d2f0343f0 char public string-flag QI
-            size <integer_cst 0x7f1d2f01cdc8 constant 8>
-            unit size <integer_cst 0x7f1d2f01cde0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f1d2f0343f0 precision 8 min <integer_cst 0x7f1d2f01ce10 -128> max <integer_cst 0x7f1d2f01ce40 127>
-            pointer_to_this <pointer_type 0x7f1d2f03ff18>>
+ <ssa_name 0x7f4fc07e42d0
+    type <pointer_type 0x7f4fc0dd8e70
+        type <integer_type 0x7f4fc0d8b000 wchar_t SI
+            size <integer_cst 0x7f4fc0beaf18 constant 32>
+            unit size <integer_cst 0x7f4fc0beaf30 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f4fc0c025e8 precision 32 min <integer_cst 0x7f4fc0beaed0 -2147483648> max <integer_cst 0x7f4fc0beaee8 2147483647> context <translation_unit_decl 0x7f4fc07c3780 CWE415_Double_Free__malloc_free_wchar_t_22a.c>
+            pointer_to_this <pointer_type 0x7f4fc0dd8e70>>
         sizes-gimplified public unsigned DI
-        size <integer_cst 0x7f1d2f01ccd8 constant 64>
-        unit size <integer_cst 0x7f1d2f01ccf0 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f1d2f03ff18 context <translation_unit_decl 0x7f1d2ebf57f8 CWE415_Double_Free__malloc_free_char_07.c>
-        pointer_to_this <pointer_type 0x7f1d2f185930> reference_to_this <reference_type 0x7f1d2f137738>>
-    var <var_decl 0x7f1d2ec0fea0 data>
-    def_stmt data_7 = malloc (100);
-    version 7
-    ptr-info 0x7f1d2ec03d50>
+        size <integer_cst 0x7f4fc0beacd8 constant 64>
+        unit size <integer_cst 0x7f4fc0beacf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4fc0c0aa80
+        pointer_to_this <pointer_type 0x7f4fc078ae70>>
+    var <var_decl 0x7f4fc07dbd80 data>
+    def_stmt data_5 = malloc (400);
+    version 5
+    ptr-info 0x7f4fc07d19d8>
 
  ================== Start Use after free Check ================== 
-# .MEM_40 = VDEF <.MEM_25>
-free (data_9);
-CWE415_Double_Free__malloc_free_char_07.c:138:9: warning: Use after free error!: free location 
-         free(data);
-         ^~~~~~~~~~
-data_9 = PHI <0B(18), data_7(19)>
-cc1: warning: use location
-
- ================== warring ================== 
-[40;35m    Use after free error! [0m
-
- ================== warring ================== 
 
 dot graph END
 
  ================== Start Use after free Check ================== 
 
 ======================================================================
-[40;31m   need check branch because multiple direction varible[0m
+[40;31m    no free stmt possible memory leak [0m
 
 ======================================================================
-
-[40;33m =======POP node_fun stack:CWE415_Double_Free__malloc_free_char_07_good========= [0m
+[40;33m =======POP node_fun stack:CWE415_Double_Free__malloc_free_wchar_t_22_good========= [0m
 [40;42m =======pre add _ fucntion:srand========= [0m
 [40;33m =======POP node_fun stack:srand========= [0m
 [40;42m =======pre add _ fucntion:time========= [0m
@@ -1767,203 +1427,93 @@ fucntion collect path finsh
     ~~~~~~~~~~~  
  ~~~~~~
            ~~~~~~~
-[40;34m    find Entry point : 5
+[40;34m    find Entry point : 4
  [0m
-[40;34m    used_stmt array stack totalsize of : 136
+[40;34m    used_stmt array stack totalsize of : 88
  [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
-algorithm time: 0.012964 s
+algorithm time: 0.014203 s
 =======Mapping node_fun:main=========
 <bb 2> [100.00%]:
 _1 = time (0B);
 _2 = (unsigned int) _1;
 srand (_2);
 printLine ("Calling good()...");
-CWE415_Double_Free__malloc_free_char_07_good ();
+CWE415_Double_Free__malloc_free_wchar_t_22_good ();
 printLine ("Finished good()");
 printLine ("Calling bad()...");
-CWE415_Double_Free__malloc_free_char_07_bad ();
+CWE415_Double_Free__malloc_free_wchar_t_22_bad ();
 printLine ("Finished bad()");
 return 0;
 
 =======is loop:0=========
-=======Mapping node_fun:CWE415_Double_Free__malloc_free_char_07_good=========
+=======Mapping node_fun:CWE415_Double_Free__malloc_free_wchar_t_22_good=========
 <bb 2> [100.00%]:
-staticFive.2_17 = 5;
-if (staticFive.2_17 == 5)
-  goto <bb 3>; [20.24%]
-else
-  goto <bb 6>; [79.76%]
-
-=======is loop:0=========
-<bb 3> [20.24%]:
-data_18 = malloc (100);
-if (data_18 == 0B)
-  goto <bb 4>; [0.04%]
-else
-  goto <bb 5>; [99.96%]
-
-=======is loop:0=========
-<bb 4> [0.01%]:
-exit (-1);
-
-=======is loop:0=========
-<bb 5> [20.23%]:
-free (data_18);
-
-=======is loop:0=========
-<bb 6> [99.99%]:
-staticFive.3_19 = 5;
-if (staticFive.3_19 != 5)
-  goto <bb 7>; [52.88%]
-else
-  goto <bb 8>; [47.12%]
-
-=======is loop:0=========
-<bb 7> [52.88%]:
-printLine ("Benign, fixed string");
-
-=======is loop:0=========
-<bb 8> [99.99%]:
-staticFive.4_14 = 5;
-if (staticFive.4_14 == 5)
-  goto <bb 9>; [22.95%]
-else
-  goto <bb 12>; [77.05%]
-
-=======is loop:0=========
-<bb 9> [22.95%]:
-data_15 = malloc (100);
-if (data_15 == 0B)
-  goto <bb 10>; [0.04%]
-else
-  goto <bb 11>; [99.96%]
-
-=======is loop:0=========
-<bb 10> [0.01%]:
-exit (-1);
-
-=======is loop:0=========
-<bb 11> [22.94%]:
-free (data_15);
-
-=======is loop:0=========
-<bb 12> [99.98%]:
-staticFive.5_16 = 5;
-staticFive.6_10 = 5;
-if (staticFive.6_10 != 5)
-  goto <bb 13>; [66.00%]
-else
-  goto <bb 14>; [34.00%]
-
-=======is loop:0=========
-<bb 13> [65.99%]:
-printLine ("Benign, fixed string");
-goto <bb 16>; [100.00%]
-
-=======is loop:0=========
-<bb 14> [33.99%]:
-data_11 = malloc (100);
-if (data_11 == 0B)
-  goto <bb 15>; [0.04%]
-else
-  goto <bb 16>; [99.96%]
-
-=======is loop:0=========
-<bb 15> [0.01%]:
-exit (-1);
-
-=======is loop:0=========
-<bb 16> [99.97%]:
-# data_13 = PHI <0B(13), data_11(14)>
-staticFive.7_12 = 5;
-if (staticFive.7_12 == 5)
-  goto <bb 17>; [22.95%]
-else
-  goto <bb 18>; [77.05%]
-
-=======is loop:0=========
-<bb 17> [22.94%]:
-free (data_13);
-
-=======is loop:0=========
-<bb 18> [99.97%]:
-staticFive.8_6 = 5;
-if (staticFive.8_6 == 5)
-  goto <bb 19>; [20.24%]
-else
-  goto <bb 21>; [79.76%]
-
-=======is loop:0=========
-<bb 19> [20.23%]:
-data_7 = malloc (100);
+data_7 = malloc (400);
 if (data_7 == 0B)
-  goto <bb 20>; [0.04%]
+  goto <bb 3>; [0.04%]
 else
-  goto <bb 21>; [99.96%]
+  goto <bb 4>; [99.96%]
 
 =======is loop:0=========
-<bb 20> [0.01%]:
+<bb 3> [0.04%]:
 exit (-1);
 
 =======is loop:0=========
-<bb 21> [99.96%]:
-# data_9 = PHI <0B(18), data_7(19)>
-staticFive.9_8 = 5;
-if (staticFive.9_8 == 5)
-  goto <bb 22>; [22.95%]
+<bb 4> [99.96%]:
+free (data_7);
+CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Global = 0;
+CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G1Sink (data_7);
+data_6 = malloc (400);
+if (data_6 == 0B)
+  goto <bb 5>; [0.04%]
 else
-  goto <bb 23>; [77.05%]
+  goto <bb 6>; [99.96%]
 
 =======is loop:0=========
-<bb 22> [22.94%]:
-free (data_9);
+<bb 5> [0.04%]:
+exit (-1);
 
 =======is loop:0=========
-<bb 23> [99.96%]:
+<bb 6> [99.92%]:
+free (data_6);
+CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Global = 1;
+CWE415_Double_Free__malloc_free_wchar_t_22_goodB2G2Sink (data_6);
+data_5 = malloc (400);
+if (data_5 == 0B)
+  goto <bb 7>; [0.04%]
+else
+  goto <bb 8>; [99.96%]
+
+=======is loop:0=========
+<bb 7> [0.04%]:
+exit (-1);
+
+=======is loop:0=========
+<bb 8> [99.88%]:
+CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BGlobal = 1;
+CWE415_Double_Free__malloc_free_wchar_t_22_goodG2BSink (data_5);
 return;
 
 =======is loop:0=========
-=======Mapping node_fun:CWE415_Double_Free__malloc_free_char_07_bad=========
+=======Mapping node_fun:CWE415_Double_Free__malloc_free_wchar_t_22_bad=========
 <bb 2> [100.00%]:
-staticFive.0_1 = staticFive;
-if (staticFive.0_1 == 5)
-  goto <bb 3>; [20.24%]
+data_3 = malloc (400);
+if (data_3 == 0B)
+  goto <bb 3>; [0.04%]
 else
-  goto <bb 6>; [79.76%]
+  goto <bb 4>; [99.96%]
 
 =======is loop:0=========
-<bb 3> [20.24%]:
-data_8 = malloc (100);
-if (data_8 == 0B)
-  goto <bb 4>; [0.04%]
-else
-  goto <bb 5>; [99.96%]
-
-=======is loop:0=========
-<bb 4> [0.01%]:
+<bb 3> [0.04%]:
 exit (-1);
 
 =======is loop:0=========
-<bb 5> [20.23%]:
-free (data_8);
-
-=======is loop:0=========
-<bb 6> [99.99%]:
-# data_3 = PHI <0B(2), data_8(5)>
-staticFive.1_2 = staticFive;
-if (staticFive.1_2 == 5)
-  goto <bb 7>; [22.95%]
-else
-  goto <bb 8>; [77.05%]
-
-=======is loop:0=========
-<bb 7> [22.95%]:
+<bb 4> [99.96%]:
 free (data_3);
-
-=======is loop:0=========
-<bb 8> [99.99%]:
+CWE415_Double_Free__malloc_free_wchar_t_22_badGlobal = 1;
+CWE415_Double_Free__malloc_free_wchar_t_22_badSink (data_3);
 return;
 
 =======is loop:0=========
-time: 0.017366 s
+time: 0.017568 s
