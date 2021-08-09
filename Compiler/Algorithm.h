@@ -2319,7 +2319,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				}
 				if (ptable_type == IS_MALLOC_FUCNTION && find_mallocstmt == IS_OTHRER_FUCNTION)
 					find_mallocstmt = IS_MALLOC_FUCNTION;
-				if (find_mallocstmt == IS_MALLOC_FUCNTION)
+				if ((find_mallocstmt == IS_MALLOC_FUCNTION ) || find_freestmt >0)
 				{
 
 					if (find_freestmt == 0)

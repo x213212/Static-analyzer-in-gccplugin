@@ -603,7 +603,7 @@ test.c:131:40: warning: use location
 
 " from main basic block 37"
 
-->subgraph cluster_889763287 { style ="dashed";"  free (ptr_83)
+->subgraph cluster_1033786418 { style ="dashed";"  free (ptr_83)
 new_80 = malloc (32)
 ";}
 
@@ -980,13 +980,13 @@ test.c:42:6: warning: use location
 
 " from main basic block 32"
 
-->subgraph cluster_560515298 { style ="dashed";"  _56 = sect_opts_17 + _55
+->subgraph cluster_582485955 { style ="dashed";"  _56 = sect_opts_17 + _55
 sect_opts_17 = PHI <sect_opts_11(4), sect_opts_65(25)>
 ";}
 
 " from main basic block 32"
 
-->subgraph cluster_1873804786 { style ="dashed";"  _52 = sect_opts_17 + _51
+->subgraph cluster_834571634 { style ="dashed";"  _52 = sect_opts_17 + _51
 sect_opts_17 = PHI <sect_opts_11(4), sect_opts_65(25)>
 ";}
 
@@ -1357,13 +1357,13 @@ test.c:42:6: warning: use location
 
 " from main basic block 32"
 
-->subgraph cluster_1118372700 { style ="dashed";"  _56 = sect_opts_17 + _55
+->subgraph cluster_1401780708 { style ="dashed";"  _56 = sect_opts_17 + _55
 sect_opts_17 = PHI <sect_opts_11(4), sect_opts_65(25)>
 ";}
 
 " from main basic block 32"
 
-->subgraph cluster_1180227430 { style ="dashed";"  _52 = sect_opts_17 + _51
+->subgraph cluster_1289962386 { style ="dashed";"  _52 = sect_opts_17 + _51
 sect_opts_17 = PHI <sect_opts_11(4), sect_opts_65(25)>
 ";}
 
@@ -1466,7 +1466,7 @@ test.c:131:40: warning: use location
 
 " from main basic block 34"
 
-->subgraph cluster_984266843 { style ="dashed";"  section_addrs_48->num_sections = _61
+->subgraph cluster_1940500652 { style ="dashed";"  section_addrs_48->num_sections = _61
 section_addrs_48 = malloc (24)
 ";}
 
@@ -2079,6 +2079,6 @@ test.c:131:40: warning: use location
 
 " from main basic block 37"
 
-->subgraph cluster_243245258 { style ="dashed";"  free (ptr_83)
+->subgraph cluster_1682637125 { style ="dashed";"  free (ptr_83)
 new_69 = malloc (32)
 ";} }
