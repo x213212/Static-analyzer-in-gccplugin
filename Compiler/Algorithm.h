@@ -319,8 +319,9 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 				use_stmt = USE_STMT(head->next);
 
 				goto has_single_use_jump;
-			}
-		}
+			}else
+			return ;
+		}else
 
 		// if(!check_stmtStack(target))
 		if (num_imm_uses(target) && head->next != NULL)
@@ -444,7 +445,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 							if (gimple_assign_lhs(use_stmt) != target2)
 								new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt), gimple_assign_lhs(use_stmt));
 						}
-						if (gimple_assign_rhs1(use_stmt) && TREE_CODE(gimple_assign_rhs1(use_stmt)) == SSA_NAME)
+						else if (gimple_assign_rhs1(use_stmt) && TREE_CODE(gimple_assign_rhs1(use_stmt)) == SSA_NAME)
 						{
 
 							if (!check_stmtStack(gimple_assign_rhs1(use_stmt)))
@@ -955,9 +956,14 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 							// 			new_search_imm_use(used_stmt,gimple_call_lhs(use_stmt), gimple_call_lhs(use_stmt));
 							// 		}
 							// 	}
+							if (!check_stmtStack(gimple_call_lhs(use_stmt)) && !check_stmtStack2(use_stmt))
+								{
+									set_gimple_array(used_stmt, use_stmt, gimple_call_lhs(use_stmt), target, NULL);
+								}
 							if (gimple_assign_rhs1(use_stmt))
 							{
-
+								
+								
 								// fprintf(stderr, "-------always in therealways in therealways in there--------------------------\n");
 								if (gimple_call_num_args(use_stmt) != 0)
 								{
@@ -970,10 +976,14 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 												if (gimple_call_arg(use_stmt, i))
 													if (gimple_call_arg(use_stmt, i) != target2)
 													{
-														// debug_tree(gimple_call_arg(use_stmt, i));
+														fprintf(stderr, "-------always in therealways in th222erealways in there------%d--------------------\n", has_zero_uses (gimple_call_arg(use_stmt, i)));
+														debug_tree(gimple_call_arg(use_stmt, i));
 														// if(!has_zero_uses (target))
-														// fprintf(stderr, "-------always in therealways in therealways in there------%d--------------------\n", has_zero_uses (gimple_call_arg(use_stmt, i)));
 														// if (has_zero_uses(gimple_call_arg(use_stmt, i)))
+															set_gimple_array(used_stmt, use_stmt, gimple_call_arg(use_stmt, i), target, NULL);
+
+														if (gimple_call_arg(use_stmt, i) != target2 )
+							
 														new_search_imm_use(used_stmt, gimple_call_arg(use_stmt, i), gimple_call_arg(use_stmt, i));
 													}
 											}
