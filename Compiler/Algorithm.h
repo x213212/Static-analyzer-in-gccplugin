@@ -2319,7 +2319,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				}
 				if (ptable_type == IS_MALLOC_FUCNTION && find_mallocstmt == IS_OTHRER_FUCNTION)
 					find_mallocstmt = IS_MALLOC_FUCNTION;
-				if ((find_mallocstmt == IS_MALLOC_FUCNTION ) || find_freestmt >0)
+				if ((find_mallocstmt == IS_MALLOC_FUCNTION ) )
 				{
 
 					if (find_freestmt == 0)
@@ -2377,10 +2377,19 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				}
 				else
 				{
+					
 					fprintf(stderr, "\n======================================================================\n");
 					// fprintf(stderr, "	this stmt need double check\n");
 
 					fprintf(stderr, "\033[40;31m 	this stmt need double check \033[0m\n");
+					if(find_freestmt)
+					if (find_freestmt > 2)
+					{
+						fprintf(stderr, "\n======================================================================\n");
+						// fprintf(stderr, "	possible double free\n");
+						fprintf(stderr, "\033[40;31m  	possible double free :%d \033[0m\n", find_freestmt);
+						fprintf(stderr, "\n======================================================================\n");
+					}
 					fprintf(stderr, "\n======================================================================\n");
 				}
 			}
