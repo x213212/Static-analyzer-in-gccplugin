@@ -1,164 +1,39 @@
 /*
-    commit id : be74fad95edc8827516e144cf38d135b503249cd
+    commit id : 3cfd3dd0956fe854a07795de12c1302ecabbd819
 */
 
 #include "common.h"
 #include "binutils.h"
+#include "bfd.h"
 
-static int mri_mode;
+#    define S_IREAD	00400
+#    define S_IWRITE	00200
+#    define S_IEXEC	00100
 
-/* This flag distinguishes between ar and ranlib:
-   1 means this is 'ranlib'; 0 means this is 'ar'.
-   -1 means if we should use argv[0] to decide.  */
-extern int is_ranlib;
+#    define S_IRUSR	S_IREAD			/* read, owner */
+#    define S_IWUSR	S_IWRITE		/* write, owner */
+#    define S_IXUSR	S_IEXEC			/* execute, owner */
 
-/* Nonzero means don't warn about creating the archive file if necessary.  */
-int silent_create = 0;
+#    define S_IRGRP	(S_IREAD  >> 3)		/* read, group */
+#    define S_IWGRP	(S_IWRITE >> 3)		/* write, group */
+#    define S_IXGRP	(S_IEXEC  >> 3)		/* execute, group */
 
-/* Nonzero means describe each action performed.  */
-int verbose = 0;
+#    define S_IROTH	(S_IREAD  >> 6)		/* read, other */
+#    define S_IWOTH	(S_IWRITE >> 6)		/* write, other */
+#    define S_IXOTH	(S_IEXEC  >> 6)		/* execute, other */
 
-/* Nonzero means preserve dates of members when extracting them.  */
-int preserve_dates = 0;
+#  define S_IRWXU	(S_IRUSR | S_IWUSR | S_IXUSR)
+#  define S_IRWXG	(S_IRGRP | S_IWGRP | S_IXGRP)
+#  define S_IRWXO	(S_IROTH | S_IWOTH | S_IXOTH)
 
-/* Nonzero means don't replace existing members whose dates are more recent
-   than the corresponding files.  */
-int newer_only = 0;
-
-/* Controls the writing of an archive symbol table (in BSD: a __.SYMDEF
-   member).  -1 means we've been explicitly asked to not write a symbol table;
-   +1 means we've been explicitly asked to write it;
-   0 is the default.
-   Traditionally, the default in BSD has been to not write the table.
-   However, for POSIX.2 compliance the default is now to write a symbol table
-   if any of the members are object files.  */
-int write_armap = 0;
-
-/* Operate in deterministic mode: write zero for timestamps, uids,
-   and gids for archive members and the archive symbol table, and write
-   consistent file modes.  */
-int deterministic = -1;			/* Determinism indeterminate.  */
-
-/* Nonzero means it's the name of an existing member; position new or moved
-   files with respect to this one.  */
-char *posname = NULL;
-
-/* Sez how to use `posname': pos_before means position before that member.
-   pos_after means position after that member. pos_end means always at end.
-   pos_default means default appropriately. For the latter two, `posname'
-   should also be zero.  */
-enum pos
-  {
-    pos_default, pos_before, pos_after, pos_end
-  } postype = pos_default;
-
-enum operations
-  {
-    none = 0, del, replace, print_table,
-    print_files, extract, move, quick_append
-  } operation = none;
+#define S_IRUGO		(S_IRUSR | S_IRGRP | S_IROTH)
+#define S_IWUGO		(S_IWUSR | S_IWGRP | S_IWOTH)
+#define S_IXUGO		(S_IXUSR | S_IXGRP | S_IXOTH)
 
 
-
-/* List of sections to add to the output BFD.  */
-static struct section_add *add_sections;
-
-/* List of sections to update in the output BFD.  */
-static struct section_add *update_sections;
-
-/* List of sections to dump from the output BFD.  */
-static struct section_add *dump_sections;
-
-/* If non-NULL the argument to --add-gnu-debuglink.
-   This should be the filename to store in the .gnu_debuglink section.  */
-static const char * gnu_debuglink_filename = NULL;
-
-/* Whether to convert debugging information.  */
-static bfd_boolean convert_debugging = FALSE;
-
-/* Whether to compress/decompress DWARF debug sections.  */
-static enum
-{
-  nothing = 0,
-  compress = 1 << 0,
-  compress_zlib = compress | 1 << 1,
-  compress_gnu_zlib = compress | 1 << 2,
-  compress_gabi_zlib = compress | 1 << 3,
-  decompress = 1 << 4
-} do_debug_sections = nothing;
-
-/* Whether to change the leading character in symbol names.  */
-static bfd_boolean change_leading_char = FALSE;
-
-/* Whether to remove the leading character from global symbol names.  */
-static bfd_boolean remove_leading_char = FALSE;
-
-/* Whether to permit wildcard in symbol comparison.  */
-static bfd_boolean wildcard = FALSE;
-
-/* True if --localize-hidden is in effect.  */
-static bfd_boolean localize_hidden = FALSE;
-
-
-FILE *saved_script_handle = NULL;
-FILE *previous_script_handle = NULL;
-bfd_boolean force_make_executable = FALSE;
-
-char *default_target;
+typedef struct {}bfd_target;
 const char *output_filename = "a.out";
-
-/* Name this program was invoked by.  */
-char *program_name;
-
-/* The prefix for system library directories.  */
-const char *ld_sysroot;
-
-/* The canonical representation of ld_sysroot.  */
-char *ld_canon_sysroot;
-int ld_canon_sysroot_len;
-
-/* Set by -G argument, for targets like MIPS ELF.  */
-int g_switch_value = 8;
-
-int status = 0;
-int optind = 1;
-
-
-int filename_cmp (const char *s1, const char *s2)
-{
-#if !defined(HAVE_DOS_BASED_FILE_SYSTEM) \
-    && !defined(HAVE_CASE_INSENSITIVE_FILE_SYSTEM)
-  return strcmp(s1, s2);
-#else
-  for (;;)
-    {
-      int c1 = *s1;
-      int c2 = *s2;
-
-#if defined (HAVE_CASE_INSENSITIVE_FILE_SYSTEM)
-      c1 = TOLOWER (c1);
-      c2 = TOLOWER (c2);
-#endif
-
-#if defined (HAVE_DOS_BASED_FILE_SYSTEM)
-      /* On DOS-based file systems, the '/' and the '\' are equivalent.  */
-      if (c1 == '/')
-        c1 = '\\';
-      if (c2 == '/')
-        c2 = '\\';
-#endif
-
-      if (c1 != c2)
-        return (c1 - c2);
-
-      if (c1 == '\0')
-        return 0;
-
-      s1++;
-      s2++;
-    }
-#endif
-}
+static bfd_boolean make_thin_archive = FALSE;
 
 /* Return a path for a new temporary file in the same directory
    as file PATH.  */
@@ -307,85 +182,68 @@ void unlink_if_ordinary (const char *name)
 	__USE(name);
 }
 
-/* The top-level control.  */
+bfd *bfd_openw(const char *name)
+{
+	__USE(name);
+	
+	bfd *nbfd = malloc(sizeof(bfd));
+	return nbfd;
+}
+
+bfd_boolean *bfd_close(bfd *abfd)
+{
+	bfd_boolean ret;
+	__NONDET(ret, 1, 0);
+
+	free(abfd);
+}
+
+char *bfd_get_filename(bfd *iarch)
+{
+	return iarch->filename;
+}
 
 static void
-copy_file (const char *input_filename, const char *output_filename,
-	   const char *input_target,   const char *output_target,
-	   const bfd_arch_info_type *input_arch)
+write_archive (bfd *iarch)
 {
-  bfd *ibfd;
-  char **obj_matching;
-  char **core_matching;
-  off_t size;
+  bfd *obfd;
+  char *old_name, *new_name;
+  bfd *contents_head = iarch->archive_next;
 
-	__NONDET(size, 1, 0);
+  old_name = (char *) xmalloc (strlen (bfd_get_filename (iarch)) + 1);
+  strcpy (old_name, bfd_get_filename (iarch));
+  new_name = make_tempname (old_name);  /* allocation site */
 
-  if (size < 1)
-    {
-      if (size == 0)
-				non_fatal (("error: the input file '%s' is empty"), input_filename);
-      status = 1;
-      return;
-    }
-}
-/* Load the file specified in PA, allocating memory to hold the file
-           contents, and store a pointer to the allocated memory in the contents
-   field of PA.  The size field of PA is also updated.  All errors call
-   FATAL.  */
+  if (new_name == NULL)
+    bfd_fatal (("could not create temporary file whilst writing archive%s"), "");
 
-static int
-copy_main (int argc, char *argv[])
+  output_filename = new_name;
+
+  obfd = bfd_openw (new_name);
+
+  if (obfd == NULL)
+    bfd_fatal ("%s", old_name);
+
+  if (!bfd_close (obfd))
+    bfd_fatal ("%s", old_name);
+
+  output_filename = NULL;
+
+  /* We don't care if this fails; we might be creating the archive.  */
+  bfd_close (iarch);
+
+  if (smart_rename (new_name, old_name, 0) != 0)
+    exit (1);
+  free (old_name);
+  /* memory leak */
+}   
+
+int main()
 {
-  char *input_filename = NULL;
-  char *output_filename = NULL;
-  char *tmpname;
-  char *input_target = NULL;
-  char *output_target = NULL;
-  bfd_boolean show_version = FALSE;
-  bfd_boolean change_warn = TRUE;
-  bfd_boolean formats_info = FALSE;
-  int c;
-  int statbuf;
-  const bfd_arch_info_type *input_arch = NULL;
-
-  input_filename = argv[optind];
-  if (optind + 1 < argc)
-    output_filename = argv[optind + 1];
-
-  /* If there is no destination file, or the source and destination files
-     are the same, then create a temp and rename the result into the input.  */
-  if (output_filename == NULL)
-    tmpname = make_tempname (input_filename);
-  else
-    tmpname = output_filename;                  /* stack object */
-
-
-  if (tmpname == NULL)
-    fatal ("warning: could not create temporary file whilst copying '%s'",
-	   input_filename);
-
-  copy_file (input_filename, tmpname, input_target, output_target, input_arch);
-  if (status == 0)
-    {
-      if (preserve_dates)
-				set_times (tmpname, &statbuf);
-      if (tmpname != output_filename)
-				status = (smart_rename (tmpname, input_filename, preserve_dates) != 0);
-		}
-	else
-		unlink_if_ordinary (tmpname);
-
-    return 0;                                 /* memory leak */
+        bfd iarch;
+        write_archive(&iarch);
+        return 0;
 }
 
-int
-main (int argc, char *argv[])
-{
-  program_name = argv[0];
 
-  copy_main (argc, argv);
-
-  return status;
-}
 

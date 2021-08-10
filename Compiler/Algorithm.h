@@ -851,18 +851,19 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 					//ssa_name = ssa_name
 					int ssa_name_assign = 0;
 					
-				
+						
 					if (gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == SSA_NAME)
 					{
 						// fprintf(stderr, "-------always in therealways in therealways in there------%d--------------------\n", has_zero_uses (gimple_assign_lhs(use_stmt)));
 						debug_gimple_stmt(use_stmt);
 						// debug_tree(gimple_assign_lhs(use_stmt));
+						if (gimple_assign_lhs(use_stmt) != target2)
 						if (!check_stmtStack(gimple_assign_lhs(use_stmt)))
 						{
 							set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target, NULL);
 							ssa_name_assign= 1;
 							
-							if (gimple_assign_lhs(use_stmt) != target2)
+							
 								new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt), gimple_assign_lhs(use_stmt));
 								
 							 Checknew_search_imm_use_lhs(used_stmt, use_stmt, target, target2);
@@ -899,6 +900,63 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						check_stmtStack2(use_stmt) ;
 						
 							if (gimple_assign_rhs1(use_stmt) != target2 && !check_stmtStack2(use_stmt) ){
+						
+								new_search_imm_use(used_stmt, gimple_assign_rhs1(use_stmt), gimple_assign_rhs1(use_stmt));
+							}
+							Checknew_search_imm_use_rhs(used_stmt, use_stmt, target, target2);
+						}
+					}
+	if(!check_stmtStack3(use_stmt))
+					Varnew_search_imm_use(used_stmt, use_stmt, target, target2);
+
+					
+		 if (gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == SSA_NAME)
+					{
+						// fprintf(stderr, "-------always in therealways in therealways in there------%d--------------------\n", has_zero_uses (gimple_assign_lhs(use_stmt)));
+						debug_gimple_stmt(use_stmt);
+						// debug_tree(gimple_assign_lhs(use_stmt));
+					
+						if (!check_stmtStack(gimple_assign_lhs(use_stmt)))
+						{
+							set_gimple_array(used_stmt, use_stmt, gimple_assign_lhs(use_stmt), target, NULL);
+							ssa_name_assign= 1;
+							
+							if (gimple_assign_lhs(use_stmt) != target2)
+								new_search_imm_use(used_stmt, gimple_assign_lhs(use_stmt), gimple_assign_lhs(use_stmt));
+								
+							 Checknew_search_imm_use_lhs(used_stmt, use_stmt, target, target2);
+							// gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_assign_lhs(use_stmt));
+
+							// if (def_stmt)
+							// {
+							// 	if (gimple_assign_lhs(def_stmt))
+							// 	{
+
+							// 		if (TREE_CODE(gimple_assign_lhs(def_stmt)) == ARRAY_REF)
+							// 		{
+							// 			Varnew_search_imm_use(used_stmt, def_stmt, target, target2);
+							// 		}
+							// 		else	if (TREE_CODE(gimple_assign_lhs(def_stmt)) == COMPONENT_REF)
+							// 		{
+							// 			Varnew_search_imm_use(used_stmt, def_stmt, target, target2);
+							// 		}
+							// 	}
+							// }
+						}
+						
+					}
+				
+
+
+					 if (gimple_assign_rhs1(use_stmt) && TREE_CODE(gimple_assign_rhs1(use_stmt)) == SSA_NAME)
+					{
+						if (!check_stmtStack(gimple_assign_rhs1(use_stmt)))
+						{
+							// fprintf(stderr, "------------------SSA_NAME : rhs ssaname------------------\n");
+					
+						set_gimple_array(used_stmt, use_stmt, gimple_assign_rhs1(use_stmt), target, NULL);
+						
+							if (gimple_assign_rhs1(use_stmt) != target2  ){
 						
 								new_search_imm_use(used_stmt, gimple_assign_rhs1(use_stmt), gimple_assign_rhs1(use_stmt));
 							}
@@ -1240,7 +1298,7 @@ fprintf(stderr, "============COMPONENT_REF3==================\n");
 							// 		}
 							// 	}
 						
-					if (!check_stmtStack(gimple_call_lhs(use_stmt))  && !check_stmtStack2(use_stmt) ){
+					if (!check_stmtStack(gimple_call_lhs(use_stmt))  && !check_stmtStack2(use_stmt)  ){
 							
 								set_gimple_array(used_stmt, use_stmt, gimple_call_lhs(use_stmt), target, NULL);
 									// debug_tree(gimple_phi_result(use_stmt));
@@ -1251,11 +1309,12 @@ fprintf(stderr, "============COMPONENT_REF3==================\n");
 									//  const ssa_use_operand_t *const head = &(SSA_NAME_IMM_USE_NODE (gimple_phi_result(use_stmt)));
 									//  if(head->next != NULL){
 									//  if( !check_stmtStack2(use_stmt))
+									
 									new_search_imm_use(used_stmt,gimple_call_lhs(use_stmt), gimple_call_lhs(use_stmt));
 									// }
 								}
 							
-							
+							if(!check_stmtStack(gimple_assign_rhs1(use_stmt)) )
 								if (gimple_assign_rhs1(use_stmt))
 								{
 								
@@ -1413,8 +1472,12 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 			gimple *def_stmt = SSA_NAME_DEF_STMT(table1->target);
 			levelsize = 0;
+			if(TREE_CODE(table1->target) != ADDR_EXPR)
 			if (def_stmt)
 			{
+				// debug_tree(gimple_call_fn(def_stmt));
+			
+				if(gimple_call_fn(def_stmt)){
 				name = get_name(gimple_call_fn(def_stmt));
 
 				if (name != NULL)
@@ -1425,6 +1488,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 					{
 						fprintf(stderr, "qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw%ddqwdqwdqwdqwd\n");
 						Prenew_search_imm_use(used_stmt, table1->target, table1->target);
+					}
 					}
 			}
 			new_search_imm_use(used_stmt, table1->target, table1->target);
