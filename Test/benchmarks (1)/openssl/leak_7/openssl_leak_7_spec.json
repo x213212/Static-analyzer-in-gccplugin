@@ -1,9 +1,0 @@
-{
-	"allocsite": [
-		{
-		"line": 66,
-		"alloc": "OPENSSL_zalloc",
-		"free": "OPENSSL_free"
-		}
-	]
-}

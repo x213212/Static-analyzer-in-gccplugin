@@ -1,9 +1,0 @@
-{
-	"allocsite": [
-		{
-		"line": 178,
-		"alloc": "malloc",
-		"free": "free"
-		}
-	]
-}
