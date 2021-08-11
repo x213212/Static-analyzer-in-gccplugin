@@ -99,7 +99,8 @@
 			"*.def": "c",
 			"*.x": "cpp",
 			"io_context": "c",
-			"internet": "cpp"
+			"internet": "cpp",
+			"binutils.h": "c"
 		},
 		"git.ignoreLimitWarning": true
 	}, "C_Cpp.intelliSenseCacheSize": 64,
