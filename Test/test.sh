@@ -55,7 +55,7 @@ DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
 SRC="dot graph target line desc "
-DST='['"label="'"'
+DST='['"fontcolor=white;""label="'"'
 SRC=$(echo $SRC)
 DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
@@ -231,7 +231,7 @@ DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
 SRC="dot graph subgraph"
-DST=" { style ="'"'"dashed"'"'";"'"'
+DST=" { color=lightgrey; style ="'"'"dashed"'"'";"'"'
 SRC=$(echo $SRC)
 DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
@@ -245,7 +245,7 @@ sed -i "s/$SRC/$DST/g" ./graph.log
 
 
 value=`cat graph.log`
-echo "digraph {constraint=false ;rankdir = LR; rank=same; nodesep=1.0;" "$value" "}" >> graph.dot
+echo "digraph {   graph [bgcolor=black];node [fillcolor=darkgrey style=filled]; edge [color=antiquewhite4]; constraint=false ;rankdir = LR; rank=same; nodesep=1.0;" "$value" "}" >> graph.dot
 dot -Tsvg -o graph.svg  graph.dot 
 gvpr -f graphinfo.gvpr graph.dot 
 echo "Username: $user";

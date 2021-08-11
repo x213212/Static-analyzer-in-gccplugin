@@ -1,834 +1,213 @@
 
 
 
+" xrealloc
+"->
+
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"
+
+[fontcolor=white;label=" form basic block 6: newptr_8 = realloc (oldptr_6(D), newsize_4)
+test.c:34:5: warning: use location
+" ]
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"->
+
+" from xrealloc basic block 6"
+
+->" newptr_8 = realloc (oldptr_6(D), newsize_4)
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+"
+
+->" newptr_8 = realloc (oldptr_6(D), newsize_4)
+test.c:34:5: warning: use location
+"
+
+
+" xrealloc
+"->
+
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"
+
+[fontcolor=white;label=" form basic block 8: _9 = newptr_8
+test.c:37:9: warning: use location
+
+" ]
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"->
+
+" from xrealloc basic block 8"
+
+->" _9 = newptr_8
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+"
+
+->" _9 = newptr_8
+test.c:37:9: warning: use location
+
+"
+
+" xrealloc
+"->
+
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"
+
+[fontcolor=white;label=" form basic block 6: if (newptr_8 == 0B)
+test.c:34:5: warning: use location
+" ]
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"->
+
+" from xrealloc basic block 6"
+
+->" if (newptr_8 == 0B)
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+"
+
+->" if (newptr_8 == 0B)
+test.c:34:5: warning: use location
+"
+
+
+" xrealloc
+"->
+
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"
+
+[fontcolor=white;label=" form basic block 2: if (newsize_4 == 0)
+test.c:30:5: warning: use location
+
+" ]
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"->
+
+" from xrealloc basic block 2"
+
+->" if (newsize_4 == 0)
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+"
+
+->" if (newsize_4 == 0)
+test.c:30:5: warning: use location
+
+"
+
+
+" from xrealloc basic block 8"
+
+->subgraph cluster_1179969673 { color=lightgrey; style ="dashed";"  _9 = newptr_8
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+";}
+
+
+
+
+
+
+
+
 " main
 "->
 
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "
 
-[label=" form basic block 7: tmpname_49 = PHI <tmpname_45(5), tmpname_48(6)>
+[fontcolor=white;label=" form basic block 21: buf_53 = xrealloc (buf_16, 1, _52)
+test.c:289:8: warning: use location
+
+" ]
+
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
+
+"->
+
+" from main basic block 21"
+
+->" buf_53 = xrealloc (buf_16, 1, _52)
+buf_17 = xrealloc (buf_16, 1, _15)
+"
+
+->" buf_53 = xrealloc (buf_16, 1, _52)
+test.c:289:8: warning: use location
+
+"
+
+
+->"ID : 1284866218
+from xrealloc basic block 6"->
+
+" ID : 1799447160 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+In function ‘xrealloc’:
+
+"
+
+
+->"ID : 1284866218
+from xrealloc basic block 8"->
+
+
+" ID : 15053512 stmt(LHS) :_9 = newptr_8
+test.c:37:9: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
+
+"
+
+[fontcolor=white;label=" form basic block 4: buf_74 = PHI <buf_75(14), buf_53(21)>
 lto1: warning: use location
 " ]
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 7"
-
-->" tmpname_49 = PHI <tmpname_45(5), tmpname_48(6)>
-tmpname_45 = malloc (_44)
-"
-
-->" tmpname_49 = PHI <tmpname_45(5), tmpname_48(6)>
-lto1: warning: use location
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 7: _90 = tmpname_49
-lto1: warning: use location
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 7"
-
-->" _90 = tmpname_49
-tmpname_45 = malloc (_44)
-"
-
-->" _90 = tmpname_49
-lto1: warning: use location
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 7: tmpname_36 = _90
-test.c:197:9: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 7"
-
-->" tmpname_36 = _90
-tmpname_45 = malloc (_44)
-"
-
-->" tmpname_36 = _90
-test.c:197:9: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 10: _38 = PHI <0B(8), tmpname_36(9)>
-lto1: warning: use location
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 10"
-
-->" _38 = PHI <0B(8), tmpname_36(9)>
-tmpname_45 = malloc (_44)
-"
-
-->" _38 = PHI <0B(8), tmpname_36(9)>
-lto1: warning: use location
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 10: _94 = _38
-lto1: warning: use location
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 10"
-
-->" _94 = _38
-tmpname_45 = malloc (_44)
-"
-
-->" _94 = _38
-lto1: warning: use location
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 10: tmpname_25 = _94
-test.c:359:13: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 10"
-
-->" tmpname_25 = _94
-tmpname_45 = malloc (_44)
-"
-
-->" tmpname_25 = _94
-test.c:359:13: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 11: tmpname_26 = PHI <output_filename_23(3), tmpname_25(10)>
-lto1: warning: use location
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 11"
-
-->" tmpname_26 = PHI <output_filename_23(3), tmpname_25(10)>
-tmpname_45 = malloc (_44)
-"
-
-->" tmpname_26 = PHI <output_filename_23(3), tmpname_25(10)>
-lto1: warning: use location
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 20: if (tmpname_26 != output_filename_30)
-test.c:373:10: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 20"
-
-->" if (tmpname_26 != output_filename_30)
-tmpname_45 = malloc (_44)
-"
-
-->" if (tmpname_26 != output_filename_30)
-test.c:373:10: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 33: _74 = MEM[(int *)tmpname_26]
-test.c:307:2: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 33"
-
-->" _74 = MEM[(int *)tmpname_26]
-tmpname_45 = malloc (_44)
-"
-
-->" _74 = MEM[(int *)tmpname_26]
-test.c:307:2: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 33: _75 = __printf_chk (1, d\n, _74)
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 33"
-
-->" _75 = __printf_chk (1, d\n, _74)
-tmpname_45 = malloc (_44)
-"
-
-->" _75 = __printf_chk (1, d\n, _74)
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 31: unlink (tmpname_26)
-test.c:299:7: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 31"
-
-->" unlink (tmpname_26)
-tmpname_45 = malloc (_44)
-"
-
-->" unlink (tmpname_26)
-test.c:299:7: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 28: unlink (tmpname_26)
-test.c:289:4: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 28"
-
-->" unlink (tmpname_26)
-tmpname_45 = malloc (_44)
-"
-
-->" unlink (tmpname_26)
-test.c:289:4: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 24: ret_64 = rename (tmpname_26, input_filename_15)
-test.c:263:11: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 24"
-
-->" ret_64 = rename (tmpname_26, input_filename_15)
-tmpname_45 = malloc (_44)
-"
-
-->" ret_64 = rename (tmpname_26, input_filename_15)
-test.c:263:11: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 32: ret_73 = PHI <ret_64(25), ret_64(26), ret_64(27), ret_64(28), 0(31)>
-lto1: warning: use location
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 32"
-
-->" ret_73 = PHI <ret_64(25), ret_64(26), ret_64(27), ret_64(28), 0(31)>
-tmpname_45 = malloc (_44)
-"
-
-->" ret_73 = PHI <ret_64(25), ret_64(26), ret_64(27), ret_64(28), 0(31)>
-lto1: warning: use location
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 32: _110 = ret_73
-lto1: warning: use location
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 32"
-
-->" _110 = ret_73
-tmpname_45 = malloc (_44)
-"
-
-->" _110 = ret_73
-lto1: warning: use location
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 32: _32 = _110
-test.c:374:15: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 32"
-
-->" _32 = _110
-tmpname_45 = malloc (_44)
-"
-
-->" _32 = _110
-test.c:374:15: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 32: _33 = _32 != 0
-test.c:374:70: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 32"
-
-->" _33 = _32 != 0
-tmpname_45 = malloc (_44)
-"
-
-->" _33 = _32 != 0
-test.c:374:70: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 32: _34 = (int) _33
-test.c:374:70: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 32"
-
-->" _34 = (int) _33
-tmpname_45 = malloc (_44)
-"
-
-->" _34 = (int) _33
-test.c:374:70: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 32: status = _34
-test.c:374:12: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 32"
-
-->" status = _34
-tmpname_45 = malloc (_44)
-"
-
-->" status = _34
-test.c:374:12: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 24: if (ret_64 == 0)
-test.c:264:10: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 24"
-
-->" if (ret_64 == 0)
-tmpname_45 = malloc (_44)
-"
-
-->" if (ret_64 == 0)
-test.c:264:10: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 4: slash_39 = strrchr (input_filename_15, 47)
-test.c:170:15: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "->
 
 " from main basic block 4"
 
-->" slash_39 = strrchr (input_filename_15, 47)
-tmpname_45 = malloc (_44)
+->" buf_74 = PHI <buf_75(14), buf_53(21)>
+buf_17 = xrealloc (buf_16, 1, _15)
 "
 
-->" slash_39 = strrchr (input_filename_15, 47)
-test.c:170:15: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 5: _40 = (long int) slash_39
-test.c:176:19: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 5"
-
-->" _40 = (long int) slash_39
-tmpname_45 = malloc (_44)
-"
-
-->" _40 = (long int) slash_39
-test.c:176:19: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 5: _42 = _40 - _41
-test.c:176:19: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 5"
-
-->" _42 = _40 - _41
-tmpname_45 = malloc (_44)
-"
-
-->" _42 = _40 - _41
-test.c:176:19: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 5: len_43 = (size_t) _42
-test.c:176:11: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 5"
-
-->" len_43 = (size_t) _42
-tmpname_45 = malloc (_44)
-"
-
-->" len_43 = (size_t) _42
-test.c:176:11: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 5: _47 = tmpname_45 + len_43
-test.c:179:14: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 5"
-
-->" _47 = tmpname_45 + len_43
-tmpname_45 = malloc (_44)
-"
-
-->" _47 = tmpname_45 + len_43
-test.c:179:14: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 5: *_47 = 47
-test.c:179:22: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 5"
-
-->" *_47 = 47
-tmpname_45 = malloc (_44)
-"
-
-->" *_47 = 47
-test.c:179:22: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 5: len_46 = len_43 + 1
-test.c:179:18: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 5"
-
-->" len_46 = len_43 + 1
-tmpname_45 = malloc (_44)
-"
-
-->" len_46 = len_43 + 1
-test.c:179:18: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 7: len_50 = PHI <len_46(5), 0(6)>
-lto1: warning: use location
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 7"
-
-->" len_50 = PHI <len_46(5), 0(6)>
-tmpname_45 = malloc (_44)
-"
-
-->" len_50 = PHI <len_46(5), 0(6)>
+->" buf_74 = PHI <buf_75(14), buf_53(21)>
 lto1: warning: use location
 "
 
@@ -837,282 +216,59 @@ lto1: warning: use location
 "->
 
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "
 
-[label=" form basic block 5: memcpy (tmpname_45, input_filename_15, len_43)
-test.c:178:7: warning: use location
+[fontcolor=white;label=" form basic block 21: _56 = buf_53 + len_14
+test.c:290:7: warning: use location
 
 " ]
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 5"
-
-->" memcpy (tmpname_45, input_filename_15, len_43)
-tmpname_45 = malloc (_44)
-"
-
-->" memcpy (tmpname_45, input_filename_15, len_43)
-test.c:178:7: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 4: if (slash_39 != 0B)
-test.c:174:6: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 4"
-
-->" if (slash_39 != 0B)
-tmpname_45 = malloc (_44)
-"
-
-->" if (slash_39 != 0B)
-test.c:174:6: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 30: set_times (input_filename_15, &s)
-test.c:298:5: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 30"
-
-->" set_times (input_filename_15, &s)
-tmpname_45 = malloc (_44)
-"
-
-->" set_times (input_filename_15, &s)
-test.c:298:5: warning: use location
-
-"
-
-
-->"ID : 1086489506
-from set_times basic block 2"->
-
-" ID : 176713207 stmt(call) :result_10 = utime (destination_8(D), &tb)
-In function ‘set_times’:
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 28: _72 = __printf_chk (1, unable to rename \'s\', input_filename_15)
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 28"
-
-->" _72 = __printf_chk (1, unable to rename \'s\', input_filename_15)
-tmpname_45 = malloc (_44)
-"
-
-->" _72 = __printf_chk (1, unable to rename \'s\', input_filename_15)
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 27: chmod (input_filename_15, _71)
-test.c:282:3: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 27"
-
-->" chmod (input_filename_15, _71)
-tmpname_45 = malloc (_44)
-"
-
-->" chmod (input_filename_15, _71)
-test.c:282:3: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 26: _69 = chown (input_filename_15, _68, _67)
-test.c:281:12: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 26"
-
-->" _69 = chown (input_filename_15, _68, _67)
-tmpname_45 = malloc (_44)
-"
-
-->" _69 = chown (input_filename_15, _68, _67)
-test.c:281:12: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 26: chmod (input_filename_15, _66)
-test.c:280:8: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 26"
-
-->" chmod (input_filename_15, _66)
-tmpname_45 = malloc (_44)
-"
-
-->" chmod (input_filename_15, _66)
-test.c:280:8: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 21: _58 = lstat (input_filename_15, &s)
-test.c:252:12: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "->
 
 " from main basic block 21"
 
-->" _58 = lstat (input_filename_15, &s)
-tmpname_45 = malloc (_44)
+->" _56 = buf_53 + len_14
+buf_17 = xrealloc (buf_16, 1, _15)
 "
 
-->" _58 = lstat (input_filename_15, &s)
-test.c:252:12: warning: use location
+->" _56 = buf_53 + len_14
+test.c:290:7: warning: use location
 
 "
-
 
 " main
 "->
 
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "
 
-[label=" form basic block 21: _59 = _58 == 0
-test.c:252:27: warning: use location
+[fontcolor=white;label=" form basic block 21: *_56 = _57
+test.c:290:15: warning: use location
 
 " ]
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "->
 
 " from main basic block 21"
 
-->" _59 = _58 == 0
-tmpname_45 = malloc (_44)
+->" *_56 = _57
+buf_17 = xrealloc (buf_16, 1, _15)
 "
 
-->" _59 = _58 == 0
-test.c:252:27: warning: use location
+->" *_56 = _57
+test.c:290:15: warning: use location
 
 "
 
@@ -1120,86 +276,29 @@ test.c:252:27: warning: use location
 "->
 
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "
 
-[label=" form basic block 21: exists_60 = (bfd_boolean) _59
-test.c:252:10: warning: use location
+[fontcolor=white;label=" form basic block 21: *_56 = _57
+test.c:290:15: warning: use location
 
 " ]
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "->
 
 " from main basic block 21"
 
-->" exists_60 = (bfd_boolean) _59
-tmpname_45 = malloc (_44)
+->" *_56 = _57
+buf_17 = xrealloc (buf_16, 1, _15)
 "
 
-->" exists_60 = (bfd_boolean) _59
-test.c:252:10: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 15: _57 = __printf_chk (1, error: the input file \'s\' is empty, input_filename_15)
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 15"
-
-->" _57 = __printf_chk (1, error: the input file \'s\' is empty, input_filename_15)
-tmpname_45 = malloc (_44)
-"
-
-->" _57 = __printf_chk (1, error: the input file \'s\' is empty, input_filename_15)
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 5: _41 = (long int) input_filename_15
-test.c:176:19: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 5"
-
-->" _41 = (long int) input_filename_15
-tmpname_45 = malloc (_44)
-"
-
-->" _41 = (long int) input_filename_15
-test.c:176:19: warning: use location
+->" *_56 = _57
+test.c:290:15: warning: use location
 
 "
 
@@ -1207,65 +306,46 @@ test.c:176:19: warning: use location
 "->
 
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "
 
-[label=" form basic block 12: _27 = __printf_chk (1, warning: could not create temporary file whilst copying \'s\', input_filename_15)
+[fontcolor=white;label=" form basic block 13: buf_17 = xrealloc (buf_16, 1, _15)
+test.c:252:9: warning: use location
 " ]
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "->
 
-" from main basic block 12"
+" from main basic block 13"
 
-->" _27 = __printf_chk (1, warning: could not create temporary file whilst copying \'s\', input_filename_15)
-tmpname_45 = malloc (_44)
+->" buf_17 = xrealloc (buf_16, 1, _15)
+buf_17 = xrealloc (buf_16, 1, _15)
 "
 
-->" _27 = __printf_chk (1, warning: could not create temporary file whilst copying \'s\', input_filename_15)
+->" buf_17 = xrealloc (buf_16, 1, _15)
+test.c:252:9: warning: use location
 "
 
 
-" main
-"->
+->"ID : 407106588
+from xrealloc basic block 6"->
 
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 19: set_times (tmpname_26, &statbuf)
-test.c:372:5: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 19"
-
-->" set_times (tmpname_26, &statbuf)
-tmpname_45 = malloc (_44)
-"
-
-->" set_times (tmpname_26, &statbuf)
-test.c:372:5: warning: use location
+" ID : 1948332984 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+In function ‘xrealloc’:
 
 "
 
 
-->"ID : 223726076
-from set_times basic block 2"->
+->"ID : 407106588
+from xrealloc basic block 8"->
 
-" ID : 1453494986 stmt(call) :result_10 = utime (destination_8(D), &tb)
-In function ‘set_times’:
+
+" ID : 2000430576 stmt(LHS) :_9 = newptr_8
+test.c:37:9: warning: use location
 
 "
 
@@ -1274,30 +354,118 @@ In function ‘set_times’:
 "->
 
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "
 
-[label=" form basic block 11: if (tmpname_26 == 0B)
-test.c:364:6: warning: use location
+[fontcolor=white;label=" form basic block 13: *_28 = buf_17
+test.c:256:18: warning: use location
 
 " ]
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "->
 
-" from main basic block 11"
+" from main basic block 13"
 
-->" if (tmpname_26 == 0B)
-tmpname_45 = malloc (_44)
+->" *_28 = buf_17
+buf_17 = xrealloc (buf_16, 1, _15)
 "
 
-->" if (tmpname_26 == 0B)
-test.c:364:6: warning: use location
+->" *_28 = buf_17
+test.c:256:18: warning: use location
 
+"
+
+" main
+"->
+
+
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
+
+"
+
+[fontcolor=white;label=" form basic block 13: _18 = buf_17 + len_14
+test.c:253:8: warning: use location
+
+" ]
+
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
+
+"->
+
+" from main basic block 13"
+
+->" _18 = buf_17 + len_14
+buf_17 = xrealloc (buf_16, 1, _15)
+"
+
+->" _18 = buf_17 + len_14
+test.c:253:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
+
+"
+
+[fontcolor=white;label=" form basic block 13: *_18 = 0
+test.c:253:14: warning: use location
+
+" ]
+
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
+
+"->
+
+" from main basic block 13"
+
+->" *_18 = 0
+buf_17 = xrealloc (buf_16, 1, _15)
+"
+
+->" *_18 = 0
+test.c:253:14: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
+
+"
+
+[fontcolor=white;label=" form basic block 22: buf_58 = PHI <buf_75(18), buf_75(19), buf_16(20)>
+lto1: warning: use location
+" ]
+
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
+
+"->
+
+" from main basic block 22"
+
+->" buf_58 = PHI <buf_75(18), buf_75(19), buf_16(20)>
+buf_17 = xrealloc (buf_16, 1, _15)
+"
+
+->" buf_58 = PHI <buf_75(18), buf_75(19), buf_16(20)>
+lto1: warning: use location
 "
 
 
@@ -1305,29 +473,29 @@ test.c:364:6: warning: use location
 "->
 
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "
 
-[label=" form basic block 8: free (tmpname_36)
-test.c:203:7: warning: use location
+[fontcolor=white;label=" form basic block 23: free (buf_58)
+test.c:301:3: warning: use location
 
 " ]
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "->
 
-" from main basic block 8"
+" from main basic block 23"
 
-->" free (tmpname_36)
-tmpname_45 = malloc (_44)
+->" free (buf_58)
+buf_17 = xrealloc (buf_16, 1, _15)
 "
 
-->" free (tmpname_36)
-test.c:203:7: warning: use location
+->" free (buf_58)
+test.c:301:3: warning: use location
 
 "
 
@@ -1338,29 +506,29 @@ test.c:203:7: warning: use location
 "->
 
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "
 
-[label=" form basic block 7: fd_37 = mkstemp (tmpname_36)
-test.c:200:6: warning: use location
+[fontcolor=white;label=" form basic block 22: if (buf_58 != 0B)
+test.c:300:5: warning: use location
 
 " ]
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "->
 
-" from main basic block 7"
+" from main basic block 22"
 
-->" fd_37 = mkstemp (tmpname_36)
-tmpname_45 = malloc (_44)
+->" if (buf_58 != 0B)
+buf_17 = xrealloc (buf_16, 1, _15)
 "
 
-->" fd_37 = mkstemp (tmpname_36)
-test.c:200:6: warning: use location
+->" if (buf_58 != 0B)
+test.c:300:5: warning: use location
 
 "
 
@@ -1369,120 +537,51 @@ test.c:200:6: warning: use location
 "->
 
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "
 
-[label=" form basic block 9: close (fd_37)
-test.c:206:3: warning: use location
-
+[fontcolor=white;label=" form basic block 14: buf_75 = PHI <buf_16(12), 0B(13)>
+lto1: warning: use location
 " ]
 
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
 
 "->
 
-" from main basic block 9"
+" from main basic block 14"
 
-->" close (fd_37)
-tmpname_45 = malloc (_44)
+->" buf_75 = PHI <buf_16(12), 0B(13)>
+buf_17 = xrealloc (buf_16, 1, _15)
 "
 
-->" close (fd_37)
-test.c:206:3: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 7: if (fd_37 == -1)
-test.c:201:6: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 7"
-
-->" if (fd_37 == -1)
-tmpname_45 = malloc (_44)
-"
-
-->" if (fd_37 == -1)
-test.c:201:6: warning: use location
-
+->" buf_75 = PHI <buf_16(12), 0B(13)>
+lto1: warning: use location
 "
 
 
-" main
-"->
+" from main basic block 23"
 
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"
-
-[label=" form basic block 7: _52 = tmpname_49
-test.c:188:10: warning: use location
-
-" ]
-
-" # .MEM_86 = VDEF <.MEM_8(D)>
-tmpname_45 = malloc (_44)
-
-"->
-
-" from main basic block 7"
-
-->" _52 = tmpname_49
-tmpname_45 = malloc (_44)
-"
-
-->" _52 = tmpname_49
-test.c:188:10: warning: use location
-
-"
-
-" from main basic block 33"
-
-->subgraph cluster_1342332890 { style ="dashed";"  _74 = MEM[(int *)tmpname_26]
-tmpname_26 = PHI <output_filename_23(3), tmpname_25(10)>
-";}
-
-" from main basic block 33"
-
-->subgraph cluster_747371694 { style ="dashed";"  _75 = __printf_chk (1, d\n, _74)
-_74 = MEM[(int *)tmpname_26]
+->subgraph cluster_490736139 { color=lightgrey; style ="dashed";"  free (buf_58)
+buf_58 = PHI <buf_75(18), buf_75(19), buf_16(20)>
 ";}
 
 
-"ID : 1086489506
-from set_times basic block 2"->
+"ID : 1284866218
+from xrealloc basic block 8"->
 
-subgraph cluster_823796336 { style ="dashed";"  start ID : 176713207 stmt(relate) ， Tree ID : 1086489506 : result_10 = utime (destination_8(D), &tb)
-test.c:228:12: warning: use location
+subgraph cluster_153937896 { color=lightgrey; style ="dashed";"  start ID : 15053512 stmt(relate) ， Tree ID : 1284866218 : _9 = newptr_8
+test.c:37:9: warning: use location
 
 ";}
 
-"ID : 223726076
-from set_times basic block 2"->
+"ID : 407106588
+from xrealloc basic block 8"->
 
-subgraph cluster_716680387 { style ="dashed";"  start ID : 1453494986 stmt(relate) ， Tree ID : 223726076 : result_10 = utime (destination_8(D), &tb)
-test.c:228:12: warning: use location
+subgraph cluster_1402496904 { color=lightgrey; style ="dashed";"  start ID : 2000430576 stmt(relate) ， Tree ID : 407106588 : _9 = newptr_8
+test.c:37:9: warning: use location
 ";}
 
 
@@ -1496,28 +595,47 @@ test.c:228:12: warning: use location
 "->
 
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "
 
-[label=" form basic block 7: tmpname_49 = PHI <tmpname_45(5), tmpname_48(6)>
-lto1: warning: use location
+[fontcolor=white;label=" form basic block 13: argv_23 = xrealloc (argv_22, _21, 8)
+test.c:255:10: warning: use location
 " ]
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "->
 
-" from main basic block 7"
+" from main basic block 13"
 
-->" tmpname_49 = PHI <tmpname_45(5), tmpname_48(6)>
-tmpname_48 = malloc (9)
+->" argv_23 = xrealloc (argv_22, _21, 8)
+argv_23 = xrealloc (argv_22, _21, 8)
 "
 
-->" tmpname_49 = PHI <tmpname_45(5), tmpname_48(6)>
-lto1: warning: use location
+->" argv_23 = xrealloc (argv_22, _21, 8)
+test.c:255:10: warning: use location
+"
+
+
+->"ID : 1297892127
+from xrealloc basic block 6"->
+
+" ID : 214705805 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+In function ‘xrealloc’:
+
+"
+
+
+->"ID : 1297892127
+from xrealloc basic block 8"->
+
+
+" ID : 1701625838 stmt(LHS) :_9 = newptr_8
+test.c:37:9: warning: use location
+
 "
 
 
@@ -1525,85 +643,27 @@ lto1: warning: use location
 "->
 
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "
 
-[label=" form basic block 7: _90 = tmpname_49
+[fontcolor=white;label=" form basic block 14: argv_30 = PHI <argv_22(12), argv_23(13)>
 lto1: warning: use location
 " ]
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "->
 
-" from main basic block 7"
+" from main basic block 14"
 
-->" _90 = tmpname_49
-tmpname_48 = malloc (9)
+->" argv_30 = PHI <argv_22(12), argv_23(13)>
+argv_23 = xrealloc (argv_22, _21, 8)
 "
 
-->" _90 = tmpname_49
-lto1: warning: use location
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 7: tmpname_36 = _90
-test.c:197:9: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 7"
-
-->" tmpname_36 = _90
-tmpname_48 = malloc (9)
-"
-
-->" tmpname_36 = _90
-test.c:197:9: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 10: _38 = PHI <0B(8), tmpname_36(9)>
-lto1: warning: use location
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 10"
-
-->" _38 = PHI <0B(8), tmpname_36(9)>
-tmpname_48 = malloc (9)
-"
-
-->" _38 = PHI <0B(8), tmpname_36(9)>
+->" argv_30 = PHI <argv_22(12), argv_23(13)>
 lto1: warning: use location
 "
 
@@ -1612,116 +672,29 @@ lto1: warning: use location
 "->
 
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "
 
-[label=" form basic block 10: _94 = _38
-lto1: warning: use location
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 10"
-
-->" _94 = _38
-tmpname_48 = malloc (9)
-"
-
-->" _94 = _38
-lto1: warning: use location
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 10: tmpname_25 = _94
-test.c:359:13: warning: use location
+[fontcolor=white;label=" form basic block 16: memmove (argv_30, _44, _43)
+test.c:273:5: warning: use location
 
 " ]
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "->
 
-" from main basic block 10"
+" from main basic block 16"
 
-->" tmpname_25 = _94
-tmpname_48 = malloc (9)
+->" memmove (argv_30, _44, _43)
+argv_23 = xrealloc (argv_22, _21, 8)
 "
 
-->" tmpname_25 = _94
-test.c:359:13: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 11: tmpname_26 = PHI <output_filename_23(3), tmpname_25(10)>
-lto1: warning: use location
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 11"
-
-->" tmpname_26 = PHI <output_filename_23(3), tmpname_25(10)>
-tmpname_48 = malloc (9)
-"
-
-->" tmpname_26 = PHI <output_filename_23(3), tmpname_25(10)>
-lto1: warning: use location
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 20: if (tmpname_26 != output_filename_30)
-test.c:373:10: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 20"
-
-->" if (tmpname_26 != output_filename_30)
-tmpname_48 = malloc (9)
-"
-
-->" if (tmpname_26 != output_filename_30)
-test.c:373:10: warning: use location
+->" memmove (argv_30, _44, _43)
+test.c:273:5: warning: use location
 
 "
 
@@ -1730,967 +703,29 @@ test.c:373:10: warning: use location
 "->
 
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "
 
-[label=" form basic block 33: _74 = MEM[(int *)tmpname_26]
-test.c:307:2: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 33"
-
-->" _74 = MEM[(int *)tmpname_26]
-tmpname_48 = malloc (9)
-"
-
-->" _74 = MEM[(int *)tmpname_26]
-test.c:307:2: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 33: _75 = __printf_chk (1, d\n, _74)
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 33"
-
-->" _75 = __printf_chk (1, d\n, _74)
-tmpname_48 = malloc (9)
-"
-
-->" _75 = __printf_chk (1, d\n, _74)
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 31: unlink (tmpname_26)
-test.c:299:7: warning: use location
+[fontcolor=white;label=" form basic block 15: _34 = *argv_30
+test.c:269:28: warning: use location
 
 " ]
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 31"
-
-->" unlink (tmpname_26)
-tmpname_48 = malloc (9)
-"
-
-->" unlink (tmpname_26)
-test.c:299:7: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 28: unlink (tmpname_26)
-test.c:289:4: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 28"
-
-->" unlink (tmpname_26)
-tmpname_48 = malloc (9)
-"
-
-->" unlink (tmpname_26)
-test.c:289:4: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 24: ret_64 = rename (tmpname_26, input_filename_15)
-test.c:263:11: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 24"
-
-->" ret_64 = rename (tmpname_26, input_filename_15)
-tmpname_48 = malloc (9)
-"
-
-->" ret_64 = rename (tmpname_26, input_filename_15)
-test.c:263:11: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 32: ret_73 = PHI <ret_64(25), ret_64(26), ret_64(27), ret_64(28), 0(31)>
-lto1: warning: use location
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 32"
-
-->" ret_73 = PHI <ret_64(25), ret_64(26), ret_64(27), ret_64(28), 0(31)>
-tmpname_48 = malloc (9)
-"
-
-->" ret_73 = PHI <ret_64(25), ret_64(26), ret_64(27), ret_64(28), 0(31)>
-lto1: warning: use location
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 32: _110 = ret_73
-lto1: warning: use location
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 32"
-
-->" _110 = ret_73
-tmpname_48 = malloc (9)
-"
-
-->" _110 = ret_73
-lto1: warning: use location
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 32: _32 = _110
-test.c:374:15: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 32"
-
-->" _32 = _110
-tmpname_48 = malloc (9)
-"
-
-->" _32 = _110
-test.c:374:15: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 32: _33 = _32 != 0
-test.c:374:70: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 32"
-
-->" _33 = _32 != 0
-tmpname_48 = malloc (9)
-"
-
-->" _33 = _32 != 0
-test.c:374:70: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 32: _34 = (int) _33
-test.c:374:70: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 32"
-
-->" _34 = (int) _33
-tmpname_48 = malloc (9)
-"
-
-->" _34 = (int) _33
-test.c:374:70: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 32: status = _34
-test.c:374:12: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 32"
-
-->" status = _34
-tmpname_48 = malloc (9)
-"
-
-->" status = _34
-test.c:374:12: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 24: if (ret_64 == 0)
-test.c:264:10: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 24"
-
-->" if (ret_64 == 0)
-tmpname_48 = malloc (9)
-"
-
-->" if (ret_64 == 0)
-test.c:264:10: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 4: slash_39 = strrchr (input_filename_15, 47)
-test.c:170:15: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 4"
-
-->" slash_39 = strrchr (input_filename_15, 47)
-tmpname_48 = malloc (9)
-"
-
-->" slash_39 = strrchr (input_filename_15, 47)
-test.c:170:15: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 5: _40 = (long int) slash_39
-test.c:176:19: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 5"
-
-->" _40 = (long int) slash_39
-tmpname_48 = malloc (9)
-"
-
-->" _40 = (long int) slash_39
-test.c:176:19: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 5: _42 = _40 - _41
-test.c:176:19: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 5"
-
-->" _42 = _40 - _41
-tmpname_48 = malloc (9)
-"
-
-->" _42 = _40 - _41
-test.c:176:19: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 5: len_43 = (size_t) _42
-test.c:176:11: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 5"
-
-->" len_43 = (size_t) _42
-tmpname_48 = malloc (9)
-"
-
-->" len_43 = (size_t) _42
-test.c:176:11: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 5: _47 = tmpname_45 + len_43
-test.c:179:14: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 5"
-
-->" _47 = tmpname_45 + len_43
-tmpname_48 = malloc (9)
-"
-
-->" _47 = tmpname_45 + len_43
-test.c:179:14: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 5: *_47 = 47
-test.c:179:22: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 5"
-
-->" *_47 = 47
-tmpname_48 = malloc (9)
-"
-
-->" *_47 = 47
-test.c:179:22: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 5: len_46 = len_43 + 1
-test.c:179:18: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 5"
-
-->" len_46 = len_43 + 1
-tmpname_48 = malloc (9)
-"
-
-->" len_46 = len_43 + 1
-test.c:179:18: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 7: len_50 = PHI <len_46(5), 0(6)>
-lto1: warning: use location
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 7"
-
-->" len_50 = PHI <len_46(5), 0(6)>
-tmpname_48 = malloc (9)
-"
-
-->" len_50 = PHI <len_46(5), 0(6)>
-lto1: warning: use location
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 5: memcpy (tmpname_45, input_filename_15, len_43)
-test.c:178:7: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 5"
-
-->" memcpy (tmpname_45, input_filename_15, len_43)
-tmpname_48 = malloc (9)
-"
-
-->" memcpy (tmpname_45, input_filename_15, len_43)
-test.c:178:7: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 4: if (slash_39 != 0B)
-test.c:174:6: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 4"
-
-->" if (slash_39 != 0B)
-tmpname_48 = malloc (9)
-"
-
-->" if (slash_39 != 0B)
-test.c:174:6: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 30: set_times (input_filename_15, &s)
-test.c:298:5: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 30"
-
-->" set_times (input_filename_15, &s)
-tmpname_48 = malloc (9)
-"
-
-->" set_times (input_filename_15, &s)
-test.c:298:5: warning: use location
-
-"
-
-
-->"ID : 1430608461
-from set_times basic block 2"->
-
-" ID : 560392295 stmt(call) :result_10 = utime (destination_8(D), &tb)
-In function ‘set_times’:
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 28: _72 = __printf_chk (1, unable to rename \'s\', input_filename_15)
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 28"
-
-->" _72 = __printf_chk (1, unable to rename \'s\', input_filename_15)
-tmpname_48 = malloc (9)
-"
-
-->" _72 = __printf_chk (1, unable to rename \'s\', input_filename_15)
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 27: chmod (input_filename_15, _71)
-test.c:282:3: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 27"
-
-->" chmod (input_filename_15, _71)
-tmpname_48 = malloc (9)
-"
-
-->" chmod (input_filename_15, _71)
-test.c:282:3: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 26: _69 = chown (input_filename_15, _68, _67)
-test.c:281:12: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 26"
-
-->" _69 = chown (input_filename_15, _68, _67)
-tmpname_48 = malloc (9)
-"
-
-->" _69 = chown (input_filename_15, _68, _67)
-test.c:281:12: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 26: chmod (input_filename_15, _66)
-test.c:280:8: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 26"
-
-->" chmod (input_filename_15, _66)
-tmpname_48 = malloc (9)
-"
-
-->" chmod (input_filename_15, _66)
-test.c:280:8: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 21: _58 = lstat (input_filename_15, &s)
-test.c:252:12: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 21"
-
-->" _58 = lstat (input_filename_15, &s)
-tmpname_48 = malloc (9)
-"
-
-->" _58 = lstat (input_filename_15, &s)
-test.c:252:12: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 21: _59 = _58 == 0
-test.c:252:27: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 21"
-
-->" _59 = _58 == 0
-tmpname_48 = malloc (9)
-"
-
-->" _59 = _58 == 0
-test.c:252:27: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 21: exists_60 = (bfd_boolean) _59
-test.c:252:10: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 21"
-
-->" exists_60 = (bfd_boolean) _59
-tmpname_48 = malloc (9)
-"
-
-->" exists_60 = (bfd_boolean) _59
-test.c:252:10: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 15: _57 = __printf_chk (1, error: the input file \'s\' is empty, input_filename_15)
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "->
 
 " from main basic block 15"
 
-->" _57 = __printf_chk (1, error: the input file \'s\' is empty, input_filename_15)
-tmpname_48 = malloc (9)
+->" _34 = *argv_30
+argv_23 = xrealloc (argv_22, _21, 8)
 "
 
-->" _57 = __printf_chk (1, error: the input file \'s\' is empty, input_filename_15)
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 5: _41 = (long int) input_filename_15
-test.c:176:19: warning: use location
-
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 5"
-
-->" _41 = (long int) input_filename_15
-tmpname_48 = malloc (9)
-"
-
-->" _41 = (long int) input_filename_15
-test.c:176:19: warning: use location
+->" _34 = *argv_30
+test.c:269:28: warning: use location
 
 "
 
@@ -2698,65 +733,29 @@ test.c:176:19: warning: use location
 "->
 
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "
 
-[label=" form basic block 12: _27 = __printf_chk (1, warning: could not create temporary file whilst copying \'s\', input_filename_15)
-" ]
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"->
-
-" from main basic block 12"
-
-->" _27 = __printf_chk (1, warning: could not create temporary file whilst copying \'s\', input_filename_15)
-tmpname_48 = malloc (9)
-"
-
-->" _27 = __printf_chk (1, warning: could not create temporary file whilst copying \'s\', input_filename_15)
-"
-
-
-" main
-"->
-
-
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
-
-"
-
-[label=" form basic block 19: set_times (tmpname_26, &statbuf)
-test.c:372:5: warning: use location
+[fontcolor=white;label=" form basic block 15: _35 = strcspn (_34,  \t)
+test.c:269:28: warning: use location
 
 " ]
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "->
 
-" from main basic block 19"
+" from main basic block 15"
 
-->" set_times (tmpname_26, &statbuf)
-tmpname_48 = malloc (9)
+->" _35 = strcspn (_34,  \t)
+argv_23 = xrealloc (argv_22, _21, 8)
 "
 
-->" set_times (tmpname_26, &statbuf)
-test.c:372:5: warning: use location
-
-"
-
-
-->"ID : 1195099392
-from set_times basic block 2"->
-
-" ID : 1352683581 stmt(call) :result_10 = utime (destination_8(D), &tb)
-In function ‘set_times’:
+->" _35 = strcspn (_34,  \t)
+test.c:269:28: warning: use location
 
 "
 
@@ -2765,29 +764,119 @@ In function ‘set_times’:
 "->
 
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "
 
-[label=" form basic block 11: if (tmpname_26 == 0B)
-test.c:364:6: warning: use location
+[fontcolor=white;label=" form basic block 15: whitespace_36 = _33 + _35
+test.c:269:16: warning: use location
 
 " ]
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "->
 
-" from main basic block 11"
+" from main basic block 15"
 
-->" if (tmpname_26 == 0B)
-tmpname_48 = malloc (9)
+->" whitespace_36 = _33 + _35
+argv_23 = xrealloc (argv_22, _21, 8)
 "
 
-->" if (tmpname_26 == 0B)
-test.c:364:6: warning: use location
+->" whitespace_36 = _33 + _35
+test.c:269:16: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _38 = equals_32 > whitespace_36
+test.c:270:34: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 15"
+
+->" _38 = equals_32 > whitespace_36
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" _38 = equals_32 > whitespace_36
+test.c:270:34: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _39 = _37 | _38
+test.c:270:24: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 15"
+
+->" _39 = _37 | _38
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" _39 = _37 | _38
+test.c:270:24: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 15: if (_39 != 0)
+test.c:270:8: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 15"
+
+->" if (_39 != 0)
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" if (_39 != 0)
+test.c:270:8: warning: use location
 
 "
 
@@ -2796,29 +885,149 @@ test.c:364:6: warning: use location
 "->
 
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "
 
-[label=" form basic block 8: free (tmpname_36)
-test.c:203:7: warning: use location
+[fontcolor=white;label=" form basic block 15: _33 = *argv_30
+test.c:269:22: warning: use location
 
 " ]
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "->
 
-" from main basic block 8"
+" from main basic block 15"
 
-->" free (tmpname_36)
-tmpname_48 = malloc (9)
+->" _33 = *argv_30
+argv_23 = xrealloc (argv_22, _21, 8)
 "
 
-->" free (tmpname_36)
-test.c:203:7: warning: use location
+->" _33 = *argv_30
+test.c:269:22: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _31 = *argv_30
+test.c:268:14: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 15"
+
+->" _31 = *argv_30
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" _31 = *argv_30
+test.c:268:14: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 15: equals_32 = strchr (_31, 61)
+test.c:268:12: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 15"
+
+->" equals_32 = strchr (_31, 61)
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" equals_32 = strchr (_31, 61)
+test.c:268:12: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 22: argv_59 = PHI <argv_30(18), argv_30(19), argv_22(20)>
+lto1: warning: use location
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 22"
+
+->" argv_59 = PHI <argv_30(18), argv_30(19), argv_22(20)>
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" argv_59 = PHI <argv_30(18), argv_30(19), argv_22(20)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 27: free (argv_59)
+test.c:306:3: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 27"
+
+->" free (argv_59)
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" free (argv_59)
+test.c:306:3: warning: use location
 
 "
 
@@ -2829,29 +1038,122 @@ test.c:203:7: warning: use location
 "->
 
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "
 
-[label=" form basic block 7: fd_37 = mkstemp (tmpname_36)
-test.c:200:6: warning: use location
+[fontcolor=white;label=" form basic block 25: _63 = argv_59 + _62
+test.c:305:4: warning: use location
 
 " ]
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "->
 
-" from main basic block 7"
+" from main basic block 25"
 
-->" fd_37 = mkstemp (tmpname_36)
-tmpname_48 = malloc (9)
+->" _63 = argv_59 + _62
+argv_23 = xrealloc (argv_22, _21, 8)
 "
 
-->" fd_37 = mkstemp (tmpname_36)
-test.c:200:6: warning: use location
+->" _63 = argv_59 + _62
+test.c:305:4: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 25: _64 = *_63
+test.c:305:4: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 25"
+
+->" _64 = *_63
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" _64 = *_63
+test.c:305:4: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 25: free (_64)
+test.c:305:4: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 25"
+
+->" free (_64)
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" free (_64)
+test.c:305:4: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 24: if (argv_59 != 0B)
+test.c:303:5: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 24"
+
+->" if (argv_59 != 0B)
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" if (argv_59 != 0B)
+test.c:303:5: warning: use location
 
 "
 
@@ -2860,29 +1162,310 @@ test.c:200:6: warning: use location
 "->
 
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "
 
-[label=" form basic block 9: close (fd_37)
-test.c:206:3: warning: use location
-
+[fontcolor=white;label=" form basic block 4: argv_73 = PHI <argv_30(14), argv_22(21)>
+lto1: warning: use location
 " ]
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "->
 
-" from main basic block 9"
+" from main basic block 4"
 
-->" close (fd_37)
-tmpname_48 = malloc (9)
+->" argv_73 = PHI <argv_30(14), argv_22(21)>
+argv_23 = xrealloc (argv_22, _21, 8)
 "
 
-->" close (fd_37)
-test.c:206:3: warning: use location
+->" argv_73 = PHI <argv_30(14), argv_22(21)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 19: _49 = argv_30 + _48
+test.c:279:5: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 19"
+
+->" _49 = argv_30 + _48
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" _49 = argv_30 + _48
+test.c:279:5: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 19: _50 = *_49
+test.c:279:5: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 19"
+
+->" _50 = *_49
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" _50 = *_49
+test.c:279:5: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 19: free (_50)
+test.c:279:5: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 19"
+
+->" free (_50)
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" free (_50)
+test.c:279:5: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 16: _44 = argv_30 + 8
+test.c:273:24: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 16"
+
+->" _44 = argv_30 + 8
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" _44 = argv_30 + 8
+test.c:273:24: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 13: _28 = argv_23 + _27
+test.c:256:9: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 13"
+
+->" _28 = argv_23 + _27
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" _28 = argv_23 + _27
+test.c:256:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 13: *_28 = buf_17
+test.c:256:18: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 13"
+
+->" *_28 = buf_17
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" *_28 = buf_17
+test.c:256:18: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
+[fontcolor=white;label=" form basic block 13: *_28 = buf_17
+test.c:256:18: warning: use location
+
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 13"
+
+->" *_28 = buf_17
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" *_28 = buf_17
+test.c:256:18: warning: use location
+
+"
+
+" from main basic block 27"
+
+->subgraph cluster_710749154 { color=lightgrey; style ="dashed";"  free (argv_59)
+argv_59 = PHI <argv_30(18), argv_30(19), argv_22(20)>
+";}
+
+
+"ID : 1297892127
+from xrealloc basic block 8"->
+
+subgraph cluster_823915082 { color=lightgrey; style ="dashed";"  start ID : 1701625838 stmt(relate) ， Tree ID : 1297892127 : _9 = newptr_8
+test.c:37:9: warning: use location
+
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"
+
+[fontcolor=white;label=" form basic block 21: buf_53 = xrealloc (buf_16, 1, _52)
+test.c:289:8: warning: use location
+" ]
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"->
+
+" from main basic block 21"
+
+->" buf_53 = xrealloc (buf_16, 1, _52)
+buf_53 = xrealloc (buf_16, 1, _52)
+"
+
+->" buf_53 = xrealloc (buf_16, 1, _52)
+test.c:289:8: warning: use location
+"
+
+
+->"ID : 602098397
+from xrealloc basic block 6"->
+
+" ID : 1620276531 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+In function ‘xrealloc’:
+
+"
+
+
+->"ID : 602098397
+from xrealloc basic block 8"->
+
+
+" ID : 1087126150 stmt(LHS) :_9 = newptr_8
+test.c:37:9: warning: use location
 
 "
 
@@ -2891,29 +1474,167 @@ test.c:206:3: warning: use location
 "->
 
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
 
 "
 
-[label=" form basic block 7: if (fd_37 == -1)
-test.c:201:6: warning: use location
-
+[fontcolor=white;label=" form basic block 4: buf_74 = PHI <buf_75(14), buf_53(21)>
+lto1: warning: use location
 " ]
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
 
 "->
 
-" from main basic block 7"
+" from main basic block 4"
 
-->" if (fd_37 == -1)
-tmpname_48 = malloc (9)
+->" buf_74 = PHI <buf_75(14), buf_53(21)>
+buf_53 = xrealloc (buf_16, 1, _52)
 "
 
-->" if (fd_37 == -1)
-test.c:201:6: warning: use location
+->" buf_74 = PHI <buf_75(14), buf_53(21)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"
+
+[fontcolor=white;label=" form basic block 21: _56 = buf_53 + len_14
+test.c:290:7: warning: use location
+
+" ]
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"->
+
+" from main basic block 21"
+
+->" _56 = buf_53 + len_14
+buf_53 = xrealloc (buf_16, 1, _52)
+"
+
+->" _56 = buf_53 + len_14
+test.c:290:7: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"
+
+[fontcolor=white;label=" form basic block 21: *_56 = _57
+test.c:290:15: warning: use location
+
+" ]
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"->
+
+" from main basic block 21"
+
+->" *_56 = _57
+buf_53 = xrealloc (buf_16, 1, _52)
+"
+
+->" *_56 = _57
+test.c:290:15: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"
+
+[fontcolor=white;label=" form basic block 21: *_56 = _57
+test.c:290:15: warning: use location
+
+" ]
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"->
+
+" from main basic block 21"
+
+->" *_56 = _57
+buf_53 = xrealloc (buf_16, 1, _52)
+"
+
+->" *_56 = _57
+test.c:290:15: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"
+
+[fontcolor=white;label=" form basic block 13: buf_17 = xrealloc (buf_16, 1, _15)
+test.c:252:9: warning: use location
+
+" ]
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"->
+
+" from main basic block 13"
+
+->" buf_17 = xrealloc (buf_16, 1, _15)
+buf_53 = xrealloc (buf_16, 1, _52)
+"
+
+->" buf_17 = xrealloc (buf_16, 1, _15)
+test.c:252:9: warning: use location
+
+"
+
+
+->"ID : 1911404640
+from xrealloc basic block 6"->
+
+" ID : 550417721 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+In function ‘xrealloc’:
+
+"
+
+
+->"ID : 1911404640
+from xrealloc basic block 8"->
+
+
+" ID : 812793341 stmt(LHS) :_9 = newptr_8
+test.c:37:9: warning: use location
 
 "
 
@@ -2922,58 +1643,234 @@ test.c:201:6: warning: use location
 "->
 
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
 
 "
 
-[label=" form basic block 7: _52 = tmpname_49
-test.c:188:10: warning: use location
+[fontcolor=white;label=" form basic block 13: *_28 = buf_17
+test.c:256:18: warning: use location
 
 " ]
 
-" # .MEM_85 = VDEF <.MEM_8(D)>
-tmpname_48 = malloc (9)
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
 
 "->
 
-" from main basic block 7"
+" from main basic block 13"
 
-->" _52 = tmpname_49
-tmpname_48 = malloc (9)
+->" *_28 = buf_17
+buf_53 = xrealloc (buf_16, 1, _52)
 "
 
-->" _52 = tmpname_49
-test.c:188:10: warning: use location
+->" *_28 = buf_17
+test.c:256:18: warning: use location
 
 "
 
-" from main basic block 33"
+" main
+"->
 
-->subgraph cluster_695618017 { style ="dashed";"  _74 = MEM[(int *)tmpname_26]
-tmpname_26 = PHI <output_filename_23(3), tmpname_25(10)>
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"
+
+[fontcolor=white;label=" form basic block 13: _18 = buf_17 + len_14
+test.c:253:8: warning: use location
+
+" ]
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"->
+
+" from main basic block 13"
+
+->" _18 = buf_17 + len_14
+buf_53 = xrealloc (buf_16, 1, _52)
+"
+
+->" _18 = buf_17 + len_14
+test.c:253:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"
+
+[fontcolor=white;label=" form basic block 13: *_18 = 0
+test.c:253:14: warning: use location
+
+" ]
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"->
+
+" from main basic block 13"
+
+->" *_18 = 0
+buf_53 = xrealloc (buf_16, 1, _52)
+"
+
+->" *_18 = 0
+test.c:253:14: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"
+
+[fontcolor=white;label=" form basic block 22: buf_58 = PHI <buf_75(18), buf_75(19), buf_16(20)>
+lto1: warning: use location
+" ]
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"->
+
+" from main basic block 22"
+
+->" buf_58 = PHI <buf_75(18), buf_75(19), buf_16(20)>
+buf_53 = xrealloc (buf_16, 1, _52)
+"
+
+->" buf_58 = PHI <buf_75(18), buf_75(19), buf_16(20)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"
+
+[fontcolor=white;label=" form basic block 23: free (buf_58)
+test.c:301:3: warning: use location
+
+" ]
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"->
+
+" from main basic block 23"
+
+->" free (buf_58)
+buf_53 = xrealloc (buf_16, 1, _52)
+"
+
+->" free (buf_58)
+test.c:301:3: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"
+
+[fontcolor=white;label=" form basic block 22: if (buf_58 != 0B)
+test.c:300:5: warning: use location
+
+" ]
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"->
+
+" from main basic block 22"
+
+->" if (buf_58 != 0B)
+buf_53 = xrealloc (buf_16, 1, _52)
+"
+
+->" if (buf_58 != 0B)
+test.c:300:5: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"
+
+[fontcolor=white;label=" form basic block 14: buf_75 = PHI <buf_16(12), 0B(13)>
+lto1: warning: use location
+" ]
+
+" # .MEM_122 = VDEF <.MEM_98>
+buf_53 = xrealloc (buf_16, 1, _52)
+
+"->
+
+" from main basic block 14"
+
+->" buf_75 = PHI <buf_16(12), 0B(13)>
+buf_53 = xrealloc (buf_16, 1, _52)
+"
+
+->" buf_75 = PHI <buf_16(12), 0B(13)>
+lto1: warning: use location
+"
+
+
+" from main basic block 23"
+
+->subgraph cluster_986536605 { color=lightgrey; style ="dashed";"  free (buf_58)
+buf_58 = PHI <buf_75(18), buf_75(19), buf_16(20)>
 ";}
 
-" from main basic block 33"
 
-->subgraph cluster_1402598911 { style ="dashed";"  _75 = __printf_chk (1, d\n, _74)
-_74 = MEM[(int *)tmpname_26]
-";}
+"ID : 602098397
+from xrealloc basic block 8"->
 
-
-"ID : 1430608461
-from set_times basic block 2"->
-
-subgraph cluster_300987679 { style ="dashed";"  start ID : 560392295 stmt(relate) ， Tree ID : 1430608461 : result_10 = utime (destination_8(D), &tb)
-test.c:228:12: warning: use location
+subgraph cluster_2032318109 { color=lightgrey; style ="dashed";"  start ID : 1087126150 stmt(relate) ， Tree ID : 602098397 : _9 = newptr_8
+test.c:37:9: warning: use location
 
 ";}
 
-"ID : 1195099392
-from set_times basic block 2"->
+"ID : 1911404640
+from xrealloc basic block 8"->
 
-subgraph cluster_570147321 { style ="dashed";"  start ID : 1352683581 stmt(relate) ， Tree ID : 1195099392 : result_10 = utime (destination_8(D), &tb)
-test.c:228:12: warning: use location
+subgraph cluster_1365433666 { color=lightgrey; style ="dashed";"  start ID : 812793341 stmt(relate) ， Tree ID : 1911404640 : _9 = newptr_8
+test.c:37:9: warning: use location
 ";}
 
 
