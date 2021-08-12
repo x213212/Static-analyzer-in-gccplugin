@@ -1,26 +1,91 @@
-/* 
-	buggy parent : a715878
-	commit id : 063a474fe055cadcb7f7f64e5061ed65d506c407
+/*
+	buggy parent : a2c86dc
+	commit id : 842bc2b
 */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
+#define WINDOW
+#define SESSION
+#define SESSION_GROUP
 #include "stdio.h"
 #include "tmux.h"
 
+/* Window structure. */
+struct window {
+	char		*name;
+	struct event	 name_timer;
+
+	struct window_pane *active;
+	struct window_panes panes;
+
+	int		 lastlayout;
+	struct layout_cell *layout_root;
+
+	u_int		 sx;
+	u_int		 sy;
+
+	int		 flags;
+#define WINDOW_BELL 0x1
+#define WINDOW_HIDDEN 0x2
+#define WINDOW_ACTIVITY 0x4
+#define WINDOW_CONTENT 0x8
+#define WINDOW_REDRAW 0x10
+
+	struct options	 options;
+
+	u_int		 references;
+};
+ARRAY_DECL(windows, struct window *);
+
+struct session_group {
+	TAILQ_HEAD(, session) sessions;
+
+	TAILQ_ENTRY(session_group) entry;
+};
+TAILQ_HEAD(session_groups, session_group);
+
+struct session {
+	char		*name;
+
+	u_int		 sx;
+	u_int		 sy;
+
+	struct winlink	*curw;
+	struct winlink_stack lastw;
+	struct winlinks	 windows;
+
+	struct paste_stack buffers;
+
+#define SESSION_UNATTACHED 0x1	/* not attached to any clients */
+#define SESSION_DEAD 0x2
+	int		 flags;
+
+	struct termios	*tio;
+
+	int		 references;
+
+	TAILQ_ENTRY(session) gentry;
+};
+ARRAY_DECL(sessions, struct session *);
+
+
+struct session_groups session_groups;
+struct sessions sessions;
+struct windows windows;
+
+
+int
+winlink_cmp(struct winlink *wl1, struct winlink *wl2)
+{
+	return (wl1->idx - wl2->idx);
+}
+
+RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+
 #define SIZE_MAX (1 << 30)
-
-/*
- * Parse a command from a string.
- */
-
-int	cmd_string_getc(const char *, size_t *);
-void	cmd_string_ungetc(const char *, size_t *);
-char   *cmd_string_string(const char *, size_t *, char, int);
-char   *cmd_string_variable(const char *, size_t *);
-char   *cmd_string_expand_tilde(const char *, size_t *);
-
 void *
 xrealloc(void *oldptr, size_t nmemb, size_t size)
 {
@@ -37,286 +102,601 @@ xrealloc(void *oldptr, size_t nmemb, size_t size)
 	return (newptr);
 }
 
-int
-cmd_string_getc(const char *s, size_t *p)
+struct winlink *
+winlink_find_by_index(struct winlinks *wwl, int idx)
 {
-	if (s[*p] == '\0')
-		return (EOF);
-	return (s[(*p)++]);
+	struct winlink	wl;
+
+	if (idx < 0)
+		fatalx("bad index%s", "");
+
+	wl.idx = idx;
+	return (RB_FIND(winlinks, wwl, &wl));
+}
+
+u_int winlink_count(struct winlinks *wwl)
+{
+	struct winlink *wl;
+	u_int n;
+	
+	n = 0;
+	RB_FOREACH(wl, winlinks, wwl)
+		n++;
+
+	return (n);
+}
+
+int
+winlink_next_index(struct winlinks *wwl, int idx)
+{
+	int	i;
+
+	i = idx;
+	do {
+		if (winlink_find_by_index(wwl, i) == NULL)
+			return (i);
+		if (i == INT_MAX)
+			i = 0;
+		else
+			i++;
+	} while (i != idx);
+	return (-1);
+}
+
+
+struct winlink *
+winlink_find_by_window(struct winlinks *wwl, struct window *w)
+{
+	struct winlink	*wl;
+
+	RB_FOREACH(wl, winlinks, wwl) {
+		if (wl->window == w)
+			return (wl);
+	}
+
+	return (NULL);
+}
+
+struct winlink *cmd_find_pane(int arg, struct session **sp)
+{
+	struct session *s;
+	struct winlink *wl;
+	u_int 		idx;
+	
+	if(ARRAY_EMPTY(&sessions)) {
+		printf("can't establish current session\n");
+		return NULL;
+	}
+	s = ARRAY_ITEM(&sessions, 1);
+	if(sp != NULL)
+		*sp = s;
+	if(arg)
+		return s->curw;
+	return RB_NEXT(winlinks, &s->windows, s->curw);
+}
+
+/* Return if session has window. */
+int
+session_has(struct session *s, struct window *w)
+{
+	struct winlink	*wl;
+
+	RB_FOREACH(wl, winlinks, &s->windows) {
+		if (wl->window == w)
+			return (1);
+	}
+	return (0);
+}
+
+/* Find the session group containing a session. */
+struct session_group *
+session_group_find(struct session *target)
+{
+	struct session_group	*sg;
+	struct session		*s;
+
+	TAILQ_FOREACH(sg, &session_groups, entry) {
+		TAILQ_FOREACH(s, &sg->sessions, gentry) {
+			if (s == target)
+				return (sg);
+		}
+	}
+	return (NULL);
+}
+
+/*
+ * Add a session to the session group containing target, creating it if
+ * necessary.
+ */
+void
+session_group_add(struct session *target, struct session *s)
+{
+	struct session_group	*sg;
+
+	if ((sg = session_group_find(target)) == NULL) {
+		sg = xmalloc(sizeof *sg);
+		TAILQ_INSERT_TAIL(&session_groups, sg, entry);
+		TAILQ_INIT(&sg->sessions);
+		TAILQ_INSERT_TAIL(&sg->sessions, target, gentry);
+	}
+	TAILQ_INSERT_TAIL(&sg->sessions, s, gentry);
+}
+
+struct winlink *
+winlink_add(struct winlinks *wwl, struct window *w, int idx)
+{
+	struct winlink	*wl;
+
+	if (idx < 0) {
+		if ((idx = winlink_next_index(wwl, -idx - 1)) == -1)
+			return (NULL);
+	} else if (winlink_find_by_index(wwl, idx) != NULL)
+		return (NULL);
+
+	wl = xcalloc(1, sizeof *wl);	/* allocation site */
+	wl->idx = idx;
+	wl->window = w;
+	RB_INSERT(winlinks, wwl, wl);
+
+	w->references++;
+
+	return (wl);
+}
+
+int
+window_index(struct window *s, u_int *i)
+{
+	for (*i = 0; *i < ARRAY_LENGTH(&windows); (*i)++) {
+		if (s == ARRAY_ITEM(&windows, *i))
+			return (0);
+	}
+	return (-1);
+}
+
+/* Remove a session from its group and destroy the group if empty. */
+void
+session_group_remove(struct session *s)
+{
+	struct session_group	*sg;
+
+	if ((sg = session_group_find(s)) == NULL)
+		return;
+	TAILQ_REMOVE(&sg->sessions, s, gentry);
+	if (TAILQ_NEXT(TAILQ_FIRST(&sg->sessions), gentry) == NULL)
+		TAILQ_REMOVE(&sg->sessions, TAILQ_FIRST(&sg->sessions), gentry);
+	if (TAILQ_EMPTY(&sg->sessions)) {
+		TAILQ_REMOVE(&session_groups, sg, entry);
+		xfree(sg);
+	}
+}
+
+/* Find session by name. */
+struct session *
+session_find(const char *name)
+{
+	struct session	*s;
+	u_int		 i;
+
+	for (i = 0; i < ARRAY_LENGTH(&sessions); i++) {
+		s = ARRAY_ITEM(&sessions, i);
+		if (s != NULL && strcmp(s->name, name) == 0)
+			return (s);
+	}
+
+	return (NULL);
+}
+
+
+/* Find session index. */
+int
+session_index(struct session *s, u_int *i)
+{
+	for (*i = 0; *i < ARRAY_LENGTH(&sessions); (*i)++) {
+		if (s == ARRAY_ITEM(&sessions, *i))
+			return (0);
+	}
+	return (-1);
 }
 
 void
-cmd_string_ungetc(const char *s, size_t *p)
+winlink_stack_remove(struct winlink_stack *stack, struct winlink *wl)
 {
-	(*p)--;
-}
+	struct winlink	*wl2;
 
-char *
-cmd_string_string(const char *s, size_t *p, char endch, int esc)
-{
-	int	ch;
-	char   *buf, *t;
-	size_t	len;
+	if (wl == NULL)
+		return;
 
-	buf = NULL;
-	len = 0;
-
-	while ((ch = cmd_string_getc(s, p)) != endch) {
-		switch (ch) {
-		case EOF:
-			goto error;
-		case '\\':
-			if (!esc)
-				break;
-			switch (ch = cmd_string_getc(s, p)) {
-			case EOF:
-				goto error;
-			case 'e':
-				ch = '\033';
-				break;
-			case 'r':
-				ch = '\r';
-				break;
-			case 'n':
-				ch = '\n';
-				break;
-			case 't':
-				ch = '\t';
-				break;
-			}
-			break;
-		case '$':
-			if (!esc)
-				break;
-			if ((t = cmd_string_variable(s, p)) == NULL)
-				goto error;
-			buf = xrealloc(buf, 1, len + strlen(t) + 1);
-			strcpy(buf + len, t);
-			len += strlen(t);
-			xfree(t);
-			continue;
-		}
-
-		if (len >= SIZE_MAX - 2)
-			goto error;
-		buf = xrealloc(buf, 1, len + 1);
-		buf[len++] = ch;
-	}
-
-	buf = xrealloc(buf, 1, len + 1);
-	buf[len] = '\0';
-	return (buf);
-
-error:
-	if (buf != NULL)
-		xfree(buf);
-	return (NULL);
-}
-
-char *
-cmd_string_variable(const char *s, size_t *p)
-{
-	int	ch, fch;
-	char   *buf, *t;
-	size_t	len;
-
-#define cmd_string_first(ch) ((ch) == '_' || \
-	((ch) >= 'a' && (ch) <= 'z') || ((ch) >= 'A' && (ch) <= 'Z'))
-#define cmd_string_other(ch) ((ch) == '_' || \
-	((ch) >= 'a' && (ch) <= 'z') || ((ch) >= 'A' && (ch) <= 'Z') || \
-	((ch) >= '0' && (ch) <= '9'))
-
-	buf = NULL;
-	len = 0;
-
-	fch = EOF;
-	switch (ch = cmd_string_getc(s, p)) {
-	case EOF:
-		goto error;
-	case '{':
-		fch = '{';
-
-		ch = cmd_string_getc(s, p);
-		if (!cmd_string_first(ch))
-			goto error;
-		/* FALLTHROUGH */
-	default:
-		if (!cmd_string_first(ch)) {
-			t = strdup("$");
-			return (t);
-		}
-
-		buf = xrealloc(buf, 1, len + 1);
-		buf[len++] = ch;
-
-		for (;;) {
-			ch = cmd_string_getc(s, p);
-			if (ch == EOF || !cmd_string_other(ch))
-				break;
-			else {
-				if (len >= SIZE_MAX - 3)
-					goto error;
-				buf = xrealloc(buf, 1, len + 1);
-				buf[len++] = ch;
-			}
+	TAILQ_FOREACH(wl2, stack, sentry) {
+		if (wl2 == wl) {
+			TAILQ_REMOVE(stack, wl, sentry);
+			return;
 		}
 	}
-
-	if (fch == '{' && ch != '}')
-		goto error;
-	if (ch != EOF && fch != '{')
-		cmd_string_ungetc(s, p); /* ch */
-
-	buf = xrealloc(buf, 1, len + 1);
-	buf[len] = '\0';
-
-	if ((t = getenv(buf)) == NULL) {
-		xfree(buf);
-		return (xstrdup(""));
-	}
-	xfree(buf);
-	return (xstrdup(t));
-
-error:
-	if (buf != NULL)
-		xfree(buf);
-	return (NULL);
 }
 
-char *
-cmd_string_expand_tilde(const char *s, size_t *p)
+void
+winlink_stack_push(struct winlink_stack *stack, struct winlink *wl)
 {
-	struct passwd	*pw;
-	char		*home, *path, *username;
+	if (wl == NULL)
+		return;
 
-	home = NULL;
-	if (cmd_string_getc(s, p) == '/') {
-		if ((home = getenv("HOME")) == NULL) {
-			if ((pw = getpwuid(getuid())) != NULL)
-				home = pw->pw_dir;
-		}
-	} else {
-		cmd_string_ungetc(s, p);
-		if ((username = cmd_string_string(s, p, '/', 0)) == NULL)
-			return (NULL);
-		if ((pw = getpwnam(username)) != NULL)
-			home = pw->pw_dir;
-		if (username != NULL)
-			xfree(username);
-	}
-	if (home == NULL)
-		return (NULL);
-
-	path = strdup(home);
-	return (path);
+	winlink_stack_remove(stack, wl);
+	TAILQ_INSERT_HEAD(stack, wl, sentry);
 }
+
+void
+window_destroy(struct window *w)
+{
+	u_int	i;
+
+	if (window_index(w, &i) != 0)
+		fatalx("index not found%s\n", "");
+	ARRAY_SET(&windows, i, NULL);
+	while (!ARRAY_EMPTY(&windows) && ARRAY_LAST(&windows) == NULL)
+		ARRAY_TRUNC(&windows, 1);
+
+	if (w->name != NULL)
+		xfree(w->name);
+	xfree(w);
+}
+
+void
+winlink_remove(struct winlinks *wwl, struct winlink *wl)
+{
+	struct window	*w = wl->window;
+
+	RB_REMOVE(winlinks, wwl, wl);
+	if (wl->status_text != NULL)
+		xfree(wl->status_text);
+	xfree(wl);
+
+	if (w->references == 0)
+		fatal("bad reference count%s\n", "");
+	w->references--;
+	if (w->references == 0)
+		window_destroy(w);
+}
+
 /*
- * Parse command string. Returns -1 on error. If returning -1, cause is error
- * string, or NULL for empty command.
+ * Synchronize a session with a target session. This means destroying all
+ * winlinks then recreating them, then updating the current window, last window
+ * stack and alerts.
  */
-int
-cmd_string_parse(const char *s, struct cmd_list **cmdlist, char **cause)
+void
+session_group_synchronize1(struct session *target, struct session *s)
 {
-	size_t		p;
-	int		ch, i, argc, rval, have_arg;
-	char	      **argv, *buf, *t;
-	const char     *whitespace, *equals;
-	size_t		len;
+	struct winlinks		 old_windows, *ww;
+	struct winlink_stack	 old_lastw;
+	struct winlink		*wl, *wl2;
+	struct session_alert	*sa;
 
-	argv = NULL;
-	argc = 0;
+	/* Don't do anything if the session is empty (it'll be destroyed). */
+	ww = &target->windows;
+	if (RB_EMPTY(ww))
+		return;
 
-	buf = NULL;
-	len = 0;
+	/* Save the old pointer and reset it. */
+	memcpy(&old_windows, &s->windows, sizeof old_windows);
+	RB_INIT(&s->windows);
 
-	have_arg = 0;
+	/* Link all the windows from the target. */
+	RB_FOREACH(wl, winlinks, ww)
+		winlink_add(&s->windows, wl->window, wl->idx);
 
-	*cause = NULL;
+	/* Fix up the last window stack. */
+	memcpy(&old_lastw, &s->lastw, sizeof old_lastw);
+	TAILQ_INIT(&s->lastw);
+	TAILQ_FOREACH(wl, &old_lastw, sentry) {
+		wl2 = winlink_find_by_index(&s->windows, wl->idx);
+		if (wl2 != NULL)
+			TAILQ_INSERT_TAIL(&s->lastw, wl2, sentry);
+	}
+	s->curw = TAILQ_FIRST(&s->lastw);
 
-	*cmdlist = NULL;
-	rval = -1;
+	/* Then free the old winlinks list. */
+	while (!RB_EMPTY(&old_windows)) {
+		wl = RB_ROOT(&old_windows);
+		winlink_remove(&old_windows, wl);
+	}
+}
 
-	p = 0;
-	for (;;) {
-		ch = cmd_string_getc(s, &p);
-		switch (ch) {
-		case '#':
-			/* Comment: discard rest of line. */
-			while ((ch = cmd_string_getc(s, &p)) != EOF)
-				;
-			/* FALLTHROUGH */
-		case EOF:
-		case ' ':
-		case '\t':
- 			if (have_arg) {
-				buf = xrealloc(buf, 1, len + 1); /* allocation site */
-				buf[len] = '\0';
+/* Synchronize a session to its session group. */
+void
+session_group_synchronize_to(struct session *s)
+{
+	struct session_group	*sg;
+	struct session		*target;
 
-				argv = xrealloc(argv, argc + 1, sizeof *argv);
-				argv[argc++] = buf;
+	if ((sg = session_group_find(s)) == NULL)
+		return;
 
-				buf = NULL;
-				len = 0;
+	target = NULL;
+	TAILQ_FOREACH(target, &sg->sessions, gentry) {
+		if (target != s)
+			break;
+	}
+	session_group_synchronize1(target, s);
+}
 
-				have_arg = 0;
-			}
+/* Synchronize a session group to a session. */
+void
+session_group_synchronize_from(struct session *target)
+{
+	struct session_group	*sg;
+	struct session		*s;
 
-			if (ch != EOF)
+	if ((sg = session_group_find(target)) == NULL)
+		return;
+
+	TAILQ_FOREACH(s, &sg->sessions, gentry) {
+		if (s != target)
+			session_group_synchronize1(target, s);
+	}
+}
+
+/* Destroy a session. */
+void
+session_destroy(struct session *s)
+{
+	u_int	i;
+
+	printf("session %s destroyed\n", s->name);
+
+	if (session_index(s, &i) != 0)
+		fatalx("session not found%s\n", "");
+	ARRAY_SET(&sessions, i, NULL);
+	while (!ARRAY_EMPTY(&sessions) && ARRAY_LAST(&sessions) == NULL)
+		ARRAY_TRUNC(&sessions, 1);
+
+	session_group_remove(s);
+
+	while (!TAILQ_EMPTY(&s->lastw))
+		winlink_stack_remove(&s->lastw, TAILQ_FIRST(&s->lastw));
+	while (!RB_EMPTY(&s->windows))
+		winlink_remove(&s->windows, RB_ROOT(&s->windows));
+
+	xfree(s->name);
+	xfree(s);
+}
+
+/* Detach a window from a session. */
+int
+session_detach(struct session *s, struct winlink *wl)
+{
+	winlink_stack_remove(&s->lastw, wl);
+	winlink_remove(&s->windows, wl);
+	session_group_synchronize_from(s);
+	if (RB_EMPTY(&s->windows)) {
+		session_destroy(s);
+		return (1);
+	}
+	return (0);
+}
+
+void
+server_destroy_session_group(struct session *s)
+{
+	struct session_group	*sg;
+
+	if ((sg = session_group_find(s)) == NULL)
+		return;
+	else {
+		TAILQ_REMOVE(&session_groups, sg, entry);
+		xfree(sg);
+	}
+}
+
+void
+server_kill_window(struct window *w)
+{
+	struct session	*s;
+	struct winlink	*wl;
+	u_int		 i;
+
+	for (i = 0; i < ARRAY_LENGTH(&sessions); i++) {
+		s = ARRAY_ITEM(&sessions, i);
+		if (s == NULL || !session_has(s, w))
+			continue;
+		while ((wl = winlink_find_by_window(&s->windows, w)) != NULL) {
+			if (session_detach(s, wl)) {
+				server_destroy_session_group(s);
 				break;
+			} 
+		}
+	}
+}
 
-			while (argc != 0) {
-				equals = strchr(argv[0], '=');
-				whitespace = argv[0] + strcspn(argv[0], " \t");
-				if (equals == NULL || equals > whitespace)
-					break;
-				argc--;
-				memmove(argv, argv + 1, argc * (sizeof *argv));	/* memory leak */
-			}
-			if (argc == 0)
-				goto out;
+/* Move session to specific window. */
+int
+session_select(struct session *s, int idx)
+{
+	struct winlink	*wl;
 
-			do
-				xfree(argv[argc - 1]);			
-			while (--argc > 0);
+	wl = winlink_find_by_index(&s->windows, idx);
+	if (wl == NULL)
+		return (-1);
+	if (wl == s->curw)
+		return (1);
+	winlink_stack_remove(&s->lastw, wl);
+	winlink_stack_push(&s->lastw, s->curw);
+	s->curw = wl;
+	return (0);
+}
 
-			rval = 0;
-			goto out;
-		/* FALLTHROUGH */
-		default:
-			if (len >= SIZE_MAX - 2)
-				goto error;
+int join_pane_exec(void)
+{
+	struct session			*dst_s;
+	struct winlink			*src_wl, *dst_wl;
+	struct window			*src_w, *dst_w;
 
-			buf = xrealloc(buf, 1, len + 1);
-			buf[len++] = ch;
+	if ((dst_wl = cmd_find_pane(0, &dst_s)) == NULL)
+		return (-1);
+	dst_w = dst_wl->window;
 
-			have_arg = 1;
+	if ((src_wl = cmd_find_pane(1, NULL)) == NULL)
+		return (-1);
+	src_w = src_wl->window;
+
+	if (src_w == dst_w) {
+		printf("can't join a pane to its own window\n");
+		return (-1);
+	}
+	server_kill_window(src_w);	/* dst_wl can be freed */
+	
+	session_select(dst_s, dst_wl->idx);	/* use-after-free*/
+
+	return (0);
+}
+
+struct window *
+window_create1(u_int sx, u_int sy)
+{
+	struct window	*w;
+	u_int		 i;
+
+	w = xmalloc(sizeof *w);
+	w->name = NULL;
+	w->flags = 0;
+
+	w->active = NULL;
+
+	w->lastlayout = -1;
+	w->layout_root = NULL;
+
+	w->sx = sx;
+	w->sy = sy;
+
+	for (i = 0; i < ARRAY_LENGTH(&windows); i++) {
+		if (ARRAY_ITEM(&windows, i) == NULL) {
+			ARRAY_SET(&windows, i, w);
 			break;
 		}
 	}
+	if (i == ARRAY_LENGTH(&windows))
+		ARRAY_ADD(&windows, w);
+	w->references = 0;
 
-error:
+	return (w);
+}
 
-out:
-	if (buf != NULL)
-		xfree(buf);
+/* Attach a window to a session. */
+struct winlink *
+session_attach(struct session *s, struct window *w, int idx, char **cause)
+{
+	struct winlink	*wl;
 
-	if (argv != NULL) {
-		for (i = 0; i < argc; i++)
-			xfree(argv[argc]);					/* double-free */
-		xfree(argv);
+	if ((wl = winlink_add(&s->windows, w, idx)) == NULL)
+		printf("index in use: %d\n", idx);
+	session_group_synchronize_from(s);
+	return (wl);
+}
+
+/* Create a new window on a session. */
+struct winlink *
+session_new(struct session *s,
+    const char *name, const char *cmd, const char *cwd, int idx, char **cause)
+{
+	struct window	*w;
+	const char	*shell;
+	
+	u_int		 hlimit;
+
+	w = window_create1(s->sx, s->sy);
+	if (w == NULL) {
+		return (NULL);
 	}
 
-	return (rval);
+	return (session_attach(s, w, idx, cause));
+}
+
+/* Create a new session. */
+struct session *
+session_create(const char *name, const char *cmd, const char *cwd,
+    struct environ *env, struct termios *tio, int idx, u_int sx, u_int sy,
+    char **cause)
+{
+	struct session	*s;
+	u_int		 i;
+
+	s = xmalloc(sizeof *s);
+	s->references = 0;
+	s->flags = 0;
+
+	s->curw = NULL;
+	TAILQ_INIT(&s->lastw);
+	RB_INIT(&s->windows);
+
+	s->tio = NULL;
+	s->sx = sx;
+	s->sy = sy;
+
+	for (i = 0; i < ARRAY_LENGTH(&sessions); i++) {
+		if (ARRAY_ITEM(&sessions, i) == NULL) {
+			ARRAY_SET(&sessions, i, s);
+			break;
+		}
+	}
+	if (i == ARRAY_LENGTH(&sessions))
+		ARRAY_ADD(&sessions, s);
+	if(name == NULL)
+		fatal("no name%s\n", "");
+	s->name = xstrdup(name);
+
+	if (cmd != NULL) {
+		if (session_new(s, NULL, cmd, cwd, idx, cause) == NULL) {
+			session_destroy(s);
+			return (NULL);
+		}
+		session_select(s, RB_ROOT(&s->windows)->idx);
+	}
+	printf("session %s created\n", s->name);
+
+	return (s);
 }
 
 int main(int argc, char **argv)
 {
+	struct session *s, *groupwith;
+	struct window *w;
+	char *target, *cmd, *name;
 	char *cause;
-	struct cmd_list *cmdlist;
+	int idx = 0, sx, sy;
 
-	if(argc > 1)
-		cmd_string_parse(argv[1], &cmdlist, &cause);	
+	ARRAY_INIT(&windows);
+	ARRAY_INIT(&sessions);
+	TAILQ_INIT(&session_groups);
+	
+	for(int i = 0; i < argc; i++)
+	{
+		if(argv[i][0] == 't' && i > 0)
+			target = strdup(argv[i - 1]);
+		else
+			target = NULL;
+		
+		groupwith = session_find(target);
+		
+		if(target == NULL)
+			cmd = strdup("cmd");
+		else
+			cmd = NULL;
+		
+		free(target);
+		
+		name = strdup(argv[i]);
+		s = session_create(name, cmd, "cwd", NULL, NULL, idx++, sx, sy, &cause);
+		w = window_create1(sx, sy);
+		session_attach(s, w, idx++, &cause);
+		free(cmd);
+		if(groupwith != NULL) {
+			session_group_add(groupwith, s);
+			session_group_synchronize_to(s);
+			session_select(s, RB_ROOT(&s->windows)->idx);
+		}
+	}
+
+	join_pane_exec();
+	while(!ARRAY_EMPTY(&sessions))
+		session_destroy(ARRAY_ITEM(&sessions, 0));	
 
 	return 0;
 }
-
