@@ -548,7 +548,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			else
 			{
 
-				fprintf(stderr, "--------------------wwwwwwwwwwwwSSSSSSSSSSSSSSS2SSwwwwwwwwwwwwwwwww------------------\n");
+				// fprintf(stderr, "--------------------wwwwwwwwwwwwSSSSSSSSSSSSSSS2SSwwwwwwwwwwwwwwwww------------------\n");
 				debug_gimple_stmt(gc);
 				for (int i = 0 ; i < gimple_call_num_args(gc) ;i++){
 					// ADDR_EXPR
@@ -606,40 +606,6 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					}
 				}
 
-				tree getreturnFucntionDecl = TREE_OPERAND(get_function_return_tree, 0);
-				if(getreturnFucntionDecl){
-				if (function_return_collect->get(getreturnFucntionDecl) == NULL)
-				{
-					// fprintf(stderr, "--------------------collect_FunctionMappingENNNNNNNNDDDDDDD------------------\n");
-					return;
-				}
-				tree getFucntionDecl = (node->get_fun()->decl);
-				// debug_tree(getFucntionDecl);
-				vector<return_type> ret_type_array;
-				function_return_array fun_array;
-
-				if (function_return_collect->get(getFucntionDecl) == NULL)
-				{
-					fun_array.return_type_array = ret_type_array;
-				}
-				else
-				{
-					fun_array = *(function_return_collect->get(getFucntionDecl));
-					ret_type_array = fun_array.return_type_array;
-				}
-
-				struct return_type ret_type;
-				ret_type.stmt = gc;
-				ret_type.return_tree = getreturnFucntionDecl;
-
-				fun_array.return_type_array.push_back(ret_type);
-				function_return_collect->put(node->get_fun()->decl, fun_array);
-				}
-				// debug(gc);
-				
-				// if (gimple_call_num_args(gc) != 0)
-				
-
 					// for (int i = 0 ; i < gimple_call_num_args(gc) ;i++){
 					// ADDR_EXPR
 					// get vardecl
@@ -690,13 +656,14 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			
 				tree checklhstree = gimple_call_lhs(gc);
 				// if lhs tree is null this is fucntion call
-				if (checklhstree != NULL)
-				{
+				// if (checklhstree != NULL)
+				// {
 
-					if (TREE_CODE(gimple_call_lhs(gc)) == SSA_NAME)
-						set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
-				}
-				else if (gimple_code(gc) == GIMPLE_CALL)
+				// 	if (TREE_CODE(gimple_call_lhs(gc)) == SSA_NAME)
+				// 		set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
+				// }
+				// else
+				 if (gimple_code(gc) == GIMPLE_CALL)
 				{
 					name = get_name(gimple_call_fn(gc));
 					if (name != NULL)
@@ -713,6 +680,40 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 						// }
 					}
 				}
+
+				tree getreturnFucntionDecl = TREE_OPERAND(get_function_return_tree, 0);
+				if(getreturnFucntionDecl){
+				if (function_return_collect->get(getreturnFucntionDecl) == NULL)
+				{
+					// fprintf(stderr, "--------------------collect_FunctionMappingENNNNNNNNDDDDDDD------------------\n");
+					return;
+				}
+				tree getFucntionDecl = (node->get_fun()->decl);
+				// debug_tree(getFucntionDecl);
+				vector<return_type> ret_type_array;
+				function_return_array fun_array;
+
+				if (function_return_collect->get(getFucntionDecl) == NULL)
+				{
+					fun_array.return_type_array = ret_type_array;
+				}
+				else
+				{
+					fun_array = *(function_return_collect->get(getFucntionDecl));
+					ret_type_array = fun_array.return_type_array;
+				}
+
+				struct return_type ret_type;
+				ret_type.stmt = gc;
+				ret_type.return_tree = getreturnFucntionDecl;
+
+				fun_array.return_type_array.push_back(ret_type);
+				function_return_collect->put(node->get_fun()->decl, fun_array);
+				}
+				// debug(gc);
+				
+				// if (gimple_call_num_args(gc) != 0)
+				
 
 				// set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
 			}

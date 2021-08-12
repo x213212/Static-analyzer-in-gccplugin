@@ -122,7 +122,145 @@ test.c:30:5: warning: use location
 
 " from xrealloc basic block 8"
 
-->subgraph cluster_1179969673 { color=lightgrey; style ="dashed";"  _9 = newptr_8
+->subgraph cluster_481951805 { color=lightgrey; style ="dashed";"  _9 = newptr_8
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+";}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+" xrealloc
+"->
+
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"
+
+[fontcolor=white;label=" form basic block 6: newptr_8 = realloc (oldptr_6(D), newsize_4)
+test.c:34:5: warning: use location
+" ]
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"->
+
+" from xrealloc basic block 6"
+
+->" newptr_8 = realloc (oldptr_6(D), newsize_4)
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+"
+
+->" newptr_8 = realloc (oldptr_6(D), newsize_4)
+test.c:34:5: warning: use location
+"
+
+
+" xrealloc
+"->
+
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"
+
+[fontcolor=white;label=" form basic block 8: _9 = newptr_8
+test.c:37:9: warning: use location
+
+" ]
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"->
+
+" from xrealloc basic block 8"
+
+->" _9 = newptr_8
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+"
+
+->" _9 = newptr_8
+test.c:37:9: warning: use location
+
+"
+
+" xrealloc
+"->
+
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"
+
+[fontcolor=white;label=" form basic block 6: if (newptr_8 == 0B)
+test.c:34:5: warning: use location
+" ]
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"->
+
+" from xrealloc basic block 6"
+
+->" if (newptr_8 == 0B)
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+"
+
+->" if (newptr_8 == 0B)
+test.c:34:5: warning: use location
+"
+
+
+" xrealloc
+"->
+
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"
+
+[fontcolor=white;label=" form basic block 2: if (newsize_4 == 0)
+test.c:30:5: warning: use location
+
+" ]
+
+" # .MEM_17 = VDEF <.MEM_16(D)>
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+
+"->
+
+" from xrealloc basic block 2"
+
+->" if (newsize_4 == 0)
+newptr_8 = realloc (oldptr_6(D), newsize_4)
+"
+
+->" if (newsize_4 == 0)
+test.c:30:5: warning: use location
+
+"
+
+
+" from xrealloc basic block 8"
+
+->subgraph cluster_1860230863 { color=lightgrey; style ="dashed";"  _9 = newptr_8
 newptr_8 = realloc (oldptr_6(D), newsize_4)
 ";}
 
@@ -164,20 +302,20 @@ test.c:289:8: warning: use location
 "
 
 
-->"ID : 1284866218
+->"ID : 1645292085
 from xrealloc basic block 6"->
 
-" ID : 1799447160 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+" ID : 372623052 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
 In function ‘xrealloc’:
 
 "
 
 
-->"ID : 1284866218
+->"ID : 1645292085
 from xrealloc basic block 8"->
 
 
-" ID : 15053512 stmt(LHS) :_9 = newptr_8
+" ID : 1888220875 stmt(LHS) :_9 = newptr_8
 test.c:37:9: warning: use location
 
 "
@@ -208,6 +346,35 @@ buf_17 = xrealloc (buf_16, 1, _15)
 "
 
 ->" buf_74 = PHI <buf_75(14), buf_53(21)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
+
+"
+
+[fontcolor=white;label=" form basic block 5: buf_16 = PHI <0B(3), buf_74(4)>
+lto1: warning: use location
+" ]
+
+" # .MEM_116 = VDEF <.MEM_101>
+buf_17 = xrealloc (buf_16, 1, _15)
+
+"->
+
+" from main basic block 5"
+
+->" buf_16 = PHI <0B(3), buf_74(4)>
+buf_17 = xrealloc (buf_16, 1, _15)
+"
+
+->" buf_16 = PHI <0B(3), buf_74(4)>
 lto1: warning: use location
 "
 
@@ -331,20 +498,20 @@ test.c:252:9: warning: use location
 "
 
 
-->"ID : 407106588
+->"ID : 1452755667
 from xrealloc basic block 6"->
 
-" ID : 1948332984 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+" ID : 291129382 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
 In function ‘xrealloc’:
 
 "
 
 
-->"ID : 407106588
+->"ID : 1452755667
 from xrealloc basic block 8"->
 
 
-" ID : 2000430576 stmt(LHS) :_9 = newptr_8
+" ID : 771610861 stmt(LHS) :_9 = newptr_8
 test.c:37:9: warning: use location
 
 "
@@ -564,23 +731,23 @@ lto1: warning: use location
 
 " from main basic block 23"
 
-->subgraph cluster_490736139 { color=lightgrey; style ="dashed";"  free (buf_58)
+->subgraph cluster_143171210 { color=lightgrey; style ="dashed";"  free (buf_58)
 buf_58 = PHI <buf_75(18), buf_75(19), buf_16(20)>
 ";}
 
 
-"ID : 1284866218
+"ID : 1645292085
 from xrealloc basic block 8"->
 
-subgraph cluster_153937896 { color=lightgrey; style ="dashed";"  start ID : 15053512 stmt(relate) ， Tree ID : 1284866218 : _9 = newptr_8
+subgraph cluster_1171851533 { color=lightgrey; style ="dashed";"  start ID : 1888220875 stmt(relate) ， Tree ID : 1645292085 : _9 = newptr_8
 test.c:37:9: warning: use location
 
 ";}
 
-"ID : 407106588
+"ID : 1452755667
 from xrealloc basic block 8"->
 
-subgraph cluster_1402496904 { color=lightgrey; style ="dashed";"  start ID : 2000430576 stmt(relate) ， Tree ID : 407106588 : _9 = newptr_8
+subgraph cluster_107758870 { color=lightgrey; style ="dashed";"  start ID : 771610861 stmt(relate) ， Tree ID : 1452755667 : _9 = newptr_8
 test.c:37:9: warning: use location
 ";}
 
@@ -620,20 +787,20 @@ test.c:255:10: warning: use location
 "
 
 
-->"ID : 1297892127
+->"ID : 1906057087
 from xrealloc basic block 6"->
 
-" ID : 214705805 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+" ID : 242869771 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
 In function ‘xrealloc’:
 
 "
 
 
-->"ID : 1297892127
+->"ID : 1906057087
 from xrealloc basic block 8"->
 
 
-" ID : 1701625838 stmt(LHS) :_9 = newptr_8
+" ID : 1742718883 stmt(LHS) :_9 = newptr_8
 test.c:37:9: warning: use location
 
 "
@@ -1196,6 +1363,35 @@ argv_23 = xrealloc (argv_22, _21, 8)
 
 "
 
+[fontcolor=white;label=" form basic block 5: argv_22 = PHI <0B(3), argv_73(4)>
+lto1: warning: use location
+" ]
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"->
+
+" from main basic block 5"
+
+->" argv_22 = PHI <0B(3), argv_73(4)>
+argv_23 = xrealloc (argv_22, _21, 8)
+"
+
+->" argv_22 = PHI <0B(3), argv_73(4)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
+
+"
+
 [fontcolor=white;label=" form basic block 19: _49 = argv_30 + _48
 test.c:279:5: warning: use location
 
@@ -1400,281 +1596,12 @@ test.c:256:18: warning: use location
 
 "
 
-" from main basic block 27"
-
-->subgraph cluster_710749154 { color=lightgrey; style ="dashed";"  free (argv_59)
-argv_59 = PHI <argv_30(18), argv_30(19), argv_22(20)>
-";}
-
-
-"ID : 1297892127
-from xrealloc basic block 8"->
-
-subgraph cluster_823915082 { color=lightgrey; style ="dashed";"  start ID : 1701625838 stmt(relate) ， Tree ID : 1297892127 : _9 = newptr_8
-test.c:37:9: warning: use location
-
-";}
-
-
-
-
-
-
-
-
 " main
 "->
 
 
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"
-
-[fontcolor=white;label=" form basic block 21: buf_53 = xrealloc (buf_16, 1, _52)
-test.c:289:8: warning: use location
-" ]
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"->
-
-" from main basic block 21"
-
-->" buf_53 = xrealloc (buf_16, 1, _52)
-buf_53 = xrealloc (buf_16, 1, _52)
-"
-
-->" buf_53 = xrealloc (buf_16, 1, _52)
-test.c:289:8: warning: use location
-"
-
-
-->"ID : 602098397
-from xrealloc basic block 6"->
-
-" ID : 1620276531 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
-In function ‘xrealloc’:
-
-"
-
-
-->"ID : 602098397
-from xrealloc basic block 8"->
-
-
-" ID : 1087126150 stmt(LHS) :_9 = newptr_8
-test.c:37:9: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"
-
-[fontcolor=white;label=" form basic block 4: buf_74 = PHI <buf_75(14), buf_53(21)>
-lto1: warning: use location
-" ]
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"->
-
-" from main basic block 4"
-
-->" buf_74 = PHI <buf_75(14), buf_53(21)>
-buf_53 = xrealloc (buf_16, 1, _52)
-"
-
-->" buf_74 = PHI <buf_75(14), buf_53(21)>
-lto1: warning: use location
-"
-
-
-" main
-"->
-
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"
-
-[fontcolor=white;label=" form basic block 21: _56 = buf_53 + len_14
-test.c:290:7: warning: use location
-
-" ]
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"->
-
-" from main basic block 21"
-
-->" _56 = buf_53 + len_14
-buf_53 = xrealloc (buf_16, 1, _52)
-"
-
-->" _56 = buf_53 + len_14
-test.c:290:7: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"
-
-[fontcolor=white;label=" form basic block 21: *_56 = _57
-test.c:290:15: warning: use location
-
-" ]
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"->
-
-" from main basic block 21"
-
-->" *_56 = _57
-buf_53 = xrealloc (buf_16, 1, _52)
-"
-
-->" *_56 = _57
-test.c:290:15: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"
-
-[fontcolor=white;label=" form basic block 21: *_56 = _57
-test.c:290:15: warning: use location
-
-" ]
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"->
-
-" from main basic block 21"
-
-->" *_56 = _57
-buf_53 = xrealloc (buf_16, 1, _52)
-"
-
-->" *_56 = _57
-test.c:290:15: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"
-
-[fontcolor=white;label=" form basic block 13: buf_17 = xrealloc (buf_16, 1, _15)
-test.c:252:9: warning: use location
-
-" ]
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"->
-
-" from main basic block 13"
-
-->" buf_17 = xrealloc (buf_16, 1, _15)
-buf_53 = xrealloc (buf_16, 1, _52)
-"
-
-->" buf_17 = xrealloc (buf_16, 1, _15)
-test.c:252:9: warning: use location
-
-"
-
-
-->"ID : 1911404640
-from xrealloc basic block 6"->
-
-" ID : 550417721 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
-In function ‘xrealloc’:
-
-"
-
-
-->"ID : 1911404640
-from xrealloc basic block 8"->
-
-
-" ID : 812793341 stmt(LHS) :_9 = newptr_8
-test.c:37:9: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"
-
-[fontcolor=white;label=" form basic block 13: *_28 = buf_17
-test.c:256:18: warning: use location
-
-" ]
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
-
-"->
-
-" from main basic block 13"
-
-->" *_28 = buf_17
-buf_53 = xrealloc (buf_16, 1, _52)
-"
-
-->" *_28 = buf_17
-test.c:256:18: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "
 
@@ -1683,15 +1610,15 @@ test.c:253:8: warning: use location
 
 " ]
 
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "->
 
 " from main basic block 13"
 
 ->" _18 = buf_17 + len_14
-buf_53 = xrealloc (buf_16, 1, _52)
+argv_23 = xrealloc (argv_22, _21, 8)
 "
 
 ->" _18 = buf_17 + len_14
@@ -1703,8 +1630,8 @@ test.c:253:8: warning: use location
 "->
 
 
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "
 
@@ -1713,15 +1640,15 @@ test.c:253:14: warning: use location
 
 " ]
 
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
+" # .MEM_118 = VDEF <.MEM_117>
+argv_23 = xrealloc (argv_22, _21, 8)
 
 "->
 
 " from main basic block 13"
 
 ->" *_18 = 0
-buf_53 = xrealloc (buf_16, 1, _52)
+argv_23 = xrealloc (argv_22, _21, 8)
 "
 
 ->" *_18 = 0
@@ -1729,31 +1656,729 @@ test.c:253:14: warning: use location
 
 "
 
+" from main basic block 27"
+
+->subgraph cluster_224522510 { color=lightgrey; style ="dashed";"  free (argv_59)
+argv_59 = PHI <argv_30(18), argv_30(19), argv_22(20)>
+";}
+
+
+"ID : 1906057087
+from xrealloc basic block 8"->
+
+subgraph cluster_1268236620 { color=lightgrey; style ="dashed";"  start ID : 1742718883 stmt(relate) ， Tree ID : 1906057087 : _9 = newptr_8
+test.c:37:9: warning: use location
+
+";}
+
+
+
+
+
+
+
+
 " main
 "->
 
 
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
+" # VUSE <.MEM_103>
+equals_32 = strchr (_31, 61)
 
 "
 
-[fontcolor=white;label=" form basic block 22: buf_58 = PHI <buf_75(18), buf_75(19), buf_16(20)>
+[fontcolor=white;label=" form basic block 15: equals_32 = strchr (_31, 61)
+test.c:268:12: warning: use location
+" ]
+
+" # VUSE <.MEM_103>
+equals_32 = strchr (_31, 61)
+
+"->
+
+" from main basic block 15"
+
+->" equals_32 = strchr (_31, 61)
+equals_32 = strchr (_31, 61)
+"
+
+->" equals_32 = strchr (_31, 61)
+test.c:268:12: warning: use location
+"
+
+
+" main
+"->
+
+
+" # VUSE <.MEM_103>
+equals_32 = strchr (_31, 61)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _38 = equals_32 > whitespace_36
+test.c:270:34: warning: use location
+
+" ]
+
+" # VUSE <.MEM_103>
+equals_32 = strchr (_31, 61)
+
+"->
+
+" from main basic block 15"
+
+->" _38 = equals_32 > whitespace_36
+equals_32 = strchr (_31, 61)
+"
+
+->" _38 = equals_32 > whitespace_36
+test.c:270:34: warning: use location
+
+"
+
+" main
+"->
+
+
+" # VUSE <.MEM_103>
+equals_32 = strchr (_31, 61)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _39 = _37 | _38
+test.c:270:24: warning: use location
+
+" ]
+
+" # VUSE <.MEM_103>
+equals_32 = strchr (_31, 61)
+
+"->
+
+" from main basic block 15"
+
+->" _39 = _37 | _38
+equals_32 = strchr (_31, 61)
+"
+
+->" _39 = _37 | _38
+test.c:270:24: warning: use location
+
+"
+
+" main
+"->
+
+
+" # VUSE <.MEM_103>
+equals_32 = strchr (_31, 61)
+
+"
+
+[fontcolor=white;label=" form basic block 15: if (_39 != 0)
+test.c:270:8: warning: use location
+
+" ]
+
+" # VUSE <.MEM_103>
+equals_32 = strchr (_31, 61)
+
+"->
+
+" from main basic block 15"
+
+->" if (_39 != 0)
+equals_32 = strchr (_31, 61)
+"
+
+->" if (_39 != 0)
+test.c:270:8: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # VUSE <.MEM_103>
+equals_32 = strchr (_31, 61)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _37 = equals_32 == 0B
+test.c:270:16: warning: use location
+
+" ]
+
+" # VUSE <.MEM_103>
+equals_32 = strchr (_31, 61)
+
+"->
+
+" from main basic block 15"
+
+->" _37 = equals_32 == 0B
+equals_32 = strchr (_31, 61)
+"
+
+->" _37 = equals_32 == 0B
+test.c:270:16: warning: use location
+
+"
+
+" from main basic block 15"
+
+->subgraph cluster_208346571 { color=lightgrey; style ="dashed";"  equals_32 = strchr (_31, 61)
+_31 = *argv_30
+";}
+
+" from main basic block 15"
+
+->subgraph cluster_1300476069 { color=lightgrey; style ="dashed";"  _38 = equals_32 > whitespace_36
+equals_32 = strchr (_31, 61)
+";}
+
+" from main basic block 15"
+
+->subgraph cluster_704168955 { color=lightgrey; style ="dashed";"  _39 = _37 | _38
+_38 = equals_32 > whitespace_36
+";}
+
+" from main basic block 15"
+
+->subgraph cluster_1610441202 { color=lightgrey; style ="dashed";"  if (_39 != 0)
+_39 = _37 | _38
+";}
+
+" from main basic block 15"
+
+->subgraph cluster_1545088317 { color=lightgrey; style ="dashed";"  _37 = equals_32 == 0B
+equals_32 = strchr (_31, 61)
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # VUSE <.MEM_103>
+_35 = strcspn (_34,  	)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _35 = strcspn (_34,  	)
+test.c:269:28: warning: use location
+" ]
+
+" # VUSE <.MEM_103>
+_35 = strcspn (_34,  	)
+
+"->
+
+" from main basic block 15"
+
+->" _35 = strcspn (_34,  	)
+_35 = strcspn (_34,  	)
+"
+
+->" _35 = strcspn (_34,  	)
+test.c:269:28: warning: use location
+"
+
+
+" main
+"->
+
+
+" # VUSE <.MEM_103>
+_35 = strcspn (_34,  	)
+
+"
+
+[fontcolor=white;label=" form basic block 15: whitespace_36 = _33 + _35
+test.c:269:16: warning: use location
+
+" ]
+
+" # VUSE <.MEM_103>
+_35 = strcspn (_34,  	)
+
+"->
+
+" from main basic block 15"
+
+->" whitespace_36 = _33 + _35
+_35 = strcspn (_34,  	)
+"
+
+->" whitespace_36 = _33 + _35
+test.c:269:16: warning: use location
+
+"
+
+" main
+"->
+
+
+" # VUSE <.MEM_103>
+_35 = strcspn (_34,  	)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _38 = equals_32 > whitespace_36
+test.c:270:34: warning: use location
+
+" ]
+
+" # VUSE <.MEM_103>
+_35 = strcspn (_34,  	)
+
+"->
+
+" from main basic block 15"
+
+->" _38 = equals_32 > whitespace_36
+_35 = strcspn (_34,  	)
+"
+
+->" _38 = equals_32 > whitespace_36
+test.c:270:34: warning: use location
+
+"
+
+" main
+"->
+
+
+" # VUSE <.MEM_103>
+_35 = strcspn (_34,  	)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _39 = _37 | _38
+test.c:270:24: warning: use location
+
+" ]
+
+" # VUSE <.MEM_103>
+_35 = strcspn (_34,  	)
+
+"->
+
+" from main basic block 15"
+
+->" _39 = _37 | _38
+_35 = strcspn (_34,  	)
+"
+
+->" _39 = _37 | _38
+test.c:270:24: warning: use location
+
+"
+
+" main
+"->
+
+
+" # VUSE <.MEM_103>
+_35 = strcspn (_34,  	)
+
+"
+
+[fontcolor=white;label=" form basic block 15: if (_39 != 0)
+test.c:270:8: warning: use location
+
+" ]
+
+" # VUSE <.MEM_103>
+_35 = strcspn (_34,  	)
+
+"->
+
+" from main basic block 15"
+
+->" if (_39 != 0)
+_35 = strcspn (_34,  	)
+"
+
+->" if (_39 != 0)
+test.c:270:8: warning: use location
+
+"
+
+
+" from main basic block 15"
+
+->subgraph cluster_1357283586 { color=lightgrey; style ="dashed";"  _35 = strcspn (_34,  	)
+_34 = *argv_30
+";}
+
+" from main basic block 15"
+
+->subgraph cluster_359281603 { color=lightgrey; style ="dashed";"  whitespace_36 = _33 + _35
+_35 = strcspn (_34,  	)
+";}
+
+" from main basic block 15"
+
+->subgraph cluster_335245125 { color=lightgrey; style ="dashed";"  _38 = equals_32 > whitespace_36
+whitespace_36 = _33 + _35
+";}
+
+" from main basic block 15"
+
+->subgraph cluster_219709854 { color=lightgrey; style ="dashed";"  _39 = _37 | _38
+_38 = equals_32 > whitespace_36
+";}
+
+" from main basic block 15"
+
+->subgraph cluster_241863910 { color=lightgrey; style ="dashed";"  if (_39 != 0)
+_39 = _37 | _38
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 16: memmove (argv_30, _44, _43)
+test.c:273:5: warning: use location
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 16"
+
+->" memmove (argv_30, _44, _43)
+memmove (argv_30, _44, _43)
+"
+
+->" memmove (argv_30, _44, _43)
+test.c:273:5: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _34 = *argv_30
+test.c:269:28: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 15"
+
+->" _34 = *argv_30
+memmove (argv_30, _44, _43)
+"
+
+->" _34 = *argv_30
+test.c:269:28: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _35 = strcspn (_34,  	)
+test.c:269:28: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 15"
+
+->" _35 = strcspn (_34,  	)
+memmove (argv_30, _44, _43)
+"
+
+->" _35 = strcspn (_34,  	)
+test.c:269:28: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 15: whitespace_36 = _33 + _35
+test.c:269:16: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 15"
+
+->" whitespace_36 = _33 + _35
+memmove (argv_30, _44, _43)
+"
+
+->" whitespace_36 = _33 + _35
+test.c:269:16: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _38 = equals_32 > whitespace_36
+test.c:270:34: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 15"
+
+->" _38 = equals_32 > whitespace_36
+memmove (argv_30, _44, _43)
+"
+
+->" _38 = equals_32 > whitespace_36
+test.c:270:34: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _39 = _37 | _38
+test.c:270:24: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 15"
+
+->" _39 = _37 | _38
+memmove (argv_30, _44, _43)
+"
+
+->" _39 = _37 | _38
+test.c:270:24: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 15: if (_39 != 0)
+test.c:270:8: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 15"
+
+->" if (_39 != 0)
+memmove (argv_30, _44, _43)
+"
+
+->" if (_39 != 0)
+test.c:270:8: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _33 = *argv_30
+test.c:269:22: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 15"
+
+->" _33 = *argv_30
+memmove (argv_30, _44, _43)
+"
+
+->" _33 = *argv_30
+test.c:269:22: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 15: _31 = *argv_30
+test.c:268:14: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 15"
+
+->" _31 = *argv_30
+memmove (argv_30, _44, _43)
+"
+
+->" _31 = *argv_30
+test.c:268:14: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 15: equals_32 = strchr (_31, 61)
+test.c:268:12: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 15"
+
+->" equals_32 = strchr (_31, 61)
+memmove (argv_30, _44, _43)
+"
+
+->" equals_32 = strchr (_31, 61)
+test.c:268:12: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 22: argv_59 = PHI <argv_30(18), argv_30(19), argv_22(20)>
 lto1: warning: use location
 " ]
 
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
 
 "->
 
 " from main basic block 22"
 
-->" buf_58 = PHI <buf_75(18), buf_75(19), buf_16(20)>
-buf_53 = xrealloc (buf_16, 1, _52)
+->" argv_59 = PHI <argv_30(18), argv_30(19), argv_22(20)>
+memmove (argv_30, _44, _43)
 "
 
-->" buf_58 = PHI <buf_75(18), buf_75(19), buf_16(20)>
+->" argv_59 = PHI <argv_30(18), argv_30(19), argv_22(20)>
 lto1: warning: use location
 "
 
@@ -1762,29 +2387,29 @@ lto1: warning: use location
 "->
 
 
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
 
 "
 
-[fontcolor=white;label=" form basic block 23: free (buf_58)
-test.c:301:3: warning: use location
+[fontcolor=white;label=" form basic block 27: free (argv_59)
+test.c:306:3: warning: use location
 
 " ]
 
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
 
 "->
 
-" from main basic block 23"
+" from main basic block 27"
 
-->" free (buf_58)
-buf_53 = xrealloc (buf_16, 1, _52)
+->" free (argv_59)
+memmove (argv_30, _44, _43)
 "
 
-->" free (buf_58)
-test.c:301:3: warning: use location
+->" free (argv_59)
+test.c:306:3: warning: use location
 
 "
 
@@ -1795,29 +2420,122 @@ test.c:301:3: warning: use location
 "->
 
 
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
 
 "
 
-[fontcolor=white;label=" form basic block 22: if (buf_58 != 0B)
-test.c:300:5: warning: use location
+[fontcolor=white;label=" form basic block 25: _63 = argv_59 + _62
+test.c:305:4: warning: use location
 
 " ]
 
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
 
 "->
 
-" from main basic block 22"
+" from main basic block 25"
 
-->" if (buf_58 != 0B)
-buf_53 = xrealloc (buf_16, 1, _52)
+->" _63 = argv_59 + _62
+memmove (argv_30, _44, _43)
 "
 
-->" if (buf_58 != 0B)
-test.c:300:5: warning: use location
+->" _63 = argv_59 + _62
+test.c:305:4: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 25: _64 = *_63
+test.c:305:4: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 25"
+
+->" _64 = *_63
+memmove (argv_30, _44, _43)
+"
+
+->" _64 = *_63
+test.c:305:4: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 25: free (_64)
+test.c:305:4: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 25"
+
+->" free (_64)
+memmove (argv_30, _44, _43)
+"
+
+->" free (_64)
+test.c:305:4: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 24: if (argv_59 != 0B)
+test.c:303:5: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 24"
+
+->" if (argv_59 != 0B)
+memmove (argv_30, _44, _43)
+"
+
+->" if (argv_59 != 0B)
+test.c:303:5: warning: use location
 
 "
 
@@ -1826,49 +2544,423 @@ test.c:300:5: warning: use location
 "->
 
 
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
 
 "
 
-[fontcolor=white;label=" form basic block 14: buf_75 = PHI <buf_16(12), 0B(13)>
+[fontcolor=white;label=" form basic block 4: argv_73 = PHI <argv_30(14), argv_22(21)>
 lto1: warning: use location
 " ]
 
-" # .MEM_122 = VDEF <.MEM_98>
-buf_53 = xrealloc (buf_16, 1, _52)
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 4"
+
+->" argv_73 = PHI <argv_30(14), argv_22(21)>
+memmove (argv_30, _44, _43)
+"
+
+->" argv_73 = PHI <argv_30(14), argv_22(21)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 5: argv_22 = PHI <0B(3), argv_73(4)>
+lto1: warning: use location
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 5"
+
+->" argv_22 = PHI <0B(3), argv_73(4)>
+memmove (argv_30, _44, _43)
+"
+
+->" argv_22 = PHI <0B(3), argv_73(4)>
+lto1: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 13: argv_23 = xrealloc (argv_22, _21, 8)
+test.c:255:10: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 13"
+
+->" argv_23 = xrealloc (argv_22, _21, 8)
+memmove (argv_30, _44, _43)
+"
+
+->" argv_23 = xrealloc (argv_22, _21, 8)
+test.c:255:10: warning: use location
+
+"
+
+
+->"ID : 1496824592
+from xrealloc basic block 6"->
+
+" ID : 136704754 stmt(call) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+In function ‘xrealloc’:
+
+"
+
+
+->"ID : 1496824592
+from xrealloc basic block 8"->
+
+
+" ID : 1894279105 stmt(LHS) :_9 = newptr_8
+test.c:37:9: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 14: argv_30 = PHI <argv_22(12), argv_23(13)>
+lto1: warning: use location
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
 
 "->
 
 " from main basic block 14"
 
-->" buf_75 = PHI <buf_16(12), 0B(13)>
-buf_53 = xrealloc (buf_16, 1, _52)
+->" argv_30 = PHI <argv_22(12), argv_23(13)>
+memmove (argv_30, _44, _43)
 "
 
-->" buf_75 = PHI <buf_16(12), 0B(13)>
+->" argv_30 = PHI <argv_22(12), argv_23(13)>
 lto1: warning: use location
 "
 
 
-" from main basic block 23"
+" main
+"->
 
-->subgraph cluster_986536605 { color=lightgrey; style ="dashed";"  free (buf_58)
-buf_58 = PHI <buf_75(18), buf_75(19), buf_16(20)>
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 13: _28 = argv_23 + _27
+test.c:256:9: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 13"
+
+->" _28 = argv_23 + _27
+memmove (argv_30, _44, _43)
+"
+
+->" _28 = argv_23 + _27
+test.c:256:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 13: *_28 = buf_17
+test.c:256:18: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 13"
+
+->" *_28 = buf_17
+memmove (argv_30, _44, _43)
+"
+
+->" *_28 = buf_17
+test.c:256:18: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 13: *_28 = buf_17
+test.c:256:18: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 13"
+
+->" *_28 = buf_17
+memmove (argv_30, _44, _43)
+"
+
+->" *_28 = buf_17
+test.c:256:18: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 13: _18 = buf_17 + len_14
+test.c:253:8: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 13"
+
+->" _18 = buf_17 + len_14
+memmove (argv_30, _44, _43)
+"
+
+->" _18 = buf_17 + len_14
+test.c:253:8: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 13: *_18 = 0
+test.c:253:14: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 13"
+
+->" *_18 = 0
+memmove (argv_30, _44, _43)
+"
+
+->" *_18 = 0
+test.c:253:14: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 19: _49 = argv_30 + _48
+test.c:279:5: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 19"
+
+->" _49 = argv_30 + _48
+memmove (argv_30, _44, _43)
+"
+
+->" _49 = argv_30 + _48
+test.c:279:5: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 19: _50 = *_49
+test.c:279:5: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 19"
+
+->" _50 = *_49
+memmove (argv_30, _44, _43)
+"
+
+->" _50 = *_49
+test.c:279:5: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 19: free (_50)
+test.c:279:5: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 19"
+
+->" free (_50)
+memmove (argv_30, _44, _43)
+"
+
+->" free (_50)
+test.c:279:5: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"
+
+[fontcolor=white;label=" form basic block 16: _44 = argv_30 + 8
+test.c:273:24: warning: use location
+
+" ]
+
+" # .MEM_120 = VDEF <.MEM_103>
+memmove (argv_30, _44, _43)
+
+"->
+
+" from main basic block 16"
+
+->" _44 = argv_30 + 8
+memmove (argv_30, _44, _43)
+"
+
+->" _44 = argv_30 + 8
+test.c:273:24: warning: use location
+
+"
+
+" from main basic block 27"
+
+->subgraph cluster_651328098 { color=lightgrey; style ="dashed";"  free (argv_59)
+argv_59 = PHI <argv_30(18), argv_30(19), argv_22(20)>
 ";}
 
 
-"ID : 602098397
+"ID : 1496824592
 from xrealloc basic block 8"->
 
-subgraph cluster_2032318109 { color=lightgrey; style ="dashed";"  start ID : 1087126150 stmt(relate) ， Tree ID : 602098397 : _9 = newptr_8
+subgraph cluster_1035418894 { color=lightgrey; style ="dashed";"  start ID : 1894279105 stmt(relate) ， Tree ID : 1496824592 : _9 = newptr_8
 test.c:37:9: warning: use location
 
-";}
-
-"ID : 1911404640
-from xrealloc basic block 8"->
-
-subgraph cluster_1365433666 { color=lightgrey; style ="dashed";"  start ID : 812793341 stmt(relate) ， Tree ID : 1911404640 : _9 = newptr_8
-test.c:37:9: warning: use location
 ";} }

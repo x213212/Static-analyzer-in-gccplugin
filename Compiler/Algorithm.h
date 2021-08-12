@@ -1693,16 +1693,16 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// if( SSA_NAME_CHECK   (table1->target) )
 			// continue;
 			// fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");}
-			// if (TREE_CODE(TREE_TYPE(t2)) == METHOD_TYPE || TREE_CODE(TREE_TYPE(t2)) == FUNCTION_TYPE || TREE_CODE(TREE_TYPE(t2)) == RECORD_TYPE || !(TREE_CODE(t2) == SSA_NAME))
-			// {
-			// 	continue;
-			// }
+			if (TREE_CODE(TREE_TYPE(t2)) == METHOD_TYPE || TREE_CODE(TREE_TYPE(t2)) == FUNCTION_TYPE || TREE_CODE(TREE_TYPE(t2)) == RECORD_TYPE || !(TREE_CODE(t2) == SSA_NAME))
+			{
+				continue;
+			}
+			if (table1->removed || !TREE_CODE(t) == SSA_NAME)
+				continue;
 			if (TREE_CODE(t2) == INTEGER_CST)
 				continue;
 			debug_tree(t2);
 			fprintf(stderr, "qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw%ddqwdqwdqwdqwd\n");
-			// if (table1->removed || !TREE_CODE(t) == SSA_NAME)
-			// 	continue;
 			int colectCount = 0;
 			used_stmt = NULL;
 			gimple_array start;
@@ -1713,11 +1713,22 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 			gimple *def_stmt = SSA_NAME_DEF_STMT(table1->target);
 			levelsize = 0;
-			if (TREE_CODE(table1->target) != ADDR_EXPR)
+			debug_gimple_stmt(def_stmt);
+			if(gimple_code(def_stmt) != GIMPLE_NOP){
+				int pass =0;
+				if (gimple_code (def_stmt) == GIMPLE_CALL)
+				if(TREE_CODE( gimple_call_fn(def_stmt)) != MEM_REF)
+				pass = 1;
+					
+				if (gimple_code (def_stmt) == GIMPLE_ASSIGN)
+				if(TREE_CODE( gimple_assign_rhs1(def_stmt)) != MEM_REF)
+					pass = 1;
+
+			if (TREE_CODE(table1->target) != ADDR_EXPR  &&  pass==1)
 				if (def_stmt)
 				{
-					// debug_tree(gimple_call_fn(def_stmt));
-
+					debug_tree(gimple_call_fndecl(def_stmt));
+					
 					if (gimple_call_fn(def_stmt))
 					{
 						name = get_name(gimple_call_fn(def_stmt));
@@ -1732,6 +1743,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 								Prenew_search_imm_use(used_stmt, table1->target, table1->target);
 							}
 					}
+				}
 				}
 			now_tree = table1->target;
 			new_search_imm_use(used_stmt, table1->target, table1->target);
@@ -2048,10 +2060,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// debug_tree(table_temp->target);
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
 				debug_tree(table_temp->target);
+				if(def_stmt)
 				if (TREE_CODE(table_temp->target) != VAR_DECL)
 				{
+					// debug_gimple_stmt(def_stmt);
 					if (def_stmt)
-						if (gimple_code(def_stmt) == GIMPLE_CALL)
+					if(TREE_CODE(table_temp->target) == FUNCTION_DECL)
+						name = get_name(table_temp->target);
+					else	if (gimple_code(def_stmt) == GIMPLE_CALL)
 						{
 							name = get_name(gimple_call_fndecl(def_stmt));
 							// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
@@ -2059,7 +2075,16 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					// debug_gimple_stmt(def_stmt);
 					fprintf(stderr, "\n ================== trace ptable================== \n");
 					if (def_stmt)
-						if (is_gimple_call(def_stmt))
+						if(TREE_CODE(table_temp->target) == FUNCTION_DECL){
+								const char *name;
+						name = get_name(table_temp->target);
+						fprintf(stderr, "trace fucntion name:%s \n", name);
+								// debug_tree(gimple_call_fndecl(u_stmt));
+								trace_function_path(table_temp->target, -100, table_temp->target, &find_retheapstmt);
+								if (find_retheapstmt > 0)
+									fprintf(stderr, "some fucntion return value is heap-object and with Collection SSA_NAME alias relation\n");
+						}
+						else if (is_gimple_call(def_stmt))
 							if (gimple_call_fn(def_stmt))
 							{
 								const char *name;
