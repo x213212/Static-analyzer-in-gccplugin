@@ -1,3 +1,4 @@
+int gimplestmt_count;
 void printfBasicblock()
 {
 
@@ -39,12 +40,11 @@ void printfBasicblock()
 		FOR_EACH_BB_FN(bb, cfun)
 		{
 			debug_bb(bb);
-			// for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
-			// {
-			// 	gimple *gc = gsi_stmt(gsi);
-			// 	if (gimple_location_safe(gc))
-			// 		warning_at(gimple_location_safe(gc), 0, "use location");
-			// }
+			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
+			{
+				gimple *gc = gsi_stmt(gsi);
+				gimplestmt_count+=1;
+			}
 		
 			fprintf(stderr, "=======is loop:%d=========\n", bb_in_loop_p(bb));
 		}

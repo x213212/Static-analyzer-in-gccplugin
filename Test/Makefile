@@ -9,7 +9,7 @@ NO_OF_FILES := $(words $(FILE_NAME))
 
 LTO=-flto
 WHOLE=-fwhole-program
-FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fno-tree-dce  -fipa-pta  -pthread  --param max-ssa-name-query-depth=10  
+FLAGS=-O1 -fno-tree-dse -fdump-tree-all -fno-tree-fre -fno-tree-dce  -fipa-pta  -pthread  --param max-ssa-name-query-depth=10   
 #FLAGS=-O1   -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -pthread   
 #  -I/root/x21321219/mysql8.0/mysql-8.0.23/extra/icu/source/i18n/../common -I/root/x21321219/mysql8.0/mysql-8.0.23/extra/icu/source/i18n 
 #FLAGS=-O1    -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -fdump-tree-all -pthread -fno-diagnostics-color 

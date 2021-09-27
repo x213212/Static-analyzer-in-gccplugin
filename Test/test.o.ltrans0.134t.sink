@@ -1,0 +1,66 @@
+
+;; Function foo (foo, funcdef_no=0, decl_uid=3986, cgraph_uid=1, symbol_order=51) (executed once)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+__attribute__((noinline))
+foo (int * z)
+{
+  void * _1;
+  long int _2;
+  int _3;
+
+  <bb 2> [100.00%]:
+  _1 = malloc (10);
+  _2 = (long int) _1;
+  _3 = (int) _2;
+  *z_6(D) = _3;
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=52) (executed once)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 5 3 4
+;; 2 succs { 3 5 }
+;; 5 succs { 4 }
+;; 3 succs { 4 }
+;; 4 succs { 1 }
+main ()
+{
+  int test;
+  int * p;
+
+  <bb 2> [100.00%]:
+  foo (p_3(D));
+  if (test_5(D) != 0)
+    goto <bb 3>; [36.64%]
+  else
+    goto <bb 5>; [63.36%]
+
+  <bb 5> [63.36%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [36.64%]:
+  foo (p_3(D));
+  free (p_3(D));
+
+  <bb 4> [100.00%]:
+  free (p_3(D));
+  return 0;
+
+}
+
+

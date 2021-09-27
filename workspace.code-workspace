@@ -100,7 +100,8 @@
 			"*.x": "cpp",
 			"io_context": "c",
 			"internet": "cpp",
-			"binutils.h": "c"
+			"binutils.h": "c",
+			"trace.h": "c"
 		},
 		"git.ignoreLimitWarning": true
 	}, "C_Cpp.intelliSenseCacheSize": 64,

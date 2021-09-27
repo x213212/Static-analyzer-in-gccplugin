@@ -258,6 +258,7 @@ unsigned int FUNCITON_THREAD = 666;
 unsigned int FUNCITON_HEAP = 777;
 unsigned int CREATE_JOINABLE = 0;
 unsigned int CREATE_DETACHED = 1;
+unsigned int DISABLE_TREACE = -100;
 /*dump file */
 FILE *fp;
 ofstream cfginfo("cfginfo.txt");
@@ -265,13 +266,13 @@ ofstream cfginfo("cfginfo.txt");
 /*interprocedural analysis*/
 bool ipa = true;
 bool debugmod = true;
-bool threadmod = true;
+bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;
 bool freemodv2 = false;
-bool retmod = true;
+bool retmod = false; //關聯return stmt
 bool pthread_detachedmod = true;
-bool pthread_exitmod = false;
+bool pthread_exitmod = true;
 bool tracerelatestmt = true;
 
 /*collect  function stack*/

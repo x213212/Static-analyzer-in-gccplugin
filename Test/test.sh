@@ -55,7 +55,7 @@ DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
 SRC="dot graph target line desc "
-DST='['"fontcolor=white;""label="'"'
+DST='['"fontsize = 15 fontcolor=white;""label="'"'
 SRC=$(echo $SRC)
 DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
@@ -156,6 +156,13 @@ SRC=$(echo $SRC)
 DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
+
+SRC="dot graph end relate en2"
+DST='"'
+SRC=$(echo $SRC)
+DST=$(echo $DST)
+sed -i "s/$SRC/$DST/g" ./graph.log
+
 SRC="dot graph relate stmt start "
 DST='"'
 SRC=$(echo $SRC)
@@ -244,8 +251,23 @@ DST=$(echo $DST)
 sed -i "s/$SRC/$DST/g" ./graph.log
 
 
+SRC="dot graph freesubgraph"
+DST=" { color=lightgrey; style ="'"'"dashed"'"'";"'"'
+SRC=$(echo $SRC)
+DST=$(echo $DST)
+sed -i "s/$SRC/$DST/g" ./graph.log
+
+
+
+SRC="dot graph freesubgraphend"
+DST='"'";}"
+SRC=$(echo $SRC)
+DST=$(echo $DST)
+sed -i "s/$SRC/$DST/g" ./graph.log
+
+
 value=`cat graph.log`
-echo "digraph {   graph [bgcolor=black];node [fillcolor=darkgrey style=filled]; edge [color=antiquewhite4]; constraint=false ;rankdir = LR; rank=same; nodesep=1.0;" "$value" "}" >> graph.dot
+echo "digraph {   graph [bgcolor=black];node [fillcolor=black color=lightgray     fontsize = 15 fontcolor=white  style="'"'"filled"','"dashed"'"'"]; edge [color=lightgray]; constraint=false ;rankdir = LR; rank=same; nodesep=1.0;" "$value" "}" >> graph.dot
 dot -Tsvg -o graph.svg  graph.dot 
 gvpr -f graphinfo.gvpr graph.dot 
 echo "Username: $user";

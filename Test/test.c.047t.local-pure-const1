@@ -1,0 +1,67 @@
+
+;; Function foo (foo, funcdef_no=51, decl_uid=4307, cgraph_uid=51, symbol_order=51)
+
+
+
+ local analysis of foo
+   scanning: _1 = malloc (10);
+  scanning: _2 = (long int) _1;
+  scanning: _3 = (int) _2;
+  scanning: *z_6(D) = _3;
+    Indirect ref write is not const/pure
+  scanning: return;
+Function is locally looping.
+__attribute__((noinline))
+foo (int * z)
+{
+  void * _1;
+  long int _2;
+  int _3;
+
+  <bb 2> [100.00%]:
+  _1 = malloc (10);
+  _2 = (long int) _1;
+  _3 = (int) _2;
+  *z_6(D) = _3;
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=52, decl_uid=4313, cgraph_uid=52, symbol_order=52) (executed once)
+
+
+
+ local analysis of main
+   scanning: foo (p_3(D));
+  scanning: if (test_5(D) != 0)
+  scanning: foo (p_3(D));
+  scanning: free (p_3(D));
+  scanning: free (p_3(D));
+  scanning: return 0;
+Function is locally looping.
+Function can locally free.
+main ()
+{
+  int test;
+  int * p;
+
+  <bb 2> [100.00%]:
+  foo (p_3(D));
+  if (test_5(D) != 0)
+    goto <bb 3>; [36.64%]
+  else
+    goto <bb 4>; [63.36%]
+
+  <bb 3> [36.64%]:
+  foo (p_3(D));
+  free (p_3(D));
+
+  <bb 4> [100.00%]:
+  free (p_3(D));
+  return 0;
+
+}
+
+

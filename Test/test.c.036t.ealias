@@ -1,0 +1,148 @@
+
+;; Function foo (foo, funcdef_no=51, decl_uid=4307, cgraph_uid=51, symbol_order=51)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+z = &NONLOCAL
+ESCAPED = &NONLOCAL
+_1 = &HEAP(11)
+_2 = _1
+_3 = _2
+*z = _3
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL HEAP(11) }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+z = { NONLOCAL }
+malloc = { }
+_1 = { HEAP(11) }
+HEAP(11) = { ESCAPED NONLOCAL }
+_2 = { HEAP(11) } same as _1
+_3 = { HEAP(11) } same as _1
+
+
+Alias information for foo
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.4325 } (escaped, escaped heap)
+
+Flow-insensitive points-to information
+
+_1, points-to NULL, points-to vars: { D.4325 } (escaped, escaped heap)
+z_6(D), points-to non-local, points-to NULL, points-to vars: { }
+
+__attribute__((noinline))
+foo (int * z)
+{
+  void * _1;
+  long int _2;
+  int _3;
+
+  <bb 2> [0.00%]:
+  _1 = malloc (10);
+  _2 = (long int) _1;
+  _3 = (int) _2;
+  *z_6(D) = _3;
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=52, decl_uid=4313, cgraph_uid=52, symbol_order=52)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+ESCAPED = p_3
+ESCAPED = p_3
+ESCAPED = &NULL
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+foo = { }
+p_3 = { }
+
+
+Alias information for main
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to NULL, points-to vars: { }
+
+Flow-insensitive points-to information
+
+p_3(D), points-to NULL, points-to vars: { }
+
+main ()
+{
+  int test;
+  int * p;
+
+  <bb 2> [0.00%]:
+  foo (p_3(D));
+  if (test_5(D) != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  foo (p_3(D));
+  free (p_3(D));
+
+  <bb 4> [0.00%]:
+  free (p_3(D));
+  return 0;
+
+}
+
+

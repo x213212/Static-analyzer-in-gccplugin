@@ -1,0 +1,45 @@
+
+;; Function foo (foo, funcdef_no=51, decl_uid=4307, cgraph_uid=51, symbol_order=51)
+
+__attribute__((noinline))
+foo (int * z)
+{
+  <bb 2> [0.00%]:
+  _1 = malloc (10);
+  _2 = (long int) _1;
+  _3 = (int) _2;
+  *z = _3;
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=52, decl_uid=4313, cgraph_uid=52, symbol_order=52)
+
+main ()
+{
+  int test;
+  int * p2;
+  int * p;
+  int D.4321;
+
+  <bb 2> [0.00%]:
+  foo (p);
+  if (test != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  foo (p);
+  free (p);
+
+  <bb 4> [0.00%]:
+  free (p);
+  D.4321 = 0;
+  return D.4321;
+
+}
+
+

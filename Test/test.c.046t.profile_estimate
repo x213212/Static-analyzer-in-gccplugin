@@ -1,0 +1,76 @@
+
+;; Function foo (foo, funcdef_no=51, decl_uid=4307, cgraph_uid=51, symbol_order=51)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+Predictions for bb 2
+1 edges in bb 2 predicted to even probabilities
+__attribute__((noinline))
+foo (int * z)
+{
+  void * _1;
+  long int _2;
+  int _3;
+
+  <bb 2> [100.00%]:
+  _1 = malloc (10);
+  _2 = (long int) _1;
+  _3 = (int) _2;
+  *z_6(D) = _3;
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=52, decl_uid=4313, cgraph_uid=52, symbol_order=52)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4
+;; 2 succs { 3 4 }
+;; 3 succs { 4 }
+;; 4 succs { 1 }
+Predictions for bb 2
+  DS theory heuristics: 36.6%
+  combined heuristics: 36.6%
+  early return (on trees) heuristics of edge 2->4: 46.0%
+  call heuristics of edge 2->3: 33.0%
+Predictions for bb 3
+1 edges in bb 3 predicted to even probabilities
+Predictions for bb 4
+1 edges in bb 4 predicted to even probabilities
+main ()
+{
+  int test;
+  int * p;
+
+  <bb 2> [100.00%]:
+  foo (p_3(D));
+  if (test_5(D) != 0)
+    goto <bb 3>; [36.64%]
+  else
+    goto <bb 4>; [63.36%]
+
+  <bb 3> [36.64%]:
+  foo (p_3(D));
+  free (p_3(D));
+
+  <bb 4> [100.00%]:
+  free (p_3(D));
+  return 0;
+
+}
+
+
+
+;; Combiner totals: 0 attempts, 0 substitutions (0 requiring new space),
+;; 0 successes.

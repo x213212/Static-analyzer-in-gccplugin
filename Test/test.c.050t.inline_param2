@@ -1,0 +1,87 @@
+
+;; Function foo (foo, funcdef_no=51, decl_uid=4307, cgraph_uid=51, symbol_order=51)
+
+
+Analyzing function body size: foo
+
+Inline summary for foo/51
+  self time:       15
+  global time:     0
+  self size:       7
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.500000, time:0.500000, predicate:(true)
+    size:3.500000, time:2.500000, predicate:(not inlined)
+  calls:
+    malloc/53 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+
+__attribute__((noinline))
+foo (int * z)
+{
+  void * _1;
+  long int _2;
+  int _3;
+
+  <bb 2> [100.00%]:
+  _1 = malloc (10);
+  _2 = (long int) _1;
+  _3 = (int) _2;
+  *z_6(D) = _3;
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=52, decl_uid=4313, cgraph_uid=52, symbol_order=52) (executed once)
+
+
+Analyzing function body size: main
+
+Inline summary for main/52 inlinable
+  self time:       34
+  global time:     0
+  self size:       13
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:2.000000, time:2.000000, predicate:(true)
+    size:3.000000, time:2.000000, predicate:(not inlined)
+  calls:
+    free/54 function body not available
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
+    free/54 function body not available
+      loop depth: 0 freq: 366 size: 2 time: 11 callee size: 0 stack: 0
+    foo/51 function not considered for inlining
+      loop depth: 0 freq: 366 size: 2 time: 11 callee size: 3 stack: 0
+    foo/51 function not considered for inlining
+      loop depth: 0 freq:1000 size: 2 time: 11 callee size: 3 stack: 0
+
+main ()
+{
+  int test;
+  int * p;
+
+  <bb 2> [100.00%]:
+  foo (p_3(D));
+  if (test_5(D) != 0)
+    goto <bb 3>; [36.64%]
+  else
+    goto <bb 4>; [63.36%]
+
+  <bb 3> [36.64%]:
+  foo (p_3(D));
+  free (p_3(D));
+
+  <bb 4> [100.00%]:
+  free (p_3(D));
+  return 0;
+
+}
+
+
