@@ -1,0 +1,81 @@
+
+;; Function foo (foo, funcdef_no=51, decl_uid=4307, cgraph_uid=51, symbol_order=51)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+
+Value ranges after Early VRP:
+
+_1: VARYING
+_2: VARYING
+_3: VARYING
+z_6(D): VARYING
+
+
+__attribute__((noinline))
+foo (int * z)
+{
+  void * _1;
+  long int _2;
+  int _3;
+
+  <bb 2> [0.00%]:
+  _1 = malloc (10);
+  _2 = (long int) _1;
+  _3 = (int) _2;
+  *z_6(D) = _3;
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=52, decl_uid=4313, cgraph_uid=52, symbol_order=52)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 5
+;; 2 succs { 3 4 }
+;; 3 succs { 5 }
+;; 4 succs { 5 }
+;; 5 succs { 1 }
+
+Value ranges after Early VRP:
+
+test_2(D): UNDEFINED
+p_4(D): UNDEFINED
+
+
+main ()
+{
+  int test;
+  int * p;
+
+  <bb 2> [0.00%]:
+  if (test_2(D) != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  foo (p_4(D));
+  free (p_4(D));
+  goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  foo (p_4(D));
+
+  <bb 5> [0.00%]:
+  return 0;
+
+}
+
+

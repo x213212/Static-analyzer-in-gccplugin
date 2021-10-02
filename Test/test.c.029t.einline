@@ -25,25 +25,86 @@ foo (int * z)
 Iterations: 0
 main ()
 {
+  int d;
+  int c;
+  int b;
+  int a;
+  int test2;
   int test;
+  int * p5;
+  int * p4;
+  int * p3;
   int * p;
-  int _9;
+  int _21;
 
   <bb 2> [0.00%]:
-  foo (p_3(D));
-  if (test_5(D) != 0)
+  a_2 = 10;
+  b_3 = 22;
+  c_4 = 22;
+  d_5 = 22;
+  if (test_6(D) != 0)
     goto <bb 3>; [0.00%]
   else
-    goto <bb 4>; [0.00%]
+    goto <bb 10>; [0.00%]
 
   <bb 3> [0.00%]:
-  foo (p_3(D));
-  free (p_3(D));
+  if (test_6(D) > test2_7(D))
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
 
   <bb 4> [0.00%]:
-  free (p_3(D));
-  _9 = 0;
-  return _9;
+  foo (p_11(D));
+  if (test_6(D) < test2_7(D))
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  foo (p_11(D));
+  goto <bb 14>; [0.00%]
+
+  <bb 6> [0.00%]:
+  foo (p_11(D));
+  goto <bb 14>; [0.00%]
+
+  <bb 7> [0.00%]:
+  foo (p_11(D));
+  if (test_6(D) < test2_7(D))
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 8> [0.00%]:
+  foo (p3_16(D));
+  goto <bb 14>; [0.00%]
+
+  <bb 9> [0.00%]:
+  foo (p5_14(D));
+  goto <bb 14>; [0.00%]
+
+  <bb 10> [0.00%]:
+  if (test_6(D) == test2_7(D))
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 11> [0.00%]:
+  foo (p_11(D));
+  goto <bb 14>; [0.00%]
+
+  <bb 12> [0.00%]:
+  if (test_6(D) > test2_7(D))
+    goto <bb 13>; [0.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 13> [0.00%]:
+  foo (p4_9(D));
+
+  <bb 14> [0.00%]:
+  _21 = 0;
+  return _21;
 
 }
 

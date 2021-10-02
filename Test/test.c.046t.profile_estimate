@@ -35,37 +35,142 @@ foo (int * z)
 ;; Loop 0
 ;;  header 0, latch 1
 ;;  depth 0, outer -1
-;;  nodes: 0 1 2 3 4
-;; 2 succs { 3 4 }
-;; 3 succs { 4 }
-;; 4 succs { 1 }
+;;  nodes: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14
+;; 2 succs { 3 10 }
+;; 3 succs { 4 7 }
+;; 4 succs { 5 6 }
+;; 5 succs { 14 }
+;; 6 succs { 14 }
+;; 7 succs { 8 9 }
+;; 8 succs { 14 }
+;; 9 succs { 14 }
+;; 10 succs { 11 12 }
+;; 11 succs { 14 }
+;; 12 succs { 13 14 }
+;; 13 succs { 14 }
+;; 14 succs { 1 }
 Predictions for bb 2
+  no prediction heuristics: 50.0%
+  combined heuristics: 50.0%
+Predictions for bb 3
+  call heuristics of edge 3->7 (edge pair duplicate): 33.0%
+  call heuristics of edge 3->4 (edge pair duplicate): 33.0%
+  no prediction heuristics: 50.0%
+  combined heuristics: 50.0%
+Predictions for bb 4
+  early return (on trees) heuristics of edge 4->6 (edge pair duplicate): 46.0%
+  early return (on trees) heuristics of edge 4->5 (edge pair duplicate): 46.0%
+  call heuristics of edge 4->6 (edge pair duplicate): 33.0%
+  call heuristics of edge 4->5 (edge pair duplicate): 33.0%
+  no prediction heuristics: 50.0%
+  combined heuristics: 50.0%
+Predictions for bb 5
+1 edges in bb 5 predicted to even probabilities
+Predictions for bb 6
+1 edges in bb 6 predicted to even probabilities
+Predictions for bb 7
+  early return (on trees) heuristics of edge 7->9 (edge pair duplicate): 46.0%
+  early return (on trees) heuristics of edge 7->8 (edge pair duplicate): 46.0%
+  call heuristics of edge 7->9 (edge pair duplicate): 33.0%
+  call heuristics of edge 7->8 (edge pair duplicate): 33.0%
+  no prediction heuristics: 50.0%
+  combined heuristics: 50.0%
+Predictions for bb 8
+1 edges in bb 8 predicted to even probabilities
+Predictions for bb 9
+1 edges in bb 9 predicted to even probabilities
+Predictions for bb 10
+  DS theory heuristics: 17.8%
+  combined heuristics: 17.8%
+  early return (on trees) heuristics of edge 10->11: 46.0%
+  opcode values nonequal (on trees) heuristics of edge 10->11: 34.0%
+  call heuristics of edge 10->11: 33.0%
+Predictions for bb 11
+1 edges in bb 11 predicted to even probabilities
+Predictions for bb 12
   DS theory heuristics: 36.6%
   combined heuristics: 36.6%
-  early return (on trees) heuristics of edge 2->4: 46.0%
-  call heuristics of edge 2->3: 33.0%
-Predictions for bb 3
-1 edges in bb 3 predicted to even probabilities
-Predictions for bb 4
-1 edges in bb 4 predicted to even probabilities
+  early return (on trees) heuristics of edge 12->14: 46.0%
+  call heuristics of edge 12->13: 33.0%
+Predictions for bb 13
+1 edges in bb 13 predicted to even probabilities
+Predictions for bb 14
+1 edges in bb 14 predicted to even probabilities
 main ()
 {
+  int d;
+  int c;
+  int b;
+  int a;
+  int test2;
   int test;
+  int * p5;
+  int * p4;
+  int * p3;
   int * p;
 
   <bb 2> [100.00%]:
-  foo (p_3(D));
-  if (test_5(D) != 0)
-    goto <bb 3>; [36.64%]
+  if (test_6(D) != 0)
+    goto <bb 3>; [50.00%]
   else
-    goto <bb 4>; [63.36%]
+    goto <bb 10>; [50.00%]
 
-  <bb 3> [36.64%]:
-  foo (p_3(D));
-  free (p_3(D));
+  <bb 3> [50.00%]:
+  if (test_6(D) > test2_7(D))
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
 
-  <bb 4> [100.00%]:
-  free (p_3(D));
+  <bb 4> [25.00%]:
+  foo (p_11(D));
+  if (test_6(D) < test2_7(D))
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [12.50%]:
+  foo (p_11(D));
+  goto <bb 14>; [100.00%]
+
+  <bb 6> [12.50%]:
+  foo (p_11(D));
+  goto <bb 14>; [100.00%]
+
+  <bb 7> [25.00%]:
+  foo (p_11(D));
+  if (test_6(D) < test2_7(D))
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [12.50%]:
+  foo (p3_16(D));
+  goto <bb 14>; [100.00%]
+
+  <bb 9> [12.50%]:
+  foo (p5_14(D));
+  goto <bb 14>; [100.00%]
+
+  <bb 10> [50.00%]:
+  if (test_6(D) == test2_7(D))
+    goto <bb 11>; [17.77%]
+  else
+    goto <bb 12>; [82.23%]
+
+  <bb 11> [8.88%]:
+  foo (p_11(D));
+  goto <bb 14>; [100.00%]
+
+  <bb 12> [41.12%]:
+  if (test_6(D) > test2_7(D))
+    goto <bb 13>; [36.64%]
+  else
+    goto <bb 14>; [63.36%]
+
+  <bb 13> [15.06%]:
+  foo (p4_9(D));
+
+  <bb 14> [100.00%]:
   return 0;
 
 }

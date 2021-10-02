@@ -17,24 +17,68 @@ foo (int * z)
 
 main ()
 {
+  int d;
+  int c;
+  int b;
+  int a;
+  int test5;
+  int test4;
+  int test3;
+  int test2;
   int test;
+  int * p5;
+  int * p4;
+  int * p3;
   int * p2;
   int * p;
-  int D.4321;
+  int D.4347;
 
+  a = 10;
+  b = 22;
+  c = 22;
+  d = 22;
+  if (test != 0) goto <D.4330>; else goto <D.4331>;
+  <D.4330>:
+  if (test > test2) goto <D.4332>; else goto <D.4333>;
+  <D.4332>:
   foo (p);
-  if (test != 0) goto <D.4319>; else goto <D.4320>;
-  <D.4319>:
+  if (test < test2) goto <D.4334>; else goto <D.4335>;
+  <D.4334>:
   foo (p);
-  free (p);
-  <D.4320>:
-  free (p);
-  D.4321 = 0;
-  goto <D.4322>;
-  D.4321 = 0;
-  goto <D.4322>;
-  <D.4322>:
-  return D.4321;
+  goto <D.4336>;
+  <D.4335>:
+  foo (p);
+  <D.4336>:
+  goto <D.4337>;
+  <D.4333>:
+  foo (p);
+  if (test < test2) goto <D.4338>; else goto <D.4339>;
+  <D.4338>:
+  foo (p3);
+  goto <D.4340>;
+  <D.4339>:
+  foo (p5);
+  <D.4340>:
+  <D.4337>:
+  goto <D.4341>;
+  <D.4331>:
+  if (test == test2) goto <D.4342>; else goto <D.4343>;
+  <D.4342>:
+  foo (p);
+  goto <D.4344>;
+  <D.4343>:
+  if (test > test2) goto <D.4345>; else goto <D.4346>;
+  <D.4345>:
+  foo (p4);
+  <D.4346>:
+  <D.4344>:
+  <D.4341>:
+  D.4347 = 0;
+  goto <D.4348>;
+  D.4347 = 0;
+  goto <D.4348>;
+  <D.4348>:
+  return D.4347;
 }
 
 

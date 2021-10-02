@@ -101,7 +101,8 @@
 			"io_context": "c",
 			"internet": "cpp",
 			"binutils.h": "c",
-			"trace.h": "c"
+			"trace.h": "c",
+			"tmux.h": "c"
 		},
 		"git.ignoreLimitWarning": true
 	}, "C_Cpp.intelliSenseCacheSize": 64,

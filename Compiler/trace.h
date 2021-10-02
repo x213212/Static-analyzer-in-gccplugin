@@ -764,6 +764,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 							
 								const char *name;
 								name = get_name(gimple_call_fn(gc));
+								if(gimple_call_lhs(gc) != NULL )
 								if (TREE_CODE(gimple_call_lhs(gc)) == SSA_NAME ||TREE_CODE(gimple_call_arg(gc, 0)) == SSA_NAME || ((!strcmp(get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0))), "addr_expr"))))
 									if (name != NULL)
 									{

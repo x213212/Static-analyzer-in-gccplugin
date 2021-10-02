@@ -33,28 +33,91 @@ foo (int * z)
 ;; Loop 0
 ;;  header 0, latch 1
 ;;  depth 0, outer -1
-;;  nodes: 0 1 2 3 4
-;; 2 succs { 3 4 }
-;; 3 succs { 4 }
-;; 4 succs { 1 }
+;;  nodes: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14
+;; 2 succs { 3 10 }
+;; 3 succs { 4 7 }
+;; 4 succs { 5 6 }
+;; 5 succs { 14 }
+;; 6 succs { 14 }
+;; 7 succs { 8 9 }
+;; 8 succs { 14 }
+;; 9 succs { 14 }
+;; 10 succs { 11 12 }
+;; 11 succs { 14 }
+;; 12 succs { 13 14 }
+;; 13 succs { 14 }
+;; 14 succs { 1 }
 main ()
 {
+  int test2;
   int test;
+  int * p5;
+  int * p4;
+  int * p3;
   int * p;
 
   <bb 2> [100.00%]:
-  foo (p_3(D));
-  if (test_5(D) != 0)
-    goto <bb 3>; [36.64%]
+  if (test_2(D) != 0)
+    goto <bb 3>; [50.00%]
   else
-    goto <bb 4>; [63.36%]
+    goto <bb 10>; [50.00%]
 
-  <bb 3> [36.64%]:
-  foo (p_3(D));
-  free (p_3(D));
+  <bb 3> [50.00%]:
+  if (test_2(D) > test2_3(D))
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
 
-  <bb 4> [100.00%]:
-  free (p_3(D));
+  <bb 4> [25.00%]:
+  foo (p_7(D));
+  if (test_2(D) < test2_3(D))
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [12.50%]:
+  foo (p_7(D));
+  goto <bb 14>; [100.00%]
+
+  <bb 6> [12.50%]:
+  foo (p_7(D));
+  goto <bb 14>; [100.00%]
+
+  <bb 7> [25.00%]:
+  foo (p_7(D));
+  if (test_2(D) < test2_3(D))
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [12.50%]:
+  foo (p3_12(D));
+  goto <bb 14>; [100.00%]
+
+  <bb 9> [12.50%]:
+  foo (p5_10(D));
+  goto <bb 14>; [100.00%]
+
+  <bb 10> [50.00%]:
+  if (test2_3(D) == 0)
+    goto <bb 11>; [17.77%]
+  else
+    goto <bb 12>; [82.23%]
+
+  <bb 11> [8.88%]:
+  foo (p_7(D));
+  goto <bb 14>; [100.00%]
+
+  <bb 12> [41.12%]:
+  if (test2_3(D) < 0)
+    goto <bb 13>; [36.64%]
+  else
+    goto <bb 14>; [63.36%]
+
+  <bb 13> [15.06%]:
+  foo (p4_5(D));
+
+  <bb 14> [100.00%]:
   return 0;
 
 }

@@ -729,18 +729,74 @@
 {
   int * p;
   int * p2;
+  int * p3;
+  int * p4;
+  int * p5;
   int test;
+  int test2;
+  int test3;
+  int test4;
+  int test5;
+  int a = 10;
+  int b = 22;
+  int c = 22;
+  int d = 22;
 
     int * p;
     int * p2;
+    int * p3;
+    int * p4;
+    int * p5;
     int test;
-  foo (p);
+    int test2;
+    int test3;
+    int test4;
+    int test5;
+    int a = 10;
+    int b = 22;
+    int c = 22;
+    int d = 22;
   if (test != 0)
     {
-      foo (p);
-      free ((void *) p);
+      if (test > test2)
+        {
+          foo (p);
+          if (test < test2)
+            {
+              foo (p);
+            }
+          else
+            {
+              foo (p);
+            }
+        }
+      else
+        {
+          foo (p);
+          if (test < test2)
+            {
+              foo (p3);
+            }
+          else
+            {
+              foo (p5);
+            }
+        }
     }
-  free ((void *) p);
+  else
+    {
+      if (test == test2)
+        {
+          foo (p);
+        }
+      else
+        {
+          if (test > test2)
+            {
+              foo (p4);
+            }
+        }
+    }
   return 0;
 }
 return 0;

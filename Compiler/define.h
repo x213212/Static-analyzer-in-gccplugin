@@ -23,7 +23,7 @@ struct ptb
 	gimple *swap_stmt;
 	tree swap_target;
 	int swap_type;
-	int pthread_type=0;
+	int pthread_type = 0;
 	int size = 0;
 };
 
@@ -33,6 +33,26 @@ ptb *ptable, *retable, *ftable;
 ptb *phitable, *return_table, *use_table, *fopen_table;
 ptb *locktable;
 ptb *unlocktable;
+struct symbolicinfoPatharray
+{
+	// gimple *cond_stmt;
+	basic_block bb;
+	int boolt = 1;
+};
+struct symbolicinfo
+{
+	gimple *cond_stmt;
+	tree cond_rhs;
+	tree cond_lhs;
+	basic_block cond_truebranch;
+	basic_block cond_falsebranch;
+	int prevlogic = 1;
+	// tree symbolicExecutionPathConstraintNode;
+	vector<basic_block> symbolicExecutionPathConstraint;
+	vector<symbolicinfoPatharray> symbolicExecutionPathConstraintarray;
+	vector<symbolicinfoPatharray> symbolicExecutionPathConstraintarray2;
+	// hash_map<basic_block, symbolicinfoPatharray> *syminfo;
+};
 
 struct gimple_array
 {
@@ -113,9 +133,9 @@ struct relate_type
 	gimple *laststmt;
 	tree relate_tree;
 	tree relate_funtree;
-	unsigned int now_fucntion=0;
-	unsigned int now_stmt=0;
-	int now_basicblock=0;
+	unsigned int now_fucntion = 0;
+	unsigned int now_stmt = 0;
+	int now_basicblock = 0;
 	// int reutnr_type_num = 0;
 	//int return_type;
 };
@@ -178,13 +198,13 @@ struct function_free_array
 /*define pthread_detched struct*/
 struct function_pthread_detched_array
 {
-	vector< pthread_detched_type> pthread_detched_array;
+	vector<pthread_detched_type> pthread_detched_array;
 };
 
 /*define pthread_detched struct*/
 struct function_pthread_exit_array
 {
-	vector< pthread_exit_type> pthread_exit_array;
+	vector<pthread_exit_type> pthread_exit_array;
 };
 struct function_graph_array
 {
@@ -226,7 +246,6 @@ hash_map<tree, function_relate_array> *function_relate_collect;
 // /*collect fucntion maxbasicblock*/
 // hash_map<tree, int> *function_maxbasicblock_collect;
 
-
 /*record each DFS graph*/
 hash_map<cgraph_node *, Graph> *fDFS;
 
@@ -237,6 +256,9 @@ hash_map<tree, cgraph_node *> *fnode;
 hash_map<tree, var_points_to> *tvpt;
 hash_map<tree, gimple_array> *treeGimpleArray;
 
+/**/
+hash_map<basic_block, symbolicinfo> *syminfo;
+// hash_map<gimple *, tree> *symbolicExecutionPathConstraintNode;
 
 /*state*/
 unsigned int POINTER_NOT_EXIST = 0;
@@ -265,7 +287,7 @@ ofstream cfginfo("cfginfo.txt");
 
 /*interprocedural analysis*/
 bool ipa = true;
-bool debugmod = true;
+bool debugmod = false;
 bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;
@@ -292,6 +314,7 @@ vector<gimple *> new_gimple_array;
 vector<tree> new_gimpletree_array;
 vector<tree> traceStack;
 vector<tree> pathStack;
+vector<basic_block> symbolicExecution;
 
 // CStack pathStack;
 // CStack traceStack;
@@ -300,12 +323,15 @@ CstmtStack stmtStack2;
 //stack<tree> pathStack;  // 建立堆疊
 function *main_fun;
 //int check_stmtStack(gimple *stmt);
-static gimple* now_stmt ;
+static gimple *now_stmt;
 unsigned int SDBMHash(char *str);
+void printf_bbinfo2(basic_block bb, int flag);
+void printf_bbinfo(basic_block bb, int flag);
+void check_bbinfo(basic_block bb);
+void check_bbinfo2(basic_block bb);
 int check_stmtStack(tree target);
 void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_tmp, tree checkTree, int threadcheck);
 void record_fucntion(cgraph_node *node);
-
 
 void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb);
 void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb);
@@ -331,4 +357,3 @@ void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp);
 void print_function_return(tree function_tree);
 void print_function_return2(tree function_tree);
 void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mallocStmt_tree);
-

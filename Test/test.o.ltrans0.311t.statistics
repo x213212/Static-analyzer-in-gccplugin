@@ -1,2 +1,3 @@
 90 pta "Symbol to SSA rewrite" "(nofn)" 2
-266 combine "two-insn combine" "main" 1
+124 dom "Constants propagated" "main" 2
+266 combine "two-insn combine" "main" 7

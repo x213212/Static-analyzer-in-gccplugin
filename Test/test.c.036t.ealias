@@ -49,11 +49,11 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4325 } (escaped, escaped heap)
+ESCAPED, points-to non-local, points-to vars: { D.4351 } (escaped, escaped heap)
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4325 } (escaped, escaped heap)
+_1, points-to NULL, points-to vars: { D.4351 } (escaped, escaped heap)
 z_6(D), points-to non-local, points-to NULL, points-to vars: { }
 
 __attribute__((noinline))
@@ -87,8 +87,14 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-ESCAPED = p_3
-ESCAPED = p_3
+ESCAPED = p_11
+ESCAPED = p_11
+ESCAPED = p_11
+ESCAPED = p_11
+ESCAPED = p3_16
+ESCAPED = p5_14
+ESCAPED = p_11
+ESCAPED = p4_9
 ESCAPED = &NULL
 
 Collapsing static cycles and doing variable substitution
@@ -107,7 +113,10 @@ NONLOCAL = { ESCAPED NONLOCAL }
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
 foo = { }
-p_3 = { }
+p_11 = { }
+p3_16 = { }
+p5_14 = { }
+p4_9 = { }
 
 
 Alias information for main
@@ -121,26 +130,86 @@ ESCAPED, points-to NULL, points-to vars: { }
 
 Flow-insensitive points-to information
 
-p_3(D), points-to NULL, points-to vars: { }
+p4_9(D), points-to NULL, points-to vars: { }
+p_11(D), points-to NULL, points-to vars: { }
+p5_14(D), points-to NULL, points-to vars: { }
+p3_16(D), points-to NULL, points-to vars: { }
 
 main ()
 {
+  int d;
+  int c;
+  int b;
+  int a;
+  int test2;
   int test;
+  int * p5;
+  int * p4;
+  int * p3;
   int * p;
 
   <bb 2> [0.00%]:
-  foo (p_3(D));
-  if (test_5(D) != 0)
+  if (test_6(D) != 0)
     goto <bb 3>; [0.00%]
   else
-    goto <bb 4>; [0.00%]
+    goto <bb 10>; [0.00%]
 
   <bb 3> [0.00%]:
-  foo (p_3(D));
-  free (p_3(D));
+  if (test_6(D) > test2_7(D))
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
 
   <bb 4> [0.00%]:
-  free (p_3(D));
+  foo (p_11(D));
+  if (test_6(D) < test2_7(D))
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  foo (p_11(D));
+  goto <bb 14>; [0.00%]
+
+  <bb 6> [0.00%]:
+  foo (p_11(D));
+  goto <bb 14>; [0.00%]
+
+  <bb 7> [0.00%]:
+  foo (p_11(D));
+  if (test_6(D) < test2_7(D))
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 8> [0.00%]:
+  foo (p3_16(D));
+  goto <bb 14>; [0.00%]
+
+  <bb 9> [0.00%]:
+  foo (p5_14(D));
+  goto <bb 14>; [0.00%]
+
+  <bb 10> [0.00%]:
+  if (test_6(D) == test2_7(D))
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 11> [0.00%]:
+  foo (p_11(D));
+  goto <bb 14>; [0.00%]
+
+  <bb 12> [0.00%]:
+  if (test_6(D) > test2_7(D))
+    goto <bb 13>; [0.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 13> [0.00%]:
+  foo (p4_9(D));
+
+  <bb 14> [0.00%]:
   return 0;
 
 }
