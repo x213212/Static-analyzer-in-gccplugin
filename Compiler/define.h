@@ -327,7 +327,7 @@ static gimple *now_stmt;
 unsigned int SDBMHash(char *str);
 void printf_bbinfo2(basic_block bb, int flag);
 void printf_bbinfo(basic_block bb, int flag);
-void check_bbinfo(basic_block bb);
+void set_bbinfo(basic_block bb);
 void check_bbinfo2(basic_block bb);
 int check_stmtStack(tree target);
 void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_tmp, tree checkTree, int threadcheck);

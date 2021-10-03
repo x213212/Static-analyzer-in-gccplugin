@@ -3378,6 +3378,7 @@ void printf_bbinfo2(basic_block bb, int flag)
 				fprintf(stderr, "succs:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraintarray[o].bb->index);
 				// // debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
 				debug_gimple_stmt(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraintarray[o].bb)->cond_stmt);
+				warning_at(gimple_location_safe(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraintarray[o].bb)->cond_stmt), 0, "use location");
 				// //syminfo->get(syminfo->get(bb)->symbolicExecutionPathConstraint[o])->prevlogic
 				fprintf(stderr, "	relate logic:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraintarray[o].boolt);
 			}
@@ -3389,6 +3390,7 @@ void printf_bbinfo2(basic_block bb, int flag)
 				// fprintf(stderr, "succs:=	 %d\n",symbolicinfotmp->symbolicExecutionPathConstraint[o]->index);
 				// // debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
 				debug_gimple_stmt(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraintarray2[o].bb)->cond_stmt);
+				warning_at(gimple_location_safe(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraintarray[o].bb)->cond_stmt), 0, "use location");
 				// //syminfo->get(syminfo->get(bb)->symbolicExecutionPathConstraint[o])->prevlogic
 				fprintf(stderr, "	relate logic:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraintarray2[o].boolt);
 			}
@@ -3414,7 +3416,8 @@ void printf_bbinfo(basic_block bb, int flag)
 		fprintf(stderr, "path constaint-----------\n");
 		fprintf(stderr, "succs:= %d\n", bb->index);
 
-		debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
+		// debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
+		// warning_at(gimple_location_safe(syminfo->get(bb)->cond_stmt), 0, "use location");
 		fprintf(stderr, " relate logic:= %d\n", flag);
 		struct symbolicinfoPatharray test;
 		test.bb = bb;
@@ -3425,7 +3428,10 @@ void printf_bbinfo(basic_block bb, int flag)
 			for (int o = 0; o < symbolicinfotmp->symbolicExecutionPathConstraintarray.size(); o++)
 			{
 				if (symbolicinfotmp->symbolicExecutionPathConstraintarray[o].bb == bb)
+				{
 					find = 1;
+					break;
+				}
 			}
 		}
 		else
@@ -3433,12 +3439,15 @@ void printf_bbinfo(basic_block bb, int flag)
 			for (int o = 0; o < symbolicinfotmp->symbolicExecutionPathConstraintarray2.size(); o++)
 			{
 				if (symbolicinfotmp->symbolicExecutionPathConstraintarray2[o].bb == bb)
+				{
 					find = 1;
+					break;
+				}
 			}
 		}
 		if (find == 0)
 		{
-			fprintf(stderr, "3index %d\n", test.boolt);
+			// fprintf(stderr, "3index %d\n", test.boolt);
 			if (flag == 1)
 			{
 				// fprintf(stderr,"index %d\n",symbolicinfotmp->symbolicExecutionPathConstraintarray.size());
@@ -3451,7 +3460,7 @@ void printf_bbinfo(basic_block bb, int flag)
 		if (syminfo->get(bb) != NULL)
 		{
 			// struct symbolicinfo *symbolicinfo3 = syminfo->get(bb);
-			for (int o = 0; o <symbolicinfotmp->symbolicExecutionPathConstraint.size(); o++)
+			for (int o = 0; o < symbolicinfotmp->symbolicExecutionPathConstraint.size(); o++)
 			{
 
 				fprintf(stderr, "-----------\n");
@@ -3474,6 +3483,7 @@ void printf_bbinfo(basic_block bb, int flag)
 							// fprintf(stderr, "qweeeeeeeeee\n");
 							// symbolicinfotmp->symbolicExecutionPathConstraintarray[i].boolt = syminfo->get(syminfo->get(bb)->symbolicExecutionPathConstraint[o])->prevlogic;
 							find = 1;
+							break;
 						}
 					}
 				}
@@ -3487,6 +3497,7 @@ void printf_bbinfo(basic_block bb, int flag)
 							// fprintf(stderr, "qweeeeeeeeee\n");
 							// symbolicinfotmp->symbolicExecutionPathConstraintarray2[i].boolt = syminfo->get(syminfo->get(bb)->symbolicExecutionPathConstraint[o])->prevlogic;
 							find = 1;
+							continue;
 						}
 					}
 				}
@@ -3509,7 +3520,7 @@ void printf_bbinfo(basic_block bb, int flag)
 		}
 	}
 }
-void check_bbinfo(basic_block bb)
+void set_bbinfo(basic_block bb)
 {
 	// fprintf(stderr, "path constaint-----------\n");
 	// fprintf(stderr, "succs:= %d\n", bb->index);
@@ -3802,21 +3813,6 @@ void detect()
 						// if (gimple_cond_lhs(use_stmt))
 						debug_gimple_stmt(gc);
 						fprintf(stderr, "--------GIMPLE Cond -------\n");
-						// if (gimple_cond_lhs(gc))
-						// {
-						// 	debug_tree(gimple_cond_lhs(gc));
-						// }
-						// if (gimple_cond_rhs(gc))
-						// {
-						// 	debug_tree(gimple_cond_rhs(gc));
-						// }
-						// while (traceStack.size())
-						// {
-						// 	// fprintf(stderr, "check stmt\n");
-						// 	// debug(stmtStack.top());
-						// 	traceStack.pop_back();
-						// }
-						// pathStack.push_back(cfun->decl);
 
 						symbolicExecution.push_back(bb);
 						symbolicinfo symbolicinfo;
@@ -3913,71 +3909,11 @@ void detect()
 								}
 							}
 						}
-
-						// for (it_i = symbolicExecution.begin(); it_i != symbolicExecution.end(); ++it_i)
-						// {
-						// 	if (syminfo->get(it_i) != NULL)
-						// 	{
-						// symbolicinfo symbolicinfo2 = syminfo->get(it_i);
-						// if (symbolicinfo2.cond_truebranch == symbolicinfo.cond_truebranch)
-						// {
-						// 	symbolicinfo.prevlogic = 1;
-						// 	// symbolicinfo.symbolicExecutionPathConstraint.push_back(it_i);
-						// 	find=1;
-						// }
-						// if (symbolicinfo2.cond_falsebranch == symbolicinfo.cond_falsebranch)
-						// {
-						// 	symbolicinfo.prevlogic = 0;
-						// 	// struct free_type free_type;
-						// 	// symbolicinfo.symbolicExecutionPathConstraint.push_back(it_i);
-						// 	find=1;
-						// }
-						// }
-
-						// if (it_i->next == callee->decl)
-						// 	find = 1;
-						// }
-						// if(find == 0)
-
 						syminfo->put(bb, symbolicinfo);
-						//printf_bbinfo(bb);
-						check_bbinfo(bb);
-						// gcond *cond_stmt = as_a<gcond *>((gc));
-						// tree false_lab = gimple_cond_false_label(cond_stmt);
-						// location_t if_loc = gimple_location(cond_stmt);
-						// debug_tree(false_lab);
-						// warning_at(gimple_location_safe(cond_stmt), 0, "use location");
-						// if (gimple_cond_lhs(gc))
-						// {
-						// 	debug_tree(gimple_cond_lhs(gc));
-						// 	// const gcond *gc2 = GIMPLE_CHECK2<const gcond *> (gc);
-						// 	if (gimple_cond_code(gc) == GIMPLE_COND)
-						// 	{
-						// 		// gcond *gs=gc->op[2];
-						// 		gcond *gcc = as_a<gcond *>(gc);
-						// 		debug_tree(gimple_cond_false_label(gcc));
-						// 		fprintf(stderr, "--------GIMPLE Cond 2-------\n");
-						// 	}
-						// gcond *gcc = as_a<gcond *>(gc);
-						// 	// gcond *entry = as_a<gcond *>((gc));
-						// 	// debug_gimple_stmt(entry);
-						// 	// debug_tree(gimple_cond_true_p(gcc));
-						// 	// gimple_cond_true_p(gcc);
-						// 	// debug_tree (gimple_cond_true_p (gc));
-						// 	// debug_gimple_stmt (gimple_goto_dest (gc));
-						// fprintf(stderr, "--------GIMPLE Cond 2------%d-\n", (int)gimple_cond_true_p(gcc));
-						// 	debug_tree(gimple_goto_dest(gcc));
-						// 	// debug_tree(gimple_cond_false_label(gcc));
-						// 	// fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(gcc))), gimple_bb(gcc)->index);
-						// 	debug_tree(gimple_cond_true_label(gcc));
-						// 	// gcond *entry = as_a <gcond *> ( (gc));
-						// 	// debug_gimple_stmt(entry);
-						// 	// if(gimple_cond_true_label(gcc))
-						// 	// fprintf(stderr, "--------GIMPLE Cond 3-------\n");
-						// 	// debug_tree(gimple_cond_true_p (gc2));
-						// }
 					}
 				}
+				// set_basic_block info
+				set_bbinfo(gimple_bb(gc));
 				if (is_gimple_call(gc))
 				{
 					// fprintf(stderr, "--------------------wwwwwwwwwwwwSSSSSSSSSSSSSSSSSwwwwwwwwwwwwwwwww------------------\n");
@@ -4019,13 +3955,13 @@ void detect()
 					//function_return_collect->put(cfun->decl,*get_function_return);
 					//get_function_return->return_type_array->stmt=gc;
 				}
-				fprintf(stderr, "hwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwas\n");
-				debug_gimple_stmt(gc);
-				check_bbinfo(gimple_bb(gc));
+				// fprintf(stderr, "hwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwas\n");
+				// debug_gimple_stmt(gc);
+
 				// fprintf(stderr, "kkkkwwwwwwwwwwwwwwwwwwwwwwwwwwwwas\n");
 				// check_bbinfo2(gimple_bb(gc));
-				fprintf(stderr, "bb index %d\n", gimple_bb(gc)->index);
-				fprintf(stderr, "hwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwas\n");
+				// fprintf(stderr, "bb index %d\n", gimple_bb(gc)->index);
+				// fprintf(stderr, "hwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwas\n");
 				// if (gimple_code(gc) == GIMPLE_GOTO)
 				// {
 				// 		fprintf(stderr,"hwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwas\n");

@@ -1,128 +1,4829 @@
 
-;; Function foo (foo, funcdef_no=0, decl_uid=3986, cgraph_uid=1, symbol_order=51) (executed once)
+;; Function winlink_stack_remove (winlink_stack_remove, funcdef_no=11, decl_uid=4468, cgraph_uid=30, symbol_order=77)
 
-;; 1 loops found
+;; 2 loops found
 ;;
 ;; Loop 0
 ;;  header 0, latch 1
 ;;  depth 0, outer -1
-;;  nodes: 0 1 2
-;; 2 succs { 1 }
-__attribute__((noinline))
-foo (int * z)
+;;  nodes: 0 1 2 14 3 15 4 5 17 13 16 6 7 8 9 12 10 18 11
+;;
+;; Loop 1
+;;  header 10, latch 13
+;;  depth 1, outer 0
+;;  nodes: 10 13 5
+;; 2 succs { 14 3 }
+;; 14 succs { 11 }
+;; 3 succs { 4 15 }
+;; 15 succs { 11 }
+;; 4 succs { 16 12 }
+;; 5 succs { 17 13 }
+;; 17 succs { 6 }
+;; 13 succs { 10 }
+;; 16 succs { 6 }
+;; 6 succs { 7 8 }
+;; 7 succs { 9 }
+;; 8 succs { 9 }
+;; 9 succs { 11 }
+;; 12 succs { 10 }
+;; 10 succs { 5 18 }
+;; 18 succs { 11 }
+;; 11 succs { 1 }
+winlink_stack_remove (struct winlink_stack * stack, struct winlink * wl)
 {
-  void * _1;
-  long int _2;
-  int _3;
+  struct winlink * wl2;
+  struct winlink * _1;
+  struct winlink * * _3;
+  struct winlink * * _4;
+  struct winlink * * _5;
+  struct winlink * _6;
 
-  <bb 2> [100.00%]:
-  _1 = malloc (10);
-  _2 = (long int) _1;
-  _3 = (int) _2;
-  *z_6(D) = _3;
+  <bb 2> [19.71%]:
+  if (wl_10(D) == 0B)
+    goto <bb 14>; [26.74%]
+  else
+    goto <bb 3>; [73.26%]
+
+  <bb 14> [5.27%]:
+  goto <bb 11>; [100.00%]
+
+  <bb 3> [14.44%]:
+  wl2_13 = stack_12(D)->tqh_first;
+  if (wl2_13 != 0B)
+    goto <bb 4>; [92.50%]
+  else
+    goto <bb 15>; [7.50%]
+
+  <bb 15> [1.08%]:
+  goto <bb 11>; [100.00%]
+
+  <bb 4> [13.32%]:
+  if (wl_10(D) == wl2_13)
+    goto <bb 16>; [7.50%]
+  else
+    goto <bb 12>; [92.50%]
+
+  <bb 5> [79.18%]:
+  if (wl_10(D) == wl2_14)
+    goto <bb 17>; [7.50%]
+  else
+    goto <bb 13>; [92.50%]
+
+  <bb 17> [5.94%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 13> [73.24%]:
+  goto <bb 10>; [100.00%]
+
+  <bb 16> [1.00%]:
+
+  <bb 6> [6.94%]:
+  _1 = wl_10(D)->sentry.tqe_next;
+  if (_1 != 0B)
+    goto <bb 7>; [70.00%]
+  else
+    goto <bb 8>; [30.00%]
+
+  <bb 7> [4.86%]:
+  _3 = wl_10(D)->sentry.tqe_prev;
+  _1->sentry.tqe_prev = _3;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [2.08%]:
+  _4 = wl_10(D)->sentry.tqe_prev;
+  stack_12(D)->tqh_last = _4;
+
+  <bb 9> [6.94%]:
+  _5 = wl_10(D)->sentry.tqe_prev;
+  _6 = wl_10(D)->sentry.tqe_next;
+  *_5 = _6;
+  goto <bb 11>; [100.00%]
+
+  <bb 12> [12.32%]:
+
+  <bb 10> [85.60%]:
+  # wl2_22 = PHI <wl2_14(13), wl2_13(12)>
+  wl2_14 = wl2_22->sentry.tqe_next;
+  if (wl2_14 != 0B)
+    goto <bb 5>; [92.50%]
+  else
+    goto <bb 18>; [7.50%]
+
+  <bb 18> [6.42%]:
+
+  <bb 11> [19.71%]:
   return;
 
 }
 
 
 
-;; Function main (main, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=52) (executed once)
+;; Function session_group_find (session_group_find, funcdef_no=6, decl_uid=4483, cgraph_uid=36, symbol_order=70)
+
+;; 3 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 9 3 14 4 15 10 5 16 12 6 17 7 18 11 13 8
+;;
+;; Loop 1
+;;  header 3, latch 11
+;;  depth 1, outer 0
+;;  nodes: 3 11 7 17 14 6 12 10 4 5
+;;
+;; Loop 2
+;;  header 6, latch 12
+;;  depth 2, outer 1
+;;  nodes: 6 12 5
+;; 2 succs { 9 13 }
+;; 9 succs { 3 }
+;; 3 succs { 4 14 }
+;; 14 succs { 7 }
+;; 4 succs { 15 10 }
+;; 15 succs { 8 }
+;; 10 succs { 6 }
+;; 5 succs { 16 12 }
+;; 16 succs { 8 }
+;; 12 succs { 6 }
+;; 6 succs { 5 17 }
+;; 17 succs { 7 }
+;; 7 succs { 11 18 }
+;; 18 succs { 8 }
+;; 11 succs { 3 }
+;; 13 succs { 8 }
+;; 8 succs { 1 }
+session_group_find (struct session * target)
+{
+  struct session * s;
+  struct session_group * sg;
+  struct session_group * _3;
+
+  <bb 2> [8.12%]:
+  sg_5 = session_groups.tqh_first;
+  if (sg_5 != 0B)
+    goto <bb 9>; [92.50%]
+  else
+    goto <bb 13>; [7.50%]
+
+  <bb 9> [7.51%]:
+
+  <bb 3> [14.44%]:
+  # sg_13 = PHI <sg_7(11), sg_5(9)>
+  s_6 = sg_13->sessions.tqh_first;
+  if (s_6 != 0B)
+    goto <bb 4>; [92.50%]
+  else
+    goto <bb 14>; [7.50%]
+
+  <bb 14> [1.08%]:
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [13.32%]:
+  if (s_6 == target_8(D))
+    goto <bb 15>; [7.50%]
+  else
+    goto <bb 10>; [92.50%]
+
+  <bb 15> [1.00%]:
+  goto <bb 8>; [100.00%]
+
+  <bb 10> [12.32%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [79.18%]:
+  if (target_8(D) == s_9)
+    goto <bb 16>; [7.50%]
+  else
+    goto <bb 12>; [92.50%]
+
+  <bb 16> [5.94%]:
+  goto <bb 8>; [100.00%]
+
+  <bb 12> [73.24%]:
+
+  <bb 6> [85.60%]:
+  # s_14 = PHI <s_9(12), s_6(10)>
+  s_9 = s_14->gentry.tqe_next;
+  if (s_9 != 0B)
+    goto <bb 5>; [92.50%]
+  else
+    goto <bb 17>; [7.50%]
+
+  <bb 17> [6.42%]:
+
+  <bb 7> [7.50%]:
+  sg_7 = sg_13->entry.tqe_next;
+  if (sg_7 != 0B)
+    goto <bb 11>; [92.50%]
+  else
+    goto <bb 18>; [7.50%]
+
+  <bb 18> [0.56%]:
+  goto <bb 8>; [100.00%]
+
+  <bb 11> [6.94%]:
+  goto <bb 3>; [100.00%]
+
+  <bb 13> [0.61%]:
+
+  <bb 8> [8.11%]:
+  # _3 = PHI <sg_13(16), 0B(18), 0B(13), sg_13(15)>
+  return _3;
+
+}
+
+
+
+;; Function winlinks_RB_NEXT (winlinks_RB_NEXT, funcdef_no=0, decl_uid=4488, cgraph_uid=42, symbol_order=60)
+
+;; 3 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 18 14 4 19 16 5 6 7 15 8 9 21 17 20 10 11 12 22 13
+;;
+;; Loop 2
+;;  header 4, latch 16
+;;  depth 1, outer 0
+;;  nodes: 4 16
+;;
+;; Loop 1
+;;  header 8, latch 17
+;;  depth 1, outer 0
+;;  nodes: 8 17 9
+;; 2 succs { 3 5 }
+;; 3 succs { 14 18 }
+;; 18 succs { 11 }
+;; 14 succs { 4 }
+;; 4 succs { 16 19 }
+;; 19 succs { 11 }
+;; 16 succs { 4 }
+;; 5 succs { 6 13 }
+;; 6 succs { 7 12 }
+;; 7 succs { 11 }
+;; 15 succs { 8 }
+;; 8 succs { 9 20 }
+;; 9 succs { 17 21 }
+;; 21 succs { 10 }
+;; 17 succs { 8 }
+;; 20 succs { 10 }
+;; 10 succs { 11 }
+;; 11 succs { 1 }
+;; 12 succs { 15 22 }
+;; 22 succs { 10 }
+;; 13 succs { 10 }
+winlinks_RB_NEXT (struct winlink * elm)
+{
+  struct winlink * _1;
+  struct winlink * _2;
+  struct winlink * _3;
+  struct winlink * _5;
+  struct winlink * _6;
+  struct winlink * _8;
+  struct winlink * _22;
+  struct winlink * _26;
+
+  <bb 2> [21.43%]:
+  _1 = elm_13(D)->entry.rbe_right;
+  if (_1 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 5>; [30.00%]
+
+  <bb 3> [15.00%]:
+  _22 = _1->entry.rbe_left;
+  if (_22 != 0B)
+    goto <bb 14>; [85.00%]
+  else
+    goto <bb 18>; [15.00%]
+
+  <bb 18> [2.25%]:
+  goto <bb 11>; [100.00%]
+
+  <bb 14> [12.75%]:
+
+  <bb 4> [85.00%]:
+  # elm_27 = PHI <elm_18(16), _1(14)>
+  elm_18 = elm_27->entry.rbe_left;
+  _2 = elm_18->entry.rbe_left;
+  if (_2 != 0B)
+    goto <bb 16>; [85.00%]
+  else
+    goto <bb 19>; [15.00%]
+
+  <bb 19> [12.75%]:
+  goto <bb 11>; [100.00%]
+
+  <bb 16> [72.25%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [6.43%]:
+  _3 = elm_13(D)->entry.rbe_parent;
+  if (_3 != 0B)
+    goto <bb 6>; [70.00%]
+  else
+    goto <bb 13>; [30.00%]
+
+  <bb 6> [4.50%]:
+  _5 = _3->entry.rbe_left;
+  if (_5 == elm_13(D))
+    goto <bb 7>; [26.74%]
+  else
+    goto <bb 12>; [73.26%]
+
+  <bb 7> [1.20%]:
+  elm_14 = _5->entry.rbe_parent;
+  goto <bb 11>; [100.00%]
+
+  <bb 15> [4.49%]:
+
+  <bb 8> [30.97%]:
+  # elm_28 = PHI <_8(17), elm_13(D)(15)>
+  elm_15 = elm_28->entry.rbe_parent;
+  _6 = elm_15->entry.rbe_parent;
+  if (_6 != 0B)
+    goto <bb 9>; [92.50%]
+  else
+    goto <bb 20>; [7.50%]
+
+  <bb 9> [28.63%]:
+  _8 = _6->entry.rbe_right;
+  if (_8 == elm_15)
+    goto <bb 17>; [92.50%]
+  else
+    goto <bb 21>; [7.50%]
+
+  <bb 21> [2.15%]:
+  goto <bb 10>; [100.00%]
+
+  <bb 17> [26.48%]:
+  goto <bb 8>; [100.00%]
+
+  <bb 20> [2.32%]:
+
+  <bb 10> [5.23%]:
+  # elm_29 = PHI <elm_15(20), elm_15(21), elm_13(D)(13), elm_13(D)(22)>
+  elm_16 = elm_29->entry.rbe_parent;
+
+  <bb 11> [21.43%]:
+  # elm_11 = PHI <elm_18(19), elm_14(7), elm_16(10), _1(18)>
+  return elm_11;
+
+  <bb 12> [4.85%]:
+  _26 = _3->entry.rbe_right;
+  if (elm_13(D) == _26)
+    goto <bb 15>; [92.50%]
+  else
+    goto <bb 22>; [7.50%]
+
+  <bb 22> [0.36%]:
+  goto <bb 10>; [100.00%]
+
+  <bb 13> [1.93%]:
+  goto <bb 10>; [100.00%]
+
+}
+
+
+
+;; Function cmd_find_pane (cmd_find_pane, funcdef_no=5, decl_uid=4484, cgraph_uid=37, symbol_order=68) (executed once)
 
 ;; 1 loops found
 ;;
 ;; Loop 0
 ;;  header 0, latch 1
 ;;  depth 0, outer -1
-;;  nodes: 0 1 2 3 4 5 6 7 8 9 10 11 12 15 13 14
-;; 2 succs { 3 10 }
-;; 3 succs { 4 7 }
-;; 4 succs { 5 6 }
-;; 5 succs { 14 }
-;; 6 succs { 14 }
-;; 7 succs { 8 9 }
-;; 8 succs { 14 }
-;; 9 succs { 14 }
-;; 10 succs { 11 12 }
-;; 11 succs { 14 }
-;; 12 succs { 13 15 }
-;; 15 succs { 14 }
-;; 13 succs { 14 }
-;; 14 succs { 1 }
-main ()
+;;  nodes: 0 1 2 3 4 10 5 6 7 8 9
+;; 2 succs { 3 4 }
+;; 3 succs { 9 }
+;; 4 succs { 5 10 }
+;; 10 succs { 6 }
+;; 5 succs { 6 }
+;; 6 succs { 7 8 }
+;; 7 succs { 9 }
+;; 8 succs { 9 }
+;; 9 succs { 1 }
+cmd_find_pane (int arg, struct session * * sp)
 {
-  int test2;
-  int test;
-  int * p5;
-  int * p4;
-  int * p3;
-  int * p;
+  struct session * s;
+  unsigned int _1;
+  struct session * * _2;
+  struct winlink * _3;
+  struct winlink * _4;
+  int _12;
+  struct winlink * _13;
+  struct winlink * _14;
 
   <bb 2> [100.00%]:
-  if (test_2(D) != 0)
-    goto <bb 3>; [50.00%]
+  _1 = sessions.num;
+  if (_1 == 0)
+    goto <bb 3>; [4.64%]
   else
-    goto <bb 10>; [50.00%]
+    goto <bb 4>; [95.36%]
 
-  <bb 3> [50.00%]:
-  if (test_2(D) > test2_3(D))
-    goto <bb 4>; [50.00%]
+  <bb 3> [4.64%]:
+  _12 = __printf_chk (1, "can\'t establish current session\n");
+  goto <bb 9>; [100.00%]
+
+  <bb 4> [95.36%]:
+  _2 = sessions.list;
+  s_8 = MEM[(struct session * *)_2 + 8B];
+  if (sp_9(D) != 0B)
+    goto <bb 5>; [70.00%]
   else
-    goto <bb 7>; [50.00%]
+    goto <bb 10>; [30.00%]
 
-  <bb 4> [25.00%]:
-  foo (p_7(D));
-  if (test_2(D) < test2_3(D))
-    goto <bb 5>; [50.00%]
+  <bb 10> [28.61%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [66.75%]:
+  *sp_9(D) = s_8;
+
+  <bb 6> [95.36%]:
+  if (arg_11(D) != 0)
+    goto <bb 7>; [63.36%]
   else
-    goto <bb 6>; [50.00%]
+    goto <bb 8>; [36.64%]
 
-  <bb 5> [12.50%]:
-  foo (p_7(D));
+  <bb 7> [60.42%]:
+  _14 = s_8->curw;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [34.94%]:
+  _3 = s_8->curw;
+  _13 = winlinks_RB_NEXT (_3);
+
+  <bb 9> [100.00%]:
+  # _4 = PHI <0B(3), _14(7), _13(8)>
+  return _4;
+
+}
+
+
+
+;; Function winlink_find_by_index (winlink_find_by_index, funcdef_no=2, decl_uid=4485, cgraph_uid=38, symbol_order=64)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 11 5 6 7 14 8 9 15 12 13 10
+;;
+;; Loop 1
+;;  header 5, latch 12
+;;  depth 1, outer 0
+;;  nodes: 5 12 9 8 6 7
+;; 2 succs { 3 4 }
+;; 3 succs { }
+;; 4 succs { 11 13 }
+;; 11 succs { 5 }
+;; 5 succs { 6 7 }
+;; 6 succs { 9 }
+;; 7 succs { 8 14 }
+;; 14 succs { 10 }
+;; 8 succs { 9 }
+;; 9 succs { 12 15 }
+;; 15 succs { 10 }
+;; 12 succs { 5 }
+;; 13 succs { 10 }
+;; 10 succs { 1 }
+winlink_find_by_index (struct winlinks * wwl, int idx)
+{
+  int wl$idx;
+  int D.4548;
+  struct winlink * tmp;
+  int comp;
+  struct winlink * D.4541;
+  struct winlink wl;
+  int _5;
+  struct winlink * _18;
+  int _21;
+  int _22;
+
+  <bb 2> [11.94%]:
+  if (idx_1(D) < 0)
+    goto <bb 3>; [0.04%]
+  else
+    goto <bb 4>; [99.96%]
+
+  <bb 3> [0.00%]:
+  _5 = __printf_chk (1, "bad index%s", "");
+  exit (1);
+
+  <bb 4> [11.94%]:
+  tmp_12 = wwl_4(D)->rbh_root;
+  if (tmp_12 != 0B)
+    goto <bb 11>; [92.50%]
+  else
+    goto <bb 13>; [7.50%]
+
+  <bb 11> [11.04%]:
+
+  <bb 5> [92.50%]:
+  # tmp_23 = PHI <tmp_19(12), tmp_12(11)>
+  _21 = tmp_23->idx;
+  _22 = idx_1(D) - _21;
+  if (_22 < 0)
+    goto <bb 6>; [36.00%]
+  else
+    goto <bb 7>; [64.00%]
+
+  <bb 6> [33.30%]:
+  tmp_15 = tmp_23->entry.rbe_left;
+  goto <bb 9>; [100.00%]
+
+  <bb 7> [59.20%]:
+  if (_22 > 0)
+    goto <bb 8>; [92.50%]
+  else
+    goto <bb 14>; [7.50%]
+
+  <bb 14> [4.44%]:
+  goto <bb 10>; [100.00%]
+
+  <bb 8> [54.76%]:
+  tmp_16 = tmp_23->entry.rbe_right;
+
+  <bb 9> [88.10%]:
+  # tmp_19 = PHI <tmp_16(8), tmp_15(6)>
+  if (tmp_19 != 0B)
+    goto <bb 12>; [92.50%]
+  else
+    goto <bb 15>; [7.50%]
+
+  <bb 15> [6.61%]:
+  goto <bb 10>; [100.00%]
+
+  <bb 12> [81.49%]:
+  goto <bb 5>; [100.00%]
+
+  <bb 13> [0.90%]:
+
+  <bb 10> [11.94%]:
+  # _18 = PHI <tmp_23(14), 0B(15), 0B(13)>
+  wl ={v} {CLOBBER};
+  return _18;
+
+}
+
+
+
+;; Function session_select (session_select, funcdef_no=23, decl_uid=4456, cgraph_uid=17, symbol_order=88)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 11 3 12 4 13 5 6 7 8 9 10
+;; 2 succs { 11 3 }
+;; 11 succs { 10 }
+;; 3 succs { 12 4 }
+;; 12 succs { 10 }
+;; 4 succs { 13 5 }
+;; 13 succs { 9 }
+;; 5 succs { 6 7 }
+;; 6 succs { 8 }
+;; 7 succs { 8 }
+;; 8 succs { 9 }
+;; 9 succs { 10 }
+;; 10 succs { 1 }
+session_select (struct session * s, int idx)
+{
+  struct winlink * wl;
+  struct winlinks * _1;
+  struct winlink * _2;
+  struct winlink_stack * _3;
+  struct winlink * _4;
+  int _6;
+  struct winlink * _19;
+  struct winlink * _21;
+  struct winlink * * _22;
+  struct winlink * * _23;
+  struct winlink * * _24;
+
+  <bb 2> [100.00%]:
+  _1 = &s_8(D)->windows;
+  wl_12 = winlink_find_by_index (_1, idx_10(D));
+  if (wl_12 == 0B)
+    goto <bb 11>; [0.87%]
+  else
+    goto <bb 3>; [99.13%]
+
+  <bb 11> [0.87%]:
+  goto <bb 10>; [100.00%]
+
+  <bb 3> [99.13%]:
+  _2 = s_8(D)->curw;
+  if (_2 == wl_12)
+    goto <bb 12>; [42.57%]
+  else
+    goto <bb 4>; [57.43%]
+
+  <bb 12> [42.20%]:
+  goto <bb 10>; [100.00%]
+
+  <bb 4> [56.93%]:
+  _3 = &s_8(D)->lastw;
+  winlink_stack_remove (_3, wl_12);
+  _4 = s_8(D)->curw;
+  if (_4 == 0B)
+    goto <bb 13>; [42.57%]
+  else
+    goto <bb 5>; [57.43%]
+
+  <bb 13> [24.24%]:
+  goto <bb 9>; [100.00%]
+
+  <bb 5> [32.70%]:
+  winlink_stack_remove (_3, _4);
+  _19 = MEM[(struct winlink_stack *)s_8(D) + 24B].tqh_first;
+  _4->sentry.tqe_next = _19;
+  if (_19 != 0B)
+    goto <bb 6>; [70.00%]
+  else
+    goto <bb 7>; [30.00%]
+
+  <bb 6> [22.89%]:
+  _21 = MEM[(struct winlink_stack *)s_8(D) + 24B].tqh_first;
+  _22 = &_4->sentry.tqe_next;
+  _21->sentry.tqe_prev = _22;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [9.81%]:
+  _23 = &_4->sentry.tqe_next;
+  MEM[(struct winlink_stack *)s_8(D) + 24B].tqh_last = _23;
+
+  <bb 8> [32.70%]:
+  MEM[(struct winlink_stack *)s_8(D) + 24B].tqh_first = _4;
+  _24 = &MEM[(struct winlink_stack *)s_8(D) + 24B].tqh_first;
+  _4->sentry.tqe_prev = _24;
+
+  <bb 9> [56.93%]:
+  s_8(D)->curw = wl_12;
+
+  <bb 10> [100.00%]:
+  # _6 = PHI <-1(11), 1(12), 0(9)>
+  return _6;
+
+}
+
+
+
+;; Function winlink_remove (winlink_remove, funcdef_no=12, decl_uid=4463, cgraph_uid=25, symbol_order=80)
+
+;; 6 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 144 4 5 6 7 142 8 145 9 10 11 12 13 14 15 146 16 17 18 19 20 21 22 147 23 24 148 139 25 149 141 143 26 27 28 29 30 31 32 150 138 33 34 151 35 152 36 37 38 39 40 41 42 43 153 44 154 45 155 46 156 47 190 48 157 49 159 158 50 51 160 52 53 54 55 56 57 58 59 161 60 61 162 62 63 64 65 66 67 68 69 163 70 164 71 72 73 74 75 76 77 78 165 79 166 80 167 81 168 82 191 83 169 84 171 170 85 86 172 87 88 89 90 91 92 93 94 173 95 96 174 97 98 99 100 101 102 103 104 105 175 106 177 176 107 178 108 180 179 109 110 181 111 112 113 114 182 115 116 137 117 185 140 118 186 119 120 121 122 123 187 124 188 125 189 126 127 128 129 130 131 132 133 134 183 135 184 136
+;;
+;; Loop 4
+;;  header 123, latch 122
+;;  depth 1, outer 0
+;;  nodes: 123 122 121 120 119 124
+;;
+;; Loop 5
+;;  header 118, latch 140
+;;  depth 1, outer 0
+;;  nodes: 118 140 117
+;;
+;; Loop 3
+;;  header 105, latch 104
+;;  depth 1, outer 0
+;;  nodes: 105 104 82 47 155 156 46 45 153 154 44 43 151 42 39 40 41 37 152 36 35 34 33 107 175 176 106 38 167 168 81 80 165 166 79 78 163 77 74 75 76 72 164 71 70 69 73
+;;
+;; Loop 1
+;;  header 25, latch 141
+;;  depth 1, outer 0
+;;  nodes: 25 141
+;;
+;; Loop 2
+;;  header 7, latch 142
+;;  depth 1, outer 0
+;;  nodes: 7 142
+;; 2 succs { 3 4 }
+;; 3 succs { 143 144 }
+;; 144 succs { 27 }
+;; 4 succs { 5 6 }
+;; 5 succs { 26 }
+;; 6 succs { 7 }
+;; 7 succs { 142 8 }
+;; 142 succs { 7 }
+;; 8 succs { 9 145 }
+;; 145 succs { 10 }
+;; 9 succs { 10 }
+;; 10 succs { 11 14 }
+;; 11 succs { 12 13 }
+;; 12 succs { 15 }
+;; 13 succs { 15 }
+;; 14 succs { 15 }
+;; 15 succs { 16 146 }
+;; 146 succs { 17 }
+;; 16 succs { 17 }
+;; 17 succs { 18 21 }
+;; 18 succs { 19 20 }
+;; 19 succs { 22 }
+;; 20 succs { 22 }
+;; 21 succs { 22 }
+;; 22 succs { 23 147 }
+;; 147 succs { 24 }
+;; 23 succs { 24 }
+;; 24 succs { 139 148 }
+;; 148 succs { 32 }
+;; 139 succs { 25 }
+;; 25 succs { 141 149 }
+;; 149 succs { 32 }
+;; 141 succs { 25 }
+;; 143 succs { 26 }
+;; 26 succs { 27 }
+;; 27 succs { 28 31 }
+;; 28 succs { 29 30 }
+;; 29 succs { 32 }
+;; 30 succs { 32 }
+;; 31 succs { 32 }
+;; 32 succs { 138 150 }
+;; 150 succs { 110 }
+;; 138 succs { 105 }
+;; 33 succs { 34 69 }
+;; 34 succs { 35 151 }
+;; 151 succs { 43 }
+;; 35 succs { 36 152 }
+;; 152 succs { 37 }
+;; 36 succs { 37 }
+;; 37 succs { 38 41 }
+;; 38 succs { 39 40 }
+;; 39 succs { 42 }
+;; 40 succs { 42 }
+;; 41 succs { 42 }
+;; 42 succs { 43 }
+;; 43 succs { 153 44 }
+;; 153 succs { 45 }
+;; 44 succs { 154 131 }
+;; 154 succs { 45 }
+;; 45 succs { 155 46 }
+;; 155 succs { 47 }
+;; 46 succs { 156 129 }
+;; 156 succs { 47 }
+;; 47 succs { 104 }
+;; 190 succs { 48 }
+;; 48 succs { 49 157 }
+;; 157 succs { 59 }
+;; 49 succs { 158 159 }
+;; 159 succs { 51 }
+;; 158 succs { 50 }
+;; 50 succs { 51 }
+;; 51 succs { 52 160 }
+;; 160 succs { 53 }
+;; 52 succs { 53 }
+;; 53 succs { 54 57 }
+;; 54 succs { 55 56 }
+;; 55 succs { 58 }
+;; 56 succs { 58 }
+;; 57 succs { 58 }
+;; 58 succs { 59 }
+;; 59 succs { 60 161 }
+;; 161 succs { 61 }
+;; 60 succs { 61 }
+;; 61 succs { 62 162 }
+;; 162 succs { 63 }
+;; 62 succs { 63 }
+;; 63 succs { 64 67 }
+;; 64 succs { 65 66 }
+;; 65 succs { 68 }
+;; 66 succs { 68 }
+;; 67 succs { 68 }
+;; 68 succs { 108 }
+;; 69 succs { 70 163 }
+;; 163 succs { 78 }
+;; 70 succs { 71 164 }
+;; 164 succs { 72 }
+;; 71 succs { 72 }
+;; 72 succs { 73 76 }
+;; 73 succs { 74 75 }
+;; 74 succs { 77 }
+;; 75 succs { 77 }
+;; 76 succs { 77 }
+;; 77 succs { 78 }
+;; 78 succs { 165 79 }
+;; 165 succs { 80 }
+;; 79 succs { 166 132 }
+;; 166 succs { 80 }
+;; 80 succs { 167 81 }
+;; 167 succs { 82 }
+;; 81 succs { 168 134 }
+;; 168 succs { 82 }
+;; 82 succs { 104 }
+;; 191 succs { 83 }
+;; 83 succs { 84 169 }
+;; 169 succs { 94 }
+;; 84 succs { 170 171 }
+;; 171 succs { 86 }
+;; 170 succs { 85 }
+;; 85 succs { 86 }
+;; 86 succs { 87 172 }
+;; 172 succs { 88 }
+;; 87 succs { 88 }
+;; 88 succs { 89 92 }
+;; 89 succs { 90 91 }
+;; 90 succs { 93 }
+;; 91 succs { 93 }
+;; 92 succs { 93 }
+;; 93 succs { 94 }
+;; 94 succs { 95 173 }
+;; 173 succs { 96 }
+;; 95 succs { 96 }
+;; 96 succs { 97 174 }
+;; 174 succs { 98 }
+;; 97 succs { 98 }
+;; 98 succs { 99 102 }
+;; 99 succs { 100 101 }
+;; 100 succs { 103 }
+;; 101 succs { 103 }
+;; 102 succs { 103 }
+;; 103 succs { 108 }
+;; 104 succs { 105 }
+;; 105 succs { 175 106 }
+;; 175 succs { 107 }
+;; 106 succs { 176 177 }
+;; 177 succs { 109 }
+;; 176 succs { 107 }
+;; 107 succs { 33 178 }
+;; 178 succs { 108 }
+;; 108 succs { 179 180 }
+;; 180 succs { 110 }
+;; 179 succs { 109 }
+;; 109 succs { 110 }
+;; 110 succs { 111 181 }
+;; 181 succs { 112 }
+;; 111 succs { 112 }
+;; 112 succs { 113 114 }
+;; 113 succs { }
+;; 114 succs { 115 182 }
+;; 182 succs { 128 }
+;; 115 succs { 116 183 }
+;; 116 succs { 184 137 }
+;; 137 succs { 118 }
+;; 117 succs { 185 140 }
+;; 185 succs { 136 }
+;; 140 succs { 118 }
+;; 118 succs { 117 186 }
+;; 186 succs { 135 }
+;; 119 succs { 120 121 }
+;; 120 succs { 122 }
+;; 121 succs { 122 }
+;; 122 succs { 123 }
+;; 123 succs { 124 187 }
+;; 187 succs { 125 }
+;; 124 succs { 119 188 }
+;; 188 succs { 125 }
+;; 125 succs { 126 189 }
+;; 189 succs { 127 }
+;; 126 succs { 127 }
+;; 127 succs { 128 }
+;; 128 succs { 1 }
+;; 129 succs { 48 }
+;; 130 succs { 50 }
+;; 131 succs { 130 190 }
+;; 132 succs { 83 }
+;; 133 succs { 85 }
+;; 134 succs { 133 191 }
+;; 183 succs { 135 }
+;; 135 succs { }
+;; 184 succs { 136 }
+;; 136 succs { 123 }
+winlink_remove (struct winlinks * wwl, struct winlink * wl)
+{
+  int D.4654;
+  u_int i;
+  struct winlink * tmp;
+  struct winlink * oleft;
+  struct winlink * oright;
+  struct winlink * parent;
+  struct winlink * elm;
+  struct winlink * child;
+  struct winlink * parent;
+  int color;
+  struct winlink * left;
+  struct winlink * D.4627;
+  struct winlink * elm;
+  struct window * w;
+  char * _1;
+  unsigned int _3;
+  unsigned int _5;
+  int _19;
+  struct winlink * _23;
+  struct winlink * _30;
+  struct winlink * _32;
+  struct winlink * _40;
+  struct winlink * _41;
+  struct winlink * _43;
+  struct winlink * _45;
+  struct winlink * _48;
+  struct winlink * _49;
+  struct winlink * _57;
+  struct winlink * _62;
+  int _65;
+  struct winlink * _67;
+  struct winlink * _69;
+  struct winlink * _70;
+  struct winlink * _72;
+  struct winlink * _73;
+  struct winlink * _76;
+  struct winlink * _79;
+  int _81;
+  struct winlink * _82;
+  int _84;
+  int _88;
+  struct winlink * _91;
+  struct winlink * _93;
+  struct winlink * _94;
+  struct winlink * _96;
+  struct winlink * _97;
+  struct winlink * _100;
+  int _102;
+  struct winlink * _104;
+  struct winlink * _107;
+  struct winlink * _109;
+  struct winlink * _110;
+  struct winlink * _112;
+  struct winlink * _113;
+  struct winlink * _116;
+  int _119;
+  struct winlink * _121;
+  struct winlink * _123;
+  struct winlink * _124;
+  struct winlink * _126;
+  struct winlink * _127;
+  struct winlink * _130;
+  struct winlink * _133;
+  int _135;
+  struct winlink * _136;
+  int _138;
+  int _143;
+  struct winlink * _146;
+  struct winlink * _148;
+  struct winlink * _149;
+  struct winlink * _151;
+  struct winlink * _152;
+  struct winlink * _155;
+  int _157;
+  struct winlink * _159;
+  struct winlink * _162;
+  struct winlink * _164;
+  struct winlink * _165;
+  struct winlink * _167;
+  struct winlink * _168;
+  struct winlink * _171;
+  int _173;
+  struct winlink * _174;
+  int _179;
+  struct window * * _180;
+  long unsigned int _182;
+  long unsigned int _183;
+  struct window * * _184;
+  unsigned int _189;
+  struct window * * _190;
+  unsigned int _192;
+  long unsigned int _193;
+  long unsigned int _194;
+  struct window * * _195;
+  struct window * _196;
+  char * _197;
+  unsigned int _200;
+  long unsigned int _201;
+  long unsigned int _202;
+  struct window * * _203;
+  struct window * _204;
+  struct window * * _205;
+  unsigned int _206;
+  struct window * _323;
+  struct winlink * _324;
+  struct winlink * _359;
+
+  <bb 2> [20.55%]:
+  w_11 = wl_10(D)->window;
+  _30 = wl_10(D)->entry.rbe_left;
+  if (_30 == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 4>; [70.00%]
+
+  <bb 3> [6.17%]:
+  child_31 = wl_10(D)->entry.rbe_right;
+  parent_54 = wl_10(D)->entry.rbe_parent;
+  color_55 = wl_10(D)->entry.rbe_color;
+  if (child_31 != 0B)
+    goto <bb 143>; [48.96%]
+  else
+    goto <bb 144>; [51.04%]
+
+  <bb 144> [3.15%]:
+  goto <bb 27>; [100.00%]
+
+  <bb 4> [14.39%]:
+  _32 = wl_10(D)->entry.rbe_right;
+  if (_32 == 0B)
+    goto <bb 5>; [30.00%]
+  else
+    goto <bb 6>; [70.00%]
+
+  <bb 5> [4.32%]:
+  parent_240 = wl_10(D)->entry.rbe_parent;
+  color_325 = wl_10(D)->entry.rbe_color;
+  goto <bb 26>; [100.00%]
+
+  <bb 6> [10.07%]:
+
+  <bb 7> [67.13%]:
+  # elm_35 = PHI <_32(6), left_36(142)>
+  left_36 = elm_35->entry.rbe_left;
+  if (left_36 != 0B)
+    goto <bb 142>; [85.00%]
+  else
+    goto <bb 8>; [15.00%]
+
+  <bb 142> [57.06%]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [10.07%]:
+  child_37 = elm_35->entry.rbe_right;
+  parent_38 = elm_35->entry.rbe_parent;
+  color_39 = elm_35->entry.rbe_color;
+  if (child_37 != 0B)
+    goto <bb 9>; [70.00%]
+  else
+    goto <bb 145>; [30.00%]
+
+  <bb 145> [3.02%]:
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [7.05%]:
+  child_37->entry.rbe_parent = parent_38;
+
+  <bb 10> [10.07%]:
+  if (parent_38 != 0B)
+    goto <bb 11>; [70.00%]
+  else
+    goto <bb 14>; [30.00%]
+
+  <bb 11> [7.05%]:
+  _40 = parent_38->entry.rbe_left;
+  if (elm_35 == _40)
+    goto <bb 12>; [30.00%]
+  else
+    goto <bb 13>; [70.00%]
+
+  <bb 12> [2.11%]:
+  parent_38->entry.rbe_left = child_37;
+  goto <bb 15>; [100.00%]
+
+  <bb 13> [4.93%]:
+  parent_38->entry.rbe_right = child_37;
+  goto <bb 15>; [100.00%]
+
+  <bb 14> [3.02%]:
+  wwl_12(D)->rbh_root = child_37;
+
+  <bb 15> [10.07%]:
+  _41 = elm_35->entry.rbe_parent;
+  if (wl_10(D) == _41)
+    goto <bb 16>; [30.00%]
+  else
+    goto <bb 146>; [70.00%]
+
+  <bb 146> [7.05%]:
+  goto <bb 17>; [100.00%]
+
+  <bb 16> [3.02%]:
+
+  <bb 17> [10.07%]:
+  # parent_51 = PHI <parent_38(146), elm_35(16)>
+  elm_35->entry = wl_10(D)->entry;
+  _43 = wl_10(D)->entry.rbe_parent;
+  if (_43 != 0B)
+    goto <bb 18>; [70.00%]
+  else
+    goto <bb 21>; [30.00%]
+
+  <bb 18> [7.05%]:
+  _45 = _43->entry.rbe_left;
+  if (wl_10(D) == _45)
+    goto <bb 19>; [30.00%]
+  else
+    goto <bb 20>; [70.00%]
+
+  <bb 19> [2.11%]:
+  _43->entry.rbe_left = elm_35;
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [4.93%]:
+  _43->entry.rbe_right = elm_35;
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [3.02%]:
+  wwl_12(D)->rbh_root = elm_35;
+
+  <bb 22> [10.07%]:
+  _48 = wl_10(D)->entry.rbe_left;
+  _48->entry.rbe_parent = elm_35;
+  _49 = wl_10(D)->entry.rbe_right;
+  if (_49 != 0B)
+    goto <bb 23>; [70.00%]
+  else
+    goto <bb 147>; [30.00%]
+
+  <bb 147> [3.02%]:
+  goto <bb 24>; [100.00%]
+
+  <bb 23> [7.05%]:
+  _49->entry.rbe_parent = elm_35;
+
+  <bb 24> [10.07%]:
+  if (parent_51 != 0B)
+    goto <bb 139>; [70.00%]
+  else
+    goto <bb 148>; [30.00%]
+
+  <bb 148> [3.02%]:
+  goto <bb 32> (color); [100.00%]
+
+  <bb 139> [7.05%]:
+
+  <bb 25> [46.99%]:
+  # left_52 = PHI <parent_51(139), left_53(141)>
+  left_53 = left_52->entry.rbe_parent;
+  if (left_53 != 0B)
+    goto <bb 141>; [85.00%]
+  else
+    goto <bb 149>; [15.00%]
+
+  <bb 149> [7.05%]:
+  goto <bb 32> (color); [100.00%]
+
+  <bb 141> [39.94%]:
+  goto <bb 25>; [100.00%]
+
+  <bb 143> [3.02%]:
+
+  <bb 26> [7.34%]:
+  # parent_353 = PHI <parent_54(143), parent_240(5)>
+  # color_355 = PHI <color_55(143), color_325(5)>
+  # child_357 = PHI <child_31(143), _30(5)>
+  child_357->entry.rbe_parent = parent_353;
+
+  <bb 27> [10.48%]:
+  # parent_354 = PHI <parent_54(144), parent_353(26)>
+  # color_356 = PHI <color_55(144), color_355(26)>
+  # child_358 = PHI <child_31(144), child_357(26)>
+  if (parent_354 != 0B)
+    goto <bb 28>; [70.00%]
+  else
+    goto <bb 31>; [30.00%]
+
+  <bb 28> [7.34%]:
+  _57 = parent_354->entry.rbe_left;
+  if (wl_10(D) == _57)
+    goto <bb 29>; [30.00%]
+  else
+    goto <bb 30>; [70.00%]
+
+  <bb 29> [2.20%]:
+  parent_354->entry.rbe_left = child_358;
+  goto <bb 32> (color); [100.00%]
+
+  <bb 30> [5.14%]:
+  parent_354->entry.rbe_right = child_358;
+  goto <bb 32> (color); [100.00%]
+
+  <bb 31> [3.14%]:
+  wwl_12(D)->rbh_root = child_358;
+
+  # child_60 = PHI <child_37(148), child_37(149), child_358(29), child_358(30), child_358(31)>
+  # parent_59 = PHI <0B(148), parent_51(149), parent_354(29), parent_354(30), 0B(31)>
+  # color_58 = PHI <color_39(148), color_39(149), color_356(29), color_356(30), color_356(31)>
+color [20.55%]:
+  if (color_58 == 0)
+    goto <bb 138>; [36.64%]
+  else
+    goto <bb 150>; [63.36%]
+
+  <bb 150> [13.02%]:
+  goto <bb 110>; [100.00%]
+
+  <bb 138> [7.53%]:
+  goto <bb 105>; [100.00%]
+
+  <bb 33> [95.79%]:
+  _62 = parent_61->entry.rbe_left;
+  if (_62 == elm_63)
+    goto <bb 34>; [30.00%]
+  else
+    goto <bb 69>; [70.00%]
+
+  <bb 34> [28.74%]:
+  tmp_64 = parent_61->entry.rbe_right;
+  _65 = tmp_64->entry.rbe_color;
+  if (_65 == 1)
+    goto <bb 35>; [34.00%]
+  else
+    goto <bb 151>; [66.00%]
+
+  <bb 151> [18.97%]:
+  goto <bb 43>; [100.00%]
+
+  <bb 35> [9.77%]:
+  tmp_64->entry.rbe_color = 0;
+  parent_61->entry.rbe_color = 1;
+  tmp_66 = parent_61->entry.rbe_right;
+  _67 = tmp_66->entry.rbe_left;
+  parent_61->entry.rbe_right = _67;
+  if (_67 != 0B)
+    goto <bb 36>; [70.00%]
+  else
+    goto <bb 152>; [30.00%]
+
+  <bb 152> [2.93%]:
+  goto <bb 37>; [100.00%]
+
+  <bb 36> [6.84%]:
+  _69 = tmp_66->entry.rbe_left;
+  _69->entry.rbe_parent = parent_61;
+
+  <bb 37> [9.77%]:
+  _70 = parent_61->entry.rbe_parent;
+  tmp_66->entry.rbe_parent = _70;
+  if (_70 != 0B)
+    goto <bb 38>; [70.00%]
+  else
+    goto <bb 41>; [30.00%]
+
+  <bb 38> [6.84%]:
+  _72 = parent_61->entry.rbe_parent;
+  _73 = _72->entry.rbe_left;
+  if (parent_61 == _73)
+    goto <bb 39>; [30.00%]
+  else
+    goto <bb 40>; [70.00%]
+
+  <bb 39> [2.05%]:
+  _72->entry.rbe_left = tmp_66;
+  goto <bb 42>; [100.00%]
+
+  <bb 40> [4.79%]:
+  _72->entry.rbe_right = tmp_66;
+  goto <bb 42>; [100.00%]
+
+  <bb 41> [2.93%]:
+  wwl_12(D)->rbh_root = tmp_66;
+
+  <bb 42> [9.77%]:
+  tmp_66->entry.rbe_left = parent_61;
+  parent_61->entry.rbe_parent = tmp_66;
+  _76 = tmp_66->entry.rbe_parent;
+  tmp_77 = parent_61->entry.rbe_right;
+
+  <bb 43> [28.74%]:
+  # tmp_78 = PHI <tmp_64(151), tmp_77(42)>
+  _79 = tmp_78->entry.rbe_left;
+  if (_79 == 0B)
+    goto <bb 153>; [30.00%]
+  else
+    goto <bb 44>; [70.00%]
+
+  <bb 153> [8.62%]:
+  goto <bb 45>; [100.00%]
+
+  <bb 44> [20.12%]:
+  _81 = _79->entry.rbe_color;
+  if (_81 == 0)
+    goto <bb 154>; [97.50%]
+  else
+    goto <bb 131>; [2.50%]
+
+  <bb 154> [19.62%]:
+
+  <bb 45> [28.24%]:
+  _82 = tmp_78->entry.rbe_right;
+  if (_82 == 0B)
+    goto <bb 155>; [30.00%]
+  else
+    goto <bb 46>; [70.00%]
+
+  <bb 155> [8.47%]:
+  goto <bb 47>; [100.00%]
+
+  <bb 46> [19.76%]:
+  _84 = _82->entry.rbe_color;
+  if (_84 == 0)
+    goto <bb 156>; [97.50%]
+  else
+    goto <bb 129>; [2.50%]
+
+  <bb 156> [19.27%]:
+
+  <bb 47> [27.74%]:
+  tmp_78->entry.rbe_color = 1;
+  parent_85 = parent_61->entry.rbe_parent;
+  goto <bb 104>; [100.00%]
+
+  <bb 190> [0.20%]:
+
+  <bb 48> [0.70%]:
+  # _359 = PHI <_23(190), _324(129)>
+  _88 = _359->entry.rbe_color;
+  if (_88 == 0)
+    goto <bb 49>; [50.00%]
+  else
+    goto <bb 157>; [50.00%]
+
+  <bb 157> [0.35%]:
+  goto <bb 59>; [100.00%]
+
+  <bb 49> [0.35%]:
+  if (_79 != 0B)
+    goto <bb 158>; [44.57%]
+  else
+    goto <bb 159>; [55.43%]
+
+  <bb 159> [0.19%]:
+  goto <bb 51>; [100.00%]
+
+  <bb 158> [0.16%]:
+
+  <bb 50> [0.45%]:
+  _79->entry.rbe_color = 0;
+
+  <bb 51> [0.65%]:
+  tmp_78->entry.rbe_color = 1;
+  oleft_90 = tmp_78->entry.rbe_left;
+  _91 = oleft_90->entry.rbe_right;
+  tmp_78->entry.rbe_left = _91;
+  if (_91 != 0B)
+    goto <bb 52>; [70.00%]
+  else
+    goto <bb 160>; [30.00%]
+
+  <bb 160> [0.20%]:
+  goto <bb 53>; [100.00%]
+
+  <bb 52> [0.45%]:
+  _93 = oleft_90->entry.rbe_right;
+  _93->entry.rbe_parent = tmp_78;
+
+  <bb 53> [0.65%]:
+  _94 = tmp_78->entry.rbe_parent;
+  oleft_90->entry.rbe_parent = _94;
+  if (_94 != 0B)
+    goto <bb 54>; [70.00%]
+  else
+    goto <bb 57>; [30.00%]
+
+  <bb 54> [0.45%]:
+  _96 = tmp_78->entry.rbe_parent;
+  _97 = _96->entry.rbe_left;
+  if (tmp_78 == _97)
+    goto <bb 55>; [30.00%]
+  else
+    goto <bb 56>; [70.00%]
+
+  <bb 55> [0.14%]:
+  _96->entry.rbe_left = oleft_90;
+  goto <bb 58>; [100.00%]
+
+  <bb 56> [0.32%]:
+  _96->entry.rbe_right = oleft_90;
+  goto <bb 58>; [100.00%]
+
+  <bb 57> [0.19%]:
+  wwl_12(D)->rbh_root = oleft_90;
+
+  <bb 58> [0.65%]:
+  oleft_90->entry.rbe_right = tmp_78;
+  tmp_78->entry.rbe_parent = oleft_90;
+  _100 = oleft_90->entry.rbe_parent;
+  tmp_101 = parent_61->entry.rbe_right;
+
+  <bb 59> [1.00%]:
+  # tmp_103 = PHI <tmp_78(157), tmp_101(58)>
+  _102 = parent_61->entry.rbe_color;
+  tmp_103->entry.rbe_color = _102;
+  parent_61->entry.rbe_color = 0;
+  _104 = tmp_103->entry.rbe_right;
+  if (_104 != 0B)
+    goto <bb 60>; [70.00%]
+  else
+    goto <bb 161>; [30.00%]
+
+  <bb 161> [0.30%]:
+  goto <bb 61>; [100.00%]
+
+  <bb 60> [0.70%]:
+  _104->entry.rbe_color = 0;
+
+  <bb 61> [1.00%]:
+  tmp_106 = parent_61->entry.rbe_right;
+  _107 = tmp_106->entry.rbe_left;
+  parent_61->entry.rbe_right = _107;
+  if (_107 != 0B)
+    goto <bb 62>; [70.00%]
+  else
+    goto <bb 162>; [30.00%]
+
+  <bb 162> [0.30%]:
+  goto <bb 63>; [100.00%]
+
+  <bb 62> [0.70%]:
+  _109 = tmp_106->entry.rbe_left;
+  _109->entry.rbe_parent = parent_61;
+
+  <bb 63> [1.00%]:
+  _110 = parent_61->entry.rbe_parent;
+  tmp_106->entry.rbe_parent = _110;
+  if (_110 != 0B)
+    goto <bb 64>; [70.00%]
+  else
+    goto <bb 67>; [30.00%]
+
+  <bb 64> [0.70%]:
+  _112 = parent_61->entry.rbe_parent;
+  _113 = _112->entry.rbe_left;
+  if (parent_61 == _113)
+    goto <bb 65>; [30.00%]
+  else
+    goto <bb 66>; [70.00%]
+
+  <bb 65> [0.21%]:
+  _112->entry.rbe_left = tmp_106;
+  goto <bb 68>; [100.00%]
+
+  <bb 66> [0.49%]:
+  _112->entry.rbe_right = tmp_106;
+  goto <bb 68>; [100.00%]
+
+  <bb 67> [0.30%]:
+  wwl_12(D)->rbh_root = tmp_106;
+
+  <bb 68> [1.00%]:
+  tmp_106->entry.rbe_left = parent_61;
+  parent_61->entry.rbe_parent = tmp_106;
+  _116 = tmp_106->entry.rbe_parent;
+  elm_117 = wwl_12(D)->rbh_root;
+  goto <bb 108>; [100.00%]
+
+  <bb 69> [67.06%]:
+  _119 = _62->entry.rbe_color;
+  if (_119 == 1)
+    goto <bb 70>; [34.00%]
+  else
+    goto <bb 163>; [66.00%]
+
+  <bb 163> [44.26%]:
+  goto <bb 78>; [100.00%]
+
+  <bb 70> [22.80%]:
+  _62->entry.rbe_color = 0;
+  parent_61->entry.rbe_color = 1;
+  tmp_120 = parent_61->entry.rbe_left;
+  _121 = tmp_120->entry.rbe_right;
+  parent_61->entry.rbe_left = _121;
+  if (_121 != 0B)
+    goto <bb 71>; [70.00%]
+  else
+    goto <bb 164>; [30.00%]
+
+  <bb 164> [6.84%]:
+  goto <bb 72>; [100.00%]
+
+  <bb 71> [15.96%]:
+  _123 = tmp_120->entry.rbe_right;
+  _123->entry.rbe_parent = parent_61;
+
+  <bb 72> [22.80%]:
+  _124 = parent_61->entry.rbe_parent;
+  tmp_120->entry.rbe_parent = _124;
+  if (_124 != 0B)
+    goto <bb 73>; [70.00%]
+  else
+    goto <bb 76>; [30.00%]
+
+  <bb 73> [15.96%]:
+  _126 = parent_61->entry.rbe_parent;
+  _127 = _126->entry.rbe_left;
+  if (parent_61 == _127)
+    goto <bb 74>; [30.00%]
+  else
+    goto <bb 75>; [70.00%]
+
+  <bb 74> [4.79%]:
+  _126->entry.rbe_left = tmp_120;
+  goto <bb 77>; [100.00%]
+
+  <bb 75> [11.17%]:
+  _126->entry.rbe_right = tmp_120;
+  goto <bb 77>; [100.00%]
+
+  <bb 76> [6.84%]:
+  wwl_12(D)->rbh_root = tmp_120;
+
+  <bb 77> [22.80%]:
+  tmp_120->entry.rbe_right = parent_61;
+  parent_61->entry.rbe_parent = tmp_120;
+  _130 = tmp_120->entry.rbe_parent;
+  tmp_131 = parent_61->entry.rbe_left;
+
+  <bb 78> [67.06%]:
+  # tmp_132 = PHI <_62(163), tmp_131(77)>
+  _133 = tmp_132->entry.rbe_left;
+  if (_133 == 0B)
+    goto <bb 165>; [30.00%]
+  else
+    goto <bb 79>; [70.00%]
+
+  <bb 165> [20.12%]:
+  goto <bb 80>; [100.00%]
+
+  <bb 79> [46.94%]:
+  _135 = _133->entry.rbe_color;
+  if (_135 == 0)
+    goto <bb 166>; [97.50%]
+  else
+    goto <bb 132>; [2.50%]
+
+  <bb 166> [45.77%]:
+
+  <bb 80> [65.88%]:
+  _136 = tmp_132->entry.rbe_right;
+  if (_136 == 0B)
+    goto <bb 167>; [30.00%]
+  else
+    goto <bb 81>; [70.00%]
+
+  <bb 167> [19.76%]:
+  goto <bb 82>; [100.00%]
+
+  <bb 81> [46.12%]:
+  _138 = _136->entry.rbe_color;
+  if (_138 == 0)
+    goto <bb 168>; [97.50%]
+  else
+    goto <bb 134>; [2.50%]
+
+  <bb 168> [44.97%]:
+
+  <bb 82> [64.73%]:
+  tmp_132->entry.rbe_color = 1;
+  parent_140 = parent_61->entry.rbe_parent;
+  goto <bb 104>; [100.00%]
+
+  <bb 191> [0.45%]:
+
+  <bb 83> [1.63%]:
+  _143 = _133->entry.rbe_color;
+  if (_143 == 0)
+    goto <bb 84>; [50.00%]
+  else
+    goto <bb 169>; [50.00%]
+
+  <bb 169> [0.82%]:
+  goto <bb 94>; [100.00%]
+
+  <bb 84> [0.81%]:
+  oright_144 = tmp_132->entry.rbe_right;
+  if (oright_144 != 0B)
+    goto <bb 170>; [44.29%]
+  else
+    goto <bb 171>; [55.71%]
+
+  <bb 171> [0.45%]:
+  goto <bb 86>; [100.00%]
+
+  <bb 170> [0.36%]:
+
+  <bb 85> [1.06%]:
+  # oright_360 = PHI <oright_144(170), oright_343(133)>
+  oright_360->entry.rbe_color = 0;
+
+  <bb 86> [1.51%]:
+  tmp_132->entry.rbe_color = 1;
+  oright_145 = tmp_132->entry.rbe_right;
+  _146 = oright_145->entry.rbe_left;
+  tmp_132->entry.rbe_right = _146;
+  if (_146 != 0B)
+    goto <bb 87>; [70.00%]
+  else
+    goto <bb 172>; [30.00%]
+
+  <bb 172> [0.45%]:
+  goto <bb 88>; [100.00%]
+
+  <bb 87> [1.06%]:
+  _148 = oright_145->entry.rbe_left;
+  _148->entry.rbe_parent = tmp_132;
+
+  <bb 88> [1.51%]:
+  _149 = tmp_132->entry.rbe_parent;
+  oright_145->entry.rbe_parent = _149;
+  if (_149 != 0B)
+    goto <bb 89>; [70.00%]
+  else
+    goto <bb 92>; [30.00%]
+
+  <bb 89> [1.06%]:
+  _151 = tmp_132->entry.rbe_parent;
+  _152 = _151->entry.rbe_left;
+  if (tmp_132 == _152)
+    goto <bb 90>; [30.00%]
+  else
+    goto <bb 91>; [70.00%]
+
+  <bb 90> [0.32%]:
+  _151->entry.rbe_left = oright_145;
+  goto <bb 93>; [100.00%]
+
+  <bb 91> [0.74%]:
+  _151->entry.rbe_right = oright_145;
+  goto <bb 93>; [100.00%]
+
+  <bb 92> [0.45%]:
+  wwl_12(D)->rbh_root = oright_145;
+
+  <bb 93> [1.51%]:
+  oright_145->entry.rbe_left = tmp_132;
+  tmp_132->entry.rbe_parent = oright_145;
+  _155 = oright_145->entry.rbe_parent;
+  tmp_156 = parent_61->entry.rbe_left;
+
+  <bb 94> [2.33%]:
+  # tmp_158 = PHI <tmp_132(169), tmp_156(93)>
+  _157 = parent_61->entry.rbe_color;
+  tmp_158->entry.rbe_color = _157;
+  parent_61->entry.rbe_color = 0;
+  _159 = tmp_158->entry.rbe_left;
+  if (_159 != 0B)
+    goto <bb 95>; [70.00%]
+  else
+    goto <bb 173>; [30.00%]
+
+  <bb 173> [0.70%]:
+  goto <bb 96>; [100.00%]
+
+  <bb 95> [1.63%]:
+  _159->entry.rbe_color = 0;
+
+  <bb 96> [2.33%]:
+  tmp_161 = parent_61->entry.rbe_left;
+  _162 = tmp_161->entry.rbe_right;
+  parent_61->entry.rbe_left = _162;
+  if (_162 != 0B)
+    goto <bb 97>; [70.00%]
+  else
+    goto <bb 174>; [30.00%]
+
+  <bb 174> [0.70%]:
+  goto <bb 98>; [100.00%]
+
+  <bb 97> [1.63%]:
+  _164 = tmp_161->entry.rbe_right;
+  _164->entry.rbe_parent = parent_61;
+
+  <bb 98> [2.33%]:
+  _165 = parent_61->entry.rbe_parent;
+  tmp_161->entry.rbe_parent = _165;
+  if (_165 != 0B)
+    goto <bb 99>; [70.00%]
+  else
+    goto <bb 102>; [30.00%]
+
+  <bb 99> [1.63%]:
+  _167 = parent_61->entry.rbe_parent;
+  _168 = _167->entry.rbe_left;
+  if (parent_61 == _168)
+    goto <bb 100>; [30.00%]
+  else
+    goto <bb 101>; [70.00%]
+
+  <bb 100> [0.49%]:
+  _167->entry.rbe_left = tmp_161;
+  goto <bb 103>; [100.00%]
+
+  <bb 101> [1.14%]:
+  _167->entry.rbe_right = tmp_161;
+  goto <bb 103>; [100.00%]
+
+  <bb 102> [0.70%]:
+  wwl_12(D)->rbh_root = tmp_161;
+
+  <bb 103> [2.33%]:
+  tmp_161->entry.rbe_right = parent_61;
+  parent_61->entry.rbe_parent = tmp_161;
+  _171 = tmp_161->entry.rbe_parent;
+  elm_172 = wwl_12(D)->rbh_root;
+  goto <bb 108>; [100.00%]
+
+  <bb 104> [92.47%]:
+  # parent_177 = PHI <parent_140(82), parent_85(47)>
+
+  <bb 105> [100.00%]:
+  # parent_61 = PHI <parent_177(104), parent_59(138)>
+  # elm_63 = PHI <parent_61(104), child_60(138)>
+  if (elm_63 == 0B)
+    goto <bb 175>; [30.00%]
+  else
+    goto <bb 106>; [70.00%]
+
+  <bb 175> [30.00%]:
+  goto <bb 107>; [100.00%]
+
+  <bb 106> [70.00%]:
+  _173 = elm_63->entry.rbe_color;
+  if (_173 == 0)
+    goto <bb 176>; [97.50%]
+  else
+    goto <bb 177>; [2.50%]
+
+  <bb 177> [1.75%]:
+  goto <bb 109>; [100.00%]
+
+  <bb 176> [68.25%]:
+
+  <bb 107> [98.25%]:
+  _174 = wwl_12(D)->rbh_root;
+  if (elm_63 != _174)
+    goto <bb 33>; [97.50%]
+  else
+    goto <bb 178>; [2.50%]
+
+  <bb 178> [2.46%]:
+
+  <bb 108> [5.78%]:
+  # elm_175 = PHI <elm_117(68), elm_172(103), _174(178)>
+  if (elm_175 != 0B)
+    goto <bb 179>; [65.16%]
+  else
+    goto <bb 180>; [34.84%]
+
+  <bb 180> [2.01%]:
+  goto <bb 110>; [100.00%]
+
+  <bb 179> [3.77%]:
+
+  <bb 109> [5.52%]:
+  # elm_361 = PHI <elm_175(179), elm_63(177)>
+  elm_361->entry.rbe_color = 0;
+
+  <bb 110> [20.55%]:
+  _1 = wl_10(D)->status_text;
+  if (_1 != 0B)
+    goto <bb 111>; [53.47%]
+  else
+    goto <bb 181>; [46.53%]
+
+  <bb 181> [9.56%]:
+  goto <bb 112>; [100.00%]
+
+  <bb 111> [10.99%]:
+  free (_1);
+
+  <bb 112> [20.55%]:
+  free (wl_10(D));
+  _3 = w_11->references;
+  if (_3 == 0)
+    goto <bb 113>; [0.04%]
+  else
+    goto <bb 114>; [99.96%]
+
+  <bb 113> [0.01%]:
+  _19 = __printf_chk (1, "bad reference count%s\n", "");
+  exit (1);
+
+  <bb 114> [20.54%]:
+  _5 = _3 + 4294967295;
+  w_11->references = _5;
+  if (_5 == 0)
+    goto <bb 115>; [36.64%]
+  else
+    goto <bb 182>; [63.36%]
+
+  <bb 182> [13.01%]:
+  goto <bb 128>; [100.00%]
+
+  <bb 115> [7.51%]:
+  _200 = windows.num;
+  if (_200 != 0)
+    goto <bb 116>; [92.50%]
+  else
+    goto <bb 183>; [7.50%]
+
+  <bb 116> [6.94%]:
+  _205 = windows.list;
+  _323 = *_205;
+  if (w_11 == _323)
+    goto <bb 184>; [7.50%]
+  else
+    goto <bb 137>; [92.50%]
+
+  <bb 137> [6.42%]:
+  goto <bb 118>; [100.00%]
+
+  <bb 117> [41.28%]:
+  _201 = (long unsigned int) _206;
+  _202 = _201 * 8;
+  _203 = _205 + _202;
+  _204 = *_203;
+  if (w_11 == _204)
+    goto <bb 185>; [7.50%]
+  else
+    goto <bb 140>; [92.50%]
+
+  <bb 185> [3.10%]:
+  goto <bb 136>; [100.00%]
+
+  <bb 140> [38.18%]:
+
+  <bb 118> [44.62%]:
+  # i_178 = PHI <_206(140), 0(137)>
+  _206 = i_178 + 1;
+  if (_200 > _206)
+    goto <bb 117>; [92.50%]
+  else
+    goto <bb 186>; [7.50%]
+
+  <bb 186> [3.35%]:
+  goto <bb 135>; [100.00%]
+
+  <bb 119> [44.59%]:
+  if (_189 > 1)
+    goto <bb 120>; [78.31%]
+  else
+    goto <bb 121>; [21.69%]
+
+  <bb 120> [34.92%]:
+  windows.num = _192;
+  goto <bb 122>; [100.00%]
+
+  <bb 121> [9.67%]:
+  free (_190);
+  windows.num = 0;
+  windows.list = 0B;
+  windows.space = 0;
+
+  <bb 122> [44.59%]:
+
+  <bb 123> [52.11%]:
+  _189 = windows.num;
+  if (_189 != 0)
+    goto <bb 124>; [92.50%]
+  else
+    goto <bb 187>; [7.50%]
+
+  <bb 187> [3.91%]:
+  goto <bb 125>; [100.00%]
+
+  <bb 124> [48.20%]:
+  _190 = windows.list;
+  _192 = _189 + 4294967295;
+  _193 = (long unsigned int) _192;
+  _194 = _193 * 8;
+  _195 = _190 + _194;
+  _196 = *_195;
+  if (_196 == 0B)
+    goto <bb 119>; [92.50%]
+  else
+    goto <bb 188>; [7.50%]
+
+  <bb 188> [3.62%]:
+
+  <bb 125> [7.52%]:
+  _197 = w_11->name;
+  if (_197 != 0B)
+    goto <bb 126>; [57.44%]
+  else
+    goto <bb 189>; [42.56%]
+
+  <bb 189> [3.20%]:
+  goto <bb 127>; [100.00%]
+
+  <bb 126> [4.32%]:
+  free (_197);
+
+  <bb 127> [7.52%]:
+  free (w_11);
+
+  <bb 128> [20.54%]:
+  return;
+
+  <bb 129> [0.49%]:
+  _324 = tmp_78->entry.rbe_right;
+  goto <bb 48>; [100.00%]
+
+  <bb 130> [0.30%]:
+  goto <bb 50>; [100.00%]
+
+  <bb 131> [0.50%]:
+  _23 = tmp_78->entry.rbe_right;
+  if (_23 == 0B)
+    goto <bb 130>; [59.29%]
+  else
+    goto <bb 190>; [40.71%]
+
+  <bb 132> [1.17%]:
+  goto <bb 83>; [100.00%]
+
+  <bb 133> [0.70%]:
+  oright_343 = tmp_132->entry.rbe_right;
+  goto <bb 85>; [100.00%]
+
+  <bb 134> [1.15%]:
+  if (_133 == 0B)
+    goto <bb 133>; [60.44%]
+  else
+    goto <bb 191>; [39.56%]
+
+  <bb 183> [0.56%]:
+
+  <bb 135> [3.91%]:
+  _179 = __printf_chk (1, "index not found%s\n", "");
+  exit (1);
+
+  <bb 184> [0.52%]:
+
+  <bb 136> [7.52%]:
+  # i_352 = PHI <0(184), _206(185)>
+  _180 = windows.list;
+  _182 = (long unsigned int) i_352;
+  _183 = _182 * 8;
+  _184 = _180 + _183;
+  *_184 = 0B;
+  goto <bb 123>; [100.00%]
+
+}
+
+
+
+;; Function session_destroy (session_destroy, funcdef_no=20, decl_uid=4458, cgraph_uid=19, symbol_order=84)
+
+;; 5 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 32 4 38 35 5 39 6 7 8 9 10 40 11 41 12 42 13 14 15 16 43 17 18 44 19 20 21 22 23 31 24 46 34 45 25 30 26 48 33 47 27 36 28 37 29
+;;
+;; Loop 3
+;;  header 26, latch 33
+;;  depth 1, outer 0
+;;  nodes: 26 33
+;;
+;; Loop 2
+;;  header 24, latch 34
+;;  depth 1, outer 0
+;;  nodes: 24 34
+;;
+;; Loop 1
+;;  header 10, latch 9
+;;  depth 1, outer 0
+;;  nodes: 10 9 8 7 6 11
+;;
+;; Loop 4
+;;  header 5, latch 35
+;;  depth 1, outer 0
+;;  nodes: 5 35 4
+;; 2 succs { 3 36 }
+;; 3 succs { 37 32 }
+;; 32 succs { 5 }
+;; 4 succs { 38 35 }
+;; 38 succs { 29 }
+;; 35 succs { 5 }
+;; 5 succs { 4 39 }
+;; 39 succs { 28 }
+;; 6 succs { 7 8 }
+;; 7 succs { 9 }
+;; 8 succs { 9 }
+;; 9 succs { 10 }
+;; 10 succs { 11 40 }
+;; 40 succs { 12 }
+;; 11 succs { 6 41 }
+;; 41 succs { 12 }
+;; 12 succs { 42 13 }
+;; 42 succs { 23 }
+;; 13 succs { 14 15 }
+;; 14 succs { 16 }
+;; 15 succs { 16 }
+;; 16 succs { 17 43 }
+;; 43 succs { 18 }
+;; 17 succs { 18 }
+;; 18 succs { 19 44 }
+;; 44 succs { 23 }
+;; 19 succs { 20 21 }
+;; 20 succs { 22 }
+;; 21 succs { 22 }
+;; 22 succs { 23 }
+;; 23 succs { 31 45 }
+;; 31 succs { 24 }
+;; 24 succs { 34 46 }
+;; 46 succs { 25 }
+;; 34 succs { 24 }
+;; 45 succs { 25 }
+;; 25 succs { 30 47 }
+;; 30 succs { 26 }
+;; 26 succs { 33 48 }
+;; 48 succs { 27 }
+;; 33 succs { 26 }
+;; 47 succs { 27 }
+;; 27 succs { 1 }
+;; 36 succs { 28 }
+;; 28 succs { }
+;; 37 succs { 29 }
+;; 29 succs { 10 }
+session_destroy (struct session * s)
+{
+  struct session_group * sg;
+  int D.4691;
+  u_int i;
+  char * _1;
+  struct session * * _2;
+  struct session * * _3;
+  long unsigned int _5;
+  long unsigned int _6;
+  struct session * * _7;
+  unsigned int _12;
+  struct session * * _13;
+  unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  struct session * * _18;
+  struct session * _19;
+  struct winlink * _20;
+  struct winlink_stack * _21;
+  struct winlink * _22;
+  struct winlink * _23;
+  struct winlinks * _24;
+  struct winlink * _25;
+  char * _26;
+  int _46;
+  int _47;
+  struct session * _54;
+  struct winlink * _70;
+  long unsigned int _71;
+  long unsigned int _72;
+  struct session * * _73;
+  struct session * _74;
+  unsigned int _76;
+  struct session * _81;
+  struct session * * _83;
+  struct session * * _84;
+  struct session * * _85;
+  struct session * _86;
+  struct session * _87;
+  struct session * _88;
+  struct session * * _96;
+  struct session * _97;
+  struct session * * _99;
+  struct session * _100;
+  struct session * _101;
+  struct session_group * _102;
+  struct session_group * * _104;
+  struct session_group * * _105;
+  struct session_group * * _106;
+  struct session_group * _107;
+  unsigned int _115;
+  struct winlink * _128;
+
+  <bb 2> [14.44%]:
+  _1 = s_31(D)->name;
+  _46 = __printf_chk (1, "session %s destroyed\n", _1);
+  _115 = sessions.num;
+  if (_115 != 0)
+    goto <bb 3>; [92.50%]
+  else
+    goto <bb 36>; [7.50%]
+
+  <bb 3> [13.32%]:
+  _2 = sessions.list;
+  _54 = *_2;
+  if (s_31(D) == _54)
+    goto <bb 37>; [7.50%]
+  else
+    goto <bb 32>; [92.50%]
+
+  <bb 32> [12.32%]:
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [79.18%]:
+  _71 = (long unsigned int) _76;
+  _72 = _71 * 8;
+  _73 = _2 + _72;
+  _74 = *_73;
+  if (s_31(D) == _74)
+    goto <bb 38>; [7.50%]
+  else
+    goto <bb 35>; [92.50%]
+
+  <bb 38> [5.94%]:
+  goto <bb 29>; [100.00%]
+
+  <bb 35> [73.24%]:
+
+  <bb 5> [85.60%]:
+  # i_136 = PHI <_76(35), 0(32)>
+  _76 = i_136 + 1;
+  if (_76 < _115)
+    goto <bb 4>; [92.50%]
+  else
+    goto <bb 39>; [7.50%]
+
+  <bb 39> [6.42%]:
+  goto <bb 28>; [100.00%]
+
+  <bb 6> [85.53%]:
+  if (_12 > 1)
+    goto <bb 7>; [78.31%]
+  else
+    goto <bb 8>; [21.69%]
+
+  <bb 7> [66.98%]:
+  sessions.num = _15;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [18.55%]:
+  free (_13);
+  sessions.num = 0;
+  sessions.list = 0B;
+  sessions.space = 0;
+
+  <bb 9> [85.53%]:
+
+  <bb 10> [99.96%]:
+  _12 = sessions.num;
+  if (_12 != 0)
+    goto <bb 11>; [92.50%]
+  else
+    goto <bb 40>; [7.50%]
+
+  <bb 40> [7.50%]:
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [92.46%]:
+  _13 = sessions.list;
+  _15 = _12 + 4294967295;
+  _16 = (long unsigned int) _15;
+  _17 = _16 * 8;
+  _18 = _13 + _17;
+  _19 = *_18;
+  if (_19 == 0B)
+    goto <bb 6>; [92.50%]
+  else
+    goto <bb 41>; [7.50%]
+
+  <bb 41> [6.93%]:
+
+  <bb 12> [14.43%]:
+  sg_80 = session_group_find (s_31(D));
+  if (sg_80 == 0B)
+    goto <bb 42>; [26.74%]
+  else
+    goto <bb 13>; [73.26%]
+
+  <bb 42> [3.86%]:
+  goto <bb 23>; [100.00%]
+
+  <bb 13> [10.57%]:
+  _81 = s_31(D)->gentry.tqe_next;
+  if (_81 != 0B)
+    goto <bb 14>; [70.00%]
+  else
+    goto <bb 15>; [30.00%]
+
+  <bb 14> [7.40%]:
+  _83 = s_31(D)->gentry.tqe_prev;
+  _81->gentry.tqe_prev = _83;
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [3.17%]:
+  _84 = s_31(D)->gentry.tqe_prev;
+  sg_80->sessions.tqh_last = _84;
+
+  <bb 16> [10.57%]:
+  _85 = s_31(D)->gentry.tqe_prev;
+  _86 = s_31(D)->gentry.tqe_next;
+  *_85 = _86;
+  _87 = sg_80->sessions.tqh_first;
+  _88 = _87->gentry.tqe_next;
+  if (_88 == 0B)
+    goto <bb 17>; [30.00%]
+  else
+    goto <bb 43>; [70.00%]
+
+  <bb 43> [7.40%]:
+  goto <bb 18>; [100.00%]
+
+  <bb 17> [3.17%]:
+  _96 = _87->gentry.tqe_prev;
+  sg_80->sessions.tqh_last = _96;
+  _97 = sg_80->sessions.tqh_first;
+  _99 = _97->gentry.tqe_prev;
+  _100 = _97->gentry.tqe_next;
+  *_99 = _100;
+
+  <bb 18> [10.57%]:
+  _101 = sg_80->sessions.tqh_first;
+  if (_101 == 0B)
+    goto <bb 19>; [33.47%]
+  else
+    goto <bb 44>; [66.53%]
+
+  <bb 44> [7.03%]:
+  goto <bb 23>; [100.00%]
+
+  <bb 19> [3.54%]:
+  _102 = sg_80->entry.tqe_next;
+  if (_102 != 0B)
+    goto <bb 20>; [70.00%]
+  else
+    goto <bb 21>; [30.00%]
+
+  <bb 20> [2.48%]:
+  _104 = sg_80->entry.tqe_prev;
+  _102->entry.tqe_prev = _104;
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [1.06%]:
+  _105 = sg_80->entry.tqe_prev;
+  session_groups.tqh_last = _105;
+
+  <bb 22> [3.54%]:
+  _106 = sg_80->entry.tqe_prev;
+  _107 = sg_80->entry.tqe_next;
+  *_106 = _107;
+  free (sg_80);
+
+  <bb 23> [14.43%]:
+  _128 = s_31(D)->lastw.tqh_first;
+  if (_128 != 0B)
+    goto <bb 31>; [85.00%]
+  else
+    goto <bb 45>; [15.00%]
+
+  <bb 31> [12.27%]:
+
+  <bb 24> [81.78%]:
+  _20 = s_31(D)->lastw.tqh_first;
+  _21 = &s_31(D)->lastw;
+  winlink_stack_remove (_21, _20);
+  _22 = s_31(D)->lastw.tqh_first;
+  if (_22 != 0B)
+    goto <bb 34>; [85.00%]
+  else
+    goto <bb 46>; [15.00%]
+
+  <bb 46> [12.27%]:
+  goto <bb 25>; [100.00%]
+
+  <bb 34> [69.51%]:
+  goto <bb 24>; [100.00%]
+
+  <bb 45> [2.16%]:
+
+  <bb 25> [14.43%]:
+  _70 = s_31(D)->windows.rbh_root;
+  if (_70 != 0B)
+    goto <bb 30>; [85.00%]
+  else
+    goto <bb 47>; [15.00%]
+
+  <bb 30> [12.27%]:
+
+  <bb 26> [81.78%]:
+  _23 = s_31(D)->windows.rbh_root;
+  _24 = &s_31(D)->windows;
+  winlink_remove (_24, _23);
+  _25 = s_31(D)->windows.rbh_root;
+  if (_25 != 0B)
+    goto <bb 33>; [85.00%]
+  else
+    goto <bb 48>; [15.00%]
+
+  <bb 48> [12.27%]:
+  goto <bb 27>; [100.00%]
+
+  <bb 33> [69.51%]:
+  goto <bb 26>; [100.00%]
+
+  <bb 47> [2.16%]:
+
+  <bb 27> [14.43%]:
+  _26 = s_31(D)->name;
+  free (_26);
+  free (s_31(D));
+  return;
+
+  <bb 36> [1.08%]:
+
+  <bb 28> [7.50%]:
+  _47 = __printf_chk (1, "session not found%s\n", "");
+  exit (1);
+
+  <bb 37> [1.00%]:
+
+  <bb 29> [14.43%]:
+  # i_108 = PHI <0(37), _76(38)>
+  _3 = sessions.list;
+  _5 = (long unsigned int) i_108;
+  _6 = _5 * 8;
+  _7 = _3 + _6;
+  *_7 = 0B;
+  goto <bb 10>; [100.00%]
+
+}
+
+
+
+;; Function winlink_add (winlink_add, funcdef_no=7, decl_uid=4469, cgraph_uid=31, symbol_order=72)
+
+;; 4 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 5 73 6 7 74 72 8 76 75 9 77 78 10 70 11 12 13 79 14 15 71 16 17 18 19 20 80 21 22 23 24 82 25 81 26 83 27 84 28 29 30 31 32 33 34 35 85 36 37 38 39 40 41 42 43 44 87 45 86 46 88 47 89 48 49 50 51 52 53 54 55 90 56 57 58 59 60 61 62 63 64 91 65 92 66 67 68 69
+;;
+;; Loop 3
+;;  header 64, latch 63
+;;  depth 1, outer 0
+;;  nodes: 64 63 62 42 45 25 24 23 22 65 44 43 39 40 41 37 85 36 35 83 34 31 32 33 29 84 28 27 26 81 82 30 38 59 60 61 57 90 56 55 88 54 51 52 53 49 89 48 47 46 86 87 50 58
+;;
+;; Loop 2
+;;  header 11, latch 71
+;;  depth 1, outer 0
+;;  nodes: 11 71 15 14 12 13
+;;
+;; Loop 1
+;;  header 4, latch 72
+;;  depth 1, outer 0
+;;  nodes: 4 72 7 73 6 5
+;; 2 succs { 3 9 }
+;; 3 succs { 4 }
+;; 4 succs { 8 5 }
+;; 5 succs { 73 6 }
+;; 73 succs { 7 }
+;; 6 succs { 7 }
+;; 7 succs { 72 74 }
+;; 74 succs { 68 }
+;; 72 succs { 4 }
+;; 8 succs { 75 76 }
+;; 76 succs { 10 }
+;; 75 succs { 68 }
+;; 9 succs { 77 78 }
+;; 77 succs { 68 }
+;; 78 succs { 10 }
+;; 10 succs { 70 69 }
+;; 70 succs { 11 }
+;; 11 succs { 12 13 }
+;; 12 succs { 15 }
+;; 13 succs { 14 79 }
+;; 79 succs { 67 }
+;; 14 succs { 15 }
+;; 15 succs { 71 16 }
+;; 71 succs { 11 }
+;; 16 succs { 17 80 }
+;; 17 succs { 18 19 }
+;; 18 succs { 20 }
+;; 19 succs { 20 }
+;; 20 succs { 64 }
+;; 80 succs { 21 }
+;; 21 succs { 20 }
+;; 22 succs { 23 43 }
+;; 23 succs { 24 81 }
+;; 24 succs { 25 82 }
+;; 82 succs { 26 }
+;; 25 succs { 63 }
+;; 81 succs { 26 }
+;; 26 succs { 27 83 }
+;; 83 succs { 35 }
+;; 27 succs { 28 84 }
+;; 84 succs { 29 }
+;; 28 succs { 29 }
+;; 29 succs { 30 33 }
+;; 30 succs { 31 32 }
+;; 31 succs { 34 }
+;; 32 succs { 34 }
+;; 33 succs { 34 }
+;; 34 succs { 35 }
+;; 35 succs { 36 85 }
+;; 85 succs { 37 }
+;; 36 succs { 37 }
+;; 37 succs { 38 41 }
+;; 38 succs { 39 40 }
+;; 39 succs { 42 }
+;; 40 succs { 42 }
+;; 41 succs { 42 }
+;; 42 succs { 63 }
+;; 43 succs { 44 86 }
+;; 44 succs { 45 87 }
+;; 87 succs { 46 }
+;; 45 succs { 63 }
+;; 86 succs { 46 }
+;; 46 succs { 47 88 }
+;; 88 succs { 55 }
+;; 47 succs { 48 89 }
+;; 89 succs { 49 }
+;; 48 succs { 49 }
+;; 49 succs { 50 53 }
+;; 50 succs { 51 52 }
+;; 51 succs { 54 }
+;; 52 succs { 54 }
+;; 53 succs { 54 }
+;; 54 succs { 55 }
+;; 55 succs { 56 90 }
+;; 90 succs { 57 }
+;; 56 succs { 57 }
+;; 57 succs { 58 61 }
+;; 58 succs { 59 60 }
+;; 59 succs { 62 }
+;; 60 succs { 62 }
+;; 61 succs { 62 }
+;; 62 succs { 63 }
+;; 63 succs { 64 }
+;; 64 succs { 65 91 }
+;; 91 succs { 66 }
+;; 65 succs { 22 92 }
+;; 92 succs { 66 }
+;; 66 succs { 67 }
+;; 67 succs { 68 }
+;; 68 succs { 1 }
+;; 69 succs { 21 }
+winlink_add (struct winlinks * wwl, struct window * w, int idx)
+{
+  struct winlink * parent;
+  struct winlink * gparent;
+  struct winlink * tmp;
+  struct winlink * elm;
+  int D.4589;
+  struct winlink * tmp;
+  struct winlink * parent;
+  int comp;
+  struct winlink * D.4586;
+  int i;
+  int D.4573;
+  struct winlink * wl;
+  int _1;
+  struct winlink * _2;
+  unsigned int _3;
+  unsigned int _4;
+  struct winlink * _6;
+  struct winlink * _34;
+  int _53;
+  int _54;
+  struct winlink * _57;
+  int _59;
+  struct winlink * _60;
+  struct winlink * _63;
+  struct winlink * _65;
+  struct winlink * _66;
+  struct winlink * _68;
+  struct winlink * _69;
+  struct winlink * _72;
+  struct winlink * _75;
+  struct winlink * _77;
+  struct winlink * _78;
+  struct winlink * _80;
+  struct winlink * _81;
+  struct winlink * _84;
+  int _86;
+  struct winlink * _87;
+  struct winlink * _89;
+  struct winlink * _91;
+  struct winlink * _92;
+  struct winlink * _94;
+  struct winlink * _95;
+  struct winlink * _98;
+  struct winlink * _102;
+  struct winlink * _104;
+  struct winlink * _105;
+  struct winlink * _107;
+  struct winlink * _108;
+  struct winlink * _111;
+  int _112;
+  struct winlink * _113;
+
+  <bb 2> [13.84%]:
+  if (idx_9(D) < 0)
+    goto <bb 3>; [36.00%]
+  else
+    goto <bb 9>; [64.00%]
+
+  <bb 3> [4.98%]:
+  _1 = ~idx_9(D);
+
+  <bb 4> [34.52%]:
+  # i_33 = PHI <_1(3), i_36(72)>
+  _34 = winlink_find_by_index (wwl_11(D), i_33);
+  if (_34 == 0B)
+    goto <bb 8>; [7.50%]
+  else
+    goto <bb 5>; [92.50%]
+
+  <bb 5> [31.93%]:
+  if (i_33 == 10000)
+    goto <bb 73>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 73> [10.86%]:
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [21.07%]:
+  i_35 = i_33 + 1;
+
+  <bb 7> [31.93%]:
+  # i_36 = PHI <0(73), i_35(6)>
+  if (_1 != i_36)
+    goto <bb 72>; [92.50%]
+  else
+    goto <bb 74>; [7.50%]
+
+  <bb 74> [2.39%]:
+  goto <bb 68>; [100.00%]
+
+  <bb 72> [29.54%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 8> [2.59%]:
+  if (i_33 == -1)
+    goto <bb 75>; [0.00%]
+  else
+    goto <bb 76>; [100.00%]
+
+  <bb 76> [2.59%]:
+  goto <bb 10>; [100.00%]
+
+  <bb 75> [0.00%]:
+  goto <bb 68>; [100.00%]
+
+  <bb 9> [8.86%]:
+  _2 = winlink_find_by_index (wwl_11(D), idx_9(D));
+  if (_2 != 0B)
+    goto <bb 77>; [18.75%]
+  else
+    goto <bb 78>; [81.25%]
+
+  <bb 77> [1.66%]:
+  goto <bb 68>; [100.00%]
+
+  <bb 78> [7.20%]:
+
+  <bb 10> [11.94%]:
+  # idx_5 = PHI <i_33(76), idx_9(D)(78)>
+  wl_16 = calloc (1, 136);
+  wl_16->idx = idx_5;
+  wl_16->window = w_18(D);
+  tmp_38 = wwl_11(D)->rbh_root;
+  if (tmp_38 != 0B)
+    goto <bb 70>; [92.50%]
+  else
+    goto <bb 69>; [7.50%]
+
+  <bb 70> [11.04%]:
+
+  <bb 11> [92.50%]:
+  # tmp_22 = PHI <tmp_49(71), tmp_38(70)>
+  _53 = tmp_22->idx;
+  _54 = idx_5 - _53;
+  if (_54 < 0)
+    goto <bb 12>; [36.00%]
+  else
+    goto <bb 13>; [64.00%]
+
+  <bb 12> [33.30%]:
+  tmp_42 = tmp_22->entry.rbe_left;
+  goto <bb 15>; [100.00%]
+
+  <bb 13> [59.20%]:
+  if (_54 > 0)
+    goto <bb 14>; [92.50%]
+  else
+    goto <bb 79>; [7.50%]
+
+  <bb 79> [4.44%]:
+  goto <bb 67>; [100.00%]
+
+  <bb 14> [54.76%]:
+  tmp_43 = tmp_22->entry.rbe_right;
+
+  <bb 15> [88.10%]:
+  # tmp_49 = PHI <tmp_43(14), tmp_42(12)>
+  if (tmp_49 != 0B)
+    goto <bb 71>; [92.50%]
+  else
+    goto <bb 16>; [7.50%]
+
+  <bb 71> [81.49%]:
+  goto <bb 11>; [100.00%]
+
+  <bb 16> [6.60%]:
+  wl_16->entry.rbe_parent = tmp_22;
+  wl_16->entry.rbe_right = 0B;
+  wl_16->entry.rbe_left = 0B;
+  wl_16->entry.rbe_color = 1;
+  if (tmp_22 != 0B)
+    goto <bb 17>; [79.49%]
+  else
+    goto <bb 80>; [20.51%]
+
+  <bb 17> [5.25%]:
+  if (_54 < 0)
+    goto <bb 18>; [36.00%]
+  else
+    goto <bb 19>; [64.00%]
+
+  <bb 18> [1.89%]:
+  tmp_22->entry.rbe_left = wl_16;
+  goto <bb 20>; [100.00%]
+
+  <bb 19> [3.36%]:
+  tmp_22->entry.rbe_right = wl_16;
+
+  <bb 20> [7.50%]:
+  goto <bb 64>; [100.00%]
+
+  <bb 80> [1.35%]:
+
+  <bb 21> [2.25%]:
+  wwl_11(D)->rbh_root = wl_16;
+  goto <bb 20>; [100.00%]
+
+  <bb 22> [44.45%]:
+  gparent_56 = parent_55->entry.rbe_parent;
+  _57 = gparent_56->entry.rbe_left;
+  if (parent_55 == _57)
+    goto <bb 23>; [30.00%]
+  else
+    goto <bb 43>; [70.00%]
+
+  <bb 23> [13.33%]:
+  tmp_58 = gparent_56->entry.rbe_right;
+  if (tmp_58 != 0B)
+    goto <bb 24>; [70.00%]
+  else
+    goto <bb 81>; [30.00%]
+
+  <bb 24> [9.33%]:
+  _59 = tmp_58->entry.rbe_color;
+  if (_59 == 1)
+    goto <bb 25>; [20.24%]
+  else
+    goto <bb 82>; [79.76%]
+
+  <bb 82> [7.44%]:
+  goto <bb 26>; [100.00%]
+
+  <bb 25> [1.89%]:
+  tmp_58->entry.rbe_color = 0;
+  _57->entry.rbe_color = 0;
+  gparent_56->entry.rbe_color = 1;
+  goto <bb 63>; [100.00%]
+
+  <bb 81> [4.00%]:
+
+  <bb 26> [11.45%]:
+  _60 = _57->entry.rbe_right;
+  if (_60 == elm_61)
+    goto <bb 27>; [30.00%]
+  else
+    goto <bb 83>; [70.00%]
+
+  <bb 83> [8.02%]:
+  goto <bb 35>; [100.00%]
+
+  <bb 27> [3.43%]:
+  tmp_62 = elm_61;
+  _63 = _60->entry.rbe_left;
+  _57->entry.rbe_right = _63;
+  if (_63 != 0B)
+    goto <bb 28>; [70.00%]
+  else
+    goto <bb 84>; [30.00%]
+
+  <bb 84> [1.03%]:
+  goto <bb 29>; [100.00%]
+
+  <bb 28> [2.40%]:
+  _65 = _60->entry.rbe_left;
+  _65->entry.rbe_parent = _57;
+
+  <bb 29> [3.43%]:
+  _66 = _57->entry.rbe_parent;
+  _60->entry.rbe_parent = _66;
+  if (_66 != 0B)
+    goto <bb 30>; [70.00%]
+  else
+    goto <bb 33>; [30.00%]
+
+  <bb 30> [2.40%]:
+  _68 = _57->entry.rbe_parent;
+  _69 = _68->entry.rbe_left;
+  if (_57 == _69)
+    goto <bb 31>; [30.00%]
+  else
+    goto <bb 32>; [70.00%]
+
+  <bb 31> [0.72%]:
+  _68->entry.rbe_left = _60;
+  goto <bb 34>; [100.00%]
+
+  <bb 32> [1.68%]:
+  _68->entry.rbe_right = _60;
+  goto <bb 34>; [100.00%]
+
+  <bb 33> [1.03%]:
+  wwl_11(D)->rbh_root = _60;
+
+  <bb 34> [3.43%]:
+  _60->entry.rbe_left = _57;
+  _57->entry.rbe_parent = _60;
+  _72 = _60->entry.rbe_parent;
+
+  <bb 35> [11.45%]:
+  # elm_114 = PHI <elm_61(83), _57(34)>
+  # parent_73 = PHI <_57(83), _60(34)>
+  parent_73->entry.rbe_color = 0;
+  gparent_56->entry.rbe_color = 1;
+  tmp_74 = gparent_56->entry.rbe_left;
+  _75 = tmp_74->entry.rbe_right;
+  gparent_56->entry.rbe_left = _75;
+  if (_75 != 0B)
+    goto <bb 36>; [70.00%]
+  else
+    goto <bb 85>; [30.00%]
+
+  <bb 85> [3.44%]:
+  goto <bb 37>; [100.00%]
+
+  <bb 36> [8.01%]:
+  _77 = tmp_74->entry.rbe_right;
+  _77->entry.rbe_parent = gparent_56;
+
+  <bb 37> [11.45%]:
+  _78 = gparent_56->entry.rbe_parent;
+  tmp_74->entry.rbe_parent = _78;
+  if (_78 != 0B)
+    goto <bb 38>; [70.00%]
+  else
+    goto <bb 41>; [30.00%]
+
+  <bb 38> [8.01%]:
+  _80 = gparent_56->entry.rbe_parent;
+  _81 = _80->entry.rbe_left;
+  if (gparent_56 == _81)
+    goto <bb 39>; [30.00%]
+  else
+    goto <bb 40>; [70.00%]
+
+  <bb 39> [2.40%]:
+  _80->entry.rbe_left = tmp_74;
+  goto <bb 42>; [100.00%]
+
+  <bb 40> [5.61%]:
+  _80->entry.rbe_right = tmp_74;
+  goto <bb 42>; [100.00%]
+
+  <bb 41> [3.43%]:
+  wwl_11(D)->rbh_root = tmp_74;
+
+  <bb 42> [11.45%]:
+  tmp_74->entry.rbe_right = gparent_56;
+  gparent_56->entry.rbe_parent = tmp_74;
+  _84 = tmp_74->entry.rbe_parent;
+  goto <bb 63>; [100.00%]
+
+  <bb 43> [31.11%]:
+  if (_57 != 0B)
+    goto <bb 44>; [70.00%]
+  else
+    goto <bb 86>; [30.00%]
+
+  <bb 44> [21.78%]:
+  _86 = _57->entry.rbe_color;
+  if (_86 == 1)
+    goto <bb 45>; [20.24%]
+  else
+    goto <bb 87>; [79.76%]
+
+  <bb 87> [17.37%]:
+  goto <bb 46>; [100.00%]
+
+  <bb 45> [4.41%]:
+  _57->entry.rbe_color = 0;
+  parent_55->entry.rbe_color = 0;
+  gparent_56->entry.rbe_color = 1;
+  goto <bb 63>; [100.00%]
+
+  <bb 86> [9.33%]:
+
+  <bb 46> [26.71%]:
+  _87 = parent_55->entry.rbe_left;
+  if (elm_61 == _87)
+    goto <bb 47>; [30.00%]
+  else
+    goto <bb 88>; [70.00%]
+
+  <bb 88> [18.70%]:
+  goto <bb 55>; [100.00%]
+
+  <bb 47> [8.01%]:
+  tmp_88 = elm_61;
+  _89 = elm_61->entry.rbe_right;
+  parent_55->entry.rbe_left = _89;
+  if (_89 != 0B)
+    goto <bb 48>; [70.00%]
+  else
+    goto <bb 89>; [30.00%]
+
+  <bb 89> [2.40%]:
+  goto <bb 49>; [100.00%]
+
+  <bb 48> [5.61%]:
+  _91 = elm_61->entry.rbe_right;
+  _91->entry.rbe_parent = parent_55;
+
+  <bb 49> [8.01%]:
+  _92 = parent_55->entry.rbe_parent;
+  elm_61->entry.rbe_parent = _92;
+  if (_92 != 0B)
+    goto <bb 50>; [70.00%]
+  else
+    goto <bb 53>; [30.00%]
+
+  <bb 50> [5.61%]:
+  _94 = parent_55->entry.rbe_parent;
+  _95 = _94->entry.rbe_left;
+  if (parent_55 == _95)
+    goto <bb 51>; [30.00%]
+  else
+    goto <bb 52>; [70.00%]
+
+  <bb 51> [1.68%]:
+  _94->entry.rbe_left = elm_61;
+  goto <bb 54>; [100.00%]
+
+  <bb 52> [3.93%]:
+  _94->entry.rbe_right = elm_61;
+  goto <bb 54>; [100.00%]
+
+  <bb 53> [2.40%]:
+  wwl_11(D)->rbh_root = elm_61;
+
+  <bb 54> [8.01%]:
+  elm_61->entry.rbe_right = parent_55;
+  parent_55->entry.rbe_parent = elm_61;
+  _98 = elm_61->entry.rbe_parent;
+
+  <bb 55> [26.71%]:
+  # elm_115 = PHI <elm_61(88), parent_55(54)>
+  # parent_100 = PHI <parent_55(88), elm_61(54)>
+  parent_100->entry.rbe_color = 0;
+  gparent_56->entry.rbe_color = 1;
+  tmp_101 = gparent_56->entry.rbe_right;
+  _102 = tmp_101->entry.rbe_left;
+  gparent_56->entry.rbe_right = _102;
+  if (_102 != 0B)
+    goto <bb 56>; [70.00%]
+  else
+    goto <bb 90>; [30.00%]
+
+  <bb 90> [8.01%]:
+  goto <bb 57>; [100.00%]
+
+  <bb 56> [18.69%]:
+  _104 = tmp_101->entry.rbe_left;
+  _104->entry.rbe_parent = gparent_56;
+
+  <bb 57> [26.71%]:
+  _105 = gparent_56->entry.rbe_parent;
+  tmp_101->entry.rbe_parent = _105;
+  if (_105 != 0B)
+    goto <bb 58>; [70.00%]
+  else
+    goto <bb 61>; [30.00%]
+
+  <bb 58> [18.69%]:
+  _107 = gparent_56->entry.rbe_parent;
+  _108 = _107->entry.rbe_left;
+  if (gparent_56 == _108)
+    goto <bb 59>; [30.00%]
+  else
+    goto <bb 60>; [70.00%]
+
+  <bb 59> [5.61%]:
+  _107->entry.rbe_left = tmp_101;
+  goto <bb 62>; [100.00%]
+
+  <bb 60> [13.09%]:
+  _107->entry.rbe_right = tmp_101;
+  goto <bb 62>; [100.00%]
+
+  <bb 61> [8.01%]:
+  wwl_11(D)->rbh_root = tmp_101;
+
+  <bb 62> [26.71%]:
+  tmp_101->entry.rbe_left = gparent_56;
+  gparent_56->entry.rbe_parent = tmp_101;
+  _111 = tmp_101->entry.rbe_parent;
+
+  <bb 63> [44.46%]:
+  # elm_128 = PHI <elm_115(62), elm_114(42), gparent_56(45), gparent_56(25)>
+
+  <bb 64> [51.95%]:
+  # elm_61 = PHI <wl_16(20), elm_128(63)>
+  parent_55 = elm_61->entry.rbe_parent;
+  if (parent_55 != 0B)
+    goto <bb 65>; [92.50%]
+  else
+    goto <bb 91>; [7.50%]
+
+  <bb 91> [3.90%]:
+  goto <bb 66>; [100.00%]
+
+  <bb 65> [48.05%]:
+  _112 = parent_55->entry.rbe_color;
+  if (_112 == 1)
+    goto <bb 22>; [92.50%]
+  else
+    goto <bb 92>; [7.50%]
+
+  <bb 92> [3.60%]:
+
+  <bb 66> [7.50%]:
+  _113 = wwl_11(D)->rbh_root;
+  _113->entry.rbe_color = 0;
+
+  <bb 67> [11.94%]:
+  _3 = w_18(D)->references;
+  _4 = _3 + 1;
+  w_18(D)->references = _4;
+
+  <bb 68> [13.84%]:
+  # _6 = PHI <0B(75), 0B(77), wl_16(67), 0B(74)>
+  return _6;
+
+  <bb 69> [0.90%]:
+  wl_16->entry.rbe_parent = 0B;
+  wl_16->entry.rbe_right = 0B;
+  wl_16->entry.rbe_left = 0B;
+  wl_16->entry.rbe_color = 1;
+  goto <bb 21>; [100.00%]
+
+}
+
+
+
+;; Function session_group_synchronize1 (session_group_synchronize1, funcdef_no=17, decl_uid=4462, cgraph_uid=23, symbol_order=81)
+
+;; 5 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 19 4 23 5 25 18 6 26 22 24 7 17 8 28 9 10 29 21 27 11 16 12 31 20 30 13 14 15
+;;
+;; Loop 3
+;;  header 12, latch 20
+;;  depth 1, outer 0
+;;  nodes: 12 20
+;;
+;; Loop 2
+;;  header 8, latch 21
+;;  depth 1, outer 0
+;;  nodes: 8 21 10 28 9
+;;
+;; Loop 1
+;;  header 6, latch 22
+;;  depth 1, outer 0
+;;  nodes: 6 22
+;;
+;; Loop 4
+;;  header 4, latch 23
+;;  depth 1, outer 0
+;;  nodes: 4 23
+;; 2 succs { 14 3 }
+;; 3 succs { 19 24 }
+;; 19 succs { 4 }
+;; 4 succs { 23 5 }
+;; 23 succs { 4 }
+;; 5 succs { 18 25 }
+;; 25 succs { 7 }
+;; 18 succs { 6 }
+;; 6 succs { 22 26 }
+;; 26 succs { 7 }
+;; 22 succs { 6 }
+;; 24 succs { 7 }
+;; 7 succs { 17 27 }
+;; 17 succs { 8 }
+;; 8 succs { 9 28 }
+;; 28 succs { 10 }
+;; 9 succs { 10 }
+;; 10 succs { 21 29 }
+;; 29 succs { 11 }
+;; 21 succs { 8 }
+;; 27 succs { 11 }
+;; 11 succs { 16 30 }
+;; 16 succs { 12 }
+;; 12 succs { 20 31 }
+;; 31 succs { 13 }
+;; 20 succs { 12 }
+;; 30 succs { 13 }
+;; 13 succs { 15 }
+;; 14 succs { 15 }
+;; 15 succs { 1 }
+session_group_synchronize1 (struct session * target, struct session * s)
+{
+  struct winlink * tmp;
+  struct winlink * parent;
+  struct winlink * D.4675;
+  struct winlink * wl2;
+  struct winlink * wl;
+  struct winlink_stack old_lastw;
+  struct winlinks * ww;
+  struct winlinks old_windows;
+  struct winlink * _1;
+  int _2;
+  struct window * _3;
+  struct winlinks * _4;
+  struct winlink * * _5;
+  int _6;
+  struct winlinks * _7;
+  struct winlink * * _8;
+  struct winlink * * _9;
+  struct winlink * * _10;
+  struct winlink * _11;
+  struct winlink * _12;
+  uint128_t _24;
+  long unsigned int _27;
+  struct winlink * _77;
+
+  <bb 2> [28.05%]:
+  _1 = MEM[(struct winlinks *)target_20(D) + 40B].rbh_root;
+  if (_1 == 0B)
+    goto <bb 14>; [46.53%]
+  else
+    goto <bb 3>; [53.47%]
+
+  <bb 3> [15.00%]:
+  _27 = MEM[(char * {ref-all})s_23(D) + 40B];
+  MEM[(char * {ref-all})&old_windows] = _27;
+  s_23(D)->windows.rbh_root = 0B;
+  tmp_68 = MEM[(struct winlinks *)target_20(D) + 40B].rbh_root;
+  if (tmp_68 != 0B)
+    goto <bb 19>; [85.00%]
+  else
+    goto <bb 24>; [15.00%]
+
+  <bb 19> [12.75%]:
+
+  <bb 4> [85.00%]:
+  # tmp_86 = PHI <tmp_71(23), tmp_68(19)>
+  tmp_71 = tmp_86->entry.rbe_left;
+  if (tmp_71 != 0B)
+    goto <bb 23>; [85.00%]
+  else
+    goto <bb 5>; [15.00%]
+
+  <bb 23> [72.25%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [12.75%]:
+  if (tmp_86 != 0B)
+    goto <bb 18>; [100.00%]
+  else
+    goto <bb 25>; [0.00%]
+
+  <bb 25> [0.00%]:
+  goto <bb 7>; [100.00%]
+
+  <bb 18> [12.75%]:
+
+  <bb 6> [85.00%]:
+  # wl_78 = PHI <wl_44(22), tmp_86(18)>
+  _2 = wl_78->idx;
+  _3 = wl_78->window;
+  _4 = &s_23(D)->windows;
+  winlink_add (_4, _3, _2);
+  wl_44 = winlinks_RB_NEXT (wl_78);
+  if (wl_44 != 0B)
+    goto <bb 22>; [85.00%]
+  else
+    goto <bb 26>; [15.00%]
+
+  <bb 26> [12.75%]:
+  goto <bb 7>; [100.00%]
+
+  <bb 22> [72.25%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 24> [2.25%]:
+
+  <bb 7> [15.00%]:
+  _24 = MEM[(char * {ref-all})s_23(D) + 24B];
+  MEM[(char * {ref-all})&old_lastw] = _24;
+  s_23(D)->lastw.tqh_first = 0B;
+  _5 = &s_23(D)->lastw.tqh_first;
+  s_23(D)->lastw.tqh_last = _5;
+  wl_30 = old_lastw.tqh_first;
+  if (wl_30 != 0B)
+    goto <bb 17>; [85.00%]
+  else
+    goto <bb 27>; [15.00%]
+
+  <bb 17> [12.75%]:
+
+  <bb 8> [85.00%]:
+  # wl_79 = PHI <wl_42(21), wl_30(17)>
+  _6 = wl_79->idx;
+  _7 = &s_23(D)->windows;
+  wl2_37 = winlink_find_by_index (_7, _6);
+  if (wl2_37 != 0B)
+    goto <bb 9>; [70.00%]
+  else
+    goto <bb 28>; [30.00%]
+
+  <bb 28> [25.50%]:
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [59.50%]:
+  wl2_37->sentry.tqe_next = 0B;
+  _8 = s_23(D)->lastw.tqh_last;
+  wl2_37->sentry.tqe_prev = _8;
+  _9 = s_23(D)->lastw.tqh_last;
+  *_9 = wl2_37;
+  _10 = &wl2_37->sentry.tqe_next;
+  s_23(D)->lastw.tqh_last = _10;
+
+  <bb 10> [85.00%]:
+  wl_42 = wl_79->sentry.tqe_next;
+  if (wl_42 != 0B)
+    goto <bb 21>; [85.00%]
+  else
+    goto <bb 29>; [15.00%]
+
+  <bb 29> [12.75%]:
+  goto <bb 11>; [100.00%]
+
+  <bb 21> [72.25%]:
+  goto <bb 8>; [100.00%]
+
+  <bb 27> [2.25%]:
+
+  <bb 11> [15.00%]:
+  _11 = s_23(D)->lastw.tqh_first;
+  s_23(D)->curw = _11;
+  _77 = old_windows.rbh_root;
+  if (_77 != 0B)
+    goto <bb 16>; [85.00%]
+  else
+    goto <bb 30>; [15.00%]
+
+  <bb 16> [12.75%]:
+
+  <bb 12> [85.00%]:
+  wl_34 = old_windows.rbh_root;
+  winlink_remove (&old_windows, wl_34);
+  _12 = old_windows.rbh_root;
+  if (_12 != 0B)
+    goto <bb 20>; [85.00%]
+  else
+    goto <bb 31>; [15.00%]
+
+  <bb 31> [12.75%]:
+  goto <bb 13>; [100.00%]
+
+  <bb 20> [72.25%]:
+  goto <bb 12>; [100.00%]
+
+  <bb 30> [2.25%]:
+
+  <bb 13> [15.00%]:
+  old_windows ={v} {CLOBBER};
+  old_lastw ={v} {CLOBBER};
+  goto <bb 15>; [100.00%]
+
+  <bb 14> [13.05%]:
+  old_windows ={v} {CLOBBER};
+  old_lastw ={v} {CLOBBER};
+
+  <bb 15> [28.05%]:
+  return;
+
+}
+
+
+
+;; Function session_group_synchronize_from (session_group_synchronize_from, funcdef_no=19, decl_uid=4461, cgraph_uid=22, symbol_order=83)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 11 8 4 12 5 6 13 9 10 7
+;;
+;; Loop 1
+;;  header 4, latch 9
+;;  depth 1, outer 0
+;;  nodes: 4 9 6 12 5
+;; 2 succs { 10 3 }
+;; 3 succs { 8 11 }
+;; 11 succs { 7 }
+;; 8 succs { 4 }
+;; 4 succs { 5 12 }
+;; 12 succs { 6 }
+;; 5 succs { 6 }
+;; 6 succs { 9 13 }
+;; 13 succs { 7 }
+;; 9 succs { 4 }
+;; 10 succs { 7 }
+;; 7 succs { 1 }
+session_group_synchronize_from (struct session * target)
+{
+  struct session * s;
+  struct session_group * sg;
+
+  <bb 2> [20.48%]:
+  sg_7 = session_group_find (target_6(D));
+  if (sg_7 == 0B)
+    goto <bb 10>; [26.74%]
+  else
+    goto <bb 3>; [73.26%]
+
+  <bb 3> [15.00%]:
+  s_8 = sg_7->sessions.tqh_first;
+  if (s_8 != 0B)
+    goto <bb 8>; [85.00%]
+  else
+    goto <bb 11>; [15.00%]
+
+  <bb 11> [2.25%]:
+  goto <bb 7>; [100.00%]
+
+  <bb 8> [12.75%]:
+
+  <bb 4> [85.00%]:
+  # s_18 = PHI <s_10(9), s_8(8)>
+  if (target_6(D) != s_18)
+    goto <bb 5>; [53.47%]
+  else
+    goto <bb 12>; [46.53%]
+
+  <bb 12> [39.55%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [45.45%]:
+  session_group_synchronize1 (target_6(D), s_18);
+
+  <bb 6> [85.00%]:
+  s_10 = s_18->gentry.tqe_next;
+  if (s_10 != 0B)
+    goto <bb 9>; [85.00%]
+  else
+    goto <bb 13>; [15.00%]
+
+  <bb 13> [12.75%]:
+  goto <bb 7>; [100.00%]
+
+  <bb 9> [72.25%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 10> [5.48%]:
+
+  <bb 7> [20.48%]:
+  return;
+
+}
+
+
+
+;; Function xrealloc (xrealloc, funcdef_no=1, decl_uid=4487, cgraph_uid=41, symbol_order=63)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 5 6 7 8
+;; 2 succs { 3 4 }
+;; 3 succs { }
+;; 4 succs { 5 6 }
+;; 5 succs { }
+;; 6 succs { 7 8 }
+;; 7 succs { }
+;; 8 succs { 1 }
+xrealloc (void * oldptr, size_t nmemb, size_t size)
+{
+  void * newptr;
+  size_t newsize;
+  long unsigned int _1;
+  int _13;
+  int _14;
+  int _15;
+
+  <bb 2> [100.00%]:
+  newsize_4 = nmemb_2(D) * size_3(D);
+  if (newsize_4 == 0)
+    goto <bb 3>; [0.04%]
+  else
+    goto <bb 4>; [99.96%]
+
+  <bb 3> [0.04%]:
+  _13 = __printf_chk (1, "zero size%s", "");
+  exit (1);
+
+  <bb 4> [99.96%]:
+  _1 = 1073741824 / nmemb_2(D);
+  if (_1 < size_3(D))
+    goto <bb 5>; [0.04%]
+  else
+    goto <bb 6>; [99.96%]
+
+  <bb 5> [0.04%]:
+  _14 = __printf_chk (1, "nmemb * size > SIZE_MAX%s", "");
+  exit (1);
+
+  <bb 6> [99.92%]:
+  newptr_8 = realloc (oldptr_6(D), newsize_4);
+  if (newptr_8 == 0B)
+    goto <bb 7>; [0.04%]
+  else
+    goto <bb 8>; [99.96%]
+
+  <bb 7> [0.04%]:
+  _15 = __printf_chk (1, "xrealloc failed%s", "");
+  exit (1);
+
+  <bb 8> [99.88%]:
+  return newptr_8;
+
+}
+
+
+
+;; Function window_create1 (window_create1, funcdef_no=25, decl_uid=4455, cgraph_uid=16, symbol_order=90)
+
+;; 3 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 24 22 23 5 20 6 25 7 27 26 8 9 10 11 12 28 13 14 19 15 30 21 29 16 17 18
+;;
+;; Loop 2
+;;  header 15, latch 21
+;;  depth 1, outer 0
+;;  nodes: 15 21
+;;
+;; Loop 1
+;;  header 6, latch 22
+;;  depth 1, outer 0
+;;  nodes: 6 22 4
+;; 2 succs { 3 18 }
+;; 3 succs { 23 20 }
+;; 4 succs { 24 22 }
+;; 24 succs { 5 }
+;; 22 succs { 6 }
+;; 23 succs { 5 }
+;; 5 succs { 7 }
+;; 20 succs { 6 }
+;; 6 succs { 4 25 }
+;; 25 succs { 7 }
+;; 7 succs { 26 27 }
+;; 27 succs { 17 }
+;; 26 succs { 8 }
+;; 8 succs { 9 10 }
+;; 9 succs { }
+;; 10 succs { 11 12 }
+;; 11 succs { }
+;; 12 succs { 13 28 }
+;; 28 succs { 14 }
+;; 13 succs { 14 }
+;; 14 succs { 19 29 }
+;; 19 succs { 15 }
+;; 15 succs { 21 30 }
+;; 30 succs { 16 }
+;; 21 succs { 15 }
+;; 29 succs { 16 }
+;; 16 succs { 17 }
+;; 17 succs { 1 }
+;; 18 succs { 8 }
+window_create1 (u_int sx, u_int sy)
+{
+  u_int i;
+  struct window * w;
+  long unsigned int _2;
+  long unsigned int _3;
+  struct window * * _4;
+  struct window * _5;
+  long unsigned int _7;
+  long unsigned int _8;
+  struct window * * _9;
+  unsigned int _14;
+  unsigned int _15;
+  long unsigned int _16;
+  struct window * * _18;
+  void * _19;
+  long unsigned int _20;
+  struct window * * _21;
+  void * _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  unsigned int _26;
+  unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  struct window * * _30;
+  unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  struct window * * _34;
+  unsigned int _36;
+  int _68;
+  int _69;
+  long unsigned int _97;
+  unsigned int _98;
+  unsigned int _99;
+  long unsigned int _100;
+  long unsigned int _101;
+  unsigned int _103;
+  struct window * * _104;
+  struct window * _108;
+
+  <bb 2> [14.44%]:
+  w_43 = malloc (88);
+  w_43->name = 0B;
+  w_43->flags = 0;
+  w_43->active = 0B;
+  w_43->lastlayout = -1;
+  w_43->layout_root = 0B;
+  w_43->sx = sx_49(D);
+  w_43->sy = sy_51(D);
+  _103 = windows.num;
+  if (_103 != 0)
+    goto <bb 3>; [92.50%]
+  else
+    goto <bb 18>; [7.50%]
+
+  <bb 3> [13.32%]:
+  _104 = windows.list;
+  _108 = *_104;
+  if (_108 == 0B)
+    goto <bb 23>; [7.50%]
+  else
+    goto <bb 20>; [92.50%]
+
+  <bb 4> [79.18%]:
+  _2 = (long unsigned int) i_53;
+  _3 = _2 * 8;
+  _4 = _104 + _3;
+  _5 = *_4;
+  if (_5 == 0B)
+    goto <bb 24>; [7.50%]
+  else
+    goto <bb 22>; [92.50%]
+
+  <bb 24> [5.94%]:
+  goto <bb 5>; [100.00%]
+
+  <bb 22> [73.24%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 23> [1.00%]:
+
+  <bb 5> [6.94%]:
+  # i_109 = PHI <i_53(24), 0(23)>
+  _7 = (long unsigned int) i_109;
+  _8 = _7 * 8;
+  _9 = _104 + _8;
+  *_9 = w_43;
+  goto <bb 7>; [100.00%]
+
+  <bb 20> [12.32%]:
+
+  <bb 6> [85.60%]:
+  # i_110 = PHI <i_53(22), 0(20)>
+  i_53 = i_110 + 1;
+  if (i_53 < _103)
+    goto <bb 4>; [92.50%]
+  else
+    goto <bb 25>; [7.50%]
+
+  <bb 25> [6.42%]:
+
+  <bb 7> [13.36%]:
+  # i_111 = PHI <i_109(5), i_53(25)>
+  if (_103 == i_111)
+    goto <bb 26>; [32.63%]
+  else
+    goto <bb 27>; [67.37%]
+
+  <bb 27> [9.00%]:
+  goto <bb 17>; [100.00%]
+
+  <bb 26> [4.36%]:
+
+  <bb 8> [5.44%]:
+  if (_103 > 1073741823)
+    goto <bb 9>; [0.04%]
+  else
+    goto <bb 10>; [99.96%]
+
+  <bb 9> [0.00%]:
+  _68 = __printf_chk (1, "number too big%s", "");
+  exit (1);
+
+  <bb 10> [5.44%]:
+  _14 = _103 + 1;
+  _15 = 1073741824 / _14;
+  if (_15 <= 7)
+    goto <bb 11>; [0.04%]
+  else
+    goto <bb 12>; [99.96%]
+
+  <bb 11> [0.00%]:
+  _69 = __printf_chk (1, "size too big%s", "");
+  exit (1);
+
+  <bb 12> [5.44%]:
+  _16 = windows.space;
+  if (_16 == 0)
+    goto <bb 13>; [33.00%]
+  else
+    goto <bb 28>; [67.00%]
+
+  <bb 28> [3.64%]:
   goto <bb 14>; [100.00%]
 
-  <bb 6> [12.50%]:
-  foo (p_7(D));
-  goto <bb 14>; [100.00%]
+  <bb 13> [1.79%]:
+  windows.space = 80;
+  _18 = windows.list;
+  _19 = xrealloc (_18, 1, 80);
+  windows.list = _19;
 
-  <bb 7> [25.00%]:
-  foo (p_7(D));
-  if (test_2(D) < test2_3(D))
-    goto <bb 8>; [50.00%]
+  <bb 14> [5.44%]:
+  _97 = windows.space;
+  _98 = windows.num;
+  _99 = _98 + 1;
+  _100 = (long unsigned int) _99;
+  _101 = _100 * 8;
+  if (_97 <= _101)
+    goto <bb 19>; [85.00%]
   else
-    goto <bb 9>; [50.00%]
+    goto <bb 29>; [15.00%]
 
-  <bb 8> [12.50%]:
-  foo (p3_12(D));
-  goto <bb 14>; [100.00%]
+  <bb 19> [4.62%]:
 
-  <bb 9> [12.50%]:
-  foo (p5_10(D));
-  goto <bb 14>; [100.00%]
-
-  <bb 10> [50.00%]:
-  if (test2_3(D) == 0)
-    goto <bb 11>; [17.77%]
+  <bb 15> [30.80%]:
+  _20 = windows.space;
+  _21 = windows.list;
+  _22 = xrealloc (_21, 2, _20);
+  windows.list = _22;
+  _23 = windows.space;
+  _24 = _23 * 2;
+  windows.space = _24;
+  _25 = _24;
+  _26 = windows.num;
+  _27 = _26 + 1;
+  _28 = (long unsigned int) _27;
+  _29 = _28 * 8;
+  if (_24 <= _29)
+    goto <bb 21>; [85.00%]
   else
-    goto <bb 12>; [82.23%]
+    goto <bb 30>; [15.00%]
 
-  <bb 11> [8.88%]:
-  foo (p_7(D));
-  goto <bb 14>; [100.00%]
+  <bb 30> [4.62%]:
+  goto <bb 16>; [100.00%]
 
-  <bb 12> [41.12%]:
-  if (test2_3(D) < 0)
-    goto <bb 13>; [36.64%]
+  <bb 21> [26.18%]:
+  goto <bb 15>; [100.00%]
+
+  <bb 29> [0.82%]:
+
+  <bb 16> [5.44%]:
+  _30 = windows.list;
+  _31 = windows.num;
+  _32 = (long unsigned int) _31;
+  _33 = _32 * 8;
+  _34 = _30 + _33;
+  *_34 = w_43;
+  _36 = _31 + 1;
+  windows.num = _36;
+
+  <bb 17> [14.43%]:
+  w_43->references = 0;
+  return w_43;
+
+  <bb 18> [1.08%]:
+  goto <bb 8>; [100.00%]
+
+}
+
+
+
+;; Function main (main, funcdef_no=26, decl_uid=3986, cgraph_uid=0, symbol_order=94) (executed once)
+
+;; 13 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 84 3 4 101 5 6 103 7 104 105 8 106 99 102 9 108 107 10 11 109 12 13 111 98 110 14 87 15 112 16 114 113 17 18 19 20 21 115 22 23 86 24 117 97 116 25 26 27 28 118 29 119 30 120 31 32 121 33 34 35 36 122 37 38 123 39 124 40 41 125 42 85 43 127 96 126 44 45 46 128 95 100 47 129 48 130 49 50 51 79 52 132 53 133 83 54 94 55 134 56 82 57 136 93 58 137 59 138 60 61 62 63 135 64 65 139 81 66 92 67 140 68 80 69 142 91 70 143 71 144 89 131 72 73 78 74 146 88 145 75 76 148 147 141 77 90
+;;
+;; Loop 2
+;;  header 74, latch 88
+;;  depth 1, outer 0
+;;  nodes: 74 88
+;;
+;; Loop 7
+;;  header 52, latch 89
+;;  depth 1, outer 0
+;;  nodes: 52 89 71 133 63 139 138 132 137 143 134 140 67 66 92 81 65 64 90 77 141 142 69 70 91 80 68 136 135 56 55 54 94 83 53 57 58 93 82 59 61 62 60
+;;
+;; Loop 8
+;;  header 65, latch 90
+;;  depth 2, outer 7
+;;  nodes: 65 90 77 141 142 69 70 91 80 68 67 66 92 81
+;;
+;; Loop 11
+;;  header 70, latch 91
+;;  depth 3, outer 8
+;;  nodes: 70 91 69
+;;
+;; Loop 12
+;;  header 66, latch 92
+;;  depth 3, outer 8
+;;  nodes: 66 92
+;;
+;; Loop 9
+;;  header 58, latch 93
+;;  depth 2, outer 7
+;;  nodes: 58 93 57
+;;
+;; Loop 10
+;;  header 54, latch 94
+;;  depth 2, outer 7
+;;  nodes: 54 94
+;;
+;; Loop 1
+;;  header 3, latch 95
+;;  depth 1, outer 0
+;;  nodes: 3 95 46 123 45 44 125 41 124 40 39 38 122 37 36 33 35 118 34 32 120 31 30 29 28 26 114 25 117 116 23 22 115 21 19 17 113 109 11 108 10 107 148 76 9 104 106 102 4 8 103 105 7 6 5 99 101 147 16 14 112 15 98 87 12 13 111 110 24 97 86 121 119 127 126 42 43 96 85
+;;
+;; Loop 6
+;;  header 43, latch 96
+;;  depth 2, outer 1
+;;  nodes: 43 96
+;;
+;; Loop 4
+;;  header 24, latch 97
+;;  depth 2, outer 1
+;;  nodes: 24 97
+;;
+;; Loop 5
+;;  header 15, latch 98
+;;  depth 2, outer 1
+;;  nodes: 15 98 13
+;;
+;; Loop 3
+;;  header 6, latch 99
+;;  depth 2, outer 1
+;;  nodes: 6 99 8 103 105 7
+;; 2 succs { 84 100 }
+;; 84 succs { 3 }
+;; 3 succs { 4 76 }
+;; 4 succs { 101 102 }
+;; 101 succs { 5 }
+;; 5 succs { 6 }
+;; 6 succs { 7 103 }
+;; 103 succs { 8 }
+;; 7 succs { 104 105 }
+;; 104 succs { 9 }
+;; 105 succs { 8 }
+;; 8 succs { 99 106 }
+;; 106 succs { 9 }
+;; 99 succs { 6 }
+;; 102 succs { 9 }
+;; 9 succs { 107 108 }
+;; 108 succs { 11 }
+;; 107 succs { 10 }
+;; 10 succs { 11 }
+;; 11 succs { 12 109 }
+;; 109 succs { 17 }
+;; 12 succs { 110 87 }
+;; 13 succs { 111 98 }
+;; 111 succs { 14 }
+;; 98 succs { 15 }
+;; 110 succs { 14 }
+;; 14 succs { 16 }
+;; 87 succs { 15 }
+;; 15 succs { 13 112 }
+;; 112 succs { 16 }
+;; 16 succs { 113 114 }
+;; 114 succs { 26 }
+;; 113 succs { 17 }
+;; 17 succs { 18 19 }
+;; 18 succs { }
+;; 19 succs { 20 21 }
+;; 20 succs { }
+;; 21 succs { 22 115 }
+;; 115 succs { 23 }
+;; 22 succs { 23 }
+;; 23 succs { 86 116 }
+;; 86 succs { 24 }
+;; 24 succs { 97 117 }
+;; 117 succs { 25 }
+;; 97 succs { 24 }
+;; 116 succs { 25 }
+;; 25 succs { 26 }
+;; 26 succs { 27 28 }
+;; 27 succs { }
+;; 28 succs { 29 118 }
+;; 118 succs { 35 }
+;; 29 succs { 119 30 }
+;; 119 succs { 33 }
+;; 30 succs { 31 120 }
+;; 120 succs { 32 }
+;; 31 succs { 32 }
+;; 32 succs { 121 34 }
+;; 121 succs { 33 }
+;; 33 succs { 36 }
+;; 34 succs { 35 }
+;; 35 succs { 36 }
+;; 36 succs { 37 122 }
+;; 122 succs { 38 }
+;; 37 succs { 38 }
+;; 38 succs { 39 123 }
+;; 123 succs { 46 }
+;; 39 succs { 40 124 }
+;; 124 succs { 41 }
+;; 40 succs { 41 }
+;; 41 succs { 125 42 }
+;; 125 succs { 45 }
+;; 42 succs { 126 85 }
+;; 85 succs { 43 }
+;; 43 succs { 127 96 }
+;; 127 succs { 44 }
+;; 96 succs { 43 }
+;; 126 succs { 44 }
+;; 44 succs { 45 }
+;; 45 succs { 46 }
+;; 46 succs { 95 128 }
+;; 128 succs { 47 }
+;; 95 succs { 3 }
+;; 100 succs { 47 }
+;; 47 succs { 129 48 }
+;; 129 succs { 73 }
+;; 48 succs { 130 49 }
+;; 130 succs { 73 }
+;; 49 succs { 51 50 }
+;; 50 succs { 79 131 }
+;; 51 succs { 73 }
+;; 79 succs { 52 }
+;; 52 succs { 132 53 }
+;; 132 succs { 71 }
+;; 53 succs { 83 133 }
+;; 133 succs { 71 }
+;; 83 succs { 54 }
+;; 54 succs { 94 55 }
+;; 94 succs { 54 }
+;; 55 succs { 56 134 }
+;; 134 succs { 71 }
+;; 56 succs { 135 82 }
+;; 82 succs { 58 }
+;; 57 succs { 136 93 }
+;; 136 succs { 64 }
+;; 93 succs { 58 }
+;; 58 succs { 57 137 }
+;; 137 succs { 71 }
+;; 59 succs { 138 60 }
+;; 138 succs { 71 }
+;; 60 succs { 61 62 }
+;; 61 succs { 63 }
+;; 62 succs { 63 }
+;; 63 succs { 71 }
+;; 135 succs { 64 }
+;; 64 succs { 65 }
+;; 65 succs { 81 139 }
+;; 139 succs { 71 }
+;; 81 succs { 66 }
+;; 66 succs { 92 67 }
+;; 92 succs { 66 }
+;; 67 succs { 68 140 }
+;; 140 succs { 71 }
+;; 68 succs { 141 80 }
+;; 80 succs { 70 }
+;; 69 succs { 142 91 }
+;; 142 succs { 77 }
+;; 91 succs { 70 }
+;; 70 succs { 69 143 }
+;; 143 succs { 71 }
+;; 71 succs { 89 144 }
+;; 144 succs { 72 }
+;; 89 succs { 52 }
+;; 131 succs { 72 }
+;; 72 succs { 73 }
+;; 73 succs { 78 145 }
+;; 78 succs { 74 }
+;; 74 succs { 88 146 }
+;; 146 succs { 75 }
+;; 88 succs { 74 }
+;; 145 succs { 75 }
+;; 75 succs { 1 }
+;; 76 succs { 147 148 }
+;; 148 succs { 10 }
+;; 147 succs { 5 }
+;; 141 succs { 77 }
+;; 77 succs { 59 90 }
+;; 90 succs { 65 }
+main (int argc, char * * argv)
+{
+  struct winlink * tmp;
+  struct winlink * parent;
+  struct winlink * D.4879;
+  struct winlink * wl;
+  struct winlink * D.4874;
+  struct session_group * sg;
+  int D.4859;
+  struct winlink * tmp;
+  struct winlink * parent;
+  struct winlink * D.4852;
+  struct winlink * wl;
+  int D.4847;
+  struct session * s;
+  struct winlink * wl;
+  u_int i;
+  struct session * dst_s;
+  struct winlink * src_wl;
+  struct winlink * dst_wl;
+  struct window * src_w;
+  struct window * dst_w;
+  int D.4828;
+  struct session_group * sg;
+  struct session_group * sg;
+  struct session * target;
+  struct winlink * wl;
+  struct winlink * D.4799;
+  struct window * w;
+  struct winlink * D.4793;
+  struct session * s;
+  u_int i;
+  struct session * D.4776;
+  struct winlink * wl;
+  struct winlink * D.4751;
+  struct session * s;
+  u_int i;
+  struct session * D.4738;
+  int i;
+  int sy;
+  int sx;
+  int idx;
+  char * name;
+  char * cmd;
+  char * target;
+  struct window * w;
+  struct session * groupwith;
+  struct session * s;
+  long unsigned int _1;
+  long unsigned int _2;
+  char * * _3;
+  char * _4;
+  char _5;
+  long unsigned int _6;
+  long unsigned int _7;
+  sizetype _8;
+  char * * _9;
+  char * _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  char * * _13;
+  char * _14;
+  unsigned int _15;
+  unsigned int _16;
+  unsigned int _18;
+  unsigned int _19;
+  struct winlink * _21;
+  int _22;
+  struct session * * _23;
+  struct session * _24;
+  unsigned int _25;
+  struct winlink * _29;
+  bool _51;
+  unsigned int _86;
+  unsigned int _94;
+  struct session * _97;
+  struct session * * _99;
+  long unsigned int _101;
+  long unsigned int _102;
+  struct session * * _103;
+  char * _105;
+  int _106;
+  struct session * _109;
+  struct winlinks * _110;
+  int _112;
+  struct winlink * * _114;
+  long unsigned int _117;
+  long unsigned int _118;
+  struct session * * _119;
+  struct session * _120;
+  long unsigned int _122;
+  long unsigned int _123;
+  struct session * * _124;
+  int _129;
+  unsigned int _131;
+  unsigned int _132;
+  int _133;
+  long unsigned int _134;
+  struct session * * _136;
+  void * _137;
+  long unsigned int _138;
+  struct session * * _139;
+  void * _140;
+  long unsigned int _141;
+  long unsigned int _142;
+  long unsigned int _143;
+  unsigned int _144;
+  unsigned int _145;
+  long unsigned int _146;
+  long unsigned int _147;
+  struct session * * _148;
+  unsigned int _149;
+  long unsigned int _150;
+  long unsigned int _151;
+  struct session * * _152;
+  unsigned int _154;
+  int _155;
+  char * _156;
+  long unsigned int _157;
+  struct winlink * _158;
+  int _159;
+  char * _160;
+  int _161;
+  struct session * _163;
+  unsigned int _164;
+  unsigned int _165;
+  bool _167;
+  struct winlinks * _169;
+  int _171;
+  struct session_group * * _178;
+  struct session_group * * _180;
+  struct session * * _181;
+  struct session * * _182;
+  struct session * * _183;
+  struct session * * _184;
+  struct session * * _186;
+  struct session * * _187;
+  struct session * * _188;
+  int _193;
+  int _194;
+  struct session * _195;
+  struct session * * _197;
+  long unsigned int _199;
+  long unsigned int _200;
+  struct session * * _201;
+  bool _203;
+  unsigned int _206;
+  unsigned int _208;
+  unsigned int _209;
+  bool _210;
+  struct window * _212;
+  bool _221;
+  struct winlink_stack * _224;
+  struct winlinks * _225;
+  struct winlink * _226;
+  struct session_group * _229;
+  struct session_group * * _231;
+  struct session_group * * _232;
+  struct session_group * * _233;
+  struct session_group * _234;
+  unsigned int _235;
+  struct window * _237;
+  struct window * _242;
+  struct session * * _244;
+  bool _246;
+  long unsigned int _247;
+  long unsigned int _248;
+  bool _268;
+  bool _269;
+  unsigned int _270;
+  unsigned int _276;
+  bool _314;
+  struct window * _319;
+  unsigned int _323;
+  unsigned int _366;
+  struct session * _367;
+  struct session * _368;
+  unsigned int _373;
+
+  <bb 2> [1.07%]:
+  windows.num = 0;
+  windows.list = 0B;
+  windows.space = 0;
+  sessions.num = 0;
+  sessions.list = 0B;
+  sessions.space = 0;
+  session_groups.tqh_first = 0B;
+  session_groups.tqh_last = &session_groups.tqh_first;
+  if (argc_44(D) > 0)
+    goto <bb 84>; [85.00%]
   else
-    goto <bb 15>; [63.36%]
+    goto <bb 100>; [15.00%]
 
-  <bb 15> [26.05%]:
+  <bb 84> [0.91%]:
+
+  <bb 3> [6.03%]:
+  # idx_343 = PHI <idx_64(95), 0(84)>
+  # i_344 = PHI <i_70(95), 0(84)>
+  _1 = (long unsigned int) i_344;
+  _2 = _1 * 8;
+  _3 = argv_48(D) + _2;
+  _4 = *_3;
+  _5 = *_4;
+  _221 = i_344 > 0;
+  _268 = _5 == 116;
+  _210 = _221 & _268;
+  if (_210 != 0)
+    goto <bb 4>; [33.22%]
+  else
+    goto <bb 76>; [66.78%]
+
+  <bb 4> [2.02%]:
+  _6 = _1;
+  _7 = _2;
+  _8 = _2 + 18446744073709551608;
+  _9 = argv_48(D) + _8;
+  _10 = *_9;
+  target_50 = strdup (_10);
+  _94 = sessions.num;
+  if (_94 != 0)
+    goto <bb 101>; [92.50%]
+  else
+    goto <bb 102>; [7.50%]
+
+  <bb 101> [1.87%]:
+
+  <bb 5> [5.60%]:
+  # target_227 = PHI <target_50(101), 0B(147)>
+  # _373 = PHI <_94(101), _270(147)>
+  _99 = sessions.list;
+
+  <bb 6> [45.16%]:
+  # i_349 = PHI <0(5), i_107(99)>
+  # target_284 = PHI <target_227(5), target_284(99)>
+  _101 = (long unsigned int) i_349;
+  _102 = _101 * 8;
+  _103 = _99 + _102;
+  s_104 = *_103;
+  if (s_104 != 0B)
+    goto <bb 7>; [70.00%]
+  else
+    goto <bb 103>; [30.00%]
+
+  <bb 103> [13.55%]:
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [31.61%]:
+  _105 = s_104->name;
+  _106 = strcmp (_105, target_284);
+  if (_106 == 0)
+    goto <bb 104>; [7.50%]
+  else
+    goto <bb 105>; [92.50%]
+
+  <bb 104> [2.37%]:
+  goto <bb 9>; [100.00%]
+
+  <bb 105> [29.24%]:
+
+  <bb 8> [42.79%]:
+  i_107 = i_349 + 1;
+  if (i_107 < _373)
+    goto <bb 99>; [92.50%]
+  else
+    goto <bb 106>; [7.50%]
+
+  <bb 106> [3.21%]:
+  goto <bb 9>; [100.00%]
+
+  <bb 99> [39.58%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 102> [0.15%]:
+
+  <bb 9> [5.73%]:
+  # _109 = PHI <s_104(104), 0B(106), 0B(102)>
+  # target_315 = PHI <target_284(104), target_284(106), target_50(102)>
+  # _209 = PHI <_373(104), _373(106), _94(102)>
+  if (target_315 == 0B)
+    goto <bb 107>; [13.08%]
+  else
+    goto <bb 108>; [86.92%]
+
+  <bb 108> [4.98%]:
+  goto <bb 11>; [100.00%]
+
+  <bb 107> [0.75%]:
+
+  <bb 10> [1.05%]:
+  # target_250 = PHI <target_315(107), 0B(148)>
+  # _206 = PHI <_209(107), _270(148)>
+  # _367 = PHI <_109(107), 0B(148)>
+  cmd_53 = strdup ("cmd");
+
+  <bb 11> [6.03%]:
+  # cmd_27 = PHI <0B(108), cmd_53(10)>
+  # target_116 = PHI <target_315(108), target_250(10)>
+  # _366 = PHI <_209(108), _206(10)>
+  # _368 = PHI <_109(108), _367(10)>
+  free (target_116);
+  _11 = _1;
+  _12 = _2;
+  _13 = _3;
+  _14 = *_3;
+  name_56 = strdup (_14);
+  _15 = (unsigned int) sy_57(D);
+  _16 = (unsigned int) sx_58(D);
+  idx_59 = idx_343 + 1;
+  s_113 = malloc (112);
+  s_113->references = 0;
+  s_113->flags = 0;
+  s_113->curw = 0B;
+  s_113->lastw.tqh_first = 0B;
+  _114 = &s_113->lastw.tqh_first;
+  s_113->lastw.tqh_last = _114;
+  s_113->windows.rbh_root = 0B;
+  s_113->tio = 0B;
+  s_113->sx = _16;
+  s_113->sy = _15;
+  if (_366 != 0)
+    goto <bb 12>; [92.50%]
+  else
+    goto <bb 109>; [7.50%]
+
+  <bb 109> [0.45%]:
+  goto <bb 17>; [100.00%]
+
+  <bb 12> [5.57%]:
+  _244 = sessions.list;
+  _97 = *_244;
+  if (_97 == 0B)
+    goto <bb 110>; [7.50%]
+  else
+    goto <bb 87>; [92.50%]
+
+  <bb 13> [33.08%]:
+  _117 = (long unsigned int) i_125;
+  _118 = _117 * 8;
+  _119 = _244 + _118;
+  _120 = *_119;
+  if (_120 == 0B)
+    goto <bb 111>; [7.50%]
+  else
+    goto <bb 98>; [92.50%]
+
+  <bb 111> [2.48%]:
   goto <bb 14>; [100.00%]
 
-  <bb 13> [15.06%]:
-  foo (p4_5(D));
+  <bb 98> [30.60%]:
+  goto <bb 15>; [100.00%]
 
-  <bb 14> [100.00%]:
+  <bb 110> [0.42%]:
+
+  <bb 14> [2.90%]:
+  # i_350 = PHI <i_125(111), 0(110)>
+  _122 = (long unsigned int) i_350;
+  _123 = _122 * 8;
+  _124 = _244 + _123;
+  *_124 = s_113;
+  goto <bb 16>; [100.00%]
+
+  <bb 87> [5.15%]:
+
+  <bb 15> [35.76%]:
+  # i_351 = PHI <i_125(98), 0(87)>
+  i_125 = i_351 + 1;
+  if (i_125 < _366)
+    goto <bb 13>; [92.50%]
+  else
+    goto <bb 112>; [7.50%]
+
+  <bb 112> [2.68%]:
+
+  <bb 16> [5.58%]:
+  # i_352 = PHI <i_350(14), i_125(112)>
+  if (i_352 == _366)
+    goto <bb 113>; [28.65%]
+  else
+    goto <bb 114>; [71.35%]
+
+  <bb 114> [3.98%]:
+  goto <bb 26>; [100.00%]
+
+  <bb 113> [1.60%]:
+
+  <bb 17> [2.05%]:
+  if (_366 > 1073741823)
+    goto <bb 18>; [0.04%]
+  else
+    goto <bb 19>; [99.96%]
+
+  <bb 18> [0.00%]:
+  _129 = __printf_chk (1, "number too big%s", "");
+  exit (1);
+
+  <bb 19> [2.05%]:
+  _131 = _366 + 1;
+  _132 = 1073741824 / _131;
+  if (_132 <= 7)
+    goto <bb 20>; [0.04%]
+  else
+    goto <bb 21>; [99.96%]
+
+  <bb 20> [0.00%]:
+  _133 = __printf_chk (1, "size too big%s", "");
+  exit (1);
+
+  <bb 21> [2.05%]:
+  _134 = sessions.space;
+  if (_134 == 0)
+    goto <bb 22>; [33.00%]
+  else
+    goto <bb 115>; [67.00%]
+
+  <bb 115> [1.37%]:
+  goto <bb 23>; [100.00%]
+
+  <bb 22> [0.68%]:
+  sessions.space = 80;
+  _136 = sessions.list;
+  _137 = xrealloc (_136, 1, 80);
+  sessions.list = _137;
+
+  <bb 23> [2.05%]:
+  _157 = sessions.space;
+  _323 = sessions.num;
+  _86 = _323 + 1;
+  _248 = (long unsigned int) _86;
+  _247 = _248 * 8;
+  if (_157 <= _247)
+    goto <bb 86>; [85.00%]
+  else
+    goto <bb 116>; [15.00%]
+
+  <bb 86> [1.74%]:
+
+  <bb 24> [11.61%]:
+  _138 = sessions.space;
+  _139 = sessions.list;
+  _140 = xrealloc (_139, 2, _138);
+  sessions.list = _140;
+  _141 = sessions.space;
+  _142 = _141 * 2;
+  sessions.space = _142;
+  _143 = _142;
+  _144 = sessions.num;
+  _145 = _144 + 1;
+  _146 = (long unsigned int) _145;
+  _147 = _146 * 8;
+  if (_142 <= _147)
+    goto <bb 97>; [85.00%]
+  else
+    goto <bb 117>; [15.00%]
+
+  <bb 117> [1.74%]:
+  goto <bb 25>; [100.00%]
+
+  <bb 97> [9.87%]:
+  goto <bb 24>; [100.00%]
+
+  <bb 116> [0.31%]:
+
+  <bb 25> [2.05%]:
+  _148 = sessions.list;
+  _149 = sessions.num;
+  _150 = (long unsigned int) _149;
+  _151 = _150 * 8;
+  _152 = _148 + _151;
+  *_152 = s_113;
+  _154 = _149 + 1;
+  sessions.num = _154;
+
+  <bb 26> [6.03%]:
+  if (name_56 == 0B)
+    goto <bb 27>; [0.04%]
+  else
+    goto <bb 28>; [99.96%]
+
+  <bb 27> [0.00%]:
+  _155 = __printf_chk (1, "no name%s\n", "");
+  exit (1);
+
+  <bb 28> [6.03%]:
+  _156 = strdup (name_56);
+  s_113->name = _156;
+  if (cmd_27 != 0B)
+    goto <bb 29>; [70.00%]
+  else
+    goto <bb 118>; [30.00%]
+
+  <bb 118> [1.81%]:
+  goto <bb 35>; [100.00%]
+
+  <bb 29> [4.22%]:
+  _164 = s_113->sy;
+  _165 = s_113->sx;
+  w_166 = window_create1 (_165, _164);
+  if (w_166 == 0B)
+    goto <bb 119>; [7.92%]
+  else
+    goto <bb 30>; [92.08%]
+
+  <bb 119> [0.33%]:
+  goto <bb 33>; [100.00%]
+
+  <bb 30> [3.89%]:
+  _169 = &s_113->windows;
+  wl_170 = winlink_add (_169, w_166, idx_343);
+  if (wl_170 == 0B)
+    goto <bb 31>; [19.86%]
+  else
+    goto <bb 120>; [80.14%]
+
+  <bb 120> [3.12%]:
+  goto <bb 32>; [100.00%]
+
+  <bb 31> [0.77%]:
+  _171 = __printf_chk (1, "index in use: %d\n", idx_343);
+
+  <bb 32> [3.89%]:
+  session_group_synchronize_from (s_113);
+  if (wl_170 == 0B)
+    goto <bb 121>; [0.00%]
+  else
+    goto <bb 34>; [100.00%]
+
+  <bb 121> [0.00%]:
+
+  <bb 33> [0.17%]:
+  session_destroy (s_113);
+  goto <bb 36>; [100.00%]
+
+  <bb 34> [4.05%]:
+  _158 = s_113->windows.rbh_root;
+  _159 = _158->idx;
+  session_select (s_113, _159);
+
+  <bb 35> [5.86%]:
+  _160 = s_113->name;
+  _161 = __printf_chk (1, "session %s created\n", _160);
+
+  <bb 36> [6.03%]:
+  # _163 = PHI <0B(33), s_113(35)>
+  _18 = _15;
+  _19 = _16;
+  w_63 = window_create1 (_16, _15);
+  idx_64 = idx_343 + 2;
+  _110 = &_163->windows;
+  wl_111 = winlink_add (_110, w_63, idx_59);
+  if (wl_111 == 0B)
+    goto <bb 37>; [19.86%]
+  else
+    goto <bb 122>; [80.14%]
+
+  <bb 122> [4.83%]:
+  goto <bb 38>; [100.00%]
+
+  <bb 37> [1.20%]:
+  _112 = __printf_chk (1, "index in use: %d\n", idx_59);
+
+  <bb 38> [6.03%]:
+  session_group_synchronize_from (_163);
+  free (cmd_27);
+  if (_368 != 0B)
+    goto <bb 39>; [53.47%]
+  else
+    goto <bb 123>; [46.53%]
+
+  <bb 123> [2.81%]:
+  goto <bb 46>; [100.00%]
+
+  <bb 39> [3.22%]:
+  sg_176 = session_group_find (_368);
+  if (sg_176 == 0B)
+    goto <bb 40>; [19.86%]
+  else
+    goto <bb 124>; [80.14%]
+
+  <bb 124> [2.58%]:
+  goto <bb 41>; [100.00%]
+
+  <bb 40> [0.64%]:
+  sg_177 = malloc (32);
+  sg_177->entry.tqe_next = 0B;
+  _178 = session_groups.tqh_last;
+  sg_177->entry.tqe_prev = _178;
+  *_178 = sg_177;
+  _180 = &sg_177->entry.tqe_next;
+  session_groups.tqh_last = _180;
+  sg_177->sessions.tqh_first = 0B;
+  _181 = &sg_177->sessions.tqh_first;
+  sg_177->sessions.tqh_last = _181;
+  _368->gentry.tqe_next = 0B;
+  _182 = sg_177->sessions.tqh_last;
+  _368->gentry.tqe_prev = _182;
+  _183 = sg_177->sessions.tqh_last;
+  *_183 = _368;
+  _184 = &_368->gentry.tqe_next;
+  sg_177->sessions.tqh_last = _184;
+
+  <bb 41> [3.22%]:
+  # sg_185 = PHI <sg_176(124), sg_177(40)>
+  _163->gentry.tqe_next = 0B;
+  _186 = sg_185->sessions.tqh_last;
+  _163->gentry.tqe_prev = _186;
+  _187 = sg_185->sessions.tqh_last;
+  *_187 = _163;
+  _188 = &_163->gentry.tqe_next;
+  sg_185->sessions.tqh_last = _188;
+  sg_172 = session_group_find (_163);
+  if (sg_172 == 0B)
+    goto <bb 125>; [26.74%]
+  else
+    goto <bb 42>; [73.26%]
+
+  <bb 125> [0.86%]:
+  goto <bb 45>; [100.00%]
+
+  <bb 42> [2.36%]:
+  target_173 = sg_172->sessions.tqh_first;
+  _51 = _163 != target_173;
+  _314 = target_173 == 0B;
+  _167 = _51 | _314;
+  if (_167 != 0)
+    goto <bb 126>; [14.44%]
+  else
+    goto <bb 85>; [85.56%]
+
+  <bb 85> [2.02%]:
+
+  <bb 43> [14.00%]:
+  # target_353 = PHI <target_175(96), target_173(85)>
+  target_175 = target_353->gentry.tqe_next;
+  _269 = _163 != target_175;
+  _203 = target_175 == 0B;
+  _246 = _203 | _269;
+  if (_246 != 0)
+    goto <bb 127>; [14.44%]
+  else
+    goto <bb 96>; [85.56%]
+
+  <bb 127> [2.02%]:
+  goto <bb 44>; [100.00%]
+
+  <bb 96> [11.98%]:
+  goto <bb 43>; [100.00%]
+
+  <bb 126> [0.34%]:
+
+  <bb 44> [2.36%]:
+  # target_354 = PHI <target_175(127), target_173(126)>
+  session_group_synchronize1 (target_354, _163);
+
+  <bb 45> [3.22%]:
+  _21 = _163->windows.rbh_root;
+  _22 = _21->idx;
+  session_select (_163, _22);
+
+  <bb 46> [6.03%]:
+  i_70 = i_344 + 1;
+  if (argc_44(D) > i_70)
+    goto <bb 95>; [85.00%]
+  else
+    goto <bb 128>; [15.00%]
+
+  <bb 128> [0.90%]:
+  goto <bb 47>; [100.00%]
+
+  <bb 95> [5.13%]:
+  goto <bb 3>; [100.00%]
+
+  <bb 100> [0.16%]:
+
+  <bb 47> [1.06%]:
+  dst_wl_189 = cmd_find_pane (0, &dst_s);
+  if (dst_wl_189 == 0B)
+    goto <bb 129>; [1.74%]
+  else
+    goto <bb 48>; [98.26%]
+
+  <bb 129> [0.02%]:
+  goto <bb 73>; [100.00%]
+
+  <bb 48> [1.05%]:
+  dst_w_190 = dst_wl_189->window;
+  src_wl_191 = cmd_find_pane (1, 0B);
+  if (src_wl_191 == 0B)
+    goto <bb 130>; [0.87%]
+  else
+    goto <bb 49>; [99.13%]
+
+  <bb 130> [0.01%]:
+  goto <bb 73>; [100.00%]
+
+  <bb 49> [1.04%]:
+  src_w_192 = src_wl_191->window;
+  if (dst_w_190 == src_w_192)
+    goto <bb 51>; [0.87%]
+  else
+    goto <bb 50>; [99.13%]
+
+  <bb 50> [1.03%]:
+  _276 = sessions.num;
+  if (_276 != 0)
+    goto <bb 79>; [85.00%]
+  else
+    goto <bb 131>; [15.00%]
+
+  <bb 51> [0.01%]:
+  _193 = __printf_chk (1, "can\'t join a pane to its own window\n");
+  goto <bb 73>; [100.00%]
+
+  <bb 79> [0.88%]:
+
+  <bb 52> [5.82%]:
+  # i_355 = PHI <i_207(89), 0(79)>
+  _197 = sessions.list;
+  _199 = (long unsigned int) i_355;
+  _200 = _199 * 8;
+  _201 = _197 + _200;
+  s_202 = *_201;
+  if (s_202 == 0B)
+    goto <bb 132>; [30.00%]
+  else
+    goto <bb 53>; [70.00%]
+
+  <bb 132> [1.75%]:
+  goto <bb 71>; [100.00%]
+
+  <bb 53> [4.08%]:
+  tmp_215 = MEM[(struct winlinks *)s_202 + 40B].rbh_root;
+  if (tmp_215 != 0B)
+    goto <bb 83>; [85.00%]
+  else
+    goto <bb 133>; [15.00%]
+
+  <bb 133> [0.61%]:
+  goto <bb 71>; [100.00%]
+
+  <bb 83> [3.47%]:
+
+  <bb 54> [23.11%]:
+  # tmp_357 = PHI <tmp_218(94), tmp_215(83)>
+  tmp_218 = tmp_357->entry.rbe_left;
+  if (tmp_218 != 0B)
+    goto <bb 94>; [85.00%]
+  else
+    goto <bb 55>; [15.00%]
+
+  <bb 94> [19.64%]:
+  goto <bb 54>; [100.00%]
+
+  <bb 55> [3.47%]:
+  if (tmp_357 != 0B)
+    goto <bb 56>; [100.00%]
+  else
+    goto <bb 134>; [0.00%]
+
+  <bb 134> [0.00%]:
+  goto <bb 71>; [100.00%]
+
+  <bb 56> [3.76%]:
+  _319 = tmp_357->window;
+  if (src_w_192 == _319)
+    goto <bb 135>; [7.50%]
+  else
+    goto <bb 82>; [92.50%]
+
+  <bb 82> [3.48%]:
+  goto <bb 58>; [100.00%]
+
+  <bb 57> [22.36%]:
+  _212 = wl_213->window;
+  if (src_w_192 == _212)
+    goto <bb 136>; [7.50%]
+  else
+    goto <bb 93>; [92.50%]
+
+  <bb 136> [1.68%]:
+  goto <bb 64>; [100.00%]
+
+  <bb 93> [20.68%]:
+
+  <bb 58> [24.17%]:
+  # wl_356 = PHI <wl_213(93), tmp_357(82)>
+  wl_213 = winlinks_RB_NEXT (wl_356);
+  if (wl_213 != 0B)
+    goto <bb 57>; [92.50%]
+  else
+    goto <bb 137>; [7.50%]
+
+  <bb 137> [1.81%]:
+  goto <bb 71>; [100.00%]
+
+  <bb 59> [2.65%]:
+  session_destroy (s_202);
+  sg_228 = session_group_find (s_202);
+  if (sg_228 == 0B)
+    goto <bb 138>; [26.74%]
+  else
+    goto <bb 60>; [73.26%]
+
+  <bb 138> [0.71%]:
+  goto <bb 71>; [100.00%]
+
+  <bb 60> [0.73%]:
+  _229 = sg_228->entry.tqe_next;
+  if (_229 != 0B)
+    goto <bb 61>; [70.00%]
+  else
+    goto <bb 62>; [30.00%]
+
+  <bb 61> [0.51%]:
+  _231 = sg_228->entry.tqe_prev;
+  _229->entry.tqe_prev = _231;
+  goto <bb 63>; [100.00%]
+
+  <bb 62> [0.22%]:
+  _232 = sg_228->entry.tqe_prev;
+  session_groups.tqh_last = _232;
+
+  <bb 63> [0.73%]:
+  _233 = sg_228->entry.tqe_prev;
+  _234 = sg_228->entry.tqe_next;
+  *_233 = _234;
+  free (sg_228);
+  goto <bb 71>; [100.00%]
+
+  <bb 135> [0.28%]:
+
+  <bb 64> [1.96%]:
+
+  <bb 65> [14.44%]:
+  tmp_240 = MEM[(struct winlinks *)s_202 + 40B].rbh_root;
+  if (tmp_240 != 0B)
+    goto <bb 81>; [85.00%]
+  else
+    goto <bb 139>; [15.00%]
+
+  <bb 139> [2.17%]:
+  goto <bb 71>; [100.00%]
+
+  <bb 81> [12.27%]:
+
+  <bb 66> [81.81%]:
+  # tmp_360 = PHI <tmp_243(92), tmp_240(81)>
+  tmp_243 = tmp_360->entry.rbe_left;
+  if (tmp_243 != 0B)
+    goto <bb 92>; [85.00%]
+  else
+    goto <bb 67>; [15.00%]
+
+  <bb 92> [69.54%]:
+  goto <bb 66>; [100.00%]
+
+  <bb 67> [12.27%]:
+  if (tmp_360 != 0B)
+    goto <bb 68>; [100.00%]
+  else
+    goto <bb 140>; [0.00%]
+
+  <bb 140> [0.00%]:
+  goto <bb 71>; [100.00%]
+
+  <bb 68> [13.32%]:
+  _242 = tmp_360->window;
+  if (src_w_192 == _242)
+    goto <bb 141>; [7.50%]
+  else
+    goto <bb 80>; [92.50%]
+
+  <bb 80> [12.32%]:
+  goto <bb 70>; [100.00%]
+
+  <bb 69> [79.18%]:
+  _237 = wl_238->window;
+  if (src_w_192 == _237)
+    goto <bb 142>; [7.50%]
+  else
+    goto <bb 91>; [92.50%]
+
+  <bb 142> [5.94%]:
+  goto <bb 77>; [100.00%]
+
+  <bb 91> [73.24%]:
+
+  <bb 70> [85.60%]:
+  # wl_359 = PHI <wl_238(91), tmp_360(80)>
+  wl_238 = winlinks_RB_NEXT (wl_359);
+  if (wl_238 != 0B)
+    goto <bb 69>; [92.50%]
+  else
+    goto <bb 143>; [7.50%]
+
+  <bb 143> [6.42%]:
+
+  <bb 71> [5.82%]:
+  i_207 = i_355 + 1;
+  _208 = sessions.num;
+  if (i_207 < _208)
+    goto <bb 89>; [85.00%]
+  else
+    goto <bb 144>; [15.00%]
+
+  <bb 144> [0.87%]:
+  goto <bb 72>; [100.00%]
+
+  <bb 89> [4.95%]:
+  goto <bb 52>; [100.00%]
+
+  <bb 131> [0.15%]:
+
+  <bb 72> [1.03%]:
+  _194 = dst_wl_189->idx;
+  _195 = dst_s;
+  session_select (_195, _194);
+
+  <bb 73> [1.06%]:
+  dst_s ={v} {CLOBBER};
+  _235 = sessions.num;
+  if (_235 != 0)
+    goto <bb 78>; [85.00%]
+  else
+    goto <bb 145>; [15.00%]
+
+  <bb 78> [0.90%]:
+
+  <bb 74> [6.04%]:
+  _23 = sessions.list;
+  _24 = *_23;
+  session_destroy (_24);
+  _25 = sessions.num;
+  if (_25 != 0)
+    goto <bb 88>; [85.00%]
+  else
+    goto <bb 146>; [15.00%]
+
+  <bb 146> [0.91%]:
+  goto <bb 75>; [100.00%]
+
+  <bb 88> [5.13%]:
+  goto <bb 74>; [100.00%]
+
+  <bb 145> [0.16%]:
+
+  <bb 75> [1.06%]:
   return 0;
+
+  <bb 76> [4.03%]:
+  _270 = sessions.num;
+  if (_270 != 0)
+    goto <bb 147>; [92.50%]
+  else
+    goto <bb 148>; [7.50%]
+
+  <bb 148> [0.30%]:
+  goto <bb 10>; [100.00%]
+
+  <bb 147> [3.73%]:
+  goto <bb 5>; [100.00%]
+
+  <bb 141> [1.00%]:
+
+  <bb 77> [13.35%]:
+  # _29 = PHI <tmp_360(141), wl_238(142)>
+  _224 = &s_202->lastw;
+  winlink_stack_remove (_224, _29);
+  _225 = &s_202->windows;
+  winlink_remove (_225, _29);
+  session_group_synchronize_from (s_202);
+  _226 = s_202->windows.rbh_root;
+  if (_226 == 0B)
+    goto <bb 59>; [19.86%]
+  else
+    goto <bb 90>; [80.14%]
+
+  <bb 90> [10.70%]:
+  goto <bb 65>; [100.00%]
 
 }
 
