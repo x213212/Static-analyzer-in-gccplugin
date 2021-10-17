@@ -26,19 +26,27 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 		// fprintf(stderr, "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n");
 		// debug_tree(t);
 		bool same = false;
+		// ptb *tmp =table;
 		while (table->next != NULL)
 		{
 			if (table->target == t)
 			// if (table->stmt == used_stmt && LOCATION_LINE(gimple_location(table->stmt)) == LOCATION_LINE(gimple_location(used_stmt)))
 			{
-
 				same = true;
-				break;
+				// fprintf(stderr, "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n");
+				
 			}
-			table = table->next;
+		
+				table = table->next;
 		}
+		// if( table->next == NULL){
+		// 		fprintf(stderr, "22222wwwwwwwwww\n");
+		// // table = table->next;
+		// }
 		if (!same)
 		{
+			// fprintf(stderr, "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n");
+			// debug_tree(t);
 			table->next = new ptb();
 			table = table->next;
 			table->bb = b;

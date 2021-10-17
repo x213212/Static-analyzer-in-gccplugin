@@ -203,7 +203,7 @@ void FunctionStmtMappingAssign(ptb *ptable, gimple_array *user_tmp)
 				{
 					/*collect malloc and free information*/
 					// collect_function_call(gc, node, bb);
-					collect_FunctionMapping_Assign(gc, node, bb);
+					collect_FunctionMapping_Assign(gc, node, bb,ptable);
 
 					// fprintf(stderr, "add collect_function_call\n");
 					// }else if (is_gimple_assign(gc)){

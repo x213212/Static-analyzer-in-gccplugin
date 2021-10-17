@@ -1,7 +1,7 @@
 #define FOR_EACH_TABLE(TABLE, TAR)                           \
 	for ((TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target; \
 		 (TAR) != NULL;                                      \
-		 (TABLE) = (TABLE)->next, (TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target)
+		 (TABLE) = (TABLE)->next , (TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target)
 #define FOR_EACH_USE_TABLE(USE, STMT) \
 	for ((STMT) = ((USE) == NULL) ? NULL : (USE)->stmt; (USE) != NULL; (USE) = (USE)->next, (STMT) = ((USE) == NULL) ? NULL : (USE)->stmt)
 
@@ -334,7 +334,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 void record_fucntion(cgraph_node *node);
 
 void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb);
-void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb);
+void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb,ptb *ptable);
 void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_array *user_tmp, ptb *table_temp, ptb *ptable);
 
 int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_tree, int *freecount);

@@ -20,7 +20,10 @@
 #include "collect.h"
 #include "mapping.h"
 #include "performance.h"
-
+#include "tree-cfg.h"
+#include "stmt.h"
+#include "pretty-print.h"
+#include "dumpfile.h"
 using namespace std;
 
 static int totalsize; //宣告一個整數型態size變數，用來儲存x的位元組大小
@@ -1751,8 +1754,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	struct ptr_info_def *pi2;
 	struct pt_solution *pt2;
 
-	ptb *table1 = ptable;
-	ptb *table3 = ftable;
+
 	gimple_array *used_stmt = NULL;
 	gimple_array start;
 	start.stmt = NULL;
@@ -1764,9 +1766,14 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "pointer ftable is %d \n", ftable->size);
 	fprintf(stderr, "pointer ptable is %d \n", ptable->size);
 
-	table3 = ptable;
-	//preproceess
 	FunctionStmtMappingAssign(ptable, used_stmt);
+	
+	ptb *table1 = ptable;
+
+	// ptb *table3 = ftable;
+	// table3 = ptable;
+	//preproceess
+
 	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
 	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
 	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
@@ -1778,23 +1785,28 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	// return  ;
 	tree t2 = NULL_TREE;
 	// printfBasicblock();
-	if (ptable->size >= 0)
+	if (table1->size >= 0)
 	{
-		FOR_EACH_TABLE(table1, t2)
+		while (table1->next != NULL)
 		{
+		
+// debug_tree(table1->target);
 			// debug_tree(table1->target);
+			// debug_gimple_stmt(table1->last_stmt);
 			// if(t2 != NULL_TREE)
 			// if( SSA_NAME_CHECK   (table1->target) )
 			// continue;
 			// fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");}
-			if (TREE_CODE(TREE_TYPE(t2)) == METHOD_TYPE || TREE_CODE(TREE_TYPE(t2)) == FUNCTION_TYPE || TREE_CODE(TREE_TYPE(t2)) == RECORD_TYPE || !(TREE_CODE(t2) == SSA_NAME))
-			{
-				continue;
+			if (TREE_CODE(TREE_TYPE(table1->target)) == METHOD_TYPE || TREE_CODE(TREE_TYPE(table1->target)) == FUNCTION_TYPE || TREE_CODE(TREE_TYPE(table1->target)) == RECORD_TYPE || !(TREE_CODE(table1->target) == SSA_NAME))
+			{	
+				table1 = table1->next;
+				// continue;
 			}
-			if (table1->removed || !TREE_CODE(t) == SSA_NAME)
-				continue;
-			if (TREE_CODE(t2) == INTEGER_CST)
-				continue;
+			// if (table1->removed || !TREE_CODE(t) == SSA_NAME)
+			// 	continue;
+			if (TREE_CODE(table1->target) == INTEGER_CST){
+					table1 = table1->next;
+				continue;}
 			// debug_tree(t2);
 
 			int colectCount = 0;
@@ -1854,8 +1866,9 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// if (pt1->vars == NULL)
 			// 	continue;
 
-			if (!strcmp(get_tree_code_name(TREE_CODE(used_stmt->target)), "<invalid tree code>"))
-				continue;
+			if (!strcmp(get_tree_code_name(TREE_CODE(used_stmt->target)), "<invalid tree code>")){
+					table1 = table1->next;
+				continue;}
 			// fprintf(stderr, "check stmt\n");
 
 			while (new_gimple_array.size())
@@ -1958,8 +1971,9 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// 	}
 			// }
 
-			if (treeGimpleArray->get(table1->target) != NULL)
-				break;
+			if (treeGimpleArray->get(table1->target) != NULL){
+					table1 = table1->next;
+				continue;}
 			// fprintf(stderr, "check stmt\n");
 			// debug_tree(used_stmt->target);
 			// debug_tree(table1->target);
@@ -1969,7 +1983,11 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// 	fprintf(stderr, "weritjroti;ejhoerjhio;rtjhojert\n");
 			// break;
 			// debug(table1->next->target);
+				table1 = table1->next;
 		}
+		// FOR_EACH_TABLE(table1, t2)
+		// {
+		// }
 	}
 	// FunctionStmtMappingAssign(ptable, used_stmt);
 	FunctionStmtMappingRet(ptable, ftable, used_stmt);
@@ -3366,7 +3384,7 @@ void printf_bbinfo2(basic_block bb, int flag)
 	{
 		struct symbolicinfo *symbolicinfotmp = syminfo->get(bb);
 
-		// syminfo->get(syminfo->get(bb)->prevlogic;
+		// syminfo->get(syminfo->get(bb)-
 		// debug_gimple_stmt(syminfo->get(syminfo->get(bb)->symbolicExecutionPathConstraint[o])->cond_stmt);
 		// struct symbolicinfo *symbolicinfo3 = syminfo->get(bb);
 		fprintf(stderr, "==============symbolic excution===========================\n");
@@ -3377,7 +3395,9 @@ void printf_bbinfo2(basic_block bb, int flag)
 				// fprintf(stderr, "-----------\n");
 				fprintf(stderr, "succs:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraintarray[o].bb->index);
 				// // debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
-				debug_gimple_stmt(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraintarray[o].bb)->cond_stmt);
+				if (gimple_location_safe(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraintarray[o].bb)->cond_stmt), 0, "use location")
+					debug_gimple_stmt(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraintarray[o].bb)->cond_stmt);
+
 				warning_at(gimple_location_safe(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraintarray[o].bb)->cond_stmt), 0, "use location");
 				// //syminfo->get(syminfo->get(bb)->symbolicExecutionPathConstraint[o])->prevlogic
 				fprintf(stderr, "	relate logic:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraintarray[o].boolt);
@@ -3390,20 +3410,12 @@ void printf_bbinfo2(basic_block bb, int flag)
 				// fprintf(stderr, "succs:=	 %d\n",symbolicinfotmp->symbolicExecutionPathConstraint[o]->index);
 				// // debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
 				debug_gimple_stmt(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraintarray2[o].bb)->cond_stmt);
-				warning_at(gimple_location_safe(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraintarray[o].bb)->cond_stmt), 0, "use location");
+				if (gimple_location_safe(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraintarray2[o].bb)->cond_stmt), 0, "use location")
+					warning_at(gimple_location_safe(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraintarray2[o].bb)->cond_stmt), 0, "use location");
 				// //syminfo->get(syminfo->get(bb)->symbolicExecutionPathConstraint[o])->prevlogic
 				fprintf(stderr, "	relate logic:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraintarray2[o].boolt);
 			}
 		fprintf(stderr, "==============symbolic excution===========================\n");
-	}
-	else
-	{
-		if (flag == 1)
-
-			printf_bbinfo(bb, 1);
-
-		else
-			printf_bbinfo(bb, 0);
 	}
 }
 void printf_bbinfo(basic_block bb, int flag)
@@ -3604,6 +3616,85 @@ void check_bbinfo2(basic_block bb)
 	// 	}
 	// }
 }
+// static void
+// dump_edge_probability (pretty_printer *buffer, edge e)
+// {
+//   pp_scalar (buffer, " %s", dump_probability (e->probability));
+// }
+static void
+dump_gimple_fmt(pretty_printer *buffer, int spc,
+				const char *fmt, ...)
+{
+	va_list args;
+	const char *c;
+	const char *tmp;
+	va_start(args, fmt);
+	for (c = fmt; *c; c++)
+	{
+		if (*c == '%')
+		{
+			gimple_seq seq;
+			tree t;
+			gimple *g;
+			//    g = va_arg (args, gimple *);
+			//     tmp = gimple_code_name[gimple_code (g)];
+			// debug_gimple_stmt(g);
+			switch (*++c)
+			{
+			case 'G':
+				g = va_arg(args, gimple *);
+				tmp = gimple_code_name[gimple_code(g)];
+				// pp_string (buffer, tmp);
+				// if(g)
+				// debug(g);
+				fprintf(stderr, "=======ipa_pta= %s========\n", tmp);
+				break;
+				//   case 'S':
+				// debug_gimple_stmt(g);
+				// fprintf(stderr, "=======ipa_pta=========\n");
+				//         seq = va_arg (args, gimple_seq);
+				//         pp_newline (buffer);
+				//         dump_gimple_seq (buffer, seq, spc + 2, flags);
+				//         newline_and_indent (buffer, spc);
+				// break;
+			}
+			//       case 'T':
+			//         t = va_arg (args, tree);
+			//         if (t == NULL_TREE)
+			//           pp_string (buffer, "NULL");
+			//         else
+			//           dump_generic_node (buffer, t, spc, flags, false);
+			//         break;
+			//       case 'd':
+			//         pp_decimal_int (buffer, va_arg (args, int));
+			//         break;
+			//       case 's':
+			//         pp_string (buffer, va_arg (args, char *));
+			//         break;
+			//       case 'n':
+			//         newline_and_indent (buffer, spc);
+			//         break;
+			//       case 'x':
+			//         pp_scalar (buffer, "%x", va_arg (args, int));
+			//         break;
+			//       case '+':
+			//         spc += 2;
+			//         newline_and_indent (buffer, spc);
+			//         break;
+			//       case '-':
+			//         spc -= 2;
+			//         newline_and_indent (buffer, spc);
+			//         break;
+			//       default:
+			//         gcc_unreachable ();
+			//     }
+		}
+		//   else
+		//     pp_character (buffer, *c);
+	}
+	va_end(args);
+}
+
 void detect()
 {
 
@@ -3786,6 +3877,74 @@ void detect()
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
+				debug_gimple_stmt(gc);
+				debug_tree(gimple_block_label(gimple_bb(gc)));
+				fprintf(stderr, " succs:= %d\n", gimple_bb(gc)->index);
+				if (gimple_code(gc) == GIMPLE_SWITCH)
+				{
+					fprintf(stderr, "--------GIMPLE_SWITCH -------\n");
+					debug_gimple_stmt(gc);
+					gswitch *swtch = as_a<gswitch *>(gc);
+					unsigned lsize1, lsize2, i;
+					lsize1 = gimple_switch_num_labels(swtch);
+					pretty_printer buffer;
+					buffer.buffer->stream = stderr;
+					debug_tree(gimple_switch_index(swtch));
+					// dump_gimple_fmt (&buffer, 0, "%G <%T, ", swtch,gimple_switch_index (swtch));
+					// pp_gimple_stmt_1(&pp, gc, 1 /* spc */, 0 /* flags */);
+					for (i = 0; i < lsize1; i++)
+					{
+						// fprintf(stderr, "--------GIMPLE_SWITCHss %d -------\n",i);
+						tree label1 = gimple_switch_label(swtch, i);
+						tree label = CASE_LABEL(label1);
+						// debug_tree(label);
+						// debug_tree(label1);
+
+						// dump_gimple_switch(buffer, label, spc, flags, false);
+						//    pp_gimple_stmt_1  (&buffer,swtch, 0, 0);
+
+						// if (cfun && cfun->cfg)
+						// {
+						// 	basic_block dest = label_to_block(label);
+						// 	if (dest)
+						// 	{
+						// 		edge label_edge = find_edge(gimple_bb(swtch), dest);
+						// 		debug( label_edge);
+						// 		// if (label_edge && !(flags & TDF_GIMPLE))
+						// 		// 	dump_edge_probability(buffer, label_edge);
+						// 	}
+						// }
+						// debug_tree(label1);
+					}
+					fprintf(stderr, "--------GIMPLE_SWITCHss -------\n");
+					// if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
+					// {
+						edge e;
+						edge_iterator ei;
+						fprintf(stderr, "node:= %d \n", bb->index);
+					// 	//BLOCK_SUPERCONTEXT(gimple_block(u_stmt)
+					// 	int init = 0;
+						FOR_EACH_EDGE(e, ei, bb->succs)
+						{
+					// 		// DFS.addEdge(bb->index, e->dest->index);
+
+					// 		// debug_tree(test);
+					// 		// if (init == 0)
+					// 		// {
+					// 		// 	symbolicinfo.cond_truebranch = e->dest;
+					// 		// 	fprintf(stderr, " true succs:= %d\n", e->dest->index);
+					// 		// }
+
+					// 		// else
+					// 		// {
+					// 		// 	symbolicinfo.cond_falsebranch = e->dest;
+					// 		// 	fprintf(stderr, " false succs:= %d\n", e->dest->index);
+					// 		// }
+					// 		// init++;
+							fprintf(stderr, " succs:= %d\n", e->dest->index);
+						}
+					// }
+				}
 				// if (gimple_code(gc) == GIMPLE_GOTO)
 				// {
 				// 	fprintf(stderr, "--------GIMPLE gc -------\n");

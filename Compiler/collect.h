@@ -213,7 +213,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 	// }
 }
 
-void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb)
+void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb,ptb *ptable)
 {
 	location_t loc = gimple_location(gc);
 	tree a;
@@ -688,8 +688,11 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 						
 							// set_ptb(bb, ptable, gimple_call_fn(gc), loc, 0, gc, node);
 						}
-						else
+						else{
+								// fprintf(stderr, "functionname %s\n", name);
+								// debug_tree(gimple_call_arg(gc, 0));
 							set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+							}
 						// }
 					}
 				}

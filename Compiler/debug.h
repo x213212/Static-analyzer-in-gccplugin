@@ -39,6 +39,7 @@ void printfBasicblock()
 		// 			gimple *gc = gsi_stmt(gsi);
 		FOR_EACH_BB_FN(bb, cfun)
 		{
+			fprintf(stderr, "=======is loop:%d=========\n", bb_in_loop_p(bb));
 			debug_bb(bb);
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
@@ -46,7 +47,6 @@ void printfBasicblock()
 				gimplestmt_count+=1;
 			}
 		
-			fprintf(stderr, "=======is loop:%d=========\n", bb_in_loop_p(bb));
 		}
 		pop_cfun();
 	}
