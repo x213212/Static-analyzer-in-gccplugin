@@ -1791,6 +1791,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	// printfBasicblock();
 	if (table1->size >= 0)
 	{
+		debug_tree(table1->target);
 		while (table1->next != NULL)
 		{
 
@@ -1993,7 +1994,10 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// 	fprintf(stderr, "weritjroti;ejhoerjhio;rtjhojert\n");
 			// break;
 			// debug(table1->next->target);
-			table1 = table1->next;
+			if (table1->next == NULL)
+				break;
+			else
+				table1 = table1->next;
 		}
 		// FOR_EACH_TABLE(table1, t2)
 		// {
@@ -2203,13 +2207,21 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					{
 						// debug_gimple_stmt(def_stmt);
 						if (def_stmt)
+						{
+							debug_tree(table_temp->target);
+							// debug(def_stmt);
 							if (TREE_CODE(table_temp->target) == FUNCTION_DECL)
 								name = get_name(table_temp->target);
-							else if (gimple_code(def_stmt) == GIMPLE_CALL)
-							{
-								name = get_name(gimple_call_fndecl(def_stmt));
-								// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
-							}
+							if (TREE_CODE(table_temp->target) != ADDR_EXPR)
+								if (TREE_CODE(table_temp->target) != PARM_DECL)
+									if (gimple_code(def_stmt))
+									{
+										debug_gimple_stmt(def_stmt);
+										if (gimple_code(def_stmt) == GIMPLE_CALL)
+											name = get_name(gimple_call_fndecl(def_stmt));
+										// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
+									}
+						}
 						// debug_gimple_stmt(def_stmt);
 						fprintf(stderr, "\n ================== trace ptable================== \n");
 						if (def_stmt)
@@ -2223,24 +2235,27 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								if (find_retheapstmt > 0)
 									fprintf(stderr, "some fucntion return value is heap-object and with Collection SSA_NAME alias relation\n");
 							}
-							else if (is_gimple_call(def_stmt))
-								if (gimple_call_fn(def_stmt))
-								{
-									const char *name;
-									name = get_name(gimple_call_fn(def_stmt));
-									fprintf(stderr, "trace fucntion name:%s \n", name);
-									// debug_tree(gimple_call_fndecl(u_stmt));
-									trace_function_path(gimple_call_fndecl(def_stmt), -100, table_temp->target, &find_retheapstmt);
-									if (find_retheapstmt > 0)
-										fprintf(stderr, "some fucntion return value is heap-object and with Collection SSA_NAME alias relation\n");
+							else if (TREE_CODE(table_temp->target) != ADDR_EXPR && TREE_CODE(table_temp->target) != PARM_DECL)
+							{
+								if (is_gimple_call(def_stmt))
+									if (gimple_call_fn(def_stmt))
+									{
+										const char *name;
+										name = get_name(gimple_call_fn(def_stmt));
+										fprintf(stderr, "trace fucntion name:%s \n", name);
+										// debug_tree(gimple_call_fndecl(u_stmt));
+										trace_function_path(gimple_call_fndecl(def_stmt), -100, table_temp->target, &find_retheapstmt);
+										if (find_retheapstmt > 0)
+											fprintf(stderr, "some fucntion return value is heap-object and with Collection SSA_NAME alias relation\n");
 
-									// while (traceStack.size())
-									// {
-									// 	// fprintf(stderr, "check stmt\n");
-									// 	// debug(stmtStack.top());
-									// 	traceStack.pop();
-									// }
-								}
+										// while (traceStack.size())
+										// {
+										// 	// fprintf(stderr, "check stmt\n");
+										// 	// debug(stmtStack.top());
+										// 	traceStack.pop();
+										// }
+									}
+							}
 					}
 				fprintf(stderr, "\n ================== trace ptable ================== \n");
 				// if (gimple_code(def_stmt) == GIMPLE_NOP)
@@ -2317,7 +2332,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						{
 							// fprintf(stderr, "\n============test==========================================================\n");
 							// debug_gimple_stmt(u_stmt);
-							check_bbinfo2(gimple_bb(u_stmt));
+							// check_bbinfo2(gimple_bb(u_stmt));
 							// fprintf(stderr, "\n======================================================================\n");
 							if (gimple_code(table_temp->last_stmt) == GIMPLE_CALL)
 							{
@@ -3978,7 +3993,7 @@ void detect()
 					// 	// debug_tree(label1);
 					// }
 
-					fprintf(stderr, "--------GIMPLE_SWITCHss -------\n");
+					// fprintf(stderr, "--------GIMPLE_SWITCHss -------\n");
 					symbolicExecutionswitch.push_back(bb);
 					symbolicinfo symbolicinfo;
 					symbolicinfo.switch_stmt = gc;
@@ -3987,7 +4002,7 @@ void detect()
 					{
 						edge e;
 						edge_iterator ei;
-						fprintf(stderr, "node:= %d \n", bb->index);
+						// fprintf(stderr, "node:= %d \n", bb->index);
 						// 	//BLOCK_SUPERCONTEXT(gimple_block(u_stmt)
 						// 	int init = 0;
 						FOR_EACH_EDGE(e, ei, bb->succs)
@@ -4008,7 +4023,7 @@ void detect()
 							// 		// }
 							// 		// init++;
 							symbolicinfo.switchs.push_back(e->dest);
-							fprintf(stderr, " succs:= %d\n", e->dest->index);
+							// fprintf(stderr, " succs:= %d\n", e->dest->index);
 						}
 						syminfo->put(bb, symbolicinfo);
 					}
@@ -4039,7 +4054,7 @@ void detect()
 					{
 						// if (gimple_cond_lhs(use_stmt))
 						// debug_gimple_stmt(gc);
-						// fprintf(stderr, "--------GIMPLE Cond -------\n");
+						fprintf(stderr, "--------GIMPLE Cond -------\n");
 
 						symbolicExecution.push_back(bb);
 						symbolicinfo symbolicinfo;
@@ -4092,14 +4107,14 @@ void detect()
 								{
 									if (symbolicinfotmp->symbolicExecutionPathConstraint.size() >= max_path && max_bb != symbolicExecution[o])
 									{
-											fprintf(stderr, "max_path := %d\n", max_path);
+										// fprintf(stderr, "max_path := %d\n", max_path);
 										symbolicinfo.symbolicExecutionPathConstraint.clear();
 										max_path = symbolicinfotmp->symbolicExecutionPathConstraint.size();
 										max_bb = symbolicExecution[o];
 										// branch_boolean = 1;
 										symbolicinfo.prevlogic = 1;
 										symbolicinfo.symbolicExecutionPathConstraint.push_back(symbolicExecution[o]);
-										symbolicinfotmp->prevlogic = symbolicinfo.prevlogic;
+										// symbolicinfotmp->prevlogic = symbolicinfo.prevlogic;
 										for (int o2 = 0; o2 < symbolicinfotmp->symbolicExecutionPathConstraint.size(); o2++)
 										{
 											// fprintf(stderr, "size 2:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraint.size());
@@ -4135,7 +4150,7 @@ void detect()
 								{
 									if (symbolicinfotmp->symbolicExecutionPathConstraint.size() >= max_path && max_bb != symbolicExecution[o])
 									{
-											fprintf(stderr, "max_path := %d\n", max_path);
+										// fprintf(stderr, "max_path := %d\n", max_path);
 										// fprintf(stderr, " fuckkkkkk\n");
 										symbolicinfo.symbolicExecutionPathConstraint.clear();
 										max_path = symbolicinfotmp->symbolicExecutionPathConstraint.size();
@@ -4143,7 +4158,7 @@ void detect()
 										symbolicinfo.prevlogic = 0;
 										// struct free_type free_type;
 										symbolicinfo.symbolicExecutionPathConstraint.push_back(symbolicExecution[o]);
-										symbolicinfotmp->prevlogic = symbolicinfo.prevlogic;
+										// symbolicinfotmp->prevlogic = symbolicinfo.prevlogic;
 										for (int o2 = 0; o2 < symbolicinfotmp->symbolicExecutionPathConstraint.size(); o2++)
 										{
 											// fprintf(stderr, "size 2:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraint.size());
@@ -4171,7 +4186,6 @@ void detect()
 									// 	// fprintf(stderr, " fuckkkkkk\n");
 									// }
 								}
-							
 							}
 						}
 						syminfo->put(bb, symbolicinfo);

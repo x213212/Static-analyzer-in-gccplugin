@@ -289,7 +289,7 @@ ofstream cfginfo("cfginfo.txt");
 
 /*interprocedural analysis*/
 bool ipa = true;
-bool debugmod = false;
+bool debugmod = true;
 bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;

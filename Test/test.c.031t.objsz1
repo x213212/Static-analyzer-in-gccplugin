@@ -1,142 +1,687 @@
 
-;; Function foo (foo, funcdef_no=51, decl_uid=4307, cgraph_uid=51, symbol_order=51)
+;; Function printf (printf, funcdef_no=15, decl_uid=798, cgraph_uid=15, symbol_order=15)
 
-__attribute__((noinline))
-foo (int * z)
+__attribute__((__artificial__, __gnu_inline__, __always_inline__))
+printf (const char * restrict __fmt)
 {
-  void * _1;
-  long int _2;
-  int _3;
+  int _4;
 
   <bb 2> [0.00%]:
-  _1 = malloc (10);
-  _2 = (long int) _1;
-  _3 = (int) _2;
-  *z_6(D) = _3;
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function do_my_cleanups (do_my_cleanups, funcdef_no=42, decl_uid=3111, cgraph_uid=42, symbol_order=47)
+
+do_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
+{
+  int D.3559;
+  int D.3557;
+  struct cleanup * ptr;
+  struct cleanup * _1;
+  void (*<Ted>) (void *) _2;
+  void * _3;
+  void * _4;
+  void (*<Ted>) (void *) _5;
+  void (*<Ted>) (void *) _6;
+  void * _7;
+  int _20;
+  int _21;
+
+  <bb 2> [0.00%]:
+  goto <bb 6>; [0.00%]
+
+  <bb 3> [100.00%]:
+  _1 = ptr_12->next;
+  *pmy_chain_11(D) = _1;
+  _2 = ptr_12->function;
+  _3 = ptr_12->arg;
+  _2 (_3);
+  _21 = __printf_chk (1, "cleanup!!!!! =========\n");
+  _23 = _21;
+  _4 = ptr_12->arg;
+  _20 = __printf_chk (1, "%x\n", _4);
+  _25 = _20;
+  _5 = ptr_12->free_arg;
+  if (_5 != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  _6 = ptr_12->free_arg;
+  _7 = ptr_12->arg;
+  _6 (_7);
+
+  <bb 5> [0.00%]:
+  free (ptr_12);
+
+  <bb 6> [0.00%]:
+  ptr_12 = *pmy_chain_11(D);
+  if (ptr_12 != old_chain_13(D))
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 7> [0.00%]:
   return;
 
 }
 
 
 
-;; Function main (main, funcdef_no=52, decl_uid=4313, cgraph_uid=52, symbol_order=52)
+;; Function make_my_cleanup2 (make_my_cleanup2, funcdef_no=44, decl_uid=3119, cgraph_uid=44, symbol_order=49)
 
-main ()
+make_my_cleanup2 (struct cleanup * * pmy_chain, void (*<T9e0>) (void *) function, void * arg, void (*<Ted>) (void *) free_arg)
 {
-  int d;
-  int c;
-  int b;
-  int a;
-  int test5;
-  int test3;
-  int test2;
-  int test;
-  int * p5;
-  int * p4;
-  int * p3;
-  int * p;
-  int _1;
-  int _34;
+  struct cleanup * old_chain;
+  struct cleanup * new;
+  struct cleanup * _1;
+  struct cleanup * _15;
 
   <bb 2> [0.00%]:
-  a_7 = 10;
-  b_8 = 22;
-  c_9 = 22;
-  d_10 = 22;
+  new_4 = malloc (32);
+  old_chain_6 = *pmy_chain_5(D);
+  _1 = *pmy_chain_5(D);
+  new_4->next = _1;
+  new_4->function = function_8(D);
+  new_4->free_arg = free_arg_10(D);
+  new_4->arg = arg_12(D);
+  *pmy_chain_5(D) = new_4;
+  if (old_chain_6 == 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
 
-label2 [0.00%]:
-  foo (p5_12(D));
+  <bb 3> [0.00%]:
+  exit (1);
 
-label3 [0.00%]:
-  foo (p5_12(D));
-  _1 = test5_15(D) / 10;
-  switch (_1) <default: <L4> [0.00%], case 5: <L2> [0.00%], case 10: <L3> [0.00%]>
+  <bb 4> [0.00%]:
+  _15 = old_chain_6;
+  return _15;
 
-<L2> [0.00%]:
-  foo (p5_12(D));
-  goto <bb 8>; [0.00%]
+}
 
-<L3> [0.00%]:
-  foo (p5_12(D));
-  goto <bb 8>; [0.00%]
 
-<L4> [0.00%]:
-  foo (p5_12(D));
+
+;; Function make_my_cleanup (make_my_cleanup, funcdef_no=45, decl_uid=3123, cgraph_uid=45, symbol_order=50)
+
+make_my_cleanup (struct cleanup * * pmy_chain, void (*<T9e0>) (void *) function, void * arg)
+{
+  struct cleanup * _6;
+
+  <bb 2> [0.00%]:
+  _6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
+  return _6;
+
+}
+
+
+
+;; Function template_in_dir (template_in_dir, funcdef_no=48, decl_uid=3397, cgraph_uid=48, symbol_order=85)
+
+template_in_dir (const char * path)
+{
+  size_t len;
+  char * tmpname;
+  const char * slash;
+  long int slash.0_1;
+  long int path.1_2;
+  long int _3;
+  long unsigned int _4;
+  long unsigned int len.2_5;
+  char * _6;
+  char * _7;
+  char * _24;
+
+  <bb 2> [0.00%]:
+  slash_13 = strrchr (path_12(D), 47);
+  if (slash_13 != 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  slash.0_1 = (long int) slash_13;
+  path.1_2 = (long int) path_12(D);
+  _3 = slash.0_1 - path.1_2;
+  len_17 = (size_t) _3;
+  _4 = len_17 + 11;
+  tmpname_19 = malloc (_4);
+  memcpy (tmpname_19, path_12(D), len_17);
+  len.2_5 = len_17;
+  len_21 = len.2_5 + 1;
+  _6 = tmpname_19 + len.2_5;
+  *_6 = 47;
+  goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  tmpname_15 = malloc (9);
+  len_16 = 0;
+
+  <bb 5> [0.00%]:
+  # tmpname_8 = PHI <tmpname_19(3), tmpname_15(4)>
+  # len_9 = PHI <len_21(3), len_16(4)>
+  _7 = tmpname_8 + len_9;
+  memcpy (_7, "stXXXXXX", 9);
+  _24 = tmpname_8;
+  return _24;
+
+}
+
+
+
+;; Function copy_file (copy_file, funcdef_no=53, decl_uid=3441, cgraph_uid=53, symbol_order=90)
+
+copy_file (const char * input_filename, const char * output_filename, const char * input_target, const char * output_target, const struct bfd_arch_info_type * input_arch)
+{
+  int D.3564;
+  off_t size;
+  int _1;
+  int _2;
+  _Bool _3;
+  int _12;
+
+  <bb 2> [0.00%]:
+  _1 = rand ();
+  _2 = _1 % 2;
+  _3 = _2 == 1;
+  size_8 = (off_t) _3;
+  if (size_8 <= 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 3> [0.00%]:
+  if (size_8 == 0)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [100.00%]:
+  _12 = __printf_chk (1, "error: the input file \'%s\' is empty", input_filename_9(D));
+  _14 = _12;
+
+  <bb 5> [0.00%]:
+  status = 1;
+
+  <bb 6> [0.00%]:
+  return;
+
+}
+
+
+
+;; Function discard_my_cleanups (discard_my_cleanups, funcdef_no=41, decl_uid=3106, cgraph_uid=41, symbol_order=46)
+
+discard_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
+{
+  int D.3566;
+  struct cleanup * ptr;
+  struct cleanup * _1;
+  void (*<Ted>) (void *) _2;
+  void (*<Ted>) (void *) _3;
+  void * _4;
+  void * _5;
+  int _16;
+
+  <bb 2> [0.00%]:
+  goto <bb 6>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _1 = ptr_10->next;
+  *pmy_chain_9(D) = _1;
+  _2 = ptr_10->free_arg;
+  if (_2 != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  _3 = ptr_10->free_arg;
+  _4 = ptr_10->arg;
+  _3 (_4);
+
+  <bb 5> [0.00%]:
+  free (ptr_10);
+
+  <bb 6> [0.00%]:
+  ptr_10 = *pmy_chain_9(D);
+  if (ptr_10 != old_chain_11(D))
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 7> [100.00%]:
+  _5 = ptr_10->arg;
+  _16 = __printf_chk (1, "freearg: %x\n", _5);
+  _18 = _16;
+  return;
+
+}
+
+
+
+;; Function discard_cleanups (discard_cleanups, funcdef_no=39, decl_uid=3103, cgraph_uid=39, symbol_order=44)
+
+discard_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  discard_my_cleanups (&cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function discard_final_cleanups (discard_final_cleanups, funcdef_no=40, decl_uid=3108, cgraph_uid=40, symbol_order=45)
+
+discard_final_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  discard_my_cleanups (&final_cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function do_cleanups (do_cleanups, funcdef_no=43, decl_uid=3113, cgraph_uid=43, symbol_order=48)
+
+do_cleanups (struct cleanup * old_chain)
+{
+  <bb 2> [0.00%]:
+  do_my_cleanups (&cleanup_chain, old_chain_2(D));
+  return;
+
+}
+
+
+
+;; Function make_cleanup (make_cleanup, funcdef_no=46, decl_uid=3126, cgraph_uid=46, symbol_order=51)
+
+make_cleanup (void (*<T9e0>) (void *) function, void * arg)
+{
+  struct cleanup * _5;
+
+  <bb 2> [0.00%]:
+  _5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
+  return _5;
+
+}
+
+
+
+;; Function filename_cmp (filename_cmp, funcdef_no=47, decl_uid=3393, cgraph_uid=47, symbol_order=84)
+
+filename_cmp (const char * s1, const char * s2)
+{
+  int _4;
+
+  <bb 2> [0.00%]:
+  _4 = strcmp (s1_2(D), s2_3(D));
+  return _4;
+
+}
+
+
+
+;; Function make_tempname (make_tempname, funcdef_no=49, decl_uid=3406, cgraph_uid=49, symbol_order=86)
+
+make_tempname (char * filename)
+{
+  int fd;
+  char * tmpname;
+  char * _1;
+  char * _10;
+  char * _12;
+
+  <bb 2> [0.00%]:
+  tmpname_6 = template_in_dir (filename_4(D));
+  fd_8 = mkstemp (tmpname_6);
+  if (fd_8 == -1)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  free (tmpname_6);
+  _12 = 0B;
+  goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  close (fd_8);
+  _10 = tmpname_6;
+
+  <bb 5> [0.00%]:
+  # _1 = PHI <_12(3), _10(4)>
+  return _1;
+
+}
+
+
+
+;; Function set_times (set_times, funcdef_no=50, decl_uid=3414, cgraph_uid=50, symbol_order=87)
+
+set_times (const char * destination, const struct stat * statbuf)
+{
+  int D.3568;
+  long int tb[2];
+  int result;
+  long int _1;
+  long int _2;
+  int _13;
+
+  <bb 2> [0.00%]:
+  _1 = statbuf_5(D)->st_atim.tv_sec;
+  tb[0] = _1;
+  _2 = statbuf_5(D)->st_mtim.tv_sec;
+  tb[1] = _2;
+  result_10 = utime (destination_8(D), &tb);
+  tb ={v} {CLOBBER};
+  if (result_10 != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [100.00%]:
+  _13 = __printf_chk (1, "%s: cannot set time:", destination_8(D));
+  _15 = _13;
+
+  <bb 4> [0.00%]:
+  return;
+
+}
+
+
+
+;; Function smart_rename (smart_rename, funcdef_no=51, decl_uid=3423, cgraph_uid=51, symbol_order=88)
+
+smart_rename (const char * from, const char * to, int preserve_dates)
+{
+  int D.3572;
+  int D.3570;
+  int ret;
+  struct stat s;
+  bfd_boolean exists;
+  int _1;
+  _Bool _2;
+  unsigned int _3;
+  unsigned int _4;
+  long unsigned int _5;
+  unsigned int _6;
+  unsigned int _7;
+  unsigned int _8;
+  unsigned int _9;
+  int _10;
+  unsigned int _11;
+  unsigned int _12;
+  int _34;
+  int _36;
+  int _37;
+
+  <bb 2> [0.00%]:
+  ret_17 = 0;
+  _1 = lstat (to_19(D), &s);
+  _2 = _1 == 0;
+  exists_21 = (bfd_boolean) _2;
+  if (exists_21 == 0)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 3>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _3 = BIT_FIELD_REF <s, 32, 192>;
+  _4 = _3 & 61568;
+  if (_4 == 32896)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 4> [0.00%]:
+  _5 = s.st_nlink;
+  if (_5 == 1)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 5> [0.00%]:
+  ret_28 = rename (from_25(D), to_19(D));
+  if (ret_28 == 0)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 6> [0.00%]:
+  if (exists_21 != 0)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 15>; [0.00%]
+
+  <bb 7> [0.00%]:
+  _6 = s.st_mode;
+  _7 = _6 & 511;
+  chmod (to_19(D), _7);
+  _8 = s.st_gid;
+  _9 = s.st_uid;
+  _10 = chown (to_19(D), _9, _8);
+  if (_10 >= 0)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 15>; [0.00%]
 
   <bb 8> [0.00%]:
-  if (test_19(D) != 0)
-    goto <bb 9>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
+  _11 = s.st_mode;
+  _12 = _11 & 4095;
+  chmod (to_19(D), _12);
+  goto <bb 15>; [0.00%]
 
-  <bb 9> [0.00%]:
-  if (test_19(D) > test2_20(D))
-    goto <bb 10>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
+  <bb 9> [100.00%]:
+  _36 = __printf_chk (1, "unable to rename \'%s\';", to_19(D));
+  _41 = _36;
+  unlink (from_25(D));
+  goto <bb 15>; [0.00%]
 
   <bb 10> [0.00%]:
-  foo (p_23(D));
-  if (test_19(D) < test2_20(D))
+  if (ret_17 != 0)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 11> [100.00%]:
+  _37 = __printf_chk (1, "unable to copy file \'%s\';", to_19(D));
+  _39 = _37;
+
+  <bb 12> [0.00%]:
+  if (preserve_dates_23(D) != 0)
+    goto <bb 13>; [0.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 13> [0.00%]:
+  set_times (to_19(D), &s);
+
+  <bb 14> [0.00%]:
+  unlink (from_25(D));
+
+  <bb 15> [0.00%]:
+  # ret_13 = PHI <ret_28(9), ret_17(14), ret_28(7), ret_28(8), ret_28(6)>
+  _34 = ret_13;
+  s ={v} {CLOBBER};
+  return _34;
+
+}
+
+
+
+;; Function unlink_if_ordinary (unlink_if_ordinary, funcdef_no=52, decl_uid=3434, cgraph_uid=52, symbol_order=89)
+
+unlink_if_ordinary (const char * name)
+{
+  int D.3574;
+  int _1;
+  int _5;
+
+  <bb 2> [100.00%]:
+  _1 = MEM[(int *)name_3(D)];
+  _5 = __printf_chk (1, "%d\n", _1);
+  _7 = _5;
+  return;
+
+}
+
+
+
+;; Function copy_main (copy_main, funcdef_no=54, decl_uid=3449, cgraph_uid=54, symbol_order=91)
+
+copy_main (int argc, char * * argv)
+{
+  int D.3576;
+  const struct bfd_arch_info_type * input_arch;
+  int statbuf;
+  bfd_boolean formats_info;
+  bfd_boolean change_warn;
+  bfd_boolean show_version;
+  char * output_target;
+  char * input_target;
+  char * tmpname;
+  char * output_filename;
+  char * input_filename;
+  int optind.3_1;
+  long unsigned int _2;
+  long unsigned int _3;
+  char * * _4;
+  int optind.4_5;
+  int _6;
+  int optind.5_7;
+  sizetype _8;
+  sizetype _9;
+  sizetype _10;
+  char * * _11;
+  int status.6_12;
+  int preserve_dates.7_13;
+  int preserve_dates.8_14;
+  int _15;
+  _Bool _16;
+  int _17;
+  int _44;
+  int _48;
+
+  <bb 2> [0.00%]:
+  input_filename_23 = 0B;
+  output_filename_24 = 0B;
+  input_target_25 = 0B;
+  output_target_26 = 0B;
+  show_version_27 = 0;
+  change_warn_28 = 1;
+  formats_info_29 = 0;
+  input_arch_30 = 0B;
+  optind.3_1 = optind;
+  _2 = (long unsigned int) optind.3_1;
+  _3 = _2 * 8;
+  _4 = argv_32(D) + _3;
+  input_filename_33 = *_4;
+  optind.4_5 = optind;
+  _6 = optind.4_5 + 1;
+  if (argc_34(D) > _6)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  optind.5_7 = optind;
+  _8 = (sizetype) optind.5_7;
+  _9 = _8 + 1;
+  _10 = _9 * 8;
+  _11 = argv_32(D) + _10;
+  output_filename_35 = *_11;
+
+  <bb 4> [0.00%]:
+  # output_filename_18 = PHI <output_filename_24(2), output_filename_35(3)>
+  if (output_filename_18 == 0B)
+    goto <bb 5>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  tmpname_38 = make_tempname (input_filename_33);
+  goto <bb 7>; [0.00%]
+
+  <bb 6> [0.00%]:
+  tmpname_36 = output_filename_18;
+
+  <bb 7> [0.00%]:
+  # tmpname_19 = PHI <tmpname_38(5), tmpname_36(6)>
+  if (tmpname_19 == 0B)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+
+  <bb 8> [100.00%]:
+  _48 = __printf_chk (1, "warning: could not create temporary file whilst copying \'%s\'", input_filename_33);
+  _50 = _48;
+  exit (1);
+
+  <bb 9> [0.00%]:
+  copy_file (input_filename_33, tmpname_19, input_target_25, output_target_26, input_arch_30);
+  status.6_12 = status;
+  if (status.6_12 == 0)
+    goto <bb 10>; [0.00%]
+  else
+    goto <bb 14>; [0.00%]
+
+  <bb 10> [0.00%]:
+  preserve_dates.7_13 = preserve_dates;
+  if (preserve_dates.7_13 != 0)
     goto <bb 11>; [0.00%]
   else
     goto <bb 12>; [0.00%]
 
   <bb 11> [0.00%]:
-  foo (p_23(D));
-  goto <bb 16>; [0.00%]
+  set_times (tmpname_19, &statbuf);
 
   <bb 12> [0.00%]:
-  foo (p_23(D));
-  goto <bb 16>; [0.00%]
-
-  <bb 13> [0.00%]:
-  foo (p_23(D));
-  if (test_19(D) < test2_20(D))
-    goto <bb 14>; [0.00%]
+  if (tmpname_19 != output_filename_18)
+    goto <bb 13>; [0.00%]
   else
     goto <bb 15>; [0.00%]
 
+  <bb 13> [0.00%]:
+  preserve_dates.8_14 = preserve_dates;
+  _15 = smart_rename (tmpname_19, input_filename_33, preserve_dates.8_14);
+  _16 = _15 != 0;
+  _17 = (int) _16;
+  status = _17;
+  goto <bb 15>; [0.00%]
+
   <bb 14> [0.00%]:
-  foo (p3_27(D));
-  goto <bb 4> (label3); [0.00%]
+  unlink_if_ordinary (tmpname_19);
 
   <bb 15> [0.00%]:
-  foo (p5_12(D));
-  goto <bb 4> (label3); [0.00%]
+  _44 = 0;
+  statbuf ={v} {CLOBBER};
+  return _44;
 
-  <bb 16> [0.00%]:
-  if (test3_32(D) != 0)
-    goto <bb 17>; [0.00%]
-  else
-    goto <bb 22>; [0.00%]
+}
 
-  <bb 17> [0.00%]:
-  foo (p_23(D));
-  goto <bb 3> (label2); [0.00%]
 
-  <bb 18> [0.00%]:
-  if (test_19(D) == test2_20(D))
-    goto <bb 19>; [0.00%]
-  else
-    goto <bb 20>; [0.00%]
 
-  <bb 19> [0.00%]:
-  foo (p_23(D));
-  goto <bb 22>; [0.00%]
+;; Function main (main, funcdef_no=55, decl_uid=3464, cgraph_uid=55, symbol_order=92)
 
-  <bb 20> [0.00%]:
-  if (test_19(D) > test2_20(D))
-    goto <bb 21>; [0.00%]
-  else
-    goto <bb 22>; [0.00%]
+main (int argc, char * * argv)
+{
+  char * _1;
+  int _7;
 
-  <bb 21> [0.00%]:
-  foo (p4_21(D));
-
-  <bb 22> [0.00%]:
-  _34 = 0;
-  return _34;
+  <bb 2> [0.00%]:
+  _1 = *argv_3(D);
+  program_name = _1;
+  copy_main (argc_5(D), argv_3(D));
+  _7 = status;
+  return _7;
 
 }
 
