@@ -29,6 +29,11 @@ using namespace std;
 static int totalsize; //宣告一個整數型態size變數，用來儲存x的位元組大小
 static int levelsize = 0;
 static tree now_tree;
+
+// bool bb_in_branch_p(tree a, tree b)
+// {
+// 	return dominated_by_p(CDI_DOMINATORS, a, a);
+// }
 int check_stmtStack(tree target)
 {
 	for (int o = 0; o < new_gimpletree_array.size(); o++)
@@ -1754,7 +1759,6 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	struct ptr_info_def *pi2;
 	struct pt_solution *pt2;
 
-
 	gimple_array *used_stmt = NULL;
 	gimple_array start;
 	start.stmt = NULL;
@@ -1767,7 +1771,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "pointer ptable is %d \n", ptable->size);
 
 	FunctionStmtMappingAssign(ptable, used_stmt);
-	
+
 	ptb *table1 = ptable;
 
 	// ptb *table3 = ftable;
@@ -1789,8 +1793,8 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	{
 		while (table1->next != NULL)
 		{
-		
-// debug_tree(table1->target);
+
+			// debug_tree(table1->target);
 			// debug_tree(table1->target);
 			// debug_gimple_stmt(table1->last_stmt);
 			// if(t2 != NULL_TREE)
@@ -1798,15 +1802,17 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// continue;
 			// fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");}
 			if (TREE_CODE(TREE_TYPE(table1->target)) == METHOD_TYPE || TREE_CODE(TREE_TYPE(table1->target)) == FUNCTION_TYPE || TREE_CODE(TREE_TYPE(table1->target)) == RECORD_TYPE || !(TREE_CODE(table1->target) == SSA_NAME))
-			{	
+			{
 				table1 = table1->next;
 				// continue;
 			}
 			// if (table1->removed || !TREE_CODE(t) == SSA_NAME)
 			// 	continue;
-			if (TREE_CODE(table1->target) == INTEGER_CST){
-					table1 = table1->next;
-				continue;}
+			if (TREE_CODE(table1->target) == INTEGER_CST)
+			{
+				table1 = table1->next;
+				continue;
+			}
 			// debug_tree(t2);
 
 			int colectCount = 0;
@@ -1866,9 +1872,11 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// if (pt1->vars == NULL)
 			// 	continue;
 
-			if (!strcmp(get_tree_code_name(TREE_CODE(used_stmt->target)), "<invalid tree code>")){
-					table1 = table1->next;
-				continue;}
+			if (!strcmp(get_tree_code_name(TREE_CODE(used_stmt->target)), "<invalid tree code>"))
+			{
+				table1 = table1->next;
+				continue;
+			}
 			// fprintf(stderr, "check stmt\n");
 
 			while (new_gimple_array.size())
@@ -1971,9 +1979,11 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// 	}
 			// }
 
-			if (treeGimpleArray->get(table1->target) != NULL){
-					table1 = table1->next;
-				continue;}
+			if (treeGimpleArray->get(table1->target) != NULL)
+			{
+				table1 = table1->next;
+				continue;
+			}
 			// fprintf(stderr, "check stmt\n");
 			// debug_tree(used_stmt->target);
 			// debug_tree(table1->target);
@@ -1983,7 +1993,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// 	fprintf(stderr, "weritjroti;ejhoerjhio;rtjhojert\n");
 			// break;
 			// debug(table1->next->target);
-				table1 = table1->next;
+			table1 = table1->next;
 		}
 		// FOR_EACH_TABLE(table1, t2)
 		// {
@@ -2307,7 +2317,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						{
 							// fprintf(stderr, "\n============test==========================================================\n");
 							// debug_gimple_stmt(u_stmt);
-							// check_bbinfo2(gimple_bb(u_stmt));
+							check_bbinfo2(gimple_bb(u_stmt));
 							// fprintf(stderr, "\n======================================================================\n");
 							if (gimple_code(table_temp->last_stmt) == GIMPLE_CALL)
 							{
@@ -2336,12 +2346,12 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														fprintf(stderr, "\n Expand conflict \n", name);
 														fprintf(stderr, " The same function may have multiple branches :%s\n", name);
 														debug_gimple_stmt(table_temp->last_stmt);
-
 														warning_at(gimple_location_safe(table_temp->last_stmt), 0, "use location");
+
 														debug_gimple_stmt(u_stmt);
+														warning_at(gimple_location_safe(u_stmt), 0, "use location");
 														// fprintf(stderr, "\n Expand conflict %d \n", gimple_bb(u_stmt)->index);
 														check_bbinfo2(gimple_bb(u_stmt));
-														warning_at(gimple_location_safe(u_stmt), 0, "use location");
 														continue;
 													}
 												}
@@ -2415,8 +2425,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							}
 							else
 							{
-								check_bbinfo2(gimple_bb(u_stmt));
-								// fprintf(stderr, "\n============test==========================================================\n");
+								// fprintf(stderr, "\n========================================================================\n");
+								// check_bbinfo2(gimple_bb(u_stmt));
+								// fprintf(stderr, "\n========================================================================\n");
 								// debug_gimple_stmt(u_stmt);
 
 								// check_bbinfo2(gimple_bb(u_stmt));
@@ -3380,17 +3391,19 @@ void record_fucntion(cgraph_node *node)
 
 void printf_bbinfo2(basic_block bb, int flag)
 {
+
 	if (syminfo->get(bb) != NULL)
 	{
-		struct symbolicinfo *symbolicinfotmp = syminfo->get(bb);
 
+		struct symbolicinfo *symbolicinfotmp = syminfo->get(bb);
 		// syminfo->get(syminfo->get(bb)-
 		// debug_gimple_stmt(syminfo->get(syminfo->get(bb)->symbolicExecutionPathConstraint[o])->cond_stmt);
 		// struct symbolicinfo *symbolicinfo3 = syminfo->get(bb);
-		fprintf(stderr, "==============symbolic excution===========================\n");
+		fprintf(stderr, "=======================Path Constaint===========================\n\n");
 		if (flag == 1)
 			for (int o = 0; o < symbolicinfotmp->symbolicExecutionPathConstraintarray.size(); o++)
 			{
+				// debug_tree()
 
 				// fprintf(stderr, "-----------\n");
 				fprintf(stderr, "succs:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraintarray[o].bb->index);
@@ -3415,7 +3428,7 @@ void printf_bbinfo2(basic_block bb, int flag)
 				// //syminfo->get(syminfo->get(bb)->symbolicExecutionPathConstraint[o])->prevlogic
 				fprintf(stderr, "	relate logic:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraintarray2[o].boolt);
 			}
-		fprintf(stderr, "==============symbolic excution===========================\n");
+		fprintf(stderr, "=======================Path Constaint===========================\n\n");
 	}
 }
 void printf_bbinfo(basic_block bb, int flag)
@@ -3425,12 +3438,12 @@ void printf_bbinfo(basic_block bb, int flag)
 		struct symbolicinfo *symbolicinfotmp = syminfo->get(bb);
 		//    symbolicinfotmp->symbolicExecutionPathConstraintarray.clear();
 		//    symbolicinfotmp->symbolicExecutionPathConstraintarray2.clear();
-		fprintf(stderr, "path constaint-----------\n");
-		fprintf(stderr, "succs:= %d\n", bb->index);
+		// fprintf(stderr, "path constaint-----------\n");
+		// fprintf(stderr, "succs:= %d\n", bb->index);
 
-		// debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
-		// warning_at(gimple_location_safe(syminfo->get(bb)->cond_stmt), 0, "use location");
-		fprintf(stderr, " relate logic:= %d\n", flag);
+		// // debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
+		// // warning_at(gimple_location_safe(syminfo->get(bb)->cond_stmt), 0, "use location");
+		// fprintf(stderr, " relate logic:= %d\n", flag);
 		struct symbolicinfoPatharray test;
 		test.bb = bb;
 		test.boolt = flag;
@@ -3459,6 +3472,12 @@ void printf_bbinfo(basic_block bb, int flag)
 		}
 		if (find == 0)
 		{
+			// fprintf(stderr, "path constaint-----------\n");
+			// fprintf(stderr, "succs:= %d\n", bb->index);
+			//
+			// debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
+			// warning_at(gimple_location_safe(syminfo->get(bb)->cond_stmt), 0, "use location");
+			// fprintf(stderr, " relate logic:= %d\n", flag);
 			// fprintf(stderr, "3index %d\n", test.boolt);
 			if (flag == 1)
 			{
@@ -3471,16 +3490,17 @@ void printf_bbinfo(basic_block bb, int flag)
 		// syminfo->get(syminfo->get(bb)->prevlogic;
 		if (syminfo->get(bb) != NULL)
 		{
+
 			// struct symbolicinfo *symbolicinfo3 = syminfo->get(bb);
 			for (int o = 0; o < symbolicinfotmp->symbolicExecutionPathConstraint.size(); o++)
 			{
 
-				fprintf(stderr, "-----------\n");
-				fprintf(stderr, "succs:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraint[o]->index);
+				// fprintf(stderr, "-----------\n");
+				// fprintf(stderr, "succs:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraint[o]->index);
 				// debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
-				debug_gimple_stmt(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraint[o])->cond_stmt);
+				// debug_gimple_stmt(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraint[o])->cond_stmt);
 				//syminfo->get(syminfo->get(bb)->symbolicExecutionPathConstraint[o])->prevlogic
-				fprintf(stderr, " relate logic:= %d\n", syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraint[o])->prevlogic);
+				// fprintf(stderr, " relate logic:= %d\n", syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraint[o])->prevlogic);
 				int find = 0;
 				// symbolicinfotmp->symbolicExecutionPathConstraintarray=NULL;
 				// symbolicinfotmp->symbolicExecutionPathConstraintarray2=NULL;
@@ -3546,12 +3566,12 @@ void set_bbinfo(basic_block bb)
 		{
 			struct symbolicinfo *symbolicinfotmp = syminfo->get(symbolicExecution[o]);
 
-			if (symbolicinfotmp->cond_truebranch == bb)
+			if (symbolicinfotmp->cond_truebranch == bb || dominated_by_p(CDI_DOMINATORS, bb, symbolicinfotmp->cond_truebranch))
 			{
 
 				printf_bbinfo(symbolicExecution[o], 1);
 			}
-			else if (symbolicinfotmp->cond_falsebranch == bb)
+			else if (symbolicinfotmp->cond_falsebranch == bb || dominated_by_p(CDI_DOMINATORS, bb, symbolicinfotmp->cond_falsebranch))
 			{
 				printf_bbinfo(symbolicExecution[o], 0);
 			}
@@ -3591,6 +3611,7 @@ void check_bbinfo2(basic_block bb)
 			{
 
 				printf_bbinfo2(symbolicExecution[o], 1);
+				break;
 			}
 			else if (symbolicinfotmp->cond_falsebranch == bb)
 			{
@@ -3598,6 +3619,45 @@ void check_bbinfo2(basic_block bb)
 			}
 		}
 	}
+	// for (int o = 0; o < symbolicExecutionswitch.size(); o++)
+	// {
+	// 	if (syminfo->get(symbolicExecutionswitch[o]) != NULL)
+	// 	{
+	// 		struct symbolicinfo *symbolicinfotmp = syminfo->get(symbolicExecutionswitch[o]);
+
+	// 		for (int o2 = 0; o2 < symbolicinfotmp->switchs.size(); o2++)
+	// 		{
+	// 			if (symbolicinfotmp->switchs[o2] == bb)
+	// 			{
+	// 				debug_gimple_stmt(symbolicinfotmp->switch_stmt);
+	// 				if (gimple_location_safe(symbolicinfotmp->switch_stmt))
+	// 					warning_at(gimple_location_safe(symbolicinfotmp->switch_stmt), 0, "use location");
+
+	// 				gswitch *swtch = as_a<gswitch *>(symbolicinfotmp->switch_stmt);
+	// 				int lsize1 = gimple_switch_num_labels(swtch);
+	// 				fprintf(stderr, "in switch succs:= %d\n", symbolicinfotmp->switchs[o2]->index);
+	// 				for (int i = 0; i < lsize1; i++)
+	// 				{
+
+	// 					// if (i == symbolicinfotmp->switchs[o2]->index)
+	// 					// {
+	// 					// fprintf(stderr, "--------GIMPLE_SWITCHss %d -------\n",i);
+	// 					tree label1 = gimple_switch_label(swtch, i);
+	// 					tree label = CASE_LABEL(label1);
+	// 					basic_block dest = label_to_block(label);
+	// 					if (dest->index == symbolicinfotmp->switchs[o2]->index)
+	// 					{
+	// 						debug(label1);
+	// 						// debug_tree(label1);
+	// 					}
+	// 					// }
+	// 					// debug_tree(label1);
+	// 				}
+	// 				// printf_bbinfo2(symbolicExecution[o], 1);
+	// 			}
+	// 		}
+	// 	}
+	// }
 	// else{
 	// 	fprintf(stderr, "this fucntion no branch or cond\n");
 	// }
@@ -3877,73 +3937,81 @@ void detect()
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
-				debug_gimple_stmt(gc);
-				debug_tree(gimple_block_label(gimple_bb(gc)));
-				fprintf(stderr, " succs:= %d\n", gimple_bb(gc)->index);
+				// debug_gimple_stmt(gc);
+				// debug_tree(gimple_block_label(gimple_bb(gc)));
+				// fprintf(stderr, " succs:= %d\n", gimple_bb(gc)->index);
 				if (gimple_code(gc) == GIMPLE_SWITCH)
 				{
 					fprintf(stderr, "--------GIMPLE_SWITCH -------\n");
-					debug_gimple_stmt(gc);
+					// debug_gimple_stmt(gc);
 					gswitch *swtch = as_a<gswitch *>(gc);
+
 					unsigned lsize1, lsize2, i;
 					lsize1 = gimple_switch_num_labels(swtch);
 					pretty_printer buffer;
 					buffer.buffer->stream = stderr;
-					debug_tree(gimple_switch_index(swtch));
+					// debug_tree(gimple_switch_index(swtch));
 					// dump_gimple_fmt (&buffer, 0, "%G <%T, ", swtch,gimple_switch_index (swtch));
 					// pp_gimple_stmt_1(&pp, gc, 1 /* spc */, 0 /* flags */);
-					for (i = 0; i < lsize1; i++)
-					{
-						// fprintf(stderr, "--------GIMPLE_SWITCHss %d -------\n",i);
-						tree label1 = gimple_switch_label(swtch, i);
-						tree label = CASE_LABEL(label1);
-						// debug_tree(label);
-						// debug_tree(label1);
-
-						// dump_gimple_switch(buffer, label, spc, flags, false);
-						//    pp_gimple_stmt_1  (&buffer,swtch, 0, 0);
-
-						// if (cfun && cfun->cfg)
-						// {
-						// 	basic_block dest = label_to_block(label);
-						// 	if (dest)
-						// 	{
-						// 		edge label_edge = find_edge(gimple_bb(swtch), dest);
-						// 		debug( label_edge);
-						// 		// if (label_edge && !(flags & TDF_GIMPLE))
-						// 		// 	dump_edge_probability(buffer, label_edge);
-						// 	}
-						// }
-						// debug_tree(label1);
-					}
-					fprintf(stderr, "--------GIMPLE_SWITCHss -------\n");
-					// if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
+					// for (i = 0; i < lsize1; i++)
 					// {
+					// 	// fprintf(stderr, "--------GIMPLE_SWITCHss %d -------\n",i);
+					// 	tree label1 = gimple_switch_label(swtch, i);
+					// 	tree label = CASE_LABEL(label1);
+					// 	// debug_tree(label);
+					// 	// debug_tree(label1);
+
+					// 	// dump_gimple_switch(buffer, label, spc, flags, false);
+					// 	//    pp_gimple_stmt_1  (&buffer,swtch, 0, 0);
+
+					// 	// if (cfun && cfun->cfg)
+					// 	// {
+					// 	// 	basic_block dest = label_to_block(label);
+					// 	// 	if (dest)
+					// 	// 	{
+					// 	// 		edge label_edge = find_edge(gimple_bb(swtch), dest);
+					// 	// 		debug( label_edge);
+					// 	// 		// if (label_edge && !(flags & TDF_GIMPLE))
+					// 	// 		// 	dump_edge_probability(buffer, label_edge);
+					// 	// 	}
+					// 	// }
+					// 	// debug_tree(label1);
+					// }
+
+					fprintf(stderr, "--------GIMPLE_SWITCHss -------\n");
+					symbolicExecutionswitch.push_back(bb);
+					symbolicinfo symbolicinfo;
+					symbolicinfo.switch_stmt = gc;
+
+					if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
+					{
 						edge e;
 						edge_iterator ei;
 						fprintf(stderr, "node:= %d \n", bb->index);
-					// 	//BLOCK_SUPERCONTEXT(gimple_block(u_stmt)
-					// 	int init = 0;
+						// 	//BLOCK_SUPERCONTEXT(gimple_block(u_stmt)
+						// 	int init = 0;
 						FOR_EACH_EDGE(e, ei, bb->succs)
 						{
-					// 		// DFS.addEdge(bb->index, e->dest->index);
+							// 		// DFS.addEdge(bb->index, e->dest->index);
 
-					// 		// debug_tree(test);
-					// 		// if (init == 0)
-					// 		// {
-					// 		// 	symbolicinfo.cond_truebranch = e->dest;
-					// 		// 	fprintf(stderr, " true succs:= %d\n", e->dest->index);
-					// 		// }
+							// 		// debug_tree(test);
+							// 		// if (init == 0)
+							// 		// {
+							// 		// 	symbolicinfo.cond_truebranch = e->dest;
+							// 		// 	fprintf(stderr, " true succs:= %d\n", e->dest->index);
+							// 		// }
 
-					// 		// else
-					// 		// {
-					// 		// 	symbolicinfo.cond_falsebranch = e->dest;
-					// 		// 	fprintf(stderr, " false succs:= %d\n", e->dest->index);
-					// 		// }
-					// 		// init++;
+							// 		// else
+							// 		// {
+							// 		// 	symbolicinfo.cond_falsebranch = e->dest;
+							// 		// 	fprintf(stderr, " false succs:= %d\n", e->dest->index);
+							// 		// }
+							// 		// init++;
+							symbolicinfo.switchs.push_back(e->dest);
 							fprintf(stderr, " succs:= %d\n", e->dest->index);
 						}
-					// }
+						syminfo->put(bb, symbolicinfo);
+					}
 				}
 				// if (gimple_code(gc) == GIMPLE_GOTO)
 				// {
@@ -3970,8 +4038,8 @@ void detect()
 					if (!is_gimple_assign(gc))
 					{
 						// if (gimple_cond_lhs(use_stmt))
-						debug_gimple_stmt(gc);
-						fprintf(stderr, "--------GIMPLE Cond -------\n");
+						// debug_gimple_stmt(gc);
+						// fprintf(stderr, "--------GIMPLE Cond -------\n");
 
 						symbolicExecution.push_back(bb);
 						symbolicinfo symbolicinfo;
@@ -3985,7 +4053,7 @@ void detect()
 						{
 							edge e;
 							edge_iterator ei;
-							fprintf(stderr, "node:= %d \n", bb->index);
+							// fprintf(stderr, "node:= %d \n", bb->index);
 							//BLOCK_SUPERCONTEXT(gimple_block(u_stmt)
 							int init = 0;
 							FOR_EACH_EDGE(e, ei, bb->succs)
@@ -3996,13 +4064,13 @@ void detect()
 								if (init == 0)
 								{
 									symbolicinfo.cond_truebranch = e->dest;
-									fprintf(stderr, " true succs:= %d\n", e->dest->index);
+									// fprintf(stderr, " true succs:= %d\n", e->dest->index);
 								}
 
 								else
 								{
 									symbolicinfo.cond_falsebranch = e->dest;
-									fprintf(stderr, " false succs:= %d\n", e->dest->index);
+									// fprintf(stderr, " false succs:= %d\n", e->dest->index);
 								}
 								init++;
 								// fprintf(stderr, " succs:= %d\n", e->dest->index);
@@ -4010,6 +4078,8 @@ void detect()
 						}
 						int find = 0;
 						vector<basic_block>::iterator it_i;
+						int max_path = 0;
+						basic_block max_bb;
 						for (int o = 0; o < symbolicExecution.size(); o++)
 						{
 
@@ -4017,55 +4087,91 @@ void detect()
 							{
 								struct symbolicinfo *symbolicinfotmp = syminfo->get(symbolicExecution[o]);
 
-								if (symbolicinfotmp->cond_truebranch == bb)
+								// return dominated_by_p(CDI_DOMINATORS, a, a);
+								if (symbolicinfotmp->cond_truebranch == bb || dominated_by_p(CDI_DOMINATORS, bb, symbolicinfotmp->cond_truebranch))
 								{
-									fprintf(stderr, "prev succs:= %d\n", symbolicExecution[o]->index);
-									symbolicinfo.prevlogic = 1;
-									symbolicinfo.symbolicExecutionPathConstraint.push_back(symbolicExecution[o]);
+									if (symbolicinfotmp->symbolicExecutionPathConstraint.size() >= max_path && max_bb != symbolicExecution[o])
+									{
+											fprintf(stderr, "max_path := %d\n", max_path);
+										symbolicinfo.symbolicExecutionPathConstraint.clear();
+										max_path = symbolicinfotmp->symbolicExecutionPathConstraint.size();
+										max_bb = symbolicExecution[o];
+										// branch_boolean = 1;
+										symbolicinfo.prevlogic = 1;
+										symbolicinfo.symbolicExecutionPathConstraint.push_back(symbolicExecution[o]);
+										symbolicinfotmp->prevlogic = symbolicinfo.prevlogic;
+										for (int o2 = 0; o2 < symbolicinfotmp->symbolicExecutionPathConstraint.size(); o2++)
+										{
+											// fprintf(stderr, "size 2:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraint.size());
+											// debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
+											// if(syminfo->get(symbolicExecution[o]))
+											// if (symbolicinfotmp->symbolicExecutionPathConstraint[o2] != bb)
+											// {
+											// fprintf(stderr, " prevlogic:= %d\n", syminfo->get(symbolicExecution[o])->prevlogic);
+											// fprintf(stderr, "sub prevlogic:= %d\n", syminfo->get(symbolicExecution[o])->prevlogic);
+											symbolicinfo.symbolicExecutionPathConstraint.push_back(symbolicinfotmp->symbolicExecutionPathConstraint[o2]);
+											// }
+											// fprintf(stderr, " 22succs:= %d\n", symbolicinfo2->symbolicExecutionPathConstraint[o]->index);
+										}
+									}
+									// else
+									// continue;
+									// if (dominated_by_p(CDI_DOMINATORS, bb, symbolicinfotmp->cond_truebranch))
+									// 	fprintf(stderr, "CDI_DOMINATORS prev succs:= %d\n", symbolicExecution[o]->index);
+									// fprintf(stderr, "prev succs:= %d\n", symbolicExecution[o]->index);
 									// struct symbolicinfoPatharray test;
 									// test.bb = symbolicExecution[o];
 									// test.boolt = 1;
 									// symbolicinfo.symbolicExecutionPathConstraint.
-									for (int o = 0; o < symbolicinfotmp->symbolicExecutionPathConstraint.size(); o++)
-									{
-										// debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
-										if (symbolicinfotmp->symbolicExecutionPathConstraint[o] != bb)
-										{
-											// fprintf(stderr, " prevlogic:= %d\n", syminfo->get(symbolicExecution[o])->prevlogic);
-											fprintf(stderr, "sub prevlogic:= %d\n", syminfo->get(symbolicExecution[o])->prevlogic);
-											symbolicinfo.symbolicExecutionPathConstraint.push_back(symbolicinfotmp->symbolicExecutionPathConstraint[o]);
-										}
-										// fprintf(stderr, " 22succs:= %d\n", symbolicinfo2->symbolicExecutionPathConstraint[o]->index);
-									}
-									find = 1;
-									// fprintf(stderr, " prev logic:= %d\n", symbolicinfotmp->prevlogic);
-									// fprintf(stderr, " now logic:= %d\n", symbolicinfo.prevlogic);
-									symbolicinfotmp->prevlogic = symbolicinfo.prevlogic;
+									// fprintf(stderr, "size 1:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraint.size());
+									// if (symbolicinfotmp->symbolicExecutionPathConstraint.size() == max_path)
+									// {
+									// 	// fprintf(stderr, " prev logic:= %d\n", symbolicinfotmp->prevlogic);
+									// 	// fprintf(stderr, " now logic:= %d\n", symbolicinfo.prevlogic);
+									// }
 									// fprintf(stderr, " fuckkkkkk\n");
 								}
-								else if (symbolicinfotmp->cond_falsebranch == bb)
+								else if (symbolicinfotmp->cond_falsebranch == bb || dominated_by_p(CDI_DOMINATORS, bb, symbolicinfotmp->cond_falsebranch))
 								{
-									fprintf(stderr, "prev succs:= %d\n", symbolicExecution[o]->index);
-									symbolicinfo.prevlogic = 0;
-									// struct free_type free_type;
-									symbolicinfo.symbolicExecutionPathConstraint.push_back(symbolicExecution[o]);
-									for (int o = 0; o < symbolicinfotmp->symbolicExecutionPathConstraint.size(); o++)
+									if (symbolicinfotmp->symbolicExecutionPathConstraint.size() >= max_path && max_bb != symbolicExecution[o])
 									{
-										// debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
-										if (symbolicinfotmp->symbolicExecutionPathConstraint[o] != bb)
+											fprintf(stderr, "max_path := %d\n", max_path);
+										// fprintf(stderr, " fuckkkkkk\n");
+										symbolicinfo.symbolicExecutionPathConstraint.clear();
+										max_path = symbolicinfotmp->symbolicExecutionPathConstraint.size();
+										max_bb = symbolicExecution[o];
+										symbolicinfo.prevlogic = 0;
+										// struct free_type free_type;
+										symbolicinfo.symbolicExecutionPathConstraint.push_back(symbolicExecution[o]);
+										symbolicinfotmp->prevlogic = symbolicinfo.prevlogic;
+										for (int o2 = 0; o2 < symbolicinfotmp->symbolicExecutionPathConstraint.size(); o2++)
 										{
-											fprintf(stderr, "sub prevlogic:= %d\n", syminfo->get(symbolicExecution[o])->prevlogic);
+											// fprintf(stderr, "size 2:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraint.size());
+											// debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
+											// if(syminfo->get(symbolicExecution[o]))
+											// if (symbolicinfotmp->symbolicExecutionPathConstraint[o2] != bb)
+											// {
+											// fprintf(stderr, "sub prevlogic:= %d\n", syminfo->get(symbolicExecution[o])->prevlogic);
 											// fprintf(stderr, " prevlogic:= %d\n", syminfo->get(symbolicExecution[o])->prevlogic);
-											symbolicinfo.symbolicExecutionPathConstraint.push_back(symbolicinfotmp->symbolicExecutionPathConstraint[o]);
+
+											symbolicinfo.symbolicExecutionPathConstraint.push_back(symbolicinfotmp->symbolicExecutionPathConstraint[o2]);
+											// }
+											// fprintf(stderr, " 22succs:= %d\n", symbolicinfo2->symbolicExecutionPathConstraint[o]->index);
 										}
-										// fprintf(stderr, " 22succs:= %d\n", symbolicinfo2->symbolicExecutionPathConstraint[o]->index);
+										// branch_boolean = 1;
 									}
-									// fprintf(stderr, " prev logic:= %d\n", symbolicinfotmp->prevlogic);
-									// fprintf(stderr, " now logic:= %d\n", symbolicinfo.prevlogic);
-									symbolicinfotmp->prevlogic = symbolicinfo.prevlogic;
-									// fprintf(stderr, " fuckkkkkk\n");
-									find = 1;
+									// if (dominated_by_p(CDI_DOMINATORS, bb, symbolicinfotmp->cond_falsebranch))
+									// 	fprintf(stderr, "CDI_DOMINATORS prev succs:= %d\n", symbolicExecution[o]->index);
+									// fprintf(stderr, "prev succs:= %d\n", symbolicExecution[o]->index);
+									// fprintf(stderr, "size 1:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraint.size());
+									// if (symbolicinfotmp->symbolicExecutionPathConstraint.size() == max_path)
+									// {
+									// 	// fprintf(stderr, " prev logic:= %d\n", symbolicinfotmp->prevlogic);
+									// 	// fprintf(stderr, " now logic:= %d\n", symbolicinfo.prevlogic);
+									// 	// fprintf(stderr, " fuckkkkkk\n");
+									// }
 								}
+							
 							}
 						}
 						syminfo->put(bb, symbolicinfo);

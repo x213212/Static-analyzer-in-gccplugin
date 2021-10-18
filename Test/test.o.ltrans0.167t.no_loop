@@ -8,7 +8,7 @@ foo (int * z)
   long int _2;
   int _3;
 
-<L0> [100.00%]:
+  <bb 2> [100.00%]:
   _1 = malloc (10);
   _2 = (long int) _1;
   _3 = (int) _2;

@@ -1,2 +1,23 @@
 {
+    "files.associations": {
+        "deque": "c",
+        "string": "c",
+        "vector": "c",
+        "array": "c",
+        "*.tcc": "c",
+        "memory": "c",
+        "istream": "c",
+        "ranges": "c",
+        "functional": "c",
+        "tuple": "c",
+        "utility": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "random": "c",
+        "limits": "c",
+        "algorithm": "c",
+        "unordered_map": "c",
+        "list": "c",
+        "system_error": "c"
+    }
 }

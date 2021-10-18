@@ -602,6 +602,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 													warning_at(gimple_location(gc), 0, "use location");
 													fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(LHS) :", x);
 													debug(gc);
+													check_bbinfo2(gimple_bb(gc));
 													warning_at(gimple_location(gc), 0, "use location");
 													debug(gimple_assign_lhs(gc));
 													fprintf(stderr, "dot graph relate end\n\n");
@@ -734,7 +735,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 											fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", gimple_assign_lhs(gc));
 
 											debug_gimple_stmt(gc);
-
+											check_bbinfo2(gimple_bb(gc));
 											warning_at(gimple_location(gc), 0, "use location");
 
 											fprintf(stderr, "\n ================== warring ================== \n");
@@ -841,6 +842,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 
 												fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(call) :", x);
 												debug(gc);
+												check_bbinfo2(gimple_bb(gc));
 												now_relatelaststmt = gc;
 												now_relatelaststmtid = x;
 												now_laststmtid = x;

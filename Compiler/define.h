@@ -42,8 +42,10 @@ struct symbolicinfoPatharray
 struct symbolicinfo
 {
 	gimple *cond_stmt;
+	gimple *switch_stmt;
 	tree cond_rhs;
 	tree cond_lhs;
+	vector<basic_block> switchs;
 	basic_block cond_truebranch;
 	basic_block cond_falsebranch;
 	int prevlogic = 1;
@@ -315,6 +317,7 @@ vector<tree> new_gimpletree_array;
 vector<tree> traceStack;
 vector<tree> pathStack;
 vector<basic_block> symbolicExecution;
+vector<basic_block> symbolicExecutionswitch;
 
 // CStack pathStack;
 // CStack traceStack;
