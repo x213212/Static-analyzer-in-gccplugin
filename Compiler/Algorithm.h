@@ -2212,15 +2212,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							// debug(def_stmt);
 							if (TREE_CODE(table_temp->target) == FUNCTION_DECL)
 								name = get_name(table_temp->target);
-							if (TREE_CODE(table_temp->target) != ADDR_EXPR)
-								if (TREE_CODE(table_temp->target) != PARM_DECL)
-									if (gimple_code(def_stmt))
-									{
-										debug_gimple_stmt(def_stmt);
-										if (gimple_code(def_stmt) == GIMPLE_CALL)
-											name = get_name(gimple_call_fndecl(def_stmt));
-										// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
-									}
+							if (TREE_CODE(table_temp->target) != ADDR_EXPR && TREE_CODE(table_temp->target)  )
+								if (gimple_code(def_stmt))
+								{
+									debug_gimple_stmt(def_stmt);
+									if (gimple_code(def_stmt) == GIMPLE_CALL)
+										name = get_name(gimple_call_fndecl(def_stmt));
+									// fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
+								}
 						}
 						// debug_gimple_stmt(def_stmt);
 						fprintf(stderr, "\n ================== trace ptable================== \n");
