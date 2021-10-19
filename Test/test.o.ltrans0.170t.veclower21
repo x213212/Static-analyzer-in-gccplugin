@@ -1,303 +1,135 @@
 
-;; Function set_times (set_times, funcdef_no=0, decl_uid=4042, cgraph_uid=7, symbol_order=87) (executed once)
+;; Function foo (foo, funcdef_no=0, decl_uid=3986, cgraph_uid=1, symbol_order=51)
 
-Removing basic block 5
-set_times (const char * destination, const struct stat * statbuf)
+__attribute__((noinline))
+foo (int * z)
 {
-  long int tb[2];
-  int result;
-  long int _1;
+  void * _1;
   long int _2;
-  int _12;
+  int _3;
 
   <bb 2> [100.00%]:
-  _1 = statbuf_5(D)->st_atim.tv_sec;
-  tb[0] = _1;
-  _2 = statbuf_5(D)->st_mtim.tv_sec;
-  tb[1] = _2;
-  result_10 = utime (destination_8(D), &tb);
-  tb ={v} {CLOBBER};
-  if (result_10 != 0)
-    goto <bb 3>; [36.64%]
-  else
-    goto <bb 4>; [63.36%]
-
-  <bb 3> [36.64%]:
-  _12 = __printf_chk (1, "%s: cannot set time:", destination_8(D));
-
-  <bb 4> [100.00%]:
+  _1 = malloc (10);
+  _2 = (long int) _1;
+  _3 = (int) _2;
+  *z_6(D) = _3;
   return;
 
 }
 
 
 
-;; Function main (main, funcdef_no=1, decl_uid=3986, cgraph_uid=0, symbol_order=92) (executed once)
+;; Function main (main, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=52) (executed once)
 
-Removing basic block 28
-Removing basic block 29
-Removing basic block 30
-Removing basic block 31
-Removing basic block 32
-Removing basic block 33
-Removing basic block 34
-Removing basic block 35
-Removing basic block 36
-Removing basic block 37
-Removing basic block 38
-Removing basic block 39
-Removing basic block 40
-Removing basic block 41
-Removing basic block 42
-main (int argc, char * * argv)
+main ()
 {
-  bfd_boolean exists;
-  struct stat s;
-  int ret;
-  int D.4147;
-  off_t size;
-  const char * slash;
-  char * tmpname;
-  size_t len;
-  char * D.4115;
-  char * tmpname;
-  int fd;
-  char * D.4101;
-  char * input_filename;
-  char * output_filename;
-  char * tmpname;
-  int statbuf;
-  int D.4091;
-  char * _1;
-  int _7;
-  int _11;
-  long unsigned int _12;
-  long unsigned int _13;
-  char * * _14;
-  int _17;
-  sizetype _20;
-  sizetype _21;
-  char * * _22;
-  int _27;
-  int _28;
-  _Bool _33;
-  int _34;
-  long int _40;
-  long int _41;
-  long int _42;
-  long unsigned int _44;
-  char * _47;
-  char * _51;
-  int _53;
-  int _54;
-  _Bool _55;
-  int _57;
-  int _58;
-  _Bool _59;
-  unsigned int _61;
-  unsigned int _62;
-  long unsigned int _63;
-  unsigned int _65;
-  unsigned int _66;
-  unsigned int _67;
-  unsigned int _68;
-  int _69;
-  unsigned int _70;
-  unsigned int _71;
-  int _72;
-  int _74;
-  int _75;
-  int _112;
+  int test5;
+  int test3;
+  int test2;
+  int test;
+  int * p5;
+  int * p4;
+  int * p3;
+  int * p;
+  int _1;
 
-  <bb 2> [100.00%]:
-  _1 = *argv_3(D);
-  _11 = optind;
-  _12 = (long unsigned int) _11;
-  _13 = _12 * 8;
-  _14 = argv_3(D) + _13;
-  input_filename_15 = *_14;
-  _17 = _11 + 1;
-  if (argc_5(D) > _17)
-    goto <bb 3>; [67.00%]
+  <bb 2> [8.03%]:
+  _1 = test5_12(D) / 10;
+
+label2 [14.45%]:
+  foo (p5_9(D));
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [85.56%]:
+
+  <bb 5> [100.00%]:
+  foo (p5_9(D));
+  switch (_1) <default: <L4> [33.33%], case 5: <L2> [33.33%], case 10: <L3> [33.33%]>
+
+<L2> [33.33%]:
+  foo (p5_9(D));
+  goto <bb 9>; [100.00%]
+
+<L3> [33.33%]:
+  foo (p5_9(D));
+  goto <bb 9>; [100.00%]
+
+<L4> [33.33%]:
+  foo (p5_9(D));
+
+  <bb 9> [99.99%]:
+  if (test_16(D) != 0)
+    goto <bb 10>; [92.50%]
   else
-    goto <bb 4>; [33.00%]
+    goto <bb 19>; [7.50%]
 
-  <bb 3> [67.00%]:
-  _20 = _12 + 1;
-  _21 = _20 * 8;
-  _22 = argv_3(D) + _21;
-  output_filename_23 = *_22;
-  if (output_filename_23 == 0B)
-    goto <bb 4>; [30.00%]
+  <bb 10> [92.49%]:
+  if (test_16(D) > test2_17(D))
+    goto <bb 11>; [7.50%]
   else
-    goto <bb 11>; [70.00%]
+    goto <bb 14>; [92.50%]
 
-  <bb 4> [53.10%]:
-  slash_39 = strrchr (input_filename_15, 47);
-  if (slash_39 != 0B)
-    goto <bb 5>; [66.53%]
+  <bb 11> [6.94%]:
+  foo (p_20(D));
+  if (test_16(D) < test2_17(D))
+    goto <bb 12>; [50.00%]
   else
-    goto <bb 6>; [33.47%]
+    goto <bb 13>; [50.00%]
 
-  <bb 5> [35.33%]:
-  _40 = (long int) slash_39;
-  _41 = (long int) input_filename_15;
-  _42 = _40 - _41;
-  len_43 = (size_t) _42;
-  _44 = len_43 + 11;
-  tmpname_45 = malloc (_44);
-  memcpy (tmpname_45, input_filename_15, len_43);
-  len_46 = len_43 + 1;
-  _47 = tmpname_45 + len_43;
-  *_47 = 47;
-  goto <bb 7>; [100.00%]
+  <bb 12> [3.47%]:
+  foo (p_20(D));
+  goto <bb 17>; [100.00%]
 
-  <bb 6> [17.77%]:
-  tmpname_48 = malloc (9);
+  <bb 13> [3.47%]:
+  foo (p_20(D));
+  goto <bb 17>; [100.00%]
 
-  <bb 7> [53.10%]:
-  # tmpname_49 = PHI <tmpname_45(5), tmpname_48(6)>
-  # len_50 = PHI <len_46(5), 0(6)>
-  _51 = tmpname_49 + len_50;
-  memcpy (_51, "stXXXXXX", 9);
-  fd_37 = mkstemp (tmpname_49);
-  if (fd_37 == -1)
-    goto <bb 8>; [4.85%]
+  <bb 14> [85.55%]:
+  foo (p_20(D));
+  if (test_16(D) < test2_17(D))
+    goto <bb 15>; [50.00%]
   else
-    goto <bb 9>; [95.15%]
+    goto <bb 16>; [50.00%]
 
-  <bb 8> [2.58%]:
-  free (tmpname_49);
-  goto <bb 10>; [100.00%]
+  <bb 15> [42.78%]:
+  foo (p3_24(D));
+  goto <bb 4>; [100.00%]
 
-  <bb 9> [50.52%]:
-  close (fd_37);
-  if (tmpname_49 == 0B)
-    goto <bb 10>; [0.00%]
+  <bb 16> [42.78%]:
+  foo (p5_9(D));
+  goto <bb 4>; [100.00%]
+
+  <bb 17> [6.94%]:
+  if (test3_29(D) != 0)
+    goto <bb 18>; [92.50%]
   else
-    goto <bb 11>; [100.00%]
+    goto <bb 23>; [7.50%]
 
-  <bb 10> [0.04%]:
-  _27 = __printf_chk (1, "warning: could not create temporary file whilst copying \'%s\'", input_filename_15);
-  exit (1);
+  <bb 18> [6.42%]:
+  foo (p_20(D));
+  goto <bb 3> (label2); [100.00%]
 
-  <bb 11> [99.96%]:
-  # tmpname_29 = PHI <tmpname_49(9), output_filename_23(3)>
-  # output_filename_31 = PHI <0B(9), output_filename_23(3)>
-  _53 = rand ();
-  _54 = _53 % 2;
-  _55 = _54 == 1;
-  size_56 = (off_t) _55;
-  if (_54 != 1)
-    goto <bb 12>; [69.50%]
+  <bb 19> [7.50%]:
+  if (test2_17(D) == 0)
+    goto <bb 20>; [17.77%]
   else
-    goto <bb 13>; [30.50%]
+    goto <bb 21>; [82.23%]
 
-  <bb 12> [69.47%]:
-  _57 = __printf_chk (1, "error: the input file \'%s\' is empty", input_filename_15);
-  status = 1;
-  _112 = status;
-  goto <bb 25>; [100.00%]
+  <bb 20> [1.33%]:
+  foo (p_20(D));
+  goto <bb 23>; [100.00%]
 
-  <bb 13> [30.49%]:
-  _28 = status;
-  if (_28 == 0)
-    goto <bb 14>; [100.00%]
+  <bb 21> [6.17%]:
+  if (test2_17(D) < 0)
+    goto <bb 22>; [36.64%]
   else
-    goto <bb 25>; [0.00%]
+    goto <bb 23>; [63.36%]
 
-  <bb 14> [66.97%]:
-  if (tmpname_29 != output_filename_31)
-    goto <bb 15>; [53.47%]
-  else
-    goto <bb 26>; [46.53%]
+  <bb 22> [2.26%]:
+  foo (p4_18(D));
 
-  <bb 15> [35.81%]:
-  _58 = lstat (input_filename_15, &s);
-  _59 = _58 == 0;
-  exists_60 = (bfd_boolean) _59;
-  if (_58 != 0)
-    goto <bb 18>; [33.00%]
-  else
-    goto <bb 16>; [67.00%]
-
-  <bb 16> [23.99%]:
-  _61 = BIT_FIELD_REF <s, 32, 192>;
-  _62 = _61 & 61568;
-  if (_62 == 32896)
-    goto <bb 17>; [34.00%]
-  else
-    goto <bb 23>; [66.00%]
-
-  <bb 17> [8.16%]:
-  _63 = s.st_nlink;
-  if (_63 == 1)
-    goto <bb 27>; [34.00%]
-  else
-    goto <bb 23>; [66.00%]
-
-  <bb 18> [11.82%]:
-  ret_64 = rename (tmpname_29, input_filename_15);
-  if (ret_64 == 0)
-    goto <bb 19>; [70.44%]
-  else
-    goto <bb 22>; [29.56%]
-
-  <bb 19> [8.33%]:
-  if (_58 == 0)
-    goto <bb 20>; [21.76%]
-  else
-    goto <bb 24>; [78.24%]
-
-  <bb 20> [3.77%]:
-  _65 = s.st_mode;
-  _66 = _65 & 511;
-  chmod (input_filename_15, _66);
-  _67 = s.st_gid;
-  _68 = s.st_uid;
-  _69 = chown (input_filename_15, _68, _67);
-  if (_69 >= 0)
-    goto <bb 21>; [46.68%]
-  else
-    goto <bb 24>; [53.32%]
-
-  <bb 21> [1.76%]:
-  _70 = s.st_mode;
-  _71 = _70 & 4095;
-  chmod (input_filename_15, _71);
-  goto <bb 24>; [100.00%]
-
-  <bb 22> [4.31%]:
-  # ret_110 = PHI <ret_64(18), ret_99(27)>
-  _72 = __printf_chk (1, "unable to rename \'%s\';", input_filename_15);
-  unlink (tmpname_29);
-  goto <bb 24>; [100.00%]
-
-  <bb 23> [21.22%]:
-  unlink (tmpname_29);
-
-  <bb 24> [35.81%]:
-  # ret_73 = PHI <0(19), 0(20), 0(21), ret_110(22), 0(23)>
-  s ={v} {CLOBBER};
-  _33 = ret_73 != 0;
-  _34 = (int) _33;
-  status = _34;
-  goto <bb 26>; [100.00%]
-
-  <bb 25> [32.99%]:
-  _74 = MEM[(int *)tmpname_29];
-  _75 = __printf_chk (1, "%d\n", _74);
-
-  <bb 26> [99.96%]:
-  _7 = status;
-  return _7;
-
-  <bb 27> [2.77%]:
-  ret_99 = rename (tmpname_29, input_filename_15);
-  if (ret_99 == 0)
-    goto <bb 20>; [70.46%]
-  else
-    goto <bb 22>; [29.54%]
+  <bb 23> [8.02%]:
+  return 0;
 
 }
 

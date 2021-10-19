@@ -51,8 +51,8 @@ struct symbolicinfo
 	int prevlogic = 1;
 	// tree symbolicExecutionPathConstraintNode;
 	vector<basic_block> symbolicExecutionPathConstraint;
-	vector<symbolicinfoPatharray> symbolicExecutionPathConstraintarray;
-	vector<symbolicinfoPatharray> symbolicExecutionPathConstraintarray2;
+	vector<symbolicinfoPatharray> symbolicExecutionPathConstraintarrayTrue;
+	vector<symbolicinfoPatharray> symbolicExecutionPathConstraintarrayFalse;
 	// hash_map<basic_block, symbolicinfoPatharray> *syminfo;
 };
 
@@ -289,7 +289,7 @@ ofstream cfginfo("cfginfo.txt");
 
 /*interprocedural analysis*/
 bool ipa = true;
-bool debugmod = true;
+bool debugmod = false;
 bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;
@@ -328,10 +328,10 @@ function *main_fun;
 //int check_stmtStack(gimple *stmt);
 static gimple *now_stmt;
 unsigned int SDBMHash(char *str);
-void printf_bbinfo2(basic_block bb, int flag);
 void printf_bbinfo(basic_block bb, int flag);
+void set_PathConstraintarray(basic_block bb, int flag);
 void set_bbinfo(basic_block bb);
-void check_bbinfo2(basic_block bb);
+void check_bbinfo(basic_block bb);
 int check_stmtStack(tree target);
 void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_tmp, tree checkTree, int threadcheck);
 void record_fucntion(cgraph_node *node);

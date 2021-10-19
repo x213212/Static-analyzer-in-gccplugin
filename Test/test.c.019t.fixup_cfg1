@@ -1,599 +1,139 @@
 
-;; Function printf (printf, funcdef_no=15, decl_uid=798, cgraph_uid=15, symbol_order=15)
+;; Function foo (foo, funcdef_no=51, decl_uid=4307, cgraph_uid=51, symbol_order=51)
 
-__attribute__((__artificial__, __gnu_inline__, __always_inline__))
-printf (const char * restrict __fmt)
+__attribute__((noinline))
+foo (int * z)
 {
-  int D.3469;
-
   <bb 2> [0.00%]:
-  D.3469 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
-  return D.3469;
-
-}
-
-
-
-;; Function do_my_cleanups (do_my_cleanups, funcdef_no=42, decl_uid=3111, cgraph_uid=42, symbol_order=47)
-
-do_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
-{
-  struct cleanup * ptr;
-
-  <bb 2> [0.00%]:
-  goto <bb 6>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _1 = ptr->next;
-  *pmy_chain = _1;
-  _2 = ptr->function;
-  _3 = ptr->arg;
-  _2 (_3);
-  printf ("cleanup!!!!! =========\n");
-  _4 = ptr->arg;
-  printf ("%x\n", _4);
-  _5 = ptr->free_arg;
-  if (_5 != 0B)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _6 = ptr->free_arg;
-  _7 = ptr->arg;
-  _6 (_7);
-
-  <bb 5> [0.00%]:
-  free (ptr);
-
-  <bb 6> [0.00%]:
-  ptr = *pmy_chain;
-  if (ptr != old_chain)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 7> [0.00%]:
+  _1 = malloc (10);
+  _2 = (long int) _1;
+  _3 = (int) _2;
+  *z = _3;
   return;
 
 }
 
 
 
-;; Function make_my_cleanup2 (make_my_cleanup2, funcdef_no=44, decl_uid=3119, cgraph_uid=44, symbol_order=49)
+;; Function main (main, funcdef_no=52, decl_uid=4313, cgraph_uid=52, symbol_order=52)
 
-make_my_cleanup2 (struct cleanup * * pmy_chain, void (*<T9e0>) (void *) function, void * arg, void (*<Ted>) (void *) free_arg)
+main ()
 {
-  struct cleanup * old_chain;
-  struct cleanup * new;
-  struct cleanup * D.3479;
-
-  <bb 2> [0.00%]:
-  new = malloc (32);
-  old_chain = *pmy_chain;
-  _1 = *pmy_chain;
-  new->next = _1;
-  new->function = function;
-  new->free_arg = free_arg;
-  new->arg = arg;
-  *pmy_chain = new;
-  if (old_chain == 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  exit (1);
-
-  <bb 4> [0.00%]:
-  D.3479 = old_chain;
-  return D.3479;
-
-}
-
-
-
-;; Function make_my_cleanup (make_my_cleanup, funcdef_no=45, decl_uid=3123, cgraph_uid=45, symbol_order=50)
-
-make_my_cleanup (struct cleanup * * pmy_chain, void (*<T9e0>) (void *) function, void * arg)
-{
-  struct cleanup * D.3475;
-
-  <bb 2> [0.00%]:
-  D.3475 = make_my_cleanup2 (pmy_chain, function, arg, 0B);
-  return D.3475;
-
-}
-
-
-
-;; Function template_in_dir (template_in_dir, funcdef_no=48, decl_uid=3397, cgraph_uid=48, symbol_order=85)
-
-template_in_dir (const char * path)
-{
-  size_t len;
-  char * tmpname;
-  const char * slash;
-  char * D.3490;
-
-  <bb 2> [0.00%]:
-  slash = strrchr (path, 47);
-  if (slash != 0B)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  slash.0_1 = (long int) slash;
-  path.1_2 = (long int) path;
-  _3 = slash.0_1 - path.1_2;
-  len = (size_t) _3;
-  _4 = len + 11;
-  tmpname = malloc (_4);
-  memcpy (tmpname, path, len);
-  len.2_5 = len;
-  len = len.2_5 + 1;
-  _6 = tmpname + len.2_5;
-  *_6 = 47;
-  goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  tmpname = malloc (9);
-  len = 0;
-
-  <bb 5> [0.00%]:
-  _7 = tmpname + len;
-  memcpy (_7, "stXXXXXX", 9);
-  D.3490 = tmpname;
-  return D.3490;
-
-}
-
-
-
-;; Function copy_file (copy_file, funcdef_no=53, decl_uid=3441, cgraph_uid=53, symbol_order=90)
-
-copy_file (const char * input_filename, const char * output_filename, const char * input_target, const char * output_target, const struct bfd_arch_info_type * input_arch)
-{
-  off_t size;
-  char * * core_matching;
-  char * * obj_matching;
-  struct bfd * ibfd;
-
-  <bb 2> [0.00%]:
-  _1 = rand ();
-  _2 = _1 % 2;
-  _3 = _2 == 1;
-  size = (off_t) _3;
-  if (size <= 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
-
-  <bb 3> [0.00%]:
-  if (size == 0)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  printf ("error: the input file \'%s\' is empty", input_filename);
-
-  <bb 5> [0.00%]:
-  status = 1;
-
-  <bb 6> [0.00%]:
-  return;
-
-}
-
-
-
-;; Function discard_my_cleanups (discard_my_cleanups, funcdef_no=41, decl_uid=3106, cgraph_uid=41, symbol_order=46)
-
-discard_my_cleanups (struct cleanup * * pmy_chain, struct cleanup * old_chain)
-{
-  struct cleanup * ptr;
-
-  <bb 2> [0.00%]:
-  goto <bb 6>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _1 = ptr->next;
-  *pmy_chain = _1;
-  _2 = ptr->free_arg;
-  if (_2 != 0B)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _3 = ptr->free_arg;
-  _4 = ptr->arg;
-  _3 (_4);
-
-  <bb 5> [0.00%]:
-  free (ptr);
-
-  <bb 6> [0.00%]:
-  ptr = *pmy_chain;
-  if (ptr != old_chain)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
-
-  <bb 7> [0.00%]:
-  _5 = ptr->arg;
-  printf ("freearg: %x\n", _5);
-  return;
-
-}
-
-
-
-;; Function discard_cleanups (discard_cleanups, funcdef_no=39, decl_uid=3103, cgraph_uid=39, symbol_order=44)
-
-discard_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [0.00%]:
-  discard_my_cleanups (&cleanup_chain, old_chain);
-  return;
-
-}
-
-
-
-;; Function discard_final_cleanups (discard_final_cleanups, funcdef_no=40, decl_uid=3108, cgraph_uid=40, symbol_order=45)
-
-discard_final_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [0.00%]:
-  discard_my_cleanups (&final_cleanup_chain, old_chain);
-  return;
-
-}
-
-
-
-;; Function do_cleanups (do_cleanups, funcdef_no=43, decl_uid=3113, cgraph_uid=43, symbol_order=48)
-
-do_cleanups (struct cleanup * old_chain)
-{
-  <bb 2> [0.00%]:
-  do_my_cleanups (&cleanup_chain, old_chain);
-  return;
-
-}
-
-
-
-;; Function make_cleanup (make_cleanup, funcdef_no=46, decl_uid=3126, cgraph_uid=46, symbol_order=51)
-
-make_cleanup (void (*<T9e0>) (void *) function, void * arg)
-{
-  struct cleanup * D.3473;
-
-  <bb 2> [0.00%]:
-  D.3473 = make_my_cleanup (&cleanup_chain, function, arg);
-  return D.3473;
-
-}
-
-
-
-;; Function filename_cmp (filename_cmp, funcdef_no=47, decl_uid=3393, cgraph_uid=47, symbol_order=84)
-
-filename_cmp (const char * s1, const char * s2)
-{
-  int D.3481;
-
-  <bb 2> [0.00%]:
-  D.3481 = strcmp (s1, s2);
-  return D.3481;
-
-}
-
-
-
-;; Function make_tempname (make_tempname, funcdef_no=49, decl_uid=3406, cgraph_uid=49, symbol_order=86)
-
-make_tempname (char * filename)
-{
-  int fd;
-  char * tmpname;
-  char * D.3485;
-
-  <bb 2> [0.00%]:
-  tmpname = template_in_dir (filename);
-  fd = mkstemp (tmpname);
-  if (fd == -1)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  free (tmpname);
-  D.3485 = 0B;
-  goto <bb 5>; [0.00%]
-
-  <bb 4> [0.00%]:
-  close (fd);
-  D.3485 = tmpname;
-
-  <bb 5> [0.00%]:
-  return D.3485;
-
-}
-
-
-
-;; Function set_times (set_times, funcdef_no=50, decl_uid=3414, cgraph_uid=50, symbol_order=87)
-
-set_times (const char * destination, const struct stat * statbuf)
-{
-  long int tb[2];
-  int result;
-
-  <bb 2> [0.00%]:
-  _1 = statbuf->st_atim.tv_sec;
-  tb[0] = _1;
-  _2 = statbuf->st_mtim.tv_sec;
-  tb[1] = _2;
-  result = utime (destination, &tb);
-  tb = {CLOBBER};
-  if (result != 0)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
-
-  <bb 3> [0.00%]:
-  printf ("%s: cannot set time:", destination);
-
-  <bb 4> [0.00%]:
-  return;
-
-}
-
-
-
-;; Function smart_rename (smart_rename, funcdef_no=51, decl_uid=3423, cgraph_uid=51, symbol_order=88)
-
-smart_rename (const char * from, const char * to, int preserve_dates)
-{
-  int ret;
-  struct stat s;
-  bfd_boolean exists;
-  int D.3510;
-
-  <bb 2> [0.00%]:
-  ret = 0;
-  _1 = lstat (to, &s);
-  _2 = _1 == 0;
-  exists = (bfd_boolean) _2;
-  if (exists == 0)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 3>; [0.00%]
-
-  <bb 3> [0.00%]:
-  _3 = BIT_FIELD_REF <s, 32, 192>;
-  _4 = _3 & 61568;
-  if (_4 == 32896)
-    goto <bb 4>; [0.00%]
-  else
-    goto <bb 10>; [0.00%]
-
-  <bb 4> [0.00%]:
-  _5 = s.st_nlink;
-  if (_5 == 1)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 10>; [0.00%]
-
-  <bb 5> [0.00%]:
-  ret = rename (from, to);
-  if (ret == 0)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
-
-  <bb 6> [0.00%]:
-  if (exists != 0)
-    goto <bb 7>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 7> [0.00%]:
-  _6 = s.st_mode;
-  _7 = _6 & 511;
-  chmod (to, _7);
-  _8 = s.st_gid;
-  _9 = s.st_uid;
-  _10 = chown (to, _9, _8);
-  if (_10 >= 0)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 8> [0.00%]:
-  _11 = s.st_mode;
-  _12 = _11 & 4095;
-  chmod (to, _12);
-  goto <bb 15>; [0.00%]
-
-  <bb 9> [0.00%]:
-  printf ("unable to rename \'%s\';", to);
-  unlink (from);
-  goto <bb 15>; [0.00%]
-
-  <bb 10> [0.00%]:
-  if (ret != 0)
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 11> [0.00%]:
-  printf ("unable to copy file \'%s\';", to);
-
-  <bb 12> [0.00%]:
-  if (preserve_dates != 0)
-    goto <bb 13>; [0.00%]
-  else
-    goto <bb 14>; [0.00%]
-
-  <bb 13> [0.00%]:
-  set_times (to, &s);
-
-  <bb 14> [0.00%]:
-  unlink (from);
-
-  <bb 15> [0.00%]:
-  D.3510 = ret;
-  s = {CLOBBER};
-  return D.3510;
-
-}
-
-
-
-;; Function unlink_if_ordinary (unlink_if_ordinary, funcdef_no=52, decl_uid=3434, cgraph_uid=52, symbol_order=89)
-
-unlink_if_ordinary (const char * name)
-{
-  <bb 2> [0.00%]:
-  _1 = MEM[(int *)name];
-  printf ("%d\n", _1);
-  return;
-
-}
-
-
-
-;; Function copy_main (copy_main, funcdef_no=54, decl_uid=3449, cgraph_uid=54, symbol_order=91)
-
-copy_main (int argc, char * * argv)
-{
-  const struct bfd_arch_info_type * input_arch;
-  int statbuf;
+  int d;
   int c;
-  bfd_boolean formats_info;
-  bfd_boolean change_warn;
-  bfd_boolean show_version;
-  char * output_target;
-  char * input_target;
-  char * tmpname;
-  char * output_filename;
-  char * input_filename;
-  int D.3529;
+  int b;
+  int a;
+  int test5;
+  int test4;
+  int test3;
+  int test2;
+  int test;
+  int * p5;
+  int * p4;
+  int * p3;
+  int * p2;
+  int * p;
+  int D.4355;
 
   <bb 2> [0.00%]:
-  input_filename = 0B;
-  output_filename = 0B;
-  input_target = 0B;
-  output_target = 0B;
-  show_version = 0;
-  change_warn = 1;
-  formats_info = 0;
-  input_arch = 0B;
-  optind.3_1 = optind;
-  _2 = (long unsigned int) optind.3_1;
-  _3 = _2 * 8;
-  _4 = argv + _3;
-  input_filename = *_4;
-  optind.4_5 = optind;
-  _6 = optind.4_5 + 1;
-  if (argc > _6)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 4>; [0.00%]
+  a = 10;
+  b = 22;
+  c = 22;
+  d = 22;
 
-  <bb 3> [0.00%]:
-  optind.5_7 = optind;
-  _8 = (sizetype) optind.5_7;
-  _9 = _8 + 1;
-  _10 = _9 * 8;
-  _11 = argv + _10;
-  output_filename = *_11;
+label2 [0.00%]:
+  foo (p5);
 
-  <bb 4> [0.00%]:
-  if (output_filename == 0B)
-    goto <bb 5>; [0.00%]
-  else
-    goto <bb 6>; [0.00%]
+label3 [0.00%]:
+  foo (p5);
+  _1 = test5 / 10;
+  switch (_1) <default: <L4> [0.00%], case 5: <L2> [0.00%], case 10: <L3> [0.00%]>
 
-  <bb 5> [0.00%]:
-  tmpname = make_tempname (input_filename);
-  goto <bb 7>; [0.00%]
+<L2> [0.00%]:
+  foo (p5);
+  goto <bb 8>; [0.00%]
 
-  <bb 6> [0.00%]:
-  tmpname = output_filename;
+<L3> [0.00%]:
+  foo (p5);
+  goto <bb 8>; [0.00%]
 
-  <bb 7> [0.00%]:
-  if (tmpname == 0B)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 9>; [0.00%]
+<L4> [0.00%]:
+  foo (p5);
 
   <bb 8> [0.00%]:
-  printf ("warning: could not create temporary file whilst copying \'%s\'", input_filename);
-  exit (1);
+  if (test != 0)
+    goto <bb 9>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
 
   <bb 9> [0.00%]:
-  copy_file (input_filename, tmpname, input_target, output_target, input_arch);
-  status.6_12 = status;
-  if (status.6_12 == 0)
+  if (test > test2)
     goto <bb 10>; [0.00%]
   else
-    goto <bb 14>; [0.00%]
+    goto <bb 13>; [0.00%]
 
   <bb 10> [0.00%]:
-  preserve_dates.7_13 = preserve_dates;
-  if (preserve_dates.7_13 != 0)
+  foo (p);
+  if (test < test2)
     goto <bb 11>; [0.00%]
   else
     goto <bb 12>; [0.00%]
 
   <bb 11> [0.00%]:
-  set_times (tmpname, &statbuf);
+  foo (p);
+  goto <bb 16>; [0.00%]
 
   <bb 12> [0.00%]:
-  if (tmpname != output_filename)
-    goto <bb 13>; [0.00%]
+  foo (p);
+  goto <bb 16>; [0.00%]
+
+  <bb 13> [0.00%]:
+  foo (p);
+  if (test < test2)
+    goto <bb 14>; [0.00%]
   else
     goto <bb 15>; [0.00%]
 
-  <bb 13> [0.00%]:
-  preserve_dates.8_14 = preserve_dates;
-  _15 = smart_rename (tmpname, input_filename, preserve_dates.8_14);
-  _16 = _15 != 0;
-  _17 = (int) _16;
-  status = _17;
-  goto <bb 15>; [0.00%]
-
   <bb 14> [0.00%]:
-  unlink_if_ordinary (tmpname);
+  foo (p3);
+  goto <bb 4> (label3); [0.00%]
 
   <bb 15> [0.00%]:
-  D.3529 = 0;
-  statbuf = {CLOBBER};
-  return D.3529;
+  foo (p5);
+  goto <bb 4> (label3); [0.00%]
 
-}
+  <bb 16> [0.00%]:
+  if (test3 != 0)
+    goto <bb 17>; [0.00%]
+  else
+    goto <bb 22>; [0.00%]
 
+  <bb 17> [0.00%]:
+  foo (p);
+  goto <bb 3> (label2); [0.00%]
 
+  <bb 18> [0.00%]:
+  if (test == test2)
+    goto <bb 19>; [0.00%]
+  else
+    goto <bb 20>; [0.00%]
 
-;; Function main (main, funcdef_no=55, decl_uid=3464, cgraph_uid=55, symbol_order=92)
+  <bb 19> [0.00%]:
+  foo (p);
+  goto <bb 22>; [0.00%]
 
-main (int argc, char * * argv)
-{
-  int D.3513;
+  <bb 20> [0.00%]:
+  if (test > test2)
+    goto <bb 21>; [0.00%]
+  else
+    goto <bb 22>; [0.00%]
 
-  <bb 2> [0.00%]:
-  _1 = *argv;
-  program_name = _1;
-  copy_main (argc, argv);
-  D.3513 = status;
-  return D.3513;
+  <bb 21> [0.00%]:
+  foo (p4);
+
+  <bb 22> [0.00%]:
+  D.4355 = 0;
+  return D.4355;
 
 }
 
