@@ -53,7 +53,7 @@ main ()
   int * p4;
   int * p3;
   int * p2;
-  int D.4352;
+  int D.4350;
 
   a = 10;
   b = 22;
@@ -72,34 +72,26 @@ main ()
   <D.4338>:
   if (i <= 9) goto <D.4337>; else goto <D.4339>;
   <D.4339>:
-  _5 = p + 32;
-  _6 = malloc (1);
-  _5->f = _6;
-  if (test != 0) goto <D.4350>; else goto <D.4351>;
-  <D.4350>:
-  D.4352 = 100;
-  goto <D.4353>;
-  <D.4351>:
   i = 0;
   goto <D.4342>;
   <D.4341>:
-  _7 = (long unsigned int) i;
-  _8 = _7 * 16;
-  _9 = p + _8;
-  _10 = _9->f;
-  free (_10);
+  _5 = (long unsigned int) i;
+  _6 = _5 * 16;
+  _7 = p + _6;
+  _8 = _7->f;
+  free (_8);
   i = i + 1;
   <D.4342>:
   if (i <= 9) goto <D.4341>; else goto <D.4343>;
   <D.4343>:
-  D.4352 = 0;
-  goto <D.4353>;
-  D.4352 = 0;
-  goto <D.4353>;
-  D.4352 = 0;
-  goto <D.4353>;
-  <D.4353>:
-  return D.4352;
+  D.4350 = 0;
+  goto <D.4351>;
+  D.4350 = 0;
+  goto <D.4351>;
+  D.4350 = 0;
+  goto <D.4351>;
+  <D.4351>:
+  return D.4350;
 }
 
 

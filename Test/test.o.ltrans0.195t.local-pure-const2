@@ -4,30 +4,26 @@
 
 
  local analysis of main
-   scanning: p_18 = malloc (10);
-  scanning: _51 = p_18 + 8;
-  scanning: ivtmp.16_50 = (unsigned long) _51;
-  scanning: _53 = (unsigned long) p_18;
-  scanning: _54 = _53 + 168;
+   scanning: p_15 = malloc (10);
+  scanning: _42 = p_15 + 8;
+  scanning: ivtmp.16_41 = (unsigned long) _42;
+  scanning: _44 = (unsigned long) p_15;
+  scanning: _45 = _44 + 168;
   scanning: _4 = malloc (1);
-  scanning: _52 = (void *) ivtmp.16_48;
-  scanning: MEM[base: _52, offset: 0B] = _4;
+  scanning: _43 = (void *) ivtmp.16_39;
+  scanning: MEM[base: _43, offset: 0B] = _4;
     Indirect ref write is not const/pure
-  scanning: ivtmp.16_49 = ivtmp.16_48 + 16;
-  scanning: if (ivtmp.16_49 != _54)
-  scanning: _5 = malloc (1);
-  scanning: MEM[(struct st *)p_18 + 32B].f = _5;
-    Indirect ref write is not const/pure
-  scanning: if (test_21(D) != 0)
-  scanning: _46 = _53;
-  scanning: _47 = ivtmp.16_49;
-  scanning: _39 = (void *) ivtmp.6_11;
-  scanning: _9 = MEM[base: _39, offset: 0B];
+  scanning: ivtmp.16_40 = ivtmp.16_39 + 16;
+  scanning: if (ivtmp.16_40 != _45)
+  scanning: _30 = _44;
+  scanning: _38 = ivtmp.16_40;
+  scanning: _31 = (void *) ivtmp.6_22;
+  scanning: _8 = MEM[base: _31, offset: 0B];
     Indirect ref read is not const
-  scanning: free (_9);
-  scanning: ivtmp.6_27 = ivtmp.6_11 + 16;
-  scanning: if (ivtmp.6_27 != ivtmp.16_49)
-  scanning: return _12;
+  scanning: free (_8);
+  scanning: ivtmp.6_10 = ivtmp.6_22 + 16;
+  scanning: if (ivtmp.6_10 != ivtmp.16_40)
+  scanning: return 0;
 Function is locally looping.
 Function can locally free.
 main ()
@@ -37,74 +33,57 @@ main ()
   int i;
   int i;
   struct st * p;
-  int test;
   void * _4;
-  void * _5;
-  int * _9;
-  int _12;
-  void * _39;
-  unsigned long _46;
-  unsigned long _47;
-  struct st * _51;
-  void * _52;
-  unsigned long _53;
-  unsigned long _54;
+  int * _8;
+  unsigned long _30;
+  void * _31;
+  unsigned long _38;
+  struct st * _42;
+  void * _43;
+  unsigned long _44;
+  unsigned long _45;
 
   <bb 2> [9.10%]:
-  p_18 = malloc (10);
-  _51 = p_18 + 8;
-  ivtmp.16_50 = (unsigned long) _51;
-  _53 = (unsigned long) p_18;
-  _54 = _53 + 168;
+  p_15 = malloc (10);
+  _42 = p_15 + 8;
+  ivtmp.16_41 = (unsigned long) _42;
+  _44 = (unsigned long) p_15;
+  _45 = _44 + 168;
 
   <bb 3> [90.91%]:
-  # ivtmp.16_48 = PHI <ivtmp.16_49(8), ivtmp.16_50(2)>
+  # ivtmp.16_39 = PHI <ivtmp.16_40(7), ivtmp.16_41(2)>
   _4 = malloc (1);
-  _52 = (void *) ivtmp.16_48;
-  MEM[base: _52, offset: 0B] = _4;
-  ivtmp.16_49 = ivtmp.16_48 + 16;
-  if (ivtmp.16_49 != _54)
-    goto <bb 8>; [90.91%]
+  _43 = (void *) ivtmp.16_39;
+  MEM[base: _43, offset: 0B] = _4;
+  ivtmp.16_40 = ivtmp.16_39 + 16;
+  if (ivtmp.16_40 != _45)
+    goto <bb 7>; [90.91%]
   else
     goto <bb 4>; [9.09%]
 
-  <bb 8> [82.65%]:
+  <bb 7> [82.65%]:
   goto <bb 3>; [100.00%]
 
-  <bb 4> [9.09%]:
-  _5 = malloc (1);
-  MEM[(struct st *)p_18 + 32B].f = _5;
-  if (test_21(D) != 0)
-    goto <bb 9>; [31.00%]
+  <bb 4> [8.26%]:
+  _30 = _44;
+  _38 = ivtmp.16_40;
+
+  <bb 5> [90.91%]:
+  # ivtmp.6_22 = PHI <ivtmp.6_10(8), ivtmp.16_41(4)>
+  _31 = (void *) ivtmp.6_22;
+  _8 = MEM[base: _31, offset: 0B];
+  free (_8);
+  ivtmp.6_10 = ivtmp.6_22 + 16;
+  if (ivtmp.6_10 != ivtmp.16_40)
+    goto <bb 8>; [90.91%]
   else
-    goto <bb 5>; [69.00%]
+    goto <bb 6>; [9.09%]
 
-  <bb 9> [2.82%]:
-  goto <bb 7>; [100.00%]
+  <bb 8> [82.65%]:
+  goto <bb 5>; [100.00%]
 
-  <bb 5> [6.27%]:
-  _46 = _53;
-  _47 = ivtmp.16_49;
-
-  <bb 6> [62.73%]:
-  # ivtmp.6_11 = PHI <ivtmp.6_27(10), ivtmp.16_50(5)>
-  _39 = (void *) ivtmp.6_11;
-  _9 = MEM[base: _39, offset: 0B];
-  free (_9);
-  ivtmp.6_27 = ivtmp.6_11 + 16;
-  if (ivtmp.6_27 != ivtmp.16_49)
-    goto <bb 10>; [90.91%]
-  else
-    goto <bb 11>; [9.09%]
-
-  <bb 10> [57.03%]:
-  goto <bb 6>; [100.00%]
-
-  <bb 11> [5.70%]:
-
-  <bb 7> [9.09%]:
-  # _12 = PHI <100(9), test_21(D)(11)>
-  return _12;
+  <bb 6> [9.09%]:
+  return 0;
 
 }
 

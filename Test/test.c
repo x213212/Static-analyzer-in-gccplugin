@@ -61,10 +61,10 @@ int main()
 	struct st *p = malloc(10);
 	for (int i = 0; i < 10; i++)
 		p[i].f = malloc(1);
-	p[2].f = malloc(1);
+	// p[2].f = malloc(1);
 	// use p[i].f
-	if (test)
-		return 100;
+	// if (test)
+	// 	return 100;
 
 	for (int i = 0; i < 10; i++)
 		free(p[i].f);

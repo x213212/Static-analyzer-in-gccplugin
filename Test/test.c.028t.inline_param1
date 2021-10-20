@@ -88,21 +88,18 @@ foo (int * z)
 Analyzing function body size: main
 
 Inline summary for main/53 inlinable
-  self time:       65
+  self time:       49
   global time:     0
-  self size:       30
+  self size:       23
   global size:     0
   min size:       0
   self stack:      0
   global stack:    0
-    size:16.000000, time:16.000000, predicate:(true)
+    size:12.000000, time:12.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
     free/55 function body not available
       loop depth: 1 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
-    malloc/54 function body not available
-      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
-       op0 is compile time invariant
     malloc/54 function body not available
       loop depth: 1 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
        op0 is compile time invariant
@@ -119,83 +116,62 @@ main ()
   int c;
   int b;
   int a;
-  int test;
   long unsigned int _1;
   long unsigned int _2;
   struct st * _3;
   void * _4;
-  struct st * _5;
-  void * _6;
-  long unsigned int _7;
-  long unsigned int _8;
-  struct st * _9;
-  int * _10;
-  int _13;
-  int _29;
-  int _32;
+  long unsigned int _5;
+  long unsigned int _6;
+  struct st * _7;
+  int * _8;
+  int _22;
 
   <bb 2> [0.00%]:
-  a_17 = 10;
-  b_18 = 22;
-  c_19 = 22;
-  d_20 = 22;
-  p_23 = malloc (10);
-  i_24 = 0;
+  a_13 = 10;
+  b_14 = 22;
+  c_15 = 22;
+  d_16 = 22;
+  p_19 = malloc (10);
+  i_20 = 0;
   goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
-  _1 = (long unsigned int) i_11;
+  _1 = (long unsigned int) i_9;
   _2 = _1 * 16;
-  _3 = p_23 + _2;
+  _3 = p_19 + _2;
   _4 = malloc (1);
   _3->f = _4;
-  i_35 = i_11 + 1;
+  i_27 = i_9 + 1;
 
   <bb 4> [0.00%]:
-  # i_11 = PHI <i_24(2), i_35(3)>
-  if (i_11 <= 9)
+  # i_9 = PHI <i_20(2), i_27(3)>
+  if (i_9 <= 9)
     goto <bb 3>; [0.00%]
   else
     goto <bb 5>; [0.00%]
 
   <bb 5> [0.00%]:
-  _5 = p_23 + 32;
-  _6 = malloc (1);
-  _5->f = _6;
-  if (test_27(D) != 0)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
+  i_21 = 0;
+  goto <bb 7>; [0.00%]
 
   <bb 6> [0.00%]:
-  _32 = 100;
-  goto <bb 11>; [0.00%]
+  _5 = (long unsigned int) i_10;
+  _6 = _5 * 16;
+  _7 = p_19 + _6;
+  _8 = _7->f;
+  free (_8);
+  i_24 = i_10 + 1;
 
   <bb 7> [0.00%]:
-  i_28 = 0;
-  goto <bb 9>; [0.00%]
+  # i_10 = PHI <i_21(5), i_24(6)>
+  if (i_10 <= 9)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
 
   <bb 8> [0.00%]:
-  _7 = (long unsigned int) i_12;
-  _8 = _7 * 16;
-  _9 = p_23 + _8;
-  _10 = _9->f;
-  free (_10);
-  i_31 = i_12 + 1;
-
-  <bb 9> [0.00%]:
-  # i_12 = PHI <i_28(7), i_31(8)>
-  if (i_12 <= 9)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 10>; [0.00%]
-
-  <bb 10> [0.00%]:
-  _29 = 0;
-
-  <bb 11> [0.00%]:
-  # _13 = PHI <_32(6), _29(10)>
-  return _13;
+  _22 = 0;
+  return _22;
 
 }
 

@@ -1,64 +1,52 @@
 
 ;; Function main (main, funcdef_no=0, decl_uid=3985, cgraph_uid=0, symbol_order=53) (executed once)
 
-Removing basic block 5
+Removing basic block 4
 main ()
 {
   int i;
   int i;
   struct st * p;
-  int test;
   long unsigned int _1;
   long unsigned int _2;
   struct st * _3;
   void * _4;
-  void * _5;
+  long unsigned int _5;
   long unsigned int _6;
-  long unsigned int _7;
-  struct st * _8;
-  int * _9;
-  int _12;
+  struct st * _7;
+  int * _8;
 
   <bb 2> [9.10%]:
-  p_18 = malloc (10);
+  p_15 = malloc (10);
 
   <bb 3> [90.91%]:
-  # i_41 = PHI <i_26(3), 0(2)>
-  _1 = (long unsigned int) i_41;
+  # i_32 = PHI <i_20(3), 0(2)>
+  _1 = (long unsigned int) i_32;
   _2 = _1 * 16;
-  _3 = p_18 + _2;
+  _3 = p_15 + _2;
   _4 = malloc (1);
   _3->f = _4;
-  i_26 = i_41 + 1;
-  if (i_26 <= 9)
+  i_20 = i_32 + 1;
+  if (i_20 <= 9)
     goto <bb 3>; [90.91%]
   else
     goto <bb 4>; [9.09%]
 
-  <bb 4> [9.09%]:
-  _5 = malloc (1);
-  MEM[(struct st *)p_18 + 32B].f = _5;
-  if (test_21(D) != 0)
-    goto <bb 6>; [31.00%]
+  <bb 4> [90.91%]:
+  # i_33 = PHI <i_17(4), 0(3)>
+  _5 = (long unsigned int) i_33;
+  _6 = _5 * 16;
+  _7 = p_15 + _6;
+  _8 = _7->f;
+  free (_8);
+  i_17 = i_33 + 1;
+  if (i_17 <= 9)
+    goto <bb 4>; [90.91%]
   else
-    goto <bb 5>; [69.00%]
+    goto <bb 5>; [9.09%]
 
-  <bb 5> [62.73%]:
-  # i_42 = PHI <i_23(5), 0(4)>
-  _6 = (long unsigned int) i_42;
-  _7 = _6 * 16;
-  _8 = p_18 + _7;
-  _9 = _8->f;
-  free (_9);
-  i_23 = i_42 + 1;
-  if (i_23 <= 9)
-    goto <bb 5>; [90.91%]
-  else
-    goto <bb 6>; [9.09%]
-
-  <bb 6> [9.09%]:
-  # _12 = PHI <100(4), 0(5)>
-  return _12;
+  <bb 5> [9.09%]:
+  return 0;
 
 }
 

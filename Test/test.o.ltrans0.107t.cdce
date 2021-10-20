@@ -6,66 +6,54 @@ main ()
   int i;
   int i;
   struct st * p;
-  int test;
   long unsigned int _1;
   long unsigned int _2;
   struct st * _3;
   void * _4;
-  void * _5;
+  long unsigned int _5;
   long unsigned int _6;
-  long unsigned int _7;
-  struct st * _8;
-  int * _9;
-  int _12;
+  struct st * _7;
+  int * _8;
 
   <bb 2> [9.09%]:
-  p_18 = malloc (10);
+  p_15 = malloc (10);
   goto <bb 4>; [100.00%]
 
   <bb 3> [90.91%]:
-  _1 = (long unsigned int) i_10;
+  _1 = (long unsigned int) i_9;
   _2 = _1 * 16;
-  _3 = p_18 + _2;
+  _3 = p_15 + _2;
   _4 = malloc (1);
   _3->f = _4;
-  i_26 = i_10 + 1;
+  i_20 = i_9 + 1;
 
   <bb 4> [100.00%]:
-  # i_10 = PHI <0(2), i_26(3)>
-  if (i_10 <= 9)
+  # i_9 = PHI <0(2), i_20(3)>
+  if (i_9 <= 9)
     goto <bb 3>; [90.91%]
-  else
-    goto <bb 5>; [9.09%]
-
-  <bb 5> [9.09%]:
-  _5 = malloc (1);
-  MEM[(struct st *)p_18 + 32B].f = _5;
-  if (test_21(D) != 0)
-    goto <bb 8>; [31.00%]
-  else
-    goto <bb 9>; [69.00%]
-
-  <bb 9> [6.27%]:
-  goto <bb 7>; [100.00%]
-
-  <bb 6> [62.73%]:
-  _6 = (long unsigned int) i_11;
-  _7 = _6 * 16;
-  _8 = p_18 + _7;
-  _9 = _8->f;
-  free (_9);
-  i_23 = i_11 + 1;
-
-  <bb 7> [69.00%]:
-  # i_11 = PHI <0(9), i_23(6)>
-  if (i_11 <= 9)
-    goto <bb 6>; [90.91%]
   else
     goto <bb 8>; [9.09%]
 
   <bb 8> [9.09%]:
-  # _12 = PHI <100(5), 0(7)>
-  return _12;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [90.91%]:
+  _5 = (long unsigned int) i_10;
+  _6 = _5 * 16;
+  _7 = p_15 + _6;
+  _8 = _7->f;
+  free (_8);
+  i_17 = i_10 + 1;
+
+  <bb 6> [100.00%]:
+  # i_10 = PHI <0(8), i_17(5)>
+  if (i_10 <= 9)
+    goto <bb 5>; [90.91%]
+  else
+    goto <bb 7>; [9.09%]
+
+  <bb 7> [9.09%]:
+  return 0;
 
 }
 

@@ -788,11 +788,6 @@
     if (i <= 9) goto <D.4337>; else goto <D.4339>;
     <D.4339>:;
   }
-  (p + 32)->f = (int *) malloc (1);
-  if (test != 0)
-    {
-      return 100;
-    }
   {
     int i = 0;
 
