@@ -1,5 +1,94 @@
 
-;; Function foo (foo, funcdef_no=51, decl_uid=4307, cgraph_uid=51, symbol_order=51)
+;; Function foo3 (foo3, funcdef_no=51, decl_uid=4314, cgraph_uid=51, symbol_order=51)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+p = &NONLOCAL
+_1 = *p
+ESCAPED = &NONLOCAL
+q_8 = &HEAP(12)
+q_6 = *p + 64
+q_2 = q_8
+q_2 = q_6
+ESCAPED = q_2
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL HEAP(12) }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+p = { NONLOCAL }
+_1 = { ESCAPED NONLOCAL }
+malloc = { }
+q_8 = { HEAP(12) }
+HEAP(12) = { ESCAPED NONLOCAL }
+q_6 = { ESCAPED NONLOCAL }
+q_2 = { ESCAPED NONLOCAL HEAP(12) }
+
+
+Alias information for foo3
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.4357 } (escaped, escaped heap)
+
+Flow-insensitive points-to information
+
+q_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { D.4357 } (escaped, escaped heap)
+p_5(D), points-to non-local, points-to NULL, points-to vars: { }
+q_6, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+q_8, points-to NULL, points-to vars: { D.4357 } (escaped, escaped heap)
+
+foo3 (struct st * p)
+{
+  int * q;
+  int _1;
+
+  <bb 2> [0.00%]:
+  _1 = p_5(D)->flag;
+  if (_1 != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  q_8 = malloc (1);
+  goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  q_6 = p_5(D)->f;
+
+  <bb 5> [0.00%]:
+  # q_2 = PHI <q_8(3), q_6(4)>
+  return q_2;
+
+}
+
+
+
+;; Function foo (foo, funcdef_no=52, decl_uid=4307, cgraph_uid=52, symbol_order=52)
 
 Points-to analysis
 
@@ -13,11 +102,6 @@ NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
 z = &NONLOCAL
-ESCAPED = &NONLOCAL
-_1 = &HEAP(11)
-_2 = _1
-_3 = _2
-*z = _3
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -30,16 +114,11 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { ESCAPED NONLOCAL HEAP(11) }
+ESCAPED = { }
 NONLOCAL = { ESCAPED NONLOCAL }
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
 z = { NONLOCAL }
-malloc = { }
-_1 = { HEAP(11) }
-HEAP(11) = { ESCAPED NONLOCAL }
-_2 = { HEAP(11) } same as _1
-_3 = { HEAP(11) } same as _1
 
 
 Alias information for foo
@@ -49,32 +128,24 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to non-local, points-to vars: { D.4359 } (escaped, escaped heap)
+ESCAPED, points-to vars: { }
 
 Flow-insensitive points-to information
 
-_1, points-to NULL, points-to vars: { D.4359 } (escaped, escaped heap)
-z_6(D), points-to non-local, points-to NULL, points-to vars: { }
+z_2(D), points-to non-local, points-to NULL, points-to vars: { }
 
 __attribute__((noinline))
 foo (int * z)
 {
-  void * _1;
-  long int _2;
-  int _3;
-
   <bb 2> [0.00%]:
-  _1 = malloc (10);
-  _2 = (long int) _1;
-  _3 = (int) _2;
-  *z_6(D) = _3;
+  free (z_2(D));
   return;
 
 }
 
 
 
-;; Function main (main, funcdef_no=52, decl_uid=4313, cgraph_uid=52, symbol_order=52)
+;; Function main (main, funcdef_no=53, decl_uid=4320, cgraph_uid=53, symbol_order=53)
 
 Points-to analysis
 
@@ -87,23 +158,34 @@ ESCAPED = ESCAPED + UNKNOWN
 NONLOCAL = &NONLOCAL
 NONLOCAL = &ESCAPED
 INTEGER = &ANYTHING
-ESCAPED = p5_12
-ESCAPED = p5_12
-_1 = test5_15
-_1 = &NONLOCAL
-ESCAPED = p5_12
-ESCAPED = p5_12
-ESCAPED = p5_12
-ESCAPED = p_23
-ESCAPED = p_23
-ESCAPED = p_23
-ESCAPED = p_23
-ESCAPED = p3_27
-ESCAPED = p5_12
-ESCAPED = p_23
-ESCAPED = p_23
-ESCAPED = p4_21
-ESCAPED = &NULL
+ESCAPED = &NONLOCAL
+p_23 = &HEAP(10)
+_1 = i_11
+_2 = _1
+_2 = &NONLOCAL
+_3 = p_23
+ESCAPED = &NONLOCAL
+_4 = &HEAP(16)
+*_3 + 64 = _4
+i_35 = i_11
+i_35 = &NONLOCAL
+i_11 = &NULL
+i_11 = i_35
+ESCAPED = &NONLOCAL
+_6 = &HEAP(19)
+*p_23 + 64 = _6
+_7 = i_12
+_8 = _7
+_8 = &NONLOCAL
+_9 = p_23
+_10 = *_9 + 64
+i_31 = i_12
+i_31 = &NONLOCAL
+i_12 = &NULL
+i_12 = i_31
+_13 = &NONLOCAL
+_13 = &NULL
+ESCAPED = _13
 
 Collapsing static cycles and doing variable substitution
 Building predecessor graph
@@ -116,17 +198,29 @@ Solving graph
 Points-to sets
 
 ANYTHING = { ANYTHING }
-ESCAPED = { NULL }
+ESCAPED = { NULL ESCAPED NONLOCAL }
 NONLOCAL = { ESCAPED NONLOCAL }
 STOREDANYTHING = { }
 INTEGER = { ANYTHING }
-foo = { }
-p5_12 = { }
-_1 = { NONLOCAL }
-test5_15 = { }
-p_23 = { }
-p3_27 = { }
-p4_21 = { }
+malloc = { }
+p_23 = { HEAP(10) }
+HEAP(10) = { HEAP(16) HEAP(19) }
+_1 = { NULL NONLOCAL }
+i_11 = { NULL NONLOCAL } same as _1
+_2 = { NULL NONLOCAL } same as _1
+_3 = { HEAP(10) } same as p_23
+_4 = { HEAP(16) }
+HEAP(16) = { }
+i_35 = { NULL NONLOCAL } same as _1
+_6 = { HEAP(19) }
+HEAP(19) = { }
+_7 = { NULL NONLOCAL } same as _1
+i_12 = { NULL NONLOCAL } same as _1
+_8 = { NULL NONLOCAL } same as _1
+_9 = { HEAP(10) } same as p_23
+_10 = { HEAP(16) HEAP(19) }
+i_31 = { NULL NONLOCAL } same as _1
+_13 = { NULL NONLOCAL } same as _1
 
 
 Alias information for main
@@ -136,125 +230,83 @@ Aliased symbols
 
 Call clobber information
 
-ESCAPED, points-to NULL, points-to vars: { }
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { }
 
 Flow-insensitive points-to information
 
-p5_12(D), points-to NULL, points-to vars: { }
-p4_21(D), points-to NULL, points-to vars: { }
-p_23(D), points-to NULL, points-to vars: { }
-p3_27(D), points-to NULL, points-to vars: { }
+_3, points-to NULL, points-to vars: { D.4358 }
+_4, points-to NULL, points-to vars: { D.4359 }
+_6, points-to NULL, points-to vars: { D.4360 }
+_9, points-to NULL, points-to vars: { D.4358 }
+_10, points-to NULL, points-to vars: { D.4359 D.4360 }
+p_23, points-to NULL, points-to vars: { D.4358 }
 
 main ()
 {
+  int i;
+  int i;
+  struct st * p;
   int d;
   int c;
   int b;
   int a;
-  int test5;
-  int test3;
-  int test2;
   int test;
-  int * p5;
-  int * p4;
-  int * p3;
-  int * p;
-  int _1;
+  long unsigned int _1;
+  long unsigned int _2;
+  struct st * _3;
+  void * _4;
+  void * _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  struct st * _9;
+  int * _10;
+  int _13;
 
   <bb 2> [0.00%]:
+  p_23 = malloc (10);
+  goto <bb 4>; [0.00%]
 
-label2 [0.00%]:
-  foo (p5_12(D));
+  <bb 3> [0.00%]:
+  _1 = (long unsigned int) i_11;
+  _2 = _1 * 16;
+  _3 = p_23 + _2;
+  _4 = malloc (1);
+  _3->f = _4;
+  i_35 = i_11 + 1;
 
-label3 [0.00%]:
-  foo (p5_12(D));
-  _1 = test5_15(D) / 10;
-  switch (_1) <default: <L4> [0.00%], case 5: <L2> [0.00%], case 10: <L3> [0.00%]>
+  <bb 4> [0.00%]:
+  # i_11 = PHI <0(2), i_35(3)>
+  if (i_11 <= 9)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
 
-<L2> [0.00%]:
-  foo (p5_12(D));
-  goto <bb 8>; [0.00%]
+  <bb 5> [0.00%]:
+  _6 = malloc (1);
+  MEM[(struct st *)p_23 + 32B].f = _6;
+  if (test_27(D) != 0)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
 
-<L3> [0.00%]:
-  foo (p5_12(D));
-  goto <bb 8>; [0.00%]
+  <bb 6> [0.00%]:
+  _7 = (long unsigned int) i_12;
+  _8 = _7 * 16;
+  _9 = p_23 + _8;
+  _10 = _9->f;
+  free (_10);
+  i_31 = i_12 + 1;
 
-<L4> [0.00%]:
-  foo (p5_12(D));
+  <bb 7> [0.00%]:
+  # i_12 = PHI <0(5), i_31(6)>
+  if (i_12 <= 9)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
 
   <bb 8> [0.00%]:
-  if (test_19(D) != 0)
-    goto <bb 9>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
-
-  <bb 9> [0.00%]:
-  if (test_19(D) > test2_20(D))
-    goto <bb 10>; [0.00%]
-  else
-    goto <bb 13>; [0.00%]
-
-  <bb 10> [0.00%]:
-  foo (p_23(D));
-  if (test_19(D) < test2_20(D))
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
-
-  <bb 11> [0.00%]:
-  foo (p_23(D));
-  goto <bb 16>; [0.00%]
-
-  <bb 12> [0.00%]:
-  foo (p_23(D));
-  goto <bb 16>; [0.00%]
-
-  <bb 13> [0.00%]:
-  foo (p_23(D));
-  if (test_19(D) < test2_20(D))
-    goto <bb 14>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 14> [0.00%]:
-  foo (p3_27(D));
-  goto <bb 4> (label3); [0.00%]
-
-  <bb 15> [0.00%]:
-  foo (p5_12(D));
-  goto <bb 4> (label3); [0.00%]
-
-  <bb 16> [0.00%]:
-  if (test3_32(D) != 0)
-    goto <bb 17>; [0.00%]
-  else
-    goto <bb 22>; [0.00%]
-
-  <bb 17> [0.00%]:
-  foo (p_23(D));
-  goto <bb 3> (label2); [0.00%]
-
-  <bb 18> [0.00%]:
-  if (test_19(D) == test2_20(D))
-    goto <bb 19>; [0.00%]
-  else
-    goto <bb 20>; [0.00%]
-
-  <bb 19> [0.00%]:
-  foo (p_23(D));
-  goto <bb 22>; [0.00%]
-
-  <bb 20> [0.00%]:
-  if (test_19(D) > test2_20(D))
-    goto <bb 21>; [0.00%]
-  else
-    goto <bb 22>; [0.00%]
-
-  <bb 21> [0.00%]:
-  foo (p4_21(D));
-
-  <bb 22> [0.00%]:
-  return 0;
+  # _13 = PHI <100(5), 0(7)>
+  return _13;
 
 }
 

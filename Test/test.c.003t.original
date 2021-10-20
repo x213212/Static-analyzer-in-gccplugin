@@ -713,12 +713,32 @@
 }
 
 
+;; Function foo3 (null)
+;; enabled by -tree-original
+
+
+{
+  int * q;
+
+    int * q;
+  if (p->flag != 0)
+    {
+      q = (int *) malloc (1);
+    }
+  else
+    {
+      q = p->f;
+    }
+  return q;
+}
+
+
 ;; Function foo (null)
 ;; enabled by -tree-original
 
 
 {
-  *z = (int) (long int) malloc (10);
+  free ((void *) z);
 }
 
 
@@ -727,7 +747,6 @@
 
 
 {
-  int * p;
   int * p2;
   int * p3;
   int * p4;
@@ -741,10 +760,8 @@
   int b = 22;
   int c = 22;
   int d = 22;
-  void label2 = <<< error >>>;
-  void label3 = <<< error >>>;
+  struct st * p = (struct st *) malloc (10);
 
-    int * p;
     int * p2;
     int * p3;
     int * p4;
@@ -758,70 +775,37 @@
     int b = 22;
     int c = 22;
     int d = 22;
-  label2:;
-  foo (p5);
-  label3:;
-  foo (p5);
-  switch (test5 / 10)
-    {
-      case 5:;
-      foo (p5);
-      goto <D.4332>;
-      case 10:;
-      foo (p5);
-      goto <D.4332>;
-      default:;
-      foo (p5);
-      goto <D.4332>;
-    }
-  <D.4332>:;
+    struct st * p = (struct st *) malloc (10);
+  {
+    int i = 0;
+
+        int i = 0;
+    goto <D.4338>;
+    <D.4337>:;
+    (p + (sizetype) ((long unsigned int) i * 16))->f = (int *) malloc (1);
+    i++ ;
+    <D.4338>:;
+    if (i <= 9) goto <D.4337>; else goto <D.4339>;
+    <D.4339>:;
+  }
+  (p + 32)->f = (int *) malloc (1);
   if (test != 0)
     {
-      if (test > test2)
-        {
-          foo (p);
-          if (test < test2)
-            {
-              foo (p);
-            }
-          else
-            {
-              foo (p);
-            }
-        }
-      else
-        {
-          foo (p);
-          if (test < test2)
-            {
-              foo (p3);
-            }
-          else
-            {
-              foo (p5);
-            }
-          goto label3;
-        }
-      if (test3 != 0)
-        {
-          foo (p);
-          goto label2;
-        }
+      return 100;
     }
-  else
-    {
-      if (test == test2)
-        {
-          foo (p);
-        }
-      else
-        {
-          if (test > test2)
-            {
-              foo (p4);
-            }
-        }
-    }
+  {
+    int i = 0;
+
+        int i = 0;
+    goto <D.4342>;
+    <D.4341>:;
+    free ((void *) (p + (sizetype) ((long unsigned int) i * 16))->f);
+    i++ ;
+    <D.4342>:;
+    if (i <= 9) goto <D.4341>; else goto <D.4343>;
+    <D.4343>:;
+  }
+  return 0;
   return 0;
 }
 return 0;

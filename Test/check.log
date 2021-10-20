@@ -1,82 +1,25 @@
-test.c: In function ‘foo’:
-test.c:14:5: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
-  *z = malloc(10);
-     ^
 =======ipa_pta=========
---------GIMPLE_SWITCH -------
 --------GIMPLE Cond -------
+succs:= 4
 --------GIMPLE Cond -------
-succs:= 8
-succs:= 9
+succs:= 5
 --------GIMPLE Cond -------
-succs:= 10
-succs:= 10
-succs:= 9
---------GIMPLE Cond -------
-succs:= 13
-succs:= 13
---------GIMPLE Cond -------
-succs:= 16
---------GIMPLE Cond -------
-succs:= 8
-succs:= 18
---------GIMPLE Cond -------
-succs:= 18
-succs:= 20
-succs:= 16
-succs:= 20
+succs:= 5
+succs:= 7
 start PointerConstraint
-pointer ftable is 0 
+pointer ftable is 1 
 pointer ptable is 1 
-# .MEM_8 = VDEF <.MEM_7(D)>
-_1 = malloc (10);
-# .MEM_37 = VDEF <.MEM_30>
-foo (p5_9(D));
-# .MEM_38 = VDEF <.MEM_35>
-foo (p5_9(D));
-# .MEM_40 = VDEF <.MEM_38>
-foo (p5_9(D));
-# .MEM_39 = VDEF <.MEM_38>
-foo (p5_9(D));
-# .MEM_41 = VDEF <.MEM_38>
-foo (p5_9(D));
-# .MEM_47 = VDEF <.MEM_32>
-foo (p_20(D));
-# .MEM_49 = VDEF <.MEM_47>
-foo (p_20(D));
-# .MEM_48 = VDEF <.MEM_47>
-foo (p_20(D));
-# .MEM_44 = VDEF <.MEM_32>
-foo (p_20(D));
-# .MEM_46 = VDEF <.MEM_44>
-foo (p3_24(D));
-# .MEM_45 = VDEF <.MEM_44>
-foo (p5_9(D));
-# .MEM_50 = VDEF <.MEM_33>
-foo (p_20(D));
-# .MEM_43 = VDEF <.MEM_32>
-foo (p_20(D));
-# .MEM_42 = VDEF <.MEM_32>
-foo (p4_18(D));
+# .MEM_31 = VDEF <.MEM_30(D)>
+p_18 = malloc (10);
+# .MEM_35 = VDEF <.MEM_27>
+_4 = malloc (1);
+# .MEM_32 = VDEF <.MEM_27>
+_5 = malloc (1);
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
- <ssa_name 0x7f4812c2c708
-    type <pointer_type 0x7f4812c3f0a8
-        type <void_type 0x7f4812c38f18 void VOID
-            align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f4812c3f0a8>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f4812c44bd0>>
-   
-    def_stmt _1 = malloc (10);
-    version 1
-    ptr-info 0x7f4812759b10>
 [40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 [40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
     =()=
@@ -90,1288 +33,587 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 [40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 [40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 =======================================================
-[40;44m =======node_fun:foo========= [0m
-[40;44m fucntion collect path  [0m
-[40;44m =======print_function_path foo  function_call count: 1 level :0========  [0m
-[40;42m =======pre add _ fucntion:malloc========= [0m
-[40;33m =======POP node_fun stack:malloc========= [0m
-[40;42m =======pre_check_funciton:foo========= [0m
-[40;42m =======start_check_funciton:foo========= [0m
-
-dot graph START
-
-======================================================================
- <ssa_name 0x7f4812c2c708
-    type <pointer_type 0x7f4812c3f0a8
-        type <void_type 0x7f4812c38f18 void VOID
-            align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f4812c3f0a8>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f4812c44bd0>>
-   
-    def_stmt _1 = malloc (10);
-    version 1
-    ptr-info 0x7f4812759b10>
- <ssa_name 0x7f4812c2c708
-    type <pointer_type 0x7f4812c3f0a8
-        type <void_type 0x7f4812c38f18 void VOID
-            align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f4812c3f0a8>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f4812c44bd0>>
-   
-    def_stmt _1 = malloc (10);
-    version 1
-    ptr-info 0x7f4812759b10>
-# .MEM_8 = VDEF <.MEM_7(D)>
-_1 = malloc (10);
-
- ================== trace ptable================== 
-trace fucntion name:malloc 
-
- ================== trace ptable ================== 
-GIMPLE CODE :addr_expr---malloc-----
-this Reserved word function ------malloc-----
- 
- Start check Pointer Collect  
-
-======================================================================
-_2 = (long int) _1;
-In function ‘foo’:
-test.c:14:5: warning: use location
-  *z = malloc(10);
-     ^
-_3 = (int) _2;
-test.c:14:5: warning: use location
-*z_6(D) = _3;
-test.c:14:5: warning: use location
-
- ================== Start Use after free Check ================== 
-
-dot graph END
-
- ================== Start Use after free Check ================== 
-
-======================================================================
-[40;31m    no free stmt possible memory leak [0m
-
-======================================================================
-
-dot graph START
-
-======================================================================
- <integer_cst 0x7f4812759ab0 type <integer_type 0x7f4812756930 size_t> constant 10>
-[40;33m =======POP node_fun stack:foo========= [0m
 [40;44m =======node_fun:main========= [0m
 [40;44m fucntion collect path  [0m
-[40;44m =======print_function_path main  function_call count: 1 level :0========  [0m
-[40;44m =======print_function_type 0  ========  [0m
-[40;42m =======pre add _ fucntion:foo========= [0m
-[40;44m =======print_function_path foo  function_call count: 1 level :1========  [0m
+[40;44m =======print_function_path main  function_call count: 2 level :0========  [0m
+[40;44m =======print_function_type 2  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
 [40;42m =======pre add _ fucntion:malloc========= [0m
 [40;33m =======POP node_fun stack:malloc========= [0m
-[40;42m =======pre_check_funciton:foo========= [0m
-[40;42m =======start_check_funciton:foo========= [0m
-
-dot graph START
-
-======================================================================
- <ssa_name 0x7f4812c2c708
-    type <pointer_type 0x7f4812c3f0a8
-        type <void_type 0x7f4812c38f18 void VOID
-            align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f4812c3f0a8>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f4812c44bd0>>
-   
-    def_stmt _1 = malloc (10);
-    version 1
-    ptr-info 0x7f4812759b10>
- <ssa_name 0x7f4812c2c708
-    type <pointer_type 0x7f4812c3f0a8
-        type <void_type 0x7f4812c38f18 void VOID
-            align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f4812c3f0a8>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f4812c44bd0>>
-   
-    def_stmt _1 = malloc (10);
-    version 1
-    ptr-info 0x7f4812759b10>
-# .MEM_8 = VDEF <.MEM_7(D)>
-_1 = malloc (10);
-
- ================== trace ptable================== 
-trace fucntion name:malloc 
-
- ================== trace ptable ================== 
-GIMPLE CODE :addr_expr---malloc-----
-this Reserved word function ------malloc-----
- 
- Start check Pointer Collect  
-
-======================================================================
-_2 = (long int) _1;
-In function ‘main’:
-test.c:14:5: warning: use location
-_3 = (int) _2;
-test.c:14:5: warning: use location
-*z_6(D) = _3;
-test.c:14:5: warning: use location
-
- ================== Start Use after free Check ================== 
-
-dot graph END
-
- ================== Start Use after free Check ================== 
-
-======================================================================
-[40;31m    no free stmt possible memory leak [0m
-
-======================================================================
-
-dot graph START
-
-======================================================================
- <integer_cst 0x7f4812759ab0 type <integer_type 0x7f4812756930 size_t> constant 10>
-[40;33m =======POP node_fun stack:foo========= [0m
 [40;42m =======pre_check_funciton:main========= [0m
 [40;42m =======start_check_funciton:main========= [0m
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f4812c2c9d8
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
+ <ssa_name 0x7fb5a6d81a20
+    type <pointer_type 0x7fb5a68aab28
+        type <record_type 0x7fb5a68aaa80 st TI
+            size <integer_cst 0x7fb5a6d79c30 constant 128>
+            unit size <integer_cst 0x7fb5a6d79c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb5a68aaa80 fields <field_decl 0x7fb5a68ac260 flag> context <translation_unit_decl 0x7fb5a6d84168 test.c>
+            pointer_to_this <pointer_type 0x7fb5a68aab28> chain <type_decl 0x7fb5a68ac2f8 D.3991>>
         public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
+        size <integer_cst 0x7fb5a6d79be8 constant 64>
+        unit size <integer_cst 0x7fb5a6d79c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f48139b9e10 p5>
-    def_stmt GIMPLE_NOP
-    version 9
-    ptr-info 0x7f4812759b40>
- <ssa_name 0x7f4812c2c9d8
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f48139b9e10 p5>
-    def_stmt GIMPLE_NOP
-    version 9
-    ptr-info 0x7f4812759b40>
-GIMPLE_NOP
-
- ================== trace ptable================== 
-
- ================== trace ptable ================== 
-GIMPLE CODE :addr_expr--------
-this other function -----------
- 
- Start check Pointer Collect  
-
-======================================================================
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_37 = VDEF <.MEM_30>
-foo (p5_9(D));
-test.c:35:3: warning: use location
-   foo(p5);
-   ^
-# .MEM_45 = VDEF <.MEM_44>
-foo (p5_9(D));
-test.c:74:5: warning: use location
-     foo(p5);
-     ^
-=======================Path Constaint===========================
-
-=succs:= 13
-if (test_16(D) < test2_17(D))
-test.c:69:7: warning: use location
-    if (test < test2)
-       ^
-	relate logic:= 0
-=succs:= 9
-if (test_16(D) > test2_17(D))
-test.c:56:6: warning: use location
-   if (test > test2)
-      ^
-	relate logic:= 1
-=succs:= 8
-if (test_16(D) != 0)
-test.c:50:5: warning: use location
-  if (test)
-     ^
-	relate logic:= 1
-=======================Path Constaint===========================
-
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_37 = VDEF <.MEM_30>
-foo (p5_9(D));
-test.c:35:3: warning: use location
-   foo(p5);
-   ^
-# .MEM_41 = VDEF <.MEM_38>
-foo (p5_9(D));
-test.c:47:3: warning: use location
-   foo(p5);
-   ^
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_37 = VDEF <.MEM_30>
-foo (p5_9(D));
-test.c:35:3: warning: use location
-   foo(p5);
-   ^
-# .MEM_39 = VDEF <.MEM_38>
-foo (p5_9(D));
-test.c:44:3: warning: use location
-   foo(p5);
-   ^
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_37 = VDEF <.MEM_30>
-foo (p5_9(D));
-test.c:35:3: warning: use location
-   foo(p5);
-   ^
-# .MEM_40 = VDEF <.MEM_38>
-foo (p5_9(D));
-test.c:41:3: warning: use location
-   foo(p5);
-   ^
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_37 = VDEF <.MEM_30>
-foo (p5_9(D));
-test.c:35:3: warning: use location
-   foo(p5);
-   ^
-# .MEM_38 = VDEF <.MEM_35>
-foo (p5_9(D));
-test.c:37:3: warning: use location
-   foo(p5);
-   ^
-# .MEM_37 = VDEF <.MEM_30>
-foo (p5_9(D));
-foo (p5_9(D));
-test.c:35:3: warning: use location
-   foo(p5);
-   ^
-this stmt is child function---foo-----
-
- ================== trace ================== 
- <ssa_name 0x7f4812c2c9d8
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f48139b9e10 p5>
-    def_stmt GIMPLE_NOP
-    version 9
-    ptr-info 0x7f4812759b40>
-trace fucntion name:foo 
-[40;44m =======trace_function_path foo  function_call count: 1 level :0========  [0m
-[40;36m ======= node_fun:foo========= [0m
-[40;36m ======= find relate stmt with p5 ========= [0m
-[40;36m ======= relate stmt argument:p5 ========= [0m
-fucntion collect path finsh
-[40;42m =======pre add _ fucntion:malloc========= [0m
-[40;46m =======add node_fun stack:malloc========= [0m
-
- ================== trace ================== 
-trace fucntion free:0 
-
- ================== Start Use after free Check ================== 
-
-dot graph END
-
- ================== Start Use after free Check ================== 
-
-======================================================================
-[40;31m    no free stmt possible memory leak [0m
-
-======================================================================
-
-dot graph START
-
-======================================================================
- <ssa_name 0x7f4812c2c9d8
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f48139b9e10 p5>
-    def_stmt GIMPLE_NOP
-    version 9
-    ptr-info 0x7f4812759b40>
- <ssa_name 0x7f4812c2c9d8
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f48139b9e10 p5>
-    def_stmt GIMPLE_NOP
-    version 9
-    ptr-info 0x7f4812759b40>
-GIMPLE_NOP
-
- ================== trace ptable================== 
-
- ================== trace ptable ================== 
-GIMPLE CODE :addr_expr--------
-this other function -----------
- 
- Start check Pointer Collect  
-
-======================================================================
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_38 = VDEF <.MEM_35>
-foo (p5_9(D));
-test.c:37:3: warning: use location
-   foo(p5);
-   ^
-# .MEM_45 = VDEF <.MEM_44>
-foo (p5_9(D));
-test.c:74:5: warning: use location
-     foo(p5);
-     ^
-=======================Path Constaint===========================
-
-=succs:= 13
-if (test_16(D) < test2_17(D))
-test.c:69:7: warning: use location
-    if (test < test2)
-       ^
-	relate logic:= 0
-=succs:= 9
-if (test_16(D) > test2_17(D))
-test.c:56:6: warning: use location
-   if (test > test2)
-      ^
-	relate logic:= 1
-=succs:= 8
-if (test_16(D) != 0)
-test.c:50:5: warning: use location
-  if (test)
-     ^
-	relate logic:= 1
-=======================Path Constaint===========================
-
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_38 = VDEF <.MEM_35>
-foo (p5_9(D));
-test.c:37:3: warning: use location
-   foo(p5);
-   ^
-# .MEM_41 = VDEF <.MEM_38>
-foo (p5_9(D));
-test.c:47:3: warning: use location
-   foo(p5);
-   ^
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_38 = VDEF <.MEM_35>
-foo (p5_9(D));
-test.c:37:3: warning: use location
-   foo(p5);
-   ^
-# .MEM_39 = VDEF <.MEM_38>
-foo (p5_9(D));
-test.c:44:3: warning: use location
-   foo(p5);
-   ^
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_38 = VDEF <.MEM_35>
-foo (p5_9(D));
-test.c:37:3: warning: use location
-   foo(p5);
-   ^
-# .MEM_40 = VDEF <.MEM_38>
-foo (p5_9(D));
-test.c:41:3: warning: use location
-   foo(p5);
-   ^
-# .MEM_38 = VDEF <.MEM_35>
-foo (p5_9(D));
-foo (p5_9(D));
-test.c:37:3: warning: use location
-   foo(p5);
-   ^
-this stmt is child function---foo-----
-
- ================== trace ================== 
- <ssa_name 0x7f4812c2c9d8
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f48139b9e10 p5>
-    def_stmt GIMPLE_NOP
-    version 9
-    ptr-info 0x7f4812759b40>
-trace fucntion name:foo 
-[40;44m =======trace_function_path foo  function_call count: 1 level :0========  [0m
-[40;36m ======= node_fun:foo========= [0m
-[40;36m ======= find relate stmt with p5 ========= [0m
-[40;36m ======= relate stmt argument:p5 ========= [0m
-fucntion collect path finsh
-[40;42m =======pre add _ fucntion:malloc========= [0m
-[40;46m =======add node_fun stack:malloc========= [0m
-
- ================== trace ================== 
-trace fucntion free:0 
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_38 = VDEF <.MEM_35>
-foo (p5_9(D));
-test.c:37:3: warning: use location
-# .MEM_37 = VDEF <.MEM_30>
-foo (p5_9(D));
-test.c:35:3: warning: use location
-   foo(p5);
-   ^
-
- ================== Start Use after free Check ================== 
-
-dot graph END
-
- ================== Start Use after free Check ================== 
-
-======================================================================
-[40;31m    no free stmt possible memory leak [0m
-
-======================================================================
-
-dot graph START
-
-======================================================================
- <ssa_name 0x7f4812c2cb40
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f4812768000 p>
-    def_stmt GIMPLE_NOP
-    version 20
-    ptr-info 0x7f4812759b70>
- <ssa_name 0x7f4812c2cb40
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f4812768000 p>
-    def_stmt GIMPLE_NOP
-    version 20
-    ptr-info 0x7f4812759b70>
-GIMPLE_NOP
-
- ================== trace ptable================== 
-
- ================== trace ptable ================== 
-GIMPLE CODE :addr_expr--------
-this other function -----------
- 
- Start check Pointer Collect  
-
-======================================================================
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_47 = VDEF <.MEM_32>
-foo (p_20(D));
-test.c:58:4: warning: use location
-    foo(p);
-    ^
-# .MEM_43 = VDEF <.MEM_32>
-foo (p_20(D));
-test.c:84:3: warning: use location
-   foo(p);
-   ^
-=======================Path Constaint===========================
-
-succs:= 18
-if (test_16(D) == test2_17(D))
-test.c:83:10: warning: use location
-  else if (test == test2)
-          ^
-	relate logic:= 1
-succs:= 8
-if (test_16(D) != 0)
-test.c:50:5: warning: use location
-  if (test)
-     ^
-	relate logic:= 1
-=======================Path Constaint===========================
-
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_47 = VDEF <.MEM_32>
-foo (p_20(D));
-test.c:58:4: warning: use location
-    foo(p);
-    ^
-# .MEM_50 = VDEF <.MEM_33>
-foo (p_20(D));
-test.c:79:4: warning: use location
-    foo(p);
-    ^
-=======================Path Constaint===========================
-
-succs:= 16
-if (test3_29(D) != 0)
-test.c:77:6: warning: use location
-   if (test3)
-      ^
-	relate logic:= 1
-succs:= 9
-if (test_16(D) > test2_17(D))
-test.c:56:6: warning: use location
-   if (test > test2)
-      ^
-	relate logic:= 1
-succs:= 8
-if (test_16(D) != 0)
-test.c:50:5: warning: use location
-  if (test)
-     ^
-	relate logic:= 1
-=======================Path Constaint===========================
-
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_47 = VDEF <.MEM_32>
-foo (p_20(D));
-test.c:58:4: warning: use location
-    foo(p);
-    ^
-# .MEM_44 = VDEF <.MEM_32>
-foo (p_20(D));
-test.c:68:4: warning: use location
-    foo(p);
-    ^
-=======================Path Constaint===========================
-
-=succs:= 9
-if (test_16(D) > test2_17(D))
-test.c:56:6: warning: use location
-   if (test > test2)
-      ^
-	relate logic:= 0
-=succs:= 8
-if (test_16(D) != 0)
-test.c:50:5: warning: use location
-  if (test)
-     ^
-	relate logic:= 1
-=======================Path Constaint===========================
-
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_47 = VDEF <.MEM_32>
-foo (p_20(D));
-test.c:58:4: warning: use location
-    foo(p);
-    ^
-# .MEM_48 = VDEF <.MEM_47>
-foo (p_20(D));
-test.c:64:5: warning: use location
-     foo(p);
-     ^
-=======================Path Constaint===========================
-
-=succs:= 10
-if (test_16(D) < test2_17(D))
-test.c:59:7: warning: use location
-    if (test < test2)
-       ^
-	relate logic:= 0
-=succs:= 9
-if (test_16(D) > test2_17(D))
-test.c:56:6: warning: use location
-   if (test > test2)
-      ^
-	relate logic:= 1
-=succs:= 8
-if (test_16(D) != 0)
-test.c:50:5: warning: use location
-  if (test)
-     ^
-	relate logic:= 1
-=======================Path Constaint===========================
-
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_47 = VDEF <.MEM_32>
-foo (p_20(D));
-test.c:58:4: warning: use location
-    foo(p);
-    ^
-# .MEM_49 = VDEF <.MEM_47>
-foo (p_20(D));
-test.c:61:5: warning: use location
-     foo(p);
-     ^
-=======================Path Constaint===========================
-
-succs:= 10
-if (test_16(D) < test2_17(D))
-test.c:59:7: warning: use location
-    if (test < test2)
-       ^
-	relate logic:= 1
-succs:= 9
-if (test_16(D) > test2_17(D))
-test.c:56:6: warning: use location
-   if (test > test2)
-      ^
-	relate logic:= 1
-succs:= 8
-if (test_16(D) != 0)
-test.c:50:5: warning: use location
-  if (test)
-     ^
-	relate logic:= 1
-=======================Path Constaint===========================
-
-# .MEM_47 = VDEF <.MEM_32>
-foo (p_20(D));
-foo (p_20(D));
-test.c:58:4: warning: use location
-    foo(p);
-    ^
-this stmt is child function---foo-----
-
- ================== trace ================== 
- <ssa_name 0x7f4812c2cb40
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f4812768000 p>
-    def_stmt GIMPLE_NOP
-    version 20
-    ptr-info 0x7f4812759b70>
-trace fucntion name:foo 
-[40;44m =======trace_function_path foo  function_call count: 1 level :0========  [0m
-[40;36m ======= node_fun:foo========= [0m
-[40;36m ======= find relate stmt with p ========= [0m
-[40;36m ======= relate stmt argument:p ========= [0m
-fucntion collect path finsh
-[40;42m =======pre add _ fucntion:malloc========= [0m
-[40;46m =======add node_fun stack:malloc========= [0m
-
- ================== trace ================== 
-trace fucntion free:0 
-
- ================== Start Use after free Check ================== 
-
-dot graph END
-
- ================== Start Use after free Check ================== 
-
-======================================================================
-[40;31m    no free stmt possible memory leak [0m
-
-======================================================================
-
-dot graph START
-
-======================================================================
- <ssa_name 0x7f4812c2cb40
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f4812768000 p>
-    def_stmt GIMPLE_NOP
-    version 20
-    ptr-info 0x7f4812759b70>
- <ssa_name 0x7f4812c2cb40
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f4812768000 p>
-    def_stmt GIMPLE_NOP
-    version 20
-    ptr-info 0x7f4812759b70>
-GIMPLE_NOP
-
- ================== trace ptable================== 
-
- ================== trace ptable ================== 
-GIMPLE CODE :addr_expr--------
-this other function -----------
- 
- Start check Pointer Collect  
-
-======================================================================
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_49 = VDEF <.MEM_47>
-foo (p_20(D));
-test.c:61:5: warning: use location
-     foo(p);
-     ^
-# .MEM_43 = VDEF <.MEM_32>
-foo (p_20(D));
-test.c:84:3: warning: use location
-   foo(p);
-   ^
-=======================Path Constaint===========================
-
-succs:= 18
-if (test_16(D) == test2_17(D))
-test.c:83:10: warning: use location
-  else if (test == test2)
-          ^
-	relate logic:= 1
-succs:= 8
-if (test_16(D) != 0)
-test.c:50:5: warning: use location
-  if (test)
-     ^
-	relate logic:= 1
-=======================Path Constaint===========================
-
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_49 = VDEF <.MEM_47>
-foo (p_20(D));
-test.c:61:5: warning: use location
-     foo(p);
-     ^
-# .MEM_50 = VDEF <.MEM_33>
-foo (p_20(D));
-test.c:79:4: warning: use location
-    foo(p);
-    ^
-=======================Path Constaint===========================
-
-succs:= 16
-if (test3_29(D) != 0)
-test.c:77:6: warning: use location
-   if (test3)
-      ^
-	relate logic:= 1
-succs:= 9
-if (test_16(D) > test2_17(D))
-test.c:56:6: warning: use location
-   if (test > test2)
-      ^
-	relate logic:= 1
-succs:= 8
-if (test_16(D) != 0)
-test.c:50:5: warning: use location
-  if (test)
-     ^
-	relate logic:= 1
-=======================Path Constaint===========================
-
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_49 = VDEF <.MEM_47>
-foo (p_20(D));
-test.c:61:5: warning: use location
-     foo(p);
-     ^
-# .MEM_44 = VDEF <.MEM_32>
-foo (p_20(D));
-test.c:68:4: warning: use location
-    foo(p);
-    ^
-=======================Path Constaint===========================
-
-=succs:= 9
-if (test_16(D) > test2_17(D))
-test.c:56:6: warning: use location
-   if (test > test2)
-      ^
-	relate logic:= 0
-=succs:= 8
-if (test_16(D) != 0)
-test.c:50:5: warning: use location
-  if (test)
-     ^
-	relate logic:= 1
-=======================Path Constaint===========================
-
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_49 = VDEF <.MEM_47>
-foo (p_20(D));
-test.c:61:5: warning: use location
-     foo(p);
-     ^
-# .MEM_48 = VDEF <.MEM_47>
-foo (p_20(D));
-test.c:64:5: warning: use location
-     foo(p);
-     ^
-=======================Path Constaint===========================
-
-=succs:= 10
-if (test_16(D) < test2_17(D))
-test.c:59:7: warning: use location
-    if (test < test2)
-       ^
-	relate logic:= 0
-=succs:= 9
-if (test_16(D) > test2_17(D))
-test.c:56:6: warning: use location
-   if (test > test2)
-      ^
-	relate logic:= 1
-=succs:= 8
-if (test_16(D) != 0)
-test.c:50:5: warning: use location
-  if (test)
-     ^
-	relate logic:= 1
-=======================Path Constaint===========================
-
-# .MEM_49 = VDEF <.MEM_47>
-foo (p_20(D));
-foo (p_20(D));
-test.c:61:5: warning: use location
-     foo(p);
-     ^
-this stmt is child function---foo-----
-
- ================== trace ================== 
- <ssa_name 0x7f4812c2cb40
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f4812768000 p>
-    def_stmt GIMPLE_NOP
-    version 20
-    ptr-info 0x7f4812759b70>
-trace fucntion name:foo 
-[40;44m =======trace_function_path foo  function_call count: 1 level :0========  [0m
-[40;36m ======= node_fun:foo========= [0m
-[40;36m ======= find relate stmt with p ========= [0m
-[40;36m ======= relate stmt argument:p ========= [0m
-fucntion collect path finsh
-[40;42m =======pre add _ fucntion:malloc========= [0m
-[40;46m =======add node_fun stack:malloc========= [0m
-
- ================== trace ================== 
-trace fucntion free:0 
-
- Expand conflict 
- The same function may have multiple branches :foo
-# .MEM_49 = VDEF <.MEM_47>
-foo (p_20(D));
-test.c:61:5: warning: use location
-# .MEM_47 = VDEF <.MEM_32>
-foo (p_20(D));
-test.c:58:4: warning: use location
-    foo(p);
-    ^
-=======================Path Constaint===========================
-
-succs:= 9
-if (test_16(D) > test2_17(D))
-test.c:56:6: warning: use location
-   if (test > test2)
-      ^
-	relate logic:= 1
-succs:= 8
-if (test_16(D) != 0)
-test.c:50:5: warning: use location
-  if (test)
-     ^
-	relate logic:= 1
-=======================Path Constaint===========================
-
-
- ================== Start Use after free Check ================== 
-
-dot graph END
-
- ================== Start Use after free Check ================== 
-
-======================================================================
-[40;31m    no free stmt possible memory leak [0m
-
-======================================================================
-
-dot graph START
-
-======================================================================
- <ssa_name 0x7f4812c2cb88
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f48139b9f30 p3>
-    def_stmt GIMPLE_NOP
-    version 24
-    ptr-info 0x7f4812759b88>
- <ssa_name 0x7f4812c2cb88
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f48139b9f30 p3>
-    def_stmt GIMPLE_NOP
-    version 24
-    ptr-info 0x7f4812759b88>
-GIMPLE_NOP
-
- ================== trace ptable================== 
-
- ================== trace ptable ================== 
-GIMPLE CODE :addr_expr--------
-this other function -----------
- 
- Start check Pointer Collect  
-
-======================================================================
-# .MEM_46 = VDEF <.MEM_44>
-foo (p3_24(D));
-foo (p3_24(D));
-test.c:71:5: warning: use location
-     foo(p3);
-     ^
-this stmt is child function---foo-----
-
- ================== trace ================== 
- <ssa_name 0x7f4812c2cb88
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f48139b9f30 p3>
-    def_stmt GIMPLE_NOP
-    version 24
-    ptr-info 0x7f4812759b88>
-trace fucntion name:foo 
-[40;44m =======trace_function_path foo  function_call count: 1 level :0========  [0m
-[40;36m ======= node_fun:foo========= [0m
-[40;36m ======= find relate stmt with p3 ========= [0m
-[40;36m ======= relate stmt argument:p3 ========= [0m
-fucntion collect path finsh
-[40;42m =======pre add _ fucntion:malloc========= [0m
-[40;46m =======add node_fun stack:malloc========= [0m
-
- ================== trace ================== 
-trace fucntion free:0 
-
- ================== Start Use after free Check ================== 
-
-dot graph END
-
- ================== Start Use after free Check ================== 
-
-======================================================================
-[40;31m    no free stmt possible memory leak [0m
-
-======================================================================
-
-dot graph START
-
-======================================================================
- <ssa_name 0x7f4812c2caf8
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
-        public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f48139b9ea0 p4>
-    def_stmt GIMPLE_NOP
+    var <var_decl 0x7fb5a7b0eab0 p>
+    def_stmt p_18 = malloc (10);
     version 18
-    ptr-info 0x7f4812759b58>
- <ssa_name 0x7f4812c2caf8
-    type <pointer_type 0x7f4812c3fa80
-        type <integer_type 0x7f4812c385e8 int public SI
-            size <integer_cst 0x7f4812c24e28 constant 32>
-            unit size <integer_cst 0x7f4812c24e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f4812c385e8 precision 32 min <integer_cst 0x7f4812c24de0 -2147483648> max <integer_cst 0x7f4812c24df8 2147483647>
-            pointer_to_this <pointer_type 0x7f4812c3fa80>>
+    ptr-info 0x7fb5a68adbd0>
+ <ssa_name 0x7fb5a6d81a20
+    type <pointer_type 0x7fb5a68aab28
+        type <record_type 0x7fb5a68aaa80 st TI
+            size <integer_cst 0x7fb5a6d79c30 constant 128>
+            unit size <integer_cst 0x7fb5a6d79c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb5a68aaa80 fields <field_decl 0x7fb5a68ac260 flag> context <translation_unit_decl 0x7fb5a6d84168 test.c>
+            pointer_to_this <pointer_type 0x7fb5a68aab28> chain <type_decl 0x7fb5a68ac2f8 D.3991>>
         public unsigned DI
-        size <integer_cst 0x7f4812c24be8 constant 64>
-        unit size <integer_cst 0x7f4812c24c00 constant 8>
+        size <integer_cst 0x7fb5a6d79be8 constant 64>
+        unit size <integer_cst 0x7fb5a6d79c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f48139b9ea0 p4>
-    def_stmt GIMPLE_NOP
+    var <var_decl 0x7fb5a7b0eab0 p>
+    def_stmt p_18 = malloc (10);
     version 18
-    ptr-info 0x7f4812759b58>
-GIMPLE_NOP
+    ptr-info 0x7fb5a68adbd0>
+# .MEM_31 = VDEF <.MEM_30(D)>
+p_18 = malloc (10);
 
  ================== trace ptable================== 
+trace fucntion name:malloc 
 
  ================== trace ptable ================== 
-GIMPLE CODE :addr_expr--------
-this other function -----------
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
 
 ======================================================================
-[40;31m 	Can't find this fucntion in Pointer table [0m
-[40;31m 	Possiable no other stmt relate with this stmt [0m
+_8 = p_18 + _7;
+In function ‘main’:
+test.c:70:9: warning: use location
+   free(p[i].f);
+         ^
 
 ======================================================================
+[40;31m    collect point in loop [0m
+
+======================================================================
+_8 = p_18 + _7;
+test.c:70:9: warning: use location
+# VUSE <.MEM_28>
+_9 = _8->f;
+test.c:70:12: warning: use location
+   free(p[i].f);
+            ^
+
+======================================================================
+[40;31m    collect point in loop [0m
+
+======================================================================
+_9 = _8->f;
+test.c:70:12: warning: use location
+# .MEM_34 = VDEF <.MEM_28>
+free (_9);
+test.c:70:3: warning: use location
+   free(p[i].f);
+   ^
+
+======================================================================
+[40;31m    collect point in loop [0m
+
+======================================================================
+free (_9);
+test.c:70:3: warning: use location
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (_9);
+test.c:70:3: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    branch possiable have return  [0m
+
+======================================================================
+ <ssa_name 0x7fb5a6d819d8
+    type <integer_type 0x7fb5a6d8d5e8 int public SI
+        size <integer_cst 0x7fb5a6d79e28 constant 32>
+        unit size <integer_cst 0x7fb5a6d79e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb5a6d8d5e8 precision 32 min <integer_cst 0x7fb5a6d79de0 -2147483648> max <integer_cst 0x7fb5a6d79df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb5a6d94a80>>
+   
+    def_stmt _12 = PHI <100(5), 0(7)>
+    version 12>
+# .MEM_33 = VDEF <.MEM_32>
+MEM[(struct st *)p_18 + 32B].f = _5;
+# VUSE <.MEM_29>
+return _12;
+lto1: warning: use location
+=======================Path Constaint===========================
+
+succs:= 5
+if (test_21(D) != 0)
+test.c:66:5: warning: use location
+  if (test)
+     ^
+	relate logic:= 1
+succs:= 4
+if (i_10 <= 9)
+test.c:62:2: warning: use location
+  for (int i = 0; i < 10; i++)
+  ^
+	relate logic:= 1
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+=succs:= 7
+if (i_11 <= 9)
+test.c:69:2: warning: use location
+  for (int i = 0; i < 10; i++)
+  ^
+	relate logic:= 0
+=succs:= 5
+if (test_21(D) != 0)
+test.c:66:5: warning: use location
+  if (test)
+     ^
+	relate logic:= 0
+=succs:= 4
+if (i_10 <= 9)
+test.c:62:2: warning: use location
+  for (int i = 0; i < 10; i++)
+  ^
+	relate logic:= 1
+=======================Path Constaint===========================
+
+MEM[(struct st *)p_18 + 32B].f = _5;
+test.c:64:9: warning: use location
+  p[2].f = malloc(1);
+         ^
+
+======================================================================
+[40;31m    branch possiable have return  [0m
+
+======================================================================
+ <ssa_name 0x7fb5a6d819d8
+    type <integer_type 0x7fb5a6d8d5e8 int public SI
+        size <integer_cst 0x7fb5a6d79e28 constant 32>
+        unit size <integer_cst 0x7fb5a6d79e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb5a6d8d5e8 precision 32 min <integer_cst 0x7fb5a6d79de0 -2147483648> max <integer_cst 0x7fb5a6d79df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb5a6d94a80>>
+   
+    def_stmt _12 = PHI <100(5), 0(7)>
+    version 12>
+# .MEM_33 = VDEF <.MEM_32>
+MEM[(struct st *)p_18 + 32B].f = _5;
+# VUSE <.MEM_29>
+return _12;
+lto1: warning: use location
+=======================Path Constaint===========================
+
+succs:= 5
+if (test_21(D) != 0)
+test.c:66:5: warning: use location
+  if (test)
+     ^
+	relate logic:= 1
+succs:= 4
+if (i_10 <= 9)
+test.c:62:2: warning: use location
+  for (int i = 0; i < 10; i++)
+  ^
+	relate logic:= 1
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+=succs:= 7
+if (i_11 <= 9)
+test.c:69:2: warning: use location
+  for (int i = 0; i < 10; i++)
+  ^
+	relate logic:= 0
+=succs:= 5
+if (test_21(D) != 0)
+test.c:66:5: warning: use location
+  if (test)
+     ^
+	relate logic:= 0
+=succs:= 4
+if (i_10 <= 9)
+test.c:62:2: warning: use location
+  for (int i = 0; i < 10; i++)
+  ^
+	relate logic:= 1
+=======================Path Constaint===========================
+
+MEM[(struct st *)p_18 + 32B].f = _5;
+test.c:64:9: warning: use location
+  p[2].f = malloc(1);
+         ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+ ================== Start Use after free Check ================== 
+
+======================================================================
+[40;32m   Maybe you don't have memory leak.... need more checks  [0m
+
+======================================================================
+
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fb5a6d81798
+    type <pointer_type 0x7fb5a6d940a8
+        type <void_type 0x7fb5a6d8df18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fb5a6d940a8>>
+        public unsigned DI
+        size <integer_cst 0x7fb5a6d79be8 constant 64>
+        unit size <integer_cst 0x7fb5a6d79c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fb5a6d99bd0>>
+   
+    def_stmt _4 = malloc (1);
+    version 4
+    ptr-info 0x7fb5a68adb70>
+ <ssa_name 0x7fb5a6d81798
+    type <pointer_type 0x7fb5a6d940a8
+        type <void_type 0x7fb5a6d8df18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fb5a6d940a8>>
+        public unsigned DI
+        size <integer_cst 0x7fb5a6d79be8 constant 64>
+        unit size <integer_cst 0x7fb5a6d79c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fb5a6d99bd0>>
+   
+    def_stmt _4 = malloc (1);
+    version 4
+    ptr-info 0x7fb5a68adb70>
+# .MEM_35 = VDEF <.MEM_27>
+_4 = malloc (1);
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_36 = VDEF <.MEM_35>
+_3->f = _4;
+test.c:63:10: warning: use location
+   p[i].f = malloc(1);
+          ^
+
+======================================================================
+[40;31m    collect point in loop [0m
+
+======================================================================
+_3->f = _4;
+test.c:63:10: warning: use location
+# .MEM_36 = VDEF <.MEM_35>
+_3->f = _4;
+test.c:63:10: warning: use location
+
+======================================================================
+[40;31m    collect point in loop [0m
+
+======================================================================
+_3->f = _4;
+test.c:63:10: warning: use location
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+ ================== Start Use after free Check ================== 
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fb5a6d817e0
+    type <pointer_type 0x7fb5a6d940a8
+        type <void_type 0x7fb5a6d8df18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fb5a6d940a8>>
+        public unsigned DI
+        size <integer_cst 0x7fb5a6d79be8 constant 64>
+        unit size <integer_cst 0x7fb5a6d79c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fb5a6d99bd0>>
+   
+    def_stmt _5 = malloc (1);
+    version 5
+    ptr-info 0x7fb5a68adb88>
+ <ssa_name 0x7fb5a6d817e0
+    type <pointer_type 0x7fb5a6d940a8
+        type <void_type 0x7fb5a6d8df18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fb5a6d940a8>>
+        public unsigned DI
+        size <integer_cst 0x7fb5a6d79be8 constant 64>
+        unit size <integer_cst 0x7fb5a6d79c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fb5a6d99bd0>>
+   
+    def_stmt _5 = malloc (1);
+    version 5
+    ptr-info 0x7fb5a68adb88>
+# .MEM_32 = VDEF <.MEM_27>
+_5 = malloc (1);
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return  [0m
+
+======================================================================
+ <ssa_name 0x7fb5a6d819d8
+    type <integer_type 0x7fb5a6d8d5e8 int public SI
+        size <integer_cst 0x7fb5a6d79e28 constant 32>
+        unit size <integer_cst 0x7fb5a6d79e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb5a6d8d5e8 precision 32 min <integer_cst 0x7fb5a6d79de0 -2147483648> max <integer_cst 0x7fb5a6d79df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb5a6d94a80>>
+   
+    def_stmt _12 = PHI <100(5), 0(7)>
+    version 12>
+# .MEM_33 = VDEF <.MEM_32>
+MEM[(struct st *)p_18 + 32B].f = _5;
+# VUSE <.MEM_29>
+return _12;
+lto1: warning: use location
+=======================Path Constaint===========================
+
+succs:= 5
+if (test_21(D) != 0)
+test.c:66:5: warning: use location
+  if (test)
+     ^
+	relate logic:= 1
+succs:= 4
+if (i_10 <= 9)
+test.c:62:2: warning: use location
+  for (int i = 0; i < 10; i++)
+  ^
+	relate logic:= 1
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+=succs:= 7
+if (i_11 <= 9)
+test.c:69:2: warning: use location
+  for (int i = 0; i < 10; i++)
+  ^
+	relate logic:= 0
+=succs:= 5
+if (test_21(D) != 0)
+test.c:66:5: warning: use location
+  if (test)
+     ^
+	relate logic:= 0
+=succs:= 4
+if (i_10 <= 9)
+test.c:62:2: warning: use location
+  for (int i = 0; i < 10; i++)
+  ^
+	relate logic:= 1
+=======================Path Constaint===========================
+
+MEM[(struct st *)p_18 + 32B].f = _5;
+test.c:64:9: warning: use location
+  p[2].f = malloc(1);
+         ^
+
+======================================================================
+[40;31m    branch possiable have return  [0m
+
+======================================================================
+ <ssa_name 0x7fb5a6d819d8
+    type <integer_type 0x7fb5a6d8d5e8 int public SI
+        size <integer_cst 0x7fb5a6d79e28 constant 32>
+        unit size <integer_cst 0x7fb5a6d79e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb5a6d8d5e8 precision 32 min <integer_cst 0x7fb5a6d79de0 -2147483648> max <integer_cst 0x7fb5a6d79df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb5a6d94a80>>
+   
+    def_stmt _12 = PHI <100(5), 0(7)>
+    version 12>
+# .MEM_33 = VDEF <.MEM_32>
+MEM[(struct st *)p_18 + 32B].f = _5;
+# VUSE <.MEM_29>
+return _12;
+lto1: warning: use location
+=======================Path Constaint===========================
+
+succs:= 5
+if (test_21(D) != 0)
+test.c:66:5: warning: use location
+  if (test)
+     ^
+	relate logic:= 1
+succs:= 4
+if (i_10 <= 9)
+test.c:62:2: warning: use location
+  for (int i = 0; i < 10; i++)
+  ^
+	relate logic:= 1
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+=succs:= 7
+if (i_11 <= 9)
+test.c:69:2: warning: use location
+  for (int i = 0; i < 10; i++)
+  ^
+	relate logic:= 0
+=succs:= 5
+if (test_21(D) != 0)
+test.c:66:5: warning: use location
+  if (test)
+     ^
+	relate logic:= 0
+=succs:= 4
+if (i_10 <= 9)
+test.c:62:2: warning: use location
+  for (int i = 0; i < 10; i++)
+  ^
+	relate logic:= 1
+=======================Path Constaint===========================
+
+MEM[(struct st *)p_18 + 32B].f = _5;
+test.c:64:9: warning: use location
+  p[2].f = malloc(1);
+         ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+ ================== Start Use after free Check ================== 
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <integer_cst 0x7fb5a68adab0 type <integer_type 0x7fb5a68aa930 size_t> constant 10>
+
+dot graph START
+
+======================================================================
+ <integer_cst 0x7fb5a68adae0 type <integer_type 0x7fb5a68aa930 size_t> constant 1>
+
+dot graph START
+
+======================================================================
+ <integer_cst 0x7fb5a68adae0 type <integer_type 0x7fb5a68aa930 size_t> constant 1>
 [40;33m =======POP node_fun stack:main========= [0m
 fucntion collect path finsh
-=======Mapping node_fun:foo=========
-=======is loop:0=========
-<bb 2> [100.00%]:
-_1 = malloc (10);
-_2 = (long int) _1;
-_3 = (int) _2;
-*z_6(D) = _3;
-return;
-
 =======Mapping node_fun:main=========
 =======is loop:0=========
-<bb 2> [8.03%]:
+
+ bb index 2 
+<bb 2> [9.09%]:
+p_18 = malloc (10);
+goto <bb 4>; [100.00%]
 
 =======is loop:1=========
-label2 [14.45%]:
-foo (p5_9(D));
-goto <bb 23>; [100.00%]
+
+ bb index 3 
+<bb 3> [90.91%]:
+_1 = (long unsigned int) i_10;
+_2 = _1 * 16;
+_3 = p_18 + _2;
+_4 = malloc (1);
+_3->f = _4;
+i_26 = i_10 + 1;
 
 =======is loop:1=========
-label3 [85.55%]:
 
-=======is loop:1=========
-<bb 23> [100.00%]:
-foo (p5_9(D));
-_1 = test5_12(D) / 10;
-switch (_1) <default: <L4> [33.33%], case 5: <L2> [33.33%], case 10: <L3> [33.33%]>
-
-=======is loop:1=========
-<L2> [33.33%]:
-foo (p5_9(D));
-goto <bb 8>; [100.00%]
-
-=======is loop:1=========
-<L3> [33.33%]:
-foo (p5_9(D));
-goto <bb 8>; [100.00%]
-
-=======is loop:1=========
-<L4> [33.33%]:
-foo (p5_9(D));
-
-=======is loop:1=========
-<bb 8> [99.99%]:
-if (test_16(D) != 0)
-  goto <bb 9>; [92.50%]
+ bb index 4 
+<bb 4> [100.00%]:
+# i_10 = PHI <0(2), i_26(3)>
+if (i_10 <= 9)
+  goto <bb 3>; [90.91%]
 else
-  goto <bb 18>; [7.50%]
-
-=======is loop:1=========
-<bb 9> [92.49%]:
-if (test_16(D) > test2_17(D))
-  goto <bb 10>; [7.50%]
-else
-  goto <bb 13>; [92.50%]
-
-=======is loop:1=========
-<bb 10> [6.94%]:
-foo (p_20(D));
-if (test_16(D) < test2_17(D))
-  goto <bb 11>; [50.00%]
-else
-  goto <bb 12>; [50.00%]
-
-=======is loop:1=========
-<bb 11> [3.47%]:
-foo (p_20(D));
-goto <bb 16>; [100.00%]
-
-=======is loop:1=========
-<bb 12> [3.47%]:
-foo (p_20(D));
-goto <bb 16>; [100.00%]
-
-=======is loop:1=========
-<bb 13> [85.55%]:
-foo (p_20(D));
-if (test_16(D) < test2_17(D))
-  goto <bb 14>; [50.00%]
-else
-  goto <bb 15>; [50.00%]
-
-=======is loop:1=========
-<bb 14> [42.78%]:
-foo (p3_24(D));
-goto <bb 4> (label3); [100.00%]
-
-=======is loop:1=========
-<bb 15> [42.78%]:
-foo (p5_9(D));
-goto <bb 4> (label3); [100.00%]
-
-=======is loop:1=========
-<bb 16> [6.94%]:
-if (test3_29(D) != 0)
-  goto <bb 17>; [92.50%]
-else
-  goto <bb 22>; [7.50%]
-
-=======is loop:1=========
-<bb 17> [6.42%]:
-foo (p_20(D));
-goto <bb 3> (label2); [100.00%]
+  goto <bb 5>; [9.09%]
 
 =======is loop:0=========
-<bb 18> [7.50%]:
-if (test_16(D) == test2_17(D))
-  goto <bb 19>; [17.77%]
+
+ bb index 5 
+<bb 5> [9.09%]:
+_5 = malloc (1);
+MEM[(struct st *)p_18 + 32B].f = _5;
+if (test_21(D) != 0)
+  goto <bb 8>; [31.00%]
 else
-  goto <bb 20>; [82.23%]
+  goto <bb 9>; [69.00%]
 
 =======is loop:0=========
-<bb 19> [1.33%]:
-foo (p_20(D));
-goto <bb 22>; [100.00%]
 
-=======is loop:0=========
-<bb 20> [6.17%]:
-if (test_16(D) > test2_17(D))
-  goto <bb 21>; [36.64%]
+ bb index 9 
+<bb 9> [6.27%]:
+goto <bb 7>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [62.73%]:
+_6 = (long unsigned int) i_11;
+_7 = _6 * 16;
+_8 = p_18 + _7;
+_9 = _8->f;
+free (_9);
+i_23 = i_11 + 1;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [69.00%]:
+# i_11 = PHI <0(9), i_23(6)>
+if (i_11 <= 9)
+  goto <bb 6>; [90.91%]
 else
-  goto <bb 22>; [63.36%]
+  goto <bb 8>; [9.09%]
 
 =======is loop:0=========
-<bb 21> [2.26%]:
-foo (p4_18(D));
 
-=======is loop:0=========
-<bb 22> [8.02%]:
-return 0;
+ bb index 8 
+<bb 8> [9.09%]:
+# _12 = PHI <100(5), 0(7)>
+return _12;
 
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
     =()=
@@ -1382,9 +624,9 @@ return 0;
     ~~~~~~~~~~~  
  ~~~~~~
            ~~~~~~~
-[40;34m    find Entry point : 4 [0m
-[40;34m    used_stmt array stack totalsize of : 480 [0m
-[40;34m    collect time: : 0.000267 s [0m
-[40;34m    algorithm time: 0.007575 s [0m
-[40;34m    gimple stmt count : : 34 [0m
+[40;34m    find Entry point : 3 [0m
+[40;34m    used_stmt array stack totalsize of : 216 [0m
+[40;34m    collect time: : 0.000059 s [0m
+[40;34m    algorithm time: 0.004133 s [0m
+[40;34m    gimple stmt count : : 19 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

@@ -1,142 +1,136 @@
 
-;; Function foo (foo, funcdef_no=51, decl_uid=4307, cgraph_uid=51, symbol_order=51)
+;; Function foo3 (foo3, funcdef_no=51, decl_uid=4314, cgraph_uid=51, symbol_order=51)
+
+foo3 (struct st * p)
+{
+  int * q;
+  int _1;
+  int * _9;
+
+  <bb 2> [0.00%]:
+  _1 = p_5(D)->flag;
+  if (_1 != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [0.00%]:
+  q_8 = malloc (1);
+  goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  q_6 = p_5(D)->f;
+
+  <bb 5> [0.00%]:
+  # q_2 = PHI <q_8(3), q_6(4)>
+  _9 = q_2;
+  return _9;
+
+}
+
+
+
+;; Function foo (foo, funcdef_no=52, decl_uid=4307, cgraph_uid=52, symbol_order=52)
 
 __attribute__((noinline))
 foo (int * z)
 {
-  void * _1;
-  long int _2;
-  int _3;
-
   <bb 2> [0.00%]:
-  _1 = malloc (10);
-  _2 = (long int) _1;
-  _3 = (int) _2;
-  *z_6(D) = _3;
+  free (z_2(D));
   return;
 
 }
 
 
 
-;; Function main (main, funcdef_no=52, decl_uid=4313, cgraph_uid=52, symbol_order=52)
+;; Function main (main, funcdef_no=53, decl_uid=4320, cgraph_uid=53, symbol_order=53)
 
 main ()
 {
+  int i;
+  int i;
+  struct st * p;
   int d;
   int c;
   int b;
   int a;
-  int test5;
-  int test3;
-  int test2;
   int test;
-  int * p5;
-  int * p4;
-  int * p3;
-  int * p;
-  int _1;
-  int _34;
+  long unsigned int _1;
+  long unsigned int _2;
+  struct st * _3;
+  void * _4;
+  struct st * _5;
+  void * _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  struct st * _9;
+  int * _10;
+  int _13;
+  int _29;
+  int _32;
 
   <bb 2> [0.00%]:
-  a_7 = 10;
-  b_8 = 22;
-  c_9 = 22;
-  d_10 = 22;
+  a_17 = 10;
+  b_18 = 22;
+  c_19 = 22;
+  d_20 = 22;
+  p_23 = malloc (10);
+  i_24 = 0;
+  goto <bb 4>; [0.00%]
 
-label2 [0.00%]:
-  foo (p5_12(D));
+  <bb 3> [0.00%]:
+  _1 = (long unsigned int) i_11;
+  _2 = _1 * 16;
+  _3 = p_23 + _2;
+  _4 = malloc (1);
+  _3->f = _4;
+  i_35 = i_11 + 1;
 
-label3 [0.00%]:
-  foo (p5_12(D));
-  _1 = test5_15(D) / 10;
-  switch (_1) <default: <L4> [0.00%], case 5: <L2> [0.00%], case 10: <L3> [0.00%]>
+  <bb 4> [0.00%]:
+  # i_11 = PHI <i_24(2), i_35(3)>
+  if (i_11 <= 9)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
 
-<L2> [0.00%]:
-  foo (p5_12(D));
-  goto <bb 8>; [0.00%]
+  <bb 5> [0.00%]:
+  _5 = p_23 + 32;
+  _6 = malloc (1);
+  _5->f = _6;
+  if (test_27(D) != 0)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
 
-<L3> [0.00%]:
-  foo (p5_12(D));
-  goto <bb 8>; [0.00%]
+  <bb 6> [0.00%]:
+  _32 = 100;
+  goto <bb 11>; [0.00%]
 
-<L4> [0.00%]:
-  foo (p5_12(D));
+  <bb 7> [0.00%]:
+  i_28 = 0;
+  goto <bb 9>; [0.00%]
 
   <bb 8> [0.00%]:
-  if (test_19(D) != 0)
-    goto <bb 9>; [0.00%]
-  else
-    goto <bb 18>; [0.00%]
+  _7 = (long unsigned int) i_12;
+  _8 = _7 * 16;
+  _9 = p_23 + _8;
+  _10 = _9->f;
+  free (_10);
+  i_31 = i_12 + 1;
 
   <bb 9> [0.00%]:
-  if (test_19(D) > test2_20(D))
-    goto <bb 10>; [0.00%]
+  # i_12 = PHI <i_28(7), i_31(8)>
+  if (i_12 <= 9)
+    goto <bb 8>; [0.00%]
   else
-    goto <bb 13>; [0.00%]
+    goto <bb 10>; [0.00%]
 
   <bb 10> [0.00%]:
-  foo (p_23(D));
-  if (test_19(D) < test2_20(D))
-    goto <bb 11>; [0.00%]
-  else
-    goto <bb 12>; [0.00%]
+  _29 = 0;
 
   <bb 11> [0.00%]:
-  foo (p_23(D));
-  goto <bb 16>; [0.00%]
-
-  <bb 12> [0.00%]:
-  foo (p_23(D));
-  goto <bb 16>; [0.00%]
-
-  <bb 13> [0.00%]:
-  foo (p_23(D));
-  if (test_19(D) < test2_20(D))
-    goto <bb 14>; [0.00%]
-  else
-    goto <bb 15>; [0.00%]
-
-  <bb 14> [0.00%]:
-  foo (p3_27(D));
-  goto <bb 4> (label3); [0.00%]
-
-  <bb 15> [0.00%]:
-  foo (p5_12(D));
-  goto <bb 4> (label3); [0.00%]
-
-  <bb 16> [0.00%]:
-  if (test3_32(D) != 0)
-    goto <bb 17>; [0.00%]
-  else
-    goto <bb 22>; [0.00%]
-
-  <bb 17> [0.00%]:
-  foo (p_23(D));
-  goto <bb 3> (label2); [0.00%]
-
-  <bb 18> [0.00%]:
-  if (test_19(D) == test2_20(D))
-    goto <bb 19>; [0.00%]
-  else
-    goto <bb 20>; [0.00%]
-
-  <bb 19> [0.00%]:
-  foo (p_23(D));
-  goto <bb 22>; [0.00%]
-
-  <bb 20> [0.00%]:
-  if (test_19(D) > test2_20(D))
-    goto <bb 21>; [0.00%]
-  else
-    goto <bb 22>; [0.00%]
-
-  <bb 21> [0.00%]:
-  foo (p4_21(D));
-
-  <bb 22> [0.00%]:
-  _34 = 0;
-  return _34;
+  # _13 = PHI <_32(6), _29(10)>
+  return _13;
 
 }
 

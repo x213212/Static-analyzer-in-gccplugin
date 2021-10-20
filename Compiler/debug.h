@@ -40,6 +40,7 @@ void printfBasicblock()
 		FOR_EACH_BB_FN(bb, cfun)
 		{
 			fprintf(stderr, "=======is loop:%d=========\n", bb_in_loop_p(bb));
+			fprintf(stderr, "\n bb index %d \n", bb->index);
 			debug_bb(bb);
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{

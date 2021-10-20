@@ -430,7 +430,7 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 					p2 = &b;
 					b[0] = 2;
 					p2[0] = 1;
-					
+
 					free(p2);
 					return p2;
 					}
@@ -792,6 +792,16 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 
 					else if (gimple_code((assign_array.assign_type_array)[i].stmt) == GIMPLE_CALL)
 					{
+						// if (TREE_CODE(gimple_call_lhs((assign_array.assign_type_array)[i].stmt)) == SSA_NAME)
+						// {
+
+						// 		if (gimple_call_lhs((assign_array.assign_type_array)[i].stmt) != target2){
+						// 			debug_tree( gimple_call_lhs((assign_array.assign_type_array)[i].stmt))
+
+						// 			new_search_imm_use(used_stmt, gimple_call_lhs((assign_array.assign_type_array)[i].stmt), gimple_call_lhs((assign_array.assign_type_array)[i].stmt));
+						// 			}
+
+						// }
 						if (gimple_call_lhs((assign_array.assign_type_array)[i].stmt))
 							if (!check_stmtStack(gimple_call_lhs((assign_array.assign_type_array)[i].stmt)) && !check_stmtStack2((assign_array.assign_type_array)[i].stmt))
 							{
@@ -802,8 +812,11 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 								}
 								else
 									set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_call_lhs((assign_array.assign_type_array)[i].stmt), target, NULL);
-
-								for (int i = 0; i < gimple_call_num_args((assign_array.assign_type_array)[i].stmt); i++)
+								// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
+								// debug_tree(gimple_call_arg((assign_array.assign_type_array)[i].stmt, 0));
+								// fprintf(stderr, "\n%d\n", gimple_call_num_args((assign_array.assign_type_array)[i].stmt));
+								int size = gimple_call_num_args((assign_array.assign_type_array)[i].stmt);
+								for (int i = 0; i < size; i++)
 								{
 									if (!check_stmtStack(gimple_call_arg((assign_array.assign_type_array)[i].stmt, i)))
 										if (TREE_CODE(gimple_call_arg((assign_array.assign_type_array)[i].stmt, i)) == SSA_NAME)
@@ -812,6 +825,22 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 											if (!check_stmtStack(gimple_call_arg((assign_array.assign_type_array)[i].stmt, i)))
 												if (gimple_call_arg((assign_array.assign_type_array)[i].stmt, i) != target2)
 													new_search_imm_use(used_stmt, gimple_call_arg((assign_array.assign_type_array)[i].stmt, i), gimple_call_arg((assign_array.assign_type_array)[i].stmt, i));
+										}
+										else if (TREE_CODE(gimple_call_arg((assign_array.assign_type_array)[i].stmt, i)) == ADDR_EXPR)
+										{
+											tree second = TREE_OPERAND(gimple_call_arg((assign_array.assign_type_array)[i].stmt, i), 0);
+											// debug_tree(gimple_call_arg((assign_array.assign_type_array)[i].stmt, i));
+											if (TREE_CODE(second) == VAR_DECL)
+											{
+												// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
+												// debug_tree(target);
+												set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_call_arg((assign_array.assign_type_array)[i].stmt, i), target, NULL);
+											}
+											// if (!check_stmtStack(gimple_call_arg((assign_array.assign_type_array)[i].stmt, i)))
+											// 	if (gimple_call_arg((assign_array.assign_type_array)[i].stmt, i) != target2){
+
+											// 		new_search_imm_use(used_stmt, gimple_call_arg((assign_array.assign_type_array)[i].stmt, i), gimple_call_arg((assign_array.assign_type_array)[i].stmt, i));
+											// 	}
 										}
 								}
 							}
@@ -1141,7 +1170,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						// fprintf(stderr, "GIMPLE ASSIGN\n");
 
 						// }
-						//ssa_name = ssa_name
+						// ssa_name = ssa_name
 						int ssa_name_assign = 0;
 
 						// 				if (gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == SSA_NAME &&  TREE_CODE(gimple_assign_rhs1(use_stmt)) !=GIMPLE_CALL )
@@ -1776,7 +1805,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 	// ptb *table3 = ftable;
 	// table3 = ptable;
-	//preproceess
+	// preproceess
 
 	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
 	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
@@ -1791,9 +1820,15 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	// printfBasicblock();
 	if (table1->size >= 0)
 	{
-		debug_tree(table1->target);
+		// debug_tree(table1->next->target);
+		int count = 0;
+
 		while (table1->next != NULL)
 		{
+			// if (table1->next == NULL)
+			// 	break;
+			// count ++;
+			// debug_tree(table1->target);
 
 			// debug_tree(table1->target);
 			// debug_tree(table1->target);
@@ -1805,7 +1840,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			if (TREE_CODE(TREE_TYPE(table1->target)) == METHOD_TYPE || TREE_CODE(TREE_TYPE(table1->target)) == FUNCTION_TYPE || TREE_CODE(TREE_TYPE(table1->target)) == RECORD_TYPE || !(TREE_CODE(table1->target) == SSA_NAME))
 			{
 				table1 = table1->next;
-				// continue;
+				continue;
 			}
 			// if (table1->removed || !TREE_CODE(t) == SSA_NAME)
 			// 	continue;
@@ -1994,10 +2029,14 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// 	fprintf(stderr, "weritjroti;ejhoerjhio;rtjhojert\n");
 			// break;
 			// debug(table1->next->target);
-			if (table1->next == NULL)
+			if (table1->next->target == NULL)
 				break;
 			else
+			{
+				// debug_tree(table1->next->target );
 				table1 = table1->next;
+				// debug_tree(table1->next->target );
+			}
 		}
 		// FOR_EACH_TABLE(table1, t2)
 		// {
@@ -2021,9 +2060,9 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 	fprintf(stderr, "=======================================================\n");
 	// printfunctionCollect(ptable, used_stmt);
-	//printfPointerConstraint(ptable, used_stmt);
-	//printfBasicblock();
-	//initMallocfunction
+	// printfPointerConstraint(ptable, used_stmt);
+	// printfBasicblock();
+	// initMallocfunction
 
 	// // printfBasicblock();
 	// //printfunctionCollect2(ptable, used_stmt);
@@ -2124,6 +2163,22 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		fprintf(stderr, "\033[40;42m =======thread job funciton lock count :%d========= \033[0m\n", find_thread_count);
 	}
 	fprintf(stderr, "\033[40;42m =======start_check_funciton:%s========= \033[0m\n", get_name(function_tree));
+
+	// //walk return table input fucntion_tree
+	// if (function_return_collect->get(function_tree) != NULL)
+	// {
+	// 	function_return_array callerFunArray = *(function_return_collect->get(function_tree));
+
+	// 	vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
+	// 	for (int k = 0; k < callerRetTypearray.size(); k++)
+	// 	{
+	// 		debug_tree((callerRetTypearray)[k].return_tree);
+	// 		debug_gimple_stmt((callerRetTypearray)[k].stmt);
+	// 		warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+	// 		check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
+	// 	}
+	// }
+
 	FOR_EACH_TABLE(table_temp, t)
 	{
 		int ptable_type = 0;
@@ -2155,11 +2210,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// debug_tree(function_tree);
 				// debug_tree(table_temp->target);
 
-				//ready add dot graph
+				// ready add dot graph
 				fprintf(stderr, "\ndot graph START\n");
 				// fprintf(stderr, "dot graph entry %s\n", (char *)get_name(function_tree));
 				// fprintf(stderr, "dot graph target entry end\n\n");
-				//ready add dot graph
+				// ready add dot graph
 
 				fprintf(stderr, "\n======================================================================\n");
 				// vector<relate_type> relate_type_array;
@@ -2177,12 +2232,12 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 				// debug_tree(function_tree);
 				const char *name = "";
-				//fprintf(stderr ,"dot graph target %s\n", (char *)get_name(table_temp->target));
-				// //ready add dot graph
-				// fprintf(stderr, "dot graph target loc start ");
-				// warning_at(gimple_location_safe(table_temp->last_stmt), 0, "use location");
-				// fprintf(stderr, "dot graph target loc end\n\n");
-				// //ready add dot graph
+				// fprintf(stderr ,"dot graph target %s\n", (char *)get_name(table_temp->target));
+				//  //ready add dot graph
+				//  fprintf(stderr, "dot graph target loc start ");
+				//  warning_at(gimple_location_safe(table_temp->last_stmt), 0, "use location");
+				//  fprintf(stderr, "dot graph target loc end\n\n");
+				//  //ready add dot graph
 
 				// fprintf(stderr, "\n====qwd==================================================================\n");
 				// if (TREE_CODE(table_temp->target) == INTEGER_CST)
@@ -2202,6 +2257,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// debug_tree(table_temp->target);
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
 				debug_tree(table_temp->target);
+
 				if (def_stmt)
 					if (TREE_CODE(table_temp->target) != VAR_DECL)
 					{
@@ -2329,6 +2385,39 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					{
 						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 						{
+
+							// walk return table input fucntion_tree
+							if (function_return_collect->get(function_tree) != NULL)
+							{
+								function_return_array callerFunArray = *(function_return_collect->get(function_tree));
+
+								vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
+								for (int k = 0; k < callerRetTypearray.size(); k++)
+								{
+									if (dominated_by_p(CDI_DOMINATORS, gimple_bb((callerRetTypearray)[k].stmt), gimple_bb(u_stmt)))
+									{
+										fprintf(stderr, "\n======================================================================\n");
+										// fprintf(stderr, "	no free stmt possible memory leak\n");
+										fprintf(stderr, "\033[40;31m    branch possiable have return  \033[0m\n");
+										fprintf(stderr, "\n======================================================================\n");
+										debug_tree((callerRetTypearray)[k].return_tree);
+										debug_gimple_stmt(u_stmt);
+										debug_gimple_stmt((callerRetTypearray)[k].stmt);
+										warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+										check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
+									}
+								}
+							}
+							if (bb_in_loop_p(gimple_bb(u_stmt)))
+							{
+								debug_gimple_stmt(u_stmt);
+								warning_at(gimple_location_safe(u_stmt), 0, "use location");
+								fprintf(stderr, "\n======================================================================\n");
+								// fprintf(stderr, "	no free stmt possible memory leak\n");
+								fprintf(stderr, "\033[40;31m    collect Stmt in loop \033[0m\n");
+								fprintf(stderr, "\n======================================================================\n");
+								// fprintf(stderr, "=======is loop:%d=========\n", bb_in_loop_p(gimple_bb(def_stmt)));
+							}
 							// fprintf(stderr, "\n============test==========================================================\n");
 							// debug_gimple_stmt(u_stmt);
 							// check_bbinfo2(gimple_bb(u_stmt));
@@ -2392,7 +2481,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									now_stmt = user_tmp->ret_stmt;
 									if (debugmod)
 									{
-										//ready add dot graph
+										// ready add dot graph
 										fprintf(stderr, "dot graph target loc start ");
 										debug_gimple_stmt(user_tmp->ret_stmt);
 										warning_at(gimple_location_safe(user_tmp->ret_stmt), 0, "use location");
@@ -2431,7 +2520,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										debug(user_tmp->ret_stmt);
 										warning_at(gimple_location_safe(user_tmp->ret_stmt), 0, "use location");
 										fprintf(stderr, "dot graph stmt end\n\n");
-										//ready add dot graph
+										// ready add dot graph
 									}
 									// find_mallocstmt = IS_HEAP_FUCNTION;
 									// continue;
@@ -2463,7 +2552,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									debug(u_stmt);
 									warning_at(gimple_location_safe(u_stmt), 0, "use location");
 									now_stmt = u_stmt;
-									//ready add dot graph
+									// ready add dot graph
 									if (debugmod)
 									{
 
@@ -2734,9 +2823,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									{
 										if (gimple_code(finalstmt) == GIMPLE_ASSIGN)
 										{
-											//debug_tree(gimple_assign_lhs(use_stmt));
+											// debug_tree(gimple_assign_lhs(use_stmt));
 
-											//global variable
+											// global variable
 											if (!TREE_STATIC(gimple_assign_lhs(finalstmt)) == true)
 											{
 
@@ -3111,12 +3200,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					gimple_array start;
 					start.stmt = NULL;
 					used_stmt = &start;
+
 					fprintf(stderr, "\n ================== Start Use after free Check ================== \n");
 					if (user_tmp->size > 0)
 						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 						{
-
 							// debug_gimple_stmt(u_stmt);
+							// debug_tree(user_tmp->aptr);
 
 							for (int i = 0; i < free_array.size(); i++)
 							{
@@ -3149,7 +3239,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				{
 					find_mallocstmt = PTABLE_IS_NULL;
 				}
-				//you are Reserved word function so always check
+				// you are Reserved word function so always check
 				if (table_temp->swap_type == FUNCITON_THREAD)
 				{
 					if (is_pthread_detched == 0)
@@ -3345,8 +3435,8 @@ void record_fucntion(cgraph_node *node)
 		push_cfun(node->get_fun());
 		// if (strcmp(get_name(cfun->decl), "main") == 0)
 		// debug_tree(cfun->decl);
-		//tree test=DECL_SAVED_TREE(cfun->decl);
-		//analyze_func_body(DECL_SAVED_TREE(test), 0);
+		// tree test=DECL_SAVED_TREE(cfun->decl);
+		// analyze_func_body(DECL_SAVED_TREE(test), 0);
 		if (cfun == NULL)
 		{
 			pop_cfun();
@@ -3357,13 +3447,13 @@ void record_fucntion(cgraph_node *node)
 
 		// fprintf(stderr, "fucntion collect \n");
 		function_path_array fun_array;
-		//tree get_function_return_tree = gimple_return_retval(as_a<greturn *>(gc));
+		// tree get_function_return_tree = gimple_return_retval(as_a<greturn *>(gc));
 		vector<function_path> function_path_array;
 		fun_array.function_path_array = function_path_array;
 
 		for (e = node->callees; e; e = e->next_callee)
 		{
-			//funct_state l;
+			// funct_state l;
 			cgraph_node *caller = e->caller->global.inlined_to ? e->caller->global.inlined_to : e->caller;
 			cgraph_node *callee = e->callee->ultimate_alias_target(&avail, caller);
 
@@ -3390,11 +3480,11 @@ void record_fucntion(cgraph_node *node)
 					fun_array.function_path_array.push_back(path_type);
 				}
 
-				//pop_cfun();
+				// pop_cfun();
 				//		dump_fucntion(callee);
 			}
 
-			//analyze_function=	analyze_function (caller ,true);
+			// analyze_function=	analyze_function (caller ,true);
 		}
 		//  DECL_STRUCT_FUNCTION (cfun->decl);
 		// debug_tree(node->get_fun()->decl);
@@ -3449,7 +3539,7 @@ void set_PathConstraintarray(basic_block bb, int flag)
 {
 	if (syminfo->get(bb) != NULL)
 	{
-		//push_self if bb
+		// push_self if bb
 		struct symbolicinfo *symbolicinfotmp = syminfo->get(bb);
 		//    symbolicinfotmp->symbolicExecutionPathConstraintarray.clear();
 		//    symbolicinfotmp->symbolicExecutionPathConstraintarray2.clear();
@@ -3514,7 +3604,7 @@ void set_PathConstraintarray(basic_block bb, int flag)
 			// fprintf(stderr, "succs:= %d\n", symbolicinfotmp->symbolicExecutionPathConstraint[o]->index);
 			// debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
 			// debug_gimple_stmt(syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraint[o])->cond_stmt);
-			//syminfo->get(syminfo->get(bb)->symbolicExecutionPathConstraint[o])->prevlogic
+			// syminfo->get(syminfo->get(bb)->symbolicExecutionPathConstraint[o])->prevlogic
 			// fprintf(stderr, " relate logic:= %d\n", syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraint[o])->prevlogic);
 			int find = 0;
 			// symbolicinfotmp->symbolicExecutionPathConstraintarray=NULL;
@@ -3550,9 +3640,9 @@ void set_PathConstraintarray(basic_block bb, int flag)
 			}
 			if (find == 0)
 			{
-	// fprintf(stderr, "succs:= %d\n", bb->index);
-		// fprintf(stderr,"2index %d\n",symbolicinfotmp->symbolicExecutionPathConstraintarray.size());
-			//push_self prev bb index
+				// fprintf(stderr, "succs:= %d\n", bb->index);
+				// fprintf(stderr,"2index %d\n",symbolicinfotmp->symbolicExecutionPathConstraintarray.size());
+				// push_self prev bb index
 				test.bb = symbolicinfotmp->symbolicExecutionPathConstraint[o];
 
 				test.boolt = syminfo->get(symbolicinfotmp->symbolicExecutionPathConstraint[o])->prevlogic;
@@ -3807,7 +3897,7 @@ void detect()
 	// fDFS = new hash_map<cgraph_node *, Graph>;
 	// fnode = new hash_map<tree, cgraph_node *>;
 	fprintf(stderr, "=======ipa_pta=========\n");
-	//ompfucntio();
+	// ompfucntio();
 	/*initialization table*/
 	init_table();
 	// omp_set_num_threads(4);
@@ -3821,7 +3911,7 @@ void detect()
 	stime = ru.ru_stime;
 
 	// fprintf(stderr,"%d\n",*tmp);
-	//cout << "----------------------------------------" <<tmp<<endl;
+	// cout << "----------------------------------------" <<tmp<<endl;
 	// debug_tree(gimple_call_fndecl(node->decl));
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
@@ -3907,8 +3997,8 @@ void detect()
 		// fprintf(stderr, "=======node_fun:%d=========\n", argct);
 		// if (strcmp(get_name(cfun->decl), "main") == 0)
 
-		//tree test=DECL_SAVED_TREE(cfun->decl);
-		//analyze_func_body(DECL_SAVED_TREE(test), 0);
+		// tree test=DECL_SAVED_TREE(cfun->decl);
+		// analyze_func_body(DECL_SAVED_TREE(test), 0);
 		if (cfun == NULL)
 		{
 			pop_cfun();
@@ -4070,7 +4160,7 @@ void detect()
 							edge e;
 							edge_iterator ei;
 							// fprintf(stderr, "node:= %d \n", bb->index);
-							//BLOCK_SUPERCONTEXT(gimple_block(u_stmt)
+							// BLOCK_SUPERCONTEXT(gimple_block(u_stmt)
 							int init = 0;
 							FOR_EACH_EDGE(e, ei, bb->succs)
 							{
@@ -4218,22 +4308,22 @@ void detect()
 
 					collect_function_return(gc, node, bb);
 					//				//struct return_type type_struct ;
-					//get_function_return.return_type_array.push_back(type_struct);
+					// get_function_return.return_type_array.push_back(type_struct);
 
-					//type_struct.stmt = gc;
+					// type_struct.stmt = gc;
 					//	type_struct.return_tree = get_function_return_tree;
-					// if( get_function_return.return_type_array.size() == 0){
-					// 	fprintf(stderr,"hwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwas\n");
-					// }
-					// else{
-					// 	fprintf(stderr,"no\n");
-					// }
-					//function_return_array get_function_return = *(function_return_collect->get(cfun->decl));
+					//  if( get_function_return.return_type_array.size() == 0){
+					//  	fprintf(stderr,"hwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwas\n");
+					//  }
+					//  else{
+					//  	fprintf(stderr,"no\n");
+					//  }
+					// function_return_array get_function_return = *(function_return_collect->get(cfun->decl));
 
 					//	get_function_return->return_type_array.push_back(type_struct);
 					//
-					//function_return_collect->put(cfun->decl,*get_function_return);
-					//get_function_return->return_type_array->stmt=gc;
+					// function_return_collect->put(cfun->decl,*get_function_return);
+					// get_function_return->return_type_array->stmt=gc;
 				}
 				// fprintf(stderr, "hwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwas\n");
 				// debug_gimple_stmt(gc);
@@ -4305,7 +4395,7 @@ void detect()
 	}
 	clock_gettime(CLOCK_MONOTONIC, &end);
 	// end = clock();
-	//printf("time: %f s\n", ((double)(end - start)) / CLOCKS_PER_SEC / N); 	// fprintf(stderr,"time: %f s\n",((double)(end - start)) / CLOCKS_PER_SEC / N);
+	// printf("time: %f s\n", ((double)(end - start)) / CLOCKS_PER_SEC / N); 	// fprintf(stderr,"time: %f s\n",((double)(end - start)) / CLOCKS_PER_SEC / N);
 	struct timespec temp = diff(start, end);
 	double time_used;
 	time_used = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
@@ -4328,7 +4418,7 @@ void insert_always_inline()
 	cgraph_node *node;
 	const char *name;
 	bool always_inline;
-	//fprintf(stderr,"=======inline=========\n");
+	// fprintf(stderr,"=======inline=========\n");
 
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
@@ -4338,12 +4428,12 @@ void insert_always_inline()
 		if (!gimple_has_body_p(node->decl))
 			continue;
 		fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
-		//fprintf(stderr,"=======node_fun:%s %d=========\n",get_name(node->decl),node->decl);
-		//fprintf(stderr,"attribute:%s \n",IDENTIFIER_POINTER (node->decl));
+		// fprintf(stderr,"=======node_fun:%s %d=========\n",get_name(node->decl),node->decl);
+		// fprintf(stderr,"attribute:%s \n",IDENTIFIER_POINTER (node->decl));
 
-		//fprintf(stderr,"attribute:%s \n",IDENTIFIER_POINTER (DECL_ASSEMBLER_NAME (node->decl)));
-		//node->debug();
-		//fprintf(stderr,"=======fun:%d=========\n",node->decl);
+		// fprintf(stderr,"attribute:%s \n",IDENTIFIER_POINTER (DECL_ASSEMBLER_NAME (node->decl)));
+		// node->debug();
+		// fprintf(stderr,"=======fun:%d=========\n",node->decl);
 		tree attr;
 		enum availability avail;
 		for (e = node->callees; e; e = e->next_callee)
@@ -4352,36 +4442,36 @@ void insert_always_inline()
 			cgraph_node *caller = e->caller->global.inlined_to ? e->caller->global.inlined_to : e->caller;
 			cgraph_node *callee = e->callee->ultimate_alias_target(&avail, caller);
 			tree callee_tree = callee ? DECL_FUNCTION_SPECIFIC_OPTIMIZATION(callee->decl) : NULL;
-			//DECL_DISREGARD_INLINE_LIMITS (callee->decl)=1;
+			// DECL_DISREGARD_INLINE_LIMITS (callee->decl)=1;
 			if (DECL_ATTRIBUTES(callee->decl) != NULL)
 			{
 				attr = get_attribute_name(DECL_ATTRIBUTES(callee->decl));
-				//debug_tree(attr);
+				// debug_tree(attr);
 			}
 			else
 			{
-				//if(callee->decl)
-				//DECL_ATTRIBUTES (callee->decl) = tree_cons (get_identifier ("always_inline"),
-				//NULL, DECL_ATTRIBUTES (callee->decl));
+				// if(callee->decl)
+				// DECL_ATTRIBUTES (callee->decl) = tree_cons (get_identifier ("always_inline"),
+				// NULL, DECL_ATTRIBUTES (callee->decl));
 			}
 			always_inline = (DECL_DISREGARD_INLINE_LIMITS(callee->decl) && lookup_attribute("noinline", DECL_ATTRIBUTES(callee->decl)));
-			//fprintf(stderr,"=======%s 's address:%d %d=========\n",get_name(callee->decl),callee->decl,always_inline);
+			// fprintf(stderr,"=======%s 's address:%d %d=========\n",get_name(callee->decl),callee->decl,always_inline);
 		}
 
-		//node->debug();
+		// node->debug();
 		push_cfun(DECL_STRUCT_FUNCTION(node->decl));
 		if (cfun == NULL)
 		{
-			//fprintf(stderr,"=======NULL=========\n");
+			// fprintf(stderr,"=======NULL=========\n");
 		}
 
 		FOR_EACH_BB_FN(bb, cfun)
 		{
-			//debug_bb(bb);
+			// debug_bb(bb);
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
-				//debug_gimple_stmt(gc);
+				// debug_gimple_stmt(gc);
 				if (is_gimple_call(gc))
 				{
 
@@ -4390,7 +4480,7 @@ void insert_always_inline()
 					name = get_name(gimple_call_fn(gc));
 					if (name == NULL)
 						continue;
-					//fprintf(stderr, "functionname %s\n",name);
+					// fprintf(stderr, "functionname %s\n",name);
 					if (!strcmp(name, "free") ||
 						!strcmp(name, "xfree") ||
 						!strcmp(name, "malloc") ||
@@ -4401,15 +4491,15 @@ void insert_always_inline()
 						!strcmp(name, "strdup"))
 					{
 
-						//fprintf(stderr,"=======add_always:%d=========\n",node->decl);
-						//noinline
-						//always_inline
+						// fprintf(stderr,"=======add_always:%d=========\n",node->decl);
+						// noinline
+						// always_inline
 						always_inline = (DECL_DISREGARD_INLINE_LIMITS(node->decl) && lookup_attribute("always_inline", DECL_ATTRIBUTES(node->decl)));
 						if (!always_inline && !MAIN_NAME_P(DECL_NAME(node->decl)))
 						{
 							DECL_ATTRIBUTES(node->decl) = tree_cons(get_identifier("always_inline"), NULL, DECL_ATTRIBUTES(node->decl));
 							DECL_DISREGARD_INLINE_LIMITS(node->decl) = 1;
-							//printf("always_inline\n");
+							// printf("always_inline\n");
 						}
 					}
 				}
