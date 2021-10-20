@@ -4,26 +4,33 @@
 
 
  local analysis of main
-   scanning: p_15 = malloc (10);
-  scanning: _42 = p_15 + 8;
-  scanning: ivtmp.16_41 = (unsigned long) _42;
-  scanning: _44 = (unsigned long) p_15;
-  scanning: _45 = _44 + 168;
-  scanning: _4 = malloc (1);
-  scanning: _43 = (void *) ivtmp.16_39;
-  scanning: MEM[base: _43, offset: 0B] = _4;
+   scanning: p_19 = malloc (10);
+  scanning: _1 = malloc (1);
+  scanning: MEM[(struct st *)p_19 + 48B].f = _1;
     Indirect ref write is not const/pure
-  scanning: ivtmp.16_40 = ivtmp.16_39 + 16;
-  scanning: if (ivtmp.16_40 != _45)
-  scanning: _30 = _44;
-  scanning: _38 = ivtmp.16_40;
-  scanning: _31 = (void *) ivtmp.6_22;
-  scanning: _8 = MEM[base: _31, offset: 0B];
+  scanning: _56 = p_19 + 8;
+  scanning: ivtmp.16_55 = (unsigned long) _56;
+  scanning: _58 = (unsigned long) p_19;
+  scanning: _59 = _58 + 168;
+  scanning: _5 = malloc (1);
+  scanning: _57 = (void *) ivtmp.16_53;
+  scanning: MEM[base: _57, offset: 0B] = _5;
+    Indirect ref write is not const/pure
+  scanning: ivtmp.16_54 = ivtmp.16_53 + 16;
+  scanning: if (ivtmp.16_54 != _59)
+  scanning: _6 = malloc (1);
+  scanning: MEM[(struct st *)p_19 + 32B].f = _6;
+    Indirect ref write is not const/pure
+  scanning: if (test_24(D) != 0)
+  scanning: _51 = _58;
+  scanning: _52 = ivtmp.16_54;
+  scanning: _44 = (void *) ivtmp.6_12;
+  scanning: _10 = MEM[base: _44, offset: 0B];
     Indirect ref read is not const
-  scanning: free (_8);
-  scanning: ivtmp.6_10 = ivtmp.6_22 + 16;
-  scanning: if (ivtmp.6_10 != ivtmp.16_40)
-  scanning: return 0;
+  scanning: free (_10);
+  scanning: ivtmp.6_30 = ivtmp.6_12 + 16;
+  scanning: if (ivtmp.6_30 != ivtmp.16_54)
+  scanning: return _13;
 Function is locally looping.
 Function can locally free.
 main ()
@@ -33,57 +40,77 @@ main ()
   int i;
   int i;
   struct st * p;
-  void * _4;
-  int * _8;
-  unsigned long _30;
-  void * _31;
-  unsigned long _38;
-  struct st * _42;
-  void * _43;
-  unsigned long _44;
-  unsigned long _45;
+  int test;
+  void * _1;
+  void * _5;
+  void * _6;
+  int * _10;
+  int _13;
+  void * _44;
+  unsigned long _51;
+  unsigned long _52;
+  struct st * _56;
+  void * _57;
+  unsigned long _58;
+  unsigned long _59;
 
   <bb 2> [9.10%]:
-  p_15 = malloc (10);
-  _42 = p_15 + 8;
-  ivtmp.16_41 = (unsigned long) _42;
-  _44 = (unsigned long) p_15;
-  _45 = _44 + 168;
+  p_19 = malloc (10);
+  _1 = malloc (1);
+  MEM[(struct st *)p_19 + 48B].f = _1;
+  _56 = p_19 + 8;
+  ivtmp.16_55 = (unsigned long) _56;
+  _58 = (unsigned long) p_19;
+  _59 = _58 + 168;
 
   <bb 3> [90.91%]:
-  # ivtmp.16_39 = PHI <ivtmp.16_40(7), ivtmp.16_41(2)>
-  _4 = malloc (1);
-  _43 = (void *) ivtmp.16_39;
-  MEM[base: _43, offset: 0B] = _4;
-  ivtmp.16_40 = ivtmp.16_39 + 16;
-  if (ivtmp.16_40 != _45)
-    goto <bb 7>; [90.91%]
+  # ivtmp.16_53 = PHI <ivtmp.16_54(8), ivtmp.16_55(2)>
+  _5 = malloc (1);
+  _57 = (void *) ivtmp.16_53;
+  MEM[base: _57, offset: 0B] = _5;
+  ivtmp.16_54 = ivtmp.16_53 + 16;
+  if (ivtmp.16_54 != _59)
+    goto <bb 8>; [90.91%]
   else
     goto <bb 4>; [9.09%]
 
-  <bb 7> [82.65%]:
+  <bb 8> [82.65%]:
   goto <bb 3>; [100.00%]
 
-  <bb 4> [8.26%]:
-  _30 = _44;
-  _38 = ivtmp.16_40;
-
-  <bb 5> [90.91%]:
-  # ivtmp.6_22 = PHI <ivtmp.6_10(8), ivtmp.16_41(4)>
-  _31 = (void *) ivtmp.6_22;
-  _8 = MEM[base: _31, offset: 0B];
-  free (_8);
-  ivtmp.6_10 = ivtmp.6_22 + 16;
-  if (ivtmp.6_10 != ivtmp.16_40)
-    goto <bb 8>; [90.91%]
+  <bb 4> [9.09%]:
+  _6 = malloc (1);
+  MEM[(struct st *)p_19 + 32B].f = _6;
+  if (test_24(D) != 0)
+    goto <bb 9>; [31.00%]
   else
-    goto <bb 6>; [9.09%]
+    goto <bb 5>; [69.00%]
 
-  <bb 8> [82.65%]:
-  goto <bb 5>; [100.00%]
+  <bb 9> [2.82%]:
+  goto <bb 7>; [100.00%]
 
-  <bb 6> [9.09%]:
-  return 0;
+  <bb 5> [6.27%]:
+  _51 = _58;
+  _52 = ivtmp.16_54;
+
+  <bb 6> [62.73%]:
+  # ivtmp.6_12 = PHI <ivtmp.6_30(10), ivtmp.16_55(5)>
+  _44 = (void *) ivtmp.6_12;
+  _10 = MEM[base: _44, offset: 0B];
+  free (_10);
+  ivtmp.6_30 = ivtmp.6_12 + 16;
+  if (ivtmp.6_30 != ivtmp.16_54)
+    goto <bb 10>; [90.91%]
+  else
+    goto <bb 11>; [9.09%]
+
+  <bb 10> [57.03%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 11> [5.70%]:
+
+  <bb 7> [9.09%]:
+  # _13 = PHI <200(9), test_24(D)(11)>
+  return _13;
 
 }
 

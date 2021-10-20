@@ -1,4 +1,6 @@
 90 pta "Symbol to SSA rewrite" "(nofn)" 1
 120 ch "Incremental SSA update" "main" 1
+124 dom "Constants propagated" "main" 1
 184 dom "Copies propagated" "main" 3
 184 dom "Redundant expressions eliminated" "main" 4
+266 combine "three-insn combine" "main" 1

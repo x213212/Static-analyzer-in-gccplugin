@@ -513,7 +513,7 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 				{
 					if (TREE_CODE(second2) == FIELD_DECL)
 					{
-						fprintf(stderr, "mappinggggggggggggFIELD_DECLggggggggggggggggggg-------\n");
+						// fprintf(stderr, "mappinggggggggggggFIELD_DECLggggggggggggggggggg-------\n");
 						function_assign_array assign_array;
 						vector<assign_type> assign_type_array;
 
@@ -525,7 +525,7 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 							{
 
 								// debug(use_stmt);
-								fprintf(stderr, "=======fist hit========\n");
+								// fprintf(stderr, "=======fist hit========\n");
 								// assign_array = ret_function_varstmt(getFunctionAssignVAR);
 								// fprintf(stderr, "=======print_function_var test %d========\n", assign_array.pass);
 								// fprintf(stderr, "=======print_function_var %d   %d========\n", getFunctionAssignVAR, assign_array.assign_type_array.size());
@@ -616,7 +616,7 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 				{
 					if (TREE_CODE(second2) == FIELD_DECL)
 					{
-						fprintf(stderr, "mappinggggggggggggFIELD_DECLggggggggggggggggggg-------\n");
+						// fprintf(stderr, "mappinggggggggggggFIELD_DECLggggggggggggggggggg-------\n");
 						function_assign_array assign_array;
 						vector<assign_type> assign_type_array;
 
@@ -628,7 +628,7 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 							{
 
 								// debug(use_stmt);
-								fprintf(stderr, "=======fist hit========\n");
+								// fprintf(stderr, "=======fist hit========\n");
 								// assign_array = ret_function_varstmt(getFunctionAssignVAR);
 								// fprintf(stderr, "=======print_function_var test %d========\n", assign_array.pass);
 								// fprintf(stderr, "=======print_function_var %d   %d========\n", getFunctionAssignVAR, assign_array.assign_type_array.size());
@@ -1464,9 +1464,9 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 							if (TREE_CODE(gimple_assign_rhs1(use_stmt)) == SSA_NAME)
 							{
 
-								fprintf(stderr, "--------GIMPLE goto -------\n");
+								// fprintf(stderr, "--------GIMPLE goto -------\n");
 
-								debug_gimple_stmt(use_stmt);
+								// debug_gimple_stmt(use_stmt);
 								if (!check_stmtStack(gimple_assign_rhs1(use_stmt)))
 								{
 
@@ -2493,7 +2493,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				user_tmp = treeGimpleArray->get(table_temp->target);
 				// debug_tree(table_temp->target);
 				// fprintf(stderr, "\n====================================ffff=================================\n");
-
+				vector<basic_block> earlyend;
 				start.stmt = NULL;
 				used_stmt = &start;
 				if (user_tmp != NULL)
@@ -2531,32 +2531,99 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								function_return_array callerFunArray = *(function_return_collect->get(function_tree));
 
 								vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
+
 								for (int k = 0; k < callerRetTypearray.size(); k++)
 								{
-									if (dominated_by_p(CDI_DOMINATORS, gimple_bb((callerRetTypearray)[k].stmt), gimple_bb(u_stmt)))
+
+									// fprintf(stderr ,"\ntest %d\n" , gimple_bb(u_stmt)->index);
+									// fprintf(stderr, "\ntest %d\n", callerRetTypearray.size());
+									// debug_gimple_stmt(u_stmt);
+								
+									// debug(findedge);
+									basic_block bb;
+									FOR_EACH_BB_FN(bb, table_temp->node->get_fun())
 									{
-										fprintf(stderr, "\n======================================================================\n");
-										// fprintf(stderr, "	no free stmt possible memory leak\n");
-										fprintf(stderr, "\033[40;31m    branch possiable have return  \033[0m\n");
-										fprintf(stderr, "\n======================================================================\n");
-										debug_tree((callerRetTypearray)[k].return_tree);
-										debug_gimple_stmt(u_stmt);
-										debug_gimple_stmt((callerRetTypearray)[k].stmt);
-										warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-										check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
+										
+											// fprintf(stderr, "\033[40;31m    branch possiable have return %d  \033[0m\n", findedge->dest->index);
+											edge e;
+											edge_iterator ei;
+											FOR_EACH_EDGE(e, ei, bb->succs)
+											{
+												
+												// DFS.addEdge(bb->index, e->dest->index);
+
+												// debug_tree(test);
+												// if(int(bb->succs->index) == int(findedge->dest->index)
+												if (e->dest->index ==  gimple_bb((callerRetTypearray)[k].stmt)->index)
+												{
+													// fprintf(stderr, "bb index:= %d\n", bb->index);
+													// fprintf(stderr, " succs:= %d\n", e->dest->index);
+															// fprintf(stderr, " succs2:= %d\n", e2->dest->index);
+													edge e2;
+													edge_iterator ei2;
+													FOR_EACH_EDGE(e2, ei2, bb->succs)
+													{
+														// fprintf(stderr, "bb index:= %d\n", bb->index);
+														
+														// if( e->dest->index != e2->dest->index ){
+															// debug_gimple_stmt(u_stmt);
+														// 	fprintf(stderr, " succs2:= %d\n", bb->index);
+														// fprintf(stderr, " succs3:= %d\n", gimple_bb((callerRetTypearray)[k].stmt)->index);
+														// fprintf(stderr, " succs4:= %d\n", e2->dest->index);
+														// }
+														// edge findedge = find_edge( e2->dest ,gimple_bb((callerRetTypearray)[k].stmt));
+														// debug(findedge);
+														// if(findedge)
+														// if(e->dest->index  <  e2->dest->index)
+														if(gimple_bb(u_stmt)->index == e2->dest->index ){
+														// if (dominated_by_p(CDI_DOMINATORS,gimple_bb(u_stmt), e2->dest))
+														// {
+															// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+															fprintf(stderr, "\n======================================================================\n");
+															// fprintf(stderr, "	no free stmt possible memory leak\n");
+															fprintf(stderr, "\033[40;31m    branch possiable have return  \033[0m\n");
+															
+															fprintf(stderr, "in succs := %d\n", e2->dest->index);
+															// debug_tree((callerRetTypearray)[k].return_tree);
+															// debug_gimple_stmt(u_stmt);
+															// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+															// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+															// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
+															fprintf(stderr, "\n======================================================================\n");
+														// }
+														}
+													}
+												}
+											}
+										
 									}
+									// if (dominated_by_p(CDI_DOMINATORS, gimple_bb((callerRetTypearray)[k].stmt), gimple_bb(u_stmt)))
+									// {
+									// 	// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+									// 	fprintf(stderr, "\n======================================================================\n");
+									// 	// fprintf(stderr, "	no free stmt possible memory leak\n");
+									// 	fprintf(stderr, "\033[40;31m    branch possiable have return  \033[0m\n");
+
+									// 	// debug_tree((callerRetTypearray)[k].return_tree);
+									// 	// debug_gimple_stmt(u_stmt);
+									// 	// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+									// 	// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+									// 	// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
+									// 	fprintf(stderr, "\n======================================================================\n");
+									// }
 								}
 							}
 							if (bb_in_loop_p(gimple_bb(u_stmt)))
 							{
-								debug_gimple_stmt(u_stmt);
-								warning_at(gimple_location_safe(u_stmt), 0, "use location");
+								// debug_gimple_stmt(u_stmt);
+								// warning_at(gimple_location_safe(u_stmt), 0, "use location");
 								fprintf(stderr, "\n======================================================================\n");
 								// fprintf(stderr, "	no free stmt possible memory leak\n");
 								fprintf(stderr, "\033[40;31m    collect Stmt in loop \033[0m\n");
 								fprintf(stderr, "\n======================================================================\n");
 								// fprintf(stderr, "=======is loop:%d=========\n", bb_in_loop_p(gimple_bb(def_stmt)));
 							}
+							
 							// fprintf(stderr, "\n============test==========================================================\n");
 							// debug_gimple_stmt(u_stmt);
 							// check_bbinfo2(gimple_bb(u_stmt));
@@ -3845,6 +3912,7 @@ void check_bbinfo(basic_block bb)
 	// fprintf(stderr, " relate logic:= %d\n", syminfo->get(bb)->prevlogic);
 	// syminfo->get(syminfo->get(bb)->prevlogic;
 	// if(symbolicExecution.size())
+	// fprintf(stderr, "prev:= %d\n", bb->index);
 	for (int o = 0; o < symbolicExecution.size(); o++)
 	{
 
@@ -3854,12 +3922,13 @@ void check_bbinfo(basic_block bb)
 
 			if (symbolicinfotmp->cond_truebranch == bb)
 			{
-
+				// fprintf(stderr, "succs:= %d\n", symbolicExecution[o]->index);
 				printf_bbinfo(symbolicExecution[o], 1);
 				// break;
 			}
 			else if (symbolicinfotmp->cond_falsebranch == bb)
 			{
+				// fprintf(stderr, "succs:= %d\n",symbolicExecution[o]->index);
 				printf_bbinfo(symbolicExecution[o], 0);
 			}
 		}

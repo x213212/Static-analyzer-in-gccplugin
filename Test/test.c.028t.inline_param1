@@ -88,20 +88,26 @@ foo (int * z)
 Analyzing function body size: main
 
 Inline summary for main/53 inlinable
-  self time:       49
+  self time:       79
   global time:     0
-  self size:       23
+  self size:       35
   global size:     0
   min size:       0
   self stack:      0
   global stack:    0
-    size:12.000000, time:12.000000, predicate:(true)
+    size:18.000000, time:18.000000, predicate:(true)
     size:3.000000, time:2.000000, predicate:(not inlined)
   calls:
     free/55 function body not available
       loop depth: 1 freq:1000 size: 2 time: 11 callee size: 0 stack: 0
     malloc/54 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+    malloc/54 function body not available
       loop depth: 1 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
+       op0 is compile time invariant
+    malloc/54 function body not available
+      loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
        op0 is compile time invariant
     malloc/54 function body not available
       loop depth: 0 freq:1000 size: 3 time: 12 callee size: 0 stack: 0
@@ -116,62 +122,88 @@ main ()
   int c;
   int b;
   int a;
-  long unsigned int _1;
-  long unsigned int _2;
-  struct st * _3;
-  void * _4;
-  long unsigned int _5;
-  long unsigned int _6;
+  int test;
+  struct st * _1;
+  void * _2;
+  long unsigned int _3;
+  long unsigned int _4;
+  struct st * _5;
+  void * _6;
   struct st * _7;
-  int * _8;
-  int _22;
+  void * _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  struct st * _11;
+  int * _12;
+  int _15;
+  int _33;
+  int _36;
 
   <bb 2> [0.00%]:
-  a_13 = 10;
-  b_14 = 22;
-  c_15 = 22;
-  d_16 = 22;
-  p_19 = malloc (10);
-  i_20 = 0;
+  a_19 = 10;
+  b_20 = 22;
+  c_21 = 22;
+  d_22 = 22;
+  p_25 = malloc (10);
+  _1 = p_25 + 48;
+  _2 = malloc (1);
+  _1->f = _2;
+  i_28 = 0;
   goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
-  _1 = (long unsigned int) i_9;
-  _2 = _1 * 16;
-  _3 = p_19 + _2;
-  _4 = malloc (1);
-  _3->f = _4;
-  i_27 = i_9 + 1;
+  _3 = (long unsigned int) i_13;
+  _4 = _3 * 16;
+  _5 = p_25 + _4;
+  _6 = malloc (1);
+  _5->f = _6;
+  i_39 = i_13 + 1;
 
   <bb 4> [0.00%]:
-  # i_9 = PHI <i_20(2), i_27(3)>
-  if (i_9 <= 9)
+  # i_13 = PHI <i_28(2), i_39(3)>
+  if (i_13 <= 9)
     goto <bb 3>; [0.00%]
   else
     goto <bb 5>; [0.00%]
 
   <bb 5> [0.00%]:
-  i_21 = 0;
-  goto <bb 7>; [0.00%]
-
-  <bb 6> [0.00%]:
-  _5 = (long unsigned int) i_10;
-  _6 = _5 * 16;
-  _7 = p_19 + _6;
-  _8 = _7->f;
-  free (_8);
-  i_24 = i_10 + 1;
-
-  <bb 7> [0.00%]:
-  # i_10 = PHI <i_21(5), i_24(6)>
-  if (i_10 <= 9)
+  _7 = p_25 + 32;
+  _8 = malloc (1);
+  _7->f = _8;
+  if (test_31(D) != 0)
     goto <bb 6>; [0.00%]
   else
-    goto <bb 8>; [0.00%]
+    goto <bb 7>; [0.00%]
+
+  <bb 6> [0.00%]:
+  _36 = 200;
+  goto <bb 11>; [0.00%]
+
+  <bb 7> [0.00%]:
+  i_32 = 0;
+  goto <bb 9>; [0.00%]
 
   <bb 8> [0.00%]:
-  _22 = 0;
-  return _22;
+  _9 = (long unsigned int) i_14;
+  _10 = _9 * 16;
+  _11 = p_25 + _10;
+  _12 = _11->f;
+  free (_12);
+  i_35 = i_14 + 1;
+
+  <bb 9> [0.00%]:
+  # i_14 = PHI <i_32(7), i_35(8)>
+  if (i_14 <= 9)
+    goto <bb 8>; [0.00%]
+  else
+    goto <bb 10>; [0.00%]
+
+  <bb 10> [0.00%]:
+  _33 = 0;
+
+  <bb 11> [0.00%]:
+  # _15 = PHI <_36(6), _33(10)>
+  return _15;
 
 }
 

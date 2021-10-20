@@ -59,20 +59,22 @@ int main()
 	// free(q);
 	// free(p.f); // double-free
 	struct st *p = malloc(10);
+		p[3].f = malloc(1);
 	for (int i = 0; i < 10; i++)
 		p[i].f = malloc(1);
-	// p[2].f = malloc(1);
+	p[2].f = malloc(1);
 	// use p[i].f
-	// if (test)
-	// 	return 100;
+
+	if (test)
+		return 200;
 
 	for (int i = 0; i < 10; i++)
 		free(p[i].f);
 
+	// test2:
+	// return 200;
 
-
-
-	return 0;
+	// return 0;
 	// return 0;
 
 	// int *p = malloc(100);

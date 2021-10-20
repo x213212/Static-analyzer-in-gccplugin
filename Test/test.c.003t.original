@@ -776,6 +776,7 @@
     int c = 22;
     int d = 22;
     struct st * p = (struct st *) malloc (10);
+  (p + 48)->f = (int *) malloc (1);
   {
     int i = 0;
 
@@ -788,6 +789,11 @@
     if (i <= 9) goto <D.4337>; else goto <D.4339>;
     <D.4339>:;
   }
+  (p + 32)->f = (int *) malloc (1);
+  if (test != 0)
+    {
+      return 200;
+    }
   {
     int i = 0;
 
@@ -800,7 +806,6 @@
     if (i <= 9) goto <D.4341>; else goto <D.4343>;
     <D.4343>:;
   }
-  return 0;
   return 0;
 }
 return 0;

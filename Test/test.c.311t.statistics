@@ -3,8 +3,8 @@
 38 ccp "Statements deleted" "foo3" 1
 55 release_ssa "SSA names released" "foo3" 1
 55 release_ssa "SSA name holes removed" "foo3" 1
-38 ccp "Statements deleted" "main" 7
-38 ccp "Constants propagated" "main" 3
+38 ccp "Statements deleted" "main" 8
+38 ccp "Constants propagated" "main" 4
 55 release_ssa "unused VAR_DECLs removed" "main" 4
-55 release_ssa "SSA names released" "main" 7
-55 release_ssa "SSA name holes removed" "main" 7
+55 release_ssa "SSA names released" "main" 10
+55 release_ssa "SSA name holes removed" "main" 10

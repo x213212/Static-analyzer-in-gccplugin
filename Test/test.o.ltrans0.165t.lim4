@@ -8,31 +8,37 @@ main ()
   int i;
   int i;
   struct st * p;
-  void * _4;
-  int * _8;
-  struct st * _9;
-  unsigned long _30;
-  void * _31;
-  unsigned long _38;
-  struct st * _42;
-  void * _43;
-  unsigned long _44;
-  unsigned long _45;
+  int test;
+  void * _1;
+  void * _5;
+  void * _6;
+  int * _10;
+  int _13;
+  void * _44;
+  struct st * _45;
+  unsigned long _51;
+  unsigned long _52;
+  struct st * _56;
+  void * _57;
+  unsigned long _58;
+  unsigned long _59;
 
   <bb 2> [9.10%]:
-  p_15 = malloc (10);
-  _42 = p_15 + 8;
-  ivtmp.16_41 = (unsigned long) _42;
-  _44 = (unsigned long) p_15;
-  _45 = _44 + 168;
+  p_19 = malloc (10);
+  _1 = malloc (1);
+  MEM[(struct st *)p_19 + 48B].f = _1;
+  _56 = p_19 + 8;
+  ivtmp.16_55 = (unsigned long) _56;
+  _58 = (unsigned long) p_19;
+  _59 = _58 + 168;
 
   <bb 3> [90.91%]:
-  # ivtmp.16_39 = PHI <ivtmp.16_40(4), ivtmp.16_41(2)>
-  _4 = malloc (1);
-  _43 = (void *) ivtmp.16_39;
-  MEM[base: _43, offset: 0B] = _4;
-  ivtmp.16_40 = ivtmp.16_39 + 16;
-  if (ivtmp.16_40 != _45)
+  # ivtmp.16_53 = PHI <ivtmp.16_54(4), ivtmp.16_55(2)>
+  _5 = malloc (1);
+  _57 = (void *) ivtmp.16_53;
+  MEM[base: _57, offset: 0B] = _5;
+  ivtmp.16_54 = ivtmp.16_53 + 16;
+  if (ivtmp.16_54 != _59)
     goto <bb 4>; [90.91%]
   else
     goto <bb 5>; [9.09%]
@@ -40,28 +46,37 @@ main ()
   <bb 4> [82.65%]:
   goto <bb 3>; [100.00%]
 
-  <bb 5> [8.26%]:
-  _9 = p_15 + 8;
-  ivtmp.6_21 = (unsigned long) _9;
-  _30 = (unsigned long) p_15;
-  _38 = _30 + 168;
-
-  <bb 6> [90.91%]:
-  # ivtmp.6_22 = PHI <ivtmp.6_10(7), ivtmp.6_21(5)>
-  _31 = (void *) ivtmp.6_22;
-  _8 = MEM[base: _31, offset: 0B];
-  free (_8);
-  ivtmp.6_10 = ivtmp.6_22 + 16;
-  if (ivtmp.6_10 != _38)
-    goto <bb 7>; [90.91%]
+  <bb 5> [9.09%]:
+  _6 = malloc (1);
+  MEM[(struct st *)p_19 + 32B].f = _6;
+  if (test_24(D) != 0)
+    goto <bb 9>; [31.00%]
   else
-    goto <bb 8>; [9.09%]
+    goto <bb 6>; [69.00%]
 
-  <bb 7> [82.65%]:
-  goto <bb 6>; [100.00%]
+  <bb 6> [6.27%]:
+  _45 = p_19 + 8;
+  ivtmp.6_11 = (unsigned long) _45;
+  _51 = (unsigned long) p_19;
+  _52 = _51 + 168;
 
-  <bb 8> [9.09%]:
-  return 0;
+  <bb 7> [62.73%]:
+  # ivtmp.6_12 = PHI <ivtmp.6_30(8), ivtmp.6_11(6)>
+  _44 = (void *) ivtmp.6_12;
+  _10 = MEM[base: _44, offset: 0B];
+  free (_10);
+  ivtmp.6_30 = ivtmp.6_12 + 16;
+  if (ivtmp.6_30 != _52)
+    goto <bb 8>; [90.91%]
+  else
+    goto <bb 9>; [9.09%]
+
+  <bb 8> [57.03%]:
+  goto <bb 7>; [100.00%]
+
+  <bb 9> [9.09%]:
+  # _13 = PHI <200(5), 0(7)>
+  return _13;
 
 }
 
