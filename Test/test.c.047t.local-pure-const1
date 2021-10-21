@@ -64,7 +64,7 @@ foo (int * z)
 
 
  local analysis of main
-   scanning: p_25 = malloc (10);
+   scanning: p_25 = malloc (0);
   scanning: _2 = malloc (1);
   scanning: MEM[(struct st *)p_25 + 48B].f = _2;
     Indirect ref to local memory is OK
@@ -114,7 +114,7 @@ main ()
   int _15;
 
   <bb 2> [9.09%]:
-  p_25 = malloc (10);
+  p_25 = malloc (0);
   _2 = malloc (1);
   MEM[(struct st *)p_25 + 48B].f = _2;
   goto <bb 4>; [100.00%]

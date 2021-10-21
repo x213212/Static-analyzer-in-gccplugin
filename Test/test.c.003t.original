@@ -760,7 +760,7 @@
   int b = 22;
   int c = 22;
   int d = 22;
-  struct st * p = (struct st *) malloc (10);
+  struct st * p = (struct st *) malloc (0);
 
     int * p2;
     int * p3;
@@ -775,7 +775,7 @@
     int b = 22;
     int c = 22;
     int d = 22;
-    struct st * p = (struct st *) malloc (10);
+    struct st * p = (struct st *) malloc (0);
   (p + 48)->f = (int *) malloc (1);
   {
     int i = 0;

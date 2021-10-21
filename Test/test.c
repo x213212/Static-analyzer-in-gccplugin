@@ -58,8 +58,8 @@ int main()
 	// // use q
 	// free(q);
 	// free(p.f); // double-free
-	struct st *p = malloc(10);
-		p[3].f = malloc(1);
+	struct st *p = malloc(0);
+	p[3].f = malloc(1);
 	for (int i = 0; i < 10; i++)
 		p[i].f = malloc(1);
 	p[2].f = malloc(1);

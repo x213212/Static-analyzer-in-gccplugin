@@ -39,6 +39,11 @@ struct symbolicinfoPatharray
 	basic_block bb;
 	int boolt = 1;
 };
+
+struct breakpoint{
+	string name;
+	int line;
+};
 struct symbolicinfo
 {
 	gimple *cond_stmt;
@@ -318,6 +323,8 @@ vector<tree> traceStack;
 vector<tree> pathStack;
 vector<basic_block> symbolicExecution;
 vector<basic_block> symbolicExecutionswitch;
+vector<breakpoint> vbreakpoint;
+
 
 // CStack pathStack;
 // CStack traceStack;

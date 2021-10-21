@@ -45,7 +45,7 @@ main ()
   int _13;
 
   <bb 2> [9.10%]:
-  p_19 = malloc (10);
+  p_19 = malloc (0);
   _1 = malloc (1);
   MEM[(struct st *)p_19 + 48B].f = _1;
 

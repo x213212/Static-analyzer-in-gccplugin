@@ -18,6 +18,9 @@
         "algorithm": "c",
         "unordered_map": "c",
         "list": "c",
-        "system_error": "c"
+        "system_error": "c",
+        "iosfwd": "c",
+        "fstream": "c",
+        "typeinfo": "c"
     }
 }

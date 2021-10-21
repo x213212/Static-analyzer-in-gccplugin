@@ -11,14 +11,26 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 			return;
 
 	// location_t loc;
-	// loc = gimple_location(gc);
+	loc = gimple_location(gc);
 	// if( LOCATION_LINE(loc) != 561)
 	// 	fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
 	// else
 	// return ;
 	// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
 	// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-
+	int find = 0;
+	for (int i = 0; i < vbreakpoint.size(); i++)
+	{
+		size_t found = vbreakpoint[i].name.find(LOCATION_FILE(loc));
+		if (found)
+			if (vbreakpoint[i].line == LOCATION_LINE(loc))
+			{
+				fprintf(stderr, "set breakpoint %s %d\n", vbreakpoint[i].name.c_str(), vbreakpoint[i].line);
+				find = 1;
+			}
+	}
+	if (find == 0)
+		return;
 	if (is_gimple_call(gc))
 	{
 		name = get_name(gimple_call_fn(gc));
@@ -1307,7 +1319,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				{
 					if (TREE_CODE(second2) == FIELD_DECL)
 					{
-						fprintf(stderr, "mappinggggggggggggFIELD_DECLggggggggggggggggggg-------\n");
+						// fprintf(stderr, "mappinggggggggggggFIELD_DECLggggggggggggggggggg-------\n");
 						function_assign_array assign_array;
 						vector<assign_type> assign_type_array;
 
@@ -1324,7 +1336,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 							assign_array = *(function_assign_collect->get(second2));
 							assign_type_array = assign_array.assign_type_array;
 						}
-						fprintf(stderr, "mappinggggggggggggggggggggggggggggggg-------\n");
+						// fprintf(stderr, "mappinggggggggggggggggggggggggggggggg-------\n");
 						struct assign_type assign_type;
 
 						assign_type.stmt = gc;
@@ -1473,7 +1485,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			{
 				if (TREE_CODE(second2) == FIELD_DECL)
 				{
-					fprintf(stderr, "mappinggggggggggggFIELD_DECL2ggggggggggggggggggg-------\n");
+					// fprintf(stderr, "mappinggggggggggggFIELD_DECL2ggggggggggggggggggg-------\n");
 					function_assign_array assign_array;
 					vector<assign_type> assign_type_array;
 

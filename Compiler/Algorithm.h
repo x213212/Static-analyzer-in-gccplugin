@@ -2395,7 +2395,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// continue;
 				// debug_tree(table_temp->target);
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
-				debug_tree(table_temp->target);
+				// debug_tree(table_temp->target);
 
 				if (def_stmt)
 					if (TREE_CODE(table_temp->target) != VAR_DECL)
@@ -2538,64 +2538,66 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									// fprintf(stderr ,"\ntest %d\n" , gimple_bb(u_stmt)->index);
 									// fprintf(stderr, "\ntest %d\n", callerRetTypearray.size());
 									// debug_gimple_stmt(u_stmt);
-								
+
 									// debug(findedge);
 									basic_block bb;
 									FOR_EACH_BB_FN(bb, table_temp->node->get_fun())
 									{
-										
-											// fprintf(stderr, "\033[40;31m    branch possiable have return %d  \033[0m\n", findedge->dest->index);
-											edge e;
-											edge_iterator ei;
-											FOR_EACH_EDGE(e, ei, bb->succs)
-											{
-												
-												// DFS.addEdge(bb->index, e->dest->index);
 
-												// debug_tree(test);
-												// if(int(bb->succs->index) == int(findedge->dest->index)
-												if (e->dest->index ==  gimple_bb((callerRetTypearray)[k].stmt)->index)
+										// fprintf(stderr, "\033[40;31m    branch possiable have return %d  \033[0m\n", findedge->dest->index);
+										edge e;
+										edge_iterator ei;
+										FOR_EACH_EDGE(e, ei, bb->succs)
+										{
+
+											// DFS.addEdge(bb->index, e->dest->index);
+
+											// debug_tree(test);
+											// if(int(bb->succs->index) == int(findedge->dest->index)
+											if (e->dest->index == gimple_bb((callerRetTypearray)[k].stmt)->index)
+											{
+												// fprintf(stderr, "bb index:= %d\n", bb->index);
+												// fprintf(stderr, " succs:= %d\n", e->dest->index);
+												// fprintf(stderr, " succs2:= %d\n", e2->dest->index);
+												edge e2;
+												edge_iterator ei2;
+												FOR_EACH_EDGE(e2, ei2, bb->succs)
 												{
 													// fprintf(stderr, "bb index:= %d\n", bb->index);
-													// fprintf(stderr, " succs:= %d\n", e->dest->index);
-															// fprintf(stderr, " succs2:= %d\n", e2->dest->index);
-													edge e2;
-													edge_iterator ei2;
-													FOR_EACH_EDGE(e2, ei2, bb->succs)
+
+													// if( e->dest->index != e2->dest->index ){
+
+													// 	fprintf(stderr, " succs2:= %d\n", bb->index);
+													// fprintf(stderr, " succs3:= %d\n", gimple_bb((callerRetTypearray)[k].stmt)->index);
+													// fprintf(stderr, " succs4:= %d\n", e2->dest->index);
+													// }
+													// edge findedge = find_edge( e2->dest ,gimple_bb((callerRetTypearray)[k].stmt));
+													// debug(findedge);
+													// if(findedge)
+													// if(e->dest->index  <  e2->dest->index)
+													if (gimple_bb(u_stmt)->index == e2->dest->index)
 													{
-														// fprintf(stderr, "bb index:= %d\n", bb->index);
-														
-														// if( e->dest->index != e2->dest->index ){
-															// debug_gimple_stmt(u_stmt);
-														// 	fprintf(stderr, " succs2:= %d\n", bb->index);
-														// fprintf(stderr, " succs3:= %d\n", gimple_bb((callerRetTypearray)[k].stmt)->index);
-														// fprintf(stderr, " succs4:= %d\n", e2->dest->index);
-														// }
-														// edge findedge = find_edge( e2->dest ,gimple_bb((callerRetTypearray)[k].stmt));
-														// debug(findedge);
-														// if(findedge)
-														// if(e->dest->index  <  e2->dest->index)
-														if(gimple_bb(u_stmt)->index == e2->dest->index ){
 														// if (dominated_by_p(CDI_DOMINATORS,gimple_bb(u_stmt), e2->dest))
 														// {
-															// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-															fprintf(stderr, "\n======================================================================\n");
-															// fprintf(stderr, "	no free stmt possible memory leak\n");
-															fprintf(stderr, "\033[40;31m    branch possiable have return  \033[0m\n");
-															
-															fprintf(stderr, "in succs := %d\n", e2->dest->index);
-															// debug_tree((callerRetTypearray)[k].return_tree);
-															// debug_gimple_stmt(u_stmt);
-															// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-															// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-															// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
-															fprintf(stderr, "\n======================================================================\n");
+														// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+														fprintf(stderr, "\n======================================================================\n");
+														// fprintf(stderr, "	no free stmt possible memory leak\n");
+														fprintf(stderr, "\033[40;31m    branch possiable have return  \033[0m\n");
+														debug_gimple_stmt(u_stmt);
+														fprintf(stderr, "bb index := %d\n", bb->index);
+														fprintf(stderr, "beacuse in succ := %d have return \n", gimple_bb((callerRetTypearray)[k].stmt)->index);
+														fprintf(stderr, "gimple stmt in succ := %d ,possiable got to succ := %d\n", e2->dest->index, gimple_bb((callerRetTypearray)[k].stmt)->index);
+														// debug_tree((callerRetTypearray)[k].return_tree);
+														// debug_gimple_stmt(u_stmt);
+														// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+														// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+														// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
+														fprintf(stderr, "\n======================================================================\n");
 														// }
-														}
 													}
 												}
 											}
-										
+										}
 									}
 									// if (dominated_by_p(CDI_DOMINATORS, gimple_bb((callerRetTypearray)[k].stmt), gimple_bb(u_stmt)))
 									// {
@@ -2623,7 +2625,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								fprintf(stderr, "\n======================================================================\n");
 								// fprintf(stderr, "=======is loop:%d=========\n", bb_in_loop_p(gimple_bb(def_stmt)));
 							}
-							
+
 							// fprintf(stderr, "\n============test==========================================================\n");
 							// debug_gimple_stmt(u_stmt);
 							// check_bbinfo2(gimple_bb(u_stmt));
@@ -4100,7 +4102,31 @@ void detect()
 	function_free_collect = new hash_map<tree, function_free_array>;
 	function_graph_collect = new hash_map<tree, function_graph_array>;
 	function_relate_collect = new hash_map<tree, function_relate_array>;
-
+	// vector<breakpoint> vbreakpoint;
+	breakpoint getbp;
+	//vscode extension path
+	std::ifstream ifs("/root/.vscode-server/data/User/globalStorage/vscode-samples.helloworld-sample/breakpoint.txt", std::ios::in);
+	fprintf(stderr, "==============breakpoint=========\n");
+	if (!ifs.is_open())
+	{
+		cout << "Failed to open file.\n";
+	}
+	else
+	{
+		std::string name;
+		int score;
+		while (ifs >> name >> score)
+		{
+			getbp.name = name;
+			getbp.line = score ;
+			fprintf(stderr, "%s %d\n", getbp.name.c_str(), getbp.line);
+			// cout << name << " " << score << "\n";
+			vbreakpoint.push_back(getbp);
+			// scores.push_back(score);
+		}
+		ifs.close();
+	}
+	ifs.close();
 	srand((unsigned)time(NULL) + getpid());
 	// fDFS = new hash_map<cgraph_node *, Graph>;
 	// fnode = new hash_map<tree, cgraph_node *>;
@@ -4506,9 +4532,9 @@ void detect()
 
 					/*collect malloc and free information*/
 					collect_function_call(gc, node, bb);
-					debug_gimple_stmt(gc);
-					debug_tree(gimple_assign_lhs(gc));
-					debug_tree(gimple_assign_rhs1(gc));
+					// debug_gimple_stmt(gc);
+					// debug_tree(gimple_assign_lhs(gc));
+					// debug_tree(gimple_assign_rhs1(gc));
 					// warning_at(gimple_location_safe(gc), 0, "use location");
 					// fprintf(stderr, "add collect_function_call\n");
 				}
