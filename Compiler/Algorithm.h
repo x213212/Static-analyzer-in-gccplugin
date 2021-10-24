@@ -1937,7 +1937,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "start PointerConstraint\n");
 	fprintf(stderr, "pointer ftable is %d \n", ftable->size);
 	fprintf(stderr, "pointer ptable is %d \n", ptable->size);
-
+	fprintf(stderr, "===============The second stage : Mapping stmt=================\n");
 	FunctionStmtMappingAssign(ptable, used_stmt);
 
 	ptb *table1 = ptable;
@@ -2183,7 +2183,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	}
 	// FunctionStmtMappingAssign(ptable, used_stmt);
 	FunctionStmtMappingRet(ptable, ftable, used_stmt);
-
+	fprintf(stderr, "===============The second stage : build fucntion type=================\n");
 	fprintf(stderr, "\033[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 	fprintf(stderr, "\033[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 	fprintf(stderr, "    =()=\n");
@@ -2197,7 +2197,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "\033[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 	fprintf(stderr, "\033[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 
-	fprintf(stderr, "=======================================================\n");
+	fprintf(stderr, "===============The second stage : record fucntion =================\n");
 	// printfunctionCollect(ptable, used_stmt);
 	// printfPointerConstraint(ptable, used_stmt);
 	// printfBasicblock();
@@ -2213,13 +2213,16 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	struct timespec temp = diff(astart, aend);
 	double time_used;
 	time_used = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
-
+	fprintf(stderr, "\n=============== The third stage : Start detection  =================\n");
 	dump_fucntion(node, ptable, used_stmt);
-	printfBasicblock();
+	fprintf(stderr, "\n=============== The third stage : detection  End=================\n");
 	clock_gettime(CLOCK_MONOTONIC, &aend);
 	temp = diff(astart, aend);
 	double time_used2;
 	time_used2 = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
+
+	printfBasicblock();
+
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 	fprintf(stderr, "    =()=\n");
 	fprintf(stderr, " ,/'\_||_\n");
@@ -4104,29 +4107,32 @@ void detect()
 	function_relate_collect = new hash_map<tree, function_relate_array>;
 	// vector<breakpoint> vbreakpoint;
 	breakpoint getbp;
-	//vscode extension path
-	std::ifstream ifs("/root/.vscode-server/data/User/globalStorage/vscode-samples.helloworld-sample/breakpoint.txt", std::ios::in);
-	fprintf(stderr, "==============breakpoint=========\n");
-	if (!ifs.is_open())
+	// vscode extension path
+	if (vscode_extensionmod)
 	{
-		cout << "Failed to open file.\n";
-	}
-	else
-	{
-		std::string name;
-		int score;
-		while (ifs >> name >> score)
+		std::ifstream ifs("/root/.vscode-server/data/User/globalStorage/vscode-samples.helloworld-sample/breakpoint.txt", std::ios::in);
+		fprintf(stderr, "==============breakpoint=========\n");
+		if (!ifs.is_open())
 		{
-			getbp.name = name;
-			getbp.line = score ;
-			fprintf(stderr, "%s %d\n", getbp.name.c_str(), getbp.line);
-			// cout << name << " " << score << "\n";
-			vbreakpoint.push_back(getbp);
-			// scores.push_back(score);
+			cout << "Failed to open file.\n";
+		}
+		else
+		{
+			std::string name;
+			int score;
+			while (ifs >> name >> score)
+			{
+				getbp.name = name;
+				getbp.line = score;
+				fprintf(stderr, "%s %d\n", getbp.name.c_str(), getbp.line);
+				// cout << name << " " << score << "\n";
+				vbreakpoint.push_back(getbp);
+				// scores.push_back(score);
+			}
+			ifs.close();
 		}
 		ifs.close();
 	}
-	ifs.close();
 	srand((unsigned)time(NULL) + getpid());
 	// fDFS = new hash_map<cgraph_node *, Graph>;
 	// fnode = new hash_map<tree, cgraph_node *>;
@@ -4147,6 +4153,7 @@ void detect()
 	// fprintf(stderr,"%d\n",*tmp);
 	// cout << "----------------------------------------" <<tmp<<endl;
 	// debug_tree(gimple_call_fndecl(node->decl));
+	fprintf(stderr, "===============The first stage : Point of interest stmt collect=================\n");
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
 		if (!ipa)
@@ -4277,6 +4284,7 @@ void detect()
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
+				
 				// debug_gimple_stmt(gc);
 				// debug_tree(gimple_block_label(gimple_bb(gc)));
 				// fprintf(stderr, " succs:= %d\n", gimple_bb(gc)->index);
@@ -4520,6 +4528,7 @@ void detect()
 				set_bbinfo(gimple_bb(gc));
 				if (is_gimple_call(gc))
 				{
+
 					// fprintf(stderr, "--------------------wwwwwwwwwwwwSSSSSSSSSSSSSSSSSwwwwwwwwwwwwwwwww------------------\n");
 					// 			debug_gimple_stmt(gc);
 					/*collect malloc and free information*/
@@ -4530,6 +4539,13 @@ void detect()
 				if (is_gimple_assign(gc))
 				{
 
+					// if (!check_stmtStack(gimple_call_arg(def_stmt, i)))
+					// {
+					// if (gimple_call_num_args(gc) > 1)
+					// {
+					// 	debug_gimple_stmt(gc);
+					// 	debug_tree(gimple_call_arg(gc, 0));
+					// }
 					/*collect malloc and free information*/
 					collect_function_call(gc, node, bb);
 					// debug_gimple_stmt(gc);
@@ -4615,7 +4631,7 @@ void detect()
 		// print_function_return(cfun->decl);
 		pop_cfun();
 	}
-
+	fprintf(stderr, "===============The first stage : Point of interest stmt collect=================\n");
 	if (ipa)
 	{
 

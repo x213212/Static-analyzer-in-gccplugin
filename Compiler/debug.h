@@ -1,7 +1,7 @@
 int gimplestmt_count;
 void printfBasicblock()
 {
-
+	fprintf(stderr, "\n===============Print ALL GIMPLE IR=================\n");
 	// set_gimple_array(used_stmt, use_stmt, fundecl, fundecl);
 	gimple *u_stmt;
 	gimple_array start;
@@ -51,6 +51,7 @@ void printfBasicblock()
 		}
 		pop_cfun();
 	}
+	fprintf(stderr, "\n===============Print ALL GIMPLE IR=================\n");
 }
 
 void print_function_path(vector<return_type> *path)

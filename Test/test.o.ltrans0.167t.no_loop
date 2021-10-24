@@ -1,41 +1,12 @@
 
-;; Function main (main, funcdef_no=0, decl_uid=3985, cgraph_uid=0, symbol_order=53) (executed once)
+;; Function foo (foo, funcdef_no=0, decl_uid=3986, cgraph_uid=1, symbol_order=52)
 
-main ()
+__attribute__((noinline))
+foo (int * z)
 {
-  int p$flag;
-  int * p$f;
-  int * q;
-  int * D.4003;
-  int * q;
-  struct st p;
-  void * _1;
-  int * _2;
-  int _15;
-
   <bb 2> [100.00%]:
-  _1 = malloc (1);
-  p$f_7 = _1;
-  _15 = p$flag_21(D);
-  if (p$flag_21(D) != 0)
-    goto <bb 3>; [29.56%]
-  else
-    goto <bb 4>; [70.44%]
-
-  <bb 3> [29.56%]:
-  q_16 = malloc (1);
-  goto <bb 5>; [100.00%]
-
-  <bb 4> [70.44%]:
-  q_17 = _1;
-
-  <bb 5> [100.00%]:
-  # q_18 = PHI <q_16(3), _1(4)>
-  free (q_18);
-  _2 = _1;
-  free (_1);
-  p ={v} {CLOBBER};
-  return 0;
+  free (z_2(D));
+  return;
 
 }
 
