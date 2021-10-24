@@ -4,7 +4,7 @@
 foo3 (struct st * p)
 {
   int * q;
-  int * D.4348;
+  int * D.4346;
 
   <bb 2> [0.00%]:
   _1 = p->flag;
@@ -21,8 +21,8 @@ foo3 (struct st * p)
   q = p->f;
 
   <bb 5> [0.00%]:
-  D.4348 = q;
-  return D.4348;
+  D.4346 = q;
+  return D.4346;
 
 }
 
@@ -45,9 +45,7 @@ foo (int * z)
 
 main ()
 {
-  int i;
-  int i;
-  struct st * p;
+  int * p;
   int d;
   int c;
   int b;
@@ -61,70 +59,108 @@ main ()
   int * p4;
   int * p3;
   int * p2;
-  int D.4352;
+  int D.4367;
 
   <bb 2> [0.00%]:
   a = 10;
   b = 22;
   c = 22;
   d = 22;
-  p = malloc (0);
-  _1 = p + 48;
-  _2 = malloc (1);
-  _1->f = _2;
-  i = 0;
-  goto <bb 4>; [0.00%]
+  p = malloc (100);
 
-  <bb 3> [0.00%]:
-  _3 = (long unsigned int) i;
-  _4 = _3 * 16;
-  _5 = p + _4;
-  _6 = malloc (1);
-  _5->f = _6;
-  i = i + 1;
+label2 [0.00%]:
+  foo (p5);
 
-  <bb 4> [0.00%]:
-  if (i <= 9)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
+label3 [0.00%]:
+  foo (p5);
+  _1 = test5 / 10;
+  switch (_1) <default: <L4> [0.00%], case 5: <L2> [0.00%], case 10: <L3> [0.00%]>
 
-  <bb 5> [0.00%]:
-  _7 = p + 32;
-  _8 = malloc (1);
-  _7->f = _8;
-  if (test != 0)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
+<L2> [0.00%]:
+  foo (p5);
+  goto <bb 8>; [0.00%]
 
-  <bb 6> [0.00%]:
-  D.4352 = 200;
-  goto <bb 11>; [0.00%]
+<L3> [0.00%]:
+  foo (p5);
+  goto <bb 8>; [0.00%]
 
-  <bb 7> [0.00%]:
-  i = 0;
-  goto <bb 9>; [0.00%]
+<L4> [0.00%]:
+  foo (p5);
 
   <bb 8> [0.00%]:
-  _9 = (long unsigned int) i;
-  _10 = _9 * 16;
-  _11 = p + _10;
-  _12 = _11->f;
-  free (_12);
-  i = i + 1;
+  if (test != 0)
+    goto <bb 9>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
 
   <bb 9> [0.00%]:
-  if (i <= 9)
-    goto <bb 8>; [0.00%]
-  else
+  if (test > test2)
     goto <bb 10>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
 
   <bb 10> [0.00%]:
-  D.4352 = 0;
+  foo (p);
+  if (test < test2)
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
 
   <bb 11> [0.00%]:
-  return D.4352;
+  foo (p);
+  goto <bb 16>; [0.00%]
+
+  <bb 12> [0.00%]:
+  foo (p);
+  goto <bb 16>; [0.00%]
+
+  <bb 13> [0.00%]:
+  foo (p);
+  if (test < test2)
+    goto <bb 14>; [0.00%]
+  else
+    goto <bb 15>; [0.00%]
+
+  <bb 14> [0.00%]:
+  foo (p3);
+  goto <bb 4> (label3); [0.00%]
+
+  <bb 15> [0.00%]:
+  foo (p5);
+  goto <bb 4> (label3); [0.00%]
+
+  <bb 16> [0.00%]:
+  if (test3 != 0)
+    goto <bb 17>; [0.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 17> [0.00%]:
+  foo (p);
+  goto <bb 3> (label2); [0.00%]
+
+  <bb 18> [0.00%]:
+  if (test == test2)
+    goto <bb 19>; [0.00%]
+  else
+    goto <bb 20>; [0.00%]
+
+  <bb 19> [0.00%]:
+  foo (p);
+  goto <bb 22>; [0.00%]
+
+  <bb 20> [0.00%]:
+  if (test > test2)
+    goto <bb 21>; [0.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 21> [0.00%]:
+  foo (p4);
+
+  <bb 22> [0.00%]:
+  D.4367 = 0;
+  return D.4367;
 
 }
 

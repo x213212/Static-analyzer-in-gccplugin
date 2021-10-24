@@ -685,7 +685,23 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				// else
 				if (gimple_code(gc) == GIMPLE_CALL)
 				{
-
+					if (vscode_extensionmod)
+					{
+						int find = 0;
+						for (int i = 0; i < vbreakpoint.size(); i++)
+						{
+							size_t found = vbreakpoint[i].name.find(LOCATION_FILE(loc));
+							if (found)
+								if (vbreakpoint[i].line == LOCATION_LINE(loc))
+								{
+									debug_gimple_stmt(gc);
+									fprintf(stderr, "set breakpoint %s %d\n", vbreakpoint[i].name.c_str(), vbreakpoint[i].line);
+									find = 1;
+								}
+						}
+						if (find == 0)
+							return;
+					}
 					name = get_name(gimple_call_fn(gc));
 					if (name != NULL)
 					{
@@ -1321,6 +1337,10 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				}
 				if (second2)
 				{
+					
+// fprintf(stderr, "mappinggggggggggggFIELD_DECLggggggggggggggggggg-------\n");
+// 						debug_gimple_stmt(gc);
+// 						debug_tree( gimple_assign_lhs(gc));
 					if (TREE_CODE(second2) == FIELD_DECL)
 					{
 						// fprintf(stderr, "mappinggggggggggggFIELD_DECLggggggggggggggggggg-------\n");
@@ -1344,7 +1364,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 						struct assign_type assign_type;
 
 						assign_type.stmt = gc;
-						assign_type.assign_tree = second2;
+						assign_type.assign_tree = getFunctionAssignRHS;
 						assign_type.form_tree = node->get_fun()->decl;
 						// debug_tree(gimple_assign_lhs(gc));
 						// ret_type.reutnr_type_num = 0;
@@ -1510,7 +1530,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					struct assign_type assign_type;
 
 					assign_type.stmt = gc;
-					assign_type.assign_tree = second2;
+					assign_type.assign_tree = getFunctionAssignLHS;
 					assign_type.form_tree = node->get_fun()->decl;
 					// debug_tree(gimple_assign_lhs(gc));
 					// ret_type.reutnr_type_num = 0;

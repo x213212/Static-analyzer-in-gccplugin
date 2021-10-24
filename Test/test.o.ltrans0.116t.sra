@@ -1,73 +1,129 @@
 
-;; Function main (main, funcdef_no=0, decl_uid=3985, cgraph_uid=0, symbol_order=53) (executed once)
+;; Function foo (foo, funcdef_no=0, decl_uid=3986, cgraph_uid=1, symbol_order=52)
+
+__attribute__((noinline))
+foo (int * z)
+{
+  <bb 2> [100.00%]:
+  free (z_2(D));
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=53) (executed once)
 
 main ()
 {
-  int i;
-  int i;
-  struct st * p;
+  int * p;
+  int test5;
+  int test3;
+  int test2;
   int test;
-  void * _1;
-  long unsigned int _2;
-  long unsigned int _3;
-  struct st * _4;
-  void * _5;
-  void * _6;
-  long unsigned int _7;
-  long unsigned int _8;
-  struct st * _9;
-  int * _10;
-  int _13;
+  int * p5;
+  int * p4;
+  int * p3;
+  int _1;
 
-  <bb 2> [9.10%]:
-  p_19 = malloc (0);
-  _1 = malloc (1);
-  MEM[(struct st *)p_19 + 48B].f = _1;
+  <bb 2> [8.03%]:
+  p_10 = malloc (100);
 
-  <bb 3> [90.91%]:
-  # i_46 = PHI <i_29(3), 0(2)>
-  _2 = (long unsigned int) i_46;
-  _3 = _2 * 16;
-  _4 = p_19 + _3;
-  _5 = malloc (1);
-  _4->f = _5;
-  i_29 = i_46 + 1;
-  if (i_29 <= 9)
-    goto <bb 3>; [90.91%]
+label2 [14.45%]:
+  foo (p5_11(D));
+  goto <bb 24>; [100.00%]
+
+  <bb 23> [85.56%]:
+
+  <bb 24> [100.00%]:
+  foo (p5_11(D));
+  _1 = test5_14(D) / 10;
+  switch (_1) <default: <L4> [33.33%], case 5: <L2> [33.33%], case 10: <L3> [33.33%]>
+
+<L2> [33.33%]:
+  foo (p5_11(D));
+  goto <bb 8>; [100.00%]
+
+<L3> [33.33%]:
+  foo (p5_11(D));
+  goto <bb 8>; [100.00%]
+
+<L4> [33.33%]:
+  foo (p5_11(D));
+
+  <bb 8> [99.99%]:
+  if (test_18(D) != 0)
+    goto <bb 9>; [92.50%]
   else
-    goto <bb 4>; [9.09%]
+    goto <bb 18>; [7.50%]
 
-  <bb 4> [9.09%]:
-  _6 = malloc (1);
-  MEM[(struct st *)p_19 + 32B].f = _6;
-  if (test_24(D) != 0)
-    goto <bb 7>; [31.00%]
+  <bb 9> [92.49%]:
+  if (test_18(D) > test2_19(D))
+    goto <bb 10>; [7.50%]
   else
-    goto <bb 5>; [69.00%]
+    goto <bb 13>; [92.50%]
 
-  <bb 5> [6.28%]:
-  # i_42 = PHI <0(4)>
-  if (i_42 <= 9)
-    goto <bb 6>; [90.91%]
+  <bb 10> [6.94%]:
+  foo (p_10);
+  if (test_18(D) < test2_19(D))
+    goto <bb 11>; [50.00%]
   else
-    goto <bb 7>; [9.09%]
+    goto <bb 12>; [50.00%]
 
-  <bb 6> [62.73%]:
-  # i_47 = PHI <i_26(6), i_42(5)>
-  _7 = (long unsigned int) i_47;
-  _8 = _7 * 16;
-  _9 = p_19 + _8;
-  _10 = _9->f;
-  free (_10);
-  i_26 = i_47 + 1;
-  if (i_26 <= 9)
-    goto <bb 6>; [90.91%]
+  <bb 11> [3.47%]:
+  foo (p_10);
+  goto <bb 16>; [100.00%]
+
+  <bb 12> [3.47%]:
+  foo (p_10);
+  goto <bb 16>; [100.00%]
+
+  <bb 13> [85.55%]:
+  foo (p_10);
+  if (test_18(D) < test2_19(D))
+    goto <bb 14>; [50.00%]
   else
-    goto <bb 7>; [9.09%]
+    goto <bb 15>; [50.00%]
 
-  <bb 7> [9.09%]:
-  # _13 = PHI <200(4), 0(6), 0(5)>
-  return _13;
+  <bb 14> [42.78%]:
+  foo (p3_25(D));
+  goto <bb 23>; [100.00%]
+
+  <bb 15> [42.78%]:
+  foo (p5_11(D));
+  goto <bb 23>; [100.00%]
+
+  <bb 16> [6.94%]:
+  if (test3_30(D) != 0)
+    goto <bb 17>; [92.50%]
+  else
+    goto <bb 22>; [7.50%]
+
+  <bb 17> [6.42%]:
+  foo (p_10);
+  goto <bb 3> (label2); [100.00%]
+
+  <bb 18> [7.50%]:
+  if (test_18(D) == test2_19(D))
+    goto <bb 19>; [17.77%]
+  else
+    goto <bb 20>; [82.23%]
+
+  <bb 19> [1.33%]:
+  foo (p_10);
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [6.17%]:
+  if (test_18(D) > test2_19(D))
+    goto <bb 21>; [36.64%]
+  else
+    goto <bb 22>; [63.36%]
+
+  <bb 21> [2.26%]:
+  foo (p4_20(D));
+
+  <bb 22> [8.02%]:
+  return 0;
 
 }
 

@@ -43,82 +43,117 @@ foo (int * z)
 
 ;; Function main (main, funcdef_no=53, decl_uid=4320, cgraph_uid=53, symbol_order=53)
 
-Removing basic block 6
-Removing basic block 7
-Removing basic block 10
 main ()
 {
-  int i;
-  int i;
-  struct st * p;
+  int * p;
   int d;
   int c;
   int b;
   int a;
+  int test5;
+  int test3;
+  int test2;
   int test;
-  struct st * _1;
-  void * _2;
-  long unsigned int _3;
-  long unsigned int _4;
-  struct st * _5;
-  void * _6;
-  struct st * _7;
-  void * _8;
-  long unsigned int _9;
-  long unsigned int _10;
-  struct st * _11;
-  int * _12;
-  int _15;
+  int * p5;
+  int * p4;
+  int * p3;
+  int _1;
 
   <bb 2> [0.00%]:
-  p_25 = malloc (0);
-  _1 = p_25 + 48;
-  _2 = malloc (1);
-  _1->f = _2;
-  goto <bb 4>; [0.00%]
+  p_13 = malloc (100);
 
-  <bb 3> [0.00%]:
-  _3 = (long unsigned int) i_13;
-  _4 = _3 * 16;
-  _5 = p_25 + _4;
-  _6 = malloc (1);
-  _5->f = _6;
-  i_39 = i_13 + 1;
+label2 [0.00%]:
+  foo (p5_14(D));
 
-  <bb 4> [0.00%]:
-  # i_13 = PHI <0(2), i_39(3)>
-  if (i_13 <= 9)
-    goto <bb 3>; [0.00%]
-  else
-    goto <bb 5>; [0.00%]
+label3 [0.00%]:
+  foo (p5_14(D));
+  _1 = test5_17(D) / 10;
+  switch (_1) <default: <L4> [0.00%], case 5: <L2> [0.00%], case 10: <L3> [0.00%]>
 
-  <bb 5> [0.00%]:
-  _7 = p_25 + 32;
-  _8 = malloc (1);
-  _7->f = _8;
-  if (test_31(D) != 0)
-    goto <bb 8>; [0.00%]
-  else
-    goto <bb 7>; [0.00%]
+<L2> [0.00%]:
+  foo (p5_14(D));
+  goto <bb 8>; [0.00%]
 
-  <bb 6> [0.00%]:
-  _9 = (long unsigned int) i_14;
-  _10 = _9 * 16;
-  _11 = p_25 + _10;
-  _12 = _11->f;
-  free (_12);
-  i_35 = i_14 + 1;
+<L3> [0.00%]:
+  foo (p5_14(D));
+  goto <bb 8>; [0.00%]
 
-  <bb 7> [0.00%]:
-  # i_14 = PHI <0(5), i_35(6)>
-  if (i_14 <= 9)
-    goto <bb 6>; [0.00%]
-  else
-    goto <bb 8>; [0.00%]
+<L4> [0.00%]:
+  foo (p5_14(D));
 
   <bb 8> [0.00%]:
-  # _15 = PHI <200(5), 0(7)>
-  return _15;
+  if (test_21(D) != 0)
+    goto <bb 9>; [0.00%]
+  else
+    goto <bb 18>; [0.00%]
+
+  <bb 9> [0.00%]:
+  if (test_21(D) > test2_22(D))
+    goto <bb 10>; [0.00%]
+  else
+    goto <bb 13>; [0.00%]
+
+  <bb 10> [0.00%]:
+  foo (p_13);
+  if (test_21(D) < test2_22(D))
+    goto <bb 11>; [0.00%]
+  else
+    goto <bb 12>; [0.00%]
+
+  <bb 11> [0.00%]:
+  foo (p_13);
+  goto <bb 16>; [0.00%]
+
+  <bb 12> [0.00%]:
+  foo (p_13);
+  goto <bb 16>; [0.00%]
+
+  <bb 13> [0.00%]:
+  foo (p_13);
+  if (test_21(D) < test2_22(D))
+    goto <bb 14>; [0.00%]
+  else
+    goto <bb 15>; [0.00%]
+
+  <bb 14> [0.00%]:
+  foo (p3_28(D));
+  goto <bb 4> (label3); [0.00%]
+
+  <bb 15> [0.00%]:
+  foo (p5_14(D));
+  goto <bb 4> (label3); [0.00%]
+
+  <bb 16> [0.00%]:
+  if (test3_33(D) != 0)
+    goto <bb 17>; [0.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 17> [0.00%]:
+  foo (p_13);
+  goto <bb 3> (label2); [0.00%]
+
+  <bb 18> [0.00%]:
+  if (test_21(D) == test2_22(D))
+    goto <bb 19>; [0.00%]
+  else
+    goto <bb 20>; [0.00%]
+
+  <bb 19> [0.00%]:
+  foo (p_13);
+  goto <bb 22>; [0.00%]
+
+  <bb 20> [0.00%]:
+  if (test_21(D) > test2_22(D))
+    goto <bb 21>; [0.00%]
+  else
+    goto <bb 22>; [0.00%]
+
+  <bb 21> [0.00%]:
+  foo (p4_23(D));
+
+  <bb 22> [0.00%]:
+  return 0;
 
 }
 

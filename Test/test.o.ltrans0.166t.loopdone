@@ -1,78 +1,116 @@
 
-;; Function main (main, funcdef_no=0, decl_uid=3985, cgraph_uid=0, symbol_order=53) (executed once)
+;; Function main (main, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=53) (executed once)
 
-Removing basic block 4
-Removing basic block 8
 main ()
 {
-  unsigned long ivtmp.16;
-  unsigned long ivtmp.6;
-  int i;
-  int i;
-  struct st * p;
+  int * p;
+  int test5;
+  int test3;
+  int test2;
   int test;
-  void * _1;
-  void * _5;
-  void * _6;
-  int * _10;
-  int _13;
-  void * _44;
-  struct st * _45;
-  unsigned long _51;
-  unsigned long _52;
-  struct st * _56;
-  void * _57;
-  unsigned long _58;
-  unsigned long _59;
+  int * p5;
+  int * p4;
+  int * p3;
+  int _1;
 
-  <bb 2> [9.10%]:
-  p_19 = malloc (0);
-  _1 = malloc (1);
-  MEM[(struct st *)p_19 + 48B].f = _1;
-  _56 = p_19 + 8;
-  ivtmp.16_55 = (unsigned long) _56;
-  _58 = (unsigned long) p_19;
-  _59 = _58 + 168;
+  <bb 2> [8.03%]:
+  p_10 = malloc (100);
+  _1 = test5_14(D) / 10;
 
-  <bb 3> [90.91%]:
-  # ivtmp.16_53 = PHI <ivtmp.16_54(3), ivtmp.16_55(2)>
-  _5 = malloc (1);
-  _57 = (void *) ivtmp.16_53;
-  MEM[base: _57, offset: 0B] = _5;
-  ivtmp.16_54 = ivtmp.16_53 + 16;
-  if (ivtmp.16_54 != _59)
-    goto <bb 3>; [90.91%]
+label2 [14.45%]:
+  foo (p5_11(D));
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [85.56%]:
+
+  <bb 5> [100.00%]:
+  foo (p5_11(D));
+  switch (_1) <default: <L4> [33.33%], case 5: <L2> [33.33%], case 10: <L3> [33.33%]>
+
+<L2> [33.33%]:
+  foo (p5_11(D));
+  goto <bb 9>; [100.00%]
+
+<L3> [33.33%]:
+  foo (p5_11(D));
+  goto <bb 9>; [100.00%]
+
+<L4> [33.33%]:
+  foo (p5_11(D));
+
+  <bb 9> [99.99%]:
+  if (test_18(D) != 0)
+    goto <bb 10>; [92.50%]
   else
-    goto <bb 4>; [9.09%]
+    goto <bb 19>; [7.50%]
 
-  <bb 4> [9.09%]:
-  _6 = malloc (1);
-  MEM[(struct st *)p_19 + 32B].f = _6;
-  if (test_24(D) != 0)
-    goto <bb 7>; [31.00%]
+  <bb 10> [92.49%]:
+  if (test_18(D) > test2_19(D))
+    goto <bb 11>; [7.50%]
   else
-    goto <bb 5>; [69.00%]
+    goto <bb 14>; [92.50%]
 
-  <bb 5> [6.27%]:
-  _45 = p_19 + 8;
-  ivtmp.6_11 = (unsigned long) _45;
-  _51 = (unsigned long) p_19;
-  _52 = _51 + 168;
-
-  <bb 6> [62.73%]:
-  # ivtmp.6_12 = PHI <ivtmp.6_30(6), ivtmp.6_11(5)>
-  _44 = (void *) ivtmp.6_12;
-  _10 = MEM[base: _44, offset: 0B];
-  free (_10);
-  ivtmp.6_30 = ivtmp.6_12 + 16;
-  if (ivtmp.6_30 != _52)
-    goto <bb 6>; [90.91%]
+  <bb 11> [6.94%]:
+  foo (p_10);
+  if (test_18(D) < test2_19(D))
+    goto <bb 12>; [50.00%]
   else
-    goto <bb 7>; [9.09%]
+    goto <bb 13>; [50.00%]
 
-  <bb 7> [9.09%]:
-  # _13 = PHI <200(4), 0(6)>
-  return _13;
+  <bb 12> [3.47%]:
+  foo (p_10);
+  goto <bb 17>; [100.00%]
+
+  <bb 13> [3.47%]:
+  foo (p_10);
+  goto <bb 17>; [100.00%]
+
+  <bb 14> [85.55%]:
+  foo (p_10);
+  if (test_18(D) < test2_19(D))
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 15> [42.78%]:
+  foo (p3_25(D));
+  goto <bb 4>; [100.00%]
+
+  <bb 16> [42.78%]:
+  foo (p5_11(D));
+  goto <bb 4>; [100.00%]
+
+  <bb 17> [6.94%]:
+  if (test3_30(D) != 0)
+    goto <bb 18>; [92.50%]
+  else
+    goto <bb 23>; [7.50%]
+
+  <bb 18> [6.42%]:
+  foo (p_10);
+  goto <bb 3> (label2); [100.00%]
+
+  <bb 19> [7.50%]:
+  if (test2_19(D) == 0)
+    goto <bb 20>; [17.77%]
+  else
+    goto <bb 21>; [82.23%]
+
+  <bb 20> [1.33%]:
+  foo (p_10);
+  goto <bb 23>; [100.00%]
+
+  <bb 21> [6.17%]:
+  if (test2_19(D) < 0)
+    goto <bb 22>; [36.64%]
+  else
+    goto <bb 23>; [63.36%]
+
+  <bb 22> [2.26%]:
+  foo (p4_20(D));
+
+  <bb 23> [8.02%]:
+  return 0;
 
 }
 

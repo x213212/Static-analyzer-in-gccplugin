@@ -58,84 +58,90 @@ int main()
 	// // use q
 	// free(q);
 	// free(p.f); // double-free
-	struct st *p = malloc(0);
+	struct st *p9 = malloc(0);
+	p9[3].f = malloc(1);
+	free(p9);
+	struct st *p = malloc(10);
 	p[3].f = malloc(1);
 	for (int i = 0; i < 10; i++)
 		p[i].f = malloc(1);
 	p[2].f = malloc(1);
+	foo(p);
 	// use p[i].f
 
 	if (test)
 		return 200;
 
 	for (int i = 0; i < 10; i++)
+	{
 		free(p[i].f);
+		free(p9[i].f);
+	}
+// test2:
+// return 200;
 
-	// test2:
-	// return 200;
+// return 0;
+// return 0;
 
-	// return 0;
-	// return 0;
-
-	// int *p = malloc(100);
-	// label2:
-	// 		foo(p5);
-	// label3:
-	// 		foo(p5);
-	// 	switch (test5 / 10)
-	// 	{
-	// 	case 5:
-	// 		foo(p5);
-	// 		break;
-	// 	case 10:
-	// 		foo(p5);
-	// 		break;
-	// 	default:
-	// 		foo(p5);
-	// 		break;
-	// 	}
-	// 	if (test)
-	// 	{
-	// 		// if (  (test >test2) == (test3 == test4))
-	// 		// {
-	// 		// foo(p);
-	// 		// free(p);
-	// 		if (test > test2)
-	// 		{
-	// 			foo(p);
-	// 			if (test < test2)
-	// 			{
-	// 				foo(p);
-	// 			}
-	// 			else
-	// 				foo(p);
-	// 		}
-	// 		else
-	// 		{
-	// 			foo(p);
-	// 			if (test < test2)
-	// 			{
-	// 				foo(p3);
-	// 			}
-	// 			else
-	// 				foo(p5);
-	// 					goto label3;
-	// 		}
-	// 		if (test3)
-	// 		{
-	// 			foo(p);
-	// 			goto label2;
-	// 		}
-	// 	}
-	// 	else if (test == test2)
-	// 		foo(p);
-	// 	else
-	// 	{
-	// 		if (test > test2)
-	// 		{
-	// 			foo(p4);
-	// 		}
-	// 	}
+// int *p = malloc(100);
+label2:
+	foo(p5);
+label3:
+	foo(p5);
+	switch (test5 / 10)
+	{
+	case 5:
+		foo(p5);
+		break;
+	case 10:
+		foo(p5);
+		break;
+	default:
+		foo(p5);
+		break;
+	}
+	if (test)
+	{
+		// if (  (test >test2) == (test3 == test4))
+		// {
+		// foo(p);
+		// free(p);
+		if (test > test2)
+		{
+			foo(p);
+			if (test < test2)
+			{
+				foo(p);
+			}
+			else
+				foo(p);
+		}
+		else
+		{
+			foo(p);
+			if (test < test2)
+			{
+				foo(p3);
+			}
+			else
+				foo(p5);
+			goto label3;
+		}
+		if (test3)
+		{
+			foo(p);
+			goto label2;
+		}
+	}
+	else if (test == test2)
+		foo(p);
+	else
+	{
+		if (test > test2)
+		{
+			foo(p4);
+		}
+	}
 	// else if (test > test2)
 	// 	foo(p);
 	// else if (test < test2)

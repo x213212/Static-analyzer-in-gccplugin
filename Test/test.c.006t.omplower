@@ -3,19 +3,19 @@
 
 foo3 (struct st * p)
 {
-  int * D.4348;
+  int * D.4346;
   int * q;
 
   _1 = p->flag;
-  if (_1 != 0) goto <D.4345>; else goto <D.4346>;
-  <D.4345>:
+  if (_1 != 0) goto <D.4343>; else goto <D.4344>;
+  <D.4343>:
   q = malloc (1);
-  goto <D.4347>;
-  <D.4346>:
+  goto <D.4345>;
+  <D.4344>:
   q = p->f;
-  <D.4347>:
-  D.4348 = q;
-  return D.4348;
+  <D.4345>:
+  D.4346 = q;
+  return D.4346;
 }
 
 
@@ -34,7 +34,7 @@ foo (int * z)
 
 main ()
 {
-  int D.4352;
+  int D.4367;
 
   {
     int * p2;
@@ -50,61 +50,78 @@ main ()
     int b;
     int c;
     int d;
-    struct st * p;
+    int * p;
+    void label2 = <<< error >>>;
+    void label3 = <<< error >>>;
 
     a = 10;
     b = 22;
     c = 22;
     d = 22;
-    p = malloc (0);
-    _1 = p + 48;
-    _2 = malloc (1);
-    _1->f = _2;
-    {
-      int i;
-
-      i = 0;
-      goto <D.4338>;
-      <D.4337>:
-      _3 = (long unsigned int) i;
-      _4 = _3 * 16;
-      _5 = p + _4;
-      _6 = malloc (1);
-      _5->f = _6;
-      i = i + 1;
-      <D.4338>:
-      if (i <= 9) goto <D.4337>; else goto <D.4339>;
-      <D.4339>:
-    }
-    _7 = p + 32;
-    _8 = malloc (1);
-    _7->f = _8;
-    if (test != 0) goto <D.4350>; else goto <D.4351>;
+    p = malloc (100);
+    label2:
+    foo (p5);
+    label3:
+    foo (p5);
+    _1 = test5 / 10;
+    switch (_1) <default: <D.4341>, case 5: <D.4338>, case 10: <D.4340>>
+    <D.4338>:
+    foo (p5);
+    goto <D.4339>;
+    <D.4340>:
+    foo (p5);
+    goto <D.4339>;
+    <D.4341>:
+    foo (p5);
+    goto <D.4339>;
+    <D.4339>:
+    if (test != 0) goto <D.4348>; else goto <D.4349>;
+    <D.4348>:
+    if (test > test2) goto <D.4350>; else goto <D.4351>;
     <D.4350>:
-    D.4352 = 200;
-    return D.4352;
+    foo (p);
+    if (test < test2) goto <D.4352>; else goto <D.4353>;
+    <D.4352>:
+    foo (p);
+    goto <D.4354>;
+    <D.4353>:
+    foo (p);
+    <D.4354>:
+    goto <D.4355>;
     <D.4351>:
-    {
-      int i;
-
-      i = 0;
-      goto <D.4342>;
-      <D.4341>:
-      _9 = (long unsigned int) i;
-      _10 = _9 * 16;
-      _11 = p + _10;
-      _12 = _11->f;
-      free (_12);
-      i = i + 1;
-      <D.4342>:
-      if (i <= 9) goto <D.4341>; else goto <D.4343>;
-      <D.4343>:
-    }
-    D.4352 = 0;
-    return D.4352;
+    foo (p);
+    if (test < test2) goto <D.4356>; else goto <D.4357>;
+    <D.4356>:
+    foo (p3);
+    goto <D.4358>;
+    <D.4357>:
+    foo (p5);
+    <D.4358>:
+    goto label3;
+    <D.4355>:
+    if (test3 != 0) goto <D.4359>; else goto <D.4360>;
+    <D.4359>:
+    foo (p);
+    goto label2;
+    <D.4360>:
+    goto <D.4361>;
+    <D.4349>:
+    if (test == test2) goto <D.4362>; else goto <D.4363>;
+    <D.4362>:
+    foo (p);
+    goto <D.4364>;
+    <D.4363>:
+    if (test > test2) goto <D.4365>; else goto <D.4366>;
+    <D.4365>:
+    foo (p4);
+    <D.4366>:
+    <D.4364>:
+    <D.4361>:
+    D.4367 = 0;
+    return D.4367;
   }
-  D.4352 = 0;
-  return D.4352;
+  D.4367 = 0;
+  return D.4367;
 }
 
 

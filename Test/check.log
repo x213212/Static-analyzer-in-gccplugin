@@ -1,38 +1,93 @@
 ==============breakpoint=========
-/root/x21321219/new_gccplugin/Test/test.c 62
+/root/x21321219/new_gccplugin/Test/test.c 69
+/root/x21321219/new_gccplugin/Test/test.c 86
 =======ipa_pta=========
 ===============The first stage : Point of interest stmt collect=================
-# .MEM_35 = VDEF <.MEM_34>
-_1 = malloc (1);
-set breakpoint /root/x21321219/new_gccplugin/Test/test.c 62
-# .MEM_36 = VDEF <.MEM_35>
-MEM[(struct st *)p_19 + 48B].f = _1;
-set breakpoint /root/x21321219/new_gccplugin/Test/test.c 62
+# .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+set breakpoint /root/x21321219/new_gccplugin/Test/test.c 86
+--------GIMPLE_SWITCH -------
 --------GIMPLE Cond -------
-succs:= 4
 --------GIMPLE Cond -------
-succs:= 5
+succs:= 8
+succs:= 9
 --------GIMPLE Cond -------
-succs:= 5
-succs:= 7
+succs:= 10
+succs:= 10
+succs:= 9
+--------GIMPLE Cond -------
+succs:= 13
+succs:= 13
+--------GIMPLE Cond -------
+succs:= 16
+--------GIMPLE Cond -------
+succs:= 8
+succs:= 18
+--------GIMPLE Cond -------
+succs:= 18
+succs:= 20
+succs:= 16
+succs:= 20
 ===============The first stage : Point of interest stmt collect=================
 start PointerConstraint
 pointer ftable is 0 
 pointer ptable is 1 
 ===============The second stage : Mapping stmt=================
-# .MEM_34 = VDEF <.MEM_33(D)>
-p_19 = malloc (0);
-# .MEM_35 = VDEF <.MEM_34>
-_1 = malloc (1);
-# .MEM_40 = VDEF <.MEM_30>
-_5 = malloc (1);
-# .MEM_37 = VDEF <.MEM_30>
-_6 = malloc (1);
+# .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+# .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+set breakpoint /root/x21321219/new_gccplugin/Test/test.c 86
+# .MEM_39 = VDEF <.MEM_31>
+foo (p5_11(D));
+# .MEM_40 = VDEF <.MEM_36>
+foo (p5_11(D));
+# .MEM_42 = VDEF <.MEM_40>
+foo (p5_11(D));
+# .MEM_41 = VDEF <.MEM_40>
+foo (p5_11(D));
+# .MEM_43 = VDEF <.MEM_40>
+foo (p5_11(D));
+# .MEM_49 = VDEF <.MEM_33>
+foo (p_10);
+# .MEM_51 = VDEF <.MEM_49>
+foo (p_10);
+# .MEM_50 = VDEF <.MEM_49>
+foo (p_10);
+# .MEM_46 = VDEF <.MEM_33>
+foo (p_10);
+# .MEM_48 = VDEF <.MEM_46>
+foo (p3_25(D));
+# .MEM_47 = VDEF <.MEM_46>
+foo (p5_11(D));
+# .MEM_52 = VDEF <.MEM_34>
+foo (p_10);
+# .MEM_45 = VDEF <.MEM_33>
+foo (p_10);
+# .MEM_44 = VDEF <.MEM_33>
+foo (p4_20(D));
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+# .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+ <ssa_name 0x7f612aeab8b8
+    type <pointer_type 0x7f612aebea80
+        type <integer_type 0x7f612aeb75e8 int public SI
+            size <integer_cst 0x7f612aea3e28 constant 32>
+            unit size <integer_cst 0x7f612aea3e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f612aeb75e8 precision 32 min <integer_cst 0x7f612aea3de0 -2147483648> max <integer_cst 0x7f612aea3df8 2147483647>
+            pointer_to_this <pointer_type 0x7f612aebea80>>
+        unsigned DI
+        size <integer_cst 0x7f612aea3be8 constant 64>
+        unit size <integer_cst 0x7f612aea3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f612bc38bd0 p>
+    def_stmt p_10 = malloc (100);
+    version 10
+    ptr-info 0x7f612a9d1b10>
 ===============The second stage : build fucntion type=================
 [40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 [40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
@@ -49,12 +104,25 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 ===============The second stage : record fucntion =================
 
 =============== The third stage : Start detection  =================
+[40;44m =======node_fun:foo========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path foo  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre_check_funciton:foo========= [0m
+[40;42m =======start_check_funciton:foo========= [0m
+[40;33m =======POP node_fun stack:foo========= [0m
 [40;44m =======node_fun:main========= [0m
 [40;44m fucntion collect path  [0m
 [40;44m =======print_function_path main  function_call count: 2 level :0========  [0m
-[40;44m =======print_function_type 2  ========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:foo========= [0m
+[40;44m =======print_function_path foo  function_call count: 1 level :1========  [0m
 [40;42m =======pre add _ fucntion:free========= [0m
 [40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre_check_funciton:foo========= [0m
+[40;42m =======start_check_funciton:foo========= [0m
+[40;33m =======POP node_fun stack:foo========= [0m
 [40;42m =======pre add _ fucntion:malloc========= [0m
 [40;33m =======POP node_fun stack:malloc========= [0m
 [40;42m =======pre_check_funciton:main========= [0m
@@ -63,22 +131,23 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fed9b2f66c0
-    type <pointer_type 0x7fed9b3090a8
-        type <void_type 0x7fed9b302f18 void VOID
-            align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fed9b3090a8>>
-        public unsigned DI
-        size <integer_cst 0x7fed9b2eebe8 constant 64>
-        unit size <integer_cst 0x7fed9b2eec00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fed9b30ebd0>>
-   
-    def_stmt _1 = malloc (1);
-    version 1
-    ptr-info 0x7fed9ae1cb70>
-# .MEM_35 = VDEF <.MEM_34>
-_1 = malloc (1);
+ <ssa_name 0x7f612aeab8b8
+    type <pointer_type 0x7f612aebea80
+        type <integer_type 0x7f612aeb75e8 int public SI
+            size <integer_cst 0x7f612aea3e28 constant 32>
+            unit size <integer_cst 0x7f612aea3e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f612aeb75e8 precision 32 min <integer_cst 0x7f612aea3de0 -2147483648> max <integer_cst 0x7f612aea3df8 2147483647>
+            pointer_to_this <pointer_type 0x7f612aebea80>>
+        unsigned DI
+        size <integer_cst 0x7f612aea3be8 constant 64>
+        unit size <integer_cst 0x7f612aea3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f612bc38bd0 p>
+    def_stmt p_10 = malloc (100);
+    version 10
+    ptr-info 0x7f612a9d1b10>
+# .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
 
  ================== trace ptable================== 
 trace fucntion name:malloc 
@@ -90,32 +159,104 @@ this Reserved word function ------malloc-----
  Start check Pointer Collect  
 
 ======================================================================
-MEM[(struct st *)p_19 + 48B].f = _1;
+dot graph entry main
+dot graph target entry end
+
+foo (p_10);
 In function ‘main’:
-test.c:62:9: warning: use location
-  p[3].f = malloc(1);
-         ^
+test.c:137:3: warning: use location
+   foo(p);
+   ^
+dot graph target loc start # .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+test.c:86:6: warning: use location
+ int *p = malloc(100);
+      ^
+dot graph target loc en1
 
-======================================================================
-[40;31m    collect Stmt in loop [0m
+dot graph target line desc form basic block 19: foo (p_10);
+test.c:137:3: warning: use location
+   foo(p);
+   ^
+dot graph target line desend
 
-======================================================================
-_4->f = _5;
-test.c:64:10: warning: use location
-   p[i].f = malloc(1);
-          ^
-MEM[(struct st *)p_19 + 32B].f = _6;
-test.c:65:9: warning: use location
-  p[2].f = malloc(1);
-         ^
+dot graph target loc start # .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+test.c:86:6: warning: use location
+ int *p = malloc(100);
+      ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 19dot graph target basicblock en1
+
+dot graph stmt start foo (p_10);
+p_10 = malloc (100);
+dot graph stmt end
+
+dot graph stmt start foo (p_10);
+test.c:137:3: warning: use location
+   foo(p);
+   ^
+dot graph stmt end
+
+this stmt is child function---foo-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f612aeab8b8
+    type <pointer_type 0x7f612aebea80
+        type <integer_type 0x7f612aeb75e8 int public SI
+            size <integer_cst 0x7f612aea3e28 constant 32>
+            unit size <integer_cst 0x7f612aea3e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f612aeb75e8 precision 32 min <integer_cst 0x7f612aea3de0 -2147483648> max <integer_cst 0x7f612aea3df8 2147483647>
+            pointer_to_this <pointer_type 0x7f612aebea80>>
+        unsigned DI
+        size <integer_cst 0x7f612aea3be8 constant 64>
+        unit size <integer_cst 0x7f612aea3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f612bc38bd0 p>
+    def_stmt p_10 = malloc (100);
+    version 10
+    ptr-info 0x7f612a9d1b10>
+trace fucntion name:foo 
+[40;44m =======trace_function_path foo  function_call count: 1 level :0========  [0m
+# .MEM_4 = VDEF <.MEM_3(D)>
+free (z_2(D));
+[40;31m  find free stmt free same pointer [0m
+# .MEM_4 = VDEF <.MEM_3(D)>
+free (z_2(D));
+test.c:29:2: warning: use location
+  free(z);
+  ^
+dot graph start relate form ID : 1529116120
+from foo basic block 2dot graph end relate end
+
+dot graph relate stmt start ID : 564958757 stmt(free) :free (z_2(D));
+test.c:29:2: warning: use location
+dot graph relate end
+
+dot graph target color descgreendot graph target color desend
+
+dot graph relate stmt start ID : 564958757 stmt(free) :free (z_2(D));
+test.c:29:2: warning: use location
+dot graph relate end
+
+[40;36m ======= node_fun:foo========= [0m
+[40;36m ======= find relate stmt with p ========= [0m
+[40;36m ======= relate stmt argument:p ========= [0m
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;46m =======add node_fun stack:free========= [0m
+
+ ================== trace ================== 
+trace fucntion free:1 
 
 ======================================================================
 [40;31m    branch possiable have return  [0m
-# VUSE <.MEM_31>
-_10 = _9->f;
-bb index := 7
-beacuse in succ := 8 have return 
-gimple stmt in succ := 6 ,possiable got to succ := 8
+# .MEM_52 = VDEF <.MEM_34>
+foo (p_10);
+bb index := 16
+beacuse in succ := 22 have return 
+gimple stmt in succ := 17 ,possiable got to succ := 22
 
 ======================================================================
 
@@ -123,117 +264,912 @@ gimple stmt in succ := 6 ,possiable got to succ := 8
 [40;31m    collect Stmt in loop [0m
 
 ======================================================================
-_10 = _9->f;
-test.c:72:12: warning: use location
-   free(p[i].f);
-            ^
+dot graph entry main
+dot graph target entry end
+
+foo (p_10);
+test.c:132:4: warning: use location
+    foo(p);
+    ^
+dot graph target loc start # .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+test.c:86:6: warning: use location
+ int *p = malloc(100);
+      ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 17: foo (p_10);
+test.c:132:4: warning: use location
+    foo(p);
+    ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+test.c:86:6: warning: use location
+ int *p = malloc(100);
+      ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 17dot graph target basicblock en1
+
+dot graph stmt start foo (p_10);
+p_10 = malloc (100);
+dot graph stmt end
+
+dot graph stmt start foo (p_10);
+test.c:132:4: warning: use location
+    foo(p);
+    ^
+dot graph stmt end
+
+this stmt is child function---foo-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f612aeab8b8
+    type <pointer_type 0x7f612aebea80
+        type <integer_type 0x7f612aeb75e8 int public SI
+            size <integer_cst 0x7f612aea3e28 constant 32>
+            unit size <integer_cst 0x7f612aea3e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f612aeb75e8 precision 32 min <integer_cst 0x7f612aea3de0 -2147483648> max <integer_cst 0x7f612aea3df8 2147483647>
+            pointer_to_this <pointer_type 0x7f612aebea80>>
+        unsigned DI
+        size <integer_cst 0x7f612aea3be8 constant 64>
+        unit size <integer_cst 0x7f612aea3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f612bc38bd0 p>
+    def_stmt p_10 = malloc (100);
+    version 10
+    ptr-info 0x7f612a9d1b10>
+trace fucntion name:foo 
+[40;44m =======trace_function_path foo  function_call count: 1 level :0========  [0m
+# .MEM_4 = VDEF <.MEM_3(D)>
+free (z_2(D));
+[40;31m  find free stmt free same pointer [0m
+# .MEM_4 = VDEF <.MEM_3(D)>
+free (z_2(D));
+test.c:29:2: warning: use location
+  free(z);
+  ^
+dot graph start relate form ID : 1383097540
+from foo basic block 2dot graph end relate end
+
+dot graph relate stmt start ID : 2088259430 stmt(free) :free (z_2(D));
+test.c:29:2: warning: use location
+dot graph relate end
+
+dot graph target color descgreendot graph target color desend
+
+dot graph relate stmt start ID : 2088259430 stmt(free) :free (z_2(D));
+test.c:29:2: warning: use location
+dot graph relate end
+
+[40;36m ======= node_fun:foo========= [0m
+[40;36m ======= find relate stmt with p ========= [0m
+[40;36m ======= relate stmt argument:p ========= [0m
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;46m =======add node_fun stack:free========= [0m
+
+ ================== trace ================== 
+trace fucntion free:2 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+dot graph entry main
+dot graph target entry end
+
+foo (p_10);
+test.c:121:4: warning: use location
+    foo(p);
+    ^
+dot graph target loc start # .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+test.c:86:6: warning: use location
+ int *p = malloc(100);
+      ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 13: foo (p_10);
+test.c:121:4: warning: use location
+    foo(p);
+    ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+test.c:86:6: warning: use location
+ int *p = malloc(100);
+      ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 13dot graph target basicblock en1
+
+dot graph stmt start foo (p_10);
+p_10 = malloc (100);
+dot graph stmt end
+
+dot graph stmt start foo (p_10);
+test.c:121:4: warning: use location
+    foo(p);
+    ^
+dot graph stmt end
+
+this stmt is child function---foo-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f612aeab8b8
+    type <pointer_type 0x7f612aebea80
+        type <integer_type 0x7f612aeb75e8 int public SI
+            size <integer_cst 0x7f612aea3e28 constant 32>
+            unit size <integer_cst 0x7f612aea3e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f612aeb75e8 precision 32 min <integer_cst 0x7f612aea3de0 -2147483648> max <integer_cst 0x7f612aea3df8 2147483647>
+            pointer_to_this <pointer_type 0x7f612aebea80>>
+        unsigned DI
+        size <integer_cst 0x7f612aea3be8 constant 64>
+        unit size <integer_cst 0x7f612aea3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f612bc38bd0 p>
+    def_stmt p_10 = malloc (100);
+    version 10
+    ptr-info 0x7f612a9d1b10>
+trace fucntion name:foo 
+[40;44m =======trace_function_path foo  function_call count: 1 level :0========  [0m
+# .MEM_4 = VDEF <.MEM_3(D)>
+free (z_2(D));
+[40;31m  find free stmt free same pointer [0m
+# .MEM_4 = VDEF <.MEM_3(D)>
+free (z_2(D));
+test.c:29:2: warning: use location
+  free(z);
+  ^
+dot graph start relate form ID : 762720590
+from foo basic block 2dot graph end relate end
+
+dot graph relate stmt start ID : 1781945121 stmt(free) :free (z_2(D));
+test.c:29:2: warning: use location
+dot graph relate end
+
+dot graph target color descgreendot graph target color desend
+
+dot graph relate stmt start ID : 1781945121 stmt(free) :free (z_2(D));
+test.c:29:2: warning: use location
+dot graph relate end
+
+[40;36m ======= node_fun:foo========= [0m
+[40;36m ======= find relate stmt with p ========= [0m
+[40;36m ======= relate stmt argument:p ========= [0m
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;46m =======add node_fun stack:free========= [0m
+
+ ================== trace ================== 
+trace fucntion free:3 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+dot graph entry main
+dot graph target entry end
+
+foo (p_10);
+test.c:117:5: warning: use location
+     foo(p);
+     ^
+dot graph target loc start # .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+test.c:86:6: warning: use location
+ int *p = malloc(100);
+      ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 12: foo (p_10);
+test.c:117:5: warning: use location
+     foo(p);
+     ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+test.c:86:6: warning: use location
+ int *p = malloc(100);
+      ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 12dot graph target basicblock en1
+
+dot graph stmt start foo (p_10);
+p_10 = malloc (100);
+dot graph stmt end
+
+dot graph stmt start foo (p_10);
+test.c:117:5: warning: use location
+     foo(p);
+     ^
+dot graph stmt end
+
+this stmt is child function---foo-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f612aeab8b8
+    type <pointer_type 0x7f612aebea80
+        type <integer_type 0x7f612aeb75e8 int public SI
+            size <integer_cst 0x7f612aea3e28 constant 32>
+            unit size <integer_cst 0x7f612aea3e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f612aeb75e8 precision 32 min <integer_cst 0x7f612aea3de0 -2147483648> max <integer_cst 0x7f612aea3df8 2147483647>
+            pointer_to_this <pointer_type 0x7f612aebea80>>
+        unsigned DI
+        size <integer_cst 0x7f612aea3be8 constant 64>
+        unit size <integer_cst 0x7f612aea3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f612bc38bd0 p>
+    def_stmt p_10 = malloc (100);
+    version 10
+    ptr-info 0x7f612a9d1b10>
+trace fucntion name:foo 
+[40;44m =======trace_function_path foo  function_call count: 1 level :0========  [0m
+# .MEM_4 = VDEF <.MEM_3(D)>
+free (z_2(D));
+[40;31m  find free stmt free same pointer [0m
+# .MEM_4 = VDEF <.MEM_3(D)>
+free (z_2(D));
+test.c:29:2: warning: use location
+  free(z);
+  ^
+dot graph start relate form ID : 942276073
+from foo basic block 2dot graph end relate end
+
+dot graph relate stmt start ID : 498012184 stmt(free) :free (z_2(D));
+test.c:29:2: warning: use location
+dot graph relate end
+
+dot graph target color descgreendot graph target color desend
+
+dot graph relate stmt start ID : 498012184 stmt(free) :free (z_2(D));
+test.c:29:2: warning: use location
+dot graph relate end
+
+[40;36m ======= node_fun:foo========= [0m
+[40;36m ======= find relate stmt with p ========= [0m
+[40;36m ======= relate stmt argument:p ========= [0m
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;46m =======add node_fun stack:free========= [0m
+
+ ================== trace ================== 
+trace fucntion free:4 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+dot graph entry main
+dot graph target entry end
+
+foo (p_10);
+test.c:114:5: warning: use location
+     foo(p);
+     ^
+dot graph target loc start # .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+test.c:86:6: warning: use location
+ int *p = malloc(100);
+      ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 11: foo (p_10);
+test.c:114:5: warning: use location
+     foo(p);
+     ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+test.c:86:6: warning: use location
+ int *p = malloc(100);
+      ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 11dot graph target basicblock en1
+
+dot graph stmt start foo (p_10);
+p_10 = malloc (100);
+dot graph stmt end
+
+dot graph stmt start foo (p_10);
+test.c:114:5: warning: use location
+     foo(p);
+     ^
+dot graph stmt end
+
+this stmt is child function---foo-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f612aeab8b8
+    type <pointer_type 0x7f612aebea80
+        type <integer_type 0x7f612aeb75e8 int public SI
+            size <integer_cst 0x7f612aea3e28 constant 32>
+            unit size <integer_cst 0x7f612aea3e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f612aeb75e8 precision 32 min <integer_cst 0x7f612aea3de0 -2147483648> max <integer_cst 0x7f612aea3df8 2147483647>
+            pointer_to_this <pointer_type 0x7f612aebea80>>
+        unsigned DI
+        size <integer_cst 0x7f612aea3be8 constant 64>
+        unit size <integer_cst 0x7f612aea3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f612bc38bd0 p>
+    def_stmt p_10 = malloc (100);
+    version 10
+    ptr-info 0x7f612a9d1b10>
+trace fucntion name:foo 
+[40;44m =======trace_function_path foo  function_call count: 1 level :0========  [0m
+# .MEM_4 = VDEF <.MEM_3(D)>
+free (z_2(D));
+[40;31m  find free stmt free same pointer [0m
+# .MEM_4 = VDEF <.MEM_3(D)>
+free (z_2(D));
+test.c:29:2: warning: use location
+  free(z);
+  ^
+dot graph start relate form ID : 1558069078
+from foo basic block 2dot graph end relate end
+
+dot graph relate stmt start ID : 1696824845 stmt(free) :free (z_2(D));
+test.c:29:2: warning: use location
+dot graph relate end
+
+dot graph target color descgreendot graph target color desend
+
+dot graph relate stmt start ID : 1696824845 stmt(free) :free (z_2(D));
+test.c:29:2: warning: use location
+dot graph relate end
+
+[40;36m ======= node_fun:foo========= [0m
+[40;36m ======= find relate stmt with p ========= [0m
+[40;36m ======= relate stmt argument:p ========= [0m
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;46m =======add node_fun stack:free========= [0m
+
+ ================== trace ================== 
+trace fucntion free:5 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+dot graph entry main
+dot graph target entry end
+
+foo (p_10);
+test.c:111:4: warning: use location
+    foo(p);
+    ^
+dot graph target loc start # .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+test.c:86:6: warning: use location
+ int *p = malloc(100);
+      ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 10: foo (p_10);
+test.c:111:4: warning: use location
+    foo(p);
+    ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_38 = VDEF <.MEM_37(D)>
+p_10 = malloc (100);
+test.c:86:6: warning: use location
+ int *p = malloc(100);
+      ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 10dot graph target basicblock en1
+
+dot graph stmt start foo (p_10);
+p_10 = malloc (100);
+dot graph stmt end
+
+dot graph stmt start foo (p_10);
+test.c:111:4: warning: use location
+    foo(p);
+    ^
+dot graph stmt end
+
+this stmt is child function---foo-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f612aeab8b8
+    type <pointer_type 0x7f612aebea80
+        type <integer_type 0x7f612aeb75e8 int public SI
+            size <integer_cst 0x7f612aea3e28 constant 32>
+            unit size <integer_cst 0x7f612aea3e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f612aeb75e8 precision 32 min <integer_cst 0x7f612aea3de0 -2147483648> max <integer_cst 0x7f612aea3df8 2147483647>
+            pointer_to_this <pointer_type 0x7f612aebea80>>
+        unsigned DI
+        size <integer_cst 0x7f612aea3be8 constant 64>
+        unit size <integer_cst 0x7f612aea3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f612bc38bd0 p>
+    def_stmt p_10 = malloc (100);
+    version 10
+    ptr-info 0x7f612a9d1b10>
+trace fucntion name:foo 
+[40;44m =======trace_function_path foo  function_call count: 1 level :0========  [0m
+# .MEM_4 = VDEF <.MEM_3(D)>
+free (z_2(D));
+[40;31m  find free stmt free same pointer [0m
+# .MEM_4 = VDEF <.MEM_3(D)>
+free (z_2(D));
+test.c:29:2: warning: use location
+  free(z);
+  ^
+dot graph start relate form ID : 432183016
+from foo basic block 2dot graph end relate end
+
+dot graph relate stmt start ID : 1892862593 stmt(free) :free (z_2(D));
+test.c:29:2: warning: use location
+dot graph relate end
+
+dot graph target color descgreendot graph target color desend
+
+dot graph relate stmt start ID : 1892862593 stmt(free) :free (z_2(D));
+test.c:29:2: warning: use location
+dot graph relate end
+
+[40;36m ======= node_fun:foo========= [0m
+[40;36m ======= find relate stmt with p ========= [0m
+[40;36m ======= relate stmt argument:p ========= [0m
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;46m =======add node_fun stack:free========= [0m
+
+ ================== trace ================== 
+trace fucntion free:6 
+dot graph target basicblock start from main basic block 19dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_941804194 dot graph subgraph  foo (p_10);
+p_10 = malloc (100);
+dot graph subgrapend
+
+ <ssa_name 0x7f612aeab8b8
+    type <pointer_type 0x7f612aebea80
+        type <integer_type 0x7f612aeb75e8 int public SI
+            size <integer_cst 0x7f612aea3e28 constant 32>
+            unit size <integer_cst 0x7f612aea3e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f612aeb75e8 precision 32 min <integer_cst 0x7f612aea3de0 -2147483648> max <integer_cst 0x7f612aea3df8 2147483647>
+            pointer_to_this <pointer_type 0x7f612aebea80>>
+        unsigned DI
+        size <integer_cst 0x7f612aea3be8 constant 64>
+        unit size <integer_cst 0x7f612aea3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f612bc38bd0 p>
+    def_stmt p_10 = malloc (100);
+    version 10
+    ptr-info 0x7f612a9d1b10>
 
  ================== Start Use after free Check ================== 
+# .MEM_52 = VDEF <.MEM_34>
+foo (p_10);
+test.c:132:4: warning: Use after free error!: free location 
+    foo(p);
+    ^
+# .MEM_45 = VDEF <.MEM_33>
+foo (p_10);
+test.c:137:3: warning: use location
+   foo(p);
+   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_46 = VDEF <.MEM_33>
+foo (p_10);
+test.c:121:4: warning: Use after free error!: free location 
+    foo(p);
+    ^
+# .MEM_45 = VDEF <.MEM_33>
+foo (p_10);
+test.c:137:3: warning: use location
+   foo(p);
+   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_50 = VDEF <.MEM_49>
+foo (p_10);
+test.c:117:5: warning: Use after free error!: free location 
+     foo(p);
+     ^
+# .MEM_45 = VDEF <.MEM_33>
+foo (p_10);
+test.c:137:3: warning: use location
+   foo(p);
+   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_51 = VDEF <.MEM_49>
+foo (p_10);
+test.c:114:5: warning: Use after free error!: free location 
+     foo(p);
+     ^
+# .MEM_45 = VDEF <.MEM_33>
+foo (p_10);
+test.c:137:3: warning: use location
+   foo(p);
+   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_49 = VDEF <.MEM_33>
+foo (p_10);
+test.c:111:4: warning: Use after free error!: free location 
+    foo(p);
+    ^
+# .MEM_45 = VDEF <.MEM_33>
+foo (p_10);
+test.c:137:3: warning: use location
+   foo(p);
+   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_46 = VDEF <.MEM_33>
+foo (p_10);
+test.c:121:4: warning: Use after free error!: free location 
+    foo(p);
+    ^
+# .MEM_52 = VDEF <.MEM_34>
+foo (p_10);
+test.c:132:4: warning: use location
+    foo(p);
+    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_50 = VDEF <.MEM_49>
+foo (p_10);
+test.c:117:5: warning: Use after free error!: free location 
+     foo(p);
+     ^
+# .MEM_52 = VDEF <.MEM_34>
+foo (p_10);
+test.c:132:4: warning: use location
+    foo(p);
+    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_51 = VDEF <.MEM_49>
+foo (p_10);
+test.c:114:5: warning: Use after free error!: free location 
+     foo(p);
+     ^
+# .MEM_52 = VDEF <.MEM_34>
+foo (p_10);
+test.c:132:4: warning: use location
+    foo(p);
+    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_49 = VDEF <.MEM_33>
+foo (p_10);
+test.c:111:4: warning: Use after free error!: free location 
+    foo(p);
+    ^
+# .MEM_52 = VDEF <.MEM_34>
+foo (p_10);
+test.c:132:4: warning: use location
+    foo(p);
+    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_50 = VDEF <.MEM_49>
+foo (p_10);
+test.c:117:5: warning: Use after free error!: free location 
+     foo(p);
+     ^
+# .MEM_46 = VDEF <.MEM_33>
+foo (p_10);
+test.c:121:4: warning: use location
+    foo(p);
+    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_51 = VDEF <.MEM_49>
+foo (p_10);
+test.c:114:5: warning: Use after free error!: free location 
+     foo(p);
+     ^
+# .MEM_46 = VDEF <.MEM_33>
+foo (p_10);
+test.c:121:4: warning: use location
+    foo(p);
+    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_49 = VDEF <.MEM_33>
+foo (p_10);
+test.c:111:4: warning: Use after free error!: free location 
+    foo(p);
+    ^
+# .MEM_46 = VDEF <.MEM_33>
+foo (p_10);
+test.c:121:4: warning: use location
+    foo(p);
+    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_51 = VDEF <.MEM_49>
+foo (p_10);
+test.c:114:5: warning: Use after free error!: free location 
+     foo(p);
+     ^
+# .MEM_50 = VDEF <.MEM_49>
+foo (p_10);
+test.c:117:5: warning: use location
+     foo(p);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_49 = VDEF <.MEM_33>
+foo (p_10);
+test.c:111:4: warning: Use after free error!: free location 
+    foo(p);
+    ^
+# .MEM_50 = VDEF <.MEM_49>
+foo (p_10);
+test.c:117:5: warning: use location
+     foo(p);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+# .MEM_49 = VDEF <.MEM_33>
+foo (p_10);
+test.c:111:4: warning: Use after free error!: free location 
+    foo(p);
+    ^
+# .MEM_51 = VDEF <.MEM_49>
+foo (p_10);
+test.c:114:5: warning: use location
+     foo(p);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
 
 dot graph END
 
  ================== Start Use after free Check ================== 
 
 ======================================================================
-[40;31m    no free stmt possible memory leak [0m
+[40;31m  	possible double free :6 [0m
 
 ======================================================================
 
 dot graph START
 
 ======================================================================
- <integer_cst 0x7fed9ae1cab0 type <integer_type 0x7fed9ae19930 size_t> constant 0>
-
-dot graph START
-
-======================================================================
- <integer_cst 0x7fed9ae1cac8 type <integer_type 0x7fed9ae19930 size_t> constant 1>
-
-dot graph START
-
-======================================================================
- <integer_cst 0x7fed9ae1cac8 type <integer_type 0x7fed9ae19930 size_t> constant 1>
+ <integer_cst 0x7f612a9d1ac8 type <integer_type 0x7f612a9ce930 size_t> constant 100>
 [40;33m =======POP node_fun stack:main========= [0m
 fucntion collect path finsh
 
 =============== The third stage : detection  End=================
 
 ===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:foo=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+free (z_2(D));
+return;
+
 =======Mapping node_fun:main=========
 =======is loop:0=========
 
  bb index 2 
-<bb 2> [9.09%]:
-p_19 = malloc (0);
-_1 = malloc (1);
-MEM[(struct st *)p_19 + 48B].f = _1;
-goto <bb 4>; [100.00%]
+<bb 2> [8.03%]:
+p_10 = malloc (100);
 
 =======is loop:1=========
 
  bb index 3 
-<bb 3> [90.91%]:
-_2 = (long unsigned int) i_11;
-_3 = _2 * 16;
-_4 = p_19 + _3;
-_5 = malloc (1);
-_4->f = _5;
-i_29 = i_11 + 1;
+label2 [14.45%]:
+foo (p5_11(D));
+goto <bb 23>; [100.00%]
 
 =======is loop:1=========
 
  bb index 4 
-<bb 4> [100.00%]:
-# i_11 = PHI <0(2), i_29(3)>
-if (i_11 <= 9)
-  goto <bb 3>; [90.91%]
-else
-  goto <bb 5>; [9.09%]
+label3 [85.55%]:
 
-=======is loop:0=========
+=======is loop:1=========
+
+ bb index 23 
+<bb 23> [100.00%]:
+foo (p5_11(D));
+_1 = test5_14(D) / 10;
+switch (_1) <default: <L4> [33.33%], case 5: <L2> [33.33%], case 10: <L3> [33.33%]>
+
+=======is loop:1=========
 
  bb index 5 
-<bb 5> [9.09%]:
-_6 = malloc (1);
-MEM[(struct st *)p_19 + 32B].f = _6;
-if (test_24(D) != 0)
-  goto <bb 8>; [31.00%]
-else
-  goto <bb 9>; [69.00%]
-
-=======is loop:0=========
-
- bb index 9 
-<bb 9> [6.27%]:
-goto <bb 7>; [100.00%]
+<L2> [33.33%]:
+foo (p5_11(D));
+goto <bb 8>; [100.00%]
 
 =======is loop:1=========
 
  bb index 6 
-<bb 6> [62.73%]:
-_7 = (long unsigned int) i_12;
-_8 = _7 * 16;
-_9 = p_19 + _8;
-_10 = _9->f;
-free (_10);
-i_26 = i_12 + 1;
+<L3> [33.33%]:
+foo (p5_11(D));
+goto <bb 8>; [100.00%]
 
 =======is loop:1=========
 
  bb index 7 
-<bb 7> [69.00%]:
-# i_12 = PHI <0(9), i_26(6)>
-if (i_12 <= 9)
-  goto <bb 6>; [90.91%]
+<L4> [33.33%]:
+foo (p5_11(D));
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [99.99%]:
+if (test_18(D) != 0)
+  goto <bb 9>; [92.50%]
 else
-  goto <bb 8>; [9.09%]
+  goto <bb 18>; [7.50%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [92.49%]:
+if (test_18(D) > test2_19(D))
+  goto <bb 10>; [7.50%]
+else
+  goto <bb 13>; [92.50%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [6.94%]:
+foo (p_10);
+if (test_18(D) < test2_19(D))
+  goto <bb 11>; [50.00%]
+else
+  goto <bb 12>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [3.47%]:
+foo (p_10);
+goto <bb 16>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [3.47%]:
+foo (p_10);
+goto <bb 16>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [85.55%]:
+foo (p_10);
+if (test_18(D) < test2_19(D))
+  goto <bb 14>; [50.00%]
+else
+  goto <bb 15>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [42.78%]:
+foo (p3_25(D));
+goto <bb 4> (label3); [100.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [42.78%]:
+foo (p5_11(D));
+goto <bb 4> (label3); [100.00%]
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [6.94%]:
+if (test3_30(D) != 0)
+  goto <bb 17>; [92.50%]
+else
+  goto <bb 22>; [7.50%]
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [6.42%]:
+foo (p_10);
+goto <bb 3> (label2); [100.00%]
 
 =======is loop:0=========
 
- bb index 8 
-<bb 8> [9.09%]:
-# _13 = PHI <200(5), 0(7)>
-return _13;
+ bb index 18 
+<bb 18> [7.50%]:
+if (test_18(D) == test2_19(D))
+  goto <bb 19>; [17.77%]
+else
+  goto <bb 20>; [82.23%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [1.33%]:
+foo (p_10);
+goto <bb 22>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [6.17%]:
+if (test_18(D) > test2_19(D))
+  goto <bb 21>; [36.64%]
+else
+  goto <bb 22>; [63.36%]
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [2.26%]:
+foo (p4_20(D));
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [8.02%]:
+return 0;
 
 
 ===============Print ALL GIMPLE IR=================
@@ -247,8 +1183,8 @@ return _13;
  ~~~~~~
            ~~~~~~~
 [40;34m    find Entry point : 1 [0m
-[40;34m    used_stmt array stack totalsize of : 104 [0m
-[40;34m    collect time: : 0.000082 s [0m
-[40;34m    algorithm time: 0.000950 s [0m
-[40;34m    gimple stmt count : : 21 [0m
+[40;34m    used_stmt array stack totalsize of : 96 [0m
+[40;34m    collect time: : 0.000308 s [0m
+[40;34m    algorithm time: 0.005153 s [0m
+[40;34m    gimple stmt count : : 32 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
