@@ -21,6 +21,8 @@
         "system_error": "c",
         "iosfwd": "c",
         "fstream": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "dfs.h": "c",
+        "unit.h": "c"
     }
 }

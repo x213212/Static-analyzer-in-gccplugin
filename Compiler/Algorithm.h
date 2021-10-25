@@ -1,6 +1,7 @@
 #include "system.h"
 #include "config.h"
 #include "DFS.h"
+#include <list>
 #include "cfgloop.h"
 #include <vector>
 #include <time.h>
@@ -508,90 +509,179 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 						getFunctionAssignVAR = second;
 					}
 					//
-				}
-				if (second2)
-				{
-					if (TREE_CODE(second2) == FIELD_DECL)
+					if (second2)
 					{
-						// fprintf(stderr, "mappinggggggggggggFIELD_DECLggggggggggggggggggg-------\n");
-						function_assign_array assign_array;
-						vector<assign_type> assign_type_array;
-
-						if (function_assign_collect->get(second2) != NULL)
+						if (TREE_CODE(second2) == FIELD_DECL)
 						{
-							assign_array = *(function_assign_collect->get(second2));
-							assign_type_array = assign_array.assign_type_array;
+							// fprintf(stderr, "mappinggggggggggggFIELD_DECLggggggggggggggggggg-------\n");
+							function_assign_array assign_array;
+							vector<assign_type> assign_type_array;
+
 							if (function_assign_collect->get(second2) != NULL)
 							{
-
-								// debug(use_stmt);
-								// fprintf(stderr, "=======fist hit========\n");
-								// assign_array = ret_function_varstmt(getFunctionAssignVAR);
-								// fprintf(stderr, "=======print_function_var test %d========\n", assign_array.pass);
-								// fprintf(stderr, "=======print_function_var %d   %d========\n", getFunctionAssignVAR, assign_array.assign_type_array.size());
-								for (int i = 0; i < assign_array.assign_type_array.size(); i++)
+								assign_array = *(function_assign_collect->get(second2));
+								assign_type_array = assign_array.assign_type_array;
+								if (function_assign_collect->get(second2) != NULL)
 								{
 
-									// if ((assign_array.assign_type_array)[i].stmt == use_stmt)
-									// {
-									// 	debug((assign_array.assign_type_array)[i].stmt);
-									// 	continue;
-									// }
-
-									if (gimple_code((assign_array.assign_type_array)[i].stmt) == GIMPLE_ASSIGN)
-									{
-										// fprintf(stderr, "=======fist hit========\n");
-										debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
-
-										if (TREE_CODE(gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt)) == SSA_NAME)
+									// debug(use_stmt);
+									// fprintf(stderr, "=======fist hit========\n");
+									// assign_array = ret_function_varstmt(getFunctionAssignVAR);
+									// fprintf(stderr, "=======print_function_var test %d========\n", assign_array.pass);
+									// fprintf(stderr, "=======print_function_var %d   %d========\n", getFunctionAssignVAR, assign_array.assign_type_array.size());
+									if (TREE_CODE(second) != VAR_DECL)
+										for (int i = 0; i < assign_array.assign_type_array.size(); i++)
 										{
 
-											tree filed_from = TREE_OPERAND(second, 0);
+											// if ((assign_array.assign_type_array)[i].stmt == use_stmt)
+											// {
+											// 	debug((assign_array.assign_type_array)[i].stmt);
+											// 	continue;
+											// }
 
-											tree filed_from2 = TREE_OPERAND((assign_array.assign_type_array)[i].assign_tree, 0);
-											filed_from2 = TREE_OPERAND(filed_from2, 0);
-											gimple *def_stmt = SSA_NAME_DEF_STMT(filed_from2);
-											gimple *def_stmt2 = SSA_NAME_DEF_STMT(filed_from);
-											// fprintf(stderr, "=======fist hit222========\n");
-											// debug_tree(gimple_assign_rhs1(def_stmt2));
-											// debug_tree(filed_from2);
-											if (gimple_assign_rhs1(def_stmt2) == filed_from2)
-												if (!check_stmtStack4(gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt)))
+											if (gimple_code((assign_array.assign_type_array)[i].stmt) == GIMPLE_ASSIGN)
+											{
+												// fprintf(stderr, "=======fist hit========\n");
+												// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
+
+												if (TREE_CODE(gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt)) == SSA_NAME)
 												{
-													// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
 
-													if (gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt) != target2 && !check_stmtStack3((assign_array.assign_type_array)[i].stmt))
+													tree filed_from = TREE_OPERAND(second, 0);
+
+													tree filed_from2 = TREE_OPERAND((assign_array.assign_type_array)[i].assign_tree, 0);
+													// debug_tree(filed_from2);
+													// debug_tree(second);
+													if (TREE_CODE(filed_from2) == MEM_REF)
+														filed_from2 = TREE_OPERAND(filed_from2, 0);
+													if (TREE_CODE(filed_from) == MEM_REF)
+														filed_from = TREE_OPERAND(filed_from, 0);
+													tree treecheck;
+													gimple *def_stmt;
+													if (TREE_CODE(filed_from2) == SSA_NAME)
 													{
-														// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
-														set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), target, NULL);
-														new_search_imm_use(used_stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt));
+														def_stmt = SSA_NAME_DEF_STMT(filed_from2);
+														if (def_stmt)
+															if (gimple_code(def_stmt) != GIMPLE_NOP)
+																if (gimple_assign_rhs1(def_stmt))
+																	if (TREE_CODE(gimple_assign_rhs1(def_stmt)) != ERROR_MARK)
+																		if (def_stmt)
+																			treecheck = gimple_assign_rhs1(def_stmt);
+																		else
+																			treecheck = filed_from2;
 													}
-												}
-										}
-										else if (TREE_CODE(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)) == SSA_NAME)
-										{
+													else
+														treecheck = filed_from2;
 
-											fprintf(stderr, "=======fist hit========\n");
-											tree filed_from = TREE_OPERAND(second, 0);
-											tree filed_from2 = TREE_OPERAND((assign_array.assign_type_array)[i].assign_tree, 0);
-											filed_from2 = TREE_OPERAND(filed_from2, 0);
-											// // 			debug_tree(filed_from);
-											// 			fprintf(stderr, "=======fist hit2========\n");
-											// 			debug_tree(filed_from);
-											// filed_from= TREE_OPERAND(filed_from, 0);
-											// // 			fprintf(stderr, "=======fist hit3========\n");
-											// // 			debug_tree(filed_from);
-											// 				fprintf(stderr, "=======fist hit4========\n");
-											gimple *def_stmt = SSA_NAME_DEF_STMT(filed_from2);
-											if (filed_from == gimple_assign_rhs1(def_stmt))
-												if (gimple_assign_lhs((assign_array.assign_type_array)[i].stmt) != target2 && !check_stmtStack3((assign_array.assign_type_array)[i].stmt))
-												{
-													// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
-													set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), target, NULL);
-													new_search_imm_use(used_stmt, gimple_assign_lhs((assign_array.assign_type_array)[i].stmt), gimple_assign_lhs((assign_array.assign_type_array)[i].stmt));
+													gimple *def_stmt2;
+													tree treecheck2;
+													if (TREE_CODE(second) != VAR_DECL)
+													{
+														gimple *def_stmt2 = SSA_NAME_DEF_STMT(filed_from);
+														if (def_stmt2)
+															if (gimple_code(def_stmt2) != GIMPLE_NOP)
+																if (gimple_assign_rhs1(def_stmt2))
+																	if (TREE_CODE(gimple_assign_rhs1(def_stmt2)) != ERROR_MARK)
+																		if (def_stmt2)
+																			treecheck2 = gimple_assign_rhs1(def_stmt2);
+																		else
+																			treecheck2 = filed_from;
+													}
+													else
+														treecheck2 = filed_from;
+
+													if (!treecheck)
+														treecheck = filed_from2;
+													if (!treecheck2)
+														treecheck2 = filed_from;
+													// fprintf(stderr, "=======fist hit222========\n");
+													// debug_tree(gimple_assign_rhs1(def_stmt2));
+													// debug_tree(filed_from2);
+
+													if (treecheck2 == treecheck)
+														if (!check_stmtStack(gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt)))
+														{
+															// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
+
+															if (gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt) != target2 && !check_stmtStack2((assign_array.assign_type_array)[i].stmt))
+															{
+																// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
+																set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), target, NULL);
+																new_search_imm_use(used_stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt));
+															}
+														}
 												}
+												else if (TREE_CODE(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)) == SSA_NAME)
+												{
+
+													// fprintf(stderr, "=======fist hit========\n");
+													tree filed_from = TREE_OPERAND(second, 0);
+													tree filed_from2 = TREE_OPERAND((assign_array.assign_type_array)[i].assign_tree, 0);
+
+													if (TREE_CODE(filed_from2) == MEM_REF)
+														filed_from2 = TREE_OPERAND(filed_from2, 0);
+
+													if (TREE_CODE(filed_from) == MEM_REF)
+														filed_from = TREE_OPERAND(filed_from, 0);
+													// // 			debug_tree(filed_from);
+													// 			fprintf(stderr, "=======fist hit2========\n");
+													// 			debug_tree(filed_from);
+													// filed_from= TREE_OPERAND(filed_from, 0);
+													// // 			fprintf(stderr, "=======fist hit3========\n");
+													// // 			debug_tree(filed_from);
+													// 				fprintf(stderr, "=======fist hit4========\n");
+													tree treecheck;
+													gimple *def_stmt;
+													if (TREE_CODE(filed_from2) == SSA_NAME)
+													{
+														def_stmt = SSA_NAME_DEF_STMT(filed_from2);
+														if (def_stmt)
+															if (gimple_code(def_stmt) != GIMPLE_NOP)
+																if (gimple_assign_rhs1(def_stmt))
+																	if (TREE_CODE(gimple_assign_rhs1(def_stmt)) != ERROR_MARK)
+																		if (def_stmt)
+																			treecheck = gimple_assign_rhs1(def_stmt);
+																		else
+																			treecheck = filed_from2;
+													}
+													else
+														treecheck = filed_from2;
+
+													gimple *def_stmt2;
+													tree treecheck2;
+
+													if (TREE_CODE(second) != VAR_DECL)
+													{
+														gimple *def_stmt2 = SSA_NAME_DEF_STMT(filed_from);
+														if (def_stmt2)
+															if (gimple_code(def_stmt2) != GIMPLE_NOP)
+																if (gimple_assign_rhs1(def_stmt2))
+																	if (TREE_CODE(gimple_assign_rhs1(def_stmt2)) != ERROR_MARK)
+																		if (def_stmt2)
+																			treecheck2 = gimple_assign_rhs1(def_stmt2);
+																		else
+																			treecheck2 = filed_from;
+													}
+													else
+														treecheck2 = filed_from;
+													if (!treecheck)
+														treecheck = filed_from2;
+													if (!treecheck2)
+														treecheck2 = filed_from;
+													// 	fprintf(stderr, "=======fist hit========\n");
+													// debug_tree(treecheck);
+													// 	debug_tree(treecheck2);
+													if (treecheck2 == treecheck)
+														if (!check_stmtStack(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)))
+															if (gimple_assign_lhs((assign_array.assign_type_array)[i].stmt) != target2 && !check_stmtStack2((assign_array.assign_type_array)[i].stmt))
+															{
+																// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
+																set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), target, NULL);
+																new_search_imm_use(used_stmt, gimple_assign_lhs((assign_array.assign_type_array)[i].stmt), gimple_assign_lhs((assign_array.assign_type_array)[i].stmt));
+															}
+												}
+											}
 										}
-									}
 								}
 							}
 						}
@@ -630,124 +720,246 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 								getFunctionAssignVAR = three;
 							// {}
 						}
-					}
-					else if (TREE_CODE(second) == VAR_DECL)
-					{
-						getFunctionAssignVAR = second;
-					}
-					//
-				}
-				if (second2)
-				{
-					if (TREE_CODE(second2) == FIELD_DECL)
-					{
-						// fprintf(stderr, "mappinggggggggggggFIELD_DECLggggggggggggggggggg-------\n");
-						function_assign_array assign_array;
-						vector<assign_type> assign_type_array;
-
-						if (function_assign_collect->get(second2) != NULL)
+						if (second2)
 						{
-							assign_array = *(function_assign_collect->get(second2));
-							assign_type_array = assign_array.assign_type_array;
-							if (function_assign_collect->get(second2) != NULL)
+							if (TREE_CODE(second2) == FIELD_DECL)
 							{
+								// fprintf(stderr, "mappinggggggggggggFIELD_DECLggggggggggggggggggg-------\n");
+								function_assign_array assign_array;
+								vector<assign_type> assign_type_array;
 
-								// debug(use_stmt);
-								// fprintf(stderr, "=======fist hit========\n");
-								// assign_array = ret_function_varstmt(getFunctionAssignVAR);
-								// fprintf(stderr, "=======print_function_var test %d========\n", assign_array.pass);
-								// fprintf(stderr, "=======print_function_var %d   %d========\n", getFunctionAssignVAR, assign_array.assign_type_array.size());
-								for (int i = 0; i < assign_array.assign_type_array.size(); i++)
+								if (function_assign_collect->get(second2) != NULL)
 								{
-
-									// if ((assign_array.assign_type_array)[i].stmt == use_stmt)
-									// {
-									// 	debug((assign_array.assign_type_array)[i].stmt);
-									// 	continue;
-									// }
-
-									if (gimple_code((assign_array.assign_type_array)[i].stmt) == GIMPLE_ASSIGN)
+									assign_array = *(function_assign_collect->get(second2));
+									assign_type_array = assign_array.assign_type_array;
+									if (function_assign_collect->get(second2) != NULL)
 									{
 
-										if (TREE_CODE(gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt)) == SSA_NAME)
-										{
-											tree filed_from = TREE_OPERAND(second, 0);
+										// debug(use_stmt);
+										// fprintf(stderr, "=======fist hit========\n");
+										// 	debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
 
-											tree filed_from2 = TREE_OPERAND((assign_array.assign_type_array)[i].assign_tree, 0);
-											filed_from2 = TREE_OPERAND(filed_from2, 0);
-											gimple *def_stmt = SSA_NAME_DEF_STMT(filed_from2);
-											gimple *def_stmt2 = SSA_NAME_DEF_STMT(filed_from);
-											// fprintf(stderr, "=======fist hit222========\n");
-											// debug_tree(gimple_assign_rhs1(def_stmt2));
-											// debug_tree(filed_from2);
-											if (gimple_assign_rhs1(def_stmt2) == filed_from2)
-												if (!check_stmtStack4(gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt)))
+										// assign_array = ret_function_varstmt(getFunctionAssignVAR);
+										// fprintf(stderr, "=======print_function_var test %d========\n", assign_array.pass);
+										// fprintf(stderr, "=======print_function_var %d   %d========\n", getFunctionAssignVAR, assign_array.assign_type_array.size());
+										if (TREE_CODE(second) != VAR_DECL)
+											for (int i = 0; i < assign_array.assign_type_array.size(); i++)
+											{
+
+												// if ((assign_array.assign_type_array)[i].stmt == use_stmt)
+												// {
+												// debug((assign_array.assign_type_array)[i].stmt);
+												// 	continue;
+												// }
+
+												if (gimple_code((assign_array.assign_type_array)[i].stmt) == GIMPLE_ASSIGN)
 												{
+													// fprintf(stderr, "=======fist hit========\n");
 													// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
-													if (gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt) != target2 && !check_stmtStack3((assign_array.assign_type_array)[i].stmt))
+
+													if (TREE_CODE(gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt)) == SSA_NAME)
 													{
+														tree filed_from = TREE_OPERAND(second, 0);
+
+														tree filed_from2 = TREE_OPERAND((assign_array.assign_type_array)[i].assign_tree, 0);
+														// debug_tree(filed_from2);
+														if (TREE_CODE(filed_from2) == MEM_REF)
+															filed_from2 = TREE_OPERAND(filed_from2, 0);
+														// debug_tree(filed_from2);
+														// debug_tree(filed_from);
+														if (TREE_CODE(filed_from) == MEM_REF)
+															filed_from = TREE_OPERAND(filed_from, 0);
+														// gimple *def_stmt2 = SSA_NAME_DEF_STMT(filed_from);
+														// fprintf(stderr, "=======fist hit222========\n");
+														// debug_tree(gimple_assign_rhs1(def_stmt2));
+														// debug_tree(filed_from2);
+														tree treecheck;
+														gimple *def_stmt;
+														if (TREE_CODE(filed_from2) == SSA_NAME)
+														{
+															def_stmt = SSA_NAME_DEF_STMT(filed_from2);
+															if (def_stmt)
+																if (gimple_code(def_stmt) != GIMPLE_NOP)
+																	if (gimple_assign_rhs1(def_stmt))
+																		if (TREE_CODE(gimple_assign_rhs1(def_stmt)) != ERROR_MARK)
+																			if (def_stmt)
+																				treecheck = gimple_assign_rhs1(def_stmt);
+																			else
+																				treecheck = filed_from2;
+														}
+														else
+															treecheck = filed_from2;
+
+														gimple *def_stmt2;
+														tree treecheck2;
+														if (TREE_CODE(second) != VAR_DECL)
+														{
+															gimple *def_stmt2 = SSA_NAME_DEF_STMT(filed_from);
+															// if (filed_from)
+															if (def_stmt2)
+																if (gimple_code(def_stmt2) != GIMPLE_NOP)
+																	if (gimple_assign_rhs1(def_stmt2))
+																		if (TREE_CODE(gimple_assign_rhs1(def_stmt2)) != ERROR_MARK)
+																			if (def_stmt2)
+																				treecheck2 = gimple_assign_rhs1(def_stmt2);
+																			else
+																				treecheck2 = filed_from;
+														}
+														else
+															treecheck2 = filed_from;
+														if (!treecheck)
+															treecheck = filed_from2;
+														if (!treecheck2)
+															treecheck2 = filed_from;
+														// debug_tree(treecheck);
+														// debug_tree(treecheck2);
+														// debug_tree(filed_from);
+														// debug_tree(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt));
+														if (treecheck2 == treecheck)
+															if (!check_stmtStack(gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt)))
+															{
+																// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
+																if (gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt) != target2 && !check_stmtStack2((assign_array.assign_type_array)[i].stmt))
+																{
+																	// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
+																	set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), target, NULL);
+																	// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
+																	new_search_imm_use(used_stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt));
+																}
+															}
+													}
+													else if (TREE_CODE(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)) == SSA_NAME)
+													{
+														// fprintf(stderr, "=======fist hit2========\n");
 														// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
-														set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), target, NULL);
+
+														// debug_tree(gimple_assign_lhs(use_stmt));
+														// debug_tree(gimple_assign_rhs1(use_stmt));
+														// // 	debug_tree(target2);
+														tree filed_from = TREE_OPERAND(second, 0);
+
+														tree filed_from2 = TREE_OPERAND((assign_array.assign_type_array)[i].assign_tree, 0);
+														// debug_tree(filed_from2);
+														if (TREE_CODE(filed_from2) == MEM_REF)
+															filed_from2 = TREE_OPERAND(filed_from2, 0);
+
+														if (TREE_CODE(filed_from) == MEM_REF)
+															filed_from = TREE_OPERAND(filed_from, 0);
+
+														// debug_tree(filed_from);
+														// debug_tree(filed_from2);
+														// // 			debug_tree(filed_from);
+														// 			fprintf(stderr, "=======fist hit2========\n");
+														// 			debug_tree(filed_from);
+														// filed_from= TREE_OPERAND(filed_from, 0);
+														// // 			fprintf(stderr, "=======fist hit3========\n");
+														// // 			debug_tree(filed_from);
+														// 				fprintf(stderr, "=======fist hit4========\n");
+														// debug_tree((assign_array.assign_type_array)[i].assign_tree);
+														// if(TREE_CODE(filed_from) != VAR_DECL )
+
+														tree treecheck;
+														gimple *def_stmt;
+														if (TREE_CODE(filed_from2) == SSA_NAME)
+														{
+															def_stmt = SSA_NAME_DEF_STMT(filed_from2);
+															if (def_stmt)
+																if (gimple_code(def_stmt) != GIMPLE_NOP)
+																	if (gimple_assign_rhs1(def_stmt))
+																		if (TREE_CODE(gimple_assign_rhs1(def_stmt)) != ERROR_MARK)
+																			if (def_stmt)
+																				treecheck = gimple_assign_rhs1(def_stmt);
+																			else
+																				treecheck = filed_from2;
+														}
+														else
+															treecheck = filed_from2;
+
+														gimple *def_stmt2;
+														tree treecheck2;
+
+														if (TREE_CODE(filed_from) == SSA_NAME)
+														{
+															// if(TREE_CODE(second) == MEM_REF)
+															// 				filed_from = TREE_OPERAND(filed_from, 0);
+															gimple *def_stmt2 = SSA_NAME_DEF_STMT(filed_from);
+															// debug(def_stmt2);
+															// 	debug(filed_from);
+															// if (filed_from)
+															// debug_tree(filed_from);
+															if (def_stmt2)
+																if (TREE_CODE(filed_from) != GIMPLE_NOP)
+																	if (gimple_code(def_stmt2) != GIMPLE_NOP)
+																		if (gimple_assign_rhs1(def_stmt2))
+																			if (TREE_CODE(gimple_assign_rhs1(def_stmt2)) != ERROR_MARK)
+																				if (def_stmt2)
+																				{
+																					// fprintf(stderr, "=======fist hi5t========\n");
+																					treecheck2 = gimple_assign_rhs1(def_stmt2);
+																				}
+																				else
+																					treecheck2 = filed_from;
+														}
+														else
+															treecheck2 = filed_from;
+														if (!treecheck)
+															treecheck = filed_from2;
+														if (!treecheck2)
+															treecheck2 = filed_from;
+														// debug_gimple_stmt(def_stmt);
+														// debug_tree(target);
+														// debug_tree(filed_from);
+														// debug_tree(filed_from2);
+														// debug_tree(gimple_assign_rhs1(def_stmt));
+														// debug_tree((assign_array.assign_type_array)[i].assign_tree);
+														// fprintf(stderr, "=======fist hi5t========\n");
+														// debug_tree(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt));
+														// debug_tree(gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt));
+														// 				debug_tree(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt));
+														// // if(filed_from ==gimple_assign_rhs1(use_stmt))
+														// if(ptr_derefs_may_alias_p(target,second))
+														// if(def_stmt)
+														// if(gimple_assign_rhs1(def_stmt))
+														// debug_tree(treecheck2);
+														// debug_tree(treecheck);
+														// fprintf(stderr, "=======fist hi4========\n");
+														// debug_tree(treecheck);
+														// 	debug_tree(filed_from);
+														// debug_gimple_stmt(use_stmt);
+
 														// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
-														new_search_imm_use(used_stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt));
+
+														if (treecheck2 == treecheck)
+														{
+															// fprintf(stderr, "=======fist hi6t========\n");
+															// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
+															// debug_gimple_stmt(def_stmt);
+															// debug_tree(filed_from);
+															// debug_tree(gimple_assign_rhs1(def_stmt));
+															// if(ptr_derefs_may_alias_p(filed_from, gimple_assign_rhs1(def_stmt)))
+															// if(!ptr_derefs_may_alias_p(filed_from,gimple_assign_lhs(use_stmt)))
+															if (!check_stmtStack(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)))
+																if (gimple_assign_lhs((assign_array.assign_type_array)[i].stmt) != target2 && !check_stmtStack2((assign_array.assign_type_array)[i].stmt))
+																{
+																	// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
+																	set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), target, NULL);
+																	new_search_imm_use(used_stmt, gimple_assign_lhs((assign_array.assign_type_array)[i].stmt), gimple_assign_lhs((assign_array.assign_type_array)[i].stmt));
+																}
+														}
 													}
 												}
-										}
-										else if (TREE_CODE(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)) == SSA_NAME)
-										{
-											fprintf(stderr, "=======fist hit========\n");
-											debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
-
-											// debug_tree(gimple_assign_lhs(use_stmt));
-											// debug_tree(gimple_assign_rhs1(use_stmt));
-											// // 	debug_tree(target2);
-											tree filed_from = TREE_OPERAND(second, 0);
-											tree filed_from2 = TREE_OPERAND((assign_array.assign_type_array)[i].assign_tree, 0);
-											filed_from2 = TREE_OPERAND(filed_from2, 0);
-											// // 			debug_tree(filed_from);
-											// 			fprintf(stderr, "=======fist hit2========\n");
-											// 			debug_tree(filed_from);
-											// filed_from= TREE_OPERAND(filed_from, 0);
-											// // 			fprintf(stderr, "=======fist hit3========\n");
-											// // 			debug_tree(filed_from);
-											// 				fprintf(stderr, "=======fist hit4========\n");
-											gimple *def_stmt = SSA_NAME_DEF_STMT(filed_from2);
-											// debug_gimple_stmt(def_stmt);
-											// debug_tree(target);
-											// debug_tree(filed_from);
-											// debug_tree(filed_from2);
-											// debug_tree(gimple_assign_rhs1(def_stmt));
-											// debug_tree((assign_array.assign_type_array)[i].assign_tree);
-											// fprintf(stderr, "=======fist hi5t========\n");
-											// debug_tree(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt));
-											// debug_tree(gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt));
-											// 				debug_tree(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt));
-											// // if(filed_from ==gimple_assign_rhs1(use_stmt))
-											// if(ptr_derefs_may_alias_p(target,second))
-											if (filed_from == gimple_assign_rhs1(def_stmt))
-											{
-												// fprintf(stderr, "=======fist hi6t========\n");
-												// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
-												// debug_gimple_stmt(def_stmt);
-												// debug_tree(filed_from);
-												// debug_tree(gimple_assign_rhs1(def_stmt));
-												// if(ptr_derefs_may_alias_p(filed_from, gimple_assign_rhs1(def_stmt)))
-												// if(!ptr_derefs_may_alias_p(filed_from,gimple_assign_lhs(use_stmt)))
-												if (!check_stmtStack4(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)))
-													if (gimple_assign_lhs((assign_array.assign_type_array)[i].stmt) != target2 && !check_stmtStack3((assign_array.assign_type_array)[i].stmt))
-													{
-														// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
-														set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), target, NULL);
-														new_search_imm_use(used_stmt, gimple_assign_lhs((assign_array.assign_type_array)[i].stmt), gimple_assign_lhs((assign_array.assign_type_array)[i].stmt));
-													}
 											}
-										}
 									}
 								}
 							}
 						}
 					}
 				}
+				else if (TREE_CODE(second) == VAR_DECL)
+				{
+					getFunctionAssignVAR = second;
+				}
+				//
 			}
 		}
 
@@ -1244,10 +1456,11 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 			}
 
 		// if(!check_stmtStack(target))
-		debug_gimple_stmt(def_stmt);
-		debug_tree(target);
+		// debug_gimple_stmt(def_stmt);
+		// debug_tree(target);
+		// fprintf(stderr, "%d\n", num_imm_uses(target));
 		if (levelsize > 1)
-			if (check_stmtStack4(target) || target == now_tree)
+			if (target == now_tree)
 			{
 				// if (!check_stmtStack3(use_stmt))
 				// goto has_single_use_jump2;
@@ -1268,7 +1481,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 					// continue ;
 					// }
-					// fprintf(stderr, "--------GIMPLE goto -------\n");
+					// fprintf(stderr, "--------GIMPLE asssss -------\n");
 
 					// debug_gimple_stmt(use_stmt);
 
@@ -1664,7 +1877,19 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 						name = get_name(gimple_call_fn(use_stmt));
 						if (name != NULL)
-							if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+							if (!strcmp(name, "realloc"))
+							{
+
+								if (!check_stmtStack(gimple_call_lhs(use_stmt)))
+								{
+
+									// fprintf(stderr, "tewtw\n");
+									set_gimple_array(used_stmt, use_stmt, gimple_call_lhs(use_stmt), target, NULL);
+									if (TREE_CODE(gimple_call_lhs(use_stmt)) == SSA_NAME)
+										new_search_imm_use(used_stmt, gimple_call_lhs(use_stmt), gimple_call_lhs(use_stmt));
+								}
+							}
+							else if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 							{
 
 								if (!check_stmtStack(gimple_call_fn(use_stmt)))

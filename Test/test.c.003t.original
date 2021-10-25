@@ -1,225 +1,4 @@
 
-;; Function atoi (null)
-;; enabled by -tree-original
-
-
-{
-  return (int) strtol (__nptr, 0B, 10);
-}
-
-
-;; Function atol (null)
-;; enabled by -tree-original
-
-
-{
-  return strtol (__nptr, 0B, 10);
-}
-
-
-;; Function atoll (null)
-;; enabled by -tree-original
-
-
-{
-  return strtoll (__nptr, 0B, 10);
-}
-
-
-;; Function __bswap_16 (null)
-;; enabled by -tree-original
-
-
-{
-  return (__uint16_t) __builtin_bswap16 ((int) __bsx);
-}
-
-
-;; Function __bswap_32 (null)
-;; enabled by -tree-original
-
-
-{
-  return (__uint32_t) __builtin_bswap32 (__bsx);
-}
-
-
-;; Function __bswap_64 (null)
-;; enabled by -tree-original
-
-
-{
-  return (__uint64_t) __builtin_bswap64 (__bsx);
-}
-
-
-;; Function __uint16_identity (null)
-;; enabled by -tree-original
-
-
-{
-  return __x;
-}
-
-
-;; Function __uint32_identity (null)
-;; enabled by -tree-original
-
-
-{
-  return __x;
-}
-
-
-;; Function __uint64_identity (null)
-;; enabled by -tree-original
-
-
-{
-  return __x;
-}
-
-
-;; Function bsearch (null)
-;; enabled by -tree-original
-
-
-{
-  size_t __l;
-  size_t __u;
-  size_t __idx;
-  const void * __p;
-  int __comparison;
-
-    size_t __l;
-    size_t __u;
-    size_t __idx;
-    const void * __p;
-    int __comparison;
-  __l = 0;
-  __u = __nmemb;
-  goto <D.2300>;
-  <D.2299>:;
-  __idx = (__l + __u) / 2;
-  __p = __base + (sizetype) (__idx * __size);
-  __comparison = __compar (__key, __p);
-  if (__comparison < 0)
-    {
-      __u = __idx;
-    }
-  else
-    {
-      if (__comparison > 0)
-        {
-          __l = __idx + 1;
-        }
-      else
-        {
-          return (void *) __p;
-        }
-    }
-  <D.2300>:;
-  if (__l < __u) goto <D.2299>; else goto <D.2301>;
-  <D.2301>:;
-  return 0B;
-}
-
-
-;; Function atof (null)
-;; enabled by -tree-original
-
-
-{
-  return strtod (__nptr, 0B);
-}
-
-
-;; Function realpath (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __resolved, 1) != 18446744073709551615)
-    {
-      return __realpath_chk (__name, __resolved, __builtin_object_size ((const void *) __resolved, 1));
-    }
-  return __realpath_alias (__name, __resolved);
-}
-
-
-;; Function ptsname_r (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__buflen) == 0)
-        {
-          return __ptsname_r_chk (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
-        {
-          return __ptsname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __ptsname_r_alias (__fd, __buf, __buflen);
-}
-
-
-;; Function wctomb (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __s, 1) != 18446744073709551615 && __builtin_object_size ((const void *) __s, 1) <= 15)
-    {
-      return __wctomb_chk (__s, __wchar, __builtin_object_size ((const void *) __s, 1));
-    }
-  return __wctomb_alias (__s, __wchar);
-}
-
-
-;; Function mbstowcs (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __dst, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__len) == 0)
-        {
-          return __mbstowcs_chk (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1) / 4);
-        }
-      if (__builtin_object_size ((const void *) __dst, 1) / 4 < (long unsigned int) __len)
-        {
-          return __mbstowcs_chk_warn (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1) / 4);
-        }
-    }
-  return __mbstowcs_alias (__dst, __src, __len);
-}
-
-
-;; Function wcstombs (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __dst, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__len) == 0)
-        {
-          return __wcstombs_chk (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1));
-        }
-      if (__builtin_object_size ((const void *) __dst, 1) < (long unsigned int) __len)
-        {
-          return __wcstombs_chk_warn (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1));
-        }
-    }
-  return __wcstombs_alias (__dst, __src, __len);
-}
-
-
 ;; Function getchar (null)
 ;; enabled by -tree-original
 
@@ -468,22 +247,22 @@
           {
             return 0;
           }
-        goto <D.3008>;
-        <D.3007>:;
+        goto <D.2377>;
+        <D.2376>:;
         {
           int __c = getc_unlocked (__stream);
 
                     int __c = getc_unlocked (__stream);
           if (__c == -1)
             {
-              goto <D.3006>;
+              goto <D.2375>;
             }
           *__cptr++  = (char) __c;
         }
          --__cnt;
-        <D.3008>:;
-        if (__cnt != 0) goto <D.3007>; else goto <D.3006>;
-        <D.3006>:;
+        <D.2377>:;
+        if (__cnt != 0) goto <D.2376>; else goto <D.2375>;
+        <D.2375>:;
         return (size_t) ((long unsigned int) ((long int) __cptr - (long int) __ptr) / (long unsigned int) __size);
       }
     }
@@ -491,254 +270,595 @@
 }
 
 
-;; Function pthread_equal (null)
+;; Function atoi (null)
 ;; enabled by -tree-original
 
 
 {
-  return __thread1 == __thread2;
+  return (int) strtol (__nptr, 0B, 10);
 }
 
 
-;; Function read (null)
+;; Function atol (null)
 ;; enabled by -tree-original
 
 
 {
-  if (__builtin_object_size ((const void *) __buf, 0) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__nbytes) == 0)
-        {
-          return __read_chk (__fd, __buf, __nbytes, __builtin_object_size ((const void *) __buf, 0));
-        }
-      if (__builtin_object_size ((const void *) __buf, 0) < (long unsigned int) __nbytes)
-        {
-          return __read_chk_warn (__fd, __buf, __nbytes, __builtin_object_size ((const void *) __buf, 0));
-        }
-    }
-  return __read_alias (__fd, __buf, __nbytes);
+  return strtol (__nptr, 0B, 10);
 }
 
 
-;; Function readlink (null)
+;; Function atoll (null)
 ;; enabled by -tree-original
 
 
 {
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__len) == 0)
-        {
-          return __readlink_chk (__path, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __len)
-        {
-          return __readlink_chk_warn (__path, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __readlink_alias (__path, __buf, __len);
+  return strtoll (__nptr, 0B, 10);
 }
 
 
-;; Function readlinkat (null)
+;; Function __bswap_16 (null)
 ;; enabled by -tree-original
 
 
 {
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__len) == 0)
-        {
-          return __readlinkat_chk (__fd, __path, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __len)
-        {
-          return __readlinkat_chk_warn (__fd, __path, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __readlinkat_alias (__fd, __path, __buf, __len);
+  return (__uint16_t) __builtin_bswap16 ((int) __bsx);
 }
 
 
-;; Function getcwd (null)
+;; Function __bswap_32 (null)
 ;; enabled by -tree-original
 
 
 {
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__size) == 0)
-        {
-          return __getcwd_chk (__buf, __size, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __size)
-        {
-          return __getcwd_chk_warn (__buf, __size, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __getcwd_alias (__buf, __size);
+  return (__uint32_t) __builtin_bswap32 (__bsx);
 }
 
 
-;; Function getwd (null)
+;; Function __bswap_64 (null)
 ;; enabled by -tree-original
 
 
 {
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      return __getwd_chk (__buf, __builtin_object_size ((const void *) __buf, 1));
-    }
-  return __getwd_warn (__buf);
+  return (__uint64_t) __builtin_bswap64 (__bsx);
 }
 
 
-;; Function confstr (null)
+;; Function __uint16_identity (null)
 ;; enabled by -tree-original
 
 
 {
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__len) == 0)
-        {
-          return __confstr_chk (__name, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __len)
-        {
-          return __confstr_chk_warn (__name, __buf, __len, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __confstr_alias (__name, __buf, __len);
+  return __x;
 }
 
 
-;; Function getgroups (null)
+;; Function __uint32_identity (null)
 ;; enabled by -tree-original
 
 
 {
-  if (__builtin_object_size ((const void *) __list, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__size) == 0 || __size < 0)
-        {
-          return __getgroups_chk (__size, __list, __builtin_object_size ((const void *) __list, 1));
-        }
-      if ((long unsigned int) __size * 4 > __builtin_object_size ((const void *) __list, 1))
-        {
-          return __getgroups_chk_warn (__size, __list, __builtin_object_size ((const void *) __list, 1));
-        }
-    }
-  return __getgroups_alias (__size, __list);
+  return __x;
 }
 
 
-;; Function ttyname_r (null)
+;; Function __uint64_identity (null)
 ;; enabled by -tree-original
 
 
 {
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__buflen) == 0)
-        {
-          return __ttyname_r_chk (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
-        {
-          return __ttyname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __ttyname_r_alias (__fd, __buf, __buflen);
+  return __x;
 }
 
 
-;; Function getlogin_r (null)
+;; Function bsearch (null)
 ;; enabled by -tree-original
 
 
 {
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
+  size_t __l;
+  size_t __u;
+  size_t __idx;
+  const void * __p;
+  int __comparison;
+
+    size_t __l;
+    size_t __u;
+    size_t __idx;
+    const void * __p;
+    int __comparison;
+  __l = 0;
+  __u = __nmemb;
+  goto <D.2818>;
+  <D.2817>:;
+  __idx = (__l + __u) / 2;
+  __p = __base + (sizetype) (__idx * __size);
+  __comparison = __compar (__key, __p);
+  if (__comparison < 0)
     {
-      if (__builtin_constant_p (__buflen) == 0)
-        {
-          return __getlogin_r_chk (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
-        {
-          return __getlogin_r_chk_warn (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __getlogin_r_alias (__buf, __buflen);
-}
-
-
-;; Function gethostname (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__buflen) == 0)
-        {
-          return __gethostname_chk (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
-        {
-          return __gethostname_chk_warn (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __gethostname_alias (__buf, __buflen);
-}
-
-
-;; Function getdomainname (null)
-;; enabled by -tree-original
-
-
-{
-  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
-    {
-      if (__builtin_constant_p (__buflen) == 0)
-        {
-          return __getdomainname_chk (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
-        {
-          return __getdomainname_chk_warn (__buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
-        }
-    }
-  return __getdomainname_alias (__buf, __buflen);
-}
-
-
-;; Function foo3 (null)
-;; enabled by -tree-original
-
-
-{
-  int * q;
-
-    int * q;
-  if (p->flag != 0)
-    {
-      q = (int *) malloc (1);
+      __u = __idx;
     }
   else
     {
-      q = p->f;
+      if (__comparison > 0)
+        {
+          __l = __idx + 1;
+        }
+      else
+        {
+          return (void *) __p;
+        }
     }
-  return q;
+  <D.2818>:;
+  if (__l < __u) goto <D.2817>; else goto <D.2819>;
+  <D.2819>:;
+  return 0B;
 }
 
 
-;; Function foo (null)
+;; Function atof (null)
 ;; enabled by -tree-original
 
 
 {
-  free ((void *) z);
+  return strtod (__nptr, 0B);
+}
+
+
+;; Function realpath (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __resolved, 1) != 18446744073709551615)
+    {
+      return __realpath_chk (__name, __resolved, __builtin_object_size ((const void *) __resolved, 1));
+    }
+  return __realpath_alias (__name, __resolved);
+}
+
+
+;; Function ptsname_r (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __buf, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__buflen) == 0)
+        {
+          return __ptsname_r_chk (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
+        }
+      if (__builtin_object_size ((const void *) __buf, 1) < (long unsigned int) __buflen)
+        {
+          return __ptsname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size ((const void *) __buf, 1));
+        }
+    }
+  return __ptsname_r_alias (__fd, __buf, __buflen);
+}
+
+
+;; Function wctomb (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __s, 1) != 18446744073709551615 && __builtin_object_size ((const void *) __s, 1) <= 15)
+    {
+      return __wctomb_chk (__s, __wchar, __builtin_object_size ((const void *) __s, 1));
+    }
+  return __wctomb_alias (__s, __wchar);
+}
+
+
+;; Function mbstowcs (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __dst, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__len) == 0)
+        {
+          return __mbstowcs_chk (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1) / 4);
+        }
+      if (__builtin_object_size ((const void *) __dst, 1) / 4 < (long unsigned int) __len)
+        {
+          return __mbstowcs_chk_warn (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1) / 4);
+        }
+    }
+  return __mbstowcs_alias (__dst, __src, __len);
+}
+
+
+;; Function wcstombs (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __dst, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__len) == 0)
+        {
+          return __wcstombs_chk (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1));
+        }
+      if (__builtin_object_size ((const void *) __dst, 1) < (long unsigned int) __len)
+        {
+          return __wcstombs_chk_warn (__dst, __src, __len, __builtin_object_size ((const void *) __dst, 1));
+        }
+    }
+  return __wcstombs_alias (__dst, __src, __len);
+}
+
+
+;; Function discard_cleanups (null)
+;; enabled by -tree-original
+
+
+{
+  discard_my_cleanups (&cleanup_chain, old_chain);
+}
+
+
+;; Function discard_final_cleanups (null)
+;; enabled by -tree-original
+
+
+{
+  discard_my_cleanups (&final_cleanup_chain, old_chain);
+}
+
+
+;; Function discard_my_cleanups (null)
+;; enabled by -tree-original
+
+
+{
+  struct cleanup * ptr;
+
+    struct cleanup * ptr;
+  goto <D.3139>;
+  <D.3138>:;
+  *pmy_chain = ptr->next;
+  if (ptr->free_arg != 0B)
+    {
+      ptr->free_arg (ptr->arg);
+    }
+  free ((void *) ptr);
+  <D.3139>:;
+  if ((ptr = *pmy_chain) != old_chain) goto <D.3138>; else goto <D.3140>;
+  <D.3140>:;
+  printf ((const char * restrict) "freearg: %x\n", ptr->arg);
+}
+
+
+;; Function do_my_cleanups (null)
+;; enabled by -tree-original
+
+
+{
+  struct cleanup * ptr;
+
+    struct cleanup * ptr;
+  goto <D.3147>;
+  <D.3146>:;
+  *pmy_chain = ptr->next;
+  ptr->function (ptr->arg);
+  printf ((const char * restrict) "cleanup!!!!! =========\n");
+  printf ((const char * restrict) "%x\n", ptr->arg);
+  if (ptr->free_arg != 0B)
+    {
+      ptr->free_arg (ptr->arg);
+    }
+  free ((void *) ptr);
+  <D.3147>:;
+  if ((ptr = *pmy_chain) != old_chain) goto <D.3146>; else goto <D.3148>;
+  <D.3148>:;
+}
+
+
+;; Function do_cleanups (null)
+;; enabled by -tree-original
+
+
+{
+  do_my_cleanups (&cleanup_chain, old_chain);
+}
+
+
+;; Function make_my_cleanup2 (null)
+;; enabled by -tree-original
+
+
+{
+  struct cleanup * new = (struct cleanup *) malloc (32);
+  struct cleanup * old_chain = *pmy_chain;
+
+    struct cleanup * new = (struct cleanup *) malloc (32);
+    struct cleanup * old_chain = *pmy_chain;
+  new->next = *pmy_chain;
+  new->function = (void (*<Ted>) (void *)) function;
+  new->free_arg = free_arg;
+  new->arg = arg;
+  *pmy_chain = new;
+  if (old_chain == 0B)
+    {
+      exit (1);
+    }
+  return old_chain;
+}
+
+
+;; Function make_my_cleanup (null)
+;; enabled by -tree-original
+
+
+{
+  return make_my_cleanup2 (pmy_chain, function, arg, 0B);
+}
+
+
+;; Function make_cleanup (null)
+;; enabled by -tree-original
+
+
+{
+  return make_my_cleanup (&cleanup_chain, function, arg);
+}
+
+
+;; Function filename_cmp (null)
+;; enabled by -tree-original
+
+
+{
+  extern int strcmp ();
+
+  return strcmp (s1, s2);
+}
+
+
+;; Function template_in_dir (null)
+;; enabled by -tree-original
+
+
+{
+  const char * slash = (const char *) strrchr (path, 47);
+  extern char * strrchr (const char *, int);
+  char * tmpname;
+  size_t len;
+  extern void * memcpy (void *, const void *, long unsigned int);
+
+    const char * slash = (const char *) strrchr (path, 47);
+    char * tmpname;
+    size_t len;
+  if (slash != 0B)
+    {
+      {
+        extern void * memcpy (void *, const void *, long unsigned int);
+
+        len = (size_t) ((long int) slash - (long int) path);
+        tmpname = (char *) malloc ((long unsigned int) len + 11);
+        memcpy ((void *) tmpname, (const void *) path, len);
+        *(tmpname + (sizetype) len++ ) = 47;
+      }
+    }
+  else
+    {
+      tmpname = (char *) malloc (9);
+      len = 0;
+    }
+  memcpy ((void *) (tmpname + (sizetype) len), (const void *) "stXXXXXX", 9);
+  return tmpname;
+}
+
+
+;; Function make_tempname (null)
+;; enabled by -tree-original
+
+
+{
+  char * tmpname = template_in_dir ((const char *) filename);
+  int fd;
+  extern int close ();
+
+    char * tmpname = template_in_dir ((const char *) filename);
+    int fd;
+  fd = mkstemp (tmpname);
+  if (fd == -1)
+    {
+      free ((void *) tmpname);
+      return 0B;
+    }
+  close (fd);
+  return tmpname;
+}
+
+
+;; Function set_times (null)
+;; enabled by -tree-original
+
+
+{
+  int result;
+
+    int result;
+  {
+    long int tb[2];
+    extern int utime ();
+
+        long int tb[2];
+    tb[0] = statbuf->st_atim.tv_sec;
+    tb[1] = statbuf->st_mtim.tv_sec;
+    result = utime (destination, (long int *) &tb);
+  }
+  if (result != 0)
+    {
+      printf ((const char * restrict) "%s: cannot set time:", destination);
+    }
+}
+
+
+;; Function smart_rename (null)
+;; enabled by -tree-original
+
+
+{
+  bfd_boolean exists;
+  struct stat s;
+  int ret = 0;
+
+    bfd_boolean exists;
+    struct stat s;
+    int ret = 0;
+  exists = lstat (to, &s) == 0;
+  if (exists == 0 || (BIT_FIELD_REF <s, 32, 192> & 61568) == 32896 && s.st_nlink == 1)
+    {
+      ret = rename (from, to);
+      if (ret == 0)
+        {
+          if (exists != 0)
+            {
+              chmod (to, s.st_mode & 511);
+              {
+                extern int chown ();
+
+                if (chown (to, s.st_uid, s.st_gid) >= 0)
+                  {
+                    chmod (to, s.st_mode & 4095);
+                  }
+              }
+            }
+        }
+      else
+        {
+          {
+            extern int unlink ();
+
+            printf ((const char * restrict) "unable to rename \'%s\';", to);
+            unlink (from);
+          }
+        }
+    }
+  else
+    {
+      {
+        extern int unlink ();
+
+        if (ret != 0)
+          {
+            printf ((const char * restrict) "unable to copy file \'%s\';", to);
+          }
+        if (preserve_dates != 0)
+          {
+            set_times (to, (const struct stat *) &s);
+          }
+        unlink (from);
+      }
+    }
+  return ret;
+}
+
+
+;; Function unlink_if_ordinary (null)
+;; enabled by -tree-original
+
+
+{
+  printf ((const char * restrict) "%d\n", *(int *) name);
+}
+
+
+;; Function copy_file (null)
+;; enabled by -tree-original
+
+
+{
+  struct bfd * ibfd;
+  char * * obj_matching;
+  char * * core_matching;
+  off_t size;
+
+    struct bfd * ibfd;
+    char * * obj_matching;
+    char * * core_matching;
+    off_t size;
+  size = rand () % 2 == 1;
+  if (size <= 0)
+    {
+      if (size == 0)
+        {
+          printf ((const char * restrict) "error: the input file \'%s\' is empty", input_filename);
+        }
+      status = 1;
+      return;
+    }
+}
+
+
+;; Function copy_main (null)
+;; enabled by -tree-original
+
+
+{
+  char * input_filename = 0B;
+  char * output_filename = 0B;
+  char * tmpname;
+  char * input_target = 0B;
+  char * output_target = 0B;
+  bfd_boolean show_version = 0;
+  bfd_boolean change_warn = 1;
+  bfd_boolean formats_info = 0;
+  int c;
+  int statbuf;
+  const struct bfd_arch_info_type * input_arch = 0B;
+
+    char * input_filename = 0B;
+    char * output_filename = 0B;
+    char * tmpname;
+    char * input_target = 0B;
+    char * output_target = 0B;
+    bfd_boolean show_version = 0;
+    bfd_boolean change_warn = 1;
+    bfd_boolean formats_info = 0;
+    int c;
+    int statbuf;
+    const struct bfd_arch_info_type * input_arch = 0B;
+  input_filename = *(argv + (sizetype) ((long unsigned int) optind * 8));
+  if (optind + 1 < argc)
+    {
+      output_filename = *(argv + ((sizetype) optind + 1) * 8);
+    }
+  if (output_filename == 0B)
+    {
+      tmpname = make_tempname (input_filename);
+    }
+  else
+    {
+      tmpname = output_filename;
+    }
+  if (tmpname == 0B)
+    {
+      printf ((const char * restrict) "warning: could not create temporary file whilst copying \'%s\'", input_filename);
+      exit (1);
+    }
+  copy_file ((const char *) input_filename, (const char *) tmpname, (const char *) input_target, (const char *) output_target, input_arch);
+  if (status == 0)
+    {
+      if (preserve_dates != 0)
+        {
+          set_times ((const char *) tmpname, (const struct stat *) &statbuf);
+        }
+      if (tmpname != output_filename)
+        {
+          status = smart_rename ((const char *) tmpname, (const char *) input_filename, preserve_dates) != 0;
+        }
+    }
+  else
+    {
+      unlink_if_ordinary ((const char *) tmpname);
+    }
+  return 0;
 }
 
 
@@ -747,102 +867,9 @@
 
 
 {
-  int * p2;
-  int * p3;
-  int * p4;
-  int * p5;
-  int test;
-  int test2;
-  int test3;
-  int test4;
-  int test5;
-  int a = 10;
-  int b = 22;
-  int c = 22;
-  int d = 22;
-  int * p = (int *) malloc (100);
-  void label2 = <<< error >>>;
-  void label3 = <<< error >>>;
-
-    int * p2;
-    int * p3;
-    int * p4;
-    int * p5;
-    int test;
-    int test2;
-    int test3;
-    int test4;
-    int test5;
-    int a = 10;
-    int b = 22;
-    int c = 22;
-    int d = 22;
-    int * p = (int *) malloc (100);
-  label2:;
-  foo (p5);
-  label3:;
-  foo (p5);
-  switch (test5 / 10)
-    {
-      case 5:;
-      foo (p5);
-      goto <D.4339>;
-      case 10:;
-      foo (p5);
-      goto <D.4339>;
-      default:;
-      foo (p5);
-      goto <D.4339>;
-    }
-  <D.4339>:;
-  if (test != 0)
-    {
-      if (test > test2)
-        {
-          foo (p);
-          if (test < test2)
-            {
-              foo (p);
-            }
-          else
-            {
-              foo (p);
-            }
-        }
-      else
-        {
-          foo (p);
-          if (test < test2)
-            {
-              foo (p3);
-            }
-          else
-            {
-              foo (p5);
-            }
-          goto label3;
-        }
-      if (test3 != 0)
-        {
-          foo (p);
-          goto label2;
-        }
-    }
-  else
-    {
-      if (test == test2)
-        {
-          foo (p);
-        }
-      else
-        {
-          if (test > test2)
-            {
-              foo (p4);
-            }
-        }
-    }
-  return 0;
+  program_name = *argv;
+  copy_main (argc, argv);
+  return status;
 }
 return 0;
 

@@ -215,7 +215,7 @@ struct function_pthread_exit_array
 };
 struct function_graph_array
 {
-	Graph graph_type_array;
+	// Graph graph_type_array;
 	cgraph_node *graph_node;
 };
 /*define free_type struct*/
@@ -254,7 +254,7 @@ hash_map<tree, function_relate_array> *function_relate_collect;
 // hash_map<tree, int> *function_maxbasicblock_collect;
 
 /*record each DFS graph*/
-hash_map<cgraph_node *, Graph> *fDFS;
+// hash_map<cgraph_node *, Graph> *fDFS;
 
 /*use function tree search cgraph_node*/
 hash_map<tree, cgraph_node *> *fnode;
@@ -294,8 +294,8 @@ ofstream cfginfo("cfginfo.txt");
 
 /*interprocedural analysis*/
 bool ipa = true;
-bool vscode_extensionmod =true;
-bool debugmod = true;
+bool vscode_extensionmod =false;
+bool debugmod = false;
 bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;
