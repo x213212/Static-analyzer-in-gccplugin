@@ -2625,6 +2625,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 	FOR_EACH_TABLE(table_temp, t)
 	{
+		int find_Looserulesfreestmt = 0;
 		int ptable_type = 0;
 		int childptable_type = 0;
 		int find_phistmt = 0;
@@ -2694,6 +2695,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 				if (TREE_CODE(table_temp->target) == INTEGER_CST || TREE_CODE(table_temp->target) == STRING_CST)
 				{
+					fprintf(stderr, "\n ================== collect possiable invalid ================== \n");
 					debug_tree(table_temp->target);
 					continue;
 				}
@@ -3635,7 +3637,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					{
 						vector<relate_type> relate_type_array;
 						function_relate_array fun_array;
-						debug_tree(table_temp->target);
+						// debug_tree(table_temp->target);
 						if (function_relate_collect->get(table_temp->target) != NULL)
 						{
 							// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
@@ -3696,7 +3698,101 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					// 	// fprintf(stderr ,"%s\n", get_tree_code_name(TREE_CODE((callerRetTypearray)[k].return_tree)));
 					// 	if ((callerRetTypearray)[k].return_tree)
 					// 	{
+					fprintf(stderr, "\n ================== Start Looserules free Check ================== \n");
+					fprintf(stderr, "\n ================== warring ================== \n");
+					fprintf(stderr, "\033[40;35m   this module possiable false positives \033[0m\n");
+					fprintf(stderr, "\n ================== warring ================== \n");
+					if (Looserulesfree)
+					{
 
+						if (TREE_CODE(table_temp->target) == SSA_NAME || TREE_CODE(table_temp->target) == MEM_REF)
+							if (table_temp->target != NULL_TREE)
+							{
+								debug_tree(table_temp->target);
+								if (function_free_collect->get(function_tree) != NULL)
+								{
+									function_free_array callerFunArray = *(function_free_collect->get(function_tree));
+									vector<free_type> callerRetTypearray = callerFunArray.free_type_array;
+
+									for (int k = 0; k < callerRetTypearray.size(); k++)
+									{
+										// fprintf(stderr, "\n ================== free stmt ================== \n");
+										// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+										if (ptr_derefs_may_alias_p((callerRetTypearray)[k].free_tree, table_temp->target))
+										{
+
+											fprintf(stderr, "\033[40;35m <Looserules> find free stmt free same pointer \033[0m\n");
+											// fprintf(stderr, "find free stmt free same pointer\n");
+											// debug_tree(mallocStmt_tree);
+											debug_gimple_stmt((callerRetTypearray)[k].stmt);
+											warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+
+											find_Looserulesfreestmt++;
+
+											// if (freemod && debugmod)
+											// {
+
+											// 	// int test =gimple_bb((callerRetTypearray)[k].stmt)->index);
+											// 	// char tmp[20] ;
+											// 	// sprintf(tmp,"%d",gimple_bb((callerRetTypearray)[k].stmt));
+
+											// 	if (*(function_basicblock_collect)->get(gimple_block((callerRetTypearray)[k].stmt)) == 0)
+											// 	{
+											// 		// fprintf(stderr, "dot graph start relate form ");
+											// 		function_basicblock_collect->put(gimple_block((callerRetTypearray)[k].stmt), 1);
+											// 		fprintf(stderr, "dot graph start relate form ");
+											// 		// fprintf(stderr, "dot graph start relate for1 ");
+											// 	}
+											// 	else
+											// 	{
+											// 		fprintf(stderr, "dot graph start relate form ");
+											// 		// fprintf(stderr, "dot graph start relate for1 ");
+											// 	}
+
+											// 	// if (first == 0)
+											// 	// {
+											// 	// fprintf(stderr, "dot graph start relate form ");
+											// 	// 	first++;
+											// 	// }
+											// 	// else
+											// 	// 	fprintf(stderr, "dot graph start relate for1 ");
+
+											// 	fprintf(stderr, "ID : %lu\n", now_fucntion);
+											// 	fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb((callerRetTypearray)[k].stmt)->index);
+											// 	fprintf(stderr, "dot graph end relate end\n\n");
+											// 	now_laststmt = (callerRetTypearray)[k].stmt;
+											// 	// ready add dot graph
+											// 	unsigned long x = rand();
+											// 	now_laststmtid = x;
+
+											// 	// ready add dot graph
+											// 	fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(free) :", x);
+											// 	debug((callerRetTypearray)[k].stmt);
+											// 	warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+											// 	// debug(gimple_assign_lhs((callerRetTypearray)[k].stmt));
+											// 	fprintf(stderr, "dot graph relate end\n\n");
+
+											// 	// ready add dot graph
+											// 	fprintf(stderr, "dot graph target color desc");
+											// 	fprintf(stderr, "green");
+											// 	fprintf(stderr, "dot graph target color desend\n\n");
+
+											// 	// ready add dot graph
+											// 	fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(free) :", x);
+											// 	debug((callerRetTypearray)[k].stmt);
+											// 	warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+											// 	// debug(gimple_assign_lhs((callerRetTypearray)[k].stmt));
+											// 	fprintf(stderr, "dot graph relate end\n\n");
+											// }
+											// debug_tree((callerRetTypearray)[k].free_tree);
+										}
+										// debug_tree((callerRetTypearray)[k].free_tree);
+										// debug_tree (mallocStmt_tree);
+									}
+									// debug_tree(function_tree);
+								}
+							}
+					}
 					// 	}
 					// 	}
 					// if (now_relatelaststmt != NULL)
@@ -3707,46 +3803,49 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					// 	warning_at(gimple_location_safe(now_relatelaststmt), 0, "use location");
 					// 	fprintf(stderr, "dot graph subgrapend\n\n");
 					// }
-					user_tmp = treeGimpleArray->get(table_temp->target);
-					// debug_tree(table_temp->target);
-					// fprintf(stderr, "\n====================================ffff=================================\n");
-					gimple_array start;
-					start.stmt = NULL;
-					used_stmt = &start;
+					if (useafterfree)
+					{
+						user_tmp = treeGimpleArray->get(table_temp->target);
+						// debug_tree(table_temp->target);
+						// fprintf(stderr, "\n====================================ffff=================================\n");
+						gimple_array start;
+						start.stmt = NULL;
+						used_stmt = &start;
 
-					fprintf(stderr, "\n ================== Start Use after free Check ================== \n");
-					if (user_tmp->size > 0)
-						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
-						{
-							// debug_gimple_stmt(u_stmt);
-							// debug_tree(user_tmp->aptr);
-
-							for (int i = 0; i < free_array.size(); i++)
+						fprintf(stderr, "\n ================== Start Use after free Check ================== \n");
+						if (user_tmp->size > 0)
+							FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 							{
-								// _deb
-								if (u_stmt != free_array.at(i).stmt)
+								// debug_gimple_stmt(u_stmt);
+								// debug_tree(user_tmp->aptr);
+
+								for (int i = 0; i < free_array.size(); i++)
 								{
-
-									if (Location_b2(free_array.at(i).stmt, u_stmt, function_tree))
+									// _deb
+									if (u_stmt != free_array.at(i).stmt)
 									{
-										debug_gimple_stmt(free_array.at(i).stmt);
-										warning_at(gimple_location_safe(free_array.at(i).stmt), 0, "Use after free error!: free location ");
-										debug_gimple_stmt(u_stmt);
-										warning_at(gimple_location_safe(u_stmt), 0, "use location");
-										fprintf(stderr, "\n ================== warring ================== \n");
 
-										// debug(checkTree);
-										fprintf(stderr, "\033[40;35m    Use after free error! \033[0m\n");
-										// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+										if (Location_b2(free_array.at(i).stmt, u_stmt, function_tree))
+										{
+											debug_gimple_stmt(free_array.at(i).stmt);
+											warning_at(gimple_location_safe(free_array.at(i).stmt), 0, "Use after free error!: free location ");
+											debug_gimple_stmt(u_stmt);
+											warning_at(gimple_location_safe(u_stmt), 0, "use location");
+											fprintf(stderr, "\n ================== warring ================== \n");
 
-										// fprintf(stderr, "this stmt possible is heap-object 。\n");
-										fprintf(stderr, "\n ================== warring ================== \n");
+											// debug(checkTree);
+											fprintf(stderr, "\033[40;35m    Use after free error! \033[0m\n");
+											// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+
+											// fprintf(stderr, "this stmt possible is heap-object 。\n");
+											fprintf(stderr, "\n ================== warring ================== \n");
+										}
 									}
 								}
 							}
-						}
-					fprintf(stderr, "\ndot graph END\n");
-					fprintf(stderr, "\n ================== Start Use after free Check ================== \n");
+						fprintf(stderr, "\ndot graph END\n");
+						// fprintf(stderr, "\n ================== Start Use after free Check ================== \n");
+					}
 				}
 				else
 				{
@@ -3814,6 +3913,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						fprintf(stderr, "\033[40;31m  	possible double free :%d \033[0m\n", find_freestmt);
 						fprintf(stderr, "\n======================================================================\n");
 					}
+					fprintf(stderr, "\n======================================================================\n");
+						// fprintf(stderr, "	possible double free\n");
+						fprintf(stderr, "\033[40;35m  	Looserules free count:%d \033[0m\n", find_Looserulesfreestmt);
+						fprintf(stderr, "\n======================================================================\n");
+
 				}
 				else if (find_mallocstmt == IS_HEAP_FUCNTION)
 				{

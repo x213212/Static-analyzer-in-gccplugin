@@ -2,8 +2,7 @@
 #include <list>
 // C++ program to print DFS traversal from
 // a given vertex in a  given graph
-#include <iostream>
-#include <list>
+
 using namespace std;
 
 // Graph class represents a directed graph

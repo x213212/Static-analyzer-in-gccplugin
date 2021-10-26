@@ -1,14 +1,11 @@
-84 inline "Symbol to SSA rewrite" "main" 6
 90 pta "Symbol to SSA rewrite" "(nofn)" 2
-97 ccp "Copies propagated" "main" 1
-97 ccp "Statements folded" "main" 2
-97 ccp "Constants propagated" "main" 2
-97 ccp "Statements deleted" "main" 5
 115 copyprop "Copies propagated" "main" 2
-115 copyprop "Statements deleted" "main" 5
-124 dom "Copies propagated" "main" 3
-124 dom "Redundant expressions eliminated" "main" 5
-124 dom "Jumps threaded" "main" 4
-132 ccp "Statements deleted" "main" 3
-184 dom "Redundant expressions eliminated" "main" 2
-266 combine "two-insn combine" "main" 3
+115 copyprop "Statements deleted" "main" 1
+120 ch "Incremental SSA update" "main" 1
+124 dom "Copies propagated" "main" 4
+124 dom "Constants propagated" "main" 4
+124 dom "Redundant expressions eliminated" "main" 4
+132 ccp "Statements deleted" "main" 2
+153 copyprop "Statements deleted" "main" 2
+266 combine "three-insn combine" "main" 1
+266 combine "two-insn combine" "main" 9
