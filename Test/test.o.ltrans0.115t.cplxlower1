@@ -53,13 +53,13 @@ main ()
 
   <bb 2> [9.10%]:
   p6_34 = malloc (100);
-  q_37 = realloc (p6_34, 100);
+  p6_37 = realloc (p6_34, 100);
   _1 = (long int) "0";
   _2 = (int) _1;
-  *q_37 = _2;
+  *p6_34 = _2;
   _3 = (long int) "0";
   _4 = (int) _3;
-  MEM[(int *)q_37 + 4B] = _4;
+  MEM[(int *)p6_34 + 4B] = _4;
   p9_41 = malloc (0);
   _5 = malloc (1);
   MEM[(struct st *)p9_41 + 48B].f = _5;

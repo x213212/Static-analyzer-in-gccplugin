@@ -1,4 +1,5 @@
 90 pta "Symbol to SSA rewrite" "(nofn)" 2
+115 copyprop "Copies propagated" "main" 2
 115 copyprop "Statements deleted" "main" 1
 120 ch "Incremental SSA update" "main" 1
 124 dom "Copies propagated" "main" 4

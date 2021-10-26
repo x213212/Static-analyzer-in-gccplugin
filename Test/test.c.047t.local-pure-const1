@@ -66,14 +66,14 @@ foo (int * z)
  local analysis of main
    scanning: p6_42 = malloc (100);
   scanning: q_43 = p6_42;
-  scanning: q_45 = realloc (p6_42, 100);
+  scanning: p6_45 = realloc (p6_42, 100);
   scanning: _1 = (long int) "0";
   scanning: _2 = (int) _1;
-  scanning: *q_45 = _2;
+  scanning: *q_43 = _2;
     Indirect ref to local memory is OK
   scanning: _3 = (long int) "0";
   scanning: _5 = (int) _3;
-  scanning: MEM[(int *)q_45 + 4B] = _5;
+  scanning: MEM[(int *)q_43 + 4B] = _5;
     Indirect ref to local memory is OK
   scanning: p9_49 = malloc (0);
   scanning: _7 = malloc (1);
@@ -186,13 +186,13 @@ main ()
   <bb 2> [9.09%]:
   p6_42 = malloc (100);
   q_43 = p6_42;
-  q_45 = realloc (p6_42, 100);
+  p6_45 = realloc (p6_42, 100);
   _1 = (long int) "0";
   _2 = (int) _1;
-  *q_45 = _2;
+  *q_43 = _2;
   _3 = (long int) "0";
   _5 = (int) _3;
-  MEM[(int *)q_45 + 4B] = _5;
+  MEM[(int *)q_43 + 4B] = _5;
   p9_49 = malloc (0);
   _7 = malloc (1);
   MEM[(struct st *)p9_49 + 48B].f = _7;

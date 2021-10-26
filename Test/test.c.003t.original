@@ -783,7 +783,7 @@
     int * q;
     int * p6 = (int *) malloc (100);
   q = p6;
-  q = (int *) realloc ((void *) p6, 100);
+  p6 = (int *) realloc ((void *) p6, 100);
   *q = (int) (long int) "0";
   *(q + 4) = (int) (long int) "0";
     struct st * p9 = (struct st *) malloc (0);

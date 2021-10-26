@@ -3234,7 +3234,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 											name = get_name(gimple_call_fn(u_stmt));
 											if (name != NULL)
-												if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+												if (!strcmp(name, "free") || !strcmp(name, "xfree") || !strcmp(name, "realloc"))
 												{
 													fprintf(stderr, "dot graph stmt start ");
 													debug(u_stmt);
@@ -3246,7 +3246,12 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													{
 
 														fprintf(stderr, "dot graph target color desc");
-														fprintf(stderr, "green");
+														if (!strcmp(name, "realloc"))
+														{
+															fprintf(stderr, "red");
+														}
+														else
+															fprintf(stderr, "green");
 														fprintf(stderr, "dot graph target color desend\n\n");
 													}
 												}
@@ -3825,13 +3830,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							{
 								// debug_gimple_stmt(u_stmt);
 								// debug_tree(user_tmp->aptr);
-	// fprintf(stderr, "\n ================== warring ==%d================ \n",free_array.size());
+								// fprintf(stderr, "\n ================== warring ==%d================ \n",free_array.size());
 								for (int i = 0; i < free_array.size(); i++)
 								{
 									// _deb
 									if (u_stmt != free_array.at(i).stmt)
 									{
-										
+
 										if (Location_b2(free_array.at(i).stmt, u_stmt, function_tree))
 										{
 											fprintf(stderr, "\n============================================================\n");

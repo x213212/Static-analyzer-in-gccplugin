@@ -161,16 +161,16 @@ INTEGER = &ANYTHING
 ESCAPED = &NONLOCAL
 p6_42 = &HEAP(10)
 q_43 = p6_42
-q_45 = &HEAP(13)
+p6_45 = &HEAP(13)
 doubledereftmp(14) = *p6_42
-*q_45 = doubledereftmp(14)
-q_45 = p6_42
+*p6_45 = doubledereftmp(14)
+p6_45 = p6_42
 _1 = &STRING
 _2 = _1
-*q_45 = _2
+*q_43 = _2
 _3 = &STRING
 _5 = _3
-*q_45 = _5
+*q_43 = _5
 ESCAPED = &NULL
 p9_49 = &HEAP(20)
 ESCAPED = &NONLOCAL
@@ -249,7 +249,7 @@ malloc = { }
 p6_42 = { HEAP(10) }
 HEAP(10) = { STRING }
 q_43 = { HEAP(10) } same as p6_42
-q_45 = { HEAP(10) HEAP(13) }
+p6_45 = { HEAP(10) HEAP(13) }
 HEAP(13) = { STRING }
 doubledereftmp(14) = { STRING }
 _1 = { STRING }
@@ -314,7 +314,7 @@ _22, points-to NULL, points-to vars: { D.4388 }
 _23, points-to NULL, points-to vars: { D.4389 }
 p6_42, points-to NULL, points-to vars: { D.4386 }
 q_43, points-to NULL, points-to vars: { D.4386 }
-q_45, points-to NULL, points-to vars: { D.4386 D.4387 }
+p6_45, points-to NULL, points-to vars: { D.4386 D.4387 }
 p9_49, points-to NULL, points-to vars: { D.4388 }
 p_54, points-to NULL, points-to vars: { D.4390 } (escaped, escaped heap)
 p5_63(D), points-to NULL, points-to vars: { }
@@ -365,13 +365,13 @@ main ()
   <bb 2> [0.00%]:
   p6_42 = malloc (100);
   q_43 = p6_42;
-  q_45 = realloc (p6_42, 100);
+  p6_45 = realloc (p6_42, 100);
   _1 = (long int) "0";
   _2 = (int) _1;
-  *q_45 = _2;
+  *q_43 = _2;
   _3 = (long int) "0";
   _5 = (int) _3;
-  MEM[(int *)q_45 + 4B] = _5;
+  MEM[(int *)q_43 + 4B] = _5;
   p9_49 = malloc (0);
   _7 = malloc (1);
   MEM[(struct st *)p9_49 + 48B].f = _7;
