@@ -49,10 +49,10 @@ int main()
 		int *q;
 	int *p6 = malloc(100);
 	q = p6;
-	p6 = realloc(p6, 100);
+	q = realloc(p6, 100);
 	q[0] = "0";
 	q[1] = "0";
-	free(p6);
+	// free(p6);
 	// foo(p);
 	// q[0] = "0";
 	// struct st p;

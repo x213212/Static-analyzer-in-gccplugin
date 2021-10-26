@@ -59,12 +59,12 @@ _18, points-to NULL, points-to vars: { D.4021 } (nonlocal)
 _19, points-to NULL, points-to vars: { D.4022 } (nonlocal)
 p6_34, points-to NULL, points-to vars: { D.4019 } (nonlocal)
 q_35, points-to NULL, points-to vars: { D.4019 } (nonlocal)
-p6_37, points-to NULL, points-to vars: { D.4019 D.4020 } (nonlocal)
-p9_42, points-to NULL, points-to vars: { D.4021 } (nonlocal)
-p_47, points-to NULL, points-to vars: { D.4023 } (nonlocal)
-p5_54(D), points-to NULL, points-to vars: { }
-p4_62(D), points-to NULL, points-to vars: { }
-p3_67(D), points-to NULL, points-to vars: { }
+q_37, points-to NULL, points-to vars: { D.4019 D.4020 } (nonlocal)
+p9_41, points-to NULL, points-to vars: { D.4021 } (nonlocal)
+p_46, points-to NULL, points-to vars: { D.4023 } (nonlocal)
+p5_53(D), points-to NULL, points-to vars: { }
+p4_61(D), points-to NULL, points-to vars: { }
+p3_66(D), points-to NULL, points-to vars: { }
 
 main ()
 {
@@ -106,33 +106,32 @@ main ()
   <bb 2> [9.09%]:
   p6_34 = malloc (100);
   q_35 = p6_34;
-  p6_37 = realloc (p6_34, 100);
+  q_37 = realloc (p6_34, 100);
   _1 = (long int) "0";
   _2 = (int) _1;
-  *q_35 = _2;
+  *q_37 = _2;
   _3 = (long int) "0";
   _4 = (int) _3;
-  MEM[(int *)q_35 + 4B] = _4;
-  free (p6_37);
-  p9_42 = malloc (0);
+  MEM[(int *)q_37 + 4B] = _4;
+  p9_41 = malloc (0);
   _5 = malloc (1);
-  MEM[(struct st *)p9_42 + 48B].f = _5;
-  free (p9_42);
-  p_47 = malloc (10);
+  MEM[(struct st *)p9_41 + 48B].f = _5;
+  free (p9_41);
+  p_46 = malloc (10);
   _6 = malloc (1);
-  MEM[(struct st *)p_47 + 48B].f = _6;
+  MEM[(struct st *)p_46 + 48B].f = _6;
   goto <bb 4>; [100.00%]
 
   <bb 3> [90.91%]:
   _7 = (long unsigned int) i_21;
   _8 = _7 * 16;
-  _9 = p_47 + _8;
+  _9 = p_46 + _8;
   _10 = malloc (1);
   _9->f = _10;
-  i_79 = i_21 + 1;
+  i_78 = i_21 + 1;
 
   <bb 4> [100.00%]:
-  # i_21 = PHI <0(2), i_79(3)>
+  # i_21 = PHI <0(2), i_78(3)>
   if (i_21 <= 9)
     goto <bb 3>; [90.91%]
   else
@@ -140,9 +139,9 @@ main ()
 
   <bb 5> [9.09%]:
   _11 = malloc (1);
-  MEM[(struct st *)p_47 + 32B].f = _11;
-  foo (p_47);
-  if (test_53(D) != 0)
+  MEM[(struct st *)p_46 + 32B].f = _11;
+  foo (p_46);
+  if (test_52(D) != 0)
     goto <bb 28>; [31.00%]
   else
     goto <bb 31>; [69.00%]
@@ -153,18 +152,18 @@ main ()
   <bb 6> [62.73%]:
   _12 = (long unsigned int) i_22;
   _13 = _12 * 16;
-  _14 = p_47 + _13;
+  _14 = p_46 + _13;
   _15 = _14->f;
   free (_15);
   _16 = (long unsigned int) i_22;
   _17 = _16 * 16;
-  _18 = p9_42 + _17;
+  _18 = p9_41 + _17;
   _19 = _18->f;
   free (_19);
-  i_76 = i_22 + 1;
+  i_75 = i_22 + 1;
 
   <bb 7> [69.00%]:
-  # i_22 = PHI <0(31), i_76(6)>
+  # i_22 = PHI <0(31), i_75(6)>
   if (i_22 <= 9)
     goto <bb 6>; [90.91%]
   else
@@ -173,97 +172,97 @@ main ()
   <bb 30> [6.27%]:
 
 label2 [11.28%]:
-  foo (p5_54(D));
+  foo (p5_53(D));
   goto <bb 29>; [100.00%]
 
 label3 [66.83%]:
 
   <bb 29> [78.11%]:
-  foo (p5_54(D));
-  _20 = test5_57(D) / 10;
+  foo (p5_53(D));
+  _20 = test5_56(D) / 10;
   switch (_20) <default: <L4> [33.33%], case 5: <L2> [33.33%], case 10: <L3> [33.33%]>
 
 <L2> [26.04%]:
-  foo (p5_54(D));
+  foo (p5_53(D));
   goto <bb 13>; [100.00%]
 
 <L3> [26.04%]:
-  foo (p5_54(D));
+  foo (p5_53(D));
   goto <bb 13>; [100.00%]
 
 <L4> [26.04%]:
-  foo (p5_54(D));
+  foo (p5_53(D));
 
   <bb 13> [78.11%]:
-  if (test_53(D) != 0)
+  if (test_52(D) != 0)
     goto <bb 14>; [92.50%]
   else
     goto <bb 23>; [7.50%]
 
   <bb 14> [72.25%]:
-  if (test_53(D) > test2_61(D))
+  if (test_52(D) > test2_60(D))
     goto <bb 15>; [7.50%]
   else
     goto <bb 18>; [92.50%]
 
   <bb 15> [5.42%]:
-  foo (p_47);
-  if (test_53(D) < test2_61(D))
+  foo (p_46);
+  if (test_52(D) < test2_60(D))
     goto <bb 16>; [50.00%]
   else
     goto <bb 17>; [50.00%]
 
   <bb 16> [2.71%]:
-  foo (p_47);
+  foo (p_46);
   goto <bb 21>; [100.00%]
 
   <bb 17> [2.71%]:
-  foo (p_47);
+  foo (p_46);
   goto <bb 21>; [100.00%]
 
   <bb 18> [66.83%]:
-  foo (p_47);
-  if (test_53(D) < test2_61(D))
+  foo (p_46);
+  if (test_52(D) < test2_60(D))
     goto <bb 19>; [50.00%]
   else
     goto <bb 20>; [50.00%]
 
   <bb 19> [33.41%]:
-  foo (p3_67(D));
+  foo (p3_66(D));
   goto <bb 9> (label3); [100.00%]
 
   <bb 20> [33.41%]:
-  foo (p5_54(D));
+  foo (p5_53(D));
   goto <bb 9> (label3); [100.00%]
 
   <bb 21> [5.42%]:
-  if (test3_72(D) != 0)
+  if (test3_71(D) != 0)
     goto <bb 22>; [92.50%]
   else
     goto <bb 28>; [7.50%]
 
   <bb 22> [5.01%]:
-  foo (p_47);
+  foo (p_46);
   goto <bb 8> (label2); [100.00%]
 
   <bb 23> [5.86%]:
-  if (test_53(D) == test2_61(D))
+  if (test_52(D) == test2_60(D))
     goto <bb 24>; [17.77%]
   else
     goto <bb 25>; [82.23%]
 
   <bb 24> [1.04%]:
-  foo (p_47);
+  foo (p_46);
   goto <bb 28>; [100.00%]
 
   <bb 25> [4.82%]:
-  if (test_53(D) > test2_61(D))
+  if (test_52(D) > test2_60(D))
     goto <bb 26>; [36.64%]
   else
     goto <bb 28>; [63.36%]
 
   <bb 26> [1.76%]:
-  foo (p4_62(D));
+  foo (p4_61(D));
 
   <bb 28> [9.08%]:
   # _23 = PHI <200(5), 0(21), 0(24), 0(25), 0(26)>

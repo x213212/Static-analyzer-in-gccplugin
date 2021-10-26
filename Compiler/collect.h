@@ -258,7 +258,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			return;
 
 		if (name != NULL)
-			if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+			if (!strcmp(name, "free") || !strcmp(name, "xfree") || !strcmp(name, "realloc"))
 			{
 
 				// fprintf(stderr , "%s",get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0))));
@@ -320,6 +320,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				else if (TREE_CODE(gimple_call_arg(gc, 0)) == SSA_NAME)
 				{
 					// free(ptr_ssaname)
+					// debug_gimple_stmt(gc);
 					//  fprintf(stderr, "free stmt arg isssa _name-------\n");
 					//  debug_tree(gimple_call_arg(gc, 0));
 

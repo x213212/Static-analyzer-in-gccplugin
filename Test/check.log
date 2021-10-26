@@ -48,19 +48,12 @@ test.c:27:5: note: expected ‘int *’ but argument is of type ‘struct st *�
  int foo(int *z)
      ^~~
 ==============breakpoint=========
-/root/x21321219/new_gccplugin/Test/test.c 66
-/root/x21321219/new_gccplugin/Test/test.c 65
+/root/x21321219/new_gccplugin/Test/test.c 50
 =======ipa_pta=========
 ===============The first stage : Point of interest stmt collect=================
-# .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-set breakpoint /root/x21321219/new_gccplugin/Test/test.c 65
-# .MEM_95 = VDEF <.MEM_94>
-_5 = malloc (1);
-set breakpoint /root/x21321219/new_gccplugin/Test/test.c 66
-# .MEM_96 = VDEF <.MEM_95>
-MEM[(struct st *)p9_42 + 48B].f = _5;
-set breakpoint /root/x21321219/new_gccplugin/Test/test.c 66
+# .MEM_88 = VDEF <.MEM_87(D)>
+p6_34 = malloc (100);
+set breakpoint /root/x21321219/new_gccplugin/Test/test.c 50
 --------GIMPLE Cond -------
 succs:= 4
 --------GIMPLE Cond -------
@@ -95,58 +88,53 @@ start PointerConstraint
 pointer ftable is 0 
 pointer ptable is 1 
 ===============The second stage : Mapping stmt=================
-# .MEM_89 = VDEF <.MEM_88(D)>
+# .MEM_88 = VDEF <.MEM_87(D)>
 p6_34 = malloc (100);
-# .MEM_90 = VDEF <.MEM_89>
-p6_37 = realloc (p6_34, 100);
-# .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-# .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-set breakpoint /root/x21321219/new_gccplugin/Test/test.c 65
-# .MEM_95 = VDEF <.MEM_94>
+# .MEM_88 = VDEF <.MEM_87(D)>
+p6_34 = malloc (100);
+set breakpoint /root/x21321219/new_gccplugin/Test/test.c 50
+# .MEM_92 = VDEF <.MEM_91>
+p9_41 = malloc (0);
+# .MEM_93 = VDEF <.MEM_92>
 _5 = malloc (1);
-# .MEM_95 = VDEF <.MEM_94>
-_5 = malloc (1);
-set breakpoint /root/x21321219/new_gccplugin/Test/test.c 66
-# .MEM_98 = VDEF <.MEM_97>
-p_47 = malloc (10);
-# .MEM_99 = VDEF <.MEM_98>
+# .MEM_96 = VDEF <.MEM_95>
+p_46 = malloc (10);
+# .MEM_97 = VDEF <.MEM_96>
 _6 = malloc (1);
-# .MEM_120 = VDEF <.MEM_80>
+# .MEM_118 = VDEF <.MEM_79>
 _10 = malloc (1);
-# .MEM_101 = VDEF <.MEM_80>
+# .MEM_99 = VDEF <.MEM_79>
 _11 = malloc (1);
-# .MEM_103 = VDEF <.MEM_102>
-foo (p_47);
-# .MEM_104 = VDEF <.MEM_82>
-foo (p5_54(D));
-# .MEM_105 = VDEF <.MEM_87>
-foo (p5_54(D));
-# .MEM_107 = VDEF <.MEM_105>
-foo (p5_54(D));
-# .MEM_106 = VDEF <.MEM_105>
-foo (p5_54(D));
-# .MEM_108 = VDEF <.MEM_105>
-foo (p5_54(D));
-# .MEM_114 = VDEF <.MEM_84>
-foo (p_47);
-# .MEM_116 = VDEF <.MEM_114>
-foo (p_47);
-# .MEM_115 = VDEF <.MEM_114>
-foo (p_47);
-# .MEM_111 = VDEF <.MEM_84>
-foo (p_47);
-# .MEM_113 = VDEF <.MEM_111>
-foo (p3_67(D));
-# .MEM_112 = VDEF <.MEM_111>
-foo (p5_54(D));
-# .MEM_117 = VDEF <.MEM_85>
-foo (p_47);
-# .MEM_110 = VDEF <.MEM_84>
-foo (p_47);
-# .MEM_109 = VDEF <.MEM_84>
-foo (p4_62(D));
+# .MEM_101 = VDEF <.MEM_100>
+foo (p_46);
+# .MEM_102 = VDEF <.MEM_81>
+foo (p5_53(D));
+# .MEM_103 = VDEF <.MEM_86>
+foo (p5_53(D));
+# .MEM_105 = VDEF <.MEM_103>
+foo (p5_53(D));
+# .MEM_104 = VDEF <.MEM_103>
+foo (p5_53(D));
+# .MEM_106 = VDEF <.MEM_103>
+foo (p5_53(D));
+# .MEM_112 = VDEF <.MEM_83>
+foo (p_46);
+# .MEM_114 = VDEF <.MEM_112>
+foo (p_46);
+# .MEM_113 = VDEF <.MEM_112>
+foo (p_46);
+# .MEM_109 = VDEF <.MEM_83>
+foo (p_46);
+# .MEM_111 = VDEF <.MEM_109>
+foo (p3_66(D));
+# .MEM_110 = VDEF <.MEM_109>
+foo (p5_53(D));
+# .MEM_115 = VDEF <.MEM_84>
+foo (p_46);
+# .MEM_108 = VDEF <.MEM_83>
+foo (p_46);
+# .MEM_107 = VDEF <.MEM_83>
+foo (p4_61(D));
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
@@ -199,23 +187,23 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f4ce83275e8
-    type <pointer_type 0x7f4ce7e49c78
-        type <record_type 0x7f4ce7e49bd0 st TI
-            size <integer_cst 0x7f4ce831fc30 constant 128>
-            unit size <integer_cst 0x7f4ce831fc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f4ce7e49bd0 fields <field_decl 0x7f4ce7e4b260 flag> context <translation_unit_decl 0x7f4ce832a168 test.c>
-            pointer_to_this <pointer_type 0x7f4ce7e49c78> chain <type_decl 0x7f4ce7e4b2f8 D.3993>>
+ <ssa_name 0x7f059b50aee8
+    type <pointer_type 0x7f059b51da80
+        type <integer_type 0x7f059b5165e8 int public SI
+            size <integer_cst 0x7f059b502e28 constant 32>
+            unit size <integer_cst 0x7f059b502e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f059b5165e8 precision 32 min <integer_cst 0x7f059b502de0 -2147483648> max <integer_cst 0x7f059b502df8 2147483647>
+            pointer_to_this <pointer_type 0x7f059b51da80>>
         public unsigned DI
-        size <integer_cst 0x7f4ce831fbe8 constant 64>
-        unit size <integer_cst 0x7f4ce831fc00 constant 8>
+        size <integer_cst 0x7f059b502be8 constant 64>
+        unit size <integer_cst 0x7f059b502c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f4ce90b4c60 p9>
-    def_stmt p9_42 = malloc (0);
-    version 42
-    ptr-info 0x7f4ce7e4cd98>
-# .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
+    var <var_decl 0x7f059c297cf0 p6>
+    def_stmt p6_34 = malloc (100);
+    version 34
+    ptr-info 0x7f059b02fd50>
+# .MEM_88 = VDEF <.MEM_87(D)>
+p6_34 = malloc (100);
 
  ================== trace ptable================== 
 trace fucntion name:malloc 
@@ -227,556 +215,152 @@ this Reserved word function ------malloc-----
  Start check Pointer Collect  
 
 ======================================================================
-
-======================================================================
-[40;31m    collect Stmt in loop [0m
-
-======================================================================
-dot graph entry main
-dot graph target entry end
-
-_18 = p9_42 + _17;
+q_37 = realloc (p6_34, 100);
 In function ‘main’:
-test.c:82:10: warning: use location
-   free(p9[i].f);
-          ^
-dot graph target loc start # .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-test.c:65:13: warning: use location
-  struct st *p9 = malloc(0);
-             ^
-dot graph target loc en1
-
-dot graph target line desc form basic block 6: _18 = p9_42 + _17;
-test.c:82:10: warning: use location
-   free(p9[i].f);
-          ^
-dot graph target line desend
-
-dot graph target loc start # .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-test.c:65:13: warning: use location
-  struct st *p9 = malloc(0);
-             ^
-dot graph target loc end
-
-dot graph target basicblock start from main basic block 6dot graph target basicblock en1
-
-dot graph stmt start _18 = p9_42 + _17;
-p9_42 = malloc (0);
-dot graph stmt end
-
-dot graph stmt start _18 = p9_42 + _17;
-test.c:82:10: warning: use location
-   free(p9[i].f);
-          ^
-dot graph stmt end
-
-
-======================================================================
-[40;31m    collect Stmt in loop [0m
-
-======================================================================
-dot graph entry main
-dot graph target entry end
-
-_19 = _18->f;
-test.c:82:13: warning: use location
-   free(p9[i].f);
-             ^
-dot graph target loc start # .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-test.c:65:13: warning: use location
-  struct st *p9 = malloc(0);
-             ^
-dot graph target loc en1
-
-dot graph target line desc form basic block 6: _19 = _18->f;
-test.c:82:13: warning: use location
-   free(p9[i].f);
-             ^
-dot graph target line desend
-
-dot graph target loc start # .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-test.c:65:13: warning: use location
-  struct st *p9 = malloc(0);
-             ^
-dot graph target loc end
-
-dot graph target basicblock start from main basic block 6dot graph target basicblock en1
-
-dot graph stmt start _19 = _18->f;
-p9_42 = malloc (0);
-dot graph stmt end
-
-dot graph stmt start _19 = _18->f;
-test.c:82:13: warning: use location
-   free(p9[i].f);
-             ^
-dot graph stmt end
-
-
-======================================================================
-[40;31m    collect Stmt in loop [0m
-
-======================================================================
-dot graph entry main
-dot graph target entry end
-
-free (_19);
-test.c:82:3: warning: use location
-   free(p9[i].f);
-   ^
-dot graph target loc start # .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-test.c:65:13: warning: use location
-  struct st *p9 = malloc(0);
-             ^
-dot graph target loc en1
-
-dot graph target line desc form basic block 6: free (_19);
-test.c:82:3: warning: use location
-   free(p9[i].f);
-   ^
-dot graph target line desend
-
-dot graph target loc start # .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-test.c:65:13: warning: use location
-  struct st *p9 = malloc(0);
-             ^
-dot graph target loc end
-
-dot graph target basicblock start from main basic block 6dot graph target basicblock en1
-
-dot graph stmt start free (_19);
-p9_42 = malloc (0);
-dot graph stmt end
-
-dot graph stmt start free (_19);
-test.c:82:3: warning: use location
-   free(p9[i].f);
-   ^
-dot graph stmt end
-
-dot graph target color descgreendot graph target color desend
-
-this stmt is child function---free-----
+test.c:52:4: warning: use location
+  q = realloc(p6, 100);
+    ^
+this stmt is child function---realloc-----
 
  ================== find ================== 
-free (_19);
-test.c:82:3: warning: use location
-[40;32m    HAS FREE STMT count:1 name:free [0m
+q_37 = realloc (p6_34, 100);
+test.c:52:4: warning: use location
+[40;32m    FIND realloc STMT count:1 name:realloc [0m
+[40;32m    this stmt possiable free memory [0m
 
  ================== find ================== 
-dot graph entry main
-dot graph target entry end
+MEM[(int *)q_37 + 4B] = _4;
+test.c:54:7: warning: use location
+  q[1] = "0";
+       ^
+MEM[(int *)q_37 + 4B] = _4;
+test.c:54:7: warning: use location
+*q_37 = _2;
+test.c:53:7: warning: use location
+  q[0] = "0";
+       ^
+*q_37 = _2;
+test.c:53:7: warning: use location
+q_35 = p6_34;
+test.c:51:4: warning: use location
+  q = p6;
+    ^
 
-free (p9_42);
-test.c:67:2: warning: use location
-  free(p9);
-  ^
-dot graph target loc start # .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-test.c:65:13: warning: use location
-  struct st *p9 = malloc(0);
-             ^
-dot graph target loc en1
+ ================== Start Looserules free Check ================== 
 
-dot graph target line desc form basic block 2: free (p9_42);
-test.c:67:2: warning: use location
-  free(p9);
-  ^
-dot graph target line desend
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
 
-dot graph target loc start # .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-test.c:65:13: warning: use location
-  struct st *p9 = malloc(0);
-             ^
-dot graph target loc end
-
-dot graph target basicblock start from main basic block 2dot graph target basicblock en1
-
-dot graph stmt start free (p9_42);
-p9_42 = malloc (0);
-dot graph stmt end
-
-dot graph stmt start free (p9_42);
-test.c:67:2: warning: use location
-  free(p9);
-  ^
-dot graph stmt end
-
-dot graph target color descgreendot graph target color desend
-
-this stmt is child function---free-----
-
- ================== find ================== 
-free (p9_42);
-test.c:67:2: warning: use location
-[40;32m    HAS FREE STMT count:2 name:free [0m
-
- ================== find ================== 
-dot graph entry main
-dot graph target entry end
-
-MEM[(struct st *)p9_42 + 48B].f = _5;
-test.c:66:10: warning: use location
-  p9[3].f = malloc(1);
-          ^
-dot graph target loc start # .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-test.c:65:13: warning: use location
-  struct st *p9 = malloc(0);
-             ^
-dot graph target loc en1
-
-dot graph target line desc form basic block 2: MEM[(struct st *)p9_42 + 48B].f = _5;
-test.c:66:10: warning: use location
-  p9[3].f = malloc(1);
-          ^
-dot graph target line desend
-
-dot graph target loc start # .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-test.c:65:13: warning: use location
-  struct st *p9 = malloc(0);
-             ^
-dot graph target loc end
-
-dot graph target basicblock start from main basic block 2dot graph target basicblock en1
-
-dot graph stmt start MEM[(struct st *)p9_42 + 48B].f = _5;
-p9_42 = malloc (0);
-dot graph stmt end
-
-dot graph stmt start MEM[(struct st *)p9_42 + 48B].f = _5;
-test.c:66:10: warning: use location
-  p9[3].f = malloc(1);
-          ^
-dot graph stmt end
-
-dot graph entry main
-dot graph target entry end
-
-MEM[(struct st *)p9_42 + 48B].f = _5;
-test.c:66:10: warning: use location
-dot graph target loc start # .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-test.c:65:13: warning: use location
-  struct st *p9 = malloc(0);
-             ^
-dot graph target loc en1
-
-dot graph target line desc form basic block 2: MEM[(struct st *)p9_42 + 48B].f = _5;
-test.c:66:10: warning: use location
-  p9[3].f = malloc(1);
-          ^
-dot graph target line desend
-
-dot graph target loc start # .MEM_94 = VDEF <.MEM_93>
-p9_42 = malloc (0);
-test.c:65:13: warning: use location
-  struct st *p9 = malloc(0);
-             ^
-dot graph target loc end
-
-dot graph target basicblock start from main basic block 2dot graph target basicblock en1
-
-dot graph stmt start MEM[(struct st *)p9_42 + 48B].f = _5;
-p9_42 = malloc (0);
-dot graph stmt end
-
-dot graph stmt start MEM[(struct st *)p9_42 + 48B].f = _5;
-test.c:66:10: warning: use location
-  p9[3].f = malloc(1);
-          ^
-dot graph stmt end
-
-dot graph target basicblock start from main basic block 6dot graph target basicblock en1
-
-dot graph arrowsubgraph cluster_603237075 dot graph subgraph  _18 = p9_42 + _17;
-p9_42 = malloc (0);
-dot graph subgrapend
-
-dot graph target basicblock start from main basic block 6dot graph target basicblock en1
-
-dot graph arrowsubgraph cluster_1100017102 dot graph subgraph  _19 = _18->f;
-_18 = p9_42 + _17;
-dot graph subgrapend
-
-dot graph target basicblock start from main basic block 6dot graph target basicblock en1
-
-dot graph arrowsubgraph cluster_695259726 dot graph subgraph  free (_19);
-_19 = _18->f;
-dot graph subgrapend
-
- <ssa_name 0x7f4ce83275e8
-    type <pointer_type 0x7f4ce7e49c78
-        type <record_type 0x7f4ce7e49bd0 st TI
-            size <integer_cst 0x7f4ce831fc30 constant 128>
-            unit size <integer_cst 0x7f4ce831fc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f4ce7e49bd0 fields <field_decl 0x7f4ce7e4b260 flag> context <translation_unit_decl 0x7f4ce832a168 test.c>
-            pointer_to_this <pointer_type 0x7f4ce7e49c78> chain <type_decl 0x7f4ce7e4b2f8 D.3993>>
+ ================== warring ================== 
+ <ssa_name 0x7f059b50aee8
+    type <pointer_type 0x7f059b51da80
+        type <integer_type 0x7f059b5165e8 int public SI
+            size <integer_cst 0x7f059b502e28 constant 32>
+            unit size <integer_cst 0x7f059b502e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f059b5165e8 precision 32 min <integer_cst 0x7f059b502de0 -2147483648> max <integer_cst 0x7f059b502df8 2147483647>
+            pointer_to_this <pointer_type 0x7f059b51da80>>
         public unsigned DI
-        size <integer_cst 0x7f4ce831fbe8 constant 64>
-        unit size <integer_cst 0x7f4ce831fc00 constant 8>
+        size <integer_cst 0x7f059b502be8 constant 64>
+        unit size <integer_cst 0x7f059b502c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f4ce90b4c60 p9>
-    def_stmt p9_42 = malloc (0);
-    version 42
-    ptr-info 0x7f4ce7e4cd98>
-
- ================== Start Looserules free Check ================== 
-
- ================== warring ================== 
-[40;35m   this module possiable false positives [0m
-
- ================== warring ================== 
-# .MEM_93 = VDEF <.MEM_92>
-free (p6_37);
-# .MEM_97 = VDEF <.MEM_96>
-free (p9_42);
+    var <var_decl 0x7f059c297cf0 p6>
+    def_stmt p6_34 = malloc (100);
+    version 34
+    ptr-info 0x7f059b02fd50>
 [40;35m <Looserules> find free stmt free same pointer [0m
-# .MEM_97 = VDEF <.MEM_96>
-free (p9_42);
-test.c:67:2: warning: use location
-  free(p9);
-  ^
-# .MEM_118 = VDEF <.MEM_81>
-free (_15);
-# .MEM_119 = VDEF <.MEM_118>
-free (_19);
+# .MEM_89 = VDEF <.MEM_88>
+q_37 = realloc (p6_34, 100);
+test.c:52:4: warning: use location
+  q = realloc(p6, 100);
+    ^
 
  ================== Start Use after free Check ================== 
-# .MEM_97 = VDEF <.MEM_96>
-free (p9_42);
-test.c:67:2: warning: Use after free error!: free location 
-_18 = p9_42 + _17;
-test.c:82:10: warning: use location
-   free(p9[i].f);
-          ^
+
+============================================================
+# .MEM_89 = VDEF <.MEM_88>
+q_37 = realloc (p6_34, 100);
+test.c:52:4: warning: Use after free error!: free location 
+# .MEM_91 = VDEF <.MEM_90>
+MEM[(int *)q_37 + 4B] = _4;
+test.c:54:7: warning: use location
+  q[1] = "0";
+       ^
 
  ================== warring ================== 
-[40;35m    Use after free error! [0m
+[40;35m  realloc Use after free error! [0m
 
  ================== warring ================== 
-# .MEM_97 = VDEF <.MEM_96>
-free (p9_42);
-test.c:67:2: warning: Use after free error!: free location 
-  free(p9);
-  ^
-# VUSE <.MEM_118>
-_19 = _18->f;
-test.c:82:13: warning: use location
-   free(p9[i].f);
-             ^
+
+============================================================
+# .MEM_89 = VDEF <.MEM_88>
+q_37 = realloc (p6_34, 100);
+test.c:52:4: warning: Use after free error!: free location 
+  q = realloc(p6, 100);
+    ^
+# .MEM_91 = VDEF <.MEM_90>
+MEM[(int *)q_37 + 4B] = _4;
+test.c:54:7: warning: use location
+  q[1] = "0";
+       ^
 
  ================== warring ================== 
-[40;35m    Use after free error! [0m
+[40;35m  realloc Use after free error! [0m
 
  ================== warring ================== 
-# .MEM_97 = VDEF <.MEM_96>
-free (p9_42);
-test.c:67:2: warning: Use after free error!: free location 
-  free(p9);
-  ^
-# .MEM_119 = VDEF <.MEM_118>
-free (_19);
-test.c:82:3: warning: use location
-   free(p9[i].f);
-   ^
+
+============================================================
+# .MEM_89 = VDEF <.MEM_88>
+q_37 = realloc (p6_34, 100);
+test.c:52:4: warning: Use after free error!: free location 
+  q = realloc(p6, 100);
+    ^
+# .MEM_90 = VDEF <.MEM_89>
+*q_37 = _2;
+test.c:53:7: warning: use location
+  q[0] = "0";
+       ^
 
  ================== warring ================== 
-[40;35m    Use after free error! [0m
+[40;35m  realloc Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_89 = VDEF <.MEM_88>
+q_37 = realloc (p6_34, 100);
+test.c:52:4: warning: Use after free error!: free location 
+  q = realloc(p6, 100);
+    ^
+# .MEM_90 = VDEF <.MEM_89>
+*q_37 = _2;
+test.c:53:7: warning: use location
+  q[0] = "0";
+       ^
+
+ ================== warring ================== 
+[40;35m  realloc Use after free error! [0m
 
  ================== warring ================== 
 
 dot graph END
 
- ================== Start Use after free Check ================== 
-
 ======================================================================
-[40;31m  	possible double free :2 [0m
+[40;32m   Maybe you don't have memory leak.... need more checks  [0m
 
 ======================================================================
 
-dot graph START
 
 ======================================================================
- <ssa_name 0x7f4ce8327990
-    type <pointer_type 0x7f4ce833a0a8
-        type <void_type 0x7f4ce8333f18 void VOID
-            align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f4ce833a0a8>>
-        public unsigned DI
-        size <integer_cst 0x7f4ce831fbe8 constant 64>
-        unit size <integer_cst 0x7f4ce831fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f4ce833fbd0>>
-   
-    def_stmt _5 = malloc (1);
-    version 5
-    ptr-info 0x7f4ce7e4cc78>
-# .MEM_95 = VDEF <.MEM_94>
-_5 = malloc (1);
-
- ================== trace ptable================== 
-trace fucntion name:malloc 
-
- ================== trace ptable ================== 
-GIMPLE CODE :addr_expr---malloc-----
-this Reserved word function ------malloc-----
- 
- Start check Pointer Collect  
-
-======================================================================
-dot graph entry main
-dot graph target entry end
-
-MEM[(struct st *)p9_42 + 48B].f = _5;
-test.c:66:10: warning: use location
-  p9[3].f = malloc(1);
-          ^
-dot graph target loc start # .MEM_95 = VDEF <.MEM_94>
-_5 = malloc (1);
-test.c:66:12: warning: use location
-  p9[3].f = malloc(1);
-            ^
-dot graph target loc en1
-
-dot graph target line desc form basic block 2: MEM[(struct st *)p9_42 + 48B].f = _5;
-test.c:66:10: warning: use location
-  p9[3].f = malloc(1);
-          ^
-dot graph target line desend
-
-dot graph target loc start # .MEM_95 = VDEF <.MEM_94>
-_5 = malloc (1);
-test.c:66:12: warning: use location
-  p9[3].f = malloc(1);
-            ^
-dot graph target loc end
-
-dot graph target basicblock start from main basic block 2dot graph target basicblock en1
-
-dot graph stmt start MEM[(struct st *)p9_42 + 48B].f = _5;
-_5 = malloc (1);
-dot graph stmt end
-
-dot graph stmt start MEM[(struct st *)p9_42 + 48B].f = _5;
-test.c:66:10: warning: use location
-  p9[3].f = malloc(1);
-          ^
-dot graph stmt end
-
-dot graph entry main
-dot graph target entry end
-
-MEM[(struct st *)p9_42 + 48B].f = _5;
-test.c:66:10: warning: use location
-dot graph target loc start # .MEM_95 = VDEF <.MEM_94>
-_5 = malloc (1);
-test.c:66:12: warning: use location
-  p9[3].f = malloc(1);
-            ^
-dot graph target loc en1
-
-dot graph target line desc form basic block 2: MEM[(struct st *)p9_42 + 48B].f = _5;
-test.c:66:10: warning: use location
-  p9[3].f = malloc(1);
-          ^
-dot graph target line desend
-
-dot graph target loc start # .MEM_95 = VDEF <.MEM_94>
-_5 = malloc (1);
-test.c:66:12: warning: use location
-  p9[3].f = malloc(1);
-            ^
-dot graph target loc end
-
-dot graph target basicblock start from main basic block 2dot graph target basicblock en1
-
-dot graph stmt start MEM[(struct st *)p9_42 + 48B].f = _5;
-_5 = malloc (1);
-dot graph stmt end
-
-dot graph stmt start MEM[(struct st *)p9_42 + 48B].f = _5;
-test.c:66:10: warning: use location
-  p9[3].f = malloc(1);
-          ^
-dot graph stmt end
-
-dot graph target basicblock start from main basic block 2dot graph target basicblock en1
-
-dot graph arrowsubgraph cluster_578603181 dot graph subgraph  MEM[(struct st *)p9_42 + 48B].f = _5;
-_5 = malloc (1);
-dot graph subgrapend
-
-dot graph target basicblock start from main basic block 2dot graph target basicblock en1
-
-dot graph arrowsubgraph cluster_1958391862 dot graph subgraph  MEM[(struct st *)p9_42 + 48B].f = _5;
-_5 = malloc (1);
-dot graph subgrapend
-
- <ssa_name 0x7f4ce8327990
-    type <pointer_type 0x7f4ce833a0a8
-        type <void_type 0x7f4ce8333f18 void VOID
-            align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f4ce833a0a8>>
-        public unsigned DI
-        size <integer_cst 0x7f4ce831fbe8 constant 64>
-        unit size <integer_cst 0x7f4ce831fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f4ce833fbd0>>
-   
-    def_stmt _5 = malloc (1);
-    version 5
-    ptr-info 0x7f4ce7e4cc78>
-
- ================== Start Looserules free Check ================== 
-
- ================== warring ================== 
-[40;35m   this module possiable false positives [0m
-
- ================== warring ================== 
-# .MEM_93 = VDEF <.MEM_92>
-free (p6_37);
-# .MEM_97 = VDEF <.MEM_96>
-free (p9_42);
-# .MEM_118 = VDEF <.MEM_81>
-free (_15);
-# .MEM_119 = VDEF <.MEM_118>
-free (_19);
-[40;35m <Looserules> find free stmt free same pointer [0m
-# .MEM_119 = VDEF <.MEM_118>
-free (_19);
-test.c:82:3: warning: use location
-   free(p9[i].f);
-   ^
-
- ================== Start Use after free Check ================== 
-
-dot graph END
-
- ================== Start Use after free Check ================== 
-
-======================================================================
-[40;31m    no free stmt possible memory leak [0m
+[40;35m  	Looserules free count:1 [0m
 
 ======================================================================
 
 dot graph START
 
 ======================================================================
- <integer_cst 0x7f4ce7e4cb70 type <integer_type 0x7f4ce7e499d8 size_t> constant 0>
 
-dot graph START
-
-======================================================================
- <integer_cst 0x7f4ce7e4cb88 type <integer_type 0x7f4ce7e499d8 size_t> constant 1>
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f059b02faf8 type <integer_type 0x7f059b02c9d8 size_t> constant 100>
 [40;33m =======POP node_fun stack:main========= [0m
 fucntion collect path finsh
 
@@ -798,21 +382,20 @@ return;
 <bb 2> [9.09%]:
 p6_34 = malloc (100);
 q_35 = p6_34;
-p6_37 = realloc (p6_34, 100);
+q_37 = realloc (p6_34, 100);
 _1 = (long int) "0";
 _2 = (int) _1;
-*q_35 = _2;
+*q_37 = _2;
 _3 = (long int) "0";
 _4 = (int) _3;
-MEM[(int *)q_35 + 4B] = _4;
-free (p6_37);
-p9_42 = malloc (0);
+MEM[(int *)q_37 + 4B] = _4;
+p9_41 = malloc (0);
 _5 = malloc (1);
-MEM[(struct st *)p9_42 + 48B].f = _5;
-free (p9_42);
-p_47 = malloc (10);
+MEM[(struct st *)p9_41 + 48B].f = _5;
+free (p9_41);
+p_46 = malloc (10);
 _6 = malloc (1);
-MEM[(struct st *)p_47 + 48B].f = _6;
+MEM[(struct st *)p_46 + 48B].f = _6;
 goto <bb 4>; [100.00%]
 
 =======is loop:1=========
@@ -821,16 +404,16 @@ goto <bb 4>; [100.00%]
 <bb 3> [90.91%]:
 _7 = (long unsigned int) i_21;
 _8 = _7 * 16;
-_9 = p_47 + _8;
+_9 = p_46 + _8;
 _10 = malloc (1);
 _9->f = _10;
-i_79 = i_21 + 1;
+i_78 = i_21 + 1;
 
 =======is loop:1=========
 
  bb index 4 
 <bb 4> [100.00%]:
-# i_21 = PHI <0(2), i_79(3)>
+# i_21 = PHI <0(2), i_78(3)>
 if (i_21 <= 9)
   goto <bb 3>; [90.91%]
 else
@@ -841,9 +424,9 @@ else
  bb index 5 
 <bb 5> [9.09%]:
 _11 = malloc (1);
-MEM[(struct st *)p_47 + 32B].f = _11;
-foo (p_47);
-if (test_53(D) != 0)
+MEM[(struct st *)p_46 + 32B].f = _11;
+foo (p_46);
+if (test_52(D) != 0)
   goto <bb 28>; [31.00%]
 else
   goto <bb 31>; [69.00%]
@@ -860,21 +443,21 @@ goto <bb 7>; [100.00%]
 <bb 6> [62.73%]:
 _12 = (long unsigned int) i_22;
 _13 = _12 * 16;
-_14 = p_47 + _13;
+_14 = p_46 + _13;
 _15 = _14->f;
 free (_15);
 _16 = (long unsigned int) i_22;
 _17 = _16 * 16;
-_18 = p9_42 + _17;
+_18 = p9_41 + _17;
 _19 = _18->f;
 free (_19);
-i_76 = i_22 + 1;
+i_75 = i_22 + 1;
 
 =======is loop:1=========
 
  bb index 7 
 <bb 7> [69.00%]:
-# i_22 = PHI <0(31), i_76(6)>
+# i_22 = PHI <0(31), i_75(6)>
 if (i_22 <= 9)
   goto <bb 6>; [90.91%]
 else
@@ -889,7 +472,7 @@ else
 
  bb index 8 
 label2 [11.28%]:
-foo (p5_54(D));
+foo (p5_53(D));
 goto <bb 29>; [100.00%]
 
 =======is loop:1=========
@@ -901,35 +484,35 @@ label3 [66.83%]:
 
  bb index 29 
 <bb 29> [78.11%]:
-foo (p5_54(D));
-_20 = test5_57(D) / 10;
+foo (p5_53(D));
+_20 = test5_56(D) / 10;
 switch (_20) <default: <L4> [33.33%], case 5: <L2> [33.33%], case 10: <L3> [33.33%]>
 
 =======is loop:1=========
 
  bb index 10 
 <L2> [26.04%]:
-foo (p5_54(D));
+foo (p5_53(D));
 goto <bb 13>; [100.00%]
 
 =======is loop:1=========
 
  bb index 11 
 <L3> [26.04%]:
-foo (p5_54(D));
+foo (p5_53(D));
 goto <bb 13>; [100.00%]
 
 =======is loop:1=========
 
  bb index 12 
 <L4> [26.04%]:
-foo (p5_54(D));
+foo (p5_53(D));
 
 =======is loop:1=========
 
  bb index 13 
 <bb 13> [78.11%]:
-if (test_53(D) != 0)
+if (test_52(D) != 0)
   goto <bb 14>; [92.50%]
 else
   goto <bb 23>; [7.50%]
@@ -938,7 +521,7 @@ else
 
  bb index 14 
 <bb 14> [72.25%]:
-if (test_53(D) > test2_61(D))
+if (test_52(D) > test2_60(D))
   goto <bb 15>; [7.50%]
 else
   goto <bb 18>; [92.50%]
@@ -947,8 +530,8 @@ else
 
  bb index 15 
 <bb 15> [5.42%]:
-foo (p_47);
-if (test_53(D) < test2_61(D))
+foo (p_46);
+if (test_52(D) < test2_60(D))
   goto <bb 16>; [50.00%]
 else
   goto <bb 17>; [50.00%]
@@ -957,22 +540,22 @@ else
 
  bb index 16 
 <bb 16> [2.71%]:
-foo (p_47);
+foo (p_46);
 goto <bb 21>; [100.00%]
 
 =======is loop:1=========
 
  bb index 17 
 <bb 17> [2.71%]:
-foo (p_47);
+foo (p_46);
 goto <bb 21>; [100.00%]
 
 =======is loop:1=========
 
  bb index 18 
 <bb 18> [66.83%]:
-foo (p_47);
-if (test_53(D) < test2_61(D))
+foo (p_46);
+if (test_52(D) < test2_60(D))
   goto <bb 19>; [50.00%]
 else
   goto <bb 20>; [50.00%]
@@ -981,21 +564,21 @@ else
 
  bb index 19 
 <bb 19> [33.41%]:
-foo (p3_67(D));
+foo (p3_66(D));
 goto <bb 9> (label3); [100.00%]
 
 =======is loop:1=========
 
  bb index 20 
 <bb 20> [33.41%]:
-foo (p5_54(D));
+foo (p5_53(D));
 goto <bb 9> (label3); [100.00%]
 
 =======is loop:1=========
 
  bb index 21 
 <bb 21> [5.42%]:
-if (test3_72(D) != 0)
+if (test3_71(D) != 0)
   goto <bb 22>; [92.50%]
 else
   goto <bb 28>; [7.50%]
@@ -1004,14 +587,14 @@ else
 
  bb index 22 
 <bb 22> [5.01%]:
-foo (p_47);
+foo (p_46);
 goto <bb 8> (label2); [100.00%]
 
 =======is loop:0=========
 
  bb index 23 
 <bb 23> [5.86%]:
-if (test_53(D) == test2_61(D))
+if (test_52(D) == test2_60(D))
   goto <bb 24>; [17.77%]
 else
   goto <bb 25>; [82.23%]
@@ -1020,14 +603,14 @@ else
 
  bb index 24 
 <bb 24> [1.04%]:
-foo (p_47);
+foo (p_46);
 goto <bb 28>; [100.00%]
 
 =======is loop:0=========
 
  bb index 25 
 <bb 25> [4.82%]:
-if (test_53(D) > test2_61(D))
+if (test_52(D) > test2_60(D))
   goto <bb 26>; [36.64%]
 else
   goto <bb 28>; [63.36%]
@@ -1036,7 +619,7 @@ else
 
  bb index 26 
 <bb 26> [1.76%]:
-foo (p4_62(D));
+foo (p4_61(D));
 
 =======is loop:0=========
 
@@ -1056,9 +639,9 @@ return _23;
     ~~~~~~~~~~~  
  ~~~~~~
            ~~~~~~~
-[40;34m    find Entry point : 2 [0m
-[40;34m    used_stmt array stack totalsize of : 176 [0m
-[40;34m    collect time: : 0.000102 s [0m
-[40;34m    algorithm time: 0.003939 s [0m
-[40;34m    gimple stmt count : : 71 [0m
+[40;34m    find Entry point : 1 [0m
+[40;34m    used_stmt array stack totalsize of : 112 [0m
+[40;34m    collect time: : 0.000066 s [0m
+[40;34m    algorithm time: 0.001206 s [0m
+[40;34m    gimple stmt count : : 70 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

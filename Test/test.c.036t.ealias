@@ -161,71 +161,71 @@ INTEGER = &ANYTHING
 ESCAPED = &NONLOCAL
 p6_42 = &HEAP(10)
 q_43 = p6_42
-p6_45 = &HEAP(13)
+q_45 = &HEAP(13)
 doubledereftmp(14) = *p6_42
-*p6_45 = doubledereftmp(14)
-p6_45 = p6_42
+*q_45 = doubledereftmp(14)
+q_45 = p6_42
 _1 = &STRING
 _2 = _1
-*q_43 = _2
+*q_45 = _2
 _3 = &STRING
 _5 = _3
-*q_43 = _5
+*q_45 = _5
 ESCAPED = &NULL
-p9_50 = &HEAP(20)
+p9_49 = &HEAP(20)
 ESCAPED = &NONLOCAL
 _7 = &HEAP(22)
-*p9_50 + 64 = _7
+*p9_49 + 64 = _7
 ESCAPED = &NONLOCAL
-p_55 = &HEAP(24)
+p_54 = &HEAP(24)
 ESCAPED = &NONLOCAL
 _9 = &HEAP(26)
-*p_55 + 64 = _9
+*p_54 + 64 = _9
 _10 = i_25
 _11 = _10
 _11 = &NONLOCAL
-_12 = p_55
+_12 = p_54
 ESCAPED = &NONLOCAL
 _13 = &HEAP(32)
 *_12 + 64 = _13
-i_91 = i_25
-i_91 = &NONLOCAL
+i_90 = i_25
+i_90 = &NONLOCAL
 i_25 = &NULL
-i_25 = i_91
+i_25 = i_90
 ESCAPED = &NONLOCAL
 _15 = &HEAP(35)
-*p_55 + 64 = _15
-ESCAPED = p_55
+*p_54 + 64 = _15
+ESCAPED = p_54
 _16 = i_26
 _17 = _16
 _17 = &NONLOCAL
-_18 = p_55
+_18 = p_54
 _19 = *_18 + 64
 _20 = i_26
 _21 = _20
 _21 = &NONLOCAL
-_22 = p9_50
+_22 = p9_49
 _23 = *_22 + 64
-i_87 = i_26
-i_87 = &NONLOCAL
+i_86 = i_26
+i_86 = &NONLOCAL
 i_26 = &NULL
-i_26 = i_87
-ESCAPED = p5_64
-ESCAPED = p5_64
-_24 = test5_67
+i_26 = i_86
+ESCAPED = p5_63
+ESCAPED = p5_63
+_24 = test5_66
 _24 = &NONLOCAL
-ESCAPED = p5_64
-ESCAPED = p5_64
-ESCAPED = p5_64
-ESCAPED = p_55
-ESCAPED = p_55
-ESCAPED = p_55
-ESCAPED = p_55
-ESCAPED = p3_77
-ESCAPED = p5_64
-ESCAPED = p_55
-ESCAPED = p_55
-ESCAPED = p4_72
+ESCAPED = p5_63
+ESCAPED = p5_63
+ESCAPED = p5_63
+ESCAPED = p_54
+ESCAPED = p_54
+ESCAPED = p_54
+ESCAPED = p_54
+ESCAPED = p3_76
+ESCAPED = p5_63
+ESCAPED = p_54
+ESCAPED = p_54
+ESCAPED = p4_71
 _27 = &NONLOCAL
 _27 = &NULL
 ESCAPED = _27
@@ -249,46 +249,46 @@ malloc = { }
 p6_42 = { HEAP(10) }
 HEAP(10) = { STRING }
 q_43 = { HEAP(10) } same as p6_42
-p6_45 = { HEAP(10) HEAP(13) }
+q_45 = { HEAP(10) HEAP(13) }
 HEAP(13) = { STRING }
 doubledereftmp(14) = { STRING }
 _1 = { STRING }
 _2 = { STRING } same as _1
 _3 = { STRING } same as _1
 _5 = { STRING } same as _1
-p9_50 = { HEAP(20) }
+p9_49 = { HEAP(20) }
 HEAP(20) = { HEAP(22) }
 _7 = { HEAP(22) }
 HEAP(22) = { }
-p_55 = { HEAP(24) }
+p_54 = { HEAP(24) }
 HEAP(24) = { ESCAPED NONLOCAL HEAP(26) HEAP(32) HEAP(35) }
 _9 = { HEAP(26) }
 HEAP(26) = { ESCAPED NONLOCAL }
 _10 = { NULL NONLOCAL }
 i_25 = { NULL NONLOCAL } same as _10
 _11 = { NULL NONLOCAL } same as _10
-_12 = { HEAP(24) } same as p_55
+_12 = { HEAP(24) } same as p_54
 _13 = { HEAP(32) }
 HEAP(32) = { ESCAPED NONLOCAL }
-i_91 = { NULL NONLOCAL } same as _10
+i_90 = { NULL NONLOCAL } same as _10
 _15 = { HEAP(35) }
 HEAP(35) = { ESCAPED NONLOCAL }
 foo = { }
 _16 = { NULL NONLOCAL } same as _10
 i_26 = { NULL NONLOCAL } same as _10
 _17 = { NULL NONLOCAL } same as _10
-_18 = { HEAP(24) } same as p_55
+_18 = { HEAP(24) } same as p_54
 _19 = { ESCAPED NONLOCAL HEAP(26) HEAP(32) HEAP(35) }
 _20 = { NULL NONLOCAL } same as _10
 _21 = { NULL NONLOCAL } same as _10
-_22 = { HEAP(20) } same as p9_50
+_22 = { HEAP(20) } same as p9_49
 _23 = { HEAP(22) }
-i_87 = { NULL NONLOCAL } same as _10
-p5_64 = { }
+i_86 = { NULL NONLOCAL } same as _10
+p5_63 = { }
 _24 = { NONLOCAL }
-test5_67 = { }
-p3_77 = { }
-p4_72 = { }
+test5_66 = { }
+p3_76 = { }
+p4_71 = { }
 _27 = { NULL NONLOCAL } same as _10
 
 
@@ -314,12 +314,12 @@ _22, points-to NULL, points-to vars: { D.4388 }
 _23, points-to NULL, points-to vars: { D.4389 }
 p6_42, points-to NULL, points-to vars: { D.4386 }
 q_43, points-to NULL, points-to vars: { D.4386 }
-p6_45, points-to NULL, points-to vars: { D.4386 D.4387 }
-p9_50, points-to NULL, points-to vars: { D.4388 }
-p_55, points-to NULL, points-to vars: { D.4390 } (escaped, escaped heap)
-p5_64(D), points-to NULL, points-to vars: { }
-p4_72(D), points-to NULL, points-to vars: { }
-p3_77(D), points-to NULL, points-to vars: { }
+q_45, points-to NULL, points-to vars: { D.4386 D.4387 }
+p9_49, points-to NULL, points-to vars: { D.4388 }
+p_54, points-to NULL, points-to vars: { D.4390 } (escaped, escaped heap)
+p5_63(D), points-to NULL, points-to vars: { }
+p4_71(D), points-to NULL, points-to vars: { }
+p3_76(D), points-to NULL, points-to vars: { }
 
 main ()
 {
@@ -365,33 +365,32 @@ main ()
   <bb 2> [0.00%]:
   p6_42 = malloc (100);
   q_43 = p6_42;
-  p6_45 = realloc (p6_42, 100);
+  q_45 = realloc (p6_42, 100);
   _1 = (long int) "0";
   _2 = (int) _1;
-  *q_43 = _2;
+  *q_45 = _2;
   _3 = (long int) "0";
   _5 = (int) _3;
-  MEM[(int *)q_43 + 4B] = _5;
-  free (p6_45);
-  p9_50 = malloc (0);
+  MEM[(int *)q_45 + 4B] = _5;
+  p9_49 = malloc (0);
   _7 = malloc (1);
-  MEM[(struct st *)p9_50 + 48B].f = _7;
-  free (p9_50);
-  p_55 = malloc (10);
+  MEM[(struct st *)p9_49 + 48B].f = _7;
+  free (p9_49);
+  p_54 = malloc (10);
   _9 = malloc (1);
-  MEM[(struct st *)p_55 + 48B].f = _9;
+  MEM[(struct st *)p_54 + 48B].f = _9;
   goto <bb 4>; [0.00%]
 
   <bb 3> [0.00%]:
   _10 = (long unsigned int) i_25;
   _11 = _10 * 16;
-  _12 = p_55 + _11;
+  _12 = p_54 + _11;
   _13 = malloc (1);
   _12->f = _13;
-  i_91 = i_25 + 1;
+  i_90 = i_25 + 1;
 
   <bb 4> [0.00%]:
-  # i_25 = PHI <0(2), i_91(3)>
+  # i_25 = PHI <0(2), i_90(3)>
   if (i_25 <= 9)
     goto <bb 3>; [0.00%]
   else
@@ -399,9 +398,9 @@ main ()
 
   <bb 5> [0.00%]:
   _15 = malloc (1);
-  MEM[(struct st *)p_55 + 32B].f = _15;
-  foo (p_55);
-  if (test_62(D) != 0)
+  MEM[(struct st *)p_54 + 32B].f = _15;
+  foo (p_54);
+  if (test_61(D) != 0)
     goto <bb 28>; [0.00%]
   else
     goto <bb 7>; [0.00%]
@@ -409,112 +408,112 @@ main ()
   <bb 6> [0.00%]:
   _16 = (long unsigned int) i_26;
   _17 = _16 * 16;
-  _18 = p_55 + _17;
+  _18 = p_54 + _17;
   _19 = _18->f;
   free (_19);
   _20 = (long unsigned int) i_26;
   _21 = _20 * 16;
-  _22 = p9_50 + _21;
+  _22 = p9_49 + _21;
   _23 = _22->f;
   free (_23);
-  i_87 = i_26 + 1;
+  i_86 = i_26 + 1;
 
   <bb 7> [0.00%]:
-  # i_26 = PHI <0(5), i_87(6)>
+  # i_26 = PHI <0(5), i_86(6)>
   if (i_26 <= 9)
     goto <bb 6>; [0.00%]
   else
     goto <bb 8> (label2); [0.00%]
 
 label2 [0.00%]:
-  foo (p5_64(D));
+  foo (p5_63(D));
 
 label3 [0.00%]:
-  foo (p5_64(D));
-  _24 = test5_67(D) / 10;
+  foo (p5_63(D));
+  _24 = test5_66(D) / 10;
   switch (_24) <default: <L12> [0.00%], case 5: <L10> [0.00%], case 10: <L11> [0.00%]>
 
 <L10> [0.00%]:
-  foo (p5_64(D));
+  foo (p5_63(D));
   goto <bb 13>; [0.00%]
 
 <L11> [0.00%]:
-  foo (p5_64(D));
+  foo (p5_63(D));
   goto <bb 13>; [0.00%]
 
 <L12> [0.00%]:
-  foo (p5_64(D));
+  foo (p5_63(D));
 
   <bb 13> [0.00%]:
-  if (test_62(D) != 0)
+  if (test_61(D) != 0)
     goto <bb 14>; [0.00%]
   else
     goto <bb 23>; [0.00%]
 
   <bb 14> [0.00%]:
-  if (test_62(D) > test2_71(D))
+  if (test_61(D) > test2_70(D))
     goto <bb 15>; [0.00%]
   else
     goto <bb 18>; [0.00%]
 
   <bb 15> [0.00%]:
-  foo (p_55);
-  if (test_62(D) < test2_71(D))
+  foo (p_54);
+  if (test_61(D) < test2_70(D))
     goto <bb 16>; [0.00%]
   else
     goto <bb 17>; [0.00%]
 
   <bb 16> [0.00%]:
-  foo (p_55);
+  foo (p_54);
   goto <bb 21>; [0.00%]
 
   <bb 17> [0.00%]:
-  foo (p_55);
+  foo (p_54);
   goto <bb 21>; [0.00%]
 
   <bb 18> [0.00%]:
-  foo (p_55);
-  if (test_62(D) < test2_71(D))
+  foo (p_54);
+  if (test_61(D) < test2_70(D))
     goto <bb 19>; [0.00%]
   else
     goto <bb 20>; [0.00%]
 
   <bb 19> [0.00%]:
-  foo (p3_77(D));
+  foo (p3_76(D));
   goto <bb 9> (label3); [0.00%]
 
   <bb 20> [0.00%]:
-  foo (p5_64(D));
+  foo (p5_63(D));
   goto <bb 9> (label3); [0.00%]
 
   <bb 21> [0.00%]:
-  if (test3_82(D) != 0)
+  if (test3_81(D) != 0)
     goto <bb 22>; [0.00%]
   else
     goto <bb 27>; [0.00%]
 
   <bb 22> [0.00%]:
-  foo (p_55);
+  foo (p_54);
   goto <bb 8> (label2); [0.00%]
 
   <bb 23> [0.00%]:
-  if (test_62(D) == test2_71(D))
+  if (test_61(D) == test2_70(D))
     goto <bb 24>; [0.00%]
   else
     goto <bb 25>; [0.00%]
 
   <bb 24> [0.00%]:
-  foo (p_55);
+  foo (p_54);
   goto <bb 27>; [0.00%]
 
   <bb 25> [0.00%]:
-  if (test_62(D) > test2_71(D))
+  if (test_61(D) > test2_70(D))
     goto <bb 26>; [0.00%]
   else
     goto <bb 27>; [0.00%]
 
   <bb 26> [0.00%]:
-  foo (p4_72(D));
+  foo (p4_71(D));
 
   <bb 27> [0.00%]:
 

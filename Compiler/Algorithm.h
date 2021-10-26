@@ -3442,8 +3442,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										// debug(def_stmt);
 										const char *name;
 										name = get_name(gimple_call_fn(u_stmt));
+
 										if (name != NULL)
-											if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+											if (!strcmp(name, "free") || !strcmp(name, "xfree") || !strcmp(name, "realloc"))
 											{
 												find_freestmt++;
 												free_type.stmt = u_stmt;
@@ -3451,7 +3452,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												fprintf(stderr, "\n ================== find ================== \n");
 												debug(u_stmt);
 												warning_at(gimple_location_safe(u_stmt), 0, "use location");
-												fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
+												if (!strcmp(name, "realloc"))
+												{
+													fprintf(stderr, "\033[40;32m    FIND realloc STMT count:%d name:%s \033[0m\n", find_freestmt, name);
+													fprintf(stderr, "\033[40;32m    this stmt possiable free memory \033[0m\n", find_freestmt, name);
+												}
+												else
+													fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
 												fprintf(stderr, "\n ================== find ================== \n");
 											}
 											else if (!strcmp(name, "pthread_create"))
@@ -3818,23 +3825,31 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							{
 								// debug_gimple_stmt(u_stmt);
 								// debug_tree(user_tmp->aptr);
-
+	// fprintf(stderr, "\n ================== warring ==%d================ \n",free_array.size());
 								for (int i = 0; i < free_array.size(); i++)
 								{
 									// _deb
 									if (u_stmt != free_array.at(i).stmt)
 									{
-
+										
 										if (Location_b2(free_array.at(i).stmt, u_stmt, function_tree))
 										{
+											fprintf(stderr, "\n============================================================\n");
+											name = get_name(gimple_call_fn(free_array.at(i).stmt));
+
 											debug_gimple_stmt(free_array.at(i).stmt);
 											warning_at(gimple_location_safe(free_array.at(i).stmt), 0, "Use after free error!: free location ");
 											debug_gimple_stmt(u_stmt);
 											warning_at(gimple_location_safe(u_stmt), 0, "use location");
 											fprintf(stderr, "\n ================== warring ================== \n");
-
+											if (!strcmp(name, "realloc"))
+											{
+												fprintf(stderr, "\033[40;35m  realloc Use after free error! \033[0m\n");
+											}
+											else
+												fprintf(stderr, "\033[40;35m    Use after free error! \033[0m\n");
 											// debug(checkTree);
-											fprintf(stderr, "\033[40;35m    Use after free error! \033[0m\n");
+											// fprintf(stderr, "\033[40;35m    Use after free error! \033[0m\n");
 											// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
 
 											// fprintf(stderr, "this stmt possible is heap-object 。\n");
@@ -3913,11 +3928,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						fprintf(stderr, "\033[40;31m  	possible double free :%d \033[0m\n", find_freestmt);
 						fprintf(stderr, "\n======================================================================\n");
 					}
-					fprintf(stderr, "\n======================================================================\n");
+					if (Looserulesfree)
+					{
+						fprintf(stderr, "\n======================================================================\n");
 						// fprintf(stderr, "	possible double free\n");
 						fprintf(stderr, "\033[40;35m  	Looserules free count:%d \033[0m\n", find_Looserulesfreestmt);
 						fprintf(stderr, "\n======================================================================\n");
-
+					}
 				}
 				else if (find_mallocstmt == IS_HEAP_FUCNTION)
 				{

@@ -265,33 +265,32 @@ main ()
   <bb 2> [9.09%]:
   p6_42 = malloc (100);
   q_43 = p6_42;
-  p6_45 = realloc (p6_42, 100);
+  q_45 = realloc (p6_42, 100);
   _1 = (long int) "0";
   _2 = (int) _1;
-  *q_43 = _2;
+  *q_45 = _2;
   _3 = (long int) "0";
   _5 = (int) _3;
-  MEM[(int *)q_43 + 4B] = _5;
-  free (p6_45);
-  p9_50 = malloc (0);
+  MEM[(int *)q_45 + 4B] = _5;
+  p9_49 = malloc (0);
   _7 = malloc (1);
-  MEM[(struct st *)p9_50 + 48B].f = _7;
-  free (p9_50);
-  p_55 = malloc (10);
+  MEM[(struct st *)p9_49 + 48B].f = _7;
+  free (p9_49);
+  p_54 = malloc (10);
   _9 = malloc (1);
-  MEM[(struct st *)p_55 + 48B].f = _9;
+  MEM[(struct st *)p_54 + 48B].f = _9;
   goto <bb 4>; [100.00%]
 
   <bb 3> [90.91%]:
   _10 = (long unsigned int) i_25;
   _11 = _10 * 16;
-  _12 = p_55 + _11;
+  _12 = p_54 + _11;
   _13 = malloc (1);
   _12->f = _13;
-  i_91 = i_25 + 1;
+  i_90 = i_25 + 1;
 
   <bb 4> [100.00%]:
-  # i_25 = PHI <0(2), i_91(3)>
+  # i_25 = PHI <0(2), i_90(3)>
   if (i_25 <= 9)
     goto <bb 3>; [90.91%]
   else
@@ -299,9 +298,9 @@ main ()
 
   <bb 5> [9.09%]:
   _15 = malloc (1);
-  MEM[(struct st *)p_55 + 32B].f = _15;
-  foo (p_55);
-  if (test_62(D) != 0)
+  MEM[(struct st *)p_54 + 32B].f = _15;
+  foo (p_54);
+  if (test_61(D) != 0)
     goto <bb 28>; [31.00%]
   else
     goto <bb 31>; [69.00%]
@@ -312,18 +311,18 @@ main ()
   <bb 6> [62.73%]:
   _16 = (long unsigned int) i_26;
   _17 = _16 * 16;
-  _18 = p_55 + _17;
+  _18 = p_54 + _17;
   _19 = _18->f;
   free (_19);
   _20 = (long unsigned int) i_26;
   _21 = _20 * 16;
-  _22 = p9_50 + _21;
+  _22 = p9_49 + _21;
   _23 = _22->f;
   free (_23);
-  i_87 = i_26 + 1;
+  i_86 = i_26 + 1;
 
   <bb 7> [69.00%]:
-  # i_26 = PHI <0(31), i_87(6)>
+  # i_26 = PHI <0(31), i_86(6)>
   if (i_26 <= 9)
     goto <bb 6>; [90.91%]
   else
@@ -332,97 +331,97 @@ main ()
   <bb 30> [6.27%]:
 
 label2 [11.28%]:
-  foo (p5_64(D));
+  foo (p5_63(D));
   goto <bb 29>; [100.00%]
 
 label3 [66.83%]:
 
   <bb 29> [78.11%]:
-  foo (p5_64(D));
-  _24 = test5_67(D) / 10;
+  foo (p5_63(D));
+  _24 = test5_66(D) / 10;
   switch (_24) <default: <L12> [33.33%], case 5: <L10> [33.33%], case 10: <L11> [33.33%]>
 
 <L10> [26.04%]:
-  foo (p5_64(D));
+  foo (p5_63(D));
   goto <bb 13>; [100.00%]
 
 <L11> [26.04%]:
-  foo (p5_64(D));
+  foo (p5_63(D));
   goto <bb 13>; [100.00%]
 
 <L12> [26.04%]:
-  foo (p5_64(D));
+  foo (p5_63(D));
 
   <bb 13> [78.11%]:
-  if (test_62(D) != 0)
+  if (test_61(D) != 0)
     goto <bb 14>; [92.50%]
   else
     goto <bb 23>; [7.50%]
 
   <bb 14> [72.25%]:
-  if (test_62(D) > test2_71(D))
+  if (test_61(D) > test2_70(D))
     goto <bb 15>; [7.50%]
   else
     goto <bb 18>; [92.50%]
 
   <bb 15> [5.42%]:
-  foo (p_55);
-  if (test_62(D) < test2_71(D))
+  foo (p_54);
+  if (test_61(D) < test2_70(D))
     goto <bb 16>; [50.00%]
   else
     goto <bb 17>; [50.00%]
 
   <bb 16> [2.71%]:
-  foo (p_55);
+  foo (p_54);
   goto <bb 21>; [100.00%]
 
   <bb 17> [2.71%]:
-  foo (p_55);
+  foo (p_54);
   goto <bb 21>; [100.00%]
 
   <bb 18> [66.83%]:
-  foo (p_55);
-  if (test_62(D) < test2_71(D))
+  foo (p_54);
+  if (test_61(D) < test2_70(D))
     goto <bb 19>; [50.00%]
   else
     goto <bb 20>; [50.00%]
 
   <bb 19> [33.41%]:
-  foo (p3_77(D));
+  foo (p3_76(D));
   goto <bb 9> (label3); [100.00%]
 
   <bb 20> [33.41%]:
-  foo (p5_64(D));
+  foo (p5_63(D));
   goto <bb 9> (label3); [100.00%]
 
   <bb 21> [5.42%]:
-  if (test3_82(D) != 0)
+  if (test3_81(D) != 0)
     goto <bb 22>; [92.50%]
   else
     goto <bb 28>; [7.50%]
 
   <bb 22> [5.01%]:
-  foo (p_55);
+  foo (p_54);
   goto <bb 8> (label2); [100.00%]
 
   <bb 23> [5.86%]:
-  if (test_62(D) == test2_71(D))
+  if (test_61(D) == test2_70(D))
     goto <bb 24>; [17.77%]
   else
     goto <bb 25>; [82.23%]
 
   <bb 24> [1.04%]:
-  foo (p_55);
+  foo (p_54);
   goto <bb 28>; [100.00%]
 
   <bb 25> [4.82%]:
-  if (test_62(D) > test2_71(D))
+  if (test_61(D) > test2_70(D))
     goto <bb 26>; [36.64%]
   else
     goto <bb 28>; [63.36%]
 
   <bb 26> [1.76%]:
-  foo (p4_72(D));
+  foo (p4_71(D));
 
   <bb 28> [9.08%]:
   # _27 = PHI <200(5), 0(24), 0(21), 0(26), 0(25)>

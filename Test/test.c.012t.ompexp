@@ -73,7 +73,7 @@ main ()
   d = 22;
   p6 = malloc (100);
   q = p6;
-  p6 = realloc (p6, 100);
+  q = realloc (p6, 100);
   _1 = (long int) "0";
   _2 = (int) _1;
   *q = _2;
@@ -81,7 +81,6 @@ main ()
   _4 = q + 4;
   _5 = (int) _3;
   *_4 = _5;
-  free (p6);
   p9 = malloc (0);
   _6 = p9 + 48;
   _7 = malloc (1);
