@@ -63,6 +63,7 @@ main ()
   sizetype ivtmp.11;
   int i;
   int i;
+  int * p100;
   struct st * p;
   struct st * p9;
   int * p6;
@@ -83,102 +84,105 @@ main ()
   int * _15;
   int * _19;
   int _20;
-  int _23;
-  struct st * _81;
-  void * _109;
-  unsigned long _110;
-  unsigned long _112;
+  unsigned long _23;
+  int _24;
+  void * _90;
+  struct st * _91;
+  unsigned long _124;
 
   <bb 2> [9.10%]:
-  p6_34 = malloc (100);
-  p6_37 = realloc (p6_34, 100);
+  p6_36 = malloc (100);
+  p6_39 = realloc (p6_36, 100);
   _1 = (long int) "0";
   _2 = (int) _1;
-  *p6_34 = _2;
-  MEM[(int *)p6_34 + 4B] = _2;
-  p9_41 = malloc (0);
+  *p6_36 = _2;
+  MEM[(int *)p6_36 + 4B] = _2;
+  free (p6_39);
+  p9_44 = malloc (0);
   _5 = malloc (1);
-  MEM[(struct st *)p9_41 + 48B].f = _5;
-  free (p9_41);
-  p_46 = malloc (10);
+  MEM[(struct st *)p9_44 + 48B].f = _5;
+  free (p9_44);
+  p_49 = malloc (10);
   _6 = malloc (1);
-  MEM[(struct st *)p_46 + 48B].f = _6;
-  _81 = p_46 + 8;
-  ivtmp.19_86 = (unsigned long) _81;
-  _112 = (unsigned long) p_46;
-  _110 = _112 + 168;
+  MEM[(struct st *)p_49 + 48B].f = _6;
+  _91 = p_49 + 8;
+  ivtmp.19_96 = (unsigned long) _91;
+  _23 = (unsigned long) p_49;
+  _124 = _23 + 168;
 
   <bb 3> [90.91%]:
-  # ivtmp.19_35 = PHI <ivtmp.19_126(3), ivtmp.19_86(2)>
+  # ivtmp.19_37 = PHI <ivtmp.19_141(3), ivtmp.19_96(2)>
   _10 = malloc (1);
-  _109 = (void *) ivtmp.19_35;
-  MEM[base: _109, offset: 0B] = _10;
-  ivtmp.19_126 = ivtmp.19_35 + 16;
-  if (ivtmp.19_126 != _110)
+  _90 = (void *) ivtmp.19_37;
+  MEM[base: _90, offset: 0B] = _10;
+  ivtmp.19_141 = ivtmp.19_37 + 16;
+  if (ivtmp.19_141 != _124)
     goto <bb 3>; [90.91%]
   else
     goto <bb 4>; [9.09%]
 
   <bb 4> [9.09%]:
   _11 = malloc (1);
-  MEM[(struct st *)p_46 + 32B].f = _11;
-  foo (p_46);
-  if (test_52(D) != 0)
+  MEM[(struct st *)p_49 + 32B].f = _11;
+  foo (p_49);
+  if (test_55(D) != 0)
     goto <bb 14>; [31.00%]
   else
     goto <bb 5>; [69.00%]
 
   <bb 5> [62.73%]:
-  # ivtmp.11_128 = PHI <ivtmp.11_120(5), 8(4)>
-  _15 = MEM[base: p_46, index: ivtmp.11_128, offset: 0B];
+  # ivtmp.11_143 = PHI <ivtmp.11_135(5), 8(4)>
+  _15 = MEM[base: p_49, index: ivtmp.11_143, offset: 0B];
   free (_15);
-  _19 = MEM[base: p9_41, index: ivtmp.11_128, offset: 0B];
+  _19 = MEM[base: p9_44, index: ivtmp.11_143, offset: 0B];
   free (_19);
-  ivtmp.11_120 = ivtmp.11_128 + 16;
-  if (ivtmp.11_120 != 168)
+  ivtmp.11_135 = ivtmp.11_143 + 16;
+  if (ivtmp.11_135 != 168)
     goto <bb 5>; [90.91%]
   else
     goto <bb 6>; [9.09%]
 
   <bb 6> [6.27%]:
-  foo (p5_53(D));
-  foo (p5_53(D));
-  _20 = test5_56(D) / 10;
+  p100_57 = malloc (1);
+  free (p100_57);
+  foo (p5_62(D));
+  foo (p5_62(D));
+  _20 = test5_65(D) / 10;
   switch (_20) <default: <L4> [33.33%], case 5: <L2> [33.33%], case 10: <L3> [33.33%]>
 
 <L2> [26.04%]:
-  foo (p5_53(D));
+  foo (p5_62(D));
   goto <bb 10>; [100.00%]
 
 <L3> [26.04%]:
-  foo (p5_53(D));
+  foo (p5_62(D));
   goto <bb 10>; [100.00%]
 
 <L4> [26.04%]:
-  foo (p5_53(D));
+  foo (p5_62(D));
 
   <bb 10> [78.11%]:
-  if (test2_60(D) == 0)
+  if (test2_69(D) == 0)
     goto <bb 11>; [17.77%]
   else
     goto <bb 12>; [82.23%]
 
   <bb 11> [1.04%]:
-  foo (p_46);
+  foo (p_49);
   goto <bb 14>; [100.00%]
 
   <bb 12> [4.82%]:
-  if (test2_60(D) < 0)
+  if (test2_69(D) < 0)
     goto <bb 13>; [36.64%]
   else
     goto <bb 14>; [63.36%]
 
   <bb 13> [1.76%]:
-  foo (p4_61(D));
+  foo (p4_70(D));
 
   <bb 14> [9.08%]:
-  # _23 = PHI <200(4), 0(13), 0(11), 0(12)>
-  return _23;
+  # _24 = PHI <200(4), 0(13), 0(11), 0(12)>
+  return _24;
 
 }
 

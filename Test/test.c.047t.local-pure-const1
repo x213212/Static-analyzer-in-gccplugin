@@ -64,88 +64,95 @@ foo (int * z)
 
 
  local analysis of main
-   scanning: p6_42 = malloc (100);
-  scanning: q_43 = p6_42;
-  scanning: p6_45 = realloc (p6_42, 100);
+   scanning: p6_44 = malloc (100);
+  scanning: q_45 = p6_44;
+  scanning: p6_47 = realloc (p6_44, 100);
   scanning: _1 = (long int) "0";
   scanning: _2 = (int) _1;
-  scanning: *q_43 = _2;
+  scanning: *q_45 = _2;
     Indirect ref to local memory is OK
   scanning: _3 = (long int) "0";
   scanning: _5 = (int) _3;
-  scanning: MEM[(int *)q_43 + 4B] = _5;
+  scanning: MEM[(int *)q_45 + 4B] = _5;
     Indirect ref to local memory is OK
-  scanning: p9_49 = malloc (0);
+  scanning: free (p6_47);
+  scanning: p9_52 = malloc (0);
   scanning: _7 = malloc (1);
-  scanning: MEM[(struct st *)p9_49 + 48B].f = _7;
+  scanning: MEM[(struct st *)p9_52 + 48B].f = _7;
     Indirect ref to local memory is OK
-  scanning: free (p9_49);
-  scanning: p_54 = malloc (10);
+  scanning: free (p9_52);
+  scanning: p_57 = malloc (10);
   scanning: _9 = malloc (1);
-  scanning: MEM[(struct st *)p_54 + 48B].f = _9;
+  scanning: MEM[(struct st *)p_57 + 48B].f = _9;
     Indirect ref write is not const/pure
   scanning: _10 = (long unsigned int) i_25;
   scanning: _11 = _10 * 16;
-  scanning: _12 = p_54 + _11;
+  scanning: _12 = p_57 + _11;
   scanning: _13 = malloc (1);
   scanning: _12->f = _13;
     Indirect ref write is not const/pure
-  scanning: i_90 = i_25 + 1;
+  scanning: i_99 = i_25 + 1;
   scanning: if (i_25 <= 9)
   scanning: _15 = malloc (1);
-  scanning: MEM[(struct st *)p_54 + 32B].f = _15;
+  scanning: MEM[(struct st *)p_57 + 32B].f = _15;
     Indirect ref write is not const/pure
-  scanning: foo (p_54);
-  scanning: if (test_61(D) != 0)
+  scanning: foo (p_57);
+  scanning: if (test_64(D) != 0)
   scanning: _16 = (long unsigned int) i_26;
   scanning: _17 = _16 * 16;
-  scanning: _18 = p_54 + _17;
+  scanning: _18 = p_57 + _17;
   scanning: _19 = _18->f;
     Indirect ref read is not const
   scanning: free (_19);
   scanning: _20 = (long unsigned int) i_26;
   scanning: _21 = _20 * 16;
-  scanning: _22 = p9_49 + _21;
+  scanning: _22 = p9_52 + _21;
   scanning: _23 = _22->f;
     Indirect ref to local memory is OK
   scanning: free (_23);
-  scanning: i_86 = i_26 + 1;
+  scanning: i_95 = i_26 + 1;
   scanning: if (i_26 <= 9)
+  scanning: p100_67 = malloc (1);
+  scanning: if (test_64(D) != 0)
+  scanning: p100_69 = malloc (2);
+  scanning: free (p100_69);
+  scanning: free (p100_27);
   scanning: label2 [11.28%]:
-  scanning: foo (p5_63(D));
+  scanning: foo (p5_72(D));
   scanning: label3 [66.83%]:
-  scanning: foo (p5_63(D));
-  scanning: _24 = test5_66(D) / 10;
-  scanning: switch (_24) <default: <L12> [33.33%], case 5: <L10> [33.33%], case 10: <L11> [33.33%]>
-  scanning: <L10> [26.04%]:
-  scanning: foo (p5_63(D));
-  scanning: <L11> [26.04%]:
-  scanning: foo (p5_63(D));
+  scanning: foo (p5_72(D));
+  scanning: _24 = test5_75(D) / 10;
+  scanning: switch (_24) <default: <L14> [33.33%], case 5: <L12> [33.33%], case 10: <L13> [33.33%]>
   scanning: <L12> [26.04%]:
-  scanning: foo (p5_63(D));
-  scanning: if (test_61(D) != 0)
-  scanning: if (test_61(D) > test2_70(D))
-  scanning: foo (p_54);
-  scanning: if (test_61(D) < test2_70(D))
-  scanning: foo (p_54);
-  scanning: foo (p_54);
-  scanning: foo (p_54);
-  scanning: if (test_61(D) < test2_70(D))
-  scanning: foo (p3_76(D));
-  scanning: foo (p5_63(D));
-  scanning: if (test3_81(D) != 0)
-  scanning: foo (p_54);
-  scanning: if (test_61(D) == test2_70(D))
-  scanning: foo (p_54);
-  scanning: if (test_61(D) > test2_70(D))
-  scanning: foo (p4_71(D));
-  scanning: return _27;
+  scanning: foo (p5_72(D));
+  scanning: <L13> [26.04%]:
+  scanning: foo (p5_72(D));
+  scanning: <L14> [26.04%]:
+  scanning: foo (p5_72(D));
+  scanning: if (test_64(D) != 0)
+  scanning: if (test_64(D) > test2_79(D))
+  scanning: foo (p_57);
+  scanning: if (test_64(D) < test2_79(D))
+  scanning: foo (p_57);
+  scanning: foo (p_57);
+  scanning: foo (p_57);
+  scanning: if (test_64(D) < test2_79(D))
+  scanning: foo (p3_85(D));
+  scanning: foo (p5_72(D));
+  scanning: if (test3_90(D) != 0)
+  scanning: foo (p_57);
+  scanning: if (test_64(D) == test2_79(D))
+  scanning: foo (p_57);
+  scanning: if (test_64(D) > test2_79(D))
+  scanning: foo (p4_80(D));
+  scanning: return _28;
 Function is locally looping.
 Function can locally free.
 main ()
 {
   int i;
   int i;
+  int * p100;
   struct st * p;
   struct st * p9;
   int * p6;
@@ -181,37 +188,38 @@ main ()
   struct st * _22;
   int * _23;
   int _24;
-  int _27;
+  int _28;
 
   <bb 2> [9.09%]:
-  p6_42 = malloc (100);
-  q_43 = p6_42;
-  p6_45 = realloc (p6_42, 100);
+  p6_44 = malloc (100);
+  q_45 = p6_44;
+  p6_47 = realloc (p6_44, 100);
   _1 = (long int) "0";
   _2 = (int) _1;
-  *q_43 = _2;
+  *q_45 = _2;
   _3 = (long int) "0";
   _5 = (int) _3;
-  MEM[(int *)q_43 + 4B] = _5;
-  p9_49 = malloc (0);
+  MEM[(int *)q_45 + 4B] = _5;
+  free (p6_47);
+  p9_52 = malloc (0);
   _7 = malloc (1);
-  MEM[(struct st *)p9_49 + 48B].f = _7;
-  free (p9_49);
-  p_54 = malloc (10);
+  MEM[(struct st *)p9_52 + 48B].f = _7;
+  free (p9_52);
+  p_57 = malloc (10);
   _9 = malloc (1);
-  MEM[(struct st *)p_54 + 48B].f = _9;
+  MEM[(struct st *)p_57 + 48B].f = _9;
   goto <bb 4>; [100.00%]
 
   <bb 3> [90.91%]:
   _10 = (long unsigned int) i_25;
   _11 = _10 * 16;
-  _12 = p_54 + _11;
+  _12 = p_57 + _11;
   _13 = malloc (1);
   _12->f = _13;
-  i_90 = i_25 + 1;
+  i_99 = i_25 + 1;
 
   <bb 4> [100.00%]:
-  # i_25 = PHI <0(2), i_90(3)>
+  # i_25 = PHI <0(2), i_99(3)>
   if (i_25 <= 9)
     goto <bb 3>; [90.91%]
   else
@@ -219,134 +227,147 @@ main ()
 
   <bb 5> [9.09%]:
   _15 = malloc (1);
-  MEM[(struct st *)p_54 + 32B].f = _15;
-  foo (p_54);
-  if (test_61(D) != 0)
-    goto <bb 28>; [31.00%]
+  MEM[(struct st *)p_57 + 32B].f = _15;
+  foo (p_57);
+  if (test_64(D) != 0)
+    goto <bb 31>; [31.00%]
   else
-    goto <bb 31>; [69.00%]
+    goto <bb 33>; [69.00%]
 
-  <bb 31> [6.27%]:
+  <bb 33> [6.27%]:
   goto <bb 7>; [100.00%]
 
   <bb 6> [62.73%]:
   _16 = (long unsigned int) i_26;
   _17 = _16 * 16;
-  _18 = p_54 + _17;
+  _18 = p_57 + _17;
   _19 = _18->f;
   free (_19);
   _20 = (long unsigned int) i_26;
   _21 = _20 * 16;
-  _22 = p9_49 + _21;
+  _22 = p9_52 + _21;
   _23 = _22->f;
   free (_23);
-  i_86 = i_26 + 1;
+  i_95 = i_26 + 1;
 
   <bb 7> [69.00%]:
-  # i_26 = PHI <0(31), i_86(6)>
+  # i_26 = PHI <0(33), i_95(6)>
   if (i_26 <= 9)
     goto <bb 6>; [90.91%]
   else
-    goto <bb 30>; [9.09%]
+    goto <bb 8>; [9.09%]
 
-  <bb 30> [6.27%]:
+  <bb 8> [6.27%]:
+  p100_67 = malloc (1);
+  if (test_64(D) != 0)
+    goto <bb 9>; [33.00%]
+  else
+    goto <bb 10>; [67.00%]
+
+  <bb 9> [2.07%]:
+  p100_69 = malloc (2);
+  free (p100_69);
+
+  <bb 10> [6.27%]:
+  # p100_27 = PHI <p100_67(8), p100_69(9)>
+  free (p100_27);
 
 label2 [11.28%]:
-  foo (p5_63(D));
-  goto <bb 29>; [100.00%]
+  foo (p5_72(D));
+  goto <bb 32>; [100.00%]
 
 label3 [66.83%]:
 
-  <bb 29> [78.11%]:
-  foo (p5_63(D));
-  _24 = test5_66(D) / 10;
-  switch (_24) <default: <L12> [33.33%], case 5: <L10> [33.33%], case 10: <L11> [33.33%]>
-
-<L10> [26.04%]:
-  foo (p5_63(D));
-  goto <bb 13>; [100.00%]
-
-<L11> [26.04%]:
-  foo (p5_63(D));
-  goto <bb 13>; [100.00%]
+  <bb 32> [78.11%]:
+  foo (p5_72(D));
+  _24 = test5_75(D) / 10;
+  switch (_24) <default: <L14> [33.33%], case 5: <L12> [33.33%], case 10: <L13> [33.33%]>
 
 <L12> [26.04%]:
-  foo (p5_63(D));
+  foo (p5_72(D));
+  goto <bb 16>; [100.00%]
 
-  <bb 13> [78.11%]:
-  if (test_61(D) != 0)
-    goto <bb 14>; [92.50%]
+<L13> [26.04%]:
+  foo (p5_72(D));
+  goto <bb 16>; [100.00%]
+
+<L14> [26.04%]:
+  foo (p5_72(D));
+
+  <bb 16> [78.11%]:
+  if (test_64(D) != 0)
+    goto <bb 17>; [92.50%]
   else
-    goto <bb 23>; [7.50%]
+    goto <bb 26>; [7.50%]
 
-  <bb 14> [72.25%]:
-  if (test_61(D) > test2_70(D))
-    goto <bb 15>; [7.50%]
+  <bb 17> [72.25%]:
+  if (test_64(D) > test2_79(D))
+    goto <bb 18>; [7.50%]
   else
-    goto <bb 18>; [92.50%]
+    goto <bb 21>; [92.50%]
 
-  <bb 15> [5.42%]:
-  foo (p_54);
-  if (test_61(D) < test2_70(D))
-    goto <bb 16>; [50.00%]
-  else
-    goto <bb 17>; [50.00%]
-
-  <bb 16> [2.71%]:
-  foo (p_54);
-  goto <bb 21>; [100.00%]
-
-  <bb 17> [2.71%]:
-  foo (p_54);
-  goto <bb 21>; [100.00%]
-
-  <bb 18> [66.83%]:
-  foo (p_54);
-  if (test_61(D) < test2_70(D))
+  <bb 18> [5.42%]:
+  foo (p_57);
+  if (test_64(D) < test2_79(D))
     goto <bb 19>; [50.00%]
   else
     goto <bb 20>; [50.00%]
 
-  <bb 19> [33.41%]:
-  foo (p3_76(D));
-  goto <bb 9> (label3); [100.00%]
+  <bb 19> [2.71%]:
+  foo (p_57);
+  goto <bb 24>; [100.00%]
 
-  <bb 20> [33.41%]:
-  foo (p5_63(D));
-  goto <bb 9> (label3); [100.00%]
+  <bb 20> [2.71%]:
+  foo (p_57);
+  goto <bb 24>; [100.00%]
 
-  <bb 21> [5.42%]:
-  if (test3_81(D) != 0)
-    goto <bb 22>; [92.50%]
+  <bb 21> [66.83%]:
+  foo (p_57);
+  if (test_64(D) < test2_79(D))
+    goto <bb 22>; [50.00%]
   else
-    goto <bb 28>; [7.50%]
+    goto <bb 23>; [50.00%]
 
-  <bb 22> [5.01%]:
-  foo (p_54);
-  goto <bb 8> (label2); [100.00%]
+  <bb 22> [33.41%]:
+  foo (p3_85(D));
+  goto <bb 12> (label3); [100.00%]
 
-  <bb 23> [5.86%]:
-  if (test_61(D) == test2_70(D))
-    goto <bb 24>; [17.77%]
+  <bb 23> [33.41%]:
+  foo (p5_72(D));
+  goto <bb 12> (label3); [100.00%]
+
+  <bb 24> [5.42%]:
+  if (test3_90(D) != 0)
+    goto <bb 25>; [92.50%]
   else
-    goto <bb 25>; [82.23%]
+    goto <bb 31>; [7.50%]
 
-  <bb 24> [1.04%]:
-  foo (p_54);
-  goto <bb 28>; [100.00%]
+  <bb 25> [5.01%]:
+  foo (p_57);
+  goto <bb 11> (label2); [100.00%]
 
-  <bb 25> [4.82%]:
-  if (test_61(D) > test2_70(D))
-    goto <bb 26>; [36.64%]
+  <bb 26> [5.86%]:
+  if (test_64(D) == test2_79(D))
+    goto <bb 27>; [17.77%]
   else
-    goto <bb 28>; [63.36%]
+    goto <bb 28>; [82.23%]
 
-  <bb 26> [1.76%]:
-  foo (p4_71(D));
+  <bb 27> [1.04%]:
+  foo (p_57);
+  goto <bb 31>; [100.00%]
 
-  <bb 28> [9.08%]:
-  # _27 = PHI <200(5), 0(24), 0(21), 0(26), 0(25)>
-  return _27;
+  <bb 28> [4.82%]:
+  if (test_64(D) > test2_79(D))
+    goto <bb 29>; [36.64%]
+  else
+    goto <bb 31>; [63.36%]
+
+  <bb 29> [1.76%]:
+  foo (p4_80(D));
+
+  <bb 31> [9.08%]:
+  # _28 = PHI <200(5), 0(27), 0(24), 0(29), 0(28)>
+  return _28;
 
 }
 

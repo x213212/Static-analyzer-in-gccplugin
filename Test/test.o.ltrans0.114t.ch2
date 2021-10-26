@@ -23,24 +23,23 @@ foo (int * z)
 
 Disambiguating loop 4 with multiple latches
 Merged latch edges of loop 4
-Created preheader block for loop 3
 Created preheader block for loop 2
 ;; 5 loops found
 ;;
 ;; Loop 0
 ;;  header 0, latch 1
 ;;  depth 0, outer -1
-;;  nodes: 0 1 2 3 4 5 31 6 7 30 8 10 29 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
+;;  nodes: 0 1 2 3 4 5 33 6 7 8 9 10 11 13 32 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
 ;;
 ;; Loop 3
-;;  header 8, latch 23
+;;  header 11, latch 26
 ;;  depth 1, outer 0
-;;  nodes: 8 23 22 17 18 16 15 14 11 12 13 29 10 20 21 19
+;;  nodes: 11 26 25 20 21 19 18 17 14 15 16 32 13 23 24 22
 ;;
 ;; Loop 4
-;;  header 29, latch 10
+;;  header 32, latch 13
 ;;  depth 2, outer 3
-;;  nodes: 29 10 20 21 19 15 14 11 12 13
+;;  nodes: 32 13 23 24 22 18 17 14 15 16
 ;;
 ;; Loop 2
 ;;  header 7, latch 6
@@ -54,63 +53,66 @@ Created preheader block for loop 2
 ;; 2 succs { 4 }
 ;; 3 succs { 4 }
 ;; 4 succs { 3 5 }
-;; 5 succs { 28 31 }
-;; 31 succs { 7 }
+;; 5 succs { 31 33 }
+;; 33 succs { 7 }
 ;; 6 succs { 7 }
-;; 7 succs { 6 30 }
-;; 30 succs { 8 }
-;; 8 succs { 29 }
-;; 10 succs { 29 }
-;; 29 succs { 13 11 12 }
-;; 11 succs { 14 }
-;; 12 succs { 14 }
-;; 13 succs { 14 }
-;; 14 succs { 15 24 }
-;; 15 succs { 16 19 }
-;; 16 succs { 17 18 }
-;; 17 succs { 22 }
-;; 18 succs { 22 }
+;; 7 succs { 6 8 }
+;; 8 succs { 9 10 }
+;; 9 succs { 10 }
+;; 10 succs { 11 }
+;; 11 succs { 32 }
+;; 13 succs { 32 }
+;; 32 succs { 16 14 15 }
+;; 14 succs { 17 }
+;; 15 succs { 17 }
+;; 16 succs { 17 }
+;; 17 succs { 18 27 }
+;; 18 succs { 19 22 }
 ;; 19 succs { 20 21 }
-;; 20 succs { 10 }
-;; 21 succs { 10 }
-;; 22 succs { 23 28 }
-;; 23 succs { 8 }
-;; 24 succs { 25 26 }
-;; 25 succs { 28 }
-;; 26 succs { 27 28 }
-;; 27 succs { 28 }
-;; 28 succs { 1 }
+;; 20 succs { 25 }
+;; 21 succs { 25 }
+;; 22 succs { 23 24 }
+;; 23 succs { 13 }
+;; 24 succs { 13 }
+;; 25 succs { 26 31 }
+;; 26 succs { 11 }
+;; 27 succs { 28 29 }
+;; 28 succs { 31 }
+;; 29 succs { 30 31 }
+;; 30 succs { 31 }
+;; 31 succs { 1 }
 
 SSA replacement table
 N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
 
-i_35 -> { i_22 }
-.MEM_120 -> { .MEM_80 }
-i_121 -> { i_21 }
-.MEM_122 -> { .MEM_79 }
-i_123 -> { i_21 }
-i_124 -> { i_22 }
-.MEM_125 -> { .MEM_79 }
-.MEM_126 -> { .MEM_79 }
-.MEM_127 -> { .MEM_80 }
-.MEM_128 -> { .MEM_80 }
-Incremental SSA update started at block: 35
-Number of blocks in CFG: 38
-Number of blocks to update: 13 ( 34%)
+i_37 -> { i_22 }
+.MEM_135 -> { .MEM_89 }
+i_136 -> { i_21 }
+.MEM_137 -> { .MEM_88 }
+i_138 -> { i_21 }
+i_139 -> { i_22 }
+.MEM_140 -> { .MEM_88 }
+.MEM_141 -> { .MEM_88 }
+.MEM_142 -> { .MEM_89 }
+.MEM_143 -> { .MEM_89 }
+Incremental SSA update started at block: 37
+Number of blocks in CFG: 40
+Number of blocks to update: 12 ( 30%)
 
 
-Merging blocks 2 and 35
+Merging blocks 2 and 37
 Merging blocks 3 and 4
 Merging blocks 6 and 7
-Removing basic block 31
 Removing basic block 33
-Removing basic block 34
+Removing basic block 35
 Removing basic block 36
-Removing basic block 37
+Removing basic block 38
+Removing basic block 39
 main ()
 {
   int i;
   int i;
+  int * p100;
   struct st * p;
   struct st * p9;
   int * p6;
@@ -142,170 +144,184 @@ main ()
   struct st * _18;
   int * _19;
   int _20;
-  int _23;
+  int _24;
 
   <bb 2> [9.10%]:
-  p6_34 = malloc (100);
-  p6_37 = realloc (p6_34, 100);
+  p6_36 = malloc (100);
+  p6_39 = realloc (p6_36, 100);
   _1 = (long int) "0";
   _2 = (int) _1;
-  *p6_34 = _2;
+  *p6_36 = _2;
   _3 = (long int) "0";
   _4 = (int) _3;
-  MEM[(int *)p6_34 + 4B] = _4;
-  p9_41 = malloc (0);
+  MEM[(int *)p6_36 + 4B] = _4;
+  free (p6_39);
+  p9_44 = malloc (0);
   _5 = malloc (1);
-  MEM[(struct st *)p9_41 + 48B].f = _5;
-  free (p9_41);
-  p_46 = malloc (10);
+  MEM[(struct st *)p9_44 + 48B].f = _5;
+  free (p9_44);
+  p_49 = malloc (10);
   _6 = malloc (1);
-  MEM[(struct st *)p_46 + 48B].f = _6;
+  MEM[(struct st *)p_49 + 48B].f = _6;
 
   <bb 3> [90.91%]:
-  # i_123 = PHI <i_78(3), 0(2)>
-  _7 = (long unsigned int) i_123;
+  # i_138 = PHI <i_87(3), 0(2)>
+  _7 = (long unsigned int) i_138;
   _8 = _7 * 16;
-  _9 = p_46 + _8;
+  _9 = p_49 + _8;
   _10 = malloc (1);
   _9->f = _10;
-  i_78 = i_123 + 1;
-  if (i_78 <= 9)
+  i_87 = i_138 + 1;
+  if (i_87 <= 9)
     goto <bb 3>; [90.91%]
   else
     goto <bb 4>; [9.09%]
 
   <bb 4> [9.09%]:
   _11 = malloc (1);
-  MEM[(struct st *)p_46 + 32B].f = _11;
-  foo (p_46);
-  if (test_52(D) != 0)
-    goto <bb 28>; [31.00%]
+  MEM[(struct st *)p_49 + 32B].f = _11;
+  foo (p_49);
+  if (test_55(D) != 0)
+    goto <bb 30>; [31.00%]
   else
     goto <bb 5>; [69.00%]
 
   <bb 5> [6.28%]:
-  # i_35 = PHI <0(4)>
-  if (i_35 <= 9)
+  # i_37 = PHI <0(4)>
+  if (i_37 <= 9)
     goto <bb 6>; [90.91%]
   else
     goto <bb 7>; [9.09%]
 
   <bb 6> [62.73%]:
-  # i_124 = PHI <i_75(6), i_35(5)>
-  _12 = (long unsigned int) i_124;
+  # i_139 = PHI <i_84(6), i_37(5)>
+  _12 = (long unsigned int) i_139;
   _13 = _12 * 16;
-  _14 = p_46 + _13;
+  _14 = p_49 + _13;
   _15 = _14->f;
   free (_15);
-  _16 = (long unsigned int) i_124;
+  _16 = (long unsigned int) i_139;
   _17 = _16 * 16;
-  _18 = p9_41 + _17;
+  _18 = p9_44 + _17;
   _19 = _18->f;
   free (_19);
-  i_75 = i_124 + 1;
-  if (i_75 <= 9)
+  i_84 = i_139 + 1;
+  if (i_84 <= 9)
     goto <bb 6>; [90.91%]
   else
     goto <bb 7>; [9.09%]
 
   <bb 7> [6.27%]:
+  p100_57 = malloc (1);
+  if (test_55(D) != 0)
+    goto <bb 8>; [33.00%]
+  else
+    goto <bb 9>; [67.00%]
+
+  <bb 8> [2.07%]:
+  p100_59 = malloc (2);
+  free (p100_59);
+
+  <bb 9> [6.27%]:
+  # p100_23 = PHI <p100_57(7), p100_59(8)>
+  free (p100_23);
 
 label2 [11.28%]:
-  foo (p5_53(D));
-  goto <bb 10>; [100.00%]
+  foo (p5_62(D));
+  goto <bb 12>; [100.00%]
 
-  <bb 9> [66.82%]:
+  <bb 11> [66.82%]:
 
-  <bb 10> [78.11%]:
-  foo (p5_53(D));
-  _20 = test5_56(D) / 10;
+  <bb 12> [78.11%]:
+  foo (p5_62(D));
+  _20 = test5_65(D) / 10;
   switch (_20) <default: <L4> [33.33%], case 5: <L2> [33.33%], case 10: <L3> [33.33%]>
 
 <L2> [26.04%]:
-  foo (p5_53(D));
-  goto <bb 14>; [100.00%]
+  foo (p5_62(D));
+  goto <bb 16>; [100.00%]
 
 <L3> [26.04%]:
-  foo (p5_53(D));
-  goto <bb 14>; [100.00%]
+  foo (p5_62(D));
+  goto <bb 16>; [100.00%]
 
 <L4> [26.04%]:
-  foo (p5_53(D));
+  foo (p5_62(D));
 
-  <bb 14> [78.11%]:
-  if (test_52(D) != 0)
-    goto <bb 15>; [92.50%]
+  <bb 16> [78.11%]:
+  if (test_55(D) != 0)
+    goto <bb 17>; [92.50%]
   else
-    goto <bb 24>; [7.50%]
+    goto <bb 26>; [7.50%]
 
-  <bb 15> [72.25%]:
-  if (test_52(D) > test2_60(D))
-    goto <bb 16>; [7.50%]
+  <bb 17> [72.25%]:
+  if (test_55(D) > test2_69(D))
+    goto <bb 18>; [7.50%]
   else
-    goto <bb 19>; [92.50%]
+    goto <bb 21>; [92.50%]
 
-  <bb 16> [5.42%]:
-  foo (p_46);
-  if (test_52(D) < test2_60(D))
-    goto <bb 17>; [50.00%]
+  <bb 18> [5.42%]:
+  foo (p_49);
+  if (test_55(D) < test2_69(D))
+    goto <bb 19>; [50.00%]
   else
-    goto <bb 18>; [50.00%]
-
-  <bb 17> [2.71%]:
-  foo (p_46);
-  goto <bb 22>; [100.00%]
-
-  <bb 18> [2.71%]:
-  foo (p_46);
-  goto <bb 22>; [100.00%]
-
-  <bb 19> [66.83%]:
-  foo (p_46);
-  if (test_52(D) < test2_60(D))
     goto <bb 20>; [50.00%]
+
+  <bb 19> [2.71%]:
+  foo (p_49);
+  goto <bb 24>; [100.00%]
+
+  <bb 20> [2.71%]:
+  foo (p_49);
+  goto <bb 24>; [100.00%]
+
+  <bb 21> [66.83%]:
+  foo (p_49);
+  if (test_55(D) < test2_69(D))
+    goto <bb 22>; [50.00%]
   else
-    goto <bb 21>; [50.00%]
+    goto <bb 23>; [50.00%]
 
-  <bb 20> [33.41%]:
-  foo (p3_66(D));
-  goto <bb 9>; [100.00%]
+  <bb 22> [33.41%]:
+  foo (p3_75(D));
+  goto <bb 11>; [100.00%]
 
-  <bb 21> [33.41%]:
-  foo (p5_53(D));
-  goto <bb 9>; [100.00%]
+  <bb 23> [33.41%]:
+  foo (p5_62(D));
+  goto <bb 11>; [100.00%]
 
-  <bb 22> [5.42%]:
-  if (test3_71(D) != 0)
-    goto <bb 23>; [92.50%]
+  <bb 24> [5.42%]:
+  if (test3_80(D) != 0)
+    goto <bb 25>; [92.50%]
   else
-    goto <bb 28>; [7.50%]
+    goto <bb 30>; [7.50%]
 
-  <bb 23> [5.01%]:
-  foo (p_46);
-  goto <bb 8> (label2); [100.00%]
+  <bb 25> [5.01%]:
+  foo (p_49);
+  goto <bb 10> (label2); [100.00%]
 
-  <bb 24> [5.86%]:
-  if (test_52(D) == test2_60(D))
-    goto <bb 25>; [17.77%]
+  <bb 26> [5.86%]:
+  if (test_55(D) == test2_69(D))
+    goto <bb 27>; [17.77%]
   else
-    goto <bb 26>; [82.23%]
+    goto <bb 28>; [82.23%]
 
-  <bb 25> [1.04%]:
-  foo (p_46);
-  goto <bb 28>; [100.00%]
+  <bb 27> [1.04%]:
+  foo (p_49);
+  goto <bb 30>; [100.00%]
 
-  <bb 26> [4.82%]:
-  if (test_52(D) > test2_60(D))
-    goto <bb 27>; [36.64%]
+  <bb 28> [4.82%]:
+  if (test_55(D) > test2_69(D))
+    goto <bb 29>; [36.64%]
   else
-    goto <bb 28>; [63.36%]
+    goto <bb 30>; [63.36%]
 
-  <bb 27> [1.76%]:
-  foo (p4_61(D));
+  <bb 29> [1.76%]:
+  foo (p4_70(D));
 
-  <bb 28> [9.08%]:
-  # _23 = PHI <200(4), 0(22), 0(25), 0(26), 0(27)>
-  return _23;
+  <bb 30> [9.08%]:
+  # _24 = PHI <200(4), 0(24), 0(27), 0(28), 0(29)>
+  return _24;
 
 }
 

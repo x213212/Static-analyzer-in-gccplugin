@@ -46,13 +46,13 @@ int main()
 	int b = 22;
 	int c = 22;
 	int d = 22;
-		int *q;
+	int *q;
 	int *p6 = malloc(100);
 	q = p6;
 	p6 = realloc(p6, 100);
 	q[0] = "0";
 	q[1] = "0";
-	// free(p6);
+	free(p6);
 	// foo(p);
 	// q[0] = "0";
 	// struct st p;
@@ -81,6 +81,15 @@ int main()
 		free(p[i].f);
 		free(p9[i].f);
 	}
+
+	int *p100;
+	p100 = malloc(1);
+	if (test)
+	{
+		p100 = malloc(2);
+		free(p100);
+	}
+	free(p100);
 // test2:
 // return 200;
 

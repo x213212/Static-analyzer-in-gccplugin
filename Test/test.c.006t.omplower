@@ -3,19 +3,19 @@
 
 foo3 (struct st * p)
 {
-  int * D.4357;
+  int * D.4358;
   int * q;
 
   _1 = p->flag;
-  if (_1 != 0) goto <D.4354>; else goto <D.4355>;
-  <D.4354>:
-  q = malloc (1);
-  goto <D.4356>;
+  if (_1 != 0) goto <D.4355>; else goto <D.4356>;
   <D.4355>:
-  q = p->f;
+  q = malloc (1);
+  goto <D.4357>;
   <D.4356>:
-  D.4357 = q;
-  return D.4357;
+  q = p->f;
+  <D.4357>:
+  D.4358 = q;
+  return D.4358;
 }
 
 
@@ -34,7 +34,7 @@ foo (int * z)
 
 main ()
 {
-  int D.4361;
+  int D.4362;
 
   {
     int * p2;
@@ -54,6 +54,7 @@ main ()
     int * p6;
     struct st * p9;
     struct st * p;
+    int * p100;
     void label2 = <<< error >>>;
     void label3 = <<< error >>>;
 
@@ -71,6 +72,7 @@ main ()
     _4 = q + 4;
     _5 = (int) _3;
     *_4 = _5;
+    free (p6);
     p9 = malloc (0);
     _6 = p9 + 48;
     _7 = malloc (1);
@@ -100,11 +102,11 @@ main ()
     _15 = malloc (1);
     _14->f = _15;
     foo (p);
-    if (test != 0) goto <D.4359>; else goto <D.4360>;
-    <D.4359>:
-    D.4361 = 200;
-    return D.4361;
+    if (test != 0) goto <D.4360>; else goto <D.4361>;
     <D.4360>:
+    D.4362 = 200;
+    return D.4362;
+    <D.4361>:
     {
       int i;
 
@@ -126,69 +128,76 @@ main ()
       if (i <= 9) goto <D.4344>; else goto <D.4346>;
       <D.4346>:
     }
+    p100 = malloc (1);
+    if (test != 0) goto <D.4363>; else goto <D.4364>;
+    <D.4363>:
+    p100 = malloc (2);
+    free (p100);
+    <D.4364>:
+    free (p100);
     label2:
     foo (p5);
     label3:
     foo (p5);
     _24 = test5 / 10;
-    switch (_24) <default: <D.4352>, case 5: <D.4349>, case 10: <D.4351>>
-    <D.4349>:
+    switch (_24) <default: <D.4353>, case 5: <D.4350>, case 10: <D.4352>>
+    <D.4350>:
     foo (p5);
-    goto <D.4350>;
-    <D.4351>:
-    foo (p5);
-    goto <D.4350>;
+    goto <D.4351>;
     <D.4352>:
     foo (p5);
-    goto <D.4350>;
-    <D.4350>:
-    if (test != 0) goto <D.4362>; else goto <D.4363>;
-    <D.4362>:
-    if (test > test2) goto <D.4364>; else goto <D.4365>;
-    <D.4364>:
-    foo (p);
-    if (test < test2) goto <D.4366>; else goto <D.4367>;
-    <D.4366>:
-    foo (p);
-    goto <D.4368>;
+    goto <D.4351>;
+    <D.4353>:
+    foo (p5);
+    goto <D.4351>;
+    <D.4351>:
+    if (test != 0) goto <D.4365>; else goto <D.4366>;
+    <D.4365>:
+    if (test > test2) goto <D.4367>; else goto <D.4368>;
     <D.4367>:
     foo (p);
-    <D.4368>:
-    goto <D.4369>;
-    <D.4365>:
-    foo (p);
-    if (test < test2) goto <D.4370>; else goto <D.4371>;
-    <D.4370>:
-    foo (p3);
-    goto <D.4372>;
-    <D.4371>:
-    foo (p5);
-    <D.4372>:
-    goto label3;
+    if (test < test2) goto <D.4369>; else goto <D.4370>;
     <D.4369>:
-    if (test3 != 0) goto <D.4373>; else goto <D.4374>;
-    <D.4373>:
     foo (p);
-    goto label2;
-    <D.4374>:
+    goto <D.4371>;
+    <D.4370>:
+    foo (p);
+    <D.4371>:
+    goto <D.4372>;
+    <D.4368>:
+    foo (p);
+    if (test < test2) goto <D.4373>; else goto <D.4374>;
+    <D.4373>:
+    foo (p3);
     goto <D.4375>;
-    <D.4363>:
-    if (test == test2) goto <D.4376>; else goto <D.4377>;
+    <D.4374>:
+    foo (p5);
+    <D.4375>:
+    goto label3;
+    <D.4372>:
+    if (test3 != 0) goto <D.4376>; else goto <D.4377>;
     <D.4376>:
     foo (p);
-    goto <D.4378>;
+    goto label2;
     <D.4377>:
-    if (test > test2) goto <D.4379>; else goto <D.4380>;
+    goto <D.4378>;
+    <D.4366>:
+    if (test == test2) goto <D.4379>; else goto <D.4380>;
     <D.4379>:
-    foo (p4);
+    foo (p);
+    goto <D.4381>;
     <D.4380>:
+    if (test > test2) goto <D.4382>; else goto <D.4383>;
+    <D.4382>:
+    foo (p4);
+    <D.4383>:
+    <D.4381>:
     <D.4378>:
-    <D.4375>:
-    D.4361 = 0;
-    return D.4361;
+    D.4362 = 0;
+    return D.4362;
   }
-  D.4361 = 0;
-  return D.4361;
+  D.4362 = 0;
+  return D.4362;
 }
 
 

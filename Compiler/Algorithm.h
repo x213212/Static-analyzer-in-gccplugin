@@ -3736,6 +3736,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											fprintf(stderr, "\033[40;35m <Looserules> find free stmt free same pointer \033[0m\n");
 											// fprintf(stderr, "find free stmt free same pointer\n");
 											// debug_tree(mallocStmt_tree);
+
+											
 											debug_gimple_stmt((callerRetTypearray)[k].stmt);
 											warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
 
@@ -3834,6 +3836,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								for (int i = 0; i < free_array.size(); i++)
 								{
 									// _deb
+									
+									if(gimple_location_safe(u_stmt))
+									if(gimple_call_fndecl(free_array.at(i).stmt) != gimple_call_fndecl(u_stmt))
 									if (u_stmt != free_array.at(i).stmt)
 									{
 
