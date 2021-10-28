@@ -1365,6 +1365,7 @@ void Checknew_search_imm_use_rhs(gimple_array *used_stmt, gimple *use_stmt, tree
 void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 {
 	imm_use_iterator imm_iter;
+	  use_operand_p use_p;
 	gimple *use_stmt;
 
 	gimple *gc;
@@ -1473,8 +1474,9 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 		// return ;
 		// debug_tree(now_tree);
 		if (num_imm_uses(target) && head->next != NULL)
-			FOR_EACH_IMM_USE_STMT(use_stmt, imm_iter, target)
+			FOR_EACH_IMM_USE_FAST (use_p, imm_iter, target)
 			{
+				use_stmt=USE_STMT (use_p);
 				// 				if(levelsize >15 )
 				if (!check_stmtStack3(use_stmt))
 				{
