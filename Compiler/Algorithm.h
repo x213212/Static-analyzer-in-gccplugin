@@ -476,8 +476,8 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 		{
 			if (TREE_CODE(gimple_assign_rhs1(use_stmt)) == COMPONENT_REF)
 			{
-				debug_gimple_stmt(use_stmt);
-				fprintf(stderr, "------------------VAR_DECL : LHS2------------------\n");
+				// debug_gimple_stmt(use_stmt);
+				// fprintf(stderr, "------------------VAR_DECL : LHS2------------------\n");
 				// debug_gimple_stmt(use_stmt);
 				// debug_gimple_stmt(use_stmt);
 				tree second = TREE_OPERAND(gimple_assign_rhs1(use_stmt), 0);
@@ -1418,6 +1418,7 @@ tree prechecktree(tree tree)
 {
 	// tree pretree = tree;
 	// tree gettree;
+	// debug_tree(tree);
 	if (tree)
 		if (TREE_CODE(tree) == ADDR_EXPR)
 		{
@@ -1665,7 +1666,9 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						int ssa_name_assign = 0;
 						tree gimpleassignlhs = prechecktree(gimple_assign_lhs(use_stmt));
 						tree gimpleassignrhs = prechecktree(gimple_assign_rhs1(use_stmt));
-						tree gimplecallfn = prechecktree(gimple_call_fn(use_stmt));
+						tree gimplecallfn;
+						if (is_gimple_call(use_stmt))
+							gimplecallfn = prechecktree(gimple_call_fn(use_stmt));
 
 						// 				if (gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == SSA_NAME &&  TREE_CODE(gimple_assign_rhs1(use_stmt)) !=GIMPLE_CALL )
 						// 				{
@@ -2938,46 +2941,57 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 											// debug_tree(test);
 											// if(int(bb->succs->index) == int(findedge->dest->index)
-											if (e->dest->index == gimple_bb((callerRetTypearray)[k].stmt)->index)
+											if (!gimple_call_lhs((callerRetTypearray)[k].stmt) )
 											{
-												// fprintf(stderr, "bb index:= %d\n", bb->index);
-												// fprintf(stderr, " succs:= %d\n", e->dest->index);
-												// fprintf(stderr, " succs2:= %d\n", e2->dest->index);
-												edge e2;
-												edge_iterator ei2;
-												FOR_EACH_EDGE(e2, ei2, bb->succs)
+												name = get_name(gimple_call_fn((callerRetTypearray)[k].stmt));
+												// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+												// debug_tree(gimple_call_lhs((callerRetTypearray)[k].stmt) );
+												// fprintf(stderr, "bb index:= %s\n", name);
+												if(name)
+												if (!strcmp(name, "free") || !strcmp(name, "xfree") || !strcmp(name, "exit"))
+												if (e->dest->index == gimple_bb((callerRetTypearray)[k].stmt)->index)
 												{
 													// fprintf(stderr, "bb index:= %d\n", bb->index);
-
-													// if( e->dest->index != e2->dest->index ){
-
-													// 	fprintf(stderr, " succs2:= %d\n", bb->index);
-													// fprintf(stderr, " succs3:= %d\n", gimple_bb((callerRetTypearray)[k].stmt)->index);
-													// fprintf(stderr, " succs4:= %d\n", e2->dest->index);
-													// }
-													// edge findedge = find_edge( e2->dest ,gimple_bb((callerRetTypearray)[k].stmt));
-													// debug(findedge);
-													// if(findedge)
-													// if(e->dest->index  <  e2->dest->index)
-													if (gimple_bb(u_stmt)->index == e2->dest->index)
+													// fprintf(stderr, " succs:= %d\n", e->dest->index);
+													// fprintf(stderr, " succs2:= %d\n", e2->dest->index);
+													edge e2;
+													edge_iterator ei2;
+													FOR_EACH_EDGE(e2, ei2, bb->succs)
 													{
-														// if (dominated_by_p(CDI_DOMINATORS,gimple_bb(u_stmt), e2->dest))
-														// {
-														// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-														fprintf(stderr, "\n======================================================================\n");
-														// fprintf(stderr, "	no free stmt possible memory leak\n");
-														fprintf(stderr, "\033[40;31m    branch possiable have return  \033[0m\n");
-														debug_gimple_stmt(u_stmt);
-														fprintf(stderr, "bb index := %d\n", bb->index);
-														fprintf(stderr, "beacuse in succ := %d have return \n", gimple_bb((callerRetTypearray)[k].stmt)->index);
-														fprintf(stderr, "gimple stmt in succ := %d ,possiable got to succ := %d\n", e2->dest->index, gimple_bb((callerRetTypearray)[k].stmt)->index);
-														// debug_tree((callerRetTypearray)[k].return_tree);
-														// debug_gimple_stmt(u_stmt);
-														// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-														// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-														// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
-														fprintf(stderr, "\n======================================================================\n");
+														// fprintf(stderr, "bb index:= %d\n", bb->index);
+
+														// if( e->dest->index != e2->dest->index ){
+
+														// 	fprintf(stderr, " succs2:= %d\n", bb->index);
+														// fprintf(stderr, " succs3:= %d\n", gimple_bb((callerRetTypearray)[k].stmt)->index);
+														// fprintf(stderr, " succs4:= %d\n", e2->dest->index);
 														// }
+														// edge findedge = find_edge( e2->dest ,gimple_bb((callerRetTypearray)[k].stmt));
+														// debug(findedge);
+														// if(findedge)
+														// if(e->dest->index  <  e2->dest->index)
+
+														if (gimple_bb(u_stmt)->index == e2->dest->index)
+														{
+															// if (dominated_by_p(CDI_DOMINATORS,gimple_bb(u_stmt), e2->dest))
+															// {
+															// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+															fprintf(stderr, "\n======================================================================\n");
+															// fprintf(stderr, "	no free stmt possible memory leak\n");
+															fprintf(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
+															debug_gimple_stmt(u_stmt);
+															fprintf(stderr, "bb index := %d\n", bb->index);
+															debug_gimple_stmt((callerRetTypearray)[k].stmt);
+															fprintf(stderr, "beacuse in succ := %d have return \n", gimple_bb((callerRetTypearray)[k].stmt)->index);
+															fprintf(stderr, "gimple stmt in succ := %d ,possiable got to succ := %d\n", e2->dest->index, gimple_bb((callerRetTypearray)[k].stmt)->index);
+															// debug_tree((callerRetTypearray)[k].return_tree);
+															// debug_gimple_stmt(u_stmt);
+															// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+															// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+															// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
+															fprintf(stderr, "\n======================================================================\n");
+															// }
+														}
 													}
 												}
 											}
@@ -3918,12 +3932,12 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										// debug_gimple_stmt(free_array.at(i).stmt);
 										// debug_gimple_stmt(u_stmt);
 										// if(is_gimple_call(u_stmt);
-										if (gimple_call_fndecl(free_array.at(i).stmt) )
+										if (gimple_call_fndecl(free_array.at(i).stmt))
 											if (u_stmt != free_array.at(i).stmt)
 											{
-													if(is_gimple_call(u_stmt))
+												if (is_gimple_call(u_stmt))
 													if (gimple_call_fndecl(free_array.at(i).stmt) == gimple_call_fndecl(u_stmt))
-													continue;
+														continue;
 												if (Location_b2(free_array.at(i).stmt, u_stmt, function_tree))
 												{
 													fprintf(stderr, "\n============================================================\n");

@@ -532,6 +532,67 @@
 
 
 
+->" ID : 722762295
+from child5 basic block 2"->
+
+" ID : 821261931 stmt(pthread_detched)) :pthread_detach (_1)
+test.c:279:2: warning: use location
+"
+
+
+->" ID : 44704326
+from child3 basic block 2"->
+
+" ID : 1873365256 stmt(pthread_detched)) :pthread_detach (_1)
+test.c:251:2: warning: use location
+"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

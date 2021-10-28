@@ -1,201 +1,87 @@
-26 ssa "unused VAR_DECLs removed" "memcpy" 1
-26 ssa "unused VAR_DECLs removed" "winlink_cmp" 1
-26 ssa "unused VAR_DECLs removed" "winlinks_RB_INSERT_COLOR" 1
-26 ssa "unused VAR_DECLs removed" "winlinks_RB_REMOVE" 1
-26 ssa "unused VAR_DECLs removed" "winlinks_RB_FIND" 1
-26 ssa "unused VAR_DECLs removed" "winlinks_RB_NFIND" 1
-26 ssa "unused VAR_DECLs removed" "winlinks_RB_NEXT" 1
-26 ssa "unused VAR_DECLs removed" "winlinks_RB_PREV" 1
-26 ssa "unused VAR_DECLs removed" "winlinks_RB_MINMAX" 1
-26 ssa "unused VAR_DECLs removed" "xrealloc" 1
-26 ssa "unused VAR_DECLs removed" "winlink_find_by_index" 1
-26 ssa "unused VAR_DECLs removed" "winlink_count" 1
-26 ssa "unused VAR_DECLs removed" "winlink_next_index" 1
-26 ssa "unused VAR_DECLs removed" "winlink_find_by_window" 1
-26 ssa "unused VAR_DECLs removed" "cmd_find_pane" 1
-26 ssa "unused VAR_DECLs removed" "session_has" 3
-26 ssa "unused VAR_DECLs removed" "session_group_find" 1
-26 ssa "unused VAR_DECLs removed" "session_group_add" 1
-26 ssa "unused VAR_DECLs removed" "window_index" 1
-26 ssa "unused VAR_DECLs removed" "session_group_remove" 1
-26 ssa "unused VAR_DECLs removed" "session_index" 1
-26 ssa "unused VAR_DECLs removed" "winlink_stack_remove" 1
-26 ssa "unused VAR_DECLs removed" "session_group_synchronize_to" 1
-26 ssa "unused VAR_DECLs removed" "server_destroy_session_group" 1
-26 ssa "unused VAR_DECLs removed" "join_pane_exec" 1
-26 ssa "unused VAR_DECLs removed" "window_create1" 1
-26 ssa "unused VAR_DECLs removed" "session_attach" 1
-26 ssa "unused VAR_DECLs removed" "session_new" 1
-26 ssa "unused VAR_DECLs removed" "session_create" 3
+26 ssa "unused VAR_DECLs removed" "foo5" 1
+26 ssa "unused VAR_DECLs removed" "foo3" 1
+26 ssa "unused VAR_DECLs removed" "foo4" 1
+26 ssa "unused VAR_DECLs removed" "foo" 1
+26 ssa "unused VAR_DECLs removed" "child4" 1
+26 ssa "unused VAR_DECLs removed" "test44" 1
 26 ssa "unused VAR_DECLs removed" "main" 1
-38 ccp "Copies propagated" "winlinks_RB_INSERT_COLOR" 5
-38 ccp "Statements deleted" "winlinks_RB_INSERT_COLOR" 7
-55 release_ssa "SSA names released" "winlinks_RB_INSERT_COLOR" 5
-55 release_ssa "SSA name holes removed" "winlinks_RB_INSERT_COLOR" 5
-38 ccp "Copies propagated" "winlinks_RB_REMOVE_COLOR" 2
-38 ccp "Statements deleted" "winlinks_RB_REMOVE_COLOR" 1
-38 ccp "Statements deleted" "winlinks_RB_INSERT" 3
-38 ccp "Constants propagated" "winlinks_RB_INSERT" 3
-38 ccp "Copies propagated" "winlinks_RB_REMOVE" 13
-38 ccp "Statements deleted" "winlinks_RB_REMOVE" 4
-55 release_ssa "unused VAR_DECLs removed" "winlinks_RB_REMOVE" 1
-55 release_ssa "SSA names released" "winlinks_RB_REMOVE" 4
-55 release_ssa "SSA name holes removed" "winlinks_RB_REMOVE" 4
-38 ccp "Statements deleted" "winlinks_RB_FIND" 1
-38 ccp "Constants propagated" "winlinks_RB_FIND" 1
-38 ccp "Copies propagated" "winlinks_RB_NFIND" 1
-38 ccp "Statements deleted" "winlinks_RB_NFIND" 2
-38 ccp "Constants propagated" "winlinks_RB_NFIND" 1
-38 ccp "Copies propagated" "winlinks_RB_NEXT" 1
-38 ccp "Statements deleted" "winlinks_RB_NEXT" 1
-55 release_ssa "SSA names released" "winlinks_RB_NEXT" 1
-55 release_ssa "SSA name holes removed" "winlinks_RB_NEXT" 1
-38 ccp "Copies propagated" "winlinks_RB_PREV" 1
-38 ccp "Statements deleted" "winlinks_RB_PREV" 1
-55 release_ssa "SSA names released" "winlinks_RB_PREV" 1
-55 release_ssa "SSA name holes removed" "winlinks_RB_PREV" 1
-38 ccp "Statements deleted" "winlinks_RB_MINMAX" 1
-38 ccp "Constants propagated" "winlinks_RB_MINMAX" 1
-38 ccp "Statements deleted" "xrealloc" 3
-55 release_ssa "unused VAR_DECLs removed" "xrealloc" 3
-55 release_ssa "SSA names released" "xrealloc" 6
-55 release_ssa "SSA name holes removed" "xrealloc" 6
-35 einline "unused VAR_DECLs removed" "winlink_find_by_index" 3
-35 einline "Symbol to SSA rewrite" "winlink_find_by_index" 1
-38 ccp "Statements deleted" "winlink_find_by_index" 1
-55 release_ssa "unused VAR_DECLs removed" "winlink_find_by_index" 1
-55 release_ssa "SSA names released" "winlink_find_by_index" 2
-55 release_ssa "SSA name holes removed" "winlink_find_by_index" 2
-35 einline "unused VAR_DECLs removed" "winlink_count" 1
-35 einline "Symbol to SSA rewrite" "winlink_count" 1
-38 ccp "Statements deleted" "winlink_count" 1
-38 ccp "Constants propagated" "winlink_count" 1
-55 release_ssa "SSA names released" "winlink_count" 3
-55 release_ssa "SSA name holes removed" "winlink_count" 3
-38 ccp "Copies propagated" "winlink_next_index" 2
-38 ccp "Statements deleted" "winlink_next_index" 4
-38 ccp "Constants propagated" "winlink_next_index" 2
-55 release_ssa "SSA names released" "winlink_next_index" 4
-55 release_ssa "SSA name holes removed" "winlink_next_index" 4
-38 ccp "Copies propagated" "winlink_find_by_window" 1
-38 ccp "Statements deleted" "winlink_find_by_window" 2
-38 ccp "Constants propagated" "winlink_find_by_window" 1
-55 release_ssa "SSA names released" "winlink_find_by_window" 4
-55 release_ssa "SSA name holes removed" "winlink_find_by_window" 4
-38 ccp "Statements deleted" "cmd_find_pane" 2
-38 ccp "Constants propagated" "cmd_find_pane" 1
-55 release_ssa "unused VAR_DECLs removed" "cmd_find_pane" 1
-55 release_ssa "SSA names released" "cmd_find_pane" 3
-55 release_ssa "SSA name holes removed" "cmd_find_pane" 3
-35 einline "unused VAR_DECLs removed" "session_has" 1
-35 einline "Symbol to SSA rewrite" "session_has" 1
-38 ccp "Statements deleted" "session_has" 2
-38 ccp "Constants propagated" "session_has" 2
-55 release_ssa "SSA names released" "session_has" 4
-55 release_ssa "SSA name holes removed" "session_has" 4
-38 ccp "Copies propagated" "session_group_find" 1
-38 ccp "Statements deleted" "session_group_find" 2
-38 ccp "Constants propagated" "session_group_find" 1
-55 release_ssa "SSA names released" "session_group_find" 2
-55 release_ssa "SSA name holes removed" "session_group_find" 2
-55 release_ssa "SSA names released" "session_group_add" 1
-55 release_ssa "SSA name holes removed" "session_group_add" 1
-38 ccp "Statements deleted" "winlink_add" 2
-38 ccp "Constants propagated" "winlink_add" 2
-55 release_ssa "SSA names released" "winlink_add" 2
-55 release_ssa "SSA name holes removed" "winlink_add" 2
-38 ccp "Statements deleted" "window_index" 2
-38 ccp "Constants propagated" "window_index" 2
-55 release_ssa "SSA names released" "window_index" 2
-55 release_ssa "SSA name holes removed" "window_index" 2
-55 release_ssa "SSA names released" "session_group_remove" 1
-55 release_ssa "SSA name holes removed" "session_group_remove" 1
-38 ccp "Copies propagated" "session_find" 1
-38 ccp "Statements deleted" "session_find" 3
-38 ccp "Constants propagated" "session_find" 2
-55 release_ssa "SSA names released" "session_find" 3
-55 release_ssa "SSA name holes removed" "session_find" 3
-38 ccp "Statements deleted" "session_index" 2
-38 ccp "Constants propagated" "session_index" 2
-55 release_ssa "SSA names released" "session_index" 2
-55 release_ssa "SSA name holes removed" "session_index" 2
-38 ccp "Statements deleted" "window_destroy" 1
-55 release_ssa "unused VAR_DECLs removed" "window_destroy" 1
-55 release_ssa "SSA names released" "window_destroy" 1
-55 release_ssa "SSA name holes removed" "window_destroy" 1
-35 einline "unused VAR_DECLs removed" "winlink_remove" 1
-35 einline "Symbol to SSA rewrite" "winlink_remove" 1
-38 ccp "Statements deleted" "winlink_remove" 1
-55 release_ssa "unused VAR_DECLs removed" "winlink_remove" 1
-55 release_ssa "SSA names released" "winlink_remove" 2
-55 release_ssa "SSA name holes removed" "winlink_remove" 2
-35 einline "unused VAR_DECLs removed" "session_group_synchronize1" 1
-35 einline "Symbol to SSA rewrite" "session_group_synchronize1" 1
-38 ccp "Statements deleted" "session_group_synchronize1" 2
-38 ccp "Constants propagated" "session_group_synchronize1" 2
-55 release_ssa "unused VAR_DECLs removed" "session_group_synchronize1" 2
-55 release_ssa "SSA names released" "session_group_synchronize1" 8
-55 release_ssa "SSA name holes removed" "session_group_synchronize1" 8
-35 einline "unused VAR_DECLs removed" "session_group_synchronize_to" 6
-35 einline "Symbol to SSA rewrite" "session_group_synchronize_to" 1
-38 ccp "Statements deleted" "session_group_synchronize_to" 1
-55 release_ssa "SSA names released" "session_group_synchronize_to" 2
-55 release_ssa "SSA name holes removed" "session_group_synchronize_to" 2
-55 release_ssa "SSA names released" "session_group_synchronize_from" 1
-55 release_ssa "SSA name holes removed" "session_group_synchronize_from" 1
-38 ccp "Statements deleted" "session_destroy" 2
-55 release_ssa "unused VAR_DECLs removed" "session_destroy" 2
-55 release_ssa "SSA names released" "session_destroy" 3
-55 release_ssa "SSA name holes removed" "session_destroy" 3
-35 einline "unused VAR_DECLs removed" "session_detach" 2
-35 einline "Symbol to SSA rewrite" "session_detach" 1
-38 ccp "Statements deleted" "session_detach" 2
-38 ccp "Constants propagated" "session_detach" 2
-55 release_ssa "SSA names released" "session_detach" 2
-55 release_ssa "SSA name holes removed" "session_detach" 2
-55 release_ssa "SSA names released" "server_destroy_session_group" 1
-55 release_ssa "SSA name holes removed" "server_destroy_session_group" 1
-38 ccp "Statements deleted" "server_kill_window" 1
-38 ccp "Constants propagated" "server_kill_window" 1
-55 release_ssa "SSA names released" "server_kill_window" 3
-55 release_ssa "SSA name holes removed" "server_kill_window" 3
-38 ccp "Statements deleted" "session_select" 3
-38 ccp "Constants propagated" "session_select" 3
-55 release_ssa "SSA names released" "session_select" 3
-55 release_ssa "SSA name holes removed" "session_select" 3
-38 ccp "Statements deleted" "join_pane_exec" 5
-38 ccp "Constants propagated" "join_pane_exec" 4
-55 release_ssa "unused VAR_DECLs removed" "join_pane_exec" 1
-55 release_ssa "SSA names released" "join_pane_exec" 6
-55 release_ssa "SSA name holes removed" "join_pane_exec" 6
-35 einline "unused VAR_DECLs removed" "window_create1" 1
-35 einline "Symbol to SSA rewrite" "window_create1" 1
-38 ccp "Statements deleted" "window_create1" 3
-38 ccp "Constants propagated" "window_create1" 1
-55 release_ssa "unused VAR_DECLs removed" "window_create1" 2
-55 release_ssa "SSA names released" "window_create1" 5
-55 release_ssa "SSA name holes removed" "window_create1" 5
-35 einline "unused VAR_DECLs removed" "session_attach" 2
-35 einline "Symbol to SSA rewrite" "session_attach" 1
-38 ccp "Copies propagated" "session_attach" 1
-38 ccp "Statements deleted" "session_attach" 2
-55 release_ssa "unused VAR_DECLs removed" "session_attach" 1
-55 release_ssa "SSA names released" "session_attach" 3
-55 release_ssa "SSA name holes removed" "session_attach" 3
-35 einline "unused VAR_DECLs removed" "session_new" 1
-35 einline "Symbol to SSA rewrite" "session_new" 1
-38 ccp "Statements deleted" "session_new" 1
-38 ccp "Constants propagated" "session_new" 1
-55 release_ssa "SSA names released" "session_new" 1
-55 release_ssa "SSA name holes removed" "session_new" 1
-38 ccp "Statements deleted" "session_create" 6
-38 ccp "Constants propagated" "session_create" 2
-55 release_ssa "unused VAR_DECLs removed" "session_create" 4
-55 release_ssa "SSA names released" "session_create" 10
-55 release_ssa "SSA name holes removed" "session_create" 10
-35 einline "unused VAR_DECLs removed" "main" 4
+38 ccp "Constants propagated" "foo5" 2
+38 ccp "Statements deleted" "foo5" 5
+55 release_ssa "unused VAR_DECLs removed" "foo5" 4
+55 release_ssa "SSA names released" "foo5" 8
+55 release_ssa "SSA name holes removed" "foo5" 8
+35 einline "unused VAR_DECLs removed" "foo3" 3
+35 einline "Symbol to SSA rewrite" "foo3" 1
+38 ccp "Statements deleted" "foo3" 1
+55 release_ssa "unused VAR_DECLs removed" "foo3" 1
+55 release_ssa "SSA names released" "foo3" 2
+55 release_ssa "SSA name holes removed" "foo3" 2
+35 einline "unused VAR_DECLs removed" "foo2" 1
+35 einline "Symbol to SSA rewrite" "foo2" 1
+55 release_ssa "SSA names released" "foo2" 2
+55 release_ssa "SSA name holes removed" "foo2" 2
+38 ccp "Constants propagated" "foo4" 2
+38 ccp "Statements deleted" "foo4" 2
+55 release_ssa "SSA names released" "foo4" 2
+55 release_ssa "SSA name holes removed" "foo4" 2
+55 release_ssa "SSA names released" "foo" 2
+55 release_ssa "SSA name holes removed" "foo" 2
+38 ccp "Constants propagated" "child4" 1
+38 ccp "Statements deleted" "child4" 3
+55 release_ssa "unused VAR_DECLs removed" "child4" 3
+55 release_ssa "SSA names released" "child4" 4
+55 release_ssa "SSA name holes removed" "child4" 4
+35 einline "unused VAR_DECLs removed" "child3" 1
+35 einline "Symbol to SSA rewrite" "child3" 1
+38 ccp "Constants propagated" "child3" 2
+38 ccp "Statements deleted" "child3" 5
+55 release_ssa "unused VAR_DECLs removed" "child3" 4
+55 release_ssa "SSA names released" "child3" 7
+55 release_ssa "SSA name holes removed" "child3" 7
+35 einline "unused VAR_DECLs removed" "child2" 2
+35 einline "Symbol to SSA rewrite" "child2" 1
+38 ccp "Statements deleted" "child2" 1
+55 release_ssa "unused VAR_DECLs removed" "child2" 1
+55 release_ssa "SSA names released" "child2" 2
+55 release_ssa "SSA name holes removed" "child2" 2
+38 ccp "Symbol to SSA rewrite" "child5" 1
+38 ccp "Copies propagated" "child5" 1
+38 ccp "Statements deleted" "child5" 3
+55 release_ssa "unused VAR_DECLs removed" "child5" 2
+55 release_ssa "SSA names released" "child5" 5
+55 release_ssa "SSA name holes removed" "child5" 5
+35 einline "unused VAR_DECLs removed" "child6" 2
+35 einline "Symbol to SSA rewrite" "child6" 1
+38 ccp "Copies propagated" "child6" 1
+38 ccp "Statements deleted" "child6" 3
+55 release_ssa "unused VAR_DECLs removed" "child6" 2
+55 release_ssa "SSA names released" "child6" 6
+55 release_ssa "SSA name holes removed" "child6" 6
+35 einline "unused VAR_DECLs removed" "child7" 2
+35 einline "Symbol to SSA rewrite" "child7" 1
+38 ccp "Copies propagated" "child7" 1
+38 ccp "Statements deleted" "child7" 2
+55 release_ssa "unused VAR_DECLs removed" "child7" 2
+55 release_ssa "SSA names released" "child7" 7
+55 release_ssa "SSA name holes removed" "child7" 7
+35 einline "unused VAR_DECLs removed" "test44" 1
+35 einline "Symbol to SSA rewrite" "test44" 1
+38 ccp "Statements deleted" "boo" 1
+55 release_ssa "unused VAR_DECLs removed" "boo" 1
+55 release_ssa "SSA names released" "boo" 2
+55 release_ssa "SSA name holes removed" "boo" 2
+35 einline "unused VAR_DECLs removed" "child" 1
+35 einline "Symbol to SSA rewrite" "child" 1
+38 ccp "Constants propagated" "child" 4
+38 ccp "Statements deleted" "child" 3
+55 release_ssa "unused VAR_DECLs removed" "child" 2
+55 release_ssa "SSA names released" "child" 4
+55 release_ssa "SSA name holes removed" "child" 4
+35 einline "unused VAR_DECLs removed" "main" 1
 35 einline "Symbol to SSA rewrite" "main" 1
-38 ccp "Statements deleted" "main" 5
-38 ccp "Constants propagated" "main" 5
-55 release_ssa "SSA names released" "main" 6
-55 release_ssa "SSA name holes removed" "main" 6
+38 ccp "Constants propagated" "main" 8
+38 ccp "Statements deleted" "main" 13
+41 esra "Scalarized aggregates" "main" 1
+55 release_ssa "unused VAR_DECLs removed" "main" 5
+55 release_ssa "SSA names released" "main" 16
+55 release_ssa "SSA name holes removed" "main" 16

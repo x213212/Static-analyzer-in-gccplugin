@@ -1,5 +1,5 @@
 
-;; Function printf (printf, funcdef_no=15, decl_uid=798, cgraph_uid=15, symbol_order=15)
+;; Function printf (printf, funcdef_no=31, decl_uid=798, cgraph_uid=31, symbol_order=31)
 
 Released 0 names, 0.00%, removed 0 holes
 __attribute__((__artificial__, __gnu_inline__, __always_inline__))
@@ -15,3970 +15,752 @@ printf (const char * restrict __fmt)
 
 
 
-;; Function memcpy (memcpy, funcdef_no=41, decl_uid=728, cgraph_uid=41, symbol_order=41)
+;; Function foo5 (foo5, funcdef_no=51, decl_uid=4319, cgraph_uid=51, symbol_order=56)
 
-Released 0 names, 0.00%, removed 0 holes
-__attribute__((__artificial__, __gnu_inline__, __always_inline__, __nothrow__, __leaf__))
-memcpy (void * restrict __dest, const void * restrict __src, size_t __len)
-{
-  long unsigned int _1;
-  void * _7;
-
-  <bb 2> [100.00%]:
-  _1 = __builtin_object_size (__dest_3(D), 0);
-  _7 = __memcpy_chk (__dest_3(D), __src_4(D), __len_5(D), _1);
-  return _7;
-
-}
-
-
-
-;; Function winlink_cmp (winlink_cmp, funcdef_no=50, decl_uid=4298, cgraph_uid=50, symbol_order=53)
-
-Released 0 names, 0.00%, removed 0 holes
-winlink_cmp (struct winlink * wl1, struct winlink * wl2)
+Released 8 names, 66.67%, removed 8 holes
+__attribute__((noinline))
+foo5 (int * z, int * y)
 {
   int _1;
   int _2;
   int _6;
+  int _7;
+  int _8;
 
   <bb 2> [100.00%]:
-  _1 = wl1_4(D)->idx;
-  _2 = wl2_5(D)->idx;
-  _6 = _1 - _2;
-  return _6;
+  _1 = *z_4(D);
+  _8 = __printf_chk (1, "test1%d\n", _1);
+  _2 = *y_5(D);
+  _7 = __printf_chk (1, "test2%d\n", _2);
+  _6 = __printf_chk (1, "test3%d\n", 10);
+  return 10;
 
 }
 
 
 
-;; Function winlinks_RB_INSERT_COLOR (winlinks_RB_INSERT_COLOR, funcdef_no=51, decl_uid=4302, cgraph_uid=51, symbol_order=54)
+;; Function foo3 (foo3, funcdef_no=52, decl_uid=4316, cgraph_uid=52, symbol_order=57)
 
-Released 5 names, 4.13%, removed 5 holes
-winlinks_RB_INSERT_COLOR (struct winlinks * head, struct winlink * elm)
+Released 2 names, 11.76%, removed 2 holes
+__attribute__((noinline))
+foo3 (int * z)
 {
-  struct winlink * tmp;
-  struct winlink * gparent;
-  struct winlink * parent;
-  struct winlink * _1;
-  int _2;
-  struct winlink * _3;
-  struct winlink * _4;
-  struct winlink * _5;
-  struct winlink * _6;
-  struct winlink * _7;
-  struct winlink * _8;
-  struct winlink * _9;
-  struct winlink * _10;
-  struct winlink * _11;
-  struct winlink * _12;
-  struct winlink * _13;
-  struct winlink * _14;
-  struct winlink * _15;
-  struct winlink * _16;
-  struct winlink * _17;
-  struct winlink * _18;
-  struct winlink * _19;
-  struct winlink * _20;
-  struct winlink * _21;
-  struct winlink * _22;
-  struct winlink * _23;
-  int _24;
-  struct winlink * _25;
-  struct winlink * _26;
-  struct winlink * _27;
-  struct winlink * _28;
-  struct winlink * _29;
-  struct winlink * _30;
-  struct winlink * _31;
-  struct winlink * _32;
-  struct winlink * _33;
-  struct winlink * _34;
-  struct winlink * _35;
-  struct winlink * _36;
-  struct winlink * _37;
-  struct winlink * _38;
-  struct winlink * _39;
-  struct winlink * _40;
-  struct winlink * _41;
-  struct winlink * _42;
-  struct winlink * _43;
-  struct winlink * _44;
-  struct winlink * _45;
-  int _46;
-  struct winlink * _47;
-
-  <bb 2> [14.44%]:
-  goto <bb 47>; [100.00%]
-
-  <bb 3> [85.56%]:
-  gparent_67 = parent_66->entry.rbe_parent;
-  _1 = gparent_67->entry.rbe_left;
-  if (_1 == parent_66)
-    goto <bb 4>; [30.00%]
-  else
-    goto <bb 24>; [70.00%]
-
-  <bb 4> [25.67%]:
-  tmp_96 = gparent_67->entry.rbe_right;
-  if (tmp_96 != 0B)
-    goto <bb 5>; [70.00%]
-  else
-    goto <bb 7>; [30.00%]
-
-  <bb 5> [17.97%]:
-  _2 = tmp_96->entry.rbe_color;
-  if (_2 == 1)
-    goto <bb 6>; [20.24%]
-  else
-    goto <bb 7>; [79.76%]
-
-  <bb 6> [3.64%]:
-  tmp_96->entry.rbe_color = 0;
-  parent_66->entry.rbe_color = 0;
-  gparent_67->entry.rbe_color = 1;
-  // predicted unlikely by continue predictor.
-  goto <bb 44>; [100.00%]
-
-  <bb 7> [22.03%]:
-  _3 = parent_66->entry.rbe_right;
-  if (_3 == elm_50)
-    goto <bb 8>; [30.00%]
-  else
-    goto <bb 16>; [70.00%]
-
-  <bb 8> [6.61%]:
-  tmp_100 = parent_66->entry.rbe_right;
-  _4 = tmp_100->entry.rbe_left;
-  parent_66->entry.rbe_right = _4;
-  _5 = parent_66->entry.rbe_right;
-  if (_5 != 0B)
-    goto <bb 9>; [70.00%]
-  else
-    goto <bb 10>; [30.00%]
-
-  <bb 9> [4.63%]:
-  _6 = tmp_100->entry.rbe_left;
-  _6->entry.rbe_parent = parent_66;
-
-  <bb 10> [6.61%]:
-  _7 = parent_66->entry.rbe_parent;
-  tmp_100->entry.rbe_parent = _7;
-  _8 = tmp_100->entry.rbe_parent;
-  if (_8 != 0B)
-    goto <bb 11>; [70.00%]
-  else
-    goto <bb 14>; [30.00%]
-
-  <bb 11> [4.63%]:
-  _9 = parent_66->entry.rbe_parent;
-  _10 = _9->entry.rbe_left;
-  if (_10 == parent_66)
-    goto <bb 12>; [30.00%]
-  else
-    goto <bb 13>; [70.00%]
-
-  <bb 12> [1.39%]:
-  _11 = parent_66->entry.rbe_parent;
-  _11->entry.rbe_left = tmp_100;
-  goto <bb 15>; [100.00%]
-
-  <bb 13> [3.24%]:
-  _12 = parent_66->entry.rbe_parent;
-  _12->entry.rbe_right = tmp_100;
-  goto <bb 15>; [100.00%]
-
-  <bb 14> [1.98%]:
-  head_77(D)->rbh_root = tmp_100;
-
-  <bb 15> [6.61%]:
-  tmp_100->entry.rbe_left = parent_66;
-  parent_66->entry.rbe_parent = tmp_100;
-  _13 = tmp_100->entry.rbe_parent;
-
-  <bb 16> [22.03%]:
-  # elm_48 = PHI <elm_50(7), parent_66(15)>
-  # parent_51 = PHI <parent_66(7), elm_50(15)>
-  parent_51->entry.rbe_color = 0;
-  gparent_67->entry.rbe_color = 1;
-  tmp_111 = gparent_67->entry.rbe_left;
-  _14 = tmp_111->entry.rbe_right;
-  gparent_67->entry.rbe_left = _14;
-  _15 = gparent_67->entry.rbe_left;
-  if (_15 != 0B)
-    goto <bb 17>; [70.00%]
-  else
-    goto <bb 18>; [30.00%]
-
-  <bb 17> [15.42%]:
-  _16 = tmp_111->entry.rbe_right;
-  _16->entry.rbe_parent = gparent_67;
-
-  <bb 18> [22.03%]:
-  _17 = gparent_67->entry.rbe_parent;
-  tmp_111->entry.rbe_parent = _17;
-  _18 = tmp_111->entry.rbe_parent;
-  if (_18 != 0B)
-    goto <bb 19>; [70.00%]
-  else
-    goto <bb 22>; [30.00%]
-
-  <bb 19> [15.42%]:
-  _19 = gparent_67->entry.rbe_parent;
-  _20 = _19->entry.rbe_left;
-  if (_20 == gparent_67)
-    goto <bb 20>; [30.00%]
-  else
-    goto <bb 21>; [70.00%]
-
-  <bb 20> [4.63%]:
-  _21 = gparent_67->entry.rbe_parent;
-  _21->entry.rbe_left = tmp_111;
-  goto <bb 23>; [100.00%]
-
-  <bb 21> [10.80%]:
-  _22 = gparent_67->entry.rbe_parent;
-  _22->entry.rbe_right = tmp_111;
-  goto <bb 23>; [100.00%]
-
-  <bb 22> [6.61%]:
-  head_77(D)->rbh_root = tmp_111;
-
-  <bb 23> [22.03%]:
-  tmp_111->entry.rbe_right = gparent_67;
-  gparent_67->entry.rbe_parent = tmp_111;
-  _23 = tmp_111->entry.rbe_parent;
-  goto <bb 44>; [100.00%]
-
-  <bb 24> [59.89%]:
-  tmp_68 = gparent_67->entry.rbe_left;
-  if (tmp_68 != 0B)
-    goto <bb 25>; [70.00%]
-  else
-    goto <bb 27>; [30.00%]
-
-  <bb 25> [41.93%]:
-  _24 = tmp_68->entry.rbe_color;
-  if (_24 == 1)
-    goto <bb 26>; [20.24%]
-  else
-    goto <bb 27>; [79.76%]
-
-  <bb 26> [8.49%]:
-  tmp_68->entry.rbe_color = 0;
-  parent_66->entry.rbe_color = 0;
-  gparent_67->entry.rbe_color = 1;
-  // predicted unlikely by continue predictor.
-  goto <bb 44>; [100.00%]
-
-  <bb 27> [51.41%]:
-  _25 = parent_66->entry.rbe_left;
-  if (_25 == elm_50)
-    goto <bb 28>; [30.00%]
-  else
-    goto <bb 36>; [70.00%]
-
-  <bb 28> [15.42%]:
-  tmp_73 = parent_66->entry.rbe_left;
-  _26 = tmp_73->entry.rbe_right;
-  parent_66->entry.rbe_left = _26;
-  _27 = parent_66->entry.rbe_left;
-  if (_27 != 0B)
-    goto <bb 29>; [70.00%]
-  else
-    goto <bb 30>; [30.00%]
-
-  <bb 29> [10.80%]:
-  _28 = tmp_73->entry.rbe_right;
-  _28->entry.rbe_parent = parent_66;
-
-  <bb 30> [15.42%]:
-  _29 = parent_66->entry.rbe_parent;
-  tmp_73->entry.rbe_parent = _29;
-  _30 = tmp_73->entry.rbe_parent;
-  if (_30 != 0B)
-    goto <bb 31>; [70.00%]
-  else
-    goto <bb 34>; [30.00%]
-
-  <bb 31> [10.80%]:
-  _31 = parent_66->entry.rbe_parent;
-  _32 = _31->entry.rbe_left;
-  if (_32 == parent_66)
-    goto <bb 32>; [30.00%]
-  else
-    goto <bb 33>; [70.00%]
-
-  <bb 32> [3.24%]:
-  _33 = parent_66->entry.rbe_parent;
-  _33->entry.rbe_left = tmp_73;
-  goto <bb 35>; [100.00%]
-
-  <bb 33> [7.56%]:
-  _34 = parent_66->entry.rbe_parent;
-  _34->entry.rbe_right = tmp_73;
-  goto <bb 35>; [100.00%]
-
-  <bb 34> [4.63%]:
-  head_77(D)->rbh_root = tmp_73;
-
-  <bb 35> [15.42%]:
-  tmp_73->entry.rbe_right = parent_66;
-  parent_66->entry.rbe_parent = tmp_73;
-  _35 = tmp_73->entry.rbe_parent;
-  parent_84 = elm_50;
-
-  <bb 36> [51.41%]:
-  # elm_49 = PHI <elm_50(27), parent_66(35)>
-  # parent_52 = PHI <parent_66(27), elm_50(35)>
-  parent_52->entry.rbe_color = 0;
-  gparent_67->entry.rbe_color = 1;
-  tmp_87 = gparent_67->entry.rbe_right;
-  _36 = tmp_87->entry.rbe_left;
-  gparent_67->entry.rbe_right = _36;
-  _37 = gparent_67->entry.rbe_right;
-  if (_37 != 0B)
-    goto <bb 37>; [70.00%]
-  else
-    goto <bb 38>; [30.00%]
-
-  <bb 37> [35.99%]:
-  _38 = tmp_87->entry.rbe_left;
-  _38->entry.rbe_parent = gparent_67;
-
-  <bb 38> [51.41%]:
-  _39 = gparent_67->entry.rbe_parent;
-  tmp_87->entry.rbe_parent = _39;
-  _40 = tmp_87->entry.rbe_parent;
-  if (_40 != 0B)
-    goto <bb 39>; [70.00%]
-  else
-    goto <bb 42>; [30.00%]
-
-  <bb 39> [35.99%]:
-  _41 = gparent_67->entry.rbe_parent;
-  _42 = _41->entry.rbe_left;
-  if (_42 == gparent_67)
-    goto <bb 40>; [30.00%]
-  else
-    goto <bb 41>; [70.00%]
-
-  <bb 40> [10.80%]:
-  _43 = gparent_67->entry.rbe_parent;
-  _43->entry.rbe_left = tmp_87;
-  goto <bb 43>; [100.00%]
-
-  <bb 41> [25.19%]:
-  _44 = gparent_67->entry.rbe_parent;
-  _44->entry.rbe_right = tmp_87;
-  goto <bb 43>; [100.00%]
-
-  <bb 42> [15.42%]:
-  head_77(D)->rbh_root = tmp_87;
-
-  <bb 43> [51.41%]:
-  tmp_87->entry.rbe_left = gparent_67;
-  gparent_67->entry.rbe_parent = tmp_87;
-  _45 = tmp_87->entry.rbe_parent;
-
-  <bb 44> [85.56%]:
-  # elm_72 = PHI <elm_49(43), gparent_67(6), elm_48(23), gparent_67(26)>
-
-  <bb 47> [100.00%]:
-  # elm_50 = PHI <elm_72(44), elm_64(D)(2)>
-  parent_66 = elm_50->entry.rbe_parent;
-  if (parent_66 != 0B)
-    goto <bb 45>; [92.50%]
-  else
-    goto <bb 46>; [7.50%]
-
-  <bb 45> [92.50%]:
-  _46 = parent_66->entry.rbe_color;
-  if (_46 == 1)
-    goto <bb 3>; [92.50%]
-  else
-    goto <bb 46>; [7.50%]
-
-  <bb 46> [14.44%]:
-  _47 = head_77(D)->rbh_root;
-  _47->entry.rbe_color = 0;
-  return;
-
-}
-
-
-
-;; Function winlinks_RB_REMOVE_COLOR (winlinks_RB_REMOVE_COLOR, funcdef_no=52, decl_uid=4313, cgraph_uid=52, symbol_order=55)
-
-Released 0 names, 0.00%, removed 0 holes
-winlinks_RB_REMOVE_COLOR (struct winlinks * head, struct winlink * parent, struct winlink * elm)
-{
-  struct winlink * oright;
-  struct winlink * oleft;
-  struct winlink * tmp;
-  struct winlink * _1;
-  int _2;
-  struct winlink * _3;
-  struct winlink * _4;
-  struct winlink * _5;
-  struct winlink * _6;
-  struct winlink * _7;
-  struct winlink * _8;
-  struct winlink * _9;
-  struct winlink * _10;
-  struct winlink * _11;
-  struct winlink * _12;
-  struct winlink * _13;
-  struct winlink * _14;
-  int _15;
-  struct winlink * _16;
-  struct winlink * _17;
-  int _18;
-  struct winlink * _19;
-  struct winlink * _20;
-  int _21;
-  struct winlink * _22;
-  struct winlink * _23;
-  struct winlink * _24;
-  struct winlink * _25;
-  struct winlink * _26;
-  struct winlink * _27;
-  struct winlink * _28;
-  struct winlink * _29;
-  struct winlink * _30;
-  struct winlink * _31;
-  int _32;
-  struct winlink * _33;
-  struct winlink * _34;
-  struct winlink * _35;
-  struct winlink * _36;
-  struct winlink * _37;
-  struct winlink * _38;
-  struct winlink * _39;
-  struct winlink * _40;
-  struct winlink * _41;
-  struct winlink * _42;
-  struct winlink * _43;
-  struct winlink * _44;
-  int _45;
-  struct winlink * _46;
-  struct winlink * _47;
-  struct winlink * _48;
-  struct winlink * _49;
-  struct winlink * _50;
-  struct winlink * _51;
-  struct winlink * _52;
-  struct winlink * _53;
-  struct winlink * _54;
-  struct winlink * _55;
-  struct winlink * _56;
-  struct winlink * _57;
-  int _58;
-  struct winlink * _59;
-  struct winlink * _60;
-  int _61;
-  struct winlink * _62;
-  struct winlink * _63;
-  int _64;
-  struct winlink * _65;
-  struct winlink * _66;
-  struct winlink * _67;
-  struct winlink * _68;
-  struct winlink * _69;
-  struct winlink * _70;
-  struct winlink * _71;
-  struct winlink * _72;
-  struct winlink * _73;
-  struct winlink * _74;
-  int _75;
-  struct winlink * _76;
-  struct winlink * _77;
-  struct winlink * _78;
-  struct winlink * _79;
-  struct winlink * _80;
-  struct winlink * _81;
-  struct winlink * _82;
-  struct winlink * _83;
-  struct winlink * _84;
-  struct winlink * _85;
-  struct winlink * _86;
-  struct winlink * _87;
-  int _88;
-  struct winlink * _89;
-
-  <bb 2> [7.53%]:
-  goto <bb 82>; [100.00%]
-
-  <bb 3> [95.79%]:
-  _1 = parent_90->entry.rbe_left;
-  if (_1 == elm_91)
-    goto <bb 4>; [30.00%]
-  else
-    goto <bb 40>; [70.00%]
-
-  <bb 4> [28.74%]:
-  tmp_166 = parent_90->entry.rbe_right;
-  _2 = tmp_166->entry.rbe_color;
-  if (_2 == 1)
-    goto <bb 5>; [34.00%]
-  else
-    goto <bb 13>; [66.00%]
-
-  <bb 5> [9.77%]:
-  tmp_166->entry.rbe_color = 0;
-  parent_90->entry.rbe_color = 1;
-  tmp_169 = parent_90->entry.rbe_right;
-  _3 = tmp_169->entry.rbe_left;
-  parent_90->entry.rbe_right = _3;
-  _4 = parent_90->entry.rbe_right;
-  if (_4 != 0B)
-    goto <bb 6>; [70.00%]
-  else
-    goto <bb 7>; [30.00%]
-
-  <bb 6> [6.84%]:
-  _5 = tmp_169->entry.rbe_left;
-  _5->entry.rbe_parent = parent_90;
-
-  <bb 7> [9.77%]:
-  _6 = parent_90->entry.rbe_parent;
-  tmp_169->entry.rbe_parent = _6;
-  _7 = tmp_169->entry.rbe_parent;
-  if (_7 != 0B)
-    goto <bb 8>; [70.00%]
-  else
-    goto <bb 11>; [30.00%]
-
-  <bb 8> [6.84%]:
-  _8 = parent_90->entry.rbe_parent;
-  _9 = _8->entry.rbe_left;
-  if (_9 == parent_90)
-    goto <bb 9>; [30.00%]
-  else
-    goto <bb 10>; [70.00%]
-
-  <bb 9> [2.05%]:
-  _10 = parent_90->entry.rbe_parent;
-  _10->entry.rbe_left = tmp_169;
-  goto <bb 12>; [100.00%]
-
-  <bb 10> [4.79%]:
-  _11 = parent_90->entry.rbe_parent;
-  _11->entry.rbe_right = tmp_169;
-  goto <bb 12>; [100.00%]
-
-  <bb 11> [2.93%]:
-  head_123(D)->rbh_root = tmp_169;
-
-  <bb 12> [9.77%]:
-  tmp_169->entry.rbe_left = parent_90;
-  parent_90->entry.rbe_parent = tmp_169;
-  _12 = tmp_169->entry.rbe_parent;
-  tmp_178 = parent_90->entry.rbe_right;
-
-  <bb 13> [28.74%]:
-  # tmp_93 = PHI <tmp_166(4), tmp_178(12)>
-  _13 = tmp_93->entry.rbe_left;
-  if (_13 == 0B)
-    goto <bb 15>; [30.00%]
-  else
-    goto <bb 14>; [70.00%]
-
-  <bb 14> [20.12%]:
-  _14 = tmp_93->entry.rbe_left;
-  _15 = _14->entry.rbe_color;
-  if (_15 == 0)
-    goto <bb 15>; [97.50%]
-  else
-    goto <bb 18>; [2.50%]
-
-  <bb 15> [28.24%]:
-  _16 = tmp_93->entry.rbe_right;
-  if (_16 == 0B)
-    goto <bb 17>; [30.00%]
-  else
-    goto <bb 16>; [70.00%]
-
-  <bb 16> [19.76%]:
-  _17 = tmp_93->entry.rbe_right;
-  _18 = _17->entry.rbe_color;
-  if (_18 == 0)
-    goto <bb 17>; [97.50%]
-  else
-    goto <bb 18>; [2.50%]
-
-  <bb 17> [27.74%]:
-  tmp_93->entry.rbe_color = 1;
-  parent_181 = parent_90->entry.rbe_parent;
-  goto <bb 76>; [100.00%]
-
-  <bb 18> [1.00%]:
-  _19 = tmp_93->entry.rbe_right;
-  if (_19 == 0B)
-    goto <bb 20>; [30.00%]
-  else
-    goto <bb 19>; [70.00%]
-
-  <bb 19> [0.70%]:
-  _20 = tmp_93->entry.rbe_right;
-  _21 = _20->entry.rbe_color;
-  if (_21 == 0)
-    goto <bb 20>; [50.00%]
-  else
-    goto <bb 30>; [50.00%]
-
-  <bb 20> [0.65%]:
-  oleft_182 = tmp_93->entry.rbe_left;
-  if (oleft_182 != 0B)
-    goto <bb 21>; [70.00%]
-  else
-    goto <bb 22>; [30.00%]
-
-  <bb 21> [0.45%]:
-  oleft_182->entry.rbe_color = 0;
-
-  <bb 22> [0.65%]:
-  tmp_93->entry.rbe_color = 1;
-  oleft_185 = tmp_93->entry.rbe_left;
-  _22 = oleft_185->entry.rbe_right;
-  tmp_93->entry.rbe_left = _22;
-  _23 = tmp_93->entry.rbe_left;
-  if (_23 != 0B)
-    goto <bb 23>; [70.00%]
-  else
-    goto <bb 24>; [30.00%]
-
-  <bb 23> [0.45%]:
-  _24 = oleft_185->entry.rbe_right;
-  _24->entry.rbe_parent = tmp_93;
-
-  <bb 24> [0.65%]:
-  _25 = tmp_93->entry.rbe_parent;
-  oleft_185->entry.rbe_parent = _25;
-  _26 = oleft_185->entry.rbe_parent;
-  if (_26 != 0B)
-    goto <bb 25>; [70.00%]
-  else
-    goto <bb 28>; [30.00%]
-
-  <bb 25> [0.45%]:
-  _27 = tmp_93->entry.rbe_parent;
-  _28 = _27->entry.rbe_left;
-  if (_28 == tmp_93)
-    goto <bb 26>; [30.00%]
-  else
-    goto <bb 27>; [70.00%]
-
-  <bb 26> [0.14%]:
-  _29 = tmp_93->entry.rbe_parent;
-  _29->entry.rbe_left = oleft_185;
-  goto <bb 29>; [100.00%]
-
-  <bb 27> [0.32%]:
-  _30 = tmp_93->entry.rbe_parent;
-  _30->entry.rbe_right = oleft_185;
-  goto <bb 29>; [100.00%]
-
-  <bb 28> [0.19%]:
-  head_123(D)->rbh_root = oleft_185;
-
-  <bb 29> [0.65%]:
-  oleft_185->entry.rbe_right = tmp_93;
-  tmp_93->entry.rbe_parent = oleft_185;
-  _31 = oleft_185->entry.rbe_parent;
-  tmp_194 = parent_90->entry.rbe_right;
-
-  <bb 30> [1.00%]:
-  # tmp_94 = PHI <tmp_93(19), tmp_194(29)>
-  _32 = parent_90->entry.rbe_color;
-  tmp_94->entry.rbe_color = _32;
-  parent_90->entry.rbe_color = 0;
-  _33 = tmp_94->entry.rbe_right;
-  if (_33 != 0B)
-    goto <bb 31>; [70.00%]
-  else
-    goto <bb 32>; [30.00%]
-
-  <bb 31> [0.70%]:
-  _34 = tmp_94->entry.rbe_right;
-  _34->entry.rbe_color = 0;
-
-  <bb 32> [1.00%]:
-  tmp_198 = parent_90->entry.rbe_right;
-  _35 = tmp_198->entry.rbe_left;
-  parent_90->entry.rbe_right = _35;
-  _36 = parent_90->entry.rbe_right;
-  if (_36 != 0B)
-    goto <bb 33>; [70.00%]
-  else
-    goto <bb 34>; [30.00%]
-
-  <bb 33> [0.70%]:
-  _37 = tmp_198->entry.rbe_left;
-  _37->entry.rbe_parent = parent_90;
-
-  <bb 34> [1.00%]:
-  _38 = parent_90->entry.rbe_parent;
-  tmp_198->entry.rbe_parent = _38;
-  _39 = tmp_198->entry.rbe_parent;
-  if (_39 != 0B)
-    goto <bb 35>; [70.00%]
-  else
-    goto <bb 38>; [30.00%]
-
-  <bb 35> [0.70%]:
-  _40 = parent_90->entry.rbe_parent;
-  _41 = _40->entry.rbe_left;
-  if (_41 == parent_90)
-    goto <bb 36>; [30.00%]
-  else
-    goto <bb 37>; [70.00%]
-
-  <bb 36> [0.21%]:
-  _42 = parent_90->entry.rbe_parent;
-  _42->entry.rbe_left = tmp_198;
-  goto <bb 39>; [100.00%]
-
-  <bb 37> [0.49%]:
-  _43 = parent_90->entry.rbe_parent;
-  _43->entry.rbe_right = tmp_198;
-  goto <bb 39>; [100.00%]
-
-  <bb 38> [0.30%]:
-  head_123(D)->rbh_root = tmp_198;
-
-  <bb 39> [1.00%]:
-  tmp_198->entry.rbe_left = parent_90;
-  parent_90->entry.rbe_parent = tmp_198;
-  _44 = tmp_198->entry.rbe_parent;
-  elm_207 = head_123(D)->rbh_root;
-  goto <bb 79>; [100.00%]
-
-  <bb 40> [67.06%]:
-  tmp_124 = parent_90->entry.rbe_left;
-  _45 = tmp_124->entry.rbe_color;
-  if (_45 == 1)
-    goto <bb 41>; [34.00%]
-  else
-    goto <bb 49>; [66.00%]
-
-  <bb 41> [22.80%]:
-  tmp_124->entry.rbe_color = 0;
-  parent_90->entry.rbe_color = 1;
-  tmp_127 = parent_90->entry.rbe_left;
-  _46 = tmp_127->entry.rbe_right;
-  parent_90->entry.rbe_left = _46;
-  _47 = parent_90->entry.rbe_left;
-  if (_47 != 0B)
-    goto <bb 42>; [70.00%]
-  else
-    goto <bb 43>; [30.00%]
-
-  <bb 42> [15.96%]:
-  _48 = tmp_127->entry.rbe_right;
-  _48->entry.rbe_parent = parent_90;
-
-  <bb 43> [22.80%]:
-  _49 = parent_90->entry.rbe_parent;
-  tmp_127->entry.rbe_parent = _49;
-  _50 = tmp_127->entry.rbe_parent;
-  if (_50 != 0B)
-    goto <bb 44>; [70.00%]
-  else
-    goto <bb 47>; [30.00%]
-
-  <bb 44> [15.96%]:
-  _51 = parent_90->entry.rbe_parent;
-  _52 = _51->entry.rbe_left;
-  if (_52 == parent_90)
-    goto <bb 45>; [30.00%]
-  else
-    goto <bb 46>; [70.00%]
-
-  <bb 45> [4.79%]:
-  _53 = parent_90->entry.rbe_parent;
-  _53->entry.rbe_left = tmp_127;
-  goto <bb 48>; [100.00%]
-
-  <bb 46> [11.17%]:
-  _54 = parent_90->entry.rbe_parent;
-  _54->entry.rbe_right = tmp_127;
-  goto <bb 48>; [100.00%]
-
-  <bb 47> [6.84%]:
-  head_123(D)->rbh_root = tmp_127;
-
-  <bb 48> [22.80%]:
-  tmp_127->entry.rbe_right = parent_90;
-  parent_90->entry.rbe_parent = tmp_127;
-  _55 = tmp_127->entry.rbe_parent;
-  tmp_136 = parent_90->entry.rbe_left;
-
-  <bb 49> [67.06%]:
-  # tmp_95 = PHI <tmp_124(40), tmp_136(48)>
-  _56 = tmp_95->entry.rbe_left;
-  if (_56 == 0B)
-    goto <bb 51>; [30.00%]
-  else
-    goto <bb 50>; [70.00%]
-
-  <bb 50> [46.94%]:
-  _57 = tmp_95->entry.rbe_left;
-  _58 = _57->entry.rbe_color;
-  if (_58 == 0)
-    goto <bb 51>; [97.50%]
-  else
-    goto <bb 54>; [2.50%]
-
-  <bb 51> [65.88%]:
-  _59 = tmp_95->entry.rbe_right;
-  if (_59 == 0B)
-    goto <bb 53>; [30.00%]
-  else
-    goto <bb 52>; [70.00%]
-
-  <bb 52> [46.12%]:
-  _60 = tmp_95->entry.rbe_right;
-  _61 = _60->entry.rbe_color;
-  if (_61 == 0)
-    goto <bb 53>; [97.50%]
-  else
-    goto <bb 54>; [2.50%]
-
-  <bb 53> [64.73%]:
-  tmp_95->entry.rbe_color = 1;
-  elm_138 = parent_90;
-  parent_139 = elm_138->entry.rbe_parent;
-  goto <bb 76>; [100.00%]
-
-  <bb 54> [2.33%]:
-  _62 = tmp_95->entry.rbe_left;
-  if (_62 == 0B)
-    goto <bb 56>; [30.00%]
-  else
-    goto <bb 55>; [70.00%]
-
-  <bb 55> [1.63%]:
-  _63 = tmp_95->entry.rbe_left;
-  _64 = _63->entry.rbe_color;
-  if (_64 == 0)
-    goto <bb 56>; [50.00%]
-  else
-    goto <bb 66>; [50.00%]
-
-  <bb 56> [1.51%]:
-  oright_140 = tmp_95->entry.rbe_right;
-  if (oright_140 != 0B)
-    goto <bb 57>; [70.00%]
-  else
-    goto <bb 58>; [30.00%]
-
-  <bb 57> [1.06%]:
-  oright_140->entry.rbe_color = 0;
-
-  <bb 58> [1.51%]:
-  tmp_95->entry.rbe_color = 1;
-  oright_143 = tmp_95->entry.rbe_right;
-  _65 = oright_143->entry.rbe_left;
-  tmp_95->entry.rbe_right = _65;
-  _66 = tmp_95->entry.rbe_right;
-  if (_66 != 0B)
-    goto <bb 59>; [70.00%]
-  else
-    goto <bb 60>; [30.00%]
-
-  <bb 59> [1.06%]:
-  _67 = oright_143->entry.rbe_left;
-  _67->entry.rbe_parent = tmp_95;
-
-  <bb 60> [1.51%]:
-  _68 = tmp_95->entry.rbe_parent;
-  oright_143->entry.rbe_parent = _68;
-  _69 = oright_143->entry.rbe_parent;
-  if (_69 != 0B)
-    goto <bb 61>; [70.00%]
-  else
-    goto <bb 64>; [30.00%]
-
-  <bb 61> [1.06%]:
-  _70 = tmp_95->entry.rbe_parent;
-  _71 = _70->entry.rbe_left;
-  if (_71 == tmp_95)
-    goto <bb 62>; [30.00%]
-  else
-    goto <bb 63>; [70.00%]
-
-  <bb 62> [0.32%]:
-  _72 = tmp_95->entry.rbe_parent;
-  _72->entry.rbe_left = oright_143;
-  goto <bb 65>; [100.00%]
-
-  <bb 63> [0.74%]:
-  _73 = tmp_95->entry.rbe_parent;
-  _73->entry.rbe_right = oright_143;
-  goto <bb 65>; [100.00%]
-
-  <bb 64> [0.45%]:
-  head_123(D)->rbh_root = oright_143;
-
-  <bb 65> [1.51%]:
-  oright_143->entry.rbe_left = tmp_95;
-  tmp_95->entry.rbe_parent = oright_143;
-  _74 = oright_143->entry.rbe_parent;
-  tmp_152 = parent_90->entry.rbe_left;
-
-  <bb 66> [2.33%]:
-  # tmp_96 = PHI <tmp_95(55), tmp_152(65)>
-  _75 = parent_90->entry.rbe_color;
-  tmp_96->entry.rbe_color = _75;
-  parent_90->entry.rbe_color = 0;
-  _76 = tmp_96->entry.rbe_left;
-  if (_76 != 0B)
-    goto <bb 67>; [70.00%]
-  else
-    goto <bb 68>; [30.00%]
-
-  <bb 67> [1.63%]:
-  _77 = tmp_96->entry.rbe_left;
-  _77->entry.rbe_color = 0;
-
-  <bb 68> [2.33%]:
-  tmp_156 = parent_90->entry.rbe_left;
-  _78 = tmp_156->entry.rbe_right;
-  parent_90->entry.rbe_left = _78;
-  _79 = parent_90->entry.rbe_left;
-  if (_79 != 0B)
-    goto <bb 69>; [70.00%]
-  else
-    goto <bb 70>; [30.00%]
-
-  <bb 69> [1.63%]:
-  _80 = tmp_156->entry.rbe_right;
-  _80->entry.rbe_parent = parent_90;
-
-  <bb 70> [2.33%]:
-  _81 = parent_90->entry.rbe_parent;
-  tmp_156->entry.rbe_parent = _81;
-  _82 = tmp_156->entry.rbe_parent;
-  if (_82 != 0B)
-    goto <bb 71>; [70.00%]
-  else
-    goto <bb 74>; [30.00%]
-
-  <bb 71> [1.63%]:
-  _83 = parent_90->entry.rbe_parent;
-  _84 = _83->entry.rbe_left;
-  if (_84 == parent_90)
-    goto <bb 72>; [30.00%]
-  else
-    goto <bb 73>; [70.00%]
-
-  <bb 72> [0.49%]:
-  _85 = parent_90->entry.rbe_parent;
-  _85->entry.rbe_left = tmp_156;
-  goto <bb 75>; [100.00%]
-
-  <bb 73> [1.14%]:
-  _86 = parent_90->entry.rbe_parent;
-  _86->entry.rbe_right = tmp_156;
-  goto <bb 75>; [100.00%]
-
-  <bb 74> [0.70%]:
-  head_123(D)->rbh_root = tmp_156;
-
-  <bb 75> [2.33%]:
-  tmp_156->entry.rbe_right = parent_90;
-  parent_90->entry.rbe_parent = tmp_156;
-  _87 = tmp_156->entry.rbe_parent;
-  elm_165 = head_123(D)->rbh_root;
-  goto <bb 79>; [100.00%]
-
-  <bb 76> [92.47%]:
-  # parent_180 = PHI <parent_139(53), parent_181(17)>
-  # elm_209 = PHI <elm_138(53), parent_90(17)>
-
-  <bb 82> [100.00%]:
-  # parent_90 = PHI <parent_180(76), parent_120(D)(2)>
-  # elm_91 = PHI <elm_209(76), elm_121(D)(2)>
-  if (elm_91 == 0B)
-    goto <bb 78>; [30.00%]
-  else
-    goto <bb 77>; [70.00%]
-
-  <bb 77> [70.00%]:
-  _88 = elm_91->entry.rbe_color;
-  if (_88 == 0)
-    goto <bb 78>; [97.50%]
-  else
-    goto <bb 79>; [2.50%]
-
-  <bb 78> [98.25%]:
-  _89 = head_123(D)->rbh_root;
-  if (_89 != elm_91)
-    goto <bb 3>; [97.50%]
-  else
-    goto <bb 79>; [2.50%]
-
-  <bb 79> [7.53%]:
-  # elm_92 = PHI <elm_207(39), elm_165(75), elm_91(77), elm_91(78)>
-  if (elm_92 != 0B)
-    goto <bb 80>; [73.26%]
-  else
-    goto <bb 81>; [26.74%]
-
-  <bb 80> [5.52%]:
-  elm_92->entry.rbe_color = 0;
-
-  <bb 81> [7.53%]:
-  return;
-
-}
-
-
-
-;; Function winlinks_RB_INSERT (winlinks_RB_INSERT, funcdef_no=53, decl_uid=4323, cgraph_uid=53, symbol_order=56)
-
-Released 0 names, 0.00%, removed 0 holes
-winlinks_RB_INSERT (struct winlinks * head, struct winlink * elm)
-{
-  int comp;
-  struct winlink * parent;
-  struct winlink * tmp;
-  struct winlink * _1;
-  struct winlink * _5;
-  struct winlink * _27;
-
-  <bb 2> [11.94%]:
-  tmp_13 = head_12(D)->rbh_root;
-  goto <bb 16>; [100.00%]
-
-  <bb 3> [92.50%]:
-  parent_24 = tmp_2;
-  comp_26 = winlink_cmp (elm_14(D), parent_24);
-  if (comp_26 < 0)
-    goto <bb 4>; [36.00%]
-  else
-    goto <bb 5>; [64.00%]
-
-  <bb 4> [33.30%]:
-  tmp_29 = tmp_2->entry.rbe_left;
-  goto <bb 8>; [100.00%]
-
-  <bb 5> [59.20%]:
-  if (comp_26 > 0)
-    goto <bb 6>; [92.50%]
-  else
-    goto <bb 7>; [7.50%]
-
-  <bb 6> [54.76%]:
-  tmp_28 = tmp_2->entry.rbe_right;
-  goto <bb 8>; [100.00%]
-
-  <bb 7> [4.44%]:
-  _27 = tmp_2;
-  goto <bb 15>; [100.00%]
-
-  <bb 8> [88.06%]:
-  # tmp_9 = PHI <tmp_28(6), tmp_29(4)>
-  # parent_10 = PHI <parent_24(6), parent_24(4)>
-  # comp_23 = PHI <comp_26(6), comp_26(4)>
-
-  <bb 16> [100.00%]:
-  # tmp_2 = PHI <tmp_9(8), tmp_13(2)>
-  # parent_3 = PHI <parent_10(8), 0B(2)>
-  # comp_4 = PHI <comp_23(8), 0(2)>
-  if (tmp_2 != 0B)
-    goto <bb 3>; [92.50%]
-  else
-    goto <bb 9>; [7.50%]
-
-  <bb 9> [7.50%]:
-  elm_14(D)->entry.rbe_parent = parent_3;
-  elm_14(D)->entry.rbe_right = 0B;
-  _1 = elm_14(D)->entry.rbe_right;
-  elm_14(D)->entry.rbe_left = _1;
-  elm_14(D)->entry.rbe_color = 1;
-  if (parent_3 != 0B)
-    goto <bb 10>; [70.00%]
-  else
-    goto <bb 13>; [30.00%]
-
-  <bb 10> [5.25%]:
-  if (comp_4 < 0)
-    goto <bb 11>; [36.00%]
-  else
-    goto <bb 12>; [64.00%]
-
-  <bb 11> [1.89%]:
-  parent_3->entry.rbe_left = elm_14(D);
-  goto <bb 14>; [100.00%]
-
-  <bb 12> [3.36%]:
-  parent_3->entry.rbe_right = elm_14(D);
-  goto <bb 14>; [100.00%]
-
-  <bb 13> [2.25%]:
-  head_12(D)->rbh_root = elm_14(D);
-
-  <bb 14> [7.50%]:
-  winlinks_RB_INSERT_COLOR (head_12(D), elm_14(D));
-
-  <bb 15> [11.94%]:
-  # _5 = PHI <tmp_2(7), 0B(14)>
-  return _5;
-
-}
-
-
-
-;; Function winlinks_RB_REMOVE (winlinks_RB_REMOVE, funcdef_no=54, decl_uid=4333, cgraph_uid=54, symbol_order=57)
-
-Released 4 names, 7.02%, removed 4 holes
-winlinks_RB_REMOVE (struct winlinks * head, struct winlink * elm)
-{
-  struct winlink * left;
-  int color;
-  struct winlink * parent;
-  struct winlink * child;
-  struct winlink * _1;
-  struct winlink * _2;
-  struct winlink * _3;
-  struct winlink * _4;
-  struct winlink * _5;
-  struct winlink * _6;
-  struct winlink * _7;
-  struct winlink * _8;
-  struct winlink * _9;
-  struct winlink * _10;
-  struct winlink * _11;
-  struct winlink * _12;
-  struct winlink * _13;
-
-  <bb 2> [30.61%]:
-  _1 = elm_28(D)->entry.rbe_left;
-  if (_1 == 0B)
-    goto <bb 3>; [30.00%]
-  else
-    goto <bb 4>; [70.00%]
-
-  <bb 3> [9.18%]:
-  child_49 = elm_28(D)->entry.rbe_right;
-  goto <bb 26>; [100.00%]
-
-  <bb 4> [21.43%]:
-  _2 = elm_28(D)->entry.rbe_right;
-  if (_2 == 0B)
-    goto <bb 5>; [30.00%]
-  else
-    goto <bb 6>; [70.00%]
-
-  <bb 5> [6.43%]:
-  child_48 = elm_28(D)->entry.rbe_left;
-  goto <bb 26>; [100.00%]
-
-  <bb 6> [15.00%]:
-  elm_30 = elm_28(D)->entry.rbe_right;
-
-  <bb 7> [100.00%]:
-  # elm_14 = PHI <elm_30(6), left_31(38)>
-  left_31 = elm_14->entry.rbe_left;
-  if (left_31 != 0B)
-    goto <bb 38>; [85.00%]
-  else
-    goto <bb 8>; [15.00%]
-
-  <bb 38> [85.00%]:
-  goto <bb 7>; [100.00%]
-
-  <bb 8> [15.00%]:
-  child_32 = elm_14->entry.rbe_right;
-  parent_33 = elm_14->entry.rbe_parent;
-  color_34 = elm_14->entry.rbe_color;
-  if (child_32 != 0B)
-    goto <bb 9>; [70.00%]
-  else
-    goto <bb 10>; [30.00%]
-
-  <bb 9> [10.50%]:
-  child_32->entry.rbe_parent = parent_33;
-
-  <bb 10> [15.00%]:
-  if (parent_33 != 0B)
-    goto <bb 11>; [70.00%]
-  else
-    goto <bb 14>; [30.00%]
-
-  <bb 11> [10.50%]:
-  _3 = parent_33->entry.rbe_left;
-  if (_3 == elm_14)
-    goto <bb 12>; [30.00%]
-  else
-    goto <bb 13>; [70.00%]
-
-  <bb 12> [3.15%]:
-  parent_33->entry.rbe_left = child_32;
-  goto <bb 15>; [100.00%]
-
-  <bb 13> [7.35%]:
-  parent_33->entry.rbe_right = child_32;
-  goto <bb 15>; [100.00%]
-
-  <bb 14> [4.50%]:
-  head_36(D)->rbh_root = child_32;
-
-  <bb 15> [15.00%]:
-  _4 = elm_14->entry.rbe_parent;
-  if (_4 == elm_28(D))
-    goto <bb 16>; [30.00%]
-  else
-    goto <bb 17>; [70.00%]
-
-  <bb 16> [4.50%]:
-  parent_40 = elm_14;
-
-  <bb 17> [15.00%]:
-  # parent_17 = PHI <parent_33(15), elm_14(16)>
-  elm_14->entry = elm_28(D)->entry;
-  _5 = elm_28(D)->entry.rbe_parent;
-  if (_5 != 0B)
-    goto <bb 18>; [70.00%]
-  else
-    goto <bb 21>; [30.00%]
-
-  <bb 18> [10.50%]:
-  _6 = elm_28(D)->entry.rbe_parent;
-  _7 = _6->entry.rbe_left;
-  if (_7 == elm_28(D))
-    goto <bb 19>; [30.00%]
-  else
-    goto <bb 20>; [70.00%]
-
-  <bb 19> [3.15%]:
-  _8 = elm_28(D)->entry.rbe_parent;
-  _8->entry.rbe_left = elm_14;
-  goto <bb 22>; [100.00%]
-
-  <bb 20> [7.35%]:
-  _9 = elm_28(D)->entry.rbe_parent;
-  _9->entry.rbe_right = elm_14;
-  goto <bb 22>; [100.00%]
-
-  <bb 21> [4.50%]:
-  head_36(D)->rbh_root = elm_14;
-
-  <bb 22> [15.00%]:
-  _10 = elm_28(D)->entry.rbe_left;
-  _10->entry.rbe_parent = elm_14;
-  _11 = elm_28(D)->entry.rbe_right;
-  if (_11 != 0B)
-    goto <bb 23>; [70.00%]
-  else
-    goto <bb 24>; [30.00%]
-
-  <bb 23> [10.50%]:
-  _12 = elm_28(D)->entry.rbe_right;
-  _12->entry.rbe_parent = elm_14;
-
-  <bb 24> [15.00%]:
-  if (parent_17 != 0B)
-    goto <bb 36>; [70.00%]
-  else
-    goto <bb 33> (color); [30.00%]
-
-  <bb 36> [10.50%]:
-
-  <bb 25> [70.00%]:
-  # left_20 = PHI <parent_17(36), left_47(37)>
-  left_47 = left_20->entry.rbe_parent;
-  if (left_47 != 0B)
-    goto <bb 37>; [85.00%]
-  else
-    goto <bb 33> (color); [15.00%]
-
-  <bb 37> [59.50%]:
-  goto <bb 25>; [100.00%]
-
-  <bb 26> [15.61%]:
-  # child_15 = PHI <child_49(3), child_48(5)>
-  parent_50 = elm_28(D)->entry.rbe_parent;
-  color_51 = elm_28(D)->entry.rbe_color;
-  if (child_15 != 0B)
-    goto <bb 27>; [70.00%]
-  else
-    goto <bb 28>; [30.00%]
-
-  <bb 27> [10.93%]:
-  child_15->entry.rbe_parent = parent_50;
-
-  <bb 28> [15.61%]:
-  if (parent_50 != 0B)
-    goto <bb 29>; [70.00%]
-  else
-    goto <bb 32>; [30.00%]
-
-  <bb 29> [10.93%]:
-  _13 = parent_50->entry.rbe_left;
-  if (_13 == elm_28(D))
-    goto <bb 30>; [30.00%]
-  else
-    goto <bb 31>; [70.00%]
-
-  <bb 30> [3.28%]:
-  parent_50->entry.rbe_left = child_15;
-  goto <bb 33> (color); [100.00%]
-
-  <bb 31> [7.65%]:
-  parent_50->entry.rbe_right = child_15;
-  goto <bb 33> (color); [100.00%]
-
-  <bb 32> [4.68%]:
-  head_36(D)->rbh_root = child_15;
-
-  # child_16 = PHI <child_32(25), child_15(31), child_15(32), child_32(24), child_15(30)>
-  # parent_18 = PHI <parent_17(25), parent_50(31), parent_50(32), parent_17(24), parent_50(30)>
-  # color_19 = PHI <color_34(25), color_51(31), color_51(32), color_34(24), color_51(30)>
-color [30.61%]:
-  if (color_19 == 0)
-    goto <bb 34>; [36.64%]
-  else
-    goto <bb 35>; [63.36%]
-
-  <bb 34> [11.22%]:
-  winlinks_RB_REMOVE_COLOR (head_36(D), parent_18, child_16);
-
-  <bb 35> [30.61%]:
-  return elm_28(D);
-
-}
-
-
-
-;; Function winlinks_RB_FIND (winlinks_RB_FIND, funcdef_no=55, decl_uid=4348, cgraph_uid=55, symbol_order=58)
-
-Released 0 names, 0.00%, removed 0 holes
-winlinks_RB_FIND (struct winlinks * head, struct winlink * elm)
-{
-  int comp;
-  struct winlink * tmp;
-  struct winlink * _2;
-  struct winlink * _12;
-
-  <bb 2> [11.94%]:
-  tmp_7 = head_6(D)->rbh_root;
-  goto <bb 9>; [100.00%]
-
-  <bb 3> [92.50%]:
-  comp_11 = winlink_cmp (elm_9(D), tmp_1);
-  if (comp_11 < 0)
-    goto <bb 4>; [36.00%]
-  else
-    goto <bb 5>; [64.00%]
-
-  <bb 4> [33.30%]:
-  tmp_14 = tmp_1->entry.rbe_left;
-  goto <bb 8>; [100.00%]
-
-  <bb 5> [59.20%]:
-  if (comp_11 > 0)
-    goto <bb 6>; [92.50%]
-  else
-    goto <bb 7>; [7.50%]
-
-  <bb 6> [54.76%]:
-  tmp_13 = tmp_1->entry.rbe_right;
-  goto <bb 8>; [100.00%]
-
-  <bb 7> [4.44%]:
-  _12 = tmp_1;
-  goto <bb 10>; [100.00%]
-
-  <bb 8> [88.06%]:
-  # tmp_8 = PHI <tmp_13(6), tmp_14(4)>
-
-  <bb 9> [100.00%]:
-  # tmp_1 = PHI <tmp_8(8), tmp_7(2)>
-  if (tmp_1 != 0B)
-    goto <bb 3>; [92.50%]
-  else
-    goto <bb 10>; [7.50%]
-
-  <bb 10> [11.94%]:
-  # _2 = PHI <tmp_1(7), 0B(9)>
-  return _2;
-
-}
-
-
-
-;; Function winlinks_RB_NFIND (winlinks_RB_NFIND, funcdef_no=56, decl_uid=4357, cgraph_uid=56, symbol_order=59)
-
-Released 0 names, 0.00%, removed 0 holes
-winlinks_RB_NFIND (struct winlinks * head, struct winlink * elm)
-{
-  int comp;
-  struct winlink * res;
-  struct winlink * tmp;
-  struct winlink * _3;
-  struct winlink * _10;
-  struct winlink * _14;
-
-  <bb 2> [11.94%]:
-  tmp_8 = head_7(D)->rbh_root;
-  goto <bb 9>; [100.00%]
-
-  <bb 3> [92.50%]:
-  comp_13 = winlink_cmp (elm_11(D), tmp_1);
-  if (comp_13 < 0)
-    goto <bb 4>; [36.00%]
-  else
-    goto <bb 5>; [64.00%]
-
-  <bb 4> [33.30%]:
-  tmp_17 = tmp_1->entry.rbe_left;
-  goto <bb 8>; [100.00%]
-
-  <bb 5> [59.20%]:
-  if (comp_13 > 0)
-    goto <bb 6>; [92.50%]
-  else
-    goto <bb 7>; [7.50%]
-
-  <bb 6> [54.76%]:
-  tmp_15 = tmp_1->entry.rbe_right;
-  goto <bb 8>; [100.00%]
-
-  <bb 7> [4.44%]:
-  _14 = tmp_1;
-  goto <bb 11>; [100.00%]
-
-  <bb 8> [88.06%]:
-  # tmp_9 = PHI <tmp_15(6), tmp_17(4)>
-  # res_16 = PHI <res_2(6), tmp_1(4)>
-
-  <bb 9> [100.00%]:
-  # tmp_1 = PHI <tmp_9(8), tmp_8(2)>
-  # res_2 = PHI <res_16(8), 0B(2)>
-  if (tmp_1 != 0B)
-    goto <bb 3>; [92.50%]
-  else
-    goto <bb 10>; [7.50%]
-
-  <bb 10> [7.50%]:
-  _10 = res_2;
-
-  <bb 11> [11.94%]:
-  # _3 = PHI <tmp_1(7), res_2(10)>
-  return _3;
-
-}
-
-
-
-;; Function winlinks_RB_NEXT (winlinks_RB_NEXT, funcdef_no=57, decl_uid=4366, cgraph_uid=57, symbol_order=60)
-
-Released 1 names, 5.00%, removed 1 holes
-winlinks_RB_NEXT (struct winlink * elm)
-{
-  struct winlink * _1;
-  struct winlink * _2;
-  struct winlink * _3;
-  struct winlink * _4;
-  struct winlink * _5;
-  struct winlink * _6;
-  struct winlink * _7;
-  struct winlink * _8;
-
-  <bb 2> [21.43%]:
-  _1 = elm_13(D)->entry.rbe_right;
-  if (_1 != 0B)
-    goto <bb 3>; [70.00%]
-  else
-    goto <bb 6>; [30.00%]
-
-  <bb 3> [15.00%]:
-  elm_17 = elm_13(D)->entry.rbe_right;
-  goto <bb 5>; [100.00%]
-
-  <bb 4> [85.00%]:
-  elm_18 = elm_9->entry.rbe_left;
-
-  <bb 5> [100.00%]:
-  # elm_9 = PHI <elm_17(3), elm_18(4)>
-  _2 = elm_9->entry.rbe_left;
-  if (_2 != 0B)
-    goto <bb 4>; [85.00%]
-  else
-    goto <bb 14>; [15.00%]
-
-  <bb 6> [6.43%]:
-  _3 = elm_13(D)->entry.rbe_parent;
-  if (_3 != 0B)
-    goto <bb 7>; [70.00%]
-  else
-    goto <bb 11>; [30.00%]
-
-  <bb 11> [5.23%]:
-  # elm_19 = PHI <elm_13(D)(6), elm_13(D)(7)>
-  goto <bb 15>; [100.00%]
-
-  <bb 7> [4.50%]:
-  _4 = elm_13(D)->entry.rbe_parent;
-  _5 = _4->entry.rbe_left;
-  if (_5 == elm_13(D))
-    goto <bb 8>; [26.74%]
-  else
-    goto <bb 11>; [73.26%]
-
-  <bb 8> [1.20%]:
-  elm_14 = elm_13(D)->entry.rbe_parent;
-  goto <bb 14>; [100.00%]
-
-  <bb 9> [30.97%]:
-  elm_15 = elm_10->entry.rbe_parent;
-
-  <bb 15> [36.19%]:
-  # elm_10 = PHI <elm_19(11), elm_15(9)>
-  _6 = elm_10->entry.rbe_parent;
-  if (_6 != 0B)
-    goto <bb 12>; [92.50%]
-  else
-    goto <bb 13>; [7.50%]
-
-  <bb 12> [33.48%]:
-  _7 = elm_10->entry.rbe_parent;
-  _8 = _7->entry.rbe_right;
-  if (_8 == elm_10)
-    goto <bb 9>; [92.50%]
-  else
-    goto <bb 13>; [7.50%]
-
-  <bb 13> [5.23%]:
-  elm_16 = elm_10->entry.rbe_parent;
-
-  <bb 14> [21.43%]:
-  # elm_11 = PHI <elm_9(5), elm_14(8), elm_16(13)>
-  return elm_11;
-
-}
-
-
-
-;; Function winlinks_RB_PREV (winlinks_RB_PREV, funcdef_no=58, decl_uid=4375, cgraph_uid=58, symbol_order=61)
-
-Released 1 names, 5.00%, removed 1 holes
-winlinks_RB_PREV (struct winlink * elm)
-{
-  struct winlink * _1;
-  struct winlink * _2;
-  struct winlink * _3;
-  struct winlink * _4;
-  struct winlink * _5;
-  struct winlink * _6;
-  struct winlink * _7;
-  struct winlink * _8;
-
-  <bb 2> [21.43%]:
-  _1 = elm_13(D)->entry.rbe_left;
-  if (_1 != 0B)
-    goto <bb 3>; [70.00%]
-  else
-    goto <bb 6>; [30.00%]
-
-  <bb 3> [15.00%]:
-  elm_17 = elm_13(D)->entry.rbe_left;
-  goto <bb 5>; [100.00%]
-
-  <bb 4> [85.00%]:
-  elm_18 = elm_9->entry.rbe_right;
-
-  <bb 5> [100.00%]:
-  # elm_9 = PHI <elm_17(3), elm_18(4)>
-  _2 = elm_9->entry.rbe_right;
-  if (_2 != 0B)
-    goto <bb 4>; [85.00%]
-  else
-    goto <bb 14>; [15.00%]
-
-  <bb 6> [6.43%]:
-  _3 = elm_13(D)->entry.rbe_parent;
-  if (_3 != 0B)
-    goto <bb 7>; [70.00%]
-  else
-    goto <bb 11>; [30.00%]
-
-  <bb 11> [5.23%]:
-  # elm_19 = PHI <elm_13(D)(6), elm_13(D)(7)>
-  goto <bb 15>; [100.00%]
-
-  <bb 7> [4.50%]:
-  _4 = elm_13(D)->entry.rbe_parent;
-  _5 = _4->entry.rbe_right;
-  if (_5 == elm_13(D))
-    goto <bb 8>; [26.74%]
-  else
-    goto <bb 11>; [73.26%]
-
-  <bb 8> [1.20%]:
-  elm_14 = elm_13(D)->entry.rbe_parent;
-  goto <bb 14>; [100.00%]
-
-  <bb 9> [30.97%]:
-  elm_15 = elm_10->entry.rbe_parent;
-
-  <bb 15> [36.19%]:
-  # elm_10 = PHI <elm_19(11), elm_15(9)>
-  _6 = elm_10->entry.rbe_parent;
-  if (_6 != 0B)
-    goto <bb 12>; [92.50%]
-  else
-    goto <bb 13>; [7.50%]
-
-  <bb 12> [33.48%]:
-  _7 = elm_10->entry.rbe_parent;
-  _8 = _7->entry.rbe_left;
-  if (_8 == elm_10)
-    goto <bb 9>; [92.50%]
-  else
-    goto <bb 13>; [7.50%]
-
-  <bb 13> [5.23%]:
-  elm_16 = elm_10->entry.rbe_parent;
-
-  <bb 14> [21.43%]:
-  # elm_11 = PHI <elm_9(5), elm_14(8), elm_16(13)>
-  return elm_11;
-
-}
-
-
-
-;; Function winlinks_RB_MINMAX (winlinks_RB_MINMAX, funcdef_no=59, decl_uid=4385, cgraph_uid=59, symbol_order=62)
-
-Released 0 names, 0.00%, removed 0 holes
-winlinks_RB_MINMAX (struct winlinks * head, int val)
-{
-  struct winlink * parent;
-  struct winlink * tmp;
-  struct winlink * _7;
-
-  <bb 2> [15.00%]:
-  tmp_5 = head_4(D)->rbh_root;
-  goto <bb 8>; [100.00%]
-
-  <bb 3> [85.00%]:
-  parent_8 = tmp_1;
-  if (val_9(D) < 0)
-    goto <bb 4>; [36.00%]
-  else
-    goto <bb 5>; [64.00%]
-
-  <bb 4> [30.60%]:
-  tmp_11 = tmp_1->entry.rbe_left;
-  goto <bb 6>; [100.00%]
-
-  <bb 5> [54.40%]:
-  tmp_10 = tmp_1->entry.rbe_right;
-
-  <bb 6> [85.00%]:
-  # tmp_6 = PHI <tmp_10(5), tmp_11(4)>
-  # parent_12 = PHI <parent_8(5), parent_8(4)>
-
-  <bb 8> [100.00%]:
-  # tmp_1 = PHI <tmp_6(6), tmp_5(2)>
-  # parent_2 = PHI <parent_12(6), 0B(2)>
-  if (tmp_1 != 0B)
-    goto <bb 3>; [85.00%]
-  else
-    goto <bb 7>; [15.00%]
-
-  <bb 7> [15.00%]:
-  _7 = parent_2;
-  return parent_2;
-
-}
-
-
-
-;; Function xrealloc (xrealloc, funcdef_no=60, decl_uid=4395, cgraph_uid=60, symbol_order=63)
-
-Released 6 names, 31.58%, removed 6 holes
-xrealloc (void * oldptr, size_t nmemb, size_t size)
-{
-  void * newptr;
-  size_t newsize;
-  long unsigned int _1;
-  void * _9;
-  int _13;
-  int _14;
-  int _15;
-
-  <bb 2> [100.00%]:
-  newsize_4 = nmemb_2(D) * size_3(D);
-  if (newsize_4 == 0)
-    goto <bb 3>; [0.04%]
-  else
-    goto <bb 4>; [99.96%]
-
-  <bb 3> [0.04%]:
-  _13 = __printf_chk (1, "zero size%s", "");
-  exit (1);
-
-  <bb 4> [99.96%]:
-  _1 = 1073741824 / nmemb_2(D);
-  if (_1 < size_3(D))
-    goto <bb 5>; [0.04%]
-  else
-    goto <bb 6>; [99.96%]
-
-  <bb 5> [0.04%]:
-  _14 = __printf_chk (1, "nmemb * size > SIZE_MAX%s", "");
-  exit (1);
-
-  <bb 6> [99.92%]:
-  newptr_8 = realloc (oldptr_6(D), newsize_4);
-  if (newptr_8 == 0B)
-    goto <bb 7>; [0.04%]
-  else
-    goto <bb 8>; [99.96%]
-
-  <bb 7> [0.04%]:
-  _15 = __printf_chk (1, "xrealloc failed%s", "");
-  exit (1);
-
-  <bb 8> [99.88%]:
-  _9 = newptr_8;
-  return newptr_8;
-
-}
-
-
-
-;; Function winlink_find_by_index (winlink_find_by_index, funcdef_no=61, decl_uid=4401, cgraph_uid=61, symbol_order=64)
-
-Released 2 names, 20.00%, removed 2 holes
-winlink_find_by_index (struct winlinks * wwl, int idx)
-{
-  struct winlink wl;
-  int _5;
-  struct winlink * _6;
-
-  <bb 2> [100.00%]:
-  if (idx_1(D) < 0)
-    goto <bb 3>; [0.04%]
-  else
-    goto <bb 4>; [99.96%]
-
-  <bb 3> [0.04%]:
-  _5 = __printf_chk (1, "bad index%s", "");
-  exit (1);
-
-  <bb 4> [99.96%]:
-  wl.idx = idx_1(D);
-  _6 = winlinks_RB_FIND (wwl_4(D), &wl);
-  wl ={v} {CLOBBER};
-  return _6;
-
-}
-
-
-
-;; Function winlink_count (winlink_count, funcdef_no=62, decl_uid=4405, cgraph_uid=62, symbol_order=65)
-
-Released 3 names, 30.00%, removed 3 holes
-winlink_count (struct winlinks * wwl)
-{
-  u_int n;
-  struct winlink * wl;
-  u_int _7;
-
-  <bb 2> [15.00%]:
-  wl_6 = winlinks_RB_MINMAX (wwl_5(D), -1);
-  goto <bb 4>; [100.00%]
-
-  <bb 3> [85.00%]:
-  n_8 = n_2 + 1;
-  wl_9 = winlinks_RB_NEXT (wl_1);
-
-  <bb 4> [100.00%]:
-  # wl_1 = PHI <wl_6(2), wl_9(3)>
-  # n_2 = PHI <0(2), n_8(3)>
-  if (wl_1 != 0B)
-    goto <bb 3>; [85.00%]
-  else
-    goto <bb 5>; [15.00%]
-
-  <bb 5> [15.00%]:
-  _7 = n_2;
-  return n_2;
-
-}
-
-
-
-;; Function winlink_next_index (winlink_next_index, funcdef_no=63, decl_uid=4414, cgraph_uid=63, symbol_order=66)
-
-Released 4 names, 36.36%, removed 4 holes
-winlink_next_index (struct winlinks * wwl, int idx)
-{
-  int i;
-  struct winlink * _1;
-  int _4;
-
-  <bb 2> [14.44%]:
-
-  <bb 3> [100.00%]:
-  # i_2 = PHI <idx_6(D)(2), i_3(8)>
-  _1 = winlink_find_by_index (wwl_8(D), i_2);
-  if (_1 == 0B)
-    goto <bb 7>; [7.50%]
-  else
-    goto <bb 4>; [92.50%]
-
-  <bb 4> [92.50%]:
-  if (i_2 == 10000)
-    goto <bb 6>; [34.00%]
-  else
-    goto <bb 5>; [66.00%]
-
-  <bb 5> [61.05%]:
-  i_10 = i_2 + 1;
-
-  <bb 6> [92.50%]:
-  # i_3 = PHI <0(4), i_10(5)>
-  if (i_3 != idx_6(D))
-    goto <bb 8>; [92.50%]
-  else
-    goto <bb 7>; [7.50%]
-
-  <bb 8> [85.56%]:
-  goto <bb 3>; [100.00%]
-
-  <bb 7> [14.44%]:
-  # _4 = PHI <i_2(3), -1(6)>
-  return _4;
-
-}
-
-
-
-;; Function winlink_find_by_window (winlink_find_by_window, funcdef_no=64, decl_uid=4421, cgraph_uid=64, symbol_order=67)
-
-Released 4 names, 40.00%, removed 4 holes
-winlink_find_by_window (struct winlinks * wwl, struct window * w)
-{
-  struct winlink * wl;
-  struct window * _1;
-  struct winlink * _3;
-
-  <bb 2> [14.44%]:
-  wl_7 = winlinks_RB_MINMAX (wwl_6(D), -1);
-  goto <bb 5>; [100.00%]
-
-  <bb 3> [92.50%]:
-  _1 = wl_2->window;
-  if (_1 == w_8(D))
-    goto <bb 6>; [7.50%]
-  else
-    goto <bb 4>; [92.50%]
-
-  <bb 4> [85.56%]:
-  wl_9 = winlinks_RB_NEXT (wl_2);
-
-  <bb 5> [100.00%]:
-  # wl_2 = PHI <wl_7(2), wl_9(4)>
-  if (wl_2 != 0B)
-    goto <bb 3>; [92.50%]
-  else
-    goto <bb 6>; [7.50%]
-
-  <bb 6> [14.44%]:
-  # _3 = PHI <wl_2(3), 0B(5)>
-  return _3;
-
-}
-
-
-
-;; Function cmd_find_pane (cmd_find_pane, funcdef_no=65, decl_uid=4429, cgraph_uid=65, symbol_order=68)
-
-Released 3 names, 18.75%, removed 3 holes
-cmd_find_pane (int arg, struct session * * sp)
-{
-  struct session * s;
-  unsigned int _1;
-  struct session * * _2;
-  struct winlink * _3;
-  struct winlink * _4;
-  int _12;
-  struct winlink * _13;
-  struct winlink * _14;
-
-  <bb 2> [100.00%]:
-  _1 = sessions.num;
-  if (_1 == 0)
-    goto <bb 3>; [4.64%]
-  else
-    goto <bb 4>; [95.36%]
-
-  <bb 3> [4.64%]:
-  _12 = __printf_chk (1, "can\'t establish current session\n");
-  goto <bb 9>; [100.00%]
-
-  <bb 4> [95.36%]:
-  _2 = sessions.list;
-  s_8 = MEM[(struct session * *)_2 + 8B];
-  if (sp_9(D) != 0B)
-    goto <bb 5>; [70.00%]
-  else
-    goto <bb 6>; [30.00%]
-
-  <bb 5> [66.75%]:
-  *sp_9(D) = s_8;
-
-  <bb 6> [95.36%]:
-  if (arg_11(D) != 0)
-    goto <bb 7>; [63.36%]
-  else
-    goto <bb 8>; [36.64%]
-
-  <bb 7> [60.42%]:
-  _14 = s_8->curw;
-  goto <bb 9>; [100.00%]
-
-  <bb 8> [34.94%]:
-  _3 = s_8->curw;
-  _13 = winlinks_RB_NEXT (_3);
-
-  <bb 9> [100.00%]:
-  # _4 = PHI <0B(3), _14(7), _13(8)>
-  return _4;
-
-}
-
-
-
-;; Function session_has (session_has, funcdef_no=66, decl_uid=4436, cgraph_uid=66, symbol_order=69)
-
-Released 4 names, 36.36%, removed 4 holes
-session_has (struct session * s, struct window * w)
-{
-  struct winlink * wl;
-  struct winlinks * _1;
-  struct window * _2;
-  int _4;
-
-  <bb 2> [14.44%]:
-  _1 = &s_6(D)->windows;
-  wl_8 = winlinks_RB_MINMAX (_1, -1);
-  goto <bb 5>; [100.00%]
-
-  <bb 3> [92.50%]:
-  _2 = wl_3->window;
-  if (_2 == w_9(D))
-    goto <bb 6>; [7.50%]
-  else
-    goto <bb 4>; [92.50%]
-
-  <bb 4> [85.56%]:
-  wl_10 = winlinks_RB_NEXT (wl_3);
-
-  <bb 5> [100.00%]:
-  # wl_3 = PHI <wl_8(2), wl_10(4)>
-  if (wl_3 != 0B)
-    goto <bb 3>; [92.50%]
-  else
-    goto <bb 6>; [7.50%]
-
-  <bb 6> [14.44%]:
-  # _4 = PHI <1(3), 0(5)>
-  return _4;
-
-}
-
-
-
-;; Function session_group_find (session_group_find, funcdef_no=67, decl_uid=4443, cgraph_uid=67, symbol_order=70)
-
-Released 2 names, 20.00%, removed 2 holes
-session_group_find (struct session * target)
-{
-  struct session * s;
-  struct session_group * sg;
-  struct session_group * _3;
-
-  <bb 2> [8.11%]:
-  sg_5 = session_groups.tqh_first;
-  goto <bb 8>; [100.00%]
-
-  <bb 3> [14.44%]:
-  s_6 = sg_1->sessions.tqh_first;
-  goto <bb 6>; [100.00%]
-
-  <bb 4> [92.50%]:
-  if (s_2 == target_8(D))
-    goto <bb 9>; [7.50%]
-  else
-    goto <bb 5>; [92.50%]
-
-  <bb 5> [85.56%]:
-  s_9 = s_2->gentry.tqe_next;
-
-  <bb 6> [100.00%]:
-  # s_2 = PHI <s_6(3), s_9(5)>
-  if (s_2 != 0B)
-    goto <bb 4>; [92.50%]
-  else
-    goto <bb 7>; [7.50%]
-
-  <bb 7> [7.50%]:
-  sg_7 = sg_1->entry.tqe_next;
-
-  <bb 8> [15.61%]:
-  # sg_1 = PHI <sg_5(2), sg_7(7)>
-  if (sg_1 != 0B)
-    goto <bb 3>; [92.50%]
-  else
-    goto <bb 9>; [7.50%]
-
-  <bb 9> [8.11%]:
-  # _3 = PHI <sg_1(4), 0B(8)>
-  return _3;
-
-}
-
-
-
-;; Function session_group_add (session_group_add, funcdef_no=68, decl_uid=4455, cgraph_uid=68, symbol_order=71)
-
-Released 1 names, 3.03%, removed 1 holes
-session_group_add (struct session * target, struct session * s)
-{
-  struct session_group * sg;
-  struct session_group * * _1;
-  struct session_group * * _2;
-  struct session_group * * _3;
-  struct session * * _4;
-  struct session * * _5;
-  struct session * * _6;
-  struct session * * _7;
-  struct session * * _8;
-  struct session * * _9;
-  struct session * * _10;
-
-  <bb 2> [100.00%]:
-  sg_15 = session_group_find (target_14(D));
-  if (sg_15 == 0B)
-    goto <bb 3>; [19.86%]
-  else
-    goto <bb 4>; [80.14%]
-
-  <bb 3> [19.86%]:
-  sg_17 = malloc (32);
-  sg_17->entry.tqe_next = 0B;
-  _1 = session_groups.tqh_last;
-  sg_17->entry.tqe_prev = _1;
-  _2 = session_groups.tqh_last;
-  *_2 = sg_17;
-  _3 = &sg_17->entry.tqe_next;
-  session_groups.tqh_last = _3;
-  sg_17->sessions.tqh_first = 0B;
-  _4 = &sg_17->sessions.tqh_first;
-  sg_17->sessions.tqh_last = _4;
-  target_14(D)->gentry.tqe_next = 0B;
-  _5 = sg_17->sessions.tqh_last;
-  target_14(D)->gentry.tqe_prev = _5;
-  _6 = sg_17->sessions.tqh_last;
-  *_6 = target_14(D);
-  _7 = &target_14(D)->gentry.tqe_next;
-  sg_17->sessions.tqh_last = _7;
-
-  <bb 4> [100.00%]:
-  # sg_11 = PHI <sg_15(2), sg_17(3)>
-  s_28(D)->gentry.tqe_next = 0B;
-  _8 = sg_11->sessions.tqh_last;
-  s_28(D)->gentry.tqe_prev = _8;
-  _9 = sg_11->sessions.tqh_last;
-  *_9 = s_28(D);
-  _10 = &s_28(D)->gentry.tqe_next;
-  sg_11->sessions.tqh_last = _10;
-  return;
-
-}
-
-
-
-;; Function winlink_add (winlink_add, funcdef_no=69, decl_uid=4461, cgraph_uid=69, symbol_order=72)
-
-Released 2 names, 8.70%, removed 2 holes
-winlink_add (struct winlinks * wwl, struct window * w, int idx)
-{
-  struct winlink * wl;
-  int _1;
-  struct winlink * _2;
-  unsigned int _3;
-  unsigned int _4;
-  struct winlink * _6;
-  struct winlink * _22;
-
-  <bb 2> [100.00%]:
-  if (idx_9(D) < 0)
-    goto <bb 3>; [36.00%]
-  else
-    goto <bb 4>; [64.00%]
-
-  <bb 3> [36.00%]:
-  _1 = ~idx_9(D);
-  idx_14 = winlink_next_index (wwl_11(D), _1);
-  if (idx_14 == -1)
-    goto <bb 6>; [4.85%]
-  else
-    goto <bb 5>; [95.15%]
-
-  <bb 4> [64.00%]:
-  _2 = winlink_find_by_index (wwl_11(D), idx_9(D));
-  if (_2 != 0B)
-    goto <bb 6>; [18.75%]
-  else
-    goto <bb 5>; [81.25%]
-
-  <bb 5> [86.25%]:
-  # idx_5 = PHI <idx_14(3), idx_9(D)(4)>
-  wl_16 = calloc (1, 136);
-  wl_16->idx = idx_5;
-  wl_16->window = w_18(D);
-  winlinks_RB_INSERT (wwl_11(D), wl_16);
-  _3 = w_18(D)->references;
-  _4 = _3 + 1;
-  w_18(D)->references = _4;
-  _22 = wl_16;
-
-  <bb 6> [100.00%]:
-  # _6 = PHI <0B(3), 0B(4), wl_16(5)>
-  return _6;
-
-}
-
-
-
-;; Function window_index (window_index, funcdef_no=70, decl_uid=4466, cgraph_uid=70, symbol_order=73)
-
-Released 2 names, 11.11%, removed 2 holes
-window_index (struct window * s, u_int * i)
-{
-  struct window * * _1;
-  unsigned int _2;
-  long unsigned int _3;
-  long unsigned int _4;
-  struct window * * _5;
-  struct window * _6;
-  unsigned int _7;
-  unsigned int _8;
-  unsigned int _9;
-  unsigned int _10;
-  int _11;
-
-  <bb 2> [14.44%]:
-  *i_14(D) = 0;
-  goto <bb 5>; [100.00%]
-
-  <bb 3> [92.50%]:
-  _1 = windows.list;
-  _2 = *i_14(D);
-  _3 = (long unsigned int) _2;
-  _4 = _3 * 8;
-  _5 = _1 + _4;
-  _6 = *_5;
-  if (_6 == s_16(D))
-    goto <bb 6>; [7.50%]
-  else
-    goto <bb 4>; [92.50%]
-
-  <bb 4> [85.56%]:
-  _7 = *i_14(D);
-  _8 = _7 + 1;
-  *i_14(D) = _8;
-
-  <bb 5> [100.00%]:
-  _9 = *i_14(D);
-  _10 = windows.num;
-  if (_9 < _10)
-    goto <bb 3>; [92.50%]
-  else
-    goto <bb 6>; [7.50%]
-
-  <bb 6> [14.44%]:
-  # _11 = PHI <0(3), -1(5)>
-  return _11;
-
-}
-
-
-
-;; Function session_group_remove (session_group_remove, funcdef_no=71, decl_uid=4472, cgraph_uid=71, symbol_order=74)
-
-Released 1 names, 2.17%, removed 1 holes
-session_group_remove (struct session * s)
-{
-  struct session_group * sg;
-  struct session * _1;
-  struct session * _2;
-  struct session * * _3;
-  struct session * * _4;
-  struct session * * _5;
-  struct session * _6;
-  struct session * _7;
-  struct session * _8;
-  struct session * _9;
-  struct session * _10;
-  struct session * _11;
-  struct session * _12;
-  struct session * _13;
-  struct session * * _14;
-  struct session * _15;
-  struct session * * _16;
-  struct session * _17;
-  struct session * _18;
-  struct session * * _19;
-  struct session * _20;
-  struct session * _21;
-  struct session_group * _22;
-  struct session_group * _23;
-  struct session_group * * _24;
-  struct session_group * * _25;
-  struct session_group * * _26;
-  struct session_group * _27;
-
-  <bb 2> [100.00%]:
-  sg_35 = session_group_find (s_34(D));
-  if (sg_35 == 0B)
-    goto <bb 16>; [26.74%]
-  else
-    goto <bb 3>; [73.26%]
-
-  <bb 3> [73.26%]:
-  _1 = s_34(D)->gentry.tqe_next;
-  if (_1 != 0B)
-    goto <bb 4>; [70.00%]
-  else
-    goto <bb 5>; [30.00%]
-
-  <bb 4> [51.28%]:
-  _2 = s_34(D)->gentry.tqe_next;
-  _3 = s_34(D)->gentry.tqe_prev;
-  _2->gentry.tqe_prev = _3;
-  goto <bb 6>; [100.00%]
-
-  <bb 5> [21.98%]:
-  _4 = s_34(D)->gentry.tqe_prev;
-  sg_35->sessions.tqh_last = _4;
-
-  <bb 6> [73.26%]:
-  _5 = s_34(D)->gentry.tqe_prev;
-  _6 = s_34(D)->gentry.tqe_next;
-  *_5 = _6;
-  _7 = sg_35->sessions.tqh_first;
-  _8 = _7->gentry.tqe_next;
-  if (_8 == 0B)
-    goto <bb 7>; [30.00%]
-  else
-    goto <bb 11>; [70.00%]
-
-  <bb 7> [21.98%]:
-  _9 = sg_35->sessions.tqh_first;
-  _10 = _9->gentry.tqe_next;
-  if (_10 != 0B)
-    goto <bb 8>; [70.00%]
-  else
-    goto <bb 9>; [30.00%]
-
-  <bb 8> [15.38%]:
-  _11 = sg_35->sessions.tqh_first;
-  _12 = sg_35->sessions.tqh_first;
-  _13 = _12->gentry.tqe_next;
-  _14 = _11->gentry.tqe_prev;
-  _13->gentry.tqe_prev = _14;
-  goto <bb 10>; [100.00%]
-
-  <bb 9> [6.59%]:
-  _15 = sg_35->sessions.tqh_first;
-  _16 = _15->gentry.tqe_prev;
-  sg_35->sessions.tqh_last = _16;
-
-  <bb 10> [21.98%]:
-  _17 = sg_35->sessions.tqh_first;
-  _18 = sg_35->sessions.tqh_first;
-  _19 = _18->gentry.tqe_prev;
-  _20 = _17->gentry.tqe_next;
-  *_19 = _20;
-
-  <bb 11> [73.26%]:
-  _21 = sg_35->sessions.tqh_first;
-  if (_21 == 0B)
-    goto <bb 12>; [33.47%]
-  else
-    goto <bb 16>; [66.53%]
-
-  <bb 12> [24.52%]:
-  _22 = sg_35->entry.tqe_next;
-  if (_22 != 0B)
-    goto <bb 13>; [70.00%]
-  else
-    goto <bb 14>; [30.00%]
-
-  <bb 13> [17.16%]:
-  _23 = sg_35->entry.tqe_next;
-  _24 = sg_35->entry.tqe_prev;
-  _23->entry.tqe_prev = _24;
-  goto <bb 15>; [100.00%]
-
-  <bb 14> [7.36%]:
-  _25 = sg_35->entry.tqe_prev;
-  session_groups.tqh_last = _25;
-
-  <bb 15> [24.52%]:
-  _26 = sg_35->entry.tqe_prev;
-  _27 = sg_35->entry.tqe_next;
-  *_26 = _27;
-  free (sg_35);
-
-  <bb 16> [100.00%]:
-  return;
-
-}
-
-
-
-;; Function session_find (session_find, funcdef_no=72, decl_uid=4476, cgraph_uid=72, symbol_order=75)
-
-Released 3 names, 21.43%, removed 3 holes
-session_find (const char * name)
-{
-  u_int i;
-  struct session * s;
-  struct session * * _1;
-  long unsigned int _2;
-  long unsigned int _3;
-  struct session * * _4;
-  char * _5;
-  int _6;
-  unsigned int _7;
-  struct session * _9;
-
-  <bb 2> [12.36%]:
-  goto <bb 6>; [100.00%]
-
-  <bb 3> [92.50%]:
-  _1 = sessions.list;
-  _2 = (long unsigned int) i_8;
-  _3 = _2 * 8;
-  _4 = _1 + _3;
-  s_11 = *_4;
-  if (s_11 != 0B)
-    goto <bb 4>; [70.00%]
-  else
-    goto <bb 5>; [30.00%]
-
-  <bb 4> [64.75%]:
-  _5 = s_11->name;
-  _6 = strcmp (_5, name_12(D));
-  if (_6 == 0)
-    goto <bb 7>; [7.50%]
-  else
-    goto <bb 5>; [92.50%]
-
-  <bb 5> [87.64%]:
-  i_13 = i_8 + 1;
-
-  <bb 6> [100.00%]:
-  # i_8 = PHI <0(2), i_13(5)>
-  _7 = sessions.num;
-  if (_7 > i_8)
-    goto <bb 3>; [92.50%]
-  else
-    goto <bb 7>; [7.50%]
-
-  <bb 7> [12.36%]:
-  # _9 = PHI <s_11(4), 0B(6)>
-  return _9;
-
-}
-
-
-
-;; Function session_index (session_index, funcdef_no=73, decl_uid=4485, cgraph_uid=73, symbol_order=76)
-
-Released 2 names, 11.11%, removed 2 holes
-session_index (struct session * s, u_int * i)
-{
-  struct session * * _1;
-  unsigned int _2;
-  long unsigned int _3;
-  long unsigned int _4;
-  struct session * * _5;
-  struct session * _6;
-  unsigned int _7;
-  unsigned int _8;
-  unsigned int _9;
-  unsigned int _10;
-  int _11;
-
-  <bb 2> [14.44%]:
-  *i_14(D) = 0;
-  goto <bb 5>; [100.00%]
-
-  <bb 3> [92.50%]:
-  _1 = sessions.list;
-  _2 = *i_14(D);
-  _3 = (long unsigned int) _2;
-  _4 = _3 * 8;
-  _5 = _1 + _4;
-  _6 = *_5;
-  if (_6 == s_16(D))
-    goto <bb 6>; [7.50%]
-  else
-    goto <bb 4>; [92.50%]
-
-  <bb 4> [85.56%]:
-  _7 = *i_14(D);
-  _8 = _7 + 1;
-  *i_14(D) = _8;
-
-  <bb 5> [100.00%]:
-  _9 = *i_14(D);
-  _10 = sessions.num;
-  if (_9 < _10)
-    goto <bb 3>; [92.50%]
-  else
-    goto <bb 6>; [7.50%]
-
-  <bb 6> [14.44%]:
-  # _11 = PHI <0(3), -1(5)>
-  return _11;
-
-}
-
-
-
-;; Function winlink_stack_remove (winlink_stack_remove, funcdef_no=74, decl_uid=4492, cgraph_uid=74, symbol_order=77)
-
-Released 0 names, 0.00%, removed 0 holes
-winlink_stack_remove (struct winlink_stack * stack, struct winlink * wl)
-{
-  struct winlink * wl2;
-  struct winlink * _1;
-  struct winlink * _2;
-  struct winlink * * _3;
-  struct winlink * * _4;
-  struct winlink * * _5;
-  struct winlink * _6;
-
-  <bb 2> [19.71%]:
-  if (wl_10(D) == 0B)
-    goto <bb 11>; [26.74%]
-  else
-    goto <bb 3>; [73.26%]
-
-  <bb 3> [14.44%]:
-  wl2_13 = stack_12(D)->tqh_first;
-  goto <bb 10>; [100.00%]
-
-  <bb 4> [92.50%]:
-  if (wl2_7 == wl_10(D))
-    goto <bb 5>; [7.50%]
-  else
-    goto <bb 9>; [92.50%]
-
-  <bb 5> [6.94%]:
-  _1 = wl_10(D)->sentry.tqe_next;
-  if (_1 != 0B)
-    goto <bb 6>; [70.00%]
-  else
-    goto <bb 7>; [30.00%]
-
-  <bb 6> [4.86%]:
-  _2 = wl_10(D)->sentry.tqe_next;
-  _3 = wl_10(D)->sentry.tqe_prev;
-  _2->sentry.tqe_prev = _3;
-  goto <bb 8>; [100.00%]
-
-  <bb 7> [2.08%]:
-  _4 = wl_10(D)->sentry.tqe_prev;
-  stack_12(D)->tqh_last = _4;
-
-  <bb 8> [6.94%]:
-  _5 = wl_10(D)->sentry.tqe_prev;
-  _6 = wl_10(D)->sentry.tqe_next;
-  *_5 = _6;
-  goto <bb 11>; [100.00%]
-
-  <bb 9> [85.56%]:
-  wl2_14 = wl2_7->sentry.tqe_next;
-
-  <bb 10> [100.00%]:
-  # wl2_7 = PHI <wl2_13(3), wl2_14(9)>
-  if (wl2_7 != 0B)
-    goto <bb 4>; [92.50%]
-  else
-    goto <bb 11>; [7.50%]
-
-  <bb 11> [19.71%]:
-  return;
-
-}
-
-
-
-;; Function winlink_stack_push (winlink_stack_push, funcdef_no=75, decl_uid=4500, cgraph_uid=75, symbol_order=78)
-
-Released 0 names, 0.00%, removed 0 holes
-winlink_stack_push (struct winlink_stack * stack, struct winlink * wl)
-{
-  struct winlink * _1;
-  struct winlink * _2;
-  struct winlink * _3;
-  struct winlink * * _4;
-  struct winlink * * _5;
-  struct winlink * * _6;
-
-  <bb 2> [100.00%]:
-  if (wl_9(D) == 0B)
-    goto <bb 7>; [42.57%]
-  else
-    goto <bb 3>; [57.43%]
-
-  <bb 3> [57.43%]:
-  winlink_stack_remove (stack_11(D), wl_9(D));
-  _1 = stack_11(D)->tqh_first;
-  wl_9(D)->sentry.tqe_next = _1;
-  _2 = wl_9(D)->sentry.tqe_next;
-  if (_2 != 0B)
-    goto <bb 4>; [70.00%]
-  else
-    goto <bb 5>; [30.00%]
-
-  <bb 4> [40.20%]:
-  _3 = stack_11(D)->tqh_first;
-  _4 = &wl_9(D)->sentry.tqe_next;
-  _3->sentry.tqe_prev = _4;
-  goto <bb 6>; [100.00%]
-
-  <bb 5> [17.23%]:
-  _5 = &wl_9(D)->sentry.tqe_next;
-  stack_11(D)->tqh_last = _5;
-
-  <bb 6> [57.43%]:
-  stack_11(D)->tqh_first = wl_9(D);
-  _6 = &stack_11(D)->tqh_first;
-  wl_9(D)->sentry.tqe_prev = _6;
-
-  <bb 7> [100.00%]:
-  return;
-
-}
-
-
-
-;; Function window_destroy (window_destroy, funcdef_no=76, decl_uid=4503, cgraph_uid=76, symbol_order=79)
-
-Released 1 names, 2.56%, removed 1 holes
-window_destroy (struct window * w)
-{
-  u_int i;
-  int _1;
-  struct window * * _2;
-  unsigned int i.0_3;
-  long unsigned int _4;
-  long unsigned int _5;
-  struct window * * _6;
-  unsigned int _7;
-  unsigned int _8;
-  unsigned int _9;
-  struct window * * _10;
-  unsigned int _11;
-  struct window * * _12;
-  unsigned int _13;
-  unsigned int _14;
-  long unsigned int _15;
-  long unsigned int _16;
-  struct window * * _17;
-  struct window * _18;
-  char * _19;
-  char * _20;
-  int _36;
-
-  <bb 2> [14.44%]:
-  _1 = window_index (w_24(D), &i);
-  if (_1 != 0)
-    goto <bb 3>; [0.04%]
-  else
-    goto <bb 4>; [99.96%]
-
-  <bb 3> [0.01%]:
-  _36 = __printf_chk (1, "index not found%s\n", "");
-  exit (1);
-
-  <bb 4> [14.44%]:
-  _2 = windows.list;
-  i.0_3 = i;
-  _4 = (long unsigned int) i.0_3;
-  _5 = _4 * 8;
-  _6 = _2 + _5;
-  *_6 = 0B;
-  goto <bb 13>; [100.00%]
-
-  <bb 5> [85.56%]:
-  _7 = windows.num;
-  if (_7 > 1)
-    goto <bb 6>; [78.31%]
-  else
-    goto <bb 7>; [21.69%]
-
-  <bb 6> [67.00%]:
-  _8 = windows.num;
-  _9 = _8 + 4294967295;
-  windows.num = _9;
-  goto <bb 8>; [100.00%]
-
-  <bb 7> [18.56%]:
-  _10 = windows.list;
-  free (_10);
-  windows.num = 0;
-  windows.list = 0B;
-  windows.space = 0;
-
-  <bb 8> [85.56%]:
-
-  <bb 13> [100.00%]:
-  _11 = windows.num;
-  if (_11 != 0)
-    goto <bb 9>; [92.50%]
-  else
-    goto <bb 10>; [7.50%]
-
-  <bb 9> [92.50%]:
-  _12 = windows.list;
-  _13 = windows.num;
-  _14 = _13 + 4294967295;
-  _15 = (long unsigned int) _14;
-  _16 = _15 * 8;
-  _17 = _12 + _16;
-  _18 = *_17;
-  if (_18 == 0B)
-    goto <bb 5>; [92.50%]
-  else
-    goto <bb 10>; [7.50%]
-
-  <bb 10> [14.44%]:
-  _19 = w_24(D)->name;
-  if (_19 != 0B)
-    goto <bb 11>; [57.44%]
-  else
-    goto <bb 12>; [42.56%]
-
-  <bb 11> [8.29%]:
-  _20 = w_24(D)->name;
-  free (_20);
-
-  <bb 12> [14.44%]:
-  free (w_24(D));
-  i ={v} {CLOBBER};
-  return;
-
-}
-
-
-
-;; Function winlink_remove (winlink_remove, funcdef_no=77, decl_uid=4511, cgraph_uid=77, symbol_order=80)
-
-Released 2 names, 9.52%, removed 2 holes
-winlink_remove (struct winlinks * wwl, struct winlink * wl)
-{
-  struct window * w;
-  char * _1;
-  char * _2;
-  unsigned int _3;
-  unsigned int _4;
-  unsigned int _5;
-  unsigned int _6;
-  int _19;
-
-  <bb 2> [100.00%]:
-  w_11 = wl_10(D)->window;
-  winlinks_RB_REMOVE (wwl_12(D), wl_10(D));
-  _1 = wl_10(D)->status_text;
-  if (_1 != 0B)
-    goto <bb 3>; [53.47%]
-  else
-    goto <bb 4>; [46.53%]
-
-  <bb 3> [53.47%]:
-  _2 = wl_10(D)->status_text;
-  free (_2);
-
-  <bb 4> [100.00%]:
-  free (wl_10(D));
-  _3 = w_11->references;
-  if (_3 == 0)
-    goto <bb 5>; [0.04%]
-  else
-    goto <bb 6>; [99.96%]
-
-  <bb 5> [0.04%]:
-  _19 = __printf_chk (1, "bad reference count%s\n", "");
-  exit (1);
-
-  <bb 6> [99.96%]:
-  _4 = w_11->references;
-  _5 = _4 + 4294967295;
-  w_11->references = _5;
-  _6 = w_11->references;
-  if (_6 == 0)
-    goto <bb 7>; [36.64%]
-  else
-    goto <bb 8>; [63.36%]
-
-  <bb 7> [36.63%]:
-  window_destroy (w_11);
-
-  <bb 8> [99.96%]:
-  return;
-
-}
-
-
-
-;; Function session_group_synchronize1 (session_group_synchronize1, funcdef_no=78, decl_uid=4516, cgraph_uid=78, symbol_order=81)
-
-Released 8 names, 16.33%, removed 8 holes
-session_group_synchronize1 (struct session * target, struct session * s)
-{
-  struct winlink * wl2;
-  struct winlink * wl;
-  struct winlink_stack old_lastw;
-  struct winlinks * ww;
-  struct winlinks old_windows;
-  struct winlink * _1;
-  int _2;
-  struct window * _3;
-  struct winlinks * _4;
-  struct winlink * * _5;
-  int _6;
-  struct winlinks * _7;
-  struct winlink * * _8;
-  struct winlink * * _9;
-  struct winlink * * _10;
-  struct winlink * _11;
-  struct winlink * _12;
-  __int128 unsigned _24;
-  long unsigned int _27;
-
-  <bb 2> [28.05%]:
-  ww_21 = &target_20(D)->windows;
-  _1 = MEM[(struct winlinks *)target_20(D) + 40B].rbh_root;
-  if (_1 == 0B)
-    goto <bb 15>; [46.53%]
-  else
-    goto <bb 3>; [53.47%]
-
-  <bb 3> [15.00%]:
-  _27 = MEM[(char * {ref-all})s_23(D) + 40B];
-  MEM[(char * {ref-all})&old_windows] = _27;
-  s_23(D)->windows.rbh_root = 0B;
-  wl_26 = winlinks_RB_MINMAX (ww_21, -1);
-  goto <bb 5>; [100.00%]
-
-  <bb 4> [85.00%]:
-  _2 = wl_13->idx;
-  _3 = wl_13->window;
-  _4 = &s_23(D)->windows;
-  winlink_add (_4, _3, _2);
-  wl_44 = winlinks_RB_NEXT (wl_13);
-
-  <bb 5> [100.00%]:
-  # wl_13 = PHI <wl_26(3), wl_44(4)>
-  if (wl_13 != 0B)
-    goto <bb 4>; [85.00%]
-  else
-    goto <bb 6>; [15.00%]
-
-  <bb 6> [15.00%]:
-  _24 = MEM[(char * {ref-all})s_23(D) + 24B];
-  MEM[(char * {ref-all})&old_lastw] = _24;
-  s_23(D)->lastw.tqh_first = 0B;
-  _5 = &s_23(D)->lastw.tqh_first;
-  s_23(D)->lastw.tqh_last = _5;
-  wl_30 = old_lastw.tqh_first;
-  goto <bb 10>; [100.00%]
-
-  <bb 7> [85.00%]:
-  _6 = wl_14->idx;
-  _7 = &s_23(D)->windows;
-  wl2_37 = winlink_find_by_index (_7, _6);
-  if (wl2_37 != 0B)
-    goto <bb 8>; [70.00%]
-  else
-    goto <bb 9>; [30.00%]
-
-  <bb 8> [59.50%]:
-  wl2_37->sentry.tqe_next = 0B;
-  _8 = s_23(D)->lastw.tqh_last;
-  wl2_37->sentry.tqe_prev = _8;
-  _9 = s_23(D)->lastw.tqh_last;
-  *_9 = wl2_37;
-  _10 = &wl2_37->sentry.tqe_next;
-  s_23(D)->lastw.tqh_last = _10;
-
-  <bb 9> [85.00%]:
-  wl_42 = wl_14->sentry.tqe_next;
-
-  <bb 10> [100.00%]:
-  # wl_14 = PHI <wl_30(6), wl_42(9)>
-  if (wl_14 != 0B)
-    goto <bb 7>; [85.00%]
-  else
-    goto <bb 11>; [15.00%]
-
-  <bb 11> [15.00%]:
-  _11 = s_23(D)->lastw.tqh_first;
-  s_23(D)->curw = _11;
-  goto <bb 13>; [100.00%]
-
-  <bb 12> [85.00%]:
-  wl_34 = old_windows.rbh_root;
-  winlink_remove (&old_windows, wl_34);
-
-  <bb 13> [100.00%]:
-  _12 = old_windows.rbh_root;
-  if (_12 != 0B)
-    goto <bb 12>; [85.00%]
-  else
-    goto <bb 14>; [15.00%]
-
-  <bb 14> [15.00%]:
-  old_windows ={v} {CLOBBER};
-  old_lastw ={v} {CLOBBER};
-  goto <bb 16>; [100.00%]
-
-  <bb 15> [13.05%]:
-  old_windows ={v} {CLOBBER};
-  old_lastw ={v} {CLOBBER};
-
-  <bb 16> [28.05%]:
-  return;
-
-}
-
-
-
-;; Function session_group_synchronize_to (session_group_synchronize_to, funcdef_no=79, decl_uid=4535, cgraph_uid=79, symbol_order=82)
-
-Released 2 names, 22.22%, removed 2 holes
-session_group_synchronize_to (struct session * s)
-{
-  struct session * target;
-  struct session_group * sg;
-
-  <bb 2> [19.71%]:
-  sg_5 = session_group_find (s_4(D));
-  if (sg_5 == 0B)
-    goto <bb 8>; [26.74%]
-  else
-    goto <bb 3>; [73.26%]
-
-  <bb 3> [14.44%]:
-  target_6 = sg_5->sessions.tqh_first;
-  goto <bb 6>; [100.00%]
-
-  <bb 4> [92.50%]:
-  if (target_1 != s_4(D))
-    goto <bb 7>; [7.50%]
-  else
-    goto <bb 5>; [92.50%]
-
-  <bb 5> [85.56%]:
-  target_7 = target_1->gentry.tqe_next;
-
-  <bb 6> [100.00%]:
-  # target_1 = PHI <target_6(3), target_7(5)>
-  if (target_1 != 0B)
-    goto <bb 4>; [92.50%]
-  else
-    goto <bb 7>; [7.50%]
-
-  <bb 7> [14.44%]:
-  session_group_synchronize1 (target_1, s_4(D));
-
-  <bb 8> [19.71%]:
-  return;
-
-}
-
-
-
-;; Function session_group_synchronize_from (session_group_synchronize_from, funcdef_no=80, decl_uid=4543, cgraph_uid=80, symbol_order=83)
-
-Released 1 names, 9.09%, removed 1 holes
-session_group_synchronize_from (struct session * target)
-{
-  struct session * s;
-  struct session_group * sg;
-
-  <bb 2> [20.48%]:
-  sg_7 = session_group_find (target_6(D));
-  if (sg_7 == 0B)
-    goto <bb 8>; [26.74%]
-  else
-    goto <bb 3>; [73.26%]
-
-  <bb 3> [15.00%]:
-  s_8 = sg_7->sessions.tqh_first;
-  goto <bb 7>; [100.00%]
-
-  <bb 4> [85.00%]:
-  if (s_1 != target_6(D))
-    goto <bb 5>; [53.47%]
-  else
-    goto <bb 6>; [46.53%]
-
-  <bb 5> [45.45%]:
-  session_group_synchronize1 (target_6(D), s_1);
-
-  <bb 6> [85.00%]:
-  s_10 = s_1->gentry.tqe_next;
-
-  <bb 7> [100.00%]:
-  # s_1 = PHI <s_8(3), s_10(6)>
-  if (s_1 != 0B)
-    goto <bb 4>; [85.00%]
-  else
-    goto <bb 8>; [15.00%]
-
-  <bb 8> [20.48%]:
-  return;
-
-}
-
-
-
-;; Function session_destroy (session_destroy, funcdef_no=81, decl_uid=4551, cgraph_uid=81, symbol_order=84)
-
-Released 3 names, 5.88%, removed 3 holes
-session_destroy (struct session * s)
-{
-  u_int i;
-  char * _1;
-  int _2;
-  struct session * * _3;
-  unsigned int i.1_4;
-  long unsigned int _5;
-  long unsigned int _6;
-  struct session * * _7;
-  unsigned int _8;
-  unsigned int _9;
-  unsigned int _10;
-  struct session * * _11;
-  unsigned int _12;
-  struct session * * _13;
-  unsigned int _14;
-  unsigned int _15;
-  long unsigned int _16;
-  long unsigned int _17;
-  struct session * * _18;
-  struct session * _19;
-  struct winlink * _20;
-  struct winlink_stack * _21;
-  struct winlink * _22;
-  struct winlink * _23;
-  struct winlinks * _24;
-  struct winlink * _25;
-  char * _26;
-  int _46;
-  int _47;
-
-  <bb 2> [14.44%]:
-  _1 = s_31(D)->name;
-  _46 = __printf_chk (1, "session %s destroyed\n", _1);
-  _2 = session_index (s_31(D), &i);
-  if (_2 != 0)
-    goto <bb 3>; [0.04%]
-  else
-    goto <bb 4>; [99.96%]
-
-  <bb 3> [0.01%]:
-  _47 = __printf_chk (1, "session not found%s\n", "");
-  exit (1);
-
-  <bb 4> [14.44%]:
-  _3 = sessions.list;
-  i.1_4 = i;
-  _5 = (long unsigned int) i.1_4;
-  _6 = _5 * 8;
-  _7 = _3 + _6;
-  *_7 = 0B;
-  goto <bb 16>; [100.00%]
-
-  <bb 5> [85.56%]:
-  _8 = sessions.num;
-  if (_8 > 1)
-    goto <bb 6>; [78.31%]
-  else
-    goto <bb 7>; [21.69%]
-
-  <bb 6> [67.00%]:
-  _9 = sessions.num;
-  _10 = _9 + 4294967295;
-  sessions.num = _10;
-  goto <bb 8>; [100.00%]
-
-  <bb 7> [18.56%]:
-  _11 = sessions.list;
-  free (_11);
-  sessions.num = 0;
-  sessions.list = 0B;
-  sessions.space = 0;
-
-  <bb 8> [85.56%]:
-
-  <bb 16> [100.00%]:
-  _12 = sessions.num;
-  if (_12 != 0)
-    goto <bb 9>; [92.50%]
-  else
-    goto <bb 10>; [7.50%]
-
-  <bb 9> [92.50%]:
-  _13 = sessions.list;
-  _14 = sessions.num;
-  _15 = _14 + 4294967295;
-  _16 = (long unsigned int) _15;
-  _17 = _16 * 8;
-  _18 = _13 + _17;
-  _19 = *_18;
-  if (_19 == 0B)
-    goto <bb 5>; [92.50%]
-  else
-    goto <bb 10>; [7.50%]
-
-  <bb 10> [14.44%]:
-  session_group_remove (s_31(D));
-  goto <bb 12>; [100.00%]
-
-  <bb 11> [81.81%]:
-  _20 = s_31(D)->lastw.tqh_first;
-  _21 = &s_31(D)->lastw;
-  winlink_stack_remove (_21, _20);
-
-  <bb 12> [96.25%]:
-  _22 = s_31(D)->lastw.tqh_first;
-  if (_22 != 0B)
-    goto <bb 11>; [85.00%]
-  else
-    goto <bb 17>; [15.00%]
-
-  <bb 17> [14.44%]:
-  goto <bb 14>; [100.00%]
-
-  <bb 13> [81.81%]:
-  _23 = s_31(D)->windows.rbh_root;
-  _24 = &s_31(D)->windows;
-  winlink_remove (_24, _23);
-
-  <bb 14> [96.25%]:
-  _25 = s_31(D)->windows.rbh_root;
-  if (_25 != 0B)
-    goto <bb 13>; [85.00%]
-  else
-    goto <bb 15>; [15.00%]
-
-  <bb 15> [14.44%]:
-  _26 = s_31(D)->name;
-  free (_26);
-  free (s_31(D));
-  i ={v} {CLOBBER};
-  return;
-
-}
-
-
-
-;; Function session_detach (session_detach, funcdef_no=82, decl_uid=4565, cgraph_uid=82, symbol_order=85)
-
-Released 2 names, 15.38%, removed 2 holes
-session_detach (struct session * s, struct winlink * wl)
-{
-  struct winlink_stack * _1;
-  struct winlinks * _2;
-  struct winlink * _3;
-  int _4;
-
-  <bb 2> [100.00%]:
-  _1 = &s_6(D)->lastw;
-  winlink_stack_remove (_1, wl_8(D));
-  _2 = &s_6(D)->windows;
-  winlink_remove (_2, wl_8(D));
-  session_group_synchronize_from (s_6(D));
-  _3 = s_6(D)->windows.rbh_root;
-  if (_3 == 0B)
-    goto <bb 3>; [19.86%]
-  else
-    goto <bb 4>; [80.14%]
-
-  <bb 3> [19.86%]:
-  session_destroy (s_6(D));
-
-  <bb 4> [100.00%]:
-  # _4 = PHI <1(3), 0(2)>
-  return _4;
-
-}
-
-
-
-;; Function server_destroy_session_group (server_destroy_session_group, funcdef_no=83, decl_uid=4568, cgraph_uid=83, symbol_order=86)
-
-Released 1 names, 6.25%, removed 1 holes
-server_destroy_session_group (struct session * s)
-{
-  struct session_group * sg;
-  struct session_group * _1;
-  struct session_group * _2;
-  struct session_group * * _3;
-  struct session_group * * _4;
-  struct session_group * * _5;
-  struct session_group * _6;
-
-  <bb 2> [100.00%]:
-  sg_11 = session_group_find (s_10(D));
-  if (sg_11 == 0B)
-    goto <bb 7>; [26.74%]
-  else
-    goto <bb 3>; [73.26%]
-
-  <bb 3> [73.26%]:
-  _1 = sg_11->entry.tqe_next;
-  if (_1 != 0B)
-    goto <bb 4>; [70.00%]
-  else
-    goto <bb 5>; [30.00%]
-
-  <bb 4> [51.28%]:
-  _2 = sg_11->entry.tqe_next;
-  _3 = sg_11->entry.tqe_prev;
-  _2->entry.tqe_prev = _3;
-  goto <bb 6>; [100.00%]
-
-  <bb 5> [21.98%]:
-  _4 = sg_11->entry.tqe_prev;
-  session_groups.tqh_last = _4;
-
-  <bb 6> [73.26%]:
-  _5 = sg_11->entry.tqe_prev;
-  _6 = sg_11->entry.tqe_next;
-  *_5 = _6;
-  free (sg_11);
-
-  <bb 7> [100.00%]:
-  return;
-
-}
-
-
-
-;; Function server_kill_window (server_kill_window, funcdef_no=84, decl_uid=4572, cgraph_uid=84, symbol_order=87)
-
-Released 3 names, 14.29%, removed 3 holes
-server_kill_window (struct window * w)
-{
-  u_int i;
-  struct winlink * wl;
-  struct session * s;
-  struct session * * _1;
-  long unsigned int _2;
-  long unsigned int _3;
-  struct session * * _4;
-  int _5;
-  int _6;
-  struct winlinks * _7;
-  unsigned int _8;
-
-  <bb 2> [7.12%]:
-  goto <bb 10>; [100.00%]
-
-  <bb 3> [40.35%]:
-  _1 = sessions.list;
-  _2 = (long unsigned int) i_9;
-  _3 = _2 * 8;
-  _4 = _1 + _3;
-  s_15 = *_4;
-  if (s_15 == 0B)
-    goto <bb 5>; [30.00%]
-  else
-    goto <bb 4>; [70.00%]
-
-  <bb 4> [28.24%]:
-  _5 = session_has (s_15, w_16(D));
-  if (_5 == 0)
-    goto <bb 5>; [48.88%]
-  else
-    goto <bb 12>; [51.12%]
-
-  <bb 5> [25.91%]:
-  // predicted unlikely by continue predictor.
-  goto <bb 9>; [100.00%]
-
-  <bb 6> [92.50%]:
-  _6 = session_detach (s_15, wl_17);
-  if (_6 != 0)
-    goto <bb 7>; [7.50%]
-  else
-    goto <bb 13>; [92.50%]
-
-  <bb 13> [85.56%]:
-  goto <bb 8>; [100.00%]
-
-  <bb 7> [6.94%]:
-  server_destroy_session_group (s_15);
-  goto <bb 9>; [100.00%]
-
-  <bb 12> [14.44%]:
-
-  <bb 8> [100.00%]:
-  _7 = &s_15->windows;
-  wl_17 = winlink_find_by_window (_7, w_16(D));
-  if (wl_17 != 0B)
-    goto <bb 6>; [92.50%]
-  else
-    goto <bb 9>; [7.50%]
-
-  <bb 9> [40.35%]:
-  i_20 = i_9 + 1;
-
-  <bb 10> [47.47%]:
-  # i_9 = PHI <0(2), i_20(9)>
-  _8 = sessions.num;
-  if (_8 > i_9)
-    goto <bb 3>; [85.00%]
-  else
-    goto <bb 11>; [15.00%]
-
-  <bb 11> [7.12%]:
-  return;
-
-}
-
-
-
-;; Function session_select (session_select, funcdef_no=85, decl_uid=4586, cgraph_uid=85, symbol_order=88)
-
-Released 3 names, 18.75%, removed 3 holes
-session_select (struct session * s, int idx)
-{
-  struct winlink * wl;
-  struct winlinks * _1;
-  struct winlink * _2;
-  struct winlink_stack * _3;
-  struct winlink * _4;
-  struct winlink_stack * _5;
-  int _6;
-
-  <bb 2> [100.00%]:
-  _1 = &s_8(D)->windows;
-  wl_12 = winlink_find_by_index (_1, idx_10(D));
-  if (wl_12 == 0B)
-    goto <bb 5>; [0.87%]
-  else
-    goto <bb 3>; [99.13%]
-
-  <bb 3> [99.13%]:
-  _2 = s_8(D)->curw;
-  if (_2 == wl_12)
-    goto <bb 5>; [42.57%]
-  else
-    goto <bb 4>; [57.43%]
-
-  <bb 4> [56.93%]:
-  _3 = &s_8(D)->lastw;
-  winlink_stack_remove (_3, wl_12);
-  _4 = s_8(D)->curw;
-  _5 = &s_8(D)->lastw;
-  winlink_stack_push (_5, _4);
-  s_8(D)->curw = wl_12;
-
-  <bb 5> [100.00%]:
-  # _6 = PHI <-1(2), 1(3), 0(4)>
-  return _6;
-
-}
-
-
-
-;; Function join_pane_exec (join_pane_exec, funcdef_no=86, decl_uid=4590, cgraph_uid=86, symbol_order=89)
-
-Released 6 names, 35.29%, removed 6 holes
-join_pane_exec ()
-{
-  struct window * dst_w;
-  struct window * src_w;
-  struct winlink * dst_wl;
-  struct winlink * src_wl;
-  struct session * dst_s;
-  int _1;
-  struct session * dst_s.2_2;
+  int test;
+  int * p2;
+  void * _1;
+  long int _2;
   int _3;
   int _15;
 
   <bb 2> [100.00%]:
-  dst_wl_7 = cmd_find_pane (0, &dst_s);
-  if (dst_wl_7 == 0B)
-    goto <bb 7>; [1.74%]
+  if (test_6(D) != 0)
+    goto <bb 3>; [46.00%]
   else
-    goto <bb 3>; [98.26%]
+    goto <bb 4>; [54.00%]
 
-  <bb 3> [98.26%]:
-  dst_w_8 = dst_wl_7->window;
-  src_wl_10 = cmd_find_pane (1, 0B);
-  if (src_wl_10 == 0B)
-    goto <bb 7>; [0.87%]
-  else
-    goto <bb 4>; [99.13%]
+  <bb 3> [46.00%]:
+  _1 = malloc (1);
+  _2 = (long int) _1;
+  _3 = (int) _2;
+  *z_11(D) = _3;
+  goto <bb 5>; [100.00%]
 
-  <bb 4> [97.41%]:
-  src_w_11 = src_wl_10->window;
-  if (dst_w_8 == src_w_11)
-    goto <bb 5>; [0.87%]
-  else
-    goto <bb 6>; [99.13%]
+  <bb 4> [54.00%]:
+  p2_9 = malloc (2);
 
-  <bb 5> [0.85%]:
-  _15 = __printf_chk (1, "can\'t join a pane to its own window\n");
-  goto <bb 7>; [100.00%]
-
-  <bb 6> [96.56%]:
-  server_kill_window (src_w_11);
-  _1 = dst_wl_7->idx;
-  dst_s.2_2 = dst_s;
-  session_select (dst_s.2_2, _1);
-
-  <bb 7> [100.00%]:
-  # _3 = PHI <-1(2), -1(3), -1(5), 0(6)>
-  dst_s ={v} {CLOBBER};
-  return _3;
+  <bb 5> [100.00%]:
+  # p2_4 = PHI <p2_13(D)(3), p2_9(4)>
+  *p2_4 = 10;
+  _15 = __printf_chk (1, "%d", p2_4);
+  return;
 
 }
 
 
 
-;; Function window_create1 (window_create1, funcdef_no=87, decl_uid=4599, cgraph_uid=87, symbol_order=90)
+;; Function foo2 (foo2, funcdef_no=53, decl_uid=4314, cgraph_uid=53, symbol_order=58)
 
-Released 5 names, 6.94%, removed 5 holes
-window_create1 (u_int sx, u_int sy)
+Released 2 names, 5.88%, removed 2 holes
+__attribute__((noinline))
+foo2 (int z)
 {
-  u_int i;
-  struct window * w;
-  struct window * * _1;
+  int tmp;
+  int * p4;
+  int * p3;
+  int * a2;
+  long unsigned int _1;
   long unsigned int _2;
   long unsigned int _3;
-  struct window * * _4;
-  struct window * _5;
-  struct window * * _6;
-  long unsigned int _7;
-  long unsigned int _8;
-  struct window * * _9;
-  unsigned int _10;
-  unsigned int _11;
-  unsigned int _12;
-  unsigned int _13;
-  unsigned int _14;
-  unsigned int _15;
-  long unsigned int _16;
-  long unsigned int _17;
-  struct window * * _18;
-  void * _19;
-  long unsigned int _20;
-  struct window * * _21;
-  void * _22;
-  long unsigned int _23;
-  long unsigned int _24;
-  long unsigned int _25;
-  unsigned int _26;
-  unsigned int _27;
-  long unsigned int _28;
-  long unsigned int _29;
-  struct window * * _30;
-  unsigned int _31;
-  long unsigned int _32;
-  long unsigned int _33;
-  struct window * * _34;
-  unsigned int _35;
-  unsigned int _36;
-  struct window * _66;
-  int _68;
-  int _69;
+  void * _4;
+  int * p99.0_5;
+  int * p99.1_6;
+  int * p99.2_7;
+  int * _8;
+  int * _29;
+  int * _33;
 
-  <bb 2> [14.44%]:
-  w_43 = malloc (88);
-  w_43->name = 0B;
-  w_43->flags = 0;
-  w_43->active = 0B;
-  w_43->lastlayout = -1;
-  w_43->layout_root = 0B;
-  w_43->sx = sx_49(D);
-  w_43->sy = sy_51(D);
-  goto <bb 6>; [100.00%]
-
-  <bb 3> [92.50%]:
-  _1 = windows.list;
-  _2 = (long unsigned int) i_37;
-  _3 = _2 * 8;
-  _4 = _1 + _3;
-  _5 = *_4;
-  if (_5 == 0B)
-    goto <bb 4>; [7.50%]
+  <bb 2> [100.00%]:
+  _1 = (long unsigned int) z_10(D);
+  a2_13 = malloc (_1);
+  _2 = (long unsigned int) z_10(D);
+  p3_15 = malloc (_2);
+  _3 = (long unsigned int) z_10(D);
+  p4_17 = malloc (_3);
+  _4 = malloc (200);
+  p99 = _4;
+  p99.0_5 = p99;
+  *p99.0_5 = 99;
+  p99.1_6 = p99;
+  MEM[(int *)p99.1_6 + 4B] = 100;
+  pthread_mutex_lock (&mLock);
+  pthread_mutex_lock (&mLock2);
+  pthread_mutex_lock (&mLock3);
+  foo3 (p3_15);
+  if (tmp_26(D) > 10)
+    goto <bb 3>; [46.00%]
   else
-    goto <bb 5>; [92.50%]
+    goto <bb 4>; [54.00%]
 
-  <bb 4> [6.94%]:
-  _6 = windows.list;
-  _7 = (long unsigned int) i_37;
-  _8 = _7 * 8;
-  _9 = _6 + _8;
-  *_9 = w_43;
-  goto <bb 7>; [100.00%]
+  <bb 3> [46.00%]:
+  p99.2_7 = p99;
+  MEM[(int *)p99.2_7 + 4B] = 200;
+  *p3_15 = 10;
+  free (p3_15);
+  _33 = p3_15;
+  goto <bb 5>; [100.00%]
 
-  <bb 5> [85.56%]:
-  i_53 = i_37 + 1;
+  <bb 4> [54.00%]:
+  *p4_17 = 10;
+  free (p4_17);
+  _29 = p4_17;
 
-  <bb 6> [100.00%]:
-  # i_37 = PHI <0(2), i_53(5)>
-  _10 = windows.num;
-  if (_10 > i_37)
-    goto <bb 3>; [92.50%]
-  else
-    goto <bb 7>; [7.50%]
-
-  <bb 7> [14.44%]:
-  _11 = windows.num;
-  if (_11 == i_37)
-    goto <bb 8>; [37.68%]
-  else
-    goto <bb 18>; [62.32%]
-
-  <bb 8> [5.44%]:
-  _12 = windows.num;
-  if (_12 > 1073741823)
-    goto <bb 9>; [0.04%]
-  else
-    goto <bb 10>; [99.96%]
-
-  <bb 9> [0.00%]:
-  _68 = __printf_chk (1, "number too big%s", "");
-  exit (1);
-
-  <bb 10> [5.44%]:
-  _13 = windows.num;
-  _14 = _13 + 1;
-  _15 = 1073741824 / _14;
-  if (_15 <= 7)
-    goto <bb 11>; [0.04%]
-  else
-    goto <bb 12>; [99.96%]
-
-  <bb 11> [0.00%]:
-  _69 = __printf_chk (1, "size too big%s", "");
-  exit (1);
-
-  <bb 12> [5.44%]:
-  _16 = windows.space;
-  if (_16 == 0)
-    goto <bb 13>; [33.00%]
-  else
-    goto <bb 16>; [67.00%]
-
-  <bb 13> [1.79%]:
-  windows.space = 80;
-  _17 = windows.space;
-  _18 = windows.list;
-  _19 = xrealloc (_18, 1, _17);
-  windows.list = _19;
-
-  <bb 16> [5.44%]:
-  goto <bb 19>; [100.00%]
-
-  <bb 14> [30.80%]:
-  _20 = windows.space;
-  _21 = windows.list;
-  _22 = xrealloc (_21, 2, _20);
-  windows.list = _22;
-  _23 = windows.space;
-  _24 = _23 * 2;
-  windows.space = _24;
-
-  <bb 19> [36.24%]:
-  _25 = windows.space;
-  _26 = windows.num;
-  _27 = _26 + 1;
-  _28 = (long unsigned int) _27;
-  _29 = _28 * 8;
-  if (_25 <= _29)
-    goto <bb 14>; [85.00%]
-  else
-    goto <bb 17>; [15.00%]
-
-  <bb 17> [5.44%]:
-  _30 = windows.list;
-  _31 = windows.num;
-  _32 = (long unsigned int) _31;
-  _33 = _32 * 8;
-  _34 = _30 + _33;
-  *_34 = w_43;
-  _35 = windows.num;
-  _36 = _35 + 1;
-  windows.num = _36;
-
-  <bb 18> [14.43%]:
-  w_43->references = 0;
-  _66 = w_43;
-  return w_43;
+  <bb 5> [100.00%]:
+  # _8 = PHI <p3_15(3), p4_17(4)>
+  return _8;
 
 }
 
 
 
-;; Function session_attach (session_attach, funcdef_no=88, decl_uid=4613, cgraph_uid=88, symbol_order=91)
+;; Function foo4 (foo4, funcdef_no=54, decl_uid=4345, cgraph_uid=54, symbol_order=59)
 
-Released 3 names, 25.00%, removed 3 holes
-session_attach (struct session * s, struct window * w, int idx, char * * cause)
+Released 2 names, 16.67%, removed 2 holes
+foo4 (int z)
 {
-  struct winlink * wl;
-  struct winlinks * _1;
+  int * p2;
+  int * b;
+  void * _1;
+  int * b.3_2;
+
+  <bb 2> [100.00%]:
+  _1 = malloc (1);
+  b = _1;
+  p2_7 = malloc (1);
+  b.3_2 = b;
+  *b.3_2 = 2;
+  *p2_7 = 1;
+  free (&b);
+  b ={v} {CLOBBER};
+  return &b;
+
+}
+
+
+
+;; Function foo (foo, funcdef_no=55, decl_uid=4312, cgraph_uid=55, symbol_order=60)
+
+Released 2 names, 16.67%, removed 2 holes
+__attribute__((noinline))
+foo (int z)
+{
+  int * p2;
+  int * p99.4_1;
+  int * p99.5_2;
+  int * _11;
+
+  <bb 2> [100.00%]:
+  p2_5 = malloc (1);
+  *p2_5 = 1;
+  p99.4_1 = p99;
+  MEM[(int *)p99.4_1 + 4B] = 1000;
+  p99.5_2 = p99;
+  MEM[(int *)p99.5_2 + 8B] = 200;
+  _11 = foo2 (z_9(D));
+  return _11;
+
+}
+
+
+
+;; Function child4 (child4, funcdef_no=57, decl_uid=4335, cgraph_uid=57, symbol_order=62)
+
+Released 4 names, 30.77%, removed 4 holes
+__attribute__((noinline))
+child4 (int * data)
+{
+  int t;
+  int * data.13_1;
+  int _2;
+  int * data.14_3;
+  int _4;
+  int * data.15_5;
+  int _11;
+
+  <bb 2> [100.00%]:
+  if (t_7(D) != 0)
+    goto <bb 3>; [46.00%]
+  else
+    goto <bb 4>; [54.00%]
+
+  <bb 3> [46.00%]:
+  data.13_1 = data;
+  _2 = *data.13_1;
+  data.14_3 = data;
+  _4 = _2 + 1;
+  *data.14_3 = _4;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [54.00%]:
+  data.15_5 = data;
+  *data.15_5 = 2;
+
+  <bb 5> [100.00%]:
+  _11 = __printf_chk (1, "asdda%d\n", &data);
+  return;
+
+}
+
+
+
+;; Function child3 (child3, funcdef_no=58, decl_uid=4333, cgraph_uid=58, symbol_order=63)
+
+Released 7 names, 77.78%, removed 7 holes
+__attribute__((noinline))
+child3 (void * data)
+{
+  long unsigned int _1;
+  int _5;
+  int _6;
+
+  <bb 2> [100.00%]:
+  _1 = pthread_self ();
+  pthread_detach (_1);
+  _6 = __printf_chk (1, "asdda%d\n", &MEM[(void *)&data + 4B]);
+  _5 = __printf_chk (1, "asdda%d\n", 10);
+  free (&data);
+  return;
+
+}
+
+
+
+;; Function child2 (child2, funcdef_no=62, decl_uid=4331, cgraph_uid=62, symbol_order=67)
+
+Released 2 names, 22.22%, removed 2 holes
+__attribute__((noinline))
+child2 (void * data)
+{
+  int * p98.18_1;
+  void * data.19_2;
+  void * data.20_3;
+
+  <bb 2> [100.00%]:
+  p98.18_1 = p98;
+  MEM[(int *)p98.18_1 + 4B] = 99;
+  data.19_2 = data_8(D);
+  child3 (data.19_2);
+  data.20_3 = data_8(D);
+  free (data.20_3);
+  return;
+
+}
+
+
+
+;; Function child5 (child5, funcdef_no=59, decl_uid=4337, cgraph_uid=59, symbol_order=64)
+
+Released 5 names, 38.46%, removed 5 holes
+__attribute__((noinline))
+child5 (void * data)
+{
+  int c;
+  int * pData;
+  long unsigned int _1;
+  int _9;
   int _10;
 
   <bb 2> [100.00%]:
-  _1 = &s_3(D)->windows;
-  wl_8 = winlink_add (_1, w_5(D), idx_6(D));
-  if (wl_8 == 0B)
-    goto <bb 3>; [19.86%]
+  _1 = pthread_self ();
+  pthread_detach (_1);
+  pData_6 = data_5(D) + 4;
+  if (c_7(D) != 0)
+    goto <bb 3>; [46.00%]
   else
-    goto <bb 4>; [80.14%]
+    goto <bb 4>; [54.00%]
 
-  <bb 3> [19.86%]:
-  _10 = __printf_chk (1, "index in use: %d\n", idx_6(D));
+  <bb 3> [46.00%]:
+  _9 = __printf_chk (1, "asdda%d\n", pData_6);
+  goto <bb 5>; [100.00%]
 
-  <bb 4> [100.00%]:
-  session_group_synchronize_from (s_3(D));
-  return wl_8;
+  <bb 4> [54.00%]:
+  _10 = __printf_chk (1, "asdda%d\n", c_7(D));
+  free (pData_6);
+
+  <bb 5> [100.00%]:
+  return;
 
 }
 
 
 
-;; Function session_new (session_new, funcdef_no=89, decl_uid=4622, cgraph_uid=89, symbol_order=92)
+;; Function child6 (child6, funcdef_no=60, decl_uid=4340, cgraph_uid=60, symbol_order=65)
 
-Released 1 names, 7.69%, removed 1 holes
-session_new (struct session * s, const char * name, const char * cmd, const char * cwd, int idx, char * * cause)
+Released 6 names, 42.86%, removed 6 holes
+__attribute__((noinline))
+child6 (void * data, void * test)
 {
-  struct window * w;
-  unsigned int _1;
-  unsigned int _2;
-  struct winlink * _3;
-  struct winlink * _12;
+  int c;
+  int * pData;
+  long unsigned int _1;
+  int _10;
+  int _11;
 
   <bb 2> [100.00%]:
-  _1 = s_6(D)->sy;
-  _2 = s_6(D)->sx;
-  w_8 = window_create1 (_2, _1);
-  if (w_8 == 0B)
-    goto <bb 4>; [7.92%]
+  _1 = pthread_self ();
+  pthread_detach (_1);
+  if (c_6(D) != 0)
+    goto <bb 3>; [46.00%]
   else
-    goto <bb 3>; [92.08%]
+    goto <bb 4>; [54.00%]
 
-  <bb 3> [92.08%]:
-  _12 = session_attach (s_6(D), w_8, idx_9(D), cause_10(D));
+  <bb 3> [46.00%]:
+  pData_9 = &MEM[(void *)test_5(D) + 84B];
+  _10 = __printf_chk (1, "asdda%d\n", pData_9);
+  goto <bb 5>; [100.00%]
 
-  <bb 4> [100.00%]:
-  # _3 = PHI <0B(2), _12(3)>
-  return _3;
+  <bb 4> [54.00%]:
+  pData_7 = &MEM[(void *)test_5(D) + 84B];
+  _11 = __printf_chk (1, "asdda%d\n", c_6(D));
+  free (pData_7);
+
+  <bb 5> [100.00%]:
+  return;
 
 }
 
 
 
-;; Function session_create (session_create, funcdef_no=90, decl_uid=4636, cgraph_uid=90, symbol_order=93)
+;; Function child7 (child7, funcdef_no=61, decl_uid=4343, cgraph_uid=61, symbol_order=66)
 
-Released 10 names, 10.31%, removed 10 holes
-session_create (const char * name, const char * cmd, const char * cwd, struct environ * env, struct termios * tio, int idx, u_int sx, u_int sy, char * * cause)
+Released 7 names, 38.89%, removed 7 holes
+__attribute__((noinline))
+child7 (void * data, void * test)
 {
-  u_int i;
-  struct session * s;
-  struct winlink * * _1;
-  struct session * * _2;
+  int c;
+  long unsigned int _1;
+  int * p98.16_2;
+  int * p98.17_3;
+  int * _4;
+  int * _12;
+  int * _15;
+  int _16;
+
+  <bb 2> [100.00%]:
+  _1 = pthread_self ();
+  pthread_detach (_1);
+  if (c_9(D) != 0)
+    goto <bb 3>; [46.00%]
+  else
+    goto <bb 4>; [54.00%]
+
+  <bb 3> [46.00%]:
+  p98.16_2 = p98;
+  MEM[(int *)p98.16_2 + 12B] = 300;
+  _15 = malloc (10);
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [54.00%]:
+  p98.17_3 = p98;
+  MEM[(int *)p98.17_3 + 8B] = 300;
+  _16 = __printf_chk (1, "asdda%d\n", c_9(D));
+  _12 = malloc (30);
+
+  <bb 5> [100.00%]:
+  # _4 = PHI <_15(3), _12(4)>
+  return _4;
+
+}
+
+
+
+;; Function test44 (test44, funcdef_no=64, decl_uid=4327, cgraph_uid=64, symbol_order=69)
+
+Released 0 names, 0.00%, removed 0 holes
+__attribute__((noinline))
+test44 (int * k)
+{
+  <bb 2> [100.00%]:
+  free (k_2(D));
+  return;
+
+}
+
+
+
+;; Function test33 (test33, funcdef_no=65, decl_uid=4325, cgraph_uid=65, symbol_order=70)
+
+Released 0 names, 0.00%, removed 0 holes
+__attribute__((noinline))
+test33 (int * k)
+{
+  <bb 2> [100.00%]:
+  test44 (k_2(D));
+  return;
+
+}
+
+
+
+;; Function test22 (test22, funcdef_no=66, decl_uid=4323, cgraph_uid=66, symbol_order=71)
+
+Released 0 names, 0.00%, removed 0 holes
+__attribute__((noinline))
+test22 (int * k)
+{
+  int * w;
+
+  <bb 2> [100.00%]:
+  free (k_2(D));
+  free (k_2(D));
+  free (k_2(D));
+  free (k_2(D));
+  free (k_2(D));
+  free (k_2(D));
+  w_10 = malloc (5);
+  free (w_10);
+  return;
+
+}
+
+
+
+;; Function boo (boo, funcdef_no=63, decl_uid=4321, cgraph_uid=63, symbol_order=68)
+
+Released 2 names, 25.00%, removed 2 holes
+__attribute__((noinline))
+boo (int * b)
+{
+  int _6;
+
+  <bb 2> [100.00%]:
+  free (b_2(D));
+  free (b_2(D));
+  test22 (b_2(D));
+  _6 = __printf_chk (1, "asdda\n");
+  return;
+
+}
+
+
+
+;; Function child (child, funcdef_no=56, decl_uid=4329, cgraph_uid=56, symbol_order=61)
+
+Released 4 names, 9.52%, removed 4 holes
+__attribute__((noinline))
+child (void * data)
+{
+  int data2;
+  int * pData2;
+  int * pData;
+  int * * ppData;
+  int * a99;
+  void * data.6_1;
+  int * pData.7_2;
+  int _3;
+  int * pData.8_4;
+  int _5;
+  int * _6;
+  int * _7;
+  int * p98.9_8;
+  int * pData.10_9;
+  void * data.11_10;
+  void * data.12_11;
+  int _38;
+
+  <bb 2> [100.00%]:
+  pthread_mutex_lock (&mLock);
+  pthread_mutex_lock (&mLock);
+  a99_16 = foo (20);
+  _38 = __printf_chk (1, "asdda%d\n", a99_16);
+  ppData_18 = malloc (10);
+  data.6_1 = data;
+  pData = data.6_1;
+  pData2_21 = malloc (10);
+  pData.7_2 = pData;
+  _3 = *pData.7_2;
+  pData.8_4 = pData;
+  _5 = _3 + 1;
+  *pData.8_4 = _5;
+  data2 = 0;
+  data = 10B;
+  pData = &data2;
+  _6 = pData;
+  *_6 = 10;
+  _7 = pData;
+  *_7 = 12;
+  child4 (&data);
+  child3 (&data);
+  child5 (pData2_21);
+  p98.9_8 = p98;
+  *p98.9_8 = 98;
+  pData.10_9 = pData;
+  free (pData.10_9);
+  data.11_10 = data;
+  free (data.11_10);
+  data.12_11 = data;
+  boo (data.12_11);
+  free (&pData);
+  pthread_mutex_unlock (&mLock);
+  free (&pData);
+  pData ={v} {CLOBBER};
+  data2 ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function main (main, funcdef_no=67, decl_uid=4435, cgraph_uid=67, symbol_order=74) (executed once)
+
+Released 16 names, 14.29%, removed 16 holes
+main ()
+{
+  int i;
+  int err;
+  int i;
+  int i;
+  int i;
+  int * p4;
+  int * data;
+  int test;
+  int * q2;
+  int * q;
+  pthread_t t2[3];
+  pthread_t t;
+  union pthread_attr_t attr2;
+  union pthread_attr_t attr;
+  int input2;
+  int input[2];
+  struct adresse * a;
+  int size;
+  int size.21_1;
+  long unsigned int _2;
   long unsigned int _3;
   long unsigned int _4;
-  struct session * * _5;
-  struct session * _6;
-  struct session * * _7;
+  long unsigned int _5;
+  struct adresse * _6;
+  long unsigned int _7;
   long unsigned int _8;
-  long unsigned int _9;
-  struct session * * _10;
-  unsigned int _11;
-  unsigned int _12;
-  unsigned int _13;
-  unsigned int _14;
-  unsigned int _15;
-  unsigned int _16;
-  long unsigned int _17;
-  long unsigned int _18;
-  struct session * * _19;
-  void * _20;
-  long unsigned int _21;
-  struct session * * _22;
-  void * _23;
+  struct adresse * _9;
+  int size.22_10;
+  long unsigned int _11;
+  long unsigned int _12;
+  struct adresse * _13;
+  int _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  struct adresse * _17;
+  char * _18;
+  int size.23_19;
+  long int _20;
+  void * _21;
+  long unsigned int t.24_22;
+  pthread_t * _23;
   long unsigned int _24;
-  long unsigned int _25;
-  long unsigned int _26;
-  unsigned int _27;
-  unsigned int _28;
-  long unsigned int _29;
-  long unsigned int _30;
-  struct session * * _31;
-  unsigned int _32;
-  long unsigned int _33;
-  long unsigned int _34;
-  struct session * * _35;
-  unsigned int _36;
-  unsigned int _37;
-  char * _38;
-  struct winlink * _39;
-  struct winlink * _40;
-  int _41;
-  char * _42;
-  struct session * _44;
-  struct session * _86;
-  int _89;
-  int _90;
+  _Bool _25;
+  _Bool _26;
+  _Bool _27;
+  long unsigned int _28;
+  int staticTrue.25_29;
+  int staticTrue.26_30;
+  int _31;
+  long int _32;
+  void * _33;
+  void * _34;
+  int * p98.27_35;
+  int * p98.28_36;
   int _91;
-  int _92;
+  int _105;
+  int _106;
+  int _107;
 
-  <bb 2> [14.44%]:
-  s_52 = malloc (112);
-  s_52->references = 0;
-  s_52->flags = 0;
-  s_52->curw = 0B;
-  s_52->lastw.tqh_first = 0B;
-  _1 = &s_52->lastw.tqh_first;
-  s_52->lastw.tqh_last = _1;
-  s_52->windows.rbh_root = 0B;
-  s_52->tio = 0B;
-  s_52->sx = sx_60(D);
-  s_52->sy = sy_62(D);
-  goto <bb 6>; [100.00%]
+  <bb 2> [25.00%]:
+  size_78 = 2;
+  size.21_1 = 2;
+  _2 = 2;
+  _3 = 32;
+  a_51 = malloc (32);
+  goto <bb 4>; [100.00%]
 
-  <bb 3> [92.50%]:
-  _2 = sessions.list;
-  _3 = (long unsigned int) i_43;
-  _4 = _3 * 8;
-  _5 = _2 + _4;
-  _6 = *_5;
-  if (_6 == 0B)
-    goto <bb 4>; [7.50%]
+  <bb 3> [50.01%]:
+  _4 = (long unsigned int) i_37;
+  _5 = _4 * 16;
+  _6 = a_51 + _5;
+  _6->name = "Testname";
+  _7 = (long unsigned int) i_37;
+  _8 = _7 * 16;
+  _9 = a_51 + _8;
+  _9->nummer = 123;
+  i_104 = i_37 + 1;
+
+  <bb 4> [75.01%]:
+  # i_37 = PHI <0(2), i_104(3)>
+  size.22_10 = 2;
+  if (i_37 <= 1)
+    goto <bb 3>; [66.67%]
   else
-    goto <bb 5>; [92.50%]
+    goto <bb 5>; [33.33%]
 
-  <bb 4> [6.94%]:
-  _7 = sessions.list;
-  _8 = (long unsigned int) i_43;
-  _9 = _8 * 8;
-  _10 = _7 + _9;
-  *_10 = s_52;
+  <bb 5> [25.00%]:
+  free (a_51);
   goto <bb 7>; [100.00%]
 
-  <bb 5> [85.56%]:
-  i_64 = i_43 + 1;
+  <bb 6> [50.01%]:
+  _11 = (long unsigned int) i_38;
+  _12 = _11 * 16;
+  _13 = a_51 + _12;
+  _14 = _13->nummer;
+  _15 = (long unsigned int) i_38;
+  _16 = _15 * 16;
+  _17 = a_51 + _16;
+  _18 = _17->name;
+  _91 = __printf_chk (1, "%s, %d\n", _18, _14);
+  i_101 = i_38 + 1;
 
-  <bb 6> [100.00%]:
-  # i_43 = PHI <0(2), i_64(5)>
-  _11 = sessions.num;
-  if (_11 > i_43)
-    goto <bb 3>; [92.50%]
+  <bb 7> [75.01%]:
+  # i_38 = PHI <0(5), i_101(6)>
+  size.23_19 = 2;
+  if (i_38 <= 1)
+    goto <bb 6>; [66.67%]
   else
-    goto <bb 7>; [7.50%]
+    goto <bb 8>; [33.33%]
 
-  <bb 7> [14.44%]:
-  _12 = sessions.num;
-  if (_12 == i_43)
-    goto <bb 8>; [34.00%]
+  <bb 8> [25.00%]:
+  input[0] = 1;
+  input[1] = 2;
+  pthread_attr_init (&attr);
+  pthread_attr_init (&attr2);
+  pthread_attr_setdetachstate (&attr, 1);
+  pthread_attr_setdetachstate (&attr2, 0);
+  _20 = (long int) input2_59(D);
+  _21 = (void *) _20;
+  pthread_create (&t, &attr2, child2, _21);
+  t.24_22 = t;
+  pthread_join (t.24_22, 0B);
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [75.00%]:
+  _23 = &t2[i_39];
+  err_99 = pthread_create (_23, &attr2, child, 0B);
+  _24 = t2[i_39];
+  _105 = __printf_chk (1, "%ld\n", _24);
+  i_100 = i_39 + 1;
+
+  <bb 10> [100.00%]:
+  # i_39 = PHI <0(8), i_100(9)>
+  if (i_39 <= 2)
+    goto <bb 9>; [75.00%]
   else
-    goto <bb 18>; [66.00%]
+    goto <bb 11>; [25.00%]
 
-  <bb 8> [4.91%]:
-  _13 = sessions.num;
-  if (_13 > 1073741823)
-    goto <bb 9>; [0.04%]
+  <bb 11> [25.00%]:
+  q_63 = malloc (70);
+  q2_65 = malloc (20);
+  _25 = q_63 != 0B;
+  _26 = test_66(D) != 0;
+  _27 = _25 & _26;
+  if (_27 != 0)
+    goto <bb 12>; [50.00%]
   else
-    goto <bb 10>; [99.96%]
+    goto <bb 13>; [50.00%]
 
-  <bb 9> [0.00%]:
-  _89 = __printf_chk (1, "number too big%s", "");
-  exit (1);
+  <bb 12> [12.50%]:
+  child (q_63);
+  *q_63 = 10;
+  free (q_63);
 
-  <bb 10> [4.91%]:
-  _14 = sessions.num;
-  _15 = _14 + 1;
-  _16 = 1073741824 / _15;
-  if (_16 <= 7)
-    goto <bb 11>; [0.04%]
+  <bb 16> [25.00%]:
+  # i_45 = PHI <0(13), 0(12)>
+  goto <bb 24>; [100.00%]
+
+  <bb 13> [12.50%]:
+  *q_63 = 20;
+  _106 = __printf_chk (1, "test\n");
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [75.00%]:
+  _28 = t2[i_40];
+  pthread_join (_28, 0B);
+  i_97 = i_40 + 1;
+
+  <bb 24> [100.00%]:
+  # i_40 = PHI <i_45(16), i_97(15)>
+  if (i_40 <= 2)
+    goto <bb 15>; [75.00%]
   else
-    goto <bb 12>; [99.96%]
+    goto <bb 17>; [25.00%]
 
-  <bb 11> [0.00%]:
-  _90 = __printf_chk (1, "size too big%s", "");
-  exit (1);
-
-  <bb 12> [4.90%]:
-  _17 = sessions.space;
-  if (_17 == 0)
-    goto <bb 13>; [33.00%]
+  <bb 17> [25.00%]:
+  staticTrue.25_29 = staticTrue;
+  if (staticTrue.25_29 != 0)
+    goto <bb 18>; [33.00%]
   else
-    goto <bb 16>; [67.00%]
+    goto <bb 21>; [67.00%]
 
-  <bb 13> [1.62%]:
-  sessions.space = 80;
-  _18 = sessions.space;
-  _19 = sessions.list;
-  _20 = xrealloc (_19, 1, _18);
-  sessions.list = _20;
-
-  <bb 16> [4.90%]:
-  goto <bb 26>; [100.00%]
-
-  <bb 14> [27.79%]:
-  _21 = sessions.space;
-  _22 = sessions.list;
-  _23 = xrealloc (_22, 2, _21);
-  sessions.list = _23;
-  _24 = sessions.space;
-  _25 = _24 * 2;
-  sessions.space = _25;
-
-  <bb 26> [32.70%]:
-  _26 = sessions.space;
-  _27 = sessions.num;
-  _28 = _27 + 1;
-  _29 = (long unsigned int) _28;
-  _30 = _29 * 8;
-  if (_26 <= _30)
-    goto <bb 14>; [85.00%]
-  else
-    goto <bb 17>; [15.00%]
-
-  <bb 17> [4.90%]:
-  _31 = sessions.list;
-  _32 = sessions.num;
-  _33 = (long unsigned int) _32;
-  _34 = _33 * 8;
-  _35 = _31 + _34;
-  *_35 = s_52;
-  _36 = sessions.num;
-  _37 = _36 + 1;
-  sessions.num = _37;
-
-  <bb 18> [14.43%]:
-  if (name_76(D) == 0B)
+  <bb 18> [8.25%]:
+  data_73 = malloc (400);
+  if (data_73 == 0B)
     goto <bb 19>; [0.04%]
   else
     goto <bb 20>; [99.96%]
 
-  <bb 19> [0.01%]:
-  _91 = __printf_chk (1, "no name%s\n", "");
-  exit (1);
+  <bb 19> [0.00%]:
+  exit (-1);
 
-  <bb 20> [14.43%]:
-  _38 = strdup (name_76(D));
-  s_52->name = _38;
-  if (cmd_79(D) != 0B)
-    goto <bb 21>; [70.00%]
+  <bb 20> [8.25%]:
+  free (data_73);
+
+  <bb 21> [25.00%]:
+  # data_41 = PHI <0B(17), data_73(20)>
+  staticTrue.26_30 = staticTrue;
+  if (staticTrue.26_30 != 0)
+    goto <bb 22>; [36.64%]
   else
-    goto <bb 24>; [30.00%]
+    goto <bb 23>; [63.36%]
 
-  <bb 21> [10.10%]:
-  _39 = session_new (s_52, 0B, cmd_79(D), cwd_80(D), idx_81(D), cause_82(D));
-  if (_39 == 0B)
-    goto <bb 22>; [4.07%]
-  else
-    goto <bb 23>; [95.93%]
+  <bb 22> [9.16%]:
+  free (data_41);
 
-  <bb 22> [0.41%]:
-  session_destroy (s_52);
-  goto <bb 25>; [100.00%]
-
-  <bb 23> [9.69%]:
-  _40 = s_52->windows.rbh_root;
-  _41 = _40->idx;
-  session_select (s_52, _41);
-
-  <bb 24> [14.02%]:
-  _42 = s_52->name;
-  _92 = __printf_chk (1, "session %s created\n", _42);
-  _86 = s_52;
-
-  <bb 25> [14.43%]:
-  # _44 = PHI <0B(22), s_52(24)>
-  return _44;
-
-}
-
-
-
-;; Function main (main, funcdef_no=91, decl_uid=4648, cgraph_uid=91, symbol_order=94) (executed once)
-
-Released 6 names, 8.45%, removed 6 holes
-main (int argc, char * * argv)
-{
-  int i;
-  int sy;
-  int sx;
-  int idx;
-  char * cause;
-  char * name;
-  char * cmd;
-  char * target;
-  struct window * w;
-  struct session * groupwith;
-  struct session * s;
-  long unsigned int _1;
-  long unsigned int _2;
-  char * * _3;
-  char * _4;
-  char _5;
-  long unsigned int _6;
-  long unsigned int _7;
-  sizetype _8;
-  char * * _9;
-  char * _10;
-  long unsigned int _11;
-  long unsigned int _12;
-  char * * _13;
-  char * _14;
-  unsigned int sy.3_15;
-  unsigned int sx.4_16;
-  int idx.5_17;
-  unsigned int sy.6_18;
-  unsigned int sx.7_19;
-  int idx.8_20;
-  struct winlink * _21;
-  int _22;
-  struct session * * _23;
-  struct session * _24;
-  unsigned int _25;
-
-  <bb 2> [15.00%]:
-  windows.num = 0;
-  windows.list = 0B;
-  windows.space = 0;
-  sessions.num = 0;
-  sessions.list = 0B;
-  sessions.space = 0;
-  session_groups.tqh_first = 0B;
-  session_groups.tqh_last = &session_groups.tqh_first;
-  goto <bb 11>; [100.00%]
-
-  <bb 3> [85.00%]:
-  _1 = (long unsigned int) i_29;
-  _2 = _1 * 8;
-  _3 = argv_48(D) + _2;
-  _4 = *_3;
-  _5 = *_4;
-  if (_5 == 116)
-    goto <bb 4>; [34.00%]
-  else
-    goto <bb 6>; [66.00%]
-
-  <bb 4> [28.90%]:
-  if (i_29 > 0)
-    goto <bb 5>; [97.72%]
-  else
-    goto <bb 6>; [2.28%]
-
-  <bb 5> [28.24%]:
-  _6 = (long unsigned int) i_29;
-  _7 = _6 * 8;
-  _8 = _7 + 18446744073709551608;
-  _9 = argv_48(D) + _8;
-  _10 = *_9;
-  target_50 = strdup (_10);
-
-  <bb 6> [85.00%]:
-  # target_26 = PHI <target_50(5), 0B(4), 0B(3)>
-  groupwith_51 = session_find (target_26);
-  if (target_26 == 0B)
-    goto <bb 7>; [17.43%]
-  else
-    goto <bb 8>; [82.57%]
-
-  <bb 7> [14.82%]:
-  cmd_53 = strdup ("cmd");
-
-  <bb 8> [85.00%]:
-  # cmd_27 = PHI <cmd_53(7), 0B(6)>
-  free (target_26);
-  _11 = (long unsigned int) i_29;
-  _12 = _11 * 8;
-  _13 = argv_48(D) + _12;
-  _14 = *_13;
-  name_56 = strdup (_14);
-  sy.3_15 = (unsigned int) sy_57(D);
-  sx.4_16 = (unsigned int) sx_58(D);
-  idx.5_17 = idx_28;
-  idx_59 = idx_28 + 1;
-  s_61 = session_create (name_56, cmd_27, "cwd", 0B, 0B, idx.5_17, sx.4_16, sy.3_15, &cause);
-  sy.6_18 = (unsigned int) sy_57(D);
-  sx.7_19 = (unsigned int) sx_58(D);
-  w_63 = window_create1 (sx.7_19, sy.6_18);
-  idx.8_20 = idx_59;
-  idx_64 = idx_28 + 2;
-  session_attach (s_61, w_63, idx.8_20, &cause);
-  free (cmd_27);
-  if (groupwith_51 != 0B)
-    goto <bb 9>; [53.47%]
-  else
-    goto <bb 10>; [46.53%]
-
-  <bb 9> [45.45%]:
-  session_group_add (groupwith_51, s_61);
-  session_group_synchronize_to (s_61);
-  _21 = s_61->windows.rbh_root;
-  _22 = _21->idx;
-  session_select (s_61, _22);
-
-  <bb 10> [85.00%]:
-  i_70 = i_29 + 1;
-
-  <bb 11> [100.00%]:
-  # idx_28 = PHI <0(2), idx_64(10)>
-  # i_29 = PHI <0(2), i_70(10)>
-  if (i_29 < argc_44(D))
-    goto <bb 3>; [85.00%]
-  else
-    goto <bb 12>; [15.00%]
-
-  <bb 12> [15.00%]:
-  join_pane_exec ();
-  goto <bb 14>; [100.00%]
-
-  <bb 13> [85.00%]:
-  _23 = sessions.list;
-  _24 = *_23;
-  session_destroy (_24);
-
-  <bb 14> [100.00%]:
-  _25 = sessions.num;
-  if (_25 != 0)
-    goto <bb 13>; [85.00%]
-  else
-    goto <bb 15>; [15.00%]
-
-  <bb 15> [15.00%]:
-  cause ={v} {CLOBBER};
+  <bb 23> [25.00%]:
+  _31 = foo5 (q_63, q_63);
+  _107 = __printf_chk (1, "123%d\n", _31);
+  p4_80 = malloc (10);
+  child4 (1B);
+  _32 = (long int) test_66(D);
+  _33 = (void *) _32;
+  p4_83 = child7 (_33, 1B);
+  free (p4_83);
+  _34 = malloc (201);
+  p98 = _34;
+  p98.27_35 = p98;
+  child (p98.27_35);
+  p98.28_36 = p98;
+  free (p98.28_36);
+  input ={v} {CLOBBER};
+  attr ={v} {CLOBBER};
+  attr2 ={v} {CLOBBER};
+  t ={v} {CLOBBER};
+  t2 ={v} {CLOBBER};
   return 0;
 
 }
