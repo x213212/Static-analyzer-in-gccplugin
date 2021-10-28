@@ -294,7 +294,7 @@ ofstream cfginfo("cfginfo.txt");
 
 /*interprocedural analysis*/
 bool ipa = true;
-bool vscode_extensionmod = true;
+bool vscode_extensionmod = false;
 bool Looserulesfree =true;
 bool useafterfree =true;
 bool debugmod = false;

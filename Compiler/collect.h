@@ -1189,8 +1189,8 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			}
 			else if (TREE_CODE(getFunctionAssignRHS) == COMPONENT_REF)
 			{
-				// fprintf(stderr, "--------------OOOOOOOOOOOOOOO------------------\n");
-				// debug_gimple_stmt(gc);
+				fprintf(stderr, "--------------OOOOOOOOOOOOOOO------------------\n");
+				debug_gimple_stmt(gc);
 				tree second = TREE_OPERAND(getFunctionAssignRHS, 0);
 				tree second2 = TREE_OPERAND(getFunctionAssignRHS, 1);
 				if (second)
@@ -1247,6 +1247,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 								// new_search_imm_use(used_stmt, gimple_assign_rhs1(use_stmt), gimple_assign_rhs1(use_stmt));
 							}
 						}
+						
 						// }
 					}
 					else if (TREE_CODE(second) == VAR_DECL)
@@ -1255,9 +1256,10 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 						function_assign_array assign_array;
 						vector<assign_type> assign_type_array;
 
+							fprintf(stderr, "firstfirstfirstfirstfirstmappinggggggggggggggggggggggggggggggg-------\n");
+							debug_gimple_stmt(gc);
 						if (function_assign_collect->get(second) == NULL)
 						{
-							// fprintf(stderr, "firstfirstfirstfirstfirstmappinggggggggggggggggggggggggggggggg-------\n");
 							assign_array.assign_type_array = assign_type_array;
 							// debug(gc);
 						}

@@ -1,12 +1,12 @@
 
-;; Function foo (foo, funcdef_no=0, decl_uid=3986, cgraph_uid=1, symbol_order=52)
+;; Function winlink_stack_remove (winlink_stack_remove, funcdef_no=11, decl_uid=4468, cgraph_uid=30, symbol_order=77)
 
 
 Not re-computing points-to information because IPA points-to information is available.
 
 
 
-Alias information for foo
+Alias information for winlink_stack_remove
 
 Aliased symbols
 
@@ -17,20 +17,3237 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-z_2(D), points-to NULL, points-to vars: { D.4024 } (nonlocal)
+_1, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_2, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_3, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_4, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_5, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_6, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl2_7, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_10(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+stack_12(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+wl2_13, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl2_14, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
 
-__attribute__((noinline))
-foo (int * z)
+winlink_stack_remove (struct winlink_stack * stack, struct winlink * wl)
 {
-  <bb 2> [100.00%]:
-  free (z_2(D));
+  struct winlink * wl2;
+  struct winlink * _1;
+  struct winlink * _2;
+  struct winlink * * _3;
+  struct winlink * * _4;
+  struct winlink * * _5;
+  struct winlink * _6;
+
+  <bb 2> [19.71%]:
+  if (wl_10(D) == 0B)
+    goto <bb 11>; [26.74%]
+  else
+    goto <bb 3>; [73.26%]
+
+  <bb 3> [14.44%]:
+  wl2_13 = stack_12(D)->tqh_first;
+  goto <bb 10>; [100.00%]
+
+  <bb 4> [92.50%]:
+  if (wl2_7 == wl_10(D))
+    goto <bb 5>; [7.50%]
+  else
+    goto <bb 9>; [92.50%]
+
+  <bb 5> [6.94%]:
+  _1 = wl_10(D)->sentry.tqe_next;
+  if (_1 != 0B)
+    goto <bb 6>; [70.00%]
+  else
+    goto <bb 7>; [30.00%]
+
+  <bb 6> [4.86%]:
+  _2 = wl_10(D)->sentry.tqe_next;
+  _3 = wl_10(D)->sentry.tqe_prev;
+  _2->sentry.tqe_prev = _3;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [2.08%]:
+  _4 = wl_10(D)->sentry.tqe_prev;
+  stack_12(D)->tqh_last = _4;
+
+  <bb 8> [6.94%]:
+  _5 = wl_10(D)->sentry.tqe_prev;
+  _6 = wl_10(D)->sentry.tqe_next;
+  *_5 = _6;
+  goto <bb 11>; [100.00%]
+
+  <bb 9> [85.56%]:
+  wl2_14 = wl2_7->sentry.tqe_next;
+
+  <bb 10> [100.00%]:
+  # wl2_7 = PHI <wl2_13(3), wl2_14(9)>
+  if (wl2_7 != 0B)
+    goto <bb 4>; [92.50%]
+  else
+    goto <bb 11>; [7.50%]
+
+  <bb 11> [19.71%]:
   return;
 
 }
 
 
 
-;; Function main (main, funcdef_no=1, decl_uid=3985, cgraph_uid=0, symbol_order=53) (executed once)
+;; Function session_group_find (session_group_find, funcdef_no=6, decl_uid=4483, cgraph_uid=36, symbol_order=70)
+
+
+Not re-computing points-to information because IPA points-to information is available.
+
+
+
+Alias information for session_group_find
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to anything, points-to NULL
+
+Flow-insensitive points-to information
+
+sg_1, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+s_2, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_3, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+sg_5, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+s_6, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+sg_7, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+target_8(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+s_9, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+
+session_group_find (struct session * target)
+{
+  struct session * s;
+  struct session_group * sg;
+  struct session_group * _3;
+
+  <bb 2> [8.11%]:
+  sg_5 = session_groups.tqh_first;
+  goto <bb 8>; [100.00%]
+
+  <bb 3> [14.44%]:
+  s_6 = sg_1->sessions.tqh_first;
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [92.50%]:
+  if (s_2 == target_8(D))
+    goto <bb 9>; [7.50%]
+  else
+    goto <bb 5>; [92.50%]
+
+  <bb 5> [85.56%]:
+  s_9 = s_2->gentry.tqe_next;
+
+  <bb 6> [100.00%]:
+  # s_2 = PHI <s_6(3), s_9(5)>
+  if (s_2 != 0B)
+    goto <bb 4>; [92.50%]
+  else
+    goto <bb 7>; [7.50%]
+
+  <bb 7> [7.50%]:
+  sg_7 = sg_1->entry.tqe_next;
+
+  <bb 8> [15.61%]:
+  # sg_1 = PHI <sg_5(2), sg_7(7)>
+  if (sg_1 != 0B)
+    goto <bb 3>; [92.50%]
+  else
+    goto <bb 9>; [7.50%]
+
+  <bb 9> [8.11%]:
+  # _3 = PHI <sg_1(4), 0B(8)>
+  return _3;
+
+}
+
+
+
+;; Function winlinks_RB_NEXT (winlinks_RB_NEXT, funcdef_no=0, decl_uid=4488, cgraph_uid=42, symbol_order=60)
+
+
+Not re-computing points-to information because IPA points-to information is available.
+
+
+
+Alias information for winlinks_RB_NEXT
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to anything, points-to NULL
+
+Flow-insensitive points-to information
+
+_1, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_2, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_3, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_4, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_5, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_6, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_7, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_8, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_9, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_10, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_11, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_13(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_14, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_15, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_16, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_17, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_18, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+
+winlinks_RB_NEXT (struct winlink * elm)
+{
+  struct winlink * _1;
+  struct winlink * _2;
+  struct winlink * _3;
+  struct winlink * _4;
+  struct winlink * _5;
+  struct winlink * _6;
+  struct winlink * _7;
+  struct winlink * _8;
+
+  <bb 2> [21.43%]:
+  _1 = elm_13(D)->entry.rbe_right;
+  if (_1 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 6>; [30.00%]
+
+  <bb 3> [15.00%]:
+  elm_17 = elm_13(D)->entry.rbe_right;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [85.00%]:
+  elm_18 = elm_9->entry.rbe_left;
+
+  <bb 5> [100.00%]:
+  # elm_9 = PHI <elm_17(3), elm_18(4)>
+  _2 = elm_9->entry.rbe_left;
+  if (_2 != 0B)
+    goto <bb 4>; [85.00%]
+  else
+    goto <bb 13>; [15.00%]
+
+  <bb 6> [6.43%]:
+  _3 = elm_13(D)->entry.rbe_parent;
+  if (_3 != 0B)
+    goto <bb 7>; [70.00%]
+  else
+    goto <bb 10>; [30.00%]
+
+  <bb 7> [4.50%]:
+  _4 = elm_13(D)->entry.rbe_parent;
+  _5 = _4->entry.rbe_left;
+  if (_5 == elm_13(D))
+    goto <bb 8>; [26.74%]
+  else
+    goto <bb 10>; [73.26%]
+
+  <bb 8> [1.20%]:
+  elm_14 = elm_13(D)->entry.rbe_parent;
+  goto <bb 13>; [100.00%]
+
+  <bb 9> [30.97%]:
+  elm_15 = elm_10->entry.rbe_parent;
+
+  <bb 10> [36.19%]:
+  # elm_10 = PHI <elm_13(D)(7), elm_15(9), elm_13(D)(6)>
+  _6 = elm_10->entry.rbe_parent;
+  if (_6 != 0B)
+    goto <bb 11>; [92.50%]
+  else
+    goto <bb 12>; [7.50%]
+
+  <bb 11> [33.48%]:
+  _7 = elm_10->entry.rbe_parent;
+  _8 = _7->entry.rbe_right;
+  if (_8 == elm_10)
+    goto <bb 9>; [92.50%]
+  else
+    goto <bb 12>; [7.50%]
+
+  <bb 12> [5.23%]:
+  elm_16 = elm_10->entry.rbe_parent;
+
+  <bb 13> [21.43%]:
+  # elm_11 = PHI <elm_9(5), elm_14(8), elm_16(12)>
+  return elm_11;
+
+}
+
+
+
+;; Function cmd_find_pane (cmd_find_pane, funcdef_no=5, decl_uid=4484, cgraph_uid=37, symbol_order=68) (executed once)
+
+
+Not re-computing points-to information because IPA points-to information is available.
+
+
+
+Alias information for cmd_find_pane
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to anything, points-to NULL
+
+Flow-insensitive points-to information
+
+_2, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_3, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_4, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+s_8, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+sp_9(D), points-to NULL, points-to vars: { D.4823 } (nonlocal)
+_13, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_14, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+
+cmd_find_pane (int arg, struct session * * sp)
+{
+  struct session * s;
+  unsigned int _1;
+  struct session * * _2;
+  struct winlink * _3;
+  struct winlink * _4;
+  int _12;
+  struct winlink * _13;
+  struct winlink * _14;
+
+  <bb 2> [100.00%]:
+  _1 = sessions.num;
+  if (_1 == 0)
+    goto <bb 3>; [4.64%]
+  else
+    goto <bb 4>; [95.36%]
+
+  <bb 3> [4.64%]:
+  _12 = __printf_chk (1, "can\'t establish current session\n");
+  goto <bb 9>; [100.00%]
+
+  <bb 4> [95.36%]:
+  _2 = sessions.list;
+  s_8 = MEM[(struct session * *)_2 + 8B];
+  if (sp_9(D) != 0B)
+    goto <bb 5>; [70.00%]
+  else
+    goto <bb 6>; [30.00%]
+
+  <bb 5> [66.75%]:
+  *sp_9(D) = s_8;
+
+  <bb 6> [95.36%]:
+  if (arg_11(D) != 0)
+    goto <bb 7>; [63.36%]
+  else
+    goto <bb 8>; [36.64%]
+
+  <bb 7> [60.42%]:
+  _14 = s_8->curw;
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [34.94%]:
+  _3 = s_8->curw;
+  _13 = winlinks_RB_NEXT (_3);
+
+  <bb 9> [100.00%]:
+  # _4 = PHI <0B(3), _14(7), _13(8)>
+  return _4;
+
+}
+
+
+
+;; Function winlink_find_by_index (winlink_find_by_index, funcdef_no=2, decl_uid=4485, cgraph_uid=38, symbol_order=64)
+
+
+Not re-computing points-to information because IPA points-to information is available.
+
+
+
+Alias information for winlink_find_by_index
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to anything, points-to NULL
+
+Flow-insensitive points-to information
+
+wwl_4(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_12, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_13, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_15, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_16, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_17, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_18, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_19, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+
+winlink_find_by_index (struct winlinks * wwl, int idx)
+{
+  int D.4548;
+  struct winlink * tmp;
+  int comp;
+  struct winlink * D.4541;
+  struct winlink wl;
+  int _5;
+  struct winlink * _17;
+  struct winlink * _18;
+  int _20;
+  int _21;
+  int _22;
+
+  <bb 2> [11.94%]:
+  if (idx_1(D) < 0)
+    goto <bb 3>; [0.04%]
+  else
+    goto <bb 4>; [99.96%]
+
+  <bb 3> [0.00%]:
+  _5 = __printf_chk (1, "bad index%s", "");
+  exit (1);
+
+  <bb 4> [11.94%]:
+  wl.idx = idx_1(D);
+  tmp_12 = wwl_4(D)->rbh_root;
+  goto <bb 11>; [100.00%]
+
+  <bb 5> [92.50%]:
+  _20 = wl.idx;
+  _21 = tmp_13->idx;
+  _22 = _20 - _21;
+  if (_22 < 0)
+    goto <bb 6>; [36.00%]
+  else
+    goto <bb 7>; [64.00%]
+
+  <bb 6> [33.30%]:
+  tmp_15 = tmp_13->entry.rbe_left;
+  goto <bb 10>; [100.00%]
+
+  <bb 7> [59.20%]:
+  if (_22 > 0)
+    goto <bb 8>; [92.50%]
+  else
+    goto <bb 9>; [7.50%]
+
+  <bb 8> [54.76%]:
+  tmp_16 = tmp_13->entry.rbe_right;
+  goto <bb 10>; [100.00%]
+
+  <bb 9> [4.44%]:
+  _17 = tmp_13;
+  goto <bb 12>; [100.00%]
+
+  <bb 10> [88.06%]:
+  # tmp_19 = PHI <tmp_15(6), tmp_16(8)>
+
+  <bb 11> [100.00%]:
+  # tmp_13 = PHI <tmp_12(4), tmp_19(10)>
+  if (tmp_13 != 0B)
+    goto <bb 5>; [92.50%]
+  else
+    goto <bb 12>; [7.50%]
+
+  <bb 12> [11.94%]:
+  # _18 = PHI <tmp_13(9), 0B(11)>
+  wl ={v} {CLOBBER};
+  return _18;
+
+}
+
+
+
+;; Function session_select (session_select, funcdef_no=23, decl_uid=4456, cgraph_uid=17, symbol_order=88)
+
+
+Not re-computing points-to information because IPA points-to information is available.
+
+
+
+Alias information for session_select
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to anything, points-to NULL
+
+Flow-insensitive points-to information
+
+_1, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_2, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_3, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_4, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_5, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+s_8(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+wl_12, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_19, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_20, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_21, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_22, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_23, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_24, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+
+session_select (struct session * s, int idx)
+{
+  struct winlink * wl;
+  struct winlinks * _1;
+  struct winlink * _2;
+  struct winlink_stack * _3;
+  struct winlink * _4;
+  struct winlink_stack * _5;
+  int _6;
+  struct winlink * _19;
+  struct winlink * _20;
+  struct winlink * _21;
+  struct winlink * * _22;
+  struct winlink * * _23;
+  struct winlink * * _24;
+
+  <bb 2> [100.00%]:
+  _1 = &s_8(D)->windows;
+  wl_12 = winlink_find_by_index (_1, idx_10(D));
+  if (wl_12 == 0B)
+    goto <bb 10>; [0.87%]
+  else
+    goto <bb 3>; [99.13%]
+
+  <bb 3> [99.13%]:
+  _2 = s_8(D)->curw;
+  if (_2 == wl_12)
+    goto <bb 10>; [42.57%]
+  else
+    goto <bb 4>; [57.43%]
+
+  <bb 4> [56.93%]:
+  _3 = &s_8(D)->lastw;
+  winlink_stack_remove (_3, wl_12);
+  _4 = s_8(D)->curw;
+  _5 = &s_8(D)->lastw;
+  if (_4 == 0B)
+    goto <bb 9>; [42.57%]
+  else
+    goto <bb 5>; [57.43%]
+
+  <bb 5> [32.70%]:
+  winlink_stack_remove (_5, _4);
+  _19 = MEM[(struct winlink_stack *)s_8(D) + 24B].tqh_first;
+  _4->sentry.tqe_next = _19;
+  _20 = _4->sentry.tqe_next;
+  if (_20 != 0B)
+    goto <bb 6>; [70.00%]
+  else
+    goto <bb 7>; [30.00%]
+
+  <bb 6> [22.89%]:
+  _21 = MEM[(struct winlink_stack *)s_8(D) + 24B].tqh_first;
+  _22 = &_4->sentry.tqe_next;
+  _21->sentry.tqe_prev = _22;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [9.81%]:
+  _23 = &_4->sentry.tqe_next;
+  MEM[(struct winlink_stack *)s_8(D) + 24B].tqh_last = _23;
+
+  <bb 8> [32.70%]:
+  MEM[(struct winlink_stack *)s_8(D) + 24B].tqh_first = _4;
+  _24 = &MEM[(struct winlink_stack *)s_8(D) + 24B].tqh_first;
+  _4->sentry.tqe_prev = _24;
+
+  <bb 9> [56.93%]:
+  s_8(D)->curw = wl_12;
+
+  <bb 10> [100.00%]:
+  # _6 = PHI <-1(2), 1(3), 0(9)>
+  return _6;
+
+}
+
+
+
+;; Function winlink_remove (winlink_remove, funcdef_no=12, decl_uid=4463, cgraph_uid=25, symbol_order=80)
+
+
+Not re-computing points-to information because IPA points-to information is available.
+
+
+
+Alias information for winlink_remove
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to anything, points-to NULL
+
+Flow-insensitive points-to information
+
+_1, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_2, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_10(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+w_11, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wwl_12(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4663 D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_30, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+child_31, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_32, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+child_33, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_34, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_35, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+left_36, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+child_37, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_38, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_40, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_41, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_43, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_44, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_45, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_46, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_47, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_48, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_49, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_50, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_51, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+left_52, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+left_53, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_54, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+child_56, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_57, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_59, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+child_60, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_61, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_62, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_63, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_64, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_66, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_67, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_68, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_69, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_70, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_71, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_72, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_73, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_74, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_75, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_76, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_77, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_78, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_79, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_80, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_82, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_83, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_85, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_86, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_87, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+oleft_89, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+oleft_90, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_91, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_92, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_93, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_94, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_95, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_96, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_97, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_98, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_99, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_100, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_101, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_103, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_104, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_105, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_106, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_107, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_108, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_109, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_110, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_111, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_112, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_113, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_114, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_115, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_116, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_117, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_118, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_120, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_121, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_122, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_123, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_124, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_125, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_126, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_127, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_128, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_129, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_130, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_131, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_132, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_133, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_134, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_136, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_137, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_139, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_140, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_141, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_142, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+oright_144, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+oright_145, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_146, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_147, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_148, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_149, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_150, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_151, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_152, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_153, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_154, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_155, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_156, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_158, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_159, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_160, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_161, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_162, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_163, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_164, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_165, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_166, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_167, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_168, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_169, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_170, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_171, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_172, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_174, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_175, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_176, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_177, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_180, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_184, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_188, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_190, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_195, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_196, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_197, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_198, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_199, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_203, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_204, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+
+winlink_remove (struct winlinks * wwl, struct winlink * wl)
+{
+  int D.4654;
+  u_int i;
+  struct winlink * tmp;
+  struct winlink * oleft;
+  struct winlink * oright;
+  struct winlink * parent;
+  struct winlink * elm;
+  struct winlink * child;
+  struct winlink * parent;
+  int color;
+  struct winlink * left;
+  struct winlink * D.4627;
+  struct winlink * elm;
+  struct window * w;
+  char * _1;
+  char * _2;
+  unsigned int _3;
+  unsigned int _4;
+  unsigned int _5;
+  unsigned int _6;
+  int _19;
+  struct winlink * _30;
+  struct winlink * _32;
+  struct winlink * _40;
+  struct winlink * _41;
+  struct winlink * _43;
+  struct winlink * _44;
+  struct winlink * _45;
+  struct winlink * _46;
+  struct winlink * _47;
+  struct winlink * _48;
+  struct winlink * _49;
+  struct winlink * _50;
+  struct winlink * _57;
+  struct winlink * _62;
+  int _65;
+  struct winlink * _67;
+  struct winlink * _68;
+  struct winlink * _69;
+  struct winlink * _70;
+  struct winlink * _71;
+  struct winlink * _72;
+  struct winlink * _73;
+  struct winlink * _74;
+  struct winlink * _75;
+  struct winlink * _76;
+  struct winlink * _79;
+  struct winlink * _80;
+  int _81;
+  struct winlink * _82;
+  struct winlink * _83;
+  int _84;
+  struct winlink * _86;
+  struct winlink * _87;
+  int _88;
+  struct winlink * _91;
+  struct winlink * _92;
+  struct winlink * _93;
+  struct winlink * _94;
+  struct winlink * _95;
+  struct winlink * _96;
+  struct winlink * _97;
+  struct winlink * _98;
+  struct winlink * _99;
+  struct winlink * _100;
+  int _102;
+  struct winlink * _104;
+  struct winlink * _105;
+  struct winlink * _107;
+  struct winlink * _108;
+  struct winlink * _109;
+  struct winlink * _110;
+  struct winlink * _111;
+  struct winlink * _112;
+  struct winlink * _113;
+  struct winlink * _114;
+  struct winlink * _115;
+  struct winlink * _116;
+  int _119;
+  struct winlink * _121;
+  struct winlink * _122;
+  struct winlink * _123;
+  struct winlink * _124;
+  struct winlink * _125;
+  struct winlink * _126;
+  struct winlink * _127;
+  struct winlink * _128;
+  struct winlink * _129;
+  struct winlink * _130;
+  struct winlink * _133;
+  struct winlink * _134;
+  int _135;
+  struct winlink * _136;
+  struct winlink * _137;
+  int _138;
+  struct winlink * _141;
+  struct winlink * _142;
+  int _143;
+  struct winlink * _146;
+  struct winlink * _147;
+  struct winlink * _148;
+  struct winlink * _149;
+  struct winlink * _150;
+  struct winlink * _151;
+  struct winlink * _152;
+  struct winlink * _153;
+  struct winlink * _154;
+  struct winlink * _155;
+  int _157;
+  struct winlink * _159;
+  struct winlink * _160;
+  struct winlink * _162;
+  struct winlink * _163;
+  struct winlink * _164;
+  struct winlink * _165;
+  struct winlink * _166;
+  struct winlink * _167;
+  struct winlink * _168;
+  struct winlink * _169;
+  struct winlink * _170;
+  struct winlink * _171;
+  int _173;
+  struct winlink * _174;
+  int _179;
+  struct window * * _180;
+  unsigned int _181;
+  long unsigned int _182;
+  long unsigned int _183;
+  struct window * * _184;
+  unsigned int _185;
+  unsigned int _186;
+  unsigned int _187;
+  struct window * * _188;
+  unsigned int _189;
+  struct window * * _190;
+  unsigned int _191;
+  unsigned int _192;
+  long unsigned int _193;
+  long unsigned int _194;
+  struct window * * _195;
+  struct window * _196;
+  char * _197;
+  char * _198;
+  struct window * * _199;
+  unsigned int _200;
+  long unsigned int _201;
+  long unsigned int _202;
+  struct window * * _203;
+  struct window * _204;
+  unsigned int _205;
+  unsigned int _206;
+  unsigned int _207;
+  unsigned int _208;
+  int _209;
+
+  <bb 2> [20.55%]:
+  w_11 = wl_10(D)->window;
+  _30 = wl_10(D)->entry.rbe_left;
+  if (_30 == 0B)
+    goto <bb 3>; [30.00%]
+  else
+    goto <bb 4>; [70.00%]
+
+  <bb 3> [6.17%]:
+  child_31 = wl_10(D)->entry.rbe_right;
+  goto <bb 26>; [100.00%]
+
+  <bb 4> [14.39%]:
+  _32 = wl_10(D)->entry.rbe_right;
+  if (_32 == 0B)
+    goto <bb 5>; [30.00%]
+  else
+    goto <bb 6>; [70.00%]
+
+  <bb 5> [4.32%]:
+  child_33 = wl_10(D)->entry.rbe_left;
+  goto <bb 26>; [100.00%]
+
+  <bb 6> [10.07%]:
+  elm_34 = wl_10(D)->entry.rbe_right;
+
+  <bb 7> [67.13%]:
+  # elm_35 = PHI <elm_34(6), left_36(7)>
+  left_36 = elm_35->entry.rbe_left;
+  if (left_36 != 0B)
+    goto <bb 7>; [85.00%]
+  else
+    goto <bb 8>; [15.00%]
+
+  <bb 8> [10.07%]:
+  child_37 = elm_35->entry.rbe_right;
+  parent_38 = elm_35->entry.rbe_parent;
+  color_39 = elm_35->entry.rbe_color;
+  if (child_37 != 0B)
+    goto <bb 9>; [70.00%]
+  else
+    goto <bb 10>; [30.00%]
+
+  <bb 9> [7.05%]:
+  child_37->entry.rbe_parent = parent_38;
+
+  <bb 10> [10.07%]:
+  if (parent_38 != 0B)
+    goto <bb 11>; [70.00%]
+  else
+    goto <bb 14>; [30.00%]
+
+  <bb 11> [7.05%]:
+  _40 = parent_38->entry.rbe_left;
+  if (elm_35 == _40)
+    goto <bb 12>; [30.00%]
+  else
+    goto <bb 13>; [70.00%]
+
+  <bb 12> [2.11%]:
+  parent_38->entry.rbe_left = child_37;
+  goto <bb 15>; [100.00%]
+
+  <bb 13> [4.93%]:
+  parent_38->entry.rbe_right = child_37;
+  goto <bb 15>; [100.00%]
+
+  <bb 14> [3.02%]:
+  wwl_12(D)->rbh_root = child_37;
+
+  <bb 15> [10.07%]:
+  _41 = elm_35->entry.rbe_parent;
+  if (wl_10(D) == _41)
+    goto <bb 16>; [30.00%]
+  else
+    goto <bb 17>; [70.00%]
+
+  <bb 16> [3.02%]:
+
+  <bb 17> [10.07%]:
+  # parent_51 = PHI <parent_38(15), elm_35(16)>
+  elm_35->entry = wl_10(D)->entry;
+  _43 = wl_10(D)->entry.rbe_parent;
+  if (_43 != 0B)
+    goto <bb 18>; [70.00%]
+  else
+    goto <bb 21>; [30.00%]
+
+  <bb 18> [7.05%]:
+  _44 = wl_10(D)->entry.rbe_parent;
+  _45 = _44->entry.rbe_left;
+  if (wl_10(D) == _45)
+    goto <bb 19>; [30.00%]
+  else
+    goto <bb 20>; [70.00%]
+
+  <bb 19> [2.11%]:
+  _46 = wl_10(D)->entry.rbe_parent;
+  _46->entry.rbe_left = elm_35;
+  goto <bb 22>; [100.00%]
+
+  <bb 20> [4.93%]:
+  _47 = wl_10(D)->entry.rbe_parent;
+  _47->entry.rbe_right = elm_35;
+  goto <bb 22>; [100.00%]
+
+  <bb 21> [3.02%]:
+  wwl_12(D)->rbh_root = elm_35;
+
+  <bb 22> [10.07%]:
+  _48 = wl_10(D)->entry.rbe_left;
+  _48->entry.rbe_parent = elm_35;
+  _49 = wl_10(D)->entry.rbe_right;
+  if (_49 != 0B)
+    goto <bb 23>; [70.00%]
+  else
+    goto <bb 24>; [30.00%]
+
+  <bb 23> [7.05%]:
+  _50 = wl_10(D)->entry.rbe_right;
+  _50->entry.rbe_parent = elm_35;
+
+  <bb 24> [10.07%]:
+  if (parent_51 != 0B)
+    goto <bb 25>; [70.00%]
+  else
+    goto <bb 33> (color); [30.00%]
+
+  <bb 25> [46.99%]:
+  # left_52 = PHI <parent_51(24), left_53(25)>
+  left_53 = left_52->entry.rbe_parent;
+  if (left_53 != 0B)
+    goto <bb 25>; [85.00%]
+  else
+    goto <bb 33> (color); [15.00%]
+
+  <bb 26> [10.48%]:
+  # child_56 = PHI <child_31(3), child_33(5)>
+  parent_54 = wl_10(D)->entry.rbe_parent;
+  color_55 = wl_10(D)->entry.rbe_color;
+  if (child_56 != 0B)
+    goto <bb 27>; [70.00%]
+  else
+    goto <bb 28>; [30.00%]
+
+  <bb 27> [7.34%]:
+  child_56->entry.rbe_parent = parent_54;
+
+  <bb 28> [10.48%]:
+  if (parent_54 != 0B)
+    goto <bb 29>; [70.00%]
+  else
+    goto <bb 32>; [30.00%]
+
+  <bb 29> [7.34%]:
+  _57 = parent_54->entry.rbe_left;
+  if (wl_10(D) == _57)
+    goto <bb 30>; [30.00%]
+  else
+    goto <bb 31>; [70.00%]
+
+  <bb 30> [2.20%]:
+  parent_54->entry.rbe_left = child_56;
+  goto <bb 33> (color); [100.00%]
+
+  <bb 31> [5.14%]:
+  parent_54->entry.rbe_right = child_56;
+  goto <bb 33> (color); [100.00%]
+
+  <bb 32> [3.14%]:
+  wwl_12(D)->rbh_root = child_56;
+
+  # child_60 = PHI <child_37(24), child_37(25), child_56(30), child_56(31), child_56(32)>
+  # parent_59 = PHI <parent_51(24), parent_51(25), parent_54(30), parent_54(31), parent_54(32)>
+  # color_58 = PHI <color_39(24), color_39(25), color_55(30), color_55(31), color_55(32)>
+color [20.55%]:
+  if (color_58 == 0)
+    goto <bb 108>; [36.64%]
+  else
+    goto <bb 113>; [63.36%]
+
+  <bb 34> [95.79%]:
+  _62 = parent_61->entry.rbe_left;
+  if (_62 == elm_63)
+    goto <bb 35>; [30.00%]
+  else
+    goto <bb 71>; [70.00%]
+
+  <bb 35> [28.74%]:
+  tmp_64 = parent_61->entry.rbe_right;
+  _65 = tmp_64->entry.rbe_color;
+  if (_65 == 1)
+    goto <bb 36>; [34.00%]
+  else
+    goto <bb 44>; [66.00%]
+
+  <bb 36> [9.77%]:
+  tmp_64->entry.rbe_color = 0;
+  parent_61->entry.rbe_color = 1;
+  tmp_66 = parent_61->entry.rbe_right;
+  _67 = tmp_66->entry.rbe_left;
+  parent_61->entry.rbe_right = _67;
+  _68 = parent_61->entry.rbe_right;
+  if (_68 != 0B)
+    goto <bb 37>; [70.00%]
+  else
+    goto <bb 38>; [30.00%]
+
+  <bb 37> [6.84%]:
+  _69 = tmp_66->entry.rbe_left;
+  _69->entry.rbe_parent = parent_61;
+
+  <bb 38> [9.77%]:
+  _70 = parent_61->entry.rbe_parent;
+  tmp_66->entry.rbe_parent = _70;
+  _71 = tmp_66->entry.rbe_parent;
+  if (_71 != 0B)
+    goto <bb 39>; [70.00%]
+  else
+    goto <bb 42>; [30.00%]
+
+  <bb 39> [6.84%]:
+  _72 = parent_61->entry.rbe_parent;
+  _73 = _72->entry.rbe_left;
+  if (parent_61 == _73)
+    goto <bb 40>; [30.00%]
+  else
+    goto <bb 41>; [70.00%]
+
+  <bb 40> [2.05%]:
+  _74 = parent_61->entry.rbe_parent;
+  _74->entry.rbe_left = tmp_66;
+  goto <bb 43>; [100.00%]
+
+  <bb 41> [4.79%]:
+  _75 = parent_61->entry.rbe_parent;
+  _75->entry.rbe_right = tmp_66;
+  goto <bb 43>; [100.00%]
+
+  <bb 42> [2.93%]:
+  wwl_12(D)->rbh_root = tmp_66;
+
+  <bb 43> [9.77%]:
+  tmp_66->entry.rbe_left = parent_61;
+  parent_61->entry.rbe_parent = tmp_66;
+  _76 = tmp_66->entry.rbe_parent;
+  tmp_77 = parent_61->entry.rbe_right;
+
+  <bb 44> [28.74%]:
+  # tmp_78 = PHI <tmp_64(35), tmp_77(43)>
+  _79 = tmp_78->entry.rbe_left;
+  if (_79 == 0B)
+    goto <bb 46>; [30.00%]
+  else
+    goto <bb 45>; [70.00%]
+
+  <bb 45> [20.12%]:
+  _80 = tmp_78->entry.rbe_left;
+  _81 = _80->entry.rbe_color;
+  if (_81 == 0)
+    goto <bb 46>; [97.50%]
+  else
+    goto <bb 49>; [2.50%]
+
+  <bb 46> [28.24%]:
+  _82 = tmp_78->entry.rbe_right;
+  if (_82 == 0B)
+    goto <bb 48>; [30.00%]
+  else
+    goto <bb 47>; [70.00%]
+
+  <bb 47> [19.76%]:
+  _83 = tmp_78->entry.rbe_right;
+  _84 = _83->entry.rbe_color;
+  if (_84 == 0)
+    goto <bb 48>; [97.50%]
+  else
+    goto <bb 49>; [2.50%]
+
+  <bb 48> [27.74%]:
+  tmp_78->entry.rbe_color = 1;
+  parent_85 = parent_61->entry.rbe_parent;
+  goto <bb 107>; [100.00%]
+
+  <bb 49> [1.00%]:
+  _86 = tmp_78->entry.rbe_right;
+  if (_86 == 0B)
+    goto <bb 51>; [30.00%]
+  else
+    goto <bb 50>; [70.00%]
+
+  <bb 50> [0.70%]:
+  _87 = tmp_78->entry.rbe_right;
+  _88 = _87->entry.rbe_color;
+  if (_88 == 0)
+    goto <bb 51>; [50.00%]
+  else
+    goto <bb 61>; [50.00%]
+
+  <bb 51> [0.65%]:
+  oleft_89 = tmp_78->entry.rbe_left;
+  if (oleft_89 != 0B)
+    goto <bb 52>; [70.00%]
+  else
+    goto <bb 53>; [30.00%]
+
+  <bb 52> [0.45%]:
+  oleft_89->entry.rbe_color = 0;
+
+  <bb 53> [0.65%]:
+  tmp_78->entry.rbe_color = 1;
+  oleft_90 = tmp_78->entry.rbe_left;
+  _91 = oleft_90->entry.rbe_right;
+  tmp_78->entry.rbe_left = _91;
+  _92 = tmp_78->entry.rbe_left;
+  if (_92 != 0B)
+    goto <bb 54>; [70.00%]
+  else
+    goto <bb 55>; [30.00%]
+
+  <bb 54> [0.45%]:
+  _93 = oleft_90->entry.rbe_right;
+  _93->entry.rbe_parent = tmp_78;
+
+  <bb 55> [0.65%]:
+  _94 = tmp_78->entry.rbe_parent;
+  oleft_90->entry.rbe_parent = _94;
+  _95 = oleft_90->entry.rbe_parent;
+  if (_95 != 0B)
+    goto <bb 56>; [70.00%]
+  else
+    goto <bb 59>; [30.00%]
+
+  <bb 56> [0.45%]:
+  _96 = tmp_78->entry.rbe_parent;
+  _97 = _96->entry.rbe_left;
+  if (tmp_78 == _97)
+    goto <bb 57>; [30.00%]
+  else
+    goto <bb 58>; [70.00%]
+
+  <bb 57> [0.14%]:
+  _98 = tmp_78->entry.rbe_parent;
+  _98->entry.rbe_left = oleft_90;
+  goto <bb 60>; [100.00%]
+
+  <bb 58> [0.32%]:
+  _99 = tmp_78->entry.rbe_parent;
+  _99->entry.rbe_right = oleft_90;
+  goto <bb 60>; [100.00%]
+
+  <bb 59> [0.19%]:
+  wwl_12(D)->rbh_root = oleft_90;
+
+  <bb 60> [0.65%]:
+  oleft_90->entry.rbe_right = tmp_78;
+  tmp_78->entry.rbe_parent = oleft_90;
+  _100 = oleft_90->entry.rbe_parent;
+  tmp_101 = parent_61->entry.rbe_right;
+
+  <bb 61> [1.00%]:
+  # tmp_103 = PHI <tmp_78(50), tmp_101(60)>
+  _102 = parent_61->entry.rbe_color;
+  tmp_103->entry.rbe_color = _102;
+  parent_61->entry.rbe_color = 0;
+  _104 = tmp_103->entry.rbe_right;
+  if (_104 != 0B)
+    goto <bb 62>; [70.00%]
+  else
+    goto <bb 63>; [30.00%]
+
+  <bb 62> [0.70%]:
+  _105 = tmp_103->entry.rbe_right;
+  _105->entry.rbe_color = 0;
+
+  <bb 63> [1.00%]:
+  tmp_106 = parent_61->entry.rbe_right;
+  _107 = tmp_106->entry.rbe_left;
+  parent_61->entry.rbe_right = _107;
+  _108 = parent_61->entry.rbe_right;
+  if (_108 != 0B)
+    goto <bb 64>; [70.00%]
+  else
+    goto <bb 65>; [30.00%]
+
+  <bb 64> [0.70%]:
+  _109 = tmp_106->entry.rbe_left;
+  _109->entry.rbe_parent = parent_61;
+
+  <bb 65> [1.00%]:
+  _110 = parent_61->entry.rbe_parent;
+  tmp_106->entry.rbe_parent = _110;
+  _111 = tmp_106->entry.rbe_parent;
+  if (_111 != 0B)
+    goto <bb 66>; [70.00%]
+  else
+    goto <bb 69>; [30.00%]
+
+  <bb 66> [0.70%]:
+  _112 = parent_61->entry.rbe_parent;
+  _113 = _112->entry.rbe_left;
+  if (parent_61 == _113)
+    goto <bb 67>; [30.00%]
+  else
+    goto <bb 68>; [70.00%]
+
+  <bb 67> [0.21%]:
+  _114 = parent_61->entry.rbe_parent;
+  _114->entry.rbe_left = tmp_106;
+  goto <bb 70>; [100.00%]
+
+  <bb 68> [0.49%]:
+  _115 = parent_61->entry.rbe_parent;
+  _115->entry.rbe_right = tmp_106;
+  goto <bb 70>; [100.00%]
+
+  <bb 69> [0.30%]:
+  wwl_12(D)->rbh_root = tmp_106;
+
+  <bb 70> [1.00%]:
+  tmp_106->entry.rbe_left = parent_61;
+  parent_61->entry.rbe_parent = tmp_106;
+  _116 = tmp_106->entry.rbe_parent;
+  elm_117 = wwl_12(D)->rbh_root;
+  goto <bb 111>; [100.00%]
+
+  <bb 71> [67.06%]:
+  tmp_118 = parent_61->entry.rbe_left;
+  _119 = tmp_118->entry.rbe_color;
+  if (_119 == 1)
+    goto <bb 72>; [34.00%]
+  else
+    goto <bb 80>; [66.00%]
+
+  <bb 72> [22.80%]:
+  tmp_118->entry.rbe_color = 0;
+  parent_61->entry.rbe_color = 1;
+  tmp_120 = parent_61->entry.rbe_left;
+  _121 = tmp_120->entry.rbe_right;
+  parent_61->entry.rbe_left = _121;
+  _122 = parent_61->entry.rbe_left;
+  if (_122 != 0B)
+    goto <bb 73>; [70.00%]
+  else
+    goto <bb 74>; [30.00%]
+
+  <bb 73> [15.96%]:
+  _123 = tmp_120->entry.rbe_right;
+  _123->entry.rbe_parent = parent_61;
+
+  <bb 74> [22.80%]:
+  _124 = parent_61->entry.rbe_parent;
+  tmp_120->entry.rbe_parent = _124;
+  _125 = tmp_120->entry.rbe_parent;
+  if (_125 != 0B)
+    goto <bb 75>; [70.00%]
+  else
+    goto <bb 78>; [30.00%]
+
+  <bb 75> [15.96%]:
+  _126 = parent_61->entry.rbe_parent;
+  _127 = _126->entry.rbe_left;
+  if (parent_61 == _127)
+    goto <bb 76>; [30.00%]
+  else
+    goto <bb 77>; [70.00%]
+
+  <bb 76> [4.79%]:
+  _128 = parent_61->entry.rbe_parent;
+  _128->entry.rbe_left = tmp_120;
+  goto <bb 79>; [100.00%]
+
+  <bb 77> [11.17%]:
+  _129 = parent_61->entry.rbe_parent;
+  _129->entry.rbe_right = tmp_120;
+  goto <bb 79>; [100.00%]
+
+  <bb 78> [6.84%]:
+  wwl_12(D)->rbh_root = tmp_120;
+
+  <bb 79> [22.80%]:
+  tmp_120->entry.rbe_right = parent_61;
+  parent_61->entry.rbe_parent = tmp_120;
+  _130 = tmp_120->entry.rbe_parent;
+  tmp_131 = parent_61->entry.rbe_left;
+
+  <bb 80> [67.06%]:
+  # tmp_132 = PHI <tmp_118(71), tmp_131(79)>
+  _133 = tmp_132->entry.rbe_left;
+  if (_133 == 0B)
+    goto <bb 82>; [30.00%]
+  else
+    goto <bb 81>; [70.00%]
+
+  <bb 81> [46.94%]:
+  _134 = tmp_132->entry.rbe_left;
+  _135 = _134->entry.rbe_color;
+  if (_135 == 0)
+    goto <bb 82>; [97.50%]
+  else
+    goto <bb 85>; [2.50%]
+
+  <bb 82> [65.88%]:
+  _136 = tmp_132->entry.rbe_right;
+  if (_136 == 0B)
+    goto <bb 84>; [30.00%]
+  else
+    goto <bb 83>; [70.00%]
+
+  <bb 83> [46.12%]:
+  _137 = tmp_132->entry.rbe_right;
+  _138 = _137->entry.rbe_color;
+  if (_138 == 0)
+    goto <bb 84>; [97.50%]
+  else
+    goto <bb 85>; [2.50%]
+
+  <bb 84> [64.73%]:
+  tmp_132->entry.rbe_color = 1;
+  elm_139 = parent_61;
+  parent_140 = elm_139->entry.rbe_parent;
+  goto <bb 107>; [100.00%]
+
+  <bb 85> [2.33%]:
+  _141 = tmp_132->entry.rbe_left;
+  if (_141 == 0B)
+    goto <bb 87>; [30.00%]
+  else
+    goto <bb 86>; [70.00%]
+
+  <bb 86> [1.63%]:
+  _142 = tmp_132->entry.rbe_left;
+  _143 = _142->entry.rbe_color;
+  if (_143 == 0)
+    goto <bb 87>; [50.00%]
+  else
+    goto <bb 97>; [50.00%]
+
+  <bb 87> [1.51%]:
+  oright_144 = tmp_132->entry.rbe_right;
+  if (oright_144 != 0B)
+    goto <bb 88>; [70.00%]
+  else
+    goto <bb 89>; [30.00%]
+
+  <bb 88> [1.06%]:
+  oright_144->entry.rbe_color = 0;
+
+  <bb 89> [1.51%]:
+  tmp_132->entry.rbe_color = 1;
+  oright_145 = tmp_132->entry.rbe_right;
+  _146 = oright_145->entry.rbe_left;
+  tmp_132->entry.rbe_right = _146;
+  _147 = tmp_132->entry.rbe_right;
+  if (_147 != 0B)
+    goto <bb 90>; [70.00%]
+  else
+    goto <bb 91>; [30.00%]
+
+  <bb 90> [1.06%]:
+  _148 = oright_145->entry.rbe_left;
+  _148->entry.rbe_parent = tmp_132;
+
+  <bb 91> [1.51%]:
+  _149 = tmp_132->entry.rbe_parent;
+  oright_145->entry.rbe_parent = _149;
+  _150 = oright_145->entry.rbe_parent;
+  if (_150 != 0B)
+    goto <bb 92>; [70.00%]
+  else
+    goto <bb 95>; [30.00%]
+
+  <bb 92> [1.06%]:
+  _151 = tmp_132->entry.rbe_parent;
+  _152 = _151->entry.rbe_left;
+  if (tmp_132 == _152)
+    goto <bb 93>; [30.00%]
+  else
+    goto <bb 94>; [70.00%]
+
+  <bb 93> [0.32%]:
+  _153 = tmp_132->entry.rbe_parent;
+  _153->entry.rbe_left = oright_145;
+  goto <bb 96>; [100.00%]
+
+  <bb 94> [0.74%]:
+  _154 = tmp_132->entry.rbe_parent;
+  _154->entry.rbe_right = oright_145;
+  goto <bb 96>; [100.00%]
+
+  <bb 95> [0.45%]:
+  wwl_12(D)->rbh_root = oright_145;
+
+  <bb 96> [1.51%]:
+  oright_145->entry.rbe_left = tmp_132;
+  tmp_132->entry.rbe_parent = oright_145;
+  _155 = oright_145->entry.rbe_parent;
+  tmp_156 = parent_61->entry.rbe_left;
+
+  <bb 97> [2.33%]:
+  # tmp_158 = PHI <tmp_132(86), tmp_156(96)>
+  _157 = parent_61->entry.rbe_color;
+  tmp_158->entry.rbe_color = _157;
+  parent_61->entry.rbe_color = 0;
+  _159 = tmp_158->entry.rbe_left;
+  if (_159 != 0B)
+    goto <bb 98>; [70.00%]
+  else
+    goto <bb 99>; [30.00%]
+
+  <bb 98> [1.63%]:
+  _160 = tmp_158->entry.rbe_left;
+  _160->entry.rbe_color = 0;
+
+  <bb 99> [2.33%]:
+  tmp_161 = parent_61->entry.rbe_left;
+  _162 = tmp_161->entry.rbe_right;
+  parent_61->entry.rbe_left = _162;
+  _163 = parent_61->entry.rbe_left;
+  if (_163 != 0B)
+    goto <bb 100>; [70.00%]
+  else
+    goto <bb 101>; [30.00%]
+
+  <bb 100> [1.63%]:
+  _164 = tmp_161->entry.rbe_right;
+  _164->entry.rbe_parent = parent_61;
+
+  <bb 101> [2.33%]:
+  _165 = parent_61->entry.rbe_parent;
+  tmp_161->entry.rbe_parent = _165;
+  _166 = tmp_161->entry.rbe_parent;
+  if (_166 != 0B)
+    goto <bb 102>; [70.00%]
+  else
+    goto <bb 105>; [30.00%]
+
+  <bb 102> [1.63%]:
+  _167 = parent_61->entry.rbe_parent;
+  _168 = _167->entry.rbe_left;
+  if (parent_61 == _168)
+    goto <bb 103>; [30.00%]
+  else
+    goto <bb 104>; [70.00%]
+
+  <bb 103> [0.49%]:
+  _169 = parent_61->entry.rbe_parent;
+  _169->entry.rbe_left = tmp_161;
+  goto <bb 106>; [100.00%]
+
+  <bb 104> [1.14%]:
+  _170 = parent_61->entry.rbe_parent;
+  _170->entry.rbe_right = tmp_161;
+  goto <bb 106>; [100.00%]
+
+  <bb 105> [0.70%]:
+  wwl_12(D)->rbh_root = tmp_161;
+
+  <bb 106> [2.33%]:
+  tmp_161->entry.rbe_right = parent_61;
+  parent_61->entry.rbe_parent = tmp_161;
+  _171 = tmp_161->entry.rbe_parent;
+  elm_172 = wwl_12(D)->rbh_root;
+  goto <bb 111>; [100.00%]
+
+  <bb 107> [92.47%]:
+  # parent_176 = PHI <parent_85(48), parent_140(84)>
+  # elm_177 = PHI <parent_61(48), parent_61(84)>
+
+  <bb 108> [100.00%]:
+  # parent_61 = PHI <parent_59(33), parent_176(107)>
+  # elm_63 = PHI <child_60(33), elm_177(107)>
+  if (elm_63 == 0B)
+    goto <bb 110>; [30.00%]
+  else
+    goto <bb 109>; [70.00%]
+
+  <bb 109> [70.00%]:
+  _173 = elm_63->entry.rbe_color;
+  if (_173 == 0)
+    goto <bb 110>; [97.50%]
+  else
+    goto <bb 111>; [2.50%]
+
+  <bb 110> [98.25%]:
+  _174 = wwl_12(D)->rbh_root;
+  if (elm_63 != _174)
+    goto <bb 34>; [97.50%]
+  else
+    goto <bb 111>; [2.50%]
+
+  <bb 111> [7.53%]:
+  # elm_175 = PHI <elm_117(70), elm_172(106), elm_63(109), elm_63(110)>
+  if (elm_175 != 0B)
+    goto <bb 112>; [73.26%]
+  else
+    goto <bb 113>; [26.74%]
+
+  <bb 112> [5.52%]:
+  elm_175->entry.rbe_color = 0;
+
+  <bb 113> [20.55%]:
+  _1 = wl_10(D)->status_text;
+  if (_1 != 0B)
+    goto <bb 114>; [53.47%]
+  else
+    goto <bb 115>; [46.53%]
+
+  <bb 114> [10.99%]:
+  _2 = wl_10(D)->status_text;
+  free (_2);
+
+  <bb 115> [20.55%]:
+  free (wl_10(D));
+  _3 = w_11->references;
+  if (_3 == 0)
+    goto <bb 116>; [0.04%]
+  else
+    goto <bb 117>; [99.96%]
+
+  <bb 116> [0.01%]:
+  _19 = __printf_chk (1, "bad reference count%s\n", "");
+  exit (1);
+
+  <bb 117> [20.54%]:
+  _4 = w_11->references;
+  _5 = _4 + 4294967295;
+  w_11->references = _5;
+  _6 = w_11->references;
+  if (_6 == 0)
+    goto <bb 120>; [36.64%]
+  else
+    goto <bb 133>; [63.36%]
+
+  <bb 118> [48.22%]:
+  _199 = windows.list;
+  _200 = i_338;
+  _201 = (long unsigned int) i_338;
+  _202 = _201 * 8;
+  _203 = _199 + _202;
+  _204 = *_203;
+  if (w_11 == _204)
+    goto <bb 121>; [7.50%]
+  else
+    goto <bb 119>; [92.50%]
+
+  <bb 119> [44.61%]:
+  _205 = i_338;
+  _206 = i_338 + 1;
+  i_340 = _206;
+
+  <bb 120> [52.13%]:
+  # i_338 = PHI <0(117), i_340(119)>
+  _207 = i_338;
+  _208 = windows.num;
+  if (_208 > i_338)
+    goto <bb 118>; [92.50%]
+  else
+    goto <bb 121>; [7.50%]
+
+  <bb 121> [7.53%]:
+  # _209 = PHI <0(118), -1(120)>
+  if (_209 != 0)
+    goto <bb 122>; [0.04%]
+  else
+    goto <bb 123>; [99.96%]
+
+  <bb 122> [0.00%]:
+  _179 = __printf_chk (1, "index not found%s\n", "");
+  exit (1);
+
+  <bb 123> [7.52%]:
+  _180 = windows.list;
+  _181 = i_338;
+  _182 = (long unsigned int) i_338;
+  _183 = _182 * 8;
+  _184 = _180 + _183;
+  *_184 = 0B;
+  goto <bb 128>; [100.00%]
+
+  <bb 124> [44.59%]:
+  _185 = windows.num;
+  if (_185 > 1)
+    goto <bb 125>; [78.31%]
+  else
+    goto <bb 126>; [21.69%]
+
+  <bb 125> [34.92%]:
+  _186 = windows.num;
+  _187 = _186 + 4294967295;
+  windows.num = _187;
+  goto <bb 127>; [100.00%]
+
+  <bb 126> [9.67%]:
+  _188 = windows.list;
+  free (_188);
+  windows.num = 0;
+  windows.list = 0B;
+  windows.space = 0;
+
+  <bb 127> [44.59%]:
+
+  <bb 128> [52.11%]:
+  _189 = windows.num;
+  if (_189 != 0)
+    goto <bb 129>; [92.50%]
+  else
+    goto <bb 130>; [7.50%]
+
+  <bb 129> [48.20%]:
+  _190 = windows.list;
+  _191 = windows.num;
+  _192 = _191 + 4294967295;
+  _193 = (long unsigned int) _192;
+  _194 = _193 * 8;
+  _195 = _190 + _194;
+  _196 = *_195;
+  if (_196 == 0B)
+    goto <bb 124>; [92.50%]
+  else
+    goto <bb 130>; [7.50%]
+
+  <bb 130> [7.52%]:
+  _197 = w_11->name;
+  if (_197 != 0B)
+    goto <bb 131>; [57.44%]
+  else
+    goto <bb 132>; [42.56%]
+
+  <bb 131> [4.32%]:
+  _198 = w_11->name;
+  free (_198);
+
+  <bb 132> [7.52%]:
+  free (w_11);
+
+  <bb 133> [20.54%]:
+  return;
+
+}
+
+
+
+;; Function session_destroy (session_destroy, funcdef_no=20, decl_uid=4458, cgraph_uid=19, symbol_order=84)
+
+
+Not re-computing points-to information because IPA points-to information is available.
+
+
+
+Alias information for session_destroy
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to anything, points-to NULL
+
+Flow-insensitive points-to information
+
+_1, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_3, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_7, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_11, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_13, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_18, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_19, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_20, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_21, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_22, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_23, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_24, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_25, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_26, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+s_31(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_69, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_73, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_74, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+sg_80, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_81, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_82, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_83, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_84, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_85, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_86, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_87, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_88, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_89, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_90, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_91, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_92, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_93, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_94, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_95, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_96, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_97, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_98, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_99, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_100, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_101, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_102, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_103, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_104, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_105, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_106, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_107, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+
+session_destroy (struct session * s)
+{
+  struct session_group * sg;
+  int D.4691;
+  u_int i;
+  char * _1;
+  struct session * * _3;
+  unsigned int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  struct session * * _7;
+  unsigned int _8;
+  unsigned int _9;
+  unsigned int _10;
+  struct session * * _11;
+  unsigned int _12;
+  struct session * * _13;
+  unsigned int _14;
+  unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  struct session * * _18;
+  struct session * _19;
+  struct winlink * _20;
+  struct winlink_stack * _21;
+  struct winlink * _22;
+  struct winlink * _23;
+  struct winlinks * _24;
+  struct winlink * _25;
+  char * _26;
+  int _46;
+  int _47;
+  struct session * * _69;
+  unsigned int _70;
+  long unsigned int _71;
+  long unsigned int _72;
+  struct session * * _73;
+  struct session * _74;
+  unsigned int _75;
+  unsigned int _76;
+  unsigned int _77;
+  unsigned int _78;
+  int _79;
+  struct session * _81;
+  struct session * _82;
+  struct session * * _83;
+  struct session * * _84;
+  struct session * * _85;
+  struct session * _86;
+  struct session * _87;
+  struct session * _88;
+  struct session * _89;
+  struct session * _90;
+  struct session * _91;
+  struct session * _92;
+  struct session * _93;
+  struct session * * _94;
+  struct session * _95;
+  struct session * * _96;
+  struct session * _97;
+  struct session * _98;
+  struct session * * _99;
+  struct session * _100;
+  struct session * _101;
+  struct session_group * _102;
+  struct session_group * _103;
+  struct session_group * * _104;
+  struct session_group * * _105;
+  struct session_group * * _106;
+  struct session_group * _107;
+
+  <bb 2> [14.44%]:
+  _1 = s_31(D)->name;
+  _46 = __printf_chk (1, "session %s destroyed\n", _1);
+  goto <bb 5>; [100.00%]
+
+  <bb 3> [92.50%]:
+  _69 = sessions.list;
+  _70 = i_126;
+  _71 = (long unsigned int) i_126;
+  _72 = _71 * 8;
+  _73 = _69 + _72;
+  _74 = *_73;
+  if (s_31(D) == _74)
+    goto <bb 6>; [7.50%]
+  else
+    goto <bb 4>; [92.50%]
+
+  <bb 4> [85.56%]:
+  _75 = i_126;
+  _76 = i_126 + 1;
+  i_128 = _76;
+
+  <bb 5> [100.00%]:
+  # i_126 = PHI <0(2), i_128(4)>
+  _77 = i_126;
+  _78 = sessions.num;
+  if (_78 > i_126)
+    goto <bb 3>; [92.50%]
+  else
+    goto <bb 6>; [7.50%]
+
+  <bb 6> [14.44%]:
+  # _79 = PHI <0(3), -1(5)>
+  if (_79 != 0)
+    goto <bb 7>; [0.04%]
+  else
+    goto <bb 8>; [99.96%]
+
+  <bb 7> [0.01%]:
+  _47 = __printf_chk (1, "session not found%s\n", "");
+  exit (1);
+
+  <bb 8> [14.43%]:
+  _3 = sessions.list;
+  _4 = i_126;
+  _5 = (long unsigned int) i_126;
+  _6 = _5 * 8;
+  _7 = _3 + _6;
+  *_7 = 0B;
+  goto <bb 13>; [100.00%]
+
+  <bb 9> [85.53%]:
+  _8 = sessions.num;
+  if (_8 > 1)
+    goto <bb 10>; [78.31%]
+  else
+    goto <bb 11>; [21.69%]
+
+  <bb 10> [66.98%]:
+  _9 = sessions.num;
+  _10 = _9 + 4294967295;
+  sessions.num = _10;
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [18.55%]:
+  _11 = sessions.list;
+  free (_11);
+  sessions.num = 0;
+  sessions.list = 0B;
+  sessions.space = 0;
+
+  <bb 12> [85.53%]:
+
+  <bb 13> [99.96%]:
+  _12 = sessions.num;
+  if (_12 != 0)
+    goto <bb 14>; [92.50%]
+  else
+    goto <bb 15>; [7.50%]
+
+  <bb 14> [92.46%]:
+  _13 = sessions.list;
+  _14 = sessions.num;
+  _15 = _14 + 4294967295;
+  _16 = (long unsigned int) _15;
+  _17 = _16 * 8;
+  _18 = _13 + _17;
+  _19 = *_18;
+  if (_19 == 0B)
+    goto <bb 9>; [92.50%]
+  else
+    goto <bb 15>; [7.50%]
+
+  <bb 15> [14.43%]:
+  sg_80 = session_group_find (s_31(D));
+  if (sg_80 == 0B)
+    goto <bb 30>; [26.74%]
+  else
+    goto <bb 16>; [73.26%]
+
+  <bb 16> [10.57%]:
+  _81 = s_31(D)->gentry.tqe_next;
+  if (_81 != 0B)
+    goto <bb 17>; [70.00%]
+  else
+    goto <bb 18>; [30.00%]
+
+  <bb 17> [7.40%]:
+  _82 = s_31(D)->gentry.tqe_next;
+  _83 = s_31(D)->gentry.tqe_prev;
+  _82->gentry.tqe_prev = _83;
+  goto <bb 19>; [100.00%]
+
+  <bb 18> [3.17%]:
+  _84 = s_31(D)->gentry.tqe_prev;
+  sg_80->sessions.tqh_last = _84;
+
+  <bb 19> [10.57%]:
+  _85 = s_31(D)->gentry.tqe_prev;
+  _86 = s_31(D)->gentry.tqe_next;
+  *_85 = _86;
+  _87 = sg_80->sessions.tqh_first;
+  _88 = _87->gentry.tqe_next;
+  if (_88 == 0B)
+    goto <bb 20>; [30.00%]
+  else
+    goto <bb 24>; [70.00%]
+
+  <bb 20> [3.17%]:
+  _89 = sg_80->sessions.tqh_first;
+  _90 = _89->gentry.tqe_next;
+  if (_90 != 0B)
+    goto <bb 21>; [70.00%]
+  else
+    goto <bb 22>; [30.00%]
+
+  <bb 21> [2.22%]:
+  _91 = sg_80->sessions.tqh_first;
+  _92 = sg_80->sessions.tqh_first;
+  _93 = _92->gentry.tqe_next;
+  _94 = _91->gentry.tqe_prev;
+  _93->gentry.tqe_prev = _94;
+  goto <bb 23>; [100.00%]
+
+  <bb 22> [0.95%]:
+  _95 = sg_80->sessions.tqh_first;
+  _96 = _95->gentry.tqe_prev;
+  sg_80->sessions.tqh_last = _96;
+
+  <bb 23> [3.17%]:
+  _97 = sg_80->sessions.tqh_first;
+  _98 = sg_80->sessions.tqh_first;
+  _99 = _98->gentry.tqe_prev;
+  _100 = _97->gentry.tqe_next;
+  *_99 = _100;
+
+  <bb 24> [10.57%]:
+  _101 = sg_80->sessions.tqh_first;
+  if (_101 == 0B)
+    goto <bb 25>; [33.47%]
+  else
+    goto <bb 30>; [66.53%]
+
+  <bb 25> [3.54%]:
+  _102 = sg_80->entry.tqe_next;
+  if (_102 != 0B)
+    goto <bb 26>; [70.00%]
+  else
+    goto <bb 27>; [30.00%]
+
+  <bb 26> [2.48%]:
+  _103 = sg_80->entry.tqe_next;
+  _104 = sg_80->entry.tqe_prev;
+  _103->entry.tqe_prev = _104;
+  goto <bb 28>; [100.00%]
+
+  <bb 27> [1.06%]:
+  _105 = sg_80->entry.tqe_prev;
+  session_groups.tqh_last = _105;
+
+  <bb 28> [3.54%]:
+  _106 = sg_80->entry.tqe_prev;
+  _107 = sg_80->entry.tqe_next;
+  *_106 = _107;
+  free (sg_80);
+  goto <bb 30>; [100.00%]
+
+  <bb 29> [81.78%]:
+  _20 = s_31(D)->lastw.tqh_first;
+  _21 = &s_31(D)->lastw;
+  winlink_stack_remove (_21, _20);
+  goto <bb 31>; [100.00%]
+
+  <bb 30> [14.43%]:
+
+  <bb 31> [96.21%]:
+  _22 = s_31(D)->lastw.tqh_first;
+  if (_22 != 0B)
+    goto <bb 29>; [85.00%]
+  else
+    goto <bb 33>; [15.00%]
+
+  <bb 32> [81.78%]:
+  _23 = s_31(D)->windows.rbh_root;
+  _24 = &s_31(D)->windows;
+  winlink_remove (_24, _23);
+
+  <bb 33> [96.21%]:
+  _25 = s_31(D)->windows.rbh_root;
+  if (_25 != 0B)
+    goto <bb 32>; [85.00%]
+  else
+    goto <bb 34>; [15.00%]
+
+  <bb 34> [14.43%]:
+  _26 = s_31(D)->name;
+  free (_26);
+  free (s_31(D));
+  return;
+
+}
+
+
+
+;; Function winlink_add (winlink_add, funcdef_no=7, decl_uid=4469, cgraph_uid=31, symbol_order=72)
+
+
+Not re-computing points-to information because IPA points-to information is available.
+
+
+
+Alias information for winlink_add
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to anything, points-to NULL
+
+Flow-insensitive points-to information
+
+_2, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_6, points-to NULL, points-to vars: { D.4881 } (nonlocal, escaped, escaped heap)
+wwl_11(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_16, points-to NULL, points-to vars: { D.4881 } (nonlocal, escaped, escaped heap)
+w_18(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_22, points-to NULL, points-to vars: { D.4881 } (nonlocal, escaped, escaped heap)
+elm_31, points-to anything, points-to NULL
+_34, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_38, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_39, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_40, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_42, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_43, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_44, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_45, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_46, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_48, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_49, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_50, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_55, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+gparent_56, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_57, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_58, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_60, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_61, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_62, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_63, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_64, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_65, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_66, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_67, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_68, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_69, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_70, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_71, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_72, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_73, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_74, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_75, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_76, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_77, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_78, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_79, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_80, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_81, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_82, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_83, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_84, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_85, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_87, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_88, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_89, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_90, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_91, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_92, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_93, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_94, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_95, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_96, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_97, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_98, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_99, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_100, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_101, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_102, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_103, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_104, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_105, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_106, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_107, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_108, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_109, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_110, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_111, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_113, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_114, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_115, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+elm_116, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+
+winlink_add (struct winlinks * wwl, struct window * w, int idx)
+{
+  struct winlink * parent;
+  struct winlink * gparent;
+  struct winlink * tmp;
+  struct winlink * elm;
+  int D.4589;
+  struct winlink * tmp;
+  struct winlink * parent;
+  int comp;
+  struct winlink * D.4586;
+  int i;
+  int D.4573;
+  struct winlink * wl;
+  int _1;
+  struct winlink * _2;
+  unsigned int _3;
+  unsigned int _4;
+  struct winlink * _6;
+  struct winlink * _22;
+  struct winlink * _34;
+  int _37;
+  struct winlink * _44;
+  struct winlink * _46;
+  struct winlink * _48;
+  int _52;
+  int _53;
+  int _54;
+  struct winlink * _57;
+  int _59;
+  struct winlink * _60;
+  struct winlink * _63;
+  struct winlink * _64;
+  struct winlink * _65;
+  struct winlink * _66;
+  struct winlink * _67;
+  struct winlink * _68;
+  struct winlink * _69;
+  struct winlink * _70;
+  struct winlink * _71;
+  struct winlink * _72;
+  struct winlink * _75;
+  struct winlink * _76;
+  struct winlink * _77;
+  struct winlink * _78;
+  struct winlink * _79;
+  struct winlink * _80;
+  struct winlink * _81;
+  struct winlink * _82;
+  struct winlink * _83;
+  struct winlink * _84;
+  int _86;
+  struct winlink * _87;
+  struct winlink * _89;
+  struct winlink * _90;
+  struct winlink * _91;
+  struct winlink * _92;
+  struct winlink * _93;
+  struct winlink * _94;
+  struct winlink * _95;
+  struct winlink * _96;
+  struct winlink * _97;
+  struct winlink * _98;
+  struct winlink * _102;
+  struct winlink * _103;
+  struct winlink * _104;
+  struct winlink * _105;
+  struct winlink * _106;
+  struct winlink * _107;
+  struct winlink * _108;
+  struct winlink * _109;
+  struct winlink * _110;
+  struct winlink * _111;
+  int _112;
+  struct winlink * _113;
+
+  <bb 2> [13.84%]:
+  if (idx_9(D) < 0)
+    goto <bb 3>; [36.00%]
+  else
+    goto <bb 9>; [64.00%]
+
+  <bb 3> [4.98%]:
+  _1 = ~idx_9(D);
+
+  <bb 4> [34.52%]:
+  # i_33 = PHI <_1(3), i_36(7)>
+  _34 = winlink_find_by_index (wwl_11(D), i_33);
+  if (_34 == 0B)
+    goto <bb 8>; [7.50%]
+  else
+    goto <bb 5>; [92.50%]
+
+  <bb 5> [31.93%]:
+  if (i_33 == 10000)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 6> [21.07%]:
+  i_35 = i_33 + 1;
+
+  <bb 7> [31.93%]:
+  # i_36 = PHI <0(5), i_35(6)>
+  if (_1 != i_36)
+    goto <bb 4>; [92.50%]
+  else
+    goto <bb 8>; [7.50%]
+
+  <bb 8> [4.98%]:
+  # _37 = PHI <i_33(4), -1(7)>
+  if (_37 == -1)
+    goto <bb 70>; [4.85%]
+  else
+    goto <bb 10>; [95.15%]
+
+  <bb 9> [8.86%]:
+  _2 = winlink_find_by_index (wwl_11(D), idx_9(D));
+  if (_2 != 0B)
+    goto <bb 70>; [18.75%]
+  else
+    goto <bb 10>; [81.25%]
+
+  <bb 10> [11.94%]:
+  # idx_5 = PHI <_37(8), idx_9(D)(9)>
+  wl_16 = calloc (1, 136);
+  wl_16->idx = idx_5;
+  wl_16->window = w_18(D);
+  tmp_38 = wwl_11(D)->rbh_root;
+  goto <bb 17>; [100.00%]
+
+  <bb 11> [92.50%]:
+  parent_40 = tmp_39;
+  _52 = wl_16->idx;
+  _53 = parent_40->idx;
+  _54 = _52 - _53;
+  if (_54 < 0)
+    goto <bb 12>; [36.00%]
+  else
+    goto <bb 13>; [64.00%]
+
+  <bb 12> [33.30%]:
+  tmp_42 = tmp_39->entry.rbe_left;
+  goto <bb 16>; [100.00%]
+
+  <bb 13> [59.20%]:
+  if (_54 > 0)
+    goto <bb 14>; [92.50%]
+  else
+    goto <bb 15>; [7.50%]
+
+  <bb 14> [54.76%]:
+  tmp_43 = tmp_39->entry.rbe_right;
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [4.44%]:
+  _44 = tmp_39;
+  goto <bb 69>; [100.00%]
+
+  <bb 16> [88.06%]:
+  # tmp_49 = PHI <tmp_42(12), tmp_43(14)>
+  # parent_50 = PHI <tmp_39(12), tmp_39(14)>
+
+  <bb 17> [100.00%]:
+  # tmp_39 = PHI <tmp_38(10), tmp_49(16)>
+  # parent_45 = PHI <0B(10), parent_50(16)>
+  # comp_47 = PHI <0(10), _54(16)>
+  if (tmp_39 != 0B)
+    goto <bb 11>; [92.50%]
+  else
+    goto <bb 18>; [7.50%]
+
+  <bb 18> [7.50%]:
+  wl_16->entry.rbe_parent = parent_45;
+  wl_16->entry.rbe_right = 0B;
+  _46 = wl_16->entry.rbe_right;
+  wl_16->entry.rbe_left = _46;
+  wl_16->entry.rbe_color = 1;
+  if (parent_45 != 0B)
+    goto <bb 19>; [70.00%]
+  else
+    goto <bb 22>; [30.00%]
+
+  <bb 19> [5.25%]:
+  if (comp_47 < 0)
+    goto <bb 20>; [36.00%]
+  else
+    goto <bb 21>; [64.00%]
+
+  <bb 20> [1.89%]:
+  parent_45->entry.rbe_left = wl_16;
+  goto <bb 65>; [100.00%]
+
+  <bb 21> [3.36%]:
+  parent_45->entry.rbe_right = wl_16;
+  goto <bb 65>; [100.00%]
+
+  <bb 22> [2.25%]:
+  wwl_11(D)->rbh_root = wl_16;
+  goto <bb 65>; [100.00%]
+
+  <bb 23> [44.45%]:
+  gparent_56 = parent_55->entry.rbe_parent;
+  _57 = gparent_56->entry.rbe_left;
+  if (parent_55 == _57)
+    goto <bb 24>; [30.00%]
+  else
+    goto <bb 44>; [70.00%]
+
+  <bb 24> [13.33%]:
+  tmp_58 = gparent_56->entry.rbe_right;
+  if (tmp_58 != 0B)
+    goto <bb 25>; [70.00%]
+  else
+    goto <bb 27>; [30.00%]
+
+  <bb 25> [9.33%]:
+  _59 = tmp_58->entry.rbe_color;
+  if (_59 == 1)
+    goto <bb 26>; [20.24%]
+  else
+    goto <bb 27>; [79.76%]
+
+  <bb 26> [1.89%]:
+  tmp_58->entry.rbe_color = 0;
+  parent_55->entry.rbe_color = 0;
+  gparent_56->entry.rbe_color = 1;
+  goto <bb 64>; [100.00%]
+
+  <bb 27> [11.45%]:
+  _60 = parent_55->entry.rbe_right;
+  if (_60 == elm_61)
+    goto <bb 28>; [30.00%]
+  else
+    goto <bb 36>; [70.00%]
+
+  <bb 28> [3.43%]:
+  tmp_62 = parent_55->entry.rbe_right;
+  _63 = tmp_62->entry.rbe_left;
+  parent_55->entry.rbe_right = _63;
+  _64 = parent_55->entry.rbe_right;
+  if (_64 != 0B)
+    goto <bb 29>; [70.00%]
+  else
+    goto <bb 30>; [30.00%]
+
+  <bb 29> [2.40%]:
+  _65 = tmp_62->entry.rbe_left;
+  _65->entry.rbe_parent = parent_55;
+
+  <bb 30> [3.43%]:
+  _66 = parent_55->entry.rbe_parent;
+  tmp_62->entry.rbe_parent = _66;
+  _67 = tmp_62->entry.rbe_parent;
+  if (_67 != 0B)
+    goto <bb 31>; [70.00%]
+  else
+    goto <bb 34>; [30.00%]
+
+  <bb 31> [2.40%]:
+  _68 = parent_55->entry.rbe_parent;
+  _69 = _68->entry.rbe_left;
+  if (parent_55 == _69)
+    goto <bb 32>; [30.00%]
+  else
+    goto <bb 33>; [70.00%]
+
+  <bb 32> [0.72%]:
+  _70 = parent_55->entry.rbe_parent;
+  _70->entry.rbe_left = tmp_62;
+  goto <bb 35>; [100.00%]
+
+  <bb 33> [1.68%]:
+  _71 = parent_55->entry.rbe_parent;
+  _71->entry.rbe_right = tmp_62;
+  goto <bb 35>; [100.00%]
+
+  <bb 34> [1.03%]:
+  wwl_11(D)->rbh_root = tmp_62;
+
+  <bb 35> [3.43%]:
+  tmp_62->entry.rbe_left = parent_55;
+  parent_55->entry.rbe_parent = tmp_62;
+  _72 = tmp_62->entry.rbe_parent;
+
+  <bb 36> [11.45%]:
+  # elm_114 = PHI <elm_61(27), parent_55(35)>
+  # parent_73 = PHI <parent_55(27), elm_61(35)>
+  parent_73->entry.rbe_color = 0;
+  gparent_56->entry.rbe_color = 1;
+  tmp_74 = gparent_56->entry.rbe_left;
+  _75 = tmp_74->entry.rbe_right;
+  gparent_56->entry.rbe_left = _75;
+  _76 = gparent_56->entry.rbe_left;
+  if (_76 != 0B)
+    goto <bb 37>; [70.00%]
+  else
+    goto <bb 38>; [30.00%]
+
+  <bb 37> [8.01%]:
+  _77 = tmp_74->entry.rbe_right;
+  _77->entry.rbe_parent = gparent_56;
+
+  <bb 38> [11.45%]:
+  _78 = gparent_56->entry.rbe_parent;
+  tmp_74->entry.rbe_parent = _78;
+  _79 = tmp_74->entry.rbe_parent;
+  if (_79 != 0B)
+    goto <bb 39>; [70.00%]
+  else
+    goto <bb 42>; [30.00%]
+
+  <bb 39> [8.01%]:
+  _80 = gparent_56->entry.rbe_parent;
+  _81 = _80->entry.rbe_left;
+  if (gparent_56 == _81)
+    goto <bb 40>; [30.00%]
+  else
+    goto <bb 41>; [70.00%]
+
+  <bb 40> [2.40%]:
+  _82 = gparent_56->entry.rbe_parent;
+  _82->entry.rbe_left = tmp_74;
+  goto <bb 43>; [100.00%]
+
+  <bb 41> [5.61%]:
+  _83 = gparent_56->entry.rbe_parent;
+  _83->entry.rbe_right = tmp_74;
+  goto <bb 43>; [100.00%]
+
+  <bb 42> [3.43%]:
+  wwl_11(D)->rbh_root = tmp_74;
+
+  <bb 43> [11.45%]:
+  tmp_74->entry.rbe_right = gparent_56;
+  gparent_56->entry.rbe_parent = tmp_74;
+  _84 = tmp_74->entry.rbe_parent;
+  goto <bb 64>; [100.00%]
+
+  <bb 44> [31.11%]:
+  tmp_85 = gparent_56->entry.rbe_left;
+  if (tmp_85 != 0B)
+    goto <bb 45>; [70.00%]
+  else
+    goto <bb 47>; [30.00%]
+
+  <bb 45> [21.78%]:
+  _86 = tmp_85->entry.rbe_color;
+  if (_86 == 1)
+    goto <bb 46>; [20.24%]
+  else
+    goto <bb 47>; [79.76%]
+
+  <bb 46> [4.41%]:
+  tmp_85->entry.rbe_color = 0;
+  parent_55->entry.rbe_color = 0;
+  gparent_56->entry.rbe_color = 1;
+  goto <bb 64>; [100.00%]
+
+  <bb 47> [26.71%]:
+  _87 = parent_55->entry.rbe_left;
+  if (elm_61 == _87)
+    goto <bb 48>; [30.00%]
+  else
+    goto <bb 56>; [70.00%]
+
+  <bb 48> [8.01%]:
+  tmp_88 = parent_55->entry.rbe_left;
+  _89 = tmp_88->entry.rbe_right;
+  parent_55->entry.rbe_left = _89;
+  _90 = parent_55->entry.rbe_left;
+  if (_90 != 0B)
+    goto <bb 49>; [70.00%]
+  else
+    goto <bb 50>; [30.00%]
+
+  <bb 49> [5.61%]:
+  _91 = tmp_88->entry.rbe_right;
+  _91->entry.rbe_parent = parent_55;
+
+  <bb 50> [8.01%]:
+  _92 = parent_55->entry.rbe_parent;
+  tmp_88->entry.rbe_parent = _92;
+  _93 = tmp_88->entry.rbe_parent;
+  if (_93 != 0B)
+    goto <bb 51>; [70.00%]
+  else
+    goto <bb 54>; [30.00%]
+
+  <bb 51> [5.61%]:
+  _94 = parent_55->entry.rbe_parent;
+  _95 = _94->entry.rbe_left;
+  if (parent_55 == _95)
+    goto <bb 52>; [30.00%]
+  else
+    goto <bb 53>; [70.00%]
+
+  <bb 52> [1.68%]:
+  _96 = parent_55->entry.rbe_parent;
+  _96->entry.rbe_left = tmp_88;
+  goto <bb 55>; [100.00%]
+
+  <bb 53> [3.93%]:
+  _97 = parent_55->entry.rbe_parent;
+  _97->entry.rbe_right = tmp_88;
+  goto <bb 55>; [100.00%]
+
+  <bb 54> [2.40%]:
+  wwl_11(D)->rbh_root = tmp_88;
+
+  <bb 55> [8.01%]:
+  tmp_88->entry.rbe_right = parent_55;
+  parent_55->entry.rbe_parent = tmp_88;
+  _98 = tmp_88->entry.rbe_parent;
+  parent_99 = elm_61;
+
+  <bb 56> [26.71%]:
+  # elm_115 = PHI <elm_61(47), parent_55(55)>
+  # parent_100 = PHI <parent_55(47), elm_61(55)>
+  parent_100->entry.rbe_color = 0;
+  gparent_56->entry.rbe_color = 1;
+  tmp_101 = gparent_56->entry.rbe_right;
+  _102 = tmp_101->entry.rbe_left;
+  gparent_56->entry.rbe_right = _102;
+  _103 = gparent_56->entry.rbe_right;
+  if (_103 != 0B)
+    goto <bb 57>; [70.00%]
+  else
+    goto <bb 58>; [30.00%]
+
+  <bb 57> [18.69%]:
+  _104 = tmp_101->entry.rbe_left;
+  _104->entry.rbe_parent = gparent_56;
+
+  <bb 58> [26.71%]:
+  _105 = gparent_56->entry.rbe_parent;
+  tmp_101->entry.rbe_parent = _105;
+  _106 = tmp_101->entry.rbe_parent;
+  if (_106 != 0B)
+    goto <bb 59>; [70.00%]
+  else
+    goto <bb 62>; [30.00%]
+
+  <bb 59> [18.69%]:
+  _107 = gparent_56->entry.rbe_parent;
+  _108 = _107->entry.rbe_left;
+  if (gparent_56 == _108)
+    goto <bb 60>; [30.00%]
+  else
+    goto <bb 61>; [70.00%]
+
+  <bb 60> [5.61%]:
+  _109 = gparent_56->entry.rbe_parent;
+  _109->entry.rbe_left = tmp_101;
+  goto <bb 63>; [100.00%]
+
+  <bb 61> [13.09%]:
+  _110 = gparent_56->entry.rbe_parent;
+  _110->entry.rbe_right = tmp_101;
+  goto <bb 63>; [100.00%]
+
+  <bb 62> [8.01%]:
+  wwl_11(D)->rbh_root = tmp_101;
+
+  <bb 63> [26.71%]:
+  tmp_101->entry.rbe_left = gparent_56;
+  gparent_56->entry.rbe_parent = tmp_101;
+  _111 = tmp_101->entry.rbe_parent;
+
+  <bb 64> [44.45%]:
+  # elm_116 = PHI <gparent_56(26), elm_114(43), gparent_56(46), elm_115(63)>
+  goto <bb 66>; [100.00%]
+
+  <bb 65> [7.50%]:
+  # elm_31 = PHI <wl_16(20), wl_16(22), wl_16(21)>
+
+  <bb 66> [51.95%]:
+  # elm_61 = PHI <wl_16(65), elm_116(64)>
+  parent_55 = elm_61->entry.rbe_parent;
+  if (parent_55 != 0B)
+    goto <bb 67>; [92.50%]
+  else
+    goto <bb 68>; [7.50%]
+
+  <bb 67> [48.05%]:
+  _112 = parent_55->entry.rbe_color;
+  if (_112 == 1)
+    goto <bb 23>; [92.50%]
+  else
+    goto <bb 68>; [7.50%]
+
+  <bb 68> [7.50%]:
+  _113 = wwl_11(D)->rbh_root;
+  _113->entry.rbe_color = 0;
+
+  <bb 69> [11.94%]:
+  # _48 = PHI <tmp_39(15), 0B(68)>
+  _3 = w_18(D)->references;
+  _4 = _3 + 1;
+  w_18(D)->references = _4;
+  _22 = wl_16;
+
+  <bb 70> [13.84%]:
+  # _6 = PHI <0B(8), 0B(9), wl_16(69)>
+  return _6;
+
+}
+
+
+
+;; Function session_group_synchronize1 (session_group_synchronize1, funcdef_no=17, decl_uid=4462, cgraph_uid=23, symbol_order=81)
+
+
+Not re-computing points-to information because IPA points-to information is available.
+
+
+
+Alias information for session_group_synchronize1
+
+Aliased symbols
+
+old_windows, UID D.4663, struct winlinks, is addressable
+
+Call clobber information
+
+ESCAPED, points-to anything, points-to NULL
+
+Flow-insensitive points-to information
+
+_1, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_3, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_4, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_5, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_7, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_8, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_9, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_10, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_11, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_12, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_13, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_14, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+target_20(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+s_23(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_26, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_30, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_34, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl2_37, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_42, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_44, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_68, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_69, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_70, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_71, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_73, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_74, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_77, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+
+session_group_synchronize1 (struct session * target, struct session * s)
+{
+  struct winlink * tmp;
+  struct winlink * parent;
+  struct winlink * D.4675;
+  struct winlink * wl2;
+  struct winlink * wl;
+  struct winlink_stack old_lastw;
+  struct winlinks * ww;
+  struct winlinks old_windows;
+  struct winlink * _1;
+  int _2;
+  struct window * _3;
+  struct winlinks * _4;
+  struct winlink * * _5;
+  int _6;
+  struct winlinks * _7;
+  struct winlink * * _8;
+  struct winlink * * _9;
+  struct winlink * * _10;
+  struct winlink * _11;
+  struct winlink * _12;
+  uint128_t _24;
+  long unsigned int _27;
+  struct winlink * _74;
+
+  <bb 2> [28.05%]:
+  _1 = MEM[(struct winlinks *)target_20(D) + 40B].rbh_root;
+  if (_1 == 0B)
+    goto <bb 18>; [46.53%]
+  else
+    goto <bb 3>; [53.47%]
+
+  <bb 3> [15.00%]:
+  _27 = MEM[(char * {ref-all})s_23(D) + 40B];
+  MEM[(char * {ref-all})&old_windows] = _27;
+  s_23(D)->windows.rbh_root = 0B;
+  tmp_68 = MEM[(struct winlinks *)target_20(D) + 40B].rbh_root;
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [85.00%]:
+  parent_70 = tmp_69;
+  tmp_71 = tmp_69->entry.rbe_left;
+
+  <bb 5> [100.00%]:
+  # tmp_69 = PHI <tmp_68(3), tmp_71(4)>
+  # parent_73 = PHI <0B(3), parent_70(4)>
+  if (tmp_69 != 0B)
+    goto <bb 4>; [85.00%]
+  else
+    goto <bb 6>; [15.00%]
+
+  <bb 6> [15.00%]:
+  _74 = parent_73;
+  _77 = parent_73;
+  wl_26 = parent_73;
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [85.00%]:
+  _2 = wl_13->idx;
+  _3 = wl_13->window;
+  _4 = &s_23(D)->windows;
+  winlink_add (_4, _3, _2);
+  wl_44 = winlinks_RB_NEXT (wl_13);
+
+  <bb 8> [100.00%]:
+  # wl_13 = PHI <parent_73(6), wl_44(7)>
+  if (wl_13 != 0B)
+    goto <bb 7>; [85.00%]
+  else
+    goto <bb 9>; [15.00%]
+
+  <bb 9> [15.00%]:
+  _24 = MEM[(char * {ref-all})s_23(D) + 24B];
+  MEM[(char * {ref-all})&old_lastw] = _24;
+  s_23(D)->lastw.tqh_first = 0B;
+  _5 = &s_23(D)->lastw.tqh_first;
+  s_23(D)->lastw.tqh_last = _5;
+  wl_30 = old_lastw.tqh_first;
+  goto <bb 13>; [100.00%]
+
+  <bb 10> [85.00%]:
+  _6 = wl_14->idx;
+  _7 = &s_23(D)->windows;
+  wl2_37 = winlink_find_by_index (_7, _6);
+  if (wl2_37 != 0B)
+    goto <bb 11>; [70.00%]
+  else
+    goto <bb 12>; [30.00%]
+
+  <bb 11> [59.50%]:
+  wl2_37->sentry.tqe_next = 0B;
+  _8 = s_23(D)->lastw.tqh_last;
+  wl2_37->sentry.tqe_prev = _8;
+  _9 = s_23(D)->lastw.tqh_last;
+  *_9 = wl2_37;
+  _10 = &wl2_37->sentry.tqe_next;
+  s_23(D)->lastw.tqh_last = _10;
+
+  <bb 12> [85.00%]:
+  wl_42 = wl_14->sentry.tqe_next;
+
+  <bb 13> [100.00%]:
+  # wl_14 = PHI <wl_30(9), wl_42(12)>
+  if (wl_14 != 0B)
+    goto <bb 10>; [85.00%]
+  else
+    goto <bb 14>; [15.00%]
+
+  <bb 14> [15.00%]:
+  _11 = s_23(D)->lastw.tqh_first;
+  s_23(D)->curw = _11;
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [85.00%]:
+  wl_34 = old_windows.rbh_root;
+  winlink_remove (&old_windows, wl_34);
+
+  <bb 16> [100.00%]:
+  _12 = old_windows.rbh_root;
+  if (_12 != 0B)
+    goto <bb 15>; [85.00%]
+  else
+    goto <bb 17>; [15.00%]
+
+  <bb 17> [15.00%]:
+  old_windows ={v} {CLOBBER};
+  old_lastw ={v} {CLOBBER};
+  goto <bb 19>; [100.00%]
+
+  <bb 18> [13.05%]:
+  old_windows ={v} {CLOBBER};
+  old_lastw ={v} {CLOBBER};
+
+  <bb 19> [28.05%]:
+  return;
+
+}
+
+
+
+;; Function session_group_synchronize_from (session_group_synchronize_from, funcdef_no=19, decl_uid=4461, cgraph_uid=22, symbol_order=83)
+
+
+Not re-computing points-to information because IPA points-to information is available.
+
+
+
+Alias information for session_group_synchronize_from
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to anything, points-to NULL
+
+Flow-insensitive points-to information
+
+s_1, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+target_6(D), points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+sg_7, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+s_8, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+s_10, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+
+session_group_synchronize_from (struct session * target)
+{
+  struct session * s;
+  struct session_group * sg;
+
+  <bb 2> [20.48%]:
+  sg_7 = session_group_find (target_6(D));
+  if (sg_7 == 0B)
+    goto <bb 8>; [26.74%]
+  else
+    goto <bb 3>; [73.26%]
+
+  <bb 3> [15.00%]:
+  s_8 = sg_7->sessions.tqh_first;
+  goto <bb 7>; [100.00%]
+
+  <bb 4> [85.00%]:
+  if (s_1 != target_6(D))
+    goto <bb 5>; [53.47%]
+  else
+    goto <bb 6>; [46.53%]
+
+  <bb 5> [45.45%]:
+  session_group_synchronize1 (target_6(D), s_1);
+
+  <bb 6> [85.00%]:
+  s_10 = s_1->gentry.tqe_next;
+
+  <bb 7> [100.00%]:
+  # s_1 = PHI <s_8(3), s_10(6)>
+  if (s_1 != 0B)
+    goto <bb 4>; [85.00%]
+  else
+    goto <bb 8>; [15.00%]
+
+  <bb 8> [20.48%]:
+  return;
+
+}
+
+
+
+;; Function xrealloc (xrealloc, funcdef_no=1, decl_uid=4487, cgraph_uid=41, symbol_order=63)
+
+
+Not re-computing points-to information because IPA points-to information is available.
+
+
+
+Alias information for xrealloc
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to anything, points-to NULL
+
+Flow-insensitive points-to information
+
+oldptr_6(D), points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+newptr_8, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_9, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+
+xrealloc (void * oldptr, size_t nmemb, size_t size)
+{
+  void * newptr;
+  size_t newsize;
+  long unsigned int _1;
+  void * _9;
+  int _13;
+  int _14;
+  int _15;
+
+  <bb 2> [100.00%]:
+  newsize_4 = nmemb_2(D) * size_3(D);
+  if (newsize_4 == 0)
+    goto <bb 3>; [0.04%]
+  else
+    goto <bb 4>; [99.96%]
+
+  <bb 3> [0.04%]:
+  _13 = __printf_chk (1, "zero size%s", "");
+  exit (1);
+
+  <bb 4> [99.96%]:
+  _1 = 1073741824 / nmemb_2(D);
+  if (_1 < size_3(D))
+    goto <bb 5>; [0.04%]
+  else
+    goto <bb 6>; [99.96%]
+
+  <bb 5> [0.04%]:
+  _14 = __printf_chk (1, "nmemb * size > SIZE_MAX%s", "");
+  exit (1);
+
+  <bb 6> [99.92%]:
+  newptr_8 = realloc (oldptr_6(D), newsize_4);
+  if (newptr_8 == 0B)
+    goto <bb 7>; [0.04%]
+  else
+    goto <bb 8>; [99.96%]
+
+  <bb 7> [0.04%]:
+  _15 = __printf_chk (1, "xrealloc failed%s", "");
+  exit (1);
+
+  <bb 8> [99.88%]:
+  _9 = newptr_8;
+  return newptr_8;
+
+}
+
+
+
+;; Function window_create1 (window_create1, funcdef_no=25, decl_uid=4455, cgraph_uid=16, symbol_order=90)
+
+
+Not re-computing points-to information because IPA points-to information is available.
+
+
+
+Alias information for window_create1
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to anything, points-to NULL
+
+Flow-insensitive points-to information
+
+_1, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_4, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_5, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_6, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_9, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_18, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_19, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_21, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_22, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_30, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_34, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+w_43, points-to NULL, points-to vars: { D.4882 } (nonlocal, escaped, escaped heap)
+_66, points-to NULL, points-to vars: { D.4882 } (nonlocal, escaped, escaped heap)
+
+window_create1 (u_int sx, u_int sy)
+{
+  u_int i;
+  struct window * w;
+  struct window * * _1;
+  long unsigned int _2;
+  long unsigned int _3;
+  struct window * * _4;
+  struct window * _5;
+  struct window * * _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  struct window * * _9;
+  unsigned int _10;
+  unsigned int _11;
+  unsigned int _12;
+  unsigned int _13;
+  unsigned int _14;
+  unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  struct window * * _18;
+  void * _19;
+  long unsigned int _20;
+  struct window * * _21;
+  void * _22;
+  long unsigned int _23;
+  long unsigned int _24;
+  long unsigned int _25;
+  unsigned int _26;
+  unsigned int _27;
+  long unsigned int _28;
+  long unsigned int _29;
+  struct window * * _30;
+  unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  struct window * * _34;
+  unsigned int _35;
+  unsigned int _36;
+  struct window * _66;
+  int _68;
+  int _69;
+
+  <bb 2> [14.44%]:
+  w_43 = malloc (88);
+  w_43->name = 0B;
+  w_43->flags = 0;
+  w_43->active = 0B;
+  w_43->lastlayout = -1;
+  w_43->layout_root = 0B;
+  w_43->sx = sx_49(D);
+  w_43->sy = sy_51(D);
+  goto <bb 6>; [100.00%]
+
+  <bb 3> [92.50%]:
+  _1 = windows.list;
+  _2 = (long unsigned int) i_37;
+  _3 = _2 * 8;
+  _4 = _1 + _3;
+  _5 = *_4;
+  if (_5 == 0B)
+    goto <bb 4>; [7.50%]
+  else
+    goto <bb 5>; [92.50%]
+
+  <bb 4> [6.94%]:
+  _6 = windows.list;
+  _7 = (long unsigned int) i_37;
+  _8 = _7 * 8;
+  _9 = _6 + _8;
+  *_9 = w_43;
+  goto <bb 7>; [100.00%]
+
+  <bb 5> [85.56%]:
+  i_53 = i_37 + 1;
+
+  <bb 6> [100.00%]:
+  # i_37 = PHI <0(2), i_53(5)>
+  _10 = windows.num;
+  if (_10 > i_37)
+    goto <bb 3>; [92.50%]
+  else
+    goto <bb 7>; [7.50%]
+
+  <bb 7> [14.44%]:
+  _11 = windows.num;
+  if (_11 == i_37)
+    goto <bb 8>; [37.68%]
+  else
+    goto <bb 18>; [62.32%]
+
+  <bb 8> [5.44%]:
+  _12 = windows.num;
+  if (_12 > 1073741823)
+    goto <bb 9>; [0.04%]
+  else
+    goto <bb 10>; [99.96%]
+
+  <bb 9> [0.00%]:
+  _68 = __printf_chk (1, "number too big%s", "");
+  exit (1);
+
+  <bb 10> [5.44%]:
+  _13 = windows.num;
+  _14 = _13 + 1;
+  _15 = 1073741824 / _14;
+  if (_15 <= 7)
+    goto <bb 11>; [0.04%]
+  else
+    goto <bb 12>; [99.96%]
+
+  <bb 11> [0.00%]:
+  _69 = __printf_chk (1, "size too big%s", "");
+  exit (1);
+
+  <bb 12> [5.44%]:
+  _16 = windows.space;
+  if (_16 == 0)
+    goto <bb 13>; [33.00%]
+  else
+    goto <bb 14>; [67.00%]
+
+  <bb 13> [1.79%]:
+  windows.space = 80;
+  _17 = windows.space;
+  _18 = windows.list;
+  _19 = xrealloc (_18, 1, _17);
+  windows.list = _19;
+
+  <bb 14> [5.44%]:
+  goto <bb 16>; [100.00%]
+
+  <bb 15> [30.80%]:
+  _20 = windows.space;
+  _21 = windows.list;
+  _22 = xrealloc (_21, 2, _20);
+  windows.list = _22;
+  _23 = windows.space;
+  _24 = _23 * 2;
+  windows.space = _24;
+
+  <bb 16> [36.24%]:
+  _25 = windows.space;
+  _26 = windows.num;
+  _27 = _26 + 1;
+  _28 = (long unsigned int) _27;
+  _29 = _28 * 8;
+  if (_25 <= _29)
+    goto <bb 15>; [85.00%]
+  else
+    goto <bb 17>; [15.00%]
+
+  <bb 17> [5.44%]:
+  _30 = windows.list;
+  _31 = windows.num;
+  _32 = (long unsigned int) _31;
+  _33 = _32 * 8;
+  _34 = _30 + _33;
+  *_34 = w_43;
+  _35 = windows.num;
+  _36 = _35 + 1;
+  windows.num = _36;
+
+  <bb 18> [14.43%]:
+  w_43->references = 0;
+  _66 = w_43;
+  return w_43;
+
+}
+
+
+
+;; Function main (main, funcdef_no=26, decl_uid=3986, cgraph_uid=0, symbol_order=94) (executed once)
 
 
 Not re-computing points-to information because IPA points-to information is available.
@@ -41,6 +3258,7 @@ Alias information for main
 
 Aliased symbols
 
+dst_s, UID D.4823, struct session *, is addressable
 
 Call clobber information
 
@@ -48,243 +3266,895 @@ ESCAPED, points-to anything, points-to NULL
 
 Flow-insensitive points-to information
 
-_5, points-to NULL, points-to vars: { D.4023 } (nonlocal)
-_6, points-to NULL, points-to vars: { D.4025 } (nonlocal)
-_9, points-to NULL, points-to vars: { D.4024 } (nonlocal)
-_10, points-to NULL, points-to vars: { D.4026 } (nonlocal)
-_11, points-to NULL, points-to vars: { D.4027 } (nonlocal)
-_14, points-to NULL, points-to vars: { D.4024 } (nonlocal)
-_15, points-to NULL, points-to vars: { D.4025 D.4026 D.4027 } (nonlocal)
-_18, points-to NULL, points-to vars: { D.4022 } (nonlocal)
-_19, points-to NULL, points-to vars: { D.4023 } (nonlocal)
-p100_23, points-to NULL, points-to vars: { D.4028 D.4029 } (nonlocal)
-p6_36, points-to NULL, points-to vars: { D.4020 } (nonlocal)
-q_37, points-to NULL, points-to vars: { D.4020 } (nonlocal)
-p6_39, points-to NULL, points-to vars: { D.4020 D.4021 } (nonlocal)
-p9_44, points-to NULL, points-to vars: { D.4022 } (nonlocal)
-p_49, points-to NULL, points-to vars: { D.4024 } (nonlocal)
-p100_57, points-to NULL, points-to vars: { D.4028 } (nonlocal)
-p100_59, points-to NULL, points-to vars: { D.4029 } (nonlocal)
-p5_62(D), points-to NULL, points-to vars: { }
-p4_70(D), points-to NULL, points-to vars: { }
-p3_75(D), points-to NULL, points-to vars: { }
+_3, points-to non-local, points-to NULL, points-to vars: { }
+_4, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { }
+_9, points-to non-local, points-to NULL, points-to vars: { }
+_10, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { }
+_13, points-to non-local, points-to NULL, points-to vars: { }
+_14, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { }
+_21, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_23, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_24, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+target_26, points-to NULL, points-to vars: { D.4883 } (nonlocal)
+cmd_27, points-to NULL, points-to vars: { D.4884 } (nonlocal)
+argv_48(D), points-to non-local, points-to NULL, points-to vars: { }
+target_50, points-to NULL, points-to vars: { D.4883 } (nonlocal)
+cmd_53, points-to NULL, points-to vars: { D.4884 } (nonlocal)
+name_56, points-to NULL, points-to vars: { D.4885 } (nonlocal)
+s_61, points-to NULL, points-to vars: { D.4886 } (nonlocal, escaped, escaped heap)
+w_63, points-to NULL, points-to vars: { D.4882 } (nonlocal, escaped, escaped heap)
+_99, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_103, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+s_104, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_105, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_109, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_110, points-to NULL, points-to vars: { D.4886 } (nonlocal, escaped, escaped heap)
+wl_111, points-to NULL, points-to vars: { D.4881 } (nonlocal, escaped, escaped heap)
+s_113, points-to NULL, points-to vars: { D.4886 } (nonlocal, escaped, escaped heap)
+_114, points-to NULL, points-to vars: { D.4886 } (nonlocal, escaped, escaped heap)
+_115, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_119, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_120, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_121, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_124, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_136, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_137, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_139, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_140, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_148, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_152, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_156, points-to NULL, points-to vars: { D.4887 } (nonlocal, escaped, escaped heap)
+_158, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_160, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_162, points-to NULL, points-to vars: { D.4886 } (nonlocal, escaped, escaped heap)
+_163, points-to NULL, points-to vars: { D.4886 } (nonlocal, escaped, escaped heap)
+w_166, points-to NULL, points-to vars: { D.4882 } (nonlocal, escaped, escaped heap)
+_168, points-to NULL, points-to vars: { D.4881 } (nonlocal, escaped, escaped heap)
+_169, points-to NULL, points-to vars: { D.4886 } (nonlocal, escaped, escaped heap)
+wl_170, points-to NULL, points-to vars: { D.4881 } (nonlocal, escaped, escaped heap)
+sg_172, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+target_173, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+target_174, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+target_175, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+sg_176, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+sg_177, points-to NULL, points-to vars: { D.4888 } (nonlocal, escaped, escaped heap)
+_178, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_179, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_180, points-to NULL, points-to vars: { D.4888 } (nonlocal, escaped, escaped heap)
+_181, points-to NULL, points-to vars: { D.4888 } (nonlocal, escaped, escaped heap)
+_182, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_183, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_184, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+sg_185, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_186, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_187, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_188, points-to NULL, points-to vars: { D.4886 } (nonlocal, escaped, escaped heap)
+dst_wl_189, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+dst_w_190, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+src_wl_191, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+src_w_192, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_195, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_197, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+_201, points-to non-local, points-to NULL, points-to vars: { D.4880 } (nonlocal)
+s_202, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+wl_204, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_210, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_211, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_212, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_213, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_215, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_216, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_217, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_218, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_220, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_221, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_224, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_225, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4882 D.4886 } (nonlocal, escaped, escaped heap)
+_226, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+sg_228, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_229, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_230, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_231, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_232, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_233, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_234, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_235, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_236, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_237, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+wl_238, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_239, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_240, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_241, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_242, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+tmp_243, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+parent_245, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_246, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_268, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_270, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_271, points-to non-local, points-to unit escaped, points-to NULL, points-to vars: { D.4510 D.4881 D.4882 D.4886 D.4887 D.4888 } (nonlocal, escaped, escaped heap)
+_319, points-to NULL, points-to vars: { D.4886 } (nonlocal, escaped, escaped heap)
 
-main ()
+main (int argc, char * * argv)
 {
+  struct winlink * tmp;
+  struct winlink * parent;
+  struct winlink * D.4879;
+  struct winlink * wl;
+  struct winlink * D.4874;
+  struct session_group * sg;
+  int D.4859;
+  struct winlink * tmp;
+  struct winlink * parent;
+  struct winlink * D.4852;
+  struct winlink * wl;
+  int D.4847;
+  struct session * s;
+  struct winlink * wl;
+  u_int i;
+  struct session * dst_s;
+  struct winlink * src_wl;
+  struct winlink * dst_wl;
+  struct window * src_w;
+  struct window * dst_w;
+  int D.4828;
+  struct session_group * sg;
+  struct session_group * sg;
+  struct session * target;
+  struct winlink * wl;
+  struct winlink * D.4799;
+  struct window * w;
+  struct winlink * D.4793;
+  struct session * s;
+  u_int i;
+  struct session * D.4776;
+  struct winlink * wl;
+  struct winlink * D.4751;
+  struct session * s;
+  u_int i;
+  struct session * D.4738;
   int i;
-  int i;
-  int * p100;
-  struct st * p;
-  struct st * p9;
-  int * p6;
-  int * q;
-  int test5;
-  int test3;
-  int test2;
-  int test;
-  int * p5;
-  int * p4;
-  int * p3;
-  long int _1;
-  int _2;
-  long int _3;
-  int _4;
-  void * _5;
-  void * _6;
+  int sy;
+  int sx;
+  int idx;
+  char * name;
+  char * cmd;
+  char * target;
+  struct window * w;
+  struct session * groupwith;
+  struct session * s;
+  long unsigned int _1;
+  long unsigned int _2;
+  char * * _3;
+  char * _4;
+  char _5;
+  long unsigned int _6;
   long unsigned int _7;
-  long unsigned int _8;
-  struct st * _9;
-  void * _10;
-  void * _11;
+  sizetype _8;
+  char * * _9;
+  char * _10;
+  long unsigned int _11;
   long unsigned int _12;
-  long unsigned int _13;
-  struct st * _14;
-  int * _15;
-  long unsigned int _16;
-  long unsigned int _17;
-  struct st * _18;
-  int * _19;
+  char * * _13;
+  char * _14;
+  unsigned int _15;
+  unsigned int _16;
+  int _17;
+  unsigned int _18;
+  unsigned int _19;
   int _20;
-  int _24;
+  struct winlink * _21;
+  int _22;
+  struct session * * _23;
+  struct session * _24;
+  unsigned int _25;
+  struct session * * _99;
+  long unsigned int _101;
+  long unsigned int _102;
+  struct session * * _103;
+  char * _105;
+  int _106;
+  unsigned int _108;
+  struct session * _109;
+  struct winlinks * _110;
+  int _112;
+  struct winlink * * _114;
+  struct session * * _115;
+  long unsigned int _117;
+  long unsigned int _118;
+  struct session * * _119;
+  struct session * _120;
+  struct session * * _121;
+  long unsigned int _122;
+  long unsigned int _123;
+  struct session * * _124;
+  unsigned int _126;
+  unsigned int _127;
+  unsigned int _128;
+  int _129;
+  unsigned int _130;
+  unsigned int _131;
+  unsigned int _132;
+  int _133;
+  long unsigned int _134;
+  long unsigned int _135;
+  struct session * * _136;
+  void * _137;
+  long unsigned int _138;
+  struct session * * _139;
+  void * _140;
+  long unsigned int _141;
+  long unsigned int _142;
+  long unsigned int _143;
+  unsigned int _144;
+  unsigned int _145;
+  long unsigned int _146;
+  long unsigned int _147;
+  struct session * * _148;
+  unsigned int _149;
+  long unsigned int _150;
+  long unsigned int _151;
+  struct session * * _152;
+  unsigned int _153;
+  unsigned int _154;
+  int _155;
+  char * _156;
+  struct winlink * _158;
+  int _159;
+  char * _160;
+  int _161;
+  struct session * _162;
+  struct session * _163;
+  unsigned int _164;
+  unsigned int _165;
+  struct winlink * _168;
+  struct winlinks * _169;
+  int _171;
+  struct session_group * * _178;
+  struct session_group * * _179;
+  struct session_group * * _180;
+  struct session * * _181;
+  struct session * * _182;
+  struct session * * _183;
+  struct session * * _184;
+  struct session * * _186;
+  struct session * * _187;
+  struct session * * _188;
+  int _193;
+  int _194;
+  struct session * _195;
+  int _196;
+  struct session * * _197;
+  long unsigned int _199;
+  long unsigned int _200;
+  struct session * * _201;
+  int _203;
+  int _205;
+  unsigned int _208;
+  struct window * _212;
+  int _214;
+  struct winlink * _221;
+  struct winlink_stack * _224;
+  struct winlinks * _225;
+  struct winlink * _226;
+  int _227;
+  struct session_group * _229;
+  struct session_group * _230;
+  struct session_group * * _231;
+  struct session_group * * _232;
+  struct session_group * * _233;
+  struct session_group * _234;
+  struct window * _237;
+  struct winlink * _239;
+  struct winlink * _246;
 
-  <bb 2> [9.09%]:
-  p6_36 = malloc (100);
-  q_37 = p6_36;
-  p6_39 = realloc (p6_36, 100);
-  _1 = (long int) "0";
-  _2 = (int) _1;
-  *q_37 = _2;
-  _3 = (long int) "0";
-  _4 = (int) _3;
-  MEM[(int *)q_37 + 4B] = _4;
-  free (p6_39);
-  p9_44 = malloc (0);
-  _5 = malloc (1);
-  MEM[(struct st *)p9_44 + 48B].f = _5;
-  free (p9_44);
-  p_49 = malloc (10);
-  _6 = malloc (1);
-  MEM[(struct st *)p_49 + 48B].f = _6;
-  goto <bb 4>; [100.00%]
+  <bb 2> [1.07%]:
+  windows.num = 0;
+  windows.list = 0B;
+  windows.space = 0;
+  sessions.num = 0;
+  sessions.list = 0B;
+  sessions.space = 0;
+  session_groups.tqh_first = 0B;
+  session_groups.tqh_last = &session_groups.tqh_first;
+  goto <bb 53>; [100.00%]
 
-  <bb 3> [90.91%]:
-  _7 = (long unsigned int) i_21;
-  _8 = _7 * 16;
-  _9 = p_49 + _8;
-  _10 = malloc (1);
-  _9->f = _10;
-  i_87 = i_21 + 1;
-
-  <bb 4> [100.00%]:
-  # i_21 = PHI <0(2), i_87(3)>
-  if (i_21 <= 9)
-    goto <bb 3>; [90.91%]
+  <bb 3> [6.03%]:
+  _1 = (long unsigned int) i_29;
+  _2 = _1 * 8;
+  _3 = argv_48(D) + _2;
+  _4 = *_3;
+  _5 = *_4;
+  if (_5 == 116)
+    goto <bb 4>; [34.00%]
   else
-    goto <bb 5>; [9.09%]
+    goto <bb 6>; [66.00%]
 
-  <bb 5> [9.09%]:
-  _11 = malloc (1);
-  MEM[(struct st *)p_49 + 32B].f = _11;
-  foo (p_49);
-  if (test_55(D) != 0)
-    goto <bb 31>; [31.00%]
+  <bb 4> [2.05%]:
+  if (i_29 > 0)
+    goto <bb 5>; [97.72%]
   else
-    goto <bb 33>; [69.00%]
+    goto <bb 6>; [2.28%]
 
-  <bb 33> [6.27%]:
-  goto <bb 7>; [100.00%]
+  <bb 5> [2.00%]:
+  _6 = (long unsigned int) i_29;
+  _7 = _6 * 8;
+  _8 = _7 + 18446744073709551608;
+  _9 = argv_48(D) + _8;
+  _10 = *_9;
+  target_50 = strdup (_10);
 
-  <bb 6> [62.73%]:
-  _12 = (long unsigned int) i_22;
-  _13 = _12 * 16;
-  _14 = p_49 + _13;
-  _15 = _14->f;
-  free (_15);
-  _16 = (long unsigned int) i_22;
-  _17 = _16 * 16;
-  _18 = p9_44 + _17;
-  _19 = _18->f;
-  free (_19);
-  i_84 = i_22 + 1;
+  <bb 6> [6.03%]:
+  # target_26 = PHI <0B(3), 0B(4), target_50(5)>
+  goto <bb 10>; [100.00%]
 
-  <bb 7> [69.00%]:
-  # i_22 = PHI <0(33), i_84(6)>
-  if (i_22 <= 9)
-    goto <bb 6>; [90.91%]
+  <bb 7> [45.16%]:
+  _99 = sessions.list;
+  _101 = (long unsigned int) i_100;
+  _102 = _101 * 8;
+  _103 = _99 + _102;
+  s_104 = *_103;
+  if (s_104 != 0B)
+    goto <bb 8>; [70.00%]
   else
-    goto <bb 8>; [9.09%]
+    goto <bb 9>; [30.00%]
 
-  <bb 8> [6.27%]:
-  p100_57 = malloc (1);
-  if (test_55(D) != 0)
-    goto <bb 9>; [33.00%]
+  <bb 8> [31.61%]:
+  _105 = s_104->name;
+  _106 = strcmp (_105, target_26);
+  if (_106 == 0)
+    goto <bb 11>; [7.50%]
   else
-    goto <bb 10>; [67.00%]
+    goto <bb 9>; [92.50%]
 
-  <bb 9> [2.07%]:
-  p100_59 = malloc (2);
-  free (p100_59);
+  <bb 9> [42.79%]:
+  i_107 = i_100 + 1;
 
-  <bb 10> [6.27%]:
-  # p100_23 = PHI <p100_57(8), p100_59(9)>
-  free (p100_23);
-
-label2 [11.28%]:
-  foo (p5_62(D));
-  goto <bb 32>; [100.00%]
-
-label3 [66.83%]:
-
-  <bb 32> [78.11%]:
-  foo (p5_62(D));
-  _20 = test5_65(D) / 10;
-  switch (_20) <default: <L4> [33.33%], case 5: <L2> [33.33%], case 10: <L3> [33.33%]>
-
-<L2> [26.04%]:
-  foo (p5_62(D));
-  goto <bb 16>; [100.00%]
-
-<L3> [26.04%]:
-  foo (p5_62(D));
-  goto <bb 16>; [100.00%]
-
-<L4> [26.04%]:
-  foo (p5_62(D));
-
-  <bb 16> [78.11%]:
-  if (test_55(D) != 0)
-    goto <bb 17>; [92.50%]
+  <bb 10> [48.82%]:
+  # i_100 = PHI <0(6), i_107(9)>
+  _108 = sessions.num;
+  if (i_100 < _108)
+    goto <bb 7>; [92.50%]
   else
-    goto <bb 26>; [7.50%]
+    goto <bb 11>; [7.50%]
 
-  <bb 17> [72.25%]:
-  if (test_55(D) > test2_69(D))
+  <bb 11> [6.03%]:
+  # _109 = PHI <s_104(8), 0B(10)>
+  if (target_26 == 0B)
+    goto <bb 12>; [17.43%]
+  else
+    goto <bb 13>; [82.57%]
+
+  <bb 12> [1.05%]:
+  cmd_53 = strdup ("cmd");
+
+  <bb 13> [6.03%]:
+  # cmd_27 = PHI <0B(11), cmd_53(12)>
+  free (target_26);
+  _11 = (long unsigned int) i_29;
+  _12 = _11 * 8;
+  _13 = argv_48(D) + _12;
+  _14 = *_13;
+  name_56 = strdup (_14);
+  _15 = (unsigned int) sy_57(D);
+  _16 = (unsigned int) sx_58(D);
+  _17 = idx_28;
+  idx_59 = idx_28 + 1;
+  s_113 = malloc (112);
+  s_113->references = 0;
+  s_113->flags = 0;
+  s_113->curw = 0B;
+  s_113->lastw.tqh_first = 0B;
+  _114 = &s_113->lastw.tqh_first;
+  s_113->lastw.tqh_last = _114;
+  s_113->windows.rbh_root = 0B;
+  s_113->tio = 0B;
+  s_113->sx = _16;
+  s_113->sy = _15;
+  goto <bb 17>; [100.00%]
+
+  <bb 14> [38.65%]:
+  _115 = sessions.list;
+  _117 = (long unsigned int) i_116;
+  _118 = _117 * 8;
+  _119 = _115 + _118;
+  _120 = *_119;
+  if (_120 == 0B)
+    goto <bb 15>; [7.50%]
+  else
+    goto <bb 16>; [92.50%]
+
+  <bb 15> [2.90%]:
+  _121 = sessions.list;
+  _122 = (long unsigned int) i_116;
+  _123 = _122 * 8;
+  _124 = _121 + _123;
+  *_124 = s_113;
+  goto <bb 18>; [100.00%]
+
+  <bb 16> [35.75%]:
+  i_125 = i_116 + 1;
+
+  <bb 17> [41.78%]:
+  # i_116 = PHI <0(13), i_125(16)>
+  _126 = sessions.num;
+  if (i_116 < _126)
+    goto <bb 14>; [92.50%]
+  else
     goto <bb 18>; [7.50%]
+
+  <bb 18> [6.03%]:
+  _127 = sessions.num;
+  if (i_116 == _127)
+    goto <bb 19>; [34.00%]
   else
-    goto <bb 21>; [92.50%]
+    goto <bb 29>; [66.00%]
 
-  <bb 18> [5.42%]:
-  foo (p_49);
-  if (test_55(D) < test2_69(D))
-    goto <bb 19>; [50.00%]
+  <bb 19> [2.05%]:
+  _128 = sessions.num;
+  if (_128 > 1073741823)
+    goto <bb 20>; [0.04%]
   else
-    goto <bb 20>; [50.00%]
+    goto <bb 21>; [99.96%]
 
-  <bb 19> [2.71%]:
-  foo (p_49);
-  goto <bb 24>; [100.00%]
+  <bb 20> [0.00%]:
+  _129 = __printf_chk (1, "number too big%s", "");
+  exit (1);
 
-  <bb 20> [2.71%]:
-  foo (p_49);
-  goto <bb 24>; [100.00%]
-
-  <bb 21> [66.83%]:
-  foo (p_49);
-  if (test_55(D) < test2_69(D))
-    goto <bb 22>; [50.00%]
+  <bb 21> [2.05%]:
+  _130 = sessions.num;
+  _131 = _130 + 1;
+  _132 = 1073741824 / _131;
+  if (_132 <= 7)
+    goto <bb 22>; [0.04%]
   else
-    goto <bb 23>; [50.00%]
+    goto <bb 23>; [99.96%]
 
-  <bb 22> [33.41%]:
-  foo (p3_75(D));
-  goto <bb 12> (label3); [100.00%]
+  <bb 22> [0.00%]:
+  _133 = __printf_chk (1, "size too big%s", "");
+  exit (1);
 
-  <bb 23> [33.41%]:
-  foo (p5_62(D));
-  goto <bb 12> (label3); [100.00%]
-
-  <bb 24> [5.42%]:
-  if (test3_80(D) != 0)
-    goto <bb 25>; [92.50%]
+  <bb 23> [2.05%]:
+  _134 = sessions.space;
+  if (_134 == 0)
+    goto <bb 24>; [33.00%]
   else
-    goto <bb 31>; [7.50%]
+    goto <bb 26>; [67.00%]
 
-  <bb 25> [5.01%]:
-  foo (p_49);
-  goto <bb 11> (label2); [100.00%]
+  <bb 24> [0.68%]:
+  sessions.space = 80;
+  _135 = sessions.space;
+  _136 = sessions.list;
+  _137 = xrealloc (_136, 1, _135);
+  sessions.list = _137;
+  goto <bb 26>; [100.00%]
 
-  <bb 26> [5.86%]:
-  if (test_55(D) == test2_69(D))
-    goto <bb 27>; [17.77%]
+  <bb 25> [11.61%]:
+  _138 = sessions.space;
+  _139 = sessions.list;
+  _140 = xrealloc (_139, 2, _138);
+  sessions.list = _140;
+  _141 = sessions.space;
+  _142 = _141 * 2;
+  sessions.space = _142;
+  goto <bb 27>; [100.00%]
+
+  <bb 26> [2.05%]:
+
+  <bb 27> [13.66%]:
+  _143 = sessions.space;
+  _144 = sessions.num;
+  _145 = _144 + 1;
+  _146 = (long unsigned int) _145;
+  _147 = _146 * 8;
+  if (_143 <= _147)
+    goto <bb 25>; [85.00%]
   else
-    goto <bb 28>; [82.23%]
+    goto <bb 28>; [15.00%]
 
-  <bb 27> [1.04%]:
-  foo (p_49);
-  goto <bb 31>; [100.00%]
+  <bb 28> [2.05%]:
+  _148 = sessions.list;
+  _149 = sessions.num;
+  _150 = (long unsigned int) _149;
+  _151 = _150 * 8;
+  _152 = _148 + _151;
+  *_152 = s_113;
+  _153 = sessions.num;
+  _154 = _153 + 1;
+  sessions.num = _154;
 
-  <bb 28> [4.82%]:
-  if (test_55(D) > test2_69(D))
-    goto <bb 29>; [36.64%]
+  <bb 29> [6.03%]:
+  if (name_56 == 0B)
+    goto <bb 30>; [0.04%]
   else
-    goto <bb 31>; [63.36%]
+    goto <bb 31>; [99.96%]
 
-  <bb 29> [1.76%]:
-  foo (p4_70(D));
+  <bb 30> [0.00%]:
+  _155 = __printf_chk (1, "no name%s\n", "");
+  exit (1);
 
-  <bb 31> [9.08%]:
-  # _24 = PHI <200(5), 0(24), 0(27), 0(28), 0(29)>
-  return _24;
+  <bb 31> [6.03%]:
+  _156 = strdup (name_56);
+  s_113->name = _156;
+  if (cmd_27 != 0B)
+    goto <bb 32>; [70.00%]
+  else
+    goto <bb 39>; [30.00%]
+
+  <bb 32> [4.22%]:
+  _164 = s_113->sy;
+  _165 = s_113->sx;
+  w_166 = window_create1 (_165, _164);
+  if (w_166 == 0B)
+    goto <bb 36>; [7.92%]
+  else
+    goto <bb 33>; [92.08%]
+
+  <bb 33> [3.89%]:
+  _169 = &s_113->windows;
+  wl_170 = winlink_add (_169, w_166, _17);
+  if (wl_170 == 0B)
+    goto <bb 34>; [19.86%]
+  else
+    goto <bb 35>; [80.14%]
+
+  <bb 34> [0.77%]:
+  _171 = __printf_chk (1, "index in use: %d\n", idx_28);
+
+  <bb 35> [3.89%]:
+  session_group_synchronize_from (s_113);
+
+  <bb 36> [4.22%]:
+  # _168 = PHI <0B(32), wl_170(35)>
+  if (_168 == 0B)
+    goto <bb 37>; [4.07%]
+  else
+    goto <bb 38>; [95.93%]
+
+  <bb 37> [0.17%]:
+  session_destroy (s_113);
+  goto <bb 40>; [100.00%]
+
+  <bb 38> [4.05%]:
+  _158 = s_113->windows.rbh_root;
+  _159 = _158->idx;
+  session_select (s_113, _159);
+
+  <bb 39> [5.86%]:
+  _160 = s_113->name;
+  _161 = __printf_chk (1, "session %s created\n", _160);
+  _162 = s_113;
+
+  <bb 40> [6.03%]:
+  # _163 = PHI <0B(37), s_113(39)>
+  _319 = _163;
+  s_61 = _163;
+  _18 = (unsigned int) sy_57(D);
+  _19 = (unsigned int) sx_58(D);
+  w_63 = window_create1 (_19, _18);
+  _20 = idx_59;
+  idx_64 = idx_28 + 2;
+  _110 = &s_61->windows;
+  wl_111 = winlink_add (_110, w_63, _20);
+  if (wl_111 == 0B)
+    goto <bb 41>; [19.86%]
+  else
+    goto <bb 42>; [80.14%]
+
+  <bb 41> [1.20%]:
+  _112 = __printf_chk (1, "index in use: %d\n", idx_59);
+
+  <bb 42> [6.03%]:
+  session_group_synchronize_from (s_61);
+  free (cmd_27);
+  if (_109 != 0B)
+    goto <bb 43>; [53.47%]
+  else
+    goto <bb 52>; [46.53%]
+
+  <bb 43> [3.22%]:
+  sg_176 = session_group_find (_109);
+  if (sg_176 == 0B)
+    goto <bb 44>; [19.86%]
+  else
+    goto <bb 45>; [80.14%]
+
+  <bb 44> [0.64%]:
+  sg_177 = malloc (32);
+  sg_177->entry.tqe_next = 0B;
+  _178 = session_groups.tqh_last;
+  sg_177->entry.tqe_prev = _178;
+  _179 = session_groups.tqh_last;
+  *_179 = sg_177;
+  _180 = &sg_177->entry.tqe_next;
+  session_groups.tqh_last = _180;
+  sg_177->sessions.tqh_first = 0B;
+  _181 = &sg_177->sessions.tqh_first;
+  sg_177->sessions.tqh_last = _181;
+  _109->gentry.tqe_next = 0B;
+  _182 = sg_177->sessions.tqh_last;
+  _109->gentry.tqe_prev = _182;
+  _183 = sg_177->sessions.tqh_last;
+  *_183 = _109;
+  _184 = &_109->gentry.tqe_next;
+  sg_177->sessions.tqh_last = _184;
+
+  <bb 45> [3.22%]:
+  # sg_185 = PHI <sg_176(43), sg_177(44)>
+  s_61->gentry.tqe_next = 0B;
+  _186 = sg_185->sessions.tqh_last;
+  s_61->gentry.tqe_prev = _186;
+  _187 = sg_185->sessions.tqh_last;
+  *_187 = _163;
+  _188 = &s_61->gentry.tqe_next;
+  sg_185->sessions.tqh_last = _188;
+  sg_172 = session_group_find (s_61);
+  if (sg_172 == 0B)
+    goto <bb 51>; [26.74%]
+  else
+    goto <bb 46>; [73.26%]
+
+  <bb 46> [2.36%]:
+  target_173 = sg_172->sessions.tqh_first;
+  goto <bb 49>; [100.00%]
+
+  <bb 47> [15.13%]:
+  if (_163 != target_174)
+    goto <bb 50>; [7.50%]
+  else
+    goto <bb 48>; [92.50%]
+
+  <bb 48> [14.00%]:
+  target_175 = target_174->gentry.tqe_next;
+
+  <bb 49> [16.36%]:
+  # target_174 = PHI <target_173(46), target_175(48)>
+  if (target_174 != 0B)
+    goto <bb 47>; [92.50%]
+  else
+    goto <bb 50>; [7.50%]
+
+  <bb 50> [2.36%]:
+  session_group_synchronize1 (target_174, s_61);
+
+  <bb 51> [3.22%]:
+  _21 = s_61->windows.rbh_root;
+  _22 = _21->idx;
+  session_select (s_61, _22);
+
+  <bb 52> [6.03%]:
+  i_70 = i_29 + 1;
+
+  <bb 53> [7.10%]:
+  # idx_28 = PHI <0(2), idx_64(52)>
+  # i_29 = PHI <0(2), i_70(52)>
+  if (i_29 < argc_44(D))
+    goto <bb 3>; [85.00%]
+  else
+    goto <bb 54>; [15.00%]
+
+  <bb 54> [1.06%]:
+  dst_wl_189 = cmd_find_pane (0, &dst_s);
+  if (dst_wl_189 == 0B)
+    goto <bb 86>; [1.74%]
+  else
+    goto <bb 55>; [98.26%]
+
+  <bb 55> [1.05%]:
+  dst_w_190 = dst_wl_189->window;
+  src_wl_191 = cmd_find_pane (1, 0B);
+  if (src_wl_191 == 0B)
+    goto <bb 86>; [0.87%]
+  else
+    goto <bb 56>; [99.13%]
+
+  <bb 56> [1.04%]:
+  src_w_192 = src_wl_191->window;
+  if (dst_w_190 == src_w_192)
+    goto <bb 57>; [0.87%]
+  else
+    goto <bb 84>; [99.13%]
+
+  <bb 57> [0.01%]:
+  _193 = __printf_chk (1, "can\'t join a pane to its own window\n");
+  goto <bb 86>; [100.00%]
+
+  <bb 58> [5.82%]:
+  _197 = sessions.list;
+  _199 = (long unsigned int) i_198;
+  _200 = _199 * 8;
+  _201 = _197 + _200;
+  s_202 = *_201;
+  if (s_202 == 0B)
+    goto <bb 83>; [30.00%]
+  else
+    goto <bb 59>; [70.00%]
+
+  <bb 59> [4.08%]:
+  tmp_215 = MEM[(struct winlinks *)s_202 + 40B].rbh_root;
+  goto <bb 61>; [100.00%]
+
+  <bb 60> [23.11%]:
+  parent_217 = tmp_216;
+  tmp_218 = tmp_216->entry.rbe_left;
+
+  <bb 61> [27.18%]:
+  # tmp_216 = PHI <tmp_215(59), tmp_218(60)>
+  # parent_220 = PHI <0B(59), parent_217(60)>
+  if (tmp_216 != 0B)
+    goto <bb 60>; [85.00%]
+  else
+    goto <bb 62>; [15.00%]
+
+  <bb 62> [4.08%]:
+  _221 = parent_220;
+  _268 = parent_220;
+  wl_210 = parent_220;
+  goto <bb 65>; [100.00%]
+
+  <bb 63> [26.12%]:
+  _212 = wl_211->window;
+  if (src_w_192 == _212)
+    goto <bb 66>; [7.50%]
+  else
+    goto <bb 64>; [92.50%]
+
+  <bb 64> [24.16%]:
+  wl_213 = winlinks_RB_NEXT (wl_211);
+
+  <bb 65> [28.24%]:
+  # wl_211 = PHI <parent_220(62), wl_213(64)>
+  if (wl_211 != 0B)
+    goto <bb 63>; [92.50%]
+  else
+    goto <bb 66>; [7.50%]
+
+  <bb 66> [4.08%]:
+  # _214 = PHI <1(63), 0(65)>
+  _269 = _214;
+  _203 = _214;
+  if (_214 == 0)
+    goto <bb 83>; [48.88%]
+  else
+    goto <bb 75>; [51.12%]
+
+  <bb 67> [13.35%]:
+  _224 = &s_202->lastw;
+  winlink_stack_remove (_224, wl_204);
+  _225 = &s_202->windows;
+  winlink_remove (_225, wl_204);
+  session_group_synchronize_from (s_202);
+  _226 = s_202->windows.rbh_root;
+  if (_226 == 0B)
+    goto <bb 68>; [19.86%]
+  else
+    goto <bb 69>; [80.14%]
+
+  <bb 68> [2.65%]:
+  session_destroy (s_202);
+
+  <bb 69> [13.35%]:
+  # _227 = PHI <0(67), 1(68)>
+  _276 = _227;
+  _205 = _227;
+  if (_227 != 0)
+    goto <bb 70>; [7.50%]
+  else
+    goto <bb 75>; [92.50%]
+
+  <bb 70> [1.00%]:
+  sg_228 = session_group_find (s_202);
+  if (sg_228 == 0B)
+    goto <bb 83>; [26.74%]
+  else
+    goto <bb 71>; [73.26%]
+
+  <bb 71> [0.73%]:
+  _229 = sg_228->entry.tqe_next;
+  if (_229 != 0B)
+    goto <bb 72>; [70.00%]
+  else
+    goto <bb 73>; [30.00%]
+
+  <bb 72> [0.51%]:
+  _230 = sg_228->entry.tqe_next;
+  _231 = sg_228->entry.tqe_prev;
+  _230->entry.tqe_prev = _231;
+  goto <bb 74>; [100.00%]
+
+  <bb 73> [0.22%]:
+  _232 = sg_228->entry.tqe_prev;
+  session_groups.tqh_last = _232;
+
+  <bb 74> [0.73%]:
+  _233 = sg_228->entry.tqe_prev;
+  _234 = sg_228->entry.tqe_next;
+  *_233 = _234;
+  free (sg_228);
+  goto <bb 83>; [100.00%]
+
+  <bb 75> [14.44%]:
+  tmp_240 = MEM[(struct winlinks *)s_202 + 40B].rbh_root;
+  goto <bb 77>; [100.00%]
+
+  <bb 76> [81.81%]:
+  parent_242 = tmp_241;
+  tmp_243 = tmp_241->entry.rbe_left;
+
+  <bb 77> [96.25%]:
+  # tmp_241 = PHI <tmp_240(75), tmp_243(76)>
+  # parent_245 = PHI <0B(75), parent_242(76)>
+  if (tmp_241 != 0B)
+    goto <bb 76>; [85.00%]
+  else
+    goto <bb 78>; [15.00%]
+
+  <bb 78> [14.44%]:
+  _246 = parent_245;
+  _270 = parent_245;
+  wl_235 = parent_245;
+  goto <bb 81>; [100.00%]
+
+  <bb 79> [92.50%]:
+  _237 = wl_236->window;
+  if (src_w_192 == _237)
+    goto <bb 82>; [7.50%]
+  else
+    goto <bb 80>; [92.50%]
+
+  <bb 80> [85.56%]:
+  wl_238 = winlinks_RB_NEXT (wl_236);
+
+  <bb 81> [100.00%]:
+  # wl_236 = PHI <parent_245(78), wl_238(80)>
+  if (wl_236 != 0B)
+    goto <bb 79>; [92.50%]
+  else
+    goto <bb 82>; [7.50%]
+
+  <bb 82> [14.44%]:
+  # _239 = PHI <wl_236(79), 0B(81)>
+  _271 = _239;
+  wl_204 = _239;
+  if (_239 != 0B)
+    goto <bb 67>; [92.50%]
+  else
+    goto <bb 83>; [7.50%]
+
+  <bb 83> [5.82%]:
+  i_207 = i_198 + 1;
+
+  <bb 84> [6.85%]:
+  # i_198 = PHI <0(56), i_207(83)>
+  _208 = sessions.num;
+  if (i_198 < _208)
+    goto <bb 58>; [85.00%]
+  else
+    goto <bb 85>; [15.00%]
+
+  <bb 85> [1.03%]:
+  _194 = dst_wl_189->idx;
+  _195 = dst_s;
+  session_select (_195, _194);
+
+  <bb 86> [1.06%]:
+  # _196 = PHI <-1(54), -1(55), -1(57), 0(85)>
+  dst_s ={v} {CLOBBER};
+  goto <bb 88>; [100.00%]
+
+  <bb 87> [6.03%]:
+  _23 = sessions.list;
+  _24 = *_23;
+  session_destroy (_24);
+
+  <bb 88> [7.10%]:
+  _25 = sessions.num;
+  if (_25 != 0)
+    goto <bb 87>; [85.00%]
+  else
+    goto <bb 89>; [15.00%]
+
+  <bb 89> [1.06%]:
+  return 0;
 
 }
 
