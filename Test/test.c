@@ -1,170 +1,151 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <pthread.h>
-#include <unistd.h>
-#define xstrdup(a) strdup(a)
-/// home/cc/gcc/ins/bin/gcc  -fplugin=/home/cc/gcc/myfile/Compiler/misra.so -I/home/cc/gcc/ins/lib/gcc/x86_64-pc-linux-gnu/7.3.0/plugin/include openssl_df_2.c  -O1  -flto  -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta   -fno-inline-functions-called-once   -o  openssl_df_2.o
-// 子執行緒函數
+/*
+    buggy parent : ad36c6c
+    commit id : 3f2a3564b1c3872e4a380f2484d40ce2495a4835
+*/
 
-int foo(int *z) __attribute__((noinline));
-int *foo2(int z) __attribute__((noinline));
+#include "filenames.h"
+#include "common.h"
+#include "binutils.h"
 
-struct st
+#define LC_ALL "LC_ALL"
+
+char *python_libdir = 0;
+
+const char *
+unix_lbasename (const char *name)
 {
-	int flag;
-	int *f;
-};
-int *foo3(struct st *p)
-{
-	int *q;
-	if (p->flag)
-		q = malloc(1);
-	else
-		q = p->f;
-	return q;
+  const char *base;
+
+  for (base = name; *name; name++)
+     base = name + 1;
+
+  return base;
 }
 
-int foo(int *z)
+const char *
+lbasename (const char *name)
 {
-	free(z);
+  return unix_lbasename (name);
 }
+
+char *
+ldirname (const char *filename)
+{
+  const char *base = lbasename (filename);
+  char *dirname;
+
+  while (base > filename && IS_DIR_SEPARATOR (base[-1]))
+    --base;
+
+  if (base == filename)
+    return NULL;
+
+  dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+  memcpy (dirname, filename, base - filename);
+
+  /* On DOS based file systems, convert "d:foo" to "d:.", so that we
+     create "d:./bar" later instead of the (different) "d:/bar".  */
+  if (base - filename == 2 && IS_ABSOLUTE_PATH (base)
+      && !IS_DIR_SEPARATOR (filename[0]))
+    dirname[base++ - filename] = '.';
+
+  dirname[base - filename] = '\0';
+  return dirname;
+}
+
+static inline char *
+vconcat_copy (char *dst, const char *first, const char* arg)
+{
+  char *end = dst;
+
+	unsigned long length = strlen (arg);
+	memcpy (end, arg, length);
+	end += length;
+	
+	*end = '\000';
+
+	return dst;
+}
+
+char *
+concat (const char *first, const char *arg)
+{
+  char *newstr;
+
+  /* First compute the size of the result and get sufficient memory.  */
+  newstr = XNEWVEC (char, 1);
+
+  /* Now copy the individual pieces to the result string. */
+  vconcat_copy (newstr, first, arg);
+
+  return newstr;
+}
+
+void *PyMem_Malloc (size_t size)
+{
+	void *ret = malloc(size);
+	return ret;
+}
+void Py_SetProgramName (const wchar_t *progname)
+{
+	__USE(progname);
+}
+
+static bool
+do_start_initialization ()
+{
+  char *progname;
+  int i;
+  size_t progsize, count;
+  char *oldloc;
+  wchar_t *progname_copy;
+
+  /* Work around problem where python gets confused about where it is,
+     and then can't find its libraries, etc.
+     NOTE: Python assumes the following layout:
+     /foo/bin/python
+     /foo/lib/pythonX.Y/...
+     This must be done before calling Py_Initialize.  */
+  progname = concat (ldirname (python_libdir), "bin");
+  oldloc = xstrdup (setlocale (LC_ALL, NULL));
+  setlocale (LC_ALL, "");
+  progsize = strlen (progname);
+  progname_copy = (wchar_t *) PyMem_Malloc ((progsize + 1) * sizeof (wchar_t));
+  if (!progname_copy)
+    {
+      xfree (oldloc);
+      fprintf (stderr, "out of memory\n");
+      return false;
+    }
+  count = mbstowcs (progname_copy, progname, progsize + 1);
+  if (count == (size_t) -1)
+    {
+      xfree (oldloc);
+			xfree(progname_copy);
+      fprintf (stderr, "Could not convert python path to string\n");
+      return false;
+    }
+  setlocale (LC_ALL, oldloc);
+  xfree (oldloc);
+
+  /* Note that Py_SetProgramName expects the string it is passed to
+     remain alive for the duration of the program's execution, so
+     it is not freed after this call.  */
+  Py_SetProgramName (progname_copy);
+	xfree(progname_copy);
+  return true;
+}
+
 int main()
 {
-	// int *q;
-	int *p2;
-	int *p3;
-	int *p4;
-	int *p5;
-	int test;
-	int test2;
-	int test3;
-	int test4;
-	int test5;
-	// foo(p);
-	// p[1]=10;
-	int a = 10;
-	int b = 22;
-	int c = 22;
-	int d = 22;
-		int *q;
-	int *p6 = malloc(100);
-	q = p6;
-	p6 = realloc(p6, 100);
-	q[0] = "0";
-	q[1] = "0";
-	// free(p6);
-	// foo(p);
-	// q[0] = "0";
-	// struct st p;
-	// int *q;
-	// p.f = malloc(1);
-	// q = foo3(&p);
-	// // use q
-	// free(q);
-	// free(p.f); // double-free
-	struct st *p9 = malloc(0);
-	p9[3].f = malloc(1);
-	free(p9);
-	struct st *p = malloc(10);
-	p[3].f = malloc(1);
-	for (int i = 0; i < 10; i++)
-		p[i].f = malloc(1);
-	p[2].f = malloc(1);
-	foo(p);
-	// use p[i].f
-
-	if (test)
-		return 200;
-
-	for (int i = 0; i < 10; i++)
-	{
-		free(p[i].f);
-		free(p9[i].f);
-	}
-// test2:
-// return 200;
-
-// return 0;
-// return 0;
-
-// int *p = malloc(100);
-label2:
-	foo(p5);
-label3:
-	foo(p5);
-	switch (test5 / 10)
-	{
-	case 5:
-		foo(p5);
-		break;
-	case 10:
-		foo(p5);
-		break;
-	default:
-		foo(p5);
-		break;
-	}
-	if (test)
-	{
-		// if (  (test >test2) == (test3 == test4))
-		// {
-		// foo(p);
-		// free(p);
-		if (test > test2)
-		{
-			foo(p);
-			if (test < test2)
-			{
-				foo(p);
-			}
-			else
-				foo(p);
-		}
-		else
-		{
-			foo(p);
-			if (test < test2)
-			{
-				foo(p3);
-			}
-			else
-				foo(p5);
-			goto label3;
-		}
-		if (test3)
-		{
-			foo(p);
-			goto label2;
-		}
-	}
-	else if (test == test2)
-		foo(p);
-	else
-	{
-		if (test > test2)
-		{
-			foo(p4);
-		}
-	}
-	// else if (test > test2)
-	// 	foo(p);
-	// else if (test < test2)
-	// {
-	// 	// label:
-	// 	// 	foo(p);
-	// 	foo(p);
-	// }
-	// 	if(test3){
-	// 		foo(p);
-	// 	if(test4)
-	// 	foo(p);
-	// 	else
-	// 	foo(p);
-	// 	}
-	// else
-	// 	foo(p);}
-	// else
-	// 	foo(p);
-
-	return 0;
+    do_start_initialization();
+		/*
+			ldirname and concat can be called at multiple callsite in
+			the original program. We insert a USE for the first argument of
+			concat to prevent inserting a free inside the function
+		*/
+		char *dummy = "dummy";
+		concat(dummy, "");
+		__USE(dummy);
+    return 0;
 }

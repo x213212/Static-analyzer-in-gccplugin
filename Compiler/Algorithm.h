@@ -2445,7 +2445,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			}
 			now_tree = table1->target;
 			new_search_imm_use(used_stmt, table1->target, table1->target);
-			set_gimple_array(used_stmt,table1->last_stmt, table1->target, table1->target, NULL);
+			set_gimple_array(used_stmt, table1->last_stmt, table1->target, table1->target, NULL);
 			// pi1 = SSA_NAME_PTR_INFO(table1->target);
 			// pt1 = &pi1->pt;
 			// if (pt1 == NULL)
@@ -2948,6 +2948,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							// 	vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
 							// for (int k = 0; k < callerRetTypearray.size(); k++)
 							// 					((callerRetTypearray)[k].stmt),
+							push_cfun(table_temp->node->get_fun());
+							calculate_dominance_info(CDI_DOMINATORS);
 							for (int k = 0; k < global_ret_type_array.size(); k++)
 							{
 
@@ -3016,7 +3018,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											if (check == 1)
 											{
 												// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-												if ((bb->index == gimple_bb(u_stmt)->index || e->dest->index == gimple_bb(u_stmt)->index) )
+												if ((bb->index == gimple_bb(u_stmt)->index || e->dest->index == gimple_bb(u_stmt)->index))
 												// if ( ( bb->index == gimple_bb(table_temp->last_stmt)->index || e->dest->index == gimple_bb(table_temp->last_stmt)->index))
 												{
 													// 		debug_gimple_stmt(u_stmt);
@@ -3029,6 +3031,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													// fprintf(stderr, " succs2:= %d\n", e2->dest->index);
 													edge e2;
 													edge_iterator ei2;
+													gimple *tmp = (global_ret_type_array)[k].stmt;
 													FOR_EACH_EDGE(e2, ei2, bb->succs)
 													{
 														// fprintf(stderr, "bb index:= %d\n", bb->index);
@@ -3042,10 +3045,18 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														// edge findedge = find_edge( e2->dest ,gimple_bb((callerRetTypearray)[k].stmt));
 														// debug(findedge);
 														// if(findedge)
-														// fprintf(stderr, "\nnow %d\n", bb->index);
+														// if(gimple_block (tmp))
+														// fprintf(stderr, "\nnow %d\n", gimple_bb(tmp)->index);
+														// fprintf(stderr, "\nnow %d\n", gimple_bb(tmp)->index);
+														// debug_tree(gimple_block (tmp));
+														// if(e2->dest)
 														// if((e->dest->index  !=  e2->dest->index) )
+														// debug_gimple_stmt((global_ret_type_array)[k].stmt);
 
-														if (dominated_by_p(CDI_DOMINATORS, gimple_bb((global_ret_type_array)[k].stmt), e2->dest))
+														//   unsigned int dir_index = dom_convert_dir_to_idx (CDI_DOMINATORS);
+
+														// fprintf(stderr, "\nnow %d\n", gimple_bb(tmp)->index);
+														if (dominated_by_p(CDI_DOMINATORS, gimple_bb(tmp), e2->dest))
 														// if (gimple_bb(u_stmt)->index == e2->dest->index)
 														{
 
@@ -3062,10 +3073,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 															// 	}
 															debug_gimple_stmt(u_stmt);
 															fprintf(stderr, "bb index := %d\n", gimple_bb(u_stmt)->index);
-															debug_gimple_stmt((global_ret_type_array)[k].stmt);
-															warning_at(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
-															fprintf(stderr, "beacuse in succ := %d have return or exit\n", gimple_bb((global_ret_type_array)[k].stmt)->index);
-															fprintf(stderr, "gimple stmt in succ := %d ,possiable got to succ := %d\n", gimple_bb(u_stmt)->index, gimple_bb((global_ret_type_array)[k].stmt)->index);
+															debug_gimple_stmt(tmp);
+															warning_at(gimple_location_safe(tmp), 0, "use location");
+															fprintf(stderr, "beacuse in succ := %d have return or exit\n", gimple_bb(tmp)->index);
+															fprintf(stderr, "gimple stmt in succ := %d ,possiable got to succ := %d\n", gimple_bb(u_stmt)->index, gimple_bb(tmp)->index);
 															// debug_tree((callerRetTypearray)[k].return_tree);
 															// debug_gimple_stmt(u_stmt);
 															// debug_gimple_stmt((callerRetTypearray)[k].stmt);
@@ -3081,6 +3092,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										// }
 									}
 								}
+
 								// if (dominated_by_p(CDI_DOMINATORS, gimple_bb((callerRetTypearray)[k].stmt), gimple_bb(u_stmt)))
 								// {
 								// 	// debug_gimple_stmt((callerRetTypearray)[k].stmt);
@@ -3096,7 +3108,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								// 	fprintf(stderr, "\n======================================================================\n");
 								// }
 							}
+							pop_cfun();
 
+
+
+							
 							if (bb_in_loop_p(gimple_bb(u_stmt)))
 							{
 								// debug_gimple_stmt(u_stmt);
@@ -3416,7 +3432,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													warning_at(gimple_location_safe(u_stmt), 0, "use location");
 
 													fprintf(stderr, "dot graph stmt end\n\n");
-												
+
 													if (freemod)
 													{
 
@@ -3429,7 +3445,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 															fprintf(stderr, "green");
 														fprintf(stderr, "dot graph target color desend\n\n");
 													}
-														if (!strcmp(name, "realloc"))
+													if (!strcmp(name, "realloc"))
 													{
 														fprintf(stderr, "If realloc() fails, the initial memory block will not be freed() ");
 													}
