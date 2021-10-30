@@ -131,7 +131,7 @@ struct free_type
 {
 	gimple *stmt;
 	tree free_tree;
-	// int reutnr_type_num = 0;
+	int Looserulesfree = 0;
 	//int return_type;
 };
 struct relate_type
@@ -327,6 +327,7 @@ vector<tree> pathStack;
 vector<basic_block> symbolicExecution;
 vector<basic_block> symbolicExecutionswitch;
 vector<breakpoint> vbreakpoint;
+vector<return_type> global_ret_type_array;
 
 
 // CStack pathStack;

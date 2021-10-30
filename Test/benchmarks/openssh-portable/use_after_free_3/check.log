@@ -1,0 +1,2816 @@
+In file included from ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:9:0:
+./benchmarks/openssh-portable/use_after_free_3/../openssh.h:675:49: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*verify_host_key)(struct sshkey *, struct ssh *);
+                                                 ^~~
+./benchmarks/openssh-portable/use_after_free_3/../openssh.h:676:58: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+                                                          ^~~
+./benchmarks/openssh-portable/use_after_free_3/../openssh.h:677:59: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+                                                           ^~~
+./benchmarks/openssh-portable/use_after_free_3/../openssh.h:678:53: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*host_key_index)(struct sshkey *, int, struct ssh *);
+                                                     ^~~
+./benchmarks/openssh-portable/use_after_free_3/../openssh.h:681:29: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*kex[KEX_MAX])(struct ssh *);
+                             ^~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c: In function ‘to_blob’:
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:18:3: warning: implicit declaration of function ‘error’; did you mean ‘perror’? [-Wimplicit-function-declaration]
+   error("key_to_blob: key == NULL");
+   ^~~~~
+   perror
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:21:2: warning: implicit declaration of function ‘buffer_init’ [-Wimplicit-function-declaration]
+  buffer_init(&b);
+  ^~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:22:23: warning: implicit declaration of function ‘key_type_plain’ [-Wimplicit-function-declaration]
+  type = force_plain ? key_type_plain(key->type) : key->type;
+                       ^~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:23:9: warning: implicit declaration of function ‘buffer_len’ [-Wimplicit-function-declaration]
+   len = buffer_len(&b);
+         ^~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:3: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   memcpy(*blobp, buffer_ptr(&b), len);
+   ^~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:3: warning: incompatible implicit declaration of built-in function ‘memcpy’
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:3: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:18: warning: implicit declaration of function ‘buffer_ptr’ [-Wimplicit-function-declaration]
+   memcpy(*blobp, buffer_ptr(&b), len);
+                  ^~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:18: warning: passing argument 2 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:18: note: expected ‘const void *’ but argument is of type ‘int’
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:2: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+  memset(buffer_ptr(&b), 0, len);
+  ^~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:2: warning: incompatible implicit declaration of built-in function ‘memset’
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:2: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:9: warning: passing argument 1 of ‘memset’ makes pointer from integer without a cast [-Wint-conversion]
+  memset(buffer_ptr(&b), 0, len);
+         ^~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:9: note: expected ‘void *’ but argument is of type ‘int’
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:32:2: warning: implicit declaration of function ‘buffer_free’ [-Wimplicit-function-declaration]
+  buffer_free(&b);
+  ^~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c: In function ‘buffer_append’:
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:48:6: warning: implicit declaration of function ‘buffer_append_space’; did you mean ‘buffer_append’? [-Wimplicit-function-declaration]
+  p = buffer_append_space(buffer, len);
+      ^~~~~~~~~~~~~~~~~~~
+      buffer_append
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:48:4: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  p = buffer_append_space(buffer, len);
+    ^
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:49:2: warning: incompatible implicit declaration of built-in function ‘memcpy’
+  memcpy(p, data, len);
+  ^~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:49:2: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c: In function ‘buffer_put_string’:
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:58:2: warning: implicit declaration of function ‘buffer_put_int’; did you mean ‘buffer_put_string’? [-Wimplicit-function-declaration]
+  buffer_put_int(buffer, len);
+  ^~~~~~~~~~~~~~
+  buffer_put_string
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c: In function ‘process_add’:
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:73:9: warning: implicit declaration of function ‘get_string’; did you mean ‘getline’? [-Wimplicit-function-declaration]
+  name = get_string(NULL);
+         ^~~~~~~~~~
+         getline
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:73:7: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  name = get_string(NULL);
+       ^
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:74:6: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  pin = get_string(NULL);
+      ^
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:75:15: warning: implicit declaration of function ‘pkcs11_add_provider’ [-Wimplicit-function-declaration]
+  if ((nkeys = pkcs11_add_provider(name, pin, &keys)) > 0) {
+               ^~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:76:3: warning: implicit declaration of function ‘buffer_put_char’; did you mean ‘buffer_put_string’? [-Wimplicit-function-declaration]
+   buffer_put_char(&msg, SSH2_AGENT_IDENTITIES_ANSWER);
+   ^~~~~~~~~~~~~~~
+   buffer_put_string
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:81:4: warning: implicit declaration of function ‘buffer_put_cstring’; did you mean ‘buffer_put_string’? [-Wimplicit-function-declaration]
+    buffer_put_cstring(&msg, name);
+    ^~~~~~~~~~~~~~~~~~
+    buffer_put_string
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:84:4: warning: implicit declaration of function ‘add_key’ [-Wimplicit-function-declaration]
+    add_key(keys[i], name);
+    ^~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:92:2: warning: implicit declaration of function ‘send_msg’ [-Wimplicit-function-declaration]
+  send_msg(&msg);
+  ^~~~~~~~
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+--------GIMPLE Cond -------
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 4
+succs:= 4
+--------GIMPLE Cond -------
+succs:= 8
+succs:= 2
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 1 
+pointer ptable is 1 
+===============The second stage : Mapping stmt=================
+# .MEM_53 = VDEF <.MEM_1(D)>
+buffer_init (&msg);
+# .MEM_54 = VDEF <.MEM_53>
+_3 = get_string (0B);
+# .MEM_55 = VDEF <.MEM_54>
+_6 = get_string (0B);
+# .MEM_56 = VDEF <.MEM_55>
+nkeys_9 = pkcs11_add_provider (name_5, pin_8, &keys);
+# .MEM_58 = VDEF <.MEM_56>
+buffer_put_char (&msg, 12);
+# .MEM_59 = VDEF <.MEM_58>
+buffer_put_int (&msg, nkeys_9);
+# .MEM_71 = VDEF <.MEM_51>
+error ("key_to_blob: key == NULL");
+# .MEM_61 = VDEF <.MEM_51>
+buffer_init (&b);
+# .MEM_62 = VDEF <.MEM_61>
+len_31 = buffer_len (&b);
+# .MEM_64 = VDEF <.MEM_62>
+_34 = malloc (_33);
+# .MEM_66 = VDEF <.MEM_64>
+_36 = buffer_ptr (&b);
+# .MEM_67 = VDEF <.MEM_66>
+memcpy (_39, _38, _35);
+# .MEM_68 = VDEF <.MEM_67>
+_41 = buffer_ptr (&b);
+# .MEM_69 = VDEF <.MEM_68>
+memset (_43, 0, _40);
+# .MEM_70 = VDEF <.MEM_69>
+buffer_free (&b);
+# .MEM_75 = VDEF <.MEM_72>
+buffer_put_int (&msg, _16);
+# .MEM_76 = VDEF <.MEM_75>
+_46 = buffer_append_space (&msg, _16);
+# .MEM_77 = VDEF <.MEM_76>
+memcpy (p_48, _17, _49);
+# .MEM_78 = VDEF <.MEM_77>
+buffer_put_cstring (&msg, name_5);
+# .MEM_81 = VDEF <.MEM_80>
+add_key (_24, name_5);
+ <var_decl 0x7f8da73c2990 keys
+    type <pointer_type 0x7f8da73abe70
+        type <pointer_type 0x7f8da73ab690 type <record_type 0x7f8da73ab738 Key>
+            unsigned DI
+            size <integer_cst 0x7f8da7878be8 constant 64>
+            unit size <integer_cst 0x7f8da7878c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da73abe70>>
+        public unsigned DI size <integer_cst 0x7f8da7878be8 64> unit size <integer_cst 0x7f8da7878c00 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da73b0000>>
+    addressable used unsigned DI file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 66 col 8 size <integer_cst 0x7f8da7878be8 64> unit size <integer_cst 0x7f8da7878c00 8>
+    align 64 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860de10 keys> chain <var_decl 0x7f8da73c2a20 i>>
+# .MEM_57 = VDEF <.MEM_56>
+buffer_put_char (&msg, 5);
+# .MEM_84 = VDEF <.MEM_83>
+send_msg (&msg);
+# .MEM_85 = VDEF <.MEM_84>
+buffer_free (&msg);
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 17 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:buffer_free========= [0m
+[40;33m =======POP node_fun stack:buffer_free========= [0m
+[40;42m =======pre add _ fucntion:send_msg========= [0m
+[40;33m =======POP node_fun stack:send_msg========= [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:buffer_put_char========= [0m
+[40;33m =======POP node_fun stack:buffer_put_char========= [0m
+[40;42m =======pre add _ fucntion:add_key========= [0m
+[40;33m =======POP node_fun stack:add_key========= [0m
+[40;42m =======pre add _ fucntion:buffer_put_cstring========= [0m
+[40;33m =======POP node_fun stack:buffer_put_cstring========= [0m
+[40;42m =======pre add _ fucntion:memcpy========= [0m
+[40;33m =======POP node_fun stack:memcpy========= [0m
+[40;42m =======pre add _ fucntion:buffer_append_space========= [0m
+[40;33m =======POP node_fun stack:buffer_append_space========= [0m
+[40;42m =======pre add _ fucntion:buffer_put_int========= [0m
+[40;33m =======POP node_fun stack:buffer_put_int========= [0m
+[40;42m =======pre add _ fucntion:memset========= [0m
+[40;33m =======POP node_fun stack:memset========= [0m
+[40;42m =======pre add _ fucntion:buffer_ptr========= [0m
+[40;33m =======POP node_fun stack:buffer_ptr========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:buffer_len========= [0m
+[40;33m =======POP node_fun stack:buffer_len========= [0m
+[40;42m =======pre add _ fucntion:buffer_init========= [0m
+[40;33m =======POP node_fun stack:buffer_init========= [0m
+[40;42m =======pre add _ fucntion:error========= [0m
+[40;33m =======POP node_fun stack:error========= [0m
+[40;42m =======pre add _ fucntion:pkcs11_add_provider========= [0m
+[40;33m =======POP node_fun stack:pkcs11_add_provider========= [0m
+[40;42m =======pre add _ fucntion:get_string========= [0m
+[40;33m =======POP node_fun stack:get_string========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f8da73c9e10
+    type <pointer_type 0x7f8da78930a8
+        type <void_type 0x7f8da788cf18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da78930a8>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+   
+    def_stmt _34 = malloc (_33);
+    version 34
+    ptr-info 0x7f8da73d2090>
+# .MEM_64 = VDEF <.MEM_62>
+_34 = malloc (_33);
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+blob_97 = _34;
+In function ‘main’:
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:28:10: warning: use location
+   *blobp = xmalloc(len); /* allocation site */
+          ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+blob_90 = PHI <blob_91(5), blob_97(6)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+blob_91 = PHI <blob_94(D)(3), blob_90(7)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_19 = blob_90;
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: use location
+    free(blob);
+    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: use location
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_18 = blob_90;
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:82:13: warning: use location
+             *blob = 1;
+             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+*_18 = 1;
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:82:19: warning: use location
+             *blob = 1;
+                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_17 = blob_90;
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4: warning: use location
+    buffer_put_string(&msg, blob, blen); /* use-after-free when key_to_blob failed */
+    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+memcpy (p_48, _17, _49);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:49:2: warning: use location
+  memcpy(p, data, len);
+  ^
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c9e10
+    type <pointer_type 0x7f8da78930a8
+        type <void_type 0x7f8da788cf18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da78930a8>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+   
+    def_stmt _34 = malloc (_33);
+    version 34
+    ptr-info 0x7f8da73d2090>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_39 = blob_97;
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:3: warning: use location
+   memcpy(*blobp, buffer_ptr(&b), len);
+   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+memcpy (_39, _38, _35);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:3: warning: use location
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c9e10
+    type <pointer_type 0x7f8da78930a8
+        type <void_type 0x7f8da788cf18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da78930a8>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+   
+    def_stmt _34 = malloc (_33);
+    version 34
+    ptr-info 0x7f8da73d2090>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_34 = malloc (_33);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:28:12: warning: use location
+   *blobp = xmalloc(len); /* allocation site */
+            ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c9e10
+    type <pointer_type 0x7f8da78930a8
+        type <void_type 0x7f8da788cf18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da78930a8>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+   
+    def_stmt _34 = malloc (_33);
+    version 34
+    ptr-info 0x7f8da73d2090>
+trace fucntion name:malloc 
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f8da73c9e10
+    type <pointer_type 0x7f8da78930a8
+        type <void_type 0x7f8da788cf18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da78930a8>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+   
+    def_stmt _34 = malloc (_33);
+    version 34
+    ptr-info 0x7f8da73d2090>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: use location
+    free(blob);
+    ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_51>
+free (_26);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:86:3: warning: use location
+   free(keys);
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_82 = VDEF <.MEM_52>
+free (pin_8);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:90:2: warning: use location
+  free(pin);
+  ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_83 = VDEF <.MEM_82>
+free (name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:91:2: warning: use location
+  free(name);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: Use after free error!: free location 
+    free(blob);
+    ^
+blob_90 = PHI <blob_91(5), blob_97(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: Use after free error!: free location 
+blob_90 = PHI <blob_91(5), blob_97(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_51>
+free (_26);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:86:3: warning: Use after free error!: free location 
+   free(keys);
+   ^
+blob_90 = PHI <blob_91(5), blob_97(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_82 = VDEF <.MEM_52>
+free (pin_8);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:90:2: warning: Use after free error!: free location 
+  free(pin);
+  ^
+blob_90 = PHI <blob_91(5), blob_97(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_83 = VDEF <.MEM_82>
+free (name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:91:2: warning: Use after free error!: free location 
+  free(name);
+  ^
+blob_90 = PHI <blob_91(5), blob_97(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: Use after free error!: free location 
+    free(blob);
+    ^
+blob_91 = PHI <blob_94(D)(3), blob_90(7)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: Use after free error!: free location 
+blob_91 = PHI <blob_94(D)(3), blob_90(7)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_51>
+free (_26);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:86:3: warning: Use after free error!: free location 
+   free(keys);
+   ^
+blob_91 = PHI <blob_94(D)(3), blob_90(7)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_82 = VDEF <.MEM_52>
+free (pin_8);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:90:2: warning: Use after free error!: free location 
+  free(pin);
+  ^
+blob_91 = PHI <blob_94(D)(3), blob_90(7)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_83 = VDEF <.MEM_82>
+free (name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:91:2: warning: Use after free error!: free location 
+  free(name);
+  ^
+blob_91 = PHI <blob_94(D)(3), blob_90(7)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m   need check branch because multiple direction varible[0m
+
+======================================================================
+
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da7396de0
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:72:2 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:72:2 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:72:2>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f8da7894000 type <pointer_type 0x7f8da78930a8> constant 0>
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f8da7894000 type <pointer_type 0x7f8da78930a8> constant 0>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f8da73c47e0
+    type <pointer_type 0x7f8da73ab000
+        type <integer_type 0x7f8da73a2690 char public string-flag QI
+            size <integer_cst 0x7f8da7878cd8 constant 8>
+            unit size <integer_cst 0x7f8da7878cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da73a5240 -128> max <integer_cst 0x7f8da73a5228 127>
+            pointer_to_this <pointer_type 0x7f8da73ab000>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+        pointer_to_this <pointer_type 0x7f8da73ab3f0>>
+    var <var_decl 0x7f8da73c2870 name>
+    def_stmt name_5 = (char *) _4;
+    version 5
+    ptr-info 0x7f8da73a5f60>
+name_5 = (char *) _4;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_83 = VDEF <.MEM_82>
+free (name_5);
+bb index := 11
+# VUSE <.MEM_89>
+return 0;
+lto1: warning: use location
+beacuse in succ := 11 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 11
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_83 = VDEF <.MEM_82>
+free (name_5);
+bb index := 11
+# VUSE <.MEM_89>
+return 0;
+lto1: warning: use location
+beacuse in succ := 11 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 11
+
+======================================================================
+free (name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:91:2: warning: use location
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:91:2: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+add_key (_24, name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:84:4: warning: use location
+    add_key(keys[i], name);
+    ^
+this stmt is child function---add_key-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c47e0
+    type <pointer_type 0x7f8da73ab000
+        type <integer_type 0x7f8da73a2690 char public string-flag QI
+            size <integer_cst 0x7f8da7878cd8 constant 8>
+            unit size <integer_cst 0x7f8da7878cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da73a5240 -128> max <integer_cst 0x7f8da73a5228 127>
+            pointer_to_this <pointer_type 0x7f8da73ab000>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+        pointer_to_this <pointer_type 0x7f8da73ab3f0>>
+    var <var_decl 0x7f8da73c2870 name>
+    def_stmt name_5 = (char *) _4;
+    version 5
+    ptr-info 0x7f8da73a5f60>
+trace fucntion name:add_key 
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buffer_put_cstring (&msg, name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:81:4: warning: use location
+    buffer_put_cstring(&msg, name);
+    ^
+this stmt is child function---buffer_put_cstring-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c47e0
+    type <pointer_type 0x7f8da73ab000
+        type <integer_type 0x7f8da73a2690 char public string-flag QI
+            size <integer_cst 0x7f8da7878cd8 constant 8>
+            unit size <integer_cst 0x7f8da7878cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da73a5240 -128> max <integer_cst 0x7f8da73a5228 127>
+            pointer_to_this <pointer_type 0x7f8da73ab000>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+        pointer_to_this <pointer_type 0x7f8da73ab3f0>>
+    var <var_decl 0x7f8da73c2870 name>
+    def_stmt name_5 = (char *) _4;
+    version 5
+    ptr-info 0x7f8da73a5f60>
+trace fucntion name:buffer_put_cstring 
+
+ ================== trace ================== 
+trace fucntion free:1 
+nkeys_9 = pkcs11_add_provider (name_5, pin_8, &keys);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:75:5: warning: use location
+  if ((nkeys = pkcs11_add_provider(name, pin, &keys)) > 0) {
+     ^
+this stmt is child function---pkcs11_add_provider-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c47e0
+    type <pointer_type 0x7f8da73ab000
+        type <integer_type 0x7f8da73a2690 char public string-flag QI
+            size <integer_cst 0x7f8da7878cd8 constant 8>
+            unit size <integer_cst 0x7f8da7878cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da73a5240 -128> max <integer_cst 0x7f8da73a5228 127>
+            pointer_to_this <pointer_type 0x7f8da73ab000>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+        pointer_to_this <pointer_type 0x7f8da73ab3f0>>
+    var <var_decl 0x7f8da73c2870 name>
+    def_stmt name_5 = (char *) _4;
+    version 5
+    ptr-info 0x7f8da73a5f60>
+trace fucntion name:pkcs11_add_provider 
+
+ ================== trace ================== 
+trace fucntion free:1 
+buffer_put_int (&msg, nkeys_9);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:77:3: warning: use location
+   buffer_put_int(&msg, nkeys);
+   ^
+this stmt is child function---buffer_put_int-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c47e0
+    type <pointer_type 0x7f8da73ab000
+        type <integer_type 0x7f8da73a2690 char public string-flag QI
+            size <integer_cst 0x7f8da7878cd8 constant 8>
+            unit size <integer_cst 0x7f8da7878cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da73a5240 -128> max <integer_cst 0x7f8da73a5228 127>
+            pointer_to_this <pointer_type 0x7f8da73ab000>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+        pointer_to_this <pointer_type 0x7f8da73ab3f0>>
+    var <var_decl 0x7f8da73c2870 name>
+    def_stmt name_5 = (char *) _4;
+    version 5
+    ptr-info 0x7f8da73a5f60>
+trace fucntion name:buffer_put_int 
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (nkeys_9 > i_11)
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:78:3: warning: use location
+   for (i = 0; i < nkeys; i++) {
+   ^
+if (nkeys_9 > i_11)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:78:3: warning: use location
+Cond in fucntion main basic block 8
+ ================== possible direct basic block ================= 
+from main basic block 4
+ ================== possible direct basic block ================= 
+from main basic block 9
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+if (nkeys_9 > 0)
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:75:5: warning: use location
+  if ((nkeys = pkcs11_add_provider(name, pin, &keys)) > 0) {
+     ^
+if (nkeys_9 > 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:75:5: warning: use location
+Cond in fucntion main basic block 2
+ ================== possible direct basic block ================= 
+from main basic block 3
+ ================== possible direct basic block ================= 
+from main basic block 10
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_82 = VDEF <.MEM_52>
+free (pin_8);
+bb index := 11
+# VUSE <.MEM_89>
+return 0;
+lto1: warning: use location
+beacuse in succ := 11 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 11
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_82 = VDEF <.MEM_52>
+free (pin_8);
+bb index := 11
+# VUSE <.MEM_89>
+return 0;
+lto1: warning: use location
+beacuse in succ := 11 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 11
+
+======================================================================
+free (pin_8);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:90:2: warning: use location
+  free(pin);
+  ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (pin_8);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:90:2: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find ================== 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f8da73c47e0
+    type <pointer_type 0x7f8da73ab000
+        type <integer_type 0x7f8da73a2690 char public string-flag QI
+            size <integer_cst 0x7f8da7878cd8 constant 8>
+            unit size <integer_cst 0x7f8da7878cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da73a5240 -128> max <integer_cst 0x7f8da73a5228 127>
+            pointer_to_this <pointer_type 0x7f8da73ab000>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+        pointer_to_this <pointer_type 0x7f8da73ab3f0>>
+    var <var_decl 0x7f8da73c2870 name>
+    def_stmt name_5 = (char *) _4;
+    version 5
+    ptr-info 0x7f8da73a5f60>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: use location
+    free(blob);
+    ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_51>
+free (_26);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:86:3: warning: use location
+   free(keys);
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_82 = VDEF <.MEM_52>
+free (pin_8);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:90:2: warning: use location
+  free(pin);
+  ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_83 = VDEF <.MEM_82>
+free (name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:91:2: warning: use location
+  free(name);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: Use after free error!: free location 
+    free(blob);
+    ^
+# .MEM_81 = VDEF <.MEM_80>
+add_key (_24, name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:84:4: warning: use location
+    add_key(keys[i], name);
+    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: Use after free error!: free location 
+    free(blob);
+    ^
+if (nkeys_9 > i_11)
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:78:3: warning: use location
+   for (i = 0; i < nkeys; i++) {
+   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m  	possible double free :2 [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da7396f60
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:76:3 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:76:3 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:76:3>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da7396fe0
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:77:3 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:77:3 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:77:3>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da73c59c0
+    type <pointer_type 0x7f8da73b05e8
+        type <array_type 0x7f8da73b0540 type <integer_type 0x7f8da73a2690 char>
+            BLK
+            size <integer_cst 0x7f8da73a5390 constant 200>
+            unit size <integer_cst 0x7f8da73a5378 constant 25>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f8da73b0498>
+            pointer_to_this <pointer_type 0x7f8da73b05e8>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    readonly constant
+    arg 0 <string_cst 0x7f8da7877630 type <array_type 0x7f8da73b0540>
+        readonly constant static "key_to_blob: key == NULL\000">
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:18:9 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:18:9 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:18:9>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da73c5a40
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73ce480 b type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7c60 b>
+        chain <var_decl 0x7f8da73ce510 len type <integer_type 0x7f8da788c5e8 int>
+            used SI file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 15 col 6
+            size <integer_cst 0x7f8da7878e28 constant 32>
+            unit size <integer_cst 0x7f8da7878e40 constant 4>
+            align 32 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7bd0 len>>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:21:2 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:21:2 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:21:2>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da73c5b00
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73ce480 b type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7c60 b>
+        chain <var_decl 0x7f8da73ce510 len type <integer_type 0x7f8da788c5e8 int>
+            used SI file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 15 col 6
+            size <integer_cst 0x7f8da7878e28 constant 32>
+            unit size <integer_cst 0x7f8da7878e40 constant 4>
+            align 32 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7bd0 len>>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:23:9 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:23:9 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:23:9>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f8da73c9dc8
+    type <integer_type 0x7f8da788c7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8da788c738 precision 64 min <integer_cst 0x7f8da7878eb8 0> max <integer_cst 0x7f8da787a500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8da78989d8>>
+   
+    def_stmt _33 = (long unsigned int) len_31;
+    version 33>
+_33 = (long unsigned int) len_31;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_34 = malloc (_33);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:28:12: warning: use location
+   *blobp = xmalloc(len); /* allocation site */
+            ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c9dc8
+    type <integer_type 0x7f8da788c7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8da788c738 precision 64 min <integer_cst 0x7f8da7878eb8 0> max <integer_cst 0x7f8da787a500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8da78989d8>>
+   
+    def_stmt _33 = (long unsigned int) len_31;
+    version 33>
+trace fucntion name:malloc 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+blob_97 = _34;
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:28:10: warning: use location
+   *blobp = xmalloc(len); /* allocation site */
+          ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+blob_90 = PHI <blob_91(5), blob_97(6)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+blob_91 = PHI <blob_94(D)(3), blob_90(7)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_19 = blob_90;
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: use location
+    free(blob);
+    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: use location
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_18 = blob_90;
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:82:13: warning: use location
+             *blob = 1;
+             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+*_18 = 1;
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:82:19: warning: use location
+             *blob = 1;
+                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_17 = blob_90;
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4: warning: use location
+    buffer_put_string(&msg, blob, blen); /* use-after-free when key_to_blob failed */
+    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+memcpy (p_48, _17, _49);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:49:2: warning: use location
+  memcpy(p, data, len);
+  ^
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c9dc8
+    type <integer_type 0x7f8da788c7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8da788c738 precision 64 min <integer_cst 0x7f8da7878eb8 0> max <integer_cst 0x7f8da787a500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8da78989d8>>
+   
+    def_stmt _33 = (long unsigned int) len_31;
+    version 33>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_39 = blob_97;
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:3: warning: use location
+   memcpy(*blobp, buffer_ptr(&b), len);
+   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+memcpy (_39, _38, _35);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:3: warning: use location
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c9dc8
+    type <integer_type 0x7f8da788c7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8da788c738 precision 64 min <integer_cst 0x7f8da7878eb8 0> max <integer_cst 0x7f8da787a500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8da78989d8>>
+   
+    def_stmt _33 = (long unsigned int) len_31;
+    version 33>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f8da73c9dc8
+    type <integer_type 0x7f8da788c7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8da788c738 precision 64 min <integer_cst 0x7f8da7878eb8 0> max <integer_cst 0x7f8da787a500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8da78989d8>>
+   
+    def_stmt _33 = (long unsigned int) len_31;
+    version 33>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: use location
+    free(blob);
+    ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_51>
+free (_26);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:86:3: warning: use location
+   free(keys);
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_82 = VDEF <.MEM_52>
+free (pin_8);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:90:2: warning: use location
+  free(pin);
+  ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_83 = VDEF <.MEM_82>
+free (name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:91:2: warning: use location
+  free(name);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: Use after free error!: free location 
+    free(blob);
+    ^
+blob_90 = PHI <blob_91(5), blob_97(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: Use after free error!: free location 
+blob_90 = PHI <blob_91(5), blob_97(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_51>
+free (_26);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:86:3: warning: Use after free error!: free location 
+   free(keys);
+   ^
+blob_90 = PHI <blob_91(5), blob_97(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_82 = VDEF <.MEM_52>
+free (pin_8);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:90:2: warning: Use after free error!: free location 
+  free(pin);
+  ^
+blob_90 = PHI <blob_91(5), blob_97(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_83 = VDEF <.MEM_82>
+free (name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:91:2: warning: Use after free error!: free location 
+  free(name);
+  ^
+blob_90 = PHI <blob_91(5), blob_97(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: Use after free error!: free location 
+    free(blob);
+    ^
+blob_91 = PHI <blob_94(D)(3), blob_90(7)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: Use after free error!: free location 
+blob_91 = PHI <blob_94(D)(3), blob_90(7)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_51>
+free (_26);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:86:3: warning: Use after free error!: free location 
+   free(keys);
+   ^
+blob_91 = PHI <blob_94(D)(3), blob_90(7)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_82 = VDEF <.MEM_52>
+free (pin_8);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:90:2: warning: Use after free error!: free location 
+  free(pin);
+  ^
+blob_91 = PHI <blob_94(D)(3), blob_90(7)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_83 = VDEF <.MEM_82>
+free (name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:91:2: warning: Use after free error!: free location 
+  free(name);
+  ^
+blob_91 = PHI <blob_94(D)(3), blob_90(7)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m   need check branch because multiple direction varible[0m
+
+======================================================================
+
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da73c5c40
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73ce480 b type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7c60 b>
+        chain <var_decl 0x7f8da73ce510 len type <integer_type 0x7f8da788c5e8 int>
+            used SI file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 15 col 6
+            size <integer_cst 0x7f8da7878e28 constant 32>
+            unit size <integer_cst 0x7f8da7878e40 constant 4>
+            align 32 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7bd0 len>>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:18 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:18 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:18>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f8da73c9f78
+    type <pointer_type 0x7f8da73a2a80
+        type <integer_type 0x7f8da73a29d8 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f8da7878cd8 constant 8>
+            unit size <integer_cst 0x7f8da7878cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da7878d08 0> max <integer_cst 0x7f8da7878ca8 255> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2a80>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da73a2e70>>
+   
+    def_stmt _39 = blob_97;
+    version 39
+    ptr-info 0x7f8da73d20c0>
+_39 = blob_97;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_67 = VDEF <.MEM_66>
+memcpy (_39, _38, _35);
+memcpy (_39, _38, _35);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:3: warning: use location
+   memcpy(*blobp, buffer_ptr(&b), len);
+   ^
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c9f78
+    type <pointer_type 0x7f8da73a2a80
+        type <integer_type 0x7f8da73a29d8 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f8da7878cd8 constant 8>
+            unit size <integer_cst 0x7f8da7878cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da7878d08 0> max <integer_cst 0x7f8da7878ca8 255> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2a80>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da73a2e70>>
+   
+    def_stmt _39 = blob_97;
+    version 39
+    ptr-info 0x7f8da73d20c0>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_67 = VDEF <.MEM_66>
+memcpy (_39, _38, _35);
+memcpy (_39, _38, _35);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:3: warning: use location
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c9f78
+    type <pointer_type 0x7f8da73a2a80
+        type <integer_type 0x7f8da73a29d8 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f8da7878cd8 constant 8>
+            unit size <integer_cst 0x7f8da7878cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da7878d08 0> max <integer_cst 0x7f8da7878ca8 255> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2a80>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da73a2e70>>
+   
+    def_stmt _39 = blob_97;
+    version 39
+    ptr-info 0x7f8da73d20c0>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f8da73c9f78
+    type <pointer_type 0x7f8da73a2a80
+        type <integer_type 0x7f8da73a29d8 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f8da7878cd8 constant 8>
+            unit size <integer_cst 0x7f8da7878cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da7878d08 0> max <integer_cst 0x7f8da7878ca8 255> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2a80>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da73a2e70>>
+   
+    def_stmt _39 = blob_97;
+    version 39
+    ptr-info 0x7f8da73d20c0>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: use location
+    free(blob);
+    ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_51>
+free (_26);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:86:3: warning: use location
+   free(keys);
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_82 = VDEF <.MEM_52>
+free (pin_8);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:90:2: warning: use location
+  free(pin);
+  ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_83 = VDEF <.MEM_82>
+free (name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:91:2: warning: use location
+  free(name);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da73c5d20
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73ce480 b type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7c60 b>
+        chain <var_decl 0x7f8da73ce510 len type <integer_type 0x7f8da788c5e8 int>
+            used SI file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 15 col 6
+            size <integer_cst 0x7f8da7878e28 constant 32>
+            unit size <integer_cst 0x7f8da7878e40 constant 4>
+            align 32 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7bd0 len>>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:9 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:9 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:9>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f8da73cf0d8
+    type <pointer_type 0x7f8da78930a8
+        type <void_type 0x7f8da788cf18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da78930a8>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+   
+    def_stmt _43 = (void *) _42;
+    version 43
+    ptr-info 0x7f8da73d20d8>
+_43 = (void *) _42;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_69 = VDEF <.MEM_68>
+memset (_43, 0, _40);
+memset (_43, 0, _40);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:2: warning: use location
+  memset(buffer_ptr(&b), 0, len);
+  ^
+this stmt is child function---memset-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73cf0d8
+    type <pointer_type 0x7f8da78930a8
+        type <void_type 0x7f8da788cf18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da78930a8>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+   
+    def_stmt _43 = (void *) _42;
+    version 43
+    ptr-info 0x7f8da73d20d8>
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_69 = VDEF <.MEM_68>
+memset (_43, 0, _40);
+memset (_43, 0, _40);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:2: warning: use location
+this stmt is child function---memset-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73cf0d8
+    type <pointer_type 0x7f8da78930a8
+        type <void_type 0x7f8da788cf18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da78930a8>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+   
+    def_stmt _43 = (void *) _42;
+    version 43
+    ptr-info 0x7f8da73d20d8>
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f8da73cf0d8
+    type <pointer_type 0x7f8da78930a8
+        type <void_type 0x7f8da788cf18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da78930a8>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+   
+    def_stmt _43 = (void *) _42;
+    version 43
+    ptr-info 0x7f8da73d20d8>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: use location
+    free(blob);
+    ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_51>
+free (_26);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:86:3: warning: use location
+   free(keys);
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_82 = VDEF <.MEM_52>
+free (pin_8);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:90:2: warning: use location
+  free(pin);
+  ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_83 = VDEF <.MEM_82>
+free (name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:91:2: warning: use location
+  free(name);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da73c5de0
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73ce480 b type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7c60 b>
+        chain <var_decl 0x7f8da73ce510 len type <integer_type 0x7f8da788c5e8 int>
+            used SI file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 15 col 6
+            size <integer_cst 0x7f8da7878e28 constant 32>
+            unit size <integer_cst 0x7f8da7878e40 constant 4>
+            align 32 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7bd0 len>>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:32:2 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:32:2 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:32:2>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da73c5560
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da73c5ec0
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f8da73cf510
+    type <pointer_type 0x7f8da78930a8
+        type <void_type 0x7f8da788cf18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da78930a8>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+    var <var_decl 0x7f8da73cee10 p>
+    def_stmt p_48 = (void *) _47;
+    version 48
+    ptr-info 0x7f8da73d20f0>
+p_48 = (void *) _47;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_77 = VDEF <.MEM_76>
+memcpy (p_48, _17, _49);
+memcpy (p_48, _17, _49);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:49:2: warning: use location
+  memcpy(p, data, len);
+  ^
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73cf510
+    type <pointer_type 0x7f8da78930a8
+        type <void_type 0x7f8da788cf18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da78930a8>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+    var <var_decl 0x7f8da73cee10 p>
+    def_stmt p_48 = (void *) _47;
+    version 48
+    ptr-info 0x7f8da73d20f0>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_77 = VDEF <.MEM_76>
+memcpy (p_48, _17, _49);
+memcpy (p_48, _17, _49);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:49:2: warning: use location
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73cf510
+    type <pointer_type 0x7f8da78930a8
+        type <void_type 0x7f8da788cf18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da78930a8>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+    var <var_decl 0x7f8da73cee10 p>
+    def_stmt p_48 = (void *) _47;
+    version 48
+    ptr-info 0x7f8da73d20f0>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f8da73cf510
+    type <pointer_type 0x7f8da78930a8
+        type <void_type 0x7f8da788cf18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7f8da78930a8>>
+        public unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+    var <var_decl 0x7f8da73cee10 p>
+    def_stmt p_48 = (void *) _47;
+    version 48
+    ptr-info 0x7f8da73d20f0>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: use location
+    free(blob);
+    ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_51>
+free (_26);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:86:3: warning: use location
+   free(keys);
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_82 = VDEF <.MEM_52>
+free (pin_8);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:90:2: warning: use location
+  free(pin);
+  ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_83 = VDEF <.MEM_82>
+free (name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:91:2: warning: use location
+  free(name);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da73c51a0
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:81:4 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:81:4 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:81:4>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f8da73c4d38
+    type <pointer_type 0x7f8da73ab690
+        type <record_type 0x7f8da73ab738 Key BLK
+            size <integer_cst 0x7f8da7894030 constant 512>
+            unit size <integer_cst 0x7f8da7931c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73ab498 fields <field_decl 0x7f8da73ac850 type> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73ab690> chain <type_decl 0x7f8da73ac8e8 D.4054>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da73abe70>>
+   
+    def_stmt _24 = *_23;
+    version 24
+    ptr-info 0x7f8da73d2060>
+# VUSE <.MEM_80>
+_24 = *_23;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_81 = VDEF <.MEM_80>
+add_key (_24, name_5);
+add_key (_24, name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:84:4: warning: use location
+    add_key(keys[i], name);
+    ^
+this stmt is child function---add_key-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c4d38
+    type <pointer_type 0x7f8da73ab690
+        type <record_type 0x7f8da73ab738 Key BLK
+            size <integer_cst 0x7f8da7894030 constant 512>
+            unit size <integer_cst 0x7f8da7931c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73ab498 fields <field_decl 0x7f8da73ac850 type> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73ab690> chain <type_decl 0x7f8da73ac8e8 D.4054>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da73abe70>>
+   
+    def_stmt _24 = *_23;
+    version 24
+    ptr-info 0x7f8da73d2060>
+trace fucntion name:add_key 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_81 = VDEF <.MEM_80>
+add_key (_24, name_5);
+add_key (_24, name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:84:4: warning: use location
+this stmt is child function---add_key-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8da73c4d38
+    type <pointer_type 0x7f8da73ab690
+        type <record_type 0x7f8da73ab738 Key BLK
+            size <integer_cst 0x7f8da7894030 constant 512>
+            unit size <integer_cst 0x7f8da7931c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73ab498 fields <field_decl 0x7f8da73ac850 type> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73ab690> chain <type_decl 0x7f8da73ac8e8 D.4054>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da73abe70>>
+   
+    def_stmt _24 = *_23;
+    version 24
+    ptr-info 0x7f8da73d2060>
+trace fucntion name:add_key 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f8da73c4d38
+    type <pointer_type 0x7f8da73ab690
+        type <record_type 0x7f8da73ab738 Key BLK
+            size <integer_cst 0x7f8da7894030 constant 512>
+            unit size <integer_cst 0x7f8da7931c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73ab498 fields <field_decl 0x7f8da73ac850 type> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73ab690> chain <type_decl 0x7f8da73ac8e8 D.4054>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f8da73abe70>>
+   
+    def_stmt _24 = *_23;
+    version 24
+    ptr-info 0x7f8da73d2060>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: use location
+    free(blob);
+    ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_51>
+free (_26);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:86:3: warning: use location
+   free(keys);
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_82 = VDEF <.MEM_52>
+free (pin_8);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:90:2: warning: use location
+  free(pin);
+  ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_83 = VDEF <.MEM_82>
+free (name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:91:2: warning: use location
+  free(name);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: Use after free error!: free location 
+    free(blob);
+    ^
+# .MEM_81 = VDEF <.MEM_80>
+add_key (_24, name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:84:4: warning: use location
+    add_key(keys[i], name);
+    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_80 = VDEF <.MEM_79>
+free (_19);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:83:4: warning: Use after free error!: free location 
+    free(blob);
+    ^
+# .MEM_81 = VDEF <.MEM_80>
+add_key (_24, name_5);
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:84:4: warning: use location
+    add_key(keys[i], name);
+    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da73c52e0
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:88:3 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:88:3 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:88:3>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da73c53e0
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:92:2 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:92:2 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:92:2>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f8da73c5460
+    type <pointer_type 0x7f8da73a2c78
+        type <record_type 0x7f8da73a2bd0 Buffer BLK
+            size <integer_cst 0x7f8da78940a8 constant 192>
+            unit size <integer_cst 0x7f8da7894078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+        unsigned DI
+        size <integer_cst 0x7f8da7878be8 constant 64>
+        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
+        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:93:2 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:93:2 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:93:2>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [23.44%]:
+buffer_init (&msg);
+_3 = get_string (0B);
+_4 = (long int) _3;
+name_5 = (char *) _4;
+_6 = get_string (0B);
+_7 = (long int) _6;
+pin_8 = (char *) _7;
+nkeys_9 = pkcs11_add_provider (name_5, pin_8, &keys);
+if (nkeys_9 > 0)
+  goto <bb 3>; [64.00%]
+else
+  goto <bb 10>; [36.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [15.00%]:
+buffer_put_char (&msg, 12);
+buffer_put_int (&msg, nkeys_9);
+goto <bb 8>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [85.00%]:
+_10 = keys;
+_12 = (long unsigned int) i_11;
+_13 = _12 * 8;
+_14 = _10 + _13;
+_15 = *_14;
+if (_15 == 0B)
+  goto <bb 5>; [26.74%]
+else
+  goto <bb 6>; [73.26%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [22.73%]:
+error ("key_to_blob: key == NULL");
+goto <bb 7>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [62.27%]:
+buffer_init (&b);
+_30 = MEM[(const struct Key *)_15].type;
+len_31 = buffer_len (&b);
+_32 = (unsigned int) len_31;
+blen_96 = _32;
+_33 = (long unsigned int) len_31;
+_34 = malloc (_33);
+blob_97 = _34;
+_35 = (long unsigned int) len_31;
+_36 = buffer_ptr (&b);
+_37 = (long int) _36;
+_38 = (const void *) _37;
+_39 = blob_97;
+memcpy (_39, _38, _35);
+_40 = (long unsigned int) len_31;
+_41 = buffer_ptr (&b);
+_42 = (long int) _41;
+_43 = (void *) _42;
+memset (_43, 0, _40);
+buffer_free (&b);
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [85.00%]:
+# _44 = PHI <0(5), len_31(6)>
+# blob_90 = PHI <blob_91(5), blob_97(6)>
+# blen_92 = PHI <blen_93(5), blen_96(6)>
+b ={v} {CLOBBER};
+_73 = _44;
+_27 = _73;
+_74 = _27;
+_16 = blen_92;
+_17 = blob_90;
+buffer_put_int (&msg, _16);
+_46 = buffer_append_space (&msg, _16);
+_47 = (long int) _46;
+p_48 = (void *) _47;
+_49 = (long unsigned int) _16;
+memcpy (p_48, _17, _49);
+buffer_put_cstring (&msg, name_5);
+_18 = blob_90;
+*_18 = 1;
+_19 = blob_90;
+free (_19);
+_20 = keys;
+_21 = (long unsigned int) i_11;
+_22 = _21 * 8;
+_23 = _20 + _22;
+_24 = *_23;
+add_key (_24, name_5);
+i_25 = i_11 + 1;
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [100.00%]:
+# i_11 = PHI <0(3), i_25(7)>
+# blob_91 = PHI <blob_94(D)(3), blob_90(7)>
+# blen_93 = PHI <blen_95(D)(3), blen_92(7)>
+if (nkeys_9 > i_11)
+  goto <bb 4>; [85.00%]
+else
+  goto <bb 9>; [15.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [15.00%]:
+_26 = keys;
+free (_26);
+goto <bb 11>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [8.44%]:
+buffer_put_char (&msg, 5);
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [23.44%]:
+free (pin_8);
+free (name_5);
+send_msg (&msg);
+buffer_free (&msg);
+keys ={v} {CLOBBER};
+msg ={v} {CLOBBER};
+return 0;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 7 [0m
+[40;34m    used_stmt array stack totalsize of : 792 [0m
+[40;34m    collect time: : 0.000074 s [0m
+[40;34m    algorithm time: 0.016884 s [0m
+[40;34m    gimple stmt count : : 73 [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+/usr/bin/ld: /tmp/ccwoYVx2.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0x24): undefined reference to `buffer_init'
+/usr/bin/ld: <artificial>:(.text+0x33): undefined reference to `get_string'
+/usr/bin/ld: <artificial>:(.text+0x4a): undefined reference to `get_string'
+/usr/bin/ld: <artificial>:(.text+0x66): undefined reference to `pkcs11_add_provider'
+/usr/bin/ld: <artificial>:(.text+0x87): undefined reference to `buffer_put_char'
+/usr/bin/ld: <artificial>:(.text+0x96): undefined reference to `buffer_put_int'
+/usr/bin/ld: <artificial>:(.text+0xdb): undefined reference to `buffer_put_int'
+/usr/bin/ld: <artificial>:(.text+0xeb): undefined reference to `buffer_append_space'
+/usr/bin/ld: <artificial>:(.text+0x10e): undefined reference to `buffer_put_cstring'
+/usr/bin/ld: <artificial>:(.text+0x130): undefined reference to `add_key'
+/usr/bin/ld: <artificial>:(.text+0x15c): undefined reference to `buffer_init'
+/usr/bin/ld: <artificial>:(.text+0x169): undefined reference to `buffer_len'
+/usr/bin/ld: <artificial>:(.text+0x187): undefined reference to `buffer_ptr'
+/usr/bin/ld: <artificial>:(.text+0x1a2): undefined reference to `buffer_ptr'
+/usr/bin/ld: <artificial>:(.text+0x1bf): undefined reference to `buffer_free'
+/usr/bin/ld: <artificial>:(.text+0x1f4): undefined reference to `send_msg'
+/usr/bin/ld: <artificial>:(.text+0x201): undefined reference to `buffer_free'
+/usr/bin/ld: <artificial>:(.text+0x239): undefined reference to `buffer_put_char'
+collect2: error: ld returned 1 exit status

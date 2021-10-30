@@ -1,0 +1,137 @@
+In file included from ./benchmarks/git/use_after_free_3/git_uaf_3.c:11:0:
+./benchmarks/git/use_after_free_3/../git.h: In function ‘copy_array’:
+./benchmarks/git/use_after_free_3/../git.h:161:3: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   memcpy(dst, src, st_mult(size, n));
+   ^~~~~~
+./benchmarks/git/use_after_free_3/../git.h:161:3: warning: incompatible implicit declaration of built-in function ‘memcpy’
+./benchmarks/git/use_after_free_3/../git.h:161:3: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/use_after_free_3/../git.h:161:20: warning: implicit declaration of function ‘st_mult’; did you mean ‘stdout’? [-Wimplicit-function-declaration]
+   memcpy(dst, src, st_mult(size, n));
+                    ^~~~~~~
+                    stdout
+./benchmarks/git/use_after_free_3/../git.h: In function ‘move_array’:
+./benchmarks/git/use_after_free_3/../git.h:169:3: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+   memmove(dst, src, st_mult(size, n));
+   ^~~~~~~
+./benchmarks/git/use_after_free_3/../git.h:169:3: warning: incompatible implicit declaration of built-in function ‘memmove’
+./benchmarks/git/use_after_free_3/../git.h:169:3: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/use_after_free_3/git_uaf_3.c:10:0:
+./benchmarks/git/use_after_free_3/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/use_after_free_3/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/use_after_free_3/../git.h:174:15: note: in expansion of macro ‘xstrdup’
+  return str ? xstrdup(str) : NULL;
+               ^~~~~~~
+./benchmarks/git/use_after_free_3/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/use_after_free_3/../git.h:174:15: note: in expansion of macro ‘xstrdup’
+  return str ? xstrdup(str) : NULL;
+               ^~~~~~~
+In file included from ./benchmarks/git/use_after_free_3/git_uaf_3.c:11:0:
+./benchmarks/git/use_after_free_3/../git.h: At top level:
+./benchmarks/git/use_after_free_3/../git.h:236:55: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*write_archive)(const struct archiver *, struct archiver_args *);
+                                                       ^~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/use_after_free_3/../git.h:126:2: warning: incompatible implicit declaration of built-in function ‘memcpy’
+  memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));  \
+  ^
+./benchmarks/git/use_after_free_3/../git.h:407:2: note: in expansion of macro ‘SWAP’
+  SWAP(*a, *b);
+  ^~~~
+./benchmarks/git/use_after_free_3/../git.h:126:2: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));  \
+  ^
+./benchmarks/git/use_after_free_3/../git.h:407:2: note: in expansion of macro ‘SWAP’
+  SWAP(*a, *b);
+  ^~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c: At top level:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:13:0: warning: "die_errno" redefined
+ #define die_errno die
+ 
+In file included from ./benchmarks/git/use_after_free_3/git_uaf_3.c:10:0:
+./benchmarks/git/use_after_free_3/../stdio.h:131:0: note: this is the location of the previous definition
+ #define die_errno(a, b) die(a, b)
+ 
+./benchmarks/git/use_after_free_3/git_uaf_3.c: In function ‘save_env_before_alias’:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:83:13: warning: implicit declaration of function ‘xgetcwd’; did you mean ‘getw’? [-Wimplicit-function-declaration]
+  orig_cwd = xgetcwd();                               /* allocation site */
+             ^~~~~~~
+             getw
+./benchmarks/git/use_after_free_3/git_uaf_3.c:83:11: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  orig_cwd = xgetcwd();                               /* allocation site */
+           ^
+./benchmarks/git/use_after_free_3/git_uaf_3.c:84:18: warning: implicit declaration of function ‘ARRAY_SIZE’; did you mean ‘_T_SIZE’? [-Wimplicit-function-declaration]
+  for (i = 0; i < ARRAY_SIZE(env_names); i++) {
+                  ^~~~~~~~~~
+                  _T_SIZE
+In file included from ./benchmarks/git/use_after_free_3/git_uaf_3.c:10:0:
+./benchmarks/git/use_after_free_3/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/use_after_free_3/git_uaf_3.c:87:18: note: in expansion of macro ‘xstrdup’
+    orig_env[i] = xstrdup(orig_env[i]);
+                  ^~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c: In function ‘restore_env’:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:94:37: warning: implicit declaration of function ‘chdir’ [-Wimplicit-function-declaration]
+  if (!external_alias && orig_cwd && chdir(orig_cwd)) /* use-after-free */
+                                     ^~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:99:8: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+       !strcmp(env_names[i], GIT_PREFIX_ENVIRONMENT))
+        ^~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c: In function ‘new_handle_alias’:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:121:2: warning: implicit declaration of function ‘setup_git_directory_gently’ [-Wimplicit-function-declaration]
+  setup_git_directory_gently(&unused_nongit);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:124:17: warning: implicit declaration of function ‘alias_lookup’ [-Wimplicit-function-declaration]
+  alias_string = alias_lookup(alias_command);
+                 ^~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:124:15: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  alias_string = alias_lookup(alias_command);
+               ^
+./benchmarks/git/use_after_free_3/git_uaf_3.c:130:4: warning: implicit declaration of function ‘commit_pager_choice’ [-Wimplicit-function-declaration]
+    commit_pager_choice();
+    ^~~~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:140:10: warning: implicit declaration of function ‘run_command_v_opt’ [-Wimplicit-function-declaration]
+    ret = run_command_v_opt(alias_argv, RUN_USING_SHELL);
+          ^~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:147:11: warning: implicit declaration of function ‘split_cmdline’ [-Wimplicit-function-declaration]
+   count = split_cmdline(alias_string, &new_argv);
+           ^~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:150:18: warning: implicit declaration of function ‘handle_options’ [-Wimplicit-function-declaration]
+   option_count = handle_options(&new_argv, &count, &envchanged);
+                  ^~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:155:3: warning: incompatible implicit declaration of built-in function ‘memmove’
+   memmove(new_argv - option_count, new_argv,
+   ^~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:155:3: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/use_after_free_3/git_uaf_3.c:165:3: warning: implicit declaration of function ‘trace_argv_printf’ [-Wimplicit-function-declaration]
+   trace_argv_printf(new_argv,
+   ^~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c: In function ‘handle_alias’:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:193:15: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  alias_string = alias_lookup(alias_command);
+               ^
+./benchmarks/git/use_after_free_3/git_uaf_3.c:224:3: warning: incompatible implicit declaration of built-in function ‘memmove’
+   memmove(new_argv - option_count, new_argv,
+   ^~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:224:3: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/use_after_free_3/git_uaf_3.c: In function ‘main’:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:250:25: warning: passing argument 2 of ‘handle_alias’ from incompatible pointer type [-Wincompatible-pointer-types]
+     handle_alias(&argc, &argv);
+                         ^
+./benchmarks/git/use_after_free_3/git_uaf_3.c:180:12: note: expected ‘const char ***’ but argument is of type ‘char ***’
+ static int handle_alias(int *argcp, const char ***argv)
+            ^~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:251:29: warning: passing argument 2 of ‘new_handle_alias’ from incompatible pointer type [-Wincompatible-pointer-types]
+     new_handle_alias(&argc, &argv);
+                             ^
+./benchmarks/git/use_after_free_3/git_uaf_3.c:108:12: note: expected ‘const char ***’ but argument is of type ‘char ***’
+ static int new_handle_alias(int *argcp, const char ***argv)
+            ^~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c: At top level:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:67:28: error: storage size of ‘git_startup_info’ isn’t known
+ static struct startup_info git_startup_info;
+                            ^~~~~~~~~~~~~~~~

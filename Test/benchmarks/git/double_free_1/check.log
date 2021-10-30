@@ -1,0 +1,2436 @@
+In file included from ./benchmarks/git/double_free_1/git_df_1.c:10:0:
+./benchmarks/git/double_free_1/../git.h: In function ‘copy_array’:
+./benchmarks/git/double_free_1/../git.h:161:3: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   memcpy(dst, src, st_mult(size, n));
+   ^~~~~~
+./benchmarks/git/double_free_1/../git.h:161:3: warning: incompatible implicit declaration of built-in function ‘memcpy’
+./benchmarks/git/double_free_1/../git.h:161:3: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/double_free_1/../git.h:161:20: warning: implicit declaration of function ‘st_mult’; did you mean ‘stdout’? [-Wimplicit-function-declaration]
+   memcpy(dst, src, st_mult(size, n));
+                    ^~~~~~~
+                    stdout
+./benchmarks/git/double_free_1/../git.h: In function ‘move_array’:
+./benchmarks/git/double_free_1/../git.h:169:3: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+   memmove(dst, src, st_mult(size, n));
+   ^~~~~~~
+./benchmarks/git/double_free_1/../git.h:169:3: warning: incompatible implicit declaration of built-in function ‘memmove’
+./benchmarks/git/double_free_1/../git.h:169:3: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/double_free_1/git_df_1.c:9:0:
+./benchmarks/git/double_free_1/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/double_free_1/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/double_free_1/../git.h:174:15: note: in expansion of macro ‘xstrdup’
+  return str ? xstrdup(str) : NULL;
+               ^~~~~~~
+./benchmarks/git/double_free_1/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/double_free_1/../git.h:174:15: note: in expansion of macro ‘xstrdup’
+  return str ? xstrdup(str) : NULL;
+               ^~~~~~~
+In file included from ./benchmarks/git/double_free_1/git_df_1.c:10:0:
+./benchmarks/git/double_free_1/../git.h: At top level:
+./benchmarks/git/double_free_1/../git.h:236:55: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*write_archive)(const struct archiver *, struct archiver_args *);
+                                                       ^~~~~~~~~~~~~
+./benchmarks/git/double_free_1/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/double_free_1/../git.h:126:2: warning: incompatible implicit declaration of built-in function ‘memcpy’
+  memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));  \
+  ^
+./benchmarks/git/double_free_1/../git.h:407:2: note: in expansion of macro ‘SWAP’
+  SWAP(*a, *b);
+  ^~~~
+./benchmarks/git/double_free_1/../git.h:126:2: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));  \
+  ^
+./benchmarks/git/double_free_1/../git.h:407:2: note: in expansion of macro ‘SWAP’
+  SWAP(*a, *b);
+  ^~~~
+In file included from ./benchmarks/git/double_free_1/git_df_1.c:9:0:
+./benchmarks/git/double_free_1/git_df_1.c: In function ‘remote_exists’:
+./benchmarks/git/double_free_1/git_df_1.c:185:22: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+  char *url = xmalloc(strlen(remote->url) + strlen(path) + 1); /* allocation site */
+                      ^
+./benchmarks/git/double_free_1/../stdio.h:137:27: note: in definition of macro ‘xmalloc’
+ #define xmalloc(a) malloc(a)
+                           ^
+./benchmarks/git/double_free_1/git_df_1.c:185:22: warning: incompatible implicit declaration of built-in function ‘strlen’
+  char *url = xmalloc(strlen(remote->url) + strlen(path) + 1); /* allocation site */
+                      ^
+./benchmarks/git/double_free_1/../stdio.h:137:27: note: in definition of macro ‘xmalloc’
+ #define xmalloc(a) malloc(a)
+                           ^
+./benchmarks/git/double_free_1/git_df_1.c:185:22: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+  char *url = xmalloc(strlen(remote->url) + strlen(path) + 1); /* allocation site */
+                      ^
+./benchmarks/git/double_free_1/../stdio.h:137:27: note: in definition of macro ‘xmalloc’
+ #define xmalloc(a) malloc(a)
+                           ^
+./benchmarks/git/double_free_1/git_df_1.c:192:9: warning: implicit declaration of function ‘get_active_slot’ [-Wimplicit-function-declaration]
+  slot = get_active_slot();
+         ^~~~~~~~~~~~~~~
+./benchmarks/git/double_free_1/git_df_1.c:192:7: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  slot = get_active_slot();
+       ^
+./benchmarks/git/double_free_1/git_df_1.c:194:2: warning: implicit declaration of function ‘curl_easy_setopt’ [-Wimplicit-function-declaration]
+  curl_easy_setopt(slot->curl, CURLOPT_URL, url);
+  ^~~~~~~~~~~~~~~~
+./benchmarks/git/double_free_1/git_df_1.c:197:6: warning: implicit declaration of function ‘start_active_slot’ [-Wimplicit-function-declaration]
+  if (start_active_slot(slot)) {
+      ^~~~~~~~~~~~~~~~~
+./benchmarks/git/double_free_1/git_df_1.c:198:3: warning: implicit declaration of function ‘run_active_slot’ [-Wimplicit-function-declaration]
+   run_active_slot(slot);
+   ^~~~~~~~~~~~~~~
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+--------GIMPLE Cond -------
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 3
+--------GIMPLE Cond -------
+succs:= 4
+succs:= 2
+succs:= 3
+succs:= 4
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 1 
+pointer ptable is 1 
+===============The second stage : Mapping stmt=================
+# VUSE <.MEM_1(D)>
+_5 = strlen (_4);
+# .MEM_29 = VDEF <.MEM_1(D)>
+url_9 = malloc (_8);
+# VUSE <.MEM_29>
+_12 = __builtin_object_size (url_9, 1);
+# .MEM_30 = VDEF <.MEM_29>
+_13 = __builtin___sprintf_chk (url_9, 1, _12, "%s%s", _11, "path");
+# .MEM_31 = VDEF <.MEM_30>
+_14 = get_active_slot ();
+# .MEM_33 = VDEF <.MEM_32>
+curl_easy_setopt (_17, 0, url_9);
+# .MEM_34 = VDEF <.MEM_33>
+curl_easy_setopt (_18, 0, 1);
+# .MEM_35 = VDEF <.MEM_34>
+_19 = start_active_slot (slot_16);
+# .MEM_38 = VDEF <.MEM_35>
+run_active_slot (slot_16);
+# .MEM_40 = VDEF <.MEM_39>
+_24 = __fprintf_chk (_23, 1, "HEAD HTTP error %ld\n", _22);
+# .MEM_37 = VDEF <.MEM_36>
+_26 = __fprintf_chk (_25, 1, "Unable to start HEAD request\n");
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 10 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:__fprintf_chk========= [0m
+[40;33m =======POP node_fun stack:__fprintf_chk========= [0m
+[40;42m =======pre add _ fucntion:run_active_slot========= [0m
+[40;33m =======POP node_fun stack:run_active_slot========= [0m
+[40;42m =======pre add _ fucntion:start_active_slot========= [0m
+[40;33m =======POP node_fun stack:start_active_slot========= [0m
+[40;42m =======pre add _ fucntion:curl_easy_setopt========= [0m
+[40;33m =======POP node_fun stack:curl_easy_setopt========= [0m
+[40;42m =======pre add _ fucntion:get_active_slot========= [0m
+[40;33m =======POP node_fun stack:get_active_slot========= [0m
+[40;42m =======pre add _ fucntion:__builtin___sprintf_chk========= [0m
+[40;33m =======POP node_fun stack:__builtin___sprintf_chk========= [0m
+[40;42m =======pre add _ fucntion:__builtin_object_size========= [0m
+[40;33m =======POP node_fun stack:__builtin_object_size========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;33m =======POP node_fun stack:strlen========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f0d9c0a2558
+    type <pointer_type 0x7f0d9c082690
+        type <integer_type 0x7f0d9c082888 char public string-flag QI
+            size <integer_cst 0x7f0d9c558cd8 constant 8>
+            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
+            pointer_to_this <pointer_type 0x7f0d9c082690>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+    var <var_decl 0x7f0d9c09f5a0 url>
+    def_stmt url_9 = malloc (_8);
+    version 9
+    ptr-info 0x7f0d9c085f48>
+# .MEM_29 = VDEF <.MEM_1(D)>
+url_9 = malloc (_8);
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_12 = __builtin_object_size (url_9, 1);
+this stmt is child function---__builtin_object_size-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2558
+    type <pointer_type 0x7f0d9c082690
+        type <integer_type 0x7f0d9c082888 char public string-flag QI
+            size <integer_cst 0x7f0d9c558cd8 constant 8>
+            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
+            pointer_to_this <pointer_type 0x7f0d9c082690>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+    var <var_decl 0x7f0d9c09f5a0 url>
+    def_stmt url_9 = malloc (_8);
+    version 9
+    ptr-info 0x7f0d9c085f48>
+trace fucntion name:__builtin_object_size 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_13 = __builtin___sprintf_chk (url_9, 1, _12, "%s%s", _11, "path");
+this stmt is child function---__builtin___sprintf_chk-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2558
+    type <pointer_type 0x7f0d9c082690
+        type <integer_type 0x7f0d9c082888 char public string-flag QI
+            size <integer_cst 0x7f0d9c558cd8 constant 8>
+            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
+            pointer_to_this <pointer_type 0x7f0d9c082690>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+    var <var_decl 0x7f0d9c09f5a0 url>
+    def_stmt url_9 = malloc (_8);
+    version 9
+    ptr-info 0x7f0d9c085f48>
+trace fucntion name:__builtin___sprintf_chk 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+bb index := 7
+# VUSE <.MEM_42>
+return 0;
+In function ‘main’:
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+bb index := 7
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+bb index := 7
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+bb index := 7
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 7
+
+======================================================================
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+  free(url);
+  ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_36 = VDEF <.MEM_35>
+free (url_9);
+bb index := 6
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 6 ,possiable got to succ := 7
+
+======================================================================
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+   free(url); /* double-free */
+   ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+bb index := 3
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+bb index := 3
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 7
+
+======================================================================
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+   free(url); /* double-free */
+   ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+[40;32m    HAS FREE STMT count:3 name:free [0m
+
+ ================== find ================== 
+curl_easy_setopt (_17, 0, url_9);
+./benchmarks/git/double_free_1/git_df_1.c:194:2: warning: use location
+  curl_easy_setopt(slot->curl, CURLOPT_URL, url);
+  ^
+this stmt is child function---curl_easy_setopt-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2558
+    type <pointer_type 0x7f0d9c082690
+        type <integer_type 0x7f0d9c082888 char public string-flag QI
+            size <integer_cst 0x7f0d9c558cd8 constant 8>
+            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
+            pointer_to_this <pointer_type 0x7f0d9c082690>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+    var <var_decl 0x7f0d9c09f5a0 url>
+    def_stmt url_9 = malloc (_8);
+    version 9
+    ptr-info 0x7f0d9c085f48>
+trace fucntion name:curl_easy_setopt 
+
+ ================== trace ================== 
+trace fucntion free:3 
+url_9 = malloc (_8);
+./benchmarks/git/double_free_1/git_df_1.c:185:8: warning: use location
+  char *url = xmalloc(strlen(remote->url) + strlen(path) + 1); /* allocation site */
+        ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2558
+    type <pointer_type 0x7f0d9c082690
+        type <integer_type 0x7f0d9c082888 char public string-flag QI
+            size <integer_cst 0x7f0d9c558cd8 constant 8>
+            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
+            pointer_to_this <pointer_type 0x7f0d9c082690>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+    var <var_decl 0x7f0d9c09f5a0 url>
+    def_stmt url_9 = malloc (_8);
+    version 9
+    ptr-info 0x7f0d9c085f48>
+trace fucntion name:malloc 
+
+ ================== trace ================== 
+trace fucntion free:3 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f0d9c0a2558
+    type <pointer_type 0x7f0d9c082690
+        type <integer_type 0x7f0d9c082888 char public string-flag QI
+            size <integer_cst 0x7f0d9c558cd8 constant 8>
+            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
+            pointer_to_this <pointer_type 0x7f0d9c082690>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+    var <var_decl 0x7f0d9c09f5a0 url>
+    def_stmt url_9 = malloc (_8);
+    version 9
+    ptr-info 0x7f0d9c085f48>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_35>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+  free(url);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:3 [0m
+
+======================================================================
+
+======================================================================
+[40;31m  	possible double free :3 [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f0d9c0a23f0
+    type <pointer_type 0x7f0d9c082690
+        type <integer_type 0x7f0d9c082888 char public string-flag QI
+            size <integer_cst 0x7f0d9c558cd8 constant 8>
+            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
+            pointer_to_this <pointer_type 0x7f0d9c082690>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+   
+    def_stmt _4 = _3->url;
+    version 4
+    ptr-info 0x7f0d9c085f30>
+# VUSE <.MEM_1(D)>
+_4 = _3->url;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_5 = strlen (_4);
+./benchmarks/git/double_free_1/git_df_1.c:185:14: warning: use location
+  char *url = xmalloc(strlen(remote->url) + strlen(path) + 1); /* allocation site */
+              ^
+this stmt is child function---strlen-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a23f0
+    type <pointer_type 0x7f0d9c082690
+        type <integer_type 0x7f0d9c082888 char public string-flag QI
+            size <integer_cst 0x7f0d9c558cd8 constant 8>
+            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
+            pointer_to_this <pointer_type 0x7f0d9c082690>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+   
+    def_stmt _4 = _3->url;
+    version 4
+    ptr-info 0x7f0d9c085f30>
+trace fucntion name:strlen 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_7 = _5 + _6;
+./benchmarks/git/double_free_1/git_df_1.c:185:14: warning: use location
+_8 = _7 + 1;
+./benchmarks/git/double_free_1/git_df_1.c:185:14: warning: use location
+url_9 = malloc (_8);
+./benchmarks/git/double_free_1/git_df_1.c:185:8: warning: use location
+  char *url = xmalloc(strlen(remote->url) + strlen(path) + 1); /* allocation site */
+        ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a23f0
+    type <pointer_type 0x7f0d9c082690
+        type <integer_type 0x7f0d9c082888 char public string-flag QI
+            size <integer_cst 0x7f0d9c558cd8 constant 8>
+            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
+            pointer_to_this <pointer_type 0x7f0d9c082690>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+   
+    def_stmt _4 = _3->url;
+    version 4
+    ptr-info 0x7f0d9c085f30>
+trace fucntion name:malloc 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_12 = __builtin_object_size (url_9, 1);
+this stmt is child function---__builtin_object_size-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a23f0
+    type <pointer_type 0x7f0d9c082690
+        type <integer_type 0x7f0d9c082888 char public string-flag QI
+            size <integer_cst 0x7f0d9c558cd8 constant 8>
+            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
+            pointer_to_this <pointer_type 0x7f0d9c082690>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+   
+    def_stmt _4 = _3->url;
+    version 4
+    ptr-info 0x7f0d9c085f30>
+trace fucntion name:__builtin_object_size 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_13 = __builtin___sprintf_chk (url_9, 1, _12, "%s%s", _11, "path");
+this stmt is child function---__builtin___sprintf_chk-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a23f0
+    type <pointer_type 0x7f0d9c082690
+        type <integer_type 0x7f0d9c082888 char public string-flag QI
+            size <integer_cst 0x7f0d9c558cd8 constant 8>
+            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
+            pointer_to_this <pointer_type 0x7f0d9c082690>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+   
+    def_stmt _4 = _3->url;
+    version 4
+    ptr-info 0x7f0d9c085f30>
+trace fucntion name:__builtin___sprintf_chk 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+bb index := 7
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+bb index := 7
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+bb index := 7
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+bb index := 7
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 7
+
+======================================================================
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+  free(url);
+  ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_36 = VDEF <.MEM_35>
+free (url_9);
+bb index := 6
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 6 ,possiable got to succ := 7
+
+======================================================================
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+   free(url); /* double-free */
+   ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+bb index := 3
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+bb index := 3
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 7
+
+======================================================================
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+   free(url); /* double-free */
+   ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+[40;32m    HAS FREE STMT count:3 name:free [0m
+
+ ================== find ================== 
+curl_easy_setopt (_17, 0, url_9);
+./benchmarks/git/double_free_1/git_df_1.c:194:2: warning: use location
+  curl_easy_setopt(slot->curl, CURLOPT_URL, url);
+  ^
+this stmt is child function---curl_easy_setopt-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a23f0
+    type <pointer_type 0x7f0d9c082690
+        type <integer_type 0x7f0d9c082888 char public string-flag QI
+            size <integer_cst 0x7f0d9c558cd8 constant 8>
+            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
+            pointer_to_this <pointer_type 0x7f0d9c082690>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+   
+    def_stmt _4 = _3->url;
+    version 4
+    ptr-info 0x7f0d9c085f30>
+trace fucntion name:curl_easy_setopt 
+
+ ================== trace ================== 
+trace fucntion free:3 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f0d9c0a23f0
+    type <pointer_type 0x7f0d9c082690
+        type <integer_type 0x7f0d9c082888 char public string-flag QI
+            size <integer_cst 0x7f0d9c558cd8 constant 8>
+            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
+            pointer_to_this <pointer_type 0x7f0d9c082690>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+   
+    def_stmt _4 = _3->url;
+    version 4
+    ptr-info 0x7f0d9c085f30>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m  	possible double free :3 [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f0d9c0a2510
+    type <integer_type 0x7f0d9c56c7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f0d9c56c738 precision 64 min <integer_cst 0x7f0d9c558eb8 0> max <integer_cst 0x7f0d9c55a500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f0d9c5789d8>>
+   
+    def_stmt _8 = _7 + 1;
+    version 8>
+_8 = _7 + 1;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+url_9 = malloc (_8);
+./benchmarks/git/double_free_1/git_df_1.c:185:8: warning: use location
+  char *url = xmalloc(strlen(remote->url) + strlen(path) + 1); /* allocation site */
+        ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2510
+    type <integer_type 0x7f0d9c56c7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f0d9c56c738 precision 64 min <integer_cst 0x7f0d9c558eb8 0> max <integer_cst 0x7f0d9c55a500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f0d9c5789d8>>
+   
+    def_stmt _8 = _7 + 1;
+    version 8>
+trace fucntion name:malloc 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_12 = __builtin_object_size (url_9, 1);
+this stmt is child function---__builtin_object_size-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2510
+    type <integer_type 0x7f0d9c56c7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f0d9c56c738 precision 64 min <integer_cst 0x7f0d9c558eb8 0> max <integer_cst 0x7f0d9c55a500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f0d9c5789d8>>
+   
+    def_stmt _8 = _7 + 1;
+    version 8>
+trace fucntion name:__builtin_object_size 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_13 = __builtin___sprintf_chk (url_9, 1, _12, "%s%s", _11, "path");
+this stmt is child function---__builtin___sprintf_chk-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2510
+    type <integer_type 0x7f0d9c56c7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f0d9c56c738 precision 64 min <integer_cst 0x7f0d9c558eb8 0> max <integer_cst 0x7f0d9c55a500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f0d9c5789d8>>
+   
+    def_stmt _8 = _7 + 1;
+    version 8>
+trace fucntion name:__builtin___sprintf_chk 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+bb index := 7
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+bb index := 7
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+bb index := 7
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+bb index := 7
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 7
+
+======================================================================
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+  free(url);
+  ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_36 = VDEF <.MEM_35>
+free (url_9);
+bb index := 6
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 6 ,possiable got to succ := 7
+
+======================================================================
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+   free(url); /* double-free */
+   ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+bb index := 3
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+bb index := 3
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 7
+
+======================================================================
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+   free(url); /* double-free */
+   ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+[40;32m    HAS FREE STMT count:3 name:free [0m
+
+ ================== find ================== 
+curl_easy_setopt (_17, 0, url_9);
+./benchmarks/git/double_free_1/git_df_1.c:194:2: warning: use location
+  curl_easy_setopt(slot->curl, CURLOPT_URL, url);
+  ^
+this stmt is child function---curl_easy_setopt-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2510
+    type <integer_type 0x7f0d9c56c7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f0d9c56c738 precision 64 min <integer_cst 0x7f0d9c558eb8 0> max <integer_cst 0x7f0d9c55a500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f0d9c5789d8>>
+   
+    def_stmt _8 = _7 + 1;
+    version 8>
+trace fucntion name:curl_easy_setopt 
+
+ ================== trace ================== 
+trace fucntion free:3 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f0d9c0a2510
+    type <integer_type 0x7f0d9c56c7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f0d9c56c738 precision 64 min <integer_cst 0x7f0d9c558eb8 0> max <integer_cst 0x7f0d9c55a500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f0d9c5789d8>>
+   
+    def_stmt _8 = _7 + 1;
+    version 8>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_35>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+  free(url);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:3 [0m
+
+======================================================================
+
+======================================================================
+[40;31m  	possible double free :3 [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f0d9c0a26c0
+    type <integer_type 0x7f0d9c56c5e8 int public SI
+        size <integer_cst 0x7f0d9c558e28 constant 32>
+        unit size <integer_cst 0x7f0d9c558e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
+        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+   
+    def_stmt _14 = get_active_slot ();
+    version 14>
+# .MEM_31 = VDEF <.MEM_30>
+_14 = get_active_slot ();
+
+ ================== trace ptable================== 
+trace fucntion name:get_active_slot 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---get_active_slot-----
+this other function ------get_active_slot-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_15 = (long int) _14;
+./benchmarks/git/double_free_1/git_df_1.c:192:9: warning: use location
+  slot = get_active_slot();
+         ^
+slot_16 = (struct active_request_slot *) _15;
+./benchmarks/git/double_free_1/git_df_1.c:192:7: warning: use location
+  slot = get_active_slot();
+       ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_38 = VDEF <.MEM_35>
+run_active_slot (slot_16);
+bb index := 3
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_38 = VDEF <.MEM_35>
+run_active_slot (slot_16);
+bb index := 3
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 7
+
+======================================================================
+run_active_slot (slot_16);
+./benchmarks/git/double_free_1/git_df_1.c:198:3: warning: use location
+   run_active_slot(slot);
+   ^
+this stmt is child function---run_active_slot-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a26c0
+    type <integer_type 0x7f0d9c56c5e8 int public SI
+        size <integer_cst 0x7f0d9c558e28 constant 32>
+        unit size <integer_cst 0x7f0d9c558e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
+        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+   
+    def_stmt _14 = get_active_slot ();
+    version 14>
+trace fucntion name:run_active_slot 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_19 = start_active_slot (slot_16);
+./benchmarks/git/double_free_1/git_df_1.c:197:6: warning: use location
+  if (start_active_slot(slot)) {
+      ^
+this stmt is child function---start_active_slot-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a26c0
+    type <integer_type 0x7f0d9c56c5e8 int public SI
+        size <integer_cst 0x7f0d9c558e28 constant 32>
+        unit size <integer_cst 0x7f0d9c558e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
+        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+   
+    def_stmt _14 = get_active_slot ();
+    version 14>
+trace fucntion name:start_active_slot 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_19 != 0)
+./benchmarks/git/double_free_1/git_df_1.c:197:5: warning: use location
+  if (start_active_slot(slot)) {
+     ^
+if (_19 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/git/double_free_1/git_df_1.c:197:5: warning: use location
+Cond in fucntion main basic block 2
+ ================== possible direct basic block ================= 
+from main basic block 3
+ ================== possible direct basic block ================= 
+from main basic block 6
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_18 = slot_16->curl;
+./benchmarks/git/double_free_1/git_df_1.c:195:2: warning: use location
+  curl_easy_setopt(slot->curl, CURLOPT_NOBODY, 1);
+  ^
+curl_easy_setopt (_18, 0, 1);
+./benchmarks/git/double_free_1/git_df_1.c:195:2: warning: use location
+this stmt is child function---curl_easy_setopt-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a26c0
+    type <integer_type 0x7f0d9c56c5e8 int public SI
+        size <integer_cst 0x7f0d9c558e28 constant 32>
+        unit size <integer_cst 0x7f0d9c558e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
+        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+   
+    def_stmt _14 = get_active_slot ();
+    version 14>
+trace fucntion name:curl_easy_setopt 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_17 = slot_16->curl;
+./benchmarks/git/double_free_1/git_df_1.c:194:2: warning: use location
+  curl_easy_setopt(slot->curl, CURLOPT_URL, url);
+  ^
+curl_easy_setopt (_17, 0, url_9);
+./benchmarks/git/double_free_1/git_df_1.c:194:2: warning: use location
+this stmt is child function---curl_easy_setopt-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a26c0
+    type <integer_type 0x7f0d9c56c5e8 int public SI
+        size <integer_cst 0x7f0d9c558e28 constant 32>
+        unit size <integer_cst 0x7f0d9c558e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
+        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+   
+    def_stmt _14 = get_active_slot ();
+    version 14>
+trace fucntion name:curl_easy_setopt 
+
+ ================== trace ================== 
+trace fucntion free:0 
+slot_16->results = &results;
+./benchmarks/git/double_free_1/git_df_1.c:193:16: warning: use location
+  slot->results = &results;
+                ^
+_14 = get_active_slot ();
+./benchmarks/git/double_free_1/git_df_1.c:192:9: warning: use location
+  slot = get_active_slot();
+         ^
+this stmt is child function---get_active_slot-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a26c0
+    type <integer_type 0x7f0d9c56c5e8 int public SI
+        size <integer_cst 0x7f0d9c558e28 constant 32>
+        unit size <integer_cst 0x7f0d9c558e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
+        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+   
+    def_stmt _14 = get_active_slot ();
+    version 14>
+trace fucntion name:get_active_slot 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f0d9c0a26c0
+    type <integer_type 0x7f0d9c56c5e8 int public SI
+        size <integer_cst 0x7f0d9c558e28 constant 32>
+        unit size <integer_cst 0x7f0d9c558e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
+        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+   
+    def_stmt _14 = get_active_slot ();
+    version 14>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_35>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+  free(url);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:3 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f0d9c0a2798
+    type <pointer_type 0x7f0d9c08e3f0
+        type <record_type 0x7f0d9c08e348 CURL BLK
+            size <integer_cst 0x7f0d9c558c60 constant 0>
+            unit size <integer_cst 0x7f0d9c558c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = slot_16->curl;
+    version 17
+    ptr-info 0x7f0d9c085fa8>
+# VUSE <.MEM_32>
+_17 = slot_16->curl;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_33 = VDEF <.MEM_32>
+curl_easy_setopt (_17, 0, url_9);
+curl_easy_setopt (_17, 0, url_9);
+./benchmarks/git/double_free_1/git_df_1.c:194:2: warning: use location
+  curl_easy_setopt(slot->curl, CURLOPT_URL, url);
+  ^
+this stmt is child function---curl_easy_setopt-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2798
+    type <pointer_type 0x7f0d9c08e3f0
+        type <record_type 0x7f0d9c08e348 CURL BLK
+            size <integer_cst 0x7f0d9c558c60 constant 0>
+            unit size <integer_cst 0x7f0d9c558c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = slot_16->curl;
+    version 17
+    ptr-info 0x7f0d9c085fa8>
+trace fucntion name:curl_easy_setopt 
+
+ ================== trace ================== 
+trace fucntion free:0 
+# .MEM_33 = VDEF <.MEM_32>
+curl_easy_setopt (_17, 0, url_9);
+curl_easy_setopt (_17, 0, url_9);
+./benchmarks/git/double_free_1/git_df_1.c:194:2: warning: use location
+this stmt is child function---curl_easy_setopt-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2798
+    type <pointer_type 0x7f0d9c08e3f0
+        type <record_type 0x7f0d9c08e348 CURL BLK
+            size <integer_cst 0x7f0d9c558c60 constant 0>
+            unit size <integer_cst 0x7f0d9c558c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = slot_16->curl;
+    version 17
+    ptr-info 0x7f0d9c085fa8>
+trace fucntion name:curl_easy_setopt 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f0d9c0a2798
+    type <pointer_type 0x7f0d9c08e3f0
+        type <record_type 0x7f0d9c08e348 CURL BLK
+            size <integer_cst 0x7f0d9c558c60 constant 0>
+            unit size <integer_cst 0x7f0d9c558c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = slot_16->curl;
+    version 17
+    ptr-info 0x7f0d9c085fa8>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_35>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+  free(url);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:3 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f0d9c0a27e0
+    type <pointer_type 0x7f0d9c08e3f0
+        type <record_type 0x7f0d9c08e348 CURL BLK
+            size <integer_cst 0x7f0d9c558c60 constant 0>
+            unit size <integer_cst 0x7f0d9c558c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _18 = slot_16->curl;
+    version 18
+    ptr-info 0x7f0d9c085fc0>
+# VUSE <.MEM_33>
+_18 = slot_16->curl;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_34 = VDEF <.MEM_33>
+curl_easy_setopt (_18, 0, 1);
+curl_easy_setopt (_18, 0, 1);
+./benchmarks/git/double_free_1/git_df_1.c:195:2: warning: use location
+  curl_easy_setopt(slot->curl, CURLOPT_NOBODY, 1);
+  ^
+this stmt is child function---curl_easy_setopt-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a27e0
+    type <pointer_type 0x7f0d9c08e3f0
+        type <record_type 0x7f0d9c08e348 CURL BLK
+            size <integer_cst 0x7f0d9c558c60 constant 0>
+            unit size <integer_cst 0x7f0d9c558c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _18 = slot_16->curl;
+    version 18
+    ptr-info 0x7f0d9c085fc0>
+trace fucntion name:curl_easy_setopt 
+
+ ================== trace ================== 
+trace fucntion free:0 
+# .MEM_34 = VDEF <.MEM_33>
+curl_easy_setopt (_18, 0, 1);
+curl_easy_setopt (_18, 0, 1);
+./benchmarks/git/double_free_1/git_df_1.c:195:2: warning: use location
+this stmt is child function---curl_easy_setopt-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a27e0
+    type <pointer_type 0x7f0d9c08e3f0
+        type <record_type 0x7f0d9c08e348 CURL BLK
+            size <integer_cst 0x7f0d9c558c60 constant 0>
+            unit size <integer_cst 0x7f0d9c558c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _18 = slot_16->curl;
+    version 18
+    ptr-info 0x7f0d9c085fc0>
+trace fucntion name:curl_easy_setopt 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f0d9c0a27e0
+    type <pointer_type 0x7f0d9c08e3f0
+        type <record_type 0x7f0d9c08e348 CURL BLK
+            size <integer_cst 0x7f0d9c558c60 constant 0>
+            unit size <integer_cst 0x7f0d9c558c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _18 = slot_16->curl;
+    version 18
+    ptr-info 0x7f0d9c085fc0>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_35>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+  free(url);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:3 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f0d9c0a2750
+    type <pointer_type 0x7f0d9c08e498
+        type <record_type 0x7f0d9c08e540 active_request_slot BLK
+            size <integer_cst 0x7f0d9c0853a8 constant 576>
+            unit size <integer_cst 0x7f0d9c085408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+        public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f0d9c09f630 slot>
+    def_stmt slot_16 = (struct active_request_slot *) _15;
+    version 16
+    ptr-info 0x7f0d9c085f90>
+slot_16 = (struct active_request_slot *) _15;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_38 = VDEF <.MEM_35>
+run_active_slot (slot_16);
+bb index := 3
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_38 = VDEF <.MEM_35>
+run_active_slot (slot_16);
+bb index := 3
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 7
+
+======================================================================
+run_active_slot (slot_16);
+./benchmarks/git/double_free_1/git_df_1.c:198:3: warning: use location
+   run_active_slot(slot);
+   ^
+this stmt is child function---run_active_slot-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2750
+    type <pointer_type 0x7f0d9c08e498
+        type <record_type 0x7f0d9c08e540 active_request_slot BLK
+            size <integer_cst 0x7f0d9c0853a8 constant 576>
+            unit size <integer_cst 0x7f0d9c085408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+        public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f0d9c09f630 slot>
+    def_stmt slot_16 = (struct active_request_slot *) _15;
+    version 16
+    ptr-info 0x7f0d9c085f90>
+trace fucntion name:run_active_slot 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_19 = start_active_slot (slot_16);
+./benchmarks/git/double_free_1/git_df_1.c:197:6: warning: use location
+  if (start_active_slot(slot)) {
+      ^
+this stmt is child function---start_active_slot-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2750
+    type <pointer_type 0x7f0d9c08e498
+        type <record_type 0x7f0d9c08e540 active_request_slot BLK
+            size <integer_cst 0x7f0d9c0853a8 constant 576>
+            unit size <integer_cst 0x7f0d9c085408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+        public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f0d9c09f630 slot>
+    def_stmt slot_16 = (struct active_request_slot *) _15;
+    version 16
+    ptr-info 0x7f0d9c085f90>
+trace fucntion name:start_active_slot 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_19 != 0)
+./benchmarks/git/double_free_1/git_df_1.c:197:5: warning: use location
+  if (start_active_slot(slot)) {
+     ^
+if (_19 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/git/double_free_1/git_df_1.c:197:5: warning: use location
+Cond in fucntion main basic block 2
+ ================== possible direct basic block ================= 
+from main basic block 3
+ ================== possible direct basic block ================= 
+from main basic block 6
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_18 = slot_16->curl;
+./benchmarks/git/double_free_1/git_df_1.c:195:2: warning: use location
+  curl_easy_setopt(slot->curl, CURLOPT_NOBODY, 1);
+  ^
+curl_easy_setopt (_18, 0, 1);
+./benchmarks/git/double_free_1/git_df_1.c:195:2: warning: use location
+this stmt is child function---curl_easy_setopt-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2750
+    type <pointer_type 0x7f0d9c08e498
+        type <record_type 0x7f0d9c08e540 active_request_slot BLK
+            size <integer_cst 0x7f0d9c0853a8 constant 576>
+            unit size <integer_cst 0x7f0d9c085408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+        public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f0d9c09f630 slot>
+    def_stmt slot_16 = (struct active_request_slot *) _15;
+    version 16
+    ptr-info 0x7f0d9c085f90>
+trace fucntion name:curl_easy_setopt 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_17 = slot_16->curl;
+./benchmarks/git/double_free_1/git_df_1.c:194:2: warning: use location
+  curl_easy_setopt(slot->curl, CURLOPT_URL, url);
+  ^
+curl_easy_setopt (_17, 0, url_9);
+./benchmarks/git/double_free_1/git_df_1.c:194:2: warning: use location
+this stmt is child function---curl_easy_setopt-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2750
+    type <pointer_type 0x7f0d9c08e498
+        type <record_type 0x7f0d9c08e540 active_request_slot BLK
+            size <integer_cst 0x7f0d9c0853a8 constant 576>
+            unit size <integer_cst 0x7f0d9c085408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+        public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f0d9c09f630 slot>
+    def_stmt slot_16 = (struct active_request_slot *) _15;
+    version 16
+    ptr-info 0x7f0d9c085f90>
+trace fucntion name:curl_easy_setopt 
+
+ ================== trace ================== 
+trace fucntion free:0 
+slot_16->results = &results;
+./benchmarks/git/double_free_1/git_df_1.c:193:16: warning: use location
+  slot->results = &results;
+                ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f0d9c0a2750
+    type <pointer_type 0x7f0d9c08e498
+        type <record_type 0x7f0d9c08e540 active_request_slot BLK
+            size <integer_cst 0x7f0d9c0853a8 constant 576>
+            unit size <integer_cst 0x7f0d9c085408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+        public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f0d9c09f630 slot>
+    def_stmt slot_16 = (struct active_request_slot *) _15;
+    version 16
+    ptr-info 0x7f0d9c085f90>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_35>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+  free(url);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:3 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f0d9c0a2750
+    type <pointer_type 0x7f0d9c08e498
+        type <record_type 0x7f0d9c08e540 active_request_slot BLK
+            size <integer_cst 0x7f0d9c0853a8 constant 576>
+            unit size <integer_cst 0x7f0d9c085408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+        public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f0d9c09f630 slot>
+    def_stmt slot_16 = (struct active_request_slot *) _15;
+    version 16
+    ptr-info 0x7f0d9c085f90>
+slot_16 = (struct active_request_slot *) _15;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_38 = VDEF <.MEM_35>
+run_active_slot (slot_16);
+bb index := 3
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_38 = VDEF <.MEM_35>
+run_active_slot (slot_16);
+bb index := 3
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 7
+
+======================================================================
+# .MEM_38 = VDEF <.MEM_35>
+run_active_slot (slot_16);
+run_active_slot (slot_16);
+./benchmarks/git/double_free_1/git_df_1.c:198:3: warning: use location
+   run_active_slot(slot);
+   ^
+this stmt is child function---run_active_slot-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2750
+    type <pointer_type 0x7f0d9c08e498
+        type <record_type 0x7f0d9c08e540 active_request_slot BLK
+            size <integer_cst 0x7f0d9c0853a8 constant 576>
+            unit size <integer_cst 0x7f0d9c085408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+        public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f0d9c09f630 slot>
+    def_stmt slot_16 = (struct active_request_slot *) _15;
+    version 16
+    ptr-info 0x7f0d9c085f90>
+trace fucntion name:run_active_slot 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_19 = start_active_slot (slot_16);
+./benchmarks/git/double_free_1/git_df_1.c:197:6: warning: use location
+  if (start_active_slot(slot)) {
+      ^
+this stmt is child function---start_active_slot-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2750
+    type <pointer_type 0x7f0d9c08e498
+        type <record_type 0x7f0d9c08e540 active_request_slot BLK
+            size <integer_cst 0x7f0d9c0853a8 constant 576>
+            unit size <integer_cst 0x7f0d9c085408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+        public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f0d9c09f630 slot>
+    def_stmt slot_16 = (struct active_request_slot *) _15;
+    version 16
+    ptr-info 0x7f0d9c085f90>
+trace fucntion name:start_active_slot 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_19 != 0)
+./benchmarks/git/double_free_1/git_df_1.c:197:5: warning: use location
+  if (start_active_slot(slot)) {
+     ^
+if (_19 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/git/double_free_1/git_df_1.c:197:5: warning: use location
+Cond in fucntion main basic block 2
+ ================== possible direct basic block ================= 
+from main basic block 3
+ ================== possible direct basic block ================= 
+from main basic block 6
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_18 = slot_16->curl;
+./benchmarks/git/double_free_1/git_df_1.c:195:2: warning: use location
+  curl_easy_setopt(slot->curl, CURLOPT_NOBODY, 1);
+  ^
+curl_easy_setopt (_18, 0, 1);
+./benchmarks/git/double_free_1/git_df_1.c:195:2: warning: use location
+this stmt is child function---curl_easy_setopt-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2750
+    type <pointer_type 0x7f0d9c08e498
+        type <record_type 0x7f0d9c08e540 active_request_slot BLK
+            size <integer_cst 0x7f0d9c0853a8 constant 576>
+            unit size <integer_cst 0x7f0d9c085408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+        public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f0d9c09f630 slot>
+    def_stmt slot_16 = (struct active_request_slot *) _15;
+    version 16
+    ptr-info 0x7f0d9c085f90>
+trace fucntion name:curl_easy_setopt 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_17 = slot_16->curl;
+./benchmarks/git/double_free_1/git_df_1.c:194:2: warning: use location
+  curl_easy_setopt(slot->curl, CURLOPT_URL, url);
+  ^
+curl_easy_setopt (_17, 0, url_9);
+./benchmarks/git/double_free_1/git_df_1.c:194:2: warning: use location
+this stmt is child function---curl_easy_setopt-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2750
+    type <pointer_type 0x7f0d9c08e498
+        type <record_type 0x7f0d9c08e540 active_request_slot BLK
+            size <integer_cst 0x7f0d9c0853a8 constant 576>
+            unit size <integer_cst 0x7f0d9c085408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+        public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f0d9c09f630 slot>
+    def_stmt slot_16 = (struct active_request_slot *) _15;
+    version 16
+    ptr-info 0x7f0d9c085f90>
+trace fucntion name:curl_easy_setopt 
+
+ ================== trace ================== 
+trace fucntion free:0 
+slot_16->results = &results;
+./benchmarks/git/double_free_1/git_df_1.c:193:16: warning: use location
+  slot->results = &results;
+                ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f0d9c0a2750
+    type <pointer_type 0x7f0d9c08e498
+        type <record_type 0x7f0d9c08e540 active_request_slot BLK
+            size <integer_cst 0x7f0d9c0853a8 constant 576>
+            unit size <integer_cst 0x7f0d9c085408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+        public unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f0d9c09f630 slot>
+    def_stmt slot_16 = (struct active_request_slot *) _15;
+    version 16
+    ptr-info 0x7f0d9c085f90>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_35>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+  free(url);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:3 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f0d9c0a2948
+    type <pointer_type 0x7f0d9c08a348
+        type <record_type 0x7f0d9c08a2a0 FILE BLK
+            size <integer_cst 0x7f0d9c611c30 constant 1728>
+            unit size <integer_cst 0x7f0d9c0852a0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08a150 fields <field_decl 0x7f0d9c08b720 _flags> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08a348> chain <type_decl 0x7f0d9c08b7b8 D.4025>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f0d9c08e9d8>>
+   
+    def_stmt _23 = stderr;
+    version 23
+    ptr-info 0x7f0d9c085fd8>
+# VUSE <.MEM_39>
+_23 = stderr;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_40 = VDEF <.MEM_39>
+_24 = __fprintf_chk (_23, 1, "HEAD HTTP error %ld\n", _22);
+bb index := 5
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 5 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_40 = VDEF <.MEM_39>
+_24 = __fprintf_chk (_23, 1, "HEAD HTTP error %ld\n", _22);
+bb index := 5
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 5 ,possiable got to succ := 7
+
+======================================================================
+_24 = __fprintf_chk (_23, 1, "HEAD HTTP error %ld\n", _22);
+this stmt is child function---__fprintf_chk-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2948
+    type <pointer_type 0x7f0d9c08a348
+        type <record_type 0x7f0d9c08a2a0 FILE BLK
+            size <integer_cst 0x7f0d9c611c30 constant 1728>
+            unit size <integer_cst 0x7f0d9c0852a0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08a150 fields <field_decl 0x7f0d9c08b720 _flags> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08a348> chain <type_decl 0x7f0d9c08b7b8 D.4025>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f0d9c08e9d8>>
+   
+    def_stmt _23 = stderr;
+    version 23
+    ptr-info 0x7f0d9c085fd8>
+trace fucntion name:__fprintf_chk 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_40 = VDEF <.MEM_39>
+_24 = __fprintf_chk (_23, 1, "HEAD HTTP error %ld\n", _22);
+bb index := 5
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 5 ,possiable got to succ := 7
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_40 = VDEF <.MEM_39>
+_24 = __fprintf_chk (_23, 1, "HEAD HTTP error %ld\n", _22);
+bb index := 5
+# VUSE <.MEM_42>
+return 0;
+lto1: warning: use location
+beacuse in succ := 7 have return or exit
+gimple stmt in succ := 5 ,possiable got to succ := 7
+
+======================================================================
+_24 = __fprintf_chk (_23, 1, "HEAD HTTP error %ld\n", _22);
+this stmt is child function---__fprintf_chk-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f0d9c0a2948
+    type <pointer_type 0x7f0d9c08a348
+        type <record_type 0x7f0d9c08a2a0 FILE BLK
+            size <integer_cst 0x7f0d9c611c30 constant 1728>
+            unit size <integer_cst 0x7f0d9c0852a0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08a150 fields <field_decl 0x7f0d9c08b720 _flags> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08a348> chain <type_decl 0x7f0d9c08b7b8 D.4025>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f0d9c08e9d8>>
+   
+    def_stmt _23 = stderr;
+    version 23
+    ptr-info 0x7f0d9c085fd8>
+trace fucntion name:__fprintf_chk 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f0d9c0a2948
+    type <pointer_type 0x7f0d9c08a348
+        type <record_type 0x7f0d9c08a2a0 FILE BLK
+            size <integer_cst 0x7f0d9c611c30 constant 1728>
+            unit size <integer_cst 0x7f0d9c0852a0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08a150 fields <field_decl 0x7f0d9c08b720 _flags> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08a348> chain <type_decl 0x7f0d9c08b7b8 D.4025>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f0d9c08e9d8>>
+   
+    def_stmt _23 = stderr;
+    version 23
+    ptr-info 0x7f0d9c085fd8>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_35>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:207:3: warning: use location
+   free(url); /* double-free */
+   ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_41 = VDEF <.MEM_28>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:211:2: warning: use location
+  free(url);
+  ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: Use after free error!: free location 
+   free(url); /* double-free */
+   ^
+# .MEM_40 = VDEF <.MEM_39>
+_24 = __fprintf_chk (_23, 1, "HEAD HTTP error %ld\n", _22);
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_39 = VDEF <.MEM_38>
+free (url_9);
+./benchmarks/git/double_free_1/git_df_1.c:199:3: warning: Use after free error!: free location 
+# .MEM_40 = VDEF <.MEM_39>
+_24 = __fprintf_chk (_23, 1, "HEAD HTTP error %ld\n", _22);
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:3 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f0d9c0a29d8
+    type <pointer_type 0x7f0d9c08a348
+        type <record_type 0x7f0d9c08a2a0 FILE BLK
+            size <integer_cst 0x7f0d9c611c30 constant 1728>
+            unit size <integer_cst 0x7f0d9c0852a0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08a150 fields <field_decl 0x7f0d9c08b720 _flags> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7f0d9c08a348> chain <type_decl 0x7f0d9c08b7b8 D.4025>>
+        unsigned DI
+        size <integer_cst 0x7f0d9c558be8 constant 64>
+        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f0d9c08e9d8>>
+   
+    def_stmt _25 = stderr;
+    version 25
+    ptr-info 0x7f0d9c0a6000>
+# VUSE <.MEM_36>
+_25 = stderr;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+_3 = 0B;
+_4 = _3->url;
+_5 = strlen (_4);
+_6 = 4;
+_7 = _5 + _6;
+_8 = _7 + 1;
+url_9 = malloc (_8);
+_10 = 0B;
+_11 = _10->url;
+_12 = __builtin_object_size (url_9, 1);
+_13 = __builtin___sprintf_chk (url_9, 1, _12, "%s%s", _11, "path");
+_14 = get_active_slot ();
+_15 = (long int) _14;
+slot_16 = (struct active_request_slot *) _15;
+slot_16->results = &results;
+_17 = slot_16->curl;
+curl_easy_setopt (_17, 0, url_9);
+_18 = slot_16->curl;
+curl_easy_setopt (_18, 0, 1);
+_19 = start_active_slot (slot_16);
+if (_19 != 0)
+  goto <bb 3>; [98.00%]
+else
+  goto <bb 6>; [2.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [98.00%]:
+run_active_slot (slot_16);
+free (url_9);
+_20 = results.http_code;
+if (_20 == 404)
+  goto <bb 7>; [30.50%]
+else
+  goto <bb 4>; [69.50%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [68.11%]:
+_21 = results.curl_result;
+if (_21 == 0)
+  goto <bb 7>; [99.00%]
+else
+  goto <bb 5>; [1.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [0.68%]:
+_22 = results.http_code;
+_23 = stderr;
+_24 = __fprintf_chk (_23, 1, "HEAD HTTP error %ld\n", _22);
+goto <bb 7>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [2.00%]:
+free (url_9);
+_25 = stderr;
+_26 = __fprintf_chk (_25, 1, "Unable to start HEAD request\n");
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [100.00%]:
+# ret_27 = PHI <0(3), 1(4), -1(5), -1(6)>
+free (url_9);
+results ={v} {CLOBBER};
+_43 = ret_27;
+return 0;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 8 [0m
+[40;34m    used_stmt array stack totalsize of : 1256 [0m
+[40;34m    collect time: : 0.000086 s [0m
+[40;34m    algorithm time: 0.015038 s [0m
+[40;34m    gimple stmt count : : 37 [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+/usr/bin/ld: /tmp/ccFkizO5.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0x6d): undefined reference to `get_active_slot'
+/usr/bin/ld: <artificial>:(.text+0x8c): undefined reference to `curl_easy_setopt'
+/usr/bin/ld: <artificial>:(.text+0xa3): undefined reference to `curl_easy_setopt'
+/usr/bin/ld: <artificial>:(.text+0xb0): undefined reference to `start_active_slot'
+/usr/bin/ld: <artificial>:(.text+0xc1): undefined reference to `run_active_slot'
+collect2: error: ld returned 1 exit status

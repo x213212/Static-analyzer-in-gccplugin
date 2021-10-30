@@ -1,0 +1,1929 @@
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:104:0: warning: "ENOMSG" redefined
+ #define ENOMSG 35 /* No message of desired type */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:23:0: note: this is the location of the previous definition
+ #define ENOMSG  42 /* No message of desired type */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:105:0: warning: "EIDRM" redefined
+ #define EIDRM 36 /* Identifier removed */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:24:0: note: this is the location of the previous definition
+ #define EIDRM  43 /* Identifier removed */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:106:0: warning: "ECHRNG" redefined
+ #define ECHRNG 37 /* Channel number out of range */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:25:0: note: this is the location of the previous definition
+ #define ECHRNG  44 /* Channel number out of range */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:107:0: warning: "EL2NSYNC" redefined
+ #define EL2NSYNC 38 /* Level 2 not synchronized */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:26:0: note: this is the location of the previous definition
+ #define EL2NSYNC 45 /* Level 2 not synchronized */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:108:0: warning: "EL3HLT" redefined
+ #define EL3HLT 39 /* Level 3 halted */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:27:0: note: this is the location of the previous definition
+ #define EL3HLT  46 /* Level 3 halted */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:109:0: warning: "EL3RST" redefined
+ #define EL3RST 40 /* Level 3 reset */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:28:0: note: this is the location of the previous definition
+ #define EL3RST  47 /* Level 3 reset */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:110:0: warning: "ELNRNG" redefined
+ #define ELNRNG 41 /* Link number out of range */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:29:0: note: this is the location of the previous definition
+ #define ELNRNG  48 /* Link number out of range */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:111:0: warning: "EUNATCH" redefined
+ #define EUNATCH 42 /* Protocol driver not attached */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:30:0: note: this is the location of the previous definition
+ #define EUNATCH  49 /* Protocol driver not attached */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:112:0: warning: "ENOCSI" redefined
+ #define ENOCSI 43 /* No CSI structure available */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:31:0: note: this is the location of the previous definition
+ #define ENOCSI  50 /* No CSI structure available */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:113:0: warning: "EL2HLT" redefined
+ #define EL2HLT 44 /* Level 2 halted */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:32:0: note: this is the location of the previous definition
+ #define EL2HLT  51 /* Level 2 halted */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:114:0: warning: "EDEADLK" redefined
+ #define EDEADLK 45 /* Deadlock condition */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:7:0: note: this is the location of the previous definition
+ #define EDEADLK  35 /* Resource deadlock would occur */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:115:0: warning: "ENOLCK" redefined
+ #define ENOLCK 46 /* No record locks available */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:9:0: note: this is the location of the previous definition
+ #define ENOLCK  37 /* No record locks available */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:116:0: warning: "EBADE" redefined
+ #define EBADE 50 /* Invalid exchange */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:33:0: note: this is the location of the previous definition
+ #define EBADE  52 /* Invalid exchange */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:117:0: warning: "EBADR" redefined
+ #define EBADR 51 /* Invalid request descriptor */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:34:0: note: this is the location of the previous definition
+ #define EBADR  53 /* Invalid request descriptor */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:118:0: warning: "EXFULL" redefined
+ #define EXFULL 52 /* Exchange full */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:35:0: note: this is the location of the previous definition
+ #define EXFULL  54 /* Exchange full */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:119:0: warning: "ENOANO" redefined
+ #define ENOANO 53 /* No anode */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:36:0: note: this is the location of the previous definition
+ #define ENOANO  55 /* No anode */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:120:0: warning: "EBADRQC" redefined
+ #define EBADRQC 54 /* Invalid request code */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:37:0: note: this is the location of the previous definition
+ #define EBADRQC  56 /* Invalid request code */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:121:0: warning: "EBADSLT" redefined
+ #define EBADSLT 55 /* Invalid slot */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:38:0: note: this is the location of the previous definition
+ #define EBADSLT  57 /* Invalid slot */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:122:0: warning: "EDEADLOCK" redefined
+ #define EDEADLOCK 56 /* File locking deadlock error */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:40:0: note: this is the location of the previous definition
+ #define EDEADLOCK EDEADLK
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:123:0: warning: "EBFONT" redefined
+ #define EBFONT 57 /* Bad font file fmt */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:42:0: note: this is the location of the previous definition
+ #define EBFONT  59 /* Bad font file format */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:136:0: warning: "EMULTIHOP" redefined
+ #define EMULTIHOP 74 /* Multihop attempted */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:55:0: note: this is the location of the previous definition
+ #define EMULTIHOP 72 /* Multihop attempted */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:138:0: warning: "EDOTDOT" redefined
+ #define EDOTDOT 76 /* Cross mount point (not really error) */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:56:0: note: this is the location of the previous definition
+ #define EDOTDOT  73 /* RFS specific error */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:139:0: warning: "EBADMSG" redefined
+ #define EBADMSG 77 /* Trying to read unreadable message */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:57:0: note: this is the location of the previous definition
+ #define EBADMSG  74 /* Not a data message */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:141:0: warning: "ENOTUNIQ" redefined
+ #define ENOTUNIQ 80 /* Given log. name not unique */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:59:0: note: this is the location of the previous definition
+ #define ENOTUNIQ 76 /* Name not unique on network */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:142:0: warning: "EBADFD" redefined
+ #define EBADFD 81 /* f.d. invalid for this operation */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:60:0: note: this is the location of the previous definition
+ #define EBADFD  77 /* File descriptor in bad state */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:143:0: warning: "EREMCHG" redefined
+ #define EREMCHG 82 /* Remote address changed */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:61:0: note: this is the location of the previous definition
+ #define EREMCHG  78 /* Remote address changed */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:144:0: warning: "ELIBACC" redefined
+ #define ELIBACC 83 /* Can't access a needed shared lib */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:62:0: note: this is the location of the previous definition
+ #define ELIBACC  79 /* Can not access a needed shared library */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:145:0: warning: "ELIBBAD" redefined
+ #define ELIBBAD 84 /* Accessing a corrupted shared lib */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:63:0: note: this is the location of the previous definition
+ #define ELIBBAD  80 /* Accessing a corrupted shared library */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:146:0: warning: "ELIBSCN" redefined
+ #define ELIBSCN 85 /* .lib section in a.out corrupted */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:64:0: note: this is the location of the previous definition
+ #define ELIBSCN  81 /* .lib section in a.out corrupted */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:147:0: warning: "ELIBMAX" redefined
+ #define ELIBMAX 86 /* Attempting to link in too many libs */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:65:0: note: this is the location of the previous definition
+ #define ELIBMAX  82 /* Attempting to link in too many shared libraries */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:148:0: warning: "ELIBEXEC" redefined
+ #define ELIBEXEC 87 /* Attempting to exec a shared library */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:66:0: note: this is the location of the previous definition
+ #define ELIBEXEC 83 /* Cannot exec a shared library directly */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:149:0: warning: "ENOSYS" redefined
+ #define ENOSYS 88 /* Function not implemented */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:18:0: note: this is the location of the previous definition
+ #define ENOSYS  38 /* Invalid system call number */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:151:0: warning: "ENOTEMPTY" redefined
+ #define ENOTEMPTY 90 /* Directory not empty */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:20:0: note: this is the location of the previous definition
+ #define ENOTEMPTY 39 /* Directory not empty */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:152:0: warning: "ENAMETOOLONG" redefined
+ #define ENAMETOOLONG 91 /* File or path name too long */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:8:0: note: this is the location of the previous definition
+ #define ENAMETOOLONG 36 /* File name too long */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:153:0: warning: "ELOOP" redefined
+ #define ELOOP 92 /* Too many symbolic links */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:21:0: note: this is the location of the previous definition
+ #define ELOOP  40 /* Too many symbolic links encountered */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:158:0: warning: "EAFNOSUPPORT" redefined
+ #define EAFNOSUPPORT 106 /* Address family not supported by protocol family */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:80:0: note: this is the location of the previous definition
+ #define EAFNOSUPPORT 97 /* Address family not supported by protocol */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:159:0: warning: "EPROTOTYPE" redefined
+ #define EPROTOTYPE 107 /* Protocol wrong type for socket */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:74:0: note: this is the location of the previous definition
+ #define EPROTOTYPE 91 /* Protocol wrong type for socket */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:160:0: warning: "ENOTSOCK" redefined
+ #define ENOTSOCK 108 /* Socket operation on non-socket */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:71:0: note: this is the location of the previous definition
+ #define ENOTSOCK 88 /* Socket operation on non-socket */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:161:0: warning: "ENOPROTOOPT" redefined
+ #define ENOPROTOOPT 109 /* Protocol not available */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:75:0: note: this is the location of the previous definition
+ #define ENOPROTOOPT 92 /* Protocol not available */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:162:0: warning: "ESHUTDOWN" redefined
+ #define ESHUTDOWN 110 /* Can't send after socket shutdown */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:91:0: note: this is the location of the previous definition
+ #define ESHUTDOWN 108 /* Cannot send after transport endpoint shutdown */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:164:0: warning: "EADDRINUSE" redefined
+ #define EADDRINUSE 112  /* Address already in use */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:81:0: note: this is the location of the previous definition
+ #define EADDRINUSE 98 /* Address already in use */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:165:0: warning: "ECONNABORTED" redefined
+ #define ECONNABORTED 113 /* Connection aborted */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:86:0: note: this is the location of the previous definition
+ #define ECONNABORTED 103 /* Software caused connection abort */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:166:0: warning: "ENETUNREACH" redefined
+ #define ENETUNREACH 114  /* Network is unreachable */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:84:0: note: this is the location of the previous definition
+ #define ENETUNREACH 101 /* Network is unreachable */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:167:0: warning: "ENETDOWN" redefined
+ #define ENETDOWN 115  /* Network interface is not configured */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:83:0: note: this is the location of the previous definition
+ #define ENETDOWN 100 /* Network is down */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:168:0: warning: "ETIMEDOUT" redefined
+ #define ETIMEDOUT 116  /* Connection timed out */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:93:0: note: this is the location of the previous definition
+ #define ETIMEDOUT 110 /* Connection timed out */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:169:0: warning: "EHOSTDOWN" redefined
+ #define EHOSTDOWN 117  /* Host is down */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:95:0: note: this is the location of the previous definition
+ #define EHOSTDOWN 112 /* Host is down */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:170:0: warning: "EHOSTUNREACH" redefined
+ #define EHOSTUNREACH 118 /* Host is unreachable */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:96:0: note: this is the location of the previous definition
+ #define EHOSTUNREACH 113 /* No route to host */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:171:0: warning: "EINPROGRESS" redefined
+ #define EINPROGRESS 119  /* Connection already in progress */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:98:0: note: this is the location of the previous definition
+ #define EINPROGRESS 115 /* Operation now in progress */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:172:0: warning: "EALREADY" redefined
+ #define EALREADY 120  /* Socket already connected */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:97:0: note: this is the location of the previous definition
+ #define EALREADY 114 /* Operation already in progress */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:173:0: warning: "EDESTADDRREQ" redefined
+ #define EDESTADDRREQ 121 /* Destination address required */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:72:0: note: this is the location of the previous definition
+ #define EDESTADDRREQ 89 /* Destination address required */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:174:0: warning: "EMSGSIZE" redefined
+ #define EMSGSIZE 122  /* Message too long */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:73:0: note: this is the location of the previous definition
+ #define EMSGSIZE 90 /* Message too long */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:175:0: warning: "EPROTONOSUPPORT" redefined
+ #define EPROTONOSUPPORT 123 /* Unknown protocol */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:76:0: note: this is the location of the previous definition
+ #define EPROTONOSUPPORT 93 /* Protocol not supported */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:176:0: warning: "ESOCKTNOSUPPORT" redefined
+ #define ESOCKTNOSUPPORT 124 /* Socket type not supported */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:77:0: note: this is the location of the previous definition
+ #define ESOCKTNOSUPPORT 94 /* Socket type not supported */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:177:0: warning: "EADDRNOTAVAIL" redefined
+ #define EADDRNOTAVAIL 125 /* Address not available */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:82:0: note: this is the location of the previous definition
+ #define EADDRNOTAVAIL 99 /* Cannot assign requested address */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:178:0: warning: "ENETRESET" redefined
+ #define ENETRESET 126
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:85:0: note: this is the location of the previous definition
+ #define ENETRESET 102 /* Network dropped connection because of reset */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:179:0: warning: "EISCONN" redefined
+ #define EISCONN 127  /* Socket is already connected */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:89:0: note: this is the location of the previous definition
+ #define EISCONN  106 /* Transport endpoint is already connected */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:180:0: warning: "ENOTCONN" redefined
+ #define ENOTCONN 128  /* Socket is not connected */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:90:0: note: this is the location of the previous definition
+ #define ENOTCONN 107 /* Transport endpoint is not connected */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:181:0: warning: "ETOOMANYREFS" redefined
+ #define ETOOMANYREFS 129
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:92:0: note: this is the location of the previous definition
+ #define ETOOMANYREFS 109 /* Too many references: cannot splice */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:183:0: warning: "EUSERS" redefined
+ #define EUSERS 131
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:70:0: note: this is the location of the previous definition
+ #define EUSERS  87 /* Too many users */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:184:0: warning: "EDQUOT" redefined
+ #define EDQUOT 132
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:105:0: note: this is the location of the previous definition
+ #define EDQUOT  122 /* Quota exceeded */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:185:0: warning: "ESTALE" redefined
+ #define ESTALE 133
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:99:0: note: this is the location of the previous definition
+ #define ESTALE  116 /* Stale file handle */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:186:0: warning: "ENOTSUP" redefined
+ #define ENOTSUP 134  /* Not supported */
+ 
+In file included from /usr/include/errno.h:28:0,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/x86_64-linux-gnu/bits/errno.h:30:0: note: this is the location of the previous definition
+ #  define ENOTSUP  EOPNOTSUPP
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:187:0: warning: "ENOMEDIUM" redefined
+ #define ENOMEDIUM 135   /* No medium (in tape drive) */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:107:0: note: this is the location of the previous definition
+ #define ENOMEDIUM 123 /* No medium found */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:190:0: warning: "EILSEQ" redefined
+ #define EILSEQ 138
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:67:0: note: this is the location of the previous definition
+ #define EILSEQ  84 /* Illegal byte sequence */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:191:0: warning: "EOVERFLOW" redefined
+ #define EOVERFLOW 139 /* Value too large for defined data type */
+ 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1:0,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:8:
+/usr/include/asm-generic/errno.h:58:0: note: this is the location of the previous definition
+ #define EOVERFLOW 75 /* Value too large for defined data type */
+ 
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:675:49: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*verify_host_key)(struct sshkey *, struct ssh *);
+                                                 ^~~
+./benchmarks/openssh-portable/double_free_6/../openssh.h:676:58: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+                                                          ^~~
+./benchmarks/openssh-portable/double_free_6/../openssh.h:677:59: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+                                                           ^~~
+./benchmarks/openssh-portable/double_free_6/../openssh.h:678:53: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*host_key_index)(struct sshkey *, int, struct ssh *);
+                                                     ^~~
+./benchmarks/openssh-portable/double_free_6/../openssh.h:681:29: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*kex[KEX_MAX])(struct ssh *);
+                             ^~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:151:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:245:8: error: redefinition of ‘struct passwd’
+ struct passwd {
+        ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:11:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:245:8: note: originally defined here
+ struct passwd {
+        ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:351:8: error: redefinition of ‘struct sshbuf’
+ struct sshbuf {
+        ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:351:8: note: originally defined here
+ struct sshbuf {
+        ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:370:9: error: conflicting types for ‘Buffer’
+ }       Buffer;
+         ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:370:9: note: previous declaration of ‘Buffer’ was here
+ }       Buffer;
+         ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:372:8: error: redefinition of ‘struct bignum_st’
+ struct bignum_st {
+        ^~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:372:8: note: originally defined here
+ struct bignum_st {
+        ^~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:390:26: error: conflicting types for ‘BIGNUM’
+ typedef struct bignum_st BIGNUM;
+                          ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:390:26: note: previous declaration of ‘BIGNUM’ was here
+ typedef struct bignum_st BIGNUM;
+                          ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:391:16: error: redefinition of ‘struct rsa_st’
+ typedef struct rsa_st {
+                ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:391:16: note: originally defined here
+ typedef struct rsa_st {
+                ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:427:3: error: conflicting types for ‘RSA’
+ } RSA;
+   ^~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:427:3: note: previous declaration of ‘RSA’ was here
+ } RSA;
+   ^~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:434:16: error: redefinition of ‘struct dsa_st’
+ typedef struct dsa_st {
+                ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:434:16: note: originally defined here
+ typedef struct dsa_st {
+                ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:447:3: error: conflicting types for ‘DSA’
+ } DSA;
+   ^~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:447:3: note: previous declaration of ‘DSA’ was here
+ } DSA;
+   ^~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:566:6: error: nested redefinition of ‘enum kex_init_proposals’
+ enum kex_init_proposals {
+      ^~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/../openssh.h:566:6: error: redeclaration of ‘enum kex_init_proposals’
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:566:6: note: originally defined here
+ enum kex_init_proposals {
+      ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:567:2: error: redeclaration of enumerator ‘PROPOSAL_KEX_ALGS’
+  PROPOSAL_KEX_ALGS,
+  ^~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:567:2: note: previous definition of ‘PROPOSAL_KEX_ALGS’ was here
+  PROPOSAL_KEX_ALGS,
+  ^~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:568:2: error: redeclaration of enumerator ‘PROPOSAL_SERVER_HOST_KEY_ALGS’
+  PROPOSAL_SERVER_HOST_KEY_ALGS,
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:568:2: note: previous definition of ‘PROPOSAL_SERVER_HOST_KEY_ALGS’ was here
+  PROPOSAL_SERVER_HOST_KEY_ALGS,
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:569:2: error: redeclaration of enumerator ‘PROPOSAL_ENC_ALGS_CTOS’
+  PROPOSAL_ENC_ALGS_CTOS,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:569:2: note: previous definition of ‘PROPOSAL_ENC_ALGS_CTOS’ was here
+  PROPOSAL_ENC_ALGS_CTOS,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:570:2: error: redeclaration of enumerator ‘PROPOSAL_ENC_ALGS_STOC’
+  PROPOSAL_ENC_ALGS_STOC,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:570:2: note: previous definition of ‘PROPOSAL_ENC_ALGS_STOC’ was here
+  PROPOSAL_ENC_ALGS_STOC,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:571:2: error: redeclaration of enumerator ‘PROPOSAL_MAC_ALGS_CTOS’
+  PROPOSAL_MAC_ALGS_CTOS,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:571:2: note: previous definition of ‘PROPOSAL_MAC_ALGS_CTOS’ was here
+  PROPOSAL_MAC_ALGS_CTOS,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:572:2: error: redeclaration of enumerator ‘PROPOSAL_MAC_ALGS_STOC’
+  PROPOSAL_MAC_ALGS_STOC,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:572:2: note: previous definition of ‘PROPOSAL_MAC_ALGS_STOC’ was here
+  PROPOSAL_MAC_ALGS_STOC,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:573:2: error: redeclaration of enumerator ‘PROPOSAL_COMP_ALGS_CTOS’
+  PROPOSAL_COMP_ALGS_CTOS,
+  ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:573:2: note: previous definition of ‘PROPOSAL_COMP_ALGS_CTOS’ was here
+  PROPOSAL_COMP_ALGS_CTOS,
+  ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:574:2: error: redeclaration of enumerator ‘PROPOSAL_COMP_ALGS_STOC’
+  PROPOSAL_COMP_ALGS_STOC,
+  ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:574:2: note: previous definition of ‘PROPOSAL_COMP_ALGS_STOC’ was here
+  PROPOSAL_COMP_ALGS_STOC,
+  ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:575:2: error: redeclaration of enumerator ‘PROPOSAL_LANG_CTOS’
+  PROPOSAL_LANG_CTOS,
+  ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:575:2: note: previous definition of ‘PROPOSAL_LANG_CTOS’ was here
+  PROPOSAL_LANG_CTOS,
+  ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:576:2: error: redeclaration of enumerator ‘PROPOSAL_LANG_STOC’
+  PROPOSAL_LANG_STOC,
+  ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:576:2: note: previous definition of ‘PROPOSAL_LANG_STOC’ was here
+  PROPOSAL_LANG_STOC,
+  ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:577:2: error: redeclaration of enumerator ‘PROPOSAL_MAX’
+  PROPOSAL_MAX
+  ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:577:2: note: previous definition of ‘PROPOSAL_MAX’ was here
+  PROPOSAL_MAX
+  ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:580:6: error: nested redefinition of ‘enum kex_modes’
+ enum kex_modes {
+      ^~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/../openssh.h:580:6: error: redeclaration of ‘enum kex_modes’
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:580:6: note: originally defined here
+ enum kex_modes {
+      ^~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:581:2: error: redeclaration of enumerator ‘MODE_IN’
+  MODE_IN,
+  ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:581:2: note: previous definition of ‘MODE_IN’ was here
+  MODE_IN,
+  ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:582:2: error: redeclaration of enumerator ‘MODE_OUT’
+  MODE_OUT,
+  ^~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:582:2: note: previous definition of ‘MODE_OUT’ was here
+  MODE_OUT,
+  ^~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:583:2: error: redeclaration of enumerator ‘MODE_MAX’
+  MODE_MAX
+  ^~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:583:2: note: previous definition of ‘MODE_MAX’ was here
+  MODE_MAX
+  ^~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:586:6: error: nested redefinition of ‘enum kex_exchange’
+ enum kex_exchange {
+      ^~~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/../openssh.h:586:6: error: redeclaration of ‘enum kex_exchange’
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:586:6: note: originally defined here
+ enum kex_exchange {
+      ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:587:2: error: redeclaration of enumerator ‘KEX_DH_GRP1_SHA1’
+  KEX_DH_GRP1_SHA1,
+  ^~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:587:2: note: previous definition of ‘KEX_DH_GRP1_SHA1’ was here
+  KEX_DH_GRP1_SHA1,
+  ^~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:588:2: error: redeclaration of enumerator ‘KEX_DH_GRP14_SHA1’
+  KEX_DH_GRP14_SHA1,
+  ^~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:588:2: note: previous definition of ‘KEX_DH_GRP14_SHA1’ was here
+  KEX_DH_GRP14_SHA1,
+  ^~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:589:2: error: redeclaration of enumerator ‘KEX_DH_GRP14_SHA256’
+  KEX_DH_GRP14_SHA256,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:589:2: note: previous definition of ‘KEX_DH_GRP14_SHA256’ was here
+  KEX_DH_GRP14_SHA256,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:590:2: error: redeclaration of enumerator ‘KEX_DH_GRP16_SHA512’
+  KEX_DH_GRP16_SHA512,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:590:2: note: previous definition of ‘KEX_DH_GRP16_SHA512’ was here
+  KEX_DH_GRP16_SHA512,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:591:2: error: redeclaration of enumerator ‘KEX_DH_GRP18_SHA512’
+  KEX_DH_GRP18_SHA512,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:591:2: note: previous definition of ‘KEX_DH_GRP18_SHA512’ was here
+  KEX_DH_GRP18_SHA512,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:592:2: error: redeclaration of enumerator ‘KEX_DH_GEX_SHA1’
+  KEX_DH_GEX_SHA1,
+  ^~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:592:2: note: previous definition of ‘KEX_DH_GEX_SHA1’ was here
+  KEX_DH_GEX_SHA1,
+  ^~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:593:2: error: redeclaration of enumerator ‘KEX_DH_GEX_SHA256’
+  KEX_DH_GEX_SHA256,
+  ^~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:593:2: note: previous definition of ‘KEX_DH_GEX_SHA256’ was here
+  KEX_DH_GEX_SHA256,
+  ^~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:594:2: error: redeclaration of enumerator ‘KEX_ECDH_SHA2’
+  KEX_ECDH_SHA2,
+  ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:594:2: note: previous definition of ‘KEX_ECDH_SHA2’ was here
+  KEX_ECDH_SHA2,
+  ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:595:2: error: redeclaration of enumerator ‘KEX_C25519_SHA256’
+  KEX_C25519_SHA256,
+  ^~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:595:2: note: previous definition of ‘KEX_C25519_SHA256’ was here
+  KEX_C25519_SHA256,
+  ^~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:596:2: error: redeclaration of enumerator ‘KEX_MAX’
+  KEX_MAX
+  ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:596:2: note: previous definition of ‘KEX_MAX’ was here
+  KEX_MAX
+  ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:600:8: error: redefinition of ‘struct sshenc’
+ struct sshenc {
+        ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:600:8: note: originally defined here
+ struct sshenc {
+        ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:610:8: error: redefinition of ‘struct sshcomp’
+ struct sshcomp {
+        ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:610:8: note: originally defined here
+ struct sshcomp {
+        ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:615:8: error: redefinition of ‘struct newkeys’
+ struct newkeys {
+        ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:615:8: note: originally defined here
+ struct newkeys {
+        ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:626:8: error: redefinition of ‘struct sshkey_cert’
+ struct sshkey_cert {
+        ^~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:626:8: note: originally defined here
+ struct sshkey_cert {
+        ^~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:640:8: error: redefinition of ‘struct sshkey’
+ struct sshkey {
+        ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:636:9: note: originally defined here
+  struct sshkey *signature_key;
+         ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:652:8: error: redefinition of ‘struct kex’
+ struct kex {
+        ^~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:652:8: note: originally defined here
+ struct kex {
+        ^~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:699:6: error: nested redefinition of ‘enum sshkey_types’
+ enum sshkey_types {
+      ^~~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/../openssh.h:699:6: error: redeclaration of ‘enum sshkey_types’
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:699:6: note: originally defined here
+ enum sshkey_types {
+      ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:700:2: error: redeclaration of enumerator ‘KEY_RSA1’
+  KEY_RSA1,
+  ^~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:700:2: note: previous definition of ‘KEY_RSA1’ was here
+  KEY_RSA1,
+  ^~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:701:2: error: redeclaration of enumerator ‘KEY_RSA’
+  KEY_RSA,
+  ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:701:2: note: previous definition of ‘KEY_RSA’ was here
+  KEY_RSA,
+  ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:702:2: error: redeclaration of enumerator ‘KEY_DSA’
+  KEY_DSA,
+  ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:702:2: note: previous definition of ‘KEY_DSA’ was here
+  KEY_DSA,
+  ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:703:2: error: redeclaration of enumerator ‘KEY_ECDSA’
+  KEY_ECDSA,
+  ^~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:703:2: note: previous definition of ‘KEY_ECDSA’ was here
+  KEY_ECDSA,
+  ^~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:704:2: error: redeclaration of enumerator ‘KEY_ED25519’
+  KEY_ED25519,
+  ^~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:704:2: note: previous definition of ‘KEY_ED25519’ was here
+  KEY_ED25519,
+  ^~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:705:2: error: redeclaration of enumerator ‘KEY_RSA_CERT’
+  KEY_RSA_CERT,
+  ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:705:2: note: previous definition of ‘KEY_RSA_CERT’ was here
+  KEY_RSA_CERT,
+  ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:706:2: error: redeclaration of enumerator ‘KEY_DSA_CERT’
+  KEY_DSA_CERT,
+  ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:706:2: note: previous definition of ‘KEY_DSA_CERT’ was here
+  KEY_DSA_CERT,
+  ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:707:2: error: redeclaration of enumerator ‘KEY_ECDSA_CERT’
+  KEY_ECDSA_CERT,
+  ^~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:707:2: note: previous definition of ‘KEY_ECDSA_CERT’ was here
+  KEY_ECDSA_CERT,
+  ^~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:708:2: error: redeclaration of enumerator ‘KEY_ED25519_CERT’
+  KEY_ED25519_CERT,
+  ^~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:708:2: note: previous definition of ‘KEY_ED25519_CERT’ was here
+  KEY_ED25519_CERT,
+  ^~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:709:2: error: redeclaration of enumerator ‘KEY_RSA_CERT_V00’
+  KEY_RSA_CERT_V00,
+  ^~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:709:2: note: previous definition of ‘KEY_RSA_CERT_V00’ was here
+  KEY_RSA_CERT_V00,
+  ^~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:710:2: error: redeclaration of enumerator ‘KEY_DSA_CERT_V00’
+  KEY_DSA_CERT_V00,
+  ^~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:710:2: note: previous definition of ‘KEY_DSA_CERT_V00’ was here
+  KEY_DSA_CERT_V00,
+  ^~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:711:2: error: redeclaration of enumerator ‘KEY_UNSPEC’
+  KEY_UNSPEC
+  ^~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:711:2: note: previous definition of ‘KEY_UNSPEC’ was here
+  KEY_UNSPEC
+  ^~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:718:6: error: nested redefinition of ‘enum sshkey_fp_rep’
+ enum sshkey_fp_rep {
+      ^~~~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/../openssh.h:718:6: error: redeclaration of ‘enum sshkey_fp_rep’
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:718:6: note: originally defined here
+ enum sshkey_fp_rep {
+      ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:719:2: error: redeclaration of enumerator ‘SSH_FP_DEFAULT’
+  SSH_FP_DEFAULT = 0,
+  ^~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:719:2: note: previous definition of ‘SSH_FP_DEFAULT’ was here
+  SSH_FP_DEFAULT = 0,
+  ^~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:720:2: error: redeclaration of enumerator ‘SSH_FP_HEX’
+  SSH_FP_HEX,
+  ^~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:720:2: note: previous definition of ‘SSH_FP_HEX’ was here
+  SSH_FP_HEX,
+  ^~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:721:2: error: redeclaration of enumerator ‘SSH_FP_BASE64’
+  SSH_FP_BASE64,
+  ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:721:2: note: previous definition of ‘SSH_FP_BASE64’ was here
+  SSH_FP_BASE64,
+  ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:722:2: error: redeclaration of enumerator ‘SSH_FP_BUBBLEBABBLE’
+  SSH_FP_BUBBLEBABBLE,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:722:2: note: previous definition of ‘SSH_FP_BUBBLEBABBLE’ was here
+  SSH_FP_BUBBLEBABBLE,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:723:2: error: redeclaration of enumerator ‘SSH_FP_RANDOMART’
+  SSH_FP_RANDOMART
+  ^~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:723:2: note: previous definition of ‘SSH_FP_RANDOMART’ was here
+  SSH_FP_RANDOMART
+  ^~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:726:8: error: redefinition of ‘struct hostkeys_update_ctx’
+ struct hostkeys_update_ctx {
+        ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:726:8: note: originally defined here
+ struct hostkeys_update_ctx {
+        ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:751:8: error: redefinition of ‘struct Forward’
+ struct Forward {
+        ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:751:8: note: originally defined here
+ struct Forward {
+        ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:762:8: error: redefinition of ‘struct ForwardOptions’
+ struct ForwardOptions {
+        ^~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:762:8: note: originally defined here
+ struct ForwardOptions {
+        ^~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:776:2: error: redeclaration of enumerator ‘SYSLOG_FACILITY_DAEMON’
+  SYSLOG_FACILITY_DAEMON,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:776:2: note: previous definition of ‘SYSLOG_FACILITY_DAEMON’ was here
+  SYSLOG_FACILITY_DAEMON,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:777:2: error: redeclaration of enumerator ‘SYSLOG_FACILITY_USER’
+  SYSLOG_FACILITY_USER,
+  ^~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:777:2: note: previous definition of ‘SYSLOG_FACILITY_USER’ was here
+  SYSLOG_FACILITY_USER,
+  ^~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:778:2: error: redeclaration of enumerator ‘SYSLOG_FACILITY_AUTH’
+  SYSLOG_FACILITY_AUTH,
+  ^~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:778:2: note: previous definition of ‘SYSLOG_FACILITY_AUTH’ was here
+  SYSLOG_FACILITY_AUTH,
+  ^~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:782:2: error: redeclaration of enumerator ‘SYSLOG_FACILITY_LOCAL0’
+  SYSLOG_FACILITY_LOCAL0,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:782:2: note: previous definition of ‘SYSLOG_FACILITY_LOCAL0’ was here
+  SYSLOG_FACILITY_LOCAL0,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:783:2: error: redeclaration of enumerator ‘SYSLOG_FACILITY_LOCAL1’
+  SYSLOG_FACILITY_LOCAL1,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:783:2: note: previous definition of ‘SYSLOG_FACILITY_LOCAL1’ was here
+  SYSLOG_FACILITY_LOCAL1,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:784:2: error: redeclaration of enumerator ‘SYSLOG_FACILITY_LOCAL2’
+  SYSLOG_FACILITY_LOCAL2,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:784:2: note: previous definition of ‘SYSLOG_FACILITY_LOCAL2’ was here
+  SYSLOG_FACILITY_LOCAL2,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:785:2: error: redeclaration of enumerator ‘SYSLOG_FACILITY_LOCAL3’
+  SYSLOG_FACILITY_LOCAL3,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:785:2: note: previous definition of ‘SYSLOG_FACILITY_LOCAL3’ was here
+  SYSLOG_FACILITY_LOCAL3,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:786:2: error: redeclaration of enumerator ‘SYSLOG_FACILITY_LOCAL4’
+  SYSLOG_FACILITY_LOCAL4,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:786:2: note: previous definition of ‘SYSLOG_FACILITY_LOCAL4’ was here
+  SYSLOG_FACILITY_LOCAL4,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:787:2: error: redeclaration of enumerator ‘SYSLOG_FACILITY_LOCAL5’
+  SYSLOG_FACILITY_LOCAL5,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:787:2: note: previous definition of ‘SYSLOG_FACILITY_LOCAL5’ was here
+  SYSLOG_FACILITY_LOCAL5,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:788:2: error: redeclaration of enumerator ‘SYSLOG_FACILITY_LOCAL6’
+  SYSLOG_FACILITY_LOCAL6,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:788:2: note: previous definition of ‘SYSLOG_FACILITY_LOCAL6’ was here
+  SYSLOG_FACILITY_LOCAL6,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:789:2: error: redeclaration of enumerator ‘SYSLOG_FACILITY_LOCAL7’
+  SYSLOG_FACILITY_LOCAL7,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:789:2: note: previous definition of ‘SYSLOG_FACILITY_LOCAL7’ was here
+  SYSLOG_FACILITY_LOCAL7,
+  ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:790:2: error: redeclaration of enumerator ‘SYSLOG_FACILITY_NOT_SET’
+  SYSLOG_FACILITY_NOT_SET = -1
+  ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:790:2: note: previous definition of ‘SYSLOG_FACILITY_NOT_SET’ was here
+  SYSLOG_FACILITY_NOT_SET = -1
+  ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:791:9: error: conflicting types for ‘SyslogFacility’
+ }       SyslogFacility;
+         ^~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:791:9: note: previous declaration of ‘SyslogFacility’ was here
+ }       SyslogFacility;
+         ^~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:794:2: error: redeclaration of enumerator ‘SYSLOG_LEVEL_QUIET’
+  SYSLOG_LEVEL_QUIET,
+  ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:794:2: note: previous definition of ‘SYSLOG_LEVEL_QUIET’ was here
+  SYSLOG_LEVEL_QUIET,
+  ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:795:2: error: redeclaration of enumerator ‘SYSLOG_LEVEL_FATAL’
+  SYSLOG_LEVEL_FATAL,
+  ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:795:2: note: previous definition of ‘SYSLOG_LEVEL_FATAL’ was here
+  SYSLOG_LEVEL_FATAL,
+  ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:796:2: error: redeclaration of enumerator ‘SYSLOG_LEVEL_ERROR’
+  SYSLOG_LEVEL_ERROR,
+  ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:796:2: note: previous definition of ‘SYSLOG_LEVEL_ERROR’ was here
+  SYSLOG_LEVEL_ERROR,
+  ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:797:2: error: redeclaration of enumerator ‘SYSLOG_LEVEL_INFO’
+  SYSLOG_LEVEL_INFO,
+  ^~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:797:2: note: previous definition of ‘SYSLOG_LEVEL_INFO’ was here
+  SYSLOG_LEVEL_INFO,
+  ^~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:798:2: error: redeclaration of enumerator ‘SYSLOG_LEVEL_VERBOSE’
+  SYSLOG_LEVEL_VERBOSE,
+  ^~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:798:2: note: previous definition of ‘SYSLOG_LEVEL_VERBOSE’ was here
+  SYSLOG_LEVEL_VERBOSE,
+  ^~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:799:2: error: redeclaration of enumerator ‘SYSLOG_LEVEL_DEBUG1’
+  SYSLOG_LEVEL_DEBUG1,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:799:2: note: previous definition of ‘SYSLOG_LEVEL_DEBUG1’ was here
+  SYSLOG_LEVEL_DEBUG1,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:800:2: error: redeclaration of enumerator ‘SYSLOG_LEVEL_DEBUG2’
+  SYSLOG_LEVEL_DEBUG2,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:800:2: note: previous definition of ‘SYSLOG_LEVEL_DEBUG2’ was here
+  SYSLOG_LEVEL_DEBUG2,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:801:2: error: redeclaration of enumerator ‘SYSLOG_LEVEL_DEBUG3’
+  SYSLOG_LEVEL_DEBUG3,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:801:2: note: previous definition of ‘SYSLOG_LEVEL_DEBUG3’ was here
+  SYSLOG_LEVEL_DEBUG3,
+  ^~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:802:2: error: redeclaration of enumerator ‘SYSLOG_LEVEL_NOT_SET’
+  SYSLOG_LEVEL_NOT_SET = -1
+  ^~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:802:2: note: previous definition of ‘SYSLOG_LEVEL_NOT_SET’ was here
+  SYSLOG_LEVEL_NOT_SET = -1
+  ^~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:803:9: error: conflicting types for ‘LogLevel’
+ }       LogLevel;
+         ^~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:803:9: note: previous declaration of ‘LogLevel’ was here
+ }       LogLevel;
+         ^~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:807:8: error: redefinition of ‘struct allowed_cname’
+ struct allowed_cname {
+        ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:807:8: note: originally defined here
+ struct allowed_cname {
+        ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:937:9: error: conflicting types for ‘Options’
+ }       Options;
+         ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:937:9: note: previous declaration of ‘Options’ was here
+ }       Options;
+         ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:986:8: error: redefinition of ‘struct hostkey_foreach_line’
+ struct hostkey_foreach_line {
+        ^~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:986:8: note: originally defined here
+ struct hostkey_foreach_line {
+        ^~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1002:2: error: redeclaration of enumerator ‘HOST_OK’
+  HOST_OK, HOST_NEW, HOST_CHANGED, HOST_REVOKED, HOST_FOUND
+  ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1002:2: note: previous definition of ‘HOST_OK’ was here
+  HOST_OK, HOST_NEW, HOST_CHANGED, HOST_REVOKED, HOST_FOUND
+  ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1002:11: error: redeclaration of enumerator ‘HOST_NEW’
+  HOST_OK, HOST_NEW, HOST_CHANGED, HOST_REVOKED, HOST_FOUND
+           ^~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1002:11: note: previous definition of ‘HOST_NEW’ was here
+  HOST_OK, HOST_NEW, HOST_CHANGED, HOST_REVOKED, HOST_FOUND
+           ^~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1002:21: error: redeclaration of enumerator ‘HOST_CHANGED’
+  HOST_OK, HOST_NEW, HOST_CHANGED, HOST_REVOKED, HOST_FOUND
+                     ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1002:21: note: previous definition of ‘HOST_CHANGED’ was here
+  HOST_OK, HOST_NEW, HOST_CHANGED, HOST_REVOKED, HOST_FOUND
+                     ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1002:35: error: redeclaration of enumerator ‘HOST_REVOKED’
+  HOST_OK, HOST_NEW, HOST_CHANGED, HOST_REVOKED, HOST_FOUND
+                                   ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1002:35: note: previous definition of ‘HOST_REVOKED’ was here
+  HOST_OK, HOST_NEW, HOST_CHANGED, HOST_REVOKED, HOST_FOUND
+                                   ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1002:49: error: redeclaration of enumerator ‘HOST_FOUND’
+  HOST_OK, HOST_NEW, HOST_CHANGED, HOST_REVOKED, HOST_FOUND
+                                                 ^~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1002:49: note: previous definition of ‘HOST_FOUND’ was here
+  HOST_OK, HOST_NEW, HOST_CHANGED, HOST_REVOKED, HOST_FOUND
+                                                 ^~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1003:9: error: conflicting types for ‘HostStatus’
+ }       HostStatus;
+         ^~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1003:9: note: previous declaration of ‘HostStatus’ was here
+ }       HostStatus;
+         ^~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1006:2: error: redeclaration of enumerator ‘MRK_ERROR’
+  MRK_ERROR, MRK_NONE, MRK_REVOKE, MRK_CA
+  ^~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1006:2: note: previous definition of ‘MRK_ERROR’ was here
+  MRK_ERROR, MRK_NONE, MRK_REVOKE, MRK_CA
+  ^~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1006:13: error: redeclaration of enumerator ‘MRK_NONE’
+  MRK_ERROR, MRK_NONE, MRK_REVOKE, MRK_CA
+             ^~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1006:13: note: previous definition of ‘MRK_NONE’ was here
+  MRK_ERROR, MRK_NONE, MRK_REVOKE, MRK_CA
+             ^~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1006:23: error: redeclaration of enumerator ‘MRK_REVOKE’
+  MRK_ERROR, MRK_NONE, MRK_REVOKE, MRK_CA
+                       ^~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1006:23: note: previous definition of ‘MRK_REVOKE’ was here
+  MRK_ERROR, MRK_NONE, MRK_REVOKE, MRK_CA
+                       ^~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1006:35: error: redeclaration of enumerator ‘MRK_CA’
+  MRK_ERROR, MRK_NONE, MRK_REVOKE, MRK_CA
+                                   ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1006:35: note: previous definition of ‘MRK_CA’ was here
+  MRK_ERROR, MRK_NONE, MRK_REVOKE, MRK_CA
+                                   ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1007:3: error: conflicting types for ‘HostkeyMarker’
+ } HostkeyMarker;
+   ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1007:3: note: previous declaration of ‘HostkeyMarker’ was here
+ } HostkeyMarker;
+   ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1009:8: error: redefinition of ‘struct hostkey_entry’
+ struct hostkey_entry {
+        ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1009:8: note: originally defined here
+ struct hostkey_entry {
+        ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1019:8: error: redefinition of ‘struct ssh’
+ struct ssh {
+        ^~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1019:8: note: originally defined here
+ struct ssh {
+        ^~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1054:8: error: redefinition of ‘struct packet_state’
+ struct packet_state {
+        ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1054:8: note: originally defined here
+ struct packet_state {
+        ^~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1061:8: error: redefinition of ‘struct packet’
+ struct packet {
+        ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1061:8: note: originally defined here
+ struct packet {
+        ^~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1067:14: error: conflicting types for ‘ssh_packet_hook_fn’
+ typedef int (ssh_packet_hook_fn)(struct ssh *, struct sshbuf *,
+              ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1067:14: note: previous declaration of ‘ssh_packet_hook_fn’ was here
+ typedef int (ssh_packet_hook_fn)(struct ssh *, struct sshbuf *,
+              ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1073:8: error: redefinition of ‘struct session_state’
+ struct session_state {
+        ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1021:12: note: originally defined here
+     struct session_state *state;
+            ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1193:6: error: nested redefinition of ‘enum fp_type’
+ enum fp_type {
+      ^~~~~~~
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1193:6: error: redeclaration of ‘enum fp_type’
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1193:6: note: originally defined here
+ enum fp_type {
+      ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1194:2: error: redeclaration of enumerator ‘SSH_FP_SHA1’
+  SSH_FP_SHA1,
+  ^~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1194:2: note: previous definition of ‘SSH_FP_SHA1’ was here
+  SSH_FP_SHA1,
+  ^~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1195:2: error: redeclaration of enumerator ‘SSH_FP_MD5’
+  SSH_FP_MD5,
+  ^~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1195:2: note: previous definition of ‘SSH_FP_MD5’ was here
+  SSH_FP_MD5,
+  ^~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1196:2: error: redeclaration of enumerator ‘SSH_FP_SHA256’
+  SSH_FP_SHA256
+  ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1196:2: note: previous definition of ‘SSH_FP_SHA256’ was here
+  SSH_FP_SHA256
+  ^~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1203:8: error: redefinition of ‘struct KeyCert’
+ struct KeyCert {
+        ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1203:8: note: originally defined here
+ struct KeyCert {
+        ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1216:8: error: redefinition of ‘struct Key’
+ struct Key {
+        ^~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1191:16: note: originally defined here
+ typedef struct Key Key;
+                ^~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1238:3: error: conflicting types for ‘ECDSA_SIG’
+ } ECDSA_SIG;
+   ^~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1238:3: note: previous declaration of ‘ECDSA_SIG’ was here
+ } ECDSA_SIG;
+   ^~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1288:3: error: conflicting types for ‘AuthenticationConnection’
+ } AuthenticationConnection;
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1288:3: note: previous declaration of ‘AuthenticationConnection’ was here
+ } AuthenticationConnection;
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1291:8: error: redefinition of ‘struct Sensitive’
+ struct Sensitive {
+        ^~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1290:16: note: originally defined here
+ typedef struct Sensitive Sensitive;
+                ^~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:162:6: error: nested redefinition of ‘enum fp_type’
+ enum fp_type {
+      ^~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:162:6: error: redeclaration of ‘enum fp_type’
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:12:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1193:6: note: originally defined here
+ enum fp_type {
+      ^~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:163:2: error: redeclaration of enumerator ‘SSH_FP_SHA1’
+  SSH_FP_SHA1,
+  ^~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1194:2: note: previous definition of ‘SSH_FP_SHA1’ was here
+  SSH_FP_SHA1,
+  ^~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:164:2: error: redeclaration of enumerator ‘SSH_FP_MD5’
+  SSH_FP_MD5
+  ^~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:152:0:
+./benchmarks/openssh-portable/double_free_6/../openssh.h:1195:2: note: previous definition of ‘SSH_FP_MD5’ was here
+  SSH_FP_MD5,
+  ^~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c: In function ‘clear_pass’:
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:173:3: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+   memset(pass, 0, strlen(pass));
+   ^~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:173:3: warning: incompatible implicit declaration of built-in function ‘memset’
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:173:3: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:173:19: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   memset(pass, 0, strlen(pass));
+                   ^~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:173:19: warning: incompatible implicit declaration of built-in function ‘strlen’
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:173:19: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c: In function ‘ssh_askpass’:
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:189:3: warning: implicit declaration of function ‘error’; did you mean ‘perror’? [-Wimplicit-function-declaration]
+   error("ssh_askpass: fflush: %s", strerror(errno));
+   ^~~~~
+   perror
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:189:36: warning: implicit declaration of function ‘strerror’; did you mean ‘perror’? [-Wimplicit-function-declaration]
+   error("ssh_askpass: fflush: %s", strerror(errno));
+                                    ^~~~~~~~
+                                    perror
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:192:6: warning: implicit declaration of function ‘pipe’; did you mean ‘popen’? [-Wimplicit-function-declaration]
+  if (pipe(p) < 0)
+      ^~~~
+      popen
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:151:0:
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:193:9: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+   fatal("ssh_askpass: pipe: %s", strerror(errno));
+         ^                        ~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/../stdio.h:263:30: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                              ^
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:194:13: warning: implicit declaration of function ‘fork’ [-Wimplicit-function-declaration]
+  if ((pid = fork()) < 0)
+             ^~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:151:0:
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:195:9: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+   fatal("ssh_askpass: fork: %s", strerror(errno));
+         ^                        ~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/../stdio.h:263:30: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                              ^
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:197:3: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   close(p[0]);
+   ^~~~~
+   pclose
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:198:7: warning: implicit declaration of function ‘dup2’ [-Wimplicit-function-declaration]
+   if (dup2(p[1], STDOUT_FILENO) < 0)
+       ^~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:151:0:
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:199:10: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+    fatal("ssh_askpass: dup2: %s", strerror(errno));
+          ^                        ~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/../stdio.h:263:30: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                              ^
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:200:3: warning: implicit declaration of function ‘execlp’ [-Wimplicit-function-declaration]
+   execlp(askpass, askpass, msg, (char *) 0);
+   ^~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:200:3: warning: incompatible implicit declaration of built-in function ‘execlp’
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:204:8: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+  len = read(p[0], buf, sizeof buf);
+        ^~~~
+        fread
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:206:9: warning: implicit declaration of function ‘waitpid’ [-Wimplicit-function-declaration]
+  while (waitpid(pid, &status, 0) < 0)
+         ^~~~~~~
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:151:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:266:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:210:10: note: in expansion of macro ‘xstrdup’
+   return xstrdup("");
+          ^~~~~~~
+./benchmarks/openssh-portable/double_free_6/../stdio.h:266:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:210:10: note: in expansion of macro ‘xstrdup’
+   return xstrdup("");
+          ^~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:211:7: warning: implicit declaration of function ‘strchr’ [-Wimplicit-function-declaration]
+  nl = strchr(buf, '\n');
+       ^~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:211:7: warning: incompatible implicit declaration of built-in function ‘strchr’
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:211:7: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:151:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:266:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:214:9: note: in expansion of macro ‘xstrdup’
+  pass = xstrdup(buf); /* allocation site */
+         ^~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:215:2: warning: incompatible implicit declaration of built-in function ‘memset’
+  memset(buf, 0, sizeof(buf));
+  ^~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:215:2: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c: In function ‘add_file’:
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:226:20: warning: implicit declaration of function ‘isatty’ [-Wimplicit-function-declaration]
+  int interactive = isatty(STDIN_FILENO);
+                    ^~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:240:12: warning: implicit declaration of function ‘key_load_private’ [-Wimplicit-function-declaration]
+  private = key_load_private(filename, "", &comment);
+            ^~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:240:10: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  private = key_load_private(filename, "", &comment);
+          ^
+In file included from ./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:151:0:
+./benchmarks/openssh-portable/double_free_6/../stdio.h:266:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:242:13: note: in expansion of macro ‘xstrdup’
+   comment = xstrdup(filename);
+             ^~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:245:11: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   private = key_load_private(filename, pass, NULL);
+           ^
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:258:12: warning: implicit declaration of function ‘read_passphrase’ [-Wimplicit-function-declaration]
+     pass = read_passphrase(buf, 1);
+            ^~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:258:10: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     pass = read_passphrase(buf, 1);
+          ^
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:262:8: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+    if (strcmp(pass, "") == 0) {
+        ^~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:267:12: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    private = key_load_private(filename, pass, &comment);
+            ^
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:271:4: warning: implicit declaration of function ‘strlcpy’ [-Wimplicit-function-declaration]
+    strlcpy(msg, "Bad passphrase, try again", sizeof msg);
+    ^~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:274:6: warning: implicit declaration of function ‘ssh_add_identity’; did you mean ‘__uint64_identity’? [-Wimplicit-function-declaration]
+  if (ssh_add_identity(ac, private, comment))
+      ^~~~~~~~~~~~~~~~
+      __uint64_identity
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:279:2: warning: implicit declaration of function ‘key_free’; did you mean ‘free’? [-Wimplicit-function-declaration]
+  key_free(private);
+  ^~~~~~~~
+  free
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c: In function ‘main’:
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:292:15: warning: implicit declaration of function ‘get_progname’ [-Wimplicit-function-declaration]
+  __progname = get_progname(argv[0]);
+               ^~~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:292:13: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  __progname = get_progname(argv[0]);
+             ^
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:293:2: warning: implicit declaration of function ‘init_rng’ [-Wimplicit-function-declaration]
+  init_rng();
+  ^~~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:295:2: warning: implicit declaration of function ‘SSLeay_add_all_algorithms’ [-Wimplicit-function-declaration]
+  SSLeay_add_all_algorithms();
+  ^~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:298:7: warning: implicit declaration of function ‘ssh_get_authentication_connection’ [-Wimplicit-function-declaration]
+  ac = ssh_get_authentication_connection();
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:298:5: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  ac = ssh_get_authentication_connection();
+     ^
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:306:4: warning: implicit declaration of function ‘list_identities’ [-Wimplicit-function-declaration]
+    list_identities(ac, argv[i][1] == 'l' ? 1 : 0);
+    ^~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:316:4: warning: implicit declaration of function ‘delete_all’ [-Wimplicit-function-declaration]
+    delete_all(ac);
+    ^~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:322:4: warning: implicit declaration of function ‘delete_file’ [-Wimplicit-function-declaration]
+    delete_file(ac, argv[i]);
+    ^~~~~~~~~~~
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:327:8: warning: implicit declaration of function ‘getpwuid’; did you mean ‘getdelim’? [-Wimplicit-function-declaration]
+   pw = getpwuid(getuid());
+        ^~~~~~~~
+        getdelim
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:327:17: warning: implicit declaration of function ‘getuid’; did you mean ‘getenv’? [-Wimplicit-function-declaration]
+   pw = getpwuid(getuid());
+                 ^~~~~~
+                 getenv
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:327:6: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   pw = getpwuid(getuid());
+      ^
+./benchmarks/openssh-portable/double_free_6/openssh_df_6.c:331:4: warning: implicit declaration of function ‘ssh_close_authentication_connection’ [-Wimplicit-function-declaration]
+    ssh_close_authentication_connection(ac);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

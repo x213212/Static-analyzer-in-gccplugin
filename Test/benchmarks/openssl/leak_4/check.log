@@ -1,0 +1,238 @@
+./benchmarks/openssl/leak_4/openssl_leak_4.c:278:5: error: expected specifier-qualifier-list before ‘STACK_OF’
+     STACK_OF(X509_ATTRIBUTE) *attributes; /* [ 0 ] */
+     ^~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c: In function ‘EVP_PKEY_CTX_free’:
+./benchmarks/openssl/leak_4/openssl_leak_4.c:419:5: warning: implicit declaration of function ‘EVP_PKEY_free’; did you mean ‘EVP_PKEY_CTX_free’? [-Wimplicit-function-declaration]
+     EVP_PKEY_free(ctx->pkey);
+     ^~~~~~~~~~~~~
+     EVP_PKEY_CTX_free
+./benchmarks/openssl/leak_4/openssl_leak_4.c:422:5: warning: implicit declaration of function ‘ENGINE_finish’ [-Wimplicit-function-declaration]
+     ENGINE_finish(ctx->engine);
+     ^~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c: In function ‘int_ctx_new’:
+./benchmarks/openssl/leak_4/openssl_leak_4.c:441:14: warning: implicit declaration of function ‘ENGINE_init’ [-Wimplicit-function-declaration]
+         if (!ENGINE_init(e)) {
+              ^~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:445:13: warning: implicit declaration of function ‘ENGINE_get_pkey_meth_engine’ [-Wimplicit-function-declaration]
+         e = ENGINE_get_pkey_meth_engine(id); /* allocation site */
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:445:11: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+         e = ENGINE_get_pkey_meth_engine(id); /* allocation site */
+           ^
+./benchmarks/openssl/leak_4/openssl_leak_4.c:454:17: warning: implicit declaration of function ‘ENGINE_get_pkey_meth’ [-Wimplicit-function-declaration]
+         pmeth = ENGINE_get_pkey_meth(e, id);
+                 ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:454:15: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+         pmeth = ENGINE_get_pkey_meth(e, id);
+               ^
+./benchmarks/openssl/leak_4/openssl_leak_4.c:457:17: warning: implicit declaration of function ‘EVP_PKEY_meth_find’; did you mean ‘EVP_PKEY_CTX_free’? [-Wimplicit-function-declaration]
+         pmeth = EVP_PKEY_meth_find(id);
+                 ^~~~~~~~~~~~~~~~~~
+                 EVP_PKEY_CTX_free
+./benchmarks/openssl/leak_4/openssl_leak_4.c:457:15: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+         pmeth = EVP_PKEY_meth_find(id);
+               ^
+./benchmarks/openssl/leak_4/openssl_leak_4.c:461:3: warning: implicit declaration of function ‘EVPerr’; did you mean ‘stderr’? [-Wimplicit-function-declaration]
+   EVPerr(EVP_F_INT_CTX_NEW, EVP_R_UNSUPPORTED_ALGORITHM);
+   ^~~~~~
+   stderr
+./benchmarks/openssl/leak_4/openssl_leak_4.c:478:9: warning: implicit declaration of function ‘EVP_PKEY_up_ref’; did you mean ‘EVP_PKEY_CTX_free’? [-Wimplicit-function-declaration]
+         EVP_PKEY_up_ref(pkey);
+         ^~~~~~~~~~~~~~~
+         EVP_PKEY_CTX_free
+./benchmarks/openssl/leak_4/openssl_leak_4.c: In function ‘init_gen_str’:
+./benchmarks/openssl/leak_4/openssl_leak_4.c:503:13: warning: implicit declaration of function ‘EVP_PKEY_asn1_find_str’; did you mean ‘EVP_PKEY_CTX_free’? [-Wimplicit-function-declaration]
+     ameth = EVP_PKEY_asn1_find_str(&tmpeng, algname, -1);
+             ^~~~~~~~~~~~~~~~~~~~~~
+             EVP_PKEY_CTX_free
+./benchmarks/openssl/leak_4/openssl_leak_4.c:503:11: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     ameth = EVP_PKEY_asn1_find_str(&tmpeng, algname, -1);
+           ^
+./benchmarks/openssl/leak_4/openssl_leak_4.c:507:17: warning: implicit declaration of function ‘ENGINE_get_pkey_asn1_meth_str’ [-Wimplicit-function-declaration]
+         ameth = ENGINE_get_pkey_asn1_meth_str(e, algname, -1);
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:507:15: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+         ameth = ENGINE_get_pkey_asn1_meth_str(e, algname, -1);
+               ^
+./benchmarks/openssl/leak_4/openssl_leak_4.c:514:5: warning: implicit declaration of function ‘ERR_clear_error’; did you mean ‘clearerr’? [-Wimplicit-function-declaration]
+     ERR_clear_error();
+     ^~~~~~~~~~~~~~~
+     clearerr
+./benchmarks/openssl/leak_4/openssl_leak_4.c:516:5: warning: implicit declaration of function ‘EVP_PKEY_asn1_get0_info’ [-Wimplicit-function-declaration]
+     EVP_PKEY_asn1_get0_info(&pkey_id, NULL, NULL, NULL, NULL, ameth);
+     ^~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:520:11: warning: implicit declaration of function ‘EVP_PKEY_CTX_new_id’; did you mean ‘EVP_PKEY_CTX_free’? [-Wimplicit-function-declaration]
+     ctx = EVP_PKEY_CTX_new_id(pkey_id, e);
+           ^~~~~~~~~~~~~~~~~~~
+           EVP_PKEY_CTX_free
+./benchmarks/openssl/leak_4/openssl_leak_4.c:520:9: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     ctx = EVP_PKEY_CTX_new_id(pkey_id, e);
+         ^
+./benchmarks/openssl/leak_4/openssl_leak_4.c:525:13: warning: implicit declaration of function ‘EVP_PKEY_paramgen_init’ [-Wimplicit-function-declaration]
+         if (EVP_PKEY_paramgen_init(ctx) <= 0)
+             ^~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:528:13: warning: implicit declaration of function ‘EVP_PKEY_keygen_init’; did you mean ‘EVP_PKEY_CTX_free’? [-Wimplicit-function-declaration]
+         if (EVP_PKEY_keygen_init(ctx) <= 0)
+             ^~~~~~~~~~~~~~~~~~~~
+             EVP_PKEY_CTX_free
+./benchmarks/openssl/leak_4/openssl_leak_4.c:536:5: warning: implicit declaration of function ‘BIO_printf’; did you mean ‘dprintf’? [-Wimplicit-function-declaration]
+     BIO_printf(bio_err, "Error initializing %s context\n", algname);
+     ^~~~~~~~~~
+     dprintf
+./benchmarks/openssl/leak_4/openssl_leak_4.c:537:5: warning: implicit declaration of function ‘ERR_print_errors’ [-Wimplicit-function-declaration]
+     ERR_print_errors(bio_err);
+     ^~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c: At top level:
+./benchmarks/openssl/leak_4/openssl_leak_4.c:549:15: error: conflicting types for ‘EVP_PKEY_CTX_new_id’
+ EVP_PKEY_CTX *EVP_PKEY_CTX_new_id(int id, ENGINE *e)
+               ^~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:520:11: note: previous implicit declaration of ‘EVP_PKEY_CTX_new_id’ was here
+     ctx = EVP_PKEY_CTX_new_id(pkey_id, e);
+           ^~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c: In function ‘init_keygen_file’:
+./benchmarks/openssl/leak_4/openssl_leak_4.c:561:9: warning: implicit declaration of function ‘BIO_puts’; did you mean ‘puts’? [-Wimplicit-function-declaration]
+         BIO_puts(bio_err, "Parameters already set!\n");
+         ^~~~~~~~
+         puts
+./benchmarks/openssl/leak_4/openssl_leak_4.c:565:12: warning: implicit declaration of function ‘BIO_new_file’ [-Wimplicit-function-declaration]
+     pbio = BIO_new_file(file, "r");
+            ^~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:565:10: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     pbio = BIO_new_file(file, "r");
+          ^
+./benchmarks/openssl/leak_4/openssl_leak_4.c:571:12: warning: implicit declaration of function ‘PEM_read_bio_Parameters’ [-Wimplicit-function-declaration]
+     pkey = PEM_read_bio_Parameters(pbio, NULL);
+            ^~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:571:10: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     pkey = PEM_read_bio_Parameters(pbio, NULL);
+          ^
+./benchmarks/openssl/leak_4/openssl_leak_4.c:572:5: warning: implicit declaration of function ‘BIO_free’; did you mean ‘free’? [-Wimplicit-function-declaration]
+     BIO_free(pbio);
+     ^~~~~~~~
+     free
+./benchmarks/openssl/leak_4/openssl_leak_4.c: In function ‘genpkey_cb’:
+./benchmarks/openssl/leak_4/openssl_leak_4.c:600:14: warning: implicit declaration of function ‘EVP_PKEY_CTX_get_app_data’; did you mean ‘EVP_PKEY_CTX_new_id’? [-Wimplicit-function-declaration]
+     BIO *b = EVP_PKEY_CTX_get_app_data(ctx);
+              ^~~~~~~~~~~~~~~~~~~~~~~~~
+              EVP_PKEY_CTX_new_id
+./benchmarks/openssl/leak_4/openssl_leak_4.c:600:14: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/openssl/leak_4/openssl_leak_4.c:602:9: warning: implicit declaration of function ‘EVP_PKEY_CTX_get_keygen_info’; did you mean ‘EVP_PKEY_CTX_new_id’? [-Wimplicit-function-declaration]
+     p = EVP_PKEY_CTX_get_keygen_info(ctx, 0);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         EVP_PKEY_CTX_new_id
+./benchmarks/openssl/leak_4/openssl_leak_4.c:611:5: warning: implicit declaration of function ‘BIO_write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+     BIO_write(b, &c, 1);
+     ^~~~~~~~~
+     fwrite
+./benchmarks/openssl/leak_4/openssl_leak_4.c:612:11: warning: implicit declaration of function ‘BIO_flush’; did you mean ‘fflush’? [-Wimplicit-function-declaration]
+     (void)BIO_flush(b);
+           ^~~~~~~~~
+           fflush
+./benchmarks/openssl/leak_4/openssl_leak_4.c: In function ‘genpkey_main’:
+./benchmarks/openssl/leak_4/openssl_leak_4.c:637:13: warning: implicit declaration of function ‘opt_help’; did you mean ‘opt_next’? [-Wimplicit-function-declaration]
+             opt_help(genpkey_options);
+             ^~~~~~~~
+             opt_next
+./benchmarks/openssl/leak_4/openssl_leak_4.c:640:29: warning: implicit declaration of function ‘opt_arg’; did you mean ‘copy_argv’? [-Wimplicit-function-declaration]
+             if (!opt_format(opt_arg(), OPT_FMT_PEMDER, &outformat))
+                             ^~~~~~~
+                             copy_argv
+./benchmarks/openssl/leak_4/openssl_leak_4.c:640:29: warning: passing argument 1 of ‘opt_format’ makes pointer from integer without a cast [-Wint-conversion]
+In file included from ./benchmarks/openssl/leak_4/../openssl.h:3:0,
+                 from ./benchmarks/openssl/leak_4/openssl_leak_4.c:9:
+./benchmarks/openssl/leak_4/../apps.h:327:5: note: expected ‘const char *’ but argument is of type ‘int’
+ int opt_format(const char *s, unsigned long flags, int *result);
+     ^~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:644:21: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+             outfile = opt_arg();
+                     ^
+./benchmarks/openssl/leak_4/openssl_leak_4.c:647:21: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+             passarg = opt_arg();
+                     ^
+./benchmarks/openssl/leak_4/openssl_leak_4.c:650:17: warning: implicit declaration of function ‘setup_engine’ [-Wimplicit-function-declaration]
+             e = setup_engine(opt_arg());
+                 ^~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:650:15: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+             e = setup_engine(opt_arg());
+               ^
+./benchmarks/openssl/leak_4/openssl_leak_4.c:655:41: warning: passing argument 2 of ‘init_keygen_file’ makes pointer from integer without a cast [-Wint-conversion]
+             if (!init_keygen_file(&ctx, opt_arg(), e))
+                                         ^~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:555:12: note: expected ‘const char *’ but argument is of type ‘int’
+ static int init_keygen_file(EVP_PKEY_CTX **pctx, const char *file, ENGINE *e)
+            ^~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:659:37: warning: passing argument 2 of ‘init_gen_str’ makes pointer from integer without a cast [-Wint-conversion]
+             if (!init_gen_str(&ctx, opt_arg(), e, do_param))
+                                     ^~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:491:5: note: expected ‘const char *’ but argument is of type ‘int’
+ int init_gen_str(EVP_PKEY_CTX **pctx,
+     ^~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:667:17: warning: implicit declaration of function ‘pkey_ctrl_string’ [-Wimplicit-function-declaration]
+             if (pkey_ctrl_string(ctx, opt_arg()) <= 0) {
+                 ^~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:684:18: warning: implicit declaration of function ‘opt_cipher’; did you mean ‘opt_int’? [-Wimplicit-function-declaration]
+             if (!opt_cipher(opt_unknown(), &cipher)
+                  ^~~~~~~~~~
+                  opt_int
+./benchmarks/openssl/leak_4/openssl_leak_4.c:684:29: warning: implicit declaration of function ‘opt_unknown’; did you mean ‘opt_ulong’? [-Wimplicit-function-declaration]
+             if (!opt_cipher(opt_unknown(), &cipher)
+                             ^~~~~~~~~~~
+                             opt_ulong
+./benchmarks/openssl/leak_4/openssl_leak_4.c:689:12: warning: implicit declaration of function ‘opt_num_rest’; did you mean ‘opt_next’? [-Wimplicit-function-declaration]
+     argc = opt_num_rest();
+            ^~~~~~~~~~~~
+            opt_next
+./benchmarks/openssl/leak_4/openssl_leak_4.c:698:10: warning: implicit declaration of function ‘app_passwd’; did you mean ‘app_isdir’? [-Wimplicit-function-declaration]
+     if (!app_passwd(passarg, NULL, &pass, NULL)) {
+          ^~~~~~~~~~
+          app_isdir
+./benchmarks/openssl/leak_4/openssl_leak_4.c:703:11: warning: implicit declaration of function ‘bio_open_owner’; did you mean ‘NID_sendOwner’? [-Wimplicit-function-declaration]
+     out = bio_open_owner(outfile, outformat, private);
+           ^~~~~~~~~~~~~~
+           NID_sendOwner
+./benchmarks/openssl/leak_4/openssl_leak_4.c:703:9: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     out = bio_open_owner(outfile, outformat, private);
+         ^
+./benchmarks/openssl/leak_4/openssl_leak_4.c:707:5: warning: implicit declaration of function ‘EVP_PKEY_CTX_set_cb’; did you mean ‘EVP_PKEY_CTX_new_id’? [-Wimplicit-function-declaration]
+     EVP_PKEY_CTX_set_cb(ctx, genpkey_cb);
+     ^~~~~~~~~~~~~~~~~~~
+     EVP_PKEY_CTX_new_id
+./benchmarks/openssl/leak_4/openssl_leak_4.c:708:5: warning: implicit declaration of function ‘EVP_PKEY_CTX_set_app_data’; did you mean ‘EVP_PKEY_CTX_new_id’? [-Wimplicit-function-declaration]
+     EVP_PKEY_CTX_set_app_data(ctx, bio_err);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+     EVP_PKEY_CTX_new_id
+./benchmarks/openssl/leak_4/openssl_leak_4.c:711:13: warning: implicit declaration of function ‘EVP_PKEY_paramgen’; did you mean ‘EVP_PKEY_CTX_new’? [-Wimplicit-function-declaration]
+         if (EVP_PKEY_paramgen(ctx, &pkey) <= 0) {
+             ^~~~~~~~~~~~~~~~~
+             EVP_PKEY_CTX_new
+./benchmarks/openssl/leak_4/openssl_leak_4.c:717:13: warning: implicit declaration of function ‘EVP_PKEY_keygen’; did you mean ‘EVP_PKEY_CTX_new’? [-Wimplicit-function-declaration]
+         if (EVP_PKEY_keygen(ctx, &pkey) <= 0) {
+             ^~~~~~~~~~~~~~~
+             EVP_PKEY_CTX_new
+./benchmarks/openssl/leak_4/openssl_leak_4.c:725:14: warning: implicit declaration of function ‘PEM_write_bio_Parameters’ [-Wimplicit-function-declaration]
+         rv = PEM_write_bio_Parameters(out, pkey);
+              ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:727:9: warning: implicit declaration of function ‘assert’; did you mean ‘qsort’? [-Wimplicit-function-declaration]
+         assert(private);
+         ^~~~~~
+         qsort
+./benchmarks/openssl/leak_4/openssl_leak_4.c:728:14: warning: implicit declaration of function ‘PEM_write_bio_PrivateKey’ [-Wimplicit-function-declaration]
+         rv = PEM_write_bio_PrivateKey(out, pkey, cipher, NULL, 0, NULL, pass);
+              ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:731:14: warning: implicit declaration of function ‘i2d_PrivateKey_bio’ [-Wimplicit-function-declaration]
+         rv = i2d_PrivateKey_bio(out, pkey);
+              ^~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:744:18: warning: implicit declaration of function ‘EVP_PKEY_print_params’; did you mean ‘EVP_PKEY_CTX_free’? [-Wimplicit-function-declaration]
+             rv = EVP_PKEY_print_params(out, pkey, 0, NULL);
+                  ^~~~~~~~~~~~~~~~~~~~~
+                  EVP_PKEY_CTX_free
+./benchmarks/openssl/leak_4/openssl_leak_4.c:746:18: warning: implicit declaration of function ‘EVP_PKEY_print_private’; did you mean ‘EVP_PKEY_CTX_free’? [-Wimplicit-function-declaration]
+             rv = EVP_PKEY_print_private(out, pkey, 0, NULL);
+                  ^~~~~~~~~~~~~~~~~~~~~~
+                  EVP_PKEY_CTX_free
+./benchmarks/openssl/leak_4/openssl_leak_4.c:759:5: warning: implicit declaration of function ‘BIO_free_all’ [-Wimplicit-function-declaration]
+     BIO_free_all(out);
+     ^~~~~~~~~~~~
+./benchmarks/openssl/leak_4/openssl_leak_4.c:761:5: warning: implicit declaration of function ‘release_engine’ [-Wimplicit-function-declaration]
+     release_engine(e);
+     ^~~~~~~~~~~~~~

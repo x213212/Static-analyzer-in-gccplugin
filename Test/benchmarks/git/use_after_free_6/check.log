@@ -1,0 +1,158 @@
+In file included from ./benchmarks/git/use_after_free_6/git_uaf_6.c:10:0:
+./benchmarks/git/use_after_free_6/../git.h: In function ‘copy_array’:
+./benchmarks/git/use_after_free_6/../git.h:161:3: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   memcpy(dst, src, st_mult(size, n));
+   ^~~~~~
+./benchmarks/git/use_after_free_6/../git.h:161:3: warning: incompatible implicit declaration of built-in function ‘memcpy’
+./benchmarks/git/use_after_free_6/../git.h:161:3: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/use_after_free_6/../git.h:161:20: warning: implicit declaration of function ‘st_mult’; did you mean ‘stdout’? [-Wimplicit-function-declaration]
+   memcpy(dst, src, st_mult(size, n));
+                    ^~~~~~~
+                    stdout
+./benchmarks/git/use_after_free_6/../git.h: In function ‘move_array’:
+./benchmarks/git/use_after_free_6/../git.h:169:3: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+   memmove(dst, src, st_mult(size, n));
+   ^~~~~~~
+./benchmarks/git/use_after_free_6/../git.h:169:3: warning: incompatible implicit declaration of built-in function ‘memmove’
+./benchmarks/git/use_after_free_6/../git.h:169:3: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/use_after_free_6/git_uaf_6.c:9:0:
+./benchmarks/git/use_after_free_6/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/use_after_free_6/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/use_after_free_6/../git.h:174:15: note: in expansion of macro ‘xstrdup’
+  return str ? xstrdup(str) : NULL;
+               ^~~~~~~
+./benchmarks/git/use_after_free_6/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/use_after_free_6/../git.h:174:15: note: in expansion of macro ‘xstrdup’
+  return str ? xstrdup(str) : NULL;
+               ^~~~~~~
+In file included from ./benchmarks/git/use_after_free_6/git_uaf_6.c:10:0:
+./benchmarks/git/use_after_free_6/../git.h: At top level:
+./benchmarks/git/use_after_free_6/../git.h:236:55: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*write_archive)(const struct archiver *, struct archiver_args *);
+                                                       ^~~~~~~~~~~~~
+./benchmarks/git/use_after_free_6/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/use_after_free_6/../git.h:126:2: warning: incompatible implicit declaration of built-in function ‘memcpy’
+  memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));  \
+  ^
+./benchmarks/git/use_after_free_6/../git.h:407:2: note: in expansion of macro ‘SWAP’
+  SWAP(*a, *b);
+  ^~~~
+./benchmarks/git/use_after_free_6/../git.h:126:2: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));  \
+  ^
+./benchmarks/git/use_after_free_6/../git.h:407:2: note: in expansion of macro ‘SWAP’
+  SWAP(*a, *b);
+  ^~~~
+./benchmarks/git/use_after_free_6/git_uaf_6.c: In function ‘internal_copy_pathspec’:
+./benchmarks/git/use_after_free_6/git_uaf_6.c:24:2: warning: incompatible implicit declaration of built-in function ‘memcpy’
+  memcpy(result, pathspec, count * sizeof(const char *));
+  ^~~~~~
+./benchmarks/git/use_after_free_6/git_uaf_6.c:24:2: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/use_after_free_6/git_uaf_6.c:27:16: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   int length = strlen(result[i]);
+                ^~~~~~
+./benchmarks/git/use_after_free_6/git_uaf_6.c:27:16: warning: incompatible implicit declaration of built-in function ‘strlen’
+./benchmarks/git/use_after_free_6/git_uaf_6.c:27:16: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/git/use_after_free_6/git_uaf_6.c:30:25: warning: implicit declaration of function ‘is_dir_sep’ [-Wimplicit-function-declaration]
+          to_copy > 0 && is_dir_sep(result[i][to_copy - 1]))
+                         ^~~~~~~~~~
+./benchmarks/git/use_after_free_6/git_uaf_6.c:33:15: warning: implicit declaration of function ‘xmemdupz’; did you mean ‘xstrdup’? [-Wimplicit-function-declaration]
+    char *it = xmemdupz(result[i], to_copy);
+               ^~~~~~~~
+               xstrdup
+./benchmarks/git/use_after_free_6/git_uaf_6.c:33:15: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+In file included from ./benchmarks/git/use_after_free_6/git_uaf_6.c:9:0:
+./benchmarks/git/use_after_free_6/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/use_after_free_6/git_uaf_6.c:35:17: note: in expansion of macro ‘xstrdup’
+     result[i] = xstrdup(basename(it));
+                 ^~~~~~~
+./benchmarks/git/use_after_free_6/git_uaf_6.c:35:25: warning: implicit declaration of function ‘basename’; did you mean ‘rename’? [-Wimplicit-function-declaration]
+     result[i] = xstrdup(basename(it));
+                         ^
+./benchmarks/git/use_after_free_6/../stdio.h:138:27: note: in definition of macro ‘xstrdup’
+ #define xstrdup(a) strdup(a)
+                           ^
+./benchmarks/git/use_after_free_6/git_uaf_6.c:35:25: warning: passing argument 1 of ‘strdup’ makes pointer from integer without a cast [-Wint-conversion]
+     result[i] = xstrdup(basename(it));
+                         ^
+./benchmarks/git/use_after_free_6/../stdio.h:138:27: note: in definition of macro ‘xstrdup’
+ #define xstrdup(a) strdup(a)
+                           ^
+./benchmarks/git/use_after_free_6/git_uaf_6.c:35:25: note: expected ‘const char *’ but argument is of type ‘int’
+     result[i] = xstrdup(basename(it));
+                         ^
+./benchmarks/git/use_after_free_6/../stdio.h:138:27: note: in definition of macro ‘xstrdup’
+ #define xstrdup(a) strdup(a)
+                           ^
+./benchmarks/git/use_after_free_6/git_uaf_6.c: In function ‘add_slash’:
+./benchmarks/git/use_after_free_6/git_uaf_6.c:46:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+  int len = strlen(path);
+            ^~~~~~
+./benchmarks/git/use_after_free_6/git_uaf_6.c:46:12: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/git/use_after_free_6/git_uaf_6.c:49:3: warning: incompatible implicit declaration of built-in function ‘memcpy’
+   memcpy(with_slash, path, len);
+   ^~~~~~
+./benchmarks/git/use_after_free_6/git_uaf_6.c:49:3: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/use_after_free_6/git_uaf_6.c: In function ‘main’:
+./benchmarks/git/use_after_free_6/git_uaf_6.c:66:14: error: storage size of ‘st’ isn’t known
+  struct stat st;
+              ^~
+./benchmarks/git/use_after_free_6/git_uaf_6.c:77:11: warning: implicit declaration of function ‘_’; did you mean ‘N_’? [-Wimplicit-function-declaration]
+    printf(_("Checking rename of '%s'"), src);
+           ^
+           N_
+./benchmarks/git/use_after_free_6/git_uaf_6.c:77:11: warning: passing argument 1 of ‘printf’ makes pointer from integer without a cast [-Wint-conversion]
+In file included from /usr/include/stdio.h:866:0,
+                 from ./benchmarks/git/use_after_free_6/git_uaf_6.c:6:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:110:1: note: expected ‘const char * restrict’ but argument is of type ‘int’
+ printf (const char *__restrict __fmt, ...)
+ ^~~~~~
+./benchmarks/git/use_after_free_6/git_uaf_6.c:79:12: warning: incompatible implicit declaration of built-in function ‘strlen’
+   length = strlen(src);
+            ^~~~~~
+./benchmarks/git/use_after_free_6/git_uaf_6.c:79:12: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/git/use_after_free_6/git_uaf_6.c:81:16: warning: implicit declaration of function ‘cache_name_pos’ [-Wimplicit-function-declaration]
+    int first = cache_name_pos(src, length);
+                ^~~~~~~~~~~~~~
+In file included from ./benchmarks/git/use_after_free_6/git_uaf_6.c:9:0:
+./benchmarks/git/use_after_free_6/git_uaf_6.c:88:10: warning: passing argument 1 of ‘printf’ makes pointer from integer without a cast [-Wint-conversion]
+     die (_("Huh? %s is in index?"),
+          ^
+./benchmarks/git/use_after_free_6/../stdio.h:135:30: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                              ^
+./benchmarks/git/use_after_free_6/git_uaf_6.c:88:5: note: in expansion of macro ‘die’
+     die (_("Huh? %s is in index?"),
+     ^~~
+In file included from /usr/include/stdio.h:866:0,
+                 from ./benchmarks/git/use_after_free_6/git_uaf_6.c:6:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:110:1: note: expected ‘const char * restrict’ but argument is of type ‘int’
+ printf (const char *__restrict __fmt, ...)
+ ^~~~~~
+./benchmarks/git/use_after_free_6/git_uaf_6.c:96:9: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     bad = _("source directory is empty");
+         ^
+./benchmarks/git/use_after_free_6/git_uaf_6.c:100:8: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+    bad = _("not under version control");
+        ^
+In file included from ./benchmarks/git/use_after_free_6/git_uaf_6.c:9:0:
+./benchmarks/git/use_after_free_6/git_uaf_6.c:104:10: warning: passing argument 1 of ‘printf’ makes pointer from integer without a cast [-Wint-conversion]
+     die (_("source=%s"),
+          ^
+./benchmarks/git/use_after_free_6/../stdio.h:135:30: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                              ^
+./benchmarks/git/use_after_free_6/git_uaf_6.c:104:5: note: in expansion of macro ‘die’
+     die (_("source=%s"),
+     ^~~
+In file included from /usr/include/stdio.h:866:0,
+                 from ./benchmarks/git/use_after_free_6/git_uaf_6.c:6:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:110:1: note: expected ‘const char * restrict’ but argument is of type ‘int’
+ printf (const char *__restrict __fmt, ...)
+ ^~~~~~

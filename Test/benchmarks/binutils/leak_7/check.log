@@ -1,0 +1,1797 @@
+In file included from ./benchmarks/binutils/leak_7/binutils_leak_7.c:7:0:
+./benchmarks/binutils/leak_7/../include/common.h: In function ‘discard_my_cleanups’:
+./benchmarks/binutils/leak_7/../include/common.h:94:21: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘void *’ [-Wformat=]
+   printf("freearg: %x\n", ptr->arg);
+                    ~^     ~~~~~~~~
+                    %p
+./benchmarks/binutils/leak_7/../include/common.h: In function ‘do_my_cleanups’:
+./benchmarks/binutils/leak_7/../include/common.h:108:13: warning: format ‘%x’ expects argument of type ‘unsigned int’, but argument 2 has type ‘void *’ [-Wformat=]
+    printf("%x\n", ptr->arg);
+            ~^     ~~~~~~~~
+            %p
+./benchmarks/binutils/leak_7/binutils_leak_7.c: In function ‘ldirname’:
+./benchmarks/binutils/leak_7/binutils_leak_7.c:44:3: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   memcpy (dirname, filename, base - filename);
+   ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:44:3: warning: incompatible implicit declaration of built-in function ‘memcpy’
+./benchmarks/binutils/leak_7/binutils_leak_7.c:44:3: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/binutils/leak_7/binutils_leak_7.c: In function ‘vconcat_copy’:
+./benchmarks/binutils/leak_7/binutils_leak_7.c:61:25: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+  unsigned long length = strlen (arg);
+                         ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:61:25: warning: incompatible implicit declaration of built-in function ‘strlen’
+./benchmarks/binutils/leak_7/binutils_leak_7.c:61:25: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/leak_7/binutils_leak_7.c:62:2: warning: incompatible implicit declaration of built-in function ‘memcpy’
+  memcpy (end, arg, length);
+  ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:62:2: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+In file included from ./benchmarks/binutils/leak_7/binutils_leak_7.c:7:0:
+./benchmarks/binutils/leak_7/binutils_leak_7.c: In function ‘do_start_initialization’:
+./benchmarks/binutils/leak_7/../include/common.h:22:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:12: note: in expansion of macro ‘xstrdup’
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+            ^~~~~~~
+./benchmarks/binutils/leak_7/../include/common.h:22:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:12: note: in expansion of macro ‘xstrdup’
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+            ^~~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:21: warning: implicit declaration of function ‘setlocale’; did you mean ‘setstate’? [-Wimplicit-function-declaration]
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+                     ^
+./benchmarks/binutils/leak_7/../include/common.h:22:27: note: in definition of macro ‘xstrdup’
+ #define xstrdup(a) strdup(a)
+                           ^
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:21: warning: passing argument 1 of ‘strdup’ makes pointer from integer without a cast [-Wint-conversion]
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+                     ^
+./benchmarks/binutils/leak_7/../include/common.h:22:27: note: in definition of macro ‘xstrdup’
+ #define xstrdup(a) strdup(a)
+                           ^
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:21: note: expected ‘const char *’ but argument is of type ‘int’
+   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+                     ^
+./benchmarks/binutils/leak_7/../include/common.h:22:27: note: in definition of macro ‘xstrdup’
+ #define xstrdup(a) strdup(a)
+                           ^
+./benchmarks/binutils/leak_7/binutils_leak_7.c:112:14: warning: incompatible implicit declaration of built-in function ‘strlen’
+   progsize = strlen (progname);
+              ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:112:14: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+--------GIMPLE Cond -------
+succs:= 4
+--------GIMPLE Cond -------
+succs:= 7
+--------GIMPLE Cond -------
+--------GIMPLE Cond -------
+succs:= 7
+succs:= 8
+succs:= 9
+--------GIMPLE Cond -------
+succs:= 10
+--------GIMPLE Cond -------
+succs:= 11
+--------GIMPLE Cond -------
+succs:= 12
+succs:= 10
+succs:= 11
+succs:= 12
+succs:= 9
+--------GIMPLE Cond -------
+succs:= 15
+succs:= 15
+--------GIMPLE Cond -------
+succs:= 17
+--------GIMPLE Cond -------
+succs:= 18
+succs:= 18
+--------GIMPLE Cond -------
+succs:= 20
+succs:= 17
+succs:= 20
+--------GIMPLE Cond -------
+succs:= 23
+succs:= 23
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 1 
+pointer ptable is 1 
+===============The second stage : Mapping stmt=================
+# .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1);
+# VUSE <.MEM_9>
+length_11 = strlen (arg_5(D));
+# .MEM_13 = VDEF <.MEM_9>
+memcpy (newstr_3, arg_5(D), length_11);
+# .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+# .MEM_93 = VDEF <.MEM_92>
+memcpy (dirname_52, _9, _56);
+# .MEM_97 = VDEF <.MEM_87>
+progname_11 = concat (_10, "bin");
+# .MEM_98 = VDEF <.MEM_97>
+_12 = setlocale ("LC_ALL", 0B);
+# .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14);
+# .MEM_100 = VDEF <.MEM_99>
+setlocale ("LC_ALL", "");
+# VUSE <.MEM_100>
+progsize_16 = strlen (progname_11);
+# .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+# .MEM_114 = VDEF <.MEM_113>
+_21 = __fprintf_chk (_20, 1, "out of memory\n");
+# VUSE <.MEM_101>
+_24 = __builtin_object_size (progname_copy_19, 1);
+_25 = __builtin_constant_p (_23);
+# VUSE <.MEM_101>
+_26 = __builtin_object_size (progname_copy_19, 1);
+# .MEM_104 = VDEF <.MEM_101>
+_28 = __mbstowcs_chk (progname_copy_19, progname_11, _23, _27);
+# VUSE <.MEM_101>
+_29 = __builtin_object_size (progname_copy_19, 1);
+# VUSE <.MEM_101>
+_31 = __builtin_object_size (progname_copy_19, 1);
+# .MEM_103 = VDEF <.MEM_101>
+_33 = __mbstowcs_chk_warn (progname_copy_19, progname_11, _23, _32);
+# .MEM_105 = VDEF <.MEM_101>
+_34 = __mbstowcs_alias (progname_copy_19, progname_11, _23);
+# .MEM_112 = VDEF <.MEM_111>
+_37 = __fprintf_chk (_36, 1, "Could not convert python path to string\n");
+# .MEM_106 = VDEF <.MEM_88>
+setlocale ("LC_ALL", oldloc_15);
+# .MEM_108 = VDEF <.MEM_107>
+_85 = __printf_chk (1, "%d\n", _84);
+# .MEM_7 = VDEF <.MEM_89>
+concat ("dummy", "");
+# .MEM_8 = VDEF <.MEM_7>
+_4 = __printf_chk (1, "%d\n", 1835890020);
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:concat========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path concat  function_call count: 3 level :0========  [0m
+[40;44m =======print_function_type 2  ========  [0m
+[40;42m =======pre add _ fucntion:memcpy========= [0m
+[40;33m =======POP node_fun stack:memcpy========= [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;33m =======POP node_fun stack:strlen========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre_check_funciton:concat========= [0m
+[40;42m =======start_check_funciton:concat========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f8b96d87900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b97b14d80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7f8b968d4108>
+# .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1);
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_15 = newstr_3;
+In function ‘concat’:
+lto1: warning: use location
+end_12 = newstr_3 + length_11;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:63:6: warning: use location
+  end += length;
+      ^
+*end_12 = 0;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:65:7: warning: use location
+  *end = '\000';
+       ^
+memcpy (newstr_3, arg_5(D), length_11);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:62:2: warning: use location
+  memcpy (end, arg, length);
+  ^
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b96d87900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b97b14d80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7f8b968d4108>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:0 
+return newstr_3;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:81:10: warning: use location
+   return newstr;
+          ^
+_7 = newstr_3;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:81:10: warning: use location
+newstr_3 = malloc (1);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:76:10: warning: use location
+   newstr = XNEWVEC (char, 1);
+          ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b96d87900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b97b14d80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7f8b968d4108>
+trace fucntion name:malloc 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f8b96d87900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b97b14d80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7f8b968d4108>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f8b968ace40 type <integer_type 0x7f8b96d937e0 long unsigned int> constant 1>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f8b96d87990
+    type <pointer_type 0x7f8b968a9f18
+        type <integer_type 0x7f8b968a9e70 char readonly public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a9f18>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f8b968b8380 arg>
+    def_stmt GIMPLE_NOP
+    version 5
+    ptr-info 0x7f8b968d4138>
+GIMPLE_NOP
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+length_11 = strlen (arg_5(D));
+./benchmarks/binutils/leak_7/binutils_leak_7.c:61:16: warning: use location
+  unsigned long length = strlen (arg);
+                ^
+this stmt is child function---strlen-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b96d87990
+    type <pointer_type 0x7f8b968a9f18
+        type <integer_type 0x7f8b968a9e70 char readonly public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a9f18>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f8b968b8380 arg>
+    def_stmt GIMPLE_NOP
+    version 5
+    ptr-info 0x7f8b968d4138>
+trace fucntion name:strlen 
+
+ ================== trace ================== 
+trace fucntion free:0 
+end_12 = newstr_3 + length_11;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:63:6: warning: use location
+  end += length;
+      ^
+*end_12 = 0;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:65:7: warning: use location
+  *end = '\000';
+       ^
+memcpy (newstr_3, arg_5(D), length_11);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:62:2: warning: use location
+  memcpy (end, arg, length);
+  ^
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b96d87990
+    type <pointer_type 0x7f8b968a9f18
+        type <integer_type 0x7f8b968a9e70 char readonly public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a9f18>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f8b968b8380 arg>
+    def_stmt GIMPLE_NOP
+    version 5
+    ptr-info 0x7f8b968d4138>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f8b96d87990
+    type <pointer_type 0x7f8b968a9f18
+        type <integer_type 0x7f8b968a9e70 char readonly public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a9f18>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f8b968b8380 arg>
+    def_stmt GIMPLE_NOP
+    version 5
+    ptr-info 0x7f8b968d4138>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:concat========= [0m
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 13 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:__printf_chk========= [0m
+[40;33m =======POP node_fun stack:__printf_chk========= [0m
+[40;42m =======pre add _ fucntion:concat========= [0m
+[40;44m =======print_function_type 2  ========  [0m
+[40;44m =======print_function_path concat  function_call count: 3 level :1========  [0m
+[40;44m =======print_function_type 2  ========  [0m
+[40;42m =======pre add _ fucntion:memcpy========= [0m
+[40;33m =======POP node_fun stack:memcpy========= [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;33m =======POP node_fun stack:strlen========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre_check_funciton:concat========= [0m
+[40;42m =======start_check_funciton:concat========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f8b96d87900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b97b14d80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7f8b968d4108>
+# .MEM_9 = VDEF <.MEM_8(D)>
+newstr_3 = malloc (1);
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_15 = newstr_3;
+In function ‘main’:
+lto1: warning: use location
+end_12 = newstr_3 + length_11;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:63:6: warning: use location
+  end += length;
+      ^
+*end_12 = 0;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:65:7: warning: use location
+  *end = '\000';
+       ^
+memcpy (newstr_3, arg_5(D), length_11);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:62:2: warning: use location
+  memcpy (end, arg, length);
+  ^
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b96d87900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b97b14d80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7f8b968d4108>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:0 
+return newstr_3;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:81:10: warning: use location
+   return newstr;
+          ^
+_7 = newstr_3;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:81:10: warning: use location
+newstr_3 = malloc (1);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:76:10: warning: use location
+   newstr = XNEWVEC (char, 1);
+          ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b96d87900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b97b14d80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7f8b968d4108>
+trace fucntion name:malloc 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f8b96d87900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b97b14d80 newstr>
+    def_stmt newstr_3 = malloc (1);
+    version 3
+    ptr-info 0x7f8b968d4108>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f8b968ace40 type <integer_type 0x7f8b96d937e0 long unsigned int> constant 1>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f8b96d87990
+    type <pointer_type 0x7f8b968a9f18
+        type <integer_type 0x7f8b968a9e70 char readonly public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a9f18>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f8b968b8380 arg>
+    def_stmt GIMPLE_NOP
+    version 5
+    ptr-info 0x7f8b968d4138>
+GIMPLE_NOP
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+length_11 = strlen (arg_5(D));
+./benchmarks/binutils/leak_7/binutils_leak_7.c:61:16: warning: use location
+  unsigned long length = strlen (arg);
+                ^
+this stmt is child function---strlen-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b96d87990
+    type <pointer_type 0x7f8b968a9f18
+        type <integer_type 0x7f8b968a9e70 char readonly public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a9f18>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f8b968b8380 arg>
+    def_stmt GIMPLE_NOP
+    version 5
+    ptr-info 0x7f8b968d4138>
+trace fucntion name:strlen 
+
+ ================== trace ================== 
+trace fucntion free:0 
+end_12 = newstr_3 + length_11;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:63:6: warning: use location
+  end += length;
+      ^
+*end_12 = 0;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:65:7: warning: use location
+  *end = '\000';
+       ^
+memcpy (newstr_3, arg_5(D), length_11);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:62:2: warning: use location
+  memcpy (end, arg, length);
+  ^
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b96d87990
+    type <pointer_type 0x7f8b968a9f18
+        type <integer_type 0x7f8b968a9e70 char readonly public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a9f18>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f8b968b8380 arg>
+    def_stmt GIMPLE_NOP
+    version 5
+    ptr-info 0x7f8b968d4138>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f8b96d87990
+    type <pointer_type 0x7f8b968a9f18
+        type <integer_type 0x7f8b968a9e70 char readonly public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a9f18>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f8b968b8380 arg>
+    def_stmt GIMPLE_NOP
+    version 5
+    ptr-info 0x7f8b968d4138>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:concat========= [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:setlocale========= [0m
+[40;33m =======POP node_fun stack:setlocale========= [0m
+[40;42m =======pre add _ fucntion:__fprintf_chk========= [0m
+[40;33m =======POP node_fun stack:__fprintf_chk========= [0m
+[40;42m =======pre add _ fucntion:__mbstowcs_alias========= [0m
+[40;33m =======POP node_fun stack:__mbstowcs_alias========= [0m
+[40;42m =======pre add _ fucntion:__mbstowcs_chk_warn========= [0m
+[40;33m =======POP node_fun stack:__mbstowcs_chk_warn========= [0m
+[40;42m =======pre add _ fucntion:__builtin_object_size========= [0m
+[40;33m =======POP node_fun stack:__builtin_object_size========= [0m
+[40;42m =======pre add _ fucntion:__builtin_constant_p========= [0m
+[40;33m =======POP node_fun stack:__builtin_constant_p========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;33m =======POP node_fun stack:strlen========= [0m
+[40;42m =======pre add _ fucntion:strdup========= [0m
+[40;33m =======POP node_fun stack:strdup========= [0m
+[40;42m =======pre add _ fucntion:memcpy========= [0m
+[40;33m =======POP node_fun stack:memcpy========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+# .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_76 = PHI <0B(9), dirname_52(14)>
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_76 = PHI <0B(9), dirname_52(14)>
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+_76 = PHI <0B(9), dirname_52(14)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_96 = _76;
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_96 = _76;
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+_96 = _76;
+lto1: warning: use location
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_10 = _96;
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_10 = _96;
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+_10 = _96;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:109:22: warning: use location
+   progname = concat (ldirname (python_libdir), "bin");
+                      ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_97 = VDEF <.MEM_87>
+progname_11 = concat (_10, "bin");
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_97 = VDEF <.MEM_87>
+progname_11 = concat (_10, "bin");
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+progname_11 = concat (_10, "bin");
+./benchmarks/binutils/leak_7/binutils_leak_7.c:109:12: warning: use location
+   progname = concat (ldirname (python_libdir), "bin");
+            ^
+this stmt is child function---concat-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+trace fucntion name:concat 
+[40;44m =======trace_function_path concat  function_call count: 3 level :0========  [0m
+[40;42m =======pre add _ fucntion:memcpy========= [0m
+[40;46m =======add node_fun stack:memcpy========= [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;46m =======add node_fun stack:strlen========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;46m =======add node_fun stack:malloc========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_100>
+progsize_16 = strlen (progname_11);
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_100>
+progsize_16 = strlen (progname_11);
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+progsize_16 = strlen (progname_11);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:112:12: warning: use location
+   progsize = strlen (progname);
+            ^
+this stmt is child function---strlen-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+trace fucntion name:strlen 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_23 = progsize_16 + 1;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:120:11: warning: use location
+   count = mbstowcs (progname_copy, progname, progsize + 1);
+           ^
+_25 = __builtin_constant_p (_23);
+this stmt is child function---__builtin_constant_p-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+trace fucntion name:__builtin_constant_p 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_25 == 0)
+if (_25 == 0)
+
+ ================== find cond branch ================= 
+Cond in fucntion main basic block 18
+ ================== possible direct basic block ================= 
+from main basic block 19
+ ================== possible direct basic block ================= 
+from main basic block 20
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_34 = __mbstowcs_alias (progname_copy_19, progname_11, _23);
+this stmt is child function---__mbstowcs_alias-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+trace fucntion name:__mbstowcs_alias 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_35 = PHI <_28(19), _33(21), _34(22)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+if (_35 == 18446744073709551615)
+./benchmarks/binutils/leak_7/binutils_leak_7.c:121:6: warning: use location
+   if (count == (size_t) -1)
+      ^
+if (_35 == 18446744073709551615)
+
+ ================== find cond branch ================= 
+./benchmarks/binutils/leak_7/binutils_leak_7.c:121:6: warning: use location
+Cond in fucntion main basic block 23
+ ================== possible direct basic block ================= 
+from main basic block 24
+ ================== possible direct basic block ================= 
+from main basic block 25
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_31 = __builtin_object_size (progname_copy_19, 1);
+this stmt is child function---__builtin_object_size-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+trace fucntion name:__builtin_object_size 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_29 = __builtin_object_size (progname_copy_19, 1);
+this stmt is child function---__builtin_object_size-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+trace fucntion name:__builtin_object_size 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_30 = _29 / 4;
+_26 = __builtin_object_size (progname_copy_19, 1);
+this stmt is child function---__builtin_object_size-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+trace fucntion name:__builtin_object_size 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_27 = _26 / 4;
+_28 = __mbstowcs_chk (progname_copy_19, progname_11, _23, _27);
+this stmt is child function---__mbstowcs_chk-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+trace fucntion name:__mbstowcs_chk 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_24 = __builtin_object_size (progname_copy_19, 1);
+this stmt is child function---__builtin_object_size-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+trace fucntion name:__builtin_object_size 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_24 != 18446744073709551615)
+if (_24 != 18446744073709551615)
+
+ ================== find cond branch ================= 
+Cond in fucntion main basic block 17
+ ================== possible direct basic block ================= 
+from main basic block 18
+ ================== possible direct basic block ================= 
+from main basic block 22
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_109 = VDEF <.MEM_108>
+free (progname_copy_19);
+bb index := 25
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 25 ,possiable got to succ := 26
+
+======================================================================
+free (progname_copy_19);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:135:2: warning: use location
+  xfree(progname_copy);
+  ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (progname_copy_19);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:135:2: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_111 = VDEF <.MEM_110>
+free (progname_copy_19);
+bb index := 24
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 24 ,possiable got to succ := 26
+
+======================================================================
+free (progname_copy_19);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:124:4: warning: use location
+    xfree(progname_copy);
+    ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (progname_copy_19);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:124:4: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find ================== 
+_33 = __mbstowcs_chk_warn (progname_copy_19, progname_11, _23, _32);
+this stmt is child function---__mbstowcs_chk_warn-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+trace fucntion name:__mbstowcs_chk_warn 
+
+ ================== trace ================== 
+trace fucntion free:2 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (progname_copy_19 == 0B)
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (progname_copy_19 == 0B)
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+if (progname_copy_19 == 0B)
+./benchmarks/binutils/leak_7/binutils_leak_7.c:114:6: warning: use location
+   if (!progname_copy)
+      ^
+if (progname_copy_19 == 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/binutils/leak_7/binutils_leak_7.c:114:6: warning: use location
+Cond in fucntion main basic block 15
+ ================== possible direct basic block ================= 
+from main basic block 16
+ ================== possible direct basic block ================= 
+from main basic block 17
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_17 = progsize_16 + 1;
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_17 = progsize_16 + 1;
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+_17 = progsize_16 + 1;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:113:31: warning: use location
+   progname_copy = (wchar_t *) PyMem_Malloc ((progsize + 1) * sizeof (wchar_t));
+                               ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_18 = _17 * 4;
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_18 = _17 * 4;
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+_18 = _17 * 4;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:113:31: warning: use location
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_101 = VDEF <.MEM_100>
+ret_41 = malloc (_18);
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+ret_41 = malloc (_18);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:86:8: warning: use location
+  void *ret = malloc(size);
+        ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+trace fucntion name:malloc 
+
+ ================== trace ================== 
+trace fucntion free:2 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_102 = ret_41;
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_102 = ret_41;
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+_102 = ret_41;
+lto1: warning: use location
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_42 = ret_41;
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_42 = ret_41;
+bb index := 15
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 15 ,possiable got to succ := 26
+
+======================================================================
+_42 = ret_41;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:87:9: warning: use location
+  return ret;
+         ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_75 = dirname_52;
+bb index := 14
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 26
+
+======================================================================
+_75 = dirname_52;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:53:10: warning: use location
+   return dirname;
+          ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_74 = dirname_52 + _73;
+bb index := 14
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 26
+
+======================================================================
+_74 = dirname_52 + _73;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:52:10: warning: use location
+   dirname[base - filename] = '\0';
+          ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_95 = VDEF <.MEM_86>
+*_74 = 0;
+bb index := 14
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 26
+
+======================================================================
+*_74 = 0;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:52:28: warning: use location
+   dirname[base - filename] = '\0';
+                            ^
+_68 = dirname_52 + _67;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:50:12: warning: use location
+     dirname[base++ - filename] = '.';
+            ^
+*_68 = 46;
+./benchmarks/binutils/leak_7/binutils_leak_7.c:50:32: warning: use location
+     dirname[base++ - filename] = '.';
+                                ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_93 = VDEF <.MEM_92>
+memcpy (dirname_52, _9, _56);
+bb index := 10
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 10 ,possiable got to succ := 26
+
+======================================================================
+memcpy (dirname_52, _9, _56);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:44:3: warning: use location
+   memcpy (dirname, filename, base - filename);
+   ^
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:2 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_92 = VDEF <.MEM_5(D)>
+dirname_52 = malloc (_51);
+bb index := 10
+# VUSE <.MEM_8>
+return 0;
+lto1: warning: use location
+beacuse in succ := 26 have return or exit
+gimple stmt in succ := 10 ,possiable got to succ := 26
+
+======================================================================
+dirname_52 = malloc (_51);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:43:11: warning: use location
+   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+trace fucntion name:malloc 
+
+ ================== trace ================== 
+trace fucntion free:2 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f8b968d6900
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968d2a20 dirname>
+    def_stmt dirname_52 = malloc (_51);
+    version 52
+    ptr-info 0x7f8b968d42d0>
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_109 = VDEF <.MEM_108>
+free (progname_copy_19);
+At top level:
+./benchmarks/binutils/leak_7/binutils_leak_7.c:135:2: warning: Use after free error!: free location 
+  xfree(progname_copy);
+  ^
+_76 = PHI <0B(9), dirname_52(14)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_111 = VDEF <.MEM_110>
+free (progname_copy_19);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:124:4: warning: Use after free error!: free location 
+    xfree(progname_copy);
+    ^
+_76 = PHI <0B(9), dirname_52(14)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_109 = VDEF <.MEM_108>
+free (progname_copy_19);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:135:2: warning: Use after free error!: free location 
+  xfree(progname_copy);
+  ^
+_35 = PHI <_28(19), _33(21), _34(22)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_111 = VDEF <.MEM_110>
+free (progname_copy_19);
+./benchmarks/binutils/leak_7/binutils_leak_7.c:124:4: warning: Use after free error!: free location 
+    xfree(progname_copy);
+    ^
+_35 = PHI <_28(19), _33(21), _34(22)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m  	possible double free :2 [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f8b968ce0d8
+    type <pointer_type 0x7f8b968a95e8
+        type <integer_type 0x7f8b968a9dc8 char public string-flag QI
+            size <integer_cst 0x7f8b96d7fcd8 constant 8>
+            unit size <integer_cst 0x7f8b96d7fcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8b96d933f0 precision 8 min <integer_cst 0x7f8b968ac1b0 -128> max <integer_cst 0x7f8b968ac198 127>
+            pointer_to_this <pointer_type 0x7f8b968a95e8>>
+        public unsigned DI
+        size <integer_cst 0x7f8b96d7fbe8 constant 64>
+        unit size <integer_cst 0x7f8b96d7fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8b96d8a168 ./benchmarks/binutils/leak_7/binutils_leak_7.c>
+        pointer_to_this <pointer_type 0x7f8b968b5bd0>>
+    var <var_decl 0x7f8b968cc510 oldloc>
+    def_stmt oldloc_15 = strdup (_14);
+    version 15
+    ptr-info 0x7f8b968d41f8>
+# .MEM_99 = VDEF <.MEM_98>
+oldloc_15 = strdup (_14);
+
+ ================== trace ptable================== 
+trace fucntion name:strdup 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---strdup-----
+this Reserved word function ------strdup-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+lto1: internal compiler error: Segmentation fault
+unrecognized DWARF version in .debug_info at 6
+0x7f8b96d36b90 checkPointerConstraint(tree_node*, ptb*, gimple_array*, tree_node*, int)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:3048
+0x7f8b96d2a970 walk_function_path(tree_node*, int, ptb*, gimple_array*)
+	/root/x21321219/new_gccplugin/Compiler/trace.h:1616
+0x7f8b96d2abb6 dump_fucntion(cgraph_node*, ptb*, gimple_array*)
+	/root/x21321219/new_gccplugin/Compiler/trace.h:1658
+0x7f8b96d359fa PointerConstraint(ptb*, ptb*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:2623
+0x7f8b96d3c3d6 detect()
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:5291
+0x7f8b96d3ccdc execute_detect
+	/root/x21321219/new_gccplugin/Compiler/gcc_plugin.c:108
+0x7f8b96d3cd52 execute
+	/root/x21321219/new_gccplugin/Compiler/gcc_plugin.c:129
+Please submit a full bug report,
+with preprocessed source if appropriate.
+Please include the complete backtrace with any bug report.
+See <file:///usr/share/doc/gcc-7/README.Bugs> for instructions.
+lto-wrapper: fatal error: gcc-7 returned 1 exit status
+compilation terminated.
+/usr/bin/ld: error: lto-wrapper failed
+collect2: error: ld returned 1 exit status

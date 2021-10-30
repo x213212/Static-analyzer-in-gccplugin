@@ -1,0 +1,142 @@
+In file included from ./benchmarks/git/leak_10/git_leak_10.c:10:0:
+./benchmarks/git/leak_10/../git.h: In function ‘copy_array’:
+./benchmarks/git/leak_10/../git.h:161:3: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   memcpy(dst, src, st_mult(size, n));
+   ^~~~~~
+./benchmarks/git/leak_10/../git.h:161:3: warning: incompatible implicit declaration of built-in function ‘memcpy’
+./benchmarks/git/leak_10/../git.h:161:3: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/leak_10/../git.h:161:20: warning: implicit declaration of function ‘st_mult’; did you mean ‘stdout’? [-Wimplicit-function-declaration]
+   memcpy(dst, src, st_mult(size, n));
+                    ^~~~~~~
+                    stdout
+./benchmarks/git/leak_10/../git.h: In function ‘move_array’:
+./benchmarks/git/leak_10/../git.h:169:3: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+   memmove(dst, src, st_mult(size, n));
+   ^~~~~~~
+./benchmarks/git/leak_10/../git.h:169:3: warning: incompatible implicit declaration of built-in function ‘memmove’
+./benchmarks/git/leak_10/../git.h:169:3: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/leak_10/git_leak_10.c:9:0:
+./benchmarks/git/leak_10/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/leak_10/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/leak_10/../git.h:174:15: note: in expansion of macro ‘xstrdup’
+  return str ? xstrdup(str) : NULL;
+               ^~~~~~~
+./benchmarks/git/leak_10/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/leak_10/../git.h:174:15: note: in expansion of macro ‘xstrdup’
+  return str ? xstrdup(str) : NULL;
+               ^~~~~~~
+In file included from ./benchmarks/git/leak_10/git_leak_10.c:10:0:
+./benchmarks/git/leak_10/../git.h: At top level:
+./benchmarks/git/leak_10/../git.h:236:55: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*write_archive)(const struct archiver *, struct archiver_args *);
+                                                       ^~~~~~~~~~~~~
+./benchmarks/git/leak_10/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/leak_10/../git.h:126:2: warning: incompatible implicit declaration of built-in function ‘memcpy’
+  memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));  \
+  ^
+./benchmarks/git/leak_10/../git.h:407:2: note: in expansion of macro ‘SWAP’
+  SWAP(*a, *b);
+  ^~~~
+./benchmarks/git/leak_10/../git.h:126:2: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));  \
+  ^
+./benchmarks/git/leak_10/../git.h:407:2: note: in expansion of macro ‘SWAP’
+  SWAP(*a, *b);
+  ^~~~
+In file included from ./benchmarks/git/leak_10/git_leak_10.c:9:0:
+./benchmarks/git/leak_10/git_leak_10.c: In function ‘update_tree_entry_internal’:
+./benchmarks/git/leak_10/git_leak_10.c:135:7: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘const void *’ [-Wformat=]
+   die("too-short tree file%s", buf);
+       ^
+./benchmarks/git/leak_10/../stdio.h:132:19: note: in expansion of macro ‘fatal’
+ #define die(a, b) fatal(a, b)
+                   ^~~~~
+./benchmarks/git/leak_10/git_leak_10.c:135:3: note: in expansion of macro ‘die’
+   die("too-short tree file%s", buf);
+   ^~~
+./benchmarks/git/leak_10/git_leak_10.c:141:10: warning: implicit declaration of function ‘decode_tree_entry’ [-Wimplicit-function-declaration]
+   return decode_tree_entry(desc, buf, size, err);
+          ^~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_10/git_leak_10.c: In function ‘update_tree_entry’:
+./benchmarks/git/leak_10/git_leak_10.c:150:2: warning: implicit declaration of function ‘strbuf_release’; did you mean ‘strbuf_swap’? [-Wimplicit-function-declaration]
+  strbuf_release(&err);
+  ^~~~~~~~~~~~~~
+  strbuf_swap
+./benchmarks/git/leak_10/git_leak_10.c: In function ‘extended_entry_extract’:
+./benchmarks/git/leak_10/git_leak_10.c:169:4: warning: implicit declaration of function ‘entry_clear’ [-Wimplicit-function-declaration]
+    entry_clear(a);
+    ^~~~~~~~~~~
+./benchmarks/git/leak_10/git_leak_10.c:172:3: warning: implicit declaration of function ‘entry_extract’ [-Wimplicit-function-declaration]
+   entry_extract(&t->d, a);
+   ^~~~~~~~~~~~~
+./benchmarks/git/leak_10/git_leak_10.c: At top level:
+./benchmarks/git/leak_10/git_leak_10.c:182:55: warning: ‘struct traverse_info’ declared inside parameter list will not be visible outside of this definition or declaration
+ int traverse_trees(int n, struct tree_desc *t, struct traverse_info *info)
+                                                       ^~~~~~~~~~~~~
+./benchmarks/git/leak_10/git_leak_10.c: In function ‘traverse_trees’:
+./benchmarks/git/leak_10/git_leak_10.c:184:9: error: ‘n’ redeclared as different kind of symbol
+  int i, n;
+         ^
+./benchmarks/git/leak_10/git_leak_10.c:182:24: note: previous definition of ‘n’ was here
+ int traverse_trees(int n, struct tree_desc *t, struct traverse_info *info)
+                        ^
+In file included from ./benchmarks/git/leak_10/git_leak_10.c:9:0:
+./benchmarks/git/leak_10/git_leak_10.c: In function ‘fill_tree_descriptor’:
+./benchmarks/git/leak_10/git_leak_10.c:230:34: warning: implicit declaration of function ‘oid_to_hex’ [-Wimplicit-function-declaration]
+    die("unable to read tree %s", oid_to_hex(oid));
+                                  ^
+./benchmarks/git/leak_10/../stdio.h:135:33: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                                 ^
+./benchmarks/git/leak_10/git_leak_10.c:230:4: note: in expansion of macro ‘die’
+    die("unable to read tree %s", oid_to_hex(oid));
+    ^~~
+./benchmarks/git/leak_10/git_leak_10.c:230:8: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+    die("unable to read tree %s", oid_to_hex(oid));
+        ^                         ~~~~~~~~~~~~~~~
+./benchmarks/git/leak_10/../stdio.h:135:30: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                              ^
+./benchmarks/git/leak_10/git_leak_10.c:230:4: note: in expansion of macro ‘die’
+    die("unable to read tree %s", oid_to_hex(oid));
+    ^~~
+./benchmarks/git/leak_10/git_leak_10.c: In function ‘reset_index’:
+./benchmarks/git/leak_10/git_leak_10.c:242:2: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+  memset(&opts, 0, sizeof(opts));
+  ^~~~~~
+./benchmarks/git/leak_10/git_leak_10.c:242:2: warning: incompatible implicit declaration of built-in function ‘memset’
+./benchmarks/git/leak_10/git_leak_10.c:242:2: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/git/leak_10/git_leak_10.c:262:2: warning: implicit declaration of function ‘read_cache_unmerged’ [-Wimplicit-function-declaration]
+  read_cache_unmerged();
+  ^~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_10/git_leak_10.c:266:7: warning: implicit declaration of function ‘get_oid’ [-Wimplicit-function-declaration]
+   if (get_oid("HEAD", &head_oid))
+       ^~~~~~~
+./benchmarks/git/leak_10/git_leak_10.c:267:11: warning: implicit declaration of function ‘error’; did you mean ‘perror’? [-Wimplicit-function-declaration]
+    return error(_("You do not have a valid HEAD."));
+           ^~~~~
+           perror
+./benchmarks/git/leak_10/git_leak_10.c:267:17: warning: implicit declaration of function ‘_’; did you mean ‘N_’? [-Wimplicit-function-declaration]
+    return error(_("You do not have a valid HEAD."));
+                 ^
+                 N_
+In file included from ./benchmarks/git/leak_10/git_leak_10.c:9:0:
+./benchmarks/git/leak_10/../stdio.h:144:28: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘const void *’ [-Wformat=]
+ #define __USE(exp) {printf("%d\n", exp);}
+                            ^
+./benchmarks/git/leak_10/git_leak_10.c:276:5: note: in expansion of macro ‘__USE’
+     __USE(desc[nr].buffer);
+     ^~~~~
+./benchmarks/git/leak_10/git_leak_10.c:281:10: warning: implicit declaration of function ‘parse_tree_indirect’ [-Wimplicit-function-declaration]
+   tree = parse_tree_indirect(oid);
+          ^~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_10/git_leak_10.c:281:8: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   tree = parse_tree_indirect(oid);
+        ^
+./benchmarks/git/leak_10/git_leak_10.c:282:3: warning: implicit declaration of function ‘prime_cache_tree’ [-Wimplicit-function-declaration]
+   prime_cache_tree(&the_index, tree);
+   ^~~~~~~~~~~~~~~~

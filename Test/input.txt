@@ -1,9 +1,0 @@
-Alan 75
-John 95
-Tony 60
-Mary 80
-Alan 75
-John 95
-Tony 60
-Mary 80
-

@@ -23,6 +23,7 @@
         "fstream": "c",
         "typeinfo": "c",
         "dfs.h": "c",
-        "unit.h": "c"
+        "unit.h": "c",
+        "openssh.h": "c"
     }
 }

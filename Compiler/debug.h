@@ -14,7 +14,7 @@ void printfBasicblock()
 	struct cgraph_node *node;
 	const char *name;
 
-	FOR_EACH_DEFINED_FUNCTION(node)
+	FOR_EACH_FUNCTION(node)
 	{
 		if (!ipa)
 			init_table();
@@ -45,6 +45,8 @@ void printfBasicblock()
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
+				// if (gimple_code(gc) == GIMPLE_RETURN)
+				// debug_gimple_stmt(gc);
 				gimplestmt_count+=1;
 			}
 		

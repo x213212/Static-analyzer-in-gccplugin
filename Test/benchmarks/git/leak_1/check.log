@@ -1,0 +1,247 @@
+In file included from ./benchmarks/git/leak_1/git_leak_1.c:10:0:
+./benchmarks/git/leak_1/../git.h: In function ‘copy_array’:
+./benchmarks/git/leak_1/../git.h:161:3: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   memcpy(dst, src, st_mult(size, n));
+   ^~~~~~
+./benchmarks/git/leak_1/../git.h:161:3: warning: incompatible implicit declaration of built-in function ‘memcpy’
+./benchmarks/git/leak_1/../git.h:161:3: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/leak_1/../git.h:161:20: warning: implicit declaration of function ‘st_mult’; did you mean ‘stdout’? [-Wimplicit-function-declaration]
+   memcpy(dst, src, st_mult(size, n));
+                    ^~~~~~~
+                    stdout
+./benchmarks/git/leak_1/../git.h: In function ‘move_array’:
+./benchmarks/git/leak_1/../git.h:169:3: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+   memmove(dst, src, st_mult(size, n));
+   ^~~~~~~
+./benchmarks/git/leak_1/../git.h:169:3: warning: incompatible implicit declaration of built-in function ‘memmove’
+./benchmarks/git/leak_1/../git.h:169:3: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/leak_1/git_leak_1.c:9:0:
+./benchmarks/git/leak_1/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/leak_1/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/leak_1/../git.h:174:15: note: in expansion of macro ‘xstrdup’
+  return str ? xstrdup(str) : NULL;
+               ^~~~~~~
+./benchmarks/git/leak_1/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/leak_1/../git.h:174:15: note: in expansion of macro ‘xstrdup’
+  return str ? xstrdup(str) : NULL;
+               ^~~~~~~
+In file included from ./benchmarks/git/leak_1/git_leak_1.c:10:0:
+./benchmarks/git/leak_1/../git.h: At top level:
+./benchmarks/git/leak_1/../git.h:236:55: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*write_archive)(const struct archiver *, struct archiver_args *);
+                                                       ^~~~~~~~~~~~~
+./benchmarks/git/leak_1/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/leak_1/../git.h:126:2: warning: incompatible implicit declaration of built-in function ‘memcpy’
+  memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));  \
+  ^
+./benchmarks/git/leak_1/../git.h:407:2: note: in expansion of macro ‘SWAP’
+  SWAP(*a, *b);
+  ^~~~
+./benchmarks/git/leak_1/../git.h:126:2: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));  \
+  ^
+./benchmarks/git/leak_1/../git.h:407:2: note: in expansion of macro ‘SWAP’
+  SWAP(*a, *b);
+  ^~~~
+./benchmarks/git/leak_1/git_leak_1.c: At top level:
+./benchmarks/git/leak_1/git_leak_1.c:67:3: error: conflicting types for ‘pthread_t’
+ } pthread_t;
+   ^~~~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/sys/types.h:227:0,
+                 from /usr/include/stdlib.h:394,
+                 from ./benchmarks/git/leak_1/git_leak_1.c:7:
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:27:27: note: previous declaration of ‘pthread_t’ was here
+ typedef unsigned long int pthread_t;
+                           ^~~~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c: In function ‘string_list_init’:
+./benchmarks/git/leak_1/git_leak_1.c:94:2: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+  memset(list, 0, sizeof(*list));
+  ^~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:94:2: warning: incompatible implicit declaration of built-in function ‘memset’
+./benchmarks/git/leak_1/git_leak_1.c:94:2: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/git/leak_1/git_leak_1.c: In function ‘add_entry’:
+./benchmarks/git/leak_1/git_leak_1.c:102:44: warning: implicit declaration of function ‘get_entry_index’ [-Wimplicit-function-declaration]
+  int index = insert_at != -1 ? insert_at : get_entry_index(list, string, &exact_match);
+                                            ^~~~~~~~~~~~~~~
+In file included from ./benchmarks/git/leak_1/git_leak_1.c:10:0:
+./benchmarks/git/leak_1/../git.h:112:8: warning: implicit declaration of function ‘alloc_nr’; did you mean ‘alloca’? [-Wimplicit-function-declaration]
+    if (alloc_nr(alloc) < (nr)) \
+        ^
+./benchmarks/git/leak_1/git_leak_1.c:107:2: note: in expansion of macro ‘ALLOC_GROW’
+  ALLOC_GROW(list->items, list->nr+1, list->alloc);
+  ^~~~~~~~~~
+In file included from ./benchmarks/git/leak_1/git_leak_1.c:9:0:
+./benchmarks/git/leak_1/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/leak_1/git_leak_1.c:112:3: note: in expansion of macro ‘xstrdup’
+   xstrdup(string) : (char *)string; /* allocation site */
+   ^~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c: In function ‘parse_pathspec’:
+./benchmarks/git/leak_1/git_leak_1.c:142:2: warning: incompatible implicit declaration of built-in function ‘memset’
+  memset(pathspec, 0, sizeof(*pathspec));
+  ^~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:142:2: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+In file included from ./benchmarks/git/leak_1/git_leak_1.c:9:0:
+./benchmarks/git/leak_1/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/leak_1/git_leak_1.c:157:17: note: in expansion of macro ‘xstrdup’
+   item->match = xstrdup(prefix);                      /* allocation site */
+                 ^~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:159:38: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   item->nowildcard_len = item->len = strlen(prefix);
+                                      ^~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:159:38: warning: incompatible implicit declaration of built-in function ‘strlen’
+./benchmarks/git/leak_1/git_leak_1.c:159:38: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/git/leak_1/git_leak_1.c:171:23: warning: incompatible implicit declaration of built-in function ‘strlen’
+  prefixlen = prefix ? strlen(prefix) : 0;
+                       ^~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:171:23: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/git/leak_1/git_leak_1.c:183:7: warning: implicit declaration of function ‘has_symlink_leading_path’ [-Wimplicit-function-declaration]
+       has_symlink_leading_path(item[i].match, item[i].len)) {
+       ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/git/leak_1/git_leak_1.c:9:0:
+./benchmarks/git/leak_1/git_leak_1.c:184:8: warning: implicit declaration of function ‘_’ [-Wimplicit-function-declaration]
+    die(_("pathspec '%s' is beyond a symbolic link"), entry);
+        ^
+./benchmarks/git/leak_1/../stdio.h:135:30: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                              ^
+./benchmarks/git/leak_1/git_leak_1.c:184:4: note: in expansion of macro ‘die’
+    die(_("pathspec '%s' is beyond a symbolic link"), entry);
+    ^~~
+./benchmarks/git/leak_1/git_leak_1.c:184:8: warning: passing argument 1 of ‘printf’ makes pointer from integer without a cast [-Wint-conversion]
+    die(_("pathspec '%s' is beyond a symbolic link"), entry);
+        ^
+./benchmarks/git/leak_1/../stdio.h:135:30: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                              ^
+./benchmarks/git/leak_1/git_leak_1.c:184:4: note: in expansion of macro ‘die’
+    die(_("pathspec '%s' is beyond a symbolic link"), entry);
+    ^~~
+In file included from /usr/include/stdio.h:866:0,
+                 from ./benchmarks/git/leak_1/git_leak_1.c:6:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:110:1: note: expected ‘const char * restrict’ but argument is of type ‘int’
+ printf (const char *__restrict __fmt, ...)
+ ^~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:198:3: warning: implicit declaration of function ‘init_pathspec_item’ [-Wimplicit-function-declaration]
+   init_pathspec_item(item + n, 0, prefix, plen, "");
+   ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c: In function ‘list_paths’:
+./benchmarks/git/leak_1/git_leak_1.c:220:22: warning: implicit declaration of function ‘common_prefix’ [-Wimplicit-function-declaration]
+   char *max_prefix = common_prefix(pattern);
+                      ^~~~~~~~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:220:22: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/git/leak_1/git_leak_1.c:221:3: warning: implicit declaration of function ‘overlay_tree_on_index’ [-Wimplicit-function-declaration]
+   overlay_tree_on_index(&the_index, with_tree,
+   ^~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:231:7: warning: implicit declaration of function ‘ce_skip_worktree’ [-Wimplicit-function-declaration]
+   if (ce_skip_worktree(ce))
+       ^~~~~~~~~~~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:235:8: warning: implicit declaration of function ‘report_path_error’ [-Wimplicit-function-declaration]
+  ret = report_path_error(m, pattern, prefix);
+        ^~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c: In function ‘prepare_index’:
+./benchmarks/git/leak_1/git_leak_1.c:27:38: warning: implicit declaration of function ‘read_index_preload’; did you mean ‘read_cache_preload’? [-Wimplicit-function-declaration]
+ #define read_cache_preload(pathspec) read_index_preload(&the_index, (pathspec))
+                                      ^
+./benchmarks/git/leak_1/git_leak_1.c:255:6: note: in expansion of macro ‘read_cache_preload’
+  if (read_cache_preload(&pathspec) < 0)
+      ^~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/git/leak_1/git_leak_1.c:9:0:
+./benchmarks/git/leak_1/git_leak_1.c:256:7: warning: passing argument 1 of ‘printf’ makes pointer from integer without a cast [-Wint-conversion]
+   die(_("index file corrupt%s"), "");
+       ^
+./benchmarks/git/leak_1/../stdio.h:135:30: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                              ^
+./benchmarks/git/leak_1/git_leak_1.c:256:3: note: in expansion of macro ‘die’
+   die(_("index file corrupt%s"), "");
+   ^~~
+In file included from /usr/include/stdio.h:866:0,
+                 from ./benchmarks/git/leak_1/git_leak_1.c:6:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:110:1: note: expected ‘const char * restrict’ but argument is of type ‘int’
+ printf (const char *__restrict __fmt, ...)
+ ^~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:261:7: warning: implicit declaration of function ‘interactive_add’ [-Wimplicit-function-declaration]
+   if (interactive_add(argc, argv, prefix, patch_interactive) != 0)
+       ^~~~~~~~~~~~~~~
+In file included from ./benchmarks/git/leak_1/git_leak_1.c:9:0:
+./benchmarks/git/leak_1/git_leak_1.c:262:8: warning: passing argument 1 of ‘printf’ makes pointer from integer without a cast [-Wint-conversion]
+    die(_("interactive add failed%s"), "");
+        ^
+./benchmarks/git/leak_1/../stdio.h:135:30: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                              ^
+./benchmarks/git/leak_1/git_leak_1.c:262:4: note: in expansion of macro ‘die’
+    die(_("interactive add failed%s"), "");
+    ^~~
+In file included from /usr/include/stdio.h:866:0,
+                 from ./benchmarks/git/leak_1/git_leak_1.c:6:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:110:1: note: expected ‘const char * restrict’ but argument is of type ‘int’
+ printf (const char *__restrict __fmt, ...)
+ ^~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:26:31: warning: implicit declaration of function ‘read_index_from’; did you mean ‘read_cache_from’? [-Wimplicit-function-declaration]
+ #define read_cache_from(path) read_index_from(&the_index, (path))
+                               ^
+./benchmarks/git/leak_1/git_leak_1.c:264:3: note: in expansion of macro ‘read_cache_from’
+   read_cache_from(get_lock_file_path(&index_lock));
+   ^~~~~~~~~~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:264:19: warning: implicit declaration of function ‘get_lock_file_path’ [-Wimplicit-function-declaration]
+   read_cache_from(get_lock_file_path(&index_lock));
+                   ^
+./benchmarks/git/leak_1/git_leak_1.c:26:60: note: in definition of macro ‘read_cache_from’
+ #define read_cache_from(path) read_index_from(&the_index, (path))
+                                                            ^~~~
+./benchmarks/git/leak_1/git_leak_1.c:266:10: warning: return makes pointer from integer without a cast [-Wint-conversion]
+   return get_lock_file_path(&index_lock);
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:282:3: warning: implicit declaration of function ‘add_files_to_cache’; did you mean ‘add_file_to_cache’? [-Wimplicit-function-declaration]
+   add_files_to_cache(also ? prefix : NULL, &pathspec, 0);
+   ^~~~~~~~~~~~~~~~~~
+   add_file_to_cache
+./benchmarks/git/leak_1/git_leak_1.c:284:10: warning: return makes pointer from integer without a cast [-Wint-conversion]
+   return get_lock_file_path(&index_lock);
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/git/leak_1/git_leak_1.c:9:0:
+./benchmarks/git/leak_1/git_leak_1.c:298:9: warning: passing argument 1 of ‘printf’ makes pointer from integer without a cast [-Wint-conversion]
+     die(_("unable to write new_index file%s"), "");
+         ^
+./benchmarks/git/leak_1/../stdio.h:135:30: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                              ^
+./benchmarks/git/leak_1/git_leak_1.c:298:5: note: in expansion of macro ‘die’
+     die(_("unable to write new_index file%s"), "");
+     ^~~
+In file included from /usr/include/stdio.h:866:0,
+                 from ./benchmarks/git/leak_1/git_leak_1.c:6:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:110:1: note: expected ‘const char * restrict’ but argument is of type ‘int’
+ printf (const char *__restrict __fmt, ...)
+ ^~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:300:4: warning: implicit declaration of function ‘rollback_lock_file’ [-Wimplicit-function-declaration]
+    rollback_lock_file(&index_lock);
+    ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:303:10: warning: implicit declaration of function ‘get_index_file’ [-Wimplicit-function-declaration]
+   return get_index_file();
+          ^~~~~~~~~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:303:10: warning: return makes pointer from integer without a cast [-Wint-conversion]
+   return get_index_file();
+          ^~~~~~~~~~~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c:30:25: warning: implicit declaration of function ‘discard_index’; did you mean ‘prepare_index’? [-Wimplicit-function-declaration]
+ #define discard_cache() discard_index(&the_index)
+                         ^
+./benchmarks/git/leak_1/git_leak_1.c:331:2: note: in expansion of macro ‘discard_cache’
+  discard_cache();
+  ^~~~~~~~~~~~~
+./benchmarks/git/leak_1/git_leak_1.c: In function ‘main’:
+./benchmarks/git/leak_1/git_leak_1.c:339:25: warning: passing argument 2 of ‘prepare_index’ from incompatible pointer type [-Wincompatible-pointer-types]
+     prepare_index(argc, argv, "prefix", current_head, is_status);
+                         ^~~~
+./benchmarks/git/leak_1/git_leak_1.c:241:20: note: expected ‘const char **’ but argument is of type ‘char **’
+ static const char *prepare_index(int argc, const char **argv, const char *prefix,
+                    ^~~~~~~~~~~~~

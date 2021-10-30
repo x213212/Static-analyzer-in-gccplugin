@@ -96,7 +96,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 				// function_free_collect->put(node->get_fun()->decl, fun_array);
 			}
 
-			else if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup") || !strcmp(name, "xstrdup"))
+			else if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xcalloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup") || !strcmp(name, "xstrdup"))
 			{
 				// debug_tree(gimple_call_lhs(gc));
 				set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
@@ -423,13 +423,13 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				// fun_array.return_type_array.push_back(ret_type);
 				// function_return_collect->put(node->get_fun()->decl, fun_array);
 			}
-			else if (!strcmp(name, "exit") )
+			else if (!strcmp(name, "exit"))
 			{
 				function_return_array fun_array;
-				tree get_function_arg_tree =  gimple_call_arg(gc, 0);
+				tree get_function_arg_tree = gimple_call_arg(gc, 0);
 				vector<return_type> ret_type_array;
 
-					// fprintf(stderr, "GIMPLE_RETURN\n");
+				// fprintf(stderr, "GIMPLE_RETURN\n");
 				if (get_function_return_tree)
 				{
 					// debug_gimple_stmt(gc);
@@ -1946,24 +1946,36 @@ void collect_function_return(gimple *gc, cgraph_node *node, basic_block bb)
 {
 
 	function_return_array fun_array;
-	tree get_function_return_tree = gimple_return_retval(as_a<greturn *>(gc));
+	tree get_function_return_tree;
+	if (gimple_return_retval(as_a<greturn *>(gc)))
+		get_function_return_tree = gimple_return_retval(as_a<greturn *>(gc));
+	else
+		get_function_return_tree = NULL_TREE;
 	vector<return_type> ret_type_array;
 
-	if (get_function_return_tree)
-	{
-		// fprintf(stderr, "GIMPLE_RETURN\n");
-		// debug_gimple_stmt(gc);
-		// debug_tree(get_function_return_tree);
-		// debug_tree(node->get_fun()->decl);
-		// debug_tree(get_function_return_tree);
-		fun_array.return_type_array = ret_type_array;
-		struct return_type ret_type;
-		ret_type.stmt = gc;
-		ret_type.return_tree = get_function_return_tree;
-		// ret_type.reutnr_type_num = 0;
-		fun_array.return_type_array.push_back(ret_type);
-		function_return_collect->put(node->get_fun()->decl, fun_array);
-	}
+	// debug_gimple_stmt(gc);
+	// 	fprintf(stderr, "GIMPLE_RETURN\n");
+	// debug_tree(get_function_return_tree);
+	// debug_tree(node->get_fun()->decl);
+	// warning_at(gimple_location_safe(gc), 0, "use location");
+	// 	fprintf(stderr ,"\nggggggggggggg %d\n" , gimple_bb(gc)->index);
+			// fprintf(stderr ,"\nggggggggggggg %d\n" , BLOCK_SUPERCONTEXT(gimple_block(gc)->index);
+		
+	// if (get_function_return_tree)
+	// {
+
+	// debug_tree(node->get_fun()->decl);
+	// debug_tree(get_function_return_tree);
+	fun_array.return_type_array = ret_type_array;
+	struct return_type ret_type;
+	ret_type.stmt = gc;
+	ret_type.return_tree = get_function_return_tree;
+	//global
+	global_ret_type_array.push_back(ret_type);
+	// ret_type.reutnr_type_num = 0;
+	fun_array.return_type_array.push_back(ret_type);
+	function_return_collect->put(node->get_fun()->decl, fun_array);
+	// }
 	// debug_tree(get_function_return_tree);
 
 	// tree test = cfun->decl;

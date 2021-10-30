@@ -1,0 +1,4844 @@
+./benchmarks/openssl/leak_6/openssl_leak_6.c: In function ‘BN_cmp’:
+./benchmarks/openssl/leak_6/openssl_leak_6.c:33:5: warning: implicit declaration of function ‘bn_check_top’ [-Wimplicit-function-declaration]
+     bn_check_top(a);
+     ^~~~~~~~~~~~
+./benchmarks/openssl/leak_6/openssl_leak_6.c: In function ‘BN_rshift1’:
+./benchmarks/openssl/leak_6/openssl_leak_6.c:73:9: warning: implicit declaration of function ‘BN_is_zero’; did you mean ‘LN_id_set’? [-Wimplicit-function-declaration]
+     if (BN_is_zero(a)) {
+         ^~~~~~~~~~
+         LN_id_set
+./benchmarks/openssl/leak_6/openssl_leak_6.c:74:9: warning: implicit declaration of function ‘BN_zero’ [-Wimplicit-function-declaration]
+         BN_zero(r);
+         ^~~~~~~
+./benchmarks/openssl/leak_6/openssl_leak_6.c:81:13: warning: implicit declaration of function ‘bn_wexpand’ [-Wimplicit-function-declaration]
+         if (bn_wexpand(r, j) == NULL)
+             ^~~~~~~~~~
+./benchmarks/openssl/leak_6/openssl_leak_6.c:81:30: warning: comparison between pointer and integer
+         if (bn_wexpand(r, j) == NULL)
+                              ^~
+./benchmarks/openssl/leak_6/openssl_leak_6.c: In function ‘DH_get_nid’:
+./benchmarks/openssl/leak_6/openssl_leak_6.c:106:9: warning: implicit declaration of function ‘BN_get_word’; did you mean ‘DH_get_nid’? [-Wimplicit-function-declaration]
+     if (BN_get_word(dh->g) != 2)
+         ^~~~~~~~~~~
+         DH_get_nid
+./benchmarks/openssl/leak_6/openssl_leak_6.c:121:21: warning: implicit declaration of function ‘BN_dup’; did you mean ‘BN_cmp’? [-Wimplicit-function-declaration]
+         BIGNUM *q = BN_dup(dh->p); /* allocation site */
+                     ^~~~~~
+                     BN_cmp
+./benchmarks/openssl/leak_6/openssl_leak_6.c:121:21: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/openssl/leak_6/openssl_leak_6.c:125:13: warning: implicit declaration of function ‘BN_free’; did you mean ‘free’? [-Wimplicit-function-declaration]
+             BN_free(q);
+             ^~~~~~~
+             free
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+--------GIMPLE Cond -------
+--------GIMPLE Cond -------
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 3
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 6
+--------GIMPLE Cond -------
+succs:= 6
+--------GIMPLE Cond -------
+succs:= 9
+--------GIMPLE Cond -------
+succs:= 11
+succs:= 11
+--------GIMPLE Cond -------
+succs:= 13
+succs:= 13
+--------GIMPLE Cond -------
+succs:= 16
+--------GIMPLE Cond -------
+succs:= 16
+succs:= 18
+succs:= 18
+--------GIMPLE Cond -------
+succs:= 3
+succs:= 4
+succs:= 7
+succs:= 21
+--------GIMPLE Cond -------
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 3
+--------GIMPLE Cond -------
+succs:= 4
+--------GIMPLE Cond -------
+succs:= 5
+--------GIMPLE Cond -------
+succs:= 6
+--------GIMPLE Cond -------
+succs:= 3
+succs:= 4
+succs:= 5
+succs:= 6
+succs:= 7
+--------GIMPLE Cond -------
+succs:= 8
+--------GIMPLE Cond -------
+succs:= 9
+--------GIMPLE Cond -------
+succs:= 7
+succs:= 10
+succs:= 10
+--------GIMPLE Cond -------
+succs:= 12
+succs:= 12
+--------GIMPLE Cond -------
+succs:= 16
+--------GIMPLE Cond -------
+succs:= 17
+succs:= 17
+succs:= 21
+--------GIMPLE Cond -------
+succs:= 20
+--------GIMPLE Cond -------
+succs:= 9
+succs:= 20
+succs:= 21
+succs:= 8
+succs:= 21
+succs:= 2
+succs:= 7
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+===============The second stage : Mapping stmt=================
+# .MEM_41 = VDEF <.MEM_40(D)>
+bn_check_top (a_26(D));
+# .MEM_42 = VDEF <.MEM_41>
+bn_check_top (b_27(D));
+# .MEM_77 = VDEF <.MEM_1(D)>
+_5 = BN_get_word (_4);
+# .MEM_78 = VDEF <.MEM_77>
+_7 = BN_cmp (_6, &_bignum_ffdhe2048_p);
+# .MEM_79 = VDEF <.MEM_78>
+_9 = BN_cmp (_8, &_bignum_ffdhe3072_p);
+# .MEM_80 = VDEF <.MEM_79>
+_11 = BN_cmp (_10, &_bignum_ffdhe4096_p);
+# .MEM_81 = VDEF <.MEM_80>
+_13 = BN_cmp (_12, &_bignum_ffdhe6144_p);
+# .MEM_82 = VDEF <.MEM_81>
+_15 = BN_cmp (_14, &_bignum_ffdhe8192_p);
+# .MEM_83 = VDEF <.MEM_69>
+_18 = BN_dup (_17);
+# .MEM_84 = VDEF <.MEM_83>
+bn_check_top (q_20);
+# .MEM_85 = VDEF <.MEM_84>
+bn_check_top (q_20);
+# .MEM_86 = VDEF <.MEM_85>
+_27 = BN_is_zero (q_20);
+# .MEM_92 = VDEF <.MEM_86>
+BN_zero (q_20);
+# .MEM_90 = VDEF <.MEM_72>
+bn_check_top (q_20);
+# .MEM_94 = VDEF <.MEM_73>
+_23 = BN_cmp (_22, q_20);
+# .MEM_95 = VDEF <.MEM_74>
+BN_free (q_20);
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:BN_cmp========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path BN_cmp  function_call count: 1 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:bn_check_top========= [0m
+[40;33m =======POP node_fun stack:bn_check_top========= [0m
+[40;42m =======pre_check_funciton:BN_cmp========= [0m
+[40;42m =======start_check_funciton:BN_cmp========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea3867ea0
+    type <pointer_type 0x7f5ea3389690
+        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389690>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5ea3398300 a>
+    def_stmt GIMPLE_NOP
+    version 26
+    ptr-info 0x7f5ea338cf78>
+GIMPLE_NOP
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_13 = a_26(D)->d;
+bb index := 16
+# VUSE <.MEM_39>
+return _24;
+In function ‘BN_cmp’:
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_13 = a_26(D)->d;
+bb index := 16
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_13 = a_26(D)->d;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:55:15: warning: use location
+         t1 = a->d[i];
+               ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_16 = _13 + _15;
+bb index := 16
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_16 = _13 + _15;
+bb index := 16
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_16 = _13 + _15;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:55:18: warning: use location
+         t1 = a->d[i];
+                  ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+t1_32 = *_16;
+bb index := 16
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+t1_32 = *_16;
+bb index := 16
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+t1_32 = *_16;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:55:12: warning: use location
+         t1 = a->d[i];
+            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (t1_32 < t2_33)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:59:12: warning: use location
+         if (t1 < t2)
+            ^
+if (t1_32 < t2_33)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:59:12: warning: use location
+Cond in fucntion BN_cmp basic block 18
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 19
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 20
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_12 = a_26(D)->top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:54:15: warning: use location
+     for (i = a->top - 1; i >= 0; i--) {
+               ^
+i_31 = _12 + -1;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:54:12: warning: use location
+     for (i = a->top - 1; i >= 0; i--) {
+            ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+i_21 = PHI <i_31(15), i_34(20)>
+bb index := 21
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+i_21 = PHI <i_31(15), i_34(20)>
+bb index := 21
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+i_21 = PHI <i_31(15), i_34(20)>
+bb index := 21
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+i_21 = PHI <i_31(15), i_34(20)>
+bb index := 21
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_21 = PHI <i_31(15), i_34(20)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (i_21 >= 0)
+bb index := 21
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (i_21 >= 0)
+bb index := 21
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (i_21 >= 0)
+bb index := 21
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (i_21 >= 0)
+bb index := 21
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (i_21 >= 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:54:5: warning: use location
+     for (i = a->top - 1; i >= 0; i--) {
+     ^
+if (i_21 >= 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:54:5: warning: use location
+Cond in fucntion BN_cmp basic block 21
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 16
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 22
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_34 = i_21 + -1;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:54:35: warning: use location
+     for (i = a->top - 1; i >= 0; i--) {
+                                   ^
+_10 = a_26(D)->top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:52:10: warning: use location
+     if (a->top < b->top)
+          ^
+if (_10 < _11)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:52:8: warning: use location
+     if (a->top < b->top)
+        ^
+if (_10 < _11)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:52:8: warning: use location
+Cond in fucntion BN_cmp basic block 13
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 14
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 15
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_8 = a_26(D)->top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:50:10: warning: use location
+     if (a->top > b->top)
+          ^
+if (_8 > _9)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:50:8: warning: use location
+     if (a->top > b->top)
+        ^
+if (_8 > _9)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:50:8: warning: use location
+Cond in fucntion BN_cmp basic block 11
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 12
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 13
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_7 = a_26(D)->neg;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:42:10: warning: use location
+     if (a->neg == 0) {
+          ^
+if (_7 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:42:8: warning: use location
+     if (a->neg == 0) {
+        ^
+if (_7 == 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:42:8: warning: use location
+Cond in fucntion BN_cmp basic block 9
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 11
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 10
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_6 = a_26(D)->neg;
+bb index := 7
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_6 = a_26(D)->neg;
+bb index := 7
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_6 = a_26(D)->neg;
+bb index := 7
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_6 = a_26(D)->neg;
+bb index := 7
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 24
+
+======================================================================
+_6 = a_26(D)->neg;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:37:14: warning: use location
+         if (a->neg)
+              ^
+_4 = a_26(D)->neg;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:36:10: warning: use location
+     if (a->neg != b->neg) {
+          ^
+if (_4 != _5)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:36:8: warning: use location
+     if (a->neg != b->neg) {
+        ^
+if (_4 != _5)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:36:8: warning: use location
+Cond in fucntion BN_cmp basic block 6
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 7
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 9
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+# .MEM_41 = VDEF <.MEM_40(D)>
+bn_check_top (a_26(D));
+bn_check_top (a_26(D));
+./benchmarks/openssl/leak_6/openssl_leak_6.c:33:5: warning: use location
+     bn_check_top(a);
+     ^
+this stmt is child function---bn_check_top-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea3867ea0
+    type <pointer_type 0x7f5ea3389690
+        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389690>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5ea3398300 a>
+    def_stmt GIMPLE_NOP
+    version 26
+    ptr-info 0x7f5ea338cf78>
+trace fucntion name:bn_check_top 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (a_26(D) != 0B)
+bb index := 3
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (a_26(D) != 0B)
+bb index := 3
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (a_26(D) != 0B)
+bb index := 3
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (a_26(D) != 0B)
+bb index := 3
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 24
+
+======================================================================
+if (a_26(D) != 0B)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:25:12: warning: use location
+         if (a != NULL)
+            ^
+if (a_26(D) != 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:25:12: warning: use location
+Cond in fucntion BN_cmp basic block 3
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 22
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 4
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_1 = a_26(D) == 0B;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:24:12: warning: use location
+     if ((a == NULL) || (b == NULL)) {
+            ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5ea3867ea0
+    type <pointer_type 0x7f5ea3389690
+        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389690>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5ea3398300 a>
+    def_stmt GIMPLE_NOP
+    version 26
+    ptr-info 0x7f5ea338cf78>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea3867ee8
+    type <pointer_type 0x7f5ea3389690
+        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389690>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5ea3398380 b>
+    def_stmt GIMPLE_NOP
+    version 27
+    ptr-info 0x7f5ea338cf90>
+GIMPLE_NOP
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_17 = b_27(D)->d;
+bb index := 16
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_17 = b_27(D)->d;
+bb index := 16
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_17 = b_27(D)->d;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:56:15: warning: use location
+         t2 = b->d[i];
+               ^
+_11 = b_27(D)->top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:52:19: warning: use location
+     if (a->top < b->top)
+                   ^
+_9 = b_27(D)->top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:50:19: warning: use location
+     if (a->top > b->top)
+                   ^
+_5 = b_27(D)->neg;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:36:20: warning: use location
+     if (a->neg != b->neg) {
+                    ^
+# .MEM_42 = VDEF <.MEM_41>
+bn_check_top (b_27(D));
+bn_check_top (b_27(D));
+./benchmarks/openssl/leak_6/openssl_leak_6.c:34:5: warning: use location
+     bn_check_top(b);
+     ^
+this stmt is child function---bn_check_top-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea3867ee8
+    type <pointer_type 0x7f5ea3389690
+        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389690>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5ea3398380 b>
+    def_stmt GIMPLE_NOP
+    version 27
+    ptr-info 0x7f5ea338cf90>
+trace fucntion name:bn_check_top 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (b_27(D) != 0B)
+bb index := 4
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 4 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (b_27(D) != 0B)
+bb index := 4
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 4 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (b_27(D) != 0B)
+bb index := 4
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 4 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (b_27(D) != 0B)
+bb index := 4
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 4 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (b_27(D) != 0B)
+bb index := 4
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 4 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (b_27(D) != 0B)
+bb index := 4
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 4 ,possiable got to succ := 24
+
+======================================================================
+if (b_27(D) != 0B)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:27:17: warning: use location
+         else if (b != NULL)
+                 ^
+if (b_27(D) != 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:27:17: warning: use location
+Cond in fucntion BN_cmp basic block 4
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 22
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 5
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_2 = b_27(D) == 0B;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:24:27: warning: use location
+     if ((a == NULL) || (b == NULL)) {
+                           ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5ea3867ee8
+    type <pointer_type 0x7f5ea3389690
+        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389690>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5ea3398380 b>
+    def_stmt GIMPLE_NOP
+    version 27
+    ptr-info 0x7f5ea338cf90>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:BN_cmp========= [0m
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 7 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:BN_free========= [0m
+[40;33m =======POP node_fun stack:BN_free========= [0m
+[40;42m =======pre add _ fucntion:BN_cmp========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path BN_cmp  function_call count: 1 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:bn_check_top========= [0m
+[40;33m =======POP node_fun stack:bn_check_top========= [0m
+[40;42m =======pre_check_funciton:BN_cmp========= [0m
+[40;42m =======start_check_funciton:BN_cmp========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea3867ea0
+    type <pointer_type 0x7f5ea3389690
+        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389690>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5ea3398300 a>
+    def_stmt GIMPLE_NOP
+    version 26
+    ptr-info 0x7f5ea338cf78>
+GIMPLE_NOP
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_13 = a_26(D)->d;
+bb index := 16
+# VUSE <.MEM_39>
+return _24;
+In function ‘main’:
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_13 = a_26(D)->d;
+bb index := 16
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_13 = a_26(D)->d;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:55:15: warning: use location
+         t1 = a->d[i];
+               ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_16 = _13 + _15;
+bb index := 16
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_16 = _13 + _15;
+bb index := 16
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_16 = _13 + _15;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:55:18: warning: use location
+         t1 = a->d[i];
+                  ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+t1_32 = *_16;
+bb index := 16
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+t1_32 = *_16;
+bb index := 16
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+t1_32 = *_16;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:55:12: warning: use location
+         t1 = a->d[i];
+            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (t1_32 < t2_33)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:59:12: warning: use location
+         if (t1 < t2)
+            ^
+if (t1_32 < t2_33)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:59:12: warning: use location
+Cond in fucntion BN_cmp basic block 18
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 19
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 20
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_12 = a_26(D)->top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:54:15: warning: use location
+     for (i = a->top - 1; i >= 0; i--) {
+               ^
+i_31 = _12 + -1;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:54:12: warning: use location
+     for (i = a->top - 1; i >= 0; i--) {
+            ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+i_21 = PHI <i_31(15), i_34(20)>
+bb index := 21
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+i_21 = PHI <i_31(15), i_34(20)>
+bb index := 21
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+i_21 = PHI <i_31(15), i_34(20)>
+bb index := 21
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+i_21 = PHI <i_31(15), i_34(20)>
+bb index := 21
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_21 = PHI <i_31(15), i_34(20)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (i_21 >= 0)
+bb index := 21
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (i_21 >= 0)
+bb index := 21
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (i_21 >= 0)
+bb index := 21
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (i_21 >= 0)
+bb index := 21
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 21 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (i_21 >= 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:54:5: warning: use location
+     for (i = a->top - 1; i >= 0; i--) {
+     ^
+if (i_21 >= 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:54:5: warning: use location
+Cond in fucntion BN_cmp basic block 21
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 16
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 22
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_34 = i_21 + -1;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:54:35: warning: use location
+     for (i = a->top - 1; i >= 0; i--) {
+                                   ^
+_10 = a_26(D)->top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:52:10: warning: use location
+     if (a->top < b->top)
+          ^
+if (_10 < _11)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:52:8: warning: use location
+     if (a->top < b->top)
+        ^
+if (_10 < _11)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:52:8: warning: use location
+Cond in fucntion BN_cmp basic block 13
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 14
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 15
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_8 = a_26(D)->top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:50:10: warning: use location
+     if (a->top > b->top)
+          ^
+if (_8 > _9)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:50:8: warning: use location
+     if (a->top > b->top)
+        ^
+if (_8 > _9)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:50:8: warning: use location
+Cond in fucntion BN_cmp basic block 11
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 12
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 13
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_7 = a_26(D)->neg;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:42:10: warning: use location
+     if (a->neg == 0) {
+          ^
+if (_7 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:42:8: warning: use location
+     if (a->neg == 0) {
+        ^
+if (_7 == 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:42:8: warning: use location
+Cond in fucntion BN_cmp basic block 9
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 11
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 10
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_6 = a_26(D)->neg;
+bb index := 7
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_6 = a_26(D)->neg;
+bb index := 7
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_6 = a_26(D)->neg;
+bb index := 7
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_6 = a_26(D)->neg;
+bb index := 7
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 24
+
+======================================================================
+_6 = a_26(D)->neg;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:37:14: warning: use location
+         if (a->neg)
+              ^
+_4 = a_26(D)->neg;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:36:10: warning: use location
+     if (a->neg != b->neg) {
+          ^
+if (_4 != _5)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:36:8: warning: use location
+     if (a->neg != b->neg) {
+        ^
+if (_4 != _5)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:36:8: warning: use location
+Cond in fucntion BN_cmp basic block 6
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 7
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 9
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+# .MEM_41 = VDEF <.MEM_40(D)>
+bn_check_top (a_26(D));
+bn_check_top (a_26(D));
+./benchmarks/openssl/leak_6/openssl_leak_6.c:33:5: warning: use location
+     bn_check_top(a);
+     ^
+this stmt is child function---bn_check_top-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea3867ea0
+    type <pointer_type 0x7f5ea3389690
+        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389690>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5ea3398300 a>
+    def_stmt GIMPLE_NOP
+    version 26
+    ptr-info 0x7f5ea338cf78>
+trace fucntion name:bn_check_top 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (a_26(D) != 0B)
+bb index := 3
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (a_26(D) != 0B)
+bb index := 3
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (a_26(D) != 0B)
+bb index := 3
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (a_26(D) != 0B)
+bb index := 3
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 24
+
+======================================================================
+if (a_26(D) != 0B)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:25:12: warning: use location
+         if (a != NULL)
+            ^
+if (a_26(D) != 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:25:12: warning: use location
+Cond in fucntion BN_cmp basic block 3
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 22
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 4
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_1 = a_26(D) == 0B;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:24:12: warning: use location
+     if ((a == NULL) || (b == NULL)) {
+            ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5ea3867ea0
+    type <pointer_type 0x7f5ea3389690
+        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389690>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5ea3398300 a>
+    def_stmt GIMPLE_NOP
+    version 26
+    ptr-info 0x7f5ea338cf78>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea3867ee8
+    type <pointer_type 0x7f5ea3389690
+        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389690>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5ea3398380 b>
+    def_stmt GIMPLE_NOP
+    version 27
+    ptr-info 0x7f5ea338cf90>
+GIMPLE_NOP
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_17 = b_27(D)->d;
+bb index := 16
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_42>
+_17 = b_27(D)->d;
+bb index := 16
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 16 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_17 = b_27(D)->d;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:56:15: warning: use location
+         t2 = b->d[i];
+               ^
+_11 = b_27(D)->top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:52:19: warning: use location
+     if (a->top < b->top)
+                   ^
+_9 = b_27(D)->top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:50:19: warning: use location
+     if (a->top > b->top)
+                   ^
+_5 = b_27(D)->neg;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:36:20: warning: use location
+     if (a->neg != b->neg) {
+                    ^
+# .MEM_42 = VDEF <.MEM_41>
+bn_check_top (b_27(D));
+bn_check_top (b_27(D));
+./benchmarks/openssl/leak_6/openssl_leak_6.c:34:5: warning: use location
+     bn_check_top(b);
+     ^
+this stmt is child function---bn_check_top-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea3867ee8
+    type <pointer_type 0x7f5ea3389690
+        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389690>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5ea3398380 b>
+    def_stmt GIMPLE_NOP
+    version 27
+    ptr-info 0x7f5ea338cf90>
+trace fucntion name:bn_check_top 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (b_27(D) != 0B)
+bb index := 4
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 4 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (b_27(D) != 0B)
+bb index := 4
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 4 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (b_27(D) != 0B)
+bb index := 4
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 4 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (b_27(D) != 0B)
+bb index := 4
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 4 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (b_27(D) != 0B)
+bb index := 4
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 4 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (b_27(D) != 0B)
+bb index := 4
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 4 ,possiable got to succ := 24
+
+======================================================================
+if (b_27(D) != 0B)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:27:17: warning: use location
+         else if (b != NULL)
+                 ^
+if (b_27(D) != 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:27:17: warning: use location
+Cond in fucntion BN_cmp basic block 4
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 22
+ ================== possible direct basic block ================= 
+from BN_cmp basic block 5
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_2 = b_27(D) == 0B;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:24:27: warning: use location
+     if ((a == NULL) || (b == NULL)) {
+                           ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5ea3867ee8
+    type <pointer_type 0x7f5ea3389690
+        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389690>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5ea3398380 b>
+    def_stmt GIMPLE_NOP
+    version 27
+    ptr-info 0x7f5ea338cf90>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:BN_cmp========= [0m
+[40;42m =======pre add _ fucntion:bn_check_top========= [0m
+[40;33m =======POP node_fun stack:bn_check_top========= [0m
+[40;42m =======pre add _ fucntion:BN_zero========= [0m
+[40;33m =======POP node_fun stack:BN_zero========= [0m
+[40;42m =======pre add _ fucntion:BN_is_zero========= [0m
+[40;33m =======POP node_fun stack:BN_is_zero========= [0m
+[40;42m =======pre add _ fucntion:BN_dup========= [0m
+[40;33m =======POP node_fun stack:BN_dup========= [0m
+[40;42m =======pre add _ fucntion:BN_get_word========= [0m
+[40;33m =======POP node_fun stack:BN_get_word========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea33a3f30
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _4 = dh.g;
+    version 4
+    ptr-info 0x7f5ea338cfa8>
+# VUSE <.MEM_1(D)>
+_4 = dh.g;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_77 = VDEF <.MEM_1(D)>
+_5 = BN_get_word (_4);
+bb index := 2
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_77 = VDEF <.MEM_1(D)>
+_5 = BN_get_word (_4);
+bb index := 2
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_77 = VDEF <.MEM_1(D)>
+_5 = BN_get_word (_4);
+bb index := 2
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_77 = VDEF <.MEM_1(D)>
+_5 = BN_get_word (_4);
+bb index := 2
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 24
+
+======================================================================
+_5 = BN_get_word (_4);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:106:9: warning: use location
+     if (BN_get_word(dh->g) != 2)
+         ^
+this stmt is child function---BN_get_word-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33a3f30
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _4 = dh.g;
+    version 4
+    ptr-info 0x7f5ea338cfa8>
+trace fucntion name:BN_get_word 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (_5 != 2)
+bb index := 2
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (_5 != 2)
+bb index := 2
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (_5 != 2)
+bb index := 2
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (_5 != 2)
+bb index := 2
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 24
+
+======================================================================
+if (_5 != 2)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:106:8: warning: use location
+     if (BN_get_word(dh->g) != 2)
+        ^
+if (_5 != 2)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:106:8: warning: use location
+Cond in fucntion main basic block 2
+ ================== possible direct basic block ================= 
+from main basic block 24
+ ================== possible direct basic block ================= 
+from main basic block 3
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5ea33a3f30
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _4 = dh.g;
+    version 4
+    ptr-info 0x7f5ea338cfa8>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea3867708
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _6 = dh.p;
+    version 6
+    ptr-info 0x7f5ea338cfc0>
+# VUSE <.MEM_77>
+_6 = dh.p;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_78 = VDEF <.MEM_77>
+_7 = BN_cmp (_6, &_bignum_ffdhe2048_p);
+bb index := 3
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_78 = VDEF <.MEM_77>
+_7 = BN_cmp (_6, &_bignum_ffdhe2048_p);
+bb index := 3
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 24
+
+======================================================================
+_7 = BN_cmp (_6, &_bignum_ffdhe2048_p);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:108:10: warning: use location
+     if (!BN_cmp(dh->p, &_bignum_ffdhe2048_p))
+          ^
+this stmt is child function---BN_cmp-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea3867708
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _6 = dh.p;
+    version 6
+    ptr-info 0x7f5ea338cfc0>
+trace fucntion name:BN_cmp 
+[40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:bn_check_top========= [0m
+[40;46m =======add node_fun stack:bn_check_top========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (_7 == 0)
+bb index := 3
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (_7 == 0)
+bb index := 3
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 24
+
+======================================================================
+if (_7 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:108:8: warning: use location
+     if (!BN_cmp(dh->p, &_bignum_ffdhe2048_p))
+        ^
+if (_7 == 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:108:8: warning: use location
+Cond in fucntion main basic block 3
+ ================== possible direct basic block ================= 
+from main basic block 8
+ ================== possible direct basic block ================= 
+from main basic block 4
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5ea3867708
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _6 = dh.p;
+    version 6
+    ptr-info 0x7f5ea338cfc0>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea3867678
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _8 = dh.p;
+    version 8
+    ptr-info 0x7f5ea338cfd8>
+# VUSE <.MEM_78>
+_8 = dh.p;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_9 = BN_cmp (_8, &_bignum_ffdhe3072_p);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:110:15: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe3072_p))
+               ^
+this stmt is child function---BN_cmp-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea3867678
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _8 = dh.p;
+    version 8
+    ptr-info 0x7f5ea338cfd8>
+trace fucntion name:BN_cmp 
+[40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:bn_check_top========= [0m
+[40;46m =======add node_fun stack:bn_check_top========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_9 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:110:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe3072_p))
+             ^
+if (_9 == 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:110:13: warning: use location
+Cond in fucntion main basic block 4
+ ================== possible direct basic block ================= 
+from main basic block 8
+ ================== possible direct basic block ================= 
+from main basic block 5
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5ea3867678
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _8 = dh.p;
+    version 8
+    ptr-info 0x7f5ea338cfd8>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea33ac048
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _10 = dh.p;
+    version 10
+    ptr-info 0x7f5ea338cde0>
+# VUSE <.MEM_79>
+_10 = dh.p;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_11 = BN_cmp (_10, &_bignum_ffdhe4096_p);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:112:15: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe4096_p))
+               ^
+this stmt is child function---BN_cmp-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac048
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _10 = dh.p;
+    version 10
+    ptr-info 0x7f5ea338cde0>
+trace fucntion name:BN_cmp 
+[40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:bn_check_top========= [0m
+[40;46m =======add node_fun stack:bn_check_top========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_11 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:112:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe4096_p))
+             ^
+if (_11 == 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:112:13: warning: use location
+Cond in fucntion main basic block 5
+ ================== possible direct basic block ================= 
+from main basic block 8
+ ================== possible direct basic block ================= 
+from main basic block 6
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5ea33ac048
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _10 = dh.p;
+    version 10
+    ptr-info 0x7f5ea338cde0>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea33ac0d8
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _12 = dh.p;
+    version 12
+    ptr-info 0x7f5ea33bd000>
+# VUSE <.MEM_80>
+_12 = dh.p;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_13 = BN_cmp (_12, &_bignum_ffdhe6144_p);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:114:15: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe6144_p))
+               ^
+this stmt is child function---BN_cmp-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac0d8
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _12 = dh.p;
+    version 12
+    ptr-info 0x7f5ea33bd000>
+trace fucntion name:BN_cmp 
+[40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:bn_check_top========= [0m
+[40;46m =======add node_fun stack:bn_check_top========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_13 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:114:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe6144_p))
+             ^
+if (_13 == 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:114:13: warning: use location
+Cond in fucntion main basic block 6
+ ================== possible direct basic block ================= 
+from main basic block 8
+ ================== possible direct basic block ================= 
+from main basic block 7
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5ea33ac0d8
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _12 = dh.p;
+    version 12
+    ptr-info 0x7f5ea33bd000>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea33ac168
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _14 = dh.p;
+    version 14
+    ptr-info 0x7f5ea33bd018>
+# VUSE <.MEM_81>
+_14 = dh.p;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_82 = VDEF <.MEM_81>
+_15 = BN_cmp (_14, &_bignum_ffdhe8192_p);
+bb index := 7
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_82 = VDEF <.MEM_81>
+_15 = BN_cmp (_14, &_bignum_ffdhe8192_p);
+bb index := 7
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_82 = VDEF <.MEM_81>
+_15 = BN_cmp (_14, &_bignum_ffdhe8192_p);
+bb index := 7
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_82 = VDEF <.MEM_81>
+_15 = BN_cmp (_14, &_bignum_ffdhe8192_p);
+bb index := 7
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 24
+
+======================================================================
+_15 = BN_cmp (_14, &_bignum_ffdhe8192_p);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:116:15: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe8192_p))
+               ^
+this stmt is child function---BN_cmp-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac168
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _14 = dh.p;
+    version 14
+    ptr-info 0x7f5ea33bd018>
+trace fucntion name:BN_cmp 
+[40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:bn_check_top========= [0m
+[40;46m =======add node_fun stack:bn_check_top========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (_15 == 0)
+bb index := 7
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (_15 == 0)
+bb index := 7
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (_15 == 0)
+bb index := 7
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 24
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (_15 == 0)
+bb index := 7
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 24
+
+======================================================================
+if (_15 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:116:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe8192_p))
+             ^
+if (_15 == 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:116:13: warning: use location
+Cond in fucntion main basic block 7
+ ================== possible direct basic block ================= 
+from main basic block 8
+ ================== possible direct basic block ================= 
+from main basic block 24
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5ea33ac168
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _14 = dh.p;
+    version 14
+    ptr-info 0x7f5ea33bd018>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea33ac240
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = dh.p;
+    version 17
+    ptr-info 0x7f5ea33bd048>
+# VUSE <.MEM_69>
+_17 = dh.p;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_18 = BN_dup (_17);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:121:21: warning: use location
+         BIGNUM *q = BN_dup(dh->p); /* allocation site */
+                     ^
+this stmt is child function---BN_dup-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac240
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = dh.p;
+    version 17
+    ptr-info 0x7f5ea33bd048>
+trace fucntion name:BN_dup 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_18 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:124:12: warning: use location
+         if (q == NULL || !BN_rshift1(q, q) || !BN_cmp(dh->q, q)) {
+            ^
+if (_18 == 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:124:12: warning: use location
+Cond in fucntion main basic block 9
+ ================== possible direct basic block ================= 
+from main basic block 22
+ ================== possible direct basic block ================= 
+from main basic block 10
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_19 = (long int) _18;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:121:21: warning: use location
+         BIGNUM *q = BN_dup(dh->p); /* allocation site */
+                     ^
+q_20 = (struct BIGNUM *) _19;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:121:17: warning: use location
+         BIGNUM *q = BN_dup(dh->p); /* allocation site */
+                 ^
+bn_check_top (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:98:5: warning: use location
+     bn_check_top(r);
+     ^
+this stmt is child function---bn_check_top-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac240
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = dh.p;
+    version 17
+    ptr-info 0x7f5ea33bd048>
+trace fucntion name:bn_check_top 
+
+ ================== trace ================== 
+trace fucntion free:0 
+q_20->neg = 0;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:97:16: warning: use location
+         r->neg = 0; /* don't allow negative zero */
+                ^
+_65 = q_20->top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:96:11: warning: use location
+     if (!r->top)
+           ^
+i_28 = MEM[(const struct BIGNUM *)q_20].top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:77:7: warning: use location
+     i = a->top;
+       ^
+i_41 = i_28 + -1;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:86:7: warning: use location
+     t = ap[--i];
+       ^
+i_68 = PHI <i_41(12), i_41(13)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_51 = PHI <i_68(14), i_52(15)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_52 = i_51 + -1;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:91:11: warning: use location
+         t = ap[--i];
+           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_59 = (long unsigned int) i_52;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:92:11: warning: use location
+         rp[i] = ((t >> 1) & BN_MASK2) | c;
+           ^
+_48 = (long unsigned int) i_41;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:11: warning: use location
+         rp[i] = t;
+           ^
+_49 = _48 * 8;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:11: warning: use location
+_50 = rp_40 + _49;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:11: warning: use location
+*_50 = t_47;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:15: warning: use location
+         rp[i] = t;
+               ^
+*_50 = t_47;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:15: warning: use location
+if (t_47 != 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:88:8: warning: use location
+     if (t >>= 1)
+        ^
+if (t_47 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:88:8: warning: use location
+Cond in fucntion main basic block 12
+ ================== possible direct basic block ================= 
+from main basic block 13
+ ================== possible direct basic block ================= 
+from main basic block 14
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+j_37 = i_28 - _36;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:7: warning: use location
+     j = i - (ap[i - 1] == 1);
+       ^
+q_20->top = j_37;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:95:12: warning: use location
+     r->top = j;
+            ^
+_30 = (long unsigned int) i_28;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:16: warning: use location
+     j = i - (ap[i - 1] == 1);
+                ^
+rp_40 = q_20->d;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:85:8: warning: use location
+     rp = r->d;
+        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_61 = rp_40 + _60;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:92:11: warning: use location
+         rp[i] = ((t >> 1) & BN_MASK2) | c;
+           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+*_61 = _63;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:92:15: warning: use location
+         rp[i] = ((t >> 1) & BN_MASK2) | c;
+               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+*_61 = _63;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:92:15: warning: use location
+ap_29 = MEM[(const struct BIGNUM *)q_20].d;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:78:8: warning: use location
+     ap = a->d;
+        ^
+_44 = ap_29 + _43;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:86:11: warning: use location
+     t = ap[--i];
+           ^
+_33 = ap_29 + _32;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:16: warning: use location
+     j = i - (ap[i - 1] == 1);
+                ^
+_34 = *_33;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:16: warning: use location
+_35 = _34 == 1;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:24: warning: use location
+     j = i - (ap[i - 1] == 1);
+                        ^
+_36 = (int) _35;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:24: warning: use location
+BN_zero (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:74:9: warning: use location
+         BN_zero(r);
+         ^
+this stmt is child function---BN_zero-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac240
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = dh.p;
+    version 17
+    ptr-info 0x7f5ea33bd048>
+trace fucntion name:BN_zero 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_27 = BN_is_zero (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:73:9: warning: use location
+     if (BN_is_zero(a)) {
+         ^
+this stmt is child function---BN_is_zero-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac240
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = dh.p;
+    version 17
+    ptr-info 0x7f5ea33bd048>
+trace fucntion name:BN_is_zero 
+
+ ================== trace ================== 
+trace fucntion free:0 
+bn_check_top (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:71:5: warning: use location
+     bn_check_top(a);
+     ^
+this stmt is child function---bn_check_top-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac240
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = dh.p;
+    version 17
+    ptr-info 0x7f5ea33bd048>
+trace fucntion name:bn_check_top 
+
+ ================== trace ================== 
+trace fucntion free:0 
+bn_check_top (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:70:5: warning: use location
+     bn_check_top(r);
+     ^
+this stmt is child function---bn_check_top-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac240
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = dh.p;
+    version 17
+    ptr-info 0x7f5ea33bd048>
+trace fucntion name:bn_check_top 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_95 = VDEF <.MEM_74>
+BN_free (q_20);
+bb index := 22
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 22 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_95 = VDEF <.MEM_74>
+BN_free (q_20);
+bb index := 22
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 22 ,possiable got to succ := 24
+
+======================================================================
+BN_free (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:125:13: warning: use location
+             BN_free(q);
+             ^
+this stmt is child function---BN_free-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac240
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = dh.p;
+    version 17
+    ptr-info 0x7f5ea33bd048>
+trace fucntion name:BN_free 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_23 = BN_cmp (_22, q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:124:48: warning: use location
+         if (q == NULL || !BN_rshift1(q, q) || !BN_cmp(dh->q, q)) {
+                                                ^
+this stmt is child function---BN_cmp-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac240
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = dh.p;
+    version 17
+    ptr-info 0x7f5ea33bd048>
+trace fucntion name:BN_cmp 
+[40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:bn_check_top========= [0m
+[40;46m =======add node_fun stack:bn_check_top========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5ea33ac240
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _17 = dh.p;
+    version 17
+    ptr-info 0x7f5ea33bd048>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+q_20 = (struct BIGNUM *) _19;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+ Expand conflict 
+ The same function may have multiple branches :bn_check_top
+# .MEM_84 = VDEF <.MEM_83>
+bn_check_top (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:70:5: warning: use location
+     bn_check_top(r);
+     ^
+# .MEM_90 = VDEF <.MEM_72>
+bn_check_top (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:98:5: warning: use location
+     bn_check_top(r);
+     ^
+=======================Path Constaint===========================
+
+=succs:= 17
+if (_65 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:96:8: warning: use location
+     if (!r->top)
+        ^
+	relate logic:= 0
+=succs:= 16
+if (i_51 > 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:90:11: warning: use location
+     while (i > 0) {
+           ^
+	relate logic:= 0
+=succs:= 12
+if (t_47 != 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:88:8: warning: use location
+     if (t >>= 1)
+        ^
+	relate logic:= 0
+=succs:= 10
+if (_27 != 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:73:8: warning: use location
+     if (BN_is_zero(a)) {
+        ^
+	relate logic:= 0
+=succs:= 9
+if (_18 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:124:12: warning: use location
+         if (q == NULL || !BN_rshift1(q, q) || !BN_cmp(dh->q, q)) {
+            ^
+	relate logic:= 1
+=succs:= 8
+if (_16 != 0B)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:120:8: warning: use location
+     if (dh->q != NULL) {
+        ^
+	relate logic:= 1
+=succs:= 7
+if (_15 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:116:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe8192_p))
+             ^
+	relate logic:= 0
+=succs:= 6
+if (_13 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:114:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe6144_p))
+             ^
+	relate logic:= 0
+=succs:= 5
+if (_11 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:112:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe4096_p))
+             ^
+	relate logic:= 0
+=succs:= 4
+if (_9 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:110:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe3072_p))
+             ^
+	relate logic:= 0
+=succs:= 3
+if (_7 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:108:8: warning: use location
+     if (!BN_cmp(dh->p, &_bignum_ffdhe2048_p))
+        ^
+	relate logic:= 0
+=succs:= 2
+if (_5 != 2)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:106:8: warning: use location
+     if (BN_get_word(dh->g) != 2)
+        ^
+	relate logic:= 1
+=======================Path Constaint===========================
+
+q_20->neg = 0;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:97:16: warning: use location
+         r->neg = 0; /* don't allow negative zero */
+                ^
+_65 = q_20->top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:96:11: warning: use location
+     if (!r->top)
+           ^
+if (_65 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:96:8: warning: use location
+     if (!r->top)
+        ^
+if (_65 == 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:96:8: warning: use location
+Cond in fucntion main basic block 17
+ ================== possible direct basic block ================= 
+from main basic block 18
+ ================== possible direct basic block ================= 
+from main basic block 19
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+i_28 = MEM[(const struct BIGNUM *)q_20].top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:77:7: warning: use location
+     i = a->top;
+       ^
+i_41 = i_28 + -1;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:86:7: warning: use location
+     t = ap[--i];
+       ^
+i_68 = PHI <i_41(12), i_41(13)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_51 = PHI <i_68(14), i_52(15)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_52 = i_51 + -1;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:91:11: warning: use location
+         t = ap[--i];
+           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_59 = (long unsigned int) i_52;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:92:11: warning: use location
+         rp[i] = ((t >> 1) & BN_MASK2) | c;
+           ^
+_48 = (long unsigned int) i_41;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:11: warning: use location
+         rp[i] = t;
+           ^
+_49 = _48 * 8;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:11: warning: use location
+_50 = rp_40 + _49;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:11: warning: use location
+*_50 = t_47;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:15: warning: use location
+         rp[i] = t;
+               ^
+*_50 = t_47;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:15: warning: use location
+if (t_47 != 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:88:8: warning: use location
+     if (t >>= 1)
+        ^
+if (t_47 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:88:8: warning: use location
+Cond in fucntion main basic block 12
+ ================== possible direct basic block ================= 
+from main basic block 13
+ ================== possible direct basic block ================= 
+from main basic block 14
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+j_37 = i_28 - _36;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:7: warning: use location
+     j = i - (ap[i - 1] == 1);
+       ^
+q_20->top = j_37;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:95:12: warning: use location
+     r->top = j;
+            ^
+_30 = (long unsigned int) i_28;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:16: warning: use location
+     j = i - (ap[i - 1] == 1);
+                ^
+rp_40 = q_20->d;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:85:8: warning: use location
+     rp = r->d;
+        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_61 = rp_40 + _60;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:92:11: warning: use location
+         rp[i] = ((t >> 1) & BN_MASK2) | c;
+           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+*_61 = _63;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:92:15: warning: use location
+         rp[i] = ((t >> 1) & BN_MASK2) | c;
+               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+*_61 = _63;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:92:15: warning: use location
+ap_29 = MEM[(const struct BIGNUM *)q_20].d;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:78:8: warning: use location
+     ap = a->d;
+        ^
+_44 = ap_29 + _43;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:86:11: warning: use location
+     t = ap[--i];
+           ^
+_33 = ap_29 + _32;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:16: warning: use location
+     j = i - (ap[i - 1] == 1);
+                ^
+_34 = *_33;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:16: warning: use location
+_35 = _34 == 1;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:24: warning: use location
+     j = i - (ap[i - 1] == 1);
+                        ^
+_36 = (int) _35;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:24: warning: use location
+BN_zero (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:74:9: warning: use location
+         BN_zero(r);
+         ^
+this stmt is child function---BN_zero-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+trace fucntion name:BN_zero 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_27 = BN_is_zero (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:73:9: warning: use location
+     if (BN_is_zero(a)) {
+         ^
+this stmt is child function---BN_is_zero-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+trace fucntion name:BN_is_zero 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ Expand conflict 
+ The same function may have multiple branches :bn_check_top
+# .MEM_84 = VDEF <.MEM_83>
+bn_check_top (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:70:5: warning: use location
+     bn_check_top(r);
+     ^
+# .MEM_85 = VDEF <.MEM_84>
+bn_check_top (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:71:5: warning: use location
+     bn_check_top(a);
+     ^
+=======================Path Constaint===========================
+
+=succs:= 9
+if (_18 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:124:12: warning: use location
+         if (q == NULL || !BN_rshift1(q, q) || !BN_cmp(dh->q, q)) {
+            ^
+	relate logic:= 0
+=succs:= 8
+if (_16 != 0B)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:120:8: warning: use location
+     if (dh->q != NULL) {
+        ^
+	relate logic:= 1
+=succs:= 7
+if (_15 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:116:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe8192_p))
+             ^
+	relate logic:= 0
+=succs:= 6
+if (_13 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:114:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe6144_p))
+             ^
+	relate logic:= 0
+=succs:= 5
+if (_11 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:112:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe4096_p))
+             ^
+	relate logic:= 0
+=succs:= 4
+if (_9 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:110:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe3072_p))
+             ^
+	relate logic:= 0
+=succs:= 3
+if (_7 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:108:8: warning: use location
+     if (!BN_cmp(dh->p, &_bignum_ffdhe2048_p))
+        ^
+	relate logic:= 0
+=succs:= 2
+if (_5 != 2)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:106:8: warning: use location
+     if (BN_get_word(dh->g) != 2)
+        ^
+	relate logic:= 1
+=======================Path Constaint===========================
+
+# .MEM_84 = VDEF <.MEM_83>
+bn_check_top (q_20);
+bn_check_top (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:70:5: warning: use location
+     bn_check_top(r);
+     ^
+this stmt is child function---bn_check_top-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+trace fucntion name:bn_check_top 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_95 = VDEF <.MEM_74>
+BN_free (q_20);
+bb index := 22
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 22 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_95 = VDEF <.MEM_74>
+BN_free (q_20);
+bb index := 22
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 22 ,possiable got to succ := 24
+
+======================================================================
+BN_free (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:125:13: warning: use location
+             BN_free(q);
+             ^
+this stmt is child function---BN_free-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+trace fucntion name:BN_free 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_23 = BN_cmp (_22, q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:124:48: warning: use location
+         if (q == NULL || !BN_rshift1(q, q) || !BN_cmp(dh->q, q)) {
+                                                ^
+this stmt is child function---BN_cmp-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+trace fucntion name:BN_cmp 
+[40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:bn_check_top========= [0m
+[40;46m =======add node_fun stack:bn_check_top========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+q_20 = (struct BIGNUM *) _19;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+ Expand conflict 
+ The same function may have multiple branches :bn_check_top
+# .MEM_85 = VDEF <.MEM_84>
+bn_check_top (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:71:5: warning: use location
+     bn_check_top(a);
+     ^
+# .MEM_90 = VDEF <.MEM_72>
+bn_check_top (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:98:5: warning: use location
+     bn_check_top(r);
+     ^
+=======================Path Constaint===========================
+
+=succs:= 17
+if (_65 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:96:8: warning: use location
+     if (!r->top)
+        ^
+	relate logic:= 0
+=succs:= 16
+if (i_51 > 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:90:11: warning: use location
+     while (i > 0) {
+           ^
+	relate logic:= 0
+=succs:= 12
+if (t_47 != 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:88:8: warning: use location
+     if (t >>= 1)
+        ^
+	relate logic:= 0
+=succs:= 10
+if (_27 != 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:73:8: warning: use location
+     if (BN_is_zero(a)) {
+        ^
+	relate logic:= 0
+=succs:= 9
+if (_18 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:124:12: warning: use location
+         if (q == NULL || !BN_rshift1(q, q) || !BN_cmp(dh->q, q)) {
+            ^
+	relate logic:= 1
+=succs:= 8
+if (_16 != 0B)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:120:8: warning: use location
+     if (dh->q != NULL) {
+        ^
+	relate logic:= 1
+=succs:= 7
+if (_15 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:116:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe8192_p))
+             ^
+	relate logic:= 0
+=succs:= 6
+if (_13 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:114:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe6144_p))
+             ^
+	relate logic:= 0
+=succs:= 5
+if (_11 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:112:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe4096_p))
+             ^
+	relate logic:= 0
+=succs:= 4
+if (_9 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:110:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe3072_p))
+             ^
+	relate logic:= 0
+=succs:= 3
+if (_7 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:108:8: warning: use location
+     if (!BN_cmp(dh->p, &_bignum_ffdhe2048_p))
+        ^
+	relate logic:= 0
+=succs:= 2
+if (_5 != 2)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:106:8: warning: use location
+     if (BN_get_word(dh->g) != 2)
+        ^
+	relate logic:= 1
+=======================Path Constaint===========================
+
+q_20->neg = 0;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:97:16: warning: use location
+         r->neg = 0; /* don't allow negative zero */
+                ^
+_65 = q_20->top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:96:11: warning: use location
+     if (!r->top)
+           ^
+if (_65 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:96:8: warning: use location
+     if (!r->top)
+        ^
+if (_65 == 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:96:8: warning: use location
+Cond in fucntion main basic block 17
+ ================== possible direct basic block ================= 
+from main basic block 18
+ ================== possible direct basic block ================= 
+from main basic block 19
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+i_28 = MEM[(const struct BIGNUM *)q_20].top;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:77:7: warning: use location
+     i = a->top;
+       ^
+i_41 = i_28 + -1;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:86:7: warning: use location
+     t = ap[--i];
+       ^
+i_68 = PHI <i_41(12), i_41(13)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_51 = PHI <i_68(14), i_52(15)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_52 = i_51 + -1;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:91:11: warning: use location
+         t = ap[--i];
+           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_59 = (long unsigned int) i_52;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:92:11: warning: use location
+         rp[i] = ((t >> 1) & BN_MASK2) | c;
+           ^
+_48 = (long unsigned int) i_41;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:11: warning: use location
+         rp[i] = t;
+           ^
+_49 = _48 * 8;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:11: warning: use location
+_50 = rp_40 + _49;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:11: warning: use location
+*_50 = t_47;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:15: warning: use location
+         rp[i] = t;
+               ^
+*_50 = t_47;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:89:15: warning: use location
+if (t_47 != 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:88:8: warning: use location
+     if (t >>= 1)
+        ^
+if (t_47 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_6/openssl_leak_6.c:88:8: warning: use location
+Cond in fucntion main basic block 12
+ ================== possible direct basic block ================= 
+from main basic block 13
+ ================== possible direct basic block ================= 
+from main basic block 14
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+j_37 = i_28 - _36;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:7: warning: use location
+     j = i - (ap[i - 1] == 1);
+       ^
+q_20->top = j_37;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:95:12: warning: use location
+     r->top = j;
+            ^
+_30 = (long unsigned int) i_28;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:16: warning: use location
+     j = i - (ap[i - 1] == 1);
+                ^
+rp_40 = q_20->d;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:85:8: warning: use location
+     rp = r->d;
+        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_61 = rp_40 + _60;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:92:11: warning: use location
+         rp[i] = ((t >> 1) & BN_MASK2) | c;
+           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+*_61 = _63;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:92:15: warning: use location
+         rp[i] = ((t >> 1) & BN_MASK2) | c;
+               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+*_61 = _63;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:92:15: warning: use location
+ap_29 = MEM[(const struct BIGNUM *)q_20].d;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:78:8: warning: use location
+     ap = a->d;
+        ^
+_44 = ap_29 + _43;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:86:11: warning: use location
+     t = ap[--i];
+           ^
+_33 = ap_29 + _32;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:16: warning: use location
+     j = i - (ap[i - 1] == 1);
+                ^
+_34 = *_33;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:16: warning: use location
+_35 = _34 == 1;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:24: warning: use location
+     j = i - (ap[i - 1] == 1);
+                        ^
+_36 = (int) _35;
+./benchmarks/openssl/leak_6/openssl_leak_6.c:79:24: warning: use location
+BN_zero (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:74:9: warning: use location
+         BN_zero(r);
+         ^
+this stmt is child function---BN_zero-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+trace fucntion name:BN_zero 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_27 = BN_is_zero (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:73:9: warning: use location
+     if (BN_is_zero(a)) {
+         ^
+this stmt is child function---BN_is_zero-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+trace fucntion name:BN_is_zero 
+
+ ================== trace ================== 
+trace fucntion free:0 
+# .MEM_85 = VDEF <.MEM_84>
+bn_check_top (q_20);
+bn_check_top (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:71:5: warning: use location
+     bn_check_top(a);
+     ^
+this stmt is child function---bn_check_top-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+trace fucntion name:bn_check_top 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ Expand conflict 
+ The same function may have multiple branches :bn_check_top
+# .MEM_85 = VDEF <.MEM_84>
+bn_check_top (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:71:5: warning: use location
+# .MEM_84 = VDEF <.MEM_83>
+bn_check_top (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:70:5: warning: use location
+     bn_check_top(r);
+     ^
+=======================Path Constaint===========================
+
+=succs:= 9
+if (_18 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:124:12: warning: use location
+         if (q == NULL || !BN_rshift1(q, q) || !BN_cmp(dh->q, q)) {
+            ^
+	relate logic:= 0
+=succs:= 8
+if (_16 != 0B)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:120:8: warning: use location
+     if (dh->q != NULL) {
+        ^
+	relate logic:= 1
+=succs:= 7
+if (_15 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:116:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe8192_p))
+             ^
+	relate logic:= 0
+=succs:= 6
+if (_13 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:114:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe6144_p))
+             ^
+	relate logic:= 0
+=succs:= 5
+if (_11 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:112:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe4096_p))
+             ^
+	relate logic:= 0
+=succs:= 4
+if (_9 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:110:13: warning: use location
+     else if (!BN_cmp(dh->p, &_bignum_ffdhe3072_p))
+             ^
+	relate logic:= 0
+=succs:= 3
+if (_7 == 0)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:108:8: warning: use location
+     if (!BN_cmp(dh->p, &_bignum_ffdhe2048_p))
+        ^
+	relate logic:= 0
+=succs:= 2
+if (_5 != 2)
+./benchmarks/openssl/leak_6/openssl_leak_6.c:106:8: warning: use location
+     if (BN_get_word(dh->g) != 2)
+        ^
+	relate logic:= 1
+=======================Path Constaint===========================
+
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_95 = VDEF <.MEM_74>
+BN_free (q_20);
+bb index := 22
+# VUSE <.MEM_39>
+return _24;
+lto1: warning: use location
+beacuse in succ := 22 have return or exit
+gimple stmt in succ := 22 ,possiable got to succ := 22
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_95 = VDEF <.MEM_74>
+BN_free (q_20);
+bb index := 22
+# VUSE <.MEM_3>
+return 0;
+lto1: warning: use location
+beacuse in succ := 24 have return or exit
+gimple stmt in succ := 22 ,possiable got to succ := 24
+
+======================================================================
+BN_free (q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:125:13: warning: use location
+             BN_free(q);
+             ^
+this stmt is child function---BN_free-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+trace fucntion name:BN_free 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_23 = BN_cmp (_22, q_20);
+./benchmarks/openssl/leak_6/openssl_leak_6.c:124:48: warning: use location
+         if (q == NULL || !BN_rshift1(q, q) || !BN_cmp(dh->q, q)) {
+                                                ^
+this stmt is child function---BN_cmp-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+trace fucntion name:BN_cmp 
+[40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:bn_check_top========= [0m
+[40;46m =======add node_fun stack:bn_check_top========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5ea33ac318
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f5ea339cd80 q>
+    def_stmt q_20 = (struct BIGNUM *) _19;
+    version 20
+    ptr-info 0x7f5ea33bd060>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5ea33ac3a8
+    type <pointer_type 0x7f5ea3389e70
+        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
+            size <integer_cst 0x7f5ea387b0a8 constant 192>
+            unit size <integer_cst 0x7f5ea387b078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+        public unsigned DI
+        size <integer_cst 0x7f5ea385fbe8 constant 64>
+        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _22 = dh.q;
+    version 22
+    ptr-info 0x7f5ea33bd078>
+# VUSE <.MEM_73>
+_22 = dh.q;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:BN_cmp=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+_1 = a_26(D) == 0B;
+_2 = b_27(D) == 0B;
+_3 = _1 | _2;
+if (_3 != 0)
+  goto <bb 3>; [67.00%]
+else
+  goto <bb 6>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [67.00%]:
+if (a_26(D) != 0B)
+  goto <bb 22>; [4.55%]
+else
+  goto <bb 4>; [95.45%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [63.95%]:
+if (b_27(D) != 0B)
+  goto <bb 22>; [70.00%]
+else
+  goto <bb 5>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [19.19%]:
+goto <bb 22>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [33.00%]:
+bn_check_top (a_26(D));
+bn_check_top (b_27(D));
+_4 = a_26(D)->neg;
+_5 = b_27(D)->neg;
+if (_4 != _5)
+  goto <bb 7>; [66.00%]
+else
+  goto <bb 9>; [34.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [21.78%]:
+_6 = a_26(D)->neg;
+if (_6 != 0)
+  goto <bb 22>; [2.00%]
+else
+  goto <bb 8>; [98.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [21.34%]:
+goto <bb 22>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [11.22%]:
+_7 = a_26(D)->neg;
+if (_7 == 0)
+  goto <bb 11>; [50.00%]
+else
+  goto <bb 10>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [5.61%]:
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [11.22%]:
+# gt_22 = PHI <1(9), -1(10)>
+# lt_23 = PHI <-1(9), 1(10)>
+_8 = a_26(D)->top;
+_9 = b_27(D)->top;
+if (_8 > _9)
+  goto <bb 12>; [46.00%]
+else
+  goto <bb 13>; [54.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [5.16%]:
+_38 = gt_22;
+goto <bb 22>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [6.06%]:
+_10 = a_26(D)->top;
+_11 = b_27(D)->top;
+if (_10 < _11)
+  goto <bb 14>; [46.00%]
+else
+  goto <bb 15>; [54.00%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [2.79%]:
+_37 = lt_23;
+goto <bb 22>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [3.27%]:
+_12 = a_26(D)->top;
+i_31 = _12 + -1;
+goto <bb 21>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [21.79%]:
+_13 = a_26(D)->d;
+_14 = (long unsigned int) i_21;
+_15 = _14 * 8;
+_16 = _13 + _15;
+t1_32 = *_16;
+_17 = b_27(D)->d;
+_18 = (long unsigned int) i_21;
+_19 = _18 * 8;
+_20 = _17 + _19;
+t2_33 = *_20;
+if (t1_32 > t2_33)
+  goto <bb 17>; [5.00%]
+else
+  goto <bb 18>; [95.00%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [1.09%]:
+_36 = gt_22;
+goto <bb 22>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [20.70%]:
+if (t1_32 < t2_33)
+  goto <bb 19>; [5.00%]
+else
+  goto <bb 20>; [95.00%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [1.04%]:
+_35 = lt_23;
+goto <bb 22>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 20 
+<bb 20> [19.67%]:
+i_34 = i_21 + -1;
+
+=======is loop:1=========
+
+ bb index 21 
+<bb 21> [22.94%]:
+# i_21 = PHI <i_31(15), i_34(20)>
+if (i_21 >= 0)
+  goto <bb 16>; [95.00%]
+else
+  goto <bb 22>; [5.00%]
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [100.00%]:
+# _24 = PHI <-1(3), 1(4), 0(5), -1(7), 1(8), gt_22(12), lt_23(14), gt_22(17), lt_23(19), 0(21)>
+return _24;
+
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+_4 = dh.g;
+_5 = BN_get_word (_4);
+if (_5 != 2)
+  goto <bb 24>; [77.05%]
+else
+  goto <bb 3>; [22.95%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [22.95%]:
+_6 = dh.p;
+_7 = BN_cmp (_6, &_bignum_ffdhe2048_p);
+if (_7 == 0)
+  goto <bb 8>; [67.00%]
+else
+  goto <bb 4>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [7.57%]:
+_8 = dh.p;
+_9 = BN_cmp (_8, &_bignum_ffdhe3072_p);
+if (_9 == 0)
+  goto <bb 8>; [67.00%]
+else
+  goto <bb 5>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [2.50%]:
+_10 = dh.p;
+_11 = BN_cmp (_10, &_bignum_ffdhe4096_p);
+if (_11 == 0)
+  goto <bb 8>; [67.00%]
+else
+  goto <bb 6>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [0.82%]:
+_12 = dh.p;
+_13 = BN_cmp (_12, &_bignum_ffdhe6144_p);
+if (_13 == 0)
+  goto <bb 8>; [67.00%]
+else
+  goto <bb 7>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [0.27%]:
+_14 = dh.p;
+_15 = BN_cmp (_14, &_bignum_ffdhe8192_p);
+if (_15 == 0)
+  goto <bb 8>; [54.00%]
+else
+  goto <bb 24>; [46.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [22.82%]:
+# nid_24 = PHI <1126(3), 1127(4), 1128(5), 1129(6), 1130(7)>
+_16 = dh.q;
+if (_16 != 0B)
+  goto <bb 9>; [53.47%]
+else
+  goto <bb 23>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [12.20%]:
+_17 = dh.p;
+_18 = BN_dup (_17);
+_19 = (long int) _18;
+q_20 = (struct BIGNUM *) _19;
+if (_18 == 0)
+  goto <bb 22>; [46.00%]
+else
+  goto <bb 10>; [54.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [6.59%]:
+bn_check_top (q_20);
+bn_check_top (q_20);
+_27 = BN_is_zero (q_20);
+if (_27 != 0)
+  goto <bb 11>; [29.56%]
+else
+  goto <bb 12>; [70.44%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [1.95%]:
+BN_zero (q_20);
+goto <bb 20>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [4.64%]:
+i_28 = MEM[(const struct BIGNUM *)q_20].top;
+ap_29 = MEM[(const struct BIGNUM *)q_20].d;
+_30 = (long unsigned int) i_28;
+_31 = _30 * 8;
+_32 = _31 + 18446744073709551608;
+_33 = ap_29 + _32;
+_34 = *_33;
+_35 = _34 == 1;
+_36 = (int) _35;
+j_37 = i_28 - _36;
+rp_40 = q_20->d;
+i_41 = i_28 + -1;
+_42 = (long unsigned int) i_41;
+_43 = _42 * 8;
+_44 = ap_29 + _43;
+t_45 = *_44;
+c_46 = t_45 << 63;
+t_47 = t_45 >> 1;
+if (t_47 != 0)
+  goto <bb 13>; [50.00%]
+else
+  goto <bb 14>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [2.32%]:
+_48 = (long unsigned int) i_41;
+_49 = _48 * 8;
+_50 = rp_40 + _49;
+*_50 = t_47;
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [4.64%]:
+# c_67 = PHI <c_46(12), c_46(13)>
+# i_68 = PHI <i_41(12), i_41(13)>
+goto <bb 16>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [26.31%]:
+i_52 = i_51 + -1;
+_53 = (long unsigned int) i_52;
+_54 = _53 * 8;
+_55 = ap_29 + _54;
+t_56 = *_55;
+_57 = t_56 >> 1;
+_58 = _57 & 4294967295;
+_59 = (long unsigned int) i_52;
+_60 = _59 * 8;
+_61 = rp_40 + _60;
+_63 = _58 | c_62;
+*_61 = _63;
+c_64 = t_56 << 63;
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [30.95%]:
+# c_62 = PHI <c_67(14), c_64(15)>
+# i_51 = PHI <i_68(14), i_52(15)>
+if (i_51 > 0)
+  goto <bb 15>; [85.00%]
+else
+  goto <bb 17>; [15.00%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [4.64%]:
+q_20->top = j_37;
+_65 = q_20->top;
+if (_65 == 0)
+  goto <bb 18>; [50.00%]
+else
+  goto <bb 19>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [2.32%]:
+q_20->neg = 0;
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [4.64%]:
+bn_check_top (q_20);
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [6.59%]:
+# _66 = PHI <1(11), 1(19)>
+_93 = _66;
+_21 = _93;
+if (_21 == 0)
+  goto <bb 22>; [63.36%]
+else
+  goto <bb 21>; [36.64%]
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [2.41%]:
+_22 = dh.q;
+_23 = BN_cmp (_22, q_20);
+if (_23 == 0)
+  goto <bb 22>; [46.00%]
+else
+  goto <bb 23>; [54.00%]
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [10.90%]:
+BN_free (q_20);
+goto <bb 24>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 23 
+<bb 23> [11.92%]:
+_25 = nid_24;
+
+=======is loop:0=========
+
+ bb index 24 
+<bb 24> [100.00%]:
+# _26 = PHI <0(2), 0(7), 0(22), nid_24(23)>
+_96 = _26;
+dh ={v} {CLOBBER};
+return 0;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 10 [0m
+[40;34m    used_stmt array stack totalsize of : 4368 [0m
+[40;34m    collect time: : 0.000250 s [0m
+[40;34m    algorithm time: 0.022324 s [0m
+[40;34m    gimple stmt count : : 125 [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+/usr/bin/ld: /tmp/ccWFJ68r.ltrans0.ltrans.o: warning: relocation against `_bignum_ffdhe3072_p' in read-only section `.text'
+/usr/bin/ld: /tmp/ccWFJ68r.ltrans0.ltrans.o: in function `BN_cmp':
+<artificial>:(.text+0x34): undefined reference to `bn_check_top'
+/usr/bin/ld: <artificial>:(.text+0x41): undefined reference to `bn_check_top'
+/usr/bin/ld: /tmp/ccWFJ68r.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0xd1): undefined reference to `BN_get_word'
+/usr/bin/ld: <artificial>:(.text+0xe7): undefined reference to `_bignum_ffdhe2048_p'
+/usr/bin/ld: <artificial>:(.text+0xfc): undefined reference to `_bignum_ffdhe3072_p'
+/usr/bin/ld: <artificial>:(.text+0x111): undefined reference to `_bignum_ffdhe4096_p'
+/usr/bin/ld: <artificial>:(.text+0x126): undefined reference to `_bignum_ffdhe6144_p'
+/usr/bin/ld: <artificial>:(.text+0x13b): undefined reference to `_bignum_ffdhe8192_p'
+/usr/bin/ld: warning: creating DT_TEXTREL in a PIE
+collect2: error: ld returned 1 exit status

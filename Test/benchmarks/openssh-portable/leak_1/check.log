@@ -1,0 +1,5469 @@
+In file included from ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:10:0:
+./benchmarks/openssh-portable/leak_1/../openssh.h:675:49: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*verify_host_key)(struct sshkey *, struct ssh *);
+                                                 ^~~
+./benchmarks/openssh-portable/leak_1/../openssh.h:676:58: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+                                                          ^~~
+./benchmarks/openssh-portable/leak_1/../openssh.h:677:59: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+                                                           ^~~
+./benchmarks/openssh-portable/leak_1/../openssh.h:678:53: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*host_key_index)(struct sshkey *, int, struct ssh *);
+                                                     ^~~
+./benchmarks/openssh-portable/leak_1/../openssh.h:681:29: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*kex[KEX_MAX])(struct ssh *);
+                             ^~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c: In function ‘strlcat’:
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:57:17: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   return(dlen + strlen(s));
+                 ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:57:17: warning: incompatible implicit declaration of built-in function ‘strlen’
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:57:17: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c: In function ‘match_pattern_list’:
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:136:30: warning: incompatible implicit declaration of built-in function ‘strlen’
+  unsigned int i, subi, len = strlen(pattern);
+                              ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:136:30: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:27: warning: implicit declaration of function ‘isupper’ [-Wimplicit-function-declaration]
+    sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+                           ^~~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:8: warning: implicit declaration of function ‘tolower’ [-Wimplicit-function-declaration]
+        tolower((u_char)pattern[i]) : pattern[i];
+        ^~~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c: In function ‘match_filter_list’:
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:186:18: warning: incompatible implicit declaration of built-in function ‘strlen’
+     size_t len = strlen(proposal) + 1;
+                  ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:186:18: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:188:23: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+     char *orig_prop = strdup(proposal);
+                       ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:188:23: warning: incompatible implicit declaration of built-in function ‘strdup’
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+--------GIMPLE Cond -------
+succs:= 2
+--------GIMPLE Cond -------
+--------GIMPLE Cond -------
+succs:= 4
+succs:= 5
+succs:= 5
+--------GIMPLE Cond -------
+succs:= 4
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 4
+--------GIMPLE Cond -------
+succs:= 4
+succs:= 5
+--------GIMPLE Cond -------
+succs:= 6
+--------GIMPLE Cond -------
+succs:= 6
+succs:= 8
+succs:= 8
+succs:= 8
+--------GIMPLE Cond -------
+succs:= 11
+--------GIMPLE Cond -------
+succs:= 3
+--------GIMPLE Cond -------
+succs:= 3
+succs:= 6
+--------GIMPLE Cond -------
+succs:= 7
+succs:= 6
+succs:= 7
+--------GIMPLE Cond -------
+succs:= 11
+--------GIMPLE Cond -------
+--------GIMPLE Cond -------
+succs:= 11
+succs:= 12
+--------GIMPLE Cond -------
+succs:= 13
+succs:= 14
+--------GIMPLE Cond -------
+succs:= 15
+succs:= 14
+succs:= 15
+--------GIMPLE Cond -------
+succs:= 18
+succs:= 18
+--------GIMPLE Cond -------
+succs:= 20
+--------GIMPLE Cond -------
+succs:= 21
+--------GIMPLE Cond -------
+succs:= 22
+--------GIMPLE Cond -------
+succs:= 23
+--------GIMPLE Cond -------
+succs:= 22
+--------GIMPLE Cond -------
+succs:= 20
+--------GIMPLE Cond -------
+succs:= 28
+--------GIMPLE Cond -------
+succs:= 29
+--------GIMPLE Cond -------
+succs:= 29
+succs:= 30
+succs:= 21
+succs:= 23
+succs:= 25
+succs:= 26
+succs:= 28
+succs:= 30
+--------GIMPLE Cond -------
+--------GIMPLE Cond -------
+succs:= 32
+--------GIMPLE Cond -------
+succs:= 35
+succs:= 13
+succs:= 33
+--------GIMPLE Cond -------
+succs:= 35
+succs:= 2
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 5
+succs:= 5
+--------GIMPLE Cond -------
+succs:= 6
+succs:= 32
+succs:= 33
+succs:= 6
+--------GIMPLE Cond -------
+succs:= 11
+succs:= 10
+--------GIMPLE Cond -------
+succs:= 12
+succs:= 12
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 1 
+pointer ptable is 1 
+===============The second stage : Mapping stmt=================
+# VUSE <.MEM_43(D)>
+_6 = strlen (src_26(D));
+# VUSE <.MEM_61(D)>
+_1 = strlen (pattern_42(D));
+# VUSE <.MEM_58>
+_10 = isupper (_9);
+# VUSE <.MEM_58>
+_16 = tolower (_15);
+# .MEM_62 = VDEF <.MEM_58>
+sub[subi_35] = _36;
+# .MEM_63 = VDEF <.MEM_58>
+sub[subi_35] = 0;
+# .MEM_28 = VDEF <.MEM_8(D)>
+fix_prop_14 = malloc (len_13);
+# .MEM_29 = VDEF <.MEM_28>
+orig_prop_15 = strdup ("proposal");
+# VUSE <.MEM_32>
+_20 = match_pattern_list (cp_19, "filter", 0);
+# .MEM_34 = VDEF <.MEM_32>
+strlcat (fix_prop_14, ",", len_13);
+# .MEM_35 = VDEF <.MEM_24>
+strlcat (fix_prop_14, cp_19, len_13);
+# .MEM_32 = VDEF <.MEM_26>
+cp_19 = strsep (&tmp, ",");
+# .MEM_10 = VDEF <.MEM_37>
+_5 = __printf_chk (1, "match_filter_list failed\n");
+# .MEM_11 = VDEF <.MEM_7>
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:strsep========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path strsep  function_call count: 0 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre_check_funciton:strsep========= [0m
+[40;42m =======start_check_funciton:strsep========= [0m
+[40;33m =======POP node_fun stack:strsep========= [0m
+[40;44m =======node_fun:strlcat========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path strlcat  function_call count: 1 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;33m =======POP node_fun stack:strlen========= [0m
+[40;42m =======pre_check_funciton:strlcat========= [0m
+[40;42m =======start_check_funciton:strlcat========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5034b2a480
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d200 src>
+    def_stmt GIMPLE_NOP
+    version 26
+    ptr-info 0x7f5034b44120>
+GIMPLE_NOP
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+s_17 = PHI <src_26(D)(6), s_38(10)>
+In function ‘strlcat’:
+lto1: warning: use location
+this stmt have mutiple branch ---(null)-----
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_10 = (long int) s_17;
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+_10 = (long int) s_17;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:67:19: warning: use location
+  return(dlen + (s - src)); /* count does not include NUL */
+                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_9 = *s_17;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:58:9: warning: use location
+  while (*s != '\0') {
+         ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_9 != 0)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:58:8: warning: use location
+  while (*s != '\0') {
+        ^
+if (_9 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:58:8: warning: use location
+Cond in fucntion strlcat basic block 11
+ ================== possible direct basic block ================= 
+from strlcat basic block 8
+ ================== possible direct basic block ================= 
+from strlcat basic block 12
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+s_38 = s_17 + 1;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:63:4: warning: use location
+   s++;
+    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_8 = *s_17;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:60:11: warning: use location
+    *d++ = *s;
+           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+*_7 = _8;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:60:9: warning: use location
+    *d++ = *s;
+         ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_43(D)>
+_6 = strlen (src_26(D));
+bb index := 7
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 13
+
+======================================================================
+_6 = strlen (src_26(D));
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:57:17: warning: use location
+   return(dlen + strlen(s));
+                 ^
+this stmt is child function---strlen-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b2a480
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d200 src>
+    def_stmt GIMPLE_NOP
+    version 26
+    ptr-info 0x7f5034b44120>
+trace fucntion name:strlen 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_11 = (long int) src_26(D);
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+_11 = (long int) src_26(D);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:67:19: warning: use location
+  return(dlen + (s - src)); /* count does not include NUL */
+                   ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5034b2a480
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d200 src>
+    def_stmt GIMPLE_NOP
+    version 26
+    ptr-info 0x7f5034b44120>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:strlcat========= [0m
+[40;44m =======node_fun:match_pattern_list========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path match_pattern_list  function_call count: 3 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:tolower========= [0m
+[40;33m =======POP node_fun stack:tolower========= [0m
+[40;42m =======pre add _ fucntion:isupper========= [0m
+[40;33m =======POP node_fun stack:isupper========= [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;33m =======POP node_fun stack:strlen========= [0m
+[40;42m =======pre_check_funciton:match_pattern_list========= [0m
+[40;42m =======start_check_funciton:match_pattern_list========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5034b2e3f0
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d380 pattern>
+    def_stmt GIMPLE_NOP
+    version 42
+    ptr-info 0x7f5034b44210>
+GIMPLE_NOP
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_61(D)>
+_1 = strlen (pattern_42(D));
+bb index := 2
+# VUSE <.MEM_21>
+return _9;
+In function ‘match_pattern_list’:
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_61(D)>
+_1 = strlen (pattern_42(D));
+bb index := 2
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_61(D)>
+_1 = strlen (pattern_42(D));
+bb index := 2
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_61(D)>
+_1 = strlen (pattern_42(D));
+bb index := 2
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 14
+
+======================================================================
+_1 = strlen (pattern_42(D));
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:136:30: warning: use location
+  unsigned int i, subi, len = strlen(pattern);
+                              ^
+this stmt is child function---strlen-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b2e3f0
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d380 pattern>
+    def_stmt GIMPLE_NOP
+    version 42
+    ptr-info 0x7f5034b44210>
+trace fucntion name:strlen 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+len_43 = (unsigned int) _1;
+bb index := 2
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+len_43 = (unsigned int) _1;
+bb index := 2
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+len_43 = (unsigned int) _1;
+bb index := 2
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+len_43 = (unsigned int) _1;
+bb index := 2
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 14
+
+======================================================================
+len_43 = (unsigned int) _1;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:136:24: warning: use location
+  unsigned int i, subi, len = strlen(pattern);
+                        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_19 = i_32 < len_43;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:152:9: warning: use location
+       i < len && subi < sizeof(sub) - 1 && pattern[i] != ',';
+         ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_21 = _19 & _20;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:152:15: warning: use location
+       i < len && subi < sizeof(sub) - 1 && pattern[i] != ',';
+               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_21 != 0)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:151:3: warning: use location
+   for (subi = 0;
+   ^
+if (_21 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:151:3: warning: use location
+Cond in fucntion match_pattern_list basic block 11
+ ================== possible direct basic block ================= 
+from match_pattern_list basic block 12
+ ================== possible direct basic block ================= 
+from match_pattern_list basic block 13
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_23 = pattern_42(D) + _22;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:152:51: warning: use location
+       i < len && subi < sizeof(sub) - 1 && pattern[i] != ',';
+                                                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_18 = pattern_42(D) + _17;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:45: warning: use location
+        tolower((u_char)pattern[i]) : pattern[i];
+                                             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_51 = *_18;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:14: warning: use location
+    sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_36 = PHI <_50(8), _51(9)>
+lto1: warning: use location
+this stmt have mutiple branch ---(null)-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+sub[subi_35] = _36;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:14: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_12 = pattern_42(D) + _11;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:31: warning: use location
+        tolower((u_char)pattern[i]) : pattern[i];
+                               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_13 = *_12;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:31: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_14 = (unsigned char) _13;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:16: warning: use location
+        tolower((u_char)pattern[i]) : pattern[i];
+                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_15 = (int) _14;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:8: warning: use location
+        tolower((u_char)pattern[i]) : pattern[i];
+        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_16 = tolower (_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:8: warning: use location
+this stmt is child function---tolower-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b2e3f0
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d380 pattern>
+    def_stmt GIMPLE_NOP
+    version 42
+    ptr-info 0x7f5034b44210>
+trace fucntion name:tolower 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5034b2e3f0
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d380 pattern>
+    def_stmt GIMPLE_NOP
+    version 42
+    ptr-info 0x7f5034b44210>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5034b2abd0
+    type <integer_type 0x7f5034ff85e8 int public SI
+        size <integer_cst 0x7f5034fe4e28 constant 32>
+        unit size <integer_cst 0x7f5034fe4e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f5034ff85e8 precision 32 min <integer_cst 0x7f5034fe4de0 -2147483648> max <integer_cst 0x7f5034fe4df8 2147483647>
+        pointer_to_this <pointer_type 0x7f5034fffa80>>
+   
+    def_stmt _9 = (int) _8;
+    version 9>
+_9 = (int) _8;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_10 = isupper (_9);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:27: warning: use location
+    sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+                           ^
+this stmt is child function---isupper-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b2abd0
+    type <integer_type 0x7f5034ff85e8 int public SI
+        size <integer_cst 0x7f5034fe4e28 constant 32>
+        unit size <integer_cst 0x7f5034fe4e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f5034ff85e8 precision 32 min <integer_cst 0x7f5034fe4de0 -2147483648> max <integer_cst 0x7f5034fe4df8 2147483647>
+        pointer_to_this <pointer_type 0x7f5034fffa80>>
+   
+    def_stmt _9 = (int) _8;
+    version 9>
+trace fucntion name:isupper 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_10 != 0)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:24: warning: use location
+    sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+                        ^
+if (_10 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:24: warning: use location
+Cond in fucntion match_pattern_list basic block 7
+ ================== possible direct basic block ================= 
+from match_pattern_list basic block 8
+ ================== possible direct basic block ================= 
+from match_pattern_list basic block 9
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5034b2abd0
+    type <integer_type 0x7f5034ff85e8 int public SI
+        size <integer_cst 0x7f5034fe4e28 constant 32>
+        unit size <integer_cst 0x7f5034fe4e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f5034ff85e8 precision 32 min <integer_cst 0x7f5034fe4de0 -2147483648> max <integer_cst 0x7f5034fe4df8 2147483647>
+        pointer_to_this <pointer_type 0x7f5034fffa80>>
+   
+    def_stmt _9 = (int) _8;
+    version 9>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5034b2ad80
+    type <integer_type 0x7f5034ff85e8 int public SI
+        size <integer_cst 0x7f5034fe4e28 constant 32>
+        unit size <integer_cst 0x7f5034fe4e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f5034ff85e8 precision 32 min <integer_cst 0x7f5034fe4de0 -2147483648> max <integer_cst 0x7f5034fe4df8 2147483647>
+        pointer_to_this <pointer_type 0x7f5034fffa80>>
+   
+    def_stmt _15 = (int) _14;
+    version 15>
+_15 = (int) _14;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_16 = tolower (_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:8: warning: use location
+        tolower((u_char)pattern[i]) : pattern[i];
+        ^
+this stmt is child function---tolower-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b2ad80
+    type <integer_type 0x7f5034ff85e8 int public SI
+        size <integer_cst 0x7f5034fe4e28 constant 32>
+        unit size <integer_cst 0x7f5034fe4e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f5034ff85e8 precision 32 min <integer_cst 0x7f5034fe4de0 -2147483648> max <integer_cst 0x7f5034fe4df8 2147483647>
+        pointer_to_this <pointer_type 0x7f5034fffa80>>
+   
+    def_stmt _15 = (int) _14;
+    version 15>
+trace fucntion name:tolower 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_50 = (char) _16;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:14: warning: use location
+    sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_36 = PHI <_50(8), _51(9)>
+lto1: warning: use location
+this stmt have mutiple branch ---(null)-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+sub[subi_35] = _36;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:14: warning: use location
+    sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+              ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5034b2ad80
+    type <integer_type 0x7f5034ff85e8 int public SI
+        size <integer_cst 0x7f5034fe4e28 constant 32>
+        unit size <integer_cst 0x7f5034fe4e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f5034ff85e8 precision 32 min <integer_cst 0x7f5034fe4de0 -2147483648> max <integer_cst 0x7f5034fe4df8 2147483647>
+        pointer_to_this <pointer_type 0x7f5034fffa80>>
+   
+    def_stmt _15 = (int) _14;
+    version 15>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:match_pattern_list========= [0m
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 7 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:__printf_chk========= [0m
+[40;33m =======POP node_fun stack:__printf_chk========= [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:strsep========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path strsep  function_call count: 0 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre_check_funciton:strsep========= [0m
+[40;42m =======start_check_funciton:strsep========= [0m
+[40;33m =======POP node_fun stack:strsep========= [0m
+[40;42m =======pre add _ fucntion:strlcat========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path strlcat  function_call count: 1 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;33m =======POP node_fun stack:strlen========= [0m
+[40;42m =======pre_check_funciton:strlcat========= [0m
+[40;42m =======start_check_funciton:strlcat========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5034b2a480
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d200 src>
+    def_stmt GIMPLE_NOP
+    version 26
+    ptr-info 0x7f5034b44120>
+GIMPLE_NOP
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+s_17 = PHI <src_26(D)(6), s_38(10)>
+In function ‘main’:
+lto1: warning: use location
+this stmt have mutiple branch ---(null)-----
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_10 = (long int) s_17;
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+_10 = (long int) s_17;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:67:19: warning: use location
+  return(dlen + (s - src)); /* count does not include NUL */
+                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_9 = *s_17;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:58:9: warning: use location
+  while (*s != '\0') {
+         ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_9 != 0)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:58:8: warning: use location
+  while (*s != '\0') {
+        ^
+if (_9 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:58:8: warning: use location
+Cond in fucntion strlcat basic block 11
+ ================== possible direct basic block ================= 
+from strlcat basic block 8
+ ================== possible direct basic block ================= 
+from strlcat basic block 12
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+s_38 = s_17 + 1;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:63:4: warning: use location
+   s++;
+    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_8 = *s_17;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:60:11: warning: use location
+    *d++ = *s;
+           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+*_7 = _8;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:60:9: warning: use location
+    *d++ = *s;
+         ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_43(D)>
+_6 = strlen (src_26(D));
+bb index := 7
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 7 ,possiable got to succ := 13
+
+======================================================================
+_6 = strlen (src_26(D));
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:57:17: warning: use location
+   return(dlen + strlen(s));
+                 ^
+this stmt is child function---strlen-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b2a480
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d200 src>
+    def_stmt GIMPLE_NOP
+    version 26
+    ptr-info 0x7f5034b44120>
+trace fucntion name:strlen 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_11 = (long int) src_26(D);
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+_11 = (long int) src_26(D);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:67:19: warning: use location
+  return(dlen + (s - src)); /* count does not include NUL */
+                   ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5034b2a480
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d200 src>
+    def_stmt GIMPLE_NOP
+    version 26
+    ptr-info 0x7f5034b44120>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:strlcat========= [0m
+[40;42m =======pre add _ fucntion:match_pattern_list========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path match_pattern_list  function_call count: 3 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:tolower========= [0m
+[40;33m =======POP node_fun stack:tolower========= [0m
+[40;42m =======pre add _ fucntion:isupper========= [0m
+[40;33m =======POP node_fun stack:isupper========= [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;33m =======POP node_fun stack:strlen========= [0m
+[40;42m =======pre_check_funciton:match_pattern_list========= [0m
+[40;42m =======start_check_funciton:match_pattern_list========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5034b2e3f0
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d380 pattern>
+    def_stmt GIMPLE_NOP
+    version 42
+    ptr-info 0x7f5034b44210>
+GIMPLE_NOP
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_61(D)>
+_1 = strlen (pattern_42(D));
+bb index := 2
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_61(D)>
+_1 = strlen (pattern_42(D));
+bb index := 2
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_61(D)>
+_1 = strlen (pattern_42(D));
+bb index := 2
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_61(D)>
+_1 = strlen (pattern_42(D));
+bb index := 2
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 14
+
+======================================================================
+_1 = strlen (pattern_42(D));
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:136:30: warning: use location
+  unsigned int i, subi, len = strlen(pattern);
+                              ^
+this stmt is child function---strlen-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b2e3f0
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d380 pattern>
+    def_stmt GIMPLE_NOP
+    version 42
+    ptr-info 0x7f5034b44210>
+trace fucntion name:strlen 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+len_43 = (unsigned int) _1;
+bb index := 2
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+len_43 = (unsigned int) _1;
+bb index := 2
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+len_43 = (unsigned int) _1;
+bb index := 2
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+len_43 = (unsigned int) _1;
+bb index := 2
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 14
+
+======================================================================
+len_43 = (unsigned int) _1;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:136:24: warning: use location
+  unsigned int i, subi, len = strlen(pattern);
+                        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_19 = i_32 < len_43;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:152:9: warning: use location
+       i < len && subi < sizeof(sub) - 1 && pattern[i] != ',';
+         ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_21 = _19 & _20;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:152:15: warning: use location
+       i < len && subi < sizeof(sub) - 1 && pattern[i] != ',';
+               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_21 != 0)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:151:3: warning: use location
+   for (subi = 0;
+   ^
+if (_21 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:151:3: warning: use location
+Cond in fucntion match_pattern_list basic block 11
+ ================== possible direct basic block ================= 
+from match_pattern_list basic block 12
+ ================== possible direct basic block ================= 
+from match_pattern_list basic block 13
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_23 = pattern_42(D) + _22;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:152:51: warning: use location
+       i < len && subi < sizeof(sub) - 1 && pattern[i] != ',';
+                                                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_18 = pattern_42(D) + _17;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:45: warning: use location
+        tolower((u_char)pattern[i]) : pattern[i];
+                                             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_51 = *_18;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:14: warning: use location
+    sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_36 = PHI <_50(8), _51(9)>
+lto1: warning: use location
+this stmt have mutiple branch ---(null)-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+sub[subi_35] = _36;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:14: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_12 = pattern_42(D) + _11;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:31: warning: use location
+        tolower((u_char)pattern[i]) : pattern[i];
+                               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_13 = *_12;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:31: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_14 = (unsigned char) _13;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:16: warning: use location
+        tolower((u_char)pattern[i]) : pattern[i];
+                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_15 = (int) _14;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:8: warning: use location
+        tolower((u_char)pattern[i]) : pattern[i];
+        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_16 = tolower (_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:8: warning: use location
+this stmt is child function---tolower-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b2e3f0
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d380 pattern>
+    def_stmt GIMPLE_NOP
+    version 42
+    ptr-info 0x7f5034b44210>
+trace fucntion name:tolower 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5034b2e3f0
+    type <pointer_type 0x7f5034b0e9d8
+        type <integer_type 0x7f5034b0e930 char readonly public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0e9d8>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <parm_decl 0x7f5034b1d380 pattern>
+    def_stmt GIMPLE_NOP
+    version 42
+    ptr-info 0x7f5034b44210>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5034b2abd0
+    type <integer_type 0x7f5034ff85e8 int public SI
+        size <integer_cst 0x7f5034fe4e28 constant 32>
+        unit size <integer_cst 0x7f5034fe4e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f5034ff85e8 precision 32 min <integer_cst 0x7f5034fe4de0 -2147483648> max <integer_cst 0x7f5034fe4df8 2147483647>
+        pointer_to_this <pointer_type 0x7f5034fffa80>>
+   
+    def_stmt _9 = (int) _8;
+    version 9>
+_9 = (int) _8;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_10 = isupper (_9);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:27: warning: use location
+    sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+                           ^
+this stmt is child function---isupper-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b2abd0
+    type <integer_type 0x7f5034ff85e8 int public SI
+        size <integer_cst 0x7f5034fe4e28 constant 32>
+        unit size <integer_cst 0x7f5034fe4e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f5034ff85e8 precision 32 min <integer_cst 0x7f5034fe4de0 -2147483648> max <integer_cst 0x7f5034fe4df8 2147483647>
+        pointer_to_this <pointer_type 0x7f5034fffa80>>
+   
+    def_stmt _9 = (int) _8;
+    version 9>
+trace fucntion name:isupper 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_10 != 0)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:24: warning: use location
+    sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+                        ^
+if (_10 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:24: warning: use location
+Cond in fucntion match_pattern_list basic block 7
+ ================== possible direct basic block ================= 
+from match_pattern_list basic block 8
+ ================== possible direct basic block ================= 
+from match_pattern_list basic block 9
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5034b2abd0
+    type <integer_type 0x7f5034ff85e8 int public SI
+        size <integer_cst 0x7f5034fe4e28 constant 32>
+        unit size <integer_cst 0x7f5034fe4e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f5034ff85e8 precision 32 min <integer_cst 0x7f5034fe4de0 -2147483648> max <integer_cst 0x7f5034fe4df8 2147483647>
+        pointer_to_this <pointer_type 0x7f5034fffa80>>
+   
+    def_stmt _9 = (int) _8;
+    version 9>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5034b2ad80
+    type <integer_type 0x7f5034ff85e8 int public SI
+        size <integer_cst 0x7f5034fe4e28 constant 32>
+        unit size <integer_cst 0x7f5034fe4e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f5034ff85e8 precision 32 min <integer_cst 0x7f5034fe4de0 -2147483648> max <integer_cst 0x7f5034fe4df8 2147483647>
+        pointer_to_this <pointer_type 0x7f5034fffa80>>
+   
+    def_stmt _15 = (int) _14;
+    version 15>
+_15 = (int) _14;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_16 = tolower (_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:8: warning: use location
+        tolower((u_char)pattern[i]) : pattern[i];
+        ^
+this stmt is child function---tolower-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b2ad80
+    type <integer_type 0x7f5034ff85e8 int public SI
+        size <integer_cst 0x7f5034fe4e28 constant 32>
+        unit size <integer_cst 0x7f5034fe4e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f5034ff85e8 precision 32 min <integer_cst 0x7f5034fe4de0 -2147483648> max <integer_cst 0x7f5034fe4df8 2147483647>
+        pointer_to_this <pointer_type 0x7f5034fffa80>>
+   
+    def_stmt _15 = (int) _14;
+    version 15>
+trace fucntion name:tolower 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_50 = (char) _16;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:14: warning: use location
+    sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_36 = PHI <_50(8), _51(9)>
+lto1: warning: use location
+this stmt have mutiple branch ---(null)-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+sub[subi_35] = _36;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:14: warning: use location
+    sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+              ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5034b2ad80
+    type <integer_type 0x7f5034ff85e8 int public SI
+        size <integer_cst 0x7f5034fe4e28 constant 32>
+        unit size <integer_cst 0x7f5034fe4e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f5034ff85e8 precision 32 min <integer_cst 0x7f5034fe4de0 -2147483648> max <integer_cst 0x7f5034fe4df8 2147483647>
+        pointer_to_this <pointer_type 0x7f5034fffa80>>
+   
+    def_stmt _15 = (int) _14;
+    version 15>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:match_pattern_list========= [0m
+[40;42m =======pre add _ fucntion:strdup========= [0m
+[40;33m =======POP node_fun stack:strdup========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5034b3e5e8
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b40480 fix_prop>
+    def_stmt fix_prop_14 = malloc (len_13);
+    version 14
+    ptr-info 0x7f5034b442e8>
+# .MEM_28 = VDEF <.MEM_8(D)>
+fix_prop_14 = malloc (len_13);
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+_23 = PHI <0B(3), fix_prop_14(11)>
+lto1: warning: use location
+this stmt have mutiple branch ---(null)-----
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+_38 = _23;
+lto1: warning: use location
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+proposal_4 = _38;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:212:8: warning: use location
+  char *proposal = match_filter_list("proposal", "filter");
+        ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_11 = VDEF <.MEM_7>
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+bb index := 14
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_11 = VDEF <.MEM_7>
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+bb index := 14
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_11 = VDEF <.MEM_7>
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+bb index := 14
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_11 = VDEF <.MEM_7>
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+bb index := 14
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 14
+
+======================================================================
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+this stmt is child function---__printf_chk-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e5e8
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b40480 fix_prop>
+    def_stmt fix_prop_14 = malloc (len_13);
+    version 14
+    ptr-info 0x7f5034b442e8>
+trace fucntion name:__printf_chk 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+if (proposal_4 == 0B)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:213:4: warning: use location
+  if(proposal == NULL)
+    ^
+if (proposal_4 == 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:213:4: warning: use location
+Cond in fucntion main basic block 12
+ ================== possible direct basic block ================= 
+from main basic block 13
+ ================== possible direct basic block ================= 
+from main basic block 14
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_22 = fix_prop_14;
+bb index := 11
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_22 = fix_prop_14;
+bb index := 11
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_22 = fix_prop_14;
+bb index := 11
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_22 = fix_prop_14;
+bb index := 11
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 14
+
+======================================================================
+_22 = fix_prop_14;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:207:12: warning: use location
+     return fix_prop;
+            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+strlcat (fix_prop_14, cp_19, len_13);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:203:13: warning: use location
+             strlcat(fix_prop, cp, len);
+             ^
+this stmt is child function---strlcat-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e5e8
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b40480 fix_prop>
+    def_stmt fix_prop_14 = malloc (len_13);
+    version 14
+    ptr-info 0x7f5034b442e8>
+trace fucntion name:strlcat 
+[40;44m =======trace_function_path strlcat  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;46m =======add node_fun stack:strlen========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+strlcat (fix_prop_14, ",", len_13);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:202:17: warning: use location
+                 strlcat(fix_prop, ",", len);
+                 ^
+this stmt is child function---strlcat-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e5e8
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b40480 fix_prop>
+    def_stmt fix_prop_14 = malloc (len_13);
+    version 14
+    ptr-info 0x7f5034b442e8>
+trace fucntion name:strlcat 
+[40;44m =======trace_function_path strlcat  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;46m =======add node_fun stack:strlen========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_21 = *fix_prop_14;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:201:17: warning: use location
+             if (*fix_prop != '\0')
+                 ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_21 != 0)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:201:16: warning: use location
+             if (*fix_prop != '\0')
+                ^
+if (_21 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:201:16: warning: use location
+Cond in fucntion main basic block 6
+ ================== possible direct basic block ================= 
+from main basic block 7
+ ================== possible direct basic block ================= 
+from main basic block 8
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+*fix_prop_14 = 0;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:198:15: warning: use location
+     *fix_prop = '\0';
+               ^
+_16 = fix_prop_14 == 0B;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:191:18: warning: use location
+     if (fix_prop == NULL || orig_prop == NULL) {
+                  ^
+fix_prop_14 = malloc (len_13);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:187:11: warning: use location
+     char *fix_prop = malloc(len); /* allocation site */
+           ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e5e8
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b40480 fix_prop>
+    def_stmt fix_prop_14 = malloc (len_13);
+    version 14
+    ptr-info 0x7f5034b442e8>
+trace fucntion name:malloc 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5034b3e5e8
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b40480 fix_prop>
+    def_stmt fix_prop_14 = malloc (len_13);
+    version 14
+    ptr-info 0x7f5034b442e8>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5034b3e630
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b40510 orig_prop>
+    def_stmt orig_prop_15 = strdup ("proposal");
+    version 15
+    ptr-info 0x7f5034b44300>
+# .MEM_29 = VDEF <.MEM_28>
+orig_prop_15 = strdup ("proposal");
+
+ ================== trace ptable================== 
+trace fucntion name:strdup 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---strdup-----
+this Reserved word function ------strdup-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+orig_prop_15 = strdup ("proposal");
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:188:11: warning: use location
+     char *orig_prop = strdup(proposal);
+           ^
+this stmt is child function---strdup-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e630
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b40510 orig_prop>
+    def_stmt orig_prop_15 = strdup ("proposal");
+    version 15
+    ptr-info 0x7f5034b44300>
+trace fucntion name:strdup 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_33 = VDEF <.MEM_32>
+free (orig_prop_15);
+bb index := 11
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_33 = VDEF <.MEM_32>
+free (orig_prop_15);
+bb index := 11
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_33 = VDEF <.MEM_32>
+free (orig_prop_15);
+bb index := 11
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_33 = VDEF <.MEM_32>
+free (orig_prop_15);
+bb index := 11
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 14
+
+======================================================================
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:206:5: warning: use location
+     free(orig_prop);
+     ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:206:5: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+tmp = orig_prop_15;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:197:9: warning: use location
+     tmp = orig_prop;
+         ^
+tmp = orig_prop_15;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:197:9: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+cp_19 = strsep (&tmp, ",");
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:11: warning: use location
+     while ((cp = strsep(&tmp, ",")) != NULL) {
+           ^
+this stmt is child function---strsep-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e630
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b40510 orig_prop>
+    def_stmt orig_prop_15 = strdup ("proposal");
+    version 15
+    ptr-info 0x7f5034b44300>
+trace fucntion name:strsep 
+[40;44m =======trace_function_path strsep  function_call count: 0 level :0========  [0m
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+cp_19 = strsep (&tmp, ",");
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:11: warning: use location
+this stmt is child function---strsep-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e630
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b40510 orig_prop>
+    def_stmt orig_prop_15 = strdup ("proposal");
+    version 15
+    ptr-info 0x7f5034b44300>
+trace fucntion name:strsep 
+[40;44m =======trace_function_path strsep  function_call count: 0 level :0========  [0m
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+bb index := 3
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+bb index := 3
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+bb index := 3
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+bb index := 3
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 14
+
+======================================================================
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: use location
+         free(orig_prop);
+         ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find ================== 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5034b3e630
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b40510 orig_prop>
+    def_stmt orig_prop_15 = strdup ("proposal");
+    version 15
+    ptr-info 0x7f5034b44300>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: use location
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_33 = VDEF <.MEM_32>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:206:5: warning: use location
+     free(orig_prop);
+     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_30 = VDEF <.MEM_29>
+tmp = orig_prop_15;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:197:9: warning: use location
+     tmp = orig_prop;
+         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_30 = VDEF <.MEM_29>
+tmp = orig_prop_15;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:197:9: warning: use location
+     tmp = orig_prop;
+         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_30 = VDEF <.MEM_29>
+tmp = orig_prop_15;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:197:9: warning: use location
+     tmp = orig_prop;
+         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_30 = VDEF <.MEM_29>
+tmp = orig_prop_15;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:197:9: warning: use location
+     tmp = orig_prop;
+         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_32 = VDEF <.MEM_26>
+cp_19 = strsep (&tmp, ",");
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:11: warning: use location
+     while ((cp = strsep(&tmp, ",")) != NULL) {
+           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_32 = VDEF <.MEM_26>
+cp_19 = strsep (&tmp, ",");
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:11: warning: use location
+     while ((cp = strsep(&tmp, ",")) != NULL) {
+           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_32 = VDEF <.MEM_26>
+cp_19 = strsep (&tmp, ",");
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:11: warning: use location
+     while ((cp = strsep(&tmp, ",")) != NULL) {
+           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_32 = VDEF <.MEM_26>
+cp_19 = strsep (&tmp, ",");
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:11: warning: use location
+     while ((cp = strsep(&tmp, ",")) != NULL) {
+           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:2 [0m
+
+======================================================================
+
+======================================================================
+[40;31m  	possible double free :2 [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5034b3e5a0
+    type <integer_type 0x7f5034b0ed20 size_t public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f5034ff8738 precision 64 min <integer_cst 0x7f5034fe4eb8 0> max <integer_cst 0x7f5034fe6500 18446744073709551615> context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>>
+    var <var_decl 0x7f5034b403f0 len>
+    def_stmt len_13 = _12 + 1;
+    version 13>
+len_13 = _12 + 1;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+strlcat (fix_prop_14, cp_19, len_13);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:203:13: warning: use location
+             strlcat(fix_prop, cp, len);
+             ^
+this stmt is child function---strlcat-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e5a0
+    type <integer_type 0x7f5034b0ed20 size_t public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f5034ff8738 precision 64 min <integer_cst 0x7f5034fe4eb8 0> max <integer_cst 0x7f5034fe6500 18446744073709551615> context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>>
+    var <var_decl 0x7f5034b403f0 len>
+    def_stmt len_13 = _12 + 1;
+    version 13>
+trace fucntion name:strlcat 
+[40;44m =======trace_function_path strlcat  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;46m =======add node_fun stack:strlen========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+strlcat (fix_prop_14, ",", len_13);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:202:17: warning: use location
+                 strlcat(fix_prop, ",", len);
+                 ^
+this stmt is child function---strlcat-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e5a0
+    type <integer_type 0x7f5034b0ed20 size_t public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f5034ff8738 precision 64 min <integer_cst 0x7f5034fe4eb8 0> max <integer_cst 0x7f5034fe6500 18446744073709551615> context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>>
+    var <var_decl 0x7f5034b403f0 len>
+    def_stmt len_13 = _12 + 1;
+    version 13>
+trace fucntion name:strlcat 
+[40;44m =======trace_function_path strlcat  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;46m =======add node_fun stack:strlen========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+fix_prop_14 = malloc (len_13);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:187:11: warning: use location
+     char *fix_prop = malloc(len); /* allocation site */
+           ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e5a0
+    type <integer_type 0x7f5034b0ed20 size_t public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f5034ff8738 precision 64 min <integer_cst 0x7f5034fe4eb8 0> max <integer_cst 0x7f5034fe6500 18446744073709551615> context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>>
+    var <var_decl 0x7f5034b403f0 len>
+    def_stmt len_13 = _12 + 1;
+    version 13>
+trace fucntion name:malloc 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_23 = PHI <0B(3), fix_prop_14(11)>
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+_23 = PHI <0B(3), fix_prop_14(11)>
+lto1: warning: use location
+this stmt have mutiple branch ---(null)-----
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_38 = _23;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+_38 = _23;
+lto1: warning: use location
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+proposal_4 = _38;
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+proposal_4 = _38;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:212:8: warning: use location
+  char *proposal = match_filter_list("proposal", "filter");
+        ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_11 = VDEF <.MEM_7>
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+bb index := 14
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_11 = VDEF <.MEM_7>
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+bb index := 14
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_11 = VDEF <.MEM_7>
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+bb index := 14
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_11 = VDEF <.MEM_7>
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+bb index := 14
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 14
+
+======================================================================
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+this stmt is child function---__printf_chk-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e5a0
+    type <integer_type 0x7f5034b0ed20 size_t public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f5034ff8738 precision 64 min <integer_cst 0x7f5034fe4eb8 0> max <integer_cst 0x7f5034fe6500 18446744073709551615> context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>>
+    var <var_decl 0x7f5034b403f0 len>
+    def_stmt len_13 = _12 + 1;
+    version 13>
+trace fucntion name:__printf_chk 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (proposal_4 == 0B)
+bb index := 12
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 14
+
+======================================================================
+if (proposal_4 == 0B)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:213:4: warning: use location
+  if(proposal == NULL)
+    ^
+if (proposal_4 == 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:213:4: warning: use location
+Cond in fucntion main basic block 12
+ ================== possible direct basic block ================= 
+from main basic block 13
+ ================== possible direct basic block ================= 
+from main basic block 14
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_22 = fix_prop_14;
+bb index := 11
+# VUSE <.MEM_21>
+return _9;
+lto1: warning: use location
+beacuse in succ := 9 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 9
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_22 = fix_prop_14;
+bb index := 11
+# VUSE <.MEM_42>
+return _21;
+lto1: warning: use location
+beacuse in succ := 13 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 13
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_22 = fix_prop_14;
+bb index := 11
+# VUSE <.MEM_64>
+return _37;
+lto1: warning: use location
+beacuse in succ := 37 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 37
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+_22 = fix_prop_14;
+bb index := 11
+# VUSE <.MEM_11>
+return 0;
+lto1: warning: use location
+beacuse in succ := 14 have return or exit
+gimple stmt in succ := 11 ,possiable got to succ := 14
+
+======================================================================
+_22 = fix_prop_14;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:207:12: warning: use location
+     return fix_prop;
+            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_21 = *fix_prop_14;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:201:17: warning: use location
+             if (*fix_prop != '\0')
+                 ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_21 != 0)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:201:16: warning: use location
+             if (*fix_prop != '\0')
+                ^
+if (_21 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:201:16: warning: use location
+Cond in fucntion main basic block 6
+ ================== possible direct basic block ================= 
+from main basic block 7
+ ================== possible direct basic block ================= 
+from main basic block 8
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+*fix_prop_14 = 0;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:198:15: warning: use location
+     *fix_prop = '\0';
+               ^
+_16 = fix_prop_14 == 0B;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:191:18: warning: use location
+     if (fix_prop == NULL || orig_prop == NULL) {
+                  ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5034b3e5a0
+    type <integer_type 0x7f5034b0ed20 size_t public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f5034ff8738 precision 64 min <integer_cst 0x7f5034fe4eb8 0> max <integer_cst 0x7f5034fe6500 18446744073709551615> context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>>
+    var <var_decl 0x7f5034b403f0 len>
+    def_stmt len_13 = _12 + 1;
+    version 13>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: use location
+         free(orig_prop);
+         ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_33 = VDEF <.MEM_32>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:206:5: warning: use location
+     free(orig_prop);
+     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_35 = VDEF <.MEM_24>
+strlcat (fix_prop_14, cp_19, len_13);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:203:13: warning: use location
+             strlcat(fix_prop, cp, len);
+             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_34 = VDEF <.MEM_32>
+strlcat (fix_prop_14, ",", len_13);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:202:17: warning: use location
+                 strlcat(fix_prop, ",", len);
+                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+_23 = PHI <0B(3), fix_prop_14(11)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_33 = VDEF <.MEM_32>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:206:5: warning: Use after free error!: free location 
+     free(orig_prop);
+     ^
+_23 = PHI <0B(3), fix_prop_14(11)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+_38 = _23;
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_33 = VDEF <.MEM_32>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:206:5: warning: Use after free error!: free location 
+     free(orig_prop);
+     ^
+_38 = _23;
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+proposal_4 = _38;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:212:8: warning: use location
+  char *proposal = match_filter_list("proposal", "filter");
+        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_33 = VDEF <.MEM_32>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:206:5: warning: Use after free error!: free location 
+     free(orig_prop);
+     ^
+proposal_4 = _38;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:212:8: warning: use location
+  char *proposal = match_filter_list("proposal", "filter");
+        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_11 = VDEF <.MEM_7>
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_33 = VDEF <.MEM_32>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:206:5: warning: Use after free error!: free location 
+     free(orig_prop);
+     ^
+# .MEM_11 = VDEF <.MEM_7>
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+if (proposal_4 == 0B)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:213:4: warning: use location
+  if(proposal == NULL)
+    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_33 = VDEF <.MEM_32>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:206:5: warning: Use after free error!: free location 
+     free(orig_prop);
+     ^
+if (proposal_4 == 0B)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:213:4: warning: use location
+  if(proposal == NULL)
+    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+_22 = fix_prop_14;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:207:12: warning: use location
+     return fix_prop;
+            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_33 = VDEF <.MEM_32>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:206:5: warning: Use after free error!: free location 
+     free(orig_prop);
+     ^
+_22 = fix_prop_14;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:207:12: warning: use location
+     return fix_prop;
+            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# VUSE <.MEM_32>
+_21 = *fix_prop_14;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:201:17: warning: use location
+             if (*fix_prop != '\0')
+                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+if (_21 != 0)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:201:16: warning: use location
+             if (*fix_prop != '\0')
+                ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_31 = VDEF <.MEM_30>
+*fix_prop_14 = 0;
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:198:15: warning: use location
+     *fix_prop = '\0';
+               ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:2 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f5034b41060
+    type <pointer_type 0x7f5034b16000
+        type <array_type 0x7f5034b0e690 type <integer_type 0x7f5034b0e888 char>
+            BLK
+            size <integer_cst 0x7f5034b111f8 constant 72>
+            unit size <integer_cst 0x7f5034b111e0 constant 9>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f5034b0e5e8>
+            pointer_to_this <pointer_type 0x7f5034b16000>>
+        unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    readonly constant
+    arg 0 <string_cst 0x7f5034b02d00 type <array_type 0x7f5034b0e690>
+        readonly constant static "proposal\000">
+    ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:212:37 start: ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:212:37 finish: ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:212:37>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f5034b3e750
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b405a0 cp>
+    def_stmt cp_19 = strsep (&tmp, ",");
+    version 19
+    ptr-info 0x7f5034b44318>
+# .MEM_32 = VDEF <.MEM_26>
+cp_19 = strsep (&tmp, ",");
+
+ ================== trace ptable================== 
+trace fucntion name:strsep 
+[40;44m =======trace_function_path strsep  function_call count: 0 level :-100========  [0m
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---strsep-----
+this other function ------strsep-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+cp_19 = strsep (&tmp, ",");
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:11: warning: use location
+     while ((cp = strsep(&tmp, ",")) != NULL) {
+           ^
+this stmt is child function---strsep-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e750
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b405a0 cp>
+    def_stmt cp_19 = strsep (&tmp, ",");
+    version 19
+    ptr-info 0x7f5034b44318>
+trace fucntion name:strsep 
+[40;44m =======trace_function_path strsep  function_call count: 0 level :0========  [0m
+[40;36m ======= node_fun:strsep========= [0m
+[40;36m ======= find relate stmt with cp ========= [0m
+[40;36m ======= relate stmt argument:cp ========= [0m
+fucntion collect path finsh
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_20 = match_pattern_list (cp_19, "filter", 0);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:200:13: warning: use location
+         if (match_pattern_list(cp, filter, 0) != 1) {
+             ^
+this stmt is child function---match_pattern_list-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e750
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b405a0 cp>
+    def_stmt cp_19 = strsep (&tmp, ",");
+    version 19
+    ptr-info 0x7f5034b44318>
+trace fucntion name:match_pattern_list 
+[40;44m =======trace_function_path match_pattern_list  function_call count: 3 level :0========  [0m
+[40;36m ======= node_fun:match_pattern_list========= [0m
+[40;36m ======= find relate stmt with cp ========= [0m
+[40;36m ======= relate stmt argument:cp ========= [0m
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:tolower========= [0m
+[40;46m =======add node_fun stack:tolower========= [0m
+[40;42m =======pre add _ fucntion:isupper========= [0m
+[40;46m =======add node_fun stack:isupper========= [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;46m =======add node_fun stack:strlen========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_20 != 1)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:200:12: warning: use location
+         if (match_pattern_list(cp, filter, 0) != 1) {
+            ^
+if (_20 != 1)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:200:12: warning: use location
+Cond in fucntion main basic block 5
+ ================== possible direct basic block ================= 
+from main basic block 6
+ ================== possible direct basic block ================= 
+from main basic block 10
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (cp_19 != 0B)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:11: warning: use location
+     while ((cp = strsep(&tmp, ",")) != NULL) {
+           ^
+if (cp_19 != 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:11: warning: use location
+Cond in fucntion main basic block 10
+ ================== possible direct basic block ================= 
+from main basic block 5
+ ================== possible direct basic block ================= 
+from main basic block 11
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+strlcat (fix_prop_14, cp_19, len_13);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:203:13: warning: use location
+             strlcat(fix_prop, cp, len);
+             ^
+this stmt is child function---strlcat-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f5034b3e750
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b405a0 cp>
+    def_stmt cp_19 = strsep (&tmp, ",");
+    version 19
+    ptr-info 0x7f5034b44318>
+trace fucntion name:strlcat 
+[40;44m =======trace_function_path strlcat  function_call count: 1 level :0========  [0m
+[40;36m ======= node_fun:strlcat========= [0m
+[40;36m ======= find relate stmt with cp ========= [0m
+[40;36m ======= relate stmt argument:cp ========= [0m
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;46m =======add node_fun stack:strlen========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f5034b3e750
+    type <pointer_type 0x7f5034b0ea80
+        type <integer_type 0x7f5034b0e888 char public string-flag QI
+            size <integer_cst 0x7f5034fe4cd8 constant 8>
+            unit size <integer_cst 0x7f5034fe4cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5034ff83f0 precision 8 min <integer_cst 0x7f5034b11198 -128> max <integer_cst 0x7f5034b11180 127>
+            pointer_to_this <pointer_type 0x7f5034b0ea80>>
+        public unsigned DI
+        size <integer_cst 0x7f5034fe4be8 constant 64>
+        unit size <integer_cst 0x7f5034fe4c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+        pointer_to_this <pointer_type 0x7f5034b0ee70>>
+    var <var_decl 0x7f5034b405a0 cp>
+    def_stmt cp_19 = strsep (&tmp, ",");
+    version 19
+    ptr-info 0x7f5034b44318>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: use location
+         free(orig_prop);
+         ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_33 = VDEF <.MEM_32>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:206:5: warning: use location
+     free(orig_prop);
+     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_32 = VDEF <.MEM_26>
+cp_19 = strsep (&tmp, ",");
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:11: warning: use location
+     while ((cp = strsep(&tmp, ",")) != NULL) {
+           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# VUSE <.MEM_32>
+_20 = match_pattern_list (cp_19, "filter", 0);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:200:13: warning: use location
+         if (match_pattern_list(cp, filter, 0) != 1) {
+             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+if (_20 != 1)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:200:12: warning: use location
+         if (match_pattern_list(cp, filter, 0) != 1) {
+            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+if (cp_19 != 0B)
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:11: warning: use location
+     while ((cp = strsep(&tmp, ",")) != NULL) {
+           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_36 = VDEF <.MEM_29>
+free (orig_prop_15);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: Use after free error!: free location 
+         free(orig_prop);
+         ^
+# .MEM_35 = VDEF <.MEM_24>
+strlcat (fix_prop_14, cp_19, len_13);
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:203:13: warning: use location
+             strlcat(fix_prop, cp, len);
+             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:2 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f5034b41260
+    type <pointer_type 0x7f5034b0ee70
+        type <pointer_type 0x7f5034b0ea80 type <integer_type 0x7f5034b0e888 char>
+            public unsigned DI
+            size <integer_cst 0x7f5034fe4be8 constant 64>
+            unit size <integer_cst 0x7f5034fe4c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5034fef168 ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c>
+            pointer_to_this <pointer_type 0x7f5034b0ee70>>
+        public unsigned DI size <integer_cst 0x7f5034fe4be8 64> unit size <integer_cst 0x7f5034fe4c00 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f5034b40630 tmp type <pointer_type 0x7f5034b0ea80>
+        addressable used unsigned DI file ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c line 189 col 16 size <integer_cst 0x7f5034fe4be8 64> unit size <integer_cst 0x7f5034fe4c00 8>
+        align 64 context <function_decl 0x7f5034b0fb00 main> abstract_origin <var_decl 0x7f5034b26c60 tmp>>
+    ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:18 start: ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:18 finish: ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:199:18>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f5034fe4f90 type <integer_type 0x7f5034ff85e8 int> constant 1>
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f5034fe4f90 type <integer_type 0x7f5034ff85e8 int> constant 1>
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:strsep=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [7.82%]:
+s_14 = *stringp_13(D);
+if (s_14 == 0B)
+  goto <bb 9>; [4.07%]
+else
+  goto <bb 10>; [95.93%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [7.50%]:
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [14.44%]:
+# s_6 = PHI <s_14(10), s_15(11)>
+_1 = s_6;
+s_15 = s_6 + 1;
+_2 = *_1;
+c_16 = (int) _2;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [100.00%]:
+# spanp_8 = PHI <delim_17(D)(3), spanp_18(12)>
+_3 = spanp_8;
+spanp_18 = spanp_8 + 1;
+_4 = *_3;
+sc_19 = (int) _4;
+if (c_16 == sc_19)
+  goto <bb 5>; [7.50%]
+else
+  goto <bb 8>; [92.50%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [7.50%]:
+if (c_16 == 0)
+  goto <bb 7>; [46.00%]
+else
+  goto <bb 6>; [54.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [4.05%]:
+_5 = s_6;
+*_5 = 0;
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [7.50%]:
+# s_7 = PHI <0B(5), s_15(6)>
+*stringp_13(D) = s_7;
+goto <bb 9>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [92.50%]:
+if (sc_19 != 0)
+  goto <bb 12>; [92.50%]
+else
+  goto <bb 11>; [7.50%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [85.56%]:
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [6.94%]:
+goto <bb 3>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [7.82%]:
+# _9 = PHI <0B(2), s_14(7)>
+return _9;
+
+=======Mapping node_fun:strlcat=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [14.44%]:
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [85.56%]:
+d_30 = d_14 + 1;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [100.00%]:
+# d_14 = PHI <dst_25(D)(2), d_30(3)>
+# n_18 = PHI <siz_27(D)(2), n_28(3)>
+_1 = n_18;
+n_28 = n_18 + 18446744073709551615;
+if (n_18 != 0)
+  goto <bb 5>; [92.50%]
+else
+  goto <bb 6>; [7.50%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [92.50%]:
+_2 = *d_14;
+if (_2 != 0)
+  goto <bb 3>; [92.50%]
+else
+  goto <bb 6>; [7.50%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [14.44%]:
+_3 = (long int) d_14;
+_4 = (long int) dst_25(D);
+_5 = _3 - _4;
+dlen_31 = (size_t) _5;
+n_32 = siz_27(D) - dlen_31;
+if (n_32 == 0)
+  goto <bb 7>; [46.00%]
+else
+  goto <bb 11>; [54.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [6.64%]:
+_6 = strlen (src_26(D));
+_39 = _6 + dlen_31;
+goto <bb 13>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [44.18%]:
+if (n_20 != 1)
+  goto <bb 9>; [66.00%]
+else
+  goto <bb 10>; [34.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [29.16%]:
+_7 = d_16;
+d_35 = d_16 + 1;
+_8 = *s_17;
+*_7 = _8;
+n_37 = n_20 + 18446744073709551615;
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [44.18%]:
+# d_15 = PHI <d_16(8), d_35(9)>
+# n_19 = PHI <n_20(8), n_37(9)>
+s_38 = s_17 + 1;
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [51.97%]:
+# d_16 = PHI <d_14(6), d_15(10)>
+# s_17 = PHI <src_26(D)(6), s_38(10)>
+# n_20 = PHI <n_32(6), n_19(10)>
+_9 = *s_17;
+if (_9 != 0)
+  goto <bb 8>; [85.00%]
+else
+  goto <bb 12>; [15.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [7.80%]:
+*d_16 = 0;
+_10 = (long int) s_17;
+_11 = (long int) src_26(D);
+_12 = _10 - _11;
+_13 = (long unsigned int) _12;
+_34 = _13 + dlen_31;
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [14.44%]:
+# _21 = PHI <_39(7), _34(12)>
+return _21;
+
+=======Mapping node_fun:match_pattern_list=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [68.03%]:
+_1 = strlen (pattern_42(D));
+len_43 = (unsigned int) _1;
+goto <bb 35>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [13.73%]:
+_2 = (sizetype) i_34;
+_3 = pattern_42(D) + _2;
+_4 = *_3;
+if (_4 == 33)
+  goto <bb 4>; [34.00%]
+else
+  goto <bb 5>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [4.67%]:
+i_48 = i_34 + 1;
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [13.73%]:
+# negated_29 = PHI <0(3), 1(4)>
+# i_31 = PHI <i_34(3), i_48(4)>
+goto <bb 11>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [81.35%]:
+if (dolower_49(D) != 0)
+  goto <bb 7>; [50.00%]
+else
+  goto <bb 9>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [40.67%]:
+_5 = (sizetype) i_32;
+_6 = pattern_42(D) + _5;
+_7 = *_6;
+_8 = (unsigned char) _7;
+_9 = (int) _8;
+_10 = isupper (_9);
+if (_10 != 0)
+  goto <bb 8>; [50.00%]
+else
+  goto <bb 9>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [20.34%]:
+_11 = (sizetype) i_32;
+_12 = pattern_42(D) + _11;
+_13 = *_12;
+_14 = (unsigned char) _13;
+_15 = (int) _14;
+_16 = tolower (_15);
+_50 = (char) _16;
+goto <bb 10>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [61.01%]:
+_17 = (sizetype) i_32;
+_18 = pattern_42(D) + _17;
+_51 = *_18;
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [81.35%]:
+# _36 = PHI <_50(8), _51(9)>
+sub[subi_35] = _36;
+subi_53 = subi_35 + 1;
+i_54 = i_32 + 1;
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [95.08%]:
+# i_32 = PHI <i_31(5), i_54(10)>
+# subi_35 = PHI <0(5), subi_53(10)>
+_19 = i_32 < len_43;
+_20 = subi_35 <= 1022;
+_21 = _19 & _20;
+if (_21 != 0)
+  goto <bb 12>; [92.50%]
+else
+  goto <bb 13>; [7.50%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [87.95%]:
+_22 = (sizetype) i_32;
+_23 = pattern_42(D) + _22;
+_24 = *_23;
+if (_24 != 44)
+  goto <bb 6>; [92.50%]
+else
+  goto <bb 13>; [7.50%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [13.73%]:
+if (subi_35 > 1022)
+  goto <bb 37>; [5.00%]
+else
+  goto <bb 14>; [95.00%]
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [13.04%]:
+if (i_32 < len_43)
+  goto <bb 15>; [50.00%]
+else
+  goto <bb 17>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [6.52%]:
+_25 = (sizetype) i_32;
+_26 = pattern_42(D) + _25;
+_27 = *_26;
+if (_27 == 44)
+  goto <bb 16>; [34.00%]
+else
+  goto <bb 17>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [2.22%]:
+i_55 = i_32 + 1;
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [13.04%]:
+# i_33 = PHI <i_32(14), i_32(15), i_55(16)>
+sub[subi_35] = 0;
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [100.00%]:
+# s_67 = PHI <string_57(D)(17), s_88(31)>
+# pattern_65 = PHI <&sub(17), pattern_89(31)>
+_66 = *pattern_65;
+if (_66 == 0)
+  goto <bb 19>; [3.75%]
+else
+  goto <bb 20>; [96.25%]
+
+=======is loop:1=========
+
+ bb index 19 
+<bb 19> [3.75%]:
+_68 = *s_67;
+_69 = _68 == 0;
+_70 = (int) _69;
+goto <bb 32>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 20 
+<bb 20> [96.25%]:
+_71 = *pattern_65;
+if (_71 == 42)
+  goto <bb 21>; [3.75%]
+else
+  goto <bb 28>; [96.25%]
+
+=======is loop:1=========
+
+ bb index 21 
+<bb 21> [3.61%]:
+_72 = MEM[(const char *)pattern_65 + 1B];
+if (_72 == 0)
+  goto <bb 32>; [46.00%]
+else
+  goto <bb 22>; [54.00%]
+
+=======is loop:1=========
+
+ bb index 22 
+<bb 22> [1.95%]:
+_73 = MEM[(const char *)pattern_65 + 1B];
+_74 = _73 != 63;
+_75 = MEM[(const char *)pattern_65 + 1B];
+_76 = _75 != 42;
+_77 = _74 & _76;
+if (_77 != 0)
+  goto <bb 25>; [50.00%]
+else
+  goto <bb 26>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 23 
+<bb 23> [6.24%]:
+_79 = *s_78;
+_80 = MEM[(const char *)pattern_65 + 1B];
+if (_79 == _80)
+  goto <bb 32>; [7.50%]
+else
+  goto <bb 24>; [92.50%]
+
+=======is loop:1=========
+
+ bb index 24 
+<bb 24> [5.78%]:
+s_81 = s_78 + 1;
+
+=======is loop:1=========
+
+ bb index 25 
+<bb 25> [6.75%]:
+# s_78 = PHI <s_67(22), s_81(24)>
+_82 = *s_78;
+if (_82 != 0)
+  goto <bb 23>; [92.50%]
+else
+  goto <bb 32>; [7.50%]
+
+=======is loop:1=========
+
+ bb index 26 
+<bb 26> [0.97%]:
+_83 = *s_67;
+if (_83 != 0)
+  goto <bb 32>; [50.00%]
+else
+  goto <bb 27>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 27 
+<bb 27> [0.49%]:
+goto <bb 32>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 28 
+<bb 28> [92.64%]:
+_84 = *s_67;
+if (_84 == 0)
+  goto <bb 32>; [3.75%]
+else
+  goto <bb 29>; [96.25%]
+
+=======is loop:1=========
+
+ bb index 29 
+<bb 29> [89.17%]:
+_85 = *pattern_65;
+if (_85 != 63)
+  goto <bb 30>; [66.00%]
+else
+  goto <bb 31>; [34.00%]
+
+=======is loop:1=========
+
+ bb index 30 
+<bb 30> [58.85%]:
+_86 = *pattern_65;
+_87 = *s_67;
+if (_86 != _87)
+  goto <bb 32>; [3.75%]
+else
+  goto <bb 31>; [96.25%]
+
+=======is loop:1=========
+
+ bb index 31 
+<bb 31> [86.96%]:
+s_88 = s_67 + 1;
+pattern_89 = pattern_65 + 1;
+goto <bb 18>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 32 
+<bb 32> [13.04%]:
+# _90 = PHI <_70(19), 1(21), 1(23), 0(25), 1(26), 0(27), 0(28), 0(30)>
+_91 = _90;
+_28 = _91;
+if (_28 != 0)
+  goto <bb 33>; [50.00%]
+else
+  goto <bb 34>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 33 
+<bb 33> [6.52%]:
+if (negated_29 != 0)
+  goto <bb 37>; [5.00%]
+else
+  goto <bb 34>; [95.00%]
+
+=======is loop:1=========
+
+ bb index 34 
+<bb 34> [12.71%]:
+# got_positive_44 = PHI <got_positive_30(32), 1(33)>
+# i_45 = PHI <i_33(32), i_33(33)>
+
+=======is loop:1=========
+
+ bb index 35 
+<bb 35> [80.74%]:
+# got_positive_30 = PHI <0(2), got_positive_44(34)>
+# i_34 = PHI <0(2), i_45(34)>
+if (i_34 < len_43)
+  goto <bb 3>; [17.00%]
+else
+  goto <bb 36>; [83.00%]
+
+=======is loop:0=========
+
+ bb index 36 
+<bb 36> [67.02%]:
+_46 = got_positive_30;
+
+=======is loop:0=========
+
+ bb index 37 
+<bb 37> [68.03%]:
+# _37 = PHI <0(13), -1(33), got_positive_30(36)>
+sub ={v} {CLOBBER};
+return _37;
+
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [7.86%]:
+_12 = 8;
+len_13 = _12 + 1;
+fix_prop_14 = malloc (len_13);
+orig_prop_15 = strdup ("proposal");
+_16 = fix_prop_14 == 0B;
+_17 = orig_prop_15 == 0B;
+_18 = _16 | _17;
+if (_18 != 0)
+  goto <bb 3>; [4.64%]
+else
+  goto <bb 4>; [95.36%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [0.36%]:
+free (orig_prop_15);
+goto <bb 12>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [7.50%]:
+tmp = orig_prop_15;
+*fix_prop_14 = 0;
+goto <bb 9>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [92.50%]:
+_20 = match_pattern_list (cp_19, "filter", 0);
+if (_20 != 1)
+  goto <bb 6>; [7.50%]
+else
+  goto <bb 10>; [92.50%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [6.94%]:
+_21 = *fix_prop_14;
+if (_21 != 0)
+  goto <bb 7>; [33.00%]
+else
+  goto <bb 8>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [2.29%]:
+strlcat (fix_prop_14, ",", len_13);
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [6.94%]:
+strlcat (fix_prop_14, cp_19, len_13);
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [14.44%]:
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [100.00%]:
+cp_19 = strsep (&tmp, ",");
+if (cp_19 != 0B)
+  goto <bb 5>; [92.50%]
+else
+  goto <bb 11>; [7.50%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [7.50%]:
+free (orig_prop_15);
+_22 = fix_prop_14;
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [7.86%]:
+# _23 = PHI <0B(3), fix_prop_14(11)>
+tmp ={v} {CLOBBER};
+_38 = _23;
+proposal_4 = _38;
+if (proposal_4 == 0B)
+  goto <bb 13>; [19.86%]
+else
+  goto <bb 14>; [80.14%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [1.56%]:
+_5 = __printf_chk (1, "match_filter_list failed\n");
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [7.86%]:
+_6 = __printf_chk (1, "proposal : %s\n", proposal_4);
+return 0;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 8 [0m
+[40;34m    used_stmt array stack totalsize of : 1832 [0m
+[40;34m    collect time: : 0.000112 s [0m
+[40;34m    algorithm time: 0.022043 s [0m
+[40;34m    gimple stmt count : : 159 [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

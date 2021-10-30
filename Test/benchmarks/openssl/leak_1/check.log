@@ -1,0 +1,477 @@
+./benchmarks/openssl/leak_1/openssl_leak_1.c: In function ‘test_ptr’:
+./benchmarks/openssl/leak_1/openssl_leak_1.c:111:5: warning: implicit declaration of function ‘test_fail_message’ [-Wimplicit-function-declaration]
+     test_fail_message(NULL, file, line, "ptr", s, "NULL", "!=", "%p", p);
+     ^~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_1/openssl_leak_1.c: In function ‘ASN1_STRING_set’:
+./benchmarks/openssl/leak_1/openssl_leak_1.c:133:19: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+             len = strlen(data);
+                   ^~~~~~
+./benchmarks/openssl/leak_1/openssl_leak_1.c:133:19: warning: incompatible implicit declaration of built-in function ‘strlen’
+./benchmarks/openssl/leak_1/openssl_leak_1.c:133:19: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/openssl/leak_1/openssl_leak_1.c:137:21: warning: implicit declaration of function ‘OPENSSL_realloc’; did you mean ‘OPENSSL_malloc’? [-Wimplicit-function-declaration]
+         str->data = OPENSSL_realloc(c, len + 1);
+                     ^~~~~~~~~~~~~~~
+                     OPENSSL_malloc
+./benchmarks/openssl/leak_1/openssl_leak_1.c:137:19: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+         str->data = OPENSSL_realloc(c, len + 1);
+                   ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:145:9: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+         memcpy(str->data, data, len);
+         ^~~~~~
+./benchmarks/openssl/leak_1/openssl_leak_1.c:145:9: warning: incompatible implicit declaration of built-in function ‘memcpy’
+./benchmarks/openssl/leak_1/openssl_leak_1.c:145:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/openssl/leak_1/openssl_leak_1.c: In function ‘asn1_string_set_uint64’:
+./benchmarks/openssl/leak_1/openssl_leak_1.c:158:11: warning: implicit declaration of function ‘asn1_put_uint64’; did you mean ‘asn1_string_set_uint64’? [-Wimplicit-function-declaration]
+     off = asn1_put_uint64(tbuf, r);
+           ^~~~~~~~~~~~~~~
+           asn1_string_set_uint64
+./benchmarks/openssl/leak_1/openssl_leak_1.c: In function ‘asn1_time_from_tm’:
+./benchmarks/openssl/leak_1/openssl_leak_1.c:179:13: warning: implicit declaration of function ‘is_utc’; did you mean ‘putc’? [-Wimplicit-function-declaration]
+         if (is_utc(ts->tm_year))
+             ^~~~~~
+             putc
+./benchmarks/openssl/leak_1/openssl_leak_1.c:191:16: warning: implicit declaration of function ‘ASN1_STRING_new’; did you mean ‘ASN1_STRING_set’? [-Wimplicit-function-declaration]
+         tmps = ASN1_STRING_new(); /* allocation site */
+                ^~~~~~~~~~~~~~~
+                ASN1_STRING_set
+./benchmarks/openssl/leak_1/openssl_leak_1.c:191:14: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+         tmps = ASN1_STRING_new(); /* allocation site */
+              ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:204:24: warning: implicit declaration of function ‘BIO_snprintf’; did you mean ‘vsnprintf’? [-Wimplicit-function-declaration]
+         tmps->length = BIO_snprintf(p, len, "%04d%02d%02d%02d%02d%02dZ",
+                        ^~~~~~~~~~~~
+                        vsnprintf
+./benchmarks/openssl/leak_1/openssl_leak_1.c:217:9: warning: implicit declaration of function ‘ASN1_STRING_free’; did you mean ‘ASN1_STRING_set’? [-Wimplicit-function-declaration]
+         ASN1_STRING_free(tmps);
+         ^~~~~~~~~~~~~~~~
+         ASN1_STRING_set
+./benchmarks/openssl/leak_1/openssl_leak_1.c: In function ‘ASN1_TIME_adj’:
+./benchmarks/openssl/leak_1/openssl_leak_1.c:227:10: warning: implicit declaration of function ‘OPENSSL_gmtime’; did you mean ‘OPENSSL_free’? [-Wimplicit-function-declaration]
+     ts = OPENSSL_gmtime(&t, &data);
+          ^~~~~~~~~~~~~~
+          OPENSSL_free
+./benchmarks/openssl/leak_1/openssl_leak_1.c:227:8: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     ts = OPENSSL_gmtime(&t, &data);
+        ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:232:14: warning: implicit declaration of function ‘OPENSSL_gmtime_adj’; did you mean ‘OPENSSL_memdup’? [-Wimplicit-function-declaration]
+         if (!OPENSSL_gmtime_adj(ts, offset_day, offset_sec))
+              ^~~~~~~~~~~~~~~~~~
+              OPENSSL_memdup
+./benchmarks/openssl/leak_1/openssl_leak_1.c: In function ‘X509_NAME_add_entry_by_NID’:
+./benchmarks/openssl/leak_1/openssl_leak_1.c:249:10: warning: implicit declaration of function ‘X509_NAME_ENTRY_create_by_NID’; did you mean ‘X509_NAME_add_entry_by_NID’? [-Wimplicit-function-declaration]
+     ne = X509_NAME_ENTRY_create_by_NID(NULL, nid, type, bytes, len);
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          X509_NAME_add_entry_by_NID
+./benchmarks/openssl/leak_1/openssl_leak_1.c:249:8: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     ne = X509_NAME_ENTRY_create_by_NID(NULL, nid, type, bytes, len);
+        ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:252:11: warning: implicit declaration of function ‘X509_NAME_add_entry’; did you mean ‘X509_NAME_add_entry_by_NID’? [-Wimplicit-function-declaration]
+     ret = X509_NAME_add_entry(name, ne, loc, set);
+           ^~~~~~~~~~~~~~~~~~~
+           X509_NAME_add_entry_by_NID
+./benchmarks/openssl/leak_1/openssl_leak_1.c:253:5: warning: implicit declaration of function ‘X509_NAME_ENTRY_free’; did you mean ‘X509_NAME_ENTRY’? [-Wimplicit-function-declaration]
+     X509_NAME_ENTRY_free(ne);
+     ^~~~~~~~~~~~~~~~~~~~
+     X509_NAME_ENTRY
+./benchmarks/openssl/leak_1/openssl_leak_1.c: In function ‘OCSP_basic_add1_status’:
+./benchmarks/openssl/leak_1/openssl_leak_1.c:270:19: warning: implicit declaration of function ‘sk_OCSP_SINGLERESP_new_null’ [-Wimplicit-function-declaration]
+                 = sk_OCSP_SINGLERESP_new_null()) == NULL)
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_1/openssl_leak_1.c:270:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+                 = sk_OCSP_SINGLERESP_new_null()) == NULL)
+                 ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:273:27: warning: implicit declaration of function ‘OCSP_CERTID_dup’; did you mean ‘OCSP_RESPID_KEY’? [-Wimplicit-function-declaration]
+     if ((single->certId = OCSP_CERTID_dup(cid)) == NULL)
+                           ^~~~~~~~~~~~~~~
+                           OCSP_RESPID_KEY
+./benchmarks/openssl/leak_1/openssl_leak_1.c:273:25: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     if ((single->certId = OCSP_CERTID_dup(cid)) == NULL)
+                         ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:276:15: warning: implicit declaration of function ‘sk_OCSP_SINGLERESP_push’ [-Wimplicit-function-declaration]
+         if (!(sk_OCSP_SINGLERESP_push(rsp->tbsResponseData.responses, single)))
+               ^~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_1/openssl_leak_1.c:280:5: warning: implicit declaration of function ‘OCSP_SINGLERESP_free’ [-Wimplicit-function-declaration]
+     OCSP_SINGLERESP_free(single);
+     ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_1/openssl_leak_1.c: In function ‘make_dummy_resp’:
+./benchmarks/openssl/leak_1/openssl_leak_1.c:288:26: warning: implicit declaration of function ‘OCSP_BASICRESP_new’ [-Wimplicit-function-declaration]
+     OCSP_BASICRESP *bs = OCSP_BASICRESP_new();     /* allocation site */
+                          ^~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_1/openssl_leak_1.c:288:26: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/openssl/leak_1/openssl_leak_1.c:290:46: warning: implicit declaration of function ‘time’; did you mean ‘die’? [-Wimplicit-function-declaration]
+     ASN1_TIME *thisupd = ASN1_TIME_set(NULL, time(NULL));
+                                              ^~~~
+                                              die
+./benchmarks/openssl/leak_1/openssl_leak_1.c:292:23: warning: implicit declaration of function ‘X509_NAME_new’; did you mean ‘X509_NAME’? [-Wimplicit-function-declaration]
+     X509_NAME *name = X509_NAME_new();                          /* allocation site */
+                       ^~~~~~~~~~~~~
+                       X509_NAME
+./benchmarks/openssl/leak_1/openssl_leak_1.c:292:23: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/openssl/leak_1/openssl_leak_1.c:293:28: warning: implicit declaration of function ‘ASN1_BIT_STRING_new’; did you mean ‘ASN1_BIT_STRING_set’? [-Wimplicit-function-declaration]
+     ASN1_BIT_STRING *key = ASN1_BIT_STRING_new();               /* allocation site */
+                            ^~~~~~~~~~~~~~~~~~~
+                            ASN1_BIT_STRING_set
+./benchmarks/openssl/leak_1/openssl_leak_1.c:293:28: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/openssl/leak_1/openssl_leak_1.c:294:28: warning: implicit declaration of function ‘ASN1_INTEGER_new’; did you mean ‘V_ASN1_INTEGER’? [-Wimplicit-function-declaration]
+     ASN1_INTEGER *serial = ASN1_INTEGER_new();                  /* allocation site */
+                            ^~~~~~~~~~~~~~~~
+                            V_ASN1_INTEGER
+./benchmarks/openssl/leak_1/openssl_leak_1.c:294:28: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/openssl/leak_1/openssl_leak_1.c:301:11: warning: implicit declaration of function ‘OCSP_cert_id_new’ [-Wimplicit-function-declaration]
+     cid = OCSP_cert_id_new(EVP_sha256(), name, key, serial);    /* allocation site */
+           ^~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_1/openssl_leak_1.c:301:28: warning: implicit declaration of function ‘EVP_sha256’; did you mean ‘NID_sha256’? [-Wimplicit-function-declaration]
+     cid = OCSP_cert_id_new(EVP_sha256(), name, key, serial);    /* allocation site */
+                            ^~~~~~~~~~
+                            NID_sha256
+./benchmarks/openssl/leak_1/openssl_leak_1.c:301:9: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+     cid = OCSP_cert_id_new(EVP_sha256(), name, key, serial);    /* allocation site */
+         ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:310:5: warning: implicit declaration of function ‘ASN1_TIME_free’; did you mean ‘ASN1_TIME_set’? [-Wimplicit-function-declaration]
+     ASN1_TIME_free(thisupd);
+     ^~~~~~~~~~~~~~
+     ASN1_TIME_set
+./benchmarks/openssl/leak_1/openssl_leak_1.c:312:5: warning: implicit declaration of function ‘ASN1_BIT_STRING_free’; did you mean ‘ASN1_BIT_STRING_set’? [-Wimplicit-function-declaration]
+     ASN1_BIT_STRING_free(key);
+     ^~~~~~~~~~~~~~~~~~~~
+     ASN1_BIT_STRING_set
+./benchmarks/openssl/leak_1/openssl_leak_1.c:313:5: warning: implicit declaration of function ‘ASN1_INTEGER_free’; did you mean ‘V_ASN1_INTEGER’? [-Wimplicit-function-declaration]
+     ASN1_INTEGER_free(serial);
+     ^~~~~~~~~~~~~~~~~
+     V_ASN1_INTEGER
+./benchmarks/openssl/leak_1/openssl_leak_1.c:314:5: warning: implicit declaration of function ‘OCSP_CERTID_free’; did you mean ‘OCSP_RESPID_KEY’? [-Wimplicit-function-declaration]
+     OCSP_CERTID_free(cid);
+     ^~~~~~~~~~~~~~~~
+     OCSP_RESPID_KEY
+./benchmarks/openssl/leak_1/openssl_leak_1.c:315:5: warning: implicit declaration of function ‘X509_NAME_free’; did you mean ‘X509_NAME’? [-Wimplicit-function-declaration]
+     X509_NAME_free(name);
+     ^~~~~~~~~~~~~~
+     X509_NAME
+./benchmarks/openssl/leak_1/openssl_leak_1.c: In function ‘main’:
+./benchmarks/openssl/leak_1/openssl_leak_1.c:330:23: warning: implicit declaration of function ‘get_cert_and_key’ [-Wimplicit-function-declaration]
+         || !TEST_true(get_cert_and_key(&signer, &key))
+                       ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:105:66: note: in definition of macro ‘TEST_true’
+ # define TEST_true(a)         test_true(__FILE__, __LINE__, #a, (a) != 0)
+                                                                  ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:331:23: warning: implicit declaration of function ‘OCSP_basic_sign’; did you mean ‘OCSP_basic_add1_status’? [-Wimplicit-function-declaration]
+         || !TEST_true(OCSP_basic_sign(bs, signer, key, EVP_sha1(),
+                       ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:105:66: note: in definition of macro ‘TEST_true’
+ # define TEST_true(a)         test_true(__FILE__, __LINE__, #a, (a) != 0)
+                                                                  ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:331:56: warning: implicit declaration of function ‘EVP_sha1’; did you mean ‘OBJ_sha1’? [-Wimplicit-function-declaration]
+         || !TEST_true(OCSP_basic_sign(bs, signer, key, EVP_sha1(),
+                                                        ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:105:66: note: in definition of macro ‘TEST_true’
+ # define TEST_true(a)         test_true(__FILE__, __LINE__, #a, (a) != 0)
+                                                                  ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:334:5: warning: implicit declaration of function ‘OCSP_BASICRESP_free’ [-Wimplicit-function-declaration]
+     OCSP_BASICRESP_free(bs);
+     ^~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_1/openssl_leak_1.c:343:20: warning: implicit declaration of function ‘OCSP_resp_get0_signer’ [-Wimplicit-function-declaration]
+     if (!TEST_true(OCSP_resp_get0_signer(bs, &tmp, NULL))
+                    ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:105:66: note: in definition of macro ‘TEST_true’
+ # define TEST_true(a)         test_true(__FILE__, __LINE__, #a, (a) != 0)
+                                                                  ^
+./benchmarks/openssl/leak_1/openssl_leak_1.c:344:13: warning: implicit declaration of function ‘TEST_int_eq’; did you mean ‘TEST_ptr’? [-Wimplicit-function-declaration]
+         || !TEST_int_eq(X509_cmp(tmp, signer), 0))
+             ^~~~~~~~~~~
+             TEST_ptr
+./benchmarks/openssl/leak_1/openssl_leak_1.c:344:25: warning: implicit declaration of function ‘X509_cmp’; did you mean ‘X509_NAME’? [-Wimplicit-function-declaration]
+         || !TEST_int_eq(X509_cmp(tmp, signer), 0))
+                         ^~~~~~~~
+                         X509_NAME
+./benchmarks/openssl/leak_1/openssl_leak_1.c:347:5: warning: implicit declaration of function ‘X509_free’; did you mean ‘X509_NAME’? [-Wimplicit-function-declaration]
+     X509_free(signer);
+     ^~~~~~~~~
+     X509_NAME
+./benchmarks/openssl/leak_1/openssl_leak_1.c:348:5: warning: implicit declaration of function ‘EVP_PKEY_free’ [-Wimplicit-function-declaration]
+     EVP_PKEY_free(key);
+     ^~~~~~~~~~~~~
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+--------GIMPLE Cond -------
+succs:= 2
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 2
+succs:= 2
+--------GIMPLE Cond -------
+--------GIMPLE Cond -------
+succs:= 2
+succs:= 3
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 5
+--------GIMPLE Cond -------
+succs:= 5
+succs:= 6
+--------GIMPLE Cond -------
+succs:= 7
+succs:= 6
+succs:= 7
+--------GIMPLE Cond -------
+succs:= 9
+succs:= 3
+succs:= 9
+--------GIMPLE Cond -------
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 3
+--------GIMPLE Cond -------
+succs:= 3
+succs:= 4
+--------GIMPLE Cond -------
+--------GIMPLE Cond -------
+succs:= 5
+succs:= 7
+--------GIMPLE Cond -------
+succs:= 7
+succs:= 9
+--------GIMPLE Cond -------
+succs:= 10
+--------GIMPLE Cond -------
+succs:= 11
+succs:= 11
+succs:= 10
+--------GIMPLE Cond -------
+succs:= 14
+succs:= 9
+succs:= 14
+succs:= 2
+succs:= 4
+--------GIMPLE Cond -------
+succs:= 2
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 4
+--------GIMPLE Cond -------
+succs:= 5
+--------GIMPLE Cond -------
+succs:= 6
+--------GIMPLE Cond -------
+succs:= 7
+--------GIMPLE Cond -------
+succs:= 8
+--------GIMPLE Cond -------
+succs:= 9
+--------GIMPLE Cond -------
+succs:= 10
+--------GIMPLE Cond -------
+succs:= 10
+succs:= 11
+--------GIMPLE Cond -------
+succs:= 12
+--------GIMPLE Cond -------
+succs:= 11
+succs:= 12
+succs:= 13
+succs:= 13
+--------GIMPLE Cond -------
+succs:= 15
+succs:= 4
+succs:= 5
+succs:= 6
+succs:= 7
+succs:= 8
+succs:= 9
+succs:= 15
+--------GIMPLE Cond -------
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 3
+--------GIMPLE Cond -------
+succs:= 4
+--------GIMPLE Cond -------
+succs:= 6
+--------GIMPLE Cond -------
+succs:= 7
+--------GIMPLE Cond -------
+succs:= 9
+--------GIMPLE Cond -------
+succs:= 10
+succs:= 2
+succs:= 3
+succs:= 4
+succs:= 6
+succs:= 7
+succs:= 9
+succs:= 10
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+===============The second stage : Mapping stmt=================
+# .MEM_10 = VDEF <.MEM_9(D)>
+test_fail_message (0B, file_5(D), line_6(D), "ptr", s_7(D), "NULL", "!=", "%p", p_3(D));
+# .MEM_10 = VDEF <.MEM_9(D)>
+test_fail_message (0B, file_5(D), line_6(D), "bool", s_7(D), "true", "==", "false");
+# VUSE <.MEM_26(D)>
+_1 = strlen (_data_18(D));
+# .MEM_27 = VDEF <.MEM_26(D)>
+_5 = OPENSSL_realloc (c_23, _4);
+# .MEM_31 = VDEF <.MEM_30>
+memcpy (_10, _data_18(D), _9);
+# .MEM_22 = VDEF <.MEM_21(D)>
+_1 = OPENSSL_gmtime (&t, &data);
+# .MEM_23 = VDEF <.MEM_22>
+_6 = OPENSSL_gmtime_adj (ts_12, offset_day_13(D), offset_sec_14(D));
+# .MEM_59 = VDEF <.MEM_19>
+_27 = is_utc (_26);
+# .MEM_60 = VDEF <.MEM_59>
+_30 = ASN1_STRING_new ();
+# .MEM_61 = VDEF <.MEM_57>
+_34 = ASN1_STRING_set (tmps_33, 0B, 20);
+# .MEM_65 = VDEF <.MEM_62>
+_45 = BIO_snprintf (p_36, 20, "%04d%02d%02d%02d%02d%02dZ", _44, _42, _40, _39, _38, _37);
+# .MEM_63 = VDEF <.MEM_62>
+_54 = BIO_snprintf (p_36, 20, "%02d%02d%02d%02d%02d%02dZ", _53, _51, _49, _48, _47, _46);
+# .MEM_67 = VDEF <.MEM_61>
+ASN1_STRING_free (tmps_55);
+# .MEM_56 = VDEF <.MEM_55>
+keybytes[0] = 7;
+# .MEM_57 = VDEF <.MEM_56>
+_1 = OCSP_BASICRESP_new ();
+# .MEM_58 = VDEF <.MEM_57>
+_3 = time (0B);
+# .MEM_106 = VDEF <.MEM_58>
+_89 = ASN1_TIME_adj (0B, _4, 0, 0);
+# .MEM_60 = VDEF <.MEM_106>
+_5 = time (0B);
+# .MEM_108 = VDEF <.MEM_60>
+_88 = ASN1_TIME_adj (0B, _7, 0, 0);
+# .MEM_62 = VDEF <.MEM_108>
+_8 = X509_NAME_new ();
+# .MEM_63 = VDEF <.MEM_62>
+_10 = ASN1_BIT_STRING_new ();
+# .MEM_64 = VDEF <.MEM_63>
+_12 = ASN1_INTEGER_new ();
+# .MEM_110 = VDEF <.MEM_64>
+_83 = X509_NAME_ENTRY_create_by_NID (0B, 13, 4097, &namestr, -1);
+# .MEM_111 = VDEF <.MEM_110>
+ret_86 = X509_NAME_add_entry (name_42, ne_85, -1, 1);
+# .MEM_112 = VDEF <.MEM_111>
+X509_NAME_ENTRY_free (ne_85);
+# .MEM_114 = VDEF <.MEM_102>
+_90 = ASN1_STRING_set (key_44, &keybytes, 1);
+# .MEM_67 = VDEF <.MEM_114>
+_16 = EVP_sha256 ();
+# .MEM_68 = VDEF <.MEM_67>
+_17 = OCSP_cert_id_new (_16, name_42, key_44, serial_46);
+# .MEM_69 = VDEF <.MEM_68>
+_19 = test_ptr ("./benchmarks/openssl/leak_1/openssl_leak_1.c", 302, "bs", bs_34);
+# .MEM_70 = VDEF <.MEM_69>
+_20 = test_ptr ("./benchmarks/openssl/leak_1/openssl_leak_1.c", 303, "thisupd", thisupd_37);
+# .MEM_71 = VDEF <.MEM_70>
+_21 = test_ptr ("./benchmarks/openssl/leak_1/openssl_leak_1.c", 304, "nextupd", nextupd_40);
+# .MEM_72 = VDEF <.MEM_71>
+_22 = test_ptr ("./benchmarks/openssl/leak_1/openssl_leak_1.c", 305, "cid", cid_51);
+# .MEM_116 = VDEF <.MEM_72>
+_92 = sk_OCSP_SINGLERESP_new_null ();
+# .MEM_118 = VDEF <.MEM_103>
+_96 = OCSP_CERTID_dup (cid_51);
+# .MEM_120 = VDEF <.MEM_119>
+_101 = sk_OCSP_SINGLERESP_push (_100, 0B);
+# .MEM_121 = VDEF <.MEM_104>
+OCSP_SINGLERESP_free (0B);
+# .MEM_74 = VDEF <.MEM_105>
+_26 = test_true ("./benchmarks/openssl/leak_1/openssl_leak_1.c", 308, "OCSP_basic_add1_status(bs, cid, V_OCSP_CERTSTATUS_UNKNOWN, 0, NULL, thisupd, nextupd)", _25);
+# .MEM_75 = VDEF <.MEM_74>
+ASN1_TIME_free (thisupd_37);
+# .MEM_76 = VDEF <.MEM_75>
+ASN1_TIME_free (nextupd_40);
+# .MEM_77 = VDEF <.MEM_76>
+ASN1_BIT_STRING_free (key_44);
+# .MEM_78 = VDEF <.MEM_77>
+ASN1_INTEGER_free (serial_46);
+# .MEM_79 = VDEF <.MEM_78>
+OCSP_CERTID_free (cid_51);
+# .MEM_80 = VDEF <.MEM_79>
+X509_NAME_free (name_42);
+# .MEM_51 = VDEF <.MEM_50>
+bs_37 = make_dummy_resp ();
+# .MEM_52 = VDEF <.MEM_51>
+_1 = test_ptr ("./benchmarks/openssl/leak_1/openssl_leak_1.c", 329, "bs", bs_37);
+# .MEM_53 = VDEF <.MEM_52>
+_2 = get_cert_and_key (&signer, &key);
+# .MEM_54 = VDEF <.MEM_53>
+_5 = test_true ("./benchmarks/openssl/leak_1/openssl_leak_1.c", 330, "get_cert_and_key(&signer, &key)", _4);
+# .MEM_55 = VDEF <.MEM_54>
+_6 = EVP_sha1 ();
+# .MEM_56 = VDEF <.MEM_55>
+_9 = OCSP_basic_sign (bs_37, _8, _7, _6, 0B, 1);
+# .MEM_57 = VDEF <.MEM_56>
+_12 = test_true ("./benchmarks/openssl/leak_1/openssl_leak_1.c", 332, "OCSP_basic_sign(bs, signer, key, EVP_sha1(), NULL, OCSP_NOCERTS)", _11);
+# .MEM_58 = VDEF <.MEM_57>
+OCSP_BASICRESP_free (bs_37);
+# .MEM_59 = VDEF <.MEM_58>
+bs_46 = make_dummy_resp ();
+# .MEM_61 = VDEF <.MEM_60>
+_13 = test_ptr ("./benchmarks/openssl/leak_1/openssl_leak_1.c", 339, "bs", bs_46);
+# .MEM_62 = VDEF <.MEM_61>
+_14 = EVP_sha1 ();
+# .MEM_63 = VDEF <.MEM_62>
+_17 = OCSP_basic_sign (bs_46, _16, _15, _14, 0B, 0);
+# .MEM_64 = VDEF <.MEM_63>
+_20 = test_true ("./benchmarks/openssl/leak_1/openssl_leak_1.c", 341, "OCSP_basic_sign(bs, signer, key, EVP_sha1(), NULL, 0)", _19);
+# .MEM_65 = VDEF <.MEM_64>
+_21 = OCSP_resp_get0_signer (bs_46, &tmp, 0B);
+# .MEM_66 = VDEF <.MEM_65>
+_24 = test_true ("./benchmarks/openssl/leak_1/openssl_leak_1.c", 343, "OCSP_resp_get0_signer(bs, &tmp, NULL)", _23);
+# .MEM_67 = VDEF <.MEM_66>
+_27 = X509_cmp (_26, _25);
+# .MEM_68 = VDEF <.MEM_67>
+_28 = TEST_int_eq (_27, 0);
+# .MEM_69 = VDEF <.MEM_68>
+OCSP_BASICRESP_free (bs_46);
+# .MEM_70 = VDEF <.MEM_69>
+X509_free (_29);
+# .MEM_71 = VDEF <.MEM_70>
+EVP_PKEY_free (_30);
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+lto1: internal compiler error: Segmentation fault
+unrecognized DWARF version in .debug_info at 6
+0x7f1d7f837700 gimple_code
+	/usr/lib/gcc/x86_64-linux-gnu/7/plugin/include/gimple.h:1683
+0x7f1d7f844c1b Varnew_search_imm_use(gimple_array*, gimple*, tree_node*, tree_node*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:852
+0x7f1d7f846ef8 new_search_imm_use(gimple_array*, tree_node*, tree_node*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:1831
+0x7f1d7f846d59 new_search_imm_use(gimple_array*, tree_node*, tree_node*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:1773
+0x7f1d7f846d59 new_search_imm_use(gimple_array*, tree_node*, tree_node*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:1773
+0x7f1d7f847e1b new_search_imm_use(gimple_array*, tree_node*, tree_node*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:2209
+0x7f1d7f846d59 new_search_imm_use(gimple_array*, tree_node*, tree_node*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:1773
+0x7f1d7f846d59 new_search_imm_use(gimple_array*, tree_node*, tree_node*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:1773
+0x7f1d7f847e1b new_search_imm_use(gimple_array*, tree_node*, tree_node*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:2209
+0x7f1d7f846d59 new_search_imm_use(gimple_array*, tree_node*, tree_node*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:1773
+0x7f1d7f846d59 new_search_imm_use(gimple_array*, tree_node*, tree_node*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:1773
+0x7f1d7f8485d5 PointerConstraint(ptb*, ptb*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:2447
+0x7f1d7f84f3d6 detect()
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:5291
+0x7f1d7f84fcdc execute_detect
+	/root/x21321219/new_gccplugin/Compiler/gcc_plugin.c:108
+0x7f1d7f84fd52 execute
+	/root/x21321219/new_gccplugin/Compiler/gcc_plugin.c:129
+Please submit a full bug report,
+with preprocessed source if appropriate.
+Please include the complete backtrace with any bug report.
+See <file:///usr/share/doc/gcc-7/README.Bugs> for instructions.
+lto-wrapper: fatal error: gcc-7 returned 1 exit status
+compilation terminated.
+/usr/bin/ld: error: lto-wrapper failed
+collect2: error: ld returned 1 exit status

@@ -1,0 +1,2078 @@
+./benchmarks/openssl/double_free_2/openssl_df_2.c: In function ‘tls_construct_cke_rsa’:
+./benchmarks/openssl/double_free_2/openssl_df_2.c:75:9: warning: implicit declaration of function ‘RAND_bytes’; did you mean ‘RAND_MAX’? [-Wimplicit-function-declaration]
+     if (RAND_bytes(pms + 2, (int)(pmslen - 2)) <= 0) {
+         ^~~~~~~~~~
+         RAND_MAX
+./benchmarks/openssl/double_free_2/openssl_df_2.c:83:10: warning: implicit declaration of function ‘ssl_log_rsa_client_key_exchange’ [-Wimplicit-function-declaration]
+     if (!ssl_log_rsa_client_key_exchange(s, encdata, enclen, pms, pmslen))
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssl/double_free_2/openssl_df_2.c:9:0:
+./benchmarks/openssl/double_free_2/openssl_df_2.c: In function ‘main’:
+./benchmarks/openssl/double_free_2/../stdio.h:144:28: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘unsigned char *’ [-Wformat=]
+ #define __USE(exp) {printf("%d\n", exp);}
+                            ^
+./benchmarks/openssl/double_free_2/openssl_df_2.c:116:5: note: in expansion of macro ‘__USE’
+     __USE(s.s3->tmp.pms);
+     ^~~~~
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+--------GIMPLE Cond -------
+succs:= 2
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 4
+--------GIMPLE Cond -------
+succs:= 5
+--------GIMPLE Cond -------
+succs:= 6
+--------GIMPLE Cond -------
+succs:= 6
+succs:= 7
+succs:= 5
+succs:= 7
+--------GIMPLE Cond -------
+succs:= 9
+succs:= 9
+--------GIMPLE Cond -------
+succs:= 11
+succs:= 11
+--------GIMPLE Cond -------
+succs:= 13
+succs:= 4
+succs:= 13
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 1 
+pointer ptable is 1 
+===============The second stage : Mapping stmt=================
+# .MEM_52 = VDEF <.MEM_16(D)>
+s3_22 = malloc (16);
+# .MEM_56 = VDEF <.MEM_48>
+pms_29 = malloc (48);
+# .MEM_59 = VDEF <.MEM_58>
+_36 = RAND_bytes (_35, 46);
+# .MEM_62 = VDEF <.MEM_61>
+_40 = ssl_log_rsa_client_key_exchange (&s, 0B, enclen_39(D), pms_29, 48);
+# .MEM_19 = VDEF <.MEM_51>
+_13 = __printf_chk (1, "%d\n", _4);
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 5 level :0========  [0m
+[40;44m =======print_function_type 2  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:__printf_chk========= [0m
+[40;33m =======POP node_fun stack:__printf_chk========= [0m
+[40;42m =======pre add _ fucntion:ssl_log_rsa_client_key_exchange========= [0m
+[40;33m =======POP node_fun stack:ssl_log_rsa_client_key_exchange========= [0m
+[40;42m =======pre add _ fucntion:RAND_bytes========= [0m
+[40;33m =======POP node_fun stack:RAND_bytes========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f16a1ef4e10
+    type <pointer_type 0x7f16a1a1f888
+        type <record_type 0x7f16a1a1f7e0 SSL3_STATE TI
+            size <integer_cst 0x7f16a1eecc30 constant 128>
+            unit size <integer_cst 0x7f16a1eecc48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f16a1a16a80 fields <field_decl 0x7f16a1a18390 tmp> context <translation_unit_decl 0x7f16a1ef7168 ./benchmarks/openssl/double_free_2/openssl_df_2.c>
+            pointer_to_this <pointer_type 0x7f16a1a1f888> chain <type_decl 0x7f16a1a18428 D.3991>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f16a1a2c000 s3>
+    def_stmt s3_22 = malloc (16);
+    version 22
+    ptr-info 0x7f16a1a19d20>
+# .MEM_52 = VDEF <.MEM_16(D)>
+s3_22 = malloc (16);
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_53 = VDEF <.MEM_52>
+s.s3 = s3_22;
+bb index := 3
+# VUSE <.MEM_21>
+return _5;
+In function ‘main’:
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 15
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_53 = VDEF <.MEM_52>
+s.s3 = s3_22;
+bb index := 3
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 15
+
+======================================================================
+s.s3 = s3_22;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:42:11: warning: use location
+     s->s3 = s3;
+           ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_53 = VDEF <.MEM_52>
+s.s3 = s3_22;
+bb index := 3
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 15
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_53 = VDEF <.MEM_52>
+s.s3 = s3_22;
+bb index := 3
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 15
+
+======================================================================
+s.s3 = s3_22;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:42:11: warning: use location
+_40 = ssl_log_rsa_client_key_exchange (&s, 0B, enclen_39(D), pms_29, 48);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:83:10: warning: use location
+     if (!ssl_log_rsa_client_key_exchange(s, encdata, enclen, pms, pmslen))
+          ^
+this stmt is child function---ssl_log_rsa_client_key_exchange-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f16a1ef4e10
+    type <pointer_type 0x7f16a1a1f888
+        type <record_type 0x7f16a1a1f7e0 SSL3_STATE TI
+            size <integer_cst 0x7f16a1eecc30 constant 128>
+            unit size <integer_cst 0x7f16a1eecc48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f16a1a16a80 fields <field_decl 0x7f16a1a18390 tmp> context <translation_unit_decl 0x7f16a1ef7168 ./benchmarks/openssl/double_free_2/openssl_df_2.c>
+            pointer_to_this <pointer_type 0x7f16a1a1f888> chain <type_decl 0x7f16a1a18428 D.3991>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f16a1a2c000 s3>
+    def_stmt s3_22 = malloc (16);
+    version 22
+    ptr-info 0x7f16a1a19d20>
+trace fucntion name:ssl_log_rsa_client_key_exchange 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_40 = ssl_log_rsa_client_key_exchange (&s, 0B, enclen_39(D), pms_29, 48);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:83:10: warning: use location
+this stmt is child function---ssl_log_rsa_client_key_exchange-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f16a1ef4e10
+    type <pointer_type 0x7f16a1a1f888
+        type <record_type 0x7f16a1a1f7e0 SSL3_STATE TI
+            size <integer_cst 0x7f16a1eecc30 constant 128>
+            unit size <integer_cst 0x7f16a1eecc48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f16a1a16a80 fields <field_decl 0x7f16a1a18390 tmp> context <translation_unit_decl 0x7f16a1ef7168 ./benchmarks/openssl/double_free_2/openssl_df_2.c>
+            pointer_to_this <pointer_type 0x7f16a1a1f888> chain <type_decl 0x7f16a1a18428 D.3991>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f16a1a2c000 s3>
+    def_stmt s3_22 = malloc (16);
+    version 22
+    ptr-info 0x7f16a1a19d20>
+trace fucntion name:ssl_log_rsa_client_key_exchange 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_41 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+_42 = _41->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: use location
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: use location
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+_25 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+_26 = _25->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: use location
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: use location
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find ================== 
+_27 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:104:6: warning: use location
+     s->s3->tmp.pms = NULL;
+      ^
+_27->tmp.pms = 0B;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:104:20: warning: use location
+     s->s3->tmp.pms = NULL;
+                    ^
+_3 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:116:5: warning: use location
+     __USE(s.s3->tmp.pms);
+     ^
+_4 = _3->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:116:5: warning: use location
+_13 = __printf_chk (1, "%d\n", _4);
+this stmt is child function---__printf_chk-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f16a1ef4e10
+    type <pointer_type 0x7f16a1a1f888
+        type <record_type 0x7f16a1a1f7e0 SSL3_STATE TI
+            size <integer_cst 0x7f16a1eecc30 constant 128>
+            unit size <integer_cst 0x7f16a1eecc48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f16a1a16a80 fields <field_decl 0x7f16a1a18390 tmp> context <translation_unit_decl 0x7f16a1ef7168 ./benchmarks/openssl/double_free_2/openssl_df_2.c>
+            pointer_to_this <pointer_type 0x7f16a1a1f888> chain <type_decl 0x7f16a1a18428 D.3991>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f16a1a2c000 s3>
+    def_stmt s3_22 = malloc (16);
+    version 22
+    ptr-info 0x7f16a1a19d20>
+trace fucntion name:__printf_chk 
+
+ ================== trace ================== 
+trace fucntion free:2 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_14>
+_44 = s.s3;
+bb index := 13
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 13 ,possiable got to succ := 15
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_14>
+_44 = s.s3;
+bb index := 13
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 13 ,possiable got to succ := 15
+
+======================================================================
+_44 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:50:23: warning: use location
+     if (s == NULL || s->s3 == NULL)
+                       ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (_44 == 0B)
+bb index := 13
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 13 ,possiable got to succ := 15
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (_44 == 0B)
+bb index := 13
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 13 ,possiable got to succ := 15
+
+======================================================================
+if (_44 == 0B)
+./benchmarks/openssl/double_free_2/openssl_df_2.c:50:19: warning: use location
+     if (s == NULL || s->s3 == NULL)
+                   ^
+if (_44 == 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/double_free_2/openssl_df_2.c:50:19: warning: use location
+Cond in fucntion main basic block 13
+ ================== possible direct basic block ================= 
+from main basic block 15
+ ================== possible direct basic block ================= 
+from main basic block 14
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_14>
+_45 = s.s3;
+bb index := 14
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 15
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_14>
+_45 = s.s3;
+bb index := 14
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 15
+
+======================================================================
+_45 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_14>
+_46 = _45->tmp.pms;
+bb index := 14
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 15
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_14>
+_46 = _45->tmp.pms;
+bb index := 14
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 15
+
+======================================================================
+_46 = _45->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_69 = VDEF <.MEM_14>
+free (_46);
+bb index := 14
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 15
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_69 = VDEF <.MEM_14>
+free (_46);
+bb index := 14
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 15
+
+======================================================================
+free (_46);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (_46);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+[40;32m    HAS FREE STMT count:3 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_69>
+_47 = s.s3;
+bb index := 14
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 15
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_69>
+_47 = s.s3;
+bb index := 14
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 15
+
+======================================================================
+_47 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:55:5: warning: use location
+     OPENSSL_clear_free(s->s3, sizeof(*s->s3));
+     ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_70 = VDEF <.MEM_69>
+free (_47);
+bb index := 14
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 15
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_70 = VDEF <.MEM_69>
+free (_47);
+bb index := 14
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 15
+
+======================================================================
+free (_47);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:55:5: warning: use location
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (_47);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:55:5: warning: use location
+[40;32m    HAS FREE STMT count:4 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (s3_22 == 0B)
+bb index := 2
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 15
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (s3_22 == 0B)
+bb index := 2
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 15
+
+======================================================================
+if (s3_22 == 0B)
+./benchmarks/openssl/double_free_2/openssl_df_2.c:40:8: warning: use location
+     if ((s3 = OPENSSL_zalloc(sizeof(*s3))) == NULL)
+        ^
+if (s3_22 == 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/double_free_2/openssl_df_2.c:40:8: warning: use location
+Cond in fucntion main basic block 2
+ ================== possible direct basic block ================= 
+from main basic block 4
+ ================== possible direct basic block ================= 
+from main basic block 3
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_52 = VDEF <.MEM_16(D)>
+s3_22 = malloc (16);
+bb index := 2
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 15
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_52 = VDEF <.MEM_16(D)>
+s3_22 = malloc (16);
+bb index := 2
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 15
+
+======================================================================
+s3_22 = malloc (16);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:40:8: warning: use location
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f16a1ef4e10
+    type <pointer_type 0x7f16a1a1f888
+        type <record_type 0x7f16a1a1f7e0 SSL3_STATE TI
+            size <integer_cst 0x7f16a1eecc30 constant 128>
+            unit size <integer_cst 0x7f16a1eecc48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f16a1a16a80 fields <field_decl 0x7f16a1a18390 tmp> context <translation_unit_decl 0x7f16a1ef7168 ./benchmarks/openssl/double_free_2/openssl_df_2.c>
+            pointer_to_this <pointer_type 0x7f16a1a1f888> chain <type_decl 0x7f16a1a18428 D.3991>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f16a1a2c000 s3>
+    def_stmt s3_22 = malloc (16);
+    version 22
+    ptr-info 0x7f16a1a19d20>
+trace fucntion name:malloc 
+
+ ================== trace ================== 
+trace fucntion free:4 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f16a1ef4e10
+    type <pointer_type 0x7f16a1a1f888
+        type <record_type 0x7f16a1a1f7e0 SSL3_STATE TI
+            size <integer_cst 0x7f16a1eecc30 constant 128>
+            unit size <integer_cst 0x7f16a1eecc48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f16a1a16a80 fields <field_decl 0x7f16a1a18390 tmp> context <translation_unit_decl 0x7f16a1ef7168 ./benchmarks/openssl/double_free_2/openssl_df_2.c>
+            pointer_to_this <pointer_type 0x7f16a1a1f888> chain <type_decl 0x7f16a1a18428 D.3991>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f16a1a2c000 s3>
+    def_stmt s3_22 = malloc (16);
+    version 22
+    ptr-info 0x7f16a1a19d20>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_69 = VDEF <.MEM_14>
+free (_46);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_70 = VDEF <.MEM_69>
+free (_47);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:55:5: warning: use location
+     OPENSSL_clear_free(s->s3, sizeof(*s->s3));
+     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_50>
+_25 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_50>
+_25 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_50>
+_26 = _25->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_50>
+_26 = _25->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_65>
+_27 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:104:6: warning: use location
+     s->s3->tmp.pms = NULL;
+      ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_65>
+_27 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:104:6: warning: use location
+     s->s3->tmp.pms = NULL;
+      ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_65>
+_27 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:104:6: warning: use location
+     s->s3->tmp.pms = NULL;
+      ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_65>
+_27 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:104:6: warning: use location
+     s->s3->tmp.pms = NULL;
+      ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# .MEM_66 = VDEF <.MEM_65>
+_27->tmp.pms = 0B;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:104:20: warning: use location
+     s->s3->tmp.pms = NULL;
+                    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# .MEM_66 = VDEF <.MEM_65>
+_27->tmp.pms = 0B;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:104:20: warning: use location
+     s->s3->tmp.pms = NULL;
+                    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# .MEM_66 = VDEF <.MEM_65>
+_27->tmp.pms = 0B;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:104:20: warning: use location
+     s->s3->tmp.pms = NULL;
+                    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# .MEM_66 = VDEF <.MEM_65>
+_27->tmp.pms = 0B;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:104:20: warning: use location
+     s->s3->tmp.pms = NULL;
+                    ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_51>
+_3 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:116:5: warning: use location
+     __USE(s.s3->tmp.pms);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_51>
+_3 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:116:5: warning: use location
+     __USE(s.s3->tmp.pms);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_51>
+_3 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:116:5: warning: use location
+     __USE(s.s3->tmp.pms);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_51>
+_3 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:116:5: warning: use location
+     __USE(s.s3->tmp.pms);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_51>
+_4 = _3->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:116:5: warning: use location
+     __USE(s.s3->tmp.pms);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_51>
+_4 = _3->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:116:5: warning: use location
+     __USE(s.s3->tmp.pms);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_51>
+_4 = _3->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:116:5: warning: use location
+     __USE(s.s3->tmp.pms);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_51>
+_4 = _3->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:116:5: warning: use location
+     __USE(s.s3->tmp.pms);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# .MEM_19 = VDEF <.MEM_51>
+_13 = __printf_chk (1, "%d\n", _4);
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# .MEM_19 = VDEF <.MEM_51>
+_13 = __printf_chk (1, "%d\n", _4);
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# .MEM_19 = VDEF <.MEM_51>
+_13 = __printf_chk (1, "%d\n", _4);
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# .MEM_19 = VDEF <.MEM_51>
+_13 = __printf_chk (1, "%d\n", _4);
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_14>
+_44 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:50:23: warning: use location
+     if (s == NULL || s->s3 == NULL)
+                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_14>
+_44 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:50:23: warning: use location
+     if (s == NULL || s->s3 == NULL)
+                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_14>
+_44 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:50:23: warning: use location
+     if (s == NULL || s->s3 == NULL)
+                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_14>
+_44 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:50:23: warning: use location
+     if (s == NULL || s->s3 == NULL)
+                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+if (_44 == 0B)
+./benchmarks/openssl/double_free_2/openssl_df_2.c:50:19: warning: use location
+     if (s == NULL || s->s3 == NULL)
+                   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+if (_44 == 0B)
+./benchmarks/openssl/double_free_2/openssl_df_2.c:50:19: warning: use location
+     if (s == NULL || s->s3 == NULL)
+                   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+if (_44 == 0B)
+./benchmarks/openssl/double_free_2/openssl_df_2.c:50:19: warning: use location
+     if (s == NULL || s->s3 == NULL)
+                   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+if (_44 == 0B)
+./benchmarks/openssl/double_free_2/openssl_df_2.c:50:19: warning: use location
+     if (s == NULL || s->s3 == NULL)
+                   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_14>
+_45 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_14>
+_45 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_14>
+_45 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_14>
+_45 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_14>
+_46 = _45->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_14>
+_46 = _45->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_14>
+_46 = _45->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_14>
+_46 = _45->tmp.pms;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_69>
+_47 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:55:5: warning: use location
+     OPENSSL_clear_free(s->s3, sizeof(*s->s3));
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_69>
+_47 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:55:5: warning: use location
+     OPENSSL_clear_free(s->s3, sizeof(*s->s3));
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_69 = VDEF <.MEM_14>
+free (_46);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+# VUSE <.MEM_69>
+_47 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:55:5: warning: use location
+     OPENSSL_clear_free(s->s3, sizeof(*s->s3));
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+# VUSE <.MEM_69>
+_47 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:55:5: warning: use location
+     OPENSSL_clear_free(s->s3, sizeof(*s->s3));
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+# VUSE <.MEM_69>
+_47 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:55:5: warning: use location
+     OPENSSL_clear_free(s->s3, sizeof(*s->s3));
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_69 = VDEF <.MEM_14>
+free (_46);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: Use after free error!: free location 
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+# VUSE <.MEM_69>
+_47 = s.s3;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:55:5: warning: use location
+     OPENSSL_clear_free(s->s3, sizeof(*s->s3));
+     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m  	possible double free :4 [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f16a1a2fbd0
+    type <pointer_type 0x7f16a1a16930
+        type <integer_type 0x7f16a1f00348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f16a1eeccd8 constant 8>
+            unit size <integer_cst 0x7f16a1eeccf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f16a1f003f0 precision 8 min <integer_cst 0x7f16a1eecd08 0> max <integer_cst 0x7f16a1eecca8 255>
+            pointer_to_this <pointer_type 0x7f16a1a16930>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f16a1a2cc60 pms>
+    def_stmt pms_29 = malloc (48);
+    version 29
+    ptr-info 0x7f16a1a19d80>
+# .MEM_56 = VDEF <.MEM_48>
+pms_29 = malloc (48);
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_40 = ssl_log_rsa_client_key_exchange (&s, 0B, enclen_39(D), pms_29, 48);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:83:10: warning: use location
+     if (!ssl_log_rsa_client_key_exchange(s, encdata, enclen, pms, pmslen))
+          ^
+this stmt is child function---ssl_log_rsa_client_key_exchange-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f16a1a2fbd0
+    type <pointer_type 0x7f16a1a16930
+        type <integer_type 0x7f16a1f00348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f16a1eeccd8 constant 8>
+            unit size <integer_cst 0x7f16a1eeccf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f16a1f003f0 precision 8 min <integer_cst 0x7f16a1eecd08 0> max <integer_cst 0x7f16a1eecca8 255>
+            pointer_to_this <pointer_type 0x7f16a1a16930>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f16a1a2cc60 pms>
+    def_stmt pms_29 = malloc (48);
+    version 29
+    ptr-info 0x7f16a1a19d80>
+trace fucntion name:ssl_log_rsa_client_key_exchange 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_40 == 0)
+./benchmarks/openssl/double_free_2/openssl_df_2.c:83:8: warning: use location
+     if (!ssl_log_rsa_client_key_exchange(s, encdata, enclen, pms, pmslen))
+        ^
+if (_40 == 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/double_free_2/openssl_df_2.c:83:8: warning: use location
+Cond in fucntion main basic block 7
+ ================== possible direct basic block ================= 
+from main basic block 8
+ ================== possible direct basic block ================= 
+from main basic block 9
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_37->tmp.pms = pms_29;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:79:20: warning: use location
+     s->s3->tmp.pms = pms;
+                    ^
+_37->tmp.pms = pms_29;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:79:20: warning: use location
+MEM[(unsigned char *)pms_29 + 1B] = _34;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:73:12: warning: use location
+     pms[1] = s->client_version & 0xff;
+            ^
+MEM[(unsigned char *)pms_29 + 1B] = _34;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:73:12: warning: use location
+*pms_29 = _32;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:72:12: warning: use location
+     pms[0] = s->client_version >> 8;
+            ^
+*pms_29 = _32;
+./benchmarks/openssl/double_free_2/openssl_df_2.c:72:12: warning: use location
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (pms_29 == 0B)
+bb index := 5
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 5 ,possiable got to succ := 15
+
+======================================================================
+if (pms_29 == 0B)
+./benchmarks/openssl/double_free_2/openssl_df_2.c:68:8: warning: use location
+     if (pms == NULL) {
+        ^
+if (pms_29 == 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/double_free_2/openssl_df_2.c:68:8: warning: use location
+Cond in fucntion main basic block 5
+ ================== possible direct basic block ================= 
+from main basic block 9
+ ================== possible direct basic block ================= 
+from main basic block 6
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_56 = VDEF <.MEM_48>
+pms_29 = malloc (48);
+bb index := 5
+# VUSE <.MEM_21>
+return _5;
+lto1: warning: use location
+beacuse in succ := 15 have return or exit
+gimple stmt in succ := 5 ,possiable got to succ := 15
+
+======================================================================
+pms_29 = malloc (48);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:67:9: warning: use location
+     pms = OPENSSL_malloc(pmslen);       /* allocation site */
+         ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f16a1a2fbd0
+    type <pointer_type 0x7f16a1a16930
+        type <integer_type 0x7f16a1f00348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f16a1eeccd8 constant 8>
+            unit size <integer_cst 0x7f16a1eeccf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f16a1f003f0 precision 8 min <integer_cst 0x7f16a1eecd08 0> max <integer_cst 0x7f16a1eecca8 255>
+            pointer_to_this <pointer_type 0x7f16a1a16930>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f16a1a2cc60 pms>
+    def_stmt pms_29 = malloc (48);
+    version 29
+    ptr-info 0x7f16a1a19d80>
+trace fucntion name:malloc 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f16a1a2fbd0
+    type <pointer_type 0x7f16a1a16930
+        type <integer_type 0x7f16a1f00348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f16a1eeccd8 constant 8>
+            unit size <integer_cst 0x7f16a1eeccf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f16a1f003f0 precision 8 min <integer_cst 0x7f16a1eecd08 0> max <integer_cst 0x7f16a1eecca8 255>
+            pointer_to_this <pointer_type 0x7f16a1a16930>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    var <var_decl 0x7f16a1a2cc60 pms>
+    def_stmt pms_29 = malloc (48);
+    version 29
+    ptr-info 0x7f16a1a19d80>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_69 = VDEF <.MEM_14>
+free (_46);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_70 = VDEF <.MEM_69>
+free (_47);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:55:5: warning: use location
+     OPENSSL_clear_free(s->s3, sizeof(*s->s3));
+     ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f16a1a19b88 type <integer_type 0x7f16a1f007e0 long unsigned int> constant 16>
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f16a1a19c90 type <integer_type 0x7f16a1a16888 size_t> constant 48>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f16a1a2fd80
+    type <pointer_type 0x7f16a1a16930
+        type <integer_type 0x7f16a1f00348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f16a1eeccd8 constant 8>
+            unit size <integer_cst 0x7f16a1eeccf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f16a1f003f0 precision 8 min <integer_cst 0x7f16a1eecd08 0> max <integer_cst 0x7f16a1eecca8 255>
+            pointer_to_this <pointer_type 0x7f16a1a16930>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _35 = pms_29 + 2;
+    version 35
+    ptr-info 0x7f16a1a19d98>
+_35 = pms_29 + 2;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_36 = RAND_bytes (_35, 46);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:75:9: warning: use location
+     if (RAND_bytes(pms + 2, (int)(pmslen - 2)) <= 0) {
+         ^
+this stmt is child function---RAND_bytes-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f16a1a2fd80
+    type <pointer_type 0x7f16a1a16930
+        type <integer_type 0x7f16a1f00348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f16a1eeccd8 constant 8>
+            unit size <integer_cst 0x7f16a1eeccf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f16a1f003f0 precision 8 min <integer_cst 0x7f16a1eecd08 0> max <integer_cst 0x7f16a1eecca8 255>
+            pointer_to_this <pointer_type 0x7f16a1a16930>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _35 = pms_29 + 2;
+    version 35
+    ptr-info 0x7f16a1a19d98>
+trace fucntion name:RAND_bytes 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_36 <= 0)
+./benchmarks/openssl/double_free_2/openssl_df_2.c:75:8: warning: use location
+     if (RAND_bytes(pms + 2, (int)(pmslen - 2)) <= 0) {
+        ^
+if (_36 <= 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/double_free_2/openssl_df_2.c:75:8: warning: use location
+Cond in fucntion main basic block 6
+ ================== possible direct basic block ================= 
+from main basic block 8
+ ================== possible direct basic block ================= 
+from main basic block 7
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f16a1a2fd80
+    type <pointer_type 0x7f16a1a16930
+        type <integer_type 0x7f16a1f00348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f16a1eeccd8 constant 8>
+            unit size <integer_cst 0x7f16a1eeccf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f16a1f003f0 precision 8 min <integer_cst 0x7f16a1eecd08 0> max <integer_cst 0x7f16a1eecca8 255>
+            pointer_to_this <pointer_type 0x7f16a1a16930>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _35 = pms_29 + 2;
+    version 35
+    ptr-info 0x7f16a1a19d98>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_63 = VDEF <.MEM_49>
+free (_42);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:88:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* freed */
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_65 = VDEF <.MEM_50>
+free (_26);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:103:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);  /* double-free */
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_69 = VDEF <.MEM_14>
+free (_46);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:53:5: warning: use location
+     OPENSSL_clear_free(s->s3->tmp.pms, s->s3->tmp.pmslen);
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_70 = VDEF <.MEM_69>
+free (_47);
+./benchmarks/openssl/double_free_2/openssl_df_2.c:55:5: warning: use location
+     OPENSSL_clear_free(s->s3, sizeof(*s->s3));
+     ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f16a1a0afa0
+    type <pointer_type 0x7f16a1a16d20
+        type <record_type 0x7f16a1a16c78 SSL TI
+            size <integer_cst 0x7f16a1eecc30 constant 128>
+            unit size <integer_cst 0x7f16a1eecc48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f16a1a16bd0 fields <field_decl 0x7f16a1a18558 s3> context <translation_unit_decl 0x7f16a1ef7168 ./benchmarks/openssl/double_free_2/openssl_df_2.c>
+            pointer_to_this <pointer_type 0x7f16a1a16d20> chain <type_decl 0x7f16a1a185f0 D.3994>>
+        public unsigned DI
+        size <integer_cst 0x7f16a1eecbe8 constant 64>
+        unit size <integer_cst 0x7f16a1eecc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    arg 0 <var_decl 0x7f16a2c81ab0 s type <record_type 0x7f16a1a16c78 SSL>
+        addressable TI file ./benchmarks/openssl/double_free_2/openssl_df_2.c line 110 col 9 size <integer_cst 0x7f16a1eecc30 128> unit size <integer_cst 0x7f16a1eecc48 16>
+        align 128 context <function_decl 0x7f16a1a17b00 main>
+        chain <label_decl 0x7f16a1a20000 end type <void_type 0x7f16a1f00f18 void>
+            used VOID file ./benchmarks/openssl/double_free_2/openssl_df_2.c line 117 col 1
+            align 1 context <function_decl 0x7f16a1a17b00 main> initial <error_mark 0x7f16a1eecbd0>>>
+    ./benchmarks/openssl/double_free_2/openssl_df_2.c:114:9 start: ./benchmarks/openssl/double_free_2/openssl_df_2.c:114:9 finish: ./benchmarks/openssl/double_free_2/openssl_df_2.c:114:9>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f16a1eecf90 type <integer_type 0x7f16a1f005e8 int> constant 1>
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+s3_22 = malloc (16);
+if (s3_22 == 0B)
+  goto <bb 4> (err); [26.74%]
+else
+  goto <bb 3>; [73.26%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [73.26%]:
+s.s3 = s3_22;
+
+=======is loop:0=========
+
+ bb index 4 
+# _23 = PHI <0(2), 1(3)>
+err [100.00%]:
+_54 = _23;
+_1 = _54;
+if (_1 == 0)
+  goto <bb 15>; [63.36%]
+else
+  goto <bb 5>; [36.64%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [36.64%]:
+al_72 = -1;
+pms_29 = malloc (48);
+if (pms_29 == 0B)
+  goto <bb 9>; [42.57%]
+else
+  goto <bb 6>; [57.43%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [21.04%]:
+_30 = s.client_version;
+_31 = _30 >> 8;
+_32 = (unsigned char) _31;
+*pms_29 = _32;
+_33 = s.client_version;
+_34 = (unsigned char) _33;
+MEM[(unsigned char *)pms_29 + 1B] = _34;
+_35 = pms_29 + 2;
+_36 = RAND_bytes (_35, 46);
+if (_36 <= 0)
+  goto <bb 8> (err); [36.00%]
+else
+  goto <bb 7>; [64.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [13.47%]:
+_37 = s.s3;
+_37->tmp.pms = pms_29;
+_38 = s.s3;
+_38->tmp.pmslen = 48;
+_40 = ssl_log_rsa_client_key_exchange (&s, 0B, enclen_39(D), pms_29, 48);
+if (_40 == 0)
+  goto <bb 8> (err); [54.00%]
+else
+  goto <bb 9>; [46.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+err [14.85%]:
+_41 = s.s3;
+_42 = _41->tmp.pms;
+free (_42);
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [36.64%]:
+# _43 = PHI <0(5), 1(7), 0(8)>
+_64 = _43;
+_24 = _64;
+if (_24 == 0)
+  goto <bb 10> (err); [36.64%]
+else
+  goto <bb 11>; [63.36%]
+
+=======is loop:0=========
+
+ bb index 10 
+err [13.42%]:
+_25 = s.s3;
+_26 = _25->tmp.pms;
+free (_26);
+_27 = s.s3;
+_27->tmp.pms = 0B;
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [36.64%]:
+# _28 = PHI <1(9), 0(10)>
+_68 = _28;
+_2 = _68;
+if (_2 == 0)
+  goto <bb 13> (end); [67.00%]
+else
+  goto <bb 12>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [12.09%]:
+_3 = s.s3;
+_4 = _3->tmp.pms;
+_13 = __printf_chk (1, "%d\n", _4);
+
+=======is loop:0=========
+
+ bb index 13 
+end [36.64%]:
+_44 = s.s3;
+if (_44 == 0B)
+  goto <bb 15>; [42.57%]
+else
+  goto <bb 14>; [57.43%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [21.04%]:
+_45 = s.s3;
+_46 = _45->tmp.pms;
+free (_46);
+_47 = s.s3;
+free (_47);
+s.s3 = 0B;
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [100.00%]:
+# _5 = PHI <1(4), 0(13), 0(14)>
+s ={v} {CLOBBER};
+return _5;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 3 [0m
+[40;34m    used_stmt array stack totalsize of : 848 [0m
+[40;34m    collect time: : 0.000086 s [0m
+[40;34m    algorithm time: 0.007140 s [0m
+[40;34m    gimple stmt count : : 56 [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+/usr/bin/ld: /tmp/ccDl2mjF.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0x61): undefined reference to `RAND_bytes'
+/usr/bin/ld: <artificial>:(.text+0x98): undefined reference to `ssl_log_rsa_client_key_exchange'
+collect2: error: ld returned 1 exit status
