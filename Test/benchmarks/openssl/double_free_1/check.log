@@ -209,21 +209,21 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f69bf7fbe58
-    type <pointer_type 0x7f69bf7d0d20
-        type <record_type 0x7f69bf7d0c78 CONF TI
-            size <integer_cst 0x7f69bfca6c30 constant 128>
-            unit size <integer_cst 0x7f69bfca6c48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f69bf7d0bd0 fields <field_decl 0x7f69bf7d2260 meth_data> context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d0d20> chain <type_decl 0x7f69bf7d22f8 D.3991>>
+ <ssa_name 0x7f58034dde58
+    type <pointer_type 0x7f58034b2d20
+        type <record_type 0x7f58034b2c78 CONF TI
+            size <integer_cst 0x7f5803988c30 constant 128>
+            unit size <integer_cst 0x7f5803988c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f58034b2bd0 fields <field_decl 0x7f58034b4260 meth_data> context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b2d20> chain <type_decl 0x7f58034b42f8 D.3991>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f69bf7ff1b0 ret>
+    var <var_decl 0x7f58034e11b0 ret>
     def_stmt ret_10 = malloc (16);
     version 10
-    ptr-info 0x7f69bf8083d8>
+    ptr-info 0x7f58034ea3d8>
 # .MEM_56 = VDEF <.MEM_1(D)>
 ret_10 = malloc (16);
 
@@ -537,21 +537,21 @@ v_27 = lh_CONF_VALUE_retrieve (_26, &vv);
 this stmt is child function---lh_CONF_VALUE_retrieve-----
 
  ================== trace ================== 
- <ssa_name 0x7f69bf7fbe58
-    type <pointer_type 0x7f69bf7d0d20
-        type <record_type 0x7f69bf7d0c78 CONF TI
-            size <integer_cst 0x7f69bfca6c30 constant 128>
-            unit size <integer_cst 0x7f69bfca6c48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f69bf7d0bd0 fields <field_decl 0x7f69bf7d2260 meth_data> context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d0d20> chain <type_decl 0x7f69bf7d22f8 D.3991>>
+ <ssa_name 0x7f58034dde58
+    type <pointer_type 0x7f58034b2d20
+        type <record_type 0x7f58034b2c78 CONF TI
+            size <integer_cst 0x7f5803988c30 constant 128>
+            unit size <integer_cst 0x7f5803988c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f58034b2bd0 fields <field_decl 0x7f58034b4260 meth_data> context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b2d20> chain <type_decl 0x7f58034b42f8 D.3991>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f69bf7ff1b0 ret>
+    var <var_decl 0x7f58034e11b0 ret>
     def_stmt ret_10 = malloc (16);
     version 10
-    ptr-info 0x7f69bf8083d8>
+    ptr-info 0x7f58034ea3d8>
 trace fucntion name:lh_CONF_VALUE_retrieve 
 [40;44m =======trace_function_path lh_CONF_VALUE_retrieve  function_call count: 0 level :0========  [0m
 
@@ -1147,21 +1147,21 @@ _6 = RAND_write_file (_5);
 this stmt is child function---RAND_write_file-----
 
  ================== trace ================== 
- <ssa_name 0x7f69bf7fbe58
-    type <pointer_type 0x7f69bf7d0d20
-        type <record_type 0x7f69bf7d0c78 CONF TI
-            size <integer_cst 0x7f69bfca6c30 constant 128>
-            unit size <integer_cst 0x7f69bfca6c48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f69bf7d0bd0 fields <field_decl 0x7f69bf7d2260 meth_data> context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d0d20> chain <type_decl 0x7f69bf7d22f8 D.3991>>
+ <ssa_name 0x7f58034dde58
+    type <pointer_type 0x7f58034b2d20
+        type <record_type 0x7f58034b2c78 CONF TI
+            size <integer_cst 0x7f5803988c30 constant 128>
+            unit size <integer_cst 0x7f5803988c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f58034b2bd0 fields <field_decl 0x7f58034b4260 meth_data> context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b2d20> chain <type_decl 0x7f58034b42f8 D.3991>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f69bf7ff1b0 ret>
+    var <var_decl 0x7f58034e11b0 ret>
     def_stmt ret_10 = malloc (16);
     version 10
-    ptr-info 0x7f69bf8083d8>
+    ptr-info 0x7f58034ea3d8>
 trace fucntion name:RAND_write_file 
 
  ================== trace ================== 
@@ -1712,21 +1712,21 @@ ret_10 = malloc (16);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f69bf7fbe58
-    type <pointer_type 0x7f69bf7d0d20
-        type <record_type 0x7f69bf7d0c78 CONF TI
-            size <integer_cst 0x7f69bfca6c30 constant 128>
-            unit size <integer_cst 0x7f69bfca6c48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f69bf7d0bd0 fields <field_decl 0x7f69bf7d2260 meth_data> context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d0d20> chain <type_decl 0x7f69bf7d22f8 D.3991>>
+ <ssa_name 0x7f58034dde58
+    type <pointer_type 0x7f58034b2d20
+        type <record_type 0x7f58034b2c78 CONF TI
+            size <integer_cst 0x7f5803988c30 constant 128>
+            unit size <integer_cst 0x7f5803988c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f58034b2bd0 fields <field_decl 0x7f58034b4260 meth_data> context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b2d20> chain <type_decl 0x7f58034b42f8 D.3991>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f69bf7ff1b0 ret>
+    var <var_decl 0x7f58034e11b0 ret>
     def_stmt ret_10 = malloc (16);
     version 10
-    ptr-info 0x7f69bf8083d8>
+    ptr-info 0x7f58034ea3d8>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1738,21 +1738,21 @@ trace fucntion free:3
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f69bf7fbe58
-    type <pointer_type 0x7f69bf7d0d20
-        type <record_type 0x7f69bf7d0c78 CONF TI
-            size <integer_cst 0x7f69bfca6c30 constant 128>
-            unit size <integer_cst 0x7f69bfca6c48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f69bf7d0bd0 fields <field_decl 0x7f69bf7d2260 meth_data> context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d0d20> chain <type_decl 0x7f69bf7d22f8 D.3991>>
+ <ssa_name 0x7f58034dde58
+    type <pointer_type 0x7f58034b2d20
+        type <record_type 0x7f58034b2c78 CONF TI
+            size <integer_cst 0x7f5803988c30 constant 128>
+            unit size <integer_cst 0x7f5803988c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f58034b2bd0 fields <field_decl 0x7f58034b4260 meth_data> context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b2d20> chain <type_decl 0x7f58034b42f8 D.3991>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f69bf7ff1b0 ret>
+    var <var_decl 0x7f58034e11b0 ret>
     def_stmt ret_10 = malloc (16);
     version 10
-    ptr-info 0x7f69bf8083d8>
+    ptr-info 0x7f58034ea3d8>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_62 = VDEF <.MEM_61>
 free (_20);
@@ -2898,21 +2898,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f69bf8035e8
-    type <pointer_type 0x7f69bf7d7150
-        type <record_type 0x7f69bf7d70a8 OPENSSL_LHASH BLK
-            size <integer_cst 0x7f69bfd5fc30 constant 1408>
-            unit size <integer_cst 0x7f69bf7d32d0 constant 176>
-            align 64 symtab 0 alias set -1 canonical type 0x7f69bf7d7000 fields <field_decl 0x7f69bf7d8688 b> context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d7150> chain <type_decl 0x7f69bf7d8720 D.4025>>
+ <ssa_name 0x7f58034e55e8
+    type <pointer_type 0x7f58034b9150
+        type <record_type 0x7f58034b90a8 OPENSSL_LHASH BLK
+            size <integer_cst 0x7f5803a41c30 constant 1408>
+            unit size <integer_cst 0x7f58034b52d0 constant 176>
+            align 64 symtab 0 alias set -1 canonical type 0x7f58034b9000 fields <field_decl 0x7f58034ba688 b> context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b9150> chain <type_decl 0x7f58034ba720 D.4025>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f69bf7ff870 ret>
+    var <var_decl 0x7f58034e1870 ret>
     def_stmt ret_16 = malloc (176);
     version 16
-    ptr-info 0x7f69bf808450>
+    ptr-info 0x7f58034ea450>
 # .MEM_59 = VDEF <.MEM_58>
 ret_16 = malloc (176);
 
@@ -3132,21 +3132,21 @@ v_27 = lh_CONF_VALUE_retrieve (_26, &vv);
 this stmt is child function---lh_CONF_VALUE_retrieve-----
 
  ================== trace ================== 
- <ssa_name 0x7f69bf8035e8
-    type <pointer_type 0x7f69bf7d7150
-        type <record_type 0x7f69bf7d70a8 OPENSSL_LHASH BLK
-            size <integer_cst 0x7f69bfd5fc30 constant 1408>
-            unit size <integer_cst 0x7f69bf7d32d0 constant 176>
-            align 64 symtab 0 alias set -1 canonical type 0x7f69bf7d7000 fields <field_decl 0x7f69bf7d8688 b> context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d7150> chain <type_decl 0x7f69bf7d8720 D.4025>>
+ <ssa_name 0x7f58034e55e8
+    type <pointer_type 0x7f58034b9150
+        type <record_type 0x7f58034b90a8 OPENSSL_LHASH BLK
+            size <integer_cst 0x7f5803a41c30 constant 1408>
+            unit size <integer_cst 0x7f58034b52d0 constant 176>
+            align 64 symtab 0 alias set -1 canonical type 0x7f58034b9000 fields <field_decl 0x7f58034ba688 b> context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b9150> chain <type_decl 0x7f58034ba720 D.4025>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f69bf7ff870 ret>
+    var <var_decl 0x7f58034e1870 ret>
     def_stmt ret_16 = malloc (176);
     version 16
-    ptr-info 0x7f69bf808450>
+    ptr-info 0x7f58034ea450>
 trace fucntion name:lh_CONF_VALUE_retrieve 
 [40;44m =======trace_function_path lh_CONF_VALUE_retrieve  function_call count: 0 level :0========  [0m
 [40;36m ======= node_fun:lh_CONF_VALUE_retrieve========= [0m
@@ -3746,21 +3746,21 @@ _6 = RAND_write_file (_5);
 this stmt is child function---RAND_write_file-----
 
  ================== trace ================== 
- <ssa_name 0x7f69bf8035e8
-    type <pointer_type 0x7f69bf7d7150
-        type <record_type 0x7f69bf7d70a8 OPENSSL_LHASH BLK
-            size <integer_cst 0x7f69bfd5fc30 constant 1408>
-            unit size <integer_cst 0x7f69bf7d32d0 constant 176>
-            align 64 symtab 0 alias set -1 canonical type 0x7f69bf7d7000 fields <field_decl 0x7f69bf7d8688 b> context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d7150> chain <type_decl 0x7f69bf7d8720 D.4025>>
+ <ssa_name 0x7f58034e55e8
+    type <pointer_type 0x7f58034b9150
+        type <record_type 0x7f58034b90a8 OPENSSL_LHASH BLK
+            size <integer_cst 0x7f5803a41c30 constant 1408>
+            unit size <integer_cst 0x7f58034b52d0 constant 176>
+            align 64 symtab 0 alias set -1 canonical type 0x7f58034b9000 fields <field_decl 0x7f58034ba688 b> context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b9150> chain <type_decl 0x7f58034ba720 D.4025>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f69bf7ff870 ret>
+    var <var_decl 0x7f58034e1870 ret>
     def_stmt ret_16 = malloc (176);
     version 16
-    ptr-info 0x7f69bf808450>
+    ptr-info 0x7f58034ea450>
 trace fucntion name:RAND_write_file 
 
  ================== trace ================== 
@@ -4264,21 +4264,21 @@ ret_16 = malloc (176);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f69bf8035e8
-    type <pointer_type 0x7f69bf7d7150
-        type <record_type 0x7f69bf7d70a8 OPENSSL_LHASH BLK
-            size <integer_cst 0x7f69bfd5fc30 constant 1408>
-            unit size <integer_cst 0x7f69bf7d32d0 constant 176>
-            align 64 symtab 0 alias set -1 canonical type 0x7f69bf7d7000 fields <field_decl 0x7f69bf7d8688 b> context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d7150> chain <type_decl 0x7f69bf7d8720 D.4025>>
+ <ssa_name 0x7f58034e55e8
+    type <pointer_type 0x7f58034b9150
+        type <record_type 0x7f58034b90a8 OPENSSL_LHASH BLK
+            size <integer_cst 0x7f5803a41c30 constant 1408>
+            unit size <integer_cst 0x7f58034b52d0 constant 176>
+            align 64 symtab 0 alias set -1 canonical type 0x7f58034b9000 fields <field_decl 0x7f58034ba688 b> context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b9150> chain <type_decl 0x7f58034ba720 D.4025>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f69bf7ff870 ret>
+    var <var_decl 0x7f58034e1870 ret>
     def_stmt ret_16 = malloc (176);
     version 16
-    ptr-info 0x7f69bf808450>
+    ptr-info 0x7f58034ea450>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -4290,21 +4290,21 @@ trace fucntion free:5
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f69bf8035e8
-    type <pointer_type 0x7f69bf7d7150
-        type <record_type 0x7f69bf7d70a8 OPENSSL_LHASH BLK
-            size <integer_cst 0x7f69bfd5fc30 constant 1408>
-            unit size <integer_cst 0x7f69bf7d32d0 constant 176>
-            align 64 symtab 0 alias set -1 canonical type 0x7f69bf7d7000 fields <field_decl 0x7f69bf7d8688 b> context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d7150> chain <type_decl 0x7f69bf7d8720 D.4025>>
+ <ssa_name 0x7f58034e55e8
+    type <pointer_type 0x7f58034b9150
+        type <record_type 0x7f58034b90a8 OPENSSL_LHASH BLK
+            size <integer_cst 0x7f5803a41c30 constant 1408>
+            unit size <integer_cst 0x7f58034b52d0 constant 176>
+            align 64 symtab 0 alias set -1 canonical type 0x7f58034b9000 fields <field_decl 0x7f58034ba688 b> context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b9150> chain <type_decl 0x7f58034ba720 D.4025>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f69bf7ff870 ret>
+    var <var_decl 0x7f58034e1870 ret>
     def_stmt ret_16 = malloc (176);
     version 16
-    ptr-info 0x7f69bf808450>
+    ptr-info 0x7f58034ea450>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_62 = VDEF <.MEM_61>
 free (_20);
@@ -7104,20 +7104,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f69bf803630
-    type <pointer_type 0x7f69bfcc10a8
-        type <void_type 0x7f69bfcbaf18 void VOID
+ <ssa_name 0x7f58034e5630
+    type <pointer_type 0x7f58039a30a8
+        type <void_type 0x7f580399cf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f69bfcc10a8>>
+            pointer_to_this <pointer_type 0x7f58039a30a8>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f69bfcc6bd0>>
+        pointer_to_this <pointer_type 0x7f58039a8bd0>>
    
     def_stmt _17 = malloc (8);
     version 17
-    ptr-info 0x7f69bf808468>
+    ptr-info 0x7f58034ea468>
 # .MEM_60 = VDEF <.MEM_59>
 _17 = malloc (8);
 
@@ -7343,20 +7343,20 @@ v_27 = lh_CONF_VALUE_retrieve (_26, &vv);
 this stmt is child function---lh_CONF_VALUE_retrieve-----
 
  ================== trace ================== 
- <ssa_name 0x7f69bf803630
-    type <pointer_type 0x7f69bfcc10a8
-        type <void_type 0x7f69bfcbaf18 void VOID
+ <ssa_name 0x7f58034e5630
+    type <pointer_type 0x7f58039a30a8
+        type <void_type 0x7f580399cf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f69bfcc10a8>>
+            pointer_to_this <pointer_type 0x7f58039a30a8>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f69bfcc6bd0>>
+        pointer_to_this <pointer_type 0x7f58039a8bd0>>
    
     def_stmt _17 = malloc (8);
     version 17
-    ptr-info 0x7f69bf808468>
+    ptr-info 0x7f58034ea468>
 trace fucntion name:lh_CONF_VALUE_retrieve 
 [40;44m =======trace_function_path lh_CONF_VALUE_retrieve  function_call count: 0 level :0========  [0m
 [40;36m ======= node_fun:lh_CONF_VALUE_retrieve========= [0m
@@ -7956,20 +7956,20 @@ _6 = RAND_write_file (_5);
 this stmt is child function---RAND_write_file-----
 
  ================== trace ================== 
- <ssa_name 0x7f69bf803630
-    type <pointer_type 0x7f69bfcc10a8
-        type <void_type 0x7f69bfcbaf18 void VOID
+ <ssa_name 0x7f58034e5630
+    type <pointer_type 0x7f58039a30a8
+        type <void_type 0x7f580399cf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f69bfcc10a8>>
+            pointer_to_this <pointer_type 0x7f58039a30a8>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f69bfcc6bd0>>
+        pointer_to_this <pointer_type 0x7f58039a8bd0>>
    
     def_stmt _17 = malloc (8);
     version 17
-    ptr-info 0x7f69bf808468>
+    ptr-info 0x7f58034ea468>
 trace fucntion name:RAND_write_file 
 
  ================== trace ================== 
@@ -8469,20 +8469,20 @@ _17 = malloc (8);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f69bf803630
-    type <pointer_type 0x7f69bfcc10a8
-        type <void_type 0x7f69bfcbaf18 void VOID
+ <ssa_name 0x7f58034e5630
+    type <pointer_type 0x7f58039a30a8
+        type <void_type 0x7f580399cf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f69bfcc10a8>>
+            pointer_to_this <pointer_type 0x7f58039a30a8>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f69bfcc6bd0>>
+        pointer_to_this <pointer_type 0x7f58039a8bd0>>
    
     def_stmt _17 = malloc (8);
     version 17
-    ptr-info 0x7f69bf808468>
+    ptr-info 0x7f58034ea468>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -8494,20 +8494,20 @@ trace fucntion free:5
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f69bf803630
-    type <pointer_type 0x7f69bfcc10a8
-        type <void_type 0x7f69bfcbaf18 void VOID
+ <ssa_name 0x7f58034e5630
+    type <pointer_type 0x7f58039a30a8
+        type <void_type 0x7f580399cf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f69bfcc10a8>>
+            pointer_to_this <pointer_type 0x7f58039a30a8>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f69bfcc6bd0>>
+        pointer_to_this <pointer_type 0x7f58039a8bd0>>
    
     def_stmt _17 = malloc (8);
     version 17
-    ptr-info 0x7f69bf808468>
+    ptr-info 0x7f58034ea468>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_62 = VDEF <.MEM_61>
 free (_20);
@@ -10657,38 +10657,38 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f69bf7d3f78 type <integer_type 0x7f69bfcba7e0 long unsigned int> constant 16>
+ <integer_cst 0x7f58034b5f78 type <integer_type 0x7f580399c7e0 long unsigned int> constant 16>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f69bf7d3fc0 type <integer_type 0x7f69bfcba7e0 long unsigned int> constant 176>
+ <integer_cst 0x7f58034b5fc0 type <integer_type 0x7f580399c7e0 long unsigned int> constant 176>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f69bf7d3e58 type <integer_type 0x7f69bfcba7e0 long unsigned int> constant 8>
+ <integer_cst 0x7f58034b5e58 type <integer_type 0x7f580399c7e0 long unsigned int> constant 8>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f69bf80e2d0
-    type <pointer_type 0x7f69bf7d0b28
-        type <record_type 0x7f69bf7d0a80 lhash_st_CONF_VALUE VOID
-            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d0b28> chain <type_decl 0x7f69bf7d2130 D.3988>>
+ <ssa_name 0x7f58034f02d0
+    type <pointer_type 0x7f58034b2b28
+        type <record_type 0x7f58034b2a80 lhash_st_CONF_VALUE VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b2b28> chain <type_decl 0x7f58034b4130 D.3988>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _26 = MEM[(const struct CONF *)conf_8].data;
     version 26
-    ptr-info 0x7f69bf808540>
+    ptr-info 0x7f58034ea540>
 # VUSE <.MEM_69>
 _26 = MEM[(const struct CONF *)conf_8].data;
 
@@ -10708,19 +10708,19 @@ v_27 = lh_CONF_VALUE_retrieve (_26, &vv);
 this stmt is child function---lh_CONF_VALUE_retrieve-----
 
  ================== trace ================== 
- <ssa_name 0x7f69bf80e2d0
-    type <pointer_type 0x7f69bf7d0b28
-        type <record_type 0x7f69bf7d0a80 lhash_st_CONF_VALUE VOID
-            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d0b28> chain <type_decl 0x7f69bf7d2130 D.3988>>
+ <ssa_name 0x7f58034f02d0
+    type <pointer_type 0x7f58034b2b28
+        type <record_type 0x7f58034b2a80 lhash_st_CONF_VALUE VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b2b28> chain <type_decl 0x7f58034b4130 D.3988>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _26 = MEM[(const struct CONF *)conf_8].data;
     version 26
-    ptr-info 0x7f69bf808540>
+    ptr-info 0x7f58034ea540>
 trace fucntion name:lh_CONF_VALUE_retrieve 
 [40;44m =======trace_function_path lh_CONF_VALUE_retrieve  function_call count: 0 level :0========  [0m
 [40;36m ======= node_fun:lh_CONF_VALUE_retrieve========= [0m
@@ -11320,19 +11320,19 @@ _6 = RAND_write_file (_5);
 this stmt is child function---RAND_write_file-----
 
  ================== trace ================== 
- <ssa_name 0x7f69bf80e2d0
-    type <pointer_type 0x7f69bf7d0b28
-        type <record_type 0x7f69bf7d0a80 lhash_st_CONF_VALUE VOID
-            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d0b28> chain <type_decl 0x7f69bf7d2130 D.3988>>
+ <ssa_name 0x7f58034f02d0
+    type <pointer_type 0x7f58034b2b28
+        type <record_type 0x7f58034b2a80 lhash_st_CONF_VALUE VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b2b28> chain <type_decl 0x7f58034b4130 D.3988>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _26 = MEM[(const struct CONF *)conf_8].data;
     version 26
-    ptr-info 0x7f69bf808540>
+    ptr-info 0x7f58034ea540>
 trace fucntion name:RAND_write_file 
 
  ================== trace ================== 
@@ -11437,19 +11437,19 @@ from main basic block 16
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f69bf80e2d0
-    type <pointer_type 0x7f69bf7d0b28
-        type <record_type 0x7f69bf7d0a80 lhash_st_CONF_VALUE VOID
-            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f69bfcb1168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
-            pointer_to_this <pointer_type 0x7f69bf7d0b28> chain <type_decl 0x7f69bf7d2130 D.3988>>
+ <ssa_name 0x7f58034f02d0
+    type <pointer_type 0x7f58034b2b28
+        type <record_type 0x7f58034b2a80 lhash_st_CONF_VALUE VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f5803993168 ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c>
+            pointer_to_this <pointer_type 0x7f58034b2b28> chain <type_decl 0x7f58034b4130 D.3988>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _26 = MEM[(const struct CONF *)conf_8].data;
     version 26
-    ptr-info 0x7f69bf808540>
+    ptr-info 0x7f58034ea540>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_62 = VDEF <.MEM_61>
 free (_20);
@@ -12377,20 +12377,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f69bf7fae00
-    type <pointer_type 0x7f69bf7dd150
-        type <array_type 0x7f69bf7dd0a8 type <integer_type 0x7f69bf7d72a0 char>
+ <addr_expr 0x7f58034dce00
+    type <pointer_type 0x7f58034bf150
+        type <array_type 0x7f58034bf0a8 type <integer_type 0x7f58034b92a0 char>
             BLK
-            size <integer_cst 0x7f69bf7d3468 constant 72>
-            unit size <integer_cst 0x7f69bf7d3450 constant 9>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f69bf7dd000>
-            pointer_to_this <pointer_type 0x7f69bf7dd150>>
+            size <integer_cst 0x7f58034b5468 constant 72>
+            unit size <integer_cst 0x7f58034b5450 constant 9>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f58034bf000>
+            pointer_to_this <pointer_type 0x7f58034bf150>>
         unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7f69bf7fa880 type <array_type 0x7f69bf7dd0a8>
+    arg 0 <string_cst 0x7f58034dc880 type <array_type 0x7f58034bf0a8>
         readonly constant static "RANDFILE\000">
     ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c:210:57 start: ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c:210:57 finish: ./benchmarks/openssl/use_after_free_1/openssl_uaf_1.c:210:57>
 
@@ -12414,22 +12414,22 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f69bf7fb8b8
-    type <pointer_type 0x7f69bf7d73f0
-        type <integer_type 0x7f69bf7d7348 char readonly string-flag QI
-            size <integer_cst 0x7f69bfca6cd8 constant 8>
-            unit size <integer_cst 0x7f69bfca6cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f69bfcba3f0 precision 8 min <integer_cst 0x7f69bf7d3330 -128> max <integer_cst 0x7f69bf7d3318 127>
-            pointer_to_this <pointer_type 0x7f69bf7d73f0>>
+ <ssa_name 0x7f58034dd8b8
+    type <pointer_type 0x7f58034b93f0
+        type <integer_type 0x7f58034b9348 char readonly string-flag QI
+            size <integer_cst 0x7f5803988cd8 constant 8>
+            unit size <integer_cst 0x7f5803988cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f580399c3f0 precision 8 min <integer_cst 0x7f58034b5330 -128> max <integer_cst 0x7f58034b5318 127>
+            pointer_to_this <pointer_type 0x7f58034b93f0>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f69bf7db498>>
+        pointer_to_this <pointer_type 0x7f58034bd498>>
    
     def_stmt _5 = save_rand_file;
     version 5
-    ptr-info 0x7f69bf8083a8>
+    ptr-info 0x7f58034ea3a8>
 # VUSE <.MEM_54>
 _5 = save_rand_file;
 
@@ -12488,22 +12488,22 @@ _6 = RAND_write_file (_5);
 this stmt is child function---RAND_write_file-----
 
  ================== trace ================== 
- <ssa_name 0x7f69bf7fb8b8
-    type <pointer_type 0x7f69bf7d73f0
-        type <integer_type 0x7f69bf7d7348 char readonly string-flag QI
-            size <integer_cst 0x7f69bfca6cd8 constant 8>
-            unit size <integer_cst 0x7f69bfca6cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f69bfcba3f0 precision 8 min <integer_cst 0x7f69bf7d3330 -128> max <integer_cst 0x7f69bf7d3318 127>
-            pointer_to_this <pointer_type 0x7f69bf7d73f0>>
+ <ssa_name 0x7f58034dd8b8
+    type <pointer_type 0x7f58034b93f0
+        type <integer_type 0x7f58034b9348 char readonly string-flag QI
+            size <integer_cst 0x7f5803988cd8 constant 8>
+            unit size <integer_cst 0x7f5803988cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f580399c3f0 precision 8 min <integer_cst 0x7f58034b5330 -128> max <integer_cst 0x7f58034b5318 127>
+            pointer_to_this <pointer_type 0x7f58034b93f0>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f69bf7db498>>
+        pointer_to_this <pointer_type 0x7f58034bd498>>
    
     def_stmt _5 = save_rand_file;
     version 5
-    ptr-info 0x7f69bf8083a8>
+    ptr-info 0x7f58034ea3a8>
 trace fucntion name:RAND_write_file 
 
  ================== trace ================== 
@@ -12570,22 +12570,22 @@ from main basic block 34
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f69bf7fb8b8
-    type <pointer_type 0x7f69bf7d73f0
-        type <integer_type 0x7f69bf7d7348 char readonly string-flag QI
-            size <integer_cst 0x7f69bfca6cd8 constant 8>
-            unit size <integer_cst 0x7f69bfca6cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f69bfcba3f0 precision 8 min <integer_cst 0x7f69bf7d3330 -128> max <integer_cst 0x7f69bf7d3318 127>
-            pointer_to_this <pointer_type 0x7f69bf7d73f0>>
+ <ssa_name 0x7f58034dd8b8
+    type <pointer_type 0x7f58034b93f0
+        type <integer_type 0x7f58034b9348 char readonly string-flag QI
+            size <integer_cst 0x7f5803988cd8 constant 8>
+            unit size <integer_cst 0x7f5803988cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f580399c3f0 precision 8 min <integer_cst 0x7f58034b5330 -128> max <integer_cst 0x7f58034b5318 127>
+            pointer_to_this <pointer_type 0x7f58034b93f0>>
         public unsigned DI
-        size <integer_cst 0x7f69bfca6be8 constant 64>
-        unit size <integer_cst 0x7f69bfca6c00 constant 8>
+        size <integer_cst 0x7f5803988be8 constant 64>
+        unit size <integer_cst 0x7f5803988c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f69bf7db498>>
+        pointer_to_this <pointer_type 0x7f58034bd498>>
    
     def_stmt _5 = save_rand_file;
     version 5
-    ptr-info 0x7f69bf8083a8>
+    ptr-info 0x7f58034ea3a8>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_62 = VDEF <.MEM_61>
 free (_20);
@@ -12852,7 +12852,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f69bfca6f90 type <integer_type 0x7f69bfcba5e8 int> constant 1>
+ <integer_cst 0x7f5803988f90 type <integer_type 0x7f580399c5e8 int> constant 1>
 [40;33m =======POP node_fun stack:main========= [0m
 fucntion collect path finsh
 
@@ -13338,10 +13338,10 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 5 [0m
 [40;34m    used_stmt array stack totalsize of : 3696 [0m
-[40;34m    collect time: : 0.000235 s [0m
-[40;34m    algorithm time: 0.033073 s [0m
+[40;34m    collect time: : 0.000233 s [0m
+[40;34m    algorithm time: 0.027602 s [0m
 [40;34m    gimple stmt count : : 147 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
-/usr/bin/ld: /tmp/cckrYaCd.ltrans0.ltrans.o: in function `main':
+/usr/bin/ld: /tmp/cc9AJMeL.ltrans0.ltrans.o: in function `main':
 <artificial>:(.text+0x1dc): undefined reference to `RAND_write_file'
 collect2: error: ld returned 1 exit status

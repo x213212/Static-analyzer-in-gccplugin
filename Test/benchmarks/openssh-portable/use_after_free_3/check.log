@@ -150,19 +150,19 @@ memcpy (p_48, _17, _49);
 buffer_put_cstring (&msg, name_5);
 # .MEM_81 = VDEF <.MEM_80>
 add_key (_24, name_5);
- <var_decl 0x7f8da73c2990 keys
-    type <pointer_type 0x7f8da73abe70
-        type <pointer_type 0x7f8da73ab690 type <record_type 0x7f8da73ab738 Key>
+ <var_decl 0x7f2d1b76a990 keys
+    type <pointer_type 0x7f2d1b753e70
+        type <pointer_type 0x7f2d1b753690 type <record_type 0x7f2d1b753738 Key>
             unsigned DI
-            size <integer_cst 0x7f8da7878be8 constant 64>
-            unit size <integer_cst 0x7f8da7878c00 constant 8>
+            size <integer_cst 0x7f2d1bc20be8 constant 64>
+            unit size <integer_cst 0x7f2d1bc20c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da73abe70>>
-        public unsigned DI size <integer_cst 0x7f8da7878be8 64> unit size <integer_cst 0x7f8da7878c00 8>
+            pointer_to_this <pointer_type 0x7f2d1b753e70>>
+        public unsigned DI size <integer_cst 0x7f2d1bc20be8 64> unit size <integer_cst 0x7f2d1bc20c00 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da73b0000>>
-    addressable used unsigned DI file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 66 col 8 size <integer_cst 0x7f8da7878be8 64> unit size <integer_cst 0x7f8da7878c00 8>
-    align 64 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860de10 keys> chain <var_decl 0x7f8da73c2a20 i>>
+        pointer_to_this <pointer_type 0x7f2d1b758000>>
+    addressable used unsigned DI file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 66 col 8 size <integer_cst 0x7f2d1bc20be8 64> unit size <integer_cst 0x7f2d1bc20c00 8>
+    align 64 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1c9b5e10 keys> chain <var_decl 0x7f2d1b76aa20 i>>
 # .MEM_57 = VDEF <.MEM_56>
 buffer_put_char (&msg, 5);
 # .MEM_84 = VDEF <.MEM_83>
@@ -234,20 +234,20 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f8da73c9e10
-    type <pointer_type 0x7f8da78930a8
-        type <void_type 0x7f8da788cf18 void VOID
+ <ssa_name 0x7f2d1b771e10
+    type <pointer_type 0x7f2d1bc3b0a8
+        type <void_type 0x7f2d1bc34f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da78930a8>>
+            pointer_to_this <pointer_type 0x7f2d1bc3b0a8>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+        pointer_to_this <pointer_type 0x7f2d1bc40bd0>>
    
     def_stmt _34 = malloc (_33);
     version 34
-    ptr-info 0x7f8da73d2090>
+    ptr-info 0x7f2d1b77a090>
 # .MEM_64 = VDEF <.MEM_62>
 _34 = malloc (_33);
 
@@ -350,20 +350,20 @@ memcpy (p_48, _17, _49);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c9e10
-    type <pointer_type 0x7f8da78930a8
-        type <void_type 0x7f8da788cf18 void VOID
+ <ssa_name 0x7f2d1b771e10
+    type <pointer_type 0x7f2d1bc3b0a8
+        type <void_type 0x7f2d1bc34f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da78930a8>>
+            pointer_to_this <pointer_type 0x7f2d1bc3b0a8>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+        pointer_to_this <pointer_type 0x7f2d1bc40bd0>>
    
     def_stmt _34 = malloc (_33);
     version 34
-    ptr-info 0x7f8da73d2090>
+    ptr-info 0x7f2d1b77a090>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -387,20 +387,20 @@ memcpy (_39, _38, _35);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c9e10
-    type <pointer_type 0x7f8da78930a8
-        type <void_type 0x7f8da788cf18 void VOID
+ <ssa_name 0x7f2d1b771e10
+    type <pointer_type 0x7f2d1bc3b0a8
+        type <void_type 0x7f2d1bc34f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da78930a8>>
+            pointer_to_this <pointer_type 0x7f2d1bc3b0a8>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+        pointer_to_this <pointer_type 0x7f2d1bc40bd0>>
    
     def_stmt _34 = malloc (_33);
     version 34
-    ptr-info 0x7f8da73d2090>
+    ptr-info 0x7f2d1b77a090>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -417,20 +417,20 @@ _34 = malloc (_33);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c9e10
-    type <pointer_type 0x7f8da78930a8
-        type <void_type 0x7f8da788cf18 void VOID
+ <ssa_name 0x7f2d1b771e10
+    type <pointer_type 0x7f2d1bc3b0a8
+        type <void_type 0x7f2d1bc34f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da78930a8>>
+            pointer_to_this <pointer_type 0x7f2d1bc3b0a8>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+        pointer_to_this <pointer_type 0x7f2d1bc40bd0>>
    
     def_stmt _34 = malloc (_33);
     version 34
-    ptr-info 0x7f8da73d2090>
+    ptr-info 0x7f2d1b77a090>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -442,20 +442,20 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f8da73c9e10
-    type <pointer_type 0x7f8da78930a8
-        type <void_type 0x7f8da788cf18 void VOID
+ <ssa_name 0x7f2d1b771e10
+    type <pointer_type 0x7f2d1bc3b0a8
+        type <void_type 0x7f2d1bc34f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da78930a8>>
+            pointer_to_this <pointer_type 0x7f2d1bc3b0a8>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+        pointer_to_this <pointer_type 0x7f2d1bc40bd0>>
    
     def_stmt _34 = malloc (_33);
     version 34
-    ptr-info 0x7f8da73d2090>
+    ptr-info 0x7f2d1b77a090>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_80 = VDEF <.MEM_79>
 free (_19);
@@ -643,21 +643,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da7396de0
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b73ede0
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    arg 0 <var_decl 0x7f2d1b76ac60 msg type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1c9b5b40 msg>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:72:2 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:72:2 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:72:2>
 
  ================== trace ptable================== 
@@ -682,34 +682,34 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f8da7894000 type <pointer_type 0x7f8da78930a8> constant 0>
+ <integer_cst 0x7f2d1bc3c000 type <pointer_type 0x7f2d1bc3b0a8> constant 0>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f8da7894000 type <pointer_type 0x7f8da78930a8> constant 0>
+ <integer_cst 0x7f2d1bc3c000 type <pointer_type 0x7f2d1bc3b0a8> constant 0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f8da73c47e0
-    type <pointer_type 0x7f8da73ab000
-        type <integer_type 0x7f8da73a2690 char public string-flag QI
-            size <integer_cst 0x7f8da7878cd8 constant 8>
-            unit size <integer_cst 0x7f8da7878cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da73a5240 -128> max <integer_cst 0x7f8da73a5228 127>
-            pointer_to_this <pointer_type 0x7f8da73ab000>>
+ <ssa_name 0x7f2d1b76c7e0
+    type <pointer_type 0x7f2d1b753000
+        type <integer_type 0x7f2d1b74a690 char public string-flag QI
+            size <integer_cst 0x7f2d1bc20cd8 constant 8>
+            unit size <integer_cst 0x7f2d1bc20cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f2d1bc343f0 precision 8 min <integer_cst 0x7f2d1b74d240 -128> max <integer_cst 0x7f2d1b74d228 127>
+            pointer_to_this <pointer_type 0x7f2d1b753000>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-        pointer_to_this <pointer_type 0x7f8da73ab3f0>>
-    var <var_decl 0x7f8da73c2870 name>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+        pointer_to_this <pointer_type 0x7f2d1b7533f0>>
+    var <var_decl 0x7f2d1b76a870 name>
     def_stmt name_5 = (char *) _4;
     version 5
-    ptr-info 0x7f8da73a5f60>
+    ptr-info 0x7f2d1b74df60>
 name_5 = (char *) _4;
 
  ================== trace ptable================== 
@@ -769,22 +769,22 @@ add_key (_24, name_5);
 this stmt is child function---add_key-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c47e0
-    type <pointer_type 0x7f8da73ab000
-        type <integer_type 0x7f8da73a2690 char public string-flag QI
-            size <integer_cst 0x7f8da7878cd8 constant 8>
-            unit size <integer_cst 0x7f8da7878cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da73a5240 -128> max <integer_cst 0x7f8da73a5228 127>
-            pointer_to_this <pointer_type 0x7f8da73ab000>>
+ <ssa_name 0x7f2d1b76c7e0
+    type <pointer_type 0x7f2d1b753000
+        type <integer_type 0x7f2d1b74a690 char public string-flag QI
+            size <integer_cst 0x7f2d1bc20cd8 constant 8>
+            unit size <integer_cst 0x7f2d1bc20cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f2d1bc343f0 precision 8 min <integer_cst 0x7f2d1b74d240 -128> max <integer_cst 0x7f2d1b74d228 127>
+            pointer_to_this <pointer_type 0x7f2d1b753000>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-        pointer_to_this <pointer_type 0x7f8da73ab3f0>>
-    var <var_decl 0x7f8da73c2870 name>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+        pointer_to_this <pointer_type 0x7f2d1b7533f0>>
+    var <var_decl 0x7f2d1b76a870 name>
     def_stmt name_5 = (char *) _4;
     version 5
-    ptr-info 0x7f8da73a5f60>
+    ptr-info 0x7f2d1b74df60>
 trace fucntion name:add_key 
 
  ================== trace ================== 
@@ -801,22 +801,22 @@ buffer_put_cstring (&msg, name_5);
 this stmt is child function---buffer_put_cstring-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c47e0
-    type <pointer_type 0x7f8da73ab000
-        type <integer_type 0x7f8da73a2690 char public string-flag QI
-            size <integer_cst 0x7f8da7878cd8 constant 8>
-            unit size <integer_cst 0x7f8da7878cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da73a5240 -128> max <integer_cst 0x7f8da73a5228 127>
-            pointer_to_this <pointer_type 0x7f8da73ab000>>
+ <ssa_name 0x7f2d1b76c7e0
+    type <pointer_type 0x7f2d1b753000
+        type <integer_type 0x7f2d1b74a690 char public string-flag QI
+            size <integer_cst 0x7f2d1bc20cd8 constant 8>
+            unit size <integer_cst 0x7f2d1bc20cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f2d1bc343f0 precision 8 min <integer_cst 0x7f2d1b74d240 -128> max <integer_cst 0x7f2d1b74d228 127>
+            pointer_to_this <pointer_type 0x7f2d1b753000>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-        pointer_to_this <pointer_type 0x7f8da73ab3f0>>
-    var <var_decl 0x7f8da73c2870 name>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+        pointer_to_this <pointer_type 0x7f2d1b7533f0>>
+    var <var_decl 0x7f2d1b76a870 name>
     def_stmt name_5 = (char *) _4;
     version 5
-    ptr-info 0x7f8da73a5f60>
+    ptr-info 0x7f2d1b74df60>
 trace fucntion name:buffer_put_cstring 
 
  ================== trace ================== 
@@ -828,22 +828,22 @@ nkeys_9 = pkcs11_add_provider (name_5, pin_8, &keys);
 this stmt is child function---pkcs11_add_provider-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c47e0
-    type <pointer_type 0x7f8da73ab000
-        type <integer_type 0x7f8da73a2690 char public string-flag QI
-            size <integer_cst 0x7f8da7878cd8 constant 8>
-            unit size <integer_cst 0x7f8da7878cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da73a5240 -128> max <integer_cst 0x7f8da73a5228 127>
-            pointer_to_this <pointer_type 0x7f8da73ab000>>
+ <ssa_name 0x7f2d1b76c7e0
+    type <pointer_type 0x7f2d1b753000
+        type <integer_type 0x7f2d1b74a690 char public string-flag QI
+            size <integer_cst 0x7f2d1bc20cd8 constant 8>
+            unit size <integer_cst 0x7f2d1bc20cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f2d1bc343f0 precision 8 min <integer_cst 0x7f2d1b74d240 -128> max <integer_cst 0x7f2d1b74d228 127>
+            pointer_to_this <pointer_type 0x7f2d1b753000>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-        pointer_to_this <pointer_type 0x7f8da73ab3f0>>
-    var <var_decl 0x7f8da73c2870 name>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+        pointer_to_this <pointer_type 0x7f2d1b7533f0>>
+    var <var_decl 0x7f2d1b76a870 name>
     def_stmt name_5 = (char *) _4;
     version 5
-    ptr-info 0x7f8da73a5f60>
+    ptr-info 0x7f2d1b74df60>
 trace fucntion name:pkcs11_add_provider 
 
  ================== trace ================== 
@@ -855,22 +855,22 @@ buffer_put_int (&msg, nkeys_9);
 this stmt is child function---buffer_put_int-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c47e0
-    type <pointer_type 0x7f8da73ab000
-        type <integer_type 0x7f8da73a2690 char public string-flag QI
-            size <integer_cst 0x7f8da7878cd8 constant 8>
-            unit size <integer_cst 0x7f8da7878cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da73a5240 -128> max <integer_cst 0x7f8da73a5228 127>
-            pointer_to_this <pointer_type 0x7f8da73ab000>>
+ <ssa_name 0x7f2d1b76c7e0
+    type <pointer_type 0x7f2d1b753000
+        type <integer_type 0x7f2d1b74a690 char public string-flag QI
+            size <integer_cst 0x7f2d1bc20cd8 constant 8>
+            unit size <integer_cst 0x7f2d1bc20cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f2d1bc343f0 precision 8 min <integer_cst 0x7f2d1b74d240 -128> max <integer_cst 0x7f2d1b74d228 127>
+            pointer_to_this <pointer_type 0x7f2d1b753000>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-        pointer_to_this <pointer_type 0x7f8da73ab3f0>>
-    var <var_decl 0x7f8da73c2870 name>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+        pointer_to_this <pointer_type 0x7f2d1b7533f0>>
+    var <var_decl 0x7f2d1b76a870 name>
     def_stmt name_5 = (char *) _4;
     version 5
-    ptr-info 0x7f8da73a5f60>
+    ptr-info 0x7f2d1b74df60>
 trace fucntion name:buffer_put_int 
 
  ================== trace ================== 
@@ -963,22 +963,22 @@ free (pin_8);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f8da73c47e0
-    type <pointer_type 0x7f8da73ab000
-        type <integer_type 0x7f8da73a2690 char public string-flag QI
-            size <integer_cst 0x7f8da7878cd8 constant 8>
-            unit size <integer_cst 0x7f8da7878cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da73a5240 -128> max <integer_cst 0x7f8da73a5228 127>
-            pointer_to_this <pointer_type 0x7f8da73ab000>>
+ <ssa_name 0x7f2d1b76c7e0
+    type <pointer_type 0x7f2d1b753000
+        type <integer_type 0x7f2d1b74a690 char public string-flag QI
+            size <integer_cst 0x7f2d1bc20cd8 constant 8>
+            unit size <integer_cst 0x7f2d1bc20cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f2d1bc343f0 precision 8 min <integer_cst 0x7f2d1b74d240 -128> max <integer_cst 0x7f2d1b74d228 127>
+            pointer_to_this <pointer_type 0x7f2d1b753000>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-        pointer_to_this <pointer_type 0x7f8da73ab3f0>>
-    var <var_decl 0x7f8da73c2870 name>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+        pointer_to_this <pointer_type 0x7f2d1b7533f0>>
+    var <var_decl 0x7f2d1b76a870 name>
     def_stmt name_5 = (char *) _4;
     version 5
-    ptr-info 0x7f8da73a5f60>
+    ptr-info 0x7f2d1b74df60>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_80 = VDEF <.MEM_79>
 free (_19);
@@ -1056,21 +1056,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da7396f60
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b73ef60
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    arg 0 <var_decl 0x7f2d1b76ac60 msg type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1c9b5b40 msg>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:76:3 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:76:3 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:76:3>
 
  ================== trace ptable================== 
@@ -1093,21 +1093,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da7396fe0
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b73efe0
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    arg 0 <var_decl 0x7f2d1b76ac60 msg type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1c9b5b40 msg>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:77:3 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:77:3 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:77:3>
 
  ================== trace ptable================== 
@@ -1130,20 +1130,20 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da73c59c0
-    type <pointer_type 0x7f8da73b05e8
-        type <array_type 0x7f8da73b0540 type <integer_type 0x7f8da73a2690 char>
+ <addr_expr 0x7f2d1b76d9c0
+    type <pointer_type 0x7f2d1b7585e8
+        type <array_type 0x7f2d1b758540 type <integer_type 0x7f2d1b74a690 char>
             BLK
-            size <integer_cst 0x7f8da73a5390 constant 200>
-            unit size <integer_cst 0x7f8da73a5378 constant 25>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f8da73b0498>
-            pointer_to_this <pointer_type 0x7f8da73b05e8>>
+            size <integer_cst 0x7f2d1b74d390 constant 200>
+            unit size <integer_cst 0x7f2d1b74d378 constant 25>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f2d1b758498>
+            pointer_to_this <pointer_type 0x7f2d1b7585e8>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7f8da7877630 type <array_type 0x7f8da73b0540>
+    arg 0 <string_cst 0x7f2d1bc1f630 type <array_type 0x7f2d1b758540>
         readonly constant static "key_to_blob: key == NULL\000">
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:18:9 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:18:9 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:18:9>
 
@@ -1167,26 +1167,26 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da73c5a40
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b76da40
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73ce480 b type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7c60 b>
-        chain <var_decl 0x7f8da73ce510 len type <integer_type 0x7f8da788c5e8 int>
+    arg 0 <var_decl 0x7f2d1b776480 b type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1b76fc60 b>
+        chain <var_decl 0x7f2d1b776510 len type <integer_type 0x7f2d1bc345e8 int>
             used SI file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 15 col 6
-            size <integer_cst 0x7f8da7878e28 constant 32>
-            unit size <integer_cst 0x7f8da7878e40 constant 4>
-            align 32 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7bd0 len>>>
+            size <integer_cst 0x7f2d1bc20e28 constant 32>
+            unit size <integer_cst 0x7f2d1bc20e40 constant 4>
+            align 32 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1b76fbd0 len>>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:21:2 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:21:2 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:21:2>
 
  ================== trace ptable================== 
@@ -1209,26 +1209,26 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da73c5b00
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b76db00
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73ce480 b type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7c60 b>
-        chain <var_decl 0x7f8da73ce510 len type <integer_type 0x7f8da788c5e8 int>
+    arg 0 <var_decl 0x7f2d1b776480 b type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1b76fc60 b>
+        chain <var_decl 0x7f2d1b776510 len type <integer_type 0x7f2d1bc345e8 int>
             used SI file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 15 col 6
-            size <integer_cst 0x7f8da7878e28 constant 32>
-            unit size <integer_cst 0x7f8da7878e40 constant 4>
-            align 32 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7bd0 len>>>
+            size <integer_cst 0x7f2d1bc20e28 constant 32>
+            unit size <integer_cst 0x7f2d1bc20e40 constant 4>
+            align 32 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1b76fbd0 len>>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:23:9 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:23:9 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:23:9>
 
  ================== trace ptable================== 
@@ -1251,12 +1251,12 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f8da73c9dc8
-    type <integer_type 0x7f8da788c7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f8da788c738 precision 64 min <integer_cst 0x7f8da7878eb8 0> max <integer_cst 0x7f8da787a500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f8da78989d8>>
+ <ssa_name 0x7f2d1b771dc8
+    type <integer_type 0x7f2d1bc347e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f2d1bc34738 precision 64 min <integer_cst 0x7f2d1bc20eb8 0> max <integer_cst 0x7f2d1bc22500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f2d1bc409d8>>
    
     def_stmt _33 = (long unsigned int) len_31;
     version 33>
@@ -1283,12 +1283,12 @@ _34 = malloc (_33);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c9dc8
-    type <integer_type 0x7f8da788c7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f8da788c738 precision 64 min <integer_cst 0x7f8da7878eb8 0> max <integer_cst 0x7f8da787a500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f8da78989d8>>
+ <ssa_name 0x7f2d1b771dc8
+    type <integer_type 0x7f2d1bc347e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f2d1bc34738 precision 64 min <integer_cst 0x7f2d1bc20eb8 0> max <integer_cst 0x7f2d1bc22500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f2d1bc409d8>>
    
     def_stmt _33 = (long unsigned int) len_31;
     version 33>
@@ -1384,12 +1384,12 @@ memcpy (p_48, _17, _49);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c9dc8
-    type <integer_type 0x7f8da788c7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f8da788c738 precision 64 min <integer_cst 0x7f8da7878eb8 0> max <integer_cst 0x7f8da787a500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f8da78989d8>>
+ <ssa_name 0x7f2d1b771dc8
+    type <integer_type 0x7f2d1bc347e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f2d1bc34738 precision 64 min <integer_cst 0x7f2d1bc20eb8 0> max <integer_cst 0x7f2d1bc22500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f2d1bc409d8>>
    
     def_stmt _33 = (long unsigned int) len_31;
     version 33>
@@ -1416,12 +1416,12 @@ memcpy (_39, _38, _35);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c9dc8
-    type <integer_type 0x7f8da788c7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f8da788c738 precision 64 min <integer_cst 0x7f8da7878eb8 0> max <integer_cst 0x7f8da787a500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f8da78989d8>>
+ <ssa_name 0x7f2d1b771dc8
+    type <integer_type 0x7f2d1bc347e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f2d1bc34738 precision 64 min <integer_cst 0x7f2d1bc20eb8 0> max <integer_cst 0x7f2d1bc22500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f2d1bc409d8>>
    
     def_stmt _33 = (long unsigned int) len_31;
     version 33>
@@ -1436,12 +1436,12 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f8da73c9dc8
-    type <integer_type 0x7f8da788c7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f8da788c738 precision 64 min <integer_cst 0x7f8da7878eb8 0> max <integer_cst 0x7f8da787a500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f8da78989d8>>
+ <ssa_name 0x7f2d1b771dc8
+    type <integer_type 0x7f2d1bc347e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f2d1bc34738 precision 64 min <integer_cst 0x7f2d1bc20eb8 0> max <integer_cst 0x7f2d1bc22500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f2d1bc409d8>>
    
     def_stmt _33 = (long unsigned int) len_31;
     version 33>
@@ -1632,26 +1632,26 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da73c5c40
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b76dc40
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73ce480 b type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7c60 b>
-        chain <var_decl 0x7f8da73ce510 len type <integer_type 0x7f8da788c5e8 int>
+    arg 0 <var_decl 0x7f2d1b776480 b type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1b76fc60 b>
+        chain <var_decl 0x7f2d1b776510 len type <integer_type 0x7f2d1bc345e8 int>
             used SI file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 15 col 6
-            size <integer_cst 0x7f8da7878e28 constant 32>
-            unit size <integer_cst 0x7f8da7878e40 constant 4>
-            align 32 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7bd0 len>>>
+            size <integer_cst 0x7f2d1bc20e28 constant 32>
+            unit size <integer_cst 0x7f2d1bc20e40 constant 4>
+            align 32 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1b76fbd0 len>>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:18 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:18 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:18>
 
  ================== trace ptable================== 
@@ -1674,22 +1674,22 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f8da73c9f78
-    type <pointer_type 0x7f8da73a2a80
-        type <integer_type 0x7f8da73a29d8 u_char public unsigned string-flag QI
-            size <integer_cst 0x7f8da7878cd8 constant 8>
-            unit size <integer_cst 0x7f8da7878cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da7878d08 0> max <integer_cst 0x7f8da7878ca8 255> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2a80>>
+ <ssa_name 0x7f2d1b771f78
+    type <pointer_type 0x7f2d1b74aa80
+        type <integer_type 0x7f2d1b74a9d8 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f2d1bc20cd8 constant 8>
+            unit size <integer_cst 0x7f2d1bc20cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f2d1bc343f0 precision 8 min <integer_cst 0x7f2d1bc20d08 0> max <integer_cst 0x7f2d1bc20ca8 255> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74aa80>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da73a2e70>>
+        pointer_to_this <pointer_type 0x7f2d1b74ae70>>
    
     def_stmt _39 = blob_97;
     version 39
-    ptr-info 0x7f8da73d20c0>
+    ptr-info 0x7f2d1b77a0c0>
 _39 = blob_97;
 
  ================== trace ptable================== 
@@ -1715,22 +1715,22 @@ memcpy (_39, _38, _35);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c9f78
-    type <pointer_type 0x7f8da73a2a80
-        type <integer_type 0x7f8da73a29d8 u_char public unsigned string-flag QI
-            size <integer_cst 0x7f8da7878cd8 constant 8>
-            unit size <integer_cst 0x7f8da7878cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da7878d08 0> max <integer_cst 0x7f8da7878ca8 255> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2a80>>
+ <ssa_name 0x7f2d1b771f78
+    type <pointer_type 0x7f2d1b74aa80
+        type <integer_type 0x7f2d1b74a9d8 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f2d1bc20cd8 constant 8>
+            unit size <integer_cst 0x7f2d1bc20cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f2d1bc343f0 precision 8 min <integer_cst 0x7f2d1bc20d08 0> max <integer_cst 0x7f2d1bc20ca8 255> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74aa80>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da73a2e70>>
+        pointer_to_this <pointer_type 0x7f2d1b74ae70>>
    
     def_stmt _39 = blob_97;
     version 39
-    ptr-info 0x7f8da73d20c0>
+    ptr-info 0x7f2d1b77a0c0>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -1747,22 +1747,22 @@ memcpy (_39, _38, _35);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c9f78
-    type <pointer_type 0x7f8da73a2a80
-        type <integer_type 0x7f8da73a29d8 u_char public unsigned string-flag QI
-            size <integer_cst 0x7f8da7878cd8 constant 8>
-            unit size <integer_cst 0x7f8da7878cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da7878d08 0> max <integer_cst 0x7f8da7878ca8 255> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2a80>>
+ <ssa_name 0x7f2d1b771f78
+    type <pointer_type 0x7f2d1b74aa80
+        type <integer_type 0x7f2d1b74a9d8 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f2d1bc20cd8 constant 8>
+            unit size <integer_cst 0x7f2d1bc20cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f2d1bc343f0 precision 8 min <integer_cst 0x7f2d1bc20d08 0> max <integer_cst 0x7f2d1bc20ca8 255> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74aa80>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da73a2e70>>
+        pointer_to_this <pointer_type 0x7f2d1b74ae70>>
    
     def_stmt _39 = blob_97;
     version 39
-    ptr-info 0x7f8da73d20c0>
+    ptr-info 0x7f2d1b77a0c0>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -1774,22 +1774,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f8da73c9f78
-    type <pointer_type 0x7f8da73a2a80
-        type <integer_type 0x7f8da73a29d8 u_char public unsigned string-flag QI
-            size <integer_cst 0x7f8da7878cd8 constant 8>
-            unit size <integer_cst 0x7f8da7878cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f8da788c3f0 precision 8 min <integer_cst 0x7f8da7878d08 0> max <integer_cst 0x7f8da7878ca8 255> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2a80>>
+ <ssa_name 0x7f2d1b771f78
+    type <pointer_type 0x7f2d1b74aa80
+        type <integer_type 0x7f2d1b74a9d8 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f2d1bc20cd8 constant 8>
+            unit size <integer_cst 0x7f2d1bc20cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f2d1bc343f0 precision 8 min <integer_cst 0x7f2d1bc20d08 0> max <integer_cst 0x7f2d1bc20ca8 255> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74aa80>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da73a2e70>>
+        pointer_to_this <pointer_type 0x7f2d1b74ae70>>
    
     def_stmt _39 = blob_97;
     version 39
-    ptr-info 0x7f8da73d20c0>
+    ptr-info 0x7f2d1b77a0c0>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_80 = VDEF <.MEM_79>
 free (_19);
@@ -1832,26 +1832,26 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da73c5d20
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b76dd20
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73ce480 b type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7c60 b>
-        chain <var_decl 0x7f8da73ce510 len type <integer_type 0x7f8da788c5e8 int>
+    arg 0 <var_decl 0x7f2d1b776480 b type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1b76fc60 b>
+        chain <var_decl 0x7f2d1b776510 len type <integer_type 0x7f2d1bc345e8 int>
             used SI file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 15 col 6
-            size <integer_cst 0x7f8da7878e28 constant 32>
-            unit size <integer_cst 0x7f8da7878e40 constant 4>
-            align 32 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7bd0 len>>>
+            size <integer_cst 0x7f2d1bc20e28 constant 32>
+            unit size <integer_cst 0x7f2d1bc20e40 constant 4>
+            align 32 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1b76fbd0 len>>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:9 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:9 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:9>
 
  ================== trace ptable================== 
@@ -1874,20 +1874,20 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f8da73cf0d8
-    type <pointer_type 0x7f8da78930a8
-        type <void_type 0x7f8da788cf18 void VOID
+ <ssa_name 0x7f2d1b7770d8
+    type <pointer_type 0x7f2d1bc3b0a8
+        type <void_type 0x7f2d1bc34f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da78930a8>>
+            pointer_to_this <pointer_type 0x7f2d1bc3b0a8>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+        pointer_to_this <pointer_type 0x7f2d1bc40bd0>>
    
     def_stmt _43 = (void *) _42;
     version 43
-    ptr-info 0x7f8da73d20d8>
+    ptr-info 0x7f2d1b77a0d8>
 _43 = (void *) _42;
 
  ================== trace ptable================== 
@@ -1913,20 +1913,20 @@ memset (_43, 0, _40);
 this stmt is child function---memset-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73cf0d8
-    type <pointer_type 0x7f8da78930a8
-        type <void_type 0x7f8da788cf18 void VOID
+ <ssa_name 0x7f2d1b7770d8
+    type <pointer_type 0x7f2d1bc3b0a8
+        type <void_type 0x7f2d1bc34f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da78930a8>>
+            pointer_to_this <pointer_type 0x7f2d1bc3b0a8>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+        pointer_to_this <pointer_type 0x7f2d1bc40bd0>>
    
     def_stmt _43 = (void *) _42;
     version 43
-    ptr-info 0x7f8da73d20d8>
+    ptr-info 0x7f2d1b77a0d8>
 trace fucntion name:memset 
 
  ================== trace ================== 
@@ -1943,20 +1943,20 @@ memset (_43, 0, _40);
 this stmt is child function---memset-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73cf0d8
-    type <pointer_type 0x7f8da78930a8
-        type <void_type 0x7f8da788cf18 void VOID
+ <ssa_name 0x7f2d1b7770d8
+    type <pointer_type 0x7f2d1bc3b0a8
+        type <void_type 0x7f2d1bc34f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da78930a8>>
+            pointer_to_this <pointer_type 0x7f2d1bc3b0a8>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+        pointer_to_this <pointer_type 0x7f2d1bc40bd0>>
    
     def_stmt _43 = (void *) _42;
     version 43
-    ptr-info 0x7f8da73d20d8>
+    ptr-info 0x7f2d1b77a0d8>
 trace fucntion name:memset 
 
  ================== trace ================== 
@@ -1968,20 +1968,20 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f8da73cf0d8
-    type <pointer_type 0x7f8da78930a8
-        type <void_type 0x7f8da788cf18 void VOID
+ <ssa_name 0x7f2d1b7770d8
+    type <pointer_type 0x7f2d1bc3b0a8
+        type <void_type 0x7f2d1bc34f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da78930a8>>
+            pointer_to_this <pointer_type 0x7f2d1bc3b0a8>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da7898bd0>>
+        pointer_to_this <pointer_type 0x7f2d1bc40bd0>>
    
     def_stmt _43 = (void *) _42;
     version 43
-    ptr-info 0x7f8da73d20d8>
+    ptr-info 0x7f2d1b77a0d8>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_80 = VDEF <.MEM_79>
 free (_19);
@@ -2024,26 +2024,26 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da73c5de0
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b76dde0
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73ce480 b type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7c60 b>
-        chain <var_decl 0x7f8da73ce510 len type <integer_type 0x7f8da788c5e8 int>
+    arg 0 <var_decl 0x7f2d1b776480 b type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 14 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1b76fc60 b>
+        chain <var_decl 0x7f2d1b776510 len type <integer_type 0x7f2d1bc345e8 int>
             used SI file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 15 col 6
-            size <integer_cst 0x7f8da7878e28 constant 32>
-            unit size <integer_cst 0x7f8da7878e40 constant 4>
-            align 32 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da73c7bd0 len>>>
+            size <integer_cst 0x7f2d1bc20e28 constant 32>
+            unit size <integer_cst 0x7f2d1bc20e40 constant 4>
+            align 32 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1b76fbd0 len>>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:32:2 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:32:2 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:32:2>
 
  ================== trace ptable================== 
@@ -2066,21 +2066,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da73c5560
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b76d560
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    arg 0 <var_decl 0x7f2d1b76ac60 msg type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1c9b5b40 msg>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4>
 
  ================== trace ptable================== 
@@ -2103,21 +2103,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da73c5ec0
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b76dec0
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    arg 0 <var_decl 0x7f2d1b76ac60 msg type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1c9b5b40 msg>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:80:4>
 
  ================== trace ptable================== 
@@ -2140,20 +2140,20 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f8da73cf510
-    type <pointer_type 0x7f8da78930a8
-        type <void_type 0x7f8da788cf18 void VOID
+ <ssa_name 0x7f2d1b777510
+    type <pointer_type 0x7f2d1bc3b0a8
+        type <void_type 0x7f2d1bc34f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da78930a8>>
+            pointer_to_this <pointer_type 0x7f2d1bc3b0a8>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da7898bd0>>
-    var <var_decl 0x7f8da73cee10 p>
+        pointer_to_this <pointer_type 0x7f2d1bc40bd0>>
+    var <var_decl 0x7f2d1b776e10 p>
     def_stmt p_48 = (void *) _47;
     version 48
-    ptr-info 0x7f8da73d20f0>
+    ptr-info 0x7f2d1b77a0f0>
 p_48 = (void *) _47;
 
  ================== trace ptable================== 
@@ -2179,20 +2179,20 @@ memcpy (p_48, _17, _49);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73cf510
-    type <pointer_type 0x7f8da78930a8
-        type <void_type 0x7f8da788cf18 void VOID
+ <ssa_name 0x7f2d1b777510
+    type <pointer_type 0x7f2d1bc3b0a8
+        type <void_type 0x7f2d1bc34f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da78930a8>>
+            pointer_to_this <pointer_type 0x7f2d1bc3b0a8>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da7898bd0>>
-    var <var_decl 0x7f8da73cee10 p>
+        pointer_to_this <pointer_type 0x7f2d1bc40bd0>>
+    var <var_decl 0x7f2d1b776e10 p>
     def_stmt p_48 = (void *) _47;
     version 48
-    ptr-info 0x7f8da73d20f0>
+    ptr-info 0x7f2d1b77a0f0>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -2209,20 +2209,20 @@ memcpy (p_48, _17, _49);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73cf510
-    type <pointer_type 0x7f8da78930a8
-        type <void_type 0x7f8da788cf18 void VOID
+ <ssa_name 0x7f2d1b777510
+    type <pointer_type 0x7f2d1bc3b0a8
+        type <void_type 0x7f2d1bc34f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da78930a8>>
+            pointer_to_this <pointer_type 0x7f2d1bc3b0a8>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da7898bd0>>
-    var <var_decl 0x7f8da73cee10 p>
+        pointer_to_this <pointer_type 0x7f2d1bc40bd0>>
+    var <var_decl 0x7f2d1b776e10 p>
     def_stmt p_48 = (void *) _47;
     version 48
-    ptr-info 0x7f8da73d20f0>
+    ptr-info 0x7f2d1b77a0f0>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -2234,20 +2234,20 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f8da73cf510
-    type <pointer_type 0x7f8da78930a8
-        type <void_type 0x7f8da788cf18 void VOID
+ <ssa_name 0x7f2d1b777510
+    type <pointer_type 0x7f2d1bc3b0a8
+        type <void_type 0x7f2d1bc34f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f8da78930a8>>
+            pointer_to_this <pointer_type 0x7f2d1bc3b0a8>>
         public unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da7898bd0>>
-    var <var_decl 0x7f8da73cee10 p>
+        pointer_to_this <pointer_type 0x7f2d1bc40bd0>>
+    var <var_decl 0x7f2d1b776e10 p>
     def_stmt p_48 = (void *) _47;
     version 48
-    ptr-info 0x7f8da73d20f0>
+    ptr-info 0x7f2d1b77a0f0>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_80 = VDEF <.MEM_79>
 free (_19);
@@ -2290,21 +2290,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da73c51a0
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b76d1a0
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    arg 0 <var_decl 0x7f2d1b76ac60 msg type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1c9b5b40 msg>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:81:4 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:81:4 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:81:4>
 
  ================== trace ptable================== 
@@ -2327,22 +2327,22 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f8da73c4d38
-    type <pointer_type 0x7f8da73ab690
-        type <record_type 0x7f8da73ab738 Key BLK
-            size <integer_cst 0x7f8da7894030 constant 512>
-            unit size <integer_cst 0x7f8da7931c18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73ab498 fields <field_decl 0x7f8da73ac850 type> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73ab690> chain <type_decl 0x7f8da73ac8e8 D.4054>>
+ <ssa_name 0x7f2d1b76cd38
+    type <pointer_type 0x7f2d1b753690
+        type <record_type 0x7f2d1b753738 Key BLK
+            size <integer_cst 0x7f2d1bc3c030 constant 512>
+            unit size <integer_cst 0x7f2d1bcd9c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b753498 fields <field_decl 0x7f2d1b754850 type> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b753690> chain <type_decl 0x7f2d1b7548e8 D.4054>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da73abe70>>
+        pointer_to_this <pointer_type 0x7f2d1b753e70>>
    
     def_stmt _24 = *_23;
     version 24
-    ptr-info 0x7f8da73d2060>
+    ptr-info 0x7f2d1b77a060>
 # VUSE <.MEM_80>
 _24 = *_23;
 
@@ -2369,22 +2369,22 @@ add_key (_24, name_5);
 this stmt is child function---add_key-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c4d38
-    type <pointer_type 0x7f8da73ab690
-        type <record_type 0x7f8da73ab738 Key BLK
-            size <integer_cst 0x7f8da7894030 constant 512>
-            unit size <integer_cst 0x7f8da7931c18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73ab498 fields <field_decl 0x7f8da73ac850 type> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73ab690> chain <type_decl 0x7f8da73ac8e8 D.4054>>
+ <ssa_name 0x7f2d1b76cd38
+    type <pointer_type 0x7f2d1b753690
+        type <record_type 0x7f2d1b753738 Key BLK
+            size <integer_cst 0x7f2d1bc3c030 constant 512>
+            unit size <integer_cst 0x7f2d1bcd9c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b753498 fields <field_decl 0x7f2d1b754850 type> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b753690> chain <type_decl 0x7f2d1b7548e8 D.4054>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da73abe70>>
+        pointer_to_this <pointer_type 0x7f2d1b753e70>>
    
     def_stmt _24 = *_23;
     version 24
-    ptr-info 0x7f8da73d2060>
+    ptr-info 0x7f2d1b77a060>
 trace fucntion name:add_key 
 
  ================== trace ================== 
@@ -2401,22 +2401,22 @@ add_key (_24, name_5);
 this stmt is child function---add_key-----
 
  ================== trace ================== 
- <ssa_name 0x7f8da73c4d38
-    type <pointer_type 0x7f8da73ab690
-        type <record_type 0x7f8da73ab738 Key BLK
-            size <integer_cst 0x7f8da7894030 constant 512>
-            unit size <integer_cst 0x7f8da7931c18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73ab498 fields <field_decl 0x7f8da73ac850 type> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73ab690> chain <type_decl 0x7f8da73ac8e8 D.4054>>
+ <ssa_name 0x7f2d1b76cd38
+    type <pointer_type 0x7f2d1b753690
+        type <record_type 0x7f2d1b753738 Key BLK
+            size <integer_cst 0x7f2d1bc3c030 constant 512>
+            unit size <integer_cst 0x7f2d1bcd9c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b753498 fields <field_decl 0x7f2d1b754850 type> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b753690> chain <type_decl 0x7f2d1b7548e8 D.4054>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da73abe70>>
+        pointer_to_this <pointer_type 0x7f2d1b753e70>>
    
     def_stmt _24 = *_23;
     version 24
-    ptr-info 0x7f8da73d2060>
+    ptr-info 0x7f2d1b77a060>
 trace fucntion name:add_key 
 
  ================== trace ================== 
@@ -2428,22 +2428,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f8da73c4d38
-    type <pointer_type 0x7f8da73ab690
-        type <record_type 0x7f8da73ab738 Key BLK
-            size <integer_cst 0x7f8da7894030 constant 512>
-            unit size <integer_cst 0x7f8da7931c18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73ab498 fields <field_decl 0x7f8da73ac850 type> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73ab690> chain <type_decl 0x7f8da73ac8e8 D.4054>>
+ <ssa_name 0x7f2d1b76cd38
+    type <pointer_type 0x7f2d1b753690
+        type <record_type 0x7f2d1b753738 Key BLK
+            size <integer_cst 0x7f2d1bc3c030 constant 512>
+            unit size <integer_cst 0x7f2d1bcd9c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b753498 fields <field_decl 0x7f2d1b754850 type> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b753690> chain <type_decl 0x7f2d1b7548e8 D.4054>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f8da73abe70>>
+        pointer_to_this <pointer_type 0x7f2d1b753e70>>
    
     def_stmt _24 = *_23;
     version 24
-    ptr-info 0x7f8da73d2060>
+    ptr-info 0x7f2d1b77a060>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_80 = VDEF <.MEM_79>
 free (_19);
@@ -2522,21 +2522,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da73c52e0
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b76d2e0
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    arg 0 <var_decl 0x7f2d1b76ac60 msg type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1c9b5b40 msg>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:88:3 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:88:3 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:88:3>
 
  ================== trace ptable================== 
@@ -2559,21 +2559,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da73c53e0
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b76d3e0
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    arg 0 <var_decl 0x7f2d1b76ac60 msg type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1c9b5b40 msg>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:92:2 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:92:2 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:92:2>
 
  ================== trace ptable================== 
@@ -2596,21 +2596,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f8da73c5460
-    type <pointer_type 0x7f8da73a2c78
-        type <record_type 0x7f8da73a2bd0 Buffer BLK
-            size <integer_cst 0x7f8da78940a8 constant 192>
-            unit size <integer_cst 0x7f8da7894078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f8da73a2b28 fields <field_decl 0x7f8da73a4428 buf> context <translation_unit_decl 0x7f8da7883168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
-            pointer_to_this <pointer_type 0x7f8da73a2c78> chain <type_decl 0x7f8da73a44c0 D.3993>>
+ <addr_expr 0x7f2d1b76d460
+    type <pointer_type 0x7f2d1b74ac78
+        type <record_type 0x7f2d1b74abd0 Buffer BLK
+            size <integer_cst 0x7f2d1bc3c0a8 constant 192>
+            unit size <integer_cst 0x7f2d1bc3c078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d1b74ab28 fields <field_decl 0x7f2d1b74c428 buf> context <translation_unit_decl 0x7f2d1bc2b168 ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f2d1b74ac78> chain <type_decl 0x7f2d1b74c4c0 D.3993>>
         unsigned DI
-        size <integer_cst 0x7f8da7878be8 constant 64>
-        unit size <integer_cst 0x7f8da7878c00 constant 8>
+        size <integer_cst 0x7f2d1bc20be8 constant 64>
+        unit size <integer_cst 0x7f2d1bc20c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f8da73c2c60 msg type <record_type 0x7f8da73a2bd0 Buffer>
-        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f8da78940a8 192> unit size <integer_cst 0x7f8da7894078 24>
-        align 128 context <function_decl 0x7f8da73a3b00 main> abstract_origin <var_decl 0x7f8da860db40 msg>>
+    arg 0 <var_decl 0x7f2d1b76ac60 msg type <record_type 0x7f2d1b74abd0 Buffer>
+        addressable used BLK file ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c line 70 col 9 size <integer_cst 0x7f2d1bc3c0a8 192> unit size <integer_cst 0x7f2d1bc3c078 24>
+        align 128 context <function_decl 0x7f2d1b74bb00 main> abstract_origin <var_decl 0x7f2d1c9b5b40 msg>>
     ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:93:2 start: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:93:2 finish: ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:93:2>
 
  ================== trace ptable================== 
@@ -2791,10 +2791,10 @@ return 0;
 [40;34m    find Entry point : 7 [0m
 [40;34m    used_stmt array stack totalsize of : 792 [0m
 [40;34m    collect time: : 0.000074 s [0m
-[40;34m    algorithm time: 0.016884 s [0m
+[40;34m    algorithm time: 0.017115 s [0m
 [40;34m    gimple stmt count : : 73 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
-/usr/bin/ld: /tmp/ccwoYVx2.ltrans0.ltrans.o: in function `main':
+/usr/bin/ld: /tmp/ccZqjzg3.ltrans0.ltrans.o: in function `main':
 <artificial>:(.text+0x24): undefined reference to `buffer_init'
 /usr/bin/ld: <artificial>:(.text+0x33): undefined reference to `get_string'
 /usr/bin/ld: <artificial>:(.text+0x4a): undefined reference to `get_string'

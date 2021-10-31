@@ -171,21 +171,21 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f0d9c0a2558
-    type <pointer_type 0x7f0d9c082690
-        type <integer_type 0x7f0d9c082888 char public string-flag QI
-            size <integer_cst 0x7f0d9c558cd8 constant 8>
-            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
-            pointer_to_this <pointer_type 0x7f0d9c082690>>
+ <ssa_name 0x7fb6e5e6f558
+    type <pointer_type 0x7fb6e5e4f690
+        type <integer_type 0x7fb6e5e4f888 char public string-flag QI
+            size <integer_cst 0x7fb6e6325cd8 constant 8>
+            unit size <integer_cst 0x7fb6e6325cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e63393f0 precision 8 min <integer_cst 0x7fb6e5e52180 -128> max <integer_cst 0x7fb6e5e52168 127>
+            pointer_to_this <pointer_type 0x7fb6e5e4f690>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
-    var <var_decl 0x7f0d9c09f5a0 url>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>>
+    var <var_decl 0x7fb6e5e6c5a0 url>
     def_stmt url_9 = malloc (_8);
     version 9
-    ptr-info 0x7f0d9c085f48>
+    ptr-info 0x7fb6e5e52f48>
 # .MEM_29 = VDEF <.MEM_1(D)>
 url_9 = malloc (_8);
 
@@ -203,21 +203,21 @@ _12 = __builtin_object_size (url_9, 1);
 this stmt is child function---__builtin_object_size-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2558
-    type <pointer_type 0x7f0d9c082690
-        type <integer_type 0x7f0d9c082888 char public string-flag QI
-            size <integer_cst 0x7f0d9c558cd8 constant 8>
-            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
-            pointer_to_this <pointer_type 0x7f0d9c082690>>
+ <ssa_name 0x7fb6e5e6f558
+    type <pointer_type 0x7fb6e5e4f690
+        type <integer_type 0x7fb6e5e4f888 char public string-flag QI
+            size <integer_cst 0x7fb6e6325cd8 constant 8>
+            unit size <integer_cst 0x7fb6e6325cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e63393f0 precision 8 min <integer_cst 0x7fb6e5e52180 -128> max <integer_cst 0x7fb6e5e52168 127>
+            pointer_to_this <pointer_type 0x7fb6e5e4f690>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
-    var <var_decl 0x7f0d9c09f5a0 url>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>>
+    var <var_decl 0x7fb6e5e6c5a0 url>
     def_stmt url_9 = malloc (_8);
     version 9
-    ptr-info 0x7f0d9c085f48>
+    ptr-info 0x7fb6e5e52f48>
 trace fucntion name:__builtin_object_size 
 
  ================== trace ================== 
@@ -226,21 +226,21 @@ _13 = __builtin___sprintf_chk (url_9, 1, _12, "%s%s", _11, "path");
 this stmt is child function---__builtin___sprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2558
-    type <pointer_type 0x7f0d9c082690
-        type <integer_type 0x7f0d9c082888 char public string-flag QI
-            size <integer_cst 0x7f0d9c558cd8 constant 8>
-            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
-            pointer_to_this <pointer_type 0x7f0d9c082690>>
+ <ssa_name 0x7fb6e5e6f558
+    type <pointer_type 0x7fb6e5e4f690
+        type <integer_type 0x7fb6e5e4f888 char public string-flag QI
+            size <integer_cst 0x7fb6e6325cd8 constant 8>
+            unit size <integer_cst 0x7fb6e6325cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e63393f0 precision 8 min <integer_cst 0x7fb6e5e52180 -128> max <integer_cst 0x7fb6e5e52168 127>
+            pointer_to_this <pointer_type 0x7fb6e5e4f690>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
-    var <var_decl 0x7f0d9c09f5a0 url>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>>
+    var <var_decl 0x7fb6e5e6c5a0 url>
     def_stmt url_9 = malloc (_8);
     version 9
-    ptr-info 0x7f0d9c085f48>
+    ptr-info 0x7fb6e5e52f48>
 trace fucntion name:__builtin___sprintf_chk 
 
  ================== trace ================== 
@@ -380,21 +380,21 @@ curl_easy_setopt (_17, 0, url_9);
 this stmt is child function---curl_easy_setopt-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2558
-    type <pointer_type 0x7f0d9c082690
-        type <integer_type 0x7f0d9c082888 char public string-flag QI
-            size <integer_cst 0x7f0d9c558cd8 constant 8>
-            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
-            pointer_to_this <pointer_type 0x7f0d9c082690>>
+ <ssa_name 0x7fb6e5e6f558
+    type <pointer_type 0x7fb6e5e4f690
+        type <integer_type 0x7fb6e5e4f888 char public string-flag QI
+            size <integer_cst 0x7fb6e6325cd8 constant 8>
+            unit size <integer_cst 0x7fb6e6325cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e63393f0 precision 8 min <integer_cst 0x7fb6e5e52180 -128> max <integer_cst 0x7fb6e5e52168 127>
+            pointer_to_this <pointer_type 0x7fb6e5e4f690>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
-    var <var_decl 0x7f0d9c09f5a0 url>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>>
+    var <var_decl 0x7fb6e5e6c5a0 url>
     def_stmt url_9 = malloc (_8);
     version 9
-    ptr-info 0x7f0d9c085f48>
+    ptr-info 0x7fb6e5e52f48>
 trace fucntion name:curl_easy_setopt 
 
  ================== trace ================== 
@@ -406,21 +406,21 @@ url_9 = malloc (_8);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2558
-    type <pointer_type 0x7f0d9c082690
-        type <integer_type 0x7f0d9c082888 char public string-flag QI
-            size <integer_cst 0x7f0d9c558cd8 constant 8>
-            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
-            pointer_to_this <pointer_type 0x7f0d9c082690>>
+ <ssa_name 0x7fb6e5e6f558
+    type <pointer_type 0x7fb6e5e4f690
+        type <integer_type 0x7fb6e5e4f888 char public string-flag QI
+            size <integer_cst 0x7fb6e6325cd8 constant 8>
+            unit size <integer_cst 0x7fb6e6325cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e63393f0 precision 8 min <integer_cst 0x7fb6e5e52180 -128> max <integer_cst 0x7fb6e5e52168 127>
+            pointer_to_this <pointer_type 0x7fb6e5e4f690>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
-    var <var_decl 0x7f0d9c09f5a0 url>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>>
+    var <var_decl 0x7fb6e5e6c5a0 url>
     def_stmt url_9 = malloc (_8);
     version 9
-    ptr-info 0x7f0d9c085f48>
+    ptr-info 0x7fb6e5e52f48>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -432,21 +432,21 @@ trace fucntion free:3
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f0d9c0a2558
-    type <pointer_type 0x7f0d9c082690
-        type <integer_type 0x7f0d9c082888 char public string-flag QI
-            size <integer_cst 0x7f0d9c558cd8 constant 8>
-            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
-            pointer_to_this <pointer_type 0x7f0d9c082690>>
+ <ssa_name 0x7fb6e5e6f558
+    type <pointer_type 0x7fb6e5e4f690
+        type <integer_type 0x7fb6e5e4f888 char public string-flag QI
+            size <integer_cst 0x7fb6e6325cd8 constant 8>
+            unit size <integer_cst 0x7fb6e6325cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e63393f0 precision 8 min <integer_cst 0x7fb6e5e52180 -128> max <integer_cst 0x7fb6e5e52168 127>
+            pointer_to_this <pointer_type 0x7fb6e5e4f690>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
-    var <var_decl 0x7f0d9c09f5a0 url>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>>
+    var <var_decl 0x7fb6e5e6c5a0 url>
     def_stmt url_9 = malloc (_8);
     version 9
-    ptr-info 0x7f0d9c085f48>
+    ptr-info 0x7fb6e5e52f48>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_39 = VDEF <.MEM_38>
 free (url_9);
@@ -483,21 +483,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f0d9c0a23f0
-    type <pointer_type 0x7f0d9c082690
-        type <integer_type 0x7f0d9c082888 char public string-flag QI
-            size <integer_cst 0x7f0d9c558cd8 constant 8>
-            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
-            pointer_to_this <pointer_type 0x7f0d9c082690>>
+ <ssa_name 0x7fb6e5e6f3f0
+    type <pointer_type 0x7fb6e5e4f690
+        type <integer_type 0x7fb6e5e4f888 char public string-flag QI
+            size <integer_cst 0x7fb6e6325cd8 constant 8>
+            unit size <integer_cst 0x7fb6e6325cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e63393f0 precision 8 min <integer_cst 0x7fb6e5e52180 -128> max <integer_cst 0x7fb6e5e52168 127>
+            pointer_to_this <pointer_type 0x7fb6e5e4f690>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>>
    
     def_stmt _4 = _3->url;
     version 4
-    ptr-info 0x7f0d9c085f30>
+    ptr-info 0x7fb6e5e52f30>
 # VUSE <.MEM_1(D)>
 _4 = _3->url;
 
@@ -517,21 +517,21 @@ _5 = strlen (_4);
 this stmt is child function---strlen-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a23f0
-    type <pointer_type 0x7f0d9c082690
-        type <integer_type 0x7f0d9c082888 char public string-flag QI
-            size <integer_cst 0x7f0d9c558cd8 constant 8>
-            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
-            pointer_to_this <pointer_type 0x7f0d9c082690>>
+ <ssa_name 0x7fb6e5e6f3f0
+    type <pointer_type 0x7fb6e5e4f690
+        type <integer_type 0x7fb6e5e4f888 char public string-flag QI
+            size <integer_cst 0x7fb6e6325cd8 constant 8>
+            unit size <integer_cst 0x7fb6e6325cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e63393f0 precision 8 min <integer_cst 0x7fb6e5e52180 -128> max <integer_cst 0x7fb6e5e52168 127>
+            pointer_to_this <pointer_type 0x7fb6e5e4f690>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>>
    
     def_stmt _4 = _3->url;
     version 4
-    ptr-info 0x7f0d9c085f30>
+    ptr-info 0x7fb6e5e52f30>
 trace fucntion name:strlen 
 
  ================== trace ================== 
@@ -547,21 +547,21 @@ url_9 = malloc (_8);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a23f0
-    type <pointer_type 0x7f0d9c082690
-        type <integer_type 0x7f0d9c082888 char public string-flag QI
-            size <integer_cst 0x7f0d9c558cd8 constant 8>
-            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
-            pointer_to_this <pointer_type 0x7f0d9c082690>>
+ <ssa_name 0x7fb6e5e6f3f0
+    type <pointer_type 0x7fb6e5e4f690
+        type <integer_type 0x7fb6e5e4f888 char public string-flag QI
+            size <integer_cst 0x7fb6e6325cd8 constant 8>
+            unit size <integer_cst 0x7fb6e6325cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e63393f0 precision 8 min <integer_cst 0x7fb6e5e52180 -128> max <integer_cst 0x7fb6e5e52168 127>
+            pointer_to_this <pointer_type 0x7fb6e5e4f690>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>>
    
     def_stmt _4 = _3->url;
     version 4
-    ptr-info 0x7f0d9c085f30>
+    ptr-info 0x7fb6e5e52f30>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -570,21 +570,21 @@ _12 = __builtin_object_size (url_9, 1);
 this stmt is child function---__builtin_object_size-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a23f0
-    type <pointer_type 0x7f0d9c082690
-        type <integer_type 0x7f0d9c082888 char public string-flag QI
-            size <integer_cst 0x7f0d9c558cd8 constant 8>
-            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
-            pointer_to_this <pointer_type 0x7f0d9c082690>>
+ <ssa_name 0x7fb6e5e6f3f0
+    type <pointer_type 0x7fb6e5e4f690
+        type <integer_type 0x7fb6e5e4f888 char public string-flag QI
+            size <integer_cst 0x7fb6e6325cd8 constant 8>
+            unit size <integer_cst 0x7fb6e6325cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e63393f0 precision 8 min <integer_cst 0x7fb6e5e52180 -128> max <integer_cst 0x7fb6e5e52168 127>
+            pointer_to_this <pointer_type 0x7fb6e5e4f690>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>>
    
     def_stmt _4 = _3->url;
     version 4
-    ptr-info 0x7f0d9c085f30>
+    ptr-info 0x7fb6e5e52f30>
 trace fucntion name:__builtin_object_size 
 
  ================== trace ================== 
@@ -593,21 +593,21 @@ _13 = __builtin___sprintf_chk (url_9, 1, _12, "%s%s", _11, "path");
 this stmt is child function---__builtin___sprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a23f0
-    type <pointer_type 0x7f0d9c082690
-        type <integer_type 0x7f0d9c082888 char public string-flag QI
-            size <integer_cst 0x7f0d9c558cd8 constant 8>
-            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
-            pointer_to_this <pointer_type 0x7f0d9c082690>>
+ <ssa_name 0x7fb6e5e6f3f0
+    type <pointer_type 0x7fb6e5e4f690
+        type <integer_type 0x7fb6e5e4f888 char public string-flag QI
+            size <integer_cst 0x7fb6e6325cd8 constant 8>
+            unit size <integer_cst 0x7fb6e6325cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e63393f0 precision 8 min <integer_cst 0x7fb6e5e52180 -128> max <integer_cst 0x7fb6e5e52168 127>
+            pointer_to_this <pointer_type 0x7fb6e5e4f690>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>>
    
     def_stmt _4 = _3->url;
     version 4
-    ptr-info 0x7f0d9c085f30>
+    ptr-info 0x7fb6e5e52f30>
 trace fucntion name:__builtin___sprintf_chk 
 
  ================== trace ================== 
@@ -746,21 +746,21 @@ curl_easy_setopt (_17, 0, url_9);
 this stmt is child function---curl_easy_setopt-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a23f0
-    type <pointer_type 0x7f0d9c082690
-        type <integer_type 0x7f0d9c082888 char public string-flag QI
-            size <integer_cst 0x7f0d9c558cd8 constant 8>
-            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
-            pointer_to_this <pointer_type 0x7f0d9c082690>>
+ <ssa_name 0x7fb6e5e6f3f0
+    type <pointer_type 0x7fb6e5e4f690
+        type <integer_type 0x7fb6e5e4f888 char public string-flag QI
+            size <integer_cst 0x7fb6e6325cd8 constant 8>
+            unit size <integer_cst 0x7fb6e6325cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e63393f0 precision 8 min <integer_cst 0x7fb6e5e52180 -128> max <integer_cst 0x7fb6e5e52168 127>
+            pointer_to_this <pointer_type 0x7fb6e5e4f690>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>>
    
     def_stmt _4 = _3->url;
     version 4
-    ptr-info 0x7f0d9c085f30>
+    ptr-info 0x7fb6e5e52f30>
 trace fucntion name:curl_easy_setopt 
 
  ================== trace ================== 
@@ -772,21 +772,21 @@ trace fucntion free:3
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f0d9c0a23f0
-    type <pointer_type 0x7f0d9c082690
-        type <integer_type 0x7f0d9c082888 char public string-flag QI
-            size <integer_cst 0x7f0d9c558cd8 constant 8>
-            unit size <integer_cst 0x7f0d9c558cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c56c3f0 precision 8 min <integer_cst 0x7f0d9c085180 -128> max <integer_cst 0x7f0d9c085168 127>
-            pointer_to_this <pointer_type 0x7f0d9c082690>>
+ <ssa_name 0x7fb6e5e6f3f0
+    type <pointer_type 0x7fb6e5e4f690
+        type <integer_type 0x7fb6e5e4f888 char public string-flag QI
+            size <integer_cst 0x7fb6e6325cd8 constant 8>
+            unit size <integer_cst 0x7fb6e6325cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e63393f0 precision 8 min <integer_cst 0x7fb6e5e52180 -128> max <integer_cst 0x7fb6e5e52168 127>
+            pointer_to_this <pointer_type 0x7fb6e5e4f690>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>>
    
     def_stmt _4 = _3->url;
     version 4
-    ptr-info 0x7f0d9c085f30>
+    ptr-info 0x7fb6e5e52f30>
 
  ================== Start Use after free Check ================== 
 
@@ -805,12 +805,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f0d9c0a2510
-    type <integer_type 0x7f0d9c56c7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f0d9c56c738 precision 64 min <integer_cst 0x7f0d9c558eb8 0> max <integer_cst 0x7f0d9c55a500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f0d9c5789d8>>
+ <ssa_name 0x7fb6e5e6f510
+    type <integer_type 0x7fb6e63397e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fb6e6339738 precision 64 min <integer_cst 0x7fb6e6325eb8 0> max <integer_cst 0x7fb6e6327500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fb6e63459d8>>
    
     def_stmt _8 = _7 + 1;
     version 8>
@@ -832,12 +832,12 @@ url_9 = malloc (_8);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2510
-    type <integer_type 0x7f0d9c56c7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f0d9c56c738 precision 64 min <integer_cst 0x7f0d9c558eb8 0> max <integer_cst 0x7f0d9c55a500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f0d9c5789d8>>
+ <ssa_name 0x7fb6e5e6f510
+    type <integer_type 0x7fb6e63397e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fb6e6339738 precision 64 min <integer_cst 0x7fb6e6325eb8 0> max <integer_cst 0x7fb6e6327500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fb6e63459d8>>
    
     def_stmt _8 = _7 + 1;
     version 8>
@@ -849,12 +849,12 @@ _12 = __builtin_object_size (url_9, 1);
 this stmt is child function---__builtin_object_size-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2510
-    type <integer_type 0x7f0d9c56c7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f0d9c56c738 precision 64 min <integer_cst 0x7f0d9c558eb8 0> max <integer_cst 0x7f0d9c55a500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f0d9c5789d8>>
+ <ssa_name 0x7fb6e5e6f510
+    type <integer_type 0x7fb6e63397e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fb6e6339738 precision 64 min <integer_cst 0x7fb6e6325eb8 0> max <integer_cst 0x7fb6e6327500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fb6e63459d8>>
    
     def_stmt _8 = _7 + 1;
     version 8>
@@ -866,12 +866,12 @@ _13 = __builtin___sprintf_chk (url_9, 1, _12, "%s%s", _11, "path");
 this stmt is child function---__builtin___sprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2510
-    type <integer_type 0x7f0d9c56c7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f0d9c56c738 precision 64 min <integer_cst 0x7f0d9c558eb8 0> max <integer_cst 0x7f0d9c55a500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f0d9c5789d8>>
+ <ssa_name 0x7fb6e5e6f510
+    type <integer_type 0x7fb6e63397e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fb6e6339738 precision 64 min <integer_cst 0x7fb6e6325eb8 0> max <integer_cst 0x7fb6e6327500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fb6e63459d8>>
    
     def_stmt _8 = _7 + 1;
     version 8>
@@ -1013,12 +1013,12 @@ curl_easy_setopt (_17, 0, url_9);
 this stmt is child function---curl_easy_setopt-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2510
-    type <integer_type 0x7f0d9c56c7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f0d9c56c738 precision 64 min <integer_cst 0x7f0d9c558eb8 0> max <integer_cst 0x7f0d9c55a500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f0d9c5789d8>>
+ <ssa_name 0x7fb6e5e6f510
+    type <integer_type 0x7fb6e63397e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fb6e6339738 precision 64 min <integer_cst 0x7fb6e6325eb8 0> max <integer_cst 0x7fb6e6327500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fb6e63459d8>>
    
     def_stmt _8 = _7 + 1;
     version 8>
@@ -1033,12 +1033,12 @@ trace fucntion free:3
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f0d9c0a2510
-    type <integer_type 0x7f0d9c56c7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f0d9c56c738 precision 64 min <integer_cst 0x7f0d9c558eb8 0> max <integer_cst 0x7f0d9c55a500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f0d9c5789d8>>
+ <ssa_name 0x7fb6e5e6f510
+    type <integer_type 0x7fb6e63397e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fb6e6339738 precision 64 min <integer_cst 0x7fb6e6325eb8 0> max <integer_cst 0x7fb6e6327500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fb6e63459d8>>
    
     def_stmt _8 = _7 + 1;
     version 8>
@@ -1078,12 +1078,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f0d9c0a26c0
-    type <integer_type 0x7f0d9c56c5e8 int public SI
-        size <integer_cst 0x7f0d9c558e28 constant 32>
-        unit size <integer_cst 0x7f0d9c558e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
-        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+ <ssa_name 0x7fb6e5e6f6c0
+    type <integer_type 0x7fb6e63395e8 int public SI
+        size <integer_cst 0x7fb6e6325e28 constant 32>
+        unit size <integer_cst 0x7fb6e6325e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb6e63395e8 precision 32 min <integer_cst 0x7fb6e6325de0 -2147483648> max <integer_cst 0x7fb6e6325df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb6e6340a80>>
    
     def_stmt _14 = get_active_slot ();
     version 14>
@@ -1141,12 +1141,12 @@ run_active_slot (slot_16);
 this stmt is child function---run_active_slot-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a26c0
-    type <integer_type 0x7f0d9c56c5e8 int public SI
-        size <integer_cst 0x7f0d9c558e28 constant 32>
-        unit size <integer_cst 0x7f0d9c558e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
-        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+ <ssa_name 0x7fb6e5e6f6c0
+    type <integer_type 0x7fb6e63395e8 int public SI
+        size <integer_cst 0x7fb6e6325e28 constant 32>
+        unit size <integer_cst 0x7fb6e6325e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb6e63395e8 precision 32 min <integer_cst 0x7fb6e6325de0 -2147483648> max <integer_cst 0x7fb6e6325df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb6e6340a80>>
    
     def_stmt _14 = get_active_slot ();
     version 14>
@@ -1161,12 +1161,12 @@ _19 = start_active_slot (slot_16);
 this stmt is child function---start_active_slot-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a26c0
-    type <integer_type 0x7f0d9c56c5e8 int public SI
-        size <integer_cst 0x7f0d9c558e28 constant 32>
-        unit size <integer_cst 0x7f0d9c558e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
-        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+ <ssa_name 0x7fb6e5e6f6c0
+    type <integer_type 0x7fb6e63395e8 int public SI
+        size <integer_cst 0x7fb6e6325e28 constant 32>
+        unit size <integer_cst 0x7fb6e6325e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb6e63395e8 precision 32 min <integer_cst 0x7fb6e6325de0 -2147483648> max <integer_cst 0x7fb6e6325df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb6e6340a80>>
    
     def_stmt _14 = get_active_slot ();
     version 14>
@@ -1202,12 +1202,12 @@ curl_easy_setopt (_18, 0, 1);
 this stmt is child function---curl_easy_setopt-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a26c0
-    type <integer_type 0x7f0d9c56c5e8 int public SI
-        size <integer_cst 0x7f0d9c558e28 constant 32>
-        unit size <integer_cst 0x7f0d9c558e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
-        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+ <ssa_name 0x7fb6e5e6f6c0
+    type <integer_type 0x7fb6e63395e8 int public SI
+        size <integer_cst 0x7fb6e6325e28 constant 32>
+        unit size <integer_cst 0x7fb6e6325e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb6e63395e8 precision 32 min <integer_cst 0x7fb6e6325de0 -2147483648> max <integer_cst 0x7fb6e6325df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb6e6340a80>>
    
     def_stmt _14 = get_active_slot ();
     version 14>
@@ -1224,12 +1224,12 @@ curl_easy_setopt (_17, 0, url_9);
 this stmt is child function---curl_easy_setopt-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a26c0
-    type <integer_type 0x7f0d9c56c5e8 int public SI
-        size <integer_cst 0x7f0d9c558e28 constant 32>
-        unit size <integer_cst 0x7f0d9c558e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
-        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+ <ssa_name 0x7fb6e5e6f6c0
+    type <integer_type 0x7fb6e63395e8 int public SI
+        size <integer_cst 0x7fb6e6325e28 constant 32>
+        unit size <integer_cst 0x7fb6e6325e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb6e63395e8 precision 32 min <integer_cst 0x7fb6e6325de0 -2147483648> max <integer_cst 0x7fb6e6325df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb6e6340a80>>
    
     def_stmt _14 = get_active_slot ();
     version 14>
@@ -1248,12 +1248,12 @@ _14 = get_active_slot ();
 this stmt is child function---get_active_slot-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a26c0
-    type <integer_type 0x7f0d9c56c5e8 int public SI
-        size <integer_cst 0x7f0d9c558e28 constant 32>
-        unit size <integer_cst 0x7f0d9c558e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
-        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+ <ssa_name 0x7fb6e5e6f6c0
+    type <integer_type 0x7fb6e63395e8 int public SI
+        size <integer_cst 0x7fb6e6325e28 constant 32>
+        unit size <integer_cst 0x7fb6e6325e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb6e63395e8 precision 32 min <integer_cst 0x7fb6e6325de0 -2147483648> max <integer_cst 0x7fb6e6325df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb6e6340a80>>
    
     def_stmt _14 = get_active_slot ();
     version 14>
@@ -1268,12 +1268,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f0d9c0a26c0
-    type <integer_type 0x7f0d9c56c5e8 int public SI
-        size <integer_cst 0x7f0d9c558e28 constant 32>
-        unit size <integer_cst 0x7f0d9c558e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f0d9c56c5e8 precision 32 min <integer_cst 0x7f0d9c558de0 -2147483648> max <integer_cst 0x7f0d9c558df8 2147483647>
-        pointer_to_this <pointer_type 0x7f0d9c573a80>>
+ <ssa_name 0x7fb6e5e6f6c0
+    type <integer_type 0x7fb6e63395e8 int public SI
+        size <integer_cst 0x7fb6e6325e28 constant 32>
+        unit size <integer_cst 0x7fb6e6325e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb6e63395e8 precision 32 min <integer_cst 0x7fb6e6325de0 -2147483648> max <integer_cst 0x7fb6e6325df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb6e6340a80>>
    
     def_stmt _14 = get_active_slot ();
     version 14>
@@ -1313,21 +1313,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f0d9c0a2798
-    type <pointer_type 0x7f0d9c08e3f0
-        type <record_type 0x7f0d9c08e348 CURL BLK
-            size <integer_cst 0x7f0d9c558c60 constant 0>
-            unit size <integer_cst 0x7f0d9c558c18 constant 0>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+ <ssa_name 0x7fb6e5e6f798
+    type <pointer_type 0x7fb6e5e5b3f0
+        type <record_type 0x7fb6e5e5b348 CURL BLK
+            size <integer_cst 0x7fb6e6325c60 constant 0>
+            unit size <integer_cst 0x7fb6e6325c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e5e5b2a0 context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b3f0> chain <type_decl 0x7fb6e5e5a720 D.4061>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = slot_16->curl;
     version 17
-    ptr-info 0x7f0d9c085fa8>
+    ptr-info 0x7fb6e5e52fa8>
 # VUSE <.MEM_32>
 _17 = slot_16->curl;
 
@@ -1349,21 +1349,21 @@ curl_easy_setopt (_17, 0, url_9);
 this stmt is child function---curl_easy_setopt-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2798
-    type <pointer_type 0x7f0d9c08e3f0
-        type <record_type 0x7f0d9c08e348 CURL BLK
-            size <integer_cst 0x7f0d9c558c60 constant 0>
-            unit size <integer_cst 0x7f0d9c558c18 constant 0>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+ <ssa_name 0x7fb6e5e6f798
+    type <pointer_type 0x7fb6e5e5b3f0
+        type <record_type 0x7fb6e5e5b348 CURL BLK
+            size <integer_cst 0x7fb6e6325c60 constant 0>
+            unit size <integer_cst 0x7fb6e6325c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e5e5b2a0 context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b3f0> chain <type_decl 0x7fb6e5e5a720 D.4061>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = slot_16->curl;
     version 17
-    ptr-info 0x7f0d9c085fa8>
+    ptr-info 0x7fb6e5e52fa8>
 trace fucntion name:curl_easy_setopt 
 
  ================== trace ================== 
@@ -1375,21 +1375,21 @@ curl_easy_setopt (_17, 0, url_9);
 this stmt is child function---curl_easy_setopt-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2798
-    type <pointer_type 0x7f0d9c08e3f0
-        type <record_type 0x7f0d9c08e348 CURL BLK
-            size <integer_cst 0x7f0d9c558c60 constant 0>
-            unit size <integer_cst 0x7f0d9c558c18 constant 0>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+ <ssa_name 0x7fb6e5e6f798
+    type <pointer_type 0x7fb6e5e5b3f0
+        type <record_type 0x7fb6e5e5b348 CURL BLK
+            size <integer_cst 0x7fb6e6325c60 constant 0>
+            unit size <integer_cst 0x7fb6e6325c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e5e5b2a0 context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b3f0> chain <type_decl 0x7fb6e5e5a720 D.4061>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = slot_16->curl;
     version 17
-    ptr-info 0x7f0d9c085fa8>
+    ptr-info 0x7fb6e5e52fa8>
 trace fucntion name:curl_easy_setopt 
 
  ================== trace ================== 
@@ -1401,21 +1401,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f0d9c0a2798
-    type <pointer_type 0x7f0d9c08e3f0
-        type <record_type 0x7f0d9c08e348 CURL BLK
-            size <integer_cst 0x7f0d9c558c60 constant 0>
-            unit size <integer_cst 0x7f0d9c558c18 constant 0>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+ <ssa_name 0x7fb6e5e6f798
+    type <pointer_type 0x7fb6e5e5b3f0
+        type <record_type 0x7fb6e5e5b348 CURL BLK
+            size <integer_cst 0x7fb6e6325c60 constant 0>
+            unit size <integer_cst 0x7fb6e6325c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e5e5b2a0 context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b3f0> chain <type_decl 0x7fb6e5e5a720 D.4061>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = slot_16->curl;
     version 17
-    ptr-info 0x7f0d9c085fa8>
+    ptr-info 0x7fb6e5e52fa8>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_39 = VDEF <.MEM_38>
 free (url_9);
@@ -1452,21 +1452,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f0d9c0a27e0
-    type <pointer_type 0x7f0d9c08e3f0
-        type <record_type 0x7f0d9c08e348 CURL BLK
-            size <integer_cst 0x7f0d9c558c60 constant 0>
-            unit size <integer_cst 0x7f0d9c558c18 constant 0>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+ <ssa_name 0x7fb6e5e6f7e0
+    type <pointer_type 0x7fb6e5e5b3f0
+        type <record_type 0x7fb6e5e5b348 CURL BLK
+            size <integer_cst 0x7fb6e6325c60 constant 0>
+            unit size <integer_cst 0x7fb6e6325c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e5e5b2a0 context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b3f0> chain <type_decl 0x7fb6e5e5a720 D.4061>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _18 = slot_16->curl;
     version 18
-    ptr-info 0x7f0d9c085fc0>
+    ptr-info 0x7fb6e5e52fc0>
 # VUSE <.MEM_33>
 _18 = slot_16->curl;
 
@@ -1488,21 +1488,21 @@ curl_easy_setopt (_18, 0, 1);
 this stmt is child function---curl_easy_setopt-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a27e0
-    type <pointer_type 0x7f0d9c08e3f0
-        type <record_type 0x7f0d9c08e348 CURL BLK
-            size <integer_cst 0x7f0d9c558c60 constant 0>
-            unit size <integer_cst 0x7f0d9c558c18 constant 0>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+ <ssa_name 0x7fb6e5e6f7e0
+    type <pointer_type 0x7fb6e5e5b3f0
+        type <record_type 0x7fb6e5e5b348 CURL BLK
+            size <integer_cst 0x7fb6e6325c60 constant 0>
+            unit size <integer_cst 0x7fb6e6325c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e5e5b2a0 context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b3f0> chain <type_decl 0x7fb6e5e5a720 D.4061>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _18 = slot_16->curl;
     version 18
-    ptr-info 0x7f0d9c085fc0>
+    ptr-info 0x7fb6e5e52fc0>
 trace fucntion name:curl_easy_setopt 
 
  ================== trace ================== 
@@ -1514,21 +1514,21 @@ curl_easy_setopt (_18, 0, 1);
 this stmt is child function---curl_easy_setopt-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a27e0
-    type <pointer_type 0x7f0d9c08e3f0
-        type <record_type 0x7f0d9c08e348 CURL BLK
-            size <integer_cst 0x7f0d9c558c60 constant 0>
-            unit size <integer_cst 0x7f0d9c558c18 constant 0>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+ <ssa_name 0x7fb6e5e6f7e0
+    type <pointer_type 0x7fb6e5e5b3f0
+        type <record_type 0x7fb6e5e5b348 CURL BLK
+            size <integer_cst 0x7fb6e6325c60 constant 0>
+            unit size <integer_cst 0x7fb6e6325c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e5e5b2a0 context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b3f0> chain <type_decl 0x7fb6e5e5a720 D.4061>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _18 = slot_16->curl;
     version 18
-    ptr-info 0x7f0d9c085fc0>
+    ptr-info 0x7fb6e5e52fc0>
 trace fucntion name:curl_easy_setopt 
 
  ================== trace ================== 
@@ -1540,21 +1540,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f0d9c0a27e0
-    type <pointer_type 0x7f0d9c08e3f0
-        type <record_type 0x7f0d9c08e348 CURL BLK
-            size <integer_cst 0x7f0d9c558c60 constant 0>
-            unit size <integer_cst 0x7f0d9c558c18 constant 0>
-            align 8 symtab 0 alias set -1 canonical type 0x7f0d9c08e2a0 context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e3f0> chain <type_decl 0x7f0d9c08d720 D.4061>>
+ <ssa_name 0x7fb6e5e6f7e0
+    type <pointer_type 0x7fb6e5e5b3f0
+        type <record_type 0x7fb6e5e5b348 CURL BLK
+            size <integer_cst 0x7fb6e6325c60 constant 0>
+            unit size <integer_cst 0x7fb6e6325c18 constant 0>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb6e5e5b2a0 context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b3f0> chain <type_decl 0x7fb6e5e5a720 D.4061>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _18 = slot_16->curl;
     version 18
-    ptr-info 0x7f0d9c085fc0>
+    ptr-info 0x7fb6e5e52fc0>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_39 = VDEF <.MEM_38>
 free (url_9);
@@ -1591,21 +1591,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f0d9c0a2750
-    type <pointer_type 0x7f0d9c08e498
-        type <record_type 0x7f0d9c08e540 active_request_slot BLK
-            size <integer_cst 0x7f0d9c0853a8 constant 576>
-            unit size <integer_cst 0x7f0d9c085408 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+ <ssa_name 0x7fb6e5e6f750
+    type <pointer_type 0x7fb6e5e5b498
+        type <record_type 0x7fb6e5e5b540 active_request_slot BLK
+            size <integer_cst 0x7fb6e5e523a8 constant 576>
+            unit size <integer_cst 0x7fb6e5e52408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e5b540 fields <field_decl 0x7fb6e5e5ada8 curl> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b498> chain <type_decl 0x7fb6e5e5ae40 D.4073>>
         public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f0d9c09f630 slot>
+    var <var_decl 0x7fb6e5e6c630 slot>
     def_stmt slot_16 = (struct active_request_slot *) _15;
     version 16
-    ptr-info 0x7f0d9c085f90>
+    ptr-info 0x7fb6e5e52f90>
 slot_16 = (struct active_request_slot *) _15;
 
  ================== trace ptable================== 
@@ -1650,21 +1650,21 @@ run_active_slot (slot_16);
 this stmt is child function---run_active_slot-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2750
-    type <pointer_type 0x7f0d9c08e498
-        type <record_type 0x7f0d9c08e540 active_request_slot BLK
-            size <integer_cst 0x7f0d9c0853a8 constant 576>
-            unit size <integer_cst 0x7f0d9c085408 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+ <ssa_name 0x7fb6e5e6f750
+    type <pointer_type 0x7fb6e5e5b498
+        type <record_type 0x7fb6e5e5b540 active_request_slot BLK
+            size <integer_cst 0x7fb6e5e523a8 constant 576>
+            unit size <integer_cst 0x7fb6e5e52408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e5b540 fields <field_decl 0x7fb6e5e5ada8 curl> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b498> chain <type_decl 0x7fb6e5e5ae40 D.4073>>
         public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f0d9c09f630 slot>
+    var <var_decl 0x7fb6e5e6c630 slot>
     def_stmt slot_16 = (struct active_request_slot *) _15;
     version 16
-    ptr-info 0x7f0d9c085f90>
+    ptr-info 0x7fb6e5e52f90>
 trace fucntion name:run_active_slot 
 
  ================== trace ================== 
@@ -1676,21 +1676,21 @@ _19 = start_active_slot (slot_16);
 this stmt is child function---start_active_slot-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2750
-    type <pointer_type 0x7f0d9c08e498
-        type <record_type 0x7f0d9c08e540 active_request_slot BLK
-            size <integer_cst 0x7f0d9c0853a8 constant 576>
-            unit size <integer_cst 0x7f0d9c085408 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+ <ssa_name 0x7fb6e5e6f750
+    type <pointer_type 0x7fb6e5e5b498
+        type <record_type 0x7fb6e5e5b540 active_request_slot BLK
+            size <integer_cst 0x7fb6e5e523a8 constant 576>
+            unit size <integer_cst 0x7fb6e5e52408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e5b540 fields <field_decl 0x7fb6e5e5ada8 curl> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b498> chain <type_decl 0x7fb6e5e5ae40 D.4073>>
         public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f0d9c09f630 slot>
+    var <var_decl 0x7fb6e5e6c630 slot>
     def_stmt slot_16 = (struct active_request_slot *) _15;
     version 16
-    ptr-info 0x7f0d9c085f90>
+    ptr-info 0x7fb6e5e52f90>
 trace fucntion name:start_active_slot 
 
  ================== trace ================== 
@@ -1723,21 +1723,21 @@ curl_easy_setopt (_18, 0, 1);
 this stmt is child function---curl_easy_setopt-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2750
-    type <pointer_type 0x7f0d9c08e498
-        type <record_type 0x7f0d9c08e540 active_request_slot BLK
-            size <integer_cst 0x7f0d9c0853a8 constant 576>
-            unit size <integer_cst 0x7f0d9c085408 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+ <ssa_name 0x7fb6e5e6f750
+    type <pointer_type 0x7fb6e5e5b498
+        type <record_type 0x7fb6e5e5b540 active_request_slot BLK
+            size <integer_cst 0x7fb6e5e523a8 constant 576>
+            unit size <integer_cst 0x7fb6e5e52408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e5b540 fields <field_decl 0x7fb6e5e5ada8 curl> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b498> chain <type_decl 0x7fb6e5e5ae40 D.4073>>
         public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f0d9c09f630 slot>
+    var <var_decl 0x7fb6e5e6c630 slot>
     def_stmt slot_16 = (struct active_request_slot *) _15;
     version 16
-    ptr-info 0x7f0d9c085f90>
+    ptr-info 0x7fb6e5e52f90>
 trace fucntion name:curl_easy_setopt 
 
  ================== trace ================== 
@@ -1751,21 +1751,21 @@ curl_easy_setopt (_17, 0, url_9);
 this stmt is child function---curl_easy_setopt-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2750
-    type <pointer_type 0x7f0d9c08e498
-        type <record_type 0x7f0d9c08e540 active_request_slot BLK
-            size <integer_cst 0x7f0d9c0853a8 constant 576>
-            unit size <integer_cst 0x7f0d9c085408 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+ <ssa_name 0x7fb6e5e6f750
+    type <pointer_type 0x7fb6e5e5b498
+        type <record_type 0x7fb6e5e5b540 active_request_slot BLK
+            size <integer_cst 0x7fb6e5e523a8 constant 576>
+            unit size <integer_cst 0x7fb6e5e52408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e5b540 fields <field_decl 0x7fb6e5e5ada8 curl> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b498> chain <type_decl 0x7fb6e5e5ae40 D.4073>>
         public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f0d9c09f630 slot>
+    var <var_decl 0x7fb6e5e6c630 slot>
     def_stmt slot_16 = (struct active_request_slot *) _15;
     version 16
-    ptr-info 0x7f0d9c085f90>
+    ptr-info 0x7fb6e5e52f90>
 trace fucntion name:curl_easy_setopt 
 
  ================== trace ================== 
@@ -1781,21 +1781,21 @@ slot_16->results = &results;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f0d9c0a2750
-    type <pointer_type 0x7f0d9c08e498
-        type <record_type 0x7f0d9c08e540 active_request_slot BLK
-            size <integer_cst 0x7f0d9c0853a8 constant 576>
-            unit size <integer_cst 0x7f0d9c085408 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+ <ssa_name 0x7fb6e5e6f750
+    type <pointer_type 0x7fb6e5e5b498
+        type <record_type 0x7fb6e5e5b540 active_request_slot BLK
+            size <integer_cst 0x7fb6e5e523a8 constant 576>
+            unit size <integer_cst 0x7fb6e5e52408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e5b540 fields <field_decl 0x7fb6e5e5ada8 curl> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b498> chain <type_decl 0x7fb6e5e5ae40 D.4073>>
         public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f0d9c09f630 slot>
+    var <var_decl 0x7fb6e5e6c630 slot>
     def_stmt slot_16 = (struct active_request_slot *) _15;
     version 16
-    ptr-info 0x7f0d9c085f90>
+    ptr-info 0x7fb6e5e52f90>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_39 = VDEF <.MEM_38>
 free (url_9);
@@ -1832,21 +1832,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f0d9c0a2750
-    type <pointer_type 0x7f0d9c08e498
-        type <record_type 0x7f0d9c08e540 active_request_slot BLK
-            size <integer_cst 0x7f0d9c0853a8 constant 576>
-            unit size <integer_cst 0x7f0d9c085408 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+ <ssa_name 0x7fb6e5e6f750
+    type <pointer_type 0x7fb6e5e5b498
+        type <record_type 0x7fb6e5e5b540 active_request_slot BLK
+            size <integer_cst 0x7fb6e5e523a8 constant 576>
+            unit size <integer_cst 0x7fb6e5e52408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e5b540 fields <field_decl 0x7fb6e5e5ada8 curl> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b498> chain <type_decl 0x7fb6e5e5ae40 D.4073>>
         public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f0d9c09f630 slot>
+    var <var_decl 0x7fb6e5e6c630 slot>
     def_stmt slot_16 = (struct active_request_slot *) _15;
     version 16
-    ptr-info 0x7f0d9c085f90>
+    ptr-info 0x7fb6e5e52f90>
 slot_16 = (struct active_request_slot *) _15;
 
  ================== trace ptable================== 
@@ -1893,21 +1893,21 @@ run_active_slot (slot_16);
 this stmt is child function---run_active_slot-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2750
-    type <pointer_type 0x7f0d9c08e498
-        type <record_type 0x7f0d9c08e540 active_request_slot BLK
-            size <integer_cst 0x7f0d9c0853a8 constant 576>
-            unit size <integer_cst 0x7f0d9c085408 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+ <ssa_name 0x7fb6e5e6f750
+    type <pointer_type 0x7fb6e5e5b498
+        type <record_type 0x7fb6e5e5b540 active_request_slot BLK
+            size <integer_cst 0x7fb6e5e523a8 constant 576>
+            unit size <integer_cst 0x7fb6e5e52408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e5b540 fields <field_decl 0x7fb6e5e5ada8 curl> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b498> chain <type_decl 0x7fb6e5e5ae40 D.4073>>
         public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f0d9c09f630 slot>
+    var <var_decl 0x7fb6e5e6c630 slot>
     def_stmt slot_16 = (struct active_request_slot *) _15;
     version 16
-    ptr-info 0x7f0d9c085f90>
+    ptr-info 0x7fb6e5e52f90>
 trace fucntion name:run_active_slot 
 
  ================== trace ================== 
@@ -1919,21 +1919,21 @@ _19 = start_active_slot (slot_16);
 this stmt is child function---start_active_slot-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2750
-    type <pointer_type 0x7f0d9c08e498
-        type <record_type 0x7f0d9c08e540 active_request_slot BLK
-            size <integer_cst 0x7f0d9c0853a8 constant 576>
-            unit size <integer_cst 0x7f0d9c085408 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+ <ssa_name 0x7fb6e5e6f750
+    type <pointer_type 0x7fb6e5e5b498
+        type <record_type 0x7fb6e5e5b540 active_request_slot BLK
+            size <integer_cst 0x7fb6e5e523a8 constant 576>
+            unit size <integer_cst 0x7fb6e5e52408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e5b540 fields <field_decl 0x7fb6e5e5ada8 curl> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b498> chain <type_decl 0x7fb6e5e5ae40 D.4073>>
         public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f0d9c09f630 slot>
+    var <var_decl 0x7fb6e5e6c630 slot>
     def_stmt slot_16 = (struct active_request_slot *) _15;
     version 16
-    ptr-info 0x7f0d9c085f90>
+    ptr-info 0x7fb6e5e52f90>
 trace fucntion name:start_active_slot 
 
  ================== trace ================== 
@@ -1966,21 +1966,21 @@ curl_easy_setopt (_18, 0, 1);
 this stmt is child function---curl_easy_setopt-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2750
-    type <pointer_type 0x7f0d9c08e498
-        type <record_type 0x7f0d9c08e540 active_request_slot BLK
-            size <integer_cst 0x7f0d9c0853a8 constant 576>
-            unit size <integer_cst 0x7f0d9c085408 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+ <ssa_name 0x7fb6e5e6f750
+    type <pointer_type 0x7fb6e5e5b498
+        type <record_type 0x7fb6e5e5b540 active_request_slot BLK
+            size <integer_cst 0x7fb6e5e523a8 constant 576>
+            unit size <integer_cst 0x7fb6e5e52408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e5b540 fields <field_decl 0x7fb6e5e5ada8 curl> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b498> chain <type_decl 0x7fb6e5e5ae40 D.4073>>
         public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f0d9c09f630 slot>
+    var <var_decl 0x7fb6e5e6c630 slot>
     def_stmt slot_16 = (struct active_request_slot *) _15;
     version 16
-    ptr-info 0x7f0d9c085f90>
+    ptr-info 0x7fb6e5e52f90>
 trace fucntion name:curl_easy_setopt 
 
  ================== trace ================== 
@@ -1994,21 +1994,21 @@ curl_easy_setopt (_17, 0, url_9);
 this stmt is child function---curl_easy_setopt-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2750
-    type <pointer_type 0x7f0d9c08e498
-        type <record_type 0x7f0d9c08e540 active_request_slot BLK
-            size <integer_cst 0x7f0d9c0853a8 constant 576>
-            unit size <integer_cst 0x7f0d9c085408 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+ <ssa_name 0x7fb6e5e6f750
+    type <pointer_type 0x7fb6e5e5b498
+        type <record_type 0x7fb6e5e5b540 active_request_slot BLK
+            size <integer_cst 0x7fb6e5e523a8 constant 576>
+            unit size <integer_cst 0x7fb6e5e52408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e5b540 fields <field_decl 0x7fb6e5e5ada8 curl> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b498> chain <type_decl 0x7fb6e5e5ae40 D.4073>>
         public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f0d9c09f630 slot>
+    var <var_decl 0x7fb6e5e6c630 slot>
     def_stmt slot_16 = (struct active_request_slot *) _15;
     version 16
-    ptr-info 0x7f0d9c085f90>
+    ptr-info 0x7fb6e5e52f90>
 trace fucntion name:curl_easy_setopt 
 
  ================== trace ================== 
@@ -2024,21 +2024,21 @@ slot_16->results = &results;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f0d9c0a2750
-    type <pointer_type 0x7f0d9c08e498
-        type <record_type 0x7f0d9c08e540 active_request_slot BLK
-            size <integer_cst 0x7f0d9c0853a8 constant 576>
-            unit size <integer_cst 0x7f0d9c085408 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08e540 fields <field_decl 0x7f0d9c08dda8 curl> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08e498> chain <type_decl 0x7f0d9c08de40 D.4073>>
+ <ssa_name 0x7fb6e5e6f750
+    type <pointer_type 0x7fb6e5e5b498
+        type <record_type 0x7fb6e5e5b540 active_request_slot BLK
+            size <integer_cst 0x7fb6e5e523a8 constant 576>
+            unit size <integer_cst 0x7fb6e5e52408 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e5b540 fields <field_decl 0x7fb6e5e5ada8 curl> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e5b498> chain <type_decl 0x7fb6e5e5ae40 D.4073>>
         public unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f0d9c09f630 slot>
+    var <var_decl 0x7fb6e5e6c630 slot>
     def_stmt slot_16 = (struct active_request_slot *) _15;
     version 16
-    ptr-info 0x7f0d9c085f90>
+    ptr-info 0x7fb6e5e52f90>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_39 = VDEF <.MEM_38>
 free (url_9);
@@ -2075,22 +2075,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f0d9c0a2948
-    type <pointer_type 0x7f0d9c08a348
-        type <record_type 0x7f0d9c08a2a0 FILE BLK
-            size <integer_cst 0x7f0d9c611c30 constant 1728>
-            unit size <integer_cst 0x7f0d9c0852a0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08a150 fields <field_decl 0x7f0d9c08b720 _flags> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08a348> chain <type_decl 0x7f0d9c08b7b8 D.4025>>
+ <ssa_name 0x7fb6e5e6f948
+    type <pointer_type 0x7fb6e5e57348
+        type <record_type 0x7fb6e5e572a0 FILE BLK
+            size <integer_cst 0x7fb6e63dec30 constant 1728>
+            unit size <integer_cst 0x7fb6e5e522a0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e57150 fields <field_decl 0x7fb6e5e58720 _flags> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e57348> chain <type_decl 0x7fb6e5e587b8 D.4025>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f0d9c08e9d8>>
+        pointer_to_this <pointer_type 0x7fb6e5e5b9d8>>
    
     def_stmt _23 = stderr;
     version 23
-    ptr-info 0x7f0d9c085fd8>
+    ptr-info 0x7fb6e5e52fd8>
 # VUSE <.MEM_39>
 _23 = stderr;
 
@@ -2133,22 +2133,22 @@ _24 = __fprintf_chk (_23, 1, "HEAD HTTP error %ld\n", _22);
 this stmt is child function---__fprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2948
-    type <pointer_type 0x7f0d9c08a348
-        type <record_type 0x7f0d9c08a2a0 FILE BLK
-            size <integer_cst 0x7f0d9c611c30 constant 1728>
-            unit size <integer_cst 0x7f0d9c0852a0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08a150 fields <field_decl 0x7f0d9c08b720 _flags> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08a348> chain <type_decl 0x7f0d9c08b7b8 D.4025>>
+ <ssa_name 0x7fb6e5e6f948
+    type <pointer_type 0x7fb6e5e57348
+        type <record_type 0x7fb6e5e572a0 FILE BLK
+            size <integer_cst 0x7fb6e63dec30 constant 1728>
+            unit size <integer_cst 0x7fb6e5e522a0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e57150 fields <field_decl 0x7fb6e5e58720 _flags> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e57348> chain <type_decl 0x7fb6e5e587b8 D.4025>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f0d9c08e9d8>>
+        pointer_to_this <pointer_type 0x7fb6e5e5b9d8>>
    
     def_stmt _23 = stderr;
     version 23
-    ptr-info 0x7f0d9c085fd8>
+    ptr-info 0x7fb6e5e52fd8>
 trace fucntion name:__fprintf_chk 
 
  ================== trace ================== 
@@ -2183,22 +2183,22 @@ _24 = __fprintf_chk (_23, 1, "HEAD HTTP error %ld\n", _22);
 this stmt is child function---__fprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7f0d9c0a2948
-    type <pointer_type 0x7f0d9c08a348
-        type <record_type 0x7f0d9c08a2a0 FILE BLK
-            size <integer_cst 0x7f0d9c611c30 constant 1728>
-            unit size <integer_cst 0x7f0d9c0852a0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08a150 fields <field_decl 0x7f0d9c08b720 _flags> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08a348> chain <type_decl 0x7f0d9c08b7b8 D.4025>>
+ <ssa_name 0x7fb6e5e6f948
+    type <pointer_type 0x7fb6e5e57348
+        type <record_type 0x7fb6e5e572a0 FILE BLK
+            size <integer_cst 0x7fb6e63dec30 constant 1728>
+            unit size <integer_cst 0x7fb6e5e522a0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e57150 fields <field_decl 0x7fb6e5e58720 _flags> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e57348> chain <type_decl 0x7fb6e5e587b8 D.4025>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f0d9c08e9d8>>
+        pointer_to_this <pointer_type 0x7fb6e5e5b9d8>>
    
     def_stmt _23 = stderr;
     version 23
-    ptr-info 0x7f0d9c085fd8>
+    ptr-info 0x7fb6e5e52fd8>
 trace fucntion name:__fprintf_chk 
 
  ================== trace ================== 
@@ -2210,22 +2210,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f0d9c0a2948
-    type <pointer_type 0x7f0d9c08a348
-        type <record_type 0x7f0d9c08a2a0 FILE BLK
-            size <integer_cst 0x7f0d9c611c30 constant 1728>
-            unit size <integer_cst 0x7f0d9c0852a0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08a150 fields <field_decl 0x7f0d9c08b720 _flags> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08a348> chain <type_decl 0x7f0d9c08b7b8 D.4025>>
+ <ssa_name 0x7fb6e5e6f948
+    type <pointer_type 0x7fb6e5e57348
+        type <record_type 0x7fb6e5e572a0 FILE BLK
+            size <integer_cst 0x7fb6e63dec30 constant 1728>
+            unit size <integer_cst 0x7fb6e5e522a0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e57150 fields <field_decl 0x7fb6e5e58720 _flags> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e57348> chain <type_decl 0x7fb6e5e587b8 D.4025>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f0d9c08e9d8>>
+        pointer_to_this <pointer_type 0x7fb6e5e5b9d8>>
    
     def_stmt _23 = stderr;
     version 23
-    ptr-info 0x7f0d9c085fd8>
+    ptr-info 0x7fb6e5e52fd8>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_39 = VDEF <.MEM_38>
 free (url_9);
@@ -2290,22 +2290,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f0d9c0a29d8
-    type <pointer_type 0x7f0d9c08a348
-        type <record_type 0x7f0d9c08a2a0 FILE BLK
-            size <integer_cst 0x7f0d9c611c30 constant 1728>
-            unit size <integer_cst 0x7f0d9c0852a0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f0d9c08a150 fields <field_decl 0x7f0d9c08b720 _flags> context <translation_unit_decl 0x7f0d9c563168 ./benchmarks/git/double_free_1/git_df_1.c>
-            pointer_to_this <pointer_type 0x7f0d9c08a348> chain <type_decl 0x7f0d9c08b7b8 D.4025>>
+ <ssa_name 0x7fb6e5e6f9d8
+    type <pointer_type 0x7fb6e5e57348
+        type <record_type 0x7fb6e5e572a0 FILE BLK
+            size <integer_cst 0x7fb6e63dec30 constant 1728>
+            unit size <integer_cst 0x7fb6e5e522a0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb6e5e57150 fields <field_decl 0x7fb6e5e58720 _flags> context <translation_unit_decl 0x7fb6e6330168 ./benchmarks/git/double_free_1/git_df_1.c>
+            pointer_to_this <pointer_type 0x7fb6e5e57348> chain <type_decl 0x7fb6e5e587b8 D.4025>>
         unsigned DI
-        size <integer_cst 0x7f0d9c558be8 constant 64>
-        unit size <integer_cst 0x7f0d9c558c00 constant 8>
+        size <integer_cst 0x7fb6e6325be8 constant 64>
+        unit size <integer_cst 0x7fb6e6325c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f0d9c08e9d8>>
+        pointer_to_this <pointer_type 0x7fb6e5e5b9d8>>
    
     def_stmt _25 = stderr;
     version 25
-    ptr-info 0x7f0d9c0a6000>
+    ptr-info 0x7fb6e5e73000>
 # VUSE <.MEM_36>
 _25 = stderr;
 
@@ -2423,11 +2423,11 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 8 [0m
 [40;34m    used_stmt array stack totalsize of : 1256 [0m
-[40;34m    collect time: : 0.000086 s [0m
-[40;34m    algorithm time: 0.015038 s [0m
+[40;34m    collect time: : 0.000087 s [0m
+[40;34m    algorithm time: 0.014722 s [0m
 [40;34m    gimple stmt count : : 37 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
-/usr/bin/ld: /tmp/ccFkizO5.ltrans0.ltrans.o: in function `main':
+/usr/bin/ld: /tmp/ccbFAZoF.ltrans0.ltrans.o: in function `main':
 <artificial>:(.text+0x6d): undefined reference to `get_active_slot'
 /usr/bin/ld: <artificial>:(.text+0x8c): undefined reference to `curl_easy_setopt'
 /usr/bin/ld: <artificial>:(.text+0xa3): undefined reference to `curl_easy_setopt'

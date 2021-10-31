@@ -1,2 +1,135 @@
-gcc-7: fatal error: no input files
-compilation terminated.
+In file included from ./benchmarks/tmux/leak_2/../tmux.h:22:0,
+                 from ./benchmarks/tmux/leak_2/tmux_leak_2.c:11:
+./benchmarks/tmux/leak_2/tmux_leak_2.c: In function ‘winlinks_RB_INSERT’:
+./benchmarks/tmux/leak_2/tmux_leak_2.c:14:39: error: ‘winlink_cmp’ undeclared (first use in this function); did you mean ‘winlinks’?
+ RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                       ^
+./benchmarks/tmux/leak_2/../tree.h:666:11: note: in definition of macro ‘RB_GENERATE_INSERT’
+   comp = (cmp)(elm, parent);    \
+           ^~~
+./benchmarks/tmux/leak_2/../tree.h:449:2: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  RB_GENERATE_INTERNAL(name, type, field, cmp,)
+  ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:14:1: note: in expansion of macro ‘RB_GENERATE’
+ RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+ ^~~~~~~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:14:39: note: each undeclared identifier is reported only once for each function it appears in
+ RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                       ^
+./benchmarks/tmux/leak_2/../tree.h:666:11: note: in definition of macro ‘RB_GENERATE_INSERT’
+   comp = (cmp)(elm, parent);    \
+           ^~~
+./benchmarks/tmux/leak_2/../tree.h:449:2: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  RB_GENERATE_INTERNAL(name, type, field, cmp,)
+  ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:14:1: note: in expansion of macro ‘RB_GENERATE’
+ RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+ ^~~~~~~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c: In function ‘winlinks_RB_FIND’:
+./benchmarks/tmux/leak_2/tmux_leak_2.c:14:39: warning: implicit declaration of function ‘winlink_cmp’; did you mean ‘winlinks_RB_FIND’? [-Wimplicit-function-declaration]
+ RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                       ^
+./benchmarks/tmux/leak_2/../tree.h:695:10: note: in definition of macro ‘RB_GENERATE_FIND’
+   comp = cmp(elm, tmp);     \
+          ^~~
+./benchmarks/tmux/leak_2/../tree.h:449:2: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  RB_GENERATE_INTERNAL(name, type, field, cmp,)
+  ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:14:1: note: in expansion of macro ‘RB_GENERATE’
+ RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+ ^~~~~~~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c: In function ‘xasprintf’:
+./benchmarks/tmux/leak_2/tmux_leak_2.c:52:6: warning: implicit declaration of function ‘xvasprintf’; did you mean ‘xasprintf’? [-Wimplicit-function-declaration]
+  i = xvasprintf(ret, fmt, ap);
+      ^~~~~~~~~~
+      xasprintf
+./benchmarks/tmux/leak_2/tmux_leak_2.c: In function ‘xvasprintf’:
+./benchmarks/tmux/leak_2/tmux_leak_2.c:62:6: warning: implicit declaration of function ‘vasprintf’; did you mean ‘xvasprintf’? [-Wimplicit-function-declaration]
+  i = vasprintf(ret, fmt, ap);
+      ^~~~~~~~~
+      xvasprintf
+In file included from ./benchmarks/tmux/leak_2/tmux_leak_2.c:10:0:
+./benchmarks/tmux/leak_2/tmux_leak_2.c:65:27: warning: implicit declaration of function ‘strerror’; did you mean ‘perror’? [-Wimplicit-function-declaration]
+   fatalx("xasprintf: %s", strerror(errno));
+                           ^
+./benchmarks/tmux/leak_2/../stdio.h:135:33: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                                 ^
+./benchmarks/tmux/leak_2/tmux_leak_2.c:65:3: note: in expansion of macro ‘fatalx’
+   fatalx("xasprintf: %s", strerror(errno));
+   ^~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:65:10: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Wformat=]
+   fatalx("xasprintf: %s", strerror(errno));
+          ^                ~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_2/../stdio.h:135:30: note: in definition of macro ‘fatal’
+ #define fatal(a, b) { printf(a, b); exit(1); }
+                              ^
+./benchmarks/tmux/leak_2/tmux_leak_2.c:65:3: note: in expansion of macro ‘fatalx’
+   fatalx("xasprintf: %s", strerror(errno));
+   ^~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c: In function ‘status_prompt_complete_prefix’:
+./benchmarks/tmux/leak_2/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/tmux/leak_2/tmux_leak_2.c:78:8: note: in expansion of macro ‘xstrdup’
+  out = xstrdup(list[0]);
+        ^~~~~~~
+./benchmarks/tmux/leak_2/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/tmux/leak_2/tmux_leak_2.c:78:8: note: in expansion of macro ‘xstrdup’
+  out = xstrdup(list[0]);
+        ^~~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:80:7: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   j = strlen(list[i]);
+       ^~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:80:7: warning: incompatible implicit declaration of built-in function ‘strlen’
+./benchmarks/tmux/leak_2/tmux_leak_2.c:80:7: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/tmux/leak_2/tmux_leak_2.c: In function ‘status_prompt_complete_list’:
+./benchmarks/tmux/leak_2/tmux_leak_2.c:106:7: warning: implicit declaration of function ‘strncmp’ [-Wimplicit-function-declaration]
+   if (strncmp(*layout, s, strlen(s)) == 0) {
+       ^~~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:106:27: warning: incompatible implicit declaration of built-in function ‘strlen’
+   if (strncmp(*layout, s, strlen(s)) == 0) {
+                           ^~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:106:27: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/tmux/leak_2/tmux_leak_2.c: In function ‘status_prompt_complete’:
+./benchmarks/tmux/leak_2/tmux_leak_2.c:133:27: warning: passing argument 3 of ‘xasprintf’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+    xasprintf(&out, "%s ", list[0]);
+                           ^~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:48:1: note: expected ‘char *’ but argument is of type ‘const char *’
+ xasprintf(char **ret, const char *fmt, char *ap)
+ ^~~~~~~~~
+In file included from ./benchmarks/tmux/leak_2/tmux_leak_2.c:10:0:
+./benchmarks/tmux/leak_2/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/tmux/leak_2/tmux_leak_2.c:139:9: note: in expansion of macro ‘xstrdup’
+  copy = xstrdup(s);
+         ^~~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:142:11: warning: incompatible implicit declaration of built-in function ‘strlen’
+  if (copy[strlen(copy) - 1] == ':')
+           ^~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:142:11: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/tmux/leak_2/tmux_leak_2.c:164:24: warning: incompatible implicit declaration of built-in function ‘strlen’
+    if (strncmp(tmp, s, strlen(s)) == 0){
+                        ^~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:164:24: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/tmux/leak_2/tmux_leak_2.c:170:27: warning: passing argument 3 of ‘xasprintf’ makes pointer from integer without a cast [-Wint-conversion]
+    xasprintf(&tmp, ":%d", wl->idx);
+                           ^~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:48:1: note: expected ‘char *’ but argument is of type ‘int’
+ xasprintf(char **ret, const char *fmt, char *ap)
+ ^~~~~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:171:24: warning: incompatible implicit declaration of built-in function ‘strlen’
+    if (strncmp(tmp, s, strlen(s)) == 0) {
+                        ^~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:171:24: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/tmux/leak_2/tmux_leak_2.c:182:24: warning: incompatible implicit declaration of built-in function ‘strlen’
+    if (strncmp(tmp, s, strlen(s)) == 0) {
+                        ^~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:182:24: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/tmux/leak_2/tmux_leak_2.c:189:24: warning: incompatible implicit declaration of built-in function ‘strlen’
+    if (strncmp(tmp, s, strlen(s)) == 0) {
+                        ^~~~~~
+./benchmarks/tmux/leak_2/tmux_leak_2.c:189:24: note: include ‘<string.h>’ or provide a declaration of ‘strlen’

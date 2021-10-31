@@ -198,21 +198,21 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 # .MEM_17 = VDEF <.MEM_16(D)>
 k_5 = calloc (1, 64);
 
@@ -294,21 +294,21 @@ _15 = __printf_chk (1, "key_new: bad key type %d", _2);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -402,21 +402,21 @@ _20 = __printf_chk (1, "key_free: bad key type %d", _6);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -616,21 +616,21 @@ k_5 = calloc (1, 64);
 this stmt is child function---calloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 trace fucntion name:calloc 
 
  ================== trace ================== 
@@ -642,21 +642,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 
  ================== Start Use after free Check ================== 
 
@@ -677,14 +677,14 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a3921f30 type <integer_type 0x7fd5a3928bd0 size_t> constant 1>
+ <integer_cst 0x7fed423daf30 type <integer_type 0x7fed423e1bd0 size_t> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a3df4f90 type <integer_type 0x7fd5a3e085e8 int> constant 1>
+ <integer_cst 0x7fed428adf90 type <integer_type 0x7fed428c15e8 int> constant 1>
 [40;33m =======POP node_fun stack:key_new========= [0m
 [40;44m =======node_fun:key_free========= [0m
 [40;44m fucntion collect path  [0m
@@ -704,7 +704,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a3df4f90 type <integer_type 0x7fd5a3e085e8 int> constant 1>
+ <integer_cst 0x7fed428adf90 type <integer_type 0x7fed428c15e8 int> constant 1>
 [40;33m =======POP node_fun stack:key_free========= [0m
 [40;44m =======node_fun:key_load_private_type========= [0m
 [40;44m fucntion collect path  [0m
@@ -730,21 +730,21 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 # .MEM_17 = VDEF <.MEM_16(D)>
 k_5 = calloc (1, 64);
 
@@ -766,7 +766,6 @@ return k_5;
 bb index := 4
 # VUSE <.MEM_23>
 return k_5;
-In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -775,6 +774,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 4
 
 ======================================================================
 return k_5;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
 
 ======================================================================
@@ -783,12 +783,14 @@ _13 = k_5;
 bb index := 4
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
 beacuse in succ := 4 have return or exit
 gimple stmt in succ := 4 ,possiable got to succ := 4
 
 ======================================================================
 _13 = k_5;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
 
 ======================================================================
@@ -798,12 +800,14 @@ _2 = k_5->type;
 bb index := 3
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
 beacuse in succ := 4 have return or exit
 gimple stmt in succ := 3 ,possiable got to succ := 4
 
 ======================================================================
 _2 = k_5->type;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:43:3: warning: use location
    fatal("key_new: bad key type %d", k->type);
    ^
@@ -815,6 +819,7 @@ _15 = __printf_chk (1, "key_new: bad key type %d", _2);
 bb index := 3
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -826,21 +831,21 @@ _15 = __printf_chk (1, "key_new: bad key type %d", _2);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -872,6 +877,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5->type = type_6(D);
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:33:10: warning: use location
   k->type = type;
           ^
@@ -883,6 +889,7 @@ _1 = k_5->type;
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -904,6 +911,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 _1 = k_5->type;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:39:11: warning: use location
   switch (k->type) {
            ^
@@ -915,6 +923,7 @@ _1 = k_10(D)->type;
 bb index := 4
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -923,6 +932,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 4
 
 ======================================================================
 _1 = k_10(D)->type;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:56:11: warning: use location
   switch (k->type) {
            ^
@@ -934,21 +944,21 @@ _20 = __printf_chk (1, "key_free: bad key type %d", _6);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -961,6 +971,7 @@ k_5->cert = 0B;
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -982,6 +993,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5->cert = 0B;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:38:10: warning: use location
   k->cert = NULL;
           ^
@@ -993,6 +1005,7 @@ k_5->rsa = 0B;
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -1014,6 +1027,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5->rsa = 0B;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:37:9: warning: use location
   k->rsa = NULL;
          ^
@@ -1025,6 +1039,7 @@ k_5->dsa = 0B;
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -1046,6 +1061,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5->dsa = 0B;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:36:9: warning: use location
   k->dsa = NULL;
          ^
@@ -1057,6 +1073,7 @@ k_5->ecdsa_nid = -1;
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -1078,6 +1095,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5->ecdsa_nid = -1;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:35:15: warning: use location
   k->ecdsa_nid = -1;
                ^
@@ -1089,6 +1107,7 @@ k_5->ecdsa = 0B;
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -1110,6 +1129,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5->ecdsa = 0B;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:34:11: warning: use location
   k->ecdsa = NULL;
            ^
@@ -1121,6 +1141,7 @@ k_5 = calloc (1, 64);
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -1142,27 +1163,28 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5 = calloc (1, 64);
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:32:4: warning: use location
   k = xcalloc(1, sizeof(*k));    /* allocation site */
     ^
 this stmt is child function---calloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 trace fucntion name:calloc 
 
  ================== trace ================== 
@@ -1174,21 +1196,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 
  ================== Start Use after free Check ================== 
 
@@ -1209,14 +1231,14 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a3921f30 type <integer_type 0x7fd5a3928bd0 size_t> constant 1>
+ <integer_cst 0x7fed423daf30 type <integer_type 0x7fed423e1bd0 size_t> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a3df4f90 type <integer_type 0x7fd5a3e085e8 int> constant 1>
+ <integer_cst 0x7fed428adf90 type <integer_type 0x7fed428c15e8 int> constant 1>
 [40;33m =======POP node_fun stack:key_new========= [0m
 [40;42m =======pre add _ fucntion:rand========= [0m
 [40;33m =======POP node_fun stack:rand========= [0m
@@ -1238,7 +1260,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a3df4f90 type <integer_type 0x7fd5a3e085e8 int> constant 1>
+ <integer_cst 0x7fed428adf90 type <integer_type 0x7fed428c15e8 int> constant 1>
 [40;33m =======POP node_fun stack:key_free========= [0m
 [40;42m =======pre add _ fucntion:key_parse_private_rsa1========= [0m
 [40;33m =======POP node_fun stack:key_parse_private_rsa1========= [0m
@@ -1248,20 +1270,20 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394abd0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403bd0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _33 = malloc (168);
     version 33
-    ptr-info 0x7fd5a393e438>
+    ptr-info 0x7fed423f7438>
 # .MEM_51 = VDEF <.MEM_50>
 _33 = malloc (168);
 
@@ -1762,20 +1784,20 @@ key_free (prv_32);
 this stmt is child function---key_free-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394abd0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403bd0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _33 = malloc (168);
     version 33
-    ptr-info 0x7fd5a393e438>
+    ptr-info 0x7fed423f7438>
 trace fucntion name:key_free 
 [40;44m =======trace_function_path key_free  function_call count: 3 level :0========  [0m
 # .MEM_27 = VDEF <.MEM_24(D)>
@@ -1822,20 +1844,20 @@ _33 = malloc (168);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394abd0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403bd0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _33 = malloc (168);
     version 33
-    ptr-info 0x7fd5a393e438>
+    ptr-info 0x7fed423f7438>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1847,20 +1869,20 @@ trace fucntion free:3
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394abd0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403bd0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _33 = malloc (168);
     version 33
-    ptr-info 0x7fd5a393e438>
+    ptr-info 0x7fed423f7438>
 
  ================== Start Use after free Check ================== 
 
@@ -1959,20 +1981,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394aea0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403ea0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _43 = malloc (24);
     version 43
-    ptr-info 0x7fd5a393e468>
+    ptr-info 0x7fed423f7468>
 # .MEM_59 = VDEF <.MEM_58>
 _43 = malloc (24);
 
@@ -2477,20 +2499,20 @@ _43 = malloc (24);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394aea0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403ea0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _43 = malloc (24);
     version 43
-    ptr-info 0x7fd5a393e468>
+    ptr-info 0x7fed423f7468>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -2502,20 +2524,20 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394aea0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403ea0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _43 = malloc (24);
     version 43
-    ptr-info 0x7fd5a393e468>
+    ptr-info 0x7fed423f7468>
 
  ================== Start Use after free Check ================== 
 
@@ -2534,12 +2556,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a39413f0
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed423fa3f0
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _1 = rand ();
     version 1>
@@ -2673,12 +2695,12 @@ _1 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a39413f0
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed423fa3f0
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _1 = rand ();
     version 1>
@@ -2693,12 +2715,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a39413f0
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed423fa3f0
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _1 = rand ();
     version 1>
@@ -2722,17 +2744,17 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a393e060 type <pointer_type 0x7fd5a3928690> constant 0>
+ <integer_cst 0x7fed423f7060 type <pointer_type 0x7fed423e1690> constant 0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394a948
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403948
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _24 = rand ();
     version 24>
@@ -2779,12 +2801,12 @@ _24 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394a948
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403948
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _24 = rand ();
     version 24>
@@ -2799,12 +2821,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394a948
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403948
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _24 = rand ();
     version 24>
@@ -2826,12 +2848,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394aa20
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403a20
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _27 = rand ();
     version 27>
@@ -2878,12 +2900,12 @@ _27 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394aa20
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403a20
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _27 = rand ();
     version 27>
@@ -2898,12 +2920,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394aa20
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403a20
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _27 = rand ();
     version 27>
@@ -2927,24 +2949,24 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a3921fc0 type <integer_type 0x7fd5a3e085e8 int> constant 11>
+ <integer_cst 0x7fed423dafc0 type <integer_type 0x7fed428c15e8 int> constant 11>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a393e108 type <integer_type 0x7fd5a3e087e0 long unsigned int> constant 168>
+ <integer_cst 0x7fed423f7108 type <integer_type 0x7fed428c17e0 long unsigned int> constant 168>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394ac18
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403c18
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _34 = rand ();
     version 34>
@@ -2991,12 +3013,12 @@ _34 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394ac18
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403c18
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _34 = rand ();
     version 34>
@@ -3011,12 +3033,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394ac18
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403c18
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _34 = rand ();
     version 34>
@@ -3038,21 +3060,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394ab88
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed42403b88
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a393fd80 prv>
+    var <var_decl 0x7fed423f8d80 prv>
     def_stmt prv_32 = key_new (11);
     version 32
-    ptr-info 0x7fd5a393e420>
+    ptr-info 0x7fed423f7420>
 # .MEM_50 = VDEF <.MEM_49>
 prv_32 = key_new (11);
 
@@ -3556,21 +3578,21 @@ key_free (prv_32);
 this stmt is child function---key_free-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394ab88
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed42403b88
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a393fd80 prv>
+    var <var_decl 0x7fed423f8d80 prv>
     def_stmt prv_32 = key_new (11);
     version 32
-    ptr-info 0x7fd5a393e420>
+    ptr-info 0x7fed423f7420>
 trace fucntion name:key_free 
 [40;44m =======trace_function_path key_free  function_call count: 3 level :0========  [0m
 # .MEM_27 = VDEF <.MEM_24(D)>
@@ -3627,21 +3649,21 @@ prv_32->rsa = _33;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394ab88
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed42403b88
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a393fd80 prv>
+    var <var_decl 0x7fed423f8d80 prv>
     def_stmt prv_32 = key_new (11);
     version 32
-    ptr-info 0x7fd5a393e420>
+    ptr-info 0x7fed423f7420>
 
  ================== Start Use after free Check ================== 
 
@@ -3740,12 +3762,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394acf0
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403cf0
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _37 = rand ();
     version 37>
@@ -3792,12 +3814,12 @@ _37 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394acf0
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403cf0
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _37 = rand ();
     version 37>
@@ -3812,12 +3834,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394acf0
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403cf0
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _37 = rand ();
     version 37>
@@ -3841,7 +3863,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a393e120 type <integer_type 0x7fd5a3e087e0 long unsigned int> constant 24>
+ <integer_cst 0x7fed423f7120 type <integer_type 0x7fed428c17e0 long unsigned int> constant 24>
 [40;33m =======POP node_fun stack:key_load_private_type========= [0m
 [40;44m =======node_fun:main========= [0m
 [40;44m fucntion collect path  [0m
@@ -3867,7 +3889,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a3df4f90 type <integer_type 0x7fd5a3e085e8 int> constant 1>
+ <integer_cst 0x7fed428adf90 type <integer_type 0x7fed428c15e8 int> constant 1>
 [40;33m =======POP node_fun stack:key_free========= [0m
 [40;42m =======pre add _ fucntion:__printf_chk========= [0m
 [40;33m =======POP node_fun stack:__printf_chk========= [0m
@@ -3897,21 +3919,21 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 # .MEM_17 = VDEF <.MEM_16(D)>
 k_5 = calloc (1, 64);
 
@@ -3933,7 +3955,7 @@ return k_5;
 bb index := 4
 # VUSE <.MEM_23>
 return k_5;
-In function ‘main’:
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -3942,6 +3964,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 4
 
 ======================================================================
 return k_5;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
 
 ======================================================================
@@ -3950,12 +3973,14 @@ _13 = k_5;
 bb index := 4
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
 beacuse in succ := 4 have return or exit
 gimple stmt in succ := 4 ,possiable got to succ := 4
 
 ======================================================================
 _13 = k_5;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
 
 ======================================================================
@@ -3965,12 +3990,14 @@ _2 = k_5->type;
 bb index := 3
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
 beacuse in succ := 4 have return or exit
 gimple stmt in succ := 3 ,possiable got to succ := 4
 
 ======================================================================
 _2 = k_5->type;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:43:3: warning: use location
    fatal("key_new: bad key type %d", k->type);
    ^
@@ -3982,6 +4009,7 @@ _15 = __printf_chk (1, "key_new: bad key type %d", _2);
 bb index := 3
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -3993,21 +4021,21 @@ _15 = __printf_chk (1, "key_new: bad key type %d", _2);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -4039,6 +4067,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5->type = type_6(D);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:33:10: warning: use location
   k->type = type;
           ^
@@ -4050,6 +4079,7 @@ _1 = k_5->type;
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -4071,6 +4101,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 _1 = k_5->type;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:39:11: warning: use location
   switch (k->type) {
            ^
@@ -4082,6 +4113,7 @@ _1 = k_10(D)->type;
 bb index := 4
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -4090,6 +4122,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 4
 
 ======================================================================
 _1 = k_10(D)->type;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:56:11: warning: use location
   switch (k->type) {
            ^
@@ -4101,21 +4134,21 @@ _20 = __printf_chk (1, "key_free: bad key type %d", _6);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -4128,6 +4161,7 @@ k_5->cert = 0B;
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -4149,6 +4183,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5->cert = 0B;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:38:10: warning: use location
   k->cert = NULL;
           ^
@@ -4160,6 +4195,7 @@ k_5->rsa = 0B;
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -4181,6 +4217,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5->rsa = 0B;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:37:9: warning: use location
   k->rsa = NULL;
          ^
@@ -4192,6 +4229,7 @@ k_5->dsa = 0B;
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -4213,6 +4251,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5->dsa = 0B;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:36:9: warning: use location
   k->dsa = NULL;
          ^
@@ -4224,6 +4263,7 @@ k_5->ecdsa_nid = -1;
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -4245,6 +4285,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5->ecdsa_nid = -1;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:35:15: warning: use location
   k->ecdsa_nid = -1;
                ^
@@ -4256,6 +4297,7 @@ k_5->ecdsa = 0B;
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -4277,6 +4319,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5->ecdsa = 0B;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:34:11: warning: use location
   k->ecdsa = NULL;
            ^
@@ -4288,6 +4331,7 @@ k_5 = calloc (1, 64);
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_new’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -4309,27 +4353,28 @@ gimple stmt in succ := 2 ,possiable got to succ := 4
 
 ======================================================================
 k_5 = calloc (1, 64);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:32:4: warning: use location
   k = xcalloc(1, sizeof(*k));    /* allocation site */
     ^
 this stmt is child function---calloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 trace fucntion name:calloc 
 
  ================== trace ================== 
@@ -4341,21 +4386,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a3dfc948
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed428b5948
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a4b89c60 k>
+    var <var_decl 0x7fed43642c60 k>
     def_stmt k_5 = calloc (1, 64);
     version 5
-    ptr-info 0x7fd5a393e2d0>
+    ptr-info 0x7fed423f72d0>
 
  ================== Start Use after free Check ================== 
 
@@ -4376,14 +4421,14 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a3921f30 type <integer_type 0x7fd5a3928bd0 size_t> constant 1>
+ <integer_cst 0x7fed423daf30 type <integer_type 0x7fed423e1bd0 size_t> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a3df4f90 type <integer_type 0x7fd5a3e085e8 int> constant 1>
+ <integer_cst 0x7fed428adf90 type <integer_type 0x7fed428c15e8 int> constant 1>
 [40;33m =======POP node_fun stack:key_new========= [0m
 [40;42m =======pre add _ fucntion:rand========= [0m
 [40;33m =======POP node_fun stack:rand========= [0m
@@ -4405,7 +4450,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a3df4f90 type <integer_type 0x7fd5a3e085e8 int> constant 1>
+ <integer_cst 0x7fed428adf90 type <integer_type 0x7fed428c15e8 int> constant 1>
 [40;33m =======POP node_fun stack:key_free========= [0m
 [40;42m =======pre add _ fucntion:key_parse_private_rsa1========= [0m
 [40;33m =======POP node_fun stack:key_parse_private_rsa1========= [0m
@@ -4415,20 +4460,20 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394abd0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403bd0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _33 = malloc (168);
     version 33
-    ptr-info 0x7fd5a393e438>
+    ptr-info 0x7fed423f7438>
 # .MEM_51 = VDEF <.MEM_50>
 _33 = malloc (168);
 
@@ -4455,6 +4500,7 @@ prv_45 = PHI <0B(7), prv_32(10), 0B(11), prv_42(14), 0B(15)>
 bb index := 16
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -4489,6 +4535,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 13
 
 ======================================================================
 prv_45 = PHI <0B(7), prv_32(10), 0B(11), prv_42(14), 0B(15)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -4498,6 +4545,7 @@ _64 = prv_45;
 bb index := 16
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -4532,6 +4580,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 13
 
 ======================================================================
 _64 = prv_45;
+In function ‘main’:
 lto1: warning: use location
 
 ======================================================================
@@ -4540,6 +4589,7 @@ _21 = _64;
 bb index := 16
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -4574,6 +4624,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 13
 
 ======================================================================
 _21 = _64;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:120:10: warning: use location
    return key_parse_private_pem(blob, type, passphrase, commentp);
           ^
@@ -4584,6 +4635,7 @@ _23 = PHI <_20(5), _21(16), 0B(17)>
 bb index := 18
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -4690,6 +4742,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 13
 
 ======================================================================
 _23 = PHI <_20(5), _21(16), 0B(17)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -4699,6 +4752,7 @@ _67 = _23;
 bb index := 18
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -4805,6 +4859,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 13
 
 ======================================================================
 _67 = _23;
+In function ‘main’:
 lto1: warning: use location
 
 ======================================================================
@@ -4813,6 +4868,7 @@ ret_12 = _67;
 bb index := 18
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -4919,6 +4975,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 13
 
 ======================================================================
 ret_12 = _67;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:137:6: warning: use location
   ret = key_parse_private_type(NULL, type, passphrase, commentp);
       ^
@@ -4929,20 +4986,20 @@ key_free (prv_32);
 this stmt is child function---key_free-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394abd0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403bd0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _33 = malloc (168);
     version 33
-    ptr-info 0x7fd5a393e438>
+    ptr-info 0x7fed423f7438>
 trace fucntion name:key_free 
 [40;44m =======trace_function_path key_free  function_call count: 3 level :0========  [0m
 # .MEM_27 = VDEF <.MEM_24(D)>
@@ -4989,20 +5046,20 @@ _33 = malloc (168);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394abd0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403bd0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _33 = malloc (168);
     version 33
-    ptr-info 0x7fd5a393e438>
+    ptr-info 0x7fed423f7438>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -5014,20 +5071,20 @@ trace fucntion free:3
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394abd0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403bd0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _33 = malloc (168);
     version 33
-    ptr-info 0x7fd5a393e438>
+    ptr-info 0x7fed423f7438>
 
  ================== Start Use after free Check ================== 
 
@@ -5126,20 +5183,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394aea0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403ea0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _43 = malloc (24);
     version 43
-    ptr-info 0x7fd5a393e468>
+    ptr-info 0x7fed423f7468>
 # .MEM_59 = VDEF <.MEM_58>
 _43 = malloc (24);
 
@@ -5166,6 +5223,7 @@ prv_45 = PHI <0B(7), prv_32(10), 0B(11), prv_42(14), 0B(15)>
 bb index := 16
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -5200,6 +5258,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 13
 
 ======================================================================
 prv_45 = PHI <0B(7), prv_32(10), 0B(11), prv_42(14), 0B(15)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -5209,6 +5268,7 @@ _64 = prv_45;
 bb index := 16
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -5243,6 +5303,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 13
 
 ======================================================================
 _64 = prv_45;
+In function ‘main’:
 lto1: warning: use location
 
 ======================================================================
@@ -5251,6 +5312,7 @@ _21 = _64;
 bb index := 16
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -5285,6 +5347,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 13
 
 ======================================================================
 _21 = _64;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:120:10: warning: use location
    return key_parse_private_pem(blob, type, passphrase, commentp);
           ^
@@ -5295,6 +5358,7 @@ _23 = PHI <_20(5), _21(16), 0B(17)>
 bb index := 18
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -5401,6 +5465,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 13
 
 ======================================================================
 _23 = PHI <_20(5), _21(16), 0B(17)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -5410,6 +5475,7 @@ _67 = _23;
 bb index := 18
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -5516,6 +5582,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 13
 
 ======================================================================
 _67 = _23;
+In function ‘main’:
 lto1: warning: use location
 
 ======================================================================
@@ -5524,6 +5591,7 @@ ret_12 = _67;
 bb index := 18
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -5630,6 +5698,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 13
 
 ======================================================================
 ret_12 = _67;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:137:6: warning: use location
   ret = key_parse_private_type(NULL, type, passphrase, commentp);
       ^
@@ -5644,20 +5713,20 @@ _43 = malloc (24);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394aea0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403ea0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _43 = malloc (24);
     version 43
-    ptr-info 0x7fd5a393e468>
+    ptr-info 0x7fed423f7468>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -5669,20 +5738,20 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394aea0
-    type <pointer_type 0x7fd5a3e0f0a8
-        type <void_type 0x7fd5a3e08f18 void VOID
+ <ssa_name 0x7fed42403ea0
+    type <pointer_type 0x7fed428c80a8
+        type <void_type 0x7fed428c1f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fd5a3e0f0a8>>
+            pointer_to_this <pointer_type 0x7fed428c80a8>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fd5a3e14bd0>>
+        pointer_to_this <pointer_type 0x7fed428cdbd0>>
    
     def_stmt _43 = malloc (24);
     version 43
-    ptr-info 0x7fd5a393e468>
+    ptr-info 0x7fed423f7468>
 
  ================== Start Use after free Check ================== 
 
@@ -5701,12 +5770,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a39413f0
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed423fa3f0
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _1 = rand ();
     version 1>
@@ -5731,6 +5800,7 @@ _1 = rand ();
 bb index := 2
 # VUSE <.MEM_23>
 return k_5;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:47:9: warning: use location
   return k;
          ^
@@ -5834,18 +5904,19 @@ gimple stmt in succ := 2 ,possiable got to succ := 13
 
 ======================================================================
 _1 = rand ();
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:134:6: warning: use location
   if (__RANDBOOL)
       ^
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a39413f0
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed423fa3f0
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _1 = rand ();
     version 1>
@@ -5860,12 +5931,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a39413f0
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed423fa3f0
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _1 = rand ();
     version 1>
@@ -5889,17 +5960,17 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a393e060 type <pointer_type 0x7fd5a3928690> constant 0>
+ <integer_cst 0x7fed423f7060 type <pointer_type 0x7fed423e1690> constant 0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394a948
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403948
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _24 = rand ();
     version 24>
@@ -5946,12 +6017,12 @@ _24 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394a948
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403948
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _24 = rand ();
     version 24>
@@ -5966,12 +6037,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394a948
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403948
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _24 = rand ();
     version 24>
@@ -5993,12 +6064,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394aa20
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403a20
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _27 = rand ();
     version 27>
@@ -6045,12 +6116,12 @@ _27 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394aa20
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403a20
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _27 = rand ();
     version 27>
@@ -6065,12 +6136,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394aa20
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403a20
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _27 = rand ();
     version 27>
@@ -6094,24 +6165,24 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a3921fc0 type <integer_type 0x7fd5a3e085e8 int> constant 11>
+ <integer_cst 0x7fed423dafc0 type <integer_type 0x7fed428c15e8 int> constant 11>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a393e108 type <integer_type 0x7fd5a3e087e0 long unsigned int> constant 168>
+ <integer_cst 0x7fed423f7108 type <integer_type 0x7fed428c17e0 long unsigned int> constant 168>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394ac18
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403c18
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _34 = rand ();
     version 34>
@@ -6158,12 +6229,12 @@ _34 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394ac18
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403c18
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _34 = rand ();
     version 34>
@@ -6178,12 +6249,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394ac18
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403c18
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _34 = rand ();
     version 34>
@@ -6205,21 +6276,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394ab88
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed42403b88
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a393fd80 prv>
+    var <var_decl 0x7fed423f8d80 prv>
     def_stmt prv_32 = key_new (11);
     version 32
-    ptr-info 0x7fd5a393e420>
+    ptr-info 0x7fed423f7420>
 # .MEM_50 = VDEF <.MEM_49>
 prv_32 = key_new (11);
 
@@ -6247,6 +6318,7 @@ prv_45 = PHI <0B(7), prv_32(10), 0B(11), prv_42(14), 0B(15)>
 bb index := 16
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -6281,6 +6353,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 13
 
 ======================================================================
 prv_45 = PHI <0B(7), prv_32(10), 0B(11), prv_42(14), 0B(15)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -6290,6 +6363,7 @@ _64 = prv_45;
 bb index := 16
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -6324,6 +6398,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 13
 
 ======================================================================
 _64 = prv_45;
+In function ‘main’:
 lto1: warning: use location
 
 ======================================================================
@@ -6332,6 +6407,7 @@ _21 = _64;
 bb index := 16
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -6366,6 +6442,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 13
 
 ======================================================================
 _21 = _64;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:120:10: warning: use location
    return key_parse_private_pem(blob, type, passphrase, commentp);
           ^
@@ -6376,6 +6453,7 @@ _23 = PHI <_20(5), _21(16), 0B(17)>
 bb index := 18
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -6482,6 +6560,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 13
 
 ======================================================================
 _23 = PHI <_20(5), _21(16), 0B(17)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -6491,6 +6570,7 @@ _67 = _23;
 bb index := 18
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -6597,6 +6677,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 13
 
 ======================================================================
 _67 = _23;
+In function ‘main’:
 lto1: warning: use location
 
 ======================================================================
@@ -6605,6 +6686,7 @@ ret_12 = _67;
 bb index := 18
 # VUSE <.MEM_29>
 return;
+In function ‘key_load_private_type’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:79:1: warning: use location
  }
  ^
@@ -6711,6 +6793,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 13
 
 ======================================================================
 ret_12 = _67;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:137:6: warning: use location
   ret = key_parse_private_type(NULL, type, passphrase, commentp);
       ^
@@ -6723,21 +6806,21 @@ key_free (prv_32);
 this stmt is child function---key_free-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394ab88
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed42403b88
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a393fd80 prv>
+    var <var_decl 0x7fed423f8d80 prv>
     def_stmt prv_32 = key_new (11);
     version 32
-    ptr-info 0x7fd5a393e420>
+    ptr-info 0x7fed423f7420>
 trace fucntion name:key_free 
 [40;44m =======trace_function_path key_free  function_call count: 3 level :0========  [0m
 # .MEM_27 = VDEF <.MEM_24(D)>
@@ -6794,21 +6877,21 @@ prv_32->rsa = _33;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394ab88
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed42403b88
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a393fd80 prv>
+    var <var_decl 0x7fed423f8d80 prv>
     def_stmt prv_32 = key_new (11);
     version 32
-    ptr-info 0x7fd5a393e420>
+    ptr-info 0x7fed423f7420>
 
  ================== Start Use after free Check ================== 
 
@@ -6907,12 +6990,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a394acf0
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403cf0
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _37 = rand ();
     version 37>
@@ -6959,12 +7042,12 @@ _37 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a394acf0
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403cf0
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _37 = rand ();
     version 37>
@@ -6979,12 +7062,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a394acf0
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed42403cf0
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _37 = rand ();
     version 37>
@@ -7008,7 +7091,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a393e120 type <integer_type 0x7fd5a3e087e0 long unsigned int> constant 24>
+ <integer_cst 0x7fed423f7120 type <integer_type 0x7fed428c17e0 long unsigned int> constant 24>
 [40;33m =======POP node_fun stack:key_load_private_type========= [0m
 [40;42m =======pre add _ fucntion:rand========= [0m
 [40;33m =======POP node_fun stack:rand========= [0m
@@ -7024,21 +7107,21 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a39518b8
-    type <pointer_type 0x7fd5a392b888
-        type <record_type 0x7fd5a392b7e0 Identity BLK
-            size <integer_cst 0x7fd5a3921240 constant 448>
-            unit size <integer_cst 0x7fd5a3921258 constant 56>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a392b540 fields <field_decl 0x7fd5a3929850 next> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a392b888> chain <type_decl 0x7fd5a3929ab0 D.4098>>
+ <ssa_name 0x7fed4240a8b8
+    type <pointer_type 0x7fed423e4888
+        type <record_type 0x7fed423e47e0 Identity BLK
+            size <integer_cst 0x7fed423da240 constant 448>
+            unit size <integer_cst 0x7fed423da258 constant 56>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e4540 fields <field_decl 0x7fed423e2850 next> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e4888> chain <type_decl 0x7fed423e2ab0 D.4098>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a394f240 id>
+    var <var_decl 0x7fed42408240 id>
     def_stmt id_14 = malloc (56);
     version 14
-    ptr-info 0x7fd5a393e570>
+    ptr-info 0x7fed423f7570>
 # .MEM_26 = VDEF <.MEM_25(D)>
 id_14 = malloc (56);
 
@@ -7321,21 +7404,21 @@ key_free (_10);
 this stmt is child function---key_free-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a39518b8
-    type <pointer_type 0x7fd5a392b888
-        type <record_type 0x7fd5a392b7e0 Identity BLK
-            size <integer_cst 0x7fd5a3921240 constant 448>
-            unit size <integer_cst 0x7fd5a3921258 constant 56>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a392b540 fields <field_decl 0x7fd5a3929850 next> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a392b888> chain <type_decl 0x7fd5a3929ab0 D.4098>>
+ <ssa_name 0x7fed4240a8b8
+    type <pointer_type 0x7fed423e4888
+        type <record_type 0x7fed423e47e0 Identity BLK
+            size <integer_cst 0x7fed423da240 constant 448>
+            unit size <integer_cst 0x7fed423da258 constant 56>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e4540 fields <field_decl 0x7fed423e2850 next> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e4888> chain <type_decl 0x7fed423e2ab0 D.4098>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a394f240 id>
+    var <var_decl 0x7fed42408240 id>
     def_stmt id_14 = malloc (56);
     version 14
-    ptr-info 0x7fd5a393e570>
+    ptr-info 0x7fed423f7570>
 trace fucntion name:key_free 
 [40;44m =======trace_function_path key_free  function_call count: 3 level :0========  [0m
 # .MEM_27 = VDEF <.MEM_24(D)>
@@ -8763,21 +8846,21 @@ _23 = __printf_chk (1, "%d\n", _8);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a39518b8
-    type <pointer_type 0x7fd5a392b888
-        type <record_type 0x7fd5a392b7e0 Identity BLK
-            size <integer_cst 0x7fd5a3921240 constant 448>
-            unit size <integer_cst 0x7fd5a3921258 constant 56>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a392b540 fields <field_decl 0x7fd5a3929850 next> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a392b888> chain <type_decl 0x7fd5a3929ab0 D.4098>>
+ <ssa_name 0x7fed4240a8b8
+    type <pointer_type 0x7fed423e4888
+        type <record_type 0x7fed423e47e0 Identity BLK
+            size <integer_cst 0x7fed423da240 constant 448>
+            unit size <integer_cst 0x7fed423da258 constant 56>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e4540 fields <field_decl 0x7fed423e2850 next> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e4888> chain <type_decl 0x7fed423e2ab0 D.4098>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a394f240 id>
+    var <var_decl 0x7fed42408240 id>
     def_stmt id_14 = malloc (56);
     version 14
-    ptr-info 0x7fd5a393e570>
+    ptr-info 0x7fed423f7570>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -9593,21 +9676,21 @@ private_42 = key_load_private_type (11, _5, passphrase_39(D), 0B, 0B);
 this stmt is child function---key_load_private_type-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a39518b8
-    type <pointer_type 0x7fd5a392b888
-        type <record_type 0x7fd5a392b7e0 Identity BLK
-            size <integer_cst 0x7fd5a3921240 constant 448>
-            unit size <integer_cst 0x7fd5a3921258 constant 56>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a392b540 fields <field_decl 0x7fd5a3929850 next> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a392b888> chain <type_decl 0x7fd5a3929ab0 D.4098>>
+ <ssa_name 0x7fed4240a8b8
+    type <pointer_type 0x7fed423e4888
+        type <record_type 0x7fed423e47e0 Identity BLK
+            size <integer_cst 0x7fed423da240 constant 448>
+            unit size <integer_cst 0x7fed423da258 constant 56>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e4540 fields <field_decl 0x7fed423e2850 next> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e4888> chain <type_decl 0x7fed423e2ab0 D.4098>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a394f240 id>
+    var <var_decl 0x7fed42408240 id>
     def_stmt id_14 = malloc (56);
     version 14
-    ptr-info 0x7fd5a393e570>
+    ptr-info 0x7fed423f7570>
 trace fucntion name:key_load_private_type 
 [40;44m =======trace_function_path key_load_private_type  function_call count: 6 level :0========  [0m
 [40;42m =======pre add _ fucntion:__printf_chk========= [0m
@@ -11008,21 +11091,21 @@ private_35 = key_load_private_type (11, _5, "", 0B, &perm_ok);
 this stmt is child function---key_load_private_type-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a39518b8
-    type <pointer_type 0x7fd5a392b888
-        type <record_type 0x7fd5a392b7e0 Identity BLK
-            size <integer_cst 0x7fd5a3921240 constant 448>
-            unit size <integer_cst 0x7fd5a3921258 constant 56>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a392b540 fields <field_decl 0x7fd5a3929850 next> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a392b888> chain <type_decl 0x7fd5a3929ab0 D.4098>>
+ <ssa_name 0x7fed4240a8b8
+    type <pointer_type 0x7fed423e4888
+        type <record_type 0x7fed423e47e0 Identity BLK
+            size <integer_cst 0x7fed423da240 constant 448>
+            unit size <integer_cst 0x7fed423da258 constant 56>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e4540 fields <field_decl 0x7fed423e2850 next> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e4888> chain <type_decl 0x7fed423e2ab0 D.4098>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a394f240 id>
+    var <var_decl 0x7fed42408240 id>
     def_stmt id_14 = malloc (56);
     version 14
-    ptr-info 0x7fd5a393e570>
+    ptr-info 0x7fed423f7570>
 trace fucntion name:key_load_private_type 
 [40;44m =======trace_function_path key_load_private_type  function_call count: 6 level :0========  [0m
 [40;42m =======pre add _ fucntion:__printf_chk========= [0m
@@ -11423,21 +11506,21 @@ id_14 = malloc (56);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a39518b8
-    type <pointer_type 0x7fd5a392b888
-        type <record_type 0x7fd5a392b7e0 Identity BLK
-            size <integer_cst 0x7fd5a3921240 constant 448>
-            unit size <integer_cst 0x7fd5a3921258 constant 56>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a392b540 fields <field_decl 0x7fd5a3929850 next> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a392b888> chain <type_decl 0x7fd5a3929ab0 D.4098>>
+ <ssa_name 0x7fed4240a8b8
+    type <pointer_type 0x7fed423e4888
+        type <record_type 0x7fed423e47e0 Identity BLK
+            size <integer_cst 0x7fed423da240 constant 448>
+            unit size <integer_cst 0x7fed423da258 constant 56>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e4540 fields <field_decl 0x7fed423e2850 next> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e4888> chain <type_decl 0x7fed423e2ab0 D.4098>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a394f240 id>
+    var <var_decl 0x7fed42408240 id>
     def_stmt id_14 = malloc (56);
     version 14
-    ptr-info 0x7fd5a393e570>
+    ptr-info 0x7fed423f7570>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -11449,21 +11532,21 @@ trace fucntion free:10
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a39518b8
-    type <pointer_type 0x7fd5a392b888
-        type <record_type 0x7fd5a392b7e0 Identity BLK
-            size <integer_cst 0x7fd5a3921240 constant 448>
-            unit size <integer_cst 0x7fd5a3921258 constant 56>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a392b540 fields <field_decl 0x7fd5a3929850 next> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a392b888> chain <type_decl 0x7fd5a3929ab0 D.4098>>
+ <ssa_name 0x7fed4240a8b8
+    type <pointer_type 0x7fed423e4888
+        type <record_type 0x7fed423e47e0 Identity BLK
+            size <integer_cst 0x7fed423da240 constant 448>
+            unit size <integer_cst 0x7fed423da258 constant 56>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e4540 fields <field_decl 0x7fed423e2850 next> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e4888> chain <type_decl 0x7fed423e2ab0 D.4098>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5a394f240 id>
+    var <var_decl 0x7fed42408240 id>
     def_stmt id_14 = malloc (56);
     version 14
-    ptr-info 0x7fd5a393e570>
+    ptr-info 0x7fed423f7570>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_34 = VDEF <.MEM_24>
 free (id_14);
@@ -12125,24 +12208,24 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a393e150 type <integer_type 0x7fd5a3e087e0 long unsigned int> constant 56>
+ <integer_cst 0x7fed423f7150 type <integer_type 0x7fed428c17e0 long unsigned int> constant 56>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5a3e10000 type <pointer_type 0x7fd5a3e0f0a8> constant 0>
+ <integer_cst 0x7fed428c9000 type <pointer_type 0x7fed428c80a8> constant 0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a3951630
-    type <integer_type 0x7fd5a3e08690 unsigned int public unsigned SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e08690 precision 32 min <integer_cst 0x7fd5a3df4e58 0> max <integer_cst 0x7fd5a3df4e10 4294967295>
-        pointer_to_this <pointer_type 0x7fd5a3e14888>>
+ <ssa_name 0x7fed4240a630
+    type <integer_type 0x7fed428c1690 unsigned int public unsigned SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c1690 precision 32 min <integer_cst 0x7fed428ade58 0> max <integer_cst 0x7fed428ade10 4294967295>
+        pointer_to_this <pointer_type 0x7fed428cd888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -12276,12 +12359,12 @@ srand (_2);
 this stmt is child function---srand-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a3951630
-    type <integer_type 0x7fd5a3e08690 unsigned int public unsigned SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e08690 precision 32 min <integer_cst 0x7fd5a3df4e58 0> max <integer_cst 0x7fd5a3df4e10 4294967295>
-        pointer_to_this <pointer_type 0x7fd5a3e14888>>
+ <ssa_name 0x7fed4240a630
+    type <integer_type 0x7fed428c1690 unsigned int public unsigned SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c1690 precision 32 min <integer_cst 0x7fed428ade58 0> max <integer_cst 0x7fed428ade10 4294967295>
+        pointer_to_this <pointer_type 0x7fed428cd888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -12408,12 +12491,12 @@ srand (_2);
 this stmt is child function---srand-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a3951630
-    type <integer_type 0x7fd5a3e08690 unsigned int public unsigned SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e08690 precision 32 min <integer_cst 0x7fd5a3df4e58 0> max <integer_cst 0x7fd5a3df4e10 4294967295>
-        pointer_to_this <pointer_type 0x7fd5a3e14888>>
+ <ssa_name 0x7fed4240a630
+    type <integer_type 0x7fed428c1690 unsigned int public unsigned SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c1690 precision 32 min <integer_cst 0x7fed428ade58 0> max <integer_cst 0x7fed428ade10 4294967295>
+        pointer_to_this <pointer_type 0x7fed428cd888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -12428,12 +12511,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a3951630
-    type <integer_type 0x7fd5a3e08690 unsigned int public unsigned SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e08690 precision 32 min <integer_cst 0x7fd5a3df4e58 0> max <integer_cst 0x7fd5a3df4e10 4294967295>
-        pointer_to_this <pointer_type 0x7fd5a3e14888>>
+ <ssa_name 0x7fed4240a630
+    type <integer_type 0x7fed428c1690 unsigned int public unsigned SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c1690 precision 32 min <integer_cst 0x7fed428ade58 0> max <integer_cst 0x7fed428ade10 4294967295>
+        pointer_to_this <pointer_type 0x7fed428cd888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -12461,12 +12544,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a3955558
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed4240e558
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _37 = rand ();
     version 37>
@@ -12975,12 +13058,12 @@ _37 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5a3955558
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed4240e558
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _37 = rand ();
     version 37>
@@ -12995,12 +13078,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5a3955558
-    type <integer_type 0x7fd5a3e085e8 int public SI
-        size <integer_cst 0x7fd5a3df4e28 constant 32>
-        unit size <integer_cst 0x7fd5a3df4e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fd5a3e085e8 precision 32 min <integer_cst 0x7fd5a3df4de0 -2147483648> max <integer_cst 0x7fd5a3df4df8 2147483647>
-        pointer_to_this <pointer_type 0x7fd5a3e0fa80>>
+ <ssa_name 0x7fed4240e558
+    type <integer_type 0x7fed428c15e8 int public SI
+        size <integer_cst 0x7fed428ade28 constant 32>
+        unit size <integer_cst 0x7fed428ade40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fed428c15e8 precision 32 min <integer_cst 0x7fed428adde0 -2147483648> max <integer_cst 0x7fed428addf8 2147483647>
+        pointer_to_this <pointer_type 0x7fed428c8a80>>
    
     def_stmt _37 = rand ();
     version 37>
@@ -13028,20 +13111,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fd5a394ca60
-    type <pointer_type 0x7fd5a392d7e0
-        type <array_type 0x7fd5a392d738 type <integer_type 0x7fd5a391e738 char>
+ <addr_expr 0x7fed42405a60
+    type <pointer_type 0x7fed423e67e0
+        type <array_type 0x7fed423e6738 type <integer_type 0x7fed423d7738 char>
             BLK
-            size <integer_cst 0x7fd5a3921408 constant 272>
-            unit size <integer_cst 0x7fd5a3921498 constant 34>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fd5a392d690>
-            pointer_to_this <pointer_type 0x7fd5a392d7e0>>
+            size <integer_cst 0x7fed423da408 constant 272>
+            unit size <integer_cst 0x7fed423da498 constant 34>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fed423e6690>
+            pointer_to_this <pointer_type 0x7fed423e67e0>>
         unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fd5a3948f50 type <array_type 0x7fd5a392d738>
+    arg 0 <string_cst 0x7fed42401f50 type <array_type 0x7fed423e6738>
         readonly constant static "no passphrase given, try next key\000">
     ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:162:12 start: ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:162:12 finish: ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:162:12>
 
@@ -13065,21 +13148,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5a3951870
-    type <pointer_type 0x7fd5a39280a8
-        type <record_type 0x7fd5a3928150 Key BLK
-            size <integer_cst 0x7fd5a3e10030 constant 512>
-            unit size <integer_cst 0x7fd5a3eadc18 constant 64>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5a39281f8 fields <field_decl 0x7fd5a3927ed8 type> context <translation_unit_decl 0x7fd5a3dff168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
-            pointer_to_this <pointer_type 0x7fd5a39280a8> chain <type_decl 0x7fd5a3929000 D.4062>>
+ <ssa_name 0x7fed4240a870
+    type <pointer_type 0x7fed423e10a8
+        type <record_type 0x7fed423e1150 Key BLK
+            size <integer_cst 0x7fed428c9030 constant 512>
+            unit size <integer_cst 0x7fed42966c18 constant 64>
+            align 64 symtab 0 alias set -1 canonical type 0x7fed423e11f8 fields <field_decl 0x7fed423e0ed8 type> context <translation_unit_decl 0x7fed428b8168 ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c>
+            pointer_to_this <pointer_type 0x7fed423e10a8> chain <type_decl 0x7fed423e2000 D.4062>>
         public unsigned DI
-        size <integer_cst 0x7fd5a3df4be8 constant 64>
-        unit size <integer_cst 0x7fd5a3df4c00 constant 8>
+        size <integer_cst 0x7fed428adbe8 constant 64>
+        unit size <integer_cst 0x7fed428adc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _10 = id_14->key;
     version 10
-    ptr-info 0x7fd5a393e558>
+    ptr-info 0x7fed423f7558>
 # VUSE <.MEM_32>
 _10 = id_14->key;
 
@@ -13523,12 +13606,12 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 12 [0m
 [40;34m    used_stmt array stack totalsize of : 2016 [0m
-[40;34m    collect time: : 0.000153 s [0m
-[40;34m    algorithm time: 0.039910 s [0m
+[40;34m    collect time: : 0.000191 s [0m
+[40;34m    algorithm time: 0.042334 s [0m
 [40;34m    gimple stmt count : : 129 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
-/usr/bin/ld: /tmp/ccRHGg93.ltrans0.ltrans.o: in function `key_load_private_type':
+/usr/bin/ld: /tmp/ccb1r9j0.ltrans0.ltrans.o: in function `key_load_private_type':
 <artificial>:(.text+0x14f): undefined reference to `key_parse_private_rsa1'
-/usr/bin/ld: /tmp/ccRHGg93.ltrans0.ltrans.o: in function `main':
+/usr/bin/ld: /tmp/ccb1r9j0.ltrans0.ltrans.o: in function `main':
 <artificial>:(.text+0x37b): undefined reference to `debug2'
 collect2: error: ld returned 1 exit status

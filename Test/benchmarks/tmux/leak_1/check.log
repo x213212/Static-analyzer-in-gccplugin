@@ -134,40 +134,40 @@ xvasprintf (&msg, "%s", out_9);
 _62 = strlen (_61);
 # .MEM_99 = VDEF <.MEM_98>
 msg2_64 = malloc (_63);
- <var_decl 0x7f9b1154f510 msg
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <var_decl 0x7f8c21a9e510 msg
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
-    addressable used unsigned DI file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 165 col 10 size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
-    align 64 context <function_decl 0x7f9b11503b00 main> abstract_origin <var_decl 0x7f9b1154f120 msg> chain <var_decl 0x7f9b1154f5a0 msg2>>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
+    addressable used unsigned DI file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 165 col 10 size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
+    align 64 context <function_decl 0x7f8c21a52b00 main> abstract_origin <var_decl 0x7f8c21a9e120 msg> chain <var_decl 0x7f8c21a9e5a0 msg2>>
 # .MEM_106 = VDEF <.MEM_105>
 xvasprintf (&msg, "%s", out_9);
 # VUSE <.MEM_94>
 _26 = strcspn (ptr_25, "]");
 # VUSE <.MEM_94>
 left_33 = strlen (ptr_32);
- <var_decl 0x7f9b11543990 msg
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <var_decl 0x7f8c21a92990 msg
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
-    addressable used unsigned DI file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 106 col 10 size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
-    align 64 context <function_decl 0x7f9b11503b00 main> abstract_origin <var_decl 0x7f9b115432d0 msg> chain <var_decl 0x7f9b11543a20 ptr>>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
+    addressable used unsigned DI file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 106 col 10 size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
+    align 64 context <function_decl 0x7f8c21a52b00 main> abstract_origin <var_decl 0x7f8c21a922d0 msg> chain <var_decl 0x7f8c21a92a20 ptr>>
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
@@ -205,20 +205,20 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f9b119e0870
-    type <pointer_type 0x7f9b1150e000
-        type <pointer_type 0x7f9b11502930 type <integer_type 0x7f9b11502888 char>
+ <ssa_name 0x7f8c21f2f870
+    type <pointer_type 0x7f8c21a5d000
+        type <pointer_type 0x7f8c21a51930 type <integer_type 0x7f8c21a51888 char>
             public unsigned DI
-            size <integer_cst 0x7f9b119d8be8 constant 64>
-            unit size <integer_cst 0x7f9b119d8c00 constant 8>
-            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b1150e000>>
-        public unsigned DI size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
+            size <integer_cst 0x7f8c21f27be8 constant 64>
+            unit size <integer_cst 0x7f8c21f27c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a5d000>>
+        public unsigned DI size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f9b1152f000 ret>
+    var <parm_decl 0x7f8c21a7e000 ret>
     def_stmt GIMPLE_NOP
     version 3
-    ptr-info 0x7f9b115328e8>
+    ptr-info 0x7f8c21a818e8>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -368,20 +368,20 @@ i_7 = vasprintf (ret_3(D), fmt_4(D), ap_5(D));
 this stmt is child function---vasprintf-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b119e0870
-    type <pointer_type 0x7f9b1150e000
-        type <pointer_type 0x7f9b11502930 type <integer_type 0x7f9b11502888 char>
+ <ssa_name 0x7f8c21f2f870
+    type <pointer_type 0x7f8c21a5d000
+        type <pointer_type 0x7f8c21a51930 type <integer_type 0x7f8c21a51888 char>
             public unsigned DI
-            size <integer_cst 0x7f9b119d8be8 constant 64>
-            unit size <integer_cst 0x7f9b119d8c00 constant 8>
-            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b1150e000>>
-        public unsigned DI size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
+            size <integer_cst 0x7f8c21f27be8 constant 64>
+            unit size <integer_cst 0x7f8c21f27c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a5d000>>
+        public unsigned DI size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f9b1152f000 ret>
+    var <parm_decl 0x7f8c21a7e000 ret>
     def_stmt GIMPLE_NOP
     version 3
-    ptr-info 0x7f9b115328e8>
+    ptr-info 0x7f8c21a818e8>
 trace fucntion name:vasprintf 
 
  ================== trace ================== 
@@ -438,20 +438,20 @@ from xvasprintf basic block 3
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f9b119e0870
-    type <pointer_type 0x7f9b1150e000
-        type <pointer_type 0x7f9b11502930 type <integer_type 0x7f9b11502888 char>
+ <ssa_name 0x7f8c21f2f870
+    type <pointer_type 0x7f8c21a5d000
+        type <pointer_type 0x7f8c21a51930 type <integer_type 0x7f8c21a51888 char>
             public unsigned DI
-            size <integer_cst 0x7f9b119d8be8 constant 64>
-            unit size <integer_cst 0x7f9b119d8c00 constant 8>
-            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b1150e000>>
-        public unsigned DI size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
+            size <integer_cst 0x7f8c21f27be8 constant 64>
+            unit size <integer_cst 0x7f8c21f27c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a5d000>>
+        public unsigned DI size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f9b1152f000 ret>
+    var <parm_decl 0x7f8c21a7e000 ret>
     def_stmt GIMPLE_NOP
     version 3
-    ptr-info 0x7f9b115328e8>
+    ptr-info 0x7f8c21a818e8>
 
  ================== Start Use after free Check ================== 
 
@@ -472,7 +472,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f9b119d8f90 type <integer_type 0x7f9b119ec5e8 int> constant 1>
+ <integer_cst 0x7f8c21f27f90 type <integer_type 0x7f8c21f3b5e8 int> constant 1>
 [40;33m =======POP node_fun stack:xvasprintf========= [0m
 [40;44m =======node_fun:main========= [0m
 [40;44m fucntion collect path  [0m
@@ -500,20 +500,20 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f9b119e0870
-    type <pointer_type 0x7f9b1150e000
-        type <pointer_type 0x7f9b11502930 type <integer_type 0x7f9b11502888 char>
+ <ssa_name 0x7f8c21f2f870
+    type <pointer_type 0x7f8c21a5d000
+        type <pointer_type 0x7f8c21a51930 type <integer_type 0x7f8c21a51888 char>
             public unsigned DI
-            size <integer_cst 0x7f9b119d8be8 constant 64>
-            unit size <integer_cst 0x7f9b119d8c00 constant 8>
-            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b1150e000>>
-        public unsigned DI size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
+            size <integer_cst 0x7f8c21f27be8 constant 64>
+            unit size <integer_cst 0x7f8c21f27c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a5d000>>
+        public unsigned DI size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f9b1152f000 ret>
+    var <parm_decl 0x7f8c21a7e000 ret>
     def_stmt GIMPLE_NOP
     version 3
-    ptr-info 0x7f9b115328e8>
+    ptr-info 0x7f8c21a818e8>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -533,7 +533,6 @@ _1 = *ret_3(D);
 bb index := 3
 # VUSE <.MEM_11>
 return i_7;
-In function ‘main’:
 ./benchmarks/tmux/leak_1/tmux_leak_1.c:96:9: warning: use location
   return i;
          ^
@@ -568,6 +567,7 @@ gimple stmt in succ := 3 ,possiable got to succ := 5
 
 ======================================================================
 _1 = *ret_3(D);
+In function ‘main’:
 ./benchmarks/tmux/leak_1/tmux_leak_1.c:93:15: warning: use location
   if (i < 0 || *ret == NULL)
                ^
@@ -578,6 +578,7 @@ if (_1 == 0B)
 bb index := 3
 # VUSE <.MEM_11>
 return i_7;
+In function ‘xvasprintf’:
 ./benchmarks/tmux/leak_1/tmux_leak_1.c:96:9: warning: use location
   return i;
          ^
@@ -610,6 +611,7 @@ gimple stmt in succ := 3 ,possiable got to succ := 5
 
 ======================================================================
 if (_1 == 0B)
+In function ‘main’:
 ./benchmarks/tmux/leak_1/tmux_leak_1.c:93:12: warning: use location
   if (i < 0 || *ret == NULL)
             ^
@@ -636,6 +638,7 @@ i_7 = vasprintf (ret_3(D), fmt_4(D), ap_5(D));
 bb index := 2
 # VUSE <.MEM_11>
 return i_7;
+In function ‘xvasprintf’:
 ./benchmarks/tmux/leak_1/tmux_leak_1.c:96:9: warning: use location
   return i;
          ^
@@ -657,26 +660,27 @@ gimple stmt in succ := 2 ,possiable got to succ := 5
 
 ======================================================================
 i_7 = vasprintf (ret_3(D), fmt_4(D), ap_5(D));
+In function ‘main’:
 ./benchmarks/tmux/leak_1/tmux_leak_1.c:91:4: warning: use location
   i = vasprintf(ret, fmt, ap);
     ^
 this stmt is child function---vasprintf-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b119e0870
-    type <pointer_type 0x7f9b1150e000
-        type <pointer_type 0x7f9b11502930 type <integer_type 0x7f9b11502888 char>
+ <ssa_name 0x7f8c21f2f870
+    type <pointer_type 0x7f8c21a5d000
+        type <pointer_type 0x7f8c21a51930 type <integer_type 0x7f8c21a51888 char>
             public unsigned DI
-            size <integer_cst 0x7f9b119d8be8 constant 64>
-            unit size <integer_cst 0x7f9b119d8c00 constant 8>
-            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b1150e000>>
-        public unsigned DI size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
+            size <integer_cst 0x7f8c21f27be8 constant 64>
+            unit size <integer_cst 0x7f8c21f27c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a5d000>>
+        public unsigned DI size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f9b1152f000 ret>
+    var <parm_decl 0x7f8c21a7e000 ret>
     def_stmt GIMPLE_NOP
     version 3
-    ptr-info 0x7f9b115328e8>
+    ptr-info 0x7f8c21a818e8>
 trace fucntion name:vasprintf 
 
  ================== trace ================== 
@@ -688,6 +692,7 @@ if (i_7 < 0)
 bb index := 2
 # VUSE <.MEM_11>
 return i_7;
+In function ‘xvasprintf’:
 ./benchmarks/tmux/leak_1/tmux_leak_1.c:96:9: warning: use location
   return i;
          ^
@@ -708,6 +713,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 5
 
 ======================================================================
 if (i_7 < 0)
+In function ‘main’:
 ./benchmarks/tmux/leak_1/tmux_leak_1.c:93:5: warning: use location
   if (i < 0 || *ret == NULL)
      ^
@@ -733,20 +739,20 @@ from xvasprintf basic block 3
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f9b119e0870
-    type <pointer_type 0x7f9b1150e000
-        type <pointer_type 0x7f9b11502930 type <integer_type 0x7f9b11502888 char>
+ <ssa_name 0x7f8c21f2f870
+    type <pointer_type 0x7f8c21a5d000
+        type <pointer_type 0x7f8c21a51930 type <integer_type 0x7f8c21a51888 char>
             public unsigned DI
-            size <integer_cst 0x7f9b119d8be8 constant 64>
-            unit size <integer_cst 0x7f9b119d8c00 constant 8>
-            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b1150e000>>
-        public unsigned DI size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
+            size <integer_cst 0x7f8c21f27be8 constant 64>
+            unit size <integer_cst 0x7f8c21f27c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a5d000>>
+        public unsigned DI size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f9b1152f000 ret>
+    var <parm_decl 0x7f8c21a7e000 ret>
     def_stmt GIMPLE_NOP
     version 3
-    ptr-info 0x7f9b115328e8>
+    ptr-info 0x7f8c21a818e8>
 
  ================== Start Use after free Check ================== 
 
@@ -767,7 +773,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f9b119d8f90 type <integer_type 0x7f9b119ec5e8 int> constant 1>
+ <integer_cst 0x7f8c21f27f90 type <integer_type 0x7f8c21f3b5e8 int> constant 1>
 [40;33m =======POP node_fun stack:xvasprintf========= [0m
 [40;42m =======pre add _ fucntion:malloc========= [0m
 [40;33m =======POP node_fun stack:malloc========= [0m
@@ -779,22 +785,22 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f9b1153f2d0
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <ssa_name 0x7f8c21a8e2d0
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
-    var <var_decl 0x7f9b1153c870 out>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
+    var <var_decl 0x7f8c21a8b870 out>
     def_stmt out_9 = malloc (_8);
     version 9
-    ptr-info 0x7f9b11532960>
+    ptr-info 0x7f8c21a81960>
 # .MEM_97 = VDEF <.MEM_96>
 out_9 = malloc (_8);
 
@@ -843,22 +849,22 @@ xvasprintf (&msg, "%s", out_9);
 this stmt is child function---xvasprintf-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b1153f2d0
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <ssa_name 0x7f8c21a8e2d0
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
-    var <var_decl 0x7f9b1153c870 out>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
+    var <var_decl 0x7f8c21a8b870 out>
     def_stmt out_9 = malloc (_8);
     version 9
-    ptr-info 0x7f9b11532960>
+    ptr-info 0x7f8c21a81960>
 trace fucntion name:xvasprintf 
 [40;44m =======trace_function_path xvasprintf  function_call count: 3 level :0========  [0m
 [40;42m =======pre add _ fucntion:exit========= [0m
@@ -931,22 +937,22 @@ xvasprintf (&msg, "%s", out_9);
 this stmt is child function---xvasprintf-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b1153f2d0
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <ssa_name 0x7f8c21a8e2d0
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
-    var <var_decl 0x7f9b1153c870 out>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
+    var <var_decl 0x7f8c21a8b870 out>
     def_stmt out_9 = malloc (_8);
     version 9
-    ptr-info 0x7f9b11532960>
+    ptr-info 0x7f8c21a81960>
 trace fucntion name:xvasprintf 
 [40;44m =======trace_function_path xvasprintf  function_call count: 3 level :0========  [0m
 [40;42m =======pre add _ fucntion:exit========= [0m
@@ -993,22 +999,22 @@ out_9 = malloc (_8);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b1153f2d0
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <ssa_name 0x7f8c21a8e2d0
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
-    var <var_decl 0x7f9b1153c870 out>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
+    var <var_decl 0x7f8c21a8b870 out>
     def_stmt out_9 = malloc (_8);
     version 9
-    ptr-info 0x7f9b11532960>
+    ptr-info 0x7f8c21a81960>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1020,22 +1026,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f9b1153f2d0
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <ssa_name 0x7f8c21a8e2d0
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
-    var <var_decl 0x7f9b1153c870 out>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
+    var <var_decl 0x7f8c21a8b870 out>
     def_stmt out_9 = malloc (_8);
     version 9
-    ptr-info 0x7f9b11532960>
+    ptr-info 0x7f8c21a81960>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_101 = VDEF <.MEM_100>
 free (_85);
@@ -1084,22 +1090,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f9b11553048
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <ssa_name 0x7f8c21aa2048
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
-    var <var_decl 0x7f9b1154f5a0 msg2>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
+    var <var_decl 0x7f8c21a9e5a0 msg2>
     def_stmt msg2_64 = malloc (_63);
     version 64
-    ptr-info 0x7f9b11532ab0>
+    ptr-info 0x7f8c21a81ab0>
 # .MEM_99 = VDEF <.MEM_98>
 msg2_64 = malloc (_63);
 
@@ -1463,22 +1469,22 @@ msg2_64 = malloc (_63);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b11553048
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <ssa_name 0x7f8c21aa2048
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
-    var <var_decl 0x7f9b1154f5a0 msg2>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
+    var <var_decl 0x7f8c21a9e5a0 msg2>
     def_stmt msg2_64 = malloc (_63);
     version 64
-    ptr-info 0x7f9b11532ab0>
+    ptr-info 0x7f8c21a81ab0>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1490,22 +1496,22 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f9b11553048
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <ssa_name 0x7f8c21aa2048
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
-    var <var_decl 0x7f9b1154f5a0 msg2>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
+    var <var_decl 0x7f8c21a9e5a0 msg2>
     def_stmt msg2_64 = malloc (_63);
     version 64
-    ptr-info 0x7f9b11532ab0>
+    ptr-info 0x7f8c21a81ab0>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_101 = VDEF <.MEM_100>
 free (_85);
@@ -1661,21 +1667,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f9b114f6e20
-    type <pointer_type 0x7f9b11511a80
-        type <record_type 0x7f9b115119d8 screen BLK
-            size <integer_cst 0x7f9b11505438 constant 1088>
-            unit size <integer_cst 0x7f9b11505450 constant 136>
-            align 64 symtab 0 alias set -1 canonical type 0x7f9b115119d8 fields <field_decl 0x7f9b11513980 title> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11511a80> chain <type_decl 0x7f9b11513a18 D.4157>>
+ <addr_expr 0x7f8c21a45e20
+    type <pointer_type 0x7f8c21a60a80
+        type <record_type 0x7f8c21a609d8 screen BLK
+            size <integer_cst 0x7f8c21a54438 constant 1088>
+            unit size <integer_cst 0x7f8c21a54450 constant 136>
+            align 64 symtab 0 alias set -1 canonical type 0x7f8c21a609d8 fields <field_decl 0x7f8c21a62980 title> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a60a80> chain <type_decl 0x7f8c21a62a18 D.4157>>
         unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f9b1153ca20 old type <record_type 0x7f9b115119d8 screen>
-        addressable used BLK file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 216 col 18 size <integer_cst 0x7f9b11505438 1088> unit size <integer_cst 0x7f9b11505450 136>
-        align 128 context <function_decl 0x7f9b11503b00 main> abstract_origin <var_decl 0x7f9b1276db40 old>>
+    arg 0 <var_decl 0x7f8c21a8ba20 old type <record_type 0x7f8c21a609d8 screen>
+        addressable used BLK file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 216 col 18 size <integer_cst 0x7f8c21a54438 1088> unit size <integer_cst 0x7f8c21a54450 136>
+        align 128 context <function_decl 0x7f8c21a52b00 main> abstract_origin <var_decl 0x7f8c22cbcb40 old>>
     ./benchmarks/tmux/leak_1/tmux_leak_1.c:218:9 start: ./benchmarks/tmux/leak_1/tmux_leak_1.c:218:9 finish: ./benchmarks/tmux/leak_1/tmux_leak_1.c:218:9>
 
  ================== trace ptable================== 
@@ -1698,21 +1704,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f9b1153f240
-    type <pointer_type 0x7f9b11502d20
-        type <integer_type 0x7f9b11502c78 char readonly string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502d20>>
+ <ssa_name 0x7f8c21a8e240
+    type <pointer_type 0x7f8c21a51d20
+        type <integer_type 0x7f8c21a51c78 char readonly string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51d20>>
         unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f9b1153c7e0 fmt>
+    var <var_decl 0x7f8c21a8b7e0 fmt>
     def_stmt GIMPLE_NOP
     version 7
-    ptr-info 0x7f9b11532948>
+    ptr-info 0x7f8c21a81948>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -1759,21 +1765,21 @@ _8 = strlen (fmt_7(D));
 this stmt is child function---strlen-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b1153f240
-    type <pointer_type 0x7f9b11502d20
-        type <integer_type 0x7f9b11502c78 char readonly string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502d20>>
+ <ssa_name 0x7f8c21a8e240
+    type <pointer_type 0x7f8c21a51d20
+        type <integer_type 0x7f8c21a51c78 char readonly string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51d20>>
         unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f9b1153c7e0 fmt>
+    var <var_decl 0x7f8c21a8b7e0 fmt>
     def_stmt GIMPLE_NOP
     version 7
-    ptr-info 0x7f9b11532948>
+    ptr-info 0x7f8c21a81948>
 trace fucntion name:strlen 
 
  ================== trace ================== 
@@ -1813,21 +1819,21 @@ out_9 = malloc (_8);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b1153f240
-    type <pointer_type 0x7f9b11502d20
-        type <integer_type 0x7f9b11502c78 char readonly string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502d20>>
+ <ssa_name 0x7f8c21a8e240
+    type <pointer_type 0x7f8c21a51d20
+        type <integer_type 0x7f8c21a51c78 char readonly string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51d20>>
         unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f9b1153c7e0 fmt>
+    var <var_decl 0x7f8c21a8b7e0 fmt>
     def_stmt GIMPLE_NOP
     version 7
-    ptr-info 0x7f9b11532948>
+    ptr-info 0x7f8c21a81948>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1867,21 +1873,21 @@ xvasprintf (&msg, "%s", out_9);
 this stmt is child function---xvasprintf-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b1153f240
-    type <pointer_type 0x7f9b11502d20
-        type <integer_type 0x7f9b11502c78 char readonly string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502d20>>
+ <ssa_name 0x7f8c21a8e240
+    type <pointer_type 0x7f8c21a51d20
+        type <integer_type 0x7f8c21a51c78 char readonly string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51d20>>
         unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f9b1153c7e0 fmt>
+    var <var_decl 0x7f8c21a8b7e0 fmt>
     def_stmt GIMPLE_NOP
     version 7
-    ptr-info 0x7f9b11532948>
+    ptr-info 0x7f8c21a81948>
 trace fucntion name:xvasprintf 
 [40;44m =======trace_function_path xvasprintf  function_call count: 3 level :0========  [0m
 [40;36m ======= node_fun:xvasprintf========= [0m
@@ -1958,21 +1964,21 @@ xvasprintf (&msg, "%s", out_9);
 this stmt is child function---xvasprintf-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b1153f240
-    type <pointer_type 0x7f9b11502d20
-        type <integer_type 0x7f9b11502c78 char readonly string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502d20>>
+ <ssa_name 0x7f8c21a8e240
+    type <pointer_type 0x7f8c21a51d20
+        type <integer_type 0x7f8c21a51c78 char readonly string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51d20>>
         unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f9b1153c7e0 fmt>
+    var <var_decl 0x7f8c21a8b7e0 fmt>
     def_stmt GIMPLE_NOP
     version 7
-    ptr-info 0x7f9b11532948>
+    ptr-info 0x7f8c21a81948>
 trace fucntion name:xvasprintf 
 [40;44m =======trace_function_path xvasprintf  function_call count: 3 level :0========  [0m
 [40;36m ======= node_fun:xvasprintf========= [0m
@@ -1995,21 +2001,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f9b1153f240
-    type <pointer_type 0x7f9b11502d20
-        type <integer_type 0x7f9b11502c78 char readonly string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502d20>>
+ <ssa_name 0x7f8c21a8e240
+    type <pointer_type 0x7f8c21a51d20
+        type <integer_type 0x7f8c21a51c78 char readonly string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51d20>>
         unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f9b1153c7e0 fmt>
+    var <var_decl 0x7f8c21a8b7e0 fmt>
     def_stmt GIMPLE_NOP
     version 7
-    ptr-info 0x7f9b11532948>
+    ptr-info 0x7f8c21a81948>
 
  ================== Start Use after free Check ================== 
 
@@ -2028,12 +2034,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f9b1153f288
-    type <integer_type 0x7f9b119ec7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f9b119ec738 precision 64 min <integer_cst 0x7f9b119d8eb8 0> max <integer_cst 0x7f9b119da500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f9b119f89d8>>
+ <ssa_name 0x7f8c21a8e288
+    type <integer_type 0x7f8c21f3b7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8c21f3b738 precision 64 min <integer_cst 0x7f8c21f27eb8 0> max <integer_cst 0x7f8c21f29500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8c21f479d8>>
    
     def_stmt _8 = strlen (fmt_7(D));
     version 8>
@@ -2085,12 +2091,12 @@ _8 = strlen (fmt_7(D));
 this stmt is child function---strlen-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b1153f288
-    type <integer_type 0x7f9b119ec7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f9b119ec738 precision 64 min <integer_cst 0x7f9b119d8eb8 0> max <integer_cst 0x7f9b119da500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f9b119f89d8>>
+ <ssa_name 0x7f8c21a8e288
+    type <integer_type 0x7f8c21f3b7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8c21f3b738 precision 64 min <integer_cst 0x7f8c21f27eb8 0> max <integer_cst 0x7f8c21f29500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8c21f479d8>>
    
     def_stmt _8 = strlen (fmt_7(D));
     version 8>
@@ -2133,12 +2139,12 @@ out_9 = malloc (_8);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b1153f288
-    type <integer_type 0x7f9b119ec7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f9b119ec738 precision 64 min <integer_cst 0x7f9b119d8eb8 0> max <integer_cst 0x7f9b119da500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f9b119f89d8>>
+ <ssa_name 0x7f8c21a8e288
+    type <integer_type 0x7f8c21f3b7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8c21f3b738 precision 64 min <integer_cst 0x7f8c21f27eb8 0> max <integer_cst 0x7f8c21f29500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8c21f479d8>>
    
     def_stmt _8 = strlen (fmt_7(D));
     version 8>
@@ -2181,12 +2187,12 @@ xvasprintf (&msg, "%s", out_9);
 this stmt is child function---xvasprintf-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b1153f288
-    type <integer_type 0x7f9b119ec7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f9b119ec738 precision 64 min <integer_cst 0x7f9b119d8eb8 0> max <integer_cst 0x7f9b119da500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f9b119f89d8>>
+ <ssa_name 0x7f8c21a8e288
+    type <integer_type 0x7f8c21f3b7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8c21f3b738 precision 64 min <integer_cst 0x7f8c21f27eb8 0> max <integer_cst 0x7f8c21f29500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8c21f479d8>>
    
     def_stmt _8 = strlen (fmt_7(D));
     version 8>
@@ -2262,12 +2268,12 @@ xvasprintf (&msg, "%s", out_9);
 this stmt is child function---xvasprintf-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b1153f288
-    type <integer_type 0x7f9b119ec7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f9b119ec738 precision 64 min <integer_cst 0x7f9b119d8eb8 0> max <integer_cst 0x7f9b119da500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f9b119f89d8>>
+ <ssa_name 0x7f8c21a8e288
+    type <integer_type 0x7f8c21f3b7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8c21f3b738 precision 64 min <integer_cst 0x7f8c21f27eb8 0> max <integer_cst 0x7f8c21f29500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8c21f479d8>>
    
     def_stmt _8 = strlen (fmt_7(D));
     version 8>
@@ -2289,12 +2295,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f9b1153f288
-    type <integer_type 0x7f9b119ec7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f9b119ec738 precision 64 min <integer_cst 0x7f9b119d8eb8 0> max <integer_cst 0x7f9b119da500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f9b119f89d8>>
+ <ssa_name 0x7f8c21a8e288
+    type <integer_type 0x7f8c21f3b7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8c21f3b738 precision 64 min <integer_cst 0x7f8c21f27eb8 0> max <integer_cst 0x7f8c21f29500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8c21f479d8>>
    
     def_stmt _8 = strlen (fmt_7(D));
     version 8>
@@ -2370,23 +2376,23 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f9b11541860
-    type <pointer_type 0x7f9b1150e000
-        type <pointer_type 0x7f9b11502930 type <integer_type 0x7f9b11502888 char>
+ <addr_expr 0x7f8c21a90860
+    type <pointer_type 0x7f8c21a5d000
+        type <pointer_type 0x7f8c21a51930 type <integer_type 0x7f8c21a51888 char>
             public unsigned DI
-            size <integer_cst 0x7f9b119d8be8 constant 64>
-            unit size <integer_cst 0x7f9b119d8c00 constant 8>
-            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b1150e000>>
-        public unsigned DI size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
+            size <integer_cst 0x7f8c21f27be8 constant 64>
+            unit size <integer_cst 0x7f8c21f27c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a5d000>>
+        public unsigned DI size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f9b1154f510 msg type <pointer_type 0x7f9b11502930>
-        addressable used unsigned DI file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 165 col 10 size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
-        align 64 context <function_decl 0x7f9b11503b00 main> abstract_origin <var_decl 0x7f9b1154f120 msg>
-        chain <var_decl 0x7f9b1154f5a0 msg2 type <pointer_type 0x7f9b11502930>
-            used unsigned DI file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 165 col 16 size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
-            align 64 context <function_decl 0x7f9b11503b00 main> abstract_origin <var_decl 0x7f9b1154f090 msg2> chain <var_decl 0x7f9b1154f630 ptr>>>
+    arg 0 <var_decl 0x7f8c21a9e510 msg type <pointer_type 0x7f8c21a51930>
+        addressable used unsigned DI file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 165 col 10 size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
+        align 64 context <function_decl 0x7f8c21a52b00 main> abstract_origin <var_decl 0x7f8c21a9e120 msg>
+        chain <var_decl 0x7f8c21a9e5a0 msg2 type <pointer_type 0x7f8c21a51930>
+            used unsigned DI file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 165 col 16 size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
+            align 64 context <function_decl 0x7f8c21a52b00 main> abstract_origin <var_decl 0x7f8c21a9e090 msg2> chain <var_decl 0x7f8c21a9e630 ptr>>>
     ./benchmarks/tmux/leak_1/tmux_leak_1.c:168:2 start: ./benchmarks/tmux/leak_1/tmux_leak_1.c:168:2 finish: ./benchmarks/tmux/leak_1/tmux_leak_1.c:168:2>
 
  ================== trace ptable================== 
@@ -2409,22 +2415,22 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f9b1154cf78
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <ssa_name 0x7f8c21a9bf78
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
    
     def_stmt _61 = msg;
     version 61
-    ptr-info 0x7f9b11532a98>
+    ptr-info 0x7f8c21a81a98>
 # VUSE <.MEM_98>
 _61 = msg;
 
@@ -2472,22 +2478,22 @@ _62 = strlen (_61);
 this stmt is child function---strlen-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b1154cf78
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <ssa_name 0x7f8c21a9bf78
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
    
     def_stmt _61 = msg;
     version 61
-    ptr-info 0x7f9b11532a98>
+    ptr-info 0x7f8c21a81a98>
 trace fucntion name:strlen 
 
  ================== trace ================== 
@@ -2527,22 +2533,22 @@ _62 = strlen (_61);
 this stmt is child function---strlen-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b1154cf78
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <ssa_name 0x7f8c21a9bf78
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
    
     def_stmt _61 = msg;
     version 61
-    ptr-info 0x7f9b11532a98>
+    ptr-info 0x7f8c21a81a98>
 trace fucntion name:strlen 
 
  ================== trace ================== 
@@ -2554,22 +2560,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f9b1154cf78
-    type <pointer_type 0x7f9b11502930
-        type <integer_type 0x7f9b11502888 char public string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b115051b0 -128> max <integer_cst 0x7f9b11505198 127> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11502930>>
+ <ssa_name 0x7f8c21a9bf78
+    type <pointer_type 0x7f8c21a51930
+        type <integer_type 0x7f8c21a51888 char public string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21a541b0 -128> max <integer_cst 0x7f8c21a54198 127> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a51930>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-        pointer_to_this <pointer_type 0x7f9b1150e000>>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+        pointer_to_this <pointer_type 0x7f8c21a5d000>>
    
     def_stmt _61 = msg;
     version 61
-    ptr-info 0x7f9b11532a98>
+    ptr-info 0x7f8c21a81a98>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_101 = VDEF <.MEM_100>
 free (_85);
@@ -2606,12 +2612,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f9b11553000
-    type <integer_type 0x7f9b119ec7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f9b119ec738 precision 64 min <integer_cst 0x7f9b119d8eb8 0> max <integer_cst 0x7f9b119da500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f9b119f89d8>>
+ <ssa_name 0x7f8c21aa2000
+    type <integer_type 0x7f8c21f3b7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8c21f3b738 precision 64 min <integer_cst 0x7f8c21f27eb8 0> max <integer_cst 0x7f8c21f29500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8c21f479d8>>
    
     def_stmt _63 = _62 + 1;
     version 63>
@@ -2661,12 +2667,12 @@ msg2_64 = malloc (_63);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b11553000
-    type <integer_type 0x7f9b119ec7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f9b119ec738 precision 64 min <integer_cst 0x7f9b119d8eb8 0> max <integer_cst 0x7f9b119da500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f9b119f89d8>>
+ <ssa_name 0x7f8c21aa2000
+    type <integer_type 0x7f8c21f3b7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8c21f3b738 precision 64 min <integer_cst 0x7f8c21f27eb8 0> max <integer_cst 0x7f8c21f29500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8c21f479d8>>
    
     def_stmt _63 = _62 + 1;
     version 63>
@@ -2996,12 +3002,12 @@ ptr2_66 = msg2_64;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f9b11553000
-    type <integer_type 0x7f9b119ec7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f9b119ec738 precision 64 min <integer_cst 0x7f9b119d8eb8 0> max <integer_cst 0x7f9b119da500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f9b119f89d8>>
+ <ssa_name 0x7f8c21aa2000
+    type <integer_type 0x7f8c21f3b7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8c21f3b738 precision 64 min <integer_cst 0x7f8c21f27eb8 0> max <integer_cst 0x7f8c21f29500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f8c21f479d8>>
    
     def_stmt _63 = _62 + 1;
     version 63>
@@ -3159,23 +3165,23 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f9b11541440
-    type <pointer_type 0x7f9b1150e000
-        type <pointer_type 0x7f9b11502930 type <integer_type 0x7f9b11502888 char>
+ <addr_expr 0x7f8c21a90440
+    type <pointer_type 0x7f8c21a5d000
+        type <pointer_type 0x7f8c21a51930 type <integer_type 0x7f8c21a51888 char>
             public unsigned DI
-            size <integer_cst 0x7f9b119d8be8 constant 64>
-            unit size <integer_cst 0x7f9b119d8c00 constant 8>
-            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b1150e000>>
-        public unsigned DI size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
+            size <integer_cst 0x7f8c21f27be8 constant 64>
+            unit size <integer_cst 0x7f8c21f27c00 constant 8>
+            align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a5d000>>
+        public unsigned DI size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f9b11543990 msg type <pointer_type 0x7f9b11502930>
-        addressable used unsigned DI file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 106 col 10 size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
-        align 64 context <function_decl 0x7f9b11503b00 main> abstract_origin <var_decl 0x7f9b115432d0 msg>
-        chain <var_decl 0x7f9b11543a20 ptr type <pointer_type 0x7f9b11528c78>
-            used unsigned DI file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 107 col 13 size <integer_cst 0x7f9b119d8be8 64> unit size <integer_cst 0x7f9b119d8c00 8>
-            align 64 context <function_decl 0x7f9b11503b00 main> abstract_origin <var_decl 0x7f9b11543240 ptr> chain <var_decl 0x7f9b11543ab0 last>>>
+    arg 0 <var_decl 0x7f8c21a92990 msg type <pointer_type 0x7f8c21a51930>
+        addressable used unsigned DI file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 106 col 10 size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
+        align 64 context <function_decl 0x7f8c21a52b00 main> abstract_origin <var_decl 0x7f8c21a922d0 msg>
+        chain <var_decl 0x7f8c21a92a20 ptr type <pointer_type 0x7f8c21a77c78>
+            used unsigned DI file ./benchmarks/tmux/leak_1/tmux_leak_1.c line 107 col 13 size <integer_cst 0x7f8c21f27be8 64> unit size <integer_cst 0x7f8c21f27c00 8>
+            align 64 context <function_decl 0x7f8c21a52b00 main> abstract_origin <var_decl 0x7f8c21a92240 ptr> chain <var_decl 0x7f8c21a92ab0 last>>>
     ./benchmarks/tmux/leak_1/tmux_leak_1.c:113:2 start: ./benchmarks/tmux/leak_1/tmux_leak_1.c:113:2 finish: ./benchmarks/tmux/leak_1/tmux_leak_1.c:113:2>
 
  ================== trace ptable================== 
@@ -3198,21 +3204,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f9b11547900
-    type <pointer_type 0x7f9b11528c78
-        type <integer_type 0x7f9b1150b150 u_char public unsigned string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b119d8d08 0> max <integer_cst 0x7f9b119d8ca8 255> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11528c78>>
+ <ssa_name 0x7f8c21a96900
+    type <pointer_type 0x7f8c21a77c78
+        type <integer_type 0x7f8c21a5a150 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21f27d08 0> max <integer_cst 0x7f8c21f27ca8 255> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a77c78>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f9b11543a20 ptr>
+    var <var_decl 0x7f8c21a92a20 ptr>
     def_stmt ptr_25 = ptr_22 + 2;
     version 25
-    ptr-info 0x7f9b115329d8>
+    ptr-info 0x7f8c21a819d8>
 ptr_25 = ptr_22 + 2;
 
  ================== trace ptable================== 
@@ -3290,21 +3296,21 @@ _26 = strcspn (ptr_25, "]");
 this stmt is child function---strcspn-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b11547900
-    type <pointer_type 0x7f9b11528c78
-        type <integer_type 0x7f9b1150b150 u_char public unsigned string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b119d8d08 0> max <integer_cst 0x7f9b119d8ca8 255> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11528c78>>
+ <ssa_name 0x7f8c21a96900
+    type <pointer_type 0x7f8c21a77c78
+        type <integer_type 0x7f8c21a5a150 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21f27d08 0> max <integer_cst 0x7f8c21f27ca8 255> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a77c78>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f9b11543a20 ptr>
+    var <var_decl 0x7f8c21a92a20 ptr>
     def_stmt ptr_25 = ptr_22 + 2;
     version 25
-    ptr-info 0x7f9b115329d8>
+    ptr-info 0x7f8c21a819d8>
 trace fucntion name:strcspn 
 
  ================== trace ================== 
@@ -3982,21 +3988,21 @@ left_33 = strlen (ptr_32);
 this stmt is child function---strlen-----
 
  ================== trace ================== 
- <ssa_name 0x7f9b11547900
-    type <pointer_type 0x7f9b11528c78
-        type <integer_type 0x7f9b1150b150 u_char public unsigned string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b119d8d08 0> max <integer_cst 0x7f9b119d8ca8 255> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11528c78>>
+ <ssa_name 0x7f8c21a96900
+    type <pointer_type 0x7f8c21a77c78
+        type <integer_type 0x7f8c21a5a150 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21f27d08 0> max <integer_cst 0x7f8c21f27ca8 255> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a77c78>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f9b11543a20 ptr>
+    var <var_decl 0x7f8c21a92a20 ptr>
     def_stmt ptr_25 = ptr_22 + 2;
     version 25
-    ptr-info 0x7f9b115329d8>
+    ptr-info 0x7f8c21a819d8>
 trace fucntion name:strlen 
 
  ================== trace ================== 
@@ -4340,21 +4346,21 @@ gimple stmt in succ := 18 ,possiable got to succ := 40
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f9b11547900
-    type <pointer_type 0x7f9b11528c78
-        type <integer_type 0x7f9b1150b150 u_char public unsigned string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b119d8d08 0> max <integer_cst 0x7f9b119d8ca8 255> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11528c78>>
+ <ssa_name 0x7f8c21a96900
+    type <pointer_type 0x7f8c21a77c78
+        type <integer_type 0x7f8c21a5a150 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21f27d08 0> max <integer_cst 0x7f8c21f27ca8 255> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a77c78>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f9b11543a20 ptr>
+    var <var_decl 0x7f8c21a92a20 ptr>
     def_stmt ptr_25 = ptr_22 + 2;
     version 25
-    ptr-info 0x7f9b115329d8>
+    ptr-info 0x7f8c21a819d8>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_101 = VDEF <.MEM_100>
 free (_85);
@@ -5177,21 +5183,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f9b11547af8
-    type <pointer_type 0x7f9b11528c78
-        type <integer_type 0x7f9b1150b150 u_char public unsigned string-flag QI
-            size <integer_cst 0x7f9b119d8cd8 constant 8>
-            unit size <integer_cst 0x7f9b119d8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f9b119ec3f0 precision 8 min <integer_cst 0x7f9b119d8d08 0> max <integer_cst 0x7f9b119d8ca8 255> context <translation_unit_decl 0x7f9b119e3168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
-            pointer_to_this <pointer_type 0x7f9b11528c78>>
+ <ssa_name 0x7f8c21a96af8
+    type <pointer_type 0x7f8c21a77c78
+        type <integer_type 0x7f8c21a5a150 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f8c21f27cd8 constant 8>
+            unit size <integer_cst 0x7f8c21f27cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8c21f3b3f0 precision 8 min <integer_cst 0x7f8c21f27d08 0> max <integer_cst 0x7f8c21f27ca8 255> context <translation_unit_decl 0x7f8c21f32168 ./benchmarks/tmux/leak_1/tmux_leak_1.c>
+            pointer_to_this <pointer_type 0x7f8c21a77c78>>
         public unsigned DI
-        size <integer_cst 0x7f9b119d8be8 constant 64>
-        unit size <integer_cst 0x7f9b119d8c00 constant 8>
+        size <integer_cst 0x7f8c21f27be8 constant 64>
+        unit size <integer_cst 0x7f8c21f27c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f9b11543a20 ptr>
+    var <var_decl 0x7f8c21a92a20 ptr>
     def_stmt ptr_32 = ptr_22 + 1;
     version 32
-    ptr-info 0x7f9b11532a20>
+    ptr-info 0x7f8c21a81a20>
 ptr_32 = ptr_22 + 1;
 
  ================== trace ptable================== 
@@ -5656,7 +5662,7 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 8 [0m
 [40;34m    used_stmt array stack totalsize of : 1408 [0m
-[40;34m    collect time: : 0.000105 s [0m
-[40;34m    algorithm time: 0.019166 s [0m
+[40;34m    collect time: : 0.000095 s [0m
+[40;34m    algorithm time: 0.020471 s [0m
 [40;34m    gimple stmt count : : 120 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

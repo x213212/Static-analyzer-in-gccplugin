@@ -193,34 +193,34 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f327c92ff90 type <integer_type 0x7f327c9435e8 int> constant 1>
+ <integer_cst 0x7fdb5fbbbf90 type <integer_type 0x7fdb5fbcf5e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f327c92ff90 type <integer_type 0x7f327c9435e8 int> constant 1>
+ <integer_cst 0x7fdb5fbbbf90 type <integer_type 0x7fdb5fbcf5e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 # VUSE <.MEM_33>
 _2 = stdout;
 
@@ -241,7 +241,7 @@ fflush (_2);
 bb index := 7
 # VUSE <.MEM_27>
 return _3;
-In function ‘sshbuf_get_string_direct’:
+In function ‘sshbuf_peek_string_direct’:
 lto1: warning: use location
 beacuse in succ := 12 have return or exit
 gimple stmt in succ := 7 ,possiable got to succ := 12
@@ -276,28 +276,29 @@ gimple stmt in succ := 7 ,possiable got to succ := 19
 # .MEM_34 = VDEF <.MEM_33>
 fflush (_2);
 fflush (_2);
+In function ‘sshbuf_get_string_direct’:
 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:108:3: warning: use location
    SSHBUF_DBG(("SSH_ERR_MESSAGE_INCOMPLETE"));
    ^
 this stmt is child function---fflush-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 trace fucntion name:fflush 
 
  ================== trace ================== 
@@ -310,6 +311,7 @@ fflush (_2);
 bb index := 7
 # VUSE <.MEM_27>
 return _3;
+In function ‘sshbuf_peek_string_direct’:
 lto1: warning: use location
 beacuse in succ := 12 have return or exit
 gimple stmt in succ := 7 ,possiable got to succ := 12
@@ -344,26 +346,27 @@ gimple stmt in succ := 7 ,possiable got to succ := 19
 # .MEM_34 = VDEF <.MEM_33>
 fflush (_2);
 fflush (_2);
+In function ‘sshbuf_get_string_direct’:
 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:108:3: warning: use location
 this stmt is child function---fflush-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 trace fucntion name:fflush 
 
  ================== trace ================== 
@@ -375,22 +378,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 
  ================== Start Use after free Check ================== 
 
@@ -412,21 +415,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c937b88
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5fbc3b88
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f327c46b200 buf>
+    var <parm_decl 0x7fdb5f6f7200 buf>
     def_stmt GIMPLE_NOP
     version 13
-    ptr-info 0x7f327c47e540>
+    ptr-info 0x7fdb5f70a540>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -601,21 +604,21 @@ r_15 = sshbuf_peek_string_direct (buf_13(D), &p, &len);
 this stmt is child function---sshbuf_peek_string_direct-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c937b88
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5fbc3b88
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f327c46b200 buf>
+    var <parm_decl 0x7fdb5f6f7200 buf>
     def_stmt GIMPLE_NOP
     version 13
-    ptr-info 0x7f327c47e540>
+    ptr-info 0x7fdb5f70a540>
 trace fucntion name:sshbuf_peek_string_direct 
 [40;44m =======trace_function_path sshbuf_peek_string_direct  function_call count: 2 level :0========  [0m
 [40;42m =======pre add _ fucntion:fflush========= [0m
@@ -904,21 +907,21 @@ from sshbuf_get_string_direct basic block 7
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c937b88
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5fbc3b88
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f327c46b200 buf>
+    var <parm_decl 0x7fdb5f6f7200 buf>
     def_stmt GIMPLE_NOP
     version 13
-    ptr-info 0x7f327c47e540>
+    ptr-info 0x7fdb5f70a540>
 
  ================== Start Use after free Check ================== 
 
@@ -950,34 +953,34 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f327c92ff90 type <integer_type 0x7f327c9435e8 int> constant 1>
+ <integer_cst 0x7fdb5fbbbf90 type <integer_type 0x7fdb5fbcf5e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f327c92ff90 type <integer_type 0x7f327c9435e8 int> constant 1>
+ <integer_cst 0x7fdb5fbbbf90 type <integer_type 0x7fdb5fbcf5e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 # VUSE <.MEM_33>
 _2 = stdout;
 
@@ -1039,22 +1042,22 @@ fflush (_2);
 this stmt is child function---fflush-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 trace fucntion name:fflush 
 
  ================== trace ================== 
@@ -1105,22 +1108,22 @@ fflush (_2);
 this stmt is child function---fflush-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 trace fucntion name:fflush 
 
  ================== trace ================== 
@@ -1132,22 +1135,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 
  ================== Start Use after free Check ================== 
 
@@ -1191,34 +1194,34 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f327c92ff90 type <integer_type 0x7f327c9435e8 int> constant 1>
+ <integer_cst 0x7fdb5fbbbf90 type <integer_type 0x7fdb5fbcf5e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f327c92ff90 type <integer_type 0x7f327c9435e8 int> constant 1>
+ <integer_cst 0x7fdb5fbbbf90 type <integer_type 0x7fdb5fbcf5e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 # VUSE <.MEM_33>
 _2 = stdout;
 
@@ -1239,7 +1242,6 @@ fflush (_2);
 bb index := 7
 # VUSE <.MEM_27>
 return _3;
-In function ‘main’:
 lto1: warning: use location
 beacuse in succ := 12 have return or exit
 gimple stmt in succ := 7 ,possiable got to succ := 12
@@ -1274,26 +1276,27 @@ gimple stmt in succ := 7 ,possiable got to succ := 19
 # .MEM_34 = VDEF <.MEM_33>
 fflush (_2);
 fflush (_2);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:108:3: warning: use location
 this stmt is child function---fflush-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 trace fucntion name:fflush 
 
  ================== trace ================== 
@@ -1306,6 +1309,7 @@ fflush (_2);
 bb index := 7
 # VUSE <.MEM_27>
 return _3;
+In function ‘sshbuf_peek_string_direct’:
 lto1: warning: use location
 beacuse in succ := 12 have return or exit
 gimple stmt in succ := 7 ,possiable got to succ := 12
@@ -1340,26 +1344,27 @@ gimple stmt in succ := 7 ,possiable got to succ := 19
 # .MEM_34 = VDEF <.MEM_33>
 fflush (_2);
 fflush (_2);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:108:3: warning: use location
 this stmt is child function---fflush-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 trace fucntion name:fflush 
 
  ================== trace ================== 
@@ -1371,22 +1376,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 
  ================== Start Use after free Check ================== 
 
@@ -1408,21 +1413,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c937b88
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5fbc3b88
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f327c46b200 buf>
+    var <parm_decl 0x7fdb5f6f7200 buf>
     def_stmt GIMPLE_NOP
     version 13
-    ptr-info 0x7f327c47e540>
+    ptr-info 0x7fdb5f70a540>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -1442,6 +1447,7 @@ r_15 = sshbuf_peek_string_direct (buf_13(D), &p, &len);
 bb index := 6
 # VUSE <.MEM_27>
 return _3;
+In function ‘sshbuf_get_string_direct’:
 lto1: warning: use location
 beacuse in succ := 12 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 12
@@ -1591,27 +1597,28 @@ gimple stmt in succ := 6 ,possiable got to succ := 19
 
 ======================================================================
 r_15 = sshbuf_peek_string_direct (buf_13(D), &p, &len);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:87:5: warning: use location
   if ((r = sshbuf_peek_string_direct(buf, &p, &len)) < 0)
      ^
 this stmt is child function---sshbuf_peek_string_direct-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c937b88
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5fbc3b88
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f327c46b200 buf>
+    var <parm_decl 0x7fdb5f6f7200 buf>
     def_stmt GIMPLE_NOP
     version 13
-    ptr-info 0x7f327c47e540>
+    ptr-info 0x7fdb5f70a540>
 trace fucntion name:sshbuf_peek_string_direct 
 [40;44m =======trace_function_path sshbuf_peek_string_direct  function_call count: 2 level :0========  [0m
 [40;42m =======pre add _ fucntion:fflush========= [0m
@@ -1628,6 +1635,7 @@ _3 = PHI <r_15(6), 0(9), 0(10)>
 bb index := 12
 # VUSE <.MEM_27>
 return _3;
+In function ‘sshbuf_get_string_direct’:
 lto1: warning: use location
 beacuse in succ := 12 have return or exit
 gimple stmt in succ := 12 ,possiable got to succ := 12
@@ -1730,6 +1738,7 @@ gimple stmt in succ := 12 ,possiable got to succ := 19
 
 ======================================================================
 _3 = PHI <r_15(6), 0(9), 0(10)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -1739,6 +1748,7 @@ if (r_15 < 0)
 bb index := 6
 # VUSE <.MEM_27>
 return _3;
+In function ‘sshbuf_get_string_direct’:
 lto1: warning: use location
 beacuse in succ := 12 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 12
@@ -1877,6 +1887,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 19
 
 ======================================================================
 if (r_15 < 0)
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:87:5: warning: use location
 if (r_15 < 0)
 
@@ -1900,21 +1911,21 @@ from sshbuf_get_string_direct basic block 7
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c937b88
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5fbc3b88
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f327c46b200 buf>
+    var <parm_decl 0x7fdb5f6f7200 buf>
     def_stmt GIMPLE_NOP
     version 13
-    ptr-info 0x7f327c47e540>
+    ptr-info 0x7fdb5f70a540>
 
  ================== Start Use after free Check ================== 
 
@@ -1954,34 +1965,34 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f327c92ff90 type <integer_type 0x7f327c9435e8 int> constant 1>
+ <integer_cst 0x7fdb5fbbbf90 type <integer_type 0x7fdb5fbcf5e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f327c92ff90 type <integer_type 0x7f327c9435e8 int> constant 1>
+ <integer_cst 0x7fdb5fbbbf90 type <integer_type 0x7fdb5fbcf5e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 # VUSE <.MEM_33>
 _2 = stdout;
 
@@ -2002,6 +2013,7 @@ fflush (_2);
 bb index := 7
 # VUSE <.MEM_27>
 return _3;
+In function ‘sshbuf_peek_string_direct’:
 lto1: warning: use location
 beacuse in succ := 12 have return or exit
 gimple stmt in succ := 7 ,possiable got to succ := 12
@@ -2036,28 +2048,29 @@ gimple stmt in succ := 7 ,possiable got to succ := 19
 # .MEM_34 = VDEF <.MEM_33>
 fflush (_2);
 fflush (_2);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:108:3: warning: use location
    SSHBUF_DBG(("SSH_ERR_MESSAGE_INCOMPLETE"));
    ^
 this stmt is child function---fflush-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 trace fucntion name:fflush 
 
  ================== trace ================== 
@@ -2070,6 +2083,7 @@ fflush (_2);
 bb index := 7
 # VUSE <.MEM_27>
 return _3;
+In function ‘sshbuf_peek_string_direct’:
 lto1: warning: use location
 beacuse in succ := 12 have return or exit
 gimple stmt in succ := 7 ,possiable got to succ := 12
@@ -2104,26 +2118,27 @@ gimple stmt in succ := 7 ,possiable got to succ := 19
 # .MEM_34 = VDEF <.MEM_33>
 fflush (_2);
 fflush (_2);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:108:3: warning: use location
 this stmt is child function---fflush-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 trace fucntion name:fflush 
 
  ================== trace ================== 
@@ -2135,22 +2150,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c937990
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5fbc3990
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _2 = stdout;
     version 2
-    ptr-info 0x7f327c47e558>
+    ptr-info 0x7fdb5f70a558>
 
  ================== Start Use after free Check ================== 
 
@@ -2182,21 +2197,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c48d168
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f719168
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487bd0 ret>
+    var <var_decl 0x7fdb5f713bd0 ret>
     def_stmt ret_34 = calloc (72, 1);
     version 34
-    ptr-info 0x7f327c47e6c0>
+    ptr-info 0x7fdb5f70a6c0>
 # .MEM_62 = VDEF <.MEM_15>
 ret_34 = calloc (72, 1);
 
@@ -3756,21 +3771,21 @@ r_22 = sshbuf_get_string_direct (b_20, &sigblob, &len);
 this stmt is child function---sshbuf_get_string_direct-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c48d168
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f719168
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487bd0 ret>
+    var <var_decl 0x7fdb5f713bd0 ret>
     def_stmt ret_34 = calloc (72, 1);
     version 34
-    ptr-info 0x7f327c47e6c0>
+    ptr-info 0x7fdb5f70a6c0>
 trace fucntion name:sshbuf_get_string_direct 
 [40;44m =======trace_function_path sshbuf_get_string_direct  function_call count: 1 level :0========  [0m
 [40;42m =======pre add _ fucntion:sshbuf_peek_string_direct========= [0m
@@ -4105,21 +4120,21 @@ r_40 = sshbuf_get_string_direct (b_20, 0B, 0B);
 this stmt is child function---sshbuf_get_string_direct-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c48d168
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f719168
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487bd0 ret>
+    var <var_decl 0x7fdb5f713bd0 ret>
     def_stmt ret_34 = calloc (72, 1);
     version 34
-    ptr-info 0x7f327c47e6c0>
+    ptr-info 0x7fdb5f70a6c0>
 trace fucntion name:sshbuf_get_string_direct 
 [40;44m =======trace_function_path sshbuf_get_string_direct  function_call count: 1 level :0========  [0m
 [40;42m =======pre add _ fucntion:sshbuf_peek_string_direct========= [0m
@@ -4178,21 +4193,21 @@ r_39 = sshbuf_peek_string_direct (b_20, &p, &len);
 this stmt is child function---sshbuf_peek_string_direct-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c48d168
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f719168
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487bd0 ret>
+    var <var_decl 0x7fdb5f713bd0 ret>
     def_stmt ret_34 = calloc (72, 1);
     version 34
-    ptr-info 0x7f327c47e6c0>
+    ptr-info 0x7fdb5f70a6c0>
 trace fucntion name:sshbuf_peek_string_direct 
 [40;44m =======trace_function_path sshbuf_peek_string_direct  function_call count: 2 level :0========  [0m
 [40;42m =======pre add _ fucntion:fflush========= [0m
@@ -4606,21 +4621,21 @@ ret_34 = calloc (72, 1);
 this stmt is child function---calloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c48d168
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f719168
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487bd0 ret>
+    var <var_decl 0x7fdb5f713bd0 ret>
     def_stmt ret_34 = calloc (72, 1);
     version 34
-    ptr-info 0x7f327c47e6c0>
+    ptr-info 0x7fdb5f70a6c0>
 trace fucntion name:calloc 
 
  ================== trace ================== 
@@ -4632,21 +4647,21 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c48d168
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f719168
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487bd0 ret>
+    var <var_decl 0x7fdb5f713bd0 ret>
     def_stmt ret_34 = calloc (72, 1);
     version 34
-    ptr-info 0x7f327c47e6c0>
+    ptr-info 0x7fdb5f70a6c0>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_87 = VDEF <.MEM_59>
 free (b_20);
@@ -4797,20 +4812,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c937708
-    type <pointer_type 0x7f327c94a0a8
-        type <void_type 0x7f327c943f18 void VOID
+ <ssa_name 0x7fdb5fbc3708
+    type <pointer_type 0x7fdb5fbd60a8
+        type <void_type 0x7fdb5fbcff18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f327c94a0a8>>
+            pointer_to_this <pointer_type 0x7fdb5fbd60a8>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c94fbd0>>
+        pointer_to_this <pointer_type 0x7fdb5fbdbbd0>>
    
     def_stmt _43 = malloc (_42);
     version 43
-    ptr-info 0x7f327c47e708>
+    ptr-info 0x7fdb5f70a708>
 # .MEM_75 = VDEF <.MEM_74>
 _43 = malloc (_42);
 
@@ -5004,20 +5019,20 @@ _24 = strcmp ("ssh-ed25519", _23);
 this stmt is child function---strcmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c937708
-    type <pointer_type 0x7f327c94a0a8
-        type <void_type 0x7f327c943f18 void VOID
+ <ssa_name 0x7fdb5fbc3708
+    type <pointer_type 0x7fdb5fbd60a8
+        type <void_type 0x7fdb5fbcff18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f327c94a0a8>>
+            pointer_to_this <pointer_type 0x7fdb5fbd60a8>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c94fbd0>>
+        pointer_to_this <pointer_type 0x7fdb5fbdbbd0>>
    
     def_stmt _43 = malloc (_42);
     version 43
-    ptr-info 0x7f327c47e708>
+    ptr-info 0x7fdb5f70a708>
 trace fucntion name:strcmp 
 
  ================== trace ================== 
@@ -5062,20 +5077,20 @@ memcpy (_51, _50, _49);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c937708
-    type <pointer_type 0x7f327c94a0a8
-        type <void_type 0x7f327c943f18 void VOID
+ <ssa_name 0x7fdb5fbc3708
+    type <pointer_type 0x7fdb5fbd60a8
+        type <void_type 0x7fdb5fbcff18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f327c94a0a8>>
+            pointer_to_this <pointer_type 0x7fdb5fbd60a8>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c94fbd0>>
+        pointer_to_this <pointer_type 0x7fdb5fbdbbd0>>
    
     def_stmt _43 = malloc (_42);
     version 43
-    ptr-info 0x7f327c47e708>
+    ptr-info 0x7fdb5f70a708>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -5110,20 +5125,20 @@ _43 = malloc (_42);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c937708
-    type <pointer_type 0x7f327c94a0a8
-        type <void_type 0x7f327c943f18 void VOID
+ <ssa_name 0x7fdb5fbc3708
+    type <pointer_type 0x7fdb5fbd60a8
+        type <void_type 0x7fdb5fbcff18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f327c94a0a8>>
+            pointer_to_this <pointer_type 0x7fdb5fbd60a8>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c94fbd0>>
+        pointer_to_this <pointer_type 0x7fdb5fbdbbd0>>
    
     def_stmt _43 = malloc (_42);
     version 43
-    ptr-info 0x7f327c47e708>
+    ptr-info 0x7fdb5f70a708>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -5135,20 +5150,20 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c937708
-    type <pointer_type 0x7f327c94a0a8
-        type <void_type 0x7f327c943f18 void VOID
+ <ssa_name 0x7fdb5fbc3708
+    type <pointer_type 0x7fdb5fbd60a8
+        type <void_type 0x7fdb5fbcff18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f327c94a0a8>>
+            pointer_to_this <pointer_type 0x7fdb5fbd60a8>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c94fbd0>>
+        pointer_to_this <pointer_type 0x7fdb5fbdbbd0>>
    
     def_stmt _43 = malloc (_42);
     version 43
-    ptr-info 0x7f327c47e708>
+    ptr-info 0x7fdb5f70a708>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_88 = VDEF <.MEM_87>
 free (_28);
@@ -5201,17 +5216,17 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f327c94b000 type <pointer_type 0x7f327c94a0a8> constant 0>
+ <integer_cst 0x7fdb5fbd7000 type <pointer_type 0x7fdb5fbd60a8> constant 0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c47cca8
-    type <integer_type 0x7f327c943690 unsigned int public unsigned SI
-        size <integer_cst 0x7f327c92fe28 constant 32>
-        unit size <integer_cst 0x7f327c92fe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f327c943690 precision 32 min <integer_cst 0x7f327c92fe58 0> max <integer_cst 0x7f327c92fe10 4294967295>
-        pointer_to_this <pointer_type 0x7f327c94f888>>
+ <ssa_name 0x7fdb5f708ca8
+    type <integer_type 0x7fdb5fbcf690 unsigned int public unsigned SI
+        size <integer_cst 0x7fdb5fbbbe28 constant 32>
+        unit size <integer_cst 0x7fdb5fbbbe40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fdb5fbcf690 precision 32 min <integer_cst 0x7fdb5fbbbe58 0> max <integer_cst 0x7fdb5fbbbe10 4294967295>
+        pointer_to_this <pointer_type 0x7fdb5fbdb888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -5313,12 +5328,12 @@ srand (_2);
 this stmt is child function---srand-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c47cca8
-    type <integer_type 0x7f327c943690 unsigned int public unsigned SI
-        size <integer_cst 0x7f327c92fe28 constant 32>
-        unit size <integer_cst 0x7f327c92fe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f327c943690 precision 32 min <integer_cst 0x7f327c92fe58 0> max <integer_cst 0x7f327c92fe10 4294967295>
-        pointer_to_this <pointer_type 0x7f327c94f888>>
+ <ssa_name 0x7fdb5f708ca8
+    type <integer_type 0x7fdb5fbcf690 unsigned int public unsigned SI
+        size <integer_cst 0x7fdb5fbbbe28 constant 32>
+        unit size <integer_cst 0x7fdb5fbbbe40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fdb5fbcf690 precision 32 min <integer_cst 0x7fdb5fbbbe58 0> max <integer_cst 0x7fdb5fbbbe10 4294967295>
+        pointer_to_this <pointer_type 0x7fdb5fbdb888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -5411,12 +5426,12 @@ srand (_2);
 this stmt is child function---srand-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c47cca8
-    type <integer_type 0x7f327c943690 unsigned int public unsigned SI
-        size <integer_cst 0x7f327c92fe28 constant 32>
-        unit size <integer_cst 0x7f327c92fe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f327c943690 precision 32 min <integer_cst 0x7f327c92fe58 0> max <integer_cst 0x7f327c92fe10 4294967295>
-        pointer_to_this <pointer_type 0x7f327c94f888>>
+ <ssa_name 0x7fdb5f708ca8
+    type <integer_type 0x7fdb5fbcf690 unsigned int public unsigned SI
+        size <integer_cst 0x7fdb5fbbbe28 constant 32>
+        unit size <integer_cst 0x7fdb5fbbbe40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fdb5fbcf690 precision 32 min <integer_cst 0x7fdb5fbbbe58 0> max <integer_cst 0x7fdb5fbbbe10 4294967295>
+        pointer_to_this <pointer_type 0x7fdb5fbdb888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -5431,12 +5446,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c47cca8
-    type <integer_type 0x7f327c943690 unsigned int public unsigned SI
-        size <integer_cst 0x7f327c92fe28 constant 32>
-        unit size <integer_cst 0x7f327c92fe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f327c943690 precision 32 min <integer_cst 0x7f327c92fe58 0> max <integer_cst 0x7f327c92fe10 4294967295>
-        pointer_to_this <pointer_type 0x7f327c94f888>>
+ <ssa_name 0x7fdb5f708ca8
+    type <integer_type 0x7fdb5fbcf690 unsigned int public unsigned SI
+        size <integer_cst 0x7fdb5fbbbe28 constant 32>
+        unit size <integer_cst 0x7fdb5fbbbe40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fdb5fbcf690 precision 32 min <integer_cst 0x7fdb5fbbbe58 0> max <integer_cst 0x7fdb5fbbbe10 4294967295>
+        pointer_to_this <pointer_type 0x7fdb5fbdb888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -5470,22 +5485,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c47cdc8
-    type <pointer_type 0x7f327c4597e0
-        type <integer_type 0x7f327c459738 char public string-flag QI
-            size <integer_cst 0x7f327c92fcd8 constant 8>
-            unit size <integer_cst 0x7f327c92fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f327c9433f0 precision 8 min <integer_cst 0x7f327c45c180 -128> max <integer_cst 0x7f327c45c168 127>
-            pointer_to_this <pointer_type 0x7f327c4597e0>>
+ <ssa_name 0x7fdb5f708dc8
+    type <pointer_type 0x7fdb5f6e57e0
+        type <integer_type 0x7fdb5f6e5738 char public string-flag QI
+            size <integer_cst 0x7fdb5fbbbcd8 constant 8>
+            unit size <integer_cst 0x7fdb5fbbbcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdb5fbcf3f0 precision 8 min <integer_cst 0x7fdb5f6e8180 -128> max <integer_cst 0x7fdb5f6e8168 127>
+            pointer_to_this <pointer_type 0x7fdb5f6e57e0>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-        pointer_to_this <pointer_type 0x7f327c459888>>
-    var <var_decl 0x7f327c47d6c0 data>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+        pointer_to_this <pointer_type 0x7fdb5f6e5888>>
+    var <var_decl 0x7fdb5f7096c0 data>
     def_stmt data_9 = MEM[(char * *)argv_8(D) + 8B];
     version 9
-    ptr-info 0x7f327c47e660>
+    ptr-info 0x7fdb5f70a660>
 # VUSE <.MEM_15>
 data_9 = MEM[(char * *)argv_8(D) + 8B];
 
@@ -5622,22 +5637,22 @@ datalen_10 = strlen (data_9);
 this stmt is child function---strlen-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c47cdc8
-    type <pointer_type 0x7f327c4597e0
-        type <integer_type 0x7f327c459738 char public string-flag QI
-            size <integer_cst 0x7f327c92fcd8 constant 8>
-            unit size <integer_cst 0x7f327c92fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f327c9433f0 precision 8 min <integer_cst 0x7f327c45c180 -128> max <integer_cst 0x7f327c45c168 127>
-            pointer_to_this <pointer_type 0x7f327c4597e0>>
+ <ssa_name 0x7fdb5f708dc8
+    type <pointer_type 0x7fdb5f6e57e0
+        type <integer_type 0x7fdb5f6e5738 char public string-flag QI
+            size <integer_cst 0x7fdb5fbbbcd8 constant 8>
+            unit size <integer_cst 0x7fdb5fbbbcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdb5fbcf3f0 precision 8 min <integer_cst 0x7fdb5f6e8180 -128> max <integer_cst 0x7fdb5f6e8168 127>
+            pointer_to_this <pointer_type 0x7fdb5f6e57e0>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-        pointer_to_this <pointer_type 0x7f327c459888>>
-    var <var_decl 0x7f327c47d6c0 data>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+        pointer_to_this <pointer_type 0x7fdb5f6e5888>>
+    var <var_decl 0x7fdb5f7096c0 data>
     def_stmt data_9 = MEM[(char * *)argv_8(D) + 8B];
     version 9
-    ptr-info 0x7f327c47e660>
+    ptr-info 0x7fdb5f70a660>
 trace fucntion name:strlen 
 
  ================== trace ================== 
@@ -5740,22 +5755,22 @@ from main basic block 18
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c47cdc8
-    type <pointer_type 0x7f327c4597e0
-        type <integer_type 0x7f327c459738 char public string-flag QI
-            size <integer_cst 0x7f327c92fcd8 constant 8>
-            unit size <integer_cst 0x7f327c92fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f327c9433f0 precision 8 min <integer_cst 0x7f327c45c180 -128> max <integer_cst 0x7f327c45c168 127>
-            pointer_to_this <pointer_type 0x7f327c4597e0>>
+ <ssa_name 0x7fdb5f708dc8
+    type <pointer_type 0x7fdb5f6e57e0
+        type <integer_type 0x7fdb5f6e5738 char public string-flag QI
+            size <integer_cst 0x7fdb5fbbbcd8 constant 8>
+            unit size <integer_cst 0x7fdb5fbbbcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdb5fbcf3f0 precision 8 min <integer_cst 0x7fdb5f6e8180 -128> max <integer_cst 0x7fdb5f6e8168 127>
+            pointer_to_this <pointer_type 0x7fdb5f6e57e0>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-        pointer_to_this <pointer_type 0x7f327c459888>>
-    var <var_decl 0x7f327c47d6c0 data>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+        pointer_to_this <pointer_type 0x7fdb5f6e5888>>
+    var <var_decl 0x7fdb5f7096c0 data>
     def_stmt data_9 = MEM[(char * *)argv_8(D) + 8B];
     version 9
-    ptr-info 0x7f327c47e660>
+    ptr-info 0x7fdb5f70a660>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_87 = VDEF <.MEM_59>
 free (b_20);
@@ -5788,26 +5803,26 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f327c47e318 type <integer_type 0x7f327c9437e0 long unsigned int> constant 72>
+ <integer_cst 0x7fdb5f70a318 type <integer_type 0x7fdb5fbcf7e0 long unsigned int> constant 72>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c485708
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f711708
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487360 b>
+    var <var_decl 0x7fdb5f713360 b>
     def_stmt b_20 = _71;
     version 20
-    ptr-info 0x7f327c47e678>
+    ptr-info 0x7fdb5f70a678>
 b_20 = _71;
 
  ================== trace ptable================== 
@@ -5916,21 +5931,21 @@ r_22 = sshbuf_get_string_direct (b_20, &sigblob, &len);
 this stmt is child function---sshbuf_get_string_direct-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c485708
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f711708
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487360 b>
+    var <var_decl 0x7fdb5f713360 b>
     def_stmt b_20 = _71;
     version 20
-    ptr-info 0x7f327c47e678>
+    ptr-info 0x7fdb5f70a678>
 trace fucntion name:sshbuf_get_string_direct 
 [40;44m =======trace_function_path sshbuf_get_string_direct  function_call count: 1 level :0========  [0m
 [40;36m ======= node_fun:sshbuf_get_string_direct========= [0m
@@ -6273,21 +6288,21 @@ r_40 = sshbuf_get_string_direct (b_20, 0B, 0B);
 this stmt is child function---sshbuf_get_string_direct-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c485708
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f711708
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487360 b>
+    var <var_decl 0x7fdb5f713360 b>
     def_stmt b_20 = _71;
     version 20
-    ptr-info 0x7f327c47e678>
+    ptr-info 0x7fdb5f70a678>
 trace fucntion name:sshbuf_get_string_direct 
 [40;44m =======trace_function_path sshbuf_get_string_direct  function_call count: 1 level :0========  [0m
 [40;36m ======= node_fun:sshbuf_get_string_direct========= [0m
@@ -6354,21 +6369,21 @@ r_39 = sshbuf_peek_string_direct (b_20, &p, &len);
 this stmt is child function---sshbuf_peek_string_direct-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c485708
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f711708
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487360 b>
+    var <var_decl 0x7fdb5f713360 b>
     def_stmt b_20 = _71;
     version 20
-    ptr-info 0x7f327c47e678>
+    ptr-info 0x7fdb5f70a678>
 trace fucntion name:sshbuf_peek_string_direct 
 [40;44m =======trace_function_path sshbuf_peek_string_direct  function_call count: 2 level :0========  [0m
 [40;36m ======= node_fun:sshbuf_peek_string_direct========= [0m
@@ -6593,21 +6608,21 @@ from main basic block 8
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c485708
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f711708
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487360 b>
+    var <var_decl 0x7fdb5f713360 b>
     def_stmt b_20 = _71;
     version 20
-    ptr-info 0x7f327c47e678>
+    ptr-info 0x7fdb5f70a678>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_87 = VDEF <.MEM_59>
 free (b_20);
@@ -6732,21 +6747,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c485708
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f711708
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487360 b>
+    var <var_decl 0x7fdb5f713360 b>
     def_stmt b_20 = _71;
     version 20
-    ptr-info 0x7f327c47e678>
+    ptr-info 0x7fdb5f70a678>
 b_20 = _71;
 
  ================== trace ptable================== 
@@ -6853,21 +6868,21 @@ r_22 = sshbuf_get_string_direct (b_20, &sigblob, &len);
 this stmt is child function---sshbuf_get_string_direct-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c485708
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f711708
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487360 b>
+    var <var_decl 0x7fdb5f713360 b>
     def_stmt b_20 = _71;
     version 20
-    ptr-info 0x7f327c47e678>
+    ptr-info 0x7fdb5f70a678>
 trace fucntion name:sshbuf_get_string_direct 
 [40;44m =======trace_function_path sshbuf_get_string_direct  function_call count: 1 level :0========  [0m
 [40;36m ======= node_fun:sshbuf_get_string_direct========= [0m
@@ -7210,21 +7225,21 @@ r_40 = sshbuf_get_string_direct (b_20, 0B, 0B);
 this stmt is child function---sshbuf_get_string_direct-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c485708
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f711708
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487360 b>
+    var <var_decl 0x7fdb5f713360 b>
     def_stmt b_20 = _71;
     version 20
-    ptr-info 0x7f327c47e678>
+    ptr-info 0x7fdb5f70a678>
 trace fucntion name:sshbuf_get_string_direct 
 [40;44m =======trace_function_path sshbuf_get_string_direct  function_call count: 1 level :0========  [0m
 [40;36m ======= node_fun:sshbuf_get_string_direct========= [0m
@@ -7291,21 +7306,21 @@ r_39 = sshbuf_peek_string_direct (b_20, &p, &len);
 this stmt is child function---sshbuf_peek_string_direct-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c485708
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f711708
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487360 b>
+    var <var_decl 0x7fdb5f713360 b>
     def_stmt b_20 = _71;
     version 20
-    ptr-info 0x7f327c47e678>
+    ptr-info 0x7fdb5f70a678>
 trace fucntion name:sshbuf_peek_string_direct 
 [40;44m =======trace_function_path sshbuf_peek_string_direct  function_call count: 2 level :0========  [0m
 [40;36m ======= node_fun:sshbuf_peek_string_direct========= [0m
@@ -7530,21 +7545,21 @@ from main basic block 8
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c485708
-    type <pointer_type 0x7f327c462000
-        type <record_type 0x7f327c4620a8 sshbuf BLK
-            size <integer_cst 0x7f327c45c2b8 constant 576>
-            unit size <integer_cst 0x7f327c45c2d0 constant 72>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c4620a8 fields <field_decl 0x7f327c463428 d> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c462000> chain <type_decl 0x7f327c4634c0 D.4044>>
+ <ssa_name 0x7fdb5f711708
+    type <pointer_type 0x7fdb5f6ee000
+        type <record_type 0x7fdb5f6ee0a8 sshbuf BLK
+            size <integer_cst 0x7fdb5f6e82b8 constant 576>
+            unit size <integer_cst 0x7fdb5f6e82d0 constant 72>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6ee0a8 fields <field_decl 0x7fdb5f6ef428 d> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6ee000> chain <type_decl 0x7fdb5f6ef4c0 D.4044>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f327c487360 b>
+    var <var_decl 0x7fdb5f713360 b>
     def_stmt b_20 = _71;
     version 20
-    ptr-info 0x7f327c47e678>
+    ptr-info 0x7fdb5f70a678>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_87 = VDEF <.MEM_59>
 free (b_20);
@@ -7669,12 +7684,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c9377e0
-    type <integer_type 0x7f327c9437e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f327c943738 precision 64 min <integer_cst 0x7f327c92feb8 0> max <integer_cst 0x7f327c931500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f327c94f9d8>>
+ <ssa_name 0x7fdb5fbc37e0
+    type <integer_type 0x7fdb5fbcf7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdb5fbcf738 precision 64 min <integer_cst 0x7fdb5fbbbeb8 0> max <integer_cst 0x7fdb5fbbd500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdb5fbdb9d8>>
    
     def_stmt _42 = _41 + 1;
     version 42>
@@ -7696,12 +7711,12 @@ _43 = malloc (_42);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c9377e0
-    type <integer_type 0x7f327c9437e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f327c943738 precision 64 min <integer_cst 0x7f327c92feb8 0> max <integer_cst 0x7f327c931500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f327c94f9d8>>
+ <ssa_name 0x7fdb5fbc37e0
+    type <integer_type 0x7fdb5fbcf7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdb5fbcf738 precision 64 min <integer_cst 0x7fdb5fbbbeb8 0> max <integer_cst 0x7fdb5fbbd500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdb5fbdb9d8>>
    
     def_stmt _42 = _41 + 1;
     version 42>
@@ -7889,12 +7904,12 @@ _24 = strcmp ("ssh-ed25519", _23);
 this stmt is child function---strcmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c9377e0
-    type <integer_type 0x7f327c9437e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f327c943738 precision 64 min <integer_cst 0x7f327c92feb8 0> max <integer_cst 0x7f327c931500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f327c94f9d8>>
+ <ssa_name 0x7fdb5fbc37e0
+    type <integer_type 0x7fdb5fbcf7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdb5fbcf738 precision 64 min <integer_cst 0x7fdb5fbbbeb8 0> max <integer_cst 0x7fdb5fbbd500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdb5fbdb9d8>>
    
     def_stmt _42 = _41 + 1;
     version 42>
@@ -7942,12 +7957,12 @@ memcpy (_51, _50, _49);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c9377e0
-    type <integer_type 0x7f327c9437e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f327c943738 precision 64 min <integer_cst 0x7f327c92feb8 0> max <integer_cst 0x7f327c931500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f327c94f9d8>>
+ <ssa_name 0x7fdb5fbc37e0
+    type <integer_type 0x7fdb5fbcf7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdb5fbcf738 precision 64 min <integer_cst 0x7fdb5fbbbeb8 0> max <integer_cst 0x7fdb5fbbd500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdb5fbdb9d8>>
    
     def_stmt _42 = _41 + 1;
     version 42>
@@ -7985,12 +8000,12 @@ from main basic block 12
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c9377e0
-    type <integer_type 0x7f327c9437e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f327c943738 precision 64 min <integer_cst 0x7f327c92feb8 0> max <integer_cst 0x7f327c931500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f327c94f9d8>>
+ <ssa_name 0x7fdb5fbc37e0
+    type <integer_type 0x7fdb5fbcf7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fdb5fbcf738 precision 64 min <integer_cst 0x7fdb5fbbbeb8 0> max <integer_cst 0x7fdb5fbbd500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdb5fbdb9d8>>
    
     def_stmt _42 = _41 + 1;
     version 42>
@@ -8083,22 +8098,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c496090
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5f722090
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _48 = stdout;
     version 48
-    ptr-info 0x7f327c47e738>
+    ptr-info 0x7fdb5f70a738>
 # VUSE <.MEM_81>
 _48 = stdout;
 
@@ -8120,22 +8135,22 @@ fflush (_48);
 this stmt is child function---fflush-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c496090
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5f722090
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _48 = stdout;
     version 48
-    ptr-info 0x7f327c47e738>
+    ptr-info 0x7fdb5f70a738>
 trace fucntion name:fflush 
 
  ================== trace ================== 
@@ -8147,22 +8162,22 @@ fflush (_48);
 this stmt is child function---fflush-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c496090
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5f722090
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _48 = stdout;
     version 48
-    ptr-info 0x7f327c47e738>
+    ptr-info 0x7fdb5f70a738>
 trace fucntion name:fflush 
 
  ================== trace ================== 
@@ -8174,22 +8189,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c496090
-    type <pointer_type 0x7f327c469000
-        type <record_type 0x7f327c466f18 FILE BLK
-            size <integer_cst 0x7f327c45c318 constant 1728>
-            unit size <integer_cst 0x7f327c45c3c0 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f327c466dc8 fields <field_decl 0x7f327c4688e8 _flags> context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-            pointer_to_this <pointer_type 0x7f327c469000> chain <type_decl 0x7f327c468980 D.4119>>
+ <ssa_name 0x7fdb5f722090
+    type <pointer_type 0x7fdb5f6f5000
+        type <record_type 0x7fdb5f6f2f18 FILE BLK
+            size <integer_cst 0x7fdb5f6e8318 constant 1728>
+            unit size <integer_cst 0x7fdb5f6e83c0 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fdb5f6f2dc8 fields <field_decl 0x7fdb5f6f48e8 _flags> context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+            pointer_to_this <pointer_type 0x7fdb5f6f5000> chain <type_decl 0x7fdb5f6f4980 D.4119>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f327c46ac78>>
+        pointer_to_this <pointer_type 0x7fdb5f6f6c78>>
    
     def_stmt _48 = stdout;
     version 48
-    ptr-info 0x7f327c47e738>
+    ptr-info 0x7fdb5f70a738>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_87 = VDEF <.MEM_59>
 free (b_20);
@@ -8220,22 +8235,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f327c496168
-    type <pointer_type 0x7f327c4597e0
-        type <integer_type 0x7f327c459738 char public string-flag QI
-            size <integer_cst 0x7f327c92fcd8 constant 8>
-            unit size <integer_cst 0x7f327c92fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f327c9433f0 precision 8 min <integer_cst 0x7f327c45c180 -128> max <integer_cst 0x7f327c45c168 127>
-            pointer_to_this <pointer_type 0x7f327c4597e0>>
+ <ssa_name 0x7fdb5f722168
+    type <pointer_type 0x7fdb5f6e57e0
+        type <integer_type 0x7fdb5f6e5738 char public string-flag QI
+            size <integer_cst 0x7fdb5fbbbcd8 constant 8>
+            unit size <integer_cst 0x7fdb5fbbbcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdb5fbcf3f0 precision 8 min <integer_cst 0x7fdb5f6e8180 -128> max <integer_cst 0x7fdb5f6e8168 127>
+            pointer_to_this <pointer_type 0x7fdb5f6e57e0>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-        pointer_to_this <pointer_type 0x7f327c459888>>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+        pointer_to_this <pointer_type 0x7fdb5f6e5888>>
    
     def_stmt _51 = ktype_96;
     version 51
-    ptr-info 0x7f327c47e768>
+    ptr-info 0x7fdb5f70a768>
 _51 = ktype_96;
 
  ================== trace ptable================== 
@@ -8256,22 +8271,22 @@ memcpy (_51, _50, _49);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c496168
-    type <pointer_type 0x7f327c4597e0
-        type <integer_type 0x7f327c459738 char public string-flag QI
-            size <integer_cst 0x7f327c92fcd8 constant 8>
-            unit size <integer_cst 0x7f327c92fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f327c9433f0 precision 8 min <integer_cst 0x7f327c45c180 -128> max <integer_cst 0x7f327c45c168 127>
-            pointer_to_this <pointer_type 0x7f327c4597e0>>
+ <ssa_name 0x7fdb5f722168
+    type <pointer_type 0x7fdb5f6e57e0
+        type <integer_type 0x7fdb5f6e5738 char public string-flag QI
+            size <integer_cst 0x7fdb5fbbbcd8 constant 8>
+            unit size <integer_cst 0x7fdb5fbbbcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdb5fbcf3f0 precision 8 min <integer_cst 0x7fdb5f6e8180 -128> max <integer_cst 0x7fdb5f6e8168 127>
+            pointer_to_this <pointer_type 0x7fdb5f6e57e0>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-        pointer_to_this <pointer_type 0x7f327c459888>>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+        pointer_to_this <pointer_type 0x7fdb5f6e5888>>
    
     def_stmt _51 = ktype_96;
     version 51
-    ptr-info 0x7f327c47e768>
+    ptr-info 0x7fdb5f70a768>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -8283,22 +8298,22 @@ memcpy (_51, _50, _49);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f327c496168
-    type <pointer_type 0x7f327c4597e0
-        type <integer_type 0x7f327c459738 char public string-flag QI
-            size <integer_cst 0x7f327c92fcd8 constant 8>
-            unit size <integer_cst 0x7f327c92fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f327c9433f0 precision 8 min <integer_cst 0x7f327c45c180 -128> max <integer_cst 0x7f327c45c168 127>
-            pointer_to_this <pointer_type 0x7f327c4597e0>>
+ <ssa_name 0x7fdb5f722168
+    type <pointer_type 0x7fdb5f6e57e0
+        type <integer_type 0x7fdb5f6e5738 char public string-flag QI
+            size <integer_cst 0x7fdb5fbbbcd8 constant 8>
+            unit size <integer_cst 0x7fdb5fbbbcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdb5fbcf3f0 precision 8 min <integer_cst 0x7fdb5f6e8180 -128> max <integer_cst 0x7fdb5f6e8168 127>
+            pointer_to_this <pointer_type 0x7fdb5f6e57e0>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-        pointer_to_this <pointer_type 0x7f327c459888>>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+        pointer_to_this <pointer_type 0x7fdb5f6e5888>>
    
     def_stmt _51 = ktype_96;
     version 51
-    ptr-info 0x7f327c47e768>
+    ptr-info 0x7fdb5f70a768>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -8310,22 +8325,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f327c496168
-    type <pointer_type 0x7f327c4597e0
-        type <integer_type 0x7f327c459738 char public string-flag QI
-            size <integer_cst 0x7f327c92fcd8 constant 8>
-            unit size <integer_cst 0x7f327c92fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f327c9433f0 precision 8 min <integer_cst 0x7f327c45c180 -128> max <integer_cst 0x7f327c45c168 127>
-            pointer_to_this <pointer_type 0x7f327c4597e0>>
+ <ssa_name 0x7fdb5f722168
+    type <pointer_type 0x7fdb5f6e57e0
+        type <integer_type 0x7fdb5f6e5738 char public string-flag QI
+            size <integer_cst 0x7fdb5fbbbcd8 constant 8>
+            unit size <integer_cst 0x7fdb5fbbbcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fdb5fbcf3f0 precision 8 min <integer_cst 0x7fdb5f6e8180 -128> max <integer_cst 0x7fdb5f6e8168 127>
+            pointer_to_this <pointer_type 0x7fdb5f6e57e0>>
         public unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f327c93a168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
-        pointer_to_this <pointer_type 0x7f327c459888>>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdb5fbc6168 ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c>
+        pointer_to_this <pointer_type 0x7fdb5f6e5888>>
    
     def_stmt _51 = ktype_96;
     version 51
-    ptr-info 0x7f327c47e768>
+    ptr-info 0x7fdb5f70a768>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_88 = VDEF <.MEM_87>
 free (_28);
@@ -8350,20 +8365,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f327c488220
-    type <pointer_type 0x7f327c4699d8
-        type <array_type 0x7f327c469930 type <integer_type 0x7f327c459738 char>
+ <addr_expr 0x7fdb5f714220
+    type <pointer_type 0x7fdb5f6f59d8
+        type <array_type 0x7fdb5f6f5930 type <integer_type 0x7fdb5f6e5738 char>
             BLK
-            size <integer_cst 0x7f327c45c1c8 constant 96>
-            unit size <integer_cst 0x7f327c45c4b0 constant 12>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f327c469888>
-            pointer_to_this <pointer_type 0x7f327c4699d8>>
+            size <integer_cst 0x7fdb5f6e81c8 constant 96>
+            unit size <integer_cst 0x7fdb5f6e84b0 constant 12>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fdb5f6f5888>
+            pointer_to_this <pointer_type 0x7fdb5f6f59d8>>
         unsigned DI
-        size <integer_cst 0x7f327c92fbe8 constant 64>
-        unit size <integer_cst 0x7f327c92fc00 constant 8>
+        size <integer_cst 0x7fdb5fbbbbe8 constant 64>
+        unit size <integer_cst 0x7fdb5fbbbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7f327c482410 type <array_type 0x7f327c469930>
+    arg 0 <string_cst 0x7fdb5f70e410 type <array_type 0x7fdb5f6f5930>
         readonly constant static "ssh-ed25519\000">
     ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:170:6 start: ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:170:6 finish: ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:170:6>
 
@@ -8792,7 +8807,7 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 10 [0m
 [40;34m    used_stmt array stack totalsize of : 2232 [0m
-[40;34m    collect time: : 0.000134 s [0m
-[40;34m    algorithm time: 0.030319 s [0m
+[40;34m    collect time: : 0.000133 s [0m
+[40;34m    algorithm time: 0.043400 s [0m
 [40;34m    gimple stmt count : : 118 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

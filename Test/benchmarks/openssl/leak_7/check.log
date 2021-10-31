@@ -80,19 +80,19 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f31d4541b40
-    type <pointer_type 0x7f31d452a9d8
-        type <record_type 0x7f31d452a930 thread_local_inits_st DI
-            size <integer_cst 0x7f31d4a00be8 constant 64>
-            unit size <integer_cst 0x7f31d4a00c00 constant 8>
-            align 32 symtab 0 alias set -1 canonical type 0x7f31d452a930 fields <field_decl 0x7f31d452c260 async> context <translation_unit_decl 0x7f31d4a0b168 ./benchmarks/openssl/leak_7/openssl_leak_7.c>
-            pointer_to_this <pointer_type 0x7f31d452a9d8> chain <type_decl 0x7f31d452c2f8 D.3990>>
-        public unsigned DI size <integer_cst 0x7f31d4a00be8 64> unit size <integer_cst 0x7f31d4a00c00 8>
+ <ssa_name 0x7f281342fb40
+    type <pointer_type 0x7f28134189d8
+        type <record_type 0x7f2813418930 thread_local_inits_st DI
+            size <integer_cst 0x7f28138eebe8 constant 64>
+            unit size <integer_cst 0x7f28138eec00 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f2813418930 fields <field_decl 0x7f281341a260 async> context <translation_unit_decl 0x7f28138f9168 ./benchmarks/openssl/leak_7/openssl_leak_7.c>
+            pointer_to_this <pointer_type 0x7f28134189d8> chain <type_decl 0x7f281341a2f8 D.3990>>
+        public unsigned DI size <integer_cst 0x7f28138eebe8 64> unit size <integer_cst 0x7f28138eec00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f31d453fab0 local>
+    var <var_decl 0x7f281342dab0 local>
     def_stmt local_35 = malloc (8);
     version 35
-    ptr-info 0x7f31d452de70>
+    ptr-info 0x7f281341be70>
 # .MEM_57 = VDEF <.MEM_47>
 local_35 = malloc (8);
 
@@ -334,19 +334,19 @@ _13 = __printf_chk (1, "%d\n", _1);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7f31d4541b40
-    type <pointer_type 0x7f31d452a9d8
-        type <record_type 0x7f31d452a930 thread_local_inits_st DI
-            size <integer_cst 0x7f31d4a00be8 constant 64>
-            unit size <integer_cst 0x7f31d4a00c00 constant 8>
-            align 32 symtab 0 alias set -1 canonical type 0x7f31d452a930 fields <field_decl 0x7f31d452c260 async> context <translation_unit_decl 0x7f31d4a0b168 ./benchmarks/openssl/leak_7/openssl_leak_7.c>
-            pointer_to_this <pointer_type 0x7f31d452a9d8> chain <type_decl 0x7f31d452c2f8 D.3990>>
-        public unsigned DI size <integer_cst 0x7f31d4a00be8 64> unit size <integer_cst 0x7f31d4a00c00 8>
+ <ssa_name 0x7f281342fb40
+    type <pointer_type 0x7f28134189d8
+        type <record_type 0x7f2813418930 thread_local_inits_st DI
+            size <integer_cst 0x7f28138eebe8 constant 64>
+            unit size <integer_cst 0x7f28138eec00 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f2813418930 fields <field_decl 0x7f281341a260 async> context <translation_unit_decl 0x7f28138f9168 ./benchmarks/openssl/leak_7/openssl_leak_7.c>
+            pointer_to_this <pointer_type 0x7f28134189d8> chain <type_decl 0x7f281341a2f8 D.3990>>
+        public unsigned DI size <integer_cst 0x7f28138eebe8 64> unit size <integer_cst 0x7f28138eec00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f31d453fab0 local>
+    var <var_decl 0x7f281342dab0 local>
     def_stmt local_35 = malloc (8);
     version 35
-    ptr-info 0x7f31d452de70>
+    ptr-info 0x7f281341be70>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -439,19 +439,19 @@ local_35 = malloc (8);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f31d4541b40
-    type <pointer_type 0x7f31d452a9d8
-        type <record_type 0x7f31d452a930 thread_local_inits_st DI
-            size <integer_cst 0x7f31d4a00be8 constant 64>
-            unit size <integer_cst 0x7f31d4a00c00 constant 8>
-            align 32 symtab 0 alias set -1 canonical type 0x7f31d452a930 fields <field_decl 0x7f31d452c260 async> context <translation_unit_decl 0x7f31d4a0b168 ./benchmarks/openssl/leak_7/openssl_leak_7.c>
-            pointer_to_this <pointer_type 0x7f31d452a9d8> chain <type_decl 0x7f31d452c2f8 D.3990>>
-        public unsigned DI size <integer_cst 0x7f31d4a00be8 64> unit size <integer_cst 0x7f31d4a00c00 8>
+ <ssa_name 0x7f281342fb40
+    type <pointer_type 0x7f28134189d8
+        type <record_type 0x7f2813418930 thread_local_inits_st DI
+            size <integer_cst 0x7f28138eebe8 constant 64>
+            unit size <integer_cst 0x7f28138eec00 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f2813418930 fields <field_decl 0x7f281341a260 async> context <translation_unit_decl 0x7f28138f9168 ./benchmarks/openssl/leak_7/openssl_leak_7.c>
+            pointer_to_this <pointer_type 0x7f28134189d8> chain <type_decl 0x7f281341a2f8 D.3990>>
+        public unsigned DI size <integer_cst 0x7f28138eebe8 64> unit size <integer_cst 0x7f28138eec00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f31d453fab0 local>
+    var <var_decl 0x7f281342dab0 local>
     def_stmt local_35 = malloc (8);
     version 35
-    ptr-info 0x7f31d452de70>
+    ptr-info 0x7f281341be70>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -463,19 +463,19 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f31d4541b40
-    type <pointer_type 0x7f31d452a9d8
-        type <record_type 0x7f31d452a930 thread_local_inits_st DI
-            size <integer_cst 0x7f31d4a00be8 constant 64>
-            unit size <integer_cst 0x7f31d4a00c00 constant 8>
-            align 32 symtab 0 alias set -1 canonical type 0x7f31d452a930 fields <field_decl 0x7f31d452c260 async> context <translation_unit_decl 0x7f31d4a0b168 ./benchmarks/openssl/leak_7/openssl_leak_7.c>
-            pointer_to_this <pointer_type 0x7f31d452a9d8> chain <type_decl 0x7f31d452c2f8 D.3990>>
-        public unsigned DI size <integer_cst 0x7f31d4a00be8 64> unit size <integer_cst 0x7f31d4a00c00 8>
+ <ssa_name 0x7f281342fb40
+    type <pointer_type 0x7f28134189d8
+        type <record_type 0x7f2813418930 thread_local_inits_st DI
+            size <integer_cst 0x7f28138eebe8 constant 64>
+            unit size <integer_cst 0x7f28138eec00 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f2813418930 fields <field_decl 0x7f281341a260 async> context <translation_unit_decl 0x7f28138f9168 ./benchmarks/openssl/leak_7/openssl_leak_7.c>
+            pointer_to_this <pointer_type 0x7f28134189d8> chain <type_decl 0x7f281341a2f8 D.3990>>
+        public unsigned DI size <integer_cst 0x7f28138eebe8 64> unit size <integer_cst 0x7f28138eec00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f31d453fab0 local>
+    var <var_decl 0x7f281342dab0 local>
     def_stmt local_35 = malloc (8);
     version 35
-    ptr-info 0x7f31d452de70>
+    ptr-info 0x7f281341be70>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_18 = VDEF <.MEM_17>
 free (_2);
@@ -553,14 +553,14 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f31d452ddb0 type <integer_type 0x7f31d4a147e0 long unsigned int> constant 8>
+ <integer_cst 0x7f281341bdb0 type <integer_type 0x7f28139027e0 long unsigned int> constant 8>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f31d4a00f90 type <integer_type 0x7f31d4a145e8 int> constant 1>
+ <integer_cst 0x7f28138eef90 type <integer_type 0x7f28139025e8 int> constant 1>
 [40;33m =======POP node_fun stack:main========= [0m
 fucntion collect path finsh
 
@@ -756,7 +756,7 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 1 [0m
 [40;34m    used_stmt array stack totalsize of : 496 [0m
-[40;34m    collect time: : 0.000063 s [0m
-[40;34m    algorithm time: 0.002459 s [0m
+[40;34m    collect time: : 0.000095 s [0m
+[40;34m    algorithm time: 0.003075 s [0m
 [40;34m    gimple stmt count : : 45 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

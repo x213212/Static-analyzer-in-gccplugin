@@ -123,21 +123,21 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5bd2919d8
-    type <pointer_type 0x7fd5bcdbcf18
-        type <integer_type 0x7fd5bcdbce70 u_char public unsigned string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bd289d08 0> max <integer_cst 0x7fd5bd289ca8 255> context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-            pointer_to_this <pointer_type 0x7fd5bcdbcf18>>
+ <ssa_name 0x7f77e583d9d8
+    type <pointer_type 0x7f77e5368f18
+        type <integer_type 0x7f77e5368e70 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5835d08 0> max <integer_cst 0x7f77e5835ca8 255> context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+            pointer_to_this <pointer_type 0x7f77e5368f18>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5be01ebd0 value>
+    var <var_decl 0x7f77e65cabd0 value>
     def_stmt value_13 = malloc (_3);
     version 13
-    ptr-info 0x7fd5bcdb6f48>
+    ptr-info 0x7f77e5362f48>
 # .MEM_29 = VDEF <.MEM_28>
 value_13 = malloc (_3);
 
@@ -235,21 +235,21 @@ value_13 = malloc (_3);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bd2919d8
-    type <pointer_type 0x7fd5bcdbcf18
-        type <integer_type 0x7fd5bcdbce70 u_char public unsigned string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bd289d08 0> max <integer_cst 0x7fd5bd289ca8 255> context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-            pointer_to_this <pointer_type 0x7fd5bcdbcf18>>
+ <ssa_name 0x7f77e583d9d8
+    type <pointer_type 0x7f77e5368f18
+        type <integer_type 0x7f77e5368e70 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5835d08 0> max <integer_cst 0x7f77e5835ca8 255> context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+            pointer_to_this <pointer_type 0x7f77e5368f18>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5be01ebd0 value>
+    var <var_decl 0x7f77e65cabd0 value>
     def_stmt value_13 = malloc (_3);
     version 13
-    ptr-info 0x7fd5bcdb6f48>
+    ptr-info 0x7f77e5362f48>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -261,21 +261,21 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5bd2919d8
-    type <pointer_type 0x7fd5bcdbcf18
-        type <integer_type 0x7fd5bcdbce70 u_char public unsigned string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bd289d08 0> max <integer_cst 0x7fd5bd289ca8 255> context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-            pointer_to_this <pointer_type 0x7fd5bcdbcf18>>
+ <ssa_name 0x7f77e583d9d8
+    type <pointer_type 0x7f77e5368f18
+        type <integer_type 0x7f77e5368e70 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5835d08 0> max <integer_cst 0x7f77e5835ca8 255> context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+            pointer_to_this <pointer_type 0x7f77e5368f18>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5be01ebd0 value>
+    var <var_decl 0x7f77e65cabd0 value>
     def_stmt value_13 = malloc (_3);
     version 13
-    ptr-info 0x7fd5bcdb6f48>
+    ptr-info 0x7f77e5362f48>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_33 = VDEF <.MEM_32>
 free (value_13);
@@ -425,22 +425,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5bd291948
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e583d948
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
-    var <parm_decl 0x7fd5bcdbd100 buffer>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
+    var <parm_decl 0x7f77e5369100 buffer>
     def_stmt GIMPLE_NOP
     version 10
-    ptr-info 0x7fd5bcdb6f30>
+    ptr-info 0x7f77e5362f30>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -459,22 +459,22 @@ _1 = strlen (buffer_10(D));
 this stmt is child function---strlen-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bd291948
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e583d948
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
-    var <parm_decl 0x7fd5bcdbd100 buffer>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
+    var <parm_decl 0x7f77e5369100 buffer>
     def_stmt GIMPLE_NOP
     version 10
-    ptr-info 0x7fd5bcdb6f30>
+    ptr-info 0x7f77e5362f30>
 trace fucntion name:strlen 
 
  ================== trace ================== 
@@ -533,22 +533,22 @@ value_13 = malloc (_3);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bd291948
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e583d948
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
-    var <parm_decl 0x7fd5bcdbd100 buffer>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
+    var <parm_decl 0x7f77e5369100 buffer>
     def_stmt GIMPLE_NOP
     version 10
-    ptr-info 0x7fd5bcdb6f30>
+    ptr-info 0x7f77e5362f30>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -625,22 +625,22 @@ _20 = __printf_chk (1, "len : %d\n", len_11);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bd291948
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e583d948
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
-    var <parm_decl 0x7fd5bcdbd100 buffer>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
+    var <parm_decl 0x7f77e5369100 buffer>
     def_stmt GIMPLE_NOP
     version 10
-    ptr-info 0x7fd5bcdb6f30>
+    ptr-info 0x7f77e5362f30>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -649,22 +649,22 @@ _19 = __printf_chk (1, "buf : %s\n", buffer_10(D));
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bd291948
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e583d948
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
-    var <parm_decl 0x7fd5bcdbd100 buffer>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
+    var <parm_decl 0x7f77e5369100 buffer>
     def_stmt GIMPLE_NOP
     version 10
-    ptr-info 0x7fd5bcdb6f30>
+    ptr-info 0x7f77e5362f30>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -676,22 +676,22 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5bd291948
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e583d948
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
-    var <parm_decl 0x7fd5bcdbd100 buffer>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
+    var <parm_decl 0x7f77e5369100 buffer>
     def_stmt GIMPLE_NOP
     version 10
-    ptr-info 0x7fd5bcdb6f30>
+    ptr-info 0x7f77e5362f30>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_33 = VDEF <.MEM_32>
 free (value_13);
@@ -934,24 +934,24 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5bd289f90 type <integer_type 0x7fd5bd29d5e8 int> constant 1>
+ <integer_cst 0x7f77e5835f90 type <integer_type 0x7f77e58495e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5bd289f90 type <integer_type 0x7fd5bd29d5e8 int> constant 1>
+ <integer_cst 0x7f77e5835f90 type <integer_type 0x7f77e58495e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5bd291828
-    type <integer_type 0x7fd5bd29d7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7fd5bd29d738 precision 64 min <integer_cst 0x7fd5bd289eb8 0> max <integer_cst 0x7fd5bd28b500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7fd5bd2a99d8>>
+ <ssa_name 0x7f77e583d828
+    type <integer_type 0x7f77e58497e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f77e5849738 precision 64 min <integer_cst 0x7f77e5835eb8 0> max <integer_cst 0x7f77e5837500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f77e58559d8>>
    
     def_stmt _3 = (long unsigned int) _2;
     version 3>
@@ -973,12 +973,12 @@ value_13 = malloc (_3);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bd291828
-    type <integer_type 0x7fd5bd29d7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7fd5bd29d738 precision 64 min <integer_cst 0x7fd5bd289eb8 0> max <integer_cst 0x7fd5bd28b500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7fd5bd2a99d8>>
+ <ssa_name 0x7f77e583d828
+    type <integer_type 0x7f77e58497e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f77e5849738 precision 64 min <integer_cst 0x7f77e5835eb8 0> max <integer_cst 0x7f77e5837500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f77e58559d8>>
    
     def_stmt _3 = (long unsigned int) _2;
     version 3>
@@ -1069,12 +1069,12 @@ free (value_13);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5bd291828
-    type <integer_type 0x7fd5bd29d7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7fd5bd29d738 precision 64 min <integer_cst 0x7fd5bd289eb8 0> max <integer_cst 0x7fd5bd28b500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7fd5bd2a99d8>>
+ <ssa_name 0x7f77e583d828
+    type <integer_type 0x7f77e58497e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f77e5849738 precision 64 min <integer_cst 0x7f77e5835eb8 0> max <integer_cst 0x7f77e5837500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f77e58559d8>>
    
     def_stmt _3 = (long unsigned int) _2;
     version 3>
@@ -1250,21 +1250,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5bd2919d8
-    type <pointer_type 0x7fd5bcdbcf18
-        type <integer_type 0x7fd5bcdbce70 u_char public unsigned string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bd289d08 0> max <integer_cst 0x7fd5bd289ca8 255> context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-            pointer_to_this <pointer_type 0x7fd5bcdbcf18>>
+ <ssa_name 0x7f77e583d9d8
+    type <pointer_type 0x7f77e5368f18
+        type <integer_type 0x7f77e5368e70 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5835d08 0> max <integer_cst 0x7f77e5835ca8 255> context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+            pointer_to_this <pointer_type 0x7f77e5368f18>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5be01ebd0 value>
+    var <var_decl 0x7f77e65cabd0 value>
     def_stmt value_13 = malloc (_3);
     version 13
-    ptr-info 0x7fd5bcdb6f48>
+    ptr-info 0x7f77e5362f48>
 # .MEM_29 = VDEF <.MEM_28>
 value_13 = malloc (_3);
 
@@ -1285,7 +1285,6 @@ _6 = PHI <0B(3), value_13(6)>
 bb index := 7
 # VUSE <.MEM_25>
 return _6;
-In function ‘main’:
 lto1: warning: use location
 beacuse in succ := 7 have return or exit
 gimple stmt in succ := 7 ,possiable got to succ := 7
@@ -1304,6 +1303,7 @@ gimple stmt in succ := 7 ,possiable got to succ := 7
 
 ======================================================================
 _6 = PHI <0B(3), value_13(6)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -1313,12 +1313,14 @@ _17 = value_13;
 bb index := 6
 # VUSE <.MEM_25>
 return _6;
+In function ‘buffer_get_string_ret’:
 lto1: warning: use location
 beacuse in succ := 7 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 7
 
 ======================================================================
 _17 = value_13;
+In function ‘main’:
 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c:49:9: warning: use location
   return (value);
          ^
@@ -1338,12 +1340,14 @@ free (value_13);
 bb index := 3
 # VUSE <.MEM_25>
 return _6;
+In function ‘buffer_get_string_ret’:
 lto1: warning: use location
 beacuse in succ := 7 have return or exit
 gimple stmt in succ := 3 ,possiable got to succ := 7
 
 ======================================================================
 free (value_13);
+In function ‘main’:
 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c:41:3: warning: use location
    xfree(value);
    ^
@@ -1362,21 +1366,21 @@ value_13 = malloc (_3);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bd2919d8
-    type <pointer_type 0x7fd5bcdbcf18
-        type <integer_type 0x7fd5bcdbce70 u_char public unsigned string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bd289d08 0> max <integer_cst 0x7fd5bd289ca8 255> context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-            pointer_to_this <pointer_type 0x7fd5bcdbcf18>>
+ <ssa_name 0x7f77e583d9d8
+    type <pointer_type 0x7f77e5368f18
+        type <integer_type 0x7f77e5368e70 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5835d08 0> max <integer_cst 0x7f77e5835ca8 255> context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+            pointer_to_this <pointer_type 0x7f77e5368f18>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5be01ebd0 value>
+    var <var_decl 0x7f77e65cabd0 value>
     def_stmt value_13 = malloc (_3);
     version 13
-    ptr-info 0x7fd5bcdb6f48>
+    ptr-info 0x7f77e5362f48>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1388,21 +1392,21 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5bd2919d8
-    type <pointer_type 0x7fd5bcdbcf18
-        type <integer_type 0x7fd5bcdbce70 u_char public unsigned string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bd289d08 0> max <integer_cst 0x7fd5bd289ca8 255> context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-            pointer_to_this <pointer_type 0x7fd5bcdbcf18>>
+ <ssa_name 0x7f77e583d9d8
+    type <pointer_type 0x7f77e5368f18
+        type <integer_type 0x7f77e5368e70 u_char public unsigned string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5835d08 0> max <integer_cst 0x7f77e5835ca8 255> context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+            pointer_to_this <pointer_type 0x7f77e5368f18>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5be01ebd0 value>
+    var <var_decl 0x7f77e65cabd0 value>
     def_stmt value_13 = malloc (_3);
     version 13
-    ptr-info 0x7fd5bcdb6f48>
+    ptr-info 0x7f77e5362f48>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_33 = VDEF <.MEM_32>
 free (value_13);
@@ -1552,22 +1556,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5bd291948
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e583d948
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
-    var <parm_decl 0x7fd5bcdbd100 buffer>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
+    var <parm_decl 0x7f77e5369100 buffer>
     def_stmt GIMPLE_NOP
     version 10
-    ptr-info 0x7fd5bcdb6f30>
+    ptr-info 0x7f77e5362f30>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -1586,22 +1590,22 @@ _1 = strlen (buffer_10(D));
 this stmt is child function---strlen-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bd291948
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e583d948
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
-    var <parm_decl 0x7fd5bcdbd100 buffer>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
+    var <parm_decl 0x7f77e5369100 buffer>
     def_stmt GIMPLE_NOP
     version 10
-    ptr-info 0x7fd5bcdb6f30>
+    ptr-info 0x7f77e5362f30>
 trace fucntion name:strlen 
 
  ================== trace ================== 
@@ -1660,22 +1664,22 @@ value_13 = malloc (_3);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bd291948
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e583d948
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
-    var <parm_decl 0x7fd5bcdbd100 buffer>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
+    var <parm_decl 0x7f77e5369100 buffer>
     def_stmt GIMPLE_NOP
     version 10
-    ptr-info 0x7fd5bcdb6f30>
+    ptr-info 0x7f77e5362f30>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1687,6 +1691,7 @@ _6 = PHI <0B(3), value_13(6)>
 bb index := 7
 # VUSE <.MEM_25>
 return _6;
+In function ‘buffer_get_string_ret’:
 lto1: warning: use location
 beacuse in succ := 7 have return or exit
 gimple stmt in succ := 7 ,possiable got to succ := 7
@@ -1705,6 +1710,7 @@ gimple stmt in succ := 7 ,possiable got to succ := 7
 
 ======================================================================
 _6 = PHI <0B(3), value_13(6)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -1714,12 +1720,14 @@ _17 = value_13;
 bb index := 6
 # VUSE <.MEM_25>
 return _6;
+In function ‘buffer_get_string_ret’:
 lto1: warning: use location
 beacuse in succ := 7 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 7
 
 ======================================================================
 _17 = value_13;
+In function ‘main’:
 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c:49:9: warning: use location
   return (value);
          ^
@@ -1731,12 +1739,14 @@ free (value_13);
 bb index := 3
 # VUSE <.MEM_25>
 return _6;
+In function ‘buffer_get_string_ret’:
 lto1: warning: use location
 beacuse in succ := 7 have return or exit
 gimple stmt in succ := 3 ,possiable got to succ := 7
 
 ======================================================================
 free (value_13);
+In function ‘main’:
 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c:41:3: warning: use location
    xfree(value);
    ^
@@ -1752,22 +1762,22 @@ _20 = __printf_chk (1, "len : %d\n", len_11);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bd291948
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e583d948
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
-    var <parm_decl 0x7fd5bcdbd100 buffer>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
+    var <parm_decl 0x7f77e5369100 buffer>
     def_stmt GIMPLE_NOP
     version 10
-    ptr-info 0x7fd5bcdb6f30>
+    ptr-info 0x7f77e5362f30>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -1776,22 +1786,22 @@ _19 = __printf_chk (1, "buf : %s\n", buffer_10(D));
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bd291948
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e583d948
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
-    var <parm_decl 0x7fd5bcdbd100 buffer>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
+    var <parm_decl 0x7f77e5369100 buffer>
     def_stmt GIMPLE_NOP
     version 10
-    ptr-info 0x7fd5bcdb6f30>
+    ptr-info 0x7f77e5362f30>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -1803,22 +1813,22 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5bd291948
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e583d948
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
-    var <parm_decl 0x7fd5bcdbd100 buffer>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
+    var <parm_decl 0x7f77e5369100 buffer>
     def_stmt GIMPLE_NOP
     version 10
-    ptr-info 0x7fd5bcdb6f30>
+    ptr-info 0x7f77e5362f30>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_33 = VDEF <.MEM_32>
 free (value_13);
@@ -2061,24 +2071,24 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5bd289f90 type <integer_type 0x7fd5bd29d5e8 int> constant 1>
+ <integer_cst 0x7f77e5835f90 type <integer_type 0x7f77e58495e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5bd289f90 type <integer_type 0x7fd5bd29d5e8 int> constant 1>
+ <integer_cst 0x7f77e5835f90 type <integer_type 0x7f77e58495e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5bd291828
-    type <integer_type 0x7fd5bd29d7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7fd5bd29d738 precision 64 min <integer_cst 0x7fd5bd289eb8 0> max <integer_cst 0x7fd5bd28b500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7fd5bd2a99d8>>
+ <ssa_name 0x7f77e583d828
+    type <integer_type 0x7f77e58497e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f77e5849738 precision 64 min <integer_cst 0x7f77e5835eb8 0> max <integer_cst 0x7f77e5837500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f77e58559d8>>
    
     def_stmt _3 = (long unsigned int) _2;
     version 3>
@@ -2100,12 +2110,12 @@ value_13 = malloc (_3);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bd291828
-    type <integer_type 0x7fd5bd29d7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7fd5bd29d738 precision 64 min <integer_cst 0x7fd5bd289eb8 0> max <integer_cst 0x7fd5bd28b500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7fd5bd2a99d8>>
+ <ssa_name 0x7f77e583d828
+    type <integer_type 0x7f77e58497e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f77e5849738 precision 64 min <integer_cst 0x7f77e5835eb8 0> max <integer_cst 0x7f77e5837500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f77e58559d8>>
    
     def_stmt _3 = (long unsigned int) _2;
     version 3>
@@ -2120,6 +2130,7 @@ _6 = PHI <0B(3), value_13(6)>
 bb index := 7
 # VUSE <.MEM_25>
 return _6;
+In function ‘buffer_get_string_ret’:
 lto1: warning: use location
 beacuse in succ := 7 have return or exit
 gimple stmt in succ := 7 ,possiable got to succ := 7
@@ -2138,6 +2149,7 @@ gimple stmt in succ := 7 ,possiable got to succ := 7
 
 ======================================================================
 _6 = PHI <0B(3), value_13(6)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -2147,12 +2159,14 @@ _17 = value_13;
 bb index := 6
 # VUSE <.MEM_25>
 return _6;
+In function ‘buffer_get_string_ret’:
 lto1: warning: use location
 beacuse in succ := 7 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 7
 
 ======================================================================
 _17 = value_13;
+In function ‘main’:
 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c:49:9: warning: use location
   return (value);
          ^
@@ -2172,12 +2186,14 @@ free (value_13);
 bb index := 3
 # VUSE <.MEM_25>
 return _6;
+In function ‘buffer_get_string_ret’:
 lto1: warning: use location
 beacuse in succ := 7 have return or exit
 gimple stmt in succ := 3 ,possiable got to succ := 7
 
 ======================================================================
 free (value_13);
+In function ‘main’:
 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c:41:3: warning: use location
    xfree(value);
    ^
@@ -2196,12 +2212,12 @@ free (value_13);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5bd291828
-    type <integer_type 0x7fd5bd29d7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7fd5bd29d738 precision 64 min <integer_cst 0x7fd5bd289eb8 0> max <integer_cst 0x7fd5bd28b500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7fd5bd2a99d8>>
+ <ssa_name 0x7f77e583d828
+    type <integer_type 0x7f77e58497e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f77e5849738 precision 64 min <integer_cst 0x7f77e5835eb8 0> max <integer_cst 0x7f77e5837500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f77e58559d8>>
    
     def_stmt _3 = (long unsigned int) _2;
     version 3>
@@ -2359,21 +2375,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5bcdcee58
-    type <pointer_type 0x7fd5bcdbc690
-        type <record_type 0x7fd5bcdbc5e8 mux_session_confirm_ctx BLK
-            size <integer_cst 0x7fd5bd289f48 constant 256>
-            unit size <integer_cst 0x7fd5bd2a5048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5bcdbc5e8 fields <field_decl 0x7fd5bcdb54c0 cmd> context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-            pointer_to_this <pointer_type 0x7fd5bcdbc690> chain <type_decl 0x7fd5bcdb5558 D.4004>>
+ <ssa_name 0x7f77e537ae58
+    type <pointer_type 0x7f77e5368690
+        type <record_type 0x7f77e53685e8 mux_session_confirm_ctx BLK
+            size <integer_cst 0x7f77e5835f48 constant 256>
+            unit size <integer_cst 0x7f77e5851048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7f77e53685e8 fields <field_decl 0x7f77e53614c0 cmd> context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+            pointer_to_this <pointer_type 0x7f77e5368690> chain <type_decl 0x7f77e5361558 D.4004>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5bcdcde10 cctx>
+    var <var_decl 0x7f77e5379e10 cctx>
     def_stmt cctx_11 = calloc (1, 32);
     version 11
-    ptr-info 0x7fd5bcdb6fa8>
+    ptr-info 0x7f77e5362fa8>
 # .MEM_37 = VDEF <.MEM_7(D)>
 cctx_11 = calloc (1, 32);
 
@@ -2514,21 +2530,21 @@ cctx_11 = calloc (1, 32);
 this stmt is child function---calloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bcdcee58
-    type <pointer_type 0x7fd5bcdbc690
-        type <record_type 0x7fd5bcdbc5e8 mux_session_confirm_ctx BLK
-            size <integer_cst 0x7fd5bd289f48 constant 256>
-            unit size <integer_cst 0x7fd5bd2a5048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5bcdbc5e8 fields <field_decl 0x7fd5bcdb54c0 cmd> context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-            pointer_to_this <pointer_type 0x7fd5bcdbc690> chain <type_decl 0x7fd5bcdb5558 D.4004>>
+ <ssa_name 0x7f77e537ae58
+    type <pointer_type 0x7f77e5368690
+        type <record_type 0x7f77e53685e8 mux_session_confirm_ctx BLK
+            size <integer_cst 0x7f77e5835f48 constant 256>
+            unit size <integer_cst 0x7f77e5851048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7f77e53685e8 fields <field_decl 0x7f77e53614c0 cmd> context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+            pointer_to_this <pointer_type 0x7f77e5368690> chain <type_decl 0x7f77e5361558 D.4004>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5bcdcde10 cctx>
+    var <var_decl 0x7f77e5379e10 cctx>
     def_stmt cctx_11 = calloc (1, 32);
     version 11
-    ptr-info 0x7fd5bcdb6fa8>
+    ptr-info 0x7f77e5362fa8>
 trace fucntion name:calloc 
 
  ================== trace ================== 
@@ -2540,21 +2556,21 @@ trace fucntion free:3
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5bcdcee58
-    type <pointer_type 0x7fd5bcdbc690
-        type <record_type 0x7fd5bcdbc5e8 mux_session_confirm_ctx BLK
-            size <integer_cst 0x7fd5bd289f48 constant 256>
-            unit size <integer_cst 0x7fd5bd2a5048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7fd5bcdbc5e8 fields <field_decl 0x7fd5bcdb54c0 cmd> context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-            pointer_to_this <pointer_type 0x7fd5bcdbc690> chain <type_decl 0x7fd5bcdb5558 D.4004>>
+ <ssa_name 0x7f77e537ae58
+    type <pointer_type 0x7f77e5368690
+        type <record_type 0x7f77e53685e8 mux_session_confirm_ctx BLK
+            size <integer_cst 0x7f77e5835f48 constant 256>
+            unit size <integer_cst 0x7f77e5851048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7f77e53685e8 fields <field_decl 0x7f77e53614c0 cmd> context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+            pointer_to_this <pointer_type 0x7f77e5368690> chain <type_decl 0x7f77e5361558 D.4004>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fd5bcdcde10 cctx>
+    var <var_decl 0x7f77e5379e10 cctx>
     def_stmt cctx_11 = calloc (1, 32);
     version 11
-    ptr-info 0x7fd5bcdb6fa8>
+    ptr-info 0x7f77e5362fa8>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_50 = VDEF <.MEM_32>
 free (cctx_11);
@@ -2655,22 +2671,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5bcdd62d0
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e53822d0
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _29 = strdup (cmd_15);
     version 29
-    ptr-info 0x7fd5bcdd90a8>
+    ptr-info 0x7f77e53850a8>
 # .MEM_42 = VDEF <.MEM_41>
 _29 = strdup (cmd_15);
 
@@ -2763,22 +2779,22 @@ _29 = strdup (cmd_15);
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bcdd62d0
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e53822d0
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _29 = strdup (cmd_15);
     version 29
-    ptr-info 0x7fd5bcdd90a8>
+    ptr-info 0x7f77e53850a8>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -2857,22 +2873,22 @@ _28 = __printf_chk (1, "%s channel request cmd \"%s\"\n", &__func__, cmd_15);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bcdd62d0
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e53822d0
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _29 = strdup (cmd_15);
     version 29
-    ptr-info 0x7fd5bcdd90a8>
+    ptr-info 0x7f77e53850a8>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -2896,22 +2912,22 @@ free (cmd_15);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5bcdd62d0
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e53822d0
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _29 = strdup (cmd_15);
     version 29
-    ptr-info 0x7fd5bcdd90a8>
+    ptr-info 0x7f77e53850a8>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_45 = VDEF <.MEM_44>
 free (_30);
@@ -3156,27 +3172,27 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fd5bcdb6d98 type <integer_type 0x7fd5bcdb30a8 size_t> constant 1>
+ <integer_cst 0x7f77e5362d98 type <integer_type 0x7f77e535f0a8 size_t> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5bcdceea0
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e537aea0
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _12 = *argv_3(D);
     version 12
-    ptr-info 0x7fd5bcdb6fc0>
+    ptr-info 0x7f77e5362fc0>
 # VUSE <.MEM_37>
 _12 = *argv_3(D);
 
@@ -3222,22 +3238,22 @@ reserved_13 = buffer_get_string_ret (_12, 0B);
 this stmt is child function---buffer_get_string_ret-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bcdceea0
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e537aea0
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _12 = *argv_3(D);
     version 12
-    ptr-info 0x7fd5bcdb6fc0>
+    ptr-info 0x7f77e5362fc0>
 trace fucntion name:buffer_get_string_ret 
 [40;44m =======trace_function_path buffer_get_string_ret  function_call count: 4 level :0========  [0m
 # .MEM_33 = VDEF <.MEM_32>
@@ -3316,22 +3332,22 @@ free (reserved_13);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5bcdceea0
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e537aea0
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _12 = *argv_3(D);
     version 12
-    ptr-info 0x7fd5bcdb6fc0>
+    ptr-info 0x7f77e5362fc0>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_50 = VDEF <.MEM_32>
 free (cctx_11);
@@ -3665,22 +3681,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5bcdcef30
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e537af30
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _14 = MEM[(char * *)argv_3(D) + 8B];
     version 14
-    ptr-info 0x7fd5bcdd9000>
+    ptr-info 0x7f77e5385000>
 # VUSE <.MEM_38>
 _14 = MEM[(char * *)argv_3(D) + 8B];
 
@@ -3700,22 +3716,22 @@ cmd_15 = buffer_get_string_ret (_14, &len);
 this stmt is child function---buffer_get_string_ret-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bcdcef30
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e537af30
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _14 = MEM[(char * *)argv_3(D) + 8B];
     version 14
-    ptr-info 0x7fd5bcdd9000>
+    ptr-info 0x7f77e5385000>
 trace fucntion name:buffer_get_string_ret 
 [40;44m =======trace_function_path buffer_get_string_ret  function_call count: 4 level :0========  [0m
 # .MEM_33 = VDEF <.MEM_32>
@@ -3820,22 +3836,22 @@ _29 = strdup (cmd_15);
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bcdcef30
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e537af30
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _14 = MEM[(char * *)argv_3(D) + 8B];
     version 14
-    ptr-info 0x7fd5bcdd9000>
+    ptr-info 0x7f77e5385000>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -3951,22 +3967,22 @@ _28 = __printf_chk (1, "%s channel request cmd \"%s\"\n", &__func__, cmd_15);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bcdcef30
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e537af30
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _14 = MEM[(char * *)argv_3(D) + 8B];
     version 14
-    ptr-info 0x7fd5bcdd9000>
+    ptr-info 0x7f77e5385000>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -3990,22 +4006,22 @@ free (cmd_15);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5bcdcef30
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e537af30
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _14 = MEM[(char * *)argv_3(D) + 8B];
     version 14
-    ptr-info 0x7fd5bcdd9000>
+    ptr-info 0x7f77e5385000>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_50 = VDEF <.MEM_32>
 free (cctx_11);
@@ -5171,22 +5187,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5bcdd61b0
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e53821b0
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _25 = *_24;
     version 25
-    ptr-info 0x7fd5bcdd9078>
+    ptr-info 0x7f77e5385078>
 # VUSE <.MEM_35>
 _25 = *_24;
 
@@ -5211,22 +5227,22 @@ cp_26 = buffer_get_string_ret (_25, &len);
 this stmt is child function---buffer_get_string_ret-----
 
  ================== trace ================== 
- <ssa_name 0x7fd5bcdd61b0
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e53821b0
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _25 = *_24;
     version 25
-    ptr-info 0x7fd5bcdd9078>
+    ptr-info 0x7f77e5385078>
 trace fucntion name:buffer_get_string_ret 
 [40;44m =======trace_function_path buffer_get_string_ret  function_call count: 4 level :0========  [0m
 # .MEM_33 = VDEF <.MEM_32>
@@ -5300,22 +5316,22 @@ from main basic block 14
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fd5bcdd61b0
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e53821b0
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
    
     def_stmt _25 = *_24;
     version 25
-    ptr-info 0x7fd5bcdd9078>
+    ptr-info 0x7f77e5385078>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_50 = VDEF <.MEM_32>
 free (cctx_11);
@@ -5557,22 +5573,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fd5bcdcef78
-    type <pointer_type 0x7fd5bcdb37e0
-        type <integer_type 0x7fd5bcdb3738 char public string-flag QI
-            size <integer_cst 0x7fd5bd289cd8 constant 8>
-            unit size <integer_cst 0x7fd5bd289cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fd5bd29d3f0 precision 8 min <integer_cst 0x7fd5bcdb6180 -128> max <integer_cst 0x7fd5bcdb6168 127>
-            pointer_to_this <pointer_type 0x7fd5bcdb37e0>>
+ <ssa_name 0x7f77e537af78
+    type <pointer_type 0x7f77e535f7e0
+        type <integer_type 0x7f77e535f738 char public string-flag QI
+            size <integer_cst 0x7f77e5835cd8 constant 8>
+            unit size <integer_cst 0x7f77e5835cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f77e58493f0 precision 8 min <integer_cst 0x7f77e5362180 -128> max <integer_cst 0x7f77e5362168 127>
+            pointer_to_this <pointer_type 0x7f77e535f7e0>>
         public unsigned DI
-        size <integer_cst 0x7fd5bd289be8 constant 64>
-        unit size <integer_cst 0x7fd5bd289c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fd5bd294168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
-        pointer_to_this <pointer_type 0x7fd5bcdb3888>>
-    var <var_decl 0x7fd5bcdcdf30 cmd>
+        size <integer_cst 0x7f77e5835be8 constant 64>
+        unit size <integer_cst 0x7f77e5835c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f77e5840168 ./benchmarks/openssh-portable/double_free_3/openssh_df_3.c>
+        pointer_to_this <pointer_type 0x7f77e535f888>>
+    var <var_decl 0x7f77e5379f30 cmd>
     def_stmt cmd_15 = buffer_get_string_ret (_14, &len);
     version 15
-    ptr-info 0x7fd5bcdd9018>
+    ptr-info 0x7f77e5385018>
 # .MEM_39 = VDEF <.MEM_38>
 cmd_15 = buffer_get_string_ret (_14, &len);
 
@@ -5826,7 +5842,7 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 8 [0m
 [40;34m    used_stmt array stack totalsize of : 1560 [0m
-[40;34m    collect time: : 0.000105 s [0m
-[40;34m    algorithm time: 0.020939 s [0m
+[40;34m    collect time: : 0.000142 s [0m
+[40;34m    algorithm time: 0.021553 s [0m
 [40;34m    gimple stmt count : : 58 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

@@ -888,56 +888,56 @@ _48 = __printf_chk (1, "Changing to: %s\n", dir_28);
 _49 = __builtin___snprintf_chk (&cmd, 2048, 1, 2048, "cd \"%s\"", dir_28);
 # .MEM_68 = VDEF <.MEM_67>
 _4 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
- <var_decl 0x7fdbe9a3f870 remote_path
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <var_decl 0x7f805ff9b870 remote_path
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    addressable unsigned DI file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 302 col 8 size <integer_cst 0x7fdbe9ef8be8 64> unit size <integer_cst 0x7fdbe9ef8c00 8>
-    align 64 context <function_decl 0x7fdbe9a23d00 interactive_loop> chain <var_decl 0x7fdbe9a3f7e0 dir>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    addressable unsigned DI file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 302 col 8 size <integer_cst 0x7f8060454be8 64> unit size <integer_cst 0x7f8060454c00 8>
+    align 64 context <function_decl 0x7f805ff7fd00 interactive_loop> chain <var_decl 0x7f805ff9b7e0 dir>>
 # .MEM_61 = VDEF <.MEM_60>
 _50 = __builtin___snprintf_chk (&cmd, 2048, 1, 2048, "get %s%s%s", dir_28, _14, _13);
 # .MEM_62 = VDEF <.MEM_61>
 err_31 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
- <var_decl 0x7fdbe9a3f870 remote_path
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <var_decl 0x7f805ff9b870 remote_path
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    addressable unsigned DI file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 302 col 8 size <integer_cst 0x7fdbe9ef8be8 64> unit size <integer_cst 0x7fdbe9ef8c00 8>
-    align 64 context <function_decl 0x7fdbe9a23d00 interactive_loop> chain <var_decl 0x7fdbe9a3f7e0 dir>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    addressable unsigned DI file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 302 col 8 size <integer_cst 0x7f8060454be8 64> unit size <integer_cst 0x7f8060454c00 8>
+    align 64 context <function_decl 0x7f805ff7fd00 interactive_loop> chain <var_decl 0x7f805ff9b7e0 dir>>
 # .MEM_73 = VDEF <.MEM_56>
 _51 = __fgets_alias (&cmd, 2048, _7);
 # .MEM_74 = VDEF <.MEM_73>
 err_41 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, _8);
- <var_decl 0x7fdbe9a3f870 remote_path
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <var_decl 0x7f805ff9b870 remote_path
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    addressable unsigned DI file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 302 col 8 size <integer_cst 0x7fdbe9ef8be8 64> unit size <integer_cst 0x7fdbe9ef8c00 8>
-    align 64 context <function_decl 0x7fdbe9a23d00 interactive_loop> chain <var_decl 0x7fdbe9a3f7e0 dir>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    addressable unsigned DI file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 302 col 8 size <integer_cst 0x7f8060454be8 64> unit size <integer_cst 0x7f8060454c00 8>
+    align 64 context <function_decl 0x7f805ff7fd00 interactive_loop> chain <var_decl 0x7f805ff9b7e0 dir>>
 # .MEM_29 = VDEF <.MEM_12(D)>
 ret_16 = calloc (1, 168);
 # .MEM_40 = VDEF <.MEM_36>
@@ -987,22 +987,22 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fdbe9a44318
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0318
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _35 = strdup (0B);
     version 35
-    ptr-info 0x7fdbe9a45348>
+    ptr-info 0x7f805ffa1348>
 # .MEM_39 = VDEF <.MEM_38>
 _35 = strdup (0B);
 
@@ -1434,22 +1434,22 @@ _35 = strdup (0B);
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44318
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0318
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _35 = strdup (0B);
     version 35
-    ptr-info 0x7fdbe9a45348>
+    ptr-info 0x7f805ffa1348>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -1461,22 +1461,22 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fdbe9a44318
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0318
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _35 = strdup (0B);
     version 35
-    ptr-info 0x7fdbe9a45348>
+    ptr-info 0x7f805ffa1348>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_30 = VDEF <.MEM_29>
 free (tmp_15);
@@ -1605,25 +1605,25 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fdbe9a25f48 type <pointer_type 0x7fdbe9a227e0> constant 0>
+ <integer_cst 0x7f805ff81f48 type <pointer_type 0x7f805ff7e7e0> constant 0>
 
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fdbe9a169c0
-    type <pointer_type 0x7fdbe9a321f8
-        type <array_type 0x7fdbe9a32150 type <integer_type 0x7fdbe9a22738 char>
+ <addr_expr 0x7f805ff729c0
+    type <pointer_type 0x7f805ff8e1f8
+        type <array_type 0x7f805ff8e150 type <integer_type 0x7f805ff7e738 char>
             BLK
-            size <integer_cst 0x7fdbe9a25540 constant 344>
-            unit size <integer_cst 0x7fdbe9a25588 constant 43>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fdbe9a320a8>
-            pointer_to_this <pointer_type 0x7fdbe9a321f8>>
+            size <integer_cst 0x7f805ff81540 constant 344>
+            unit size <integer_cst 0x7f805ff81588 constant 43>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f805ff8e0a8>
+            pointer_to_this <pointer_type 0x7f805ff8e1f8>>
         unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fdbe9f0a040 type <array_type 0x7fdbe9a32150>
+    arg 0 <string_cst 0x7f8060466040 type <array_type 0x7f805ff8e150>
         readonly constant static "Can't change directory: Can't check target\000">
     ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:277:10 start: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:277:10 finish: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:277:10>
 
@@ -1649,7 +1649,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fdbe9ef8f90 type <integer_type 0x7fdbe9f0c5e8 int> constant 1>
+ <integer_cst 0x7f8060454f90 type <integer_type 0x7f80604685e8 int> constant 1>
 [40;33m =======POP node_fun stack:parse_dispatch_command========= [0m
 [40;44m =======node_fun:interactive_loop========= [0m
 [40;44m fucntion collect path  [0m
@@ -1675,22 +1675,22 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fdbe9a44318
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0318
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _35 = strdup (0B);
     version 35
-    ptr-info 0x7fdbe9a45348>
+    ptr-info 0x7f805ffa1348>
 # .MEM_39 = VDEF <.MEM_38>
 _35 = strdup (0B);
 
@@ -1711,7 +1711,6 @@ _36 = PHI <0B(4), _35(5)>
 bb index := 6
 # VUSE <.MEM_24>
 return _8;
-In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 14
@@ -1778,6 +1777,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 10
 
 ======================================================================
 _36 = PHI <0B(4), _35(5)>
+In function ‘interactive_loop’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -1787,6 +1787,7 @@ _40 = _36;
 bb index := 6
 # VUSE <.MEM_24>
 return _8;
+In function ‘parse_dispatch_command’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 14
@@ -1853,6 +1854,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 10
 
 ======================================================================
 _40 = _36;
+In function ‘interactive_loop’:
 lto1: warning: use location
 
 ======================================================================
@@ -1861,6 +1863,7 @@ tmp_15 = _40;
 bb index := 6
 # VUSE <.MEM_24>
 return _8;
+In function ‘parse_dispatch_command’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 14
@@ -1927,6 +1930,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 10
 
 ======================================================================
 tmp_15 = _40;
+In function ‘interactive_loop’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:271:6: warning: use location
    if ((tmp = do_realpath(conn, path1)) == NULL) {
       ^
@@ -1938,6 +1942,7 @@ tmp_15 = _40;
 bb index := 9
 # VUSE <.MEM_24>
 return _8;
+In function ‘parse_dispatch_command’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 9 ,possiable got to succ := 14
@@ -1970,6 +1975,7 @@ gimple stmt in succ := 9 ,possiable got to succ := 10
 
 ======================================================================
 *pwd_17(D) = tmp_15;
+In function ‘interactive_loop’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:283:8: warning: use location
    *pwd = tmp;
         ^
@@ -1981,6 +1987,7 @@ free (tmp_15);
 bb index := 8
 # VUSE <.MEM_24>
 return _8;
+In function ‘parse_dispatch_command’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 8 ,possiable got to succ := 14
@@ -2013,6 +2020,7 @@ gimple stmt in succ := 8 ,possiable got to succ := 10
 
 ======================================================================
 free (tmp_15);
+In function ‘interactive_loop’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:278:4: warning: use location
     free(tmp);
     ^
@@ -2031,6 +2039,7 @@ if (tmp_15 == 0B)
 bb index := 6
 # VUSE <.MEM_24>
 return _8;
+In function ‘parse_dispatch_command’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 14
@@ -2097,6 +2106,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 10
 
 ======================================================================
 if (tmp_15 == 0B)
+In function ‘interactive_loop’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:271:6: warning: use location
    if ((tmp = do_realpath(conn, path1)) == NULL) {
       ^
@@ -2122,22 +2132,22 @@ _35 = strdup (0B);
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44318
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0318
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _35 = strdup (0B);
     version 35
-    ptr-info 0x7fdbe9a45348>
+    ptr-info 0x7f805ffa1348>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -2149,22 +2159,22 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fdbe9a44318
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0318
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _35 = strdup (0B);
     version 35
-    ptr-info 0x7fdbe9a45348>
+    ptr-info 0x7f805ffa1348>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_30 = VDEF <.MEM_29>
 free (tmp_15);
@@ -2293,25 +2303,25 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fdbe9a25f48 type <pointer_type 0x7fdbe9a227e0> constant 0>
+ <integer_cst 0x7f805ff81f48 type <pointer_type 0x7f805ff7e7e0> constant 0>
 
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fdbe9a169c0
-    type <pointer_type 0x7fdbe9a321f8
-        type <array_type 0x7fdbe9a32150 type <integer_type 0x7fdbe9a22738 char>
+ <addr_expr 0x7f805ff729c0
+    type <pointer_type 0x7f805ff8e1f8
+        type <array_type 0x7f805ff8e150 type <integer_type 0x7f805ff7e738 char>
             BLK
-            size <integer_cst 0x7fdbe9a25540 constant 344>
-            unit size <integer_cst 0x7fdbe9a25588 constant 43>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fdbe9a320a8>
-            pointer_to_this <pointer_type 0x7fdbe9a321f8>>
+            size <integer_cst 0x7f805ff81540 constant 344>
+            unit size <integer_cst 0x7f805ff81588 constant 43>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f805ff8e0a8>
+            pointer_to_this <pointer_type 0x7f805ff8e1f8>>
         unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fdbe9f0a040 type <array_type 0x7fdbe9a32150>
+    arg 0 <string_cst 0x7f8060466040 type <array_type 0x7f805ff8e150>
         readonly constant static "Can't change directory: Can't check target\000">
     ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:277:10 start: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:277:10 finish: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:277:10>
 
@@ -2337,7 +2347,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fdbe9ef8f90 type <integer_type 0x7fdbe9f0c5e8 int> constant 1>
+ <integer_cst 0x7f8060454f90 type <integer_type 0x7f80604685e8 int> constant 1>
 [40;33m =======POP node_fun stack:parse_dispatch_command========= [0m
 [40;42m =======pre add _ fucntion:__fgets_alias========= [0m
 [40;33m =======POP node_fun stack:__fgets_alias========= [0m
@@ -2355,22 +2365,22 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 # .MEM_88 = VDEF <.MEM_87>
 _84 = strdup (".");
 
@@ -2469,22 +2479,22 @@ _84 = strdup (".");
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -3420,22 +3430,22 @@ _4 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -3466,22 +3476,22 @@ _4 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -3565,22 +3575,22 @@ err_31 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -3624,22 +3634,22 @@ err_31 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -3715,22 +3725,22 @@ err_41 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, _8);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -3766,22 +3776,22 @@ err_41 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, _8);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -3878,22 +3888,22 @@ free (_9);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_71 = VDEF <.MEM_70>
 free (_5);
@@ -4816,22 +4826,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fdbe9a449d8
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa09d8
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <var_decl 0x7fdbe9a3f7e0 dir>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <var_decl 0x7f805ff9b7e0 dir>
     def_stmt dir_28 = strdup (file1_26(D));
     version 28
-    ptr-info 0x7fdbe9a45480>
+    ptr-info 0x7f805ffa1480>
 # .MEM_60 = VDEF <.MEM_59>
 dir_28 = strdup (file1_26(D));
 
@@ -4852,22 +4862,22 @@ dir_28 = strdup (file1_26(D));
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a449d8
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa09d8
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <var_decl 0x7fdbe9a3f7e0 dir>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <var_decl 0x7f805ff9b7e0 dir>
     def_stmt dir_28 = strdup (file1_26(D));
     version 28
-    ptr-info 0x7fdbe9a45480>
+    ptr-info 0x7f805ffa1480>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -4926,22 +4936,22 @@ _50 = __builtin___snprintf_chk (&cmd, 2048, 1, 2048, "get %s%s%s", dir_28, _14, 
 this stmt is child function---__builtin___snprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a449d8
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa09d8
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <var_decl 0x7fdbe9a3f7e0 dir>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <var_decl 0x7f805ff9b7e0 dir>
     def_stmt dir_28 = strdup (file1_26(D));
     version 28
-    ptr-info 0x7fdbe9a45480>
+    ptr-info 0x7f805ffa1480>
 trace fucntion name:__builtin___snprintf_chk 
 
  ================== trace ================== 
@@ -4975,22 +4985,22 @@ _49 = __builtin___snprintf_chk (&cmd, 2048, 1, 2048, "cd \"%s\"", dir_28);
 this stmt is child function---__builtin___snprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a449d8
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa09d8
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <var_decl 0x7fdbe9a3f7e0 dir>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <var_decl 0x7f805ff9b7e0 dir>
     def_stmt dir_28 = strdup (file1_26(D));
     version 28
-    ptr-info 0x7fdbe9a45480>
+    ptr-info 0x7f805ffa1480>
 trace fucntion name:__builtin___snprintf_chk 
 
  ================== trace ================== 
@@ -4999,22 +5009,22 @@ _48 = __printf_chk (1, "Changing to: %s\n", dir_28);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a449d8
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa09d8
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <var_decl 0x7fdbe9a3f7e0 dir>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <var_decl 0x7f805ff9b7e0 dir>
     def_stmt dir_28 = strdup (file1_26(D));
     version 28
-    ptr-info 0x7fdbe9a45480>
+    ptr-info 0x7f805ffa1480>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -5081,22 +5091,22 @@ from interactive_loop basic block 18
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fdbe9a449d8
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa09d8
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <var_decl 0x7fdbe9a3f7e0 dir>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <var_decl 0x7f805ff9b7e0 dir>
     def_stmt dir_28 = strdup (file1_26(D));
     version 28
-    ptr-info 0x7fdbe9a45480>
+    ptr-info 0x7f805ffa1480>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_70 = VDEF <.MEM_68>
 free (dir_28);
@@ -5160,20 +5170,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fdbe9a4b1a0
-    type <pointer_type 0x7fdbe9a2ee70
-        type <array_type 0x7fdbe9a2edc8 type <integer_type 0x7fdbe9a22738 char>
+ <addr_expr 0x7f805ffa71a0
+    type <pointer_type 0x7f805ff8ae70
+        type <array_type 0x7f805ff8adc8 type <integer_type 0x7f805ff7e738 char>
             HI
-            size <integer_cst 0x7fdbe9ef8d98 constant 16>
-            unit size <integer_cst 0x7fdbe9ef8db0 constant 2>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fdbe9a2ed20>
-            pointer_to_this <pointer_type 0x7fdbe9a2ee70>>
+            size <integer_cst 0x7f8060454d98 constant 16>
+            unit size <integer_cst 0x7f8060454db0 constant 2>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f805ff8ad20>
+            pointer_to_this <pointer_type 0x7f805ff8ae70>>
         unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fdbe9a45060 type <array_type 0x7fdbe9a2edc8>
+    arg 0 <string_cst 0x7f805ffa1060 type <array_type 0x7f805ff8adc8>
         readonly constant static ".\000">
     ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:308:16 start: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:308:16 finish: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:308:16>
 
@@ -5197,22 +5207,22 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fdbe9a44990
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0990
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <parm_decl 0x7fdbe9a33880 file1>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <parm_decl 0x7f805ff8f880 file1>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7fdbe9a45468>
+    ptr-info 0x7f805ffa1468>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -5231,22 +5241,22 @@ dir_28 = strdup (file1_26(D));
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44990
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0990
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <parm_decl 0x7fdbe9a33880 file1>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <parm_decl 0x7f805ff8f880 file1>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7fdbe9a45468>
+    ptr-info 0x7f805ffa1468>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -5305,22 +5315,22 @@ _50 = __builtin___snprintf_chk (&cmd, 2048, 1, 2048, "get %s%s%s", dir_28, _14, 
 this stmt is child function---__builtin___snprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44990
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0990
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <parm_decl 0x7fdbe9a33880 file1>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <parm_decl 0x7f805ff8f880 file1>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7fdbe9a45468>
+    ptr-info 0x7f805ffa1468>
 trace fucntion name:__builtin___snprintf_chk 
 
  ================== trace ================== 
@@ -5354,22 +5364,22 @@ _49 = __builtin___snprintf_chk (&cmd, 2048, 1, 2048, "cd \"%s\"", dir_28);
 this stmt is child function---__builtin___snprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44990
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0990
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <parm_decl 0x7fdbe9a33880 file1>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <parm_decl 0x7f805ff8f880 file1>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7fdbe9a45468>
+    ptr-info 0x7f805ffa1468>
 trace fucntion name:__builtin___snprintf_chk 
 
  ================== trace ================== 
@@ -5378,22 +5388,22 @@ _48 = __printf_chk (1, "Changing to: %s\n", dir_28);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44990
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0990
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <parm_decl 0x7fdbe9a33880 file1>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <parm_decl 0x7f805ff8f880 file1>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7fdbe9a45468>
+    ptr-info 0x7f805ffa1468>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -5460,22 +5470,22 @@ from interactive_loop basic block 18
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fdbe9a44990
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0990
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <parm_decl 0x7fdbe9a33880 file1>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <parm_decl 0x7f805ff8f880 file1>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7fdbe9a45468>
+    ptr-info 0x7f805ffa1468>
 
  ================== Start Use after free Check ================== 
 
@@ -5508,27 +5518,27 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fdbe9a16d40
-    type <pointer_type 0x7fdbe9a30690
-        type <array_type 0x7fdbe9a2ebd0 type <integer_type 0x7fdbe9a22738 char>
+ <addr_expr 0x7f805ff72d40
+    type <pointer_type 0x7f805ff8c690
+        type <array_type 0x7f805ff8abd0 type <integer_type 0x7f805ff7e738 char>
             BLK
-            size <integer_cst 0x7fdbe9a25468 constant 16384>
-            unit size <integer_cst 0x7fdbe9a25450 constant 2048>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fdbe9a2eb28>
-            pointer_to_this <pointer_type 0x7fdbe9a30690>>
+            size <integer_cst 0x7f805ff81468 constant 16384>
+            unit size <integer_cst 0x7f805ff81450 constant 2048>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f805ff8ab28>
+            pointer_to_this <pointer_type 0x7f805ff8c690>>
         unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7fdbe9a3f750 cmd type <array_type 0x7fdbe9a2ebd0>
-        addressable BLK file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 304 col 7 size <integer_cst 0x7fdbe9a25468 16384> unit size <integer_cst 0x7fdbe9a25450 2048>
-        align 128 context <function_decl 0x7fdbe9a23d00 interactive_loop>
-        chain <var_decl 0x7fdbe9a3f6c0 err type <integer_type 0x7fdbe9f0c5e8 int>
+    arg 0 <var_decl 0x7f805ff9b750 cmd type <array_type 0x7f805ff8abd0>
+        addressable BLK file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 304 col 7 size <integer_cst 0x7f805ff81468 16384> unit size <integer_cst 0x7f805ff81450 2048>
+        align 128 context <function_decl 0x7f805ff7fd00 interactive_loop>
+        chain <var_decl 0x7f805ff9b6c0 err type <integer_type 0x7f80604685e8 int>
             SI file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 305 col 6
-            size <integer_cst 0x7fdbe9ef8e28 constant 32>
-            unit size <integer_cst 0x7fdbe9ef8e40 constant 4>
-            align 32 context <function_decl 0x7fdbe9a23d00 interactive_loop>>>
+            size <integer_cst 0x7f8060454e28 constant 32>
+            unit size <integer_cst 0x7f8060454e40 constant 4>
+            align 32 context <function_decl 0x7f805ff7fd00 interactive_loop>>>
     ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:318:13 start: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:318:13 finish: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:318:13>
 
  ================== trace ptable================== 
@@ -5551,21 +5561,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fdbe9a44948
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffa0948
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7fdbe9a33800 conn>
+    var <parm_decl 0x7f805ff8f800 conn>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fdbe9a45450>
+    ptr-info 0x7f805ffa1450>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -5871,21 +5881,21 @@ err_41 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, _8);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44948
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffa0948
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7fdbe9a33800 conn>
+    var <parm_decl 0x7f805ff8f800 conn>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fdbe9a45450>
+    ptr-info 0x7f805ffa1450>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -6030,21 +6040,21 @@ err_31 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44948
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffa0948
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7fdbe9a33800 conn>
+    var <parm_decl 0x7f805ff8f800 conn>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fdbe9a45450>
+    ptr-info 0x7f805ffa1450>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -6149,21 +6159,21 @@ _4 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44948
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffa0948
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7fdbe9a33800 conn>
+    var <parm_decl 0x7f805ff8f800 conn>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fdbe9a45450>
+    ptr-info 0x7f805ffa1450>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -6190,21 +6200,21 @@ _4 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44948
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffa0948
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7fdbe9a33800 conn>
+    var <parm_decl 0x7f805ff8f800 conn>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fdbe9a45450>
+    ptr-info 0x7f805ffa1450>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -6233,21 +6243,21 @@ trace fucntion free:3
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fdbe9a44948
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffa0948
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7fdbe9a33800 conn>
+    var <parm_decl 0x7f805ff8f800 conn>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fdbe9a45450>
+    ptr-info 0x7f805ffa1450>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_72 = VDEF <.MEM_71>
 free (conn_23(D));
@@ -6739,27 +6749,27 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fdbe9a16ea0
-    type <pointer_type 0x7fdbe9a30690
-        type <array_type 0x7fdbe9a2ebd0 type <integer_type 0x7fdbe9a22738 char>
+ <addr_expr 0x7f805ff72ea0
+    type <pointer_type 0x7f805ff8c690
+        type <array_type 0x7f805ff8abd0 type <integer_type 0x7f805ff7e738 char>
             BLK
-            size <integer_cst 0x7fdbe9a25468 constant 16384>
-            unit size <integer_cst 0x7fdbe9a25450 constant 2048>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fdbe9a2eb28>
-            pointer_to_this <pointer_type 0x7fdbe9a30690>>
+            size <integer_cst 0x7f805ff81468 constant 16384>
+            unit size <integer_cst 0x7f805ff81450 constant 2048>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f805ff8ab28>
+            pointer_to_this <pointer_type 0x7f805ff8c690>>
         unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7fdbe9a3f750 cmd type <array_type 0x7fdbe9a2ebd0>
-        addressable BLK file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 304 col 7 size <integer_cst 0x7fdbe9a25468 16384> unit size <integer_cst 0x7fdbe9a25450 2048>
-        align 128 context <function_decl 0x7fdbe9a23d00 interactive_loop>
-        chain <var_decl 0x7fdbe9a3f6c0 err type <integer_type 0x7fdbe9f0c5e8 int>
+    arg 0 <var_decl 0x7f805ff9b750 cmd type <array_type 0x7f805ff8abd0>
+        addressable BLK file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 304 col 7 size <integer_cst 0x7f805ff81468 16384> unit size <integer_cst 0x7f805ff81450 2048>
+        align 128 context <function_decl 0x7f805ff7fd00 interactive_loop>
+        chain <var_decl 0x7f805ff9b6c0 err type <integer_type 0x7f80604685e8 int>
             SI file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 305 col 6
-            size <integer_cst 0x7fdbe9ef8e28 constant 32>
-            unit size <integer_cst 0x7fdbe9ef8e40 constant 4>
-            align 32 context <function_decl 0x7fdbe9a23d00 interactive_loop>>>
+            size <integer_cst 0x7f8060454e28 constant 32>
+            unit size <integer_cst 0x7f8060454e40 constant 4>
+            align 32 context <function_decl 0x7f805ff7fd00 interactive_loop>>>
     ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:328:13 start: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:328:13 finish: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:328:13>
 
  ================== trace ptable================== 
@@ -6782,27 +6792,27 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fdbe9a4b080
-    type <pointer_type 0x7fdbe9a30690
-        type <array_type 0x7fdbe9a2ebd0 type <integer_type 0x7fdbe9a22738 char>
+ <addr_expr 0x7f805ffa7080
+    type <pointer_type 0x7f805ff8c690
+        type <array_type 0x7f805ff8abd0 type <integer_type 0x7f805ff7e738 char>
             BLK
-            size <integer_cst 0x7fdbe9a25468 constant 16384>
-            unit size <integer_cst 0x7fdbe9a25450 constant 2048>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fdbe9a2eb28>
-            pointer_to_this <pointer_type 0x7fdbe9a30690>>
+            size <integer_cst 0x7f805ff81468 constant 16384>
+            unit size <integer_cst 0x7f805ff81450 constant 2048>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f805ff8ab28>
+            pointer_to_this <pointer_type 0x7f805ff8c690>>
         unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7fdbe9a3f750 cmd type <array_type 0x7fdbe9a2ebd0>
-        addressable BLK file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 304 col 7 size <integer_cst 0x7fdbe9a25468 16384> unit size <integer_cst 0x7fdbe9a25450 2048>
-        align 128 context <function_decl 0x7fdbe9a23d00 interactive_loop>
-        chain <var_decl 0x7fdbe9a3f6c0 err type <integer_type 0x7fdbe9f0c5e8 int>
+    arg 0 <var_decl 0x7f805ff9b750 cmd type <array_type 0x7f805ff8abd0>
+        addressable BLK file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 304 col 7 size <integer_cst 0x7f805ff81468 16384> unit size <integer_cst 0x7f805ff81450 2048>
+        align 128 context <function_decl 0x7f805ff7fd00 interactive_loop>
+        chain <var_decl 0x7f805ff9b6c0 err type <integer_type 0x7f80604685e8 int>
             SI file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 305 col 6
-            size <integer_cst 0x7fdbe9ef8e28 constant 32>
-            unit size <integer_cst 0x7fdbe9ef8e40 constant 4>
-            align 32 context <function_decl 0x7fdbe9a23d00 interactive_loop>>>
+            size <integer_cst 0x7f8060454e28 constant 32>
+            unit size <integer_cst 0x7f8060454e40 constant 4>
+            align 32 context <function_decl 0x7f805ff7fd00 interactive_loop>>>
     ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:347:8 start: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:347:8 finish: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:347:8>
 
  ================== trace ptable================== 
@@ -6850,22 +6860,22 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fdbe9a44318
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0318
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _35 = strdup (0B);
     version 35
-    ptr-info 0x7fdbe9a45348>
+    ptr-info 0x7f805ffa1348>
 # .MEM_39 = VDEF <.MEM_38>
 _35 = strdup (0B);
 
@@ -6886,7 +6896,7 @@ _36 = PHI <0B(4), _35(5)>
 bb index := 6
 # VUSE <.MEM_24>
 return _8;
-In function ‘main’:
+In function ‘parse_dispatch_command’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 14
@@ -6953,6 +6963,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 10
 
 ======================================================================
 _36 = PHI <0B(4), _35(5)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -6962,6 +6973,7 @@ _40 = _36;
 bb index := 6
 # VUSE <.MEM_24>
 return _8;
+In function ‘parse_dispatch_command’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 14
@@ -7028,6 +7040,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 10
 
 ======================================================================
 _40 = _36;
+In function ‘main’:
 lto1: warning: use location
 
 ======================================================================
@@ -7036,6 +7049,7 @@ tmp_15 = _40;
 bb index := 6
 # VUSE <.MEM_24>
 return _8;
+In function ‘parse_dispatch_command’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 14
@@ -7102,6 +7116,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 10
 
 ======================================================================
 tmp_15 = _40;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:271:6: warning: use location
    if ((tmp = do_realpath(conn, path1)) == NULL) {
       ^
@@ -7113,6 +7128,7 @@ tmp_15 = _40;
 bb index := 9
 # VUSE <.MEM_24>
 return _8;
+In function ‘parse_dispatch_command’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 9 ,possiable got to succ := 14
@@ -7145,6 +7161,7 @@ gimple stmt in succ := 9 ,possiable got to succ := 10
 
 ======================================================================
 *pwd_17(D) = tmp_15;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:283:8: warning: use location
    *pwd = tmp;
         ^
@@ -7156,6 +7173,7 @@ free (tmp_15);
 bb index := 8
 # VUSE <.MEM_24>
 return _8;
+In function ‘parse_dispatch_command’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 8 ,possiable got to succ := 14
@@ -7188,6 +7206,7 @@ gimple stmt in succ := 8 ,possiable got to succ := 10
 
 ======================================================================
 free (tmp_15);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:278:4: warning: use location
     free(tmp);
     ^
@@ -7206,6 +7225,7 @@ if (tmp_15 == 0B)
 bb index := 6
 # VUSE <.MEM_24>
 return _8;
+In function ‘parse_dispatch_command’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 14
@@ -7272,6 +7292,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 10
 
 ======================================================================
 if (tmp_15 == 0B)
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:271:6: warning: use location
    if ((tmp = do_realpath(conn, path1)) == NULL) {
       ^
@@ -7297,22 +7318,22 @@ _35 = strdup (0B);
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44318
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0318
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _35 = strdup (0B);
     version 35
-    ptr-info 0x7fdbe9a45348>
+    ptr-info 0x7f805ffa1348>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -7324,22 +7345,22 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fdbe9a44318
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0318
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _35 = strdup (0B);
     version 35
-    ptr-info 0x7fdbe9a45348>
+    ptr-info 0x7f805ffa1348>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_30 = VDEF <.MEM_29>
 free (tmp_15);
@@ -7468,25 +7489,25 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fdbe9a25f48 type <pointer_type 0x7fdbe9a227e0> constant 0>
+ <integer_cst 0x7f805ff81f48 type <pointer_type 0x7f805ff7e7e0> constant 0>
 
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fdbe9a169c0
-    type <pointer_type 0x7fdbe9a321f8
-        type <array_type 0x7fdbe9a32150 type <integer_type 0x7fdbe9a22738 char>
+ <addr_expr 0x7f805ff729c0
+    type <pointer_type 0x7f805ff8e1f8
+        type <array_type 0x7f805ff8e150 type <integer_type 0x7f805ff7e738 char>
             BLK
-            size <integer_cst 0x7fdbe9a25540 constant 344>
-            unit size <integer_cst 0x7fdbe9a25588 constant 43>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fdbe9a320a8>
-            pointer_to_this <pointer_type 0x7fdbe9a321f8>>
+            size <integer_cst 0x7f805ff81540 constant 344>
+            unit size <integer_cst 0x7f805ff81588 constant 43>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f805ff8e0a8>
+            pointer_to_this <pointer_type 0x7f805ff8e1f8>>
         unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fdbe9f0a040 type <array_type 0x7fdbe9a32150>
+    arg 0 <string_cst 0x7f8060466040 type <array_type 0x7f805ff8e150>
         readonly constant static "Can't change directory: Can't check target\000">
     ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:277:10 start: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:277:10 finish: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:277:10>
 
@@ -7512,7 +7533,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fdbe9ef8f90 type <integer_type 0x7fdbe9f0c5e8 int> constant 1>
+ <integer_cst 0x7f8060454f90 type <integer_type 0x7f80604685e8 int> constant 1>
 [40;33m =======POP node_fun stack:parse_dispatch_command========= [0m
 [40;42m =======pre add _ fucntion:__fgets_alias========= [0m
 [40;33m =======POP node_fun stack:__fgets_alias========= [0m
@@ -7530,22 +7551,22 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 # .MEM_88 = VDEF <.MEM_87>
 _84 = strdup (".");
 
@@ -7567,6 +7588,7 @@ _84 = strdup (".");
 bb index := 3
 # VUSE <.MEM_24>
 return _8;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 3 ,possiable got to succ := 14
@@ -7638,28 +7660,29 @@ gimple stmt in succ := 3 ,possiable got to succ := 10
 
 ======================================================================
 _84 = strdup (".");
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:235:9: warning: use location
   return(strdup(path));
          ^
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -7671,6 +7694,7 @@ _85 = PHI <0B(2), _84(3)>
 bb index := 4
 # VUSE <.MEM_24>
 return _8;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 4 ,possiable got to succ := 14
@@ -7809,6 +7833,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 _85 = PHI <0B(2), _84(3)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -7818,6 +7843,7 @@ _89 = _85;
 bb index := 4
 # VUSE <.MEM_24>
 return _8;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 4 ,possiable got to succ := 14
@@ -7956,6 +7982,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 _89 = _85;
+In function ‘main’:
 lto1: warning: use location
 
 ======================================================================
@@ -7964,6 +7991,7 @@ _1 = _89;
 bb index := 4
 # VUSE <.MEM_24>
 return _8;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 4 ,possiable got to succ := 14
@@ -8102,6 +8130,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 _1 = _89;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:308:16: warning: use location
   remote_path = do_realpath(conn, ".");
                 ^
@@ -8113,6 +8142,7 @@ remote_path = _1;
 bb index := 4
 # VUSE <.MEM_24>
 return _8;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 4 ,possiable got to succ := 14
@@ -8262,6 +8292,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 remote_path = _1;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:308:14: warning: use location
   remote_path = do_realpath(conn, ".");
               ^
@@ -8273,6 +8304,7 @@ _2 = remote_path;
 bb index := 4
 # VUSE <.MEM_24>
 return _8;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 4 ,possiable got to succ := 14
@@ -8422,6 +8454,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 _2 = remote_path;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:309:18: warning: use location
   if (remote_path == NULL)
                   ^
@@ -8432,6 +8465,7 @@ if (_2 == 0B)
 bb index := 4
 # VUSE <.MEM_24>
 return _8;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 4 ,possiable got to succ := 14
@@ -8570,6 +8604,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 if (_2 == 0B)
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:309:5: warning: use location
   if (remote_path == NULL)
      ^
@@ -8595,22 +8630,22 @@ _4 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -8641,22 +8676,22 @@ _4 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -8688,12 +8723,14 @@ _5 = remote_path;
 bb index := 11
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 11 ,possiable got to succ := 23
 
 ======================================================================
 _5 = remote_path;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:322:5: warning: use location
      free(remote_path);
      ^
@@ -8705,12 +8742,14 @@ free (_5);
 bb index := 11
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 11 ,possiable got to succ := 23
 
 ======================================================================
 free (_5);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:322:5: warning: use location
 this stmt is child function---free-----
 
@@ -8728,34 +8767,36 @@ err_31 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 bb index := 16
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 23
 
 ======================================================================
 err_31 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:332:8: warning: use location
     err = parse_dispatch_command(conn, cmd,
         ^
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -8787,34 +8828,36 @@ err_31 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 bb index := 16
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 23
 
 ======================================================================
 err_31 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:332:8: warning: use location
     err = parse_dispatch_command(conn, cmd,
         ^
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -8846,12 +8889,14 @@ _6 = remote_path;
 bb index := 16
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 23
 
 ======================================================================
 _6 = remote_path;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:335:4: warning: use location
     free(remote_path);
     ^
@@ -8863,12 +8908,14 @@ free (_6);
 bb index := 16
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 23
 
 ======================================================================
 free (_6);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:335:4: warning: use location
 this stmt is child function---free-----
 
@@ -8890,22 +8937,22 @@ err_41 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, _8);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -8941,22 +8988,22 @@ err_41 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, _8);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -8988,6 +9035,7 @@ _9 = remote_path;
 bb index := 21
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 21 ,possiable got to succ := 23
@@ -9007,6 +9055,7 @@ gimple stmt in succ := 21 ,possiable got to succ := 23
 
 ======================================================================
 _9 = remote_path;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:357:2: warning: use location
   free(remote_path);
   ^
@@ -9018,6 +9067,7 @@ free (_9);
 bb index := 21
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 21 ,possiable got to succ := 23
@@ -9037,6 +9087,7 @@ gimple stmt in succ := 21 ,possiable got to succ := 23
 
 ======================================================================
 free (_9);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:357:2: warning: use location
 this stmt is child function---free-----
 
@@ -9053,22 +9104,22 @@ free (_9);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fdbe9a4e5a0
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffaa5a0
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
    
     def_stmt _84 = strdup (".");
     version 84
-    ptr-info 0x7fdbe9a454c8>
+    ptr-info 0x7f805ffa14c8>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_71 = VDEF <.MEM_70>
 free (_5);
@@ -9991,22 +10042,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fdbe9a449d8
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa09d8
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <var_decl 0x7fdbe9a3f7e0 dir>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <var_decl 0x7f805ff9b7e0 dir>
     def_stmt dir_28 = strdup (file1_26(D));
     version 28
-    ptr-info 0x7fdbe9a45480>
+    ptr-info 0x7f805ffa1480>
 # .MEM_60 = VDEF <.MEM_59>
 dir_28 = strdup (file1_26(D));
 
@@ -10027,22 +10078,22 @@ dir_28 = strdup (file1_26(D));
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a449d8
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa09d8
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <var_decl 0x7fdbe9a3f7e0 dir>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <var_decl 0x7f805ff9b7e0 dir>
     def_stmt dir_28 = strdup (file1_26(D));
     version 28
-    ptr-info 0x7fdbe9a45480>
+    ptr-info 0x7f805ffa1480>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -10067,12 +10118,14 @@ free (dir_28);
 bb index := 16
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 23
 
 ======================================================================
 free (dir_28);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:334:4: warning: use location
     free(dir);
     ^
@@ -10092,6 +10145,7 @@ _50 = __builtin___snprintf_chk (&cmd, 2048, 1, 2048, "get %s%s%s", dir_28, _14, 
 bb index := 16
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 23
@@ -10101,22 +10155,22 @@ _50 = __builtin___snprintf_chk (&cmd, 2048, 1, 2048, "get %s%s%s", dir_28, _14, 
 this stmt is child function---__builtin___snprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a449d8
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa09d8
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <var_decl 0x7fdbe9a3f7e0 dir>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <var_decl 0x7f805ff9b7e0 dir>
     def_stmt dir_28 = strdup (file1_26(D));
     version 28
-    ptr-info 0x7fdbe9a45480>
+    ptr-info 0x7f805ffa1480>
 trace fucntion name:__builtin___snprintf_chk 
 
  ================== trace ================== 
@@ -10135,6 +10189,7 @@ gimple stmt in succ := 11 ,possiable got to succ := 23
 
 ======================================================================
 free (dir_28);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:321:5: warning: use location
      free(dir);
      ^
@@ -10150,22 +10205,22 @@ _49 = __builtin___snprintf_chk (&cmd, 2048, 1, 2048, "cd \"%s\"", dir_28);
 this stmt is child function---__builtin___snprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a449d8
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa09d8
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <var_decl 0x7fdbe9a3f7e0 dir>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <var_decl 0x7f805ff9b7e0 dir>
     def_stmt dir_28 = strdup (file1_26(D));
     version 28
-    ptr-info 0x7fdbe9a45480>
+    ptr-info 0x7f805ffa1480>
 trace fucntion name:__builtin___snprintf_chk 
 
  ================== trace ================== 
@@ -10174,22 +10229,22 @@ _48 = __printf_chk (1, "Changing to: %s\n", dir_28);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a449d8
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa09d8
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <var_decl 0x7fdbe9a3f7e0 dir>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <var_decl 0x7f805ff9b7e0 dir>
     def_stmt dir_28 = strdup (file1_26(D));
     version 28
-    ptr-info 0x7fdbe9a45480>
+    ptr-info 0x7f805ffa1480>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -10201,6 +10256,7 @@ if (file1_26(D) != 0B)
 bb index := 6
 # VUSE <.MEM_24>
 return _8;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 14
@@ -10231,6 +10287,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 10
 
 ======================================================================
 if (file1_26(D) != 0B)
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:312:5: warning: use location
   if (file1 != NULL) {
      ^
@@ -10256,22 +10313,22 @@ from interactive_loop basic block 18
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fdbe9a449d8
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa09d8
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <var_decl 0x7fdbe9a3f7e0 dir>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <var_decl 0x7f805ff9b7e0 dir>
     def_stmt dir_28 = strdup (file1_26(D));
     version 28
-    ptr-info 0x7fdbe9a45480>
+    ptr-info 0x7f805ffa1480>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_70 = VDEF <.MEM_68>
 free (dir_28);
@@ -10335,20 +10392,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fdbe9a4b1a0
-    type <pointer_type 0x7fdbe9a2ee70
-        type <array_type 0x7fdbe9a2edc8 type <integer_type 0x7fdbe9a22738 char>
+ <addr_expr 0x7f805ffa71a0
+    type <pointer_type 0x7f805ff8ae70
+        type <array_type 0x7f805ff8adc8 type <integer_type 0x7f805ff7e738 char>
             HI
-            size <integer_cst 0x7fdbe9ef8d98 constant 16>
-            unit size <integer_cst 0x7fdbe9ef8db0 constant 2>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fdbe9a2ed20>
-            pointer_to_this <pointer_type 0x7fdbe9a2ee70>>
+            size <integer_cst 0x7f8060454d98 constant 16>
+            unit size <integer_cst 0x7f8060454db0 constant 2>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f805ff8ad20>
+            pointer_to_this <pointer_type 0x7f805ff8ae70>>
         unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fdbe9a45060 type <array_type 0x7fdbe9a2edc8>
+    arg 0 <string_cst 0x7f805ffa1060 type <array_type 0x7f805ff8adc8>
         readonly constant static ".\000">
     ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:308:16 start: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:308:16 finish: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:308:16>
 
@@ -10372,22 +10429,22 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fdbe9a44990
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0990
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <parm_decl 0x7fdbe9a33880 file1>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <parm_decl 0x7f805ff8f880 file1>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7fdbe9a45468>
+    ptr-info 0x7f805ffa1468>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -10406,22 +10463,22 @@ dir_28 = strdup (file1_26(D));
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44990
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0990
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <parm_decl 0x7fdbe9a33880 file1>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <parm_decl 0x7f805ff8f880 file1>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7fdbe9a45468>
+    ptr-info 0x7f805ffa1468>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -10446,12 +10503,14 @@ free (dir_28);
 bb index := 16
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 23
 
 ======================================================================
 free (dir_28);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:334:4: warning: use location
     free(dir);
     ^
@@ -10471,6 +10530,7 @@ _50 = __builtin___snprintf_chk (&cmd, 2048, 1, 2048, "get %s%s%s", dir_28, _14, 
 bb index := 16
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 23
@@ -10480,22 +10540,22 @@ _50 = __builtin___snprintf_chk (&cmd, 2048, 1, 2048, "get %s%s%s", dir_28, _14, 
 this stmt is child function---__builtin___snprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44990
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0990
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <parm_decl 0x7fdbe9a33880 file1>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <parm_decl 0x7f805ff8f880 file1>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7fdbe9a45468>
+    ptr-info 0x7f805ffa1468>
 trace fucntion name:__builtin___snprintf_chk 
 
  ================== trace ================== 
@@ -10514,6 +10574,7 @@ gimple stmt in succ := 11 ,possiable got to succ := 23
 
 ======================================================================
 free (dir_28);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:321:5: warning: use location
      free(dir);
      ^
@@ -10529,22 +10590,22 @@ _49 = __builtin___snprintf_chk (&cmd, 2048, 1, 2048, "cd \"%s\"", dir_28);
 this stmt is child function---__builtin___snprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44990
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0990
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <parm_decl 0x7fdbe9a33880 file1>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <parm_decl 0x7f805ff8f880 file1>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7fdbe9a45468>
+    ptr-info 0x7f805ffa1468>
 trace fucntion name:__builtin___snprintf_chk 
 
  ================== trace ================== 
@@ -10553,22 +10614,22 @@ _48 = __printf_chk (1, "Changing to: %s\n", dir_28);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44990
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0990
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <parm_decl 0x7fdbe9a33880 file1>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <parm_decl 0x7f805ff8f880 file1>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7fdbe9a45468>
+    ptr-info 0x7f805ffa1468>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -10580,6 +10641,7 @@ if (file1_26(D) != 0B)
 bb index := 6
 # VUSE <.MEM_24>
 return _8;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 14
@@ -10610,6 +10672,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 10
 
 ======================================================================
 if (file1_26(D) != 0B)
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:312:5: warning: use location
   if (file1 != NULL) {
      ^
@@ -10635,22 +10698,22 @@ from interactive_loop basic block 18
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fdbe9a44990
-    type <pointer_type 0x7fdbe9a227e0
-        type <integer_type 0x7fdbe9a22738 char public string-flag QI
-            size <integer_cst 0x7fdbe9ef8cd8 constant 8>
-            unit size <integer_cst 0x7fdbe9ef8cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fdbe9f0c3f0 precision 8 min <integer_cst 0x7fdbe9a25180 -128> max <integer_cst 0x7fdbe9a25168 127>
-            pointer_to_this <pointer_type 0x7fdbe9a227e0>>
+ <ssa_name 0x7f805ffa0990
+    type <pointer_type 0x7f805ff7e7e0
+        type <integer_type 0x7f805ff7e738 char public string-flag QI
+            size <integer_cst 0x7f8060454cd8 constant 8>
+            unit size <integer_cst 0x7f8060454cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f80604683f0 precision 8 min <integer_cst 0x7f805ff81180 -128> max <integer_cst 0x7f805ff81168 127>
+            pointer_to_this <pointer_type 0x7f805ff7e7e0>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-        pointer_to_this <pointer_type 0x7fdbe9a22888>>
-    var <parm_decl 0x7fdbe9a33880 file1>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+        pointer_to_this <pointer_type 0x7f805ff7e888>>
+    var <parm_decl 0x7f805ff8f880 file1>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7fdbe9a45468>
+    ptr-info 0x7f805ffa1468>
 
  ================== Start Use after free Check ================== 
 
@@ -10683,27 +10746,27 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fdbe9a16d40
-    type <pointer_type 0x7fdbe9a30690
-        type <array_type 0x7fdbe9a2ebd0 type <integer_type 0x7fdbe9a22738 char>
+ <addr_expr 0x7f805ff72d40
+    type <pointer_type 0x7f805ff8c690
+        type <array_type 0x7f805ff8abd0 type <integer_type 0x7f805ff7e738 char>
             BLK
-            size <integer_cst 0x7fdbe9a25468 constant 16384>
-            unit size <integer_cst 0x7fdbe9a25450 constant 2048>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fdbe9a2eb28>
-            pointer_to_this <pointer_type 0x7fdbe9a30690>>
+            size <integer_cst 0x7f805ff81468 constant 16384>
+            unit size <integer_cst 0x7f805ff81450 constant 2048>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f805ff8ab28>
+            pointer_to_this <pointer_type 0x7f805ff8c690>>
         unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7fdbe9a3f750 cmd type <array_type 0x7fdbe9a2ebd0>
-        addressable BLK file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 304 col 7 size <integer_cst 0x7fdbe9a25468 16384> unit size <integer_cst 0x7fdbe9a25450 2048>
-        align 128 context <function_decl 0x7fdbe9a23d00 interactive_loop>
-        chain <var_decl 0x7fdbe9a3f6c0 err type <integer_type 0x7fdbe9f0c5e8 int>
+    arg 0 <var_decl 0x7f805ff9b750 cmd type <array_type 0x7f805ff8abd0>
+        addressable BLK file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 304 col 7 size <integer_cst 0x7f805ff81468 16384> unit size <integer_cst 0x7f805ff81450 2048>
+        align 128 context <function_decl 0x7f805ff7fd00 interactive_loop>
+        chain <var_decl 0x7f805ff9b6c0 err type <integer_type 0x7f80604685e8 int>
             SI file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 305 col 6
-            size <integer_cst 0x7fdbe9ef8e28 constant 32>
-            unit size <integer_cst 0x7fdbe9ef8e40 constant 4>
-            align 32 context <function_decl 0x7fdbe9a23d00 interactive_loop>>>
+            size <integer_cst 0x7f8060454e28 constant 32>
+            unit size <integer_cst 0x7f8060454e40 constant 4>
+            align 32 context <function_decl 0x7f805ff7fd00 interactive_loop>>>
     ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:318:13 start: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:318:13 finish: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:318:13>
 
  ================== trace ptable================== 
@@ -10726,21 +10789,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fdbe9a44948
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffa0948
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7fdbe9a33800 conn>
+    var <parm_decl 0x7f805ff8f800 conn>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fdbe9a45450>
+    ptr-info 0x7f805ffa1450>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -10760,6 +10823,7 @@ conn_23(D)->msg_id = _82;
 bb index := 2
 # VUSE <.MEM_24>
 return _8;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 2 ,possiable got to succ := 14
@@ -10831,6 +10895,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 10
 
 ======================================================================
 conn_23(D)->msg_id = _82;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:228:33: warning: use location
   expected_id = id = conn->msg_id++;
                                  ^
@@ -10842,6 +10907,7 @@ conn_23(D)->msg_id = _82;
 bb index := 2
 # VUSE <.MEM_24>
 return _8;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 2 ,possiable got to succ := 14
@@ -10913,6 +10979,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 10
 
 ======================================================================
 conn_23(D)->msg_id = _82;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:228:33: warning: use location
 
 ======================================================================
@@ -10922,6 +10989,7 @@ _81 = conn_23(D)->msg_id;
 bb index := 2
 # VUSE <.MEM_24>
 return _8;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 14 have return or exit
 gimple stmt in succ := 2 ,possiable got to succ := 14
@@ -10993,6 +11061,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 10
 
 ======================================================================
 _81 = conn_23(D)->msg_id;
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:228:25: warning: use location
   expected_id = id = conn->msg_id++;
                          ^
@@ -11004,6 +11073,7 @@ free (conn_23(D));
 bb index := 21
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 21 ,possiable got to succ := 23
@@ -11023,6 +11093,7 @@ gimple stmt in succ := 21 ,possiable got to succ := 23
 
 ======================================================================
 free (conn_23(D));
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:358:2: warning: use location
   free(conn);
   ^
@@ -11046,21 +11117,21 @@ err_41 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, _8);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44948
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffa0948
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7fdbe9a33800 conn>
+    var <parm_decl 0x7f805ff8f800 conn>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fdbe9a45450>
+    ptr-info 0x7f805ffa1450>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -11097,6 +11168,7 @@ err_11 = PHI <err_10(19), err_41(20)>
 bb index := 21
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 21 ,possiable got to succ := 23
@@ -11115,6 +11187,7 @@ gimple stmt in succ := 21 ,possiable got to succ := 23
 
 ======================================================================
 err_11 = PHI <err_10(19), err_41(20)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -11124,6 +11197,7 @@ if (err_11 >= 0)
 bb index := 21
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 21 ,possiable got to succ := 23
@@ -11142,6 +11216,7 @@ gimple stmt in succ := 21 ,possiable got to succ := 23
 
 ======================================================================
 if (err_11 >= 0)
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:361:23: warning: use location
   return (err >= 0 ? 0 : -1);
                        ^
@@ -11168,12 +11243,14 @@ free (conn_23(D));
 bb index := 16
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 23
 
 ======================================================================
 free (conn_23(D));
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:336:4: warning: use location
     free(conn);
     ^
@@ -11193,33 +11270,35 @@ err_31 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 bb index := 16
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 23
 
 ======================================================================
 err_31 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:332:8: warning: use location
     err = parse_dispatch_command(conn, cmd,
         ^
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44948
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffa0948
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7fdbe9a33800 conn>
+    var <parm_decl 0x7f805ff8f800 conn>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fdbe9a45450>
+    ptr-info 0x7f805ffa1450>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -11248,6 +11327,7 @@ _12 = PHI <-1(11), err_31(16), 0(21), -1(22)>
 bb index := 23
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 23 ,possiable got to succ := 23
@@ -11290,6 +11370,7 @@ gimple stmt in succ := 23 ,possiable got to succ := 23
 
 ======================================================================
 _12 = PHI <-1(11), err_31(16), 0(21), -1(22)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -11300,12 +11381,14 @@ free (conn_23(D));
 bb index := 11
 # VUSE <.MEM_78>
 return _12;
+In function ‘interactive_loop’:
 lto1: warning: use location
 beacuse in succ := 23 have return or exit
 gimple stmt in succ := 11 ,possiable got to succ := 23
 
 ======================================================================
 free (conn_23(D));
+In function ‘main’:
 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:323:5: warning: use location
      free(conn);
      ^
@@ -11324,21 +11407,21 @@ _4 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44948
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffa0948
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7fdbe9a33800 conn>
+    var <parm_decl 0x7f805ff8f800 conn>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fdbe9a45450>
+    ptr-info 0x7f805ffa1450>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -11365,21 +11448,21 @@ _4 = parse_dispatch_command (conn_23(D), &cmd, &remote_path, 1);
 this stmt is child function---parse_dispatch_command-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a44948
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffa0948
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7fdbe9a33800 conn>
+    var <parm_decl 0x7f805ff8f800 conn>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fdbe9a45450>
+    ptr-info 0x7f805ffa1450>
 trace fucntion name:parse_dispatch_command 
 [40;44m =======trace_function_path parse_dispatch_command  function_call count: 4 level :0========  [0m
 # .MEM_30 = VDEF <.MEM_29>
@@ -11408,21 +11491,21 @@ trace fucntion free:3
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fdbe9a44948
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffa0948
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7fdbe9a33800 conn>
+    var <parm_decl 0x7f805ff8f800 conn>
     def_stmt GIMPLE_NOP
     version 23
-    ptr-info 0x7fdbe9a45450>
+    ptr-info 0x7f805ffa1450>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_72 = VDEF <.MEM_71>
 free (conn_23(D));
@@ -11914,27 +11997,27 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fdbe9a16ea0
-    type <pointer_type 0x7fdbe9a30690
-        type <array_type 0x7fdbe9a2ebd0 type <integer_type 0x7fdbe9a22738 char>
+ <addr_expr 0x7f805ff72ea0
+    type <pointer_type 0x7f805ff8c690
+        type <array_type 0x7f805ff8abd0 type <integer_type 0x7f805ff7e738 char>
             BLK
-            size <integer_cst 0x7fdbe9a25468 constant 16384>
-            unit size <integer_cst 0x7fdbe9a25450 constant 2048>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fdbe9a2eb28>
-            pointer_to_this <pointer_type 0x7fdbe9a30690>>
+            size <integer_cst 0x7f805ff81468 constant 16384>
+            unit size <integer_cst 0x7f805ff81450 constant 2048>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f805ff8ab28>
+            pointer_to_this <pointer_type 0x7f805ff8c690>>
         unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7fdbe9a3f750 cmd type <array_type 0x7fdbe9a2ebd0>
-        addressable BLK file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 304 col 7 size <integer_cst 0x7fdbe9a25468 16384> unit size <integer_cst 0x7fdbe9a25450 2048>
-        align 128 context <function_decl 0x7fdbe9a23d00 interactive_loop>
-        chain <var_decl 0x7fdbe9a3f6c0 err type <integer_type 0x7fdbe9f0c5e8 int>
+    arg 0 <var_decl 0x7f805ff9b750 cmd type <array_type 0x7f805ff8abd0>
+        addressable BLK file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 304 col 7 size <integer_cst 0x7f805ff81468 16384> unit size <integer_cst 0x7f805ff81450 2048>
+        align 128 context <function_decl 0x7f805ff7fd00 interactive_loop>
+        chain <var_decl 0x7f805ff9b6c0 err type <integer_type 0x7f80604685e8 int>
             SI file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 305 col 6
-            size <integer_cst 0x7fdbe9ef8e28 constant 32>
-            unit size <integer_cst 0x7fdbe9ef8e40 constant 4>
-            align 32 context <function_decl 0x7fdbe9a23d00 interactive_loop>>>
+            size <integer_cst 0x7f8060454e28 constant 32>
+            unit size <integer_cst 0x7f8060454e40 constant 4>
+            align 32 context <function_decl 0x7f805ff7fd00 interactive_loop>>>
     ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:328:13 start: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:328:13 finish: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:328:13>
 
  ================== trace ptable================== 
@@ -11957,27 +12040,27 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fdbe9a4b080
-    type <pointer_type 0x7fdbe9a30690
-        type <array_type 0x7fdbe9a2ebd0 type <integer_type 0x7fdbe9a22738 char>
+ <addr_expr 0x7f805ffa7080
+    type <pointer_type 0x7f805ff8c690
+        type <array_type 0x7f805ff8abd0 type <integer_type 0x7f805ff7e738 char>
             BLK
-            size <integer_cst 0x7fdbe9a25468 constant 16384>
-            unit size <integer_cst 0x7fdbe9a25450 constant 2048>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fdbe9a2eb28>
-            pointer_to_this <pointer_type 0x7fdbe9a30690>>
+            size <integer_cst 0x7f805ff81468 constant 16384>
+            unit size <integer_cst 0x7f805ff81450 constant 2048>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f805ff8ab28>
+            pointer_to_this <pointer_type 0x7f805ff8c690>>
         unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7fdbe9a3f750 cmd type <array_type 0x7fdbe9a2ebd0>
-        addressable BLK file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 304 col 7 size <integer_cst 0x7fdbe9a25468 16384> unit size <integer_cst 0x7fdbe9a25450 2048>
-        align 128 context <function_decl 0x7fdbe9a23d00 interactive_loop>
-        chain <var_decl 0x7fdbe9a3f6c0 err type <integer_type 0x7fdbe9f0c5e8 int>
+    arg 0 <var_decl 0x7f805ff9b750 cmd type <array_type 0x7f805ff8abd0>
+        addressable BLK file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 304 col 7 size <integer_cst 0x7f805ff81468 16384> unit size <integer_cst 0x7f805ff81450 2048>
+        align 128 context <function_decl 0x7f805ff7fd00 interactive_loop>
+        chain <var_decl 0x7f805ff9b6c0 err type <integer_type 0x7f80604685e8 int>
             SI file ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c line 305 col 6
-            size <integer_cst 0x7fdbe9ef8e28 constant 32>
-            unit size <integer_cst 0x7fdbe9ef8e40 constant 4>
-            align 32 context <function_decl 0x7fdbe9a23d00 interactive_loop>>>
+            size <integer_cst 0x7f8060454e28 constant 32>
+            unit size <integer_cst 0x7f8060454e40 constant 4>
+            align 32 context <function_decl 0x7f805ff7fd00 interactive_loop>>>
     ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:347:8 start: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:347:8 finish: ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c:347:8>
 
  ================== trace ptable================== 
@@ -12007,21 +12090,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fdbe9a563f0
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffb23f0
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fdbe9a4cc60 ret>
+    var <var_decl 0x7f805ffa8c60 ret>
     def_stmt ret_16 = calloc (1, 168);
     version 16
-    ptr-info 0x7fdbe9a45528>
+    ptr-info 0x7f805ffa1528>
 # .MEM_29 = VDEF <.MEM_12(D)>
 ret_16 = calloc (1, 168);
 
@@ -12306,21 +12389,21 @@ _21 = __printf_chk (1, "Remote version: %u", _20);
 this stmt is child function---__printf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a563f0
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffb23f0
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fdbe9a4cc60 ret>
+    var <var_decl 0x7f805ffa8c60 ret>
     def_stmt ret_16 = calloc (1, 168);
     version 16
-    ptr-info 0x7fdbe9a45528>
+    ptr-info 0x7f805ffa1528>
 trace fucntion name:__printf_chk 
 
  ================== trace ================== 
@@ -12372,21 +12455,21 @@ ret_16 = calloc (1, 168);
 this stmt is child function---calloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fdbe9a563f0
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffb23f0
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fdbe9a4cc60 ret>
+    var <var_decl 0x7f805ffa8c60 ret>
     def_stmt ret_16 = calloc (1, 168);
     version 16
-    ptr-info 0x7fdbe9a45528>
+    ptr-info 0x7f805ffa1528>
 trace fucntion name:calloc 
 
  ================== trace ================== 
@@ -12398,21 +12481,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fdbe9a563f0
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffb23f0
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fdbe9a4cc60 ret>
+    var <var_decl 0x7f805ffa8c60 ret>
     def_stmt ret_16 = calloc (1, 168);
     version 16
-    ptr-info 0x7fdbe9a45528>
+    ptr-info 0x7f805ffa1528>
 
  ================== Start Use after free Check ================== 
 
@@ -12433,26 +12516,26 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fdbe9a451e0 type <integer_type 0x7fdbe9a22dc8 size_t> constant 1>
+ <integer_cst 0x7f805ffa11e0 type <integer_type 0x7f805ff7edc8 size_t> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fdbe9a4e870
-    type <pointer_type 0x7fdbe9a220a8
-        type <record_type 0x7fdbe9a22f18 sftp_conn BLK
-            size <integer_cst 0x7fdbe9fb1c30 constant 1344>
-            unit size <integer_cst 0x7fdbe9a251e0 constant 168>
-            align 64 symtab 0 alias set -1 canonical type 0x7fdbe9a22f18 fields <field_decl 0x7fdbe9a29130 fd_in> context <translation_unit_decl 0x7fdbe9f03168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
-            pointer_to_this <pointer_type 0x7fdbe9a220a8> chain <type_decl 0x7fdbe9a291c8 D.4013>>
+ <ssa_name 0x7f805ffaa870
+    type <pointer_type 0x7f805ff7e0a8
+        type <record_type 0x7f805ff7ef18 sftp_conn BLK
+            size <integer_cst 0x7f806050dc30 constant 1344>
+            unit size <integer_cst 0x7f805ff811e0 constant 168>
+            align 64 symtab 0 alias set -1 canonical type 0x7f805ff7ef18 fields <field_decl 0x7f805ff85130 fd_in> context <translation_unit_decl 0x7f806045f168 ./benchmarks/openssh-portable/leak_5/openssh_leak_5.c>
+            pointer_to_this <pointer_type 0x7f805ff7e0a8> chain <type_decl 0x7f805ff851c8 D.4013>>
         public unsigned DI
-        size <integer_cst 0x7fdbe9ef8be8 constant 64>
-        unit size <integer_cst 0x7fdbe9ef8c00 constant 8>
+        size <integer_cst 0x7f8060454be8 constant 64>
+        unit size <integer_cst 0x7f8060454c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fdbe9a4c360 conn>
+    var <var_decl 0x7f805ffa8360 conn>
     def_stmt conn_7 = _41;
     version 7
-    ptr-info 0x7fdbe9a45510>
+    ptr-info 0x7f805ffa1510>
 conn_7 = _41;
 
  ================== trace ptable================== 
@@ -12886,7 +12969,7 @@ return _1;
            ~~~~~~~
 [40;34m    find Entry point : 6 [0m
 [40;34m    used_stmt array stack totalsize of : 1848 [0m
-[40;34m    collect time: : 0.000141 s [0m
-[40;34m    algorithm time: 0.048853 s [0m
+[40;34m    collect time: : 0.000148 s [0m
+[40;34m    algorithm time: 0.047212 s [0m
 [40;34m    gimple stmt count : : 101 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

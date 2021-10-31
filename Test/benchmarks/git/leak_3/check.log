@@ -121,22 +121,22 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f3a9b0c5ee8
-    type <pointer_type 0x7f3a9abe70a8
-        type <record_type 0x7f3a9abe71f8 commit_list TI
-            size <integer_cst 0x7f3a9b0bdc30 constant 128>
-            unit size <integer_cst 0x7f3a9b0bdc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f3a9abe71f8 fields <field_decl 0x7f3a9abe9a18 item> context <translation_unit_decl 0x7f3a9b0c8168 ./benchmarks/git/leak_3/git_leak_3.c>
-            pointer_to_this <pointer_type 0x7f3a9abe70a8> chain <type_decl 0x7f3a9abe9ed8 D.4009>>
+ <ssa_name 0x7f7e81e05ee8
+    type <pointer_type 0x7f7e819270a8
+        type <record_type 0x7f7e819271f8 commit_list TI
+            size <integer_cst 0x7f7e81dfdc30 constant 128>
+            unit size <integer_cst 0x7f7e81dfdc48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f7e819271f8 fields <field_decl 0x7f7e81929a18 item> context <translation_unit_decl 0x7f7e81e08168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7f7e819270a8> chain <type_decl 0x7f7e81929ed8 D.4009>>
         public unsigned DI
-        size <integer_cst 0x7f3a9b0bdbe8 constant 64>
-        unit size <integer_cst 0x7f3a9b0bdc00 constant 8>
+        size <integer_cst 0x7f7e81dfdbe8 constant 64>
+        unit size <integer_cst 0x7f7e81dfdc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f3a9abe7498>>
-    var <var_decl 0x7f3a9abff240 new_list>
+        pointer_to_this <pointer_type 0x7f7e81927498>>
+    var <var_decl 0x7f7e8193f240 new_list>
     def_stmt new_list_21 = malloc (16);
     version 21
-    ptr-info 0x7f3a9abeae10>
+    ptr-info 0x7f7e8192ae10>
 # .MEM_65 = VDEF <.MEM_13>
 new_list_21 = malloc (16);
 
@@ -836,22 +836,22 @@ show_list ("bisection 2 sorted", 0, nr_38, list_42);
 this stmt is child function---show_list-----
 
  ================== trace ================== 
- <ssa_name 0x7f3a9b0c5ee8
-    type <pointer_type 0x7f3a9abe70a8
-        type <record_type 0x7f3a9abe71f8 commit_list TI
-            size <integer_cst 0x7f3a9b0bdc30 constant 128>
-            unit size <integer_cst 0x7f3a9b0bdc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f3a9abe71f8 fields <field_decl 0x7f3a9abe9a18 item> context <translation_unit_decl 0x7f3a9b0c8168 ./benchmarks/git/leak_3/git_leak_3.c>
-            pointer_to_this <pointer_type 0x7f3a9abe70a8> chain <type_decl 0x7f3a9abe9ed8 D.4009>>
+ <ssa_name 0x7f7e81e05ee8
+    type <pointer_type 0x7f7e819270a8
+        type <record_type 0x7f7e819271f8 commit_list TI
+            size <integer_cst 0x7f7e81dfdc30 constant 128>
+            unit size <integer_cst 0x7f7e81dfdc48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f7e819271f8 fields <field_decl 0x7f7e81929a18 item> context <translation_unit_decl 0x7f7e81e08168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7f7e819270a8> chain <type_decl 0x7f7e81929ed8 D.4009>>
         public unsigned DI
-        size <integer_cst 0x7f3a9b0bdbe8 constant 64>
-        unit size <integer_cst 0x7f3a9b0bdc00 constant 8>
+        size <integer_cst 0x7f7e81dfdbe8 constant 64>
+        unit size <integer_cst 0x7f7e81dfdc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f3a9abe7498>>
-    var <var_decl 0x7f3a9abff240 new_list>
+        pointer_to_this <pointer_type 0x7f7e81927498>>
+    var <var_decl 0x7f7e8193f240 new_list>
     def_stmt new_list_21 = malloc (16);
     version 21
-    ptr-info 0x7f3a9abeae10>
+    ptr-info 0x7f7e8192ae10>
 trace fucntion name:show_list 
 
  ================== trace ================== 
@@ -1065,22 +1065,22 @@ show_list ("bisection 2 entry", 0, 0, _25);
 this stmt is child function---show_list-----
 
  ================== trace ================== 
- <ssa_name 0x7f3a9b0c5ee8
-    type <pointer_type 0x7f3a9abe70a8
-        type <record_type 0x7f3a9abe71f8 commit_list TI
-            size <integer_cst 0x7f3a9b0bdc30 constant 128>
-            unit size <integer_cst 0x7f3a9b0bdc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f3a9abe71f8 fields <field_decl 0x7f3a9abe9a18 item> context <translation_unit_decl 0x7f3a9b0c8168 ./benchmarks/git/leak_3/git_leak_3.c>
-            pointer_to_this <pointer_type 0x7f3a9abe70a8> chain <type_decl 0x7f3a9abe9ed8 D.4009>>
+ <ssa_name 0x7f7e81e05ee8
+    type <pointer_type 0x7f7e819270a8
+        type <record_type 0x7f7e819271f8 commit_list TI
+            size <integer_cst 0x7f7e81dfdc30 constant 128>
+            unit size <integer_cst 0x7f7e81dfdc48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f7e819271f8 fields <field_decl 0x7f7e81929a18 item> context <translation_unit_decl 0x7f7e81e08168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7f7e819270a8> chain <type_decl 0x7f7e81929ed8 D.4009>>
         public unsigned DI
-        size <integer_cst 0x7f3a9b0bdbe8 constant 64>
-        unit size <integer_cst 0x7f3a9b0bdc00 constant 8>
+        size <integer_cst 0x7f7e81dfdbe8 constant 64>
+        unit size <integer_cst 0x7f7e81dfdc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f3a9abe7498>>
-    var <var_decl 0x7f3a9abff240 new_list>
+        pointer_to_this <pointer_type 0x7f7e81927498>>
+    var <var_decl 0x7f7e8193f240 new_list>
     def_stmt new_list_21 = malloc (16);
     version 21
-    ptr-info 0x7f3a9abeae10>
+    ptr-info 0x7f7e8192ae10>
 trace fucntion name:show_list 
 
  ================== trace ================== 
@@ -1222,22 +1222,22 @@ new_list_21 = malloc (16);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f3a9b0c5ee8
-    type <pointer_type 0x7f3a9abe70a8
-        type <record_type 0x7f3a9abe71f8 commit_list TI
-            size <integer_cst 0x7f3a9b0bdc30 constant 128>
-            unit size <integer_cst 0x7f3a9b0bdc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f3a9abe71f8 fields <field_decl 0x7f3a9abe9a18 item> context <translation_unit_decl 0x7f3a9b0c8168 ./benchmarks/git/leak_3/git_leak_3.c>
-            pointer_to_this <pointer_type 0x7f3a9abe70a8> chain <type_decl 0x7f3a9abe9ed8 D.4009>>
+ <ssa_name 0x7f7e81e05ee8
+    type <pointer_type 0x7f7e819270a8
+        type <record_type 0x7f7e819271f8 commit_list TI
+            size <integer_cst 0x7f7e81dfdc30 constant 128>
+            unit size <integer_cst 0x7f7e81dfdc48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f7e819271f8 fields <field_decl 0x7f7e81929a18 item> context <translation_unit_decl 0x7f7e81e08168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7f7e819270a8> chain <type_decl 0x7f7e81929ed8 D.4009>>
         public unsigned DI
-        size <integer_cst 0x7f3a9b0bdbe8 constant 64>
-        unit size <integer_cst 0x7f3a9b0bdc00 constant 8>
+        size <integer_cst 0x7f7e81dfdbe8 constant 64>
+        unit size <integer_cst 0x7f7e81dfdc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f3a9abe7498>>
-    var <var_decl 0x7f3a9abff240 new_list>
+        pointer_to_this <pointer_type 0x7f7e81927498>>
+    var <var_decl 0x7f7e8193f240 new_list>
     def_stmt new_list_21 = malloc (16);
     version 21
-    ptr-info 0x7f3a9abeae10>
+    ptr-info 0x7f7e8192ae10>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1249,22 +1249,22 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f3a9b0c5ee8
-    type <pointer_type 0x7f3a9abe70a8
-        type <record_type 0x7f3a9abe71f8 commit_list TI
-            size <integer_cst 0x7f3a9b0bdc30 constant 128>
-            unit size <integer_cst 0x7f3a9b0bdc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f3a9abe71f8 fields <field_decl 0x7f3a9abe9a18 item> context <translation_unit_decl 0x7f3a9b0c8168 ./benchmarks/git/leak_3/git_leak_3.c>
-            pointer_to_this <pointer_type 0x7f3a9abe70a8> chain <type_decl 0x7f3a9abe9ed8 D.4009>>
+ <ssa_name 0x7f7e81e05ee8
+    type <pointer_type 0x7f7e819270a8
+        type <record_type 0x7f7e819271f8 commit_list TI
+            size <integer_cst 0x7f7e81dfdc30 constant 128>
+            unit size <integer_cst 0x7f7e81dfdc48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f7e819271f8 fields <field_decl 0x7f7e81929a18 item> context <translation_unit_decl 0x7f7e81e08168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7f7e819270a8> chain <type_decl 0x7f7e81929ed8 D.4009>>
         public unsigned DI
-        size <integer_cst 0x7f3a9b0bdbe8 constant 64>
-        unit size <integer_cst 0x7f3a9b0bdc00 constant 8>
+        size <integer_cst 0x7f7e81dfdbe8 constant 64>
+        unit size <integer_cst 0x7f7e81dfdc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f3a9abe7498>>
-    var <var_decl 0x7f3a9abff240 new_list>
+        pointer_to_this <pointer_type 0x7f7e81927498>>
+    var <var_decl 0x7f7e8193f240 new_list>
     def_stmt new_list_21 = malloc (16);
     version 21
-    ptr-info 0x7f3a9abeae10>
+    ptr-info 0x7f7e8192ae10>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_62 = VDEF <.MEM_55>
 free (top_48);
@@ -1500,25 +1500,25 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f3a9abead50 type <integer_type 0x7f3a9b0d17e0 long unsigned int> constant 16>
+ <integer_cst 0x7f7e8192ad50 type <integer_type 0x7f7e81e117e0 long unsigned int> constant 16>
 
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f3a9abdbe60
-    type <pointer_type 0x7f3a9abef7e0
-        type <array_type 0x7f3a9abef738 type <integer_type 0x7f3a9abef690 char>
+ <addr_expr 0x7f7e8191be60
+    type <pointer_type 0x7f7e8192f7e0
+        type <array_type 0x7f7e8192f738 type <integer_type 0x7f7e8192f690 char>
             BLK
-            size <integer_cst 0x7f3a9abea330 constant 144>
-            unit size <integer_cst 0x7f3a9abea318 constant 18>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f3a9abef5e8>
-            pointer_to_this <pointer_type 0x7f3a9abef7e0>>
+            size <integer_cst 0x7f7e8192a330 constant 144>
+            unit size <integer_cst 0x7f7e8192a318 constant 18>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f7e8192f5e8>
+            pointer_to_this <pointer_type 0x7f7e8192f7e0>>
         unsigned DI
-        size <integer_cst 0x7f3a9b0bdbe8 constant 64>
-        unit size <integer_cst 0x7f3a9b0bdc00 constant 8>
+        size <integer_cst 0x7f7e81dfdbe8 constant 64>
+        unit size <integer_cst 0x7f7e81dfdc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7f3a9ac052f8 type <array_type 0x7f3a9abef738>
+    arg 0 <string_cst 0x7f7e819452f8 type <array_type 0x7f7e8192f738>
         readonly constant static "bisection 2 entry\000">
     ./benchmarks/git/leak_3/git_leak_3.c:19:12 start: ./benchmarks/git/leak_3/git_leak_3.c:19:12 finish: ./benchmarks/git/leak_3/git_leak_3.c:19:12>
 
@@ -1542,20 +1542,20 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f3a9abdbf00
-    type <pointer_type 0x7f3a9abef9d8
-        type <array_type 0x7f3a9abef930 type <integer_type 0x7f3a9abef690 char>
+ <addr_expr 0x7f7e8191bf00
+    type <pointer_type 0x7f7e8192f9d8
+        type <array_type 0x7f7e8192f930 type <integer_type 0x7f7e8192f690 char>
             BLK
-            size <integer_cst 0x7f3a9abea378 constant 152>
-            unit size <integer_cst 0x7f3a9abea1c8 constant 19>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f3a9abef888>
-            pointer_to_this <pointer_type 0x7f3a9abef9d8>>
+            size <integer_cst 0x7f7e8192a378 constant 152>
+            unit size <integer_cst 0x7f7e8192a1c8 constant 19>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f7e8192f888>
+            pointer_to_this <pointer_type 0x7f7e8192f9d8>>
         unsigned DI
-        size <integer_cst 0x7f3a9b0bdbe8 constant 64>
-        unit size <integer_cst 0x7f3a9b0bdc00 constant 8>
+        size <integer_cst 0x7f7e81dfdbe8 constant 64>
+        unit size <integer_cst 0x7f7e81dfdc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7f3a9ac05410 type <array_type 0x7f3a9abef930>
+    arg 0 <string_cst 0x7f7e81945410 type <array_type 0x7f7e8192f930>
         readonly constant static "bisection 2 sorted\000">
     ./benchmarks/git/leak_3/git_leak_3.c:42:12 start: ./benchmarks/git/leak_3/git_leak_3.c:42:12 finish: ./benchmarks/git/leak_3/git_leak_3.c:42:12>
 
@@ -1775,10 +1775,10 @@ return 0;
 [40;34m    find Entry point : 1 [0m
 [40;34m    used_stmt array stack totalsize of : 1112 [0m
 [40;34m    collect time: : 0.000101 s [0m
-[40;34m    algorithm time: 0.004744 s [0m
+[40;34m    algorithm time: 0.004647 s [0m
 [40;34m    gimple stmt count : : 45 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
-/usr/bin/ld: /tmp/ccawmKSZ.ltrans0.ltrans.o: in function `main':
+/usr/bin/ld: /tmp/ccXLNhiV.ltrans0.ltrans.o: in function `main':
 <artificial>:(.text+0x43): undefined reference to `show_list'
 /usr/bin/ld: <artificial>:(.text+0xa4): undefined reference to `show_list'
 collect2: error: ld returned 1 exit status

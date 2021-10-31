@@ -141,21 +141,21 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f726642d630
-    type <pointer_type 0x7f7266415e70
-        type <record_type 0x7f7266415dc8 line_info_table BLK
-            size <integer_cst 0x7f72668ebf48 constant 256>
-            unit size <integer_cst 0x7f7266907048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415dc8 fields <field_decl 0x7f7266417980 num_files> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f7266415e70> chain <type_decl 0x7f7266417a18 D.4001>>
+ <ssa_name 0x7f988129b630
+    type <pointer_type 0x7f9881283e70
+        type <record_type 0x7f9881283dc8 line_info_table BLK
+            size <integer_cst 0x7f9881759f48 constant 256>
+            unit size <integer_cst 0x7f9881775048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283dc8 fields <field_decl 0x7f9881285980 num_files> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f9881283e70> chain <type_decl 0x7f9881285a18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f726642a480 table>
+    var <var_decl 0x7f9881298480 table>
     def_stmt table_13 = malloc (32);
     version 13
-    ptr-info 0x7f7266418d20>
+    ptr-info 0x7f9881286d20>
 # .MEM_91 = VDEF <.MEM_10>
 table_13 = malloc (32);
 
@@ -238,21 +238,21 @@ sequences_64 = malloc (_63);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f726642d630
-    type <pointer_type 0x7f7266415e70
-        type <record_type 0x7f7266415dc8 line_info_table BLK
-            size <integer_cst 0x7f72668ebf48 constant 256>
-            unit size <integer_cst 0x7f7266907048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415dc8 fields <field_decl 0x7f7266417980 num_files> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f7266415e70> chain <type_decl 0x7f7266417a18 D.4001>>
+ <ssa_name 0x7f988129b630
+    type <pointer_type 0x7f9881283e70
+        type <record_type 0x7f9881283dc8 line_info_table BLK
+            size <integer_cst 0x7f9881759f48 constant 256>
+            unit size <integer_cst 0x7f9881775048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283dc8 fields <field_decl 0x7f9881285980 num_files> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f9881283e70> chain <type_decl 0x7f9881285a18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f726642a480 table>
+    var <var_decl 0x7f9881298480 table>
     def_stmt table_13 = malloc (32);
     version 13
-    ptr-info 0x7f7266418d20>
+    ptr-info 0x7f9881286d20>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1059,21 +1059,21 @@ table_13 = malloc (32);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f726642d630
-    type <pointer_type 0x7f7266415e70
-        type <record_type 0x7f7266415dc8 line_info_table BLK
-            size <integer_cst 0x7f72668ebf48 constant 256>
-            unit size <integer_cst 0x7f7266907048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415dc8 fields <field_decl 0x7f7266417980 num_files> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f7266415e70> chain <type_decl 0x7f7266417a18 D.4001>>
+ <ssa_name 0x7f988129b630
+    type <pointer_type 0x7f9881283e70
+        type <record_type 0x7f9881283dc8 line_info_table BLK
+            size <integer_cst 0x7f9881759f48 constant 256>
+            unit size <integer_cst 0x7f9881775048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283dc8 fields <field_decl 0x7f9881285980 num_files> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f9881283e70> chain <type_decl 0x7f9881285a18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f726642a480 table>
+    var <var_decl 0x7f9881298480 table>
     def_stmt table_13 = malloc (32);
     version 13
-    ptr-info 0x7f7266418d20>
+    ptr-info 0x7f9881286d20>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1085,21 +1085,21 @@ trace fucntion free:4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f726642d630
-    type <pointer_type 0x7f7266415e70
-        type <record_type 0x7f7266415dc8 line_info_table BLK
-            size <integer_cst 0x7f72668ebf48 constant 256>
-            unit size <integer_cst 0x7f7266907048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415dc8 fields <field_decl 0x7f7266417980 num_files> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f7266415e70> chain <type_decl 0x7f7266417a18 D.4001>>
+ <ssa_name 0x7f988129b630
+    type <pointer_type 0x7f9881283e70
+        type <record_type 0x7f9881283dc8 line_info_table BLK
+            size <integer_cst 0x7f9881759f48 constant 256>
+            unit size <integer_cst 0x7f9881775048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283dc8 fields <field_decl 0x7f9881285980 num_files> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f9881283e70> chain <type_decl 0x7f9881285a18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f726642a480 table>
+    var <var_decl 0x7f9881298480 table>
     def_stmt table_13 = malloc (32);
     version 13
-    ptr-info 0x7f7266418d20>
+    ptr-info 0x7f9881286d20>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_123 = VDEF <.MEM_81>
 tmp_29 = realloc (_28, _27);
@@ -2964,21 +2964,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7266436af8
-    type <pointer_type 0x7f7266415888
-        type <record_type 0x7f7266415930 line_info TI
-            size <integer_cst 0x7f72668ebc30 constant 128>
-            unit size <integer_cst 0x7f72668ebc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415930 fields <field_decl 0x7f7266417260 prev_line> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f7266415888> chain <type_decl 0x7f72664172f8 D.3989>>
+ <ssa_name 0x7f98812a4af8
+    type <pointer_type 0x7f9881283888
+        type <record_type 0x7f9881283930 line_info TI
+            size <integer_cst 0x7f9881759c30 constant 128>
+            unit size <integer_cst 0x7f9881759c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283930 fields <field_decl 0x7f9881285260 prev_line> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f9881283888> chain <type_decl 0x7f98812852f8 D.3989>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f7266439090 info>
+    var <var_decl 0x7f98812a7090 info>
     def_stmt info_39 = malloc (16);
     version 39
-    ptr-info 0x7f7266418e10>
+    ptr-info 0x7f9881286e10>
 # .MEM_105 = VDEF <.MEM_104>
 info_39 = malloc (16);
 
@@ -3076,21 +3076,21 @@ sequences_64 = malloc (_63);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f7266436af8
-    type <pointer_type 0x7f7266415888
-        type <record_type 0x7f7266415930 line_info TI
-            size <integer_cst 0x7f72668ebc30 constant 128>
-            unit size <integer_cst 0x7f72668ebc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415930 fields <field_decl 0x7f7266417260 prev_line> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f7266415888> chain <type_decl 0x7f72664172f8 D.3989>>
+ <ssa_name 0x7f98812a4af8
+    type <pointer_type 0x7f9881283888
+        type <record_type 0x7f9881283930 line_info TI
+            size <integer_cst 0x7f9881759c30 constant 128>
+            unit size <integer_cst 0x7f9881759c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283930 fields <field_decl 0x7f9881285260 prev_line> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f9881283888> chain <type_decl 0x7f98812852f8 D.3989>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f7266439090 info>
+    var <var_decl 0x7f98812a7090 info>
     def_stmt info_39 = malloc (16);
     version 39
-    ptr-info 0x7f7266418e10>
+    ptr-info 0x7f9881286e10>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -3874,21 +3874,21 @@ info_39 = malloc (16);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f7266436af8
-    type <pointer_type 0x7f7266415888
-        type <record_type 0x7f7266415930 line_info TI
-            size <integer_cst 0x7f72668ebc30 constant 128>
-            unit size <integer_cst 0x7f72668ebc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415930 fields <field_decl 0x7f7266417260 prev_line> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f7266415888> chain <type_decl 0x7f72664172f8 D.3989>>
+ <ssa_name 0x7f98812a4af8
+    type <pointer_type 0x7f9881283888
+        type <record_type 0x7f9881283930 line_info TI
+            size <integer_cst 0x7f9881759c30 constant 128>
+            unit size <integer_cst 0x7f9881759c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283930 fields <field_decl 0x7f9881285260 prev_line> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f9881283888> chain <type_decl 0x7f98812852f8 D.3989>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f7266439090 info>
+    var <var_decl 0x7f98812a7090 info>
     def_stmt info_39 = malloc (16);
     version 39
-    ptr-info 0x7f7266418e10>
+    ptr-info 0x7f9881286e10>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -3900,21 +3900,21 @@ trace fucntion free:4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7266436af8
-    type <pointer_type 0x7f7266415888
-        type <record_type 0x7f7266415930 line_info TI
-            size <integer_cst 0x7f72668ebc30 constant 128>
-            unit size <integer_cst 0x7f72668ebc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415930 fields <field_decl 0x7f7266417260 prev_line> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f7266415888> chain <type_decl 0x7f72664172f8 D.3989>>
+ <ssa_name 0x7f98812a4af8
+    type <pointer_type 0x7f9881283888
+        type <record_type 0x7f9881283930 line_info TI
+            size <integer_cst 0x7f9881759c30 constant 128>
+            unit size <integer_cst 0x7f9881759c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283930 fields <field_decl 0x7f9881285260 prev_line> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f9881283888> chain <type_decl 0x7f98812852f8 D.3989>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f7266439090 info>
+    var <var_decl 0x7f98812a7090 info>
     def_stmt info_39 = malloc (16);
     version 39
-    ptr-info 0x7f7266418e10>
+    ptr-info 0x7f9881286e10>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_123 = VDEF <.MEM_81>
 tmp_29 = realloc (_28, _27);
@@ -5713,21 +5713,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7266436e10
-    type <pointer_type 0x7f72664159d8
-        type <record_type 0x7f7266415a80 line_sequence TI
-            size <integer_cst 0x7f72668ebc30 constant 128>
-            unit size <integer_cst 0x7f72668ebc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415a80 fields <field_decl 0x7f7266417428 prev_sequence> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f72664159d8> chain <type_decl 0x7f72664174c0 D.3992>>
+ <ssa_name 0x7f98812a4e10
+    type <pointer_type 0x7f98812839d8
+        type <record_type 0x7f9881283a80 line_sequence TI
+            size <integer_cst 0x7f9881759c30 constant 128>
+            unit size <integer_cst 0x7f9881759c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283a80 fields <field_decl 0x7f9881285428 prev_sequence> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f98812839d8> chain <type_decl 0x7f98812854c0 D.3992>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f7266439000 seq>
+    var <var_decl 0x7f98812a7000 seq>
     def_stmt seq_50 = malloc (16);
     version 50
-    ptr-info 0x7f7266418eb8>
+    ptr-info 0x7f9881286eb8>
 # .MEM_115 = VDEF <.MEM_108>
 seq_50 = malloc (16);
 
@@ -5825,21 +5825,21 @@ sequences_64 = malloc (_63);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f7266436e10
-    type <pointer_type 0x7f72664159d8
-        type <record_type 0x7f7266415a80 line_sequence TI
-            size <integer_cst 0x7f72668ebc30 constant 128>
-            unit size <integer_cst 0x7f72668ebc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415a80 fields <field_decl 0x7f7266417428 prev_sequence> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f72664159d8> chain <type_decl 0x7f72664174c0 D.3992>>
+ <ssa_name 0x7f98812a4e10
+    type <pointer_type 0x7f98812839d8
+        type <record_type 0x7f9881283a80 line_sequence TI
+            size <integer_cst 0x7f9881759c30 constant 128>
+            unit size <integer_cst 0x7f9881759c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283a80 fields <field_decl 0x7f9881285428 prev_sequence> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f98812839d8> chain <type_decl 0x7f98812854c0 D.3992>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f7266439000 seq>
+    var <var_decl 0x7f98812a7000 seq>
     def_stmt seq_50 = malloc (16);
     version 50
-    ptr-info 0x7f7266418eb8>
+    ptr-info 0x7f9881286eb8>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -6647,21 +6647,21 @@ seq_50 = malloc (16);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f7266436e10
-    type <pointer_type 0x7f72664159d8
-        type <record_type 0x7f7266415a80 line_sequence TI
-            size <integer_cst 0x7f72668ebc30 constant 128>
-            unit size <integer_cst 0x7f72668ebc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415a80 fields <field_decl 0x7f7266417428 prev_sequence> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f72664159d8> chain <type_decl 0x7f72664174c0 D.3992>>
+ <ssa_name 0x7f98812a4e10
+    type <pointer_type 0x7f98812839d8
+        type <record_type 0x7f9881283a80 line_sequence TI
+            size <integer_cst 0x7f9881759c30 constant 128>
+            unit size <integer_cst 0x7f9881759c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283a80 fields <field_decl 0x7f9881285428 prev_sequence> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f98812839d8> chain <type_decl 0x7f98812854c0 D.3992>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f7266439000 seq>
+    var <var_decl 0x7f98812a7000 seq>
     def_stmt seq_50 = malloc (16);
     version 50
-    ptr-info 0x7f7266418eb8>
+    ptr-info 0x7f9881286eb8>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -6673,21 +6673,21 @@ trace fucntion free:4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7266436e10
-    type <pointer_type 0x7f72664159d8
-        type <record_type 0x7f7266415a80 line_sequence TI
-            size <integer_cst 0x7f72668ebc30 constant 128>
-            unit size <integer_cst 0x7f72668ebc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415a80 fields <field_decl 0x7f7266417428 prev_sequence> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f72664159d8> chain <type_decl 0x7f72664174c0 D.3992>>
+ <ssa_name 0x7f98812a4e10
+    type <pointer_type 0x7f98812839d8
+        type <record_type 0x7f9881283a80 line_sequence TI
+            size <integer_cst 0x7f9881759c30 constant 128>
+            unit size <integer_cst 0x7f9881759c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283a80 fields <field_decl 0x7f9881285428 prev_sequence> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f98812839d8> chain <type_decl 0x7f98812854c0 D.3992>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f7266439000 seq>
+    var <var_decl 0x7f98812a7000 seq>
     def_stmt seq_50 = malloc (16);
     version 50
-    ptr-info 0x7f7266418eb8>
+    ptr-info 0x7f9881286eb8>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_123 = VDEF <.MEM_81>
 tmp_29 = realloc (_28, _27);
@@ -8486,19 +8486,19 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f726642dab0
-    type <pointer_type 0x7f7266415d20
-        type <record_type 0x7f7266415c78 fileinfo DI
-            size <integer_cst 0x7f72668ebbe8 constant 64>
-            unit size <integer_cst 0x7f72668ebc00 constant 8>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415c78 fields <field_decl 0x7f72664175f0 name> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f7266415d20> chain <type_decl 0x7f7266417688 D.3995>>
-        public unsigned DI size <integer_cst 0x7f72668ebbe8 64> unit size <integer_cst 0x7f72668ebc00 8>
+ <ssa_name 0x7f988129bab0
+    type <pointer_type 0x7f9881283d20
+        type <record_type 0x7f9881283c78 fileinfo DI
+            size <integer_cst 0x7f9881759be8 constant 64>
+            unit size <integer_cst 0x7f9881759c00 constant 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283c78 fields <field_decl 0x7f98812855f0 name> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f9881283d20> chain <type_decl 0x7f9881285688 D.3995>>
+        public unsigned DI size <integer_cst 0x7f9881759be8 64> unit size <integer_cst 0x7f9881759c00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f726642a6c0 tmp>
+    var <var_decl 0x7f98812986c0 tmp>
     def_stmt tmp_29 = realloc (_28, _27);
     version 29
-    ptr-info 0x7f7266418d50>
+    ptr-info 0x7f9881286d50>
 # .MEM_123 = VDEF <.MEM_81>
 tmp_29 = realloc (_28, _27);
 
@@ -8561,19 +8561,19 @@ from main basic block 20
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f726642dab0
-    type <pointer_type 0x7f7266415d20
-        type <record_type 0x7f7266415c78 fileinfo DI
-            size <integer_cst 0x7f72668ebbe8 constant 64>
-            unit size <integer_cst 0x7f72668ebc00 constant 8>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415c78 fields <field_decl 0x7f72664175f0 name> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f7266415d20> chain <type_decl 0x7f7266417688 D.3995>>
-        public unsigned DI size <integer_cst 0x7f72668ebbe8 64> unit size <integer_cst 0x7f72668ebc00 8>
+ <ssa_name 0x7f988129bab0
+    type <pointer_type 0x7f9881283d20
+        type <record_type 0x7f9881283c78 fileinfo DI
+            size <integer_cst 0x7f9881759be8 constant 64>
+            unit size <integer_cst 0x7f9881759c00 constant 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283c78 fields <field_decl 0x7f98812855f0 name> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f9881283d20> chain <type_decl 0x7f9881285688 D.3995>>
+        public unsigned DI size <integer_cst 0x7f9881759be8 64> unit size <integer_cst 0x7f9881759c00 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f726642a6c0 tmp>
+    var <var_decl 0x7f98812986c0 tmp>
     def_stmt tmp_29 = realloc (_28, _27);
     version 29
-    ptr-info 0x7f7266418d50>
+    ptr-info 0x7f9881286d50>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_123 = VDEF <.MEM_81>
 tmp_29 = realloc (_28, _27);
@@ -8650,21 +8650,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f726643c9d8
-    type <pointer_type 0x7f72664159d8
-        type <record_type 0x7f7266415a80 line_sequence TI
-            size <integer_cst 0x7f72668ebc30 constant 128>
-            unit size <integer_cst 0x7f72668ebc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415a80 fields <field_decl 0x7f7266417428 prev_sequence> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f72664159d8> chain <type_decl 0x7f72664174c0 D.3992>>
+ <ssa_name 0x7f98812aa9d8
+    type <pointer_type 0x7f98812839d8
+        type <record_type 0x7f9881283a80 line_sequence TI
+            size <integer_cst 0x7f9881759c30 constant 128>
+            unit size <integer_cst 0x7f9881759c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283a80 fields <field_decl 0x7f9881285428 prev_sequence> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f98812839d8> chain <type_decl 0x7f98812854c0 D.3992>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f7266439990 sequences>
+    var <var_decl 0x7f98812a7990 sequences>
     def_stmt sequences_64 = malloc (_63);
     version 64
-    ptr-info 0x7f7266418f18>
+    ptr-info 0x7f9881286f18>
 # .MEM_95 = VDEF <.MEM_83>
 sequences_64 = malloc (_63);
 
@@ -9543,21 +9543,21 @@ sequences_64 = malloc (_63);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f726643c9d8
-    type <pointer_type 0x7f72664159d8
-        type <record_type 0x7f7266415a80 line_sequence TI
-            size <integer_cst 0x7f72668ebc30 constant 128>
-            unit size <integer_cst 0x7f72668ebc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415a80 fields <field_decl 0x7f7266417428 prev_sequence> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f72664159d8> chain <type_decl 0x7f72664174c0 D.3992>>
+ <ssa_name 0x7f98812aa9d8
+    type <pointer_type 0x7f98812839d8
+        type <record_type 0x7f9881283a80 line_sequence TI
+            size <integer_cst 0x7f9881759c30 constant 128>
+            unit size <integer_cst 0x7f9881759c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283a80 fields <field_decl 0x7f9881285428 prev_sequence> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f98812839d8> chain <type_decl 0x7f98812854c0 D.3992>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f7266439990 sequences>
+    var <var_decl 0x7f98812a7990 sequences>
     def_stmt sequences_64 = malloc (_63);
     version 64
-    ptr-info 0x7f7266418f18>
+    ptr-info 0x7f9881286f18>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -9569,21 +9569,21 @@ trace fucntion free:4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f726643c9d8
-    type <pointer_type 0x7f72664159d8
-        type <record_type 0x7f7266415a80 line_sequence TI
-            size <integer_cst 0x7f72668ebc30 constant 128>
-            unit size <integer_cst 0x7f72668ebc48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7266415a80 fields <field_decl 0x7f7266417428 prev_sequence> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f72664159d8> chain <type_decl 0x7f72664174c0 D.3992>>
+ <ssa_name 0x7f98812aa9d8
+    type <pointer_type 0x7f98812839d8
+        type <record_type 0x7f9881283a80 line_sequence TI
+            size <integer_cst 0x7f9881759c30 constant 128>
+            unit size <integer_cst 0x7f9881759c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f9881283a80 fields <field_decl 0x7f9881285428 prev_sequence> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f98812839d8> chain <type_decl 0x7f98812854c0 D.3992>>
         public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f7266439990 sequences>
+    var <var_decl 0x7f98812a7990 sequences>
     def_stmt sequences_64 = malloc (_63);
     version 64
-    ptr-info 0x7f7266418f18>
+    ptr-info 0x7f9881286f18>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_123 = VDEF <.MEM_81>
 tmp_29 = realloc (_28, _27);
@@ -11518,21 +11518,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f7266409960
-    type <pointer_type 0x7f726641e348
-        type <integer_type 0x7f726641e1f8 time_t DI
-            size <integer_cst 0x7f72668ebbe8 constant 64>
-            unit size <integer_cst 0x7f72668ebc00 constant 8>
-            align 64 symtab 0 alias set -1 canonical type 0x7f72668ff738 precision 64 min <integer_cst 0x7f72668ebe70 -9223372036854775808> max <integer_cst 0x7f72668ebe88 9223372036854775807> context <translation_unit_decl 0x7f72668f6168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
-            pointer_to_this <pointer_type 0x7f726641e348>>
-        unsigned DI size <integer_cst 0x7f72668ebbe8 64> unit size <integer_cst 0x7f72668ebc00 8>
+ <addr_expr 0x7f9881277960
+    type <pointer_type 0x7f988128c348
+        type <integer_type 0x7f988128c1f8 time_t DI
+            size <integer_cst 0x7f9881759be8 constant 64>
+            unit size <integer_cst 0x7f9881759c00 constant 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f988176d738 precision 64 min <integer_cst 0x7f9881759e70 -9223372036854775808> max <integer_cst 0x7f9881759e88 9223372036854775807> context <translation_unit_decl 0x7f9881764168 ./benchmarks/binutils/leak_4/binutils_leak_4.c>
+            pointer_to_this <pointer_type 0x7f988128c348>>
+        unsigned DI size <integer_cst 0x7f9881759be8 64> unit size <integer_cst 0x7f9881759c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f7267680bd0 t type <integer_type 0x7f726641e1f8 time_t>
-        addressable DI file ./benchmarks/binutils/leak_4/binutils_leak_4.c line 189 col 9 size <integer_cst 0x7f72668ebbe8 64> unit size <integer_cst 0x7f72668ebc00 8>
-        align 64 context <function_decl 0x7f7266416b00 main>
-        chain <function_decl 0x7f726641c700 time type <function_type 0x7f7266415738>
-            addressable public external QI file ./benchmarks/binutils/leak_4/binutils_leak_4.c line 190 col 8 align 8 context <function_decl 0x7f7266416b00 main> chain <var_decl 0x7f7267680b40 table>>>
+    arg 0 <var_decl 0x7f98824eebd0 t type <integer_type 0x7f988128c1f8 time_t>
+        addressable DI file ./benchmarks/binutils/leak_4/binutils_leak_4.c line 189 col 9 size <integer_cst 0x7f9881759be8 64> unit size <integer_cst 0x7f9881759c00 8>
+        align 64 context <function_decl 0x7f9881284b00 main>
+        chain <function_decl 0x7f988128a700 time type <function_type 0x7f9881283738>
+            addressable public external QI file ./benchmarks/binutils/leak_4/binutils_leak_4.c line 190 col 8 align 8 context <function_decl 0x7f9881284b00 main> chain <var_decl 0x7f98824eeb40 table>>>
     ./benchmarks/binutils/leak_4/binutils_leak_4.c:190:8 start: ./benchmarks/binutils/leak_4/binutils_leak_4.c:190:8 finish: ./benchmarks/binutils/leak_4/binutils_leak_4.c:190:8>
 
  ================== trace ptable================== 
@@ -11555,12 +11555,12 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f72668f3828
-    type <integer_type 0x7f72668ff690 unsigned int public unsigned SI
-        size <integer_cst 0x7f72668ebe28 constant 32>
-        unit size <integer_cst 0x7f72668ebe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f72668ff690 precision 32 min <integer_cst 0x7f72668ebe58 0> max <integer_cst 0x7f72668ebe10 4294967295>
-        pointer_to_this <pointer_type 0x7f726690b888>>
+ <ssa_name 0x7f9881761828
+    type <integer_type 0x7f988176d690 unsigned int public unsigned SI
+        size <integer_cst 0x7f9881759e28 constant 32>
+        unit size <integer_cst 0x7f9881759e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f988176d690 precision 32 min <integer_cst 0x7f9881759e58 0> max <integer_cst 0x7f9881759e10 4294967295>
+        pointer_to_this <pointer_type 0x7f9881779888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -11584,12 +11584,12 @@ srand (_2);
 this stmt is child function---srand-----
 
  ================== trace ================== 
- <ssa_name 0x7f72668f3828
-    type <integer_type 0x7f72668ff690 unsigned int public unsigned SI
-        size <integer_cst 0x7f72668ebe28 constant 32>
-        unit size <integer_cst 0x7f72668ebe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f72668ff690 precision 32 min <integer_cst 0x7f72668ebe58 0> max <integer_cst 0x7f72668ebe10 4294967295>
-        pointer_to_this <pointer_type 0x7f726690b888>>
+ <ssa_name 0x7f9881761828
+    type <integer_type 0x7f988176d690 unsigned int public unsigned SI
+        size <integer_cst 0x7f9881759e28 constant 32>
+        unit size <integer_cst 0x7f9881759e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f988176d690 precision 32 min <integer_cst 0x7f9881759e58 0> max <integer_cst 0x7f9881759e10 4294967295>
+        pointer_to_this <pointer_type 0x7f9881779888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -11604,12 +11604,12 @@ srand (_2);
 this stmt is child function---srand-----
 
  ================== trace ================== 
- <ssa_name 0x7f72668f3828
-    type <integer_type 0x7f72668ff690 unsigned int public unsigned SI
-        size <integer_cst 0x7f72668ebe28 constant 32>
-        unit size <integer_cst 0x7f72668ebe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f72668ff690 precision 32 min <integer_cst 0x7f72668ebe58 0> max <integer_cst 0x7f72668ebe10 4294967295>
-        pointer_to_this <pointer_type 0x7f726690b888>>
+ <ssa_name 0x7f9881761828
+    type <integer_type 0x7f988176d690 unsigned int public unsigned SI
+        size <integer_cst 0x7f9881759e28 constant 32>
+        unit size <integer_cst 0x7f9881759e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f988176d690 precision 32 min <integer_cst 0x7f9881759e58 0> max <integer_cst 0x7f9881759e10 4294967295>
+        pointer_to_this <pointer_type 0x7f9881779888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -11624,12 +11624,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f72668f3828
-    type <integer_type 0x7f72668ff690 unsigned int public unsigned SI
-        size <integer_cst 0x7f72668ebe28 constant 32>
-        unit size <integer_cst 0x7f72668ebe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f72668ff690 precision 32 min <integer_cst 0x7f72668ebe58 0> max <integer_cst 0x7f72668ebe10 4294967295>
-        pointer_to_this <pointer_type 0x7f726690b888>>
+ <ssa_name 0x7f9881761828
+    type <integer_type 0x7f988176d690 unsigned int public unsigned SI
+        size <integer_cst 0x7f9881759e28 constant 32>
+        unit size <integer_cst 0x7f9881759e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f988176d690 precision 32 min <integer_cst 0x7f9881759e58 0> max <integer_cst 0x7f9881759e10 4294967295>
+        pointer_to_this <pointer_type 0x7f9881779888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -11677,17 +11677,17 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f7266418ba0 type <integer_type 0x7f72668ff7e0 long unsigned int> constant 32>
+ <integer_cst 0x7f9881286ba0 type <integer_type 0x7f988176d7e0 long unsigned int> constant 32>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f726642d708
-    type <integer_type 0x7f72668ff5e8 int public SI
-        size <integer_cst 0x7f72668ebe28 constant 32>
-        unit size <integer_cst 0x7f72668ebe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f72668ff5e8 precision 32 min <integer_cst 0x7f72668ebde0 -2147483648> max <integer_cst 0x7f72668ebdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f7266906a80>>
+ <ssa_name 0x7f988129b708
+    type <integer_type 0x7f988176d5e8 int public SI
+        size <integer_cst 0x7f9881759e28 constant 32>
+        unit size <integer_cst 0x7f9881759e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f988176d5e8 precision 32 min <integer_cst 0x7f9881759de0 -2147483648> max <integer_cst 0x7f9881759df8 2147483647>
+        pointer_to_this <pointer_type 0x7f9881774a80>>
    
     def_stmt _16 = rand ();
     version 16>
@@ -11730,12 +11730,12 @@ _16 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7f726642d708
-    type <integer_type 0x7f72668ff5e8 int public SI
-        size <integer_cst 0x7f72668ebe28 constant 32>
-        unit size <integer_cst 0x7f72668ebe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f72668ff5e8 precision 32 min <integer_cst 0x7f72668ebde0 -2147483648> max <integer_cst 0x7f72668ebdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f7266906a80>>
+ <ssa_name 0x7f988129b708
+    type <integer_type 0x7f988176d5e8 int public SI
+        size <integer_cst 0x7f9881759e28 constant 32>
+        unit size <integer_cst 0x7f9881759e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f988176d5e8 precision 32 min <integer_cst 0x7f9881759de0 -2147483648> max <integer_cst 0x7f9881759df8 2147483647>
+        pointer_to_this <pointer_type 0x7f9881774a80>>
    
     def_stmt _16 = rand ();
     version 16>
@@ -11750,12 +11750,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f726642d708
-    type <integer_type 0x7f72668ff5e8 int public SI
-        size <integer_cst 0x7f72668ebe28 constant 32>
-        unit size <integer_cst 0x7f72668ebe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f72668ff5e8 precision 32 min <integer_cst 0x7f72668ebde0 -2147483648> max <integer_cst 0x7f72668ebdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f7266906a80>>
+ <ssa_name 0x7f988129b708
+    type <integer_type 0x7f988176d5e8 int public SI
+        size <integer_cst 0x7f9881759e28 constant 32>
+        unit size <integer_cst 0x7f9881759e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f988176d5e8 precision 32 min <integer_cst 0x7f9881759de0 -2147483648> max <integer_cst 0x7f9881759df8 2147483647>
+        pointer_to_this <pointer_type 0x7f9881774a80>>
    
     def_stmt _16 = rand ();
     version 16>
@@ -11803,24 +11803,24 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f7266418c90 type <integer_type 0x7f72668ff7e0 long unsigned int> constant 16>
+ <integer_cst 0x7f9881286c90 type <integer_type 0x7f988176d7e0 long unsigned int> constant 16>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f7266418c90 type <integer_type 0x7f72668ff7e0 long unsigned int> constant 16>
+ <integer_cst 0x7f9881286c90 type <integer_type 0x7f988176d7e0 long unsigned int> constant 16>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f72668f3750
-    type <integer_type 0x7f72668ff5e8 int public SI
-        size <integer_cst 0x7f72668ebe28 constant 32>
-        unit size <integer_cst 0x7f72668ebe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f72668ff5e8 precision 32 min <integer_cst 0x7f72668ebde0 -2147483648> max <integer_cst 0x7f72668ebdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f7266906a80>>
+ <ssa_name 0x7f9881761750
+    type <integer_type 0x7f988176d5e8 int public SI
+        size <integer_cst 0x7f9881759e28 constant 32>
+        unit size <integer_cst 0x7f9881759e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f988176d5e8 precision 32 min <integer_cst 0x7f9881759de0 -2147483648> max <integer_cst 0x7f9881759df8 2147483647>
+        pointer_to_this <pointer_type 0x7f9881774a80>>
    
     def_stmt _56 = rand ();
     version 56>
@@ -11920,12 +11920,12 @@ _56 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7f72668f3750
-    type <integer_type 0x7f72668ff5e8 int public SI
-        size <integer_cst 0x7f72668ebe28 constant 32>
-        unit size <integer_cst 0x7f72668ebe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f72668ff5e8 precision 32 min <integer_cst 0x7f72668ebde0 -2147483648> max <integer_cst 0x7f72668ebdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f7266906a80>>
+ <ssa_name 0x7f9881761750
+    type <integer_type 0x7f988176d5e8 int public SI
+        size <integer_cst 0x7f9881759e28 constant 32>
+        unit size <integer_cst 0x7f9881759e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f988176d5e8 precision 32 min <integer_cst 0x7f9881759de0 -2147483648> max <integer_cst 0x7f9881759df8 2147483647>
+        pointer_to_this <pointer_type 0x7f9881774a80>>
    
     def_stmt _56 = rand ();
     version 56>
@@ -11940,12 +11940,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f72668f3750
-    type <integer_type 0x7f72668ff5e8 int public SI
-        size <integer_cst 0x7f72668ebe28 constant 32>
-        unit size <integer_cst 0x7f72668ebe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f72668ff5e8 precision 32 min <integer_cst 0x7f72668ebde0 -2147483648> max <integer_cst 0x7f72668ebdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f7266906a80>>
+ <ssa_name 0x7f9881761750
+    type <integer_type 0x7f988176d5e8 int public SI
+        size <integer_cst 0x7f9881759e28 constant 32>
+        unit size <integer_cst 0x7f9881759e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f988176d5e8 precision 32 min <integer_cst 0x7f9881759de0 -2147483648> max <integer_cst 0x7f9881759df8 2147483647>
+        pointer_to_this <pointer_type 0x7f9881774a80>>
    
     def_stmt _56 = rand ();
     version 56>
@@ -12051,12 +12051,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f726643c990
-    type <integer_type 0x7f72668ff7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f72668ebbe8 constant 64>
-        unit size <integer_cst 0x7f72668ebc00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f72668ff738 precision 64 min <integer_cst 0x7f72668ebeb8 0> max <integer_cst 0x7f72668ed500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f726690b9d8>>
+ <ssa_name 0x7f98812aa990
+    type <integer_type 0x7f988176d7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f9881759be8 constant 64>
+        unit size <integer_cst 0x7f9881759c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f988176d738 precision 64 min <integer_cst 0x7f9881759eb8 0> max <integer_cst 0x7f988175b500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f98817799d8>>
    
     def_stmt _63 = (long unsigned int) amt_62;
     version 63>
@@ -12480,7 +12480,7 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 8 [0m
 [40;34m    used_stmt array stack totalsize of : 8008 [0m
-[40;34m    collect time: : 0.000854 s [0m
-[40;34m    algorithm time: 0.031177 s [0m
+[40;34m    collect time: : 0.000864 s [0m
+[40;34m    algorithm time: 0.031552 s [0m
 [40;34m    gimple stmt count : : 116 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

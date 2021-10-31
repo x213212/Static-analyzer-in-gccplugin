@@ -184,20 +184,20 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f10fd590c18
-    type <pointer_type 0x7f10fd5a30a8
-        type <void_type 0x7f10fd59cf18 void VOID
+ <ssa_name 0x7fca09a11c18
+    type <pointer_type 0x7fca09a240a8
+        type <void_type 0x7fca09a1df18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f10fd5a30a8>>
+            pointer_to_this <pointer_type 0x7fca09a240a8>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f10fd5a8bd0>>
-    var <var_decl 0x7f10fe31dc60 newptr>
+        pointer_to_this <pointer_type 0x7fca09a29bd0>>
+    var <var_decl 0x7fca0a79ec60 newptr>
     def_stmt newptr_11 = realloc (oldptr_9(D), newsize_7);
     version 11
-    ptr-info 0x7f10fd0e8a80>
+    ptr-info 0x7fca09569a80>
 # .MEM_20 = VDEF <.MEM_19(D)>
 newptr_11 = realloc (oldptr_9(D), newsize_7);
 
@@ -500,20 +500,20 @@ from xrealloc basic block 4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f10fd590c18
-    type <pointer_type 0x7f10fd5a30a8
-        type <void_type 0x7f10fd59cf18 void VOID
+ <ssa_name 0x7fca09a11c18
+    type <pointer_type 0x7fca09a240a8
+        type <void_type 0x7fca09a1df18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f10fd5a30a8>>
+            pointer_to_this <pointer_type 0x7fca09a240a8>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f10fd5a8bd0>>
-    var <var_decl 0x7f10fe31dc60 newptr>
+        pointer_to_this <pointer_type 0x7fca09a29bd0>>
+    var <var_decl 0x7fca0a79ec60 newptr>
     def_stmt newptr_11 = realloc (oldptr_9(D), newsize_7);
     version 11
-    ptr-info 0x7f10fd0e8a80>
+    ptr-info 0x7fca09569a80>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_20 = VDEF <.MEM_19(D)>
 newptr_11 = realloc (oldptr_9(D), newsize_7);
@@ -599,14 +599,14 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f10fd588f90 type <integer_type 0x7f10fd59c5e8 int> constant 1>
+ <integer_cst 0x7fca09a09f90 type <integer_type 0x7fca09a1d5e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f10fd588f90 type <integer_type 0x7f10fd59c5e8 int> constant 1>
+ <integer_cst 0x7fca09a09f90 type <integer_type 0x7fca09a1d5e8 int> constant 1>
 [40;33m =======POP node_fun stack:xrealloc========= [0m
 [40;44m =======node_fun:main========= [0m
 [40;44m fucntion collect path  [0m
@@ -630,20 +630,20 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f10fd590c18
-    type <pointer_type 0x7f10fd5a30a8
-        type <void_type 0x7f10fd59cf18 void VOID
+ <ssa_name 0x7fca09a11c18
+    type <pointer_type 0x7fca09a240a8
+        type <void_type 0x7fca09a1df18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f10fd5a30a8>>
+            pointer_to_this <pointer_type 0x7fca09a240a8>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f10fd5a8bd0>>
-    var <var_decl 0x7f10fe31dc60 newptr>
+        pointer_to_this <pointer_type 0x7fca09a29bd0>>
+    var <var_decl 0x7fca0a79ec60 newptr>
     def_stmt newptr_11 = realloc (oldptr_9(D), newsize_7);
     version 11
-    ptr-info 0x7f10fd0e8a80>
+    ptr-info 0x7fca09569a80>
 # .MEM_20 = VDEF <.MEM_19(D)>
 newptr_11 = realloc (oldptr_9(D), newsize_7);
 
@@ -665,7 +665,6 @@ newptr_11 = realloc (oldptr_9(D), newsize_7);
 bb index := 6
 # VUSE <.MEM_20>
 return newptr_11;
-In function ‘main’:
 ./benchmarks/tmux/leak_7/tmux_leak_7.c:116:9: warning: use location
   return (newptr);
          ^
@@ -739,6 +738,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 53
 
 ======================================================================
 newptr_11 = realloc (oldptr_9(D), newsize_7);
+In function ‘main’:
 ./benchmarks/tmux/leak_7/tmux_leak_7.c:113:5: warning: use location
   if ((newptr = realloc(oldptr, newsize)) == NULL)
      ^
@@ -758,6 +758,7 @@ _12 = newptr_11;
 bb index := 8
 # VUSE <.MEM_20>
 return newptr_11;
+In function ‘xrealloc’:
 ./benchmarks/tmux/leak_7/tmux_leak_7.c:116:9: warning: use location
   return (newptr);
          ^
@@ -778,6 +779,7 @@ gimple stmt in succ := 8 ,possiable got to succ := 53
 
 ======================================================================
 _12 = newptr_11;
+In function ‘main’:
 ./benchmarks/tmux/leak_7/tmux_leak_7.c:116:9: warning: use location
 
 ======================================================================
@@ -786,6 +788,7 @@ if (newptr_11 == 0B)
 bb index := 6
 # VUSE <.MEM_20>
 return newptr_11;
+In function ‘xrealloc’:
 ./benchmarks/tmux/leak_7/tmux_leak_7.c:116:9: warning: use location
 beacuse in succ := 8 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 8
@@ -852,6 +855,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 53
 
 ======================================================================
 if (newptr_11 == 0B)
+In function ‘main’:
 ./benchmarks/tmux/leak_7/tmux_leak_7.c:113:5: warning: use location
   if ((newptr = realloc(oldptr, newsize)) == NULL)
      ^
@@ -877,6 +881,7 @@ if (newsize_7 == 0)
 bb index := 2
 # VUSE <.MEM_20>
 return newptr_11;
+In function ‘xrealloc’:
 ./benchmarks/tmux/leak_7/tmux_leak_7.c:116:9: warning: use location
   return (newptr);
          ^
@@ -921,6 +926,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 53
 
 ======================================================================
 if (newsize_7 == 0)
+In function ‘main’:
 ./benchmarks/tmux/leak_7/tmux_leak_7.c:109:5: warning: use location
   if (newsize == 0)
      ^
@@ -946,20 +952,20 @@ from xrealloc basic block 4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f10fd590c18
-    type <pointer_type 0x7f10fd5a30a8
-        type <void_type 0x7f10fd59cf18 void VOID
+ <ssa_name 0x7fca09a11c18
+    type <pointer_type 0x7fca09a240a8
+        type <void_type 0x7fca09a1df18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f10fd5a30a8>>
+            pointer_to_this <pointer_type 0x7fca09a240a8>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f10fd5a8bd0>>
-    var <var_decl 0x7f10fe31dc60 newptr>
+        pointer_to_this <pointer_type 0x7fca09a29bd0>>
+    var <var_decl 0x7fca0a79ec60 newptr>
     def_stmt newptr_11 = realloc (oldptr_9(D), newsize_7);
     version 11
-    ptr-info 0x7f10fd0e8a80>
+    ptr-info 0x7fca09569a80>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_20 = VDEF <.MEM_19(D)>
 newptr_11 = realloc (oldptr_9(D), newsize_7);
@@ -1045,14 +1051,14 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f10fd588f90 type <integer_type 0x7f10fd59c5e8 int> constant 1>
+ <integer_cst 0x7fca09a09f90 type <integer_type 0x7fca09a1d5e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f10fd588f90 type <integer_type 0x7f10fd59c5e8 int> constant 1>
+ <integer_cst 0x7fca09a09f90 type <integer_type 0x7fca09a1d5e8 int> constant 1>
 [40;33m =======POP node_fun stack:xrealloc========= [0m
 [40;42m =======pre add _ fucntion:exit========= [0m
 [40;33m =======POP node_fun stack:exit========= [0m
@@ -1072,22 +1078,22 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f10fd10b948
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958c948
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _83 = strdup ("");
     version 83
-    ptr-info 0x7f10fd0e8f90>
+    ptr-info 0x7fca09569f90>
 # .MEM_223 = VDEF <.MEM_222>
 _83 = strdup ("");
 
@@ -1113,22 +1119,22 @@ _83 = strdup ("");
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10b948
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958c948
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _83 = strdup ("");
     version 83
-    ptr-info 0x7f10fd0e8f90>
+    ptr-info 0x7fca09569f90>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -1333,22 +1339,22 @@ _87 = fnmatch (searchstr_15(D), _86, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10b948
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958c948
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _83 = strdup ("");
     version 83
-    ptr-info 0x7f10fd0e8f90>
+    ptr-info 0x7fca09569f90>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -1389,22 +1395,22 @@ _82 = fnmatch (searchstr_15(D), _81, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10b948
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958c948
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _83 = strdup ("");
     version 83
-    ptr-info 0x7f10fd0e8f90>
+    ptr-info 0x7fca09569f90>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -2151,22 +2157,22 @@ find_data.pane_id = _93;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f10fd10b948
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958c948
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _83 = strdup ("");
     version 83
-    ptr-info 0x7f10fd0e8f90>
+    ptr-info 0x7fca09569f90>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_215 = VDEF <.MEM_177>
 free (_18);
@@ -4109,22 +4115,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f10fd10baf8
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958caf8
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _89 = strdup (_88);
     version 89
-    ptr-info 0x7f10fd0e8570>
+    ptr-info 0x7fca09569570>
 # .MEM_226 = VDEF <.MEM_225>
 _89 = strdup (_88);
 
@@ -4150,22 +4156,22 @@ _89 = strdup (_88);
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10baf8
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958caf8
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _89 = strdup (_88);
     version 89
-    ptr-info 0x7f10fd0e8570>
+    ptr-info 0x7fca09569570>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -4363,22 +4369,22 @@ _87 = fnmatch (searchstr_15(D), _86, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10baf8
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958caf8
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _89 = strdup (_88);
     version 89
-    ptr-info 0x7f10fd0e8570>
+    ptr-info 0x7fca09569570>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -4419,22 +4425,22 @@ _82 = fnmatch (searchstr_15(D), _81, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10baf8
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958caf8
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _89 = strdup (_88);
     version 89
-    ptr-info 0x7f10fd0e8570>
+    ptr-info 0x7fca09569570>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -5181,22 +5187,22 @@ find_data.pane_id = _93;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f10fd10baf8
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958caf8
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _89 = strdup (_88);
     version 89
-    ptr-info 0x7f10fd0e8570>
+    ptr-info 0x7fca09569570>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_215 = VDEF <.MEM_177>
 free (_18);
@@ -7139,21 +7145,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f10fd590798
-    type <pointer_type 0x7f10fd0d2e70
-        type <record_type 0x7f10fd0d2dc8 window_choose_data BLK
-            size <integer_cst 0x7f10fd0b5948 constant 640>
-            unit size <integer_cst 0x7f10fd0b5438 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d2dc8 fields <field_decl 0x7f10fd0d88e8 start_client> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d2e70> chain <type_decl 0x7f10fd0d8980 D.4495>>
+ <ssa_name 0x7fca09a11798
+    type <pointer_type 0x7fca09553e70
+        type <record_type 0x7fca09553dc8 window_choose_data BLK
+            size <integer_cst 0x7fca09536948 constant 640>
+            unit size <integer_cst 0x7fca09536438 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca09553dc8 fields <field_decl 0x7fca095598e8 start_client> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09553e70> chain <type_decl 0x7fca09559980 D.4495>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f10fd11a360 wcd>
+    var <var_decl 0x7fca0959b360 wcd>
     def_stmt wcd_153 = malloc (80);
     version 153
-    ptr-info 0x7f10fd120168>
+    ptr-info 0x7fca095a1168>
 # .MEM_178 = VDEF <.MEM_170>
 wcd_153 = malloc (80);
 
@@ -7355,21 +7361,21 @@ wcd_153 = malloc (80);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd590798
-    type <pointer_type 0x7f10fd0d2e70
-        type <record_type 0x7f10fd0d2dc8 window_choose_data BLK
-            size <integer_cst 0x7f10fd0b5948 constant 640>
-            unit size <integer_cst 0x7f10fd0b5438 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d2dc8 fields <field_decl 0x7f10fd0d88e8 start_client> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d2e70> chain <type_decl 0x7f10fd0d8980 D.4495>>
+ <ssa_name 0x7fca09a11798
+    type <pointer_type 0x7fca09553e70
+        type <record_type 0x7fca09553dc8 window_choose_data BLK
+            size <integer_cst 0x7fca09536948 constant 640>
+            unit size <integer_cst 0x7fca09536438 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca09553dc8 fields <field_decl 0x7fca095598e8 start_client> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09553e70> chain <type_decl 0x7fca09559980 D.4495>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f10fd11a360 wcd>
+    var <var_decl 0x7fca0959b360 wcd>
     def_stmt wcd_153 = malloc (80);
     version 153
-    ptr-info 0x7f10fd120168>
+    ptr-info 0x7fca095a1168>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -7381,21 +7387,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f10fd590798
-    type <pointer_type 0x7f10fd0d2e70
-        type <record_type 0x7f10fd0d2dc8 window_choose_data BLK
-            size <integer_cst 0x7f10fd0b5948 constant 640>
-            unit size <integer_cst 0x7f10fd0b5438 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d2dc8 fields <field_decl 0x7f10fd0d88e8 start_client> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d2e70> chain <type_decl 0x7f10fd0d8980 D.4495>>
+ <ssa_name 0x7fca09a11798
+    type <pointer_type 0x7fca09553e70
+        type <record_type 0x7fca09553dc8 window_choose_data BLK
+            size <integer_cst 0x7fca09536948 constant 640>
+            unit size <integer_cst 0x7fca09536438 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca09553dc8 fields <field_decl 0x7fca095598e8 start_client> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09553e70> chain <type_decl 0x7fca09559980 D.4495>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f10fd11a360 wcd>
+    var <var_decl 0x7fca0959b360 wcd>
     def_stmt wcd_153 = malloc (80);
     version 153
-    ptr-info 0x7f10fd120168>
+    ptr-info 0x7fca095a1168>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_215 = VDEF <.MEM_177>
 free (_18);
@@ -7798,20 +7804,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f10fd11c360
-    type <pointer_type 0x7f10fd5a30a8
-        type <void_type 0x7f10fd59cf18 void VOID
+ <ssa_name 0x7fca0959d360
+    type <pointer_type 0x7fca09a240a8
+        type <void_type 0x7fca09a1df18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f10fd5a30a8>>
+            pointer_to_this <pointer_type 0x7fca09a240a8>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f10fd5a8bd0>>
+        pointer_to_this <pointer_type 0x7fca09a29bd0>>
    
     def_stmt _154 = malloc (8);
     version 154
-    ptr-info 0x7f10fd120180>
+    ptr-info 0x7fca095a1180>
 # .MEM_180 = VDEF <.MEM_179>
 _154 = malloc (8);
 
@@ -8013,20 +8019,20 @@ _154 = malloc (8);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd11c360
-    type <pointer_type 0x7f10fd5a30a8
-        type <void_type 0x7f10fd59cf18 void VOID
+ <ssa_name 0x7fca0959d360
+    type <pointer_type 0x7fca09a240a8
+        type <void_type 0x7fca09a1df18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f10fd5a30a8>>
+            pointer_to_this <pointer_type 0x7fca09a240a8>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f10fd5a8bd0>>
+        pointer_to_this <pointer_type 0x7fca09a29bd0>>
    
     def_stmt _154 = malloc (8);
     version 154
-    ptr-info 0x7f10fd120180>
+    ptr-info 0x7fca095a1180>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -8038,20 +8044,20 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f10fd11c360
-    type <pointer_type 0x7f10fd5a30a8
-        type <void_type 0x7f10fd59cf18 void VOID
+ <ssa_name 0x7fca0959d360
+    type <pointer_type 0x7fca09a240a8
+        type <void_type 0x7fca09a1df18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f10fd5a30a8>>
+            pointer_to_this <pointer_type 0x7fca09a240a8>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f10fd5a8bd0>>
+        pointer_to_this <pointer_type 0x7fca09a29bd0>>
    
     def_stmt _154 = malloc (8);
     version 154
-    ptr-info 0x7f10fd120180>
+    ptr-info 0x7fca095a1180>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_215 = VDEF <.MEM_177>
 free (_18);
@@ -8454,24 +8460,24 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f10fd0f8660
-    type <pointer_type 0x7f10fd0d91f8
-        type <record_type 0x7f10fd0d9150 cmd_find_window_data BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9150 fields <field_decl 0x7f10fd0d8b48 wl> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d91f8> chain <type_decl 0x7f10fd0d8be0 D.4502>>
+ <addr_expr 0x7fca09579660
+    type <pointer_type 0x7fca0955a1f8
+        type <record_type 0x7fca0955a150 cmd_find_window_data BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955a150 fields <field_decl 0x7fca09559b48 wl> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955a1f8> chain <type_decl 0x7fca09559be0 D.4502>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f10fd108510 find_data type <record_type 0x7f10fd0d9150 cmd_find_window_data>
-        addressable used BLK file ./benchmarks/tmux/leak_7/tmux_leak_7.c line 166 col 31 size <integer_cst 0x7f10fd5a40a8 192> unit size <integer_cst 0x7f10fd5a4078 24>
-        align 128 context <function_decl 0x7f10fd0b3b00 main> abstract_origin <var_decl 0x7f10fd0f7f30 find_data>
-        chain <var_decl 0x7f10fd1085a0 wp type <pointer_type 0x7f10fd0cd0a8>
-            used unsigned DI file ./benchmarks/tmux/leak_7/tmux_leak_7.c line 167 col 23 size <integer_cst 0x7f10fd588be8 64> unit size <integer_cst 0x7f10fd588c00 8>
-            align 64 context <function_decl 0x7f10fd0b3b00 main> abstract_origin <var_decl 0x7f10fd0f7ea0 wp> chain <var_decl 0x7f10fd108630 i>>>
+    arg 0 <var_decl 0x7fca09589510 find_data type <record_type 0x7fca0955a150 cmd_find_window_data>
+        addressable used BLK file ./benchmarks/tmux/leak_7/tmux_leak_7.c line 166 col 31 size <integer_cst 0x7fca09a250a8 192> unit size <integer_cst 0x7fca09a25078 24>
+        align 128 context <function_decl 0x7fca09534b00 main> abstract_origin <var_decl 0x7fca09578f30 find_data>
+        chain <var_decl 0x7fca095895a0 wp type <pointer_type 0x7fca0954e0a8>
+            used unsigned DI file ./benchmarks/tmux/leak_7/tmux_leak_7.c line 167 col 23 size <integer_cst 0x7fca09a09be8 64> unit size <integer_cst 0x7fca09a09c00 8>
+            align 64 context <function_decl 0x7fca09534b00 main> abstract_origin <var_decl 0x7fca09578ea0 wp> chain <var_decl 0x7fca09589630 i>>>
     ./benchmarks/tmux/leak_7/tmux_leak_7.c:171:9 start: ./benchmarks/tmux/leak_7/tmux_leak_7.c:171:9 finish: ./benchmarks/tmux/leak_7/tmux_leak_7.c:171:9>
 
  ================== trace ptable================== 
@@ -8494,22 +8500,22 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f10fd0f6708
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca09577708
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
-    var <var_decl 0x7f10fd0f71b0 searchstr>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
+    var <var_decl 0x7fca095781b0 searchstr>
     def_stmt GIMPLE_NOP
     version 15
-    ptr-info 0x7f10fd0e8b58>
+    ptr-info 0x7fca09569b58>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -8533,22 +8539,22 @@ _87 = fnmatch (searchstr_15(D), _86, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd0f6708
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca09577708
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
-    var <var_decl 0x7f10fd0f71b0 searchstr>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
+    var <var_decl 0x7fca095781b0 searchstr>
     def_stmt GIMPLE_NOP
     version 15
-    ptr-info 0x7f10fd0e8b58>
+    ptr-info 0x7fca09569b58>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -8589,22 +8595,22 @@ _82 = fnmatch (searchstr_15(D), _81, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd0f6708
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca09577708
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
-    var <var_decl 0x7f10fd0f71b0 searchstr>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
+    var <var_decl 0x7fca095781b0 searchstr>
     def_stmt GIMPLE_NOP
     version 15
-    ptr-info 0x7f10fd0e8b58>
+    ptr-info 0x7fca09569b58>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -8641,22 +8647,22 @@ free (searchstr_15(D));
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f10fd0f6708
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca09577708
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
-    var <var_decl 0x7f10fd0f71b0 searchstr>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
+    var <var_decl 0x7fca095781b0 searchstr>
     def_stmt GIMPLE_NOP
     version 15
-    ptr-info 0x7f10fd0e8b58>
+    ptr-info 0x7fca09569b58>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_177 = VDEF <.MEM_168>
 free (searchstr_15(D));
@@ -8680,20 +8686,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f10fd0f8720
-    type <pointer_type 0x7f10fd0dd690
-        type <array_type 0x7f10fd0dd5e8 type <integer_type 0x7f10fd0b2a80 char>
+ <addr_expr 0x7fca09579720
+    type <pointer_type 0x7fca0955e690
+        type <array_type 0x7fca0955e5e8 type <integer_type 0x7fca09533a80 char>
             QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f10fd0dd540>
-            pointer_to_this <pointer_type 0x7f10fd0dd690>>
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fca0955e540>
+            pointer_to_this <pointer_type 0x7fca0955e690>>
         unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7f10fd0e87e0 type <array_type 0x7f10fd0dd5e8>
+    arg 0 <string_cst 0x7fca095697e0 type <array_type 0x7fca0955e5e8>
         readonly constant static "\000">
     ./benchmarks/tmux/leak_7/tmux_leak_7.c:179:25 start: ./benchmarks/tmux/leak_7/tmux_leak_7.c:179:25 finish: ./benchmarks/tmux/leak_7/tmux_leak_7.c:179:25>
 
@@ -8717,22 +8723,22 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f10fd10bab0
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958cab0
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _88 = wp_85->base.title;
     version 88
-    ptr-info 0x7f10fd0e8fd8>
+    ptr-info 0x7fca09569fd8>
 # VUSE <.MEM_225>
 _88 = wp_85->base.title;
 
@@ -8757,22 +8763,22 @@ _89 = strdup (_88);
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10bab0
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958cab0
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _88 = wp_85->base.title;
     version 88
-    ptr-info 0x7f10fd0e8fd8>
+    ptr-info 0x7fca09569fd8>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -8970,22 +8976,22 @@ _87 = fnmatch (searchstr_15(D), _86, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10bab0
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958cab0
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _88 = wp_85->base.title;
     version 88
-    ptr-info 0x7f10fd0e8fd8>
+    ptr-info 0x7fca09569fd8>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -9026,22 +9032,22 @@ _82 = fnmatch (searchstr_15(D), _81, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10bab0
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958cab0
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _88 = wp_85->base.title;
     version 88
-    ptr-info 0x7f10fd0e8fd8>
+    ptr-info 0x7fca09569fd8>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -9788,22 +9794,22 @@ find_data.pane_id = _93;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f10fd10bab0
-    type <pointer_type 0x7f10fd0b2b28
-        type <integer_type 0x7f10fd0b2a80 char public string-flag QI
-            size <integer_cst 0x7f10fd588cd8 constant 8>
-            unit size <integer_cst 0x7f10fd588cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f10fd59c3f0 precision 8 min <integer_cst 0x7f10fd0b51b0 -128> max <integer_cst 0x7f10fd0b5198 127> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0b2b28>>
+ <ssa_name 0x7fca0958cab0
+    type <pointer_type 0x7fca09533b28
+        type <integer_type 0x7fca09533a80 char public string-flag QI
+            size <integer_cst 0x7fca09a09cd8 constant 8>
+            unit size <integer_cst 0x7fca09a09cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fca09a1d3f0 precision 8 min <integer_cst 0x7fca095361b0 -128> max <integer_cst 0x7fca09536198 127> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca09533b28>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-        pointer_to_this <pointer_type 0x7f10fd0b2bd0>>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+        pointer_to_this <pointer_type 0x7fca09533bd0>>
    
     def_stmt _88 = wp_85->base.title;
     version 88
-    ptr-info 0x7f10fd0e8fd8>
+    ptr-info 0x7fca09569fd8>
 
  ================== Start Use after free Check ================== 
 
@@ -10705,21 +10711,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f10fd10bea0
-    type <pointer_type 0x7f10fd0d91f8
-        type <record_type 0x7f10fd0d9150 cmd_find_window_data BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9150 fields <field_decl 0x7f10fd0d8b48 wl> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d91f8> chain <type_decl 0x7f10fd0d8be0 D.4502>>
+ <ssa_name 0x7fca0958cea0
+    type <pointer_type 0x7fca0955a1f8
+        type <record_type 0x7fca0955a150 cmd_find_window_data BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955a150 fields <field_decl 0x7fca09559b48 wl> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955a1f8> chain <type_decl 0x7fca09559be0 D.4502>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _102 = find_list.list;
     version 102
-    ptr-info 0x7f10fd120030>
+    ptr-info 0x7fca095a1030>
 # VUSE <.MEM_230>
 _102 = find_list.list;
 
@@ -10744,21 +10750,21 @@ _103 = xrealloc (_102, 1, _101);
 this stmt is child function---xrealloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10bea0
-    type <pointer_type 0x7f10fd0d91f8
-        type <record_type 0x7f10fd0d9150 cmd_find_window_data BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9150 fields <field_decl 0x7f10fd0d8b48 wl> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d91f8> chain <type_decl 0x7f10fd0d8be0 D.4502>>
+ <ssa_name 0x7fca0958cea0
+    type <pointer_type 0x7fca0955a1f8
+        type <record_type 0x7fca0955a150 cmd_find_window_data BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955a150 fields <field_decl 0x7fca09559b48 wl> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955a1f8> chain <type_decl 0x7fca09559be0 D.4502>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _102 = find_list.list;
     version 102
-    ptr-info 0x7f10fd120030>
+    ptr-info 0x7fca095a1030>
 trace fucntion name:xrealloc 
 [40;44m =======trace_function_path xrealloc  function_call count: 3 level :0========  [0m
 # .MEM_20 = VDEF <.MEM_19(D)>
@@ -10929,21 +10935,21 @@ _106 = xrealloc (_105, 2, _104);
 this stmt is child function---xrealloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10bea0
-    type <pointer_type 0x7f10fd0d91f8
-        type <record_type 0x7f10fd0d9150 cmd_find_window_data BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9150 fields <field_decl 0x7f10fd0d8b48 wl> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d91f8> chain <type_decl 0x7f10fd0d8be0 D.4502>>
+ <ssa_name 0x7fca0958cea0
+    type <pointer_type 0x7fca0955a1f8
+        type <record_type 0x7fca0955a150 cmd_find_window_data BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955a150 fields <field_decl 0x7fca09559b48 wl> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955a1f8> chain <type_decl 0x7fca09559be0 D.4502>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _102 = find_list.list;
     version 102
-    ptr-info 0x7f10fd120030>
+    ptr-info 0x7fca095a1030>
 trace fucntion name:xrealloc 
 [40;44m =======trace_function_path xrealloc  function_call count: 3 level :0========  [0m
 # .MEM_20 = VDEF <.MEM_19(D)>
@@ -11268,21 +11274,21 @@ _87 = fnmatch (searchstr_15(D), _86, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10bea0
-    type <pointer_type 0x7f10fd0d91f8
-        type <record_type 0x7f10fd0d9150 cmd_find_window_data BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9150 fields <field_decl 0x7f10fd0d8b48 wl> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d91f8> chain <type_decl 0x7f10fd0d8be0 D.4502>>
+ <ssa_name 0x7fca0958cea0
+    type <pointer_type 0x7fca0955a1f8
+        type <record_type 0x7fca0955a150 cmd_find_window_data BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955a150 fields <field_decl 0x7fca09559b48 wl> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955a1f8> chain <type_decl 0x7fca09559be0 D.4502>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _102 = find_list.list;
     version 102
-    ptr-info 0x7f10fd120030>
+    ptr-info 0x7fca095a1030>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -11323,21 +11329,21 @@ _82 = fnmatch (searchstr_15(D), _81, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10bea0
-    type <pointer_type 0x7f10fd0d91f8
-        type <record_type 0x7f10fd0d9150 cmd_find_window_data BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9150 fields <field_decl 0x7f10fd0d8b48 wl> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d91f8> chain <type_decl 0x7f10fd0d8be0 D.4502>>
+ <ssa_name 0x7fca0958cea0
+    type <pointer_type 0x7fca0955a1f8
+        type <record_type 0x7fca0955a150 cmd_find_window_data BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955a150 fields <field_decl 0x7fca09559b48 wl> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955a1f8> chain <type_decl 0x7fca09559be0 D.4502>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _102 = find_list.list;
     version 102
-    ptr-info 0x7f10fd120030>
+    ptr-info 0x7fca095a1030>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -12272,21 +12278,21 @@ free (_47);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f10fd10bea0
-    type <pointer_type 0x7f10fd0d91f8
-        type <record_type 0x7f10fd0d9150 cmd_find_window_data BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9150 fields <field_decl 0x7f10fd0d8b48 wl> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d91f8> chain <type_decl 0x7f10fd0d8be0 D.4502>>
+ <ssa_name 0x7fca0958cea0
+    type <pointer_type 0x7fca0955a1f8
+        type <record_type 0x7fca0955a150 cmd_find_window_data BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955a150 fields <field_decl 0x7fca09559b48 wl> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955a1f8> chain <type_decl 0x7fca09559be0 D.4502>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _102 = find_list.list;
     version 102
-    ptr-info 0x7f10fd120030>
+    ptr-info 0x7fca095a1030>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_215 = VDEF <.MEM_177>
 free (_18);
@@ -18900,21 +18906,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f10fd10bf78
-    type <pointer_type 0x7f10fd0d91f8
-        type <record_type 0x7f10fd0d9150 cmd_find_window_data BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9150 fields <field_decl 0x7f10fd0d8b48 wl> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d91f8> chain <type_decl 0x7f10fd0d8be0 D.4502>>
+ <ssa_name 0x7fca0958cf78
+    type <pointer_type 0x7fca0955a1f8
+        type <record_type 0x7fca0955a150 cmd_find_window_data BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955a150 fields <field_decl 0x7fca09559b48 wl> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955a1f8> chain <type_decl 0x7fca09559be0 D.4502>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _105 = find_list.list;
     version 105
-    ptr-info 0x7f10fd120060>
+    ptr-info 0x7fca095a1060>
 # VUSE <.MEM_166>
 _105 = find_list.list;
 
@@ -18939,21 +18945,21 @@ _106 = xrealloc (_105, 2, _104);
 this stmt is child function---xrealloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10bf78
-    type <pointer_type 0x7f10fd0d91f8
-        type <record_type 0x7f10fd0d9150 cmd_find_window_data BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9150 fields <field_decl 0x7f10fd0d8b48 wl> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d91f8> chain <type_decl 0x7f10fd0d8be0 D.4502>>
+ <ssa_name 0x7fca0958cf78
+    type <pointer_type 0x7fca0955a1f8
+        type <record_type 0x7fca0955a150 cmd_find_window_data BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955a150 fields <field_decl 0x7fca09559b48 wl> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955a1f8> chain <type_decl 0x7fca09559be0 D.4502>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _105 = find_list.list;
     version 105
-    ptr-info 0x7f10fd120060>
+    ptr-info 0x7fca095a1060>
 trace fucntion name:xrealloc 
 [40;44m =======trace_function_path xrealloc  function_call count: 3 level :0========  [0m
 # .MEM_20 = VDEF <.MEM_19(D)>
@@ -19110,21 +19116,21 @@ _103 = xrealloc (_102, 1, _101);
 this stmt is child function---xrealloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10bf78
-    type <pointer_type 0x7f10fd0d91f8
-        type <record_type 0x7f10fd0d9150 cmd_find_window_data BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9150 fields <field_decl 0x7f10fd0d8b48 wl> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d91f8> chain <type_decl 0x7f10fd0d8be0 D.4502>>
+ <ssa_name 0x7fca0958cf78
+    type <pointer_type 0x7fca0955a1f8
+        type <record_type 0x7fca0955a150 cmd_find_window_data BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955a150 fields <field_decl 0x7fca09559b48 wl> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955a1f8> chain <type_decl 0x7fca09559be0 D.4502>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _105 = find_list.list;
     version 105
-    ptr-info 0x7f10fd120060>
+    ptr-info 0x7fca095a1060>
 trace fucntion name:xrealloc 
 [40;44m =======trace_function_path xrealloc  function_call count: 3 level :0========  [0m
 # .MEM_20 = VDEF <.MEM_19(D)>
@@ -19463,21 +19469,21 @@ _87 = fnmatch (searchstr_15(D), _86, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10bf78
-    type <pointer_type 0x7f10fd0d91f8
-        type <record_type 0x7f10fd0d9150 cmd_find_window_data BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9150 fields <field_decl 0x7f10fd0d8b48 wl> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d91f8> chain <type_decl 0x7f10fd0d8be0 D.4502>>
+ <ssa_name 0x7fca0958cf78
+    type <pointer_type 0x7fca0955a1f8
+        type <record_type 0x7fca0955a150 cmd_find_window_data BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955a150 fields <field_decl 0x7fca09559b48 wl> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955a1f8> chain <type_decl 0x7fca09559be0 D.4502>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _105 = find_list.list;
     version 105
-    ptr-info 0x7f10fd120060>
+    ptr-info 0x7fca095a1060>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -19518,21 +19524,21 @@ _82 = fnmatch (searchstr_15(D), _81, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd10bf78
-    type <pointer_type 0x7f10fd0d91f8
-        type <record_type 0x7f10fd0d9150 cmd_find_window_data BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9150 fields <field_decl 0x7f10fd0d8b48 wl> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d91f8> chain <type_decl 0x7f10fd0d8be0 D.4502>>
+ <ssa_name 0x7fca0958cf78
+    type <pointer_type 0x7fca0955a1f8
+        type <record_type 0x7fca0955a150 cmd_find_window_data BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955a150 fields <field_decl 0x7fca09559b48 wl> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955a1f8> chain <type_decl 0x7fca09559be0 D.4502>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _105 = find_list.list;
     version 105
-    ptr-info 0x7f10fd120060>
+    ptr-info 0x7fca095a1060>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -20467,21 +20473,21 @@ free (_47);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f10fd10bf78
-    type <pointer_type 0x7f10fd0d91f8
-        type <record_type 0x7f10fd0d9150 cmd_find_window_data BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9150 fields <field_decl 0x7f10fd0d8b48 wl> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d91f8> chain <type_decl 0x7f10fd0d8be0 D.4502>>
+ <ssa_name 0x7fca0958cf78
+    type <pointer_type 0x7fca0955a1f8
+        type <record_type 0x7fca0955a150 cmd_find_window_data BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955a150 fields <field_decl 0x7fca09559b48 wl> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955a1f8> chain <type_decl 0x7fca09559be0 D.4502>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _105 = find_list.list;
     version 105
-    ptr-info 0x7f10fd120060>
+    ptr-info 0x7fca095a1060>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_215 = VDEF <.MEM_177>
 free (_18);
@@ -27097,33 +27103,33 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f10fd0e89d8 type <integer_type 0x7f10fd59c7e0 long unsigned int> constant 80>
+ <integer_cst 0x7fca095699d8 type <integer_type 0x7fca09a1d7e0 long unsigned int> constant 80>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f10fd0e89f0 type <integer_type 0x7f10fd59c7e0 long unsigned int> constant 8>
+ <integer_cst 0x7fca095699f0 type <integer_type 0x7fca09a1d7e0 long unsigned int> constant 8>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f10fd115510
-    type <pointer_type 0x7f10fd0d9e70
-        type <record_type 0x7f10fd0d9dc8 window_choose_mode_item BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9dc8 fields <field_decl 0x7f10fd0dc130 wcd> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d9e70> chain <type_decl 0x7f10fd0dc1c8 D.4523>>
+ <ssa_name 0x7fca09596510
+    type <pointer_type 0x7fca0955ae70
+        type <record_type 0x7fca0955adc8 window_choose_mode_item BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955adc8 fields <field_decl 0x7fca0955d130 wcd> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955ae70> chain <type_decl 0x7fca0955d1c8 D.4523>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _130 = data_121->list.list;
     version 130
-    ptr-info 0x7f10fd1200d8>
+    ptr-info 0x7fca095a10d8>
 # VUSE <.MEM_197>
 _130 = data_121->list.list;
 
@@ -27148,21 +27154,21 @@ _131 = xrealloc (_130, 1, _129);
 this stmt is child function---xrealloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd115510
-    type <pointer_type 0x7f10fd0d9e70
-        type <record_type 0x7f10fd0d9dc8 window_choose_mode_item BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9dc8 fields <field_decl 0x7f10fd0dc130 wcd> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d9e70> chain <type_decl 0x7f10fd0dc1c8 D.4523>>
+ <ssa_name 0x7fca09596510
+    type <pointer_type 0x7fca0955ae70
+        type <record_type 0x7fca0955adc8 window_choose_mode_item BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955adc8 fields <field_decl 0x7fca0955d130 wcd> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955ae70> chain <type_decl 0x7fca0955d1c8 D.4523>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _130 = data_121->list.list;
     version 130
-    ptr-info 0x7f10fd1200d8>
+    ptr-info 0x7fca095a10d8>
 trace fucntion name:xrealloc 
 [40;44m =======trace_function_path xrealloc  function_call count: 3 level :0========  [0m
 # .MEM_20 = VDEF <.MEM_19(D)>
@@ -27311,21 +27317,21 @@ _103 = xrealloc (_102, 1, _101);
 this stmt is child function---xrealloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd115510
-    type <pointer_type 0x7f10fd0d9e70
-        type <record_type 0x7f10fd0d9dc8 window_choose_mode_item BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9dc8 fields <field_decl 0x7f10fd0dc130 wcd> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d9e70> chain <type_decl 0x7f10fd0dc1c8 D.4523>>
+ <ssa_name 0x7fca09596510
+    type <pointer_type 0x7fca0955ae70
+        type <record_type 0x7fca0955adc8 window_choose_mode_item BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955adc8 fields <field_decl 0x7fca0955d130 wcd> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955ae70> chain <type_decl 0x7fca0955d1c8 D.4523>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _130 = data_121->list.list;
     version 130
-    ptr-info 0x7f10fd1200d8>
+    ptr-info 0x7fca095a10d8>
 trace fucntion name:xrealloc 
 [40;44m =======trace_function_path xrealloc  function_call count: 3 level :0========  [0m
 # .MEM_20 = VDEF <.MEM_19(D)>
@@ -27374,21 +27380,21 @@ _106 = xrealloc (_105, 2, _104);
 this stmt is child function---xrealloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd115510
-    type <pointer_type 0x7f10fd0d9e70
-        type <record_type 0x7f10fd0d9dc8 window_choose_mode_item BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9dc8 fields <field_decl 0x7f10fd0dc130 wcd> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d9e70> chain <type_decl 0x7f10fd0dc1c8 D.4523>>
+ <ssa_name 0x7fca09596510
+    type <pointer_type 0x7fca0955ae70
+        type <record_type 0x7fca0955adc8 window_choose_mode_item BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955adc8 fields <field_decl 0x7fca0955d130 wcd> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955ae70> chain <type_decl 0x7fca0955d1c8 D.4523>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _130 = data_121->list.list;
     version 130
-    ptr-info 0x7f10fd1200d8>
+    ptr-info 0x7fca095a10d8>
 trace fucntion name:xrealloc 
 [40;44m =======trace_function_path xrealloc  function_call count: 3 level :0========  [0m
 # .MEM_20 = VDEF <.MEM_19(D)>
@@ -27705,21 +27711,21 @@ _87 = fnmatch (searchstr_15(D), _86, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd115510
-    type <pointer_type 0x7f10fd0d9e70
-        type <record_type 0x7f10fd0d9dc8 window_choose_mode_item BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9dc8 fields <field_decl 0x7f10fd0dc130 wcd> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d9e70> chain <type_decl 0x7f10fd0dc1c8 D.4523>>
+ <ssa_name 0x7fca09596510
+    type <pointer_type 0x7fca0955ae70
+        type <record_type 0x7fca0955adc8 window_choose_mode_item BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955adc8 fields <field_decl 0x7fca0955d130 wcd> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955ae70> chain <type_decl 0x7fca0955d1c8 D.4523>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _130 = data_121->list.list;
     version 130
-    ptr-info 0x7f10fd1200d8>
+    ptr-info 0x7fca095a10d8>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -27760,21 +27766,21 @@ _82 = fnmatch (searchstr_15(D), _81, 0);
 this stmt is child function---fnmatch-----
 
  ================== trace ================== 
- <ssa_name 0x7f10fd115510
-    type <pointer_type 0x7f10fd0d9e70
-        type <record_type 0x7f10fd0d9dc8 window_choose_mode_item BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9dc8 fields <field_decl 0x7f10fd0dc130 wcd> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d9e70> chain <type_decl 0x7f10fd0dc1c8 D.4523>>
+ <ssa_name 0x7fca09596510
+    type <pointer_type 0x7fca0955ae70
+        type <record_type 0x7fca0955adc8 window_choose_mode_item BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955adc8 fields <field_decl 0x7fca0955d130 wcd> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955ae70> chain <type_decl 0x7fca0955d1c8 D.4523>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _130 = data_121->list.list;
     version 130
-    ptr-info 0x7f10fd1200d8>
+    ptr-info 0x7fca095a10d8>
 trace fucntion name:fnmatch 
 
  ================== trace ================== 
@@ -28695,21 +28701,21 @@ free (_47);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f10fd115510
-    type <pointer_type 0x7f10fd0d9e70
-        type <record_type 0x7f10fd0d9dc8 window_choose_mode_item BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9dc8 fields <field_decl 0x7f10fd0dc130 wcd> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d9e70> chain <type_decl 0x7f10fd0dc1c8 D.4523>>
+ <ssa_name 0x7fca09596510
+    type <pointer_type 0x7fca0955ae70
+        type <record_type 0x7fca0955adc8 window_choose_mode_item BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955adc8 fields <field_decl 0x7fca0955d130 wcd> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955ae70> chain <type_decl 0x7fca0955d1c8 D.4523>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _130 = data_121->list.list;
     version 130
-    ptr-info 0x7f10fd1200d8>
+    ptr-info 0x7fca095a10d8>
 
  ================== Start Use after free Check ================== 
 
@@ -30868,21 +30874,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f10fd1155e8
-    type <pointer_type 0x7f10fd0d9e70
-        type <record_type 0x7f10fd0d9dc8 window_choose_mode_item BLK
-            size <integer_cst 0x7f10fd5a40a8 constant 192>
-            unit size <integer_cst 0x7f10fd5a4078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f10fd0d9dc8 fields <field_decl 0x7f10fd0dc130 wcd> context <translation_unit_decl 0x7f10fd593168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
-            pointer_to_this <pointer_type 0x7f10fd0d9e70> chain <type_decl 0x7f10fd0dc1c8 D.4523>>
+ <ssa_name 0x7fca095965e8
+    type <pointer_type 0x7fca0955ae70
+        type <record_type 0x7fca0955adc8 window_choose_mode_item BLK
+            size <integer_cst 0x7fca09a250a8 constant 192>
+            unit size <integer_cst 0x7fca09a25078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fca0955adc8 fields <field_decl 0x7fca0955d130 wcd> context <translation_unit_decl 0x7fca09a14168 ./benchmarks/tmux/leak_7/tmux_leak_7.c>
+            pointer_to_this <pointer_type 0x7fca0955ae70> chain <type_decl 0x7fca0955d1c8 D.4523>>
         public unsigned DI
-        size <integer_cst 0x7f10fd588be8 constant 64>
-        unit size <integer_cst 0x7f10fd588c00 constant 8>
+        size <integer_cst 0x7fca09a09be8 constant 64>
+        unit size <integer_cst 0x7fca09a09c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _133 = data_121->list.list;
     version 133
-    ptr-info 0x7f10fd120108>
+    ptr-info 0x7fca095a1108>
 # VUSE <.MEM_169>
 _133 = data_121->list.list;
 
@@ -31562,7 +31568,7 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 10 [0m
 [40;34m    used_stmt array stack totalsize of : 22408 [0m
-[40;34m    collect time: : 0.003463 s [0m
-[40;34m    algorithm time: 0.079864 s [0m
+[40;34m    collect time: : 0.003332 s [0m
+[40;34m    algorithm time: 0.074663 s [0m
 [40;34m    gimple stmt count : : 238 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

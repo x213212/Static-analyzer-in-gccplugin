@@ -203,20 +203,20 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c786b40
-    type <pointer_type 0x7f003c7990a8
-        type <void_type 0x7f003c792f18 void VOID
+ <ssa_name 0x7fb7d102ab40
+    type <pointer_type 0x7fb7d103d0a8
+        type <void_type 0x7fb7d1036f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c7990a8>>
+            pointer_to_this <pointer_type 0x7fb7d103d0a8>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c79ebd0>>
-    var <var_decl 0x7f003d513b40 newptr>
+        pointer_to_this <pointer_type 0x7fb7d1042bd0>>
+    var <var_decl 0x7fb7d1db7b40 newptr>
     def_stmt newptr_8 = realloc (oldptr_6(D), newsize_4);
     version 8
-    ptr-info 0x7f003c2d0258>
+    ptr-info 0x7fb7d0b74258>
 # .MEM_17 = VDEF <.MEM_16(D)>
 newptr_8 = realloc (oldptr_6(D), newsize_4);
 
@@ -634,20 +634,20 @@ from xrealloc basic block 4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c786b40
-    type <pointer_type 0x7f003c7990a8
-        type <void_type 0x7f003c792f18 void VOID
+ <ssa_name 0x7fb7d102ab40
+    type <pointer_type 0x7fb7d103d0a8
+        type <void_type 0x7fb7d1036f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c7990a8>>
+            pointer_to_this <pointer_type 0x7fb7d103d0a8>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c79ebd0>>
-    var <var_decl 0x7f003d513b40 newptr>
+        pointer_to_this <pointer_type 0x7fb7d1042bd0>>
+    var <var_decl 0x7fb7d1db7b40 newptr>
     def_stmt newptr_8 = realloc (oldptr_6(D), newsize_4);
     version 8
-    ptr-info 0x7f003c2d0258>
+    ptr-info 0x7fb7d0b74258>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_17 = VDEF <.MEM_16(D)>
 newptr_8 = realloc (oldptr_6(D), newsize_4);
@@ -733,14 +733,14 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f003c77ef90 type <integer_type 0x7f003c7925e8 int> constant 1>
+ <integer_cst 0x7fb7d1022f90 type <integer_type 0x7fb7d10365e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f003c77ef90 type <integer_type 0x7f003c7925e8 int> constant 1>
+ <integer_cst 0x7fb7d1022f90 type <integer_type 0x7fb7d10365e8 int> constant 1>
 [40;33m =======POP node_fun stack:xrealloc========= [0m
 [40;44m =======node_fun:buffer_create========= [0m
 [40;44m fucntion collect path  [0m
@@ -760,21 +760,21 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c7865e8
-    type <pointer_type 0x7f003c2b1690
-        type <record_type 0x7f003c2b15e8 buffer BLK
-            size <integer_cst 0x7f003c77ef48 constant 256>
-            unit size <integer_cst 0x7f003c79a048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b15e8 fields <field_decl 0x7f003c2b2da8 base> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1690> chain <type_decl 0x7f003c2b2e40 D.4060>>
+ <ssa_name 0x7fb7d102a5e8
+    type <pointer_type 0x7fb7d0b55690
+        type <record_type 0x7fb7d0b555e8 buffer BLK
+            size <integer_cst 0x7fb7d1022f48 constant 256>
+            unit size <integer_cst 0x7fb7d103e048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b555e8 fields <field_decl 0x7fb7d0b56da8 base> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55690> chain <type_decl 0x7fb7d0b56e40 D.4060>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f003d513f30 b>
+    var <var_decl 0x7fb7d1db7f30 b>
     def_stmt b_5 = calloc (1, 32);
     version 5
-    ptr-info 0x7f003c2d02a0>
+    ptr-info 0x7fb7d0b742a0>
 # .MEM_13 = VDEF <.MEM_12(D)>
 b_5 = calloc (1, 32);
 
@@ -1098,21 +1098,21 @@ _1 = malloc (size_2(D));
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c7865e8
-    type <pointer_type 0x7f003c2b1690
-        type <record_type 0x7f003c2b15e8 buffer BLK
-            size <integer_cst 0x7f003c77ef48 constant 256>
-            unit size <integer_cst 0x7f003c79a048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b15e8 fields <field_decl 0x7f003c2b2da8 base> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1690> chain <type_decl 0x7f003c2b2e40 D.4060>>
+ <ssa_name 0x7fb7d102a5e8
+    type <pointer_type 0x7fb7d0b55690
+        type <record_type 0x7fb7d0b555e8 buffer BLK
+            size <integer_cst 0x7fb7d1022f48 constant 256>
+            unit size <integer_cst 0x7fb7d103e048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b555e8 fields <field_decl 0x7fb7d0b56da8 base> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55690> chain <type_decl 0x7fb7d0b56e40 D.4060>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f003d513f30 b>
+    var <var_decl 0x7fb7d1db7f30 b>
     def_stmt b_5 = calloc (1, 32);
     version 5
-    ptr-info 0x7f003c2d02a0>
+    ptr-info 0x7fb7d0b742a0>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1365,21 +1365,21 @@ b_5 = calloc (1, 32);
 this stmt is child function---calloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c7865e8
-    type <pointer_type 0x7f003c2b1690
-        type <record_type 0x7f003c2b15e8 buffer BLK
-            size <integer_cst 0x7f003c77ef48 constant 256>
-            unit size <integer_cst 0x7f003c79a048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b15e8 fields <field_decl 0x7f003c2b2da8 base> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1690> chain <type_decl 0x7f003c2b2e40 D.4060>>
+ <ssa_name 0x7fb7d102a5e8
+    type <pointer_type 0x7fb7d0b55690
+        type <record_type 0x7fb7d0b555e8 buffer BLK
+            size <integer_cst 0x7fb7d1022f48 constant 256>
+            unit size <integer_cst 0x7fb7d103e048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b555e8 fields <field_decl 0x7fb7d0b56da8 base> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55690> chain <type_decl 0x7fb7d0b56e40 D.4060>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f003d513f30 b>
+    var <var_decl 0x7fb7d1db7f30 b>
     def_stmt b_5 = calloc (1, 32);
     version 5
-    ptr-info 0x7f003c2d02a0>
+    ptr-info 0x7fb7d0b742a0>
 trace fucntion name:calloc 
 
  ================== trace ================== 
@@ -1391,21 +1391,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c7865e8
-    type <pointer_type 0x7f003c2b1690
-        type <record_type 0x7f003c2b15e8 buffer BLK
-            size <integer_cst 0x7f003c77ef48 constant 256>
-            unit size <integer_cst 0x7f003c79a048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b15e8 fields <field_decl 0x7f003c2b2da8 base> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1690> chain <type_decl 0x7f003c2b2e40 D.4060>>
+ <ssa_name 0x7fb7d102a5e8
+    type <pointer_type 0x7fb7d0b55690
+        type <record_type 0x7fb7d0b555e8 buffer BLK
+            size <integer_cst 0x7fb7d1022f48 constant 256>
+            unit size <integer_cst 0x7fb7d103e048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b555e8 fields <field_decl 0x7fb7d0b56da8 base> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55690> chain <type_decl 0x7fb7d0b56e40 D.4060>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f003d513f30 b>
+    var <var_decl 0x7fb7d1db7f30 b>
     def_stmt b_5 = calloc (1, 32);
     version 5
-    ptr-info 0x7f003c2d02a0>
+    ptr-info 0x7fb7d0b742a0>
 
  ================== Start Use after free Check ================== 
 
@@ -1424,20 +1424,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c786f30
-    type <pointer_type 0x7f003c7990a8
-        type <void_type 0x7f003c792f18 void VOID
+ <ssa_name 0x7fb7d102af30
+    type <pointer_type 0x7fb7d103d0a8
+        type <void_type 0x7fb7d1036f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c7990a8>>
+            pointer_to_this <pointer_type 0x7fb7d103d0a8>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c79ebd0>>
+        pointer_to_this <pointer_type 0x7fb7d1042bd0>>
    
     def_stmt _1 = malloc (size_2(D));
     version 1
-    ptr-info 0x7f003c2d0288>
+    ptr-info 0x7fb7d0b74288>
 # .MEM_14 = VDEF <.MEM_13>
 _1 = malloc (size_2(D));
 
@@ -1943,20 +1943,20 @@ _1 = malloc (size_2(D));
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c786f30
-    type <pointer_type 0x7f003c7990a8
-        type <void_type 0x7f003c792f18 void VOID
+ <ssa_name 0x7fb7d102af30
+    type <pointer_type 0x7fb7d103d0a8
+        type <void_type 0x7fb7d1036f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c7990a8>>
+            pointer_to_this <pointer_type 0x7fb7d103d0a8>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c79ebd0>>
+        pointer_to_this <pointer_type 0x7fb7d1042bd0>>
    
     def_stmt _1 = malloc (size_2(D));
     version 1
-    ptr-info 0x7f003c2d0288>
+    ptr-info 0x7fb7d0b74288>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1968,20 +1968,20 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c786f30
-    type <pointer_type 0x7f003c7990a8
-        type <void_type 0x7f003c792f18 void VOID
+ <ssa_name 0x7fb7d102af30
+    type <pointer_type 0x7fb7d103d0a8
+        type <void_type 0x7fb7d1036f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c7990a8>>
+            pointer_to_this <pointer_type 0x7fb7d103d0a8>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c79ebd0>>
+        pointer_to_this <pointer_type 0x7fb7d1042bd0>>
    
     def_stmt _1 = malloc (size_2(D));
     version 1
-    ptr-info 0x7f003c2d0288>
+    ptr-info 0x7fb7d0b74288>
 
  ================== Start Use after free Check ================== 
 
@@ -2002,17 +2002,17 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f003c2abed0 type <integer_type 0x7f003c2b1498 size_t> constant 1>
+ <integer_cst 0x7fb7d0b4fed0 type <integer_type 0x7fb7d0b55498 size_t> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c786f78
-    type <integer_type 0x7f003c2b1498 size_t public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f003c792738 precision 64 min <integer_cst 0x7f003c77eeb8 0> max <integer_cst 0x7f003c780500 18446744073709551615> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
-    var <parm_decl 0x7f003c2bd280 size>
+ <ssa_name 0x7fb7d102af78
+    type <integer_type 0x7fb7d0b55498 size_t public unsigned DI
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fb7d1036738 precision 64 min <integer_cst 0x7fb7d1022eb8 0> max <integer_cst 0x7fb7d1024500 18446744073709551615> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    var <parm_decl 0x7fb7d0b61280 size>
     def_stmt GIMPLE_NOP
     version 2>
 GIMPLE_NOP
@@ -2518,12 +2518,12 @@ _1 = malloc (size_2(D));
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c786f78
-    type <integer_type 0x7f003c2b1498 size_t public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f003c792738 precision 64 min <integer_cst 0x7f003c77eeb8 0> max <integer_cst 0x7f003c780500 18446744073709551615> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
-    var <parm_decl 0x7f003c2bd280 size>
+ <ssa_name 0x7fb7d102af78
+    type <integer_type 0x7fb7d0b55498 size_t public unsigned DI
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fb7d1036738 precision 64 min <integer_cst 0x7fb7d1022eb8 0> max <integer_cst 0x7fb7d1024500 18446744073709551615> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    var <parm_decl 0x7fb7d0b61280 size>
     def_stmt GIMPLE_NOP
     version 2>
 trace fucntion name:malloc 
@@ -2537,12 +2537,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c786f78
-    type <integer_type 0x7f003c2b1498 size_t public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f003c792738 precision 64 min <integer_cst 0x7f003c77eeb8 0> max <integer_cst 0x7f003c780500 18446744073709551615> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
-    var <parm_decl 0x7f003c2bd280 size>
+ <ssa_name 0x7fb7d102af78
+    type <integer_type 0x7fb7d0b55498 size_t public unsigned DI
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fb7d1036738 precision 64 min <integer_cst 0x7fb7d1022eb8 0> max <integer_cst 0x7fb7d1024500 18446744073709551615> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    var <parm_decl 0x7fb7d0b61280 size>
     def_stmt GIMPLE_NOP
     version 2>
 
@@ -2582,20 +2582,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c2c9828
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b6d828
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _21 = _17 + _20;
     version 21
-    ptr-info 0x7f003c2d0318>
+    ptr-info 0x7fb7d0b74318>
 _21 = _17 + _20;
 
  ================== trace ptable================== 
@@ -2645,20 +2645,20 @@ memmove (_21, _16, _10);
 this stmt is child function---memmove-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2c9828
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b6d828
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _21 = _17 + _20;
     version 21
-    ptr-info 0x7f003c2d0318>
+    ptr-info 0x7fb7d0b74318>
 trace fucntion name:memmove 
 
  ================== trace ================== 
@@ -2700,20 +2700,20 @@ memmove (_21, _16, _10);
 this stmt is child function---memmove-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2c9828
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b6d828
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _21 = _17 + _20;
     version 21
-    ptr-info 0x7f003c2d0318>
+    ptr-info 0x7fb7d0b74318>
 trace fucntion name:memmove 
 
  ================== trace ================== 
@@ -2725,20 +2725,20 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c2c9828
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b6d828
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _21 = _17 + _20;
     version 21
-    ptr-info 0x7f003c2d0318>
+    ptr-info 0x7fb7d0b74318>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_55 = VDEF <.MEM_54>
 free (_25);
@@ -2793,12 +2793,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c2cfaf8
-    type <integer_type 0x7f003c7925e8 int public SI
-        size <integer_cst 0x7f003c77ee28 constant 32>
-        unit size <integer_cst 0x7f003c77ee40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f003c7925e8 precision 32 min <integer_cst 0x7f003c77ede0 -2147483648> max <integer_cst 0x7f003c77edf8 2147483647>
-        pointer_to_this <pointer_type 0x7f003c799a80>>
+ <ssa_name 0x7fb7d0b73af8
+    type <integer_type 0x7fb7d10365e8 int public SI
+        size <integer_cst 0x7fb7d1022e28 constant 32>
+        unit size <integer_cst 0x7fb7d1022e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb7d10365e8 precision 32 min <integer_cst 0x7fb7d1022de0 -2147483648> max <integer_cst 0x7fb7d1022df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb7d103da80>>
    
     def_stmt _76 = w_34(D)->fd;
     version 76>
@@ -2851,12 +2851,12 @@ close (_76);
 this stmt is child function---close-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2cfaf8
-    type <integer_type 0x7f003c7925e8 int public SI
-        size <integer_cst 0x7f003c77ee28 constant 32>
-        unit size <integer_cst 0x7f003c77ee40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f003c7925e8 precision 32 min <integer_cst 0x7f003c77ede0 -2147483648> max <integer_cst 0x7f003c77edf8 2147483647>
-        pointer_to_this <pointer_type 0x7f003c799a80>>
+ <ssa_name 0x7fb7d0b73af8
+    type <integer_type 0x7fb7d10365e8 int public SI
+        size <integer_cst 0x7fb7d1022e28 constant 32>
+        unit size <integer_cst 0x7fb7d1022e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb7d10365e8 precision 32 min <integer_cst 0x7fb7d1022de0 -2147483648> max <integer_cst 0x7fb7d1022df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb7d103da80>>
    
     def_stmt _76 = w_34(D)->fd;
     version 76>
@@ -2901,12 +2901,12 @@ close (_76);
 this stmt is child function---close-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2cfaf8
-    type <integer_type 0x7f003c7925e8 int public SI
-        size <integer_cst 0x7f003c77ee28 constant 32>
-        unit size <integer_cst 0x7f003c77ee40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f003c7925e8 precision 32 min <integer_cst 0x7f003c77ede0 -2147483648> max <integer_cst 0x7f003c77edf8 2147483647>
-        pointer_to_this <pointer_type 0x7f003c799a80>>
+ <ssa_name 0x7fb7d0b73af8
+    type <integer_type 0x7fb7d10365e8 int public SI
+        size <integer_cst 0x7fb7d1022e28 constant 32>
+        unit size <integer_cst 0x7fb7d1022e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb7d10365e8 precision 32 min <integer_cst 0x7fb7d1022de0 -2147483648> max <integer_cst 0x7fb7d1022df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb7d103da80>>
    
     def_stmt _76 = w_34(D)->fd;
     version 76>
@@ -2921,12 +2921,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c2cfaf8
-    type <integer_type 0x7f003c7925e8 int public SI
-        size <integer_cst 0x7f003c77ee28 constant 32>
-        unit size <integer_cst 0x7f003c77ee40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f003c7925e8 precision 32 min <integer_cst 0x7f003c77ede0 -2147483648> max <integer_cst 0x7f003c77edf8 2147483647>
-        pointer_to_this <pointer_type 0x7f003c799a80>>
+ <ssa_name 0x7fb7d0b73af8
+    type <integer_type 0x7fb7d10365e8 int public SI
+        size <integer_cst 0x7fb7d1022e28 constant 32>
+        unit size <integer_cst 0x7fb7d1022e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb7d10365e8 precision 32 min <integer_cst 0x7fb7d1022de0 -2147483648> max <integer_cst 0x7fb7d1022df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb7d103da80>>
    
     def_stmt _76 = w_34(D)->fd;
     version 76>
@@ -3020,21 +3020,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f003c29ce00
-    type <pointer_type 0x7f003c2b1bd0
-        type <record_type 0x7f003c2b1b28 windows BLK
-            size <integer_cst 0x7f003c79a0a8 constant 192>
-            unit size <integer_cst 0x7f003c79a078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b1b28 fields <field_decl 0x7f003c2b34c0 list> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1bd0> chain <type_decl 0x7f003c2b3558 D.4072>>
+ <addr_expr 0x7fb7d0b40e00
+    type <pointer_type 0x7fb7d0b55bd0
+        type <record_type 0x7fb7d0b55b28 windows BLK
+            size <integer_cst 0x7fb7d103e0a8 constant 192>
+            unit size <integer_cst 0x7fb7d103e078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b55b28 fields <field_decl 0x7fb7d0b574c0 list> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55bd0> chain <type_decl 0x7fb7d0b57558 D.4072>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     constant
-    arg 0 <var_decl 0x7f003d513ab0 windows type <record_type 0x7f003c2b1b28 windows>
-        addressable static BLK file ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c line 47 col 16 size <integer_cst 0x7f003c79a0a8 192> unit size <integer_cst 0x7f003c79a078 24>
-        align 64 context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    arg 0 <var_decl 0x7fb7d1db7ab0 windows type <record_type 0x7fb7d0b55b28 windows>
+        addressable static BLK file ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c line 47 col 16 size <integer_cst 0x7fb7d103e0a8 192> unit size <integer_cst 0x7fb7d103e078 24>
+        align 64 context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
     ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:117:3 start: ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:117:3 finish: ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:117:3>
 
  ================== trace ptable================== 
@@ -3074,20 +3074,20 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c786b40
-    type <pointer_type 0x7f003c7990a8
-        type <void_type 0x7f003c792f18 void VOID
+ <ssa_name 0x7fb7d102ab40
+    type <pointer_type 0x7fb7d103d0a8
+        type <void_type 0x7fb7d1036f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c7990a8>>
+            pointer_to_this <pointer_type 0x7fb7d103d0a8>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c79ebd0>>
-    var <var_decl 0x7f003d513b40 newptr>
+        pointer_to_this <pointer_type 0x7fb7d1042bd0>>
+    var <var_decl 0x7fb7d1db7b40 newptr>
     def_stmt newptr_8 = realloc (oldptr_6(D), newsize_4);
     version 8
-    ptr-info 0x7f003c2d0258>
+    ptr-info 0x7fb7d0b74258>
 # .MEM_17 = VDEF <.MEM_16(D)>
 newptr_8 = realloc (oldptr_6(D), newsize_4);
 
@@ -3109,7 +3109,7 @@ newptr_8 = realloc (oldptr_6(D), newsize_4);
 bb index := 6
 # VUSE <.MEM_17>
 return newptr_8;
-In function ‘window_add’:
+In function ‘xrealloc’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -3200,6 +3200,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 18
 
 ======================================================================
 newptr_8 = realloc (oldptr_6(D), newsize_4);
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:62:12: warning: use location
          if ((newptr = realloc(oldptr, newsize)) == NULL)
             ^
@@ -3219,6 +3220,7 @@ _9 = newptr_8;
 bb index := 8
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘xrealloc’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -3241,6 +3243,7 @@ gimple stmt in succ := 8 ,possiable got to succ := 18
 
 ======================================================================
 _9 = newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -3251,6 +3254,7 @@ if (newptr_8 == 0B)
 bb index := 6
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘xrealloc’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
 beacuse in succ := 8 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 8
@@ -3333,6 +3337,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 18
 
 ======================================================================
 if (newptr_8 == 0B)
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:62:12: warning: use location
          if ((newptr = realloc(oldptr, newsize)) == NULL)
             ^
@@ -3358,6 +3363,7 @@ if (newsize_4 == 0)
 bb index := 2
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘xrealloc’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -3480,6 +3486,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 10
 
 ======================================================================
 if (newsize_4 == 0)
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:58:5: warning: use location
   if (newsize == 0)
      ^
@@ -3505,20 +3512,20 @@ from xrealloc basic block 4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c786b40
-    type <pointer_type 0x7f003c7990a8
-        type <void_type 0x7f003c792f18 void VOID
+ <ssa_name 0x7fb7d102ab40
+    type <pointer_type 0x7fb7d103d0a8
+        type <void_type 0x7fb7d1036f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c7990a8>>
+            pointer_to_this <pointer_type 0x7fb7d103d0a8>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c79ebd0>>
-    var <var_decl 0x7f003d513b40 newptr>
+        pointer_to_this <pointer_type 0x7fb7d1042bd0>>
+    var <var_decl 0x7fb7d1db7b40 newptr>
     def_stmt newptr_8 = realloc (oldptr_6(D), newsize_4);
     version 8
-    ptr-info 0x7f003c2d0258>
+    ptr-info 0x7fb7d0b74258>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_17 = VDEF <.MEM_16(D)>
 newptr_8 = realloc (oldptr_6(D), newsize_4);
@@ -3604,14 +3611,14 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f003c77ef90 type <integer_type 0x7f003c7925e8 int> constant 1>
+ <integer_cst 0x7fb7d1022f90 type <integer_type 0x7fb7d10365e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f003c77ef90 type <integer_type 0x7f003c7925e8 int> constant 1>
+ <integer_cst 0x7fb7d1022f90 type <integer_type 0x7fb7d10365e8 int> constant 1>
 [40;33m =======POP node_fun stack:xrealloc========= [0m
 [40;42m =======pre add _ fucntion:exit========= [0m
 [40;33m =======POP node_fun stack:exit========= [0m
@@ -3623,20 +3630,20 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c2d83a8
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b7c3a8
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _8 = ww_37(D)->list;
     version 8
-    ptr-info 0x7f003c2d0420>
+    ptr-info 0x7fb7d0b74420>
 # VUSE <.MEM_62>
 _8 = ww_37(D)->list;
 
@@ -3656,20 +3663,20 @@ _9 = xrealloc (_8, 1, _7);
 this stmt is child function---xrealloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2d83a8
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b7c3a8
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _8 = ww_37(D)->list;
     version 8
-    ptr-info 0x7f003c2d0420>
+    ptr-info 0x7fb7d0b74420>
 trace fucntion name:xrealloc 
 [40;44m =======trace_function_path xrealloc  function_call count: 3 level :0========  [0m
 # .MEM_17 = VDEF <.MEM_16(D)>
@@ -5178,20 +5185,20 @@ from window_add basic block 4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c2d83a8
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b7c3a8
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _8 = ww_37(D)->list;
     version 8
-    ptr-info 0x7f003c2d0420>
+    ptr-info 0x7fb7d0b74420>
 
  ================== Start Use after free Check ================== 
 
@@ -5581,20 +5588,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c2d8480
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b7c480
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _11 = ww_37(D)->list;
     version 11
-    ptr-info 0x7f003c2d0450>
+    ptr-info 0x7fb7d0b74450>
 # VUSE <.MEM_58>
 _11 = ww_37(D)->list;
 
@@ -5617,20 +5624,20 @@ _12 = xrealloc (_11, 2, _10);
 this stmt is child function---xrealloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2d8480
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b7c480
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _11 = ww_37(D)->list;
     version 11
-    ptr-info 0x7f003c2d0450>
+    ptr-info 0x7fb7d0b74450>
 trace fucntion name:xrealloc 
 [40;44m =======trace_function_path xrealloc  function_call count: 3 level :0========  [0m
 # .MEM_17 = VDEF <.MEM_16(D)>
@@ -7138,20 +7145,20 @@ from window_add basic block 4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c2d8480
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b7c480
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _11 = ww_37(D)->list;
     version 11
-    ptr-info 0x7f003c2d0450>
+    ptr-info 0x7fb7d0b74450>
 
  ================== Start Use after free Check ================== 
 
@@ -7512,20 +7519,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c2c9828
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b6d828
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _21 = _17 + _20;
     version 21
-    ptr-info 0x7f003c2d0318>
+    ptr-info 0x7fb7d0b74318>
 _21 = _17 + _20;
 
  ================== trace ptable================== 
@@ -7545,7 +7552,7 @@ memmove (_21, _16, _10);
 bb index := 9
 # VUSE <.MEM_50>
 return;
-In function ‘main’:
+In function ‘window_remove’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:119:1: warning: use location
  }
  ^
@@ -7569,26 +7576,27 @@ gimple stmt in succ := 9 ,possiable got to succ := 14
 # .MEM_53 = VDEF <.MEM_81>
 memmove (_21, _16, _10);
 memmove (_21, _16, _10);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:112:2: warning: use location
   ARRAY_REMOVE(ww, i);
   ^
 this stmt is child function---memmove-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2c9828
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b6d828
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _21 = _17 + _20;
     version 21
-    ptr-info 0x7f003c2d0318>
+    ptr-info 0x7fb7d0b74318>
 trace fucntion name:memmove 
 
  ================== trace ================== 
@@ -7601,6 +7609,7 @@ memmove (_21, _16, _10);
 bb index := 9
 # VUSE <.MEM_50>
 return;
+In function ‘window_remove’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:119:1: warning: use location
  }
  ^
@@ -7624,26 +7633,27 @@ gimple stmt in succ := 9 ,possiable got to succ := 14
 # .MEM_53 = VDEF <.MEM_81>
 memmove (_21, _16, _10);
 memmove (_21, _16, _10);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:112:2: warning: use location
   ARRAY_REMOVE(ww, i);
   ^
 this stmt is child function---memmove-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2c9828
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b6d828
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _21 = _17 + _20;
     version 21
-    ptr-info 0x7f003c2d0318>
+    ptr-info 0x7fb7d0b74318>
 trace fucntion name:memmove 
 
  ================== trace ================== 
@@ -7655,20 +7665,20 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c2c9828
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b6d828
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _21 = _17 + _20;
     version 21
-    ptr-info 0x7f003c2d0318>
+    ptr-info 0x7fb7d0b74318>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_55 = VDEF <.MEM_54>
 free (_25);
@@ -7723,12 +7733,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c2cfaf8
-    type <integer_type 0x7f003c7925e8 int public SI
-        size <integer_cst 0x7f003c77ee28 constant 32>
-        unit size <integer_cst 0x7f003c77ee40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f003c7925e8 precision 32 min <integer_cst 0x7f003c77ede0 -2147483648> max <integer_cst 0x7f003c77edf8 2147483647>
-        pointer_to_this <pointer_type 0x7f003c799a80>>
+ <ssa_name 0x7fb7d0b73af8
+    type <integer_type 0x7fb7d10365e8 int public SI
+        size <integer_cst 0x7fb7d1022e28 constant 32>
+        unit size <integer_cst 0x7fb7d1022e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb7d10365e8 precision 32 min <integer_cst 0x7fb7d1022de0 -2147483648> max <integer_cst 0x7fb7d1022df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb7d103da80>>
    
     def_stmt _76 = w_34(D)->fd;
     version 76>
@@ -7752,6 +7762,7 @@ close (_76);
 bb index := 13
 # VUSE <.MEM_50>
 return;
+In function ‘window_remove’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:119:1: warning: use location
  }
  ^
@@ -7775,18 +7786,19 @@ gimple stmt in succ := 13 ,possiable got to succ := 14
 # .MEM_85 = VDEF <.MEM_59>
 close (_76);
 close (_76);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:125:2: warning: use location
   close(w->fd);
   ^
 this stmt is child function---close-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2cfaf8
-    type <integer_type 0x7f003c7925e8 int public SI
-        size <integer_cst 0x7f003c77ee28 constant 32>
-        unit size <integer_cst 0x7f003c77ee40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f003c7925e8 precision 32 min <integer_cst 0x7f003c77ede0 -2147483648> max <integer_cst 0x7f003c77edf8 2147483647>
-        pointer_to_this <pointer_type 0x7f003c799a80>>
+ <ssa_name 0x7fb7d0b73af8
+    type <integer_type 0x7fb7d10365e8 int public SI
+        size <integer_cst 0x7fb7d1022e28 constant 32>
+        unit size <integer_cst 0x7fb7d1022e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb7d10365e8 precision 32 min <integer_cst 0x7fb7d1022de0 -2147483648> max <integer_cst 0x7fb7d1022df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb7d103da80>>
    
     def_stmt _76 = w_34(D)->fd;
     version 76>
@@ -7802,6 +7814,7 @@ close (_76);
 bb index := 13
 # VUSE <.MEM_50>
 return;
+In function ‘window_remove’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:119:1: warning: use location
  }
  ^
@@ -7825,18 +7838,19 @@ gimple stmt in succ := 13 ,possiable got to succ := 14
 # .MEM_85 = VDEF <.MEM_59>
 close (_76);
 close (_76);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:125:2: warning: use location
   close(w->fd);
   ^
 this stmt is child function---close-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2cfaf8
-    type <integer_type 0x7f003c7925e8 int public SI
-        size <integer_cst 0x7f003c77ee28 constant 32>
-        unit size <integer_cst 0x7f003c77ee40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f003c7925e8 precision 32 min <integer_cst 0x7f003c77ede0 -2147483648> max <integer_cst 0x7f003c77edf8 2147483647>
-        pointer_to_this <pointer_type 0x7f003c799a80>>
+ <ssa_name 0x7fb7d0b73af8
+    type <integer_type 0x7fb7d10365e8 int public SI
+        size <integer_cst 0x7fb7d1022e28 constant 32>
+        unit size <integer_cst 0x7fb7d1022e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb7d10365e8 precision 32 min <integer_cst 0x7fb7d1022de0 -2147483648> max <integer_cst 0x7fb7d1022df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb7d103da80>>
    
     def_stmt _76 = w_34(D)->fd;
     version 76>
@@ -7851,12 +7865,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c2cfaf8
-    type <integer_type 0x7f003c7925e8 int public SI
-        size <integer_cst 0x7f003c77ee28 constant 32>
-        unit size <integer_cst 0x7f003c77ee40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f003c7925e8 precision 32 min <integer_cst 0x7f003c77ede0 -2147483648> max <integer_cst 0x7f003c77edf8 2147483647>
-        pointer_to_this <pointer_type 0x7f003c799a80>>
+ <ssa_name 0x7fb7d0b73af8
+    type <integer_type 0x7fb7d10365e8 int public SI
+        size <integer_cst 0x7fb7d1022e28 constant 32>
+        unit size <integer_cst 0x7fb7d1022e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb7d10365e8 precision 32 min <integer_cst 0x7fb7d1022de0 -2147483648> max <integer_cst 0x7fb7d1022df8 2147483647>
+        pointer_to_this <pointer_type 0x7fb7d103da80>>
    
     def_stmt _76 = w_34(D)->fd;
     version 76>
@@ -7950,21 +7964,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f003c29ce00
-    type <pointer_type 0x7f003c2b1bd0
-        type <record_type 0x7f003c2b1b28 windows BLK
-            size <integer_cst 0x7f003c79a0a8 constant 192>
-            unit size <integer_cst 0x7f003c79a078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b1b28 fields <field_decl 0x7f003c2b34c0 list> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1bd0> chain <type_decl 0x7f003c2b3558 D.4072>>
+ <addr_expr 0x7fb7d0b40e00
+    type <pointer_type 0x7fb7d0b55bd0
+        type <record_type 0x7fb7d0b55b28 windows BLK
+            size <integer_cst 0x7fb7d103e0a8 constant 192>
+            unit size <integer_cst 0x7fb7d103e078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b55b28 fields <field_decl 0x7fb7d0b574c0 list> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55bd0> chain <type_decl 0x7fb7d0b57558 D.4072>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     constant
-    arg 0 <var_decl 0x7f003d513ab0 windows type <record_type 0x7f003c2b1b28 windows>
-        addressable static BLK file ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c line 47 col 16 size <integer_cst 0x7f003c79a0a8 192> unit size <integer_cst 0x7f003c79a078 24>
-        align 64 context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    arg 0 <var_decl 0x7fb7d1db7ab0 windows type <record_type 0x7fb7d0b55b28 windows>
+        addressable static BLK file ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c line 47 col 16 size <integer_cst 0x7fb7d103e0a8 192> unit size <integer_cst 0x7fb7d103e078 24>
+        align 64 context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
     ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:117:3 start: ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:117:3 finish: ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:117:3>
 
  ================== trace ptable================== 
@@ -8004,20 +8018,20 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c786b40
-    type <pointer_type 0x7f003c7990a8
-        type <void_type 0x7f003c792f18 void VOID
+ <ssa_name 0x7fb7d102ab40
+    type <pointer_type 0x7fb7d103d0a8
+        type <void_type 0x7fb7d1036f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c7990a8>>
+            pointer_to_this <pointer_type 0x7fb7d103d0a8>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c79ebd0>>
-    var <var_decl 0x7f003d513b40 newptr>
+        pointer_to_this <pointer_type 0x7fb7d1042bd0>>
+    var <var_decl 0x7fb7d1db7b40 newptr>
     def_stmt newptr_8 = realloc (oldptr_6(D), newsize_4);
     version 8
-    ptr-info 0x7f003c2d0258>
+    ptr-info 0x7fb7d0b74258>
 # .MEM_17 = VDEF <.MEM_16(D)>
 newptr_8 = realloc (oldptr_6(D), newsize_4);
 
@@ -8039,6 +8053,7 @@ newptr_8 = realloc (oldptr_6(D), newsize_4);
 bb index := 6
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘xrealloc’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -8129,6 +8144,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 18
 
 ======================================================================
 newptr_8 = realloc (oldptr_6(D), newsize_4);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:62:12: warning: use location
          if ((newptr = realloc(oldptr, newsize)) == NULL)
             ^
@@ -8148,6 +8164,7 @@ _9 = newptr_8;
 bb index := 8
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘xrealloc’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -8170,6 +8187,7 @@ gimple stmt in succ := 8 ,possiable got to succ := 18
 
 ======================================================================
 _9 = newptr_8;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -8180,6 +8198,7 @@ if (newptr_8 == 0B)
 bb index := 6
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘xrealloc’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
 beacuse in succ := 8 have return or exit
 gimple stmt in succ := 6 ,possiable got to succ := 8
@@ -8262,6 +8281,7 @@ gimple stmt in succ := 6 ,possiable got to succ := 18
 
 ======================================================================
 if (newptr_8 == 0B)
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:62:12: warning: use location
          if ((newptr = realloc(oldptr, newsize)) == NULL)
             ^
@@ -8287,6 +8307,7 @@ if (newsize_4 == 0)
 bb index := 2
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘xrealloc’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -8409,6 +8430,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 10
 
 ======================================================================
 if (newsize_4 == 0)
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:58:5: warning: use location
   if (newsize == 0)
      ^
@@ -8434,20 +8456,20 @@ from xrealloc basic block 4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c786b40
-    type <pointer_type 0x7f003c7990a8
-        type <void_type 0x7f003c792f18 void VOID
+ <ssa_name 0x7fb7d102ab40
+    type <pointer_type 0x7fb7d103d0a8
+        type <void_type 0x7fb7d1036f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c7990a8>>
+            pointer_to_this <pointer_type 0x7fb7d103d0a8>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c79ebd0>>
-    var <var_decl 0x7f003d513b40 newptr>
+        pointer_to_this <pointer_type 0x7fb7d1042bd0>>
+    var <var_decl 0x7fb7d1db7b40 newptr>
     def_stmt newptr_8 = realloc (oldptr_6(D), newsize_4);
     version 8
-    ptr-info 0x7f003c2d0258>
+    ptr-info 0x7fb7d0b74258>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_17 = VDEF <.MEM_16(D)>
 newptr_8 = realloc (oldptr_6(D), newsize_4);
@@ -8533,14 +8555,14 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f003c77ef90 type <integer_type 0x7f003c7925e8 int> constant 1>
+ <integer_cst 0x7fb7d1022f90 type <integer_type 0x7fb7d10365e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f003c77ef90 type <integer_type 0x7f003c7925e8 int> constant 1>
+ <integer_cst 0x7fb7d1022f90 type <integer_type 0x7fb7d10365e8 int> constant 1>
 [40;33m =======POP node_fun stack:xrealloc========= [0m
 [40;42m =======pre add _ fucntion:exit========= [0m
 [40;33m =======POP node_fun stack:exit========= [0m
@@ -8552,20 +8574,20 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c2d83a8
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b7c3a8
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _8 = ww_37(D)->list;
     version 8
-    ptr-info 0x7f003c2d0420>
+    ptr-info 0x7fb7d0b74420>
 # VUSE <.MEM_62>
 _8 = ww_37(D)->list;
 
@@ -8585,20 +8607,20 @@ _9 = xrealloc (_8, 1, _7);
 this stmt is child function---xrealloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2d83a8
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b7c3a8
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _8 = ww_37(D)->list;
     version 8
-    ptr-info 0x7f003c2d0420>
+    ptr-info 0x7fb7d0b74420>
 trace fucntion name:xrealloc 
 [40;44m =======trace_function_path xrealloc  function_call count: 3 level :0========  [0m
 # .MEM_17 = VDEF <.MEM_16(D)>
@@ -8630,6 +8652,7 @@ _27 = ww_37(D)->list;
 bb index := 17
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -8653,6 +8676,7 @@ gimple stmt in succ := 17 ,possiable got to succ := 18
 
 ======================================================================
 _27 = ww_37(D)->list;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:141:3: warning: use location
    ARRAY_SET(ww, i, w);
    ^
@@ -8663,6 +8687,7 @@ _31 = _27 + _30;
 bb index := 17
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -8685,6 +8710,7 @@ gimple stmt in succ := 17 ,possiable got to succ := 18
 
 ======================================================================
 _31 = _27 + _30;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:141:3: warning: use location
    ARRAY_SET(ww, i, w);
    ^
@@ -8696,6 +8722,7 @@ _31 = _27 + _30;
 bb index := 17
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -8719,6 +8746,7 @@ gimple stmt in succ := 17 ,possiable got to succ := 18
 
 ======================================================================
 *_31 = w_39(D);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:141:3: warning: use location
    ARRAY_SET(ww, i, w);
    ^
@@ -8730,6 +8758,7 @@ w_39(D)->references = _33;
 bb index := 18
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -8779,6 +8808,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 18
 
 ======================================================================
 w_39(D)->references = _33;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:143:15: warning: use location
   w->references++;
                ^
@@ -8790,6 +8820,7 @@ w_39(D)->references = _33;
 bb index := 18
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -8839,6 +8870,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 18
 
 ======================================================================
 w_39(D)->references = _33;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:143:15: warning: use location
   w->references++;
                ^
@@ -8850,6 +8882,7 @@ _32 = w_39(D)->references;
 bb index := 18
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -8899,6 +8932,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 18
 
 ======================================================================
 _32 = w_39(D)->references;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:143:3: warning: use location
   w->references++;
    ^
@@ -8910,6 +8944,7 @@ _32 = w_39(D)->references;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -8933,6 +8968,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 *_24 = w_39(D);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -8944,6 +8980,7 @@ ww_37(D)->num = _26;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -8967,6 +9004,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 ww_37(D)->num = _26;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -8978,6 +9016,7 @@ ww_37(D)->num = _26;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -9001,6 +9040,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 ww_37(D)->num = _26;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -9012,6 +9052,7 @@ _25 = ww_37(D)->num;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -9035,6 +9076,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 _25 = ww_37(D)->num;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -9046,6 +9088,7 @@ _21 = ww_37(D)->num;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -9069,6 +9112,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 _21 = ww_37(D)->num;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -9079,6 +9123,7 @@ _22 = (long unsigned int) _21;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -9101,6 +9146,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 _22 = (long unsigned int) _21;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -9111,6 +9157,7 @@ _23 = _22 * 8;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -9133,6 +9180,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 _23 = _22 * 8;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -9143,6 +9191,7 @@ _24 = _20 + _23;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -9165,6 +9214,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 _24 = _20 + _23;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -9176,6 +9226,7 @@ _20 = ww_37(D)->list;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -9199,6 +9250,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 _20 = ww_37(D)->list;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -9358,6 +9410,7 @@ _85 = ww_37(D)->num;
 bb index := 5
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -9572,6 +9625,7 @@ gimple stmt in succ := 5 ,possiable got to succ := 10
 
 ======================================================================
 _85 = ww_37(D)->num;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:97:20: warning: use location
   for (*i = 0; *i < ARRAY_LENGTH(ww); (*i)++) {
                     ^
@@ -9583,6 +9637,7 @@ _76 = ww_37(D)->list;
 bb index := 3
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -9704,6 +9759,7 @@ gimple stmt in succ := 3 ,possiable got to succ := 18
 
 ======================================================================
 _76 = ww_37(D)->list;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:98:12: warning: use location
    if (w == ARRAY_ITEM(ww, *i))
             ^
@@ -9714,6 +9770,7 @@ _80 = _76 + _79;
 bb index := 3
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -9827,6 +9884,7 @@ gimple stmt in succ := 3 ,possiable got to succ := 18
 
 ======================================================================
 _80 = _76 + _79;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:98:12: warning: use location
    if (w == ARRAY_ITEM(ww, *i))
             ^
@@ -9838,6 +9896,7 @@ _81 = *_80;
 bb index := 3
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -9959,6 +10018,7 @@ gimple stmt in succ := 3 ,possiable got to succ := 18
 
 ======================================================================
 _81 = *_80;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:98:12: warning: use location
    if (w == ARRAY_ITEM(ww, *i))
             ^
@@ -9969,6 +10029,7 @@ if (_81 == 0B)
 bb index := 3
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -10082,6 +10143,7 @@ gimple stmt in succ := 3 ,possiable got to succ := 18
 
 ======================================================================
 if (_81 == 0B)
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:98:6: warning: use location
    if (w == ARRAY_ITEM(ww, *i))
       ^
@@ -10107,20 +10169,20 @@ from window_add basic block 4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c2d83a8
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b7c3a8
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _8 = ww_37(D)->list;
     version 8
-    ptr-info 0x7f003c2d0420>
+    ptr-info 0x7fb7d0b74420>
 
  ================== Start Use after free Check ================== 
 
@@ -10510,20 +10572,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c2d8480
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b7c480
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _11 = ww_37(D)->list;
     version 11
-    ptr-info 0x7f003c2d0450>
+    ptr-info 0x7fb7d0b74450>
 # VUSE <.MEM_58>
 _11 = ww_37(D)->list;
 
@@ -10546,20 +10608,20 @@ _12 = xrealloc (_11, 2, _10);
 this stmt is child function---xrealloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2d8480
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b7c480
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _11 = ww_37(D)->list;
     version 11
-    ptr-info 0x7f003c2d0450>
+    ptr-info 0x7fb7d0b74450>
 trace fucntion name:xrealloc 
 [40;44m =======trace_function_path xrealloc  function_call count: 3 level :0========  [0m
 # .MEM_17 = VDEF <.MEM_16(D)>
@@ -10600,6 +10662,7 @@ _27 = ww_37(D)->list;
 bb index := 17
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -10623,6 +10686,7 @@ gimple stmt in succ := 17 ,possiable got to succ := 18
 
 ======================================================================
 _27 = ww_37(D)->list;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:141:3: warning: use location
    ARRAY_SET(ww, i, w);
    ^
@@ -10633,6 +10697,7 @@ _31 = _27 + _30;
 bb index := 17
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -10655,6 +10720,7 @@ gimple stmt in succ := 17 ,possiable got to succ := 18
 
 ======================================================================
 _31 = _27 + _30;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:141:3: warning: use location
    ARRAY_SET(ww, i, w);
    ^
@@ -10666,6 +10732,7 @@ _31 = _27 + _30;
 bb index := 17
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -10689,6 +10756,7 @@ gimple stmt in succ := 17 ,possiable got to succ := 18
 
 ======================================================================
 *_31 = w_39(D);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:141:3: warning: use location
    ARRAY_SET(ww, i, w);
    ^
@@ -10700,6 +10768,7 @@ w_39(D)->references = _33;
 bb index := 18
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -10749,6 +10818,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 18
 
 ======================================================================
 w_39(D)->references = _33;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:143:15: warning: use location
   w->references++;
                ^
@@ -10760,6 +10830,7 @@ w_39(D)->references = _33;
 bb index := 18
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -10809,6 +10880,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 18
 
 ======================================================================
 w_39(D)->references = _33;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:143:15: warning: use location
   w->references++;
                ^
@@ -10820,6 +10892,7 @@ _32 = w_39(D)->references;
 bb index := 18
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -10869,6 +10942,7 @@ gimple stmt in succ := 18 ,possiable got to succ := 18
 
 ======================================================================
 _32 = w_39(D)->references;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:143:3: warning: use location
   w->references++;
    ^
@@ -10880,6 +10954,7 @@ _32 = w_39(D)->references;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -10903,6 +10978,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 *_24 = w_39(D);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -10914,6 +10990,7 @@ ww_37(D)->num = _26;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -10937,6 +11014,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 ww_37(D)->num = _26;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -10948,6 +11026,7 @@ ww_37(D)->num = _26;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -10971,6 +11050,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 ww_37(D)->num = _26;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -10982,6 +11062,7 @@ _25 = ww_37(D)->num;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -11005,6 +11086,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 _25 = ww_37(D)->num;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -11016,6 +11098,7 @@ _21 = ww_37(D)->num;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -11039,6 +11122,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 _21 = ww_37(D)->num;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -11049,6 +11133,7 @@ _22 = (long unsigned int) _21;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -11071,6 +11156,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 _22 = (long unsigned int) _21;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -11081,6 +11167,7 @@ _23 = _22 * 8;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -11103,6 +11190,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 _23 = _22 * 8;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -11113,6 +11201,7 @@ _24 = _20 + _23;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -11135,6 +11224,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 _24 = _20 + _23;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -11146,6 +11236,7 @@ _20 = ww_37(D)->list;
 bb index := 16
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -11169,6 +11260,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 18
 
 ======================================================================
 _20 = ww_37(D)->list;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:139:3: warning: use location
    ARRAY_ADD(ww, w);
    ^
@@ -11318,6 +11410,7 @@ _85 = ww_37(D)->num;
 bb index := 5
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -11532,6 +11625,7 @@ gimple stmt in succ := 5 ,possiable got to succ := 10
 
 ======================================================================
 _85 = ww_37(D)->num;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:97:20: warning: use location
   for (*i = 0; *i < ARRAY_LENGTH(ww); (*i)++) {
                     ^
@@ -11543,6 +11637,7 @@ _76 = ww_37(D)->list;
 bb index := 3
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -11664,6 +11759,7 @@ gimple stmt in succ := 3 ,possiable got to succ := 18
 
 ======================================================================
 _76 = ww_37(D)->list;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:98:12: warning: use location
    if (w == ARRAY_ITEM(ww, *i))
             ^
@@ -11674,6 +11770,7 @@ _80 = _76 + _79;
 bb index := 3
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -11787,6 +11884,7 @@ gimple stmt in succ := 3 ,possiable got to succ := 18
 
 ======================================================================
 _80 = _76 + _79;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:98:12: warning: use location
    if (w == ARRAY_ITEM(ww, *i))
             ^
@@ -11798,6 +11896,7 @@ _81 = *_80;
 bb index := 3
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -11919,6 +12018,7 @@ gimple stmt in succ := 3 ,possiable got to succ := 18
 
 ======================================================================
 _81 = *_80;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:98:12: warning: use location
    if (w == ARRAY_ITEM(ww, *i))
             ^
@@ -11929,6 +12029,7 @@ if (_81 == 0B)
 bb index := 3
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘window_add’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -12042,6 +12143,7 @@ gimple stmt in succ := 3 ,possiable got to succ := 18
 
 ======================================================================
 if (_81 == 0B)
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:98:6: warning: use location
    if (w == ARRAY_ITEM(ww, *i))
       ^
@@ -12067,20 +12169,20 @@ from window_add basic block 4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c2d8480
-    type <pointer_type 0x7f003c2b1a80
-        type <pointer_type 0x7f003c2b1930 type <record_type 0x7f003c2b1888 window>
+ <ssa_name 0x7fb7d0b7c480
+    type <pointer_type 0x7fb7d0b55a80
+        type <pointer_type 0x7fb7d0b55930 type <record_type 0x7fb7d0b55888 window>
             public unsigned DI
-            size <integer_cst 0x7f003c77ebe8 constant 64>
-            unit size <integer_cst 0x7f003c77ec00 constant 8>
+            size <integer_cst 0x7fb7d1022be8 constant 64>
+            unit size <integer_cst 0x7fb7d1022c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c2b1a80>>
-        public unsigned DI size <integer_cst 0x7f003c77ebe8 64> unit size <integer_cst 0x7f003c77ec00 8>
+            pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+        public unsigned DI size <integer_cst 0x7fb7d1022be8 64> unit size <integer_cst 0x7fb7d1022c00 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _11 = ww_37(D)->list;
     version 11
-    ptr-info 0x7f003c2d0450>
+    ptr-info 0x7fb7d0b74450>
 
  ================== Start Use after free Check ================== 
 
@@ -12441,21 +12543,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c7865e8
-    type <pointer_type 0x7f003c2b1690
-        type <record_type 0x7f003c2b15e8 buffer BLK
-            size <integer_cst 0x7f003c77ef48 constant 256>
-            unit size <integer_cst 0x7f003c79a048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b15e8 fields <field_decl 0x7f003c2b2da8 base> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1690> chain <type_decl 0x7f003c2b2e40 D.4060>>
+ <ssa_name 0x7fb7d102a5e8
+    type <pointer_type 0x7fb7d0b55690
+        type <record_type 0x7fb7d0b555e8 buffer BLK
+            size <integer_cst 0x7fb7d1022f48 constant 256>
+            unit size <integer_cst 0x7fb7d103e048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b555e8 fields <field_decl 0x7fb7d0b56da8 base> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55690> chain <type_decl 0x7fb7d0b56e40 D.4060>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f003d513f30 b>
+    var <var_decl 0x7fb7d1db7f30 b>
     def_stmt b_5 = calloc (1, 32);
     version 5
-    ptr-info 0x7f003c2d02a0>
+    ptr-info 0x7fb7d0b742a0>
 # .MEM_13 = VDEF <.MEM_12(D)>
 b_5 = calloc (1, 32);
 
@@ -12477,6 +12579,7 @@ return b_5;
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -12528,6 +12631,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 return b_5;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:82:9: warning: use location
   return (b);
          ^
@@ -12538,6 +12642,7 @@ _9 = b_5;
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -12586,6 +12691,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 _9 = b_5;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:82:9: warning: use location
   return (b);
          ^
@@ -12597,6 +12703,7 @@ b_5->space = size_2(D);
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -12648,6 +12755,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 b_5->space = size_2(D);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:80:11: warning: use location
   b->space = size;
            ^
@@ -12659,6 +12767,7 @@ b_5->space = size_2(D);
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -12710,6 +12819,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 b_5->space = size_2(D);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:80:11: warning: use location
   b->space = size;
            ^
@@ -12721,6 +12831,7 @@ _1 = malloc (size_2(D));
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -12772,27 +12883,28 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 _1 = malloc (size_2(D));
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:79:12: warning: use location
   b->base = xmalloc(size);
             ^
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c7865e8
-    type <pointer_type 0x7f003c2b1690
-        type <record_type 0x7f003c2b15e8 buffer BLK
-            size <integer_cst 0x7f003c77ef48 constant 256>
-            unit size <integer_cst 0x7f003c79a048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b15e8 fields <field_decl 0x7f003c2b2da8 base> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1690> chain <type_decl 0x7f003c2b2e40 D.4060>>
+ <ssa_name 0x7fb7d102a5e8
+    type <pointer_type 0x7fb7d0b55690
+        type <record_type 0x7fb7d0b555e8 buffer BLK
+            size <integer_cst 0x7fb7d1022f48 constant 256>
+            unit size <integer_cst 0x7fb7d103e048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b555e8 fields <field_decl 0x7fb7d0b56da8 base> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55690> chain <type_decl 0x7fb7d0b56e40 D.4060>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f003d513f30 b>
+    var <var_decl 0x7fb7d1db7f30 b>
     def_stmt b_5 = calloc (1, 32);
     version 5
-    ptr-info 0x7f003c2d02a0>
+    ptr-info 0x7fb7d0b742a0>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -12805,6 +12917,7 @@ b_5->base = _1;
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -12856,6 +12969,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 b_5->base = _1;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:79:10: warning: use location
   b->base = xmalloc(size);
           ^
@@ -12866,6 +12980,7 @@ if (size_2(D) == 0)
 bb index := 2
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -12962,6 +13077,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 10
 
 ======================================================================
 if (size_2(D) == 0)
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:74:5: warning: use location
   if (size == 0)
      ^
@@ -12988,6 +13104,7 @@ b_5 = calloc (1, 32);
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -13039,27 +13156,28 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 b_5 = calloc (1, 32);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:77:4: warning: use location
   b = xcalloc(1, sizeof *b);
     ^
 this stmt is child function---calloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c7865e8
-    type <pointer_type 0x7f003c2b1690
-        type <record_type 0x7f003c2b15e8 buffer BLK
-            size <integer_cst 0x7f003c77ef48 constant 256>
-            unit size <integer_cst 0x7f003c79a048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b15e8 fields <field_decl 0x7f003c2b2da8 base> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1690> chain <type_decl 0x7f003c2b2e40 D.4060>>
+ <ssa_name 0x7fb7d102a5e8
+    type <pointer_type 0x7fb7d0b55690
+        type <record_type 0x7fb7d0b555e8 buffer BLK
+            size <integer_cst 0x7fb7d1022f48 constant 256>
+            unit size <integer_cst 0x7fb7d103e048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b555e8 fields <field_decl 0x7fb7d0b56da8 base> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55690> chain <type_decl 0x7fb7d0b56e40 D.4060>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f003d513f30 b>
+    var <var_decl 0x7fb7d1db7f30 b>
     def_stmt b_5 = calloc (1, 32);
     version 5
-    ptr-info 0x7f003c2d02a0>
+    ptr-info 0x7fb7d0b742a0>
 trace fucntion name:calloc 
 
  ================== trace ================== 
@@ -13071,21 +13189,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c7865e8
-    type <pointer_type 0x7f003c2b1690
-        type <record_type 0x7f003c2b15e8 buffer BLK
-            size <integer_cst 0x7f003c77ef48 constant 256>
-            unit size <integer_cst 0x7f003c79a048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b15e8 fields <field_decl 0x7f003c2b2da8 base> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1690> chain <type_decl 0x7f003c2b2e40 D.4060>>
+ <ssa_name 0x7fb7d102a5e8
+    type <pointer_type 0x7fb7d0b55690
+        type <record_type 0x7fb7d0b555e8 buffer BLK
+            size <integer_cst 0x7fb7d1022f48 constant 256>
+            unit size <integer_cst 0x7fb7d103e048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b555e8 fields <field_decl 0x7fb7d0b56da8 base> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55690> chain <type_decl 0x7fb7d0b56e40 D.4060>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f003d513f30 b>
+    var <var_decl 0x7fb7d1db7f30 b>
     def_stmt b_5 = calloc (1, 32);
     version 5
-    ptr-info 0x7f003c2d02a0>
+    ptr-info 0x7fb7d0b742a0>
 
  ================== Start Use after free Check ================== 
 
@@ -13104,20 +13222,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c786f30
-    type <pointer_type 0x7f003c7990a8
-        type <void_type 0x7f003c792f18 void VOID
+ <ssa_name 0x7fb7d102af30
+    type <pointer_type 0x7fb7d103d0a8
+        type <void_type 0x7fb7d1036f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c7990a8>>
+            pointer_to_this <pointer_type 0x7fb7d103d0a8>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c79ebd0>>
+        pointer_to_this <pointer_type 0x7fb7d1042bd0>>
    
     def_stmt _1 = malloc (size_2(D));
     version 1
-    ptr-info 0x7f003c2d0288>
+    ptr-info 0x7fb7d0b74288>
 # .MEM_14 = VDEF <.MEM_13>
 _1 = malloc (size_2(D));
 
@@ -13139,6 +13257,7 @@ b_5->base = _1;
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -13190,6 +13309,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 b_5->base = _1;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:79:10: warning: use location
   b->base = xmalloc(size);
           ^
@@ -13201,6 +13321,7 @@ b_5->base = _1;
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -13252,6 +13373,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 b_5->base = _1;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:79:10: warning: use location
   b->base = xmalloc(size);
           ^
@@ -13262,6 +13384,7 @@ _9 = b_5;
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -13310,6 +13433,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 _9 = b_5;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:82:9: warning: use location
   return (b);
          ^
@@ -13321,6 +13445,7 @@ b_5->space = size_2(D);
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -13372,6 +13497,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 b_5->space = size_2(D);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:80:11: warning: use location
   b->space = size;
            ^
@@ -13383,6 +13509,7 @@ b_5->space = size_2(D);
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -13434,6 +13561,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 b_5->space = size_2(D);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:80:11: warning: use location
   b->space = size;
            ^
@@ -13444,6 +13572,7 @@ if (size_2(D) == 0)
 bb index := 2
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -13540,6 +13669,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 10
 
 ======================================================================
 if (size_2(D) == 0)
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:74:5: warning: use location
   if (size == 0)
      ^
@@ -13566,6 +13696,7 @@ _1 = malloc (size_2(D));
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -13617,26 +13748,27 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 _1 = malloc (size_2(D));
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:79:12: warning: use location
   b->base = xmalloc(size);
             ^
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c786f30
-    type <pointer_type 0x7f003c7990a8
-        type <void_type 0x7f003c792f18 void VOID
+ <ssa_name 0x7fb7d102af30
+    type <pointer_type 0x7fb7d103d0a8
+        type <void_type 0x7fb7d1036f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c7990a8>>
+            pointer_to_this <pointer_type 0x7fb7d103d0a8>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c79ebd0>>
+        pointer_to_this <pointer_type 0x7fb7d1042bd0>>
    
     def_stmt _1 = malloc (size_2(D));
     version 1
-    ptr-info 0x7f003c2d0288>
+    ptr-info 0x7fb7d0b74288>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -13648,20 +13780,20 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c786f30
-    type <pointer_type 0x7f003c7990a8
-        type <void_type 0x7f003c792f18 void VOID
+ <ssa_name 0x7fb7d102af30
+    type <pointer_type 0x7fb7d103d0a8
+        type <void_type 0x7fb7d1036f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f003c7990a8>>
+            pointer_to_this <pointer_type 0x7fb7d103d0a8>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c79ebd0>>
+        pointer_to_this <pointer_type 0x7fb7d1042bd0>>
    
     def_stmt _1 = malloc (size_2(D));
     version 1
-    ptr-info 0x7f003c2d0288>
+    ptr-info 0x7fb7d0b74288>
 
  ================== Start Use after free Check ================== 
 
@@ -13682,17 +13814,17 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f003c2abed0 type <integer_type 0x7f003c2b1498 size_t> constant 1>
+ <integer_cst 0x7fb7d0b4fed0 type <integer_type 0x7fb7d0b55498 size_t> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c786f78
-    type <integer_type 0x7f003c2b1498 size_t public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f003c792738 precision 64 min <integer_cst 0x7f003c77eeb8 0> max <integer_cst 0x7f003c780500 18446744073709551615> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
-    var <parm_decl 0x7f003c2bd280 size>
+ <ssa_name 0x7fb7d102af78
+    type <integer_type 0x7fb7d0b55498 size_t public unsigned DI
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fb7d1036738 precision 64 min <integer_cst 0x7fb7d1022eb8 0> max <integer_cst 0x7fb7d1024500 18446744073709551615> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    var <parm_decl 0x7fb7d0b61280 size>
     def_stmt GIMPLE_NOP
     version 2>
 GIMPLE_NOP
@@ -13714,6 +13846,7 @@ b_5->space = size_2(D);
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -13765,6 +13898,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 b_5->space = size_2(D);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:80:11: warning: use location
   b->space = size;
            ^
@@ -13776,6 +13910,7 @@ b_5->space = size_2(D);
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -13827,6 +13962,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 b_5->space = size_2(D);
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:80:11: warning: use location
   b->space = size;
            ^
@@ -13837,6 +13973,7 @@ _9 = b_5;
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -13885,6 +14022,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 _9 = b_5;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:82:9: warning: use location
   return (b);
          ^
@@ -13896,6 +14034,7 @@ b_5->base = _1;
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -13947,6 +14086,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 b_5->base = _1;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:79:10: warning: use location
   b->base = xmalloc(size);
           ^
@@ -13958,6 +14098,7 @@ b_5->base = _1;
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -14009,6 +14150,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 b_5->base = _1;
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:79:10: warning: use location
   b->base = xmalloc(size);
           ^
@@ -14019,6 +14161,7 @@ if (size_2(D) == 0)
 bb index := 2
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -14115,6 +14258,7 @@ gimple stmt in succ := 2 ,possiable got to succ := 10
 
 ======================================================================
 if (size_2(D) == 0)
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:74:5: warning: use location
   if (size == 0)
      ^
@@ -14141,6 +14285,7 @@ _1 = malloc (size_2(D));
 bb index := 4
 # VUSE <.MEM_17>
 return newptr_8;
+In function ‘buffer_create’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:65:16: warning: use location
          return (newptr);
                 ^
@@ -14192,18 +14337,19 @@ gimple stmt in succ := 4 ,possiable got to succ := 10
 
 ======================================================================
 _1 = malloc (size_2(D));
+In function ‘main’:
 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:79:12: warning: use location
   b->base = xmalloc(size);
             ^
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c786f78
-    type <integer_type 0x7f003c2b1498 size_t public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f003c792738 precision 64 min <integer_cst 0x7f003c77eeb8 0> max <integer_cst 0x7f003c780500 18446744073709551615> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
-    var <parm_decl 0x7f003c2bd280 size>
+ <ssa_name 0x7fb7d102af78
+    type <integer_type 0x7fb7d0b55498 size_t public unsigned DI
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fb7d1036738 precision 64 min <integer_cst 0x7fb7d1022eb8 0> max <integer_cst 0x7fb7d1024500 18446744073709551615> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    var <parm_decl 0x7fb7d0b61280 size>
     def_stmt GIMPLE_NOP
     version 2>
 trace fucntion name:malloc 
@@ -14217,12 +14363,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c786f78
-    type <integer_type 0x7f003c2b1498 size_t public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f003c792738 precision 64 min <integer_cst 0x7f003c77eeb8 0> max <integer_cst 0x7f003c780500 18446744073709551615> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
-    var <parm_decl 0x7f003c2bd280 size>
+ <ssa_name 0x7fb7d102af78
+    type <integer_type 0x7fb7d0b55498 size_t public unsigned DI
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fb7d1036738 precision 64 min <integer_cst 0x7fb7d1022eb8 0> max <integer_cst 0x7fb7d1024500 18446744073709551615> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    var <parm_decl 0x7fb7d0b61280 size>
     def_stmt GIMPLE_NOP
     version 2>
 
@@ -14248,22 +14394,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c7866c0
-    type <pointer_type 0x7f003c2b1930
-        type <record_type 0x7f003c2b1888 window BLK
-            size <integer_cst 0x7f003c2ab2e8 constant 1600>
-            unit size <integer_cst 0x7f003c2ab318 constant 200>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b1888 fields <field_decl 0x7f003c2b3260 name> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1930> chain <type_decl 0x7f003c2b32f8 D.4067>>
+ <ssa_name 0x7fb7d102a6c0
+    type <pointer_type 0x7fb7d0b55930
+        type <record_type 0x7fb7d0b55888 window BLK
+            size <integer_cst 0x7fb7d0b4f2e8 constant 1600>
+            unit size <integer_cst 0x7fb7d0b4f318 constant 200>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b55888 fields <field_decl 0x7fb7d0b57260 name> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55930> chain <type_decl 0x7fb7d0b572f8 D.4067>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c2b1a80>>
-    var <var_decl 0x7f003c2e3510 w>
+        pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+    var <var_decl 0x7fb7d0b87510 w>
     def_stmt w_10 = malloc (200);
     version 10
-    ptr-info 0x7f003c2d0570>
+    ptr-info 0x7fb7d0b74570>
 # .MEM_25 = VDEF <.MEM_6(D)>
 w_10 = malloc (200);
 
@@ -14926,22 +15072,22 @@ window_add (&windows, w_10);
 this stmt is child function---window_add-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c7866c0
-    type <pointer_type 0x7f003c2b1930
-        type <record_type 0x7f003c2b1888 window BLK
-            size <integer_cst 0x7f003c2ab2e8 constant 1600>
-            unit size <integer_cst 0x7f003c2ab318 constant 200>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b1888 fields <field_decl 0x7f003c2b3260 name> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1930> chain <type_decl 0x7f003c2b32f8 D.4067>>
+ <ssa_name 0x7fb7d102a6c0
+    type <pointer_type 0x7fb7d0b55930
+        type <record_type 0x7fb7d0b55888 window BLK
+            size <integer_cst 0x7fb7d0b4f2e8 constant 1600>
+            unit size <integer_cst 0x7fb7d0b4f318 constant 200>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b55888 fields <field_decl 0x7fb7d0b57260 name> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55930> chain <type_decl 0x7fb7d0b572f8 D.4067>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c2b1a80>>
-    var <var_decl 0x7f003c2e3510 w>
+        pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+    var <var_decl 0x7fb7d0b87510 w>
     def_stmt w_10 = malloc (200);
     version 10
-    ptr-info 0x7f003c2d0570>
+    ptr-info 0x7fb7d0b74570>
 trace fucntion name:window_add 
 [40;44m =======trace_function_path window_add  function_call count: 3 level :0========  [0m
 [40;42m =======pre add _ fucntion:xrealloc========= [0m
@@ -15295,22 +15441,22 @@ strcpy (_21, name_14);
 this stmt is child function---strcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c7866c0
-    type <pointer_type 0x7f003c2b1930
-        type <record_type 0x7f003c2b1888 window BLK
-            size <integer_cst 0x7f003c2ab2e8 constant 1600>
-            unit size <integer_cst 0x7f003c2ab318 constant 200>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b1888 fields <field_decl 0x7f003c2b3260 name> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1930> chain <type_decl 0x7f003c2b32f8 D.4067>>
+ <ssa_name 0x7fb7d102a6c0
+    type <pointer_type 0x7fb7d0b55930
+        type <record_type 0x7fb7d0b55888 window BLK
+            size <integer_cst 0x7fb7d0b4f2e8 constant 1600>
+            unit size <integer_cst 0x7fb7d0b4f318 constant 200>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b55888 fields <field_decl 0x7fb7d0b57260 name> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55930> chain <type_decl 0x7fb7d0b572f8 D.4067>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c2b1a80>>
-    var <var_decl 0x7f003c2e3510 w>
+        pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+    var <var_decl 0x7fb7d0b87510 w>
     def_stmt w_10 = malloc (200);
     version 10
-    ptr-info 0x7f003c2d0570>
+    ptr-info 0x7fb7d0b74570>
 trace fucntion name:strcpy 
 
  ================== trace ================== 
@@ -16312,22 +16458,22 @@ w_10 = malloc (200);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c7866c0
-    type <pointer_type 0x7f003c2b1930
-        type <record_type 0x7f003c2b1888 window BLK
-            size <integer_cst 0x7f003c2ab2e8 constant 1600>
-            unit size <integer_cst 0x7f003c2ab318 constant 200>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b1888 fields <field_decl 0x7f003c2b3260 name> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1930> chain <type_decl 0x7f003c2b32f8 D.4067>>
+ <ssa_name 0x7fb7d102a6c0
+    type <pointer_type 0x7fb7d0b55930
+        type <record_type 0x7fb7d0b55888 window BLK
+            size <integer_cst 0x7fb7d0b4f2e8 constant 1600>
+            unit size <integer_cst 0x7fb7d0b4f318 constant 200>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b55888 fields <field_decl 0x7fb7d0b57260 name> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55930> chain <type_decl 0x7fb7d0b572f8 D.4067>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c2b1a80>>
-    var <var_decl 0x7f003c2e3510 w>
+        pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+    var <var_decl 0x7fb7d0b87510 w>
     def_stmt w_10 = malloc (200);
     version 10
-    ptr-info 0x7f003c2d0570>
+    ptr-info 0x7fb7d0b74570>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -16339,22 +16485,22 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c7866c0
-    type <pointer_type 0x7f003c2b1930
-        type <record_type 0x7f003c2b1888 window BLK
-            size <integer_cst 0x7f003c2ab2e8 constant 1600>
-            unit size <integer_cst 0x7f003c2ab318 constant 200>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b1888 fields <field_decl 0x7f003c2b3260 name> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1930> chain <type_decl 0x7f003c2b32f8 D.4067>>
+ <ssa_name 0x7fb7d102a6c0
+    type <pointer_type 0x7fb7d0b55930
+        type <record_type 0x7fb7d0b55888 window BLK
+            size <integer_cst 0x7fb7d0b4f2e8 constant 1600>
+            unit size <integer_cst 0x7fb7d0b4f318 constant 200>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b55888 fields <field_decl 0x7fb7d0b57260 name> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55930> chain <type_decl 0x7fb7d0b572f8 D.4067>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f003c2b1a80>>
-    var <var_decl 0x7f003c2e3510 w>
+        pointer_to_this <pointer_type 0x7fb7d0b55a80>>
+    var <var_decl 0x7fb7d0b87510 w>
     def_stmt w_10 = malloc (200);
     version 10
-    ptr-info 0x7f003c2d0570>
+    ptr-info 0x7fb7d0b74570>
 
  ================== Start Use after free Check ================== 
 
@@ -16419,21 +16565,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c2e42d0
-    type <pointer_type 0x7f003c2a8348
-        type <integer_type 0x7f003c2a8930 char public string-flag QI
-            size <integer_cst 0x7f003c77ecd8 constant 8>
-            unit size <integer_cst 0x7f003c77ecf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f003c7923f0 precision 8 min <integer_cst 0x7f003c2ab180 -128> max <integer_cst 0x7f003c2ab168 127> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2a8348>>
+ <ssa_name 0x7fb7d0b882d0
+    type <pointer_type 0x7fb7d0b4c348
+        type <integer_type 0x7fb7d0b4c930 char public string-flag QI
+            size <integer_cst 0x7fb7d1022cd8 constant 8>
+            unit size <integer_cst 0x7fb7d1022cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb7d10363f0 precision 8 min <integer_cst 0x7fb7d0b4f180 -128> max <integer_cst 0x7fb7d0b4f168 127> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b4c348>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
-    var <var_decl 0x7f003c2e36c0 name>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    var <var_decl 0x7fb7d0b876c0 name>
     def_stmt name_14 = strdup ("cmd");
     version 14
-    ptr-info 0x7f003c2d05b8>
+    ptr-info 0x7fb7d0b745b8>
 # .MEM_31 = VDEF <.MEM_30>
 name_14 = strdup ("cmd");
 
@@ -16592,21 +16738,21 @@ name_14 = strdup ("cmd");
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2e42d0
-    type <pointer_type 0x7f003c2a8348
-        type <integer_type 0x7f003c2a8930 char public string-flag QI
-            size <integer_cst 0x7f003c77ecd8 constant 8>
-            unit size <integer_cst 0x7f003c77ecf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f003c7923f0 precision 8 min <integer_cst 0x7f003c2ab180 -128> max <integer_cst 0x7f003c2ab168 127> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2a8348>>
+ <ssa_name 0x7fb7d0b882d0
+    type <pointer_type 0x7fb7d0b4c348
+        type <integer_type 0x7fb7d0b4c930 char public string-flag QI
+            size <integer_cst 0x7fb7d1022cd8 constant 8>
+            unit size <integer_cst 0x7fb7d1022cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb7d10363f0 precision 8 min <integer_cst 0x7fb7d0b4f180 -128> max <integer_cst 0x7fb7d0b4f168 127> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b4c348>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
-    var <var_decl 0x7f003c2e36c0 name>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    var <var_decl 0x7fb7d0b876c0 name>
     def_stmt name_14 = strdup ("cmd");
     version 14
-    ptr-info 0x7f003c2d05b8>
+    ptr-info 0x7fb7d0b745b8>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -16756,21 +16902,21 @@ ptr_15 = strchr (name_14, 32);
 this stmt is child function---strchr-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2e42d0
-    type <pointer_type 0x7f003c2a8348
-        type <integer_type 0x7f003c2a8930 char public string-flag QI
-            size <integer_cst 0x7f003c77ecd8 constant 8>
-            unit size <integer_cst 0x7f003c77ecf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f003c7923f0 precision 8 min <integer_cst 0x7f003c2ab180 -128> max <integer_cst 0x7f003c2ab168 127> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2a8348>>
+ <ssa_name 0x7fb7d0b882d0
+    type <pointer_type 0x7fb7d0b4c348
+        type <integer_type 0x7fb7d0b4c930 char public string-flag QI
+            size <integer_cst 0x7fb7d1022cd8 constant 8>
+            unit size <integer_cst 0x7fb7d1022cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb7d10363f0 precision 8 min <integer_cst 0x7fb7d0b4f180 -128> max <integer_cst 0x7fb7d0b4f168 127> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b4c348>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
-    var <var_decl 0x7f003c2e36c0 name>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    var <var_decl 0x7fb7d0b876c0 name>
     def_stmt name_14 = strdup ("cmd");
     version 14
-    ptr-info 0x7f003c2d05b8>
+    ptr-info 0x7fb7d0b745b8>
 trace fucntion name:strchr 
 
  ================== trace ================== 
@@ -17153,21 +17299,21 @@ ptr_17 = strchr (_20, 32);
 this stmt is child function---strchr-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2e42d0
-    type <pointer_type 0x7f003c2a8348
-        type <integer_type 0x7f003c2a8930 char public string-flag QI
-            size <integer_cst 0x7f003c77ecd8 constant 8>
-            unit size <integer_cst 0x7f003c77ecf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f003c7923f0 precision 8 min <integer_cst 0x7f003c2ab180 -128> max <integer_cst 0x7f003c2ab168 127> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2a8348>>
+ <ssa_name 0x7fb7d0b882d0
+    type <pointer_type 0x7fb7d0b4c348
+        type <integer_type 0x7fb7d0b4c930 char public string-flag QI
+            size <integer_cst 0x7fb7d1022cd8 constant 8>
+            unit size <integer_cst 0x7fb7d1022cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb7d10363f0 precision 8 min <integer_cst 0x7fb7d0b4f180 -128> max <integer_cst 0x7fb7d0b4f168 127> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b4c348>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
-    var <var_decl 0x7f003c2e36c0 name>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    var <var_decl 0x7fb7d0b876c0 name>
     def_stmt name_14 = strdup ("cmd");
     version 14
-    ptr-info 0x7f003c2d05b8>
+    ptr-info 0x7fb7d0b745b8>
 trace fucntion name:strchr 
 
  ================== trace ================== 
@@ -17948,21 +18094,21 @@ strcpy (_21, name_14);
 this stmt is child function---strcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2e42d0
-    type <pointer_type 0x7f003c2a8348
-        type <integer_type 0x7f003c2a8930 char public string-flag QI
-            size <integer_cst 0x7f003c77ecd8 constant 8>
-            unit size <integer_cst 0x7f003c77ecf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f003c7923f0 precision 8 min <integer_cst 0x7f003c2ab180 -128> max <integer_cst 0x7f003c2ab168 127> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2a8348>>
+ <ssa_name 0x7fb7d0b882d0
+    type <pointer_type 0x7fb7d0b4c348
+        type <integer_type 0x7fb7d0b4c930 char public string-flag QI
+            size <integer_cst 0x7fb7d1022cd8 constant 8>
+            unit size <integer_cst 0x7fb7d1022cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb7d10363f0 precision 8 min <integer_cst 0x7fb7d0b4f180 -128> max <integer_cst 0x7fb7d0b4f168 127> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b4c348>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
-    var <var_decl 0x7f003c2e36c0 name>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    var <var_decl 0x7fb7d0b876c0 name>
     def_stmt name_14 = strdup ("cmd");
     version 14
-    ptr-info 0x7f003c2d05b8>
+    ptr-info 0x7fb7d0b745b8>
 trace fucntion name:strcpy 
 
  ================== trace ================== 
@@ -17974,21 +18120,21 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c2e42d0
-    type <pointer_type 0x7f003c2a8348
-        type <integer_type 0x7f003c2a8930 char public string-flag QI
-            size <integer_cst 0x7f003c77ecd8 constant 8>
-            unit size <integer_cst 0x7f003c77ecf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f003c7923f0 precision 8 min <integer_cst 0x7f003c2ab180 -128> max <integer_cst 0x7f003c2ab168 127> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2a8348>>
+ <ssa_name 0x7fb7d0b882d0
+    type <pointer_type 0x7fb7d0b4c348
+        type <integer_type 0x7fb7d0b4c930 char public string-flag QI
+            size <integer_cst 0x7fb7d1022cd8 constant 8>
+            unit size <integer_cst 0x7fb7d1022cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb7d10363f0 precision 8 min <integer_cst 0x7fb7d0b4f180 -128> max <integer_cst 0x7fb7d0b4f168 127> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b4c348>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
-    var <var_decl 0x7f003c2e36c0 name>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    var <var_decl 0x7fb7d0b876c0 name>
     def_stmt name_14 = strdup ("cmd");
     version 14
-    ptr-info 0x7f003c2d05b8>
+    ptr-info 0x7fb7d0b745b8>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_35 = VDEF <.MEM_34>
 free (name_14);
@@ -18066,39 +18212,39 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f003c2d0150 type <integer_type 0x7f003c7927e0 long unsigned int> constant 200>
+ <integer_cst 0x7fb7d0b74150 type <integer_type 0x7fb7d10367e0 long unsigned int> constant 200>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f003c2d0078 type <integer_type 0x7f003c2b1498 size_t> constant 8192>
+ <integer_cst 0x7fb7d0b74078 type <integer_type 0x7fb7d0b55498 size_t> constant 8192>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f003c2d0078 type <integer_type 0x7f003c2b1498 size_t> constant 8192>
+ <integer_cst 0x7fb7d0b74078 type <integer_type 0x7fb7d0b55498 size_t> constant 8192>
 
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f003c2d59e0
-    type <pointer_type 0x7f003c2b59d8
-        type <array_type 0x7f003c2b5930 type <integer_type 0x7f003c2a8930 char>
+ <addr_expr 0x7fb7d0b799e0
+    type <pointer_type 0x7fb7d0b599d8
+        type <array_type 0x7fb7d0b59930 type <integer_type 0x7fb7d0b4c930 char>
             SI
-            size <integer_cst 0x7f003c77ee28 constant 32>
-            unit size <integer_cst 0x7f003c77ee40 constant 4>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f003c2b5888>
-            pointer_to_this <pointer_type 0x7f003c2b59d8>>
+            size <integer_cst 0x7fb7d1022e28 constant 32>
+            unit size <integer_cst 0x7fb7d1022e40 constant 4>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb7d0b59888>
+            pointer_to_this <pointer_type 0x7fb7d0b599d8>>
         unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7f003c2d55c0 type <array_type 0x7f003c2b5930>
+    arg 0 <string_cst 0x7fb7d0b795c0 type <array_type 0x7fb7d0b59930>
         readonly constant static "cmd\000">
     ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:188:20 start: ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:188:20 finish: ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:188:20>
 
@@ -18122,21 +18268,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c2e4480
-    type <pointer_type 0x7f003c2a8348
-        type <integer_type 0x7f003c2a8930 char public string-flag QI
-            size <integer_cst 0x7f003c77ecd8 constant 8>
-            unit size <integer_cst 0x7f003c77ecf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f003c7923f0 precision 8 min <integer_cst 0x7f003c2ab180 -128> max <integer_cst 0x7f003c2ab168 127> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2a8348>>
+ <ssa_name 0x7fb7d0b88480
+    type <pointer_type 0x7fb7d0b4c348
+        type <integer_type 0x7fb7d0b4c930 char public string-flag QI
+            size <integer_cst 0x7fb7d1022cd8 constant 8>
+            unit size <integer_cst 0x7fb7d1022cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb7d10363f0 precision 8 min <integer_cst 0x7fb7d0b4f180 -128> max <integer_cst 0x7fb7d0b4f168 127> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b4c348>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
    
     def_stmt _20 = ptr_19 + 1;
     version 20
-    ptr-info 0x7f003c2d0618>
+    ptr-info 0x7fb7d0b74618>
 _20 = ptr_19 + 1;
 
  ================== trace ptable================== 
@@ -18268,21 +18414,21 @@ ptr_17 = strchr (_20, 32);
 this stmt is child function---strchr-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2e4480
-    type <pointer_type 0x7f003c2a8348
-        type <integer_type 0x7f003c2a8930 char public string-flag QI
-            size <integer_cst 0x7f003c77ecd8 constant 8>
-            unit size <integer_cst 0x7f003c77ecf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f003c7923f0 precision 8 min <integer_cst 0x7f003c2ab180 -128> max <integer_cst 0x7f003c2ab168 127> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2a8348>>
+ <ssa_name 0x7fb7d0b88480
+    type <pointer_type 0x7fb7d0b4c348
+        type <integer_type 0x7fb7d0b4c930 char public string-flag QI
+            size <integer_cst 0x7fb7d1022cd8 constant 8>
+            unit size <integer_cst 0x7fb7d1022cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb7d10363f0 precision 8 min <integer_cst 0x7fb7d0b4f180 -128> max <integer_cst 0x7fb7d0b4f168 127> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b4c348>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
    
     def_stmt _20 = ptr_19 + 1;
     version 20
-    ptr-info 0x7f003c2d0618>
+    ptr-info 0x7fb7d0b74618>
 trace fucntion name:strchr 
 
  ================== trace ================== 
@@ -18848,21 +18994,21 @@ from main basic block 9
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c2e4480
-    type <pointer_type 0x7f003c2a8348
-        type <integer_type 0x7f003c2a8930 char public string-flag QI
-            size <integer_cst 0x7f003c77ecd8 constant 8>
-            unit size <integer_cst 0x7f003c77ecf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f003c7923f0 precision 8 min <integer_cst 0x7f003c2ab180 -128> max <integer_cst 0x7f003c2ab168 127> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2a8348>>
+ <ssa_name 0x7fb7d0b88480
+    type <pointer_type 0x7fb7d0b4c348
+        type <integer_type 0x7fb7d0b4c930 char public string-flag QI
+            size <integer_cst 0x7fb7d1022cd8 constant 8>
+            unit size <integer_cst 0x7fb7d1022cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb7d10363f0 precision 8 min <integer_cst 0x7fb7d0b4f180 -128> max <integer_cst 0x7fb7d0b4f168 127> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b4c348>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
    
     def_stmt _20 = ptr_19 + 1;
     version 20
-    ptr-info 0x7f003c2d0618>
+    ptr-info 0x7fb7d0b74618>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_35 = VDEF <.MEM_34>
 free (name_14);
@@ -18900,22 +19046,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f003c2e44c8
-    type <pointer_type 0x7f003c2b5b28
-        type <array_type 0x7f003c2b17e0 type <integer_type 0x7f003c2a8930 char>
+ <ssa_name 0x7fb7d0b884c8
+    type <pointer_type 0x7fb7d0b59b28
+        type <array_type 0x7fb7d0b557e0 type <integer_type 0x7fb7d0b4c930 char>
             BLK
-            size <integer_cst 0x7f003c77ef48 constant 256>
-            unit size <integer_cst 0x7f003c79a048 constant 32>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f003c2b1738>
-            pointer_to_this <pointer_type 0x7f003c2b5b28>>
+            size <integer_cst 0x7fb7d1022f48 constant 256>
+            unit size <integer_cst 0x7fb7d103e048 constant 32>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb7d0b55738>
+            pointer_to_this <pointer_type 0x7fb7d0b59b28>>
         unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _21 = &w_10->name;
     version 21
-    ptr-info 0x7f003c2d0630>
+    ptr-info 0x7fb7d0b74630>
 _21 = &w_10->name;
 
  ================== trace ptable================== 
@@ -19100,22 +19246,22 @@ strcpy (_21, name_14);
 this stmt is child function---strcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2e44c8
-    type <pointer_type 0x7f003c2b5b28
-        type <array_type 0x7f003c2b17e0 type <integer_type 0x7f003c2a8930 char>
+ <ssa_name 0x7fb7d0b884c8
+    type <pointer_type 0x7fb7d0b59b28
+        type <array_type 0x7fb7d0b557e0 type <integer_type 0x7fb7d0b4c930 char>
             BLK
-            size <integer_cst 0x7f003c77ef48 constant 256>
-            unit size <integer_cst 0x7f003c79a048 constant 32>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f003c2b1738>
-            pointer_to_this <pointer_type 0x7f003c2b5b28>>
+            size <integer_cst 0x7fb7d1022f48 constant 256>
+            unit size <integer_cst 0x7fb7d103e048 constant 32>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb7d0b55738>
+            pointer_to_this <pointer_type 0x7fb7d0b59b28>>
         unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _21 = &w_10->name;
     version 21
-    ptr-info 0x7f003c2d0630>
+    ptr-info 0x7fb7d0b74630>
 trace fucntion name:strcpy 
 
  ================== trace ================== 
@@ -19293,22 +19439,22 @@ strcpy (_21, name_14);
 this stmt is child function---strcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f003c2e44c8
-    type <pointer_type 0x7f003c2b5b28
-        type <array_type 0x7f003c2b17e0 type <integer_type 0x7f003c2a8930 char>
+ <ssa_name 0x7fb7d0b884c8
+    type <pointer_type 0x7fb7d0b59b28
+        type <array_type 0x7fb7d0b557e0 type <integer_type 0x7fb7d0b4c930 char>
             BLK
-            size <integer_cst 0x7f003c77ef48 constant 256>
-            unit size <integer_cst 0x7f003c79a048 constant 32>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f003c2b1738>
-            pointer_to_this <pointer_type 0x7f003c2b5b28>>
+            size <integer_cst 0x7fb7d1022f48 constant 256>
+            unit size <integer_cst 0x7fb7d103e048 constant 32>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb7d0b55738>
+            pointer_to_this <pointer_type 0x7fb7d0b59b28>>
         unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _21 = &w_10->name;
     version 21
-    ptr-info 0x7f003c2d0630>
+    ptr-info 0x7fb7d0b74630>
 trace fucntion name:strcpy 
 
  ================== trace ================== 
@@ -19320,22 +19466,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f003c2e44c8
-    type <pointer_type 0x7f003c2b5b28
-        type <array_type 0x7f003c2b17e0 type <integer_type 0x7f003c2a8930 char>
+ <ssa_name 0x7fb7d0b884c8
+    type <pointer_type 0x7fb7d0b59b28
+        type <array_type 0x7fb7d0b557e0 type <integer_type 0x7fb7d0b4c930 char>
             BLK
-            size <integer_cst 0x7f003c77ef48 constant 256>
-            unit size <integer_cst 0x7f003c79a048 constant 32>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f003c2b1738>
-            pointer_to_this <pointer_type 0x7f003c2b5b28>>
+            size <integer_cst 0x7fb7d1022f48 constant 256>
+            unit size <integer_cst 0x7fb7d103e048 constant 32>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb7d0b55738>
+            pointer_to_this <pointer_type 0x7fb7d0b59b28>>
         unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _21 = &w_10->name;
     version 21
-    ptr-info 0x7f003c2d0630>
+    ptr-info 0x7fb7d0b74630>
 
  ================== Start Use after free Check ================== 
 
@@ -19354,21 +19500,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f003c2d5ba0
-    type <pointer_type 0x7f003c2b1bd0
-        type <record_type 0x7f003c2b1b28 windows BLK
-            size <integer_cst 0x7f003c79a0a8 constant 192>
-            unit size <integer_cst 0x7f003c79a078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b1b28 fields <field_decl 0x7f003c2b34c0 list> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1bd0> chain <type_decl 0x7f003c2b3558 D.4072>>
+ <addr_expr 0x7fb7d0b79ba0
+    type <pointer_type 0x7fb7d0b55bd0
+        type <record_type 0x7fb7d0b55b28 windows BLK
+            size <integer_cst 0x7fb7d103e0a8 constant 192>
+            unit size <integer_cst 0x7fb7d103e078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b55b28 fields <field_decl 0x7fb7d0b574c0 list> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55bd0> chain <type_decl 0x7fb7d0b57558 D.4072>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     constant
-    arg 0 <var_decl 0x7f003d513ab0 windows type <record_type 0x7f003c2b1b28 windows>
-        addressable static BLK file ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c line 47 col 16 size <integer_cst 0x7f003c79a0a8 192> unit size <integer_cst 0x7f003c79a078 24>
-        align 64 context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    arg 0 <var_decl 0x7fb7d1db7ab0 windows type <record_type 0x7fb7d0b55b28 windows>
+        addressable static BLK file ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c line 47 col 16 size <integer_cst 0x7fb7d103e0a8 192> unit size <integer_cst 0x7fb7d103e078 24>
+        align 64 context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
     ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:177:2 start: ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:177:2 finish: ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:177:2>
 
  ================== trace ptable================== 
@@ -19391,21 +19537,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f003c2d5640
-    type <pointer_type 0x7f003c2b1bd0
-        type <record_type 0x7f003c2b1b28 windows BLK
-            size <integer_cst 0x7f003c79a0a8 constant 192>
-            unit size <integer_cst 0x7f003c79a078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b1b28 fields <field_decl 0x7f003c2b34c0 list> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1bd0> chain <type_decl 0x7f003c2b3558 D.4072>>
+ <addr_expr 0x7fb7d0b79640
+    type <pointer_type 0x7fb7d0b55bd0
+        type <record_type 0x7fb7d0b55b28 windows BLK
+            size <integer_cst 0x7fb7d103e0a8 constant 192>
+            unit size <integer_cst 0x7fb7d103e078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b55b28 fields <field_decl 0x7fb7d0b574c0 list> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55bd0> chain <type_decl 0x7fb7d0b57558 D.4072>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     constant
-    arg 0 <var_decl 0x7f003d513ab0 windows type <record_type 0x7f003c2b1b28 windows>
-        addressable static BLK file ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c line 47 col 16 size <integer_cst 0x7f003c79a0a8 192> unit size <integer_cst 0x7f003c79a078 24>
-        align 64 context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    arg 0 <var_decl 0x7fb7d1db7ab0 windows type <record_type 0x7fb7d0b55b28 windows>
+        addressable static BLK file ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c line 47 col 16 size <integer_cst 0x7fb7d103e0a8 192> unit size <integer_cst 0x7fb7d103e078 24>
+        align 64 context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
     ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:189:2 start: ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:189:2 finish: ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:189:2>
 
  ================== trace ptable================== 
@@ -19428,21 +19574,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f003c2d56a0
-    type <pointer_type 0x7f003c2b1bd0
-        type <record_type 0x7f003c2b1b28 windows BLK
-            size <integer_cst 0x7f003c79a0a8 constant 192>
-            unit size <integer_cst 0x7f003c79a078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f003c2b1b28 fields <field_decl 0x7f003c2b34c0 list> context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
-            pointer_to_this <pointer_type 0x7f003c2b1bd0> chain <type_decl 0x7f003c2b3558 D.4072>>
+ <addr_expr 0x7fb7d0b796a0
+    type <pointer_type 0x7fb7d0b55bd0
+        type <record_type 0x7fb7d0b55b28 windows BLK
+            size <integer_cst 0x7fb7d103e0a8 constant 192>
+            unit size <integer_cst 0x7fb7d103e078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb7d0b55b28 fields <field_decl 0x7fb7d0b574c0 list> context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>
+            pointer_to_this <pointer_type 0x7fb7d0b55bd0> chain <type_decl 0x7fb7d0b57558 D.4072>>
         public unsigned DI
-        size <integer_cst 0x7f003c77ebe8 constant 64>
-        unit size <integer_cst 0x7f003c77ec00 constant 8>
+        size <integer_cst 0x7fb7d1022be8 constant 64>
+        unit size <integer_cst 0x7fb7d1022c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     constant
-    arg 0 <var_decl 0x7f003d513ab0 windows type <record_type 0x7f003c2b1b28 windows>
-        addressable static BLK file ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c line 47 col 16 size <integer_cst 0x7f003c79a0a8 192> unit size <integer_cst 0x7f003c79a078 24>
-        align 64 context <translation_unit_decl 0x7f003c789168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
+    arg 0 <var_decl 0x7fb7d1db7ab0 windows type <record_type 0x7fb7d0b55b28 windows>
+        addressable static BLK file ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c line 47 col 16 size <integer_cst 0x7fb7d103e0a8 192> unit size <integer_cst 0x7fb7d103e078 24>
+        align 64 context <translation_unit_decl 0x7fb7d102d168 ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c>>
     ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:191:2 start: ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:191:2 finish: ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:191:2>
 
  ================== trace ptable================== 
@@ -19996,7 +20142,7 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 12 [0m
 [40;34m    used_stmt array stack totalsize of : 4288 [0m
-[40;34m    collect time: : 0.000363 s [0m
-[40;34m    algorithm time: 0.051654 s [0m
+[40;34m    collect time: : 0.000367 s [0m
+[40;34m    algorithm time: 0.052347 s [0m
 [40;34m    gimple stmt count : : 188 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

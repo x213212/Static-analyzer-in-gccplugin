@@ -105,21 +105,21 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f330b75a870
-    type <pointer_type 0x7f330bc32a80
-        type <integer_type 0x7f330bc2b5e8 int public SI
-            size <integer_cst 0x7f330bc17e28 constant 32>
-            unit size <integer_cst 0x7f330bc17e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f330bc2b5e8 precision 32 min <integer_cst 0x7f330bc17de0 -2147483648> max <integer_cst 0x7f330bc17df8 2147483647>
-            pointer_to_this <pointer_type 0x7f330bc32a80>>
+ <ssa_name 0x7f6f7186e870
+    type <pointer_type 0x7f6f71d46a80
+        type <integer_type 0x7f6f71d3f5e8 int public SI
+            size <integer_cst 0x7f6f71d2be28 constant 32>
+            unit size <integer_cst 0x7f6f71d2be40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f6f71d3f5e8 precision 32 min <integer_cst 0x7f6f71d2bde0 -2147483648> max <integer_cst 0x7f6f71d2bdf8 2147483647>
+            pointer_to_this <pointer_type 0x7f6f71d46a80>>
         public unsigned DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f330b75b480 fds>
+    var <var_decl 0x7f6f7186f480 fds>
     def_stmt fds_8 = malloc (_7);
     version 8
-    ptr-info 0x7f330b744ea0>
+    ptr-info 0x7f6f71858ea0>
 # .MEM_85 = VDEF <.MEM_71>
 fds_8 = malloc (_7);
 
@@ -344,21 +344,21 @@ _21 = __fdelt_chk (__d_16);
 this stmt is child function---__fdelt_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75a870
-    type <pointer_type 0x7f330bc32a80
-        type <integer_type 0x7f330bc2b5e8 int public SI
-            size <integer_cst 0x7f330bc17e28 constant 32>
-            unit size <integer_cst 0x7f330bc17e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f330bc2b5e8 precision 32 min <integer_cst 0x7f330bc17de0 -2147483648> max <integer_cst 0x7f330bc17df8 2147483647>
-            pointer_to_this <pointer_type 0x7f330bc32a80>>
+ <ssa_name 0x7f6f7186e870
+    type <pointer_type 0x7f6f71d46a80
+        type <integer_type 0x7f6f71d3f5e8 int public SI
+            size <integer_cst 0x7f6f71d2be28 constant 32>
+            unit size <integer_cst 0x7f6f71d2be40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f6f71d3f5e8 precision 32 min <integer_cst 0x7f6f71d2bde0 -2147483648> max <integer_cst 0x7f6f71d2bdf8 2147483647>
+            pointer_to_this <pointer_type 0x7f6f71d46a80>>
         public unsigned DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f330b75b480 fds>
+    var <var_decl 0x7f6f7186f480 fds>
     def_stmt fds_8 = malloc (_7);
     version 8
-    ptr-info 0x7f330b744ea0>
+    ptr-info 0x7f6f71858ea0>
 trace fucntion name:__fdelt_chk 
 
  ================== trace ================== 
@@ -392,21 +392,21 @@ _20 = __fdelt_warn (__d_16);
 this stmt is child function---__fdelt_warn-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75a870
-    type <pointer_type 0x7f330bc32a80
-        type <integer_type 0x7f330bc2b5e8 int public SI
-            size <integer_cst 0x7f330bc17e28 constant 32>
-            unit size <integer_cst 0x7f330bc17e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f330bc2b5e8 precision 32 min <integer_cst 0x7f330bc17de0 -2147483648> max <integer_cst 0x7f330bc17df8 2147483647>
-            pointer_to_this <pointer_type 0x7f330bc32a80>>
+ <ssa_name 0x7f6f7186e870
+    type <pointer_type 0x7f6f71d46a80
+        type <integer_type 0x7f6f71d3f5e8 int public SI
+            size <integer_cst 0x7f6f71d2be28 constant 32>
+            unit size <integer_cst 0x7f6f71d2be40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f6f71d3f5e8 precision 32 min <integer_cst 0x7f6f71d2bde0 -2147483648> max <integer_cst 0x7f6f71d2bdf8 2147483647>
+            pointer_to_this <pointer_type 0x7f6f71d46a80>>
         public unsigned DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f330b75b480 fds>
+    var <var_decl 0x7f6f7186f480 fds>
     def_stmt fds_8 = malloc (_7);
     version 8
-    ptr-info 0x7f330b744ea0>
+    ptr-info 0x7f6f71858ea0>
 trace fucntion name:__fdelt_warn 
 
  ================== trace ================== 
@@ -423,21 +423,21 @@ _17 = __builtin_constant_p (__d_16);
 this stmt is child function---__builtin_constant_p-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75a870
-    type <pointer_type 0x7f330bc32a80
-        type <integer_type 0x7f330bc2b5e8 int public SI
-            size <integer_cst 0x7f330bc17e28 constant 32>
-            unit size <integer_cst 0x7f330bc17e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f330bc2b5e8 precision 32 min <integer_cst 0x7f330bc17de0 -2147483648> max <integer_cst 0x7f330bc17df8 2147483647>
-            pointer_to_this <pointer_type 0x7f330bc32a80>>
+ <ssa_name 0x7f6f7186e870
+    type <pointer_type 0x7f6f71d46a80
+        type <integer_type 0x7f6f71d3f5e8 int public SI
+            size <integer_cst 0x7f6f71d2be28 constant 32>
+            unit size <integer_cst 0x7f6f71d2be40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f6f71d3f5e8 precision 32 min <integer_cst 0x7f6f71d2bde0 -2147483648> max <integer_cst 0x7f6f71d2bdf8 2147483647>
+            pointer_to_this <pointer_type 0x7f6f71d46a80>>
         public unsigned DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f330b75b480 fds>
+    var <var_decl 0x7f6f7186f480 fds>
     def_stmt fds_8 = malloc (_7);
     version 8
-    ptr-info 0x7f330b744ea0>
+    ptr-info 0x7f6f71858ea0>
 trace fucntion name:__builtin_constant_p 
 
  ================== trace ================== 
@@ -513,21 +513,21 @@ fds_8 = malloc (_7);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75a870
-    type <pointer_type 0x7f330bc32a80
-        type <integer_type 0x7f330bc2b5e8 int public SI
-            size <integer_cst 0x7f330bc17e28 constant 32>
-            unit size <integer_cst 0x7f330bc17e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f330bc2b5e8 precision 32 min <integer_cst 0x7f330bc17de0 -2147483648> max <integer_cst 0x7f330bc17df8 2147483647>
-            pointer_to_this <pointer_type 0x7f330bc32a80>>
+ <ssa_name 0x7f6f7186e870
+    type <pointer_type 0x7f6f71d46a80
+        type <integer_type 0x7f6f71d3f5e8 int public SI
+            size <integer_cst 0x7f6f71d2be28 constant 32>
+            unit size <integer_cst 0x7f6f71d2be40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f6f71d3f5e8 precision 32 min <integer_cst 0x7f6f71d2bde0 -2147483648> max <integer_cst 0x7f6f71d2bdf8 2147483647>
+            pointer_to_this <pointer_type 0x7f6f71d46a80>>
         public unsigned DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f330b75b480 fds>
+    var <var_decl 0x7f6f7186f480 fds>
     def_stmt fds_8 = malloc (_7);
     version 8
-    ptr-info 0x7f330b744ea0>
+    ptr-info 0x7f6f71858ea0>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -539,21 +539,21 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f330b75a870
-    type <pointer_type 0x7f330bc32a80
-        type <integer_type 0x7f330bc2b5e8 int public SI
-            size <integer_cst 0x7f330bc17e28 constant 32>
-            unit size <integer_cst 0x7f330bc17e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7f330bc2b5e8 precision 32 min <integer_cst 0x7f330bc17de0 -2147483648> max <integer_cst 0x7f330bc17df8 2147483647>
-            pointer_to_this <pointer_type 0x7f330bc32a80>>
+ <ssa_name 0x7f6f7186e870
+    type <pointer_type 0x7f6f71d46a80
+        type <integer_type 0x7f6f71d3f5e8 int public SI
+            size <integer_cst 0x7f6f71d2be28 constant 32>
+            unit size <integer_cst 0x7f6f71d2be40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f6f71d3f5e8 precision 32 min <integer_cst 0x7f6f71d2bde0 -2147483648> max <integer_cst 0x7f6f71d2bdf8 2147483647>
+            pointer_to_this <pointer_type 0x7f6f71d46a80>>
         public unsigned DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f330b75b480 fds>
+    var <var_decl 0x7f6f7186f480 fds>
     def_stmt fds_8 = malloc (_7);
     version 8
-    ptr-info 0x7f330b744ea0>
+    ptr-info 0x7f6f71858ea0>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_91 = VDEF <.MEM_75>
 free (fds_8);
@@ -1337,12 +1337,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f330b75a828
-    type <integer_type 0x7f330bc2b7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17eb8 0> max <integer_cst 0x7f330bc19500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f330bc379d8>>
+ <ssa_name 0x7f6f7186e828
+    type <integer_type 0x7f6f71d3f7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2beb8 0> max <integer_cst 0x7f6f71d2d500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f6f71d4b9d8>>
    
     def_stmt _7 = _6 * 4;
     version 7>
@@ -1364,12 +1364,12 @@ fds_8 = malloc (_7);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75a828
-    type <integer_type 0x7f330bc2b7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17eb8 0> max <integer_cst 0x7f330bc19500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f330bc379d8>>
+ <ssa_name 0x7f6f7186e828
+    type <integer_type 0x7f6f71d3f7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2beb8 0> max <integer_cst 0x7f6f71d2d500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f6f71d4b9d8>>
    
     def_stmt _7 = _6 * 4;
     version 7>
@@ -1587,12 +1587,12 @@ _21 = __fdelt_chk (__d_16);
 this stmt is child function---__fdelt_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75a828
-    type <integer_type 0x7f330bc2b7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17eb8 0> max <integer_cst 0x7f330bc19500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f330bc379d8>>
+ <ssa_name 0x7f6f7186e828
+    type <integer_type 0x7f6f71d3f7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2beb8 0> max <integer_cst 0x7f6f71d2d500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f6f71d4b9d8>>
    
     def_stmt _7 = _6 * 4;
     version 7>
@@ -1629,12 +1629,12 @@ _20 = __fdelt_warn (__d_16);
 this stmt is child function---__fdelt_warn-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75a828
-    type <integer_type 0x7f330bc2b7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17eb8 0> max <integer_cst 0x7f330bc19500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f330bc379d8>>
+ <ssa_name 0x7f6f7186e828
+    type <integer_type 0x7f6f71d3f7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2beb8 0> max <integer_cst 0x7f6f71d2d500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f6f71d4b9d8>>
    
     def_stmt _7 = _6 * 4;
     version 7>
@@ -1654,12 +1654,12 @@ _17 = __builtin_constant_p (__d_16);
 this stmt is child function---__builtin_constant_p-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75a828
-    type <integer_type 0x7f330bc2b7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17eb8 0> max <integer_cst 0x7f330bc19500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f330bc379d8>>
+ <ssa_name 0x7f6f7186e828
+    type <integer_type 0x7f6f71d3f7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2beb8 0> max <integer_cst 0x7f6f71d2d500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f6f71d4b9d8>>
    
     def_stmt _7 = _6 * 4;
     version 7>
@@ -1738,12 +1738,12 @@ from main basic block 29
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f330b75a828
-    type <integer_type 0x7f330bc2b7e0 long unsigned int public unsigned DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17eb8 0> max <integer_cst 0x7f330bc19500 18446744073709551615>
-        pointer_to_this <pointer_type 0x7f330bc379d8>>
+ <ssa_name 0x7f6f7186e828
+    type <integer_type 0x7f6f71d3f7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2beb8 0> max <integer_cst 0x7f6f71d2d500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f6f71d4b9d8>>
    
     def_stmt _7 = _6 * 4;
     version 7>
@@ -2530,13 +2530,13 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f330b75aab0
-    type <integer_type 0x7f330bc2b738 long int public DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17e70 -9223372036854775808> max <integer_cst 0x7f330bc17e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7f330bc37930>>
-    var <var_decl 0x7f330b75b5a0 __d>
+ <ssa_name 0x7f6f7186eab0
+    type <integer_type 0x7f6f71d3f738 long int public DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2be70 -9223372036854775808> max <integer_cst 0x7f6f71d2be88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f6f71d4b930>>
+    var <var_decl 0x7f6f7186f5a0 __d>
     def_stmt __d_16 = (long int) _15;
     version 16>
 __d_16 = (long int) _15;
@@ -2562,13 +2562,13 @@ _21 = __fdelt_chk (__d_16);
 this stmt is child function---__fdelt_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75aab0
-    type <integer_type 0x7f330bc2b738 long int public DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17e70 -9223372036854775808> max <integer_cst 0x7f330bc17e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7f330bc37930>>
-    var <var_decl 0x7f330b75b5a0 __d>
+ <ssa_name 0x7f6f7186eab0
+    type <integer_type 0x7f6f71d3f738 long int public DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2be70 -9223372036854775808> max <integer_cst 0x7f6f71d2be88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f6f71d4b930>>
+    var <var_decl 0x7f6f7186f5a0 __d>
     def_stmt __d_16 = (long int) _15;
     version 16>
 trace fucntion name:__fdelt_chk 
@@ -2618,13 +2618,13 @@ _20 = __fdelt_warn (__d_16);
 this stmt is child function---__fdelt_warn-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75aab0
-    type <integer_type 0x7f330bc2b738 long int public DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17e70 -9223372036854775808> max <integer_cst 0x7f330bc17e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7f330bc37930>>
-    var <var_decl 0x7f330b75b5a0 __d>
+ <ssa_name 0x7f6f7186eab0
+    type <integer_type 0x7f6f71d3f738 long int public DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2be70 -9223372036854775808> max <integer_cst 0x7f6f71d2be88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f6f71d4b930>>
+    var <var_decl 0x7f6f7186f5a0 __d>
     def_stmt __d_16 = (long int) _15;
     version 16>
 trace fucntion name:__fdelt_warn 
@@ -2643,13 +2643,13 @@ _17 = __builtin_constant_p (__d_16);
 this stmt is child function---__builtin_constant_p-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75aab0
-    type <integer_type 0x7f330bc2b738 long int public DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17e70 -9223372036854775808> max <integer_cst 0x7f330bc17e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7f330bc37930>>
-    var <var_decl 0x7f330b75b5a0 __d>
+ <ssa_name 0x7f6f7186eab0
+    type <integer_type 0x7f6f71d3f738 long int public DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2be70 -9223372036854775808> max <integer_cst 0x7f6f71d2be88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f6f71d4b930>>
+    var <var_decl 0x7f6f7186f5a0 __d>
     def_stmt __d_16 = (long int) _15;
     version 16>
 trace fucntion name:__builtin_constant_p 
@@ -2694,13 +2694,13 @@ _19 = __d_16 / 64;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f330b75aab0
-    type <integer_type 0x7f330bc2b738 long int public DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17e70 -9223372036854775808> max <integer_cst 0x7f330bc17e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7f330bc37930>>
-    var <var_decl 0x7f330b75b5a0 __d>
+ <ssa_name 0x7f6f7186eab0
+    type <integer_type 0x7f6f71d3f738 long int public DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2be70 -9223372036854775808> max <integer_cst 0x7f6f71d2be88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f6f71d4b930>>
+    var <var_decl 0x7f6f7186f5a0 __d>
     def_stmt __d_16 = (long int) _15;
     version 16>
 [40;35m <Looserules> find free stmt free same pointer [0m
@@ -2879,13 +2879,13 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f330b75aab0
-    type <integer_type 0x7f330bc2b738 long int public DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17e70 -9223372036854775808> max <integer_cst 0x7f330bc17e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7f330bc37930>>
-    var <var_decl 0x7f330b75b5a0 __d>
+ <ssa_name 0x7f6f7186eab0
+    type <integer_type 0x7f6f71d3f738 long int public DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2be70 -9223372036854775808> max <integer_cst 0x7f6f71d2be88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f6f71d4b930>>
+    var <var_decl 0x7f6f7186f5a0 __d>
     def_stmt __d_16 = (long int) _15;
     version 16>
 __d_16 = (long int) _15;
@@ -2909,13 +2909,13 @@ _21 = __fdelt_chk (__d_16);
 this stmt is child function---__fdelt_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75aab0
-    type <integer_type 0x7f330bc2b738 long int public DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17e70 -9223372036854775808> max <integer_cst 0x7f330bc17e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7f330bc37930>>
-    var <var_decl 0x7f330b75b5a0 __d>
+ <ssa_name 0x7f6f7186eab0
+    type <integer_type 0x7f6f71d3f738 long int public DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2be70 -9223372036854775808> max <integer_cst 0x7f6f71d2be88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f6f71d4b930>>
+    var <var_decl 0x7f6f7186f5a0 __d>
     def_stmt __d_16 = (long int) _15;
     version 16>
 trace fucntion name:__fdelt_chk 
@@ -2965,13 +2965,13 @@ _20 = __fdelt_warn (__d_16);
 this stmt is child function---__fdelt_warn-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75aab0
-    type <integer_type 0x7f330bc2b738 long int public DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17e70 -9223372036854775808> max <integer_cst 0x7f330bc17e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7f330bc37930>>
-    var <var_decl 0x7f330b75b5a0 __d>
+ <ssa_name 0x7f6f7186eab0
+    type <integer_type 0x7f6f71d3f738 long int public DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2be70 -9223372036854775808> max <integer_cst 0x7f6f71d2be88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f6f71d4b930>>
+    var <var_decl 0x7f6f7186f5a0 __d>
     def_stmt __d_16 = (long int) _15;
     version 16>
 trace fucntion name:__fdelt_warn 
@@ -2990,13 +2990,13 @@ _17 = __builtin_constant_p (__d_16);
 this stmt is child function---__builtin_constant_p-----
 
  ================== trace ================== 
- <ssa_name 0x7f330b75aab0
-    type <integer_type 0x7f330bc2b738 long int public DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17e70 -9223372036854775808> max <integer_cst 0x7f330bc17e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7f330bc37930>>
-    var <var_decl 0x7f330b75b5a0 __d>
+ <ssa_name 0x7f6f7186eab0
+    type <integer_type 0x7f6f71d3f738 long int public DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2be70 -9223372036854775808> max <integer_cst 0x7f6f71d2be88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f6f71d4b930>>
+    var <var_decl 0x7f6f7186f5a0 __d>
     def_stmt __d_16 = (long int) _15;
     version 16>
 trace fucntion name:__builtin_constant_p 
@@ -3041,13 +3041,13 @@ _19 = __d_16 / 64;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f330b75aab0
-    type <integer_type 0x7f330bc2b738 long int public DI
-        size <integer_cst 0x7f330bc17be8 constant 64>
-        unit size <integer_cst 0x7f330bc17c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7f330bc2b738 precision 64 min <integer_cst 0x7f330bc17e70 -9223372036854775808> max <integer_cst 0x7f330bc17e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7f330bc37930>>
-    var <var_decl 0x7f330b75b5a0 __d>
+ <ssa_name 0x7f6f7186eab0
+    type <integer_type 0x7f6f71d3f738 long int public DI
+        size <integer_cst 0x7f6f71d2bbe8 constant 64>
+        unit size <integer_cst 0x7f6f71d2bc00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f6f71d3f738 precision 64 min <integer_cst 0x7f6f71d2be70 -9223372036854775808> max <integer_cst 0x7f6f71d2be88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f6f71d4b930>>
+    var <var_decl 0x7f6f7186f5a0 __d>
     def_stmt __d_16 = (long int) _15;
     version 16>
 [40;35m <Looserules> find free stmt free same pointer [0m
@@ -3226,13 +3226,13 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f330b75a990
-    type <integer_type 0x7f330bc2b5e8 int public SI
-        size <integer_cst 0x7f330bc17e28 constant 32>
-        unit size <integer_cst 0x7f330bc17e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f330bc2b5e8 precision 32 min <integer_cst 0x7f330bc17de0 -2147483648> max <integer_cst 0x7f330bc17df8 2147483647>
-        pointer_to_this <pointer_type 0x7f330bc32a80>>
-    var <var_decl 0x7f330b75b360 width>
+ <ssa_name 0x7f6f7186e990
+    type <integer_type 0x7f6f71d3f5e8 int public SI
+        size <integer_cst 0x7f6f71d2be28 constant 32>
+        unit size <integer_cst 0x7f6f71d2be40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f6f71d3f5e8 precision 32 min <integer_cst 0x7f6f71d2bde0 -2147483648> max <integer_cst 0x7f6f71d2bdf8 2147483647>
+        pointer_to_this <pointer_type 0x7f6f71d46a80>>
+    var <var_decl 0x7f6f7186f360 width>
     def_stmt width_12 = PHI <width_33(26), width_35(34)>
     version 12>
 width_12 = PHI <width_33(26), width_35(34)>
@@ -3617,7 +3617,7 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 3 [0m
 [40;34m    used_stmt array stack totalsize of : 2176 [0m
-[40;34m    collect time: : 0.000133 s [0m
-[40;34m    algorithm time: 0.009515 s [0m
+[40;34m    collect time: : 0.000132 s [0m
+[40;34m    algorithm time: 0.009633 s [0m
 [40;34m    gimple stmt count : : 81 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

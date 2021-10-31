@@ -844,7 +844,7 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 
 													gimple *def_stmt2;
 													tree treecheck2;
-													if (TREE_CODE(second) != VAR_DECL)
+													if (TREE_CODE(second) != VAR_DECL && TREE_CODE(filed_from) != INTEGER_CST)
 													{
 														gimple *def_stmt2 = SSA_NAME_DEF_STMT(filed_from);
 														// if (filed_from)

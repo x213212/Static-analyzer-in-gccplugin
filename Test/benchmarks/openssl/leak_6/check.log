@@ -174,21 +174,21 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea3867ea0
-    type <pointer_type 0x7f5ea3389690
-        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389690>>
+ <ssa_name 0x7f38a55c3ea0
+    type <pointer_type 0x7f38a50e5690
+        type <record_type 0x7f38a50e55e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5690>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f5ea3398300 a>
+    var <parm_decl 0x7f38a50f4300 a>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7f5ea338cf78>
+    ptr-info 0x7f38a50e8f78>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -630,21 +630,21 @@ bn_check_top (a_26(D));
 this stmt is child function---bn_check_top-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea3867ea0
-    type <pointer_type 0x7f5ea3389690
-        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389690>>
+ <ssa_name 0x7f38a55c3ea0
+    type <pointer_type 0x7f38a50e5690
+        type <record_type 0x7f38a50e55e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5690>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f5ea3398300 a>
+    var <parm_decl 0x7f38a50f4300 a>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7f5ea338cf78>
+    ptr-info 0x7f38a50e8f78>
 trace fucntion name:bn_check_top 
 
  ================== trace ================== 
@@ -727,21 +727,21 @@ _1 = a_26(D) == 0B;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f5ea3867ea0
-    type <pointer_type 0x7f5ea3389690
-        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389690>>
+ <ssa_name 0x7f38a55c3ea0
+    type <pointer_type 0x7f38a50e5690
+        type <record_type 0x7f38a50e55e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5690>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f5ea3398300 a>
+    var <parm_decl 0x7f38a50f4300 a>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7f5ea338cf78>
+    ptr-info 0x7f38a50e8f78>
 
  ================== Start Use after free Check ================== 
 
@@ -760,21 +760,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea3867ee8
-    type <pointer_type 0x7f5ea3389690
-        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389690>>
+ <ssa_name 0x7f38a55c3ee8
+    type <pointer_type 0x7f38a50e5690
+        type <record_type 0x7f38a50e55e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5690>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f5ea3398380 b>
+    var <parm_decl 0x7f38a50f4380 b>
     def_stmt GIMPLE_NOP
     version 27
-    ptr-info 0x7f5ea338cf90>
+    ptr-info 0x7f38a50e8f90>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -842,21 +842,21 @@ bn_check_top (b_27(D));
 this stmt is child function---bn_check_top-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea3867ee8
-    type <pointer_type 0x7f5ea3389690
-        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389690>>
+ <ssa_name 0x7f38a55c3ee8
+    type <pointer_type 0x7f38a50e5690
+        type <record_type 0x7f38a50e55e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5690>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f5ea3398380 b>
+    var <parm_decl 0x7f38a50f4380 b>
     def_stmt GIMPLE_NOP
     version 27
-    ptr-info 0x7f5ea338cf90>
+    ptr-info 0x7f38a50e8f90>
 trace fucntion name:bn_check_top 
 
  ================== trace ================== 
@@ -963,21 +963,21 @@ _2 = b_27(D) == 0B;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f5ea3867ee8
-    type <pointer_type 0x7f5ea3389690
-        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389690>>
+ <ssa_name 0x7f38a55c3ee8
+    type <pointer_type 0x7f38a50e5690
+        type <record_type 0x7f38a50e55e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5690>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f5ea3398380 b>
+    var <parm_decl 0x7f38a50f4380 b>
     def_stmt GIMPLE_NOP
     version 27
-    ptr-info 0x7f5ea338cf90>
+    ptr-info 0x7f38a50e8f90>
 
  ================== Start Use after free Check ================== 
 
@@ -1011,21 +1011,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea3867ea0
-    type <pointer_type 0x7f5ea3389690
-        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389690>>
+ <ssa_name 0x7f38a55c3ea0
+    type <pointer_type 0x7f38a50e5690
+        type <record_type 0x7f38a50e55e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5690>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f5ea3398300 a>
+    var <parm_decl 0x7f38a50f4300 a>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7f5ea338cf78>
+    ptr-info 0x7f38a50e8f78>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -1045,7 +1045,6 @@ _13 = a_26(D)->d;
 bb index := 16
 # VUSE <.MEM_39>
 return _24;
-In function ‘main’:
 lto1: warning: use location
 beacuse in succ := 22 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 22
@@ -1070,6 +1069,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 24
 
 ======================================================================
 _13 = a_26(D)->d;
+In function ‘main’:
 ./benchmarks/openssl/leak_6/openssl_leak_6.c:55:15: warning: use location
          t1 = a->d[i];
                ^
@@ -1080,6 +1080,7 @@ _16 = _13 + _15;
 bb index := 16
 # VUSE <.MEM_39>
 return _24;
+In function ‘BN_cmp’:
 lto1: warning: use location
 beacuse in succ := 22 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 22
@@ -1103,6 +1104,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 24
 
 ======================================================================
 _16 = _13 + _15;
+In function ‘main’:
 ./benchmarks/openssl/leak_6/openssl_leak_6.c:55:18: warning: use location
          t1 = a->d[i];
                   ^
@@ -1114,6 +1116,7 @@ t1_32 = *_16;
 bb index := 16
 # VUSE <.MEM_39>
 return _24;
+In function ‘BN_cmp’:
 lto1: warning: use location
 beacuse in succ := 22 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 22
@@ -1138,6 +1141,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 24
 
 ======================================================================
 t1_32 = *_16;
+In function ‘main’:
 ./benchmarks/openssl/leak_6/openssl_leak_6.c:55:12: warning: use location
          t1 = a->d[i];
             ^
@@ -1180,6 +1184,7 @@ i_21 = PHI <i_31(15), i_34(20)>
 bb index := 21
 # VUSE <.MEM_39>
 return _24;
+In function ‘BN_cmp’:
 lto1: warning: use location
 beacuse in succ := 22 have return or exit
 gimple stmt in succ := 21 ,possiable got to succ := 22
@@ -1227,6 +1232,7 @@ gimple stmt in succ := 21 ,possiable got to succ := 24
 
 ======================================================================
 i_21 = PHI <i_31(15), i_34(20)>
+In function ‘main’:
 lto1: warning: use location
 this stmt have mutiple branch --------
 
@@ -1236,6 +1242,7 @@ if (i_21 >= 0)
 bb index := 21
 # VUSE <.MEM_39>
 return _24;
+In function ‘BN_cmp’:
 lto1: warning: use location
 beacuse in succ := 22 have return or exit
 gimple stmt in succ := 21 ,possiable got to succ := 22
@@ -1283,6 +1290,7 @@ gimple stmt in succ := 21 ,possiable got to succ := 24
 
 ======================================================================
 if (i_21 >= 0)
+In function ‘main’:
 ./benchmarks/openssl/leak_6/openssl_leak_6.c:54:5: warning: use location
      for (i = a->top - 1; i >= 0; i--) {
      ^
@@ -1387,6 +1395,7 @@ _6 = a_26(D)->neg;
 bb index := 7
 # VUSE <.MEM_39>
 return _24;
+In function ‘BN_cmp’:
 lto1: warning: use location
 beacuse in succ := 22 have return or exit
 gimple stmt in succ := 7 ,possiable got to succ := 22
@@ -1432,6 +1441,7 @@ gimple stmt in succ := 7 ,possiable got to succ := 24
 
 ======================================================================
 _6 = a_26(D)->neg;
+In function ‘main’:
 ./benchmarks/openssl/leak_6/openssl_leak_6.c:37:14: warning: use location
          if (a->neg)
               ^
@@ -1467,21 +1477,21 @@ bn_check_top (a_26(D));
 this stmt is child function---bn_check_top-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea3867ea0
-    type <pointer_type 0x7f5ea3389690
-        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389690>>
+ <ssa_name 0x7f38a55c3ea0
+    type <pointer_type 0x7f38a50e5690
+        type <record_type 0x7f38a50e55e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5690>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f5ea3398300 a>
+    var <parm_decl 0x7f38a50f4300 a>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7f5ea338cf78>
+    ptr-info 0x7f38a50e8f78>
 trace fucntion name:bn_check_top 
 
  ================== trace ================== 
@@ -1493,6 +1503,7 @@ if (a_26(D) != 0B)
 bb index := 3
 # VUSE <.MEM_39>
 return _24;
+In function ‘BN_cmp’:
 lto1: warning: use location
 beacuse in succ := 22 have return or exit
 gimple stmt in succ := 3 ,possiable got to succ := 22
@@ -1535,6 +1546,7 @@ gimple stmt in succ := 3 ,possiable got to succ := 24
 
 ======================================================================
 if (a_26(D) != 0B)
+In function ‘main’:
 ./benchmarks/openssl/leak_6/openssl_leak_6.c:25:12: warning: use location
          if (a != NULL)
             ^
@@ -1564,21 +1576,21 @@ _1 = a_26(D) == 0B;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f5ea3867ea0
-    type <pointer_type 0x7f5ea3389690
-        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389690>>
+ <ssa_name 0x7f38a55c3ea0
+    type <pointer_type 0x7f38a50e5690
+        type <record_type 0x7f38a50e55e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5690>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f5ea3398300 a>
+    var <parm_decl 0x7f38a50f4300 a>
     def_stmt GIMPLE_NOP
     version 26
-    ptr-info 0x7f5ea338cf78>
+    ptr-info 0x7f38a50e8f78>
 
  ================== Start Use after free Check ================== 
 
@@ -1597,21 +1609,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea3867ee8
-    type <pointer_type 0x7f5ea3389690
-        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389690>>
+ <ssa_name 0x7f38a55c3ee8
+    type <pointer_type 0x7f38a50e5690
+        type <record_type 0x7f38a50e55e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5690>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f5ea3398380 b>
+    var <parm_decl 0x7f38a50f4380 b>
     def_stmt GIMPLE_NOP
     version 27
-    ptr-info 0x7f5ea338cf90>
+    ptr-info 0x7f38a50e8f90>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -1631,6 +1643,7 @@ _17 = b_27(D)->d;
 bb index := 16
 # VUSE <.MEM_39>
 return _24;
+In function ‘BN_cmp’:
 lto1: warning: use location
 beacuse in succ := 22 have return or exit
 gimple stmt in succ := 16 ,possiable got to succ := 22
@@ -1655,6 +1668,7 @@ gimple stmt in succ := 16 ,possiable got to succ := 24
 
 ======================================================================
 _17 = b_27(D)->d;
+In function ‘main’:
 ./benchmarks/openssl/leak_6/openssl_leak_6.c:56:15: warning: use location
          t2 = b->d[i];
                ^
@@ -1679,21 +1693,21 @@ bn_check_top (b_27(D));
 this stmt is child function---bn_check_top-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea3867ee8
-    type <pointer_type 0x7f5ea3389690
-        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389690>>
+ <ssa_name 0x7f38a55c3ee8
+    type <pointer_type 0x7f38a50e5690
+        type <record_type 0x7f38a50e55e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5690>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f5ea3398380 b>
+    var <parm_decl 0x7f38a50f4380 b>
     def_stmt GIMPLE_NOP
     version 27
-    ptr-info 0x7f5ea338cf90>
+    ptr-info 0x7f38a50e8f90>
 trace fucntion name:bn_check_top 
 
  ================== trace ================== 
@@ -1705,6 +1719,7 @@ if (b_27(D) != 0B)
 bb index := 4
 # VUSE <.MEM_39>
 return _24;
+In function ‘BN_cmp’:
 lto1: warning: use location
 beacuse in succ := 22 have return or exit
 gimple stmt in succ := 4 ,possiable got to succ := 22
@@ -1771,6 +1786,7 @@ gimple stmt in succ := 4 ,possiable got to succ := 24
 
 ======================================================================
 if (b_27(D) != 0B)
+In function ‘main’:
 ./benchmarks/openssl/leak_6/openssl_leak_6.c:27:17: warning: use location
          else if (b != NULL)
                  ^
@@ -1800,21 +1816,21 @@ _2 = b_27(D) == 0B;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f5ea3867ee8
-    type <pointer_type 0x7f5ea3389690
-        type <record_type 0x7f5ea33895e8 BIGNUM readonly BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389690>>
+ <ssa_name 0x7f38a55c3ee8
+    type <pointer_type 0x7f38a50e5690
+        type <record_type 0x7f38a50e55e8 BIGNUM readonly BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5690>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f5ea3398380 b>
+    var <parm_decl 0x7f38a50f4380 b>
     def_stmt GIMPLE_NOP
     version 27
-    ptr-info 0x7f5ea338cf90>
+    ptr-info 0x7f38a50e8f90>
 
  ================== Start Use after free Check ================== 
 
@@ -1846,21 +1862,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea33a3f30
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a50fff30
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _4 = dh.g;
     version 4
-    ptr-info 0x7f5ea338cfa8>
+    ptr-info 0x7f38a50e8fa8>
 # VUSE <.MEM_1(D)>
 _4 = dh.g;
 
@@ -1932,21 +1948,21 @@ _5 = BN_get_word (_4);
 this stmt is child function---BN_get_word-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33a3f30
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a50fff30
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _4 = dh.g;
     version 4
-    ptr-info 0x7f5ea338cfa8>
+    ptr-info 0x7f38a50e8fa8>
 trace fucntion name:BN_get_word 
 
  ================== trace ================== 
@@ -2025,21 +2041,21 @@ from main basic block 3
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f5ea33a3f30
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a50fff30
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _4 = dh.g;
     version 4
-    ptr-info 0x7f5ea338cfa8>
+    ptr-info 0x7f38a50e8fa8>
 
  ================== Start Use after free Check ================== 
 
@@ -2058,21 +2074,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea3867708
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a55c3708
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _6 = dh.p;
     version 6
-    ptr-info 0x7f5ea338cfc0>
+    ptr-info 0x7f38a50e8fc0>
 # VUSE <.MEM_77>
 _6 = dh.p;
 
@@ -2118,21 +2134,21 @@ _7 = BN_cmp (_6, &_bignum_ffdhe2048_p);
 this stmt is child function---BN_cmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea3867708
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a55c3708
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _6 = dh.p;
     version 6
-    ptr-info 0x7f5ea338cfc0>
+    ptr-info 0x7f38a50e8fc0>
 trace fucntion name:BN_cmp 
 [40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
 [40;42m =======pre add _ fucntion:bn_check_top========= [0m
@@ -2190,21 +2206,21 @@ from main basic block 4
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f5ea3867708
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a55c3708
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _6 = dh.p;
     version 6
-    ptr-info 0x7f5ea338cfc0>
+    ptr-info 0x7f38a50e8fc0>
 
  ================== Start Use after free Check ================== 
 
@@ -2223,21 +2239,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea3867678
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a55c3678
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _8 = dh.p;
     version 8
-    ptr-info 0x7f5ea338cfd8>
+    ptr-info 0x7f38a50e8fd8>
 # VUSE <.MEM_78>
 _8 = dh.p;
 
@@ -2257,21 +2273,21 @@ _9 = BN_cmp (_8, &_bignum_ffdhe3072_p);
 this stmt is child function---BN_cmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea3867678
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a55c3678
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _8 = dh.p;
     version 8
-    ptr-info 0x7f5ea338cfd8>
+    ptr-info 0x7f38a50e8fd8>
 trace fucntion name:BN_cmp 
 [40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
 [40;42m =======pre add _ fucntion:bn_check_top========= [0m
@@ -2305,21 +2321,21 @@ from main basic block 5
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f5ea3867678
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a55c3678
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _8 = dh.p;
     version 8
-    ptr-info 0x7f5ea338cfd8>
+    ptr-info 0x7f38a50e8fd8>
 
  ================== Start Use after free Check ================== 
 
@@ -2338,21 +2354,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea33ac048
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108048
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _10 = dh.p;
     version 10
-    ptr-info 0x7f5ea338cde0>
+    ptr-info 0x7f38a50e8de0>
 # VUSE <.MEM_79>
 _10 = dh.p;
 
@@ -2372,21 +2388,21 @@ _11 = BN_cmp (_10, &_bignum_ffdhe4096_p);
 this stmt is child function---BN_cmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac048
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108048
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _10 = dh.p;
     version 10
-    ptr-info 0x7f5ea338cde0>
+    ptr-info 0x7f38a50e8de0>
 trace fucntion name:BN_cmp 
 [40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
 [40;42m =======pre add _ fucntion:bn_check_top========= [0m
@@ -2420,21 +2436,21 @@ from main basic block 6
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f5ea33ac048
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108048
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _10 = dh.p;
     version 10
-    ptr-info 0x7f5ea338cde0>
+    ptr-info 0x7f38a50e8de0>
 
  ================== Start Use after free Check ================== 
 
@@ -2453,21 +2469,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea33ac0d8
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a51080d8
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _12 = dh.p;
     version 12
-    ptr-info 0x7f5ea33bd000>
+    ptr-info 0x7f38a5119000>
 # VUSE <.MEM_80>
 _12 = dh.p;
 
@@ -2487,21 +2503,21 @@ _13 = BN_cmp (_12, &_bignum_ffdhe6144_p);
 this stmt is child function---BN_cmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac0d8
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a51080d8
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _12 = dh.p;
     version 12
-    ptr-info 0x7f5ea33bd000>
+    ptr-info 0x7f38a5119000>
 trace fucntion name:BN_cmp 
 [40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
 [40;42m =======pre add _ fucntion:bn_check_top========= [0m
@@ -2535,21 +2551,21 @@ from main basic block 7
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f5ea33ac0d8
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a51080d8
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _12 = dh.p;
     version 12
-    ptr-info 0x7f5ea33bd000>
+    ptr-info 0x7f38a5119000>
 
  ================== Start Use after free Check ================== 
 
@@ -2568,21 +2584,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea33ac168
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108168
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _14 = dh.p;
     version 14
-    ptr-info 0x7f5ea33bd018>
+    ptr-info 0x7f38a5119018>
 # VUSE <.MEM_81>
 _14 = dh.p;
 
@@ -2654,21 +2670,21 @@ _15 = BN_cmp (_14, &_bignum_ffdhe8192_p);
 this stmt is child function---BN_cmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac168
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108168
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _14 = dh.p;
     version 14
-    ptr-info 0x7f5ea33bd018>
+    ptr-info 0x7f38a5119018>
 trace fucntion name:BN_cmp 
 [40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
 [40;42m =======pre add _ fucntion:bn_check_top========= [0m
@@ -2750,21 +2766,21 @@ from main basic block 24
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f5ea33ac168
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108168
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _14 = dh.p;
     version 14
-    ptr-info 0x7f5ea33bd018>
+    ptr-info 0x7f38a5119018>
 
  ================== Start Use after free Check ================== 
 
@@ -2783,21 +2799,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea33ac240
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108240
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = dh.p;
     version 17
-    ptr-info 0x7f5ea33bd048>
+    ptr-info 0x7f38a5119048>
 # VUSE <.MEM_69>
 _17 = dh.p;
 
@@ -2817,21 +2833,21 @@ _18 = BN_dup (_17);
 this stmt is child function---BN_dup-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac240
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108240
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = dh.p;
     version 17
-    ptr-info 0x7f5ea33bd048>
+    ptr-info 0x7f38a5119048>
 trace fucntion name:BN_dup 
 
  ================== trace ================== 
@@ -2870,21 +2886,21 @@ bn_check_top (q_20);
 this stmt is child function---bn_check_top-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac240
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108240
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = dh.p;
     version 17
-    ptr-info 0x7f5ea33bd048>
+    ptr-info 0x7f38a5119048>
 trace fucntion name:bn_check_top 
 
  ================== trace ================== 
@@ -3035,21 +3051,21 @@ BN_zero (q_20);
 this stmt is child function---BN_zero-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac240
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108240
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = dh.p;
     version 17
-    ptr-info 0x7f5ea33bd048>
+    ptr-info 0x7f38a5119048>
 trace fucntion name:BN_zero 
 
  ================== trace ================== 
@@ -3061,21 +3077,21 @@ _27 = BN_is_zero (q_20);
 this stmt is child function---BN_is_zero-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac240
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108240
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = dh.p;
     version 17
-    ptr-info 0x7f5ea33bd048>
+    ptr-info 0x7f38a5119048>
 trace fucntion name:BN_is_zero 
 
  ================== trace ================== 
@@ -3087,21 +3103,21 @@ bn_check_top (q_20);
 this stmt is child function---bn_check_top-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac240
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108240
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = dh.p;
     version 17
-    ptr-info 0x7f5ea33bd048>
+    ptr-info 0x7f38a5119048>
 trace fucntion name:bn_check_top 
 
  ================== trace ================== 
@@ -3113,21 +3129,21 @@ bn_check_top (q_20);
 this stmt is child function---bn_check_top-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac240
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108240
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = dh.p;
     version 17
-    ptr-info 0x7f5ea33bd048>
+    ptr-info 0x7f38a5119048>
 trace fucntion name:bn_check_top 
 
  ================== trace ================== 
@@ -3165,21 +3181,21 @@ BN_free (q_20);
 this stmt is child function---BN_free-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac240
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108240
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = dh.p;
     version 17
-    ptr-info 0x7f5ea33bd048>
+    ptr-info 0x7f38a5119048>
 trace fucntion name:BN_free 
 
  ================== trace ================== 
@@ -3191,21 +3207,21 @@ _23 = BN_cmp (_22, q_20);
 this stmt is child function---BN_cmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac240
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108240
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = dh.p;
     version 17
-    ptr-info 0x7f5ea33bd048>
+    ptr-info 0x7f38a5119048>
 trace fucntion name:BN_cmp 
 [40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
 [40;42m =======pre add _ fucntion:bn_check_top========= [0m
@@ -3220,21 +3236,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f5ea33ac240
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108240
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _17 = dh.p;
     version 17
-    ptr-info 0x7f5ea33bd048>
+    ptr-info 0x7f38a5119048>
 
  ================== Start Use after free Check ================== 
 
@@ -3253,21 +3269,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 q_20 = (struct BIGNUM *) _19;
 
  ================== trace ptable================== 
@@ -3533,21 +3549,21 @@ BN_zero (q_20);
 this stmt is child function---BN_zero-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 trace fucntion name:BN_zero 
 
  ================== trace ================== 
@@ -3559,21 +3575,21 @@ _27 = BN_is_zero (q_20);
 this stmt is child function---BN_is_zero-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 trace fucntion name:BN_is_zero 
 
  ================== trace ================== 
@@ -3652,21 +3668,21 @@ bn_check_top (q_20);
 this stmt is child function---bn_check_top-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 trace fucntion name:bn_check_top 
 
  ================== trace ================== 
@@ -3704,21 +3720,21 @@ BN_free (q_20);
 this stmt is child function---BN_free-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 trace fucntion name:BN_free 
 
  ================== trace ================== 
@@ -3730,21 +3746,21 @@ _23 = BN_cmp (_22, q_20);
 this stmt is child function---BN_cmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 trace fucntion name:BN_cmp 
 [40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
 [40;42m =======pre add _ fucntion:bn_check_top========= [0m
@@ -3759,21 +3775,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 
  ================== Start Use after free Check ================== 
 
@@ -3792,21 +3808,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 q_20 = (struct BIGNUM *) _19;
 
  ================== trace ptable================== 
@@ -4072,21 +4088,21 @@ BN_zero (q_20);
 this stmt is child function---BN_zero-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 trace fucntion name:BN_zero 
 
  ================== trace ================== 
@@ -4098,21 +4114,21 @@ _27 = BN_is_zero (q_20);
 this stmt is child function---BN_is_zero-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 trace fucntion name:BN_is_zero 
 
  ================== trace ================== 
@@ -4126,21 +4142,21 @@ bn_check_top (q_20);
 this stmt is child function---bn_check_top-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 trace fucntion name:bn_check_top 
 
  ================== trace ================== 
@@ -4241,21 +4257,21 @@ BN_free (q_20);
 this stmt is child function---BN_free-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 trace fucntion name:BN_free 
 
  ================== trace ================== 
@@ -4267,21 +4283,21 @@ _23 = BN_cmp (_22, q_20);
 this stmt is child function---BN_cmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 trace fucntion name:BN_cmp 
 [40;44m =======trace_function_path BN_cmp  function_call count: 1 level :0========  [0m
 [40;42m =======pre add _ fucntion:bn_check_top========= [0m
@@ -4296,21 +4312,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f5ea33ac318
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a5108318
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7f5ea339cd80 q>
+    var <var_decl 0x7f38a50f8d80 q>
     def_stmt q_20 = (struct BIGNUM *) _19;
     version 20
-    ptr-info 0x7f5ea33bd060>
+    ptr-info 0x7f38a5119060>
 
  ================== Start Use after free Check ================== 
 
@@ -4329,21 +4345,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f5ea33ac3a8
-    type <pointer_type 0x7f5ea3389e70
-        type <record_type 0x7f5ea3389dc8 BIGNUM BLK
-            size <integer_cst 0x7f5ea387b0a8 constant 192>
-            unit size <integer_cst 0x7f5ea387b078 constant 24>
-            align 64 symtab 0 alias set -1 canonical type 0x7f5ea3389d20 fields <field_decl 0x7f5ea338b5f0 d> context <translation_unit_decl 0x7f5ea386a168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
-            pointer_to_this <pointer_type 0x7f5ea3389e70> chain <type_decl 0x7f5ea338b688 D.3995>>
+ <ssa_name 0x7f38a51083a8
+    type <pointer_type 0x7f38a50e5e70
+        type <record_type 0x7f38a50e5dc8 BIGNUM BLK
+            size <integer_cst 0x7f38a55d70a8 constant 192>
+            unit size <integer_cst 0x7f38a55d7078 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7f38a50e5d20 fields <field_decl 0x7f38a50e75f0 d> context <translation_unit_decl 0x7f38a55c6168 ./benchmarks/openssl/leak_6/openssl_leak_6.c>
+            pointer_to_this <pointer_type 0x7f38a50e5e70> chain <type_decl 0x7f38a50e7688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7f5ea385fbe8 constant 64>
-        unit size <integer_cst 0x7f5ea385fc00 constant 8>
+        size <integer_cst 0x7f38a55bbbe8 constant 64>
+        unit size <integer_cst 0x7f38a55bbc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _22 = dh.q;
     version 22
-    ptr-info 0x7f5ea33bd078>
+    ptr-info 0x7f38a5119078>
 # VUSE <.MEM_73>
 _22 = dh.q;
 
@@ -4825,15 +4841,15 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 10 [0m
 [40;34m    used_stmt array stack totalsize of : 4368 [0m
-[40;34m    collect time: : 0.000250 s [0m
-[40;34m    algorithm time: 0.022324 s [0m
+[40;34m    collect time: : 0.000275 s [0m
+[40;34m    algorithm time: 0.021494 s [0m
 [40;34m    gimple stmt count : : 125 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
-/usr/bin/ld: /tmp/ccWFJ68r.ltrans0.ltrans.o: warning: relocation against `_bignum_ffdhe3072_p' in read-only section `.text'
-/usr/bin/ld: /tmp/ccWFJ68r.ltrans0.ltrans.o: in function `BN_cmp':
+/usr/bin/ld: /tmp/ccj85t2n.ltrans0.ltrans.o: warning: relocation against `_bignum_ffdhe3072_p' in read-only section `.text'
+/usr/bin/ld: /tmp/ccj85t2n.ltrans0.ltrans.o: in function `BN_cmp':
 <artificial>:(.text+0x34): undefined reference to `bn_check_top'
 /usr/bin/ld: <artificial>:(.text+0x41): undefined reference to `bn_check_top'
-/usr/bin/ld: /tmp/ccWFJ68r.ltrans0.ltrans.o: in function `main':
+/usr/bin/ld: /tmp/ccj85t2n.ltrans0.ltrans.o: in function `main':
 <artificial>:(.text+0xd1): undefined reference to `BN_get_word'
 /usr/bin/ld: <artificial>:(.text+0xe7): undefined reference to `_bignum_ffdhe2048_p'
 /usr/bin/ld: <artificial>:(.text+0xfc): undefined reference to `_bignum_ffdhe3072_p'

@@ -1,2 +1,3334 @@
-gcc-7: fatal error: no input files
-compilation terminated.
+./benchmarks/openssl/leak_2/openssl_leak_2.c: In function ‘freeandcopy’:
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: implicit declaration of function ‘OPENSSL_strdup’; did you mean ‘OPENSSL_memdup’? [-Wimplicit-function-declaration]
+         *dest = OPENSSL_strdup(source);
+                 ^~~~~~~~~~~~~~
+                 OPENSSL_memdup
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:15: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+         *dest = OPENSSL_strdup(source);
+               ^
+./benchmarks/openssl/leak_2/openssl_leak_2.c: In function ‘main’:
+./benchmarks/openssl/leak_2/openssl_leak_2.c:268:18: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+     char *port = OPENSSL_strdup(PORT);
+                  ^~~~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:343:41: warning: implicit declaration of function ‘IS_INET_FLAG’; did you mean ‘IS_NO_PROT_FLAG’? [-Wimplicit-function-declaration]
+         if (connect_type == use_unix && IS_INET_FLAG(o)) {
+                                         ^~~~~~~~~~~~
+                                         IS_NO_PROT_FLAG
+./benchmarks/openssl/leak_2/openssl_leak_2.c:344:13: warning: implicit declaration of function ‘BIO_printf’; did you mean ‘dprintf’? [-Wimplicit-function-declaration]
+             BIO_printf(bio_err,
+             ^~~~~~~~~~
+             dprintf
+./benchmarks/openssl/leak_2/openssl_leak_2.c:349:41: warning: implicit declaration of function ‘IS_UNIX_FLAG’; did you mean ‘IS_NO_PROT_FLAG’? [-Wimplicit-function-declaration]
+         if (connect_type == use_inet && IS_UNIX_FLAG(o)) {
+                                         ^~~~~~~~~~~~
+                                         IS_NO_PROT_FLAG
+./benchmarks/openssl/leak_2/openssl_leak_2.c:356:13: warning: implicit declaration of function ‘IS_PROT_FLAG’; did you mean ‘IS_NO_PROT_FLAG’? [-Wimplicit-function-declaration]
+         if (IS_PROT_FLAG(o) && ++prot_opt > 1) {
+             ^~~~~~~~~~~~
+             IS_NO_PROT_FLAG
+./benchmarks/openssl/leak_2/openssl_leak_2.c:377:32: warning: implicit declaration of function ‘opt_arg’; did you mean ‘copy_argv’? [-Wimplicit-function-declaration]
+             freeandcopy(&host, opt_arg());
+                                ^~~~~~~
+                                copy_argv
+./benchmarks/openssl/leak_2/openssl_leak_2.c:377:32: warning: passing argument 2 of ‘freeandcopy’ makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/openssl/leak_2/openssl_leak_2.c:247:13: note: expected ‘const char *’ but argument is of type ‘int’
+ static void freeandcopy(char **dest, const char *source)
+             ^~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:381:24: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+             servername = opt_arg(); /* don't free */
+                        ^
+./benchmarks/openssl/leak_2/openssl_leak_2.c:406:12: warning: implicit declaration of function ‘opt_num_rest’; did you mean ‘opt_next’? [-Wimplicit-function-declaration]
+     argc = opt_num_rest();
+            ^~~~~~~~~~~~
+            opt_next
+./benchmarks/openssl/leak_2/openssl_leak_2.c:424:21: warning: implicit declaration of function ‘BIO_new_file’ [-Wimplicit-function-declaration]
+         BIO *stmp = BIO_new_file(sess_in, "r");
+                     ^~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:424:21: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/openssl/leak_2/openssl_leak_2.c:427:13: warning: implicit declaration of function ‘ERR_print_errors’ [-Wimplicit-function-declaration]
+             ERR_print_errors(bio_err);
+             ^~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:430:16: warning: implicit declaration of function ‘PEM_read_bio_SSL_SESSION’ [-Wimplicit-function-declaration]
+         sess = PEM_read_bio_SSL_SESSION(stmp, NULL, 0, NULL);
+                ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:430:14: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+         sess = PEM_read_bio_SSL_SESSION(stmp, NULL, 0, NULL);
+              ^
+./benchmarks/openssl/leak_2/openssl_leak_2.c:431:9: warning: implicit declaration of function ‘BIO_free’; did you mean ‘free’? [-Wimplicit-function-declaration]
+         BIO_free(stmp);
+         ^~~~~~~~
+         free
+./benchmarks/openssl/leak_2/openssl_leak_2.c:437:14: warning: implicit declaration of function ‘SSL_set_session’ [-Wimplicit-function-declaration]
+         if (!SSL_set_session(con, sess)) {
+              ^~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:444:31: warning: implicit declaration of function ‘SSL_SESSION_get0_hostname’ [-Wimplicit-function-declaration]
+             const char *sni = SSL_SESSION_get0_hostname(sess);
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:444:31: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/openssl/leak_2/openssl_leak_2.c:447:28: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+                 servername = OPENSSL_strdup(sni); /* allocation site */
+                            ^
+./benchmarks/openssl/leak_2/openssl_leak_2.c:461:9: warning: implicit declaration of function ‘SSL_SESSION_free’ [-Wimplicit-function-declaration]
+         SSL_SESSION_free(sess);
+         ^~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:468:14: warning: implicit declaration of function ‘SSL_set_tlsext_host_name’; did you mean ‘SN_subject_alt_name’? [-Wimplicit-function-declaration]
+         if (!SSL_set_tlsext_host_name(con, servername)) {
+              ^~~~~~~~~~~~~~~~~~~~~~~~
+              SN_subject_alt_name
+./benchmarks/openssl/leak_2/openssl_leak_2.c:478:9: warning: implicit declaration of function ‘print_stuff’; did you mean ‘printf’? [-Wimplicit-function-declaration]
+         print_stuff(bio_c_out, con, full_log);
+         ^~~~~~~~~~~
+         printf
+./benchmarks/openssl/leak_2/openssl_leak_2.c:479:5: warning: implicit declaration of function ‘do_ssl_shutdown’ [-Wimplicit-function-declaration]
+     do_ssl_shutdown(con);
+     ^~~~~~~~~~~~~~~
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+--------GIMPLE Cond -------
+succs:= 3
+--------GIMPLE Cond -------
+succs:= 4
+succs:= 3
+succs:= 4
+--------GIMPLE Cond -------
+succs:= 6
+--------GIMPLE Cond -------
+succs:= 7
+succs:= 6
+succs:= 7
+--------GIMPLE Cond -------
+succs:= 9
+succs:= 9
+--------GIMPLE Cond -------
+succs:= 11
+--------GIMPLE_SWITCH -------
+succs:= 11
+--------GIMPLE Cond -------
+succs:= 15
+succs:= 15
+--------GIMPLE Cond -------
+--------GIMPLE Cond -------
+succs:= 20
+--------GIMPLE Cond -------
+succs:= 21
+succs:= 22
+succs:= 21
+succs:= 22
+--------GIMPLE Cond -------
+--------GIMPLE Cond -------
+succs:= 24
+--------GIMPLE Cond -------
+succs:= 24
+succs:= 25
+succs:= 26
+--------GIMPLE Cond -------
+succs:= 27
+--------GIMPLE Cond -------
+succs:= 28
+succs:= 27
+succs:= 28
+--------GIMPLE Cond -------
+succs:= 30
+succs:= 26
+succs:= 30
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 1 
+pointer ptable is 0 
+===============The second stage : Mapping stmt=================
+# .MEM_99 = VDEF <.MEM_97(D)>
+_1 = OPENSSL_strdup ("4433");
+# .MEM_100 = VDEF <.MEM_99>
+_4 = opt_progname (_3);
+# .MEM_113 = VDEF <.MEM_105>
+_5 = IS_UNIX_FLAG (o_66);
+# .MEM_114 = VDEF <.MEM_113>
+BIO_printf (_7, "%s: Intermixed protocol flags (internet and unix domains)\n", _6);
+# .MEM_115 = VDEF <.MEM_91>
+_8 = IS_PROT_FLAG (o_66);
+# .MEM_116 = VDEF <.MEM_115>
+BIO_printf (_9, "Cannot supply multiple protocol flags\n");
+# .MEM_120 = VDEF <.MEM_115>
+BIO_printf (_15, "Cannot supply both a protocol flag and \'-no_<prot>\'\n");
+# .MEM_121 = VDEF <.MEM_92>
+BIO_printf (_17, "%s: Use -help for summary.\n", _16);
+# .MEM_118 = VDEF <.MEM_115>
+_18 = opt_arg ();
+# .MEM_130 = VDEF <.MEM_128>
+_125 = OPENSSL_strdup (_20);
+# .MEM_117 = VDEF <.MEM_115>
+_21 = opt_arg ();
+# .MEM_105 = VDEF <.MEM_96>
+o_66 = opt_next ();
+# .MEM_106 = VDEF <.MEM_105>
+BIO_printf (_24, "%s: Can\'t use -servername and -noservername together\n", _23);
+# .MEM_107 = VDEF <.MEM_105>
+argc_69 = opt_num_rest ();
+# .MEM_108 = VDEF <.MEM_107>
+_28 = SSL_set_tlsext_host_name (0B, servername_37);
+# .MEM_109 = VDEF <.MEM_108>
+BIO_printf (_29, "Unable to set TLS servername extension.\n");
+# .MEM_110 = VDEF <.MEM_109>
+ERR_print_errors (_30);
+# .MEM_111 = VDEF <.MEM_94>
+print_stuff (_31, 0B, 1);
+# .MEM_112 = VDEF <.MEM_111>
+do_ssl_shutdown (0B);
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 13 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:do_ssl_shutdown========= [0m
+[40;33m =======POP node_fun stack:do_ssl_shutdown========= [0m
+[40;42m =======pre add _ fucntion:print_stuff========= [0m
+[40;33m =======POP node_fun stack:print_stuff========= [0m
+[40;42m =======pre add _ fucntion:ERR_print_errors========= [0m
+[40;33m =======POP node_fun stack:ERR_print_errors========= [0m
+[40;42m =======pre add _ fucntion:BIO_printf========= [0m
+[40;33m =======POP node_fun stack:BIO_printf========= [0m
+[40;42m =======pre add _ fucntion:SSL_set_tlsext_host_name========= [0m
+[40;33m =======POP node_fun stack:SSL_set_tlsext_host_name========= [0m
+[40;42m =======pre add _ fucntion:opt_num_rest========= [0m
+[40;33m =======POP node_fun stack:opt_num_rest========= [0m
+[40;42m =======pre add _ fucntion:opt_next========= [0m
+[40;33m =======POP node_fun stack:opt_next========= [0m
+[40;42m =======pre add _ fucntion:opt_arg========= [0m
+[40;33m =======POP node_fun stack:opt_arg========= [0m
+[40;42m =======pre add _ fucntion:OPENSSL_strdup========= [0m
+[40;33m =======POP node_fun stack:OPENSSL_strdup========= [0m
+[40;42m =======pre add _ fucntion:IS_PROT_FLAG========= [0m
+[40;33m =======POP node_fun stack:IS_PROT_FLAG========= [0m
+[40;42m =======pre add _ fucntion:IS_UNIX_FLAG========= [0m
+[40;33m =======POP node_fun stack:IS_UNIX_FLAG========= [0m
+[40;42m =======pre add _ fucntion:opt_progname========= [0m
+[40;33m =======POP node_fun stack:opt_progname========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f4ce9ef7a00
+    type <pointer_type 0x7f4ce9f11000
+        type <array_type 0x7f4ce9f03690 type <integer_type 0x7f4ce9f03738 char>
+            BLK
+            size <integer_cst 0x7f4ce9f0d768 constant 40>
+            unit size <integer_cst 0x7f4ce9f0d750 constant 5>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f4ce9f035e8>
+            pointer_to_this <pointer_type 0x7f4ce9f11000>>
+        unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+    readonly constant
+    arg 0 <string_cst 0x7f4ce9ef79e0 type <array_type 0x7f4ce9f03690>
+        readonly constant static "4433\000">
+    ./benchmarks/openssl/leak_2/openssl_leak_2.c:268:18 start: ./benchmarks/openssl/leak_2/openssl_leak_2.c:268:18 finish: ./benchmarks/openssl/leak_2/openssl_leak_2.c:268:18>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4cea3e1828
+    type <pointer_type 0x7f4ce9f037e0
+        type <integer_type 0x7f4ce9f03738 char public string-flag QI
+            size <integer_cst 0x7f4cea3d9cd8 constant 8>
+            unit size <integer_cst 0x7f4cea3d9cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4cea3ed3f0 precision 8 min <integer_cst 0x7f4ce9f06180 -128> max <integer_cst 0x7f4ce9f06168 127>
+            pointer_to_this <pointer_type 0x7f4ce9f037e0>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+        pointer_to_this <pointer_type 0x7f4ce9f03888>>
+   
+    def_stmt _3 = *argv_59(D);
+    version 3
+    ptr-info 0x7f4ce9f1e420>
+# VUSE <.MEM_99>
+_3 = *argv_59(D);
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_100 = VDEF <.MEM_99>
+_4 = opt_progname (_3);
+bb index := 2
+# VUSE <.MEM_122>
+return ret_34;
+In function ‘main’:
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 33
+
+======================================================================
+_4 = opt_progname (_3);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:334:12: warning: use location
+     prog = opt_progname(argv[0]);
+            ^
+this stmt is child function---opt_progname-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1828
+    type <pointer_type 0x7f4ce9f037e0
+        type <integer_type 0x7f4ce9f03738 char public string-flag QI
+            size <integer_cst 0x7f4cea3d9cd8 constant 8>
+            unit size <integer_cst 0x7f4cea3d9cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4cea3ed3f0 precision 8 min <integer_cst 0x7f4ce9f06180 -128> max <integer_cst 0x7f4ce9f06168 127>
+            pointer_to_this <pointer_type 0x7f4ce9f037e0>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+        pointer_to_this <pointer_type 0x7f4ce9f03888>>
+   
+    def_stmt _3 = *argv_59(D);
+    version 3
+    ptr-info 0x7f4ce9f1e420>
+trace fucntion name:opt_progname 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_101 = VDEF <.MEM_100>
+prog = _4;
+bb index := 2
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 2 ,possiable got to succ := 33
+
+======================================================================
+prog = _4;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:334:10: warning: use location
+     prog = opt_progname(argv[0]);
+          ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_113>
+_6 = prog;
+bb index := 5
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 5 ,possiable got to succ := 33
+
+======================================================================
+_6 = prog;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:350:13: warning: use location
+             BIO_printf(bio_err,
+             ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_114 = VDEF <.MEM_113>
+BIO_printf (_7, "%s: Intermixed protocol flags (internet and unix domains)\n", _6);
+bb index := 5
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 5 ,possiable got to succ := 33
+
+======================================================================
+BIO_printf (_7, "%s: Intermixed protocol flags (internet and unix domains)\n", _6);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:350:13: warning: use location
+             BIO_printf(bio_err,
+             ^
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1828
+    type <pointer_type 0x7f4ce9f037e0
+        type <integer_type 0x7f4ce9f03738 char public string-flag QI
+            size <integer_cst 0x7f4cea3d9cd8 constant 8>
+            unit size <integer_cst 0x7f4cea3d9cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4cea3ed3f0 precision 8 min <integer_cst 0x7f4ce9f06180 -128> max <integer_cst 0x7f4ce9f06168 127>
+            pointer_to_this <pointer_type 0x7f4ce9f037e0>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+        pointer_to_this <pointer_type 0x7f4ce9f03888>>
+   
+    def_stmt _3 = *argv_59(D);
+    version 3
+    ptr-info 0x7f4ce9f1e420>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_92>
+_16 = prog;
+bb index := 14
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 33
+
+======================================================================
+_16 = prog;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:372:13: warning: use location
+             BIO_printf(bio_err, "%s: Use -help for summary.\n", prog);
+             ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_121 = VDEF <.MEM_92>
+BIO_printf (_17, "%s: Use -help for summary.\n", _16);
+bb index := 14
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 33
+
+======================================================================
+BIO_printf (_17, "%s: Use -help for summary.\n", _16);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:372:13: warning: use location
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1828
+    type <pointer_type 0x7f4ce9f037e0
+        type <integer_type 0x7f4ce9f03738 char public string-flag QI
+            size <integer_cst 0x7f4cea3d9cd8 constant 8>
+            unit size <integer_cst 0x7f4cea3d9cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4cea3ed3f0 precision 8 min <integer_cst 0x7f4ce9f06180 -128> max <integer_cst 0x7f4ce9f06168 127>
+            pointer_to_this <pointer_type 0x7f4ce9f037e0>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+        pointer_to_this <pointer_type 0x7f4ce9f03888>>
+   
+    def_stmt _3 = *argv_59(D);
+    version 3
+    ptr-info 0x7f4ce9f1e420>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_23 = prog;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:394:13: warning: use location
+             BIO_printf(bio_err,
+             ^
+BIO_printf (_24, "%s: Can\'t use -servername and -noservername together\n", _23);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:394:13: warning: use location
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1828
+    type <pointer_type 0x7f4ce9f037e0
+        type <integer_type 0x7f4ce9f03738 char public string-flag QI
+            size <integer_cst 0x7f4cea3d9cd8 constant 8>
+            unit size <integer_cst 0x7f4cea3d9cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4cea3ed3f0 precision 8 min <integer_cst 0x7f4ce9f06180 -128> max <integer_cst 0x7f4ce9f06168 127>
+            pointer_to_this <pointer_type 0x7f4ce9f037e0>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+        pointer_to_this <pointer_type 0x7f4ce9f03888>>
+   
+    def_stmt _3 = *argv_59(D);
+    version 3
+    ptr-info 0x7f4ce9f1e420>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4cea3e1828
+    type <pointer_type 0x7f4ce9f037e0
+        type <integer_type 0x7f4ce9f03738 char public string-flag QI
+            size <integer_cst 0x7f4cea3d9cd8 constant 8>
+            unit size <integer_cst 0x7f4cea3d9cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4cea3ed3f0 precision 8 min <integer_cst 0x7f4ce9f06180 -128> max <integer_cst 0x7f4ce9f06168 127>
+            pointer_to_this <pointer_type 0x7f4ce9f037e0>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+        pointer_to_this <pointer_type 0x7f4ce9f03888>>
+   
+    def_stmt _3 = *argv_59(D);
+    version 3
+    ptr-info 0x7f4ce9f1e420>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: use location
+     OPENSSL_free(*dest);
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_122 = VDEF <.MEM_95>
+free (_33);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:485:5: warning: use location
+     OPENSSL_free(host);
+     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+# VUSE <.MEM_105>
+_23 = prog;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:394:13: warning: use location
+             BIO_printf(bio_err,
+             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+# .MEM_106 = VDEF <.MEM_105>
+BIO_printf (_24, "%s: Can\'t use -servername and -noservername together\n", _23);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:394:13: warning: use location
+             BIO_printf(bio_err,
+             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:2 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4ce9f24510
+    type <enumeral_type 0x7f4ce9f03348 OPTION_CHOICE SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        values <tree_list 0x7f4ce9f0f5a0
+            purpose <identifier_node 0x7f4ce9f0f578 OPT_ERR>
+            value <integer_cst 0x7f4cea3d9fc0 constant -1>
+            chain <tree_list 0x7f4ce9f0f550
+                purpose <identifier_node 0x7f4ce9f0f528 OPT_EOF>
+                value <integer_cst 0x7f4cea3d9f78 constant 0>
+                chain <tree_list 0x7f4ce9f0f500
+                    purpose <identifier_node 0x7f4ce9f0f4d8 OPT_HELP>
+                    value <integer_cst 0x7f4cea3d9f90 constant 1>
+                    chain <tree_list 0x7f4ce9f0f4b0
+                        purpose <identifier_node 0x7f4ce9f0f488 OPT_4>
+                        value <integer_cst 0x7f4cea3f50d8 constant 2>
+                        chain <tree_list 0x7f4ce9f0f460 purpose <identifier_node 0x7f4ce9f0f438 OPT_6> value <integer_cst 0x7f4cea3d9fa8 3> chain <tree_list 0x7f4ce9f0f410>>>>>> context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+        chain <type_decl 0x7f4ce9f05390 D.4010>>
+    var <var_decl 0x7f4ce9f19120 o>
+    def_stmt o_66 = opt_next ();
+    version 66>
+# .MEM_105 = VDEF <.MEM_96>
+o_66 = opt_next ();
+
+ ================== trace ptable================== 
+trace fucntion name:opt_next 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---opt_next-----
+this other function ------opt_next-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_8 = IS_PROT_FLAG (o_66);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:356:13: warning: use location
+         if (IS_PROT_FLAG(o) && ++prot_opt > 1) {
+             ^
+this stmt is child function---IS_PROT_FLAG-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4ce9f24510
+    type <enumeral_type 0x7f4ce9f03348 OPTION_CHOICE SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        values <tree_list 0x7f4ce9f0f5a0
+            purpose <identifier_node 0x7f4ce9f0f578 OPT_ERR>
+            value <integer_cst 0x7f4cea3d9fc0 constant -1>
+            chain <tree_list 0x7f4ce9f0f550
+                purpose <identifier_node 0x7f4ce9f0f528 OPT_EOF>
+                value <integer_cst 0x7f4cea3d9f78 constant 0>
+                chain <tree_list 0x7f4ce9f0f500
+                    purpose <identifier_node 0x7f4ce9f0f4d8 OPT_HELP>
+                    value <integer_cst 0x7f4cea3d9f90 constant 1>
+                    chain <tree_list 0x7f4ce9f0f4b0
+                        purpose <identifier_node 0x7f4ce9f0f488 OPT_4>
+                        value <integer_cst 0x7f4cea3f50d8 constant 2>
+                        chain <tree_list 0x7f4ce9f0f460 purpose <identifier_node 0x7f4ce9f0f438 OPT_6> value <integer_cst 0x7f4cea3d9fa8 3> chain <tree_list 0x7f4ce9f0f410>>>>>> context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+        chain <type_decl 0x7f4ce9f05390 D.4010>>
+    var <var_decl 0x7f4ce9f19120 o>
+    def_stmt o_66 = opt_next ();
+    version 66>
+trace fucntion name:IS_PROT_FLAG 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_8 != 0)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:356:12: warning: use location
+         if (IS_PROT_FLAG(o) && ++prot_opt > 1) {
+            ^
+if (_8 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_2/openssl_leak_2.c:356:12: warning: use location
+Cond in fucntion main basic block 6
+ ================== possible direct basic block ================= 
+from main basic block 7
+ ================== possible direct basic block ================= 
+from main basic block 9
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_5 = IS_UNIX_FLAG (o_66);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:349:41: warning: use location
+         if (connect_type == use_inet && IS_UNIX_FLAG(o)) {
+                                         ^
+this stmt is child function---IS_UNIX_FLAG-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4ce9f24510
+    type <enumeral_type 0x7f4ce9f03348 OPTION_CHOICE SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        values <tree_list 0x7f4ce9f0f5a0
+            purpose <identifier_node 0x7f4ce9f0f578 OPT_ERR>
+            value <integer_cst 0x7f4cea3d9fc0 constant -1>
+            chain <tree_list 0x7f4ce9f0f550
+                purpose <identifier_node 0x7f4ce9f0f528 OPT_EOF>
+                value <integer_cst 0x7f4cea3d9f78 constant 0>
+                chain <tree_list 0x7f4ce9f0f500
+                    purpose <identifier_node 0x7f4ce9f0f4d8 OPT_HELP>
+                    value <integer_cst 0x7f4cea3d9f90 constant 1>
+                    chain <tree_list 0x7f4ce9f0f4b0
+                        purpose <identifier_node 0x7f4ce9f0f488 OPT_4>
+                        value <integer_cst 0x7f4cea3f50d8 constant 2>
+                        chain <tree_list 0x7f4ce9f0f460 purpose <identifier_node 0x7f4ce9f0f438 OPT_6> value <integer_cst 0x7f4cea3d9fa8 3> chain <tree_list 0x7f4ce9f0f410>>>>>> context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+        chain <type_decl 0x7f4ce9f05390 D.4010>>
+    var <var_decl 0x7f4ce9f19120 o>
+    def_stmt o_66 = opt_next ();
+    version 66>
+trace fucntion name:IS_UNIX_FLAG 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (o_66 != 0)
+bb index := 20
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 20 ,possiable got to succ := 33
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+if (o_66 != 0)
+bb index := 20
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 20 ,possiable got to succ := 33
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (o_66 != 0)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:341:11: warning: use location
+     while ((o = opt_next()) != OPT_EOF) {
+           ^
+if (o_66 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_2/openssl_leak_2.c:341:11: warning: use location
+Cond in fucntion main basic block 20
+ ================== possible direct basic block ================= 
+from main basic block 3
+ ================== possible direct basic block ================= 
+from main basic block 21
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_10 = (unsigned int) o_66;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:360:13: warning: use location
+         if (IS_NO_PROT_FLAG(o))
+             ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4ce9f24510
+    type <enumeral_type 0x7f4ce9f03348 OPTION_CHOICE SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        values <tree_list 0x7f4ce9f0f5a0
+            purpose <identifier_node 0x7f4ce9f0f578 OPT_ERR>
+            value <integer_cst 0x7f4cea3d9fc0 constant -1>
+            chain <tree_list 0x7f4ce9f0f550
+                purpose <identifier_node 0x7f4ce9f0f528 OPT_EOF>
+                value <integer_cst 0x7f4cea3d9f78 constant 0>
+                chain <tree_list 0x7f4ce9f0f500
+                    purpose <identifier_node 0x7f4ce9f0f4d8 OPT_HELP>
+                    value <integer_cst 0x7f4cea3d9f90 constant 1>
+                    chain <tree_list 0x7f4ce9f0f4b0
+                        purpose <identifier_node 0x7f4ce9f0f488 OPT_4>
+                        value <integer_cst 0x7f4cea3f50d8 constant 2>
+                        chain <tree_list 0x7f4ce9f0f460 purpose <identifier_node 0x7f4ce9f0f438 OPT_6> value <integer_cst 0x7f4cea3d9fa8 3> chain <tree_list 0x7f4ce9f0f410>>>>>> context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+        chain <type_decl 0x7f4ce9f05390 D.4010>>
+    var <var_decl 0x7f4ce9f19120 o>
+    def_stmt o_66 = opt_next ();
+    version 66>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: use location
+     OPENSSL_free(*dest);
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_122 = VDEF <.MEM_95>
+free (_33);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:485:5: warning: use location
+     OPENSSL_free(host);
+     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+if (o_66 != 0)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:341:11: warning: use location
+     while ((o = opt_next()) != OPT_EOF) {
+           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:2 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4cea3e1948
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _7 = bio_err;
+    version 7
+    ptr-info 0x7f4ce9f1e468>
+# VUSE <.MEM_113>
+_7 = bio_err;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_114 = VDEF <.MEM_113>
+BIO_printf (_7, "%s: Intermixed protocol flags (internet and unix domains)\n", _6);
+bb index := 5
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 5 ,possiable got to succ := 33
+
+======================================================================
+# .MEM_114 = VDEF <.MEM_113>
+BIO_printf (_7, "%s: Intermixed protocol flags (internet and unix domains)\n", _6);
+BIO_printf (_7, "%s: Intermixed protocol flags (internet and unix domains)\n", _6);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:350:13: warning: use location
+             BIO_printf(bio_err,
+             ^
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1948
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _7 = bio_err;
+    version 7
+    ptr-info 0x7f4ce9f1e468>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_114 = VDEF <.MEM_113>
+BIO_printf (_7, "%s: Intermixed protocol flags (internet and unix domains)\n", _6);
+bb index := 5
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 5 ,possiable got to succ := 33
+
+======================================================================
+# .MEM_114 = VDEF <.MEM_113>
+BIO_printf (_7, "%s: Intermixed protocol flags (internet and unix domains)\n", _6);
+BIO_printf (_7, "%s: Intermixed protocol flags (internet and unix domains)\n", _6);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:350:13: warning: use location
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1948
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _7 = bio_err;
+    version 7
+    ptr-info 0x7f4ce9f1e468>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4cea3e1948
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _7 = bio_err;
+    version 7
+    ptr-info 0x7f4ce9f1e468>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4cea3e19d8
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _9 = bio_err;
+    version 9
+    ptr-info 0x7f4ce9f1e480>
+# VUSE <.MEM_115>
+_9 = bio_err;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_116 = VDEF <.MEM_115>
+BIO_printf (_9, "Cannot supply multiple protocol flags\n");
+bb index := 8
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 8 ,possiable got to succ := 33
+
+======================================================================
+# .MEM_116 = VDEF <.MEM_115>
+BIO_printf (_9, "Cannot supply multiple protocol flags\n");
+BIO_printf (_9, "Cannot supply multiple protocol flags\n");
+./benchmarks/openssl/leak_2/openssl_leak_2.c:357:13: warning: use location
+             BIO_printf(bio_err, "Cannot supply multiple protocol flags\n");
+             ^
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e19d8
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _9 = bio_err;
+    version 9
+    ptr-info 0x7f4ce9f1e480>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_116 = VDEF <.MEM_115>
+BIO_printf (_9, "Cannot supply multiple protocol flags\n");
+bb index := 8
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 8 ,possiable got to succ := 33
+
+======================================================================
+# .MEM_116 = VDEF <.MEM_115>
+BIO_printf (_9, "Cannot supply multiple protocol flags\n");
+BIO_printf (_9, "Cannot supply multiple protocol flags\n");
+./benchmarks/openssl/leak_2/openssl_leak_2.c:357:13: warning: use location
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e19d8
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _9 = bio_err;
+    version 9
+    ptr-info 0x7f4ce9f1e480>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4cea3e19d8
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _9 = bio_err;
+    version 9
+    ptr-info 0x7f4ce9f1e480>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4cea3e1b88
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _15 = bio_err;
+    version 15
+    ptr-info 0x7f4ce9f1e498>
+# VUSE <.MEM_115>
+_15 = bio_err;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_120 = VDEF <.MEM_115>
+BIO_printf (_15, "Cannot supply both a protocol flag and \'-no_<prot>\'\n");
+bb index := 12
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 33
+
+======================================================================
+# .MEM_120 = VDEF <.MEM_115>
+BIO_printf (_15, "Cannot supply both a protocol flag and \'-no_<prot>\'\n");
+BIO_printf (_15, "Cannot supply both a protocol flag and \'-no_<prot>\'\n");
+./benchmarks/openssl/leak_2/openssl_leak_2.c:363:13: warning: use location
+             BIO_printf(bio_err,
+             ^
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1b88
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _15 = bio_err;
+    version 15
+    ptr-info 0x7f4ce9f1e498>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_120 = VDEF <.MEM_115>
+BIO_printf (_15, "Cannot supply both a protocol flag and \'-no_<prot>\'\n");
+bb index := 12
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 12 ,possiable got to succ := 33
+
+======================================================================
+# .MEM_120 = VDEF <.MEM_115>
+BIO_printf (_15, "Cannot supply both a protocol flag and \'-no_<prot>\'\n");
+BIO_printf (_15, "Cannot supply both a protocol flag and \'-no_<prot>\'\n");
+./benchmarks/openssl/leak_2/openssl_leak_2.c:363:13: warning: use location
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1b88
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _15 = bio_err;
+    version 15
+    ptr-info 0x7f4ce9f1e498>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4cea3e1b88
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _15 = bio_err;
+    version 15
+    ptr-info 0x7f4ce9f1e498>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4cea3e1c18
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _17 = bio_err;
+    version 17
+    ptr-info 0x7f4ce9f1e4c8>
+# VUSE <.MEM_92>
+_17 = bio_err;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_121 = VDEF <.MEM_92>
+BIO_printf (_17, "%s: Use -help for summary.\n", _16);
+bb index := 14
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 33
+
+======================================================================
+# .MEM_121 = VDEF <.MEM_92>
+BIO_printf (_17, "%s: Use -help for summary.\n", _16);
+BIO_printf (_17, "%s: Use -help for summary.\n", _16);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:372:13: warning: use location
+             BIO_printf(bio_err, "%s: Use -help for summary.\n", prog);
+             ^
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1c18
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _17 = bio_err;
+    version 17
+    ptr-info 0x7f4ce9f1e4c8>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_121 = VDEF <.MEM_92>
+BIO_printf (_17, "%s: Use -help for summary.\n", _16);
+bb index := 14
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 14 ,possiable got to succ := 33
+
+======================================================================
+# .MEM_121 = VDEF <.MEM_92>
+BIO_printf (_17, "%s: Use -help for summary.\n", _16);
+BIO_printf (_17, "%s: Use -help for summary.\n", _16);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:372:13: warning: use location
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1c18
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _17 = bio_err;
+    version 17
+    ptr-info 0x7f4ce9f1e4c8>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4cea3e1c18
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _17 = bio_err;
+    version 17
+    ptr-info 0x7f4ce9f1e4c8>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4cea3e1c60
+    type <integer_type 0x7f4cea3ed5e8 int public SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4cea3f4a80>>
+   
+    def_stmt _18 = opt_arg ();
+    version 18>
+# .MEM_118 = VDEF <.MEM_115>
+_18 = opt_arg ();
+
+ ================== trace ptable================== 
+trace fucntion name:opt_arg 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---opt_arg-----
+this other function ------opt_arg-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_19 = (long int) _18;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:377:32: warning: use location
+             freeandcopy(&host, opt_arg());
+                                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_20 = (const char *) _19;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:377:13: warning: use location
+             freeandcopy(&host, opt_arg());
+             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_125 = OPENSSL_strdup (_20);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: use location
+         *dest = OPENSSL_strdup(source);
+                 ^
+this stmt is child function---OPENSSL_strdup-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1c60
+    type <integer_type 0x7f4cea3ed5e8 int public SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4cea3f4a80>>
+   
+    def_stmt _18 = opt_arg ();
+    version 18>
+trace fucntion name:OPENSSL_strdup 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_126 = (long int) _125;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_127 = (char *) _126;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_20 != 0B)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:251:8: warning: use location
+     if (source != NULL)
+        ^
+if (_20 != 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_2/openssl_leak_2.c:251:8: warning: use location
+Cond in fucntion main basic block 15
+ ================== possible direct basic block ================= 
+from main basic block 16
+ ================== possible direct basic block ================= 
+from main basic block 19
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_18 = opt_arg ();
+./benchmarks/openssl/leak_2/openssl_leak_2.c:377:32: warning: use location
+             freeandcopy(&host, opt_arg());
+                                ^
+this stmt is child function---opt_arg-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1c60
+    type <integer_type 0x7f4cea3ed5e8 int public SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4cea3f4a80>>
+   
+    def_stmt _18 = opt_arg ();
+    version 18>
+trace fucntion name:opt_arg 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4cea3e1c60
+    type <integer_type 0x7f4cea3ed5e8 int public SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4cea3f4a80>>
+   
+    def_stmt _18 = opt_arg ();
+    version 18>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: use location
+     OPENSSL_free(*dest);
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_122 = VDEF <.MEM_95>
+free (_33);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:485:5: warning: use location
+     OPENSSL_free(host);
+     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+# .MEM_130 = VDEF <.MEM_128>
+_125 = OPENSSL_strdup (_20);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: use location
+         *dest = OPENSSL_strdup(source);
+                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+_126 = (long int) _125;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: use location
+         *dest = OPENSSL_strdup(source);
+                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+_127 = (char *) _126;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: use location
+         *dest = OPENSSL_strdup(source);
+                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+if (_20 != 0B)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:251:8: warning: use location
+     if (source != NULL)
+        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:2 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4cea3e1cf0
+    type <pointer_type 0x7f4ce9f03a80
+        type <integer_type 0x7f4ce9f039d8 char readonly string-flag QI
+            size <integer_cst 0x7f4cea3d9cd8 constant 8>
+            unit size <integer_cst 0x7f4cea3d9cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4cea3ed3f0 precision 8 min <integer_cst 0x7f4ce9f06180 -128> max <integer_cst 0x7f4ce9f06168 127>
+            pointer_to_this <pointer_type 0x7f4ce9f03a80>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _20 = (const char *) _19;
+    version 20
+    ptr-info 0x7f4ce9f1e4e0>
+_20 = (const char *) _19;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_125 = OPENSSL_strdup (_20);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: use location
+         *dest = OPENSSL_strdup(source);
+                 ^
+this stmt is child function---OPENSSL_strdup-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1cf0
+    type <pointer_type 0x7f4ce9f03a80
+        type <integer_type 0x7f4ce9f039d8 char readonly string-flag QI
+            size <integer_cst 0x7f4cea3d9cd8 constant 8>
+            unit size <integer_cst 0x7f4cea3d9cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4cea3ed3f0 precision 8 min <integer_cst 0x7f4ce9f06180 -128> max <integer_cst 0x7f4ce9f06168 127>
+            pointer_to_this <pointer_type 0x7f4ce9f03a80>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _20 = (const char *) _19;
+    version 20
+    ptr-info 0x7f4ce9f1e4e0>
+trace fucntion name:OPENSSL_strdup 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_126 = (long int) _125;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_127 = (char *) _126;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_20 != 0B)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:251:8: warning: use location
+     if (source != NULL)
+        ^
+if (_20 != 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_2/openssl_leak_2.c:251:8: warning: use location
+Cond in fucntion main basic block 15
+ ================== possible direct basic block ================= 
+from main basic block 16
+ ================== possible direct basic block ================= 
+from main basic block 19
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4cea3e1cf0
+    type <pointer_type 0x7f4ce9f03a80
+        type <integer_type 0x7f4ce9f039d8 char readonly string-flag QI
+            size <integer_cst 0x7f4cea3d9cd8 constant 8>
+            unit size <integer_cst 0x7f4cea3d9cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4cea3ed3f0 precision 8 min <integer_cst 0x7f4ce9f06180 -128> max <integer_cst 0x7f4ce9f06168 127>
+            pointer_to_this <pointer_type 0x7f4ce9f03a80>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _20 = (const char *) _19;
+    version 20
+    ptr-info 0x7f4ce9f1e4e0>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: use location
+     OPENSSL_free(*dest);
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_122 = VDEF <.MEM_95>
+free (_33);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:485:5: warning: use location
+     OPENSSL_free(host);
+     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+# .MEM_130 = VDEF <.MEM_128>
+_125 = OPENSSL_strdup (_20);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: use location
+         *dest = OPENSSL_strdup(source);
+                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+_126 = (long int) _125;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: use location
+         *dest = OPENSSL_strdup(source);
+                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+_127 = (char *) _126;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: use location
+         *dest = OPENSSL_strdup(source);
+                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+if (_20 != 0B)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:251:8: warning: use location
+     if (source != NULL)
+        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:2 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4cea3e1d38
+    type <integer_type 0x7f4cea3ed5e8 int public SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4cea3f4a80>>
+   
+    def_stmt _21 = opt_arg ();
+    version 21>
+# .MEM_117 = VDEF <.MEM_115>
+_21 = opt_arg ();
+
+ ================== trace ptable================== 
+trace fucntion name:opt_arg 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---opt_arg-----
+this other function ------opt_arg-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_22 = (long int) _21;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:381:26: warning: use location
+             servername = opt_arg(); /* don't free */
+                          ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+servername_83 = (char *) _22;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:381:24: warning: use location
+             servername = opt_arg(); /* don't free */
+                        ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+servername_45 = PHI <servername_35(13), servername_35(16), servername_83(17), servername_35(18), servername_35(15)>
+bb index := 19
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 19 ,possiable got to succ := 33
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+servername_45 = PHI <servername_35(13), servername_35(16), servername_83(17), servername_35(18), servername_35(15)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+servername_35 = PHI <0B(2), servername_45(19)>
+bb index := 20
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 20 ,possiable got to succ := 33
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+servername_35 = PHI <0B(2), servername_45(19)>
+bb index := 20
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 20 ,possiable got to succ := 33
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+servername_35 = PHI <0B(2), servername_45(19)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+servername_37 = PHI <servername_35(27), "localhost"(28), _70(29)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+_28 = SSL_set_tlsext_host_name (0B, servername_37);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:468:14: warning: use location
+         if (!SSL_set_tlsext_host_name(con, servername)) {
+              ^
+this stmt is child function---SSL_set_tlsext_host_name-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1d38
+    type <integer_type 0x7f4cea3ed5e8 int public SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4cea3f4a80>>
+   
+    def_stmt _21 = opt_arg ();
+    version 21>
+trace fucntion name:SSL_set_tlsext_host_name 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_28 == 0)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:468:12: warning: use location
+         if (!SSL_set_tlsext_host_name(con, servername)) {
+            ^
+if (_28 == 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_2/openssl_leak_2.c:468:12: warning: use location
+Cond in fucntion main basic block 30
+ ================== possible direct basic block ================= 
+from main basic block 31
+ ================== possible direct basic block ================= 
+from main basic block 32
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+if (servername_35 == 0B)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:466:12: warning: use location
+         if (servername == NULL)
+            ^
+if (servername_35 == 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_2/openssl_leak_2.c:466:12: warning: use location
+Cond in fucntion main basic block 27
+ ================== possible direct basic block ================= 
+from main basic block 28
+ ================== possible direct basic block ================= 
+from main basic block 30
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+_26 = servername_35 != 0B;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:465:38: warning: use location
+     if (!noservername && (servername != NULL || dane_tlsa_domain == NULL)) {
+                                      ^
+servername_36 = PHI <servername_35(24), servername_35(25)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_21 = opt_arg ();
+./benchmarks/openssl/leak_2/openssl_leak_2.c:381:26: warning: use location
+             servername = opt_arg(); /* don't free */
+                          ^
+this stmt is child function---opt_arg-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1d38
+    type <integer_type 0x7f4cea3ed5e8 int public SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4cea3f4a80>>
+   
+    def_stmt _21 = opt_arg ();
+    version 21>
+trace fucntion name:opt_arg 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4cea3e1d38
+    type <integer_type 0x7f4cea3ed5e8 int public SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4cea3f4a80>>
+   
+    def_stmt _21 = opt_arg ();
+    version 21>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: use location
+     OPENSSL_free(*dest);
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_122 = VDEF <.MEM_95>
+free (_33);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:485:5: warning: use location
+     OPENSSL_free(host);
+     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+_22 = (long int) _21;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:381:26: warning: use location
+             servername = opt_arg(); /* don't free */
+                          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+servername_83 = (char *) _22;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:381:24: warning: use location
+             servername = opt_arg(); /* don't free */
+                        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+servername_45 = PHI <servername_35(13), servername_35(16), servername_83(17), servername_35(18), servername_35(15)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_122 = VDEF <.MEM_95>
+free (_33);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:485:5: warning: Use after free error!: free location 
+     OPENSSL_free(host);
+     ^
+servername_45 = PHI <servername_35(13), servername_35(16), servername_83(17), servername_35(18), servername_35(15)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+servername_35 = PHI <0B(2), servername_45(19)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_122 = VDEF <.MEM_95>
+free (_33);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:485:5: warning: Use after free error!: free location 
+     OPENSSL_free(host);
+     ^
+servername_35 = PHI <0B(2), servername_45(19)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+servername_37 = PHI <servername_35(27), "localhost"(28), _70(29)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_122 = VDEF <.MEM_95>
+free (_33);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:485:5: warning: Use after free error!: free location 
+     OPENSSL_free(host);
+     ^
+servername_37 = PHI <servername_35(27), "localhost"(28), _70(29)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+# .MEM_108 = VDEF <.MEM_107>
+_28 = SSL_set_tlsext_host_name (0B, servername_37);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:468:14: warning: use location
+         if (!SSL_set_tlsext_host_name(con, servername)) {
+              ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+if (_28 == 0)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:468:12: warning: use location
+         if (!SSL_set_tlsext_host_name(con, servername)) {
+            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+if (servername_35 == 0B)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:466:12: warning: use location
+         if (servername == NULL)
+            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+_26 = servername_35 != 0B;
+./benchmarks/openssl/leak_2/openssl_leak_2.c:465:38: warning: use location
+     if (!noservername && (servername != NULL || dane_tlsa_domain == NULL)) {
+                                      ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+servername_36 = PHI <servername_35(24), servername_35(25)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_122 = VDEF <.MEM_95>
+free (_33);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:485:5: warning: Use after free error!: free location 
+     OPENSSL_free(host);
+     ^
+servername_36 = PHI <servername_35(24), servername_35(25)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+# .MEM_117 = VDEF <.MEM_115>
+_21 = opt_arg ();
+./benchmarks/openssl/leak_2/openssl_leak_2.c:381:26: warning: use location
+             servername = opt_arg(); /* don't free */
+                          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:2 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4cea3e1e10
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _24 = bio_err;
+    version 24
+    ptr-info 0x7f4ce9f1e510>
+# VUSE <.MEM_105>
+_24 = bio_err;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_106 = VDEF <.MEM_105>
+BIO_printf (_24, "%s: Can\'t use -servername and -noservername together\n", _23);
+BIO_printf (_24, "%s: Can\'t use -servername and -noservername together\n", _23);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:394:13: warning: use location
+             BIO_printf(bio_err,
+             ^
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1e10
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _24 = bio_err;
+    version 24
+    ptr-info 0x7f4ce9f1e510>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+# .MEM_106 = VDEF <.MEM_105>
+BIO_printf (_24, "%s: Can\'t use -servername and -noservername together\n", _23);
+BIO_printf (_24, "%s: Can\'t use -servername and -noservername together\n", _23);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:394:13: warning: use location
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1e10
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _24 = bio_err;
+    version 24
+    ptr-info 0x7f4ce9f1e510>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4cea3e1e10
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _24 = bio_err;
+    version 24
+    ptr-info 0x7f4ce9f1e510>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4ce9f24558
+    type <integer_type 0x7f4cea3ed5e8 int public SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4cea3f4a80>>
+    var <parm_decl 0x7f4ce9f13800 argc>
+    def_stmt argc_69 = opt_num_rest ();
+    version 69>
+# .MEM_107 = VDEF <.MEM_105>
+argc_69 = opt_num_rest ();
+
+ ================== trace ptable================== 
+trace fucntion name:opt_num_rest 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---opt_num_rest-----
+this other function ------opt_num_rest-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+if (argc_69 != 0)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:419:15: warning: use location
+     } else if (argc != 0) {
+               ^
+if (argc_69 != 0)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_2/openssl_leak_2.c:419:15: warning: use location
+Cond in fucntion main basic block 25
+ ================== possible direct basic block ================= 
+from main basic block 14
+ ================== possible direct basic block ================= 
+from main basic block 26
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+if (argc_69 == 1)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:407:8: warning: use location
+     if (argc == 1) {
+        ^
+if (argc_69 == 1)
+
+ ================== find cond branch ================= 
+./benchmarks/openssl/leak_2/openssl_leak_2.c:407:8: warning: use location
+Cond in fucntion main basic block 24
+ ================== possible direct basic block ================= 
+from main basic block 26
+ ================== possible direct basic block ================= 
+from main basic block 25
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+argc_69 = opt_num_rest ();
+./benchmarks/openssl/leak_2/openssl_leak_2.c:406:10: warning: use location
+     argc = opt_num_rest();
+          ^
+this stmt is child function---opt_num_rest-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4ce9f24558
+    type <integer_type 0x7f4cea3ed5e8 int public SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4cea3f4a80>>
+    var <parm_decl 0x7f4ce9f13800 argc>
+    def_stmt argc_69 = opt_num_rest ();
+    version 69>
+trace fucntion name:opt_num_rest 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4ce9f24558
+    type <integer_type 0x7f4cea3ed5e8 int public SI
+        size <integer_cst 0x7f4cea3d9e28 constant 32>
+        unit size <integer_cst 0x7f4cea3d9e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4cea3ed5e8 precision 32 min <integer_cst 0x7f4cea3d9de0 -2147483648> max <integer_cst 0x7f4cea3d9df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4cea3f4a80>>
+    var <parm_decl 0x7f4ce9f13800 argc>
+    def_stmt argc_69 = opt_num_rest ();
+    version 69>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: use location
+     OPENSSL_free(*dest);
+     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_122 = VDEF <.MEM_95>
+free (_33);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:485:5: warning: use location
+     OPENSSL_free(host);
+     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+if (argc_69 != 0)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:419:15: warning: use location
+     } else if (argc != 0) {
+               ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+if (argc_69 == 1)
+./benchmarks/openssl/leak_2/openssl_leak_2.c:407:8: warning: use location
+     if (argc == 1) {
+        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_128 = VDEF <.MEM_118>
+free (_124);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:249:5: warning: Use after free error!: free location 
+     OPENSSL_free(*dest);
+     ^
+# .MEM_107 = VDEF <.MEM_105>
+argc_69 = opt_num_rest ();
+./benchmarks/openssl/leak_2/openssl_leak_2.c:406:10: warning: use location
+     argc = opt_num_rest();
+          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:2 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f4ce9f1e3d8 type <pointer_type 0x7f4ce9f11e70> constant 0>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4cea3e1f30
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _29 = bio_err;
+    version 29
+    ptr-info 0x7f4ce9f1e540>
+# VUSE <.MEM_108>
+_29 = bio_err;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_109 = VDEF <.MEM_108>
+BIO_printf (_29, "Unable to set TLS servername extension.\n");
+bb index := 31
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 31 ,possiable got to succ := 33
+
+======================================================================
+# .MEM_109 = VDEF <.MEM_108>
+BIO_printf (_29, "Unable to set TLS servername extension.\n");
+BIO_printf (_29, "Unable to set TLS servername extension.\n");
+./benchmarks/openssl/leak_2/openssl_leak_2.c:469:13: warning: use location
+             BIO_printf(bio_err, "Unable to set TLS servername extension.\n");
+             ^
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1f30
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _29 = bio_err;
+    version 29
+    ptr-info 0x7f4ce9f1e540>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_109 = VDEF <.MEM_108>
+BIO_printf (_29, "Unable to set TLS servername extension.\n");
+bb index := 31
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 31 ,possiable got to succ := 33
+
+======================================================================
+# .MEM_109 = VDEF <.MEM_108>
+BIO_printf (_29, "Unable to set TLS servername extension.\n");
+BIO_printf (_29, "Unable to set TLS servername extension.\n");
+./benchmarks/openssl/leak_2/openssl_leak_2.c:469:13: warning: use location
+this stmt is child function---BIO_printf-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1f30
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _29 = bio_err;
+    version 29
+    ptr-info 0x7f4ce9f1e540>
+trace fucntion name:BIO_printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4cea3e1f30
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _29 = bio_err;
+    version 29
+    ptr-info 0x7f4ce9f1e540>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4cea3e1f78
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _30 = bio_err;
+    version 30
+    ptr-info 0x7f4ce9f1e558>
+# VUSE <.MEM_109>
+_30 = bio_err;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_110 = VDEF <.MEM_109>
+ERR_print_errors (_30);
+bb index := 31
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 31 ,possiable got to succ := 33
+
+======================================================================
+# .MEM_110 = VDEF <.MEM_109>
+ERR_print_errors (_30);
+ERR_print_errors (_30);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:470:13: warning: use location
+             ERR_print_errors(bio_err);
+             ^
+this stmt is child function---ERR_print_errors-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1f78
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _30 = bio_err;
+    version 30
+    ptr-info 0x7f4ce9f1e558>
+trace fucntion name:ERR_print_errors 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# .MEM_110 = VDEF <.MEM_109>
+ERR_print_errors (_30);
+bb index := 31
+# VUSE <.MEM_122>
+return ret_34;
+lto1: warning: use location
+beacuse in succ := 33 have return or exit
+gimple stmt in succ := 31 ,possiable got to succ := 33
+
+======================================================================
+# .MEM_110 = VDEF <.MEM_109>
+ERR_print_errors (_30);
+ERR_print_errors (_30);
+./benchmarks/openssl/leak_2/openssl_leak_2.c:470:13: warning: use location
+this stmt is child function---ERR_print_errors-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4cea3e1f78
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _30 = bio_err;
+    version 30
+    ptr-info 0x7f4ce9f1e558>
+trace fucntion name:ERR_print_errors 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4cea3e1f78
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _30 = bio_err;
+    version 30
+    ptr-info 0x7f4ce9f1e558>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4cea3e15e8
+    type <pointer_type 0x7f4ce9f030a8
+        type <record_type 0x7f4ce9f03f18 BIO VOID
+            align 8 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4cea3e4168 ./benchmarks/openssl/leak_2/openssl_leak_2.c>
+            pointer_to_this <pointer_type 0x7f4ce9f030a8> chain <type_decl 0x7f4ce9f051c8 D.4005>>
+        public unsigned DI
+        size <integer_cst 0x7f4cea3d9be8 constant 64>
+        unit size <integer_cst 0x7f4cea3d9c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7f4ce9f11150>>
+   
+    def_stmt _31 = bio_c_out;
+    version 31
+    ptr-info 0x7f4ce9f1e570>
+# VUSE <.MEM_94>
+_31 = bio_c_out;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [26.97%]:
+host_134 = 0B;
+_1 = OPENSSL_strdup ("4433");
+_2 = (long int) _1;
+port_58 = (char *) _2;
+_3 = *argv_59(D);
+_4 = opt_progname (_3);
+prog = _4;
+goto <bb 20>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [97.00%]:
+if (connect_type_44 == 0)
+  goto <bb 4>; [50.00%]
+else
+  goto <bb 6>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [48.50%]:
+_5 = IS_UNIX_FLAG (o_66);
+if (_5 != 0)
+  goto <bb 5>; [3.00%]
+else
+  goto <bb 6>; [97.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [1.46%]:
+_6 = prog;
+_7 = bio_err;
+BIO_printf (_7, "%s: Intermixed protocol flags (internet and unix domains)\n", _6);
+goto <bb 33> (end); [100.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [95.55%]:
+_8 = IS_PROT_FLAG (o_66);
+if (_8 != 0)
+  goto <bb 7>; [50.00%]
+else
+  goto <bb 9>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [47.77%]:
+prot_opt_79 = prot_opt_41 + 1;
+if (prot_opt_79 > 1)
+  goto <bb 8>; [3.00%]
+else
+  goto <bb 9>; [97.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [1.43%]:
+_9 = bio_err;
+BIO_printf (_9, "Cannot supply multiple protocol flags\n");
+goto <bb 33> (end); [100.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [94.11%]:
+# prot_opt_40 = PHI <prot_opt_41(6), prot_opt_79(7)>
+_10 = (unsigned int) o_66;
+_11 = _10 + 4294964295;
+if (_11 <= 4)
+  goto <bb 10>; [50.00%]
+else
+  goto <bb 11>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [47.06%]:
+no_prot_opt_81 = no_prot_opt_43 + 1;
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [94.11%]:
+# no_prot_opt_42 = PHI <no_prot_opt_43(9), no_prot_opt_81(10)>
+_12 = prot_opt_40 == 1;
+_13 = no_prot_opt_42 != 0;
+_14 = _12 & _13;
+if (_14 != 0)
+  goto <bb 12>; [3.00%]
+else
+  goto <bb 13>; [97.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [2.82%]:
+_15 = bio_err;
+BIO_printf (_15, "Cannot supply both a protocol flag and \'-no_<prot>\'\n");
+goto <bb 33> (end); [100.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [91.29%]:
+switch (o_66) <default: <L4> [20.00%], case -1 ... 0: opthelp [20.00%], case 4: <L1> [20.00%], case 79: <L2> [20.00%], case 80: <L3> [20.00%]>
+
+=======is loop:0=========
+
+ bb index 14 
+opthelp [19.92%]:
+_16 = prog;
+_17 = bio_err;
+BIO_printf (_17, "%s: Use -help for summary.\n", _16);
+goto <bb 33> (end); [100.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<L1> [18.26%]:
+_18 = opt_arg ();
+_19 = (long int) _18;
+_20 = (const char *) _19;
+_124 = host_133;
+free (_124);
+host_135 = 0B;
+if (_20 != 0B)
+  goto <bb 16>; [57.44%]
+else
+  goto <bb 19> (<L4>); [42.56%]
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [10.49%]:
+_125 = OPENSSL_strdup (_20);
+_126 = (long int) _125;
+_127 = (char *) _126;
+host_136 = _127;
+goto <bb 19> (<L4>); [100.00%]
+
+=======is loop:1=========
+
+ bb index 17 
+<L2> [18.26%]:
+_21 = opt_arg ();
+_22 = (long int) _21;
+servername_83 = (char *) _22;
+goto <bb 19> (<L4>); [100.00%]
+
+=======is loop:1=========
+
+ bb index 18 
+<L3> [18.26%]:
+
+=======is loop:1=========
+
+ bb index 19 
+# servername_45 = PHI <servername_35(13), servername_35(16), servername_83(17), servername_35(18), servername_35(15)>
+# noservername_52 = PHI <noservername_38(13), noservername_38(16), noservername_38(17), 1(18), noservername_38(15)>
+# prot_opt_54 = PHI <prot_opt_40(13), prot_opt_40(16), prot_opt_40(17), prot_opt_40(18), prot_opt_40(15)>
+# no_prot_opt_32 = PHI <no_prot_opt_42(13), no_prot_opt_42(16), no_prot_opt_42(17), no_prot_opt_42(18), no_prot_opt_42(15)>
+# connect_type_88 = PHI <connect_type_44(13), 0(16), connect_type_44(17), connect_type_44(18), 0(15)>
+# host_132 = PHI <host_133(13), host_136(16), host_133(17), host_133(18), host_135(15)>
+<L4> [73.03%]:
+
+=======is loop:1=========
+
+ bb index 20 
+<bb 20> [100.00%]:
+# servername_35 = PHI <0B(2), servername_45(19)>
+# noservername_38 = PHI <0(2), noservername_52(19)>
+# prot_opt_41 = PHI <0(2), prot_opt_54(19)>
+# no_prot_opt_43 = PHI <0(2), no_prot_opt_32(19)>
+# connect_type_44 = PHI <2(2), connect_type_88(19)>
+# host_133 = PHI <host_134(2), host_132(19)>
+o_66 = opt_next ();
+if (o_66 != 0)
+  goto <bb 3>; [97.00%]
+else
+  goto <bb 21>; [3.00%]
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [3.00%]:
+if (noservername_38 != 0)
+  goto <bb 22>; [67.00%]
+else
+  goto <bb 24>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [2.01%]:
+if (servername_35 != 0B)
+  goto <bb 23>; [53.47%]
+else
+  goto <bb 24>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 23 
+<bb 23> [1.07%]:
+_23 = prog;
+_24 = bio_err;
+BIO_printf (_24, "%s: Can\'t use -servername and -noservername together\n", _23);
+goto <bb 14> (opthelp); [100.00%]
+
+=======is loop:0=========
+
+ bb index 24 
+<bb 24> [1.93%]:
+argc_69 = opt_num_rest ();
+if (argc_69 == 1)
+  goto <bb 26>; [34.00%]
+else
+  goto <bb 25>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 25 
+<bb 25> [1.27%]:
+if (argc_69 != 0)
+  goto <bb 14> (opthelp); [46.00%]
+else
+  goto <bb 26>; [54.00%]
+
+=======is loop:0=========
+
+ bb index 26 
+<bb 26> [1.34%]:
+# servername_36 = PHI <servername_35(24), servername_35(25)>
+# noservername_39 = PHI <noservername_38(24), noservername_38(25)>
+if (noservername_38 == 0)
+  goto <bb 27>; [67.00%]
+else
+  goto <bb 32> (re_start); [33.00%]
+
+=======is loop:0=========
+
+ bb index 27 
+<bb 27> [0.90%]:
+_26 = servername_35 != 0B;
+if (servername_35 == 0B)
+  goto <bb 28>; [30.00%]
+else
+  goto <bb 30>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 28 
+<bb 28> [0.27%]:
+_27 = host_133;
+if (_27 != 0B)
+  goto <bb 29>; [70.00%]
+else
+  goto <bb 30>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 29 
+<bb 29> [0.19%]:
+_70 = host_133;
+
+=======is loop:0=========
+
+ bb index 30 
+<bb 30> [0.90%]:
+# servername_37 = PHI <servername_35(27), "localhost"(28), _70(29)>
+_28 = SSL_set_tlsext_host_name (0B, servername_37);
+if (_28 == 0)
+  goto <bb 31>; [29.56%]
+else
+  goto <bb 32> (re_start); [70.44%]
+
+=======is loop:0=========
+
+ bb index 31 
+<bb 31> [0.27%]:
+_29 = bio_err;
+BIO_printf (_29, "Unable to set TLS servername extension.\n");
+_30 = bio_err;
+ERR_print_errors (_30);
+goto <bb 33> (end); [100.00%]
+
+=======is loop:0=========
+
+ bb index 32 
+re_start [1.08%]:
+_31 = bio_c_out;
+print_stuff (_31, 0B, 1);
+do_ssl_shutdown (0B);
+
+=======is loop:0=========
+
+ bb index 33 
+# ret_34 = PHI <1(5), 1(8), 1(12), 1(14), 1(31), 0(32)>
+end [26.97%]:
+_33 = host_133;
+free (_33);
+_90 = ret_34;
+return ret_34;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 13 [0m
+[40;34m    used_stmt array stack totalsize of : 1040 [0m
+[40;34m    collect time: : 0.000087 s [0m
+[40;34m    algorithm time: 0.017490 s [0m
+[40;34m    gimple stmt count : : 83 [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+/usr/bin/ld: /tmp/ccqSelZj.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0x1e): undefined reference to `OPENSSL_strdup'
+/usr/bin/ld: <artificial>:(.text+0x26): undefined reference to `opt_progname'
+/usr/bin/ld: <artificial>:(.text+0x58): undefined reference to `opt_next'
+/usr/bin/ld: <artificial>:(.text+0x73): undefined reference to `IS_UNIX_FLAG'
+/usr/bin/ld: <artificial>:(.text+0x83): undefined reference to `IS_PROT_FLAG'
+/usr/bin/ld: <artificial>:(.text+0xe8): undefined reference to `BIO_printf'
+/usr/bin/ld: <artificial>:(.text+0x105): undefined reference to `BIO_printf'
+/usr/bin/ld: <artificial>:(.text+0x122): undefined reference to `BIO_printf'
+/usr/bin/ld: <artificial>:(.text+0x152): undefined reference to `BIO_printf'
+/usr/bin/ld: <artificial>:(.text+0x17a): undefined reference to `opt_arg'
+/usr/bin/ld: <artificial>:(.text+0x195): undefined reference to `OPENSSL_strdup'
+/usr/bin/ld: <artificial>:(.text+0x1ad): undefined reference to `opt_arg'
+/usr/bin/ld: <artificial>:(.text+0x1f4): undefined reference to `BIO_printf'
+/usr/bin/ld: <artificial>:(.text+0x203): undefined reference to `opt_num_rest'
+/usr/bin/ld: <artificial>:(.text+0x22d): undefined reference to `SSL_set_tlsext_host_name'
+/usr/bin/ld: <artificial>:(.text+0x24a): undefined reference to `print_stuff'
+/usr/bin/ld: <artificial>:(.text+0x259): undefined reference to `do_ssl_shutdown'
+/usr/bin/ld: <artificial>:(.text+0x289): undefined reference to `BIO_printf'
+/usr/bin/ld: <artificial>:(.text+0x298): undefined reference to `ERR_print_errors'
+collect2: error: ld returned 1 exit status

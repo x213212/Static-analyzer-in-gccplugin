@@ -197,22 +197,22 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f2ca5337900
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34baf7900
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
    
     def_stmt _1 = ref_5(D)->peer_ref;
     version 1
-    ptr-info 0x7f2ca4e5cf60>
+    ptr-info 0x7fb34b61cf60>
 # VUSE <.MEM_7(D)>
 _1 = ref_5(D)->peer_ref;
 
@@ -261,22 +261,22 @@ free_ref (_1);
 this stmt is child function---free_ref-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337900
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34baf7900
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
    
     def_stmt _1 = ref_5(D)->peer_ref;
     version 1
-    ptr-info 0x7f2ca4e5cf60>
+    ptr-info 0x7fb34b61cf60>
 trace fucntion name:free_ref 
 [40;44m =======trace_function_path free_ref  function_call count: 2 level :0========  [0m
 # .MEM_9 = VDEF <.MEM_8>
@@ -374,22 +374,22 @@ free_ref (_1);
 this stmt is child function---free_ref-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337900
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34baf7900
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
    
     def_stmt _1 = ref_5(D)->peer_ref;
     version 1
-    ptr-info 0x7f2ca4e5cf60>
+    ptr-info 0x7fb34b61cf60>
 trace fucntion name:free_ref 
 [40;44m =======trace_function_path free_ref  function_call count: 2 level :0========  [0m
 # .MEM_9 = VDEF <.MEM_8>
@@ -459,22 +459,22 @@ trace fucntion free:12
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f2ca5337900
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34baf7900
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
    
     def_stmt _1 = ref_5(D)->peer_ref;
     version 1
-    ptr-info 0x7f2ca4e5cf60>
+    ptr-info 0x7fb34b61cf60>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_9 = VDEF <.MEM_8>
 free (_2);
@@ -526,22 +526,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f2ca5337900
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34baf7900
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
    
     def_stmt _1 = ref_5(D)->peer_ref;
     version 1
-    ptr-info 0x7f2ca4e5cf60>
+    ptr-info 0x7fb34b61cf60>
 # VUSE <.MEM_7(D)>
 _1 = ref_5(D)->peer_ref;
 
@@ -562,7 +562,6 @@ free_ref (_1);
 bb index := 3
 # VUSE <.MEM_6>
 return;
-In function ‘main’:
 lto1: warning: use location
 beacuse in succ := 4 have return or exit
 gimple stmt in succ := 3 ,possiable got to succ := 4
@@ -584,28 +583,29 @@ gimple stmt in succ := 3 ,possiable got to succ := 4
 # .MEM_8 = VDEF <.MEM_7(D)>
 free_ref (_1);
 free_ref (_1);
+In function ‘main’:
 ./benchmarks/git/double_free_4/git_df_4.c:62:2: warning: use location
   free_ref(ref->peer_ref);
   ^
 this stmt is child function---free_ref-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337900
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34baf7900
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
    
     def_stmt _1 = ref_5(D)->peer_ref;
     version 1
-    ptr-info 0x7f2ca4e5cf60>
+    ptr-info 0x7fb34b61cf60>
 trace fucntion name:free_ref 
 [40;44m =======trace_function_path free_ref  function_call count: 2 level :0========  [0m
 # .MEM_9 = VDEF <.MEM_8>
@@ -676,6 +676,7 @@ free_ref (_1);
 bb index := 3
 # VUSE <.MEM_6>
 return;
+In function ‘free_ref’:
 lto1: warning: use location
 beacuse in succ := 4 have return or exit
 gimple stmt in succ := 3 ,possiable got to succ := 4
@@ -697,28 +698,29 @@ gimple stmt in succ := 3 ,possiable got to succ := 4
 # .MEM_8 = VDEF <.MEM_7(D)>
 free_ref (_1);
 free_ref (_1);
+In function ‘main’:
 ./benchmarks/git/double_free_4/git_df_4.c:62:2: warning: use location
   free_ref(ref->peer_ref);
   ^
 this stmt is child function---free_ref-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337900
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34baf7900
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
    
     def_stmt _1 = ref_5(D)->peer_ref;
     version 1
-    ptr-info 0x7f2ca4e5cf60>
+    ptr-info 0x7fb34b61cf60>
 trace fucntion name:free_ref 
 [40;44m =======trace_function_path free_ref  function_call count: 2 level :0========  [0m
 # .MEM_9 = VDEF <.MEM_8>
@@ -788,22 +790,22 @@ trace fucntion free:12
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f2ca5337900
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34baf7900
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
    
     def_stmt _1 = ref_5(D)->peer_ref;
     version 1
-    ptr-info 0x7f2ca4e5cf60>
+    ptr-info 0x7fb34b61cf60>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_9 = VDEF <.MEM_8>
 free (_2);
@@ -859,22 +861,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f2ca4e83f78
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34b643f78
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
-    var <var_decl 0x7f2ca4e89120 ref>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
+    var <var_decl 0x7fb34b649120 ref>
     def_stmt ref_57 = calloc (1, _56);
     version 57
-    ptr-info 0x7f2ca4e8f240>
+    ptr-info 0x7fb34b64f240>
 # .MEM_76 = VDEF <.MEM_69>
 ref_57 = calloc (1, _56);
 
@@ -1120,22 +1122,22 @@ hashcpy (_38, _37);
 this stmt is child function---hashcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e83f78
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34b643f78
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
-    var <var_decl 0x7f2ca4e89120 ref>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
+    var <var_decl 0x7fb34b649120 ref>
     def_stmt ref_57 = calloc (1, _56);
     version 57
-    ptr-info 0x7f2ca4e8f240>
+    ptr-info 0x7fb34b64f240>
 trace fucntion name:hashcpy 
 
  ================== trace ================== 
@@ -1195,22 +1197,22 @@ len_54 = strlen (dst_name_29);
 this stmt is child function---strlen-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e83f78
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34b643f78
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
-    var <var_decl 0x7f2ca4e89120 ref>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
+    var <var_decl 0x7fb34b649120 ref>
     def_stmt ref_57 = calloc (1, _56);
     version 57
-    ptr-info 0x7f2ca4e8f240>
+    ptr-info 0x7fb34b64f240>
 trace fucntion name:strlen 
 
  ================== trace ================== 
@@ -1243,22 +1245,22 @@ ref_57 = calloc (1, _56);
 this stmt is child function---calloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e83f78
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34b643f78
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
-    var <var_decl 0x7f2ca4e89120 ref>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
+    var <var_decl 0x7fb34b649120 ref>
     def_stmt ref_57 = calloc (1, _56);
     version 57
-    ptr-info 0x7f2ca4e8f240>
+    ptr-info 0x7fb34b64f240>
 trace fucntion name:calloc 
 
  ================== trace ================== 
@@ -1275,22 +1277,22 @@ memcpy (_60, dst_name_29, len_54);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e83f78
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34b643f78
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
-    var <var_decl 0x7f2ca4e89120 ref>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
+    var <var_decl 0x7fb34b649120 ref>
     def_stmt ref_57 = calloc (1, _56);
     version 57
-    ptr-info 0x7f2ca4e8f240>
+    ptr-info 0x7fb34b64f240>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -1307,22 +1309,22 @@ _44 = strcmp (_43, dst_name_29);
 this stmt is child function---strcmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e83f78
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34b643f78
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
-    var <var_decl 0x7f2ca4e89120 ref>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
+    var <var_decl 0x7fb34b649120 ref>
     def_stmt ref_57 = calloc (1, _56);
     version 57
-    ptr-info 0x7f2ca4e8f240>
+    ptr-info 0x7fb34b64f240>
 trace fucntion name:strcmp 
 
  ================== trace ================== 
@@ -1420,22 +1422,22 @@ _58 = &ref_57->name;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f2ca4e83f78
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34b643f78
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
-    var <var_decl 0x7f2ca4e89120 ref>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
+    var <var_decl 0x7fb34b649120 ref>
     def_stmt ref_57 = calloc (1, _56);
     version 57
-    ptr-info 0x7f2ca4e8f240>
+    ptr-info 0x7fb34b64f240>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_86 = VDEF <.MEM_67>
 free (dst_name_29);
@@ -1544,12 +1546,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f2ca5337c18
-    type <integer_type 0x7f2ca53435e8 int public SI
-        size <integer_cst 0x7f2ca532fe28 constant 32>
-        unit size <integer_cst 0x7f2ca532fe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f2ca53435e8 precision 32 min <integer_cst 0x7f2ca532fde0 -2147483648> max <integer_cst 0x7f2ca532fdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f2ca534aa80>>
+ <ssa_name 0x7fb34baf7c18
+    type <integer_type 0x7fb34bb035e8 int public SI
+        size <integer_cst 0x7fb34baefe28 constant 32>
+        unit size <integer_cst 0x7fb34baefe40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb34bb035e8 precision 32 min <integer_cst 0x7fb34baefde0 -2147483648> max <integer_cst 0x7fb34baefdf8 2147483647>
+        pointer_to_this <pointer_type 0x7fb34bb0aa80>>
    
     def_stmt _1 = get_local_heads ();
     version 1>
@@ -1788,12 +1790,12 @@ free_ref (ref_64);
 this stmt is child function---free_ref-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337c18
-    type <integer_type 0x7f2ca53435e8 int public SI
-        size <integer_cst 0x7f2ca532fe28 constant 32>
-        unit size <integer_cst 0x7f2ca532fe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f2ca53435e8 precision 32 min <integer_cst 0x7f2ca532fde0 -2147483648> max <integer_cst 0x7f2ca532fdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f2ca534aa80>>
+ <ssa_name 0x7fb34baf7c18
+    type <integer_type 0x7fb34bb035e8 int public SI
+        size <integer_cst 0x7fb34baefe28 constant 32>
+        unit size <integer_cst 0x7fb34baefe40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb34bb035e8 precision 32 min <integer_cst 0x7fb34baefde0 -2147483648> max <integer_cst 0x7fb34baefdf8 2147483647>
+        pointer_to_this <pointer_type 0x7fb34bb0aa80>>
    
     def_stmt _1 = get_local_heads ();
     version 1>
@@ -2064,12 +2066,12 @@ hashcpy (_38, _37);
 this stmt is child function---hashcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337c18
-    type <integer_type 0x7f2ca53435e8 int public SI
-        size <integer_cst 0x7f2ca532fe28 constant 32>
-        unit size <integer_cst 0x7f2ca532fe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f2ca53435e8 precision 32 min <integer_cst 0x7f2ca532fde0 -2147483648> max <integer_cst 0x7f2ca532fdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f2ca534aa80>>
+ <ssa_name 0x7fb34baf7c18
+    type <integer_type 0x7fb34bb035e8 int public SI
+        size <integer_cst 0x7fb34baefe28 constant 32>
+        unit size <integer_cst 0x7fb34baefe40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb34bb035e8 precision 32 min <integer_cst 0x7fb34baefde0 -2147483648> max <integer_cst 0x7fb34baefdf8 2147483647>
+        pointer_to_this <pointer_type 0x7fb34bb0aa80>>
    
     def_stmt _1 = get_local_heads ();
     version 1>
@@ -2132,12 +2134,12 @@ len_54 = strlen (dst_name_29);
 this stmt is child function---strlen-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337c18
-    type <integer_type 0x7f2ca53435e8 int public SI
-        size <integer_cst 0x7f2ca532fe28 constant 32>
-        unit size <integer_cst 0x7f2ca532fe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f2ca53435e8 precision 32 min <integer_cst 0x7f2ca532fde0 -2147483648> max <integer_cst 0x7f2ca532fdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f2ca534aa80>>
+ <ssa_name 0x7fb34baf7c18
+    type <integer_type 0x7fb34bb035e8 int public SI
+        size <integer_cst 0x7fb34baefe28 constant 32>
+        unit size <integer_cst 0x7fb34baefe40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb34bb035e8 precision 32 min <integer_cst 0x7fb34baefde0 -2147483648> max <integer_cst 0x7fb34baefdf8 2147483647>
+        pointer_to_this <pointer_type 0x7fb34bb0aa80>>
    
     def_stmt _1 = get_local_heads ();
     version 1>
@@ -2173,12 +2175,12 @@ ref_57 = calloc (1, _56);
 this stmt is child function---calloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337c18
-    type <integer_type 0x7f2ca53435e8 int public SI
-        size <integer_cst 0x7f2ca532fe28 constant 32>
-        unit size <integer_cst 0x7f2ca532fe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f2ca53435e8 precision 32 min <integer_cst 0x7f2ca532fde0 -2147483648> max <integer_cst 0x7f2ca532fdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f2ca534aa80>>
+ <ssa_name 0x7fb34baf7c18
+    type <integer_type 0x7fb34bb035e8 int public SI
+        size <integer_cst 0x7fb34baefe28 constant 32>
+        unit size <integer_cst 0x7fb34baefe40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb34bb035e8 precision 32 min <integer_cst 0x7fb34baefde0 -2147483648> max <integer_cst 0x7fb34baefdf8 2147483647>
+        pointer_to_this <pointer_type 0x7fb34bb0aa80>>
    
     def_stmt _1 = get_local_heads ();
     version 1>
@@ -2342,12 +2344,12 @@ memcpy (_60, dst_name_29, len_54);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337c18
-    type <integer_type 0x7f2ca53435e8 int public SI
-        size <integer_cst 0x7f2ca532fe28 constant 32>
-        unit size <integer_cst 0x7f2ca532fe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f2ca53435e8 precision 32 min <integer_cst 0x7f2ca532fde0 -2147483648> max <integer_cst 0x7f2ca532fdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f2ca534aa80>>
+ <ssa_name 0x7fb34baf7c18
+    type <integer_type 0x7fb34bb035e8 int public SI
+        size <integer_cst 0x7fb34baefe28 constant 32>
+        unit size <integer_cst 0x7fb34baefe40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb34bb035e8 precision 32 min <integer_cst 0x7fb34baefde0 -2147483648> max <integer_cst 0x7fb34baefdf8 2147483647>
+        pointer_to_this <pointer_type 0x7fb34bb0aa80>>
    
     def_stmt _1 = get_local_heads ();
     version 1>
@@ -2376,12 +2378,12 @@ _44 = strcmp (_43, dst_name_29);
 this stmt is child function---strcmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337c18
-    type <integer_type 0x7f2ca53435e8 int public SI
-        size <integer_cst 0x7f2ca532fe28 constant 32>
-        unit size <integer_cst 0x7f2ca532fe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f2ca53435e8 precision 32 min <integer_cst 0x7f2ca532fde0 -2147483648> max <integer_cst 0x7f2ca532fdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f2ca534aa80>>
+ <ssa_name 0x7fb34baf7c18
+    type <integer_type 0x7fb34bb035e8 int public SI
+        size <integer_cst 0x7fb34baefe28 constant 32>
+        unit size <integer_cst 0x7fb34baefe40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb34bb035e8 precision 32 min <integer_cst 0x7fb34baefde0 -2147483648> max <integer_cst 0x7fb34baefdf8 2147483647>
+        pointer_to_this <pointer_type 0x7fb34bb0aa80>>
    
     def_stmt _1 = get_local_heads ();
     version 1>
@@ -2463,12 +2465,12 @@ _1 = get_local_heads ();
 this stmt is child function---get_local_heads-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337c18
-    type <integer_type 0x7f2ca53435e8 int public SI
-        size <integer_cst 0x7f2ca532fe28 constant 32>
-        unit size <integer_cst 0x7f2ca532fe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f2ca53435e8 precision 32 min <integer_cst 0x7f2ca532fde0 -2147483648> max <integer_cst 0x7f2ca532fdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f2ca534aa80>>
+ <ssa_name 0x7fb34baf7c18
+    type <integer_type 0x7fb34bb035e8 int public SI
+        size <integer_cst 0x7fb34baefe28 constant 32>
+        unit size <integer_cst 0x7fb34baefe40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb34bb035e8 precision 32 min <integer_cst 0x7fb34baefde0 -2147483648> max <integer_cst 0x7fb34baefdf8 2147483647>
+        pointer_to_this <pointer_type 0x7fb34bb0aa80>>
    
     def_stmt _1 = get_local_heads ();
     version 1>
@@ -2483,12 +2485,12 @@ trace fucntion free:7
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f2ca5337c18
-    type <integer_type 0x7f2ca53435e8 int public SI
-        size <integer_cst 0x7f2ca532fe28 constant 32>
-        unit size <integer_cst 0x7f2ca532fe40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7f2ca53435e8 precision 32 min <integer_cst 0x7f2ca532fde0 -2147483648> max <integer_cst 0x7f2ca532fdf8 2147483647>
-        pointer_to_this <pointer_type 0x7f2ca534aa80>>
+ <ssa_name 0x7fb34baf7c18
+    type <integer_type 0x7fb34bb035e8 int public SI
+        size <integer_cst 0x7fb34baefe28 constant 32>
+        unit size <integer_cst 0x7fb34baefe40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fb34bb035e8 precision 32 min <integer_cst 0x7fb34baefde0 -2147483648> max <integer_cst 0x7fb34baefdf8 2147483647>
+        pointer_to_this <pointer_type 0x7fb34bb0aa80>>
    
     def_stmt _1 = get_local_heads ();
     version 1>
@@ -2791,20 +2793,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f2ca4e83090
-    type <pointer_type 0x7f2ca4e68738
-        type <array_type 0x7f2ca4e68690 type <integer_type 0x7f2ca4e590a8 char>
+ <ssa_name 0x7fb34b643090
+    type <pointer_type 0x7fb34b628738
+        type <array_type 0x7fb34b628690 type <integer_type 0x7fb34b6190a8 char>
             BLK
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f2ca4e599d8>
-            pointer_to_this <pointer_type 0x7f2ca4e68738>>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb34b6199d8>
+            pointer_to_this <pointer_type 0x7fb34b628738>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _43 = &list_42->name;
     version 43
-    ptr-info 0x7f2ca4e8f150>
+    ptr-info 0x7fb34b64f150>
 _43 = &list_42->name;
 
  ================== trace ptable================== 
@@ -2828,20 +2830,20 @@ _44 = strcmp (_43, dst_name_29);
 this stmt is child function---strcmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e83090
-    type <pointer_type 0x7f2ca4e68738
-        type <array_type 0x7f2ca4e68690 type <integer_type 0x7f2ca4e590a8 char>
+ <ssa_name 0x7fb34b643090
+    type <pointer_type 0x7fb34b628738
+        type <array_type 0x7fb34b628690 type <integer_type 0x7fb34b6190a8 char>
             BLK
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f2ca4e599d8>
-            pointer_to_this <pointer_type 0x7f2ca4e68738>>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb34b6199d8>
+            pointer_to_this <pointer_type 0x7fb34b628738>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _43 = &list_42->name;
     version 43
-    ptr-info 0x7f2ca4e8f150>
+    ptr-info 0x7fb34b64f150>
 trace fucntion name:strcmp 
 
  ================== trace ================== 
@@ -2882,20 +2884,20 @@ len_54 = strlen (dst_name_29);
 this stmt is child function---strlen-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e83090
-    type <pointer_type 0x7f2ca4e68738
-        type <array_type 0x7f2ca4e68690 type <integer_type 0x7f2ca4e590a8 char>
+ <ssa_name 0x7fb34b643090
+    type <pointer_type 0x7fb34b628738
+        type <array_type 0x7fb34b628690 type <integer_type 0x7fb34b6190a8 char>
             BLK
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f2ca4e599d8>
-            pointer_to_this <pointer_type 0x7f2ca4e68738>>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb34b6199d8>
+            pointer_to_this <pointer_type 0x7fb34b628738>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _43 = &list_42->name;
     version 43
-    ptr-info 0x7f2ca4e8f150>
+    ptr-info 0x7fb34b64f150>
 trace fucntion name:strlen 
 
  ================== trace ================== 
@@ -2928,20 +2930,20 @@ ref_57 = calloc (1, _56);
 this stmt is child function---calloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e83090
-    type <pointer_type 0x7f2ca4e68738
-        type <array_type 0x7f2ca4e68690 type <integer_type 0x7f2ca4e590a8 char>
+ <ssa_name 0x7fb34b643090
+    type <pointer_type 0x7fb34b628738
+        type <array_type 0x7fb34b628690 type <integer_type 0x7fb34b6190a8 char>
             BLK
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f2ca4e599d8>
-            pointer_to_this <pointer_type 0x7f2ca4e68738>>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb34b6199d8>
+            pointer_to_this <pointer_type 0x7fb34b628738>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _43 = &list_42->name;
     version 43
-    ptr-info 0x7f2ca4e8f150>
+    ptr-info 0x7fb34b64f150>
 trace fucntion name:calloc 
 
  ================== trace ================== 
@@ -3178,20 +3180,20 @@ hashcpy (_38, _37);
 this stmt is child function---hashcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e83090
-    type <pointer_type 0x7f2ca4e68738
-        type <array_type 0x7f2ca4e68690 type <integer_type 0x7f2ca4e590a8 char>
+ <ssa_name 0x7fb34b643090
+    type <pointer_type 0x7fb34b628738
+        type <array_type 0x7fb34b628690 type <integer_type 0x7fb34b6190a8 char>
             BLK
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f2ca4e599d8>
-            pointer_to_this <pointer_type 0x7f2ca4e68738>>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb34b6199d8>
+            pointer_to_this <pointer_type 0x7fb34b628738>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _43 = &list_42->name;
     version 43
-    ptr-info 0x7f2ca4e8f150>
+    ptr-info 0x7fb34b64f150>
 trace fucntion name:hashcpy 
 
  ================== trace ================== 
@@ -3251,20 +3253,20 @@ memcpy (_60, dst_name_29, len_54);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e83090
-    type <pointer_type 0x7f2ca4e68738
-        type <array_type 0x7f2ca4e68690 type <integer_type 0x7f2ca4e590a8 char>
+ <ssa_name 0x7fb34b643090
+    type <pointer_type 0x7fb34b628738
+        type <array_type 0x7fb34b628690 type <integer_type 0x7fb34b6190a8 char>
             BLK
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f2ca4e599d8>
-            pointer_to_this <pointer_type 0x7f2ca4e68738>>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb34b6199d8>
+            pointer_to_this <pointer_type 0x7fb34b628738>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _43 = &list_42->name;
     version 43
-    ptr-info 0x7f2ca4e8f150>
+    ptr-info 0x7fb34b64f150>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -3338,20 +3340,20 @@ _58 = &ref_57->name;
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f2ca4e83090
-    type <pointer_type 0x7f2ca4e68738
-        type <array_type 0x7f2ca4e68690 type <integer_type 0x7f2ca4e590a8 char>
+ <ssa_name 0x7fb34b643090
+    type <pointer_type 0x7fb34b628738
+        type <array_type 0x7fb34b628690 type <integer_type 0x7fb34b6190a8 char>
             BLK
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f2ca4e599d8>
-            pointer_to_this <pointer_type 0x7f2ca4e68738>>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb34b6199d8>
+            pointer_to_this <pointer_type 0x7fb34b628738>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _43 = &list_42->name;
     version 43
-    ptr-info 0x7f2ca4e8f150>
+    ptr-info 0x7fb34b64f150>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_86 = VDEF <.MEM_67>
 free (dst_name_29);
@@ -3459,22 +3461,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f2ca4e79ab0
-    type <pointer_type 0x7f2ca4e597e0
-        type <integer_type 0x7f2ca4e59738 char public string-flag QI
-            size <integer_cst 0x7f2ca532fcd8 constant 8>
-            unit size <integer_cst 0x7f2ca532fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f2ca53433f0 precision 8 min <integer_cst 0x7f2ca4e5c180 -128> max <integer_cst 0x7f2ca4e5c168 127>
-            pointer_to_this <pointer_type 0x7f2ca4e597e0>>
+ <ssa_name 0x7fb34b639ab0
+    type <pointer_type 0x7fb34b6197e0
+        type <integer_type 0x7fb34b619738 char public string-flag QI
+            size <integer_cst 0x7fb34baefcd8 constant 8>
+            unit size <integer_cst 0x7fb34baefcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb34bb033f0 precision 8 min <integer_cst 0x7fb34b61c180 -128> max <integer_cst 0x7fb34b61c168 127>
+            pointer_to_this <pointer_type 0x7fb34b6197e0>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-        pointer_to_this <pointer_type 0x7f2ca4e59888>>
-    var <var_decl 0x7f2ca4e76c60 dst_name>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+        pointer_to_this <pointer_type 0x7fb34b619888>>
+    var <var_decl 0x7fb34b636c60 dst_name>
     def_stmt dst_name_29 = &src_28->name;
     version 29
-    ptr-info 0x7f2ca4e8f060>
+    ptr-info 0x7fb34b64f060>
 dst_name_29 = &src_28->name;
 
  ================== trace ptable================== 
@@ -3498,22 +3500,22 @@ len_54 = strlen (dst_name_29);
 this stmt is child function---strlen-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e79ab0
-    type <pointer_type 0x7f2ca4e597e0
-        type <integer_type 0x7f2ca4e59738 char public string-flag QI
-            size <integer_cst 0x7f2ca532fcd8 constant 8>
-            unit size <integer_cst 0x7f2ca532fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f2ca53433f0 precision 8 min <integer_cst 0x7f2ca4e5c180 -128> max <integer_cst 0x7f2ca4e5c168 127>
-            pointer_to_this <pointer_type 0x7f2ca4e597e0>>
+ <ssa_name 0x7fb34b639ab0
+    type <pointer_type 0x7fb34b6197e0
+        type <integer_type 0x7fb34b619738 char public string-flag QI
+            size <integer_cst 0x7fb34baefcd8 constant 8>
+            unit size <integer_cst 0x7fb34baefcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb34bb033f0 precision 8 min <integer_cst 0x7fb34b61c180 -128> max <integer_cst 0x7fb34b61c168 127>
+            pointer_to_this <pointer_type 0x7fb34b6197e0>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-        pointer_to_this <pointer_type 0x7f2ca4e59888>>
-    var <var_decl 0x7f2ca4e76c60 dst_name>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+        pointer_to_this <pointer_type 0x7fb34b619888>>
+    var <var_decl 0x7fb34b636c60 dst_name>
     def_stmt dst_name_29 = &src_28->name;
     version 29
-    ptr-info 0x7f2ca4e8f060>
+    ptr-info 0x7fb34b64f060>
 trace fucntion name:strlen 
 
  ================== trace ================== 
@@ -3546,22 +3548,22 @@ ref_57 = calloc (1, _56);
 this stmt is child function---calloc-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e79ab0
-    type <pointer_type 0x7f2ca4e597e0
-        type <integer_type 0x7f2ca4e59738 char public string-flag QI
-            size <integer_cst 0x7f2ca532fcd8 constant 8>
-            unit size <integer_cst 0x7f2ca532fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f2ca53433f0 precision 8 min <integer_cst 0x7f2ca4e5c180 -128> max <integer_cst 0x7f2ca4e5c168 127>
-            pointer_to_this <pointer_type 0x7f2ca4e597e0>>
+ <ssa_name 0x7fb34b639ab0
+    type <pointer_type 0x7fb34b6197e0
+        type <integer_type 0x7fb34b619738 char public string-flag QI
+            size <integer_cst 0x7fb34baefcd8 constant 8>
+            unit size <integer_cst 0x7fb34baefcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb34bb033f0 precision 8 min <integer_cst 0x7fb34b61c180 -128> max <integer_cst 0x7fb34b61c168 127>
+            pointer_to_this <pointer_type 0x7fb34b6197e0>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-        pointer_to_this <pointer_type 0x7f2ca4e59888>>
-    var <var_decl 0x7f2ca4e76c60 dst_name>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+        pointer_to_this <pointer_type 0x7fb34b619888>>
+    var <var_decl 0x7fb34b636c60 dst_name>
     def_stmt dst_name_29 = &src_28->name;
     version 29
-    ptr-info 0x7f2ca4e8f060>
+    ptr-info 0x7fb34b64f060>
 trace fucntion name:calloc 
 
  ================== trace ================== 
@@ -3798,22 +3800,22 @@ hashcpy (_38, _37);
 this stmt is child function---hashcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e79ab0
-    type <pointer_type 0x7f2ca4e597e0
-        type <integer_type 0x7f2ca4e59738 char public string-flag QI
-            size <integer_cst 0x7f2ca532fcd8 constant 8>
-            unit size <integer_cst 0x7f2ca532fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f2ca53433f0 precision 8 min <integer_cst 0x7f2ca4e5c180 -128> max <integer_cst 0x7f2ca4e5c168 127>
-            pointer_to_this <pointer_type 0x7f2ca4e597e0>>
+ <ssa_name 0x7fb34b639ab0
+    type <pointer_type 0x7fb34b6197e0
+        type <integer_type 0x7fb34b619738 char public string-flag QI
+            size <integer_cst 0x7fb34baefcd8 constant 8>
+            unit size <integer_cst 0x7fb34baefcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb34bb033f0 precision 8 min <integer_cst 0x7fb34b61c180 -128> max <integer_cst 0x7fb34b61c168 127>
+            pointer_to_this <pointer_type 0x7fb34b6197e0>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-        pointer_to_this <pointer_type 0x7f2ca4e59888>>
-    var <var_decl 0x7f2ca4e76c60 dst_name>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+        pointer_to_this <pointer_type 0x7fb34b619888>>
+    var <var_decl 0x7fb34b636c60 dst_name>
     def_stmt dst_name_29 = &src_28->name;
     version 29
-    ptr-info 0x7f2ca4e8f060>
+    ptr-info 0x7fb34b64f060>
 trace fucntion name:hashcpy 
 
  ================== trace ================== 
@@ -3907,22 +3909,22 @@ memcpy (_60, dst_name_29, len_54);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e79ab0
-    type <pointer_type 0x7f2ca4e597e0
-        type <integer_type 0x7f2ca4e59738 char public string-flag QI
-            size <integer_cst 0x7f2ca532fcd8 constant 8>
-            unit size <integer_cst 0x7f2ca532fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f2ca53433f0 precision 8 min <integer_cst 0x7f2ca4e5c180 -128> max <integer_cst 0x7f2ca4e5c168 127>
-            pointer_to_this <pointer_type 0x7f2ca4e597e0>>
+ <ssa_name 0x7fb34b639ab0
+    type <pointer_type 0x7fb34b6197e0
+        type <integer_type 0x7fb34b619738 char public string-flag QI
+            size <integer_cst 0x7fb34baefcd8 constant 8>
+            unit size <integer_cst 0x7fb34baefcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb34bb033f0 precision 8 min <integer_cst 0x7fb34b61c180 -128> max <integer_cst 0x7fb34b61c168 127>
+            pointer_to_this <pointer_type 0x7fb34b6197e0>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-        pointer_to_this <pointer_type 0x7f2ca4e59888>>
-    var <var_decl 0x7f2ca4e76c60 dst_name>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+        pointer_to_this <pointer_type 0x7fb34b619888>>
+    var <var_decl 0x7fb34b636c60 dst_name>
     def_stmt dst_name_29 = &src_28->name;
     version 29
-    ptr-info 0x7f2ca4e8f060>
+    ptr-info 0x7fb34b64f060>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -3948,22 +3950,22 @@ _44 = strcmp (_43, dst_name_29);
 this stmt is child function---strcmp-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e79ab0
-    type <pointer_type 0x7f2ca4e597e0
-        type <integer_type 0x7f2ca4e59738 char public string-flag QI
-            size <integer_cst 0x7f2ca532fcd8 constant 8>
-            unit size <integer_cst 0x7f2ca532fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f2ca53433f0 precision 8 min <integer_cst 0x7f2ca4e5c180 -128> max <integer_cst 0x7f2ca4e5c168 127>
-            pointer_to_this <pointer_type 0x7f2ca4e597e0>>
+ <ssa_name 0x7fb34b639ab0
+    type <pointer_type 0x7fb34b6197e0
+        type <integer_type 0x7fb34b619738 char public string-flag QI
+            size <integer_cst 0x7fb34baefcd8 constant 8>
+            unit size <integer_cst 0x7fb34baefcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb34bb033f0 precision 8 min <integer_cst 0x7fb34b61c180 -128> max <integer_cst 0x7fb34b61c168 127>
+            pointer_to_this <pointer_type 0x7fb34b6197e0>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-        pointer_to_this <pointer_type 0x7f2ca4e59888>>
-    var <var_decl 0x7f2ca4e76c60 dst_name>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+        pointer_to_this <pointer_type 0x7fb34b619888>>
+    var <var_decl 0x7fb34b636c60 dst_name>
     def_stmt dst_name_29 = &src_28->name;
     version 29
-    ptr-info 0x7f2ca4e8f060>
+    ptr-info 0x7fb34b64f060>
 trace fucntion name:strcmp 
 
  ================== trace ================== 
@@ -4016,22 +4018,22 @@ free (dst_name_29);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f2ca4e79ab0
-    type <pointer_type 0x7f2ca4e597e0
-        type <integer_type 0x7f2ca4e59738 char public string-flag QI
-            size <integer_cst 0x7f2ca532fcd8 constant 8>
-            unit size <integer_cst 0x7f2ca532fcf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f2ca53433f0 precision 8 min <integer_cst 0x7f2ca4e5c180 -128> max <integer_cst 0x7f2ca4e5c168 127>
-            pointer_to_this <pointer_type 0x7f2ca4e597e0>>
+ <ssa_name 0x7fb34b639ab0
+    type <pointer_type 0x7fb34b6197e0
+        type <integer_type 0x7fb34b619738 char public string-flag QI
+            size <integer_cst 0x7fb34baefcd8 constant 8>
+            unit size <integer_cst 0x7fb34baefcf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fb34bb033f0 precision 8 min <integer_cst 0x7fb34b61c180 -128> max <integer_cst 0x7fb34b61c168 127>
+            pointer_to_this <pointer_type 0x7fb34b6197e0>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-        pointer_to_this <pointer_type 0x7f2ca4e59888>>
-    var <var_decl 0x7f2ca4e76c60 dst_name>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+        pointer_to_this <pointer_type 0x7fb34b619888>>
+    var <var_decl 0x7fb34b636c60 dst_name>
     def_stmt dst_name_29 = &src_28->name;
     version 29
-    ptr-info 0x7f2ca4e8f060>
+    ptr-info 0x7fb34b64f060>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_86 = VDEF <.MEM_67>
 free (dst_name_29);
@@ -4140,25 +4142,25 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f2ca4e5cf30 type <integer_type 0x7f2ca4e62000 size_t> constant 1>
+ <integer_cst 0x7fb34b61cf30 type <integer_type 0x7fb34b622000 size_t> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f2ca5337750
-    type <pointer_type 0x7f2ca534a0a8
-        type <void_type 0x7f2ca5343f18 void VOID
+ <ssa_name 0x7fb34baf7750
+    type <pointer_type 0x7fb34bb0a0a8
+        type <void_type 0x7fb34bb03f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f2ca534a0a8>>
+            pointer_to_this <pointer_type 0x7fb34bb0a0a8>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca534fbd0>>
+        pointer_to_this <pointer_type 0x7fb34bb0fbd0>>
    
     def_stmt _60 = _59;
     version 60
-    ptr-info 0x7f2ca4e8f288>
+    ptr-info 0x7fb34b64f288>
 _60 = _59;
 
  ================== trace ptable================== 
@@ -4184,20 +4186,20 @@ memcpy (_60, dst_name_29, len_54);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337750
-    type <pointer_type 0x7f2ca534a0a8
-        type <void_type 0x7f2ca5343f18 void VOID
+ <ssa_name 0x7fb34baf7750
+    type <pointer_type 0x7fb34bb0a0a8
+        type <void_type 0x7fb34bb03f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f2ca534a0a8>>
+            pointer_to_this <pointer_type 0x7fb34bb0a0a8>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca534fbd0>>
+        pointer_to_this <pointer_type 0x7fb34bb0fbd0>>
    
     def_stmt _60 = _59;
     version 60
-    ptr-info 0x7f2ca4e8f288>
+    ptr-info 0x7fb34b64f288>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -4214,20 +4216,20 @@ memcpy (_60, dst_name_29, len_54);
 this stmt is child function---memcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337750
-    type <pointer_type 0x7f2ca534a0a8
-        type <void_type 0x7f2ca5343f18 void VOID
+ <ssa_name 0x7fb34baf7750
+    type <pointer_type 0x7fb34bb0a0a8
+        type <void_type 0x7fb34bb03f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f2ca534a0a8>>
+            pointer_to_this <pointer_type 0x7fb34bb0a0a8>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca534fbd0>>
+        pointer_to_this <pointer_type 0x7fb34bb0fbd0>>
    
     def_stmt _60 = _59;
     version 60
-    ptr-info 0x7f2ca4e8f288>
+    ptr-info 0x7fb34b64f288>
 trace fucntion name:memcpy 
 
  ================== trace ================== 
@@ -4239,20 +4241,20 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f2ca5337750
-    type <pointer_type 0x7f2ca534a0a8
-        type <void_type 0x7f2ca5343f18 void VOID
+ <ssa_name 0x7fb34baf7750
+    type <pointer_type 0x7fb34bb0a0a8
+        type <void_type 0x7fb34bb03f18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f2ca534a0a8>>
+            pointer_to_this <pointer_type 0x7fb34bb0a0a8>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca534fbd0>>
+        pointer_to_this <pointer_type 0x7fb34bb0fbd0>>
    
     def_stmt _60 = _59;
     version 60
-    ptr-info 0x7f2ca4e8f288>
+    ptr-info 0x7fb34b64f288>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_86 = VDEF <.MEM_67>
 free (dst_name_29);
@@ -4277,22 +4279,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f2ca4e79d38
-    type <pointer_type 0x7f2ca4e65b28
-        type <array_type 0x7f2ca4e59d20 type <integer_type 0x7f2ca5343348 unsigned char>
+ <ssa_name 0x7fb34b639d38
+    type <pointer_type 0x7fb34b625b28
+        type <array_type 0x7fb34b619d20 type <integer_type 0x7fb34bb03348 unsigned char>
             BLK
-            size <integer_cst 0x7f2ca4e5c288 constant 160>
-            unit size <integer_cst 0x7f2ca4e5c270 constant 20>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f2ca4e59c78>
-            pointer_to_this <pointer_type 0x7f2ca4e65b28>>
+            size <integer_cst 0x7fb34b61c288 constant 160>
+            unit size <integer_cst 0x7fb34b61c270 constant 20>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb34b619c78>
+            pointer_to_this <pointer_type 0x7fb34b625b28>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _38 = &dst_peer_36->new_sha1;
     version 38
-    ptr-info 0x7f2ca4e8f0f0>
+    ptr-info 0x7fb34b64f0f0>
 _38 = &dst_peer_36->new_sha1;
 
  ================== trace ptable================== 
@@ -4318,22 +4320,22 @@ hashcpy (_38, _37);
 this stmt is child function---hashcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e79d38
-    type <pointer_type 0x7f2ca4e65b28
-        type <array_type 0x7f2ca4e59d20 type <integer_type 0x7f2ca5343348 unsigned char>
+ <ssa_name 0x7fb34b639d38
+    type <pointer_type 0x7fb34b625b28
+        type <array_type 0x7fb34b619d20 type <integer_type 0x7fb34bb03348 unsigned char>
             BLK
-            size <integer_cst 0x7f2ca4e5c288 constant 160>
-            unit size <integer_cst 0x7f2ca4e5c270 constant 20>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f2ca4e59c78>
-            pointer_to_this <pointer_type 0x7f2ca4e65b28>>
+            size <integer_cst 0x7fb34b61c288 constant 160>
+            unit size <integer_cst 0x7fb34b61c270 constant 20>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb34b619c78>
+            pointer_to_this <pointer_type 0x7fb34b625b28>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _38 = &dst_peer_36->new_sha1;
     version 38
-    ptr-info 0x7f2ca4e8f0f0>
+    ptr-info 0x7fb34b64f0f0>
 trace fucntion name:hashcpy 
 
  ================== trace ================== 
@@ -4350,22 +4352,22 @@ hashcpy (_38, _37);
 this stmt is child function---hashcpy-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e79d38
-    type <pointer_type 0x7f2ca4e65b28
-        type <array_type 0x7f2ca4e59d20 type <integer_type 0x7f2ca5343348 unsigned char>
+ <ssa_name 0x7fb34b639d38
+    type <pointer_type 0x7fb34b625b28
+        type <array_type 0x7fb34b619d20 type <integer_type 0x7fb34bb03348 unsigned char>
             BLK
-            size <integer_cst 0x7f2ca4e5c288 constant 160>
-            unit size <integer_cst 0x7f2ca4e5c270 constant 20>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f2ca4e59c78>
-            pointer_to_this <pointer_type 0x7f2ca4e65b28>>
+            size <integer_cst 0x7fb34b61c288 constant 160>
+            unit size <integer_cst 0x7fb34b61c270 constant 20>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb34b619c78>
+            pointer_to_this <pointer_type 0x7fb34b625b28>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _38 = &dst_peer_36->new_sha1;
     version 38
-    ptr-info 0x7f2ca4e8f0f0>
+    ptr-info 0x7fb34b64f0f0>
 trace fucntion name:hashcpy 
 
  ================== trace ================== 
@@ -4377,22 +4379,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f2ca4e79d38
-    type <pointer_type 0x7f2ca4e65b28
-        type <array_type 0x7f2ca4e59d20 type <integer_type 0x7f2ca5343348 unsigned char>
+ <ssa_name 0x7fb34b639d38
+    type <pointer_type 0x7fb34b625b28
+        type <array_type 0x7fb34b619d20 type <integer_type 0x7fb34bb03348 unsigned char>
             BLK
-            size <integer_cst 0x7f2ca4e5c288 constant 160>
-            unit size <integer_cst 0x7f2ca4e5c270 constant 20>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f2ca4e59c78>
-            pointer_to_this <pointer_type 0x7f2ca4e65b28>>
+            size <integer_cst 0x7fb34b61c288 constant 160>
+            unit size <integer_cst 0x7fb34b61c270 constant 20>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb34b619c78>
+            pointer_to_this <pointer_type 0x7fb34b625b28>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _38 = &dst_peer_36->new_sha1;
     version 38
-    ptr-info 0x7f2ca4e8f0f0>
+    ptr-info 0x7fb34b64f0f0>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_86 = VDEF <.MEM_67>
 free (dst_name_29);
@@ -4417,22 +4419,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f2ca5337d80
-    type <pointer_type 0x7f2ca4e62e70
-        type <record_type 0x7f2ca4e62dc8 FILE BLK
-            size <integer_cst 0x7f2ca4e5c2b8 constant 1728>
-            unit size <integer_cst 0x7f2ca4e5c3a8 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e62c78 fields <field_decl 0x7f2ca4e64098 _flags> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e62e70> chain <type_decl 0x7f2ca4e64130 D.4046>>
+ <ssa_name 0x7fb34baf7d80
+    type <pointer_type 0x7fb34b622e70
+        type <record_type 0x7fb34b622dc8 FILE BLK
+            size <integer_cst 0x7fb34b61c2b8 constant 1728>
+            unit size <integer_cst 0x7fb34b61c3a8 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b622c78 fields <field_decl 0x7fb34b624098 _flags> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b622e70> chain <type_decl 0x7fb34b624130 D.4046>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e65690>>
+        pointer_to_this <pointer_type 0x7fb34b625690>>
    
     def_stmt _6 = stderr;
     version 6
-    ptr-info 0x7f2ca4e5ce40>
+    ptr-info 0x7fb34b61ce40>
 # VUSE <.MEM_69>
 _6 = stderr;
 
@@ -4475,22 +4477,22 @@ _17 = __fprintf_chk (_6, 1, "No refs in common and none specified; doing nothing
 this stmt is child function---__fprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337d80
-    type <pointer_type 0x7f2ca4e62e70
-        type <record_type 0x7f2ca4e62dc8 FILE BLK
-            size <integer_cst 0x7f2ca4e5c2b8 constant 1728>
-            unit size <integer_cst 0x7f2ca4e5c3a8 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e62c78 fields <field_decl 0x7f2ca4e64098 _flags> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e62e70> chain <type_decl 0x7f2ca4e64130 D.4046>>
+ <ssa_name 0x7fb34baf7d80
+    type <pointer_type 0x7fb34b622e70
+        type <record_type 0x7fb34b622dc8 FILE BLK
+            size <integer_cst 0x7fb34b61c2b8 constant 1728>
+            unit size <integer_cst 0x7fb34b61c3a8 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b622c78 fields <field_decl 0x7fb34b624098 _flags> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b622e70> chain <type_decl 0x7fb34b624130 D.4046>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e65690>>
+        pointer_to_this <pointer_type 0x7fb34b625690>>
    
     def_stmt _6 = stderr;
     version 6
-    ptr-info 0x7f2ca4e5ce40>
+    ptr-info 0x7fb34b61ce40>
 trace fucntion name:__fprintf_chk 
 
  ================== trace ================== 
@@ -4525,22 +4527,22 @@ _17 = __fprintf_chk (_6, 1, "No refs in common and none specified; doing nothing
 this stmt is child function---__fprintf_chk-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca5337d80
-    type <pointer_type 0x7f2ca4e62e70
-        type <record_type 0x7f2ca4e62dc8 FILE BLK
-            size <integer_cst 0x7f2ca4e5c2b8 constant 1728>
-            unit size <integer_cst 0x7f2ca4e5c3a8 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e62c78 fields <field_decl 0x7f2ca4e64098 _flags> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e62e70> chain <type_decl 0x7f2ca4e64130 D.4046>>
+ <ssa_name 0x7fb34baf7d80
+    type <pointer_type 0x7fb34b622e70
+        type <record_type 0x7fb34b622dc8 FILE BLK
+            size <integer_cst 0x7fb34b61c2b8 constant 1728>
+            unit size <integer_cst 0x7fb34b61c3a8 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b622c78 fields <field_decl 0x7fb34b624098 _flags> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b622e70> chain <type_decl 0x7fb34b624130 D.4046>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e65690>>
+        pointer_to_this <pointer_type 0x7fb34b625690>>
    
     def_stmt _6 = stderr;
     version 6
-    ptr-info 0x7f2ca4e5ce40>
+    ptr-info 0x7fb34b61ce40>
 trace fucntion name:__fprintf_chk 
 
  ================== trace ================== 
@@ -4552,22 +4554,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f2ca5337d80
-    type <pointer_type 0x7f2ca4e62e70
-        type <record_type 0x7f2ca4e62dc8 FILE BLK
-            size <integer_cst 0x7f2ca4e5c2b8 constant 1728>
-            unit size <integer_cst 0x7f2ca4e5c3a8 constant 216>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e62c78 fields <field_decl 0x7f2ca4e64098 _flags> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e62e70> chain <type_decl 0x7f2ca4e64130 D.4046>>
+ <ssa_name 0x7fb34baf7d80
+    type <pointer_type 0x7fb34b622e70
+        type <record_type 0x7fb34b622dc8 FILE BLK
+            size <integer_cst 0x7fb34b61c2b8 constant 1728>
+            unit size <integer_cst 0x7fb34b61c3a8 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b622c78 fields <field_decl 0x7fb34b624098 _flags> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b622e70> chain <type_decl 0x7fb34b624130 D.4046>>
         unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e65690>>
+        pointer_to_this <pointer_type 0x7fb34b625690>>
    
     def_stmt _6 = stderr;
     version 6
-    ptr-info 0x7f2ca4e5ce40>
+    ptr-info 0x7fb34b61ce40>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_86 = VDEF <.MEM_67>
 free (dst_name_29);
@@ -4618,22 +4620,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f2ca4e8b288
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34b64b288
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
-    var <var_decl 0x7f2ca4e896c0 ref>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
+    var <var_decl 0x7fb34b6496c0 ref>
     def_stmt ref_64 = PHI <local_refs_12(23), next_65(24)>
     version 64
-    ptr-info 0x7f2ca4e8f2e8>
+    ptr-info 0x7fb34b64f2e8>
 ref_64 = PHI <local_refs_12(23), next_65(24)>
 
  ================== trace ptable================== 
@@ -4757,22 +4759,22 @@ free_ref (ref_64);
 this stmt is child function---free_ref-----
 
  ================== trace ================== 
- <ssa_name 0x7f2ca4e8b288
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34b64b288
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
-    var <var_decl 0x7f2ca4e896c0 ref>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
+    var <var_decl 0x7fb34b6496c0 ref>
     def_stmt ref_64 = PHI <local_refs_12(23), next_65(24)>
     version 64
-    ptr-info 0x7f2ca4e8f2e8>
+    ptr-info 0x7fb34b64f2e8>
 trace fucntion name:free_ref 
 [40;44m =======trace_function_path free_ref  function_call count: 2 level :0========  [0m
 # .MEM_9 = VDEF <.MEM_8>
@@ -4941,22 +4943,22 @@ this stmt have mutiple branch --------
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f2ca4e8b288
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34b64b288
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
-    var <var_decl 0x7f2ca4e896c0 ref>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
+    var <var_decl 0x7fb34b6496c0 ref>
     def_stmt ref_64 = PHI <local_refs_12(23), next_65(24)>
     version 64
-    ptr-info 0x7f2ca4e8f2e8>
+    ptr-info 0x7fb34b64f2e8>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_86 = VDEF <.MEM_67>
 free (dst_name_29);
@@ -5079,22 +5081,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f2ca4e8b1b0
-    type <pointer_type 0x7f2ca4e59dc8
-        type <record_type 0x7f2ca4e59e70 ref BLK
-            size <integer_cst 0x7f2ca53e8c30 constant 640>
-            unit size <integer_cst 0x7f2ca4e5c198 constant 80>
-            align 64 symtab 0 alias set -1 canonical type 0x7f2ca4e59e70 fields <field_decl 0x7f2ca4e5b980 next> context <translation_unit_decl 0x7f2ca533a168 ./benchmarks/git/double_free_4/git_df_4.c>
-            pointer_to_this <pointer_type 0x7f2ca4e59dc8> chain <type_decl 0x7f2ca4e5ba18 D.4001>>
+ <ssa_name 0x7fb34b64b1b0
+    type <pointer_type 0x7fb34b619dc8
+        type <record_type 0x7fb34b619e70 ref BLK
+            size <integer_cst 0x7fb34bba8c30 constant 640>
+            unit size <integer_cst 0x7fb34b61c198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fb34b619e70 fields <field_decl 0x7fb34b61b980 next> context <translation_unit_decl 0x7fb34bafa168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fb34b619dc8> chain <type_decl 0x7fb34b61ba18 D.4001>>
         public unsigned DI
-        size <integer_cst 0x7f2ca532fbe8 constant 64>
-        unit size <integer_cst 0x7f2ca532fc00 constant 8>
+        size <integer_cst 0x7fb34baefbe8 constant 64>
+        unit size <integer_cst 0x7fb34baefc00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f2ca4e59348>>
-    var <var_decl 0x7f2ca4e89510 ref>
+        pointer_to_this <pointer_type 0x7fb34b619348>>
+    var <var_decl 0x7fb34b649510 ref>
     def_stmt ref_62 = PHI <_7(26), next_63(27)>
     version 62
-    ptr-info 0x7f2ca4e8f2b8>
+    ptr-info 0x7fb34b64f2b8>
 ref_62 = PHI <_7(26), next_63(27)>
 
  ================== trace ptable================== 
@@ -5425,11 +5427,11 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 9 [0m
 [40;34m    used_stmt array stack totalsize of : 4672 [0m
-[40;34m    collect time: : 0.000318 s [0m
-[40;34m    algorithm time: 0.024736 s [0m
+[40;34m    collect time: : 0.000305 s [0m
+[40;34m    algorithm time: 0.021944 s [0m
 [40;34m    gimple stmt count : : 84 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
-/usr/bin/ld: /tmp/ccfIlSOH.ltrans0.ltrans.o: in function `main':
+/usr/bin/ld: /tmp/cc7SybrY.ltrans0.ltrans.o: in function `main':
 <artificial>:(.text+0x44): undefined reference to `get_local_heads'
 /usr/bin/ld: <artificial>:(.text+0x131): undefined reference to `hashcpy'
 collect2: error: ld returned 1 exit status
