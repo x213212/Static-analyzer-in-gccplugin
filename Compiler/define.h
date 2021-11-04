@@ -338,7 +338,19 @@ CstmtStack stmtStack2;
 function *main_fun;
 //int check_stmtStack(gimple *stmt);
 static gimple *now_stmt;
+static int totalsize; //宣告一個整數型態size變數，用來儲存x的位元組大小
+static int levelsize = 0;
+static tree now_tree;
+
 unsigned int SDBMHash(char *str);
+tree prechecktree(tree tree);
+void Checknew_search_imm_use_rhs(gimple_array *used_stmt, gimple *use_stmt, tree target, tree target2);
+void Checknew_search_imm_use_lhs(gimple_array *used_stmt, gimple *use_stmt, tree target, tree target2);
+int check_stmtStack4(tree target);
+int check_stmtStack3(gimple *stmt);
+int check_stmtStack2(gimple *stmt);
+int check_stmtStack(tree target);
+
 void printf_bbinfo(basic_block bb, int flag);
 void set_PathConstraintarray(basic_block bb, int flag);
 void set_bbinfo(basic_block bb);

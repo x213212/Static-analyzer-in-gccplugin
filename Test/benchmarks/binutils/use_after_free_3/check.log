@@ -153,21 +153,21 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fcb38e0a5e8
-    type <pointer_type 0x7fcb3892c2a0 CGEN_CPU_DESC
-        type <record_type 0x7fcb3892c0a8 cgen_cpu_desc TI
-            size <integer_cst 0x7fcb38e02c30 constant 128>
-            unit size <integer_cst 0x7fcb38e02c48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7fcb3892c0a8 fields <field_decl 0x7fcb3892e5f0 int_insn_p> context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>
-            pointer_to_this <pointer_type 0x7fcb3892c1f8> chain <type_decl 0x7fcb3892e688 D.3995>>
+ <ssa_name 0x7f4c459bf5e8
+    type <pointer_type 0x7f4c454e12a0 CGEN_CPU_DESC
+        type <record_type 0x7f4c454e10a8 cgen_cpu_desc TI
+            size <integer_cst 0x7f4c459b7c30 constant 128>
+            unit size <integer_cst 0x7f4c459b7c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f4c454e10a8 fields <field_decl 0x7f4c454e35f0 int_insn_p> context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f4c454e11f8> chain <type_decl 0x7f4c454e3688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb39b97d80 cd>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c4674dd80 cd>
     def_stmt cd_7 = malloc (16);
     version 7
-    ptr-info 0x7fcb3892ff48>
+    ptr-info 0x7f4c454e4f48>
 # .MEM_11 = VDEF <.MEM_10(D)>
 cd_7 = malloc (16);
 
@@ -593,21 +593,21 @@ build_dis_hash_table (cd_7);
 this stmt is child function---build_dis_hash_table-----
 
  ================== trace ================== 
- <ssa_name 0x7fcb38e0a5e8
-    type <pointer_type 0x7fcb3892c2a0 CGEN_CPU_DESC
-        type <record_type 0x7fcb3892c0a8 cgen_cpu_desc TI
-            size <integer_cst 0x7fcb38e02c30 constant 128>
-            unit size <integer_cst 0x7fcb38e02c48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7fcb3892c0a8 fields <field_decl 0x7fcb3892e5f0 int_insn_p> context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>
-            pointer_to_this <pointer_type 0x7fcb3892c1f8> chain <type_decl 0x7fcb3892e688 D.3995>>
+ <ssa_name 0x7f4c459bf5e8
+    type <pointer_type 0x7f4c454e12a0 CGEN_CPU_DESC
+        type <record_type 0x7f4c454e10a8 cgen_cpu_desc TI
+            size <integer_cst 0x7f4c459b7c30 constant 128>
+            unit size <integer_cst 0x7f4c459b7c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f4c454e10a8 fields <field_decl 0x7f4c454e35f0 int_insn_p> context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f4c454e11f8> chain <type_decl 0x7f4c454e3688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb39b97d80 cd>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c4674dd80 cd>
     def_stmt cd_7 = malloc (16);
     version 7
-    ptr-info 0x7fcb3892ff48>
+    ptr-info 0x7f4c454e4f48>
 trace fucntion name:build_dis_hash_table 
 
  ================== trace ================== 
@@ -671,21 +671,21 @@ cd_7 = malloc (16);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fcb38e0a5e8
-    type <pointer_type 0x7fcb3892c2a0 CGEN_CPU_DESC
-        type <record_type 0x7fcb3892c0a8 cgen_cpu_desc TI
-            size <integer_cst 0x7fcb38e02c30 constant 128>
-            unit size <integer_cst 0x7fcb38e02c48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7fcb3892c0a8 fields <field_decl 0x7fcb3892e5f0 int_insn_p> context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>
-            pointer_to_this <pointer_type 0x7fcb3892c1f8> chain <type_decl 0x7fcb3892e688 D.3995>>
+ <ssa_name 0x7f4c459bf5e8
+    type <pointer_type 0x7f4c454e12a0 CGEN_CPU_DESC
+        type <record_type 0x7f4c454e10a8 cgen_cpu_desc TI
+            size <integer_cst 0x7f4c459b7c30 constant 128>
+            unit size <integer_cst 0x7f4c459b7c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f4c454e10a8 fields <field_decl 0x7f4c454e35f0 int_insn_p> context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f4c454e11f8> chain <type_decl 0x7f4c454e3688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb39b97d80 cd>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c4674dd80 cd>
     def_stmt cd_7 = malloc (16);
     version 7
-    ptr-info 0x7fcb3892ff48>
+    ptr-info 0x7f4c454e4f48>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -697,21 +697,21 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fcb38e0a5e8
-    type <pointer_type 0x7fcb3892c2a0 CGEN_CPU_DESC
-        type <record_type 0x7fcb3892c0a8 cgen_cpu_desc TI
-            size <integer_cst 0x7fcb38e02c30 constant 128>
-            unit size <integer_cst 0x7fcb38e02c48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7fcb3892c0a8 fields <field_decl 0x7fcb3892e5f0 int_insn_p> context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>
-            pointer_to_this <pointer_type 0x7fcb3892c1f8> chain <type_decl 0x7fcb3892e688 D.3995>>
+ <ssa_name 0x7f4c459bf5e8
+    type <pointer_type 0x7f4c454e12a0 CGEN_CPU_DESC
+        type <record_type 0x7f4c454e10a8 cgen_cpu_desc TI
+            size <integer_cst 0x7f4c459b7c30 constant 128>
+            unit size <integer_cst 0x7f4c459b7c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f4c454e10a8 fields <field_decl 0x7f4c454e35f0 int_insn_p> context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f4c454e11f8> chain <type_decl 0x7f4c454e3688 D.3995>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb39b97d80 cd>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c4674dd80 cd>
     def_stmt cd_7 = malloc (16);
     version 7
-    ptr-info 0x7fcb3892ff48>
+    ptr-info 0x7f4c454e4f48>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_17 = VDEF <.MEM_16>
 free (cd_7);
@@ -737,21 +737,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fcb38e0a798
-    type <pointer_type 0x7fcb3892c888
-        type <integer_type 0x7fcb38e16348 unsigned char public unsigned string-flag QI
-            size <integer_cst 0x7fcb38e02cd8 constant 8>
-            unit size <integer_cst 0x7fcb38e02cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fcb38e163f0 precision 8 min <integer_cst 0x7fcb38e02d08 0> max <integer_cst 0x7fcb38e02ca8 255>
-            pointer_to_this <pointer_type 0x7fcb3892c888>>
+ <ssa_name 0x7f4c459bf798
+    type <pointer_type 0x7f4c454e1888
+        type <integer_type 0x7f4c459cb348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f4c459b7cd8 constant 8>
+            unit size <integer_cst 0x7f4c459b7cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4c459cb3f0 precision 8 min <integer_cst 0x7f4c459b7d08 0> max <integer_cst 0x7f4c459b7ca8 255>
+            pointer_to_this <pointer_type 0x7f4c454e1888>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb39b97cf0 insn_bytes_value>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c4674dcf0 insn_bytes_value>
     def_stmt insn_bytes_value_9 = strdup ("insn_value");
     version 9
-    ptr-info 0x7fcb3892ff60>
+    ptr-info 0x7f4c454e4f60>
 # .MEM_12 = VDEF <.MEM_11>
 insn_bytes_value_9 = strdup ("insn_value");
 
@@ -772,21 +772,21 @@ insn_bytes_value_9 = strdup ("insn_value");
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fcb38e0a798
-    type <pointer_type 0x7fcb3892c888
-        type <integer_type 0x7fcb38e16348 unsigned char public unsigned string-flag QI
-            size <integer_cst 0x7fcb38e02cd8 constant 8>
-            unit size <integer_cst 0x7fcb38e02cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fcb38e163f0 precision 8 min <integer_cst 0x7fcb38e02d08 0> max <integer_cst 0x7fcb38e02ca8 255>
-            pointer_to_this <pointer_type 0x7fcb3892c888>>
+ <ssa_name 0x7f4c459bf798
+    type <pointer_type 0x7f4c454e1888
+        type <integer_type 0x7f4c459cb348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f4c459b7cd8 constant 8>
+            unit size <integer_cst 0x7f4c459b7cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4c459cb3f0 precision 8 min <integer_cst 0x7f4c459b7d08 0> max <integer_cst 0x7f4c459b7ca8 255>
+            pointer_to_this <pointer_type 0x7f4c454e1888>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb39b97cf0 insn_bytes_value>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c4674dcf0 insn_bytes_value>
     def_stmt insn_bytes_value_9 = strdup ("insn_value");
     version 9
-    ptr-info 0x7fcb3892ff60>
+    ptr-info 0x7f4c454e4f60>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -798,21 +798,21 @@ _55 = bfd_get_bits (insn_bytes_value_9, length_20(D), big_p_47(D));
 this stmt is child function---bfd_get_bits-----
 
  ================== trace ================== 
- <ssa_name 0x7fcb38e0a798
-    type <pointer_type 0x7fcb3892c888
-        type <integer_type 0x7fcb38e16348 unsigned char public unsigned string-flag QI
-            size <integer_cst 0x7fcb38e02cd8 constant 8>
-            unit size <integer_cst 0x7fcb38e02cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fcb38e163f0 precision 8 min <integer_cst 0x7fcb38e02d08 0> max <integer_cst 0x7fcb38e02ca8 255>
-            pointer_to_this <pointer_type 0x7fcb3892c888>>
+ <ssa_name 0x7f4c459bf798
+    type <pointer_type 0x7f4c454e1888
+        type <integer_type 0x7f4c459cb348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f4c459b7cd8 constant 8>
+            unit size <integer_cst 0x7f4c459b7cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4c459cb3f0 precision 8 min <integer_cst 0x7f4c459b7d08 0> max <integer_cst 0x7f4c459b7ca8 255>
+            pointer_to_this <pointer_type 0x7f4c454e1888>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb39b97cf0 insn_bytes_value>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c4674dcf0 insn_bytes_value>
     def_stmt insn_bytes_value_9 = strdup ("insn_value");
     version 9
-    ptr-info 0x7fcb3892ff60>
+    ptr-info 0x7f4c454e4f60>
 trace fucntion name:bfd_get_bits 
 
  ================== trace ================== 
@@ -1071,21 +1071,21 @@ bfd_put_bits (_42, buf_19, length_20(D), big_p_39(D));
 this stmt is child function---bfd_put_bits-----
 
  ================== trace ================== 
- <ssa_name 0x7fcb38e0a798
-    type <pointer_type 0x7fcb3892c888
-        type <integer_type 0x7fcb38e16348 unsigned char public unsigned string-flag QI
-            size <integer_cst 0x7fcb38e02cd8 constant 8>
-            unit size <integer_cst 0x7fcb38e02cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fcb38e163f0 precision 8 min <integer_cst 0x7fcb38e02d08 0> max <integer_cst 0x7fcb38e02ca8 255>
-            pointer_to_this <pointer_type 0x7fcb3892c888>>
+ <ssa_name 0x7f4c459bf798
+    type <pointer_type 0x7f4c454e1888
+        type <integer_type 0x7f4c459cb348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f4c459b7cd8 constant 8>
+            unit size <integer_cst 0x7f4c459b7cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4c459cb3f0 precision 8 min <integer_cst 0x7f4c459b7d08 0> max <integer_cst 0x7f4c459b7ca8 255>
+            pointer_to_this <pointer_type 0x7f4c454e1888>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb39b97cf0 insn_bytes_value>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c4674dcf0 insn_bytes_value>
     def_stmt insn_bytes_value_9 = strdup ("insn_value");
     version 9
-    ptr-info 0x7fcb3892ff60>
+    ptr-info 0x7f4c454e4f60>
 trace fucntion name:bfd_put_bits 
 [40;44m =======trace_function_path bfd_put_bits  function_call count: 1 level :0========  [0m
 [40;36m ======= node_fun:bfd_put_bits========= [0m
@@ -1143,21 +1143,21 @@ bfd_put_bits (_38, _36, insn_chunk_bitsize_28(D), big_p_39(D));
 this stmt is child function---bfd_put_bits-----
 
  ================== trace ================== 
- <ssa_name 0x7fcb38e0a798
-    type <pointer_type 0x7fcb3892c888
-        type <integer_type 0x7fcb38e16348 unsigned char public unsigned string-flag QI
-            size <integer_cst 0x7fcb38e02cd8 constant 8>
-            unit size <integer_cst 0x7fcb38e02cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fcb38e163f0 precision 8 min <integer_cst 0x7fcb38e02d08 0> max <integer_cst 0x7fcb38e02ca8 255>
-            pointer_to_this <pointer_type 0x7fcb3892c888>>
+ <ssa_name 0x7f4c459bf798
+    type <pointer_type 0x7f4c454e1888
+        type <integer_type 0x7f4c459cb348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f4c459b7cd8 constant 8>
+            unit size <integer_cst 0x7f4c459b7cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4c459cb3f0 precision 8 min <integer_cst 0x7f4c459b7d08 0> max <integer_cst 0x7f4c459b7ca8 255>
+            pointer_to_this <pointer_type 0x7f4c454e1888>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb39b97cf0 insn_bytes_value>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c4674dcf0 insn_bytes_value>
     def_stmt insn_bytes_value_9 = strdup ("insn_value");
     version 9
-    ptr-info 0x7fcb3892ff60>
+    ptr-info 0x7f4c454e4f60>
 trace fucntion name:bfd_put_bits 
 [40;44m =======trace_function_path bfd_put_bits  function_call count: 1 level :0========  [0m
 [40;36m ======= node_fun:bfd_put_bits========= [0m
@@ -1190,21 +1190,21 @@ _48 = bfd_get_bits (insn_bytes_value_9, insn_chunk_bitsize_43(D), big_p_47(D));
 this stmt is child function---bfd_get_bits-----
 
  ================== trace ================== 
- <ssa_name 0x7fcb38e0a798
-    type <pointer_type 0x7fcb3892c888
-        type <integer_type 0x7fcb38e16348 unsigned char public unsigned string-flag QI
-            size <integer_cst 0x7fcb38e02cd8 constant 8>
-            unit size <integer_cst 0x7fcb38e02cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fcb38e163f0 precision 8 min <integer_cst 0x7fcb38e02d08 0> max <integer_cst 0x7fcb38e02ca8 255>
-            pointer_to_this <pointer_type 0x7fcb3892c888>>
+ <ssa_name 0x7f4c459bf798
+    type <pointer_type 0x7f4c454e1888
+        type <integer_type 0x7f4c459cb348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f4c459b7cd8 constant 8>
+            unit size <integer_cst 0x7f4c459b7cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4c459cb3f0 precision 8 min <integer_cst 0x7f4c459b7d08 0> max <integer_cst 0x7f4c459b7ca8 255>
+            pointer_to_this <pointer_type 0x7f4c454e1888>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb39b97cf0 insn_bytes_value>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c4674dcf0 insn_bytes_value>
     def_stmt insn_bytes_value_9 = strdup ("insn_value");
     version 9
-    ptr-info 0x7fcb3892ff60>
+    ptr-info 0x7f4c454e4f60>
 trace fucntion name:bfd_get_bits 
 
  ================== trace ================== 
@@ -3502,21 +3502,21 @@ free (insn_bytes_value_9);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fcb38e0a798
-    type <pointer_type 0x7fcb3892c888
-        type <integer_type 0x7fcb38e16348 unsigned char public unsigned string-flag QI
-            size <integer_cst 0x7fcb38e02cd8 constant 8>
-            unit size <integer_cst 0x7fcb38e02cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fcb38e163f0 precision 8 min <integer_cst 0x7fcb38e02d08 0> max <integer_cst 0x7fcb38e02ca8 255>
-            pointer_to_this <pointer_type 0x7fcb3892c888>>
+ <ssa_name 0x7f4c459bf798
+    type <pointer_type 0x7f4c454e1888
+        type <integer_type 0x7f4c459cb348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f4c459b7cd8 constant 8>
+            unit size <integer_cst 0x7f4c459b7cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4c459cb3f0 precision 8 min <integer_cst 0x7f4c459b7d08 0> max <integer_cst 0x7f4c459b7ca8 255>
+            pointer_to_this <pointer_type 0x7f4c454e1888>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb39b97cf0 insn_bytes_value>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c4674dcf0 insn_bytes_value>
     def_stmt insn_bytes_value_9 = strdup ("insn_value");
     version 9
-    ptr-info 0x7fcb3892ff60>
+    ptr-info 0x7f4c454e4f60>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_16 = VDEF <.MEM_117>
 free (insn_bytes_value_9);
@@ -3715,21 +3715,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fcb38947948
-    type <pointer_type 0x7fcb3892c888
-        type <integer_type 0x7fcb38e16348 unsigned char public unsigned string-flag QI
-            size <integer_cst 0x7fcb38e02cd8 constant 8>
-            unit size <integer_cst 0x7fcb38e02cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fcb38e163f0 precision 8 min <integer_cst 0x7fcb38e02d08 0> max <integer_cst 0x7fcb38e02ca8 255>
-            pointer_to_this <pointer_type 0x7fcb3892c888>>
+ <ssa_name 0x7f4c454fc948
+    type <pointer_type 0x7f4c454e1888
+        type <integer_type 0x7f4c459cb348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f4c459b7cd8 constant 8>
+            unit size <integer_cst 0x7f4c459b7cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4c459cb3f0 precision 8 min <integer_cst 0x7f4c459b7d08 0> max <integer_cst 0x7f4c459b7ca8 255>
+            pointer_to_this <pointer_type 0x7f4c454e1888>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb389467e0 buf>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c454fb7e0 buf>
     def_stmt buf_19 = malloc (4);
     version 19
-    ptr-info 0x7fcb3892ff78>
+    ptr-info 0x7f4c454e4f78>
 # .MEM_121 = VDEF <.MEM_14>
 buf_19 = malloc (4);
 
@@ -3750,21 +3750,21 @@ bfd_put_bits (_42, buf_19, length_20(D), big_p_39(D));
 this stmt is child function---bfd_put_bits-----
 
  ================== trace ================== 
- <ssa_name 0x7fcb38947948
-    type <pointer_type 0x7fcb3892c888
-        type <integer_type 0x7fcb38e16348 unsigned char public unsigned string-flag QI
-            size <integer_cst 0x7fcb38e02cd8 constant 8>
-            unit size <integer_cst 0x7fcb38e02cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fcb38e163f0 precision 8 min <integer_cst 0x7fcb38e02d08 0> max <integer_cst 0x7fcb38e02ca8 255>
-            pointer_to_this <pointer_type 0x7fcb3892c888>>
+ <ssa_name 0x7f4c454fc948
+    type <pointer_type 0x7f4c454e1888
+        type <integer_type 0x7f4c459cb348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f4c459b7cd8 constant 8>
+            unit size <integer_cst 0x7f4c459b7cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4c459cb3f0 precision 8 min <integer_cst 0x7f4c459b7d08 0> max <integer_cst 0x7f4c459b7ca8 255>
+            pointer_to_this <pointer_type 0x7f4c454e1888>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb389467e0 buf>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c454fb7e0 buf>
     def_stmt buf_19 = malloc (4);
     version 19
-    ptr-info 0x7fcb3892ff78>
+    ptr-info 0x7f4c454e4f78>
 trace fucntion name:bfd_put_bits 
 [40;44m =======trace_function_path bfd_put_bits  function_call count: 1 level :0========  [0m
 [40;36m ======= node_fun:bfd_put_bits========= [0m
@@ -3797,21 +3797,21 @@ bfd_put_bits (_38, _36, insn_chunk_bitsize_28(D), big_p_39(D));
 this stmt is child function---bfd_put_bits-----
 
  ================== trace ================== 
- <ssa_name 0x7fcb38947948
-    type <pointer_type 0x7fcb3892c888
-        type <integer_type 0x7fcb38e16348 unsigned char public unsigned string-flag QI
-            size <integer_cst 0x7fcb38e02cd8 constant 8>
-            unit size <integer_cst 0x7fcb38e02cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fcb38e163f0 precision 8 min <integer_cst 0x7fcb38e02d08 0> max <integer_cst 0x7fcb38e02ca8 255>
-            pointer_to_this <pointer_type 0x7fcb3892c888>>
+ <ssa_name 0x7f4c454fc948
+    type <pointer_type 0x7f4c454e1888
+        type <integer_type 0x7f4c459cb348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f4c459b7cd8 constant 8>
+            unit size <integer_cst 0x7f4c459b7cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4c459cb3f0 precision 8 min <integer_cst 0x7f4c459b7d08 0> max <integer_cst 0x7f4c459b7ca8 255>
+            pointer_to_this <pointer_type 0x7f4c454e1888>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb389467e0 buf>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c454fb7e0 buf>
     def_stmt buf_19 = malloc (4);
     version 19
-    ptr-info 0x7fcb3892ff78>
+    ptr-info 0x7f4c454e4f78>
 trace fucntion name:bfd_put_bits 
 [40;44m =======trace_function_path bfd_put_bits  function_call count: 1 level :0========  [0m
 [40;36m ======= node_fun:bfd_put_bits========= [0m
@@ -6119,21 +6119,21 @@ buf_19 = malloc (4);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fcb38947948
-    type <pointer_type 0x7fcb3892c888
-        type <integer_type 0x7fcb38e16348 unsigned char public unsigned string-flag QI
-            size <integer_cst 0x7fcb38e02cd8 constant 8>
-            unit size <integer_cst 0x7fcb38e02cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fcb38e163f0 precision 8 min <integer_cst 0x7fcb38e02d08 0> max <integer_cst 0x7fcb38e02ca8 255>
-            pointer_to_this <pointer_type 0x7fcb3892c888>>
+ <ssa_name 0x7f4c454fc948
+    type <pointer_type 0x7f4c454e1888
+        type <integer_type 0x7f4c459cb348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f4c459b7cd8 constant 8>
+            unit size <integer_cst 0x7f4c459b7cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4c459cb3f0 precision 8 min <integer_cst 0x7f4c459b7d08 0> max <integer_cst 0x7f4c459b7ca8 255>
+            pointer_to_this <pointer_type 0x7f4c454e1888>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb389467e0 buf>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c454fb7e0 buf>
     def_stmt buf_19 = malloc (4);
     version 19
-    ptr-info 0x7fcb3892ff78>
+    ptr-info 0x7f4c454e4f78>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -6145,21 +6145,21 @@ trace fucntion free:1
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fcb38947948
-    type <pointer_type 0x7fcb3892c888
-        type <integer_type 0x7fcb38e16348 unsigned char public unsigned string-flag QI
-            size <integer_cst 0x7fcb38e02cd8 constant 8>
-            unit size <integer_cst 0x7fcb38e02cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fcb38e163f0 precision 8 min <integer_cst 0x7fcb38e02d08 0> max <integer_cst 0x7fcb38e02ca8 255>
-            pointer_to_this <pointer_type 0x7fcb3892c888>>
+ <ssa_name 0x7f4c454fc948
+    type <pointer_type 0x7f4c454e1888
+        type <integer_type 0x7f4c459cb348 unsigned char public unsigned string-flag QI
+            size <integer_cst 0x7f4c459b7cd8 constant 8>
+            unit size <integer_cst 0x7f4c459b7cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4c459cb3f0 precision 8 min <integer_cst 0x7f4c459b7d08 0> max <integer_cst 0x7f4c459b7ca8 255>
+            pointer_to_this <pointer_type 0x7f4c454e1888>>
         public unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fcb38e0d168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
-    var <var_decl 0x7fcb389467e0 buf>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f4c459c2168 ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c>>
+    var <var_decl 0x7f4c454fb7e0 buf>
     def_stmt buf_19 = malloc (4);
     version 19
-    ptr-info 0x7fcb3892ff78>
+    ptr-info 0x7f4c454e4f78>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_124 = VDEF <.MEM_113>
 free (buf_19);
@@ -7550,25 +7550,25 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fcb3892fcc0 type <integer_type 0x7fcb38e167e0 long unsigned int> constant 16>
+ <integer_cst 0x7f4c454e4cc0 type <integer_type 0x7f4c459cb7e0 long unsigned int> constant 16>
 
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fcb38920a60
-    type <pointer_type 0x7fcb38933b28
-        type <array_type 0x7fcb38933a80 type <integer_type 0x7fcb3892c3f0 char>
+ <addr_expr 0x7f4c454d5a60
+    type <pointer_type 0x7f4c454e8b28
+        type <array_type 0x7f4c454e8a80 type <integer_type 0x7f4c454e13f0 char>
             BLK
-            size <integer_cst 0x7fcb3892f288 constant 88>
-            unit size <integer_cst 0x7fcb3892f270 constant 11>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fcb389339d8>
-            pointer_to_this <pointer_type 0x7fcb38933b28>>
+            size <integer_cst 0x7f4c454e4288 constant 88>
+            unit size <integer_cst 0x7f4c454e4270 constant 11>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7f4c454e89d8>
+            pointer_to_this <pointer_type 0x7f4c454e8b28>>
         unsigned DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fcb38920a40 type <array_type 0x7fcb38933a80>
+    arg 0 <string_cst 0x7f4c454d5a40 type <array_type 0x7f4c454e8a80>
         readonly constant static "insn_value\000">
     ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:209:46 start: ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:209:46 finish: ./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:209:46>
 
@@ -7592,12 +7592,12 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fcb38e0aea0
-    type <integer_type 0x7fcb38e165e8 int public SI
-        size <integer_cst 0x7fcb38e02e28 constant 32>
-        unit size <integer_cst 0x7fcb38e02e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fcb38e165e8 precision 32 min <integer_cst 0x7fcb38e02de0 -2147483648> max <integer_cst 0x7fcb38e02df8 2147483647>
-        pointer_to_this <pointer_type 0x7fcb38e1da80>>
+ <ssa_name 0x7f4c459bfea0
+    type <integer_type 0x7f4c459cb5e8 int public SI
+        size <integer_cst 0x7f4c459b7e28 constant 32>
+        unit size <integer_cst 0x7f4c459b7e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4c459cb5e8 precision 32 min <integer_cst 0x7f4c459b7de0 -2147483648> max <integer_cst 0x7f4c459b7df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4c459d2a80>>
    
     def_stmt _1 = rand ();
     version 1>
@@ -7625,12 +7625,12 @@ _1 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fcb38e0aea0
-    type <integer_type 0x7fcb38e165e8 int public SI
-        size <integer_cst 0x7fcb38e02e28 constant 32>
-        unit size <integer_cst 0x7fcb38e02e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fcb38e165e8 precision 32 min <integer_cst 0x7fcb38e02de0 -2147483648> max <integer_cst 0x7fcb38e02df8 2147483647>
-        pointer_to_this <pointer_type 0x7fcb38e1da80>>
+ <ssa_name 0x7f4c459bfea0
+    type <integer_type 0x7f4c459cb5e8 int public SI
+        size <integer_cst 0x7f4c459b7e28 constant 32>
+        unit size <integer_cst 0x7f4c459b7e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4c459cb5e8 precision 32 min <integer_cst 0x7f4c459b7de0 -2147483648> max <integer_cst 0x7f4c459b7df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4c459d2a80>>
    
     def_stmt _1 = rand ();
     version 1>
@@ -7645,12 +7645,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fcb38e0aea0
-    type <integer_type 0x7fcb38e165e8 int public SI
-        size <integer_cst 0x7fcb38e02e28 constant 32>
-        unit size <integer_cst 0x7fcb38e02e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fcb38e165e8 precision 32 min <integer_cst 0x7fcb38e02de0 -2147483648> max <integer_cst 0x7fcb38e02df8 2147483647>
-        pointer_to_this <pointer_type 0x7fcb38e1da80>>
+ <ssa_name 0x7f4c459bfea0
+    type <integer_type 0x7f4c459cb5e8 int public SI
+        size <integer_cst 0x7f4c459b7e28 constant 32>
+        unit size <integer_cst 0x7f4c459b7e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4c459cb5e8 precision 32 min <integer_cst 0x7f4c459b7de0 -2147483648> max <integer_cst 0x7f4c459b7df8 2147483647>
+        pointer_to_this <pointer_type 0x7f4c459d2a80>>
    
     def_stmt _1 = rand ();
     version 1>
@@ -7692,17 +7692,17 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fcb3892fd38 type <integer_type 0x7fcb389335e8 size_t> constant 4>
+ <integer_cst 0x7f4c454e4d38 type <integer_type 0x7f4c454e85e8 size_t> constant 4>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fcb3894e4c8
-    type <integer_type 0x7fcb38e16738 long int public DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7fcb38e16738 precision 64 min <integer_cst 0x7fcb38e02e70 -9223372036854775808> max <integer_cst 0x7fcb38e02e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7fcb38e22930>>
+ <ssa_name 0x7f4c455034c8
+    type <integer_type 0x7f4c459cb738 long int public DI
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4c459cb738 precision 64 min <integer_cst 0x7f4c459b7e70 -9223372036854775808> max <integer_cst 0x7f4c459b7e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f4c459d7930>>
    
     def_stmt _38 = (long int) value_37;
     version 38>
@@ -7731,12 +7731,12 @@ bfd_put_bits (_38, _36, insn_chunk_bitsize_28(D), big_p_39(D));
 this stmt is child function---bfd_put_bits-----
 
  ================== trace ================== 
- <ssa_name 0x7fcb3894e4c8
-    type <integer_type 0x7fcb38e16738 long int public DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7fcb38e16738 precision 64 min <integer_cst 0x7fcb38e02e70 -9223372036854775808> max <integer_cst 0x7fcb38e02e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7fcb38e22930>>
+ <ssa_name 0x7f4c455034c8
+    type <integer_type 0x7f4c459cb738 long int public DI
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4c459cb738 precision 64 min <integer_cst 0x7f4c459b7e70 -9223372036854775808> max <integer_cst 0x7f4c459b7e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f4c459d7930>>
    
     def_stmt _38 = (long int) value_37;
     version 38>
@@ -7759,12 +7759,12 @@ bfd_put_bits (_38, _36, insn_chunk_bitsize_28(D), big_p_39(D));
 this stmt is child function---bfd_put_bits-----
 
  ================== trace ================== 
- <ssa_name 0x7fcb3894e4c8
-    type <integer_type 0x7fcb38e16738 long int public DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7fcb38e16738 precision 64 min <integer_cst 0x7fcb38e02e70 -9223372036854775808> max <integer_cst 0x7fcb38e02e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7fcb38e22930>>
+ <ssa_name 0x7f4c455034c8
+    type <integer_type 0x7f4c459cb738 long int public DI
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4c459cb738 precision 64 min <integer_cst 0x7f4c459b7e70 -9223372036854775808> max <integer_cst 0x7f4c459b7e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f4c459d7930>>
    
     def_stmt _38 = (long int) value_37;
     version 38>
@@ -7782,12 +7782,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fcb3894e4c8
-    type <integer_type 0x7fcb38e16738 long int public DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7fcb38e16738 precision 64 min <integer_cst 0x7fcb38e02e70 -9223372036854775808> max <integer_cst 0x7fcb38e02e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7fcb38e22930>>
+ <ssa_name 0x7f4c455034c8
+    type <integer_type 0x7f4c459cb738 long int public DI
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4c459cb738 precision 64 min <integer_cst 0x7f4c459b7e70 -9223372036854775808> max <integer_cst 0x7f4c459b7e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f4c459d7930>>
    
     def_stmt _38 = (long int) value_37;
     version 38>
@@ -7827,12 +7827,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fcb3894e5e8
-    type <integer_type 0x7fcb38e16738 long int public DI
-        size <integer_cst 0x7fcb38e02be8 constant 64>
-        unit size <integer_cst 0x7fcb38e02c00 constant 8>
-        align 64 symtab 0 alias set -1 canonical type 0x7fcb38e16738 precision 64 min <integer_cst 0x7fcb38e02e70 -9223372036854775808> max <integer_cst 0x7fcb38e02e88 9223372036854775807>
-        pointer_to_this <pointer_type 0x7fcb38e22930>>
+ <ssa_name 0x7f4c455035e8
+    type <integer_type 0x7f4c459cb738 long int public DI
+        size <integer_cst 0x7f4c459b7be8 constant 64>
+        unit size <integer_cst 0x7f4c459b7c00 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4c459cb738 precision 64 min <integer_cst 0x7f4c459b7e70 -9223372036854775808> max <integer_cst 0x7f4c459b7e88 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f4c459d7930>>
    
     def_stmt _42 = 0;
     version 42>
@@ -8244,11 +8244,11 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 5 [0m
 [40;34m    used_stmt array stack totalsize of : 3984 [0m
-[40;34m    collect time: : 0.000254 s [0m
-[40;34m    algorithm time: 0.022655 s [0m
+[40;34m    collect time: : 0.000390 s [0m
+[40;34m    algorithm time: 0.032351 s [0m
 [40;34m    gimple stmt count : : 126 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
-/usr/bin/ld: /tmp/ccXT42u7.ltrans0.ltrans.o: in function `main':
+/usr/bin/ld: /tmp/cctvP6uz.ltrans0.ltrans.o: in function `main':
 <artificial>:(.text+0x114): undefined reference to `bfd_get_bits'
 /usr/bin/ld: <artificial>:(.text+0x126): undefined reference to `build_dis_hash_table'
 collect2: error: ld returned 1 exit status

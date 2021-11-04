@@ -220,20 +220,20 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c23af8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480af8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_57 = realloc (objects_17, _3);
     version 57
-    ptr-info 0x7f7874c40138>
+    ptr-info 0x7f947b49d138>
 # .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
 
@@ -967,20 +967,20 @@ _2 = st_mult (32, alloc_18);
 this stmt is child function---st_mult-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c23af8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480af8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_57 = realloc (objects_17, _3);
     version 57
-    ptr-info 0x7f7874c40138>
+    ptr-info 0x7f947b49d138>
 trace fucntion name:st_mult 
 
  ================== trace ================== 
@@ -1574,20 +1574,20 @@ ret_61 = realloc (objects_17, 1);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7874c23af8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480af8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_57 = realloc (objects_17, _3);
     version 57
-    ptr-info 0x7f7874c40138>
+    ptr-info 0x7f947b49d138>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
@@ -5521,20 +5521,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c23c18
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480c18
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_61 = realloc (objects_17, 1);
     version 61
-    ptr-info 0x7f7874c40150>
+    ptr-info 0x7f947b49d150>
 # .MEM_76 = VDEF <.MEM_75>
 ret_61 = realloc (objects_17, 1);
 
@@ -6267,20 +6267,20 @@ _2 = st_mult (32, alloc_18);
 this stmt is child function---st_mult-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c23c18
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480c18
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_61 = realloc (objects_17, 1);
     version 61
-    ptr-info 0x7f7874c40150>
+    ptr-info 0x7f947b49d150>
 trace fucntion name:st_mult 
 
  ================== trace ================== 
@@ -6844,20 +6844,20 @@ this stmt have mutiple branch --------
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7874c23c18
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480c18
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_61 = realloc (objects_17, 1);
     version 61
-    ptr-info 0x7f7874c40150>
+    ptr-info 0x7f947b49d150>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
@@ -10824,20 +10824,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c23ca8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480ca8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_63 = realloc (objects_17, _3);
     version 63
-    ptr-info 0x7f7874c40180>
+    ptr-info 0x7f947b49d180>
 # .MEM_77 = VDEF <.MEM_72>
 ret_63 = realloc (objects_17, _3);
 
@@ -11568,20 +11568,20 @@ _2 = st_mult (32, alloc_18);
 this stmt is child function---st_mult-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c23ca8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480ca8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_63 = realloc (objects_17, _3);
     version 63
-    ptr-info 0x7f7874c40180>
+    ptr-info 0x7f947b49d180>
 trace fucntion name:st_mult 
 
  ================== trace ================== 
@@ -12175,20 +12175,20 @@ ret_61 = realloc (objects_17, 1);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7874c23ca8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480ca8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_63 = realloc (objects_17, _3);
     version 63
-    ptr-info 0x7f7874c40180>
+    ptr-info 0x7f947b49d180>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
@@ -16122,20 +16122,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c23dc8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480dc8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_67 = realloc (objects_17, 1);
     version 67
-    ptr-info 0x7f7874c40198>
+    ptr-info 0x7f947b49d198>
 # .MEM_78 = VDEF <.MEM_77>
 ret_67 = realloc (objects_17, 1);
 
@@ -16868,20 +16868,20 @@ _2 = st_mult (32, alloc_18);
 this stmt is child function---st_mult-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c23dc8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480dc8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_67 = realloc (objects_17, 1);
     version 67
-    ptr-info 0x7f7874c40198>
+    ptr-info 0x7f947b49d198>
 trace fucntion name:st_mult 
 
  ================== trace ================== 
@@ -17471,20 +17471,20 @@ ret_61 = realloc (objects_17, 1);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7874c23dc8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480dc8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_67 = realloc (objects_17, 1);
     version 67
-    ptr-info 0x7f7874c40198>
+    ptr-info 0x7f947b49d198>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
@@ -21319,21 +21319,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f78750e2990
-    type <pointer_type 0x7f7874c04540
-        type <integer_type 0x7f7874c04498 char public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c04540>>
+ <ssa_name 0x7f947b93f990
+    type <pointer_type 0x7f947b461540
+        type <integer_type 0x7f947b461498 char public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b461540>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>>
    
     def_stmt _7 = strdup (name_27(D));
     version 7
-    ptr-info 0x7f7874c40048>
+    ptr-info 0x7f947b49d048>
 # .MEM_48 = VDEF <.MEM_47>
 _7 = strdup (name_27(D));
 
@@ -21369,21 +21369,21 @@ _7 = strdup (name_27(D));
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7f78750e2990
-    type <pointer_type 0x7f7874c04540
-        type <integer_type 0x7f7874c04498 char public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c04540>>
+ <ssa_name 0x7f947b93f990
+    type <pointer_type 0x7f947b461540
+        type <integer_type 0x7f947b461498 char public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b461540>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>>
    
     def_stmt _7 = strdup (name_27(D));
     version 7
-    ptr-info 0x7f7874c40048>
+    ptr-info 0x7f947b49d048>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -21788,21 +21788,21 @@ from add_object_array_with_path basic block 13
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f78750e2990
-    type <pointer_type 0x7f7874c04540
-        type <integer_type 0x7f7874c04498 char public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c04540>>
+ <ssa_name 0x7f947b93f990
+    type <pointer_type 0x7f947b461540
+        type <integer_type 0x7f947b461498 char public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b461540>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>>
    
     def_stmt _7 = strdup (name_27(D));
     version 7
-    ptr-info 0x7f7874c40048>
+    ptr-info 0x7f947b49d048>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
@@ -22773,21 +22773,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f78750e29d8
-    type <pointer_type 0x7f7874c04540
-        type <integer_type 0x7f7874c04498 char public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c04540>>
+ <ssa_name 0x7f947b93f9d8
+    type <pointer_type 0x7f947b461540
+        type <integer_type 0x7f947b461498 char public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b461540>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>>
    
     def_stmt _8 = strdup (path_34(D));
     version 8
-    ptr-info 0x7f7874c40060>
+    ptr-info 0x7f947b49d060>
 # .MEM_54 = VDEF <.MEM_52>
 _8 = strdup (path_34(D));
 
@@ -22823,21 +22823,21 @@ _8 = strdup (path_34(D));
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7f78750e29d8
-    type <pointer_type 0x7f7874c04540
-        type <integer_type 0x7f7874c04498 char public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c04540>>
+ <ssa_name 0x7f947b93f9d8
+    type <pointer_type 0x7f947b461540
+        type <integer_type 0x7f947b461498 char public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b461540>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>>
    
     def_stmt _8 = strdup (path_34(D));
     version 8
-    ptr-info 0x7f7874c40060>
+    ptr-info 0x7f947b49d060>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -23226,21 +23226,21 @@ from add_object_array_with_path basic block 18
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f78750e29d8
-    type <pointer_type 0x7f7874c04540
-        type <integer_type 0x7f7874c04498 char public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c04540>>
+ <ssa_name 0x7f947b93f9d8
+    type <pointer_type 0x7f947b461540
+        type <integer_type 0x7f947b461498 char public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b461540>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>>
    
     def_stmt _8 = strdup (path_34(D));
     version 8
-    ptr-info 0x7f7874c40060>
+    ptr-info 0x7f947b49d060>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
@@ -24145,33 +24145,33 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f7874c07d50 type <integer_type 0x7f78750ee7e0 long unsigned int> constant 32>
+ <integer_cst 0x7f947b464d50 type <integer_type 0x7f947b94b7e0 long unsigned int> constant 32>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f78750daf90 type <integer_type 0x7f78750ee5e8 int> constant 1>
+ <integer_cst 0x7f947b937f90 type <integer_type 0x7f947b94b5e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f78750e2ca8
-    type <pointer_type 0x7f7874c0d2a0
-        type <integer_type 0x7f7874c0d1f8 char readonly public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c0d2a0>>
+ <ssa_name 0x7f947b93fca8
+    type <pointer_type 0x7f947b46a2a0
+        type <integer_type 0x7f947b46a1f8 char readonly public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b46a2a0>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f7874c14100 name>
+    var <parm_decl 0x7f947b471100 name>
     def_stmt GIMPLE_NOP
     version 27
-    ptr-info 0x7f7874c40108>
+    ptr-info 0x7f947b49d108>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -24205,21 +24205,21 @@ _7 = strdup (name_27(D));
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7f78750e2ca8
-    type <pointer_type 0x7f7874c0d2a0
-        type <integer_type 0x7f7874c0d1f8 char readonly public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c0d2a0>>
+ <ssa_name 0x7f947b93fca8
+    type <pointer_type 0x7f947b46a2a0
+        type <integer_type 0x7f947b46a1f8 char readonly public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b46a2a0>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f7874c14100 name>
+    var <parm_decl 0x7f947b471100 name>
     def_stmt GIMPLE_NOP
     version 27
-    ptr-info 0x7f7874c40108>
+    ptr-info 0x7f947b49d108>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -24624,21 +24624,21 @@ from add_object_array_with_path basic block 13
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f78750e2ca8
-    type <pointer_type 0x7f7874c0d2a0
-        type <integer_type 0x7f7874c0d1f8 char readonly public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c0d2a0>>
+ <ssa_name 0x7f947b93fca8
+    type <pointer_type 0x7f947b46a2a0
+        type <integer_type 0x7f947b46a1f8 char readonly public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b46a2a0>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f7874c14100 name>
+    var <parm_decl 0x7f947b471100 name>
     def_stmt GIMPLE_NOP
     version 27
-    ptr-info 0x7f7874c40108>
+    ptr-info 0x7f947b49d108>
 
  ================== Start Use after free Check ================== 
 
@@ -24657,21 +24657,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f78750e2d38
-    type <pointer_type 0x7f7874c0d2a0
-        type <integer_type 0x7f7874c0d1f8 char readonly public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c0d2a0>>
+ <ssa_name 0x7f947b93fd38
+    type <pointer_type 0x7f947b46a2a0
+        type <integer_type 0x7f947b46a1f8 char readonly public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b46a2a0>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f7874c14280 path>
+    var <parm_decl 0x7f947b471280 path>
     def_stmt GIMPLE_NOP
     version 34
-    ptr-info 0x7f7874c40120>
+    ptr-info 0x7f947b49d120>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -24705,21 +24705,21 @@ _8 = strdup (path_34(D));
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7f78750e2d38
-    type <pointer_type 0x7f7874c0d2a0
-        type <integer_type 0x7f7874c0d1f8 char readonly public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c0d2a0>>
+ <ssa_name 0x7f947b93fd38
+    type <pointer_type 0x7f947b46a2a0
+        type <integer_type 0x7f947b46a1f8 char readonly public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b46a2a0>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f7874c14280 path>
+    var <parm_decl 0x7f947b471280 path>
     def_stmt GIMPLE_NOP
     version 34
-    ptr-info 0x7f7874c40120>
+    ptr-info 0x7f947b49d120>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -25108,21 +25108,21 @@ from add_object_array_with_path basic block 18
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f78750e2d38
-    type <pointer_type 0x7f7874c0d2a0
-        type <integer_type 0x7f7874c0d1f8 char readonly public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c0d2a0>>
+ <ssa_name 0x7f947b93fd38
+    type <pointer_type 0x7f947b46a2a0
+        type <integer_type 0x7f947b46a1f8 char readonly public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b46a2a0>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f7874c14280 path>
+    var <parm_decl 0x7f947b471280 path>
     def_stmt GIMPLE_NOP
     version 34
-    ptr-info 0x7f7874c40120>
+    ptr-info 0x7f947b49d120>
 
  ================== Start Use after free Check ================== 
 
@@ -25166,20 +25166,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c23af8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480af8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_57 = realloc (objects_17, _3);
     version 57
-    ptr-info 0x7f7874c40138>
+    ptr-info 0x7f947b49d138>
 # .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
 
@@ -25955,20 +25955,20 @@ In function ‘main’:
 this stmt is child function---st_mult-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c23af8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480af8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_57 = realloc (objects_17, _3);
     version 57
-    ptr-info 0x7f7874c40138>
+    ptr-info 0x7f947b49d138>
 trace fucntion name:st_mult 
 
  ================== trace ================== 
@@ -26586,20 +26586,20 @@ ret_61 = realloc (objects_17, 1);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7874c23af8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480af8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_57 = realloc (objects_17, _3);
     version 57
-    ptr-info 0x7f7874c40138>
+    ptr-info 0x7f947b49d138>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
@@ -30533,20 +30533,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c23c18
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480c18
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_61 = realloc (objects_17, 1);
     version 61
-    ptr-info 0x7f7874c40150>
+    ptr-info 0x7f947b49d150>
 # .MEM_76 = VDEF <.MEM_75>
 ret_61 = realloc (objects_17, 1);
 
@@ -31321,20 +31321,20 @@ In function ‘main’:
 this stmt is child function---st_mult-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c23c18
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480c18
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_61 = realloc (objects_17, 1);
     version 61
-    ptr-info 0x7f7874c40150>
+    ptr-info 0x7f947b49d150>
 trace fucntion name:st_mult 
 
  ================== trace ================== 
@@ -31920,20 +31920,20 @@ this stmt have mutiple branch --------
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7874c23c18
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480c18
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_61 = realloc (objects_17, 1);
     version 61
-    ptr-info 0x7f7874c40150>
+    ptr-info 0x7f947b49d150>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
@@ -35900,20 +35900,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c23ca8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480ca8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_63 = realloc (objects_17, _3);
     version 63
-    ptr-info 0x7f7874c40180>
+    ptr-info 0x7f947b49d180>
 # .MEM_77 = VDEF <.MEM_72>
 ret_63 = realloc (objects_17, _3);
 
@@ -36686,20 +36686,20 @@ In function ‘main’:
 this stmt is child function---st_mult-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c23ca8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480ca8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_63 = realloc (objects_17, _3);
     version 63
-    ptr-info 0x7f7874c40180>
+    ptr-info 0x7f947b49d180>
 trace fucntion name:st_mult 
 
  ================== trace ================== 
@@ -37317,20 +37317,20 @@ ret_61 = realloc (objects_17, 1);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7874c23ca8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480ca8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_63 = realloc (objects_17, _3);
     version 63
-    ptr-info 0x7f7874c40180>
+    ptr-info 0x7f947b49d180>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
@@ -41264,20 +41264,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c23dc8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480dc8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_67 = realloc (objects_17, 1);
     version 67
-    ptr-info 0x7f7874c40198>
+    ptr-info 0x7f947b49d198>
 # .MEM_78 = VDEF <.MEM_77>
 ret_67 = realloc (objects_17, 1);
 
@@ -42052,20 +42052,20 @@ In function ‘main’:
 this stmt is child function---st_mult-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c23dc8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480dc8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_67 = realloc (objects_17, 1);
     version 67
-    ptr-info 0x7f7874c40198>
+    ptr-info 0x7f947b49d198>
 trace fucntion name:st_mult 
 
  ================== trace ================== 
@@ -42679,20 +42679,20 @@ ret_61 = realloc (objects_17, 1);
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7874c23dc8
-    type <pointer_type 0x7f78750f50a8
-        type <void_type 0x7f78750eef18 void VOID
+ <ssa_name 0x7f947b480dc8
+    type <pointer_type 0x7f947b9520a8
+        type <void_type 0x7f947b94bf18 void VOID
             align 8 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7f78750f50a8>>
+            pointer_to_this <pointer_type 0x7f947b9520a8>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7f78750fabd0>>
-    var <var_decl 0x7f7874c22630 ret>
+        pointer_to_this <pointer_type 0x7f947b957bd0>>
+    var <var_decl 0x7f947b47f630 ret>
     def_stmt ret_67 = realloc (objects_17, 1);
     version 67
-    ptr-info 0x7f7874c40198>
+    ptr-info 0x7f947b49d198>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
@@ -46527,21 +46527,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f78750e2990
-    type <pointer_type 0x7f7874c04540
-        type <integer_type 0x7f7874c04498 char public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c04540>>
+ <ssa_name 0x7f947b93f990
+    type <pointer_type 0x7f947b461540
+        type <integer_type 0x7f947b461498 char public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b461540>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>>
    
     def_stmt _7 = strdup (name_27(D));
     version 7
-    ptr-info 0x7f7874c40048>
+    ptr-info 0x7f947b49d048>
 # .MEM_48 = VDEF <.MEM_47>
 _7 = strdup (name_27(D));
 
@@ -46579,21 +46579,21 @@ In function ‘main’:
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7f78750e2990
-    type <pointer_type 0x7f7874c04540
-        type <integer_type 0x7f7874c04498 char public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c04540>>
+ <ssa_name 0x7f947b93f990
+    type <pointer_type 0x7f947b461540
+        type <integer_type 0x7f947b461498 char public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b461540>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>>
    
     def_stmt _7 = strdup (name_27(D));
     version 7
-    ptr-info 0x7f7874c40048>
+    ptr-info 0x7f947b49d048>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -47018,21 +47018,21 @@ from add_object_array_with_path basic block 13
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f78750e2990
-    type <pointer_type 0x7f7874c04540
-        type <integer_type 0x7f7874c04498 char public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c04540>>
+ <ssa_name 0x7f947b93f990
+    type <pointer_type 0x7f947b461540
+        type <integer_type 0x7f947b461498 char public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b461540>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>>
    
     def_stmt _7 = strdup (name_27(D));
     version 7
-    ptr-info 0x7f7874c40048>
+    ptr-info 0x7f947b49d048>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
@@ -48003,21 +48003,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f78750e29d8
-    type <pointer_type 0x7f7874c04540
-        type <integer_type 0x7f7874c04498 char public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c04540>>
+ <ssa_name 0x7f947b93f9d8
+    type <pointer_type 0x7f947b461540
+        type <integer_type 0x7f947b461498 char public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b461540>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>>
    
     def_stmt _8 = strdup (path_34(D));
     version 8
-    ptr-info 0x7f7874c40060>
+    ptr-info 0x7f947b49d060>
 # .MEM_54 = VDEF <.MEM_52>
 _8 = strdup (path_34(D));
 
@@ -48055,21 +48055,21 @@ In function ‘main’:
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7f78750e29d8
-    type <pointer_type 0x7f7874c04540
-        type <integer_type 0x7f7874c04498 char public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c04540>>
+ <ssa_name 0x7f947b93f9d8
+    type <pointer_type 0x7f947b461540
+        type <integer_type 0x7f947b461498 char public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b461540>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>>
    
     def_stmt _8 = strdup (path_34(D));
     version 8
-    ptr-info 0x7f7874c40060>
+    ptr-info 0x7f947b49d060>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -48480,21 +48480,21 @@ from add_object_array_with_path basic block 18
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f78750e29d8
-    type <pointer_type 0x7f7874c04540
-        type <integer_type 0x7f7874c04498 char public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c04540>>
+ <ssa_name 0x7f947b93f9d8
+    type <pointer_type 0x7f947b461540
+        type <integer_type 0x7f947b461498 char public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b461540>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>>
    
     def_stmt _8 = strdup (path_34(D));
     version 8
-    ptr-info 0x7f7874c40060>
+    ptr-info 0x7f947b49d060>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_75 = VDEF <.MEM_43>
 ret_57 = realloc (objects_17, _3);
@@ -49399,33 +49399,33 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f7874c07d50 type <integer_type 0x7f78750ee7e0 long unsigned int> constant 32>
+ <integer_cst 0x7f947b464d50 type <integer_type 0x7f947b94b7e0 long unsigned int> constant 32>
 
 dot graph START
 
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7f78750daf90 type <integer_type 0x7f78750ee5e8 int> constant 1>
+ <integer_cst 0x7f947b937f90 type <integer_type 0x7f947b94b5e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f78750e2ca8
-    type <pointer_type 0x7f7874c0d2a0
-        type <integer_type 0x7f7874c0d1f8 char readonly public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c0d2a0>>
+ <ssa_name 0x7f947b93fca8
+    type <pointer_type 0x7f947b46a2a0
+        type <integer_type 0x7f947b46a1f8 char readonly public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b46a2a0>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f7874c14100 name>
+    var <parm_decl 0x7f947b471100 name>
     def_stmt GIMPLE_NOP
     version 27
-    ptr-info 0x7f7874c40108>
+    ptr-info 0x7f947b49d108>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -49461,21 +49461,21 @@ In function ‘main’:
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7f78750e2ca8
-    type <pointer_type 0x7f7874c0d2a0
-        type <integer_type 0x7f7874c0d1f8 char readonly public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c0d2a0>>
+ <ssa_name 0x7f947b93fca8
+    type <pointer_type 0x7f947b46a2a0
+        type <integer_type 0x7f947b46a1f8 char readonly public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b46a2a0>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f7874c14100 name>
+    var <parm_decl 0x7f947b471100 name>
     def_stmt GIMPLE_NOP
     version 27
-    ptr-info 0x7f7874c40108>
+    ptr-info 0x7f947b49d108>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -49900,21 +49900,21 @@ from add_object_array_with_path basic block 13
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f78750e2ca8
-    type <pointer_type 0x7f7874c0d2a0
-        type <integer_type 0x7f7874c0d1f8 char readonly public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c0d2a0>>
+ <ssa_name 0x7f947b93fca8
+    type <pointer_type 0x7f947b46a2a0
+        type <integer_type 0x7f947b46a1f8 char readonly public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b46a2a0>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f7874c14100 name>
+    var <parm_decl 0x7f947b471100 name>
     def_stmt GIMPLE_NOP
     version 27
-    ptr-info 0x7f7874c40108>
+    ptr-info 0x7f947b49d108>
 
  ================== Start Use after free Check ================== 
 
@@ -49933,21 +49933,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f78750e2d38
-    type <pointer_type 0x7f7874c0d2a0
-        type <integer_type 0x7f7874c0d1f8 char readonly public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c0d2a0>>
+ <ssa_name 0x7f947b93fd38
+    type <pointer_type 0x7f947b46a2a0
+        type <integer_type 0x7f947b46a1f8 char readonly public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b46a2a0>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f7874c14280 path>
+    var <parm_decl 0x7f947b471280 path>
     def_stmt GIMPLE_NOP
     version 34
-    ptr-info 0x7f7874c40120>
+    ptr-info 0x7f947b49d120>
 GIMPLE_NOP
 
  ================== trace ptable================== 
@@ -49983,21 +49983,21 @@ In function ‘main’:
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7f78750e2d38
-    type <pointer_type 0x7f7874c0d2a0
-        type <integer_type 0x7f7874c0d1f8 char readonly public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c0d2a0>>
+ <ssa_name 0x7f947b93fd38
+    type <pointer_type 0x7f947b46a2a0
+        type <integer_type 0x7f947b46a1f8 char readonly public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b46a2a0>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f7874c14280 path>
+    var <parm_decl 0x7f947b471280 path>
     def_stmt GIMPLE_NOP
     version 34
-    ptr-info 0x7f7874c40120>
+    ptr-info 0x7f947b49d120>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -50408,21 +50408,21 @@ from add_object_array_with_path basic block 18
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f78750e2d38
-    type <pointer_type 0x7f7874c0d2a0
-        type <integer_type 0x7f7874c0d1f8 char readonly public string-flag QI
-            size <integer_cst 0x7f78750dacd8 constant 8>
-            unit size <integer_cst 0x7f78750dacf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7f78750ee3f0 precision 8 min <integer_cst 0x7f7874c07300 -128> max <integer_cst 0x7f7874c072e8 127>
-            pointer_to_this <pointer_type 0x7f7874c0d2a0>>
+ <ssa_name 0x7f947b93fd38
+    type <pointer_type 0x7f947b46a2a0
+        type <integer_type 0x7f947b46a1f8 char readonly public string-flag QI
+            size <integer_cst 0x7f947b937cd8 constant 8>
+            unit size <integer_cst 0x7f947b937cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b94b3f0 precision 8 min <integer_cst 0x7f947b464300 -128> max <integer_cst 0x7f947b4642e8 127>
+            pointer_to_this <pointer_type 0x7f947b46a2a0>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <parm_decl 0x7f7874c14280 path>
+    var <parm_decl 0x7f947b471280 path>
     def_stmt GIMPLE_NOP
     version 34
-    ptr-info 0x7f7874c40120>
+    ptr-info 0x7f947b49d120>
 
  ================== Start Use after free Check ================== 
 
@@ -50448,24 +50448,24 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f7874c30340
-    type <pointer_type 0x7f7874c0d150
-        type <record_type 0x7f7874c0d0a8 object_array TI
-            size <integer_cst 0x7f78750dac30 constant 128>
-            unit size <integer_cst 0x7f78750dac48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7874c0d0a8 fields <field_decl 0x7f7874c0c4c0 nr> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c0d150> chain <type_decl 0x7f7874c0c558 D.4020>>
+ <addr_expr 0x7f947b48d340
+    type <pointer_type 0x7f947b46a150
+        type <record_type 0x7f947b46a0a8 object_array TI
+            size <integer_cst 0x7f947b937c30 constant 128>
+            unit size <integer_cst 0x7f947b937c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f947b46a0a8 fields <field_decl 0x7f947b4694c0 nr> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b46a150> chain <type_decl 0x7f947b469558 D.4020>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f7874c29360 study type <record_type 0x7f7874c0d0a8 object_array>
-        addressable used TI file ./benchmarks/git/leak_7/git_leak_7.c line 63 col 22 size <integer_cst 0x7f78750dac30 128> unit size <integer_cst 0x7f78750dac48 16>
-        align 128 context <function_decl 0x7f7874c05b00 main> abstract_origin <var_decl 0x7f7874c22d80 study>
-        chain <var_decl 0x7f7874c293f0 found type <record_type 0x7f7874c0d0a8 object_array>
-            addressable used TI file ./benchmarks/git/leak_7/git_leak_7.c line 64 col 22 size <integer_cst 0x7f78750dac30 128> unit size <integer_cst 0x7f78750dac48 16>
-            align 128 context <function_decl 0x7f7874c05b00 main> abstract_origin <var_decl 0x7f7874c22cf0 found> chain <var_decl 0x7f7874c29480 is_incomplete>>>
+    arg 0 <var_decl 0x7f947b486360 study type <record_type 0x7f947b46a0a8 object_array>
+        addressable used TI file ./benchmarks/git/leak_7/git_leak_7.c line 63 col 22 size <integer_cst 0x7f947b937c30 128> unit size <integer_cst 0x7f947b937c48 16>
+        align 128 context <function_decl 0x7f947b462b00 main> abstract_origin <var_decl 0x7f947b47fd80 study>
+        chain <var_decl 0x7f947b4863f0 found type <record_type 0x7f947b46a0a8 object_array>
+            addressable used TI file ./benchmarks/git/leak_7/git_leak_7.c line 64 col 22 size <integer_cst 0x7f947b937c30 128> unit size <integer_cst 0x7f947b937c48 16>
+            align 128 context <function_decl 0x7f947b462b00 main> abstract_origin <var_decl 0x7f947b47fcf0 found> chain <var_decl 0x7f947b486480 is_incomplete>>>
     ./benchmarks/git/leak_7/git_leak_7.c:80:9 start: ./benchmarks/git/leak_7/git_leak_7.c:80:9 finish: ./benchmarks/git/leak_7/git_leak_7.c:80:9>
 
  ================== trace ptable================== 
@@ -50488,26 +50488,26 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7f7874c303c0
-    type <pointer_type 0x7f7874c0d150
-        type <record_type 0x7f7874c0d0a8 object_array TI
-            size <integer_cst 0x7f78750dac30 constant 128>
-            unit size <integer_cst 0x7f78750dac48 constant 16>
-            align 64 symtab 0 alias set -1 canonical type 0x7f7874c0d0a8 fields <field_decl 0x7f7874c0c4c0 nr> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c0d150> chain <type_decl 0x7f7874c0c558 D.4020>>
+ <addr_expr 0x7f947b48d3c0
+    type <pointer_type 0x7f947b46a150
+        type <record_type 0x7f947b46a0a8 object_array TI
+            size <integer_cst 0x7f947b937c30 constant 128>
+            unit size <integer_cst 0x7f947b937c48 constant 16>
+            align 64 symtab 0 alias set -1 canonical type 0x7f947b46a0a8 fields <field_decl 0x7f947b4694c0 nr> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b46a150> chain <type_decl 0x7f947b469558 D.4020>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
-    arg 0 <var_decl 0x7f7874c293f0 found type <record_type 0x7f7874c0d0a8 object_array>
-        addressable used TI file ./benchmarks/git/leak_7/git_leak_7.c line 64 col 22 size <integer_cst 0x7f78750dac30 128> unit size <integer_cst 0x7f78750dac48 16>
-        align 128 context <function_decl 0x7f7874c05b00 main> abstract_origin <var_decl 0x7f7874c22cf0 found>
-        chain <var_decl 0x7f7874c29480 is_incomplete type <integer_type 0x7f78750ee5e8 int>
+    arg 0 <var_decl 0x7f947b4863f0 found type <record_type 0x7f947b46a0a8 object_array>
+        addressable used TI file ./benchmarks/git/leak_7/git_leak_7.c line 64 col 22 size <integer_cst 0x7f947b937c30 128> unit size <integer_cst 0x7f947b937c48 16>
+        align 128 context <function_decl 0x7f947b462b00 main> abstract_origin <var_decl 0x7f947b47fcf0 found>
+        chain <var_decl 0x7f947b486480 is_incomplete type <integer_type 0x7f947b94b5e8 int>
             used SI file ./benchmarks/git/leak_7/git_leak_7.c line 65 col 6
-            size <integer_cst 0x7f78750dae28 constant 32>
-            unit size <integer_cst 0x7f78750dae40 constant 4>
-            align 32 context <function_decl 0x7f7874c05b00 main> abstract_origin <var_decl 0x7f7874c22c60 is_incomplete> chain <var_decl 0x7f7874c29510 i>>>
+            size <integer_cst 0x7f947b937e28 constant 32>
+            unit size <integer_cst 0x7f947b937e40 constant 4>
+            align 32 context <function_decl 0x7f947b462b00 main> abstract_origin <var_decl 0x7f947b47fc60 is_incomplete> chain <var_decl 0x7f947b486510 i>>>
     ./benchmarks/git/leak_7/git_leak_7.c:81:9 start: ./benchmarks/git/leak_7/git_leak_7.c:81:9 finish: ./benchmarks/git/leak_7/git_leak_7.c:81:9>
 
  ================== trace ptable================== 
@@ -50530,21 +50530,21 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c381f8
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b4951f8
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _12 = &commit.object;
     version 12
-    ptr-info 0x7f7874c40210>
+    ptr-info 0x7f947b49d210>
 _12 = &commit.object;
 
  ================== trace ptable================== 
@@ -50578,21 +50578,21 @@ add_object_array_with_path (_12, 0B, &study, 12288, 0B);
 this stmt is child function---add_object_array_with_path-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c381f8
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b4951f8
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _12 = &commit.object;
     version 12
-    ptr-info 0x7f7874c40210>
+    ptr-info 0x7f947b49d210>
 trace fucntion name:add_object_array_with_path 
 [40;44m =======trace_function_path add_object_array_with_path  function_call count: 5 level :0========  [0m
 # .MEM_75 = VDEF <.MEM_43>
@@ -50636,21 +50636,21 @@ add_object_array_with_path (_12, 0B, &study, 12288, 0B);
 this stmt is child function---add_object_array_with_path-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c381f8
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b4951f8
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _12 = &commit.object;
     version 12
-    ptr-info 0x7f7874c40210>
+    ptr-info 0x7f947b49d210>
 trace fucntion name:add_object_array_with_path 
 [40;44m =======trace_function_path add_object_array_with_path  function_call count: 5 level :0========  [0m
 # .MEM_75 = VDEF <.MEM_43>
@@ -50681,21 +50681,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7874c381f8
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b4951f8
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _12 = &commit.object;
     version 12
-    ptr-info 0x7f7874c40210>
+    ptr-info 0x7f947b49d210>
 
  ================== Start Use after free Check ================== 
 
@@ -50714,21 +50714,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c38240
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b495240
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _13 = &commit.object;
     version 13
-    ptr-info 0x7f7874c40228>
+    ptr-info 0x7f947b49d228>
 _13 = &commit.object;
 
  ================== trace ptable================== 
@@ -50762,21 +50762,21 @@ add_object_array_with_path (_13, 0B, &found, 12288, 0B);
 this stmt is child function---add_object_array_with_path-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c38240
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b495240
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _13 = &commit.object;
     version 13
-    ptr-info 0x7f7874c40228>
+    ptr-info 0x7f947b49d228>
 trace fucntion name:add_object_array_with_path 
 [40;44m =======trace_function_path add_object_array_with_path  function_call count: 5 level :0========  [0m
 # .MEM_75 = VDEF <.MEM_43>
@@ -50820,21 +50820,21 @@ add_object_array_with_path (_13, 0B, &found, 12288, 0B);
 this stmt is child function---add_object_array_with_path-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c38240
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b495240
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _13 = &commit.object;
     version 13
-    ptr-info 0x7f7874c40228>
+    ptr-info 0x7f947b49d228>
 trace fucntion name:add_object_array_with_path 
 [40;44m =======trace_function_path add_object_array_with_path  function_call count: 5 level :0========  [0m
 # .MEM_75 = VDEF <.MEM_43>
@@ -50865,21 +50865,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7874c38240
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b495240
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _13 = &commit.object;
     version 13
-    ptr-info 0x7f7874c40228>
+    ptr-info 0x7f947b49d228>
 
  ================== Start Use after free Check ================== 
 
@@ -50898,21 +50898,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c385e8
-    type <pointer_type 0x7f7874c0dbd0
-        type <record_type 0x7f7874c049d8 object_id BLK
-            size <integer_cst 0x7f7874c071b0 constant 160>
-            unit size <integer_cst 0x7f7874c07198 constant 20>
-            align 8 symtab 0 alias set -1 canonical type 0x7f7874c049d8 fields <field_decl 0x7f7874c06130 hash> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c0dbd0> chain <type_decl 0x7f7874c061c8 D.3987>>
+ <ssa_name 0x7f947b4955e8
+    type <pointer_type 0x7f947b46abd0
+        type <record_type 0x7f947b4619d8 object_id BLK
+            size <integer_cst 0x7f947b4641b0 constant 160>
+            unit size <integer_cst 0x7f947b464198 constant 20>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b4619d8 fields <field_decl 0x7f947b463130 hash> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b46abd0> chain <type_decl 0x7f947b4631c8 D.3987>>
         unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _26 = &c_23->object.oid;
     version 26
-    ptr-info 0x7f7874c40288>
+    ptr-info 0x7f947b49d288>
 _26 = &c_23->object.oid;
 
  ================== trace ptable================== 
@@ -50936,21 +50936,21 @@ _27 = parse_object (_26);
 this stmt is child function---parse_object-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c385e8
-    type <pointer_type 0x7f7874c0dbd0
-        type <record_type 0x7f7874c049d8 object_id BLK
-            size <integer_cst 0x7f7874c071b0 constant 160>
-            unit size <integer_cst 0x7f7874c07198 constant 20>
-            align 8 symtab 0 alias set -1 canonical type 0x7f7874c049d8 fields <field_decl 0x7f7874c06130 hash> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c0dbd0> chain <type_decl 0x7f7874c061c8 D.3987>>
+ <ssa_name 0x7f947b4955e8
+    type <pointer_type 0x7f947b46abd0
+        type <record_type 0x7f947b4619d8 object_id BLK
+            size <integer_cst 0x7f947b4641b0 constant 160>
+            unit size <integer_cst 0x7f947b464198 constant 20>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b4619d8 fields <field_decl 0x7f947b463130 hash> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b46abd0> chain <type_decl 0x7f947b4631c8 D.3987>>
         unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _26 = &c_23->object.oid;
     version 26
-    ptr-info 0x7f7874c40288>
+    ptr-info 0x7f947b49d288>
 trace fucntion name:parse_object 
 
  ================== trace ================== 
@@ -50986,21 +50986,21 @@ from main basic block 8
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7874c385e8
-    type <pointer_type 0x7f7874c0dbd0
-        type <record_type 0x7f7874c049d8 object_id BLK
-            size <integer_cst 0x7f7874c071b0 constant 160>
-            unit size <integer_cst 0x7f7874c07198 constant 20>
-            align 8 symtab 0 alias set -1 canonical type 0x7f7874c049d8 fields <field_decl 0x7f7874c06130 hash> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c0dbd0> chain <type_decl 0x7f7874c061c8 D.3987>>
+ <ssa_name 0x7f947b4955e8
+    type <pointer_type 0x7f947b46abd0
+        type <record_type 0x7f947b4619d8 object_id BLK
+            size <integer_cst 0x7f947b4641b0 constant 160>
+            unit size <integer_cst 0x7f947b464198 constant 20>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b4619d8 fields <field_decl 0x7f947b463130 hash> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b46abd0> chain <type_decl 0x7f947b4631c8 D.3987>>
         unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _26 = &c_23->object.oid;
     version 26
-    ptr-info 0x7f7874c40288>
+    ptr-info 0x7f947b49d288>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_154 = VDEF <.MEM_136>
 free (_118);
@@ -51031,21 +51031,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c38bd0
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b495bd0
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _47 = &p_40->object;
     version 47
-    ptr-info 0x7f7874c402e8>
+    ptr-info 0x7f947b49d2e8>
 _47 = &p_40->object;
 
  ================== trace ptable================== 
@@ -51071,21 +51071,21 @@ add_object_array_with_path (_47, 0B, &study, 12288, 0B);
 this stmt is child function---add_object_array_with_path-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c38bd0
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b495bd0
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _47 = &p_40->object;
     version 47
-    ptr-info 0x7f7874c402e8>
+    ptr-info 0x7f947b49d2e8>
 trace fucntion name:add_object_array_with_path 
 [40;44m =======trace_function_path add_object_array_with_path  function_call count: 5 level :0========  [0m
 # .MEM_75 = VDEF <.MEM_43>
@@ -51151,21 +51151,21 @@ add_object_array_with_path (_47, 0B, &study, 12288, 0B);
 this stmt is child function---add_object_array_with_path-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c38bd0
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b495bd0
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _47 = &p_40->object;
     version 47
-    ptr-info 0x7f7874c402e8>
+    ptr-info 0x7f947b49d2e8>
 trace fucntion name:add_object_array_with_path 
 [40;44m =======trace_function_path add_object_array_with_path  function_call count: 5 level :0========  [0m
 # .MEM_75 = VDEF <.MEM_43>
@@ -51224,21 +51224,21 @@ trace fucntion free:8
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7874c38bd0
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b495bd0
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _47 = &p_40->object;
     version 47
-    ptr-info 0x7f7874c402e8>
+    ptr-info 0x7f947b49d2e8>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_154 = VDEF <.MEM_136>
 free (_118);
@@ -51269,21 +51269,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c38c18
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b495c18
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _48 = &p_40->object;
     version 48
-    ptr-info 0x7f7874c40300>
+    ptr-info 0x7f947b49d300>
 _48 = &p_40->object;
 
  ================== trace ptable================== 
@@ -51309,21 +51309,21 @@ add_object_array_with_path (_48, 0B, &found, 12288, 0B);
 this stmt is child function---add_object_array_with_path-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c38c18
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b495c18
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _48 = &p_40->object;
     version 48
-    ptr-info 0x7f7874c40300>
+    ptr-info 0x7f947b49d300>
 trace fucntion name:add_object_array_with_path 
 [40;44m =======trace_function_path add_object_array_with_path  function_call count: 5 level :0========  [0m
 # .MEM_75 = VDEF <.MEM_43>
@@ -51389,21 +51389,21 @@ add_object_array_with_path (_48, 0B, &found, 12288, 0B);
 this stmt is child function---add_object_array_with_path-----
 
  ================== trace ================== 
- <ssa_name 0x7f7874c38c18
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b495c18
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _48 = &p_40->object;
     version 48
-    ptr-info 0x7f7874c40300>
+    ptr-info 0x7f947b49d300>
 trace fucntion name:add_object_array_with_path 
 [40;44m =======trace_function_path add_object_array_with_path  function_call count: 5 level :0========  [0m
 # .MEM_75 = VDEF <.MEM_43>
@@ -51462,21 +51462,21 @@ trace fucntion free:8
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f7874c38c18
-    type <pointer_type 0x7f7874c045e8
-        type <record_type 0x7f7874c04c78 object BLK
-            size <integer_cst 0x7f78750f60a8 constant 192>
-            unit size <integer_cst 0x7f78750f6078 constant 24>
-            align 32 symtab 0 alias set -1 canonical type 0x7f7874c04c78 fields <field_decl 0x7f7874c064c0 parsed> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c045e8> chain <type_decl 0x7f7874c06558 D.3993>>
+ <ssa_name 0x7f947b495c18
+    type <pointer_type 0x7f947b4615e8
+        type <record_type 0x7f947b461c78 object BLK
+            size <integer_cst 0x7f947b9530a8 constant 192>
+            unit size <integer_cst 0x7f947b953078 constant 24>
+            align 32 symtab 0 alias set -1 canonical type 0x7f947b461c78 fields <field_decl 0x7f947b4634c0 parsed> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b4615e8> chain <type_decl 0x7f947b463558 D.3993>>
         public unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _48 = &p_40->object;
     version 48
-    ptr-info 0x7f7874c40300>
+    ptr-info 0x7f947b49d300>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_154 = VDEF <.MEM_136>
 free (_118);
@@ -51507,21 +51507,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f7874c38f30
-    type <pointer_type 0x7f7874c0dbd0
-        type <record_type 0x7f7874c049d8 object_id BLK
-            size <integer_cst 0x7f7874c071b0 constant 160>
-            unit size <integer_cst 0x7f7874c07198 constant 20>
-            align 8 symtab 0 alias set -1 canonical type 0x7f7874c049d8 fields <field_decl 0x7f7874c06130 hash> context <translation_unit_decl 0x7f78750e5168 ./benchmarks/git/leak_7/git_leak_7.c>
-            pointer_to_this <pointer_type 0x7f7874c0dbd0> chain <type_decl 0x7f7874c061c8 D.3987>>
+ <ssa_name 0x7f947b495f30
+    type <pointer_type 0x7f947b46abd0
+        type <record_type 0x7f947b4619d8 object_id BLK
+            size <integer_cst 0x7f947b4641b0 constant 160>
+            unit size <integer_cst 0x7f947b464198 constant 20>
+            align 8 symtab 0 alias set -1 canonical type 0x7f947b4619d8 fields <field_decl 0x7f947b463130 hash> context <translation_unit_decl 0x7f947b942168 ./benchmarks/git/leak_7/git_leak_7.c>
+            pointer_to_this <pointer_type 0x7f947b46abd0> chain <type_decl 0x7f947b4631c8 D.3987>>
         unsigned DI
-        size <integer_cst 0x7f78750dabe8 constant 64>
-        unit size <integer_cst 0x7f78750dac00 constant 8>
+        size <integer_cst 0x7f947b937be8 constant 64>
+        unit size <integer_cst 0x7f947b937c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
    
     def_stmt _59 = &_58->object.oid;
     version 59
-    ptr-info 0x7f7874c40390>
+    ptr-info 0x7f947b49d390>
 _59 = &_58->object.oid;
 
  ================== trace ptable================== 
@@ -52118,13 +52118,13 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 13 [0m
 [40;34m    used_stmt array stack totalsize of : 5864 [0m
-[40;34m    collect time: : 0.000486 s [0m
-[40;34m    algorithm time: 0.103979 s [0m
+[40;34m    collect time: : 0.000485 s [0m
+[40;34m    algorithm time: 0.110103 s [0m
 [40;34m    gimple stmt count : : 199 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
-/usr/bin/ld: /tmp/cciKwClM.ltrans0.ltrans.o: in function `add_object_array_with_path':
+/usr/bin/ld: /tmp/ccMMyiPS.ltrans0.ltrans.o: in function `add_object_array_with_path':
 <artificial>:(.text+0x9c): undefined reference to `st_mult'
-/usr/bin/ld: /tmp/cciKwClM.ltrans0.ltrans.o: in function `main':
+/usr/bin/ld: /tmp/ccMMyiPS.ltrans0.ltrans.o: in function `main':
 <artificial>:(.text+0x287): undefined reference to `parse_object'
 /usr/bin/ld: <artificial>:(.text+0x339): undefined reference to `tree_is_complete'
 collect2: error: ld returned 1 exit status

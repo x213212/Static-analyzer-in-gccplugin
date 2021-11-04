@@ -101,20 +101,20 @@ error ("can\'t open to read symbols", name_13);
 _35 = __printf_chk (1, "cleanup!!!!! =========\n");
 # .MEM_73 = VDEF <.MEM_72>
 _37 = __printf_chk (1, "%x\n", _36);
- <var_decl 0x7fb2a28e8b40 cleanup_chain
-    type <pointer_type 0x7fb2a167d9d8
-        type <record_type 0x7fb2a167da80 cleanup BLK
-            size <integer_cst 0x7fb2a1b53f48 constant 256>
-            unit size <integer_cst 0x7fb2a1b6f048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7fb2a167da80 fields <field_decl 0x7fb2a167f2f8 next> context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-            pointer_to_this <pointer_type 0x7fb2a167d9d8> chain <type_decl 0x7fb2a167f390 D.3990>>
+ <var_decl 0x7fc583386b40 cleanup_chain
+    type <pointer_type 0x7fc58211a9d8
+        type <record_type 0x7fc58211aa80 cleanup BLK
+            size <integer_cst 0x7fc5825f0f48 constant 256>
+            unit size <integer_cst 0x7fc58260c048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc58211aa80 fields <field_decl 0x7fc58211c2f8 next> context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+            pointer_to_this <pointer_type 0x7fc58211a9d8> chain <type_decl 0x7fc58211c390 D.3990>>
         public unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fb2a167dbd0>>
-    addressable static unsigned DI file ./benchmarks/binutils/double_free_4/../include/common.h line 49 col 24 size <integer_cst 0x7fb2a1b53be8 64> unit size <integer_cst 0x7fb2a1b53c00 8>
-    align 64 context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c> initial <error_mark 0x7fb2a1b53bd0>>
+        pointer_to_this <pointer_type 0x7fc58211abd0>>
+    addressable static unsigned DI file ./benchmarks/binutils/double_free_4/../include/common.h line 49 col 24 size <integer_cst 0x7fc5825f0be8 64> unit size <integer_cst 0x7fc5825f0c00 8>
+    align 64 context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c> initial <error_mark 0x7fc5825f0bd0>>
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
 start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
@@ -150,22 +150,22 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fb2a1b5baf8
-    type <pointer_type 0x7fb2a167d9d8
-        type <record_type 0x7fb2a167da80 cleanup BLK
-            size <integer_cst 0x7fb2a1b53f48 constant 256>
-            unit size <integer_cst 0x7fb2a1b6f048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7fb2a167da80 fields <field_decl 0x7fb2a167f2f8 next> context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-            pointer_to_this <pointer_type 0x7fb2a167d9d8> chain <type_decl 0x7fb2a167f390 D.3990>>
+ <ssa_name 0x7fc5825f8af8
+    type <pointer_type 0x7fc58211a9d8
+        type <record_type 0x7fc58211aa80 cleanup BLK
+            size <integer_cst 0x7fc5825f0f48 constant 256>
+            unit size <integer_cst 0x7fc58260c048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc58211aa80 fields <field_decl 0x7fc58211c2f8 next> context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+            pointer_to_this <pointer_type 0x7fc58211a9d8> chain <type_decl 0x7fc58211c390 D.3990>>
         public unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fb2a167dbd0>>
-    var <var_decl 0x7fb2a28e8d80 new>
+        pointer_to_this <pointer_type 0x7fc58211abd0>>
+    var <var_decl 0x7fc583386d80 new>
     def_stmt new_4 = malloc (32);
     version 4
-    ptr-info 0x7fb2a1680f18>
+    ptr-info 0x7fc58211df18>
 # .MEM_14 = VDEF <.MEM_13(D)>
 new_4 = malloc (32);
 
@@ -1107,22 +1107,22 @@ new_4 = malloc (32);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5baf8
-    type <pointer_type 0x7fb2a167d9d8
-        type <record_type 0x7fb2a167da80 cleanup BLK
-            size <integer_cst 0x7fb2a1b53f48 constant 256>
-            unit size <integer_cst 0x7fb2a1b6f048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7fb2a167da80 fields <field_decl 0x7fb2a167f2f8 next> context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-            pointer_to_this <pointer_type 0x7fb2a167d9d8> chain <type_decl 0x7fb2a167f390 D.3990>>
+ <ssa_name 0x7fc5825f8af8
+    type <pointer_type 0x7fc58211a9d8
+        type <record_type 0x7fc58211aa80 cleanup BLK
+            size <integer_cst 0x7fc5825f0f48 constant 256>
+            unit size <integer_cst 0x7fc58260c048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc58211aa80 fields <field_decl 0x7fc58211c2f8 next> context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+            pointer_to_this <pointer_type 0x7fc58211a9d8> chain <type_decl 0x7fc58211c390 D.3990>>
         public unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fb2a167dbd0>>
-    var <var_decl 0x7fb2a28e8d80 new>
+        pointer_to_this <pointer_type 0x7fc58211abd0>>
+    var <var_decl 0x7fc583386d80 new>
     def_stmt new_4 = malloc (32);
     version 4
-    ptr-info 0x7fb2a1680f18>
+    ptr-info 0x7fc58211df18>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1134,22 +1134,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fb2a1b5baf8
-    type <pointer_type 0x7fb2a167d9d8
-        type <record_type 0x7fb2a167da80 cleanup BLK
-            size <integer_cst 0x7fb2a1b53f48 constant 256>
-            unit size <integer_cst 0x7fb2a1b6f048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7fb2a167da80 fields <field_decl 0x7fb2a167f2f8 next> context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-            pointer_to_this <pointer_type 0x7fb2a167d9d8> chain <type_decl 0x7fb2a167f390 D.3990>>
+ <ssa_name 0x7fc5825f8af8
+    type <pointer_type 0x7fc58211a9d8
+        type <record_type 0x7fc58211aa80 cleanup BLK
+            size <integer_cst 0x7fc5825f0f48 constant 256>
+            unit size <integer_cst 0x7fc58260c048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc58211aa80 fields <field_decl 0x7fc58211c2f8 next> context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+            pointer_to_this <pointer_type 0x7fc58211a9d8> chain <type_decl 0x7fc58211c390 D.3990>>
         public unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fb2a167dbd0>>
-    var <var_decl 0x7fb2a28e8d80 new>
+        pointer_to_this <pointer_type 0x7fc58211abd0>>
+    var <var_decl 0x7fc583386d80 new>
     def_stmt new_4 = malloc (32);
     version 4
-    ptr-info 0x7fb2a1680f18>
+    ptr-info 0x7fc58211df18>
 
  ================== Start Use after free Check ================== 
 
@@ -1170,7 +1170,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fb2a1680c78 type <integer_type 0x7fb2a1b677e0 long unsigned int> constant 32>
+ <integer_cst 0x7fc58211dc78 type <integer_type 0x7fc5826047e0 long unsigned int> constant 32>
 [40;33m =======POP node_fun stack:make_my_cleanup2========= [0m
 [40;44m =======node_fun:error========= [0m
 [40;44m fucntion collect path  [0m
@@ -1186,7 +1186,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fb2a1b53f90 type <integer_type 0x7fb2a1b675e8 int> constant 1>
+ <integer_cst 0x7fc5825f0f90 type <integer_type 0x7fc5826045e8 int> constant 1>
 [40;33m =======POP node_fun stack:error========= [0m
 [40;44m =======node_fun:gdb_bfd_open========= [0m
 [40;44m fucntion collect path  [0m
@@ -1204,21 +1204,21 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fb2a169b1f8
-    type <pointer_type 0x7fb2a167df18
-        type <integer_type 0x7fb2a167de70 bfd SI
-            size <integer_cst 0x7fb2a1b53e28 constant 32>
-            unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647> context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-            pointer_to_this <pointer_type 0x7fb2a167df18>>
+ <ssa_name 0x7fc5821381f8
+    type <pointer_type 0x7fc58211af18
+        type <integer_type 0x7fc58211ae70 bfd SI
+            size <integer_cst 0x7fc5825f0e28 constant 32>
+            unit size <integer_cst 0x7fc5825f0e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647> context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+            pointer_to_this <pointer_type 0x7fc58211af18>>
         public unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fb2a1699090 abfd>
+    var <var_decl 0x7fc582136090 abfd>
     def_stmt abfd_10 = malloc (4);
     version 10
-    ptr-info 0x7fb2a16b4018>
+    ptr-info 0x7fc582151018>
 # .MEM_17 = VDEF <.MEM_16>
 abfd_10 = malloc (4);
 
@@ -1438,21 +1438,21 @@ abfd_10 = malloc (4);
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a169b1f8
-    type <pointer_type 0x7fb2a167df18
-        type <integer_type 0x7fb2a167de70 bfd SI
-            size <integer_cst 0x7fb2a1b53e28 constant 32>
-            unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647> context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-            pointer_to_this <pointer_type 0x7fb2a167df18>>
+ <ssa_name 0x7fc5821381f8
+    type <pointer_type 0x7fc58211af18
+        type <integer_type 0x7fc58211ae70 bfd SI
+            size <integer_cst 0x7fc5825f0e28 constant 32>
+            unit size <integer_cst 0x7fc5825f0e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647> context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+            pointer_to_this <pointer_type 0x7fc58211af18>>
         public unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fb2a1699090 abfd>
+    var <var_decl 0x7fc582136090 abfd>
     def_stmt abfd_10 = malloc (4);
     version 10
-    ptr-info 0x7fb2a16b4018>
+    ptr-info 0x7fc582151018>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -1464,21 +1464,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fb2a169b1f8
-    type <pointer_type 0x7fb2a167df18
-        type <integer_type 0x7fb2a167de70 bfd SI
-            size <integer_cst 0x7fb2a1b53e28 constant 32>
-            unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647> context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-            pointer_to_this <pointer_type 0x7fb2a167df18>>
+ <ssa_name 0x7fc5821381f8
+    type <pointer_type 0x7fc58211af18
+        type <integer_type 0x7fc58211ae70 bfd SI
+            size <integer_cst 0x7fc5825f0e28 constant 32>
+            unit size <integer_cst 0x7fc5825f0e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647> context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+            pointer_to_this <pointer_type 0x7fc58211af18>>
         public unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fb2a1699090 abfd>
+    var <var_decl 0x7fc582136090 abfd>
     def_stmt abfd_10 = malloc (4);
     version 10
-    ptr-info 0x7fb2a16b4018>
+    ptr-info 0x7fc582151018>
 
  ================== Start Use after free Check ================== 
 
@@ -1499,17 +1499,17 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fb2a1b53f90 type <integer_type 0x7fb2a1b675e8 int> constant 1>
+ <integer_cst 0x7fc5825f0f90 type <integer_type 0x7fc5826045e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fb2a169b0d8
-    type <integer_type 0x7fb2a1b675e8 int public SI
-        size <integer_cst 0x7fb2a1b53e28 constant 32>
-        unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647>
-        pointer_to_this <pointer_type 0x7fb2a1b6ea80>>
+ <ssa_name 0x7fc5821380d8
+    type <integer_type 0x7fc5826045e8 int public SI
+        size <integer_cst 0x7fc5825f0e28 constant 32>
+        unit size <integer_cst 0x7fc5825f0e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647>
+        pointer_to_this <pointer_type 0x7fc58260ba80>>
    
     def_stmt _2 = rand ();
     version 2>
@@ -1784,12 +1784,12 @@ _2 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a169b0d8
-    type <integer_type 0x7fb2a1b675e8 int public SI
-        size <integer_cst 0x7fb2a1b53e28 constant 32>
-        unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647>
-        pointer_to_this <pointer_type 0x7fb2a1b6ea80>>
+ <ssa_name 0x7fc5821380d8
+    type <integer_type 0x7fc5826045e8 int public SI
+        size <integer_cst 0x7fc5825f0e28 constant 32>
+        unit size <integer_cst 0x7fc5825f0e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647>
+        pointer_to_this <pointer_type 0x7fc58260ba80>>
    
     def_stmt _2 = rand ();
     version 2>
@@ -1804,12 +1804,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fb2a169b0d8
-    type <integer_type 0x7fb2a1b675e8 int public SI
-        size <integer_cst 0x7fb2a1b53e28 constant 32>
-        unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647>
-        pointer_to_this <pointer_type 0x7fb2a1b6ea80>>
+ <ssa_name 0x7fc5821380d8
+    type <integer_type 0x7fc5826045e8 int public SI
+        size <integer_cst 0x7fc5825f0e28 constant 32>
+        unit size <integer_cst 0x7fc5825f0e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647>
+        pointer_to_this <pointer_type 0x7fc58260ba80>>
    
     def_stmt _2 = rand ();
     version 2>
@@ -1833,7 +1833,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fb2a1680cf0 type <integer_type 0x7fb2a1b677e0 long unsigned int> constant 4>
+ <integer_cst 0x7fc58211dcf0 type <integer_type 0x7fc5826047e0 long unsigned int> constant 4>
 [40;33m =======POP node_fun stack:gdb_bfd_open========= [0m
 [40;44m =======node_fun:main========= [0m
 [40;44m fucntion collect path  [0m
@@ -1857,7 +1857,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fb2a1b53f90 type <integer_type 0x7fb2a1b675e8 int> constant 1>
+ <integer_cst 0x7fc5825f0f90 type <integer_type 0x7fc5826045e8 int> constant 1>
 [40;33m =======POP node_fun stack:error========= [0m
 [40;42m =======pre add _ fucntion:make_my_cleanup2========= [0m
 [40;44m =======print_function_type 0  ========  [0m
@@ -1873,22 +1873,22 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fb2a1b5baf8
-    type <pointer_type 0x7fb2a167d9d8
-        type <record_type 0x7fb2a167da80 cleanup BLK
-            size <integer_cst 0x7fb2a1b53f48 constant 256>
-            unit size <integer_cst 0x7fb2a1b6f048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7fb2a167da80 fields <field_decl 0x7fb2a167f2f8 next> context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-            pointer_to_this <pointer_type 0x7fb2a167d9d8> chain <type_decl 0x7fb2a167f390 D.3990>>
+ <ssa_name 0x7fc5825f8af8
+    type <pointer_type 0x7fc58211a9d8
+        type <record_type 0x7fc58211aa80 cleanup BLK
+            size <integer_cst 0x7fc5825f0f48 constant 256>
+            unit size <integer_cst 0x7fc58260c048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc58211aa80 fields <field_decl 0x7fc58211c2f8 next> context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+            pointer_to_this <pointer_type 0x7fc58211a9d8> chain <type_decl 0x7fc58211c390 D.3990>>
         public unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fb2a167dbd0>>
-    var <var_decl 0x7fb2a28e8d80 new>
+        pointer_to_this <pointer_type 0x7fc58211abd0>>
+    var <var_decl 0x7fc583386d80 new>
     def_stmt new_4 = malloc (32);
     version 4
-    ptr-info 0x7fb2a1680f18>
+    ptr-info 0x7fc58211df18>
 # .MEM_14 = VDEF <.MEM_13(D)>
 new_4 = malloc (32);
 
@@ -2851,22 +2851,22 @@ In function ‘main’:
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5baf8
-    type <pointer_type 0x7fb2a167d9d8
-        type <record_type 0x7fb2a167da80 cleanup BLK
-            size <integer_cst 0x7fb2a1b53f48 constant 256>
-            unit size <integer_cst 0x7fb2a1b6f048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7fb2a167da80 fields <field_decl 0x7fb2a167f2f8 next> context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-            pointer_to_this <pointer_type 0x7fb2a167d9d8> chain <type_decl 0x7fb2a167f390 D.3990>>
+ <ssa_name 0x7fc5825f8af8
+    type <pointer_type 0x7fc58211a9d8
+        type <record_type 0x7fc58211aa80 cleanup BLK
+            size <integer_cst 0x7fc5825f0f48 constant 256>
+            unit size <integer_cst 0x7fc58260c048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc58211aa80 fields <field_decl 0x7fc58211c2f8 next> context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+            pointer_to_this <pointer_type 0x7fc58211a9d8> chain <type_decl 0x7fc58211c390 D.3990>>
         public unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fb2a167dbd0>>
-    var <var_decl 0x7fb2a28e8d80 new>
+        pointer_to_this <pointer_type 0x7fc58211abd0>>
+    var <var_decl 0x7fc583386d80 new>
     def_stmt new_4 = malloc (32);
     version 4
-    ptr-info 0x7fb2a1680f18>
+    ptr-info 0x7fc58211df18>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -2878,22 +2878,22 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fb2a1b5baf8
-    type <pointer_type 0x7fb2a167d9d8
-        type <record_type 0x7fb2a167da80 cleanup BLK
-            size <integer_cst 0x7fb2a1b53f48 constant 256>
-            unit size <integer_cst 0x7fb2a1b6f048 constant 32>
-            align 64 symtab 0 alias set -1 canonical type 0x7fb2a167da80 fields <field_decl 0x7fb2a167f2f8 next> context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-            pointer_to_this <pointer_type 0x7fb2a167d9d8> chain <type_decl 0x7fb2a167f390 D.3990>>
+ <ssa_name 0x7fc5825f8af8
+    type <pointer_type 0x7fc58211a9d8
+        type <record_type 0x7fc58211aa80 cleanup BLK
+            size <integer_cst 0x7fc5825f0f48 constant 256>
+            unit size <integer_cst 0x7fc58260c048 constant 32>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc58211aa80 fields <field_decl 0x7fc58211c2f8 next> context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+            pointer_to_this <pointer_type 0x7fc58211a9d8> chain <type_decl 0x7fc58211c390 D.3990>>
         public unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality
-        pointer_to_this <pointer_type 0x7fb2a167dbd0>>
-    var <var_decl 0x7fb2a28e8d80 new>
+        pointer_to_this <pointer_type 0x7fc58211abd0>>
+    var <var_decl 0x7fc583386d80 new>
     def_stmt new_4 = malloc (32);
     version 4
-    ptr-info 0x7fb2a1680f18>
+    ptr-info 0x7fc58211df18>
 
  ================== Start Use after free Check ================== 
 
@@ -2914,7 +2914,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fb2a1680c78 type <integer_type 0x7fb2a1b677e0 long unsigned int> constant 32>
+ <integer_cst 0x7fc58211dc78 type <integer_type 0x7fc5826047e0 long unsigned int> constant 32>
 [40;33m =======POP node_fun stack:make_my_cleanup2========= [0m
 [40;42m =======pre add _ fucntion:gdb_bfd_open========= [0m
 [40;44m =======print_function_type 2  ========  [0m
@@ -2932,21 +2932,21 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fb2a169b1f8
-    type <pointer_type 0x7fb2a167df18
-        type <integer_type 0x7fb2a167de70 bfd SI
-            size <integer_cst 0x7fb2a1b53e28 constant 32>
-            unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647> context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-            pointer_to_this <pointer_type 0x7fb2a167df18>>
+ <ssa_name 0x7fc5821381f8
+    type <pointer_type 0x7fc58211af18
+        type <integer_type 0x7fc58211ae70 bfd SI
+            size <integer_cst 0x7fc5825f0e28 constant 32>
+            unit size <integer_cst 0x7fc5825f0e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647> context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+            pointer_to_this <pointer_type 0x7fc58211af18>>
         public unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fb2a1699090 abfd>
+    var <var_decl 0x7fc582136090 abfd>
     def_stmt abfd_10 = malloc (4);
     version 10
-    ptr-info 0x7fb2a16b4018>
+    ptr-info 0x7fc582151018>
 # .MEM_17 = VDEF <.MEM_16>
 abfd_10 = malloc (4);
 
@@ -3171,21 +3171,21 @@ In function ‘main’:
 this stmt is child function---malloc-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a169b1f8
-    type <pointer_type 0x7fb2a167df18
-        type <integer_type 0x7fb2a167de70 bfd SI
-            size <integer_cst 0x7fb2a1b53e28 constant 32>
-            unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647> context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-            pointer_to_this <pointer_type 0x7fb2a167df18>>
+ <ssa_name 0x7fc5821381f8
+    type <pointer_type 0x7fc58211af18
+        type <integer_type 0x7fc58211ae70 bfd SI
+            size <integer_cst 0x7fc5825f0e28 constant 32>
+            unit size <integer_cst 0x7fc5825f0e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647> context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+            pointer_to_this <pointer_type 0x7fc58211af18>>
         public unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fb2a1699090 abfd>
+    var <var_decl 0x7fc582136090 abfd>
     def_stmt abfd_10 = malloc (4);
     version 10
-    ptr-info 0x7fb2a16b4018>
+    ptr-info 0x7fc582151018>
 trace fucntion name:malloc 
 
  ================== trace ================== 
@@ -3197,21 +3197,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fb2a169b1f8
-    type <pointer_type 0x7fb2a167df18
-        type <integer_type 0x7fb2a167de70 bfd SI
-            size <integer_cst 0x7fb2a1b53e28 constant 32>
-            unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-            align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647> context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-            pointer_to_this <pointer_type 0x7fb2a167df18>>
+ <ssa_name 0x7fc5821381f8
+    type <pointer_type 0x7fc58211af18
+        type <integer_type 0x7fc58211ae70 bfd SI
+            size <integer_cst 0x7fc5825f0e28 constant 32>
+            unit size <integer_cst 0x7fc5825f0e40 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647> context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+            pointer_to_this <pointer_type 0x7fc58211af18>>
         public unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
-    var <var_decl 0x7fb2a1699090 abfd>
+    var <var_decl 0x7fc582136090 abfd>
     def_stmt abfd_10 = malloc (4);
     version 10
-    ptr-info 0x7fb2a16b4018>
+    ptr-info 0x7fc582151018>
 
  ================== Start Use after free Check ================== 
 
@@ -3232,17 +3232,17 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fb2a1b53f90 type <integer_type 0x7fb2a1b675e8 int> constant 1>
+ <integer_cst 0x7fc5825f0f90 type <integer_type 0x7fc5826045e8 int> constant 1>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fb2a169b0d8
-    type <integer_type 0x7fb2a1b675e8 int public SI
-        size <integer_cst 0x7fb2a1b53e28 constant 32>
-        unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647>
-        pointer_to_this <pointer_type 0x7fb2a1b6ea80>>
+ <ssa_name 0x7fc5821380d8
+    type <integer_type 0x7fc5826045e8 int public SI
+        size <integer_cst 0x7fc5825f0e28 constant 32>
+        unit size <integer_cst 0x7fc5825f0e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647>
+        pointer_to_this <pointer_type 0x7fc58260ba80>>
    
     def_stmt _2 = rand ();
     version 2>
@@ -3523,12 +3523,12 @@ In function ‘main’:
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a169b0d8
-    type <integer_type 0x7fb2a1b675e8 int public SI
-        size <integer_cst 0x7fb2a1b53e28 constant 32>
-        unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647>
-        pointer_to_this <pointer_type 0x7fb2a1b6ea80>>
+ <ssa_name 0x7fc5821380d8
+    type <integer_type 0x7fc5826045e8 int public SI
+        size <integer_cst 0x7fc5825f0e28 constant 32>
+        unit size <integer_cst 0x7fc5825f0e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647>
+        pointer_to_this <pointer_type 0x7fc58260ba80>>
    
     def_stmt _2 = rand ();
     version 2>
@@ -3543,12 +3543,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fb2a169b0d8
-    type <integer_type 0x7fb2a1b675e8 int public SI
-        size <integer_cst 0x7fb2a1b53e28 constant 32>
-        unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647>
-        pointer_to_this <pointer_type 0x7fb2a1b6ea80>>
+ <ssa_name 0x7fc5821380d8
+    type <integer_type 0x7fc5826045e8 int public SI
+        size <integer_cst 0x7fc5825f0e28 constant 32>
+        unit size <integer_cst 0x7fc5825f0e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647>
+        pointer_to_this <pointer_type 0x7fc58260ba80>>
    
     def_stmt _2 = rand ();
     version 2>
@@ -3572,7 +3572,7 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fb2a1680cf0 type <integer_type 0x7fb2a1b677e0 long unsigned int> constant 4>
+ <integer_cst 0x7fc58211dcf0 type <integer_type 0x7fc5826047e0 long unsigned int> constant 4>
 [40;33m =======POP node_fun stack:gdb_bfd_open========= [0m
 [40;42m =======pre add _ fucntion:rand========= [0m
 [40;33m =======POP node_fun stack:rand========= [0m
@@ -3592,22 +3592,22 @@ dot graph START
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fb2a1b5b9d8
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f89d8
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_10 = strdup ("test");
     version 10
-    ptr-info 0x7fb2a16b4060>
+    ptr-info 0x7fc582151060>
 # .MEM_46 = VDEF <.MEM_5>
 name_10 = strdup ("test");
 
@@ -3628,22 +3628,22 @@ _16 = strncmp ("test", "remote:", 7);
 this stmt is child function---strncmp-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b9d8
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f89d8
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_10 = strdup ("test");
     version 10
-    ptr-info 0x7fb2a16b4060>
+    ptr-info 0x7fc582151060>
 trace fucntion name:strncmp 
 
  ================== trace ================== 
@@ -3735,22 +3735,22 @@ _19 = gdb_bfd_open ("test");
 this stmt is child function---gdb_bfd_open-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b9d8
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f89d8
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_10 = strdup ("test");
     version 10
-    ptr-info 0x7fb2a16b4060>
+    ptr-info 0x7fc582151060>
 trace fucntion name:gdb_bfd_open 
 [40;44m =======trace_function_path gdb_bfd_open  function_call count: 3 level :0========  [0m
 [40;42m =======pre add _ fucntion:malloc========= [0m
@@ -3849,22 +3849,22 @@ error ("can\'t open to read symbols", "test");
 this stmt is child function---error-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b9d8
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f89d8
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_10 = strdup ("test");
     version 10
-    ptr-info 0x7fb2a16b4060>
+    ptr-info 0x7fc582151060>
 trace fucntion name:error 
 [40;44m =======trace_function_path error  function_call count: 1 level :0========  [0m
 [40;42m =======pre add _ fucntion:__printf_chk========= [0m
@@ -3879,22 +3879,22 @@ name_10 = strdup ("test");
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b9d8
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f89d8
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_10 = strdup ("test");
     version 10
-    ptr-info 0x7fb2a16b4060>
+    ptr-info 0x7fc582151060>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -3998,22 +3998,22 @@ error ("", name_10);
 this stmt is child function---error-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b9d8
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f89d8
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_10 = strdup ("test");
     version 10
-    ptr-info 0x7fb2a16b4060>
+    ptr-info 0x7fc582151060>
 trace fucntion name:error 
 [40;44m =======trace_function_path error  function_call count: 1 level :0========  [0m
 [40;42m =======pre add _ fucntion:__printf_chk========= [0m
@@ -4028,22 +4028,22 @@ _26 = make_my_cleanup2 (&cleanup_chain, free, name_10, 0B);
 this stmt is child function---make_my_cleanup2-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b9d8
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f89d8
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_10 = strdup ("test");
     version 10
-    ptr-info 0x7fb2a16b4060>
+    ptr-info 0x7fc582151060>
 trace fucntion name:make_my_cleanup2 
 [40;44m =======trace_function_path make_my_cleanup2  function_call count: 2 level :0========  [0m
 [40;42m =======pre add _ fucntion:exit========= [0m
@@ -4068,22 +4068,22 @@ _20 = strdup (name_10);
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b9d8
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f89d8
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_10 = strdup ("test");
     version 10
-    ptr-info 0x7fb2a16b4060>
+    ptr-info 0x7fc582151060>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -4257,22 +4257,22 @@ error ("can\'t open to read symbols", name_13);
 this stmt is child function---error-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b9d8
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f89d8
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_10 = strdup ("test");
     version 10
-    ptr-info 0x7fb2a16b4060>
+    ptr-info 0x7fc582151060>
 trace fucntion name:error 
 [40;44m =======trace_function_path error  function_call count: 1 level :0========  [0m
 [40;42m =======pre add _ fucntion:__printf_chk========= [0m
@@ -4367,22 +4367,22 @@ _30 = make_my_cleanup2 (&cleanup_chain, free, name_13, 0B);
 this stmt is child function---make_my_cleanup2-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b9d8
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f89d8
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_10 = strdup ("test");
     version 10
-    ptr-info 0x7fb2a16b4060>
+    ptr-info 0x7fc582151060>
 trace fucntion name:make_my_cleanup2 
 [40;44m =======trace_function_path make_my_cleanup2  function_call count: 2 level :0========  [0m
 [40;42m =======pre add _ fucntion:exit========= [0m
@@ -4709,22 +4709,22 @@ sym_bfd_14 = gdb_bfd_open (name_13);
 this stmt is child function---gdb_bfd_open-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b9d8
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f89d8
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_10 = strdup ("test");
     version 10
-    ptr-info 0x7fb2a16b4060>
+    ptr-info 0x7fc582151060>
 trace fucntion name:gdb_bfd_open 
 [40;44m =======trace_function_path gdb_bfd_open  function_call count: 3 level :0========  [0m
 [40;42m =======pre add _ fucntion:malloc========= [0m
@@ -5237,22 +5237,22 @@ _28 = make_my_cleanup2 (&cleanup_chain, free, name_13, 0B);
 this stmt is child function---make_my_cleanup2-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b9d8
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f89d8
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_10 = strdup ("test");
     version 10
-    ptr-info 0x7fb2a16b4060>
+    ptr-info 0x7fc582151060>
 trace fucntion name:make_my_cleanup2 
 [40;44m =======trace_function_path make_my_cleanup2  function_call count: 2 level :0========  [0m
 [40;42m =======pre add _ fucntion:exit========= [0m
@@ -5499,22 +5499,22 @@ lto1: warning: use location
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fb2a1b5b9d8
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f89d8
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_10 = strdup ("test");
     version 10
-    ptr-info 0x7fb2a16b4060>
+    ptr-info 0x7fc582151060>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_56 = VDEF <.MEM_41>
 free (name_10);
@@ -5987,22 +5987,22 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fb2a16a5828
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc582142828
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
    
     def_stmt _20 = strdup (name_10);
     version 20
-    ptr-info 0x7fb2a16b40f0>
+    ptr-info 0x7fc5821510f0>
 # .MEM_48 = VDEF <.MEM_47>
 _20 = strdup (name_10);
 
@@ -6115,22 +6115,22 @@ error ("", name_10);
 this stmt is child function---error-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a16a5828
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc582142828
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
    
     def_stmt _20 = strdup (name_10);
     version 20
-    ptr-info 0x7fb2a16b40f0>
+    ptr-info 0x7fc5821510f0>
 trace fucntion name:error 
 [40;44m =======trace_function_path error  function_call count: 1 level :0========  [0m
 [40;36m ======= node_fun:error========= [0m
@@ -6149,22 +6149,22 @@ _26 = make_my_cleanup2 (&cleanup_chain, free, name_10, 0B);
 this stmt is child function---make_my_cleanup2-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a16a5828
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc582142828
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
    
     def_stmt _20 = strdup (name_10);
     version 20
-    ptr-info 0x7fb2a16b40f0>
+    ptr-info 0x7fc5821510f0>
 trace fucntion name:make_my_cleanup2 
 [40;44m =======trace_function_path make_my_cleanup2  function_call count: 2 level :0========  [0m
 [40;36m ======= node_fun:make_my_cleanup2========= [0m
@@ -6193,22 +6193,22 @@ _20 = strdup (name_10);
 this stmt is child function---strdup-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a16a5828
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc582142828
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
    
     def_stmt _20 = strdup (name_10);
     version 20
-    ptr-info 0x7fb2a16b40f0>
+    ptr-info 0x7fc5821510f0>
 trace fucntion name:strdup 
 
  ================== trace ================== 
@@ -6382,22 +6382,22 @@ error ("can\'t open to read symbols", name_13);
 this stmt is child function---error-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a16a5828
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc582142828
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
    
     def_stmt _20 = strdup (name_10);
     version 20
-    ptr-info 0x7fb2a16b40f0>
+    ptr-info 0x7fc5821510f0>
 trace fucntion name:error 
 [40;44m =======trace_function_path error  function_call count: 1 level :0========  [0m
 [40;36m ======= node_fun:error========= [0m
@@ -6496,22 +6496,22 @@ _30 = make_my_cleanup2 (&cleanup_chain, free, name_13, 0B);
 this stmt is child function---make_my_cleanup2-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a16a5828
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc582142828
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
    
     def_stmt _20 = strdup (name_10);
     version 20
-    ptr-info 0x7fb2a16b40f0>
+    ptr-info 0x7fc5821510f0>
 trace fucntion name:make_my_cleanup2 
 [40;44m =======trace_function_path make_my_cleanup2  function_call count: 2 level :0========  [0m
 [40;36m ======= node_fun:make_my_cleanup2========= [0m
@@ -6842,22 +6842,22 @@ sym_bfd_14 = gdb_bfd_open (name_13);
 this stmt is child function---gdb_bfd_open-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a16a5828
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc582142828
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
    
     def_stmt _20 = strdup (name_10);
     version 20
-    ptr-info 0x7fb2a16b40f0>
+    ptr-info 0x7fc5821510f0>
 trace fucntion name:gdb_bfd_open 
 [40;44m =======trace_function_path gdb_bfd_open  function_call count: 3 level :0========  [0m
 [40;36m ======= node_fun:gdb_bfd_open========= [0m
@@ -7374,22 +7374,22 @@ _28 = make_my_cleanup2 (&cleanup_chain, free, name_13, 0B);
 this stmt is child function---make_my_cleanup2-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a16a5828
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc582142828
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
    
     def_stmt _20 = strdup (name_10);
     version 20
-    ptr-info 0x7fb2a16b40f0>
+    ptr-info 0x7fc5821510f0>
 trace fucntion name:make_my_cleanup2 
 [40;44m =======trace_function_path make_my_cleanup2  function_call count: 2 level :0========  [0m
 [40;36m ======= node_fun:make_my_cleanup2========= [0m
@@ -7640,22 +7640,22 @@ lto1: warning: use location
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fb2a16a5828
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc582142828
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
    
     def_stmt _20 = strdup (name_10);
     version 20
-    ptr-info 0x7fb2a16b40f0>
+    ptr-info 0x7fc5821510f0>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_75 = VDEF <.MEM_43>
 free (ptr_31);
@@ -7906,17 +7906,17 @@ dot graph START
 ======================================================================
 
  ================== collect possiable invalid ================== 
- <integer_cst 0x7fb2a1b6f000 type <pointer_type 0x7fb2a1b6e0a8> constant 0>
+ <integer_cst 0x7fc58260c000 type <pointer_type 0x7fc58260b0a8> constant 0>
 
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fb2a169b4c8
-    type <integer_type 0x7fb2a1b67690 unsigned int public unsigned SI
-        size <integer_cst 0x7fb2a1b53e28 constant 32>
-        unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b67690 precision 32 min <integer_cst 0x7fb2a1b53e58 0> max <integer_cst 0x7fb2a1b53e10 4294967295>
-        pointer_to_this <pointer_type 0x7fb2a1b73888>>
+ <ssa_name 0x7fc5821384c8
+    type <integer_type 0x7fc582604690 unsigned int public unsigned SI
+        size <integer_cst 0x7fc5825f0e28 constant 32>
+        unit size <integer_cst 0x7fc5825f0e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc582604690 precision 32 min <integer_cst 0x7fc5825f0e58 0> max <integer_cst 0x7fc5825f0e10 4294967295>
+        pointer_to_this <pointer_type 0x7fc582610888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -7940,12 +7940,12 @@ srand (_2);
 this stmt is child function---srand-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a169b4c8
-    type <integer_type 0x7fb2a1b67690 unsigned int public unsigned SI
-        size <integer_cst 0x7fb2a1b53e28 constant 32>
-        unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b67690 precision 32 min <integer_cst 0x7fb2a1b53e58 0> max <integer_cst 0x7fb2a1b53e10 4294967295>
-        pointer_to_this <pointer_type 0x7fb2a1b73888>>
+ <ssa_name 0x7fc5821384c8
+    type <integer_type 0x7fc582604690 unsigned int public unsigned SI
+        size <integer_cst 0x7fc5825f0e28 constant 32>
+        unit size <integer_cst 0x7fc5825f0e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc582604690 precision 32 min <integer_cst 0x7fc5825f0e58 0> max <integer_cst 0x7fc5825f0e10 4294967295>
+        pointer_to_this <pointer_type 0x7fc582610888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -7960,12 +7960,12 @@ srand (_2);
 this stmt is child function---srand-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a169b4c8
-    type <integer_type 0x7fb2a1b67690 unsigned int public unsigned SI
-        size <integer_cst 0x7fb2a1b53e28 constant 32>
-        unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b67690 precision 32 min <integer_cst 0x7fb2a1b53e58 0> max <integer_cst 0x7fb2a1b53e10 4294967295>
-        pointer_to_this <pointer_type 0x7fb2a1b73888>>
+ <ssa_name 0x7fc5821384c8
+    type <integer_type 0x7fc582604690 unsigned int public unsigned SI
+        size <integer_cst 0x7fc5825f0e28 constant 32>
+        unit size <integer_cst 0x7fc5825f0e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc582604690 precision 32 min <integer_cst 0x7fc5825f0e58 0> max <integer_cst 0x7fc5825f0e10 4294967295>
+        pointer_to_this <pointer_type 0x7fc582610888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -7980,12 +7980,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fb2a169b4c8
-    type <integer_type 0x7fb2a1b67690 unsigned int public unsigned SI
-        size <integer_cst 0x7fb2a1b53e28 constant 32>
-        unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b67690 precision 32 min <integer_cst 0x7fb2a1b53e58 0> max <integer_cst 0x7fb2a1b53e10 4294967295>
-        pointer_to_this <pointer_type 0x7fb2a1b73888>>
+ <ssa_name 0x7fc5821384c8
+    type <integer_type 0x7fc582604690 unsigned int public unsigned SI
+        size <integer_cst 0x7fc5825f0e28 constant 32>
+        unit size <integer_cst 0x7fc5825f0e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc582604690 precision 32 min <integer_cst 0x7fc5825f0e58 0> max <integer_cst 0x7fc5825f0e10 4294967295>
+        pointer_to_this <pointer_type 0x7fc582610888>>
    
     def_stmt _2 = (unsigned int) _1;
     version 2>
@@ -8019,20 +8019,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fb2a16a07c0
-    type <pointer_type 0x7fb2a1685c78
-        type <array_type 0x7fb2a1685bd0 type <integer_type 0x7fb2a167dd20 char>
+ <addr_expr 0x7fc58213d7c0
+    type <pointer_type 0x7fc582122c78
+        type <array_type 0x7fc582122bd0 type <integer_type 0x7fc58211ad20 char>
             BLK
-            size <integer_cst 0x7fb2a1680240 constant 40>
-            unit size <integer_cst 0x7fb2a1680228 constant 5>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb2a1685b28>
-            pointer_to_this <pointer_type 0x7fb2a1685c78>>
+            size <integer_cst 0x7fc58211d240 constant 40>
+            unit size <integer_cst 0x7fc58211d228 constant 5>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fc582122b28>
+            pointer_to_this <pointer_type 0x7fc582122c78>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fb2a1671c20 type <array_type 0x7fb2a1685bd0>
+    arg 0 <string_cst 0x7fc58210ec20 type <array_type 0x7fc582122bd0>
         readonly constant static "test\000">
     ./benchmarks/binutils/double_free_4/binutils_df_4.c:98:19 start: ./benchmarks/binutils/double_free_4/binutils_df_4.c:98:19 finish: ./benchmarks/binutils/double_free_4/binutils_df_4.c:98:19>
 
@@ -8056,20 +8056,20 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fb2a16a08a0
-    type <pointer_type 0x7fb2a1685c78
-        type <array_type 0x7fb2a1685bd0 type <integer_type 0x7fb2a167dd20 char>
+ <addr_expr 0x7fc58213d8a0
+    type <pointer_type 0x7fc582122c78
+        type <array_type 0x7fc582122bd0 type <integer_type 0x7fc58211ad20 char>
             BLK
-            size <integer_cst 0x7fb2a1680240 constant 40>
-            unit size <integer_cst 0x7fb2a1680228 constant 5>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb2a1685b28>
-            pointer_to_this <pointer_type 0x7fb2a1685c78>>
+            size <integer_cst 0x7fc58211d240 constant 40>
+            unit size <integer_cst 0x7fc58211d228 constant 5>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fc582122b28>
+            pointer_to_this <pointer_type 0x7fc582122c78>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fb2a1671c20 type <array_type 0x7fb2a1685bd0>
+    arg 0 <string_cst 0x7fc58210ec20 type <array_type 0x7fc582122bd0>
         readonly constant static "test\000">
     ./benchmarks/binutils/double_free_4/binutils_df_4.c:98:19 start: ./benchmarks/binutils/double_free_4/binutils_df_4.c:98:19 finish: ./benchmarks/binutils/double_free_4/binutils_df_4.c:98:19>
 
@@ -8093,20 +8093,20 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fb2a16a0220
-    type <pointer_type 0x7fb2a16887e0
-        type <array_type 0x7fb2a1688738 type <integer_type 0x7fb2a167dd20 char>
+ <addr_expr 0x7fc58213d220
+    type <pointer_type 0x7fc5821257e0
+        type <array_type 0x7fc582125738 type <integer_type 0x7fc58211ad20 char>
             BLK
-            size <integer_cst 0x7fb2a16802d0 constant 216>
-            unit size <integer_cst 0x7fb2a16802b8 constant 27>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb2a1688690>
-            pointer_to_this <pointer_type 0x7fb2a16887e0>>
+            size <integer_cst 0x7fc58211d2d0 constant 216>
+            unit size <integer_cst 0x7fc58211d2b8 constant 27>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fc582125690>
+            pointer_to_this <pointer_type 0x7fc5821257e0>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fb2a1b528d0 type <array_type 0x7fb2a1688738>
+    arg 0 <string_cst 0x7fc5825ef8d0 type <array_type 0x7fc582125738>
         readonly constant static "can't open to read symbols\000">
     ./benchmarks/binutils/double_free_4/binutils_df_4.c:61:12 start: ./benchmarks/binutils/double_free_4/binutils_df_4.c:61:12 finish: ./benchmarks/binutils/double_free_4/binutils_df_4.c:61:12>
 
@@ -8130,20 +8130,20 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fb2a16a02a0
-    type <pointer_type 0x7fb2a1685c78
-        type <array_type 0x7fb2a1685bd0 type <integer_type 0x7fb2a167dd20 char>
+ <addr_expr 0x7fc58213d2a0
+    type <pointer_type 0x7fc582122c78
+        type <array_type 0x7fc582122bd0 type <integer_type 0x7fc58211ad20 char>
             BLK
-            size <integer_cst 0x7fb2a1680240 constant 40>
-            unit size <integer_cst 0x7fb2a1680228 constant 5>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb2a1685b28>
-            pointer_to_this <pointer_type 0x7fb2a1685c78>>
+            size <integer_cst 0x7fc58211d240 constant 40>
+            unit size <integer_cst 0x7fc58211d228 constant 5>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fc582122b28>
+            pointer_to_this <pointer_type 0x7fc582122c78>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fb2a1671c20 type <array_type 0x7fb2a1685bd0>
+    arg 0 <string_cst 0x7fc58210ec20 type <array_type 0x7fc582122bd0>
         readonly constant static "test\000">
     ./benchmarks/binutils/double_free_4/binutils_df_4.c:98:19 start: ./benchmarks/binutils/double_free_4/binutils_df_4.c:98:19 finish: ./benchmarks/binutils/double_free_4/binutils_df_4.c:98:19>
 
@@ -8167,20 +8167,20 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fb2a16a0320
-    type <pointer_type 0x7fb2a1685c78
-        type <array_type 0x7fb2a1685bd0 type <integer_type 0x7fb2a167dd20 char>
+ <addr_expr 0x7fc58213d320
+    type <pointer_type 0x7fc582122c78
+        type <array_type 0x7fc582122bd0 type <integer_type 0x7fc58211ad20 char>
             BLK
-            size <integer_cst 0x7fb2a1680240 constant 40>
-            unit size <integer_cst 0x7fb2a1680228 constant 5>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb2a1685b28>
-            pointer_to_this <pointer_type 0x7fb2a1685c78>>
+            size <integer_cst 0x7fc58211d240 constant 40>
+            unit size <integer_cst 0x7fc58211d228 constant 5>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fc582122b28>
+            pointer_to_this <pointer_type 0x7fc582122c78>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fb2a1671f40 type <array_type 0x7fb2a1685bd0>
+    arg 0 <string_cst 0x7fc58210ef40 type <array_type 0x7fc582122bd0>
         readonly constant static "PATH\000">
     ./benchmarks/binutils/double_free_4/binutils_df_4.c:68:16 start: ./benchmarks/binutils/double_free_4/binutils_df_4.c:68:16 finish: ./benchmarks/binutils/double_free_4/binutils_df_4.c:68:16>
 
@@ -8204,12 +8204,12 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fb2a16a5870
-    type <integer_type 0x7fb2a1b675e8 int public SI
-        size <integer_cst 0x7fb2a1b53e28 constant 32>
-        unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647>
-        pointer_to_this <pointer_type 0x7fb2a1b6ea80>>
+ <ssa_name 0x7fc582142870
+    type <integer_type 0x7fc5826045e8 int public SI
+        size <integer_cst 0x7fc5825f0e28 constant 32>
+        unit size <integer_cst 0x7fc5825f0e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647>
+        pointer_to_this <pointer_type 0x7fc58260ba80>>
    
     def_stmt _21 = rand ();
     version 21>
@@ -8235,12 +8235,12 @@ _21 = rand ();
 this stmt is child function---rand-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a16a5870
-    type <integer_type 0x7fb2a1b675e8 int public SI
-        size <integer_cst 0x7fb2a1b53e28 constant 32>
-        unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647>
-        pointer_to_this <pointer_type 0x7fb2a1b6ea80>>
+ <ssa_name 0x7fc582142870
+    type <integer_type 0x7fc5826045e8 int public SI
+        size <integer_cst 0x7fc5825f0e28 constant 32>
+        unit size <integer_cst 0x7fc5825f0e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647>
+        pointer_to_this <pointer_type 0x7fc58260ba80>>
    
     def_stmt _21 = rand ();
     version 21>
@@ -8255,12 +8255,12 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fb2a16a5870
-    type <integer_type 0x7fb2a1b675e8 int public SI
-        size <integer_cst 0x7fb2a1b53e28 constant 32>
-        unit size <integer_cst 0x7fb2a1b53e40 constant 4>
-        align 32 symtab 0 alias set -1 canonical type 0x7fb2a1b675e8 precision 32 min <integer_cst 0x7fb2a1b53de0 -2147483648> max <integer_cst 0x7fb2a1b53df8 2147483647>
-        pointer_to_this <pointer_type 0x7fb2a1b6ea80>>
+ <ssa_name 0x7fc582142870
+    type <integer_type 0x7fc5826045e8 int public SI
+        size <integer_cst 0x7fc5825f0e28 constant 32>
+        unit size <integer_cst 0x7fc5825f0e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc5826045e8 precision 32 min <integer_cst 0x7fc5825f0de0 -2147483648> max <integer_cst 0x7fc5825f0df8 2147483647>
+        pointer_to_this <pointer_type 0x7fc58260ba80>>
    
     def_stmt _21 = rand ();
     version 21>
@@ -8294,20 +8294,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fb2a16a0c20
-    type <pointer_type 0x7fb2a167dbd0
-        type <pointer_type 0x7fb2a167d9d8 type <record_type 0x7fb2a167da80 cleanup>
+ <addr_expr 0x7fc58213dc20
+    type <pointer_type 0x7fc58211abd0
+        type <pointer_type 0x7fc58211a9d8 type <record_type 0x7fc58211aa80 cleanup>
             public unsigned DI
-            size <integer_cst 0x7fb2a1b53be8 constant 64>
-            unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+            size <integer_cst 0x7fc5825f0be8 constant 64>
+            unit size <integer_cst 0x7fc5825f0c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fb2a167dbd0>>
-        public unsigned DI size <integer_cst 0x7fb2a1b53be8 64> unit size <integer_cst 0x7fb2a1b53c00 8>
+            pointer_to_this <pointer_type 0x7fc58211abd0>>
+        public unsigned DI size <integer_cst 0x7fc5825f0be8 64> unit size <integer_cst 0x7fc5825f0c00 8>
         align 64 symtab 0 alias set -1 structural equality>
     constant
-    arg 0 <var_decl 0x7fb2a28e8b40 cleanup_chain type <pointer_type 0x7fb2a167d9d8>
-        addressable static unsigned DI file ./benchmarks/binutils/double_free_4/../include/common.h line 49 col 24 size <integer_cst 0x7fb2a1b53be8 64> unit size <integer_cst 0x7fb2a1b53c00 8>
-        align 64 context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c> initial <error_mark 0x7fb2a1b53bd0>>
+    arg 0 <var_decl 0x7fc583386b40 cleanup_chain type <pointer_type 0x7fc58211a9d8>
+        addressable static unsigned DI file ./benchmarks/binutils/double_free_4/../include/common.h line 49 col 24 size <integer_cst 0x7fc5825f0be8 64> unit size <integer_cst 0x7fc5825f0c00 8>
+        align 64 context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c> initial <error_mark 0x7fc5825f0bd0>>
     ./benchmarks/binutils/double_free_4/../include/common.h:151:10 start: ./benchmarks/binutils/double_free_4/../include/common.h:151:10 finish: ./benchmarks/binutils/double_free_4/../include/common.h:151:10>
 
  ================== trace ptable================== 
@@ -8330,20 +8330,20 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fb2a16a04a0
-    type <pointer_type 0x7fb2a1688c78
-        type <array_type 0x7fb2a1688bd0 type <integer_type 0x7fb2a167dd20 char>
+ <addr_expr 0x7fc58213d4a0
+    type <pointer_type 0x7fc582125c78
+        type <array_type 0x7fc582125bd0 type <integer_type 0x7fc58211ad20 char>
             QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb2a1688b28>
-            pointer_to_this <pointer_type 0x7fb2a1688c78>>
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fc582125b28>
+            pointer_to_this <pointer_type 0x7fc582125c78>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fb2a1680d68 type <array_type 0x7fb2a1688bd0>
+    arg 0 <string_cst 0x7fc58211dd68 type <array_type 0x7fc582125bd0>
         readonly constant static "\000">
     ./benchmarks/binutils/double_free_4/binutils_df_4.c:73:11 start: ./benchmarks/binutils/double_free_4/binutils_df_4.c:73:11 finish: ./benchmarks/binutils/double_free_4/binutils_df_4.c:73:11>
 
@@ -8367,20 +8367,20 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fb2a16a0d40
-    type <pointer_type 0x7fb2a167dbd0
-        type <pointer_type 0x7fb2a167d9d8 type <record_type 0x7fb2a167da80 cleanup>
+ <addr_expr 0x7fc58213dd40
+    type <pointer_type 0x7fc58211abd0
+        type <pointer_type 0x7fc58211a9d8 type <record_type 0x7fc58211aa80 cleanup>
             public unsigned DI
-            size <integer_cst 0x7fb2a1b53be8 constant 64>
-            unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+            size <integer_cst 0x7fc5825f0be8 constant 64>
+            unit size <integer_cst 0x7fc5825f0c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fb2a167dbd0>>
-        public unsigned DI size <integer_cst 0x7fb2a1b53be8 64> unit size <integer_cst 0x7fb2a1b53c00 8>
+            pointer_to_this <pointer_type 0x7fc58211abd0>>
+        public unsigned DI size <integer_cst 0x7fc5825f0be8 64> unit size <integer_cst 0x7fc5825f0c00 8>
         align 64 symtab 0 alias set -1 structural equality>
     constant
-    arg 0 <var_decl 0x7fb2a28e8b40 cleanup_chain type <pointer_type 0x7fb2a167d9d8>
-        addressable static unsigned DI file ./benchmarks/binutils/double_free_4/../include/common.h line 49 col 24 size <integer_cst 0x7fb2a1b53be8 64> unit size <integer_cst 0x7fb2a1b53c00 8>
-        align 64 context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c> initial <error_mark 0x7fb2a1b53bd0>>
+    arg 0 <var_decl 0x7fc583386b40 cleanup_chain type <pointer_type 0x7fc58211a9d8>
+        addressable static unsigned DI file ./benchmarks/binutils/double_free_4/../include/common.h line 49 col 24 size <integer_cst 0x7fc5825f0be8 64> unit size <integer_cst 0x7fc5825f0c00 8>
+        align 64 context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c> initial <error_mark 0x7fc5825f0bd0>>
     ./benchmarks/binutils/double_free_4/../include/common.h:151:10 start: ./benchmarks/binutils/double_free_4/../include/common.h:151:10 finish: ./benchmarks/binutils/double_free_4/../include/common.h:151:10>
 
  ================== trace ptable================== 
@@ -8403,22 +8403,22 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <ssa_name 0x7fb2a1b5b798
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f8798
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_13 = absolute_name_76;
     version 13
-    ptr-info 0x7fb2a16b4090>
+    ptr-info 0x7fc582151090>
 name_13 = absolute_name_76;
 
  ================== trace ptable================== 
@@ -8517,22 +8517,22 @@ error ("can\'t open to read symbols", name_13);
 this stmt is child function---error-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b798
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f8798
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_13 = absolute_name_76;
     version 13
-    ptr-info 0x7fb2a16b4090>
+    ptr-info 0x7fc582151090>
 trace fucntion name:error 
 [40;44m =======trace_function_path error  function_call count: 1 level :0========  [0m
 [40;36m ======= node_fun:error========= [0m
@@ -8631,22 +8631,22 @@ _30 = make_my_cleanup2 (&cleanup_chain, free, name_13, 0B);
 this stmt is child function---make_my_cleanup2-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b798
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f8798
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_13 = absolute_name_76;
     version 13
-    ptr-info 0x7fb2a16b4090>
+    ptr-info 0x7fc582151090>
 trace fucntion name:make_my_cleanup2 
 [40;44m =======trace_function_path make_my_cleanup2  function_call count: 2 level :0========  [0m
 [40;36m ======= node_fun:make_my_cleanup2========= [0m
@@ -8977,22 +8977,22 @@ sym_bfd_14 = gdb_bfd_open (name_13);
 this stmt is child function---gdb_bfd_open-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b798
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f8798
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_13 = absolute_name_76;
     version 13
-    ptr-info 0x7fb2a16b4090>
+    ptr-info 0x7fc582151090>
 trace fucntion name:gdb_bfd_open 
 [40;44m =======trace_function_path gdb_bfd_open  function_call count: 3 level :0========  [0m
 [40;36m ======= node_fun:gdb_bfd_open========= [0m
@@ -9509,22 +9509,22 @@ _28 = make_my_cleanup2 (&cleanup_chain, free, name_13, 0B);
 this stmt is child function---make_my_cleanup2-----
 
  ================== trace ================== 
- <ssa_name 0x7fb2a1b5b798
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f8798
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_13 = absolute_name_76;
     version 13
-    ptr-info 0x7fb2a16b4090>
+    ptr-info 0x7fc582151090>
 trace fucntion name:make_my_cleanup2 
 [40;44m =======trace_function_path make_my_cleanup2  function_call count: 2 level :0========  [0m
 [40;36m ======= node_fun:make_my_cleanup2========= [0m
@@ -9775,22 +9775,22 @@ lto1: warning: use location
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7fb2a1b5b798
-    type <pointer_type 0x7fb2a167ddc8
-        type <integer_type 0x7fb2a167dd20 char public string-flag QI
-            size <integer_cst 0x7fb2a1b53cd8 constant 8>
-            unit size <integer_cst 0x7fb2a1b53cf0 constant 1>
-            align 8 symtab 0 alias set -1 canonical type 0x7fb2a1b673f0 precision 8 min <integer_cst 0x7fb2a1680198 -128> max <integer_cst 0x7fb2a1680180 127>
-            pointer_to_this <pointer_type 0x7fb2a167ddc8>>
+ <ssa_name 0x7fc5825f8798
+    type <pointer_type 0x7fc58211adc8
+        type <integer_type 0x7fc58211ad20 char public string-flag QI
+            size <integer_cst 0x7fc5825f0cd8 constant 8>
+            unit size <integer_cst 0x7fc5825f0cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc5826043f0 precision 8 min <integer_cst 0x7fc58211d198 -128> max <integer_cst 0x7fc58211d180 127>
+            pointer_to_this <pointer_type 0x7fc58211adc8>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
-        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
-        pointer_to_this <pointer_type 0x7fb2a167d498>>
-    var <var_decl 0x7fb2a16a2000 name>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c>
+        pointer_to_this <pointer_type 0x7fc58211a498>>
+    var <var_decl 0x7fc58213f000 name>
     def_stmt name_13 = absolute_name_76;
     version 13
-    ptr-info 0x7fb2a16b4090>
+    ptr-info 0x7fc582151090>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_75 = VDEF <.MEM_43>
 free (ptr_31);
@@ -9828,20 +9828,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fb2a16a0e60
-    type <pointer_type 0x7fb2a167dbd0
-        type <pointer_type 0x7fb2a167d9d8 type <record_type 0x7fb2a167da80 cleanup>
+ <addr_expr 0x7fc58213de60
+    type <pointer_type 0x7fc58211abd0
+        type <pointer_type 0x7fc58211a9d8 type <record_type 0x7fc58211aa80 cleanup>
             public unsigned DI
-            size <integer_cst 0x7fb2a1b53be8 constant 64>
-            unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+            size <integer_cst 0x7fc5825f0be8 constant 64>
+            unit size <integer_cst 0x7fc5825f0c00 constant 8>
             align 64 symtab 0 alias set -1 structural equality
-            pointer_to_this <pointer_type 0x7fb2a167dbd0>>
-        public unsigned DI size <integer_cst 0x7fb2a1b53be8 64> unit size <integer_cst 0x7fb2a1b53c00 8>
+            pointer_to_this <pointer_type 0x7fc58211abd0>>
+        public unsigned DI size <integer_cst 0x7fc5825f0be8 64> unit size <integer_cst 0x7fc5825f0c00 8>
         align 64 symtab 0 alias set -1 structural equality>
     constant
-    arg 0 <var_decl 0x7fb2a28e8b40 cleanup_chain type <pointer_type 0x7fb2a167d9d8>
-        addressable static unsigned DI file ./benchmarks/binutils/double_free_4/../include/common.h line 49 col 24 size <integer_cst 0x7fb2a1b53be8 64> unit size <integer_cst 0x7fb2a1b53c00 8>
-        align 64 context <translation_unit_decl 0x7fb2a1b5e168 ./benchmarks/binutils/double_free_4/binutils_df_4.c> initial <error_mark 0x7fb2a1b53bd0>>
+    arg 0 <var_decl 0x7fc583386b40 cleanup_chain type <pointer_type 0x7fc58211a9d8>
+        addressable static unsigned DI file ./benchmarks/binutils/double_free_4/../include/common.h line 49 col 24 size <integer_cst 0x7fc5825f0be8 64> unit size <integer_cst 0x7fc5825f0c00 8>
+        align 64 context <translation_unit_decl 0x7fc5825fb168 ./benchmarks/binutils/double_free_4/binutils_df_4.c> initial <error_mark 0x7fc5825f0bd0>>
     ./benchmarks/binutils/double_free_4/../include/common.h:151:10 start: ./benchmarks/binutils/double_free_4/../include/common.h:151:10 finish: ./benchmarks/binutils/double_free_4/../include/common.h:151:10>
 
  ================== trace ptable================== 
@@ -9864,20 +9864,20 @@ this other function -----------
 dot graph START
 
 ======================================================================
- <addr_expr 0x7fb2a16a06a0
-    type <pointer_type 0x7fb2a16887e0
-        type <array_type 0x7fb2a1688738 type <integer_type 0x7fb2a167dd20 char>
+ <addr_expr 0x7fc58213d6a0
+    type <pointer_type 0x7fc5821257e0
+        type <array_type 0x7fc582125738 type <integer_type 0x7fc58211ad20 char>
             BLK
-            size <integer_cst 0x7fb2a16802d0 constant 216>
-            unit size <integer_cst 0x7fb2a16802b8 constant 27>
-            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fb2a1688690>
-            pointer_to_this <pointer_type 0x7fb2a16887e0>>
+            size <integer_cst 0x7fc58211d2d0 constant 216>
+            unit size <integer_cst 0x7fc58211d2b8 constant 27>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fc582125690>
+            pointer_to_this <pointer_type 0x7fc5821257e0>>
         unsigned DI
-        size <integer_cst 0x7fb2a1b53be8 constant 64>
-        unit size <integer_cst 0x7fb2a1b53c00 constant 8>
+        size <integer_cst 0x7fc5825f0be8 constant 64>
+        unit size <integer_cst 0x7fc5825f0c00 constant 8>
         align 64 symtab 0 alias set -1 structural equality>
     readonly constant
-    arg 0 <string_cst 0x7fb2a1b52900 type <array_type 0x7fb2a1688738>
+    arg 0 <string_cst 0x7fc5825ef900 type <array_type 0x7fc582125738>
         readonly constant static "can't open to read symbols\000">
     ./benchmarks/binutils/double_free_4/binutils_df_4.c:85:11 start: ./benchmarks/binutils/double_free_4/binutils_df_4.c:85:11 finish: ./benchmarks/binutils/double_free_4/binutils_df_4.c:85:11>
 
@@ -10130,7 +10130,7 @@ return 0;
            ~~~~~~~
 [40;34m    find Entry point : 8 [0m
 [40;34m    used_stmt array stack totalsize of : 2032 [0m
-[40;34m    collect time: : 0.000148 s [0m
-[40;34m    algorithm time: 0.044116 s [0m
+[40;34m    collect time: : 0.000623 s [0m
+[40;34m    algorithm time: 0.046347 s [0m
 [40;34m    gimple stmt count : : 82 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

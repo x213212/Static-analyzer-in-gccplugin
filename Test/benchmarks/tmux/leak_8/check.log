@@ -1,4 +1,2 @@
-./benchmarks/tmux/leak_8/tmux_leak_8.c:7:10: fatal error: sys/sysctl.h: No such file or directory
- #include <sys/sysctl.h>
-          ^~~~~~~~~~~~~~
-compilation terminated.
+cc1: error: cannot load plugin ../Compiler/misra.so
+   ../Compiler/misra.so: undefined symbol: _Z18new_search_imm_useP12gimple_arrayP9tree_nodeS2_
