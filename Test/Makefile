@@ -163,7 +163,7 @@ FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fno-tree-dce  -fipa-pta  -pthread  --par
 #  -I/root/x21321219/mysql8.0/mysql-8.0.23/extra/icu/source/i18n/../common -I/root/x21321219/mysql8.0/mysql-8.0.23/extra/icu/source/i18n 
 #FLAGS=-O1    -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -fdump-tree-all -pthread -fno-diagnostics-color 
 #FLAGS=-O1    -fno-tree-dse  -fno-tree-fre -fno-tree-dce   -nostartfiles -g  -fdump-tree-all -fno-dce -fno-dse -fno-tree-dce    -fno-tree-builtin-call-dce -fipa-pta -pthread -fno-strict-aliasing
-PLUGIN=-fplugin=../Compiler/misra.so 
+PLUGIN=-fplugin=../Compiler/newplugin.so 
 all: test.o
 
 test.o:  

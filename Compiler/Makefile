@@ -21,7 +21,7 @@ X=-I${GMPDIR}/include/ -I${GCCSRCDIR}/include
 #-fopenmp
 #LDFLAGS+= -shared  -fopenmp -flto  -Wl,--print-memory-usage
 LDFLAGS+= -shared  -flto 
-all: misra.so
+all: newplugin.so
 
 %.o: %.cpp
 	$(GCC) $(CFLAGS) -c $^ -o $@
@@ -29,8 +29,8 @@ all: misra.so
 %.o: %.c
 	$(GCC) $(CFLAGS) -c $^ -o $@
 
-misra.so: gcc_plugin.o $(RWCALLSBIN) 
+newplugin.so: gcc_plugin.o $(RWCALLSBIN) 
 	$(GCC)  $(CFLAGS) $(LDFLAGS) $^ -o $@
 
 clean:
-	-rm misra.so misra.o
+	-rm newplugin.so newplugin.o

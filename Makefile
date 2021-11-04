@@ -4,14 +4,11 @@ CC=gcc-7
 CFLAGS=-g 
 
 
-
-
 COMPLILER_FILES=Compiler/Makefile
 
-PARTIALS=$(patsubst %Makefile,%misra,$(COMPLILER_FILES))
+PARTIALS=$(patsubst %Makefile,%newplugin,$(COMPLILER_FILES))
 
 TEST_FILES=./Test/test.o
-
 
 
 $(TEST_FILES) : $(PARTIALS)  

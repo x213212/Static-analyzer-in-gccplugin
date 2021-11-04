@@ -1,2 +1,0 @@
-cc1: error: cannot load plugin ../Compiler/misra.so
-   ../Compiler/misra.so: undefined symbol: _Z18new_search_imm_useP12gimple_arrayP9tree_nodeS2_

@@ -1,14 +1,14 @@
+#include <iostream>
+#include <list>
+using namespace std;
 #include "system.h"
 #include "config.h"
-#include "DFS.h"
-#include <list>
 #include "cfgloop.h"
 #include <vector>
 #include <time.h>
 #include <sys/time.h>
 #include <sys/resource.h>
 #include <fstream>
-#include <iostream>
 #include <stack>
 #include <string.h>
 #include <math.h>
@@ -28,7 +28,7 @@
 #include "new_imm_use.h"
 #include "check.h"
 #include "analyze.h"
-using namespace std;
+
 
 // static int totalsize; //宣告一個整數型態size變數，用來儲存x的位元組大小
 // static int levelsize = 0;
