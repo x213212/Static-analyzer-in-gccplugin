@@ -5,16 +5,12 @@ int check_stmtStack(tree target)
 
 		if (new_gimpletree_array[o] == target)
 		{
-			// find = 1;
-			// fprintf(stderr, "\033[40;41m =======recursive_stmt========= \033[0m\n");
-			// debug_tree(stmtStack.c[o]);
-			// fprintf(stderr, "\033[40;41m =======recursive_fun:%s========= \033[0m\n", get_name(stmtStack.c[o]));
-			// pathStack.push((function_path_array)[i].next);
+
 			return 1;
 		}
 	}
-	int size = sizeof(tree);
 	// fprintf(stderr, "stmt sisze%d\n",size);
+	int size = sizeof(tree);
 	totalsize += size;
 	new_gimpletree_array.push_back(target);
 	return 0;
@@ -27,11 +23,7 @@ int check_stmtStack2(gimple *stmt)
 
 		if (new_gimple_array[o] == stmt)
 		{
-			// find = 1;
-			// fprintf(stderr, "\033[40;41m =======recursive_stmt========= \033[0m\n");
-			// debug_tree(stmtStack.c[o]);
-			// fprintf(stderr, "\033[40;41m =======recursive_fun:%s========= \033[0m\n", get_name(stmtStack.c[o]));
-			// pathStack.push((function_path_array)[i].next);
+
 			return 1;
 		}
 	}
@@ -48,17 +40,13 @@ int check_stmtStack3(gimple *stmt)
 
 		if (new_gimple_array[o] == stmt)
 		{
-			// find = 1;
-			// fprintf(stderr, "\033[40;41m =======recursive_stmt========= \033[0m\n");
-			// debug_tree(stmtStack.c[o]);
-			// fprintf(stderr, "\033[40;41m =======recursive_fun:%s========= \033[0m\n", get_name(stmtStack.c[o]));
-			// pathStack.push((function_path_array)[i].next);
+
 			return 1;
 		}
 	}
 	int size = sizeof(stmt);
 	totalsize += size;
-	// new_gimple_array.push_back(stmt);
+
 	return 0;
 }
 int check_stmtStack4(tree target)
@@ -68,17 +56,13 @@ int check_stmtStack4(tree target)
 
 		if (new_gimpletree_array[o] == target)
 		{
-			// find = 1;
-			// fprintf(stderr, "\033[40;41m =======recursive_stmt========= \033[0m\n");
-			// debug_tree(stmtStack.c[o]);
-			// fprintf(stderr, "\033[40;41m =======recursive_fun:%s========= \033[0m\n", get_name(stmtStack.c[o]));
-			// pathStack.push((function_path_array)[i].next);
+
 			return 1;
 		}
 	}
 	int size = sizeof(tree);
 	totalsize += size;
-	// new_gimpletree_array.push_back(target);
+
 	return 0;
 }
 // void Checknew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree target, tree target2) __attribute__((noinline));
@@ -136,9 +120,6 @@ void Checknew_search_imm_use_rhs(gimple_array *used_stmt, gimple *use_stmt, tree
 tree gettree;
 tree prechecktree(tree tree)
 {
-	// tree pretree = tree;
-	// tree gettree;
-	// debug_tree(tree);
 	if (tree)
 		if (TREE_CODE(tree) == ADDR_EXPR)
 		{

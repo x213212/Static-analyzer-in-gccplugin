@@ -23,7 +23,7 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 	}
 	else
 	{
-		// fprintf(stderr, "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n");
+		// fprintf(stderr, "\n======================================================================\n");
 		// debug_tree(t);
 		bool same = false;
 		// ptb *tmp =table;
@@ -33,19 +33,15 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 			// if (table->stmt == used_stmt && LOCATION_LINE(gimple_location(table->stmt)) == LOCATION_LINE(gimple_location(used_stmt)))
 			{
 				same = true;
-				// fprintf(stderr, "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n");
+				// fprintf(stderr, "\n======================================================================\n");
 				
 			}
-		
 				table = table->next;
 		}
-		// if( table->next == NULL){
-		// 		fprintf(stderr, "22222wwwwwwwwww\n");
-		// // table = table->next;
-		// }
+	
 		if (!same)
 		{
-			// fprintf(stderr, "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n");
+		// fprintf(stderr, "\n======================================================================\n");
 			// debug_tree(t);
 			table->next = new ptb();
 			table = table->next;
@@ -75,18 +71,7 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 void set_gimple_array(gimple_array *table, gimple *used_stmt, tree fucntion, tree target, gimple *ret_stmt)
 {
 	// fprintf(stderr, "set_gimple_array----------------\n");
-	// 	gimple_array *user_tmp ;
-	// 	user_tmp = tvpt2->get(a);
-	// 	if(user_tmp != NULL)
-	// 	return ;
-	// bool find = false;
-	// gimple *u_stmt;
-	// gimple_array table_tmp = table;
-	// FOR_EACH_USE_TABLE(table_tmp, u_stmt) 			{
-	// 	if(table_tmp->aptr == a)
-	// 		fprintf(stderr , "222222222222222\n");
-	// }
-	// debug_tree(a);
+
 
 	if (table->stmt == NULL)
 	{
@@ -107,7 +92,6 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree fucntion, tre
 			//  debug(table->stmt);
 			//  debug(used_stmt);
 			if (table->stmt == used_stmt)
-			// if (table->stmt == used_stmt && LOCATION_LINE(gimple_location(table->stmt)) == LOCATION_LINE(gimple_location(used_stmt)))
 			{
 
 				same = true;

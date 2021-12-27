@@ -47,21 +47,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 	}
 	fprintf(stderr, "\033[40;42m =======start_check_funciton:%s========= \033[0m\n", get_name(function_tree));
 
-	// //walk return table input fucntion_tree
-	// if (function_return_collect->get(function_tree) != NULL)
-	// {
-	// 	function_return_array callerFunArray = *(function_return_collect->get(function_tree));
-
-	// 	vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
-	// 	for (int k = 0; k < callerRetTypearray.size(); k++)
-	// 	{
-	// 		debug_tree((callerRetTypearray)[k].return_tree);
-	// 		debug_gimple_stmt((callerRetTypearray)[k].stmt);
-	// 		warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-	// 		check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
-	// 	}
-	// }
-
 	FOR_EACH_TABLE(table_temp, t)
 	{
 		int find_Looserulesfreestmt = 0;
@@ -95,12 +80,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// debug_tree(function_tree);
 				// debug_tree(table_temp->target);
 
-				// ready add dot graph
+			
 				fprintf(stderr, "\ndot graph START\n");
-				// fprintf(stderr, "dot graph entry %s\n", (char *)get_name(function_tree));
-				// fprintf(stderr, "dot graph target entry end\n\n");
-				// ready add dot graph
-
+			
 				fprintf(stderr, "\n======================================================================\n");
 				// vector<relate_type> relate_type_array;
 				// function_relate_array fun_array;
@@ -114,10 +96,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// 	fun_array = *(function_relate_collect->get(mallocStmt_tree));
 				// 	relate_type_array = fun_array.relate_type_array;
 				// }
-
 				// debug_tree(function_tree);
-				const char *name = "";
-				const char *name2 = "";
 				// fprintf(stderr ,"dot graph target %s\n", (char *)get_name(table_temp->target));
 				//  //ready add dot graph
 				//  fprintf(stderr, "dot graph target loc start ");
@@ -133,6 +112,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "addr_expr"))
 				// 	continue;
 				// debug_tree(table_temp->target);
+				const char *name = "";
+				const char *name2 = "";
 
 				if (TREE_CODE(table_temp->target) == INTEGER_CST || TREE_CODE(table_temp->target) == STRING_CST)
 				{
@@ -140,7 +121,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					debug_tree(table_temp->target);
 					continue;
 				}
-				// continue;
 				// debug_tree(table_temp->target);
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
 				// debug_tree(table_temp->target);
@@ -171,9 +151,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							{
 								const char *name;
 								name = get_name(table_temp->target);
-								fprintf(stderr, "trace fucntion name:%s \n", name);
 								// debug_tree(gimple_call_fndecl(u_stmt));
-								trace_function_path(table_temp->target, -100, table_temp->target, &find_retheapstmt);
+								fprintf(stderr, "trace fucntion name:%s \n", name);
+								trace_function_path(table_temp->target, RET_HEAP_OBJECT, table_temp->target, &find_retheapstmt);
 								if (find_retheapstmt > 0)
 									fprintf(stderr, "some fucntion return value is heap-object and with Collection SSA_NAME alias relation\n");
 							}
@@ -187,7 +167,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										fprintf(stderr, "trace fucntion name:%s \n", name);
 
 										// debug_tree(gimple_call_fndecl(u_stmt));
-										trace_function_path(gimple_call_fndecl(def_stmt), -100, table_temp->target, &find_retheapstmt);
+										trace_function_path(gimple_call_fndecl(def_stmt), RET_HEAP_OBJECT, table_temp->target, &find_retheapstmt);
 										if (find_retheapstmt > 0)
 											fprintf(stderr, "some fucntion return value is heap-object and with Collection SSA_NAME alias relation\n");
 
@@ -203,17 +183,17 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				fprintf(stderr, "\n ================== trace ptable ================== \n");
 				// if (gimple_code(def_stmt) == GIMPLE_NOP)
 				// 	continue;
-
 				// debug(def_stmt);
 				// if(def_stmt == NULL)
-				// fprintf(stderr, "\n====qwd==================================================================\n");
 				// debug(def_stmt);
 				// debug_tree(gimple_assign_rhs1(def_stmt));
-				// 	debug(def_stmt);
+				// debug(def_stmt);
 				fprintf(stderr, "GIMPLE CODE :addr_expr---%s-----\n", name);
 				// if(def_stmt != NULL)
 				// debug_tree(table_temp->target);
 				// warning_at(gimple_location_safe(def_stmt), 0, "use location");
+				
+				//filter fucntion name preprocess
 				if (name != NULL)
 
 					if (!strcmp(name, "realloc") ||
@@ -239,12 +219,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						// if(find_retheapstmt <0)
 						// 	continue;
 					}
-			
 
 				// fprintf(stderr, "\n======================================================================\n");
 				user_tmp = treeGimpleArray->get(table_temp->target);
 				// debug_tree(table_temp->target);
-				// fprintf(stderr, "\n====================================ffff=================================\n");
+				// fprintf(stderr, "\n======================================================================\n");
 				vector<basic_block> earlyend;
 				start.stmt = NULL;
 				used_stmt = &start;
@@ -278,21 +257,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						{
 
 							// walk return table input fucntion_tree
-							// if (function_return_collect->get(function_tree) != NULL)
-							// {
-							// 	function_return_array callerFunArray = *(function_return_collect->get(function_tree));
-
-							// 	vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
-							// for (int k = 0; k < callerRetTypearray.size(); k++)
-							// 					((callerRetTypearray)[k].stmt),
 							push_cfun(table_temp->node->get_fun());
 							calculate_dominance_info(CDI_DOMINATORS);
 							for (int k = 0; k < global_ret_type_array.size(); k++)
 							{
-								
-								// fprintf(stderr ,"\nggggggggggggg %d\n" , gimple_bb((global_ret_type_array)[k].stmt)->index);
+
+								// fprintf(stderr ,"\global_ret_type_array index %d\n" , gimple_bb((global_ret_type_array)[k].stmt)->index);
 								// fprintf(stderr, "\ntest %d\n", global_ret_type_array.size());
-								// 	warning_at(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
+								// warning_at(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
 								// debug_gimple_stmt(u_stmt);
 								// debug_gimple_stmt((callerRetTypearray)[k].stmt);
 								// debug(findedge);
@@ -304,61 +276,41 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									edge_iterator ei;
 									FOR_EACH_EDGE(e, ei, bb->succs)
 									{
-
-										// DFS.addEdge(bb->index, e->dest->index);
-
-										// debug_tree(test);
-										// if(int(bb->succs->index) == int(findedge->dest->index)
 										name = "";
 
-										// fprintf(stderr ,"\ntest %d\n" , gimple_bb(u_stmt)->index);
 										if (!gimple_call_lhs((global_ret_type_array)[k].stmt))
 										{
 											if (gimple_call_fn((global_ret_type_array)[k].stmt))
 												name = get_name(gimple_call_fn((global_ret_type_array)[k].stmt));
 										}
 										// else
-										// 	name = "";
+										// name = "";
 										// debug_tree(gimple_call_lhs((callerRetTypearray)[k].stmt) );
 										// fprintf(stderr, "\033[40;31m    branch possiable hawwwwve return   \033[0m\n");
-
 										// if (gimple_code((callerRetTypearray)[k].stmt) == GIMPLE_RETURN)
-										// 	debug_gimple_stmt((callerRetTypearray)[k].stmt);
+										// debug_gimple_stmt((callerRetTypearray)[k].stmt);
 										// fprintf(stderr, "bb index:= %s\n", name);
 										if (name || gimple_code((global_ret_type_array)[k].stmt) == GIMPLE_RETURN)
 										{
 											int check = 0;
-											// if (!gimple_call_lhs(u_stmt))
-											// {
-											// 	// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-											// 	if (gimple_call_fn(u_stmt))
-											// 		name2 = get_name(gimple_call_fn(u_stmt));
-											// }
-
 											if (name)
 											{
 												if (!strcmp(name, "exit"))
 													check = 1;
-												// if (name2)
-												// {
-												// 	if (!strcmp(name2, "free") || !strcmp(name2, "xfree") || !strcmp(name2, "exit"))
-												// 		check = 0;
-												// }
 											}
 											if (gimple_code((global_ret_type_array)[k].stmt) == GIMPLE_RETURN)
 											{
-												// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+
 												check = 1;
 											}
-											// else if (gimple_code(u_stmt) == GIMPLE_RETURN)
-											// 	check = 0;
+
 											if (check == 1)
 											{
 												// debug_gimple_stmt((callerRetTypearray)[k].stmt);
 												if ((bb->index == gimple_bb(u_stmt)->index || e->dest->index == gimple_bb(u_stmt)->index))
 												// if ( ( bb->index == gimple_bb(table_temp->last_stmt)->index || e->dest->index == gimple_bb(table_temp->last_stmt)->index))
 												{
-													// 		debug_gimple_stmt(u_stmt);
+													// debug_gimple_stmt(u_stmt);
 													// debug_gimple_stmt((callerRetTypearray)[k].stmt);
 													// fprintf(stderr, "\nnow %d\n", bb->index);
 													// fprintf(stderr, "\ntest %d\n", gimple_bb(u_stmt)->index);
@@ -372,81 +324,42 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													FOR_EACH_EDGE(e2, ei2, bb->succs)
 													{
 														// fprintf(stderr, "bb index:= %d\n", bb->index);
-
 														// if( e->dest->index != e2->dest->index ){
-
-														// 	fprintf(stderr, " succs2:= %d\n", bb->index);
+														// fprintf(stderr, " succs2:= %d\n", bb->index);
 														// fprintf(stderr, " succs3:= %d\n", gimple_bb((callerRetTypearray)[k].stmt)->index);
 														// fprintf(stderr, " succs4:= %d\n", e2->dest->index);
-														// }
-														// edge findedge = find_edge( e2->dest ,gimple_bb((callerRetTypearray)[k].stmt));
-														// debug(findedge);
-														// if(findedge)
-														// if(gimple_block (tmp))
-														// fprintf(stderr, "\nnow %d\n", gimple_bb(tmp)->index);
-														// fprintf(stderr, "\nnow %d\n", gimple_bb(tmp)->index);
-														// debug_tree(gimple_block (tmp));
-														// if(e2->dest)
-														if((e->dest->index  !=  e2->dest->index) )
-														// debug_gimple_stmt((global_ret_type_array)[k].stmt);
 
-														//   unsigned int dir_index = dom_convert_dir_to_idx (CDI_DOMINATORS);
+														if ((e->dest->index != e2->dest->index))
+															if (dominated_by_p(CDI_DOMINATORS, gimple_bb(tmp), e2->dest))
 
-														// fprintf(stderr, "\nnow %d\n", gimple_bb(tmp)->index);
-														if (dominated_by_p(CDI_DOMINATORS, gimple_bb(tmp), e2->dest))
-														// if (gimple_bb(u_stmt)->index == e2->dest->index)
-														{
+															{
 
-															// {
-															// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-															fprintf(stderr, "\n======================================================================\n");
-															// fprintf(stderr, "	no free stmt possible memory leak\n");
-															fprintf(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
-															// if (init_check_table_stmt == 0)
-															// 	if (table_temp->last_stmt)
-															// 	{
-															// 		debug_gimple_stmt(table_temp->last_stmt);
-															// 		init_check_table_stmt = 1;
-															// 	}
-															debug_gimple_stmt(u_stmt);
-															fprintf(stderr, "bb index := %d\n", gimple_bb(u_stmt)->index);
-															debug_gimple_stmt(tmp);
-															warning_at(gimple_location_safe(tmp), 0, "use location");
-															fprintf(stderr, "beacuse in succ := %d have return or exit\n", gimple_bb(tmp)->index);
-															debug_gimple_stmt((global_ret_type_array)[k].stmt);
+																// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+																fprintf(stderr, "\n======================================================================\n");
+																// fprintf(stderr, "	no free stmt possible memory leak\n");
+																fprintf(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
+
+																debug_gimple_stmt(u_stmt);
+																fprintf(stderr, "bb index := %d\n", gimple_bb(u_stmt)->index);
+																debug_gimple_stmt(tmp);
+																warning_at(gimple_location_safe(tmp), 0, "use location");
+																fprintf(stderr, "beacuse in succ := %d have return or exit\n", gimple_bb(tmp)->index);
+																debug_gimple_stmt((global_ret_type_array)[k].stmt);
 																warning_at(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
-															fprintf(stderr, "gimple stmt in succ := %d ,possiable got to succ := %d\n", gimple_bb(u_stmt)->index, gimple_bb(tmp)->index);
-															// debug_tree((callerRetTypearray)[k].return_tree);
-															// debug_gimple_stmt(u_stmt);
-															// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-															// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-															// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
-															fprintf(stderr, "\n======================================================================\n");
-															// }
-															// goto nextgimple;
-														}
+																fprintf(stderr, "gimple stmt in succ := %d ,possiable got to succ := %d\n", gimple_bb(u_stmt)->index, gimple_bb(tmp)->index);
+																// debug_tree((callerRetTypearray)[k].return_tree);
+																// debug_gimple_stmt(u_stmt);
+																// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+																// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+																//check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
+																fprintf(stderr, "\n======================================================================\n");
+															}
 													}
 												}
 											}
 										}
-										// }
 									}
 								}
-								// nextgimple:;
-								// if (dominated_by_p(CDI_DOMINATORS, gimple_bb((callerRetTypearray)[k].stmt), gimple_bb(u_stmt)))
-								// {
-								// 	// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-									// fprintf(stderr, "\n======================================================================\n");
-								// 	// fprintf(stderr, "	no free stmt possible memory leak\n");
-								// 	fprintf(stderr, "\033[40;31m    branch possiable have return  \033[0m\n");
-
-								// 	// debug_tree((callerRetTypearray)[k].return_tree);
-								// 	// debug_gimple_stmt(u_stmt);
-								// 	// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-								// 	// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-								// 	// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
-								// 	fprintf(stderr, "\n======================================================================\n");
-								// }
 							}
 							pop_cfun();
 
@@ -461,7 +374,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								// fprintf(stderr, "=======is loop:%d=========\n", bb_in_loop_p(gimple_bb(def_stmt)));
 							}
 
-							// fprintf(stderr, "\n============test==========================================================\n");
+							// fprintf(stderr, "\n======================================================================\n");
 							// debug_gimple_stmt(u_stmt);
 							// check_bbinfo2(gimple_bb(u_stmt));
 							// fprintf(stderr, "\n======================================================================\n");
@@ -471,14 +384,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									if (gimple_call_lhs(table_temp->last_stmt) == NULL)
 										if (gimple_call_lhs(u_stmt) == NULL)
 										{
-											// fprintf(stderr, "\n測試\n");
+
 											// debug_tree(gimple_call_fn(table_temp->last_stmt));
 											// debug_tree(gimple_call_fn(u_stmt));
 											if (gimple_call_fn(table_temp->last_stmt) == gimple_call_fn(u_stmt))
 											{
 												if (u_stmt == table_temp->last_stmt)
 												{
-													// fprintf(stderr, "\n測試2\n");
+
 													debug_gimple_stmt(u_stmt);
 												}
 											}
@@ -543,16 +456,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										fprintf(stderr, "dot graph target basicblock start ");
 										fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(user_tmp->ret_stmt)->index);
 										fprintf(stderr, "dot graph target basicblock end\n\n");
-										// if(gimple_block (u_stmt))
-										// debug_tree(BLOCK_SUPERCONTEXT (gimple_block (u_stmt)));
-										// lastbasicblock = gimple_bb(user_tmp->ret_stmt)->index;
-										// lastfucntion = function_tree;
-										// laststmt = user_tmp->ret_stmt;
+
 										if (gimple_block(user_tmp->ret_stmt))
 											if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(user_tmp->ret_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(user_tmp->ret_stmt))))
 											{
-												// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-												// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
+
 												fprintf(stderr, "dot graph target basicblock star1 ");
 												fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(user_tmp->ret_stmt))), gimple_bb(user_tmp->ret_stmt)->index);
 												fprintf(stderr, "dot graph target basicblock end\n\n");
@@ -571,15 +479,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							}
 							else
 							{
-								// fprintf(stderr, "\n========================================================================\n");
-								// check_bbinfo2(gimple_bb(u_stmt));
-								// fprintf(stderr, "\n========================================================================\n");
-								// debug_gimple_stmt(u_stmt);
-
-								// check_bbinfo2(gimple_bb(u_stmt));
-								// fprintf(stderr, "\n=======index %d=========\n", gimple_bb(u_stmt)->index);
-								// warning_at(gimple_location_safe(u_stmt), 0, "use location");
-								// fprintf(stderr, "\n======================================================================\n");
 
 								gimple *finalstmt;
 								if (user_tmp->target != NULL)
@@ -618,22 +517,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(u_stmt)->index);
 										fprintf(stderr, "dot graph target basicblock en1\n\n");
 
-										// lastbasicblock = gimple_bb(user_tmp->ret_stmt)->index;
-										// lastfucntion = function_tree;
-										// laststmt = u_stmt;
 										struct relate_type relate_type;
-										// vector<relate_type>::iterator it_i;
-										// for (it_i = fun_array2.relate_type_array.begin(); it_i != fun_array2.relate_type_array.end(); ++it_i)
-										// {
-										// 	fprintf(stderr, "\n===================================wwwwwwwwwwwww==========================\n");
-										// 	if(it_i->relate_funtree == function_tree)
-										// 	// if (it_i->stmt == callee->decl)
-										// 	// 	find = 1;
-										// }
-										// if ((gimple_bb(u_stmt)->index > fun_array2.relate_type_array.now_basicblock) && function_tree == fun_array2.relate_type_array.relate_funtree)
-										// {
+
 										relate_type.relate_funtree = function_tree;
-										// }
+
 										if (gimple_block(u_stmt))
 											if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(u_stmt))))
 											{
@@ -641,31 +528,15 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												fprintf(stderr, "dot graph target basicblock star1 ");
 												fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))), gimple_bb(u_stmt)->index);
 												fprintf(stderr, "dot graph target basicblock end\n\n");
-												// if ((gimple_bb(u_stmt)->index > fun_array2.relate_type_array.now_basicblock) && BLOCK_SUPERCONTEXT(gimple_block(u_stmt)) == fun_array2.relate_type_array.relate_funtree)
-												// {
-												// fprintf(stderr, "\n===================================wwwwwwwwwwwww=================%d===\n", gimple_bb(u_stmt)->index);
-												// debug_gimple_stmt(u_stmt);
+
 												relate_type.relate_funtree = BLOCK_SUPERCONTEXT(gimple_block(u_stmt));
-												// }
-												// relate_type.relate_funtree = BLOCK_SUPERCONTEXT(gimple_block(u_stmt));
 											}
 											else
 											{
-												// fprintf(stderr, "\n==================================zzzzzzzzz================%d===\n", gimple_bb(u_stmt)->index);
-												// debug_gimple_stmt(u_stmt);
-												// // debug_tree( BLOCK_SUPERCONTEXT(gimple_block(u_stmt)));
-												// tree TEST = BLOCK_SUPERCONTEXT(gimple_block(u_stmt));
 
-												// while(TREE_CODE(TEST)!=FUNCTION_DECL){
-												// 	TEST = BLOCK_SUPERCONTEXT(TEST);
-												// }
-												// debug_tree( TEST);
-												// debug_tree(function_tree);
 												relate_type.relate_funtree = function_tree;
 											}
-										// if (gimple_bb(u_stmt)->index  > fun_array2.relate_type_array.now_basicblock && ())
-										// {
-										// relate_type.relate_funtree = BLOCK_SUPERCONTEXT(gimple_block(u_stmt));
+
 										relate_type.laststmt = table_temp->last_stmt;
 										relate_type.stmt = u_stmt;
 										relate_type.relate_tree = user_tmp->target;
@@ -673,82 +544,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										relate_type.now_basicblock = gimple_bb(u_stmt)->index;
 										maxbb_array.relate_type_array.push_back(relate_type);
 										function_maxbb_collect->put(table_temp->target, maxbb_array);
-										// int find = 0;
-										// for (int i = 0; i < relate_type_array2.size(); i++)
-										// {
-										// 	// debug_tree((relate_type_array2)[i].relate_funtree );
-										// 	if ((relate_type_array2)[i].relate_funtree == relate_type.relate_funtree)
-										// 	{
-										// 		if (relate_type.now_basicblock >= (relate_type_array2)[i].now_basicblock)
-										// 		{
-										// 			lastbasicblock = relate_type.now_basicblock;
-										// 			fprintf(stderr, "\n==================================asaa=wwwwwwwwwwwww========================%d===\n", relate_type.now_basicblock);
-										// 			(relate_type_array2)[i].stmt = relate_type.stmt;
-										// 			(relate_type_array2)[i].relate_tree = relate_type.relate_tree;
-										// 			(relate_type_array2)[i].now_basicblock = relate_type.now_basicblock;
-										// 			(relate_type_array2)[i].relate_funtree = relate_type.relate_funtree;
-										// 			(relate_type_array2)[i].laststmt = relate_type.laststmt;
-										// 			find = 1;
-										// 		}
-										// 	}
-										// }
-										// if (find == 0)
-										// {
-										// fprintf(stderr, "\n================================xxxx===================\n");
-										// if (gimple_bb(u_stmt)->index >= lastbasicblock)
-										// {
-										// debug_tree(relate_type.relate_funtree);
-										// debug(relate_type.stmt);
-										// lastbasicblock = gimple_bb(u_stmt)->index;
 
-										// }
-										// }
-										// for (it_i = fun_array2.relate_type_array.begin(); it_i != fun_array2.relate_type_array.end(); ++it_i)
-										// {
-										// 	fprintf(stderr, "\n===================================wwwwwwwwwwwww==========================\n");
-										// 	if (it_i->relate_funtree == relate_type.relate_funtree)
-										// 	{
-										// 		if (gimple_bb(u_stmt)->index > it_i->now_basicblock)
-										// 		{
-										// 			it_i->u_stmt = relate_type.stmt;
-										// 			it_i->relate_tree = user_tmp->target;
-										// 			it_i->now_basicblock =gimple_bb(u_stmt)->index ;
-										// 			it_i->relate_funtree = relate_type.relate_funtree ;
-										// 			find =1 ;
-										// 		}
-										// 	}
-										// 	// if (it_i->stmt == callee->decl)
-										// 	// 	find = 1;
-										// }
-										// if (find == 0)
-										// {
-										// 	fun_array2.relate_type_array.push_back(relate_type);
-										// 	function_relate_collect2->put(user_tmp->target, fun_array2);
-										// }
-										// }
 										if (gimple_code(u_stmt) == GIMPLE_CALL)
 										{
-											// if(is_gimple_call (u_stmt) &&!gimple_call_lhs (u_stmt)){
-											// 						fprintf(stderr, "dot graph stmt start ");
-											// 					debug(finalstmt);
-											// 					debug(table_temp->last_stmt);
-											// 					// warning_at(gimple_location_safe(table_temp->last_stmt), 0, "use location");
-											// 					fprintf(stderr, "dot graph stmt end\n\n");
-											// 					// fprintf(stderr, "---------ss3s---");
-											// 					}
 
-											// if (gimple_block(u_stmt))
-											// 	if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(u_stmt))))
-											// 	{
-											// 		// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-											// 		// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-											// 		fprintf(stderr, "dot graph target basicblock star1 ");
-											// 		fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))), gimple_bb(u_stmt)->index);
-											// 		fprintf(stderr, "dot graph target basicblock end\n\n");
-											// 		// debug(user_tmp->aptr);
-											// 	}
-											// if (is_gimple_call(u_stmt) && !gimple_call_lhs(u_stmt))
-											// {
 											if (debugmod)
 											{
 												fprintf(stderr, "dot graph stmt start ");
@@ -757,8 +556,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												// warning_at(gimple_location_safe(table_temp->last_stmt), 0, "use location");
 												fprintf(stderr, "dot graph stmt end\n\n");
 											}
-											// fprintf(stderr, "---------ss3s---");
-											// }
 
 											name = get_name(gimple_call_fn(u_stmt));
 											if (name != NULL)
@@ -799,22 +596,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										}
 										else
 										{
-											// if (gimple_block(u_stmt))
-											// 	if (TREE_CODE(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))) == FUNCTION_DECL && (function_tree != BLOCK_SUPERCONTEXT(gimple_block(u_stmt))))
-											// 	{
-											// fprintf(stderr, "測試222%d\n\n", LOCATION_LINE(loc));
-											// 		// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(loc));
-											// fprintf(stderr, "--------------------------------------");
-											// 		fprintf(stderr, "from %s basic block %d", (char *)get_name(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))), gimple_bb(u_stmt)->index);
-											// 		fprintf(stderr, "dot graph target basicblock end\n\n");
-											// 		// debug(user_tmp->aptr);
-											// 	}
+
 											if (debugmod)
 											{
 												fprintf(stderr, "dot graph stmt start ");
 												debug(u_stmt);
 												debug(table_temp->last_stmt);
-												// warning_at(gimple_location_safe(table_temp->last_stmt), 0, "use location");
+
 												fprintf(stderr, "dot graph stmt end\n\n");
 											}
 											fprintf(stderr, "dot graph stmt start ");
@@ -823,9 +611,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											fprintf(stderr, "dot graph stmt end\n\n");
 										}
 									}
-									// }
 								}
-								// debug(u_stmt);
+
 								if (user_tmp->target != NULL)
 								{
 
@@ -833,7 +620,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 									if (gimple_code(u_stmt) == GIMPLE_CALL)
 									{
-										// debug_gimple_stmt(u_stmt);
+
 										if (gimple_call_fndecl(u_stmt))
 										{
 											name = get_name(gimple_call_fndecl(u_stmt));
@@ -903,12 +690,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											}
 										}
 									}
-									// fprintf(stderr, "\n ================== function ================ \n");
-									// debug_tree(gimple_call_builtin_p (u_stmt));
-									// debug_tree(gimple_block (u_stmt));
-									// tree supercontext = BLOCK_SUPERCONTEXT (gimple_block (u_stmt));
-									// if(gimple_block (u_stmt))
-									// debug_tree(BLOCK_SUPERCONTEXT (gimple_block (u_stmt)));
+
 									if (gimple_cond_code(u_stmt))
 									{
 										if (!is_gimple_assign(u_stmt))
@@ -921,7 +703,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												// fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
 
 												//
-												// table_temp->node;
+
 												basic_block bb;
 												FOR_EACH_BB_FN(bb, table_temp->node->get_fun())
 												{
@@ -954,18 +736,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													}
 												}
 												fprintf(stderr, "\n ================== find cond branch ================= \n");
-												// if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
-												// {
-												// 	edge e;
-												// 	edge_iterator ei;
-												// 	fprintf(stderr, "node:= %d\n ", bb->index);
-												// 	FOR_EACH_EDGE(e, ei, bb->succs)
-												// 	{
-												// 		// DFS.addEdge(bb->index, e->dest->index);
-												// 		fprintf(stderr, "succs:= %d\n", e->dest->index);
-												// 	}
-												// }
-												// fprintf(stderr, "---------GIMPLE333333 Cond  -------\n");
 											}
 									}
 
@@ -1010,7 +780,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													debug(u_stmt);
 													warning_at(gimple_location_safe(u_stmt), 0, "use location");
 													fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED STMT  \033[0m\n");
-													//  callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
+													// callerFunArray.pthread_type_num== 0?"CREATE_JOINABLE" : "CREATE_DETACHED");
 													// debug_gimple_stmt(table_temp->last_stmt);
 													fprintf(stderr, "\n ================== pre_pthread_detched ================== \n");
 													if (gimple_call_num_args(table_temp->last_stmt) != 0)
@@ -1022,46 +792,29 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 															trace_function_path(TREE_OPERAND(gimple_call_arg(table_temp->last_stmt, 2), 0), -1, NULL_TREE, &find_pthread_detched);
 													}
 													fprintf(stderr, "\n ================== pre_pthread_detched end ================== \n");
-													// fprintf(stderr, "\033[40;31m  wqeeeeeeeeeee %d  \033[0m\n", find_pthread_detched);
+
 													tree findtree = gimple_call_arg(table_temp->last_stmt, 3);
 
-													// debug_gimple_stmt(table_temp->last_stmt);
-													// debug_gimple_stmt(u_stmt);
 													if (is_gimple_call(u_stmt))
 													{
 														tree findtree;
 														if (gimple_call_num_args(u_stmt) != 0)
 														{
-															// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-															// debug_gimple_stmt(u_stmt);
+
 															findtree = gimple_call_arg(u_stmt, 3);
 
 															if (TREE_CODE(findtree) == ADDR_EXPR)
 															{
 
-																// tree findtree = gimple_call_arg(u_stmt, 3);
-																// debug_tree(TREE_OPERAND(findtree, 0));
 																trace_function_path(function_tree, -1, TREE_OPERAND(findtree, 0), &find_freestmt);
 															}
 															else if (TREE_CODE(findtree) == SSA_NAME)
 															{
-																// fprintf(stderr, "\033[40;32m    FIND PTHREAD222_CREATED STMT  \033[0m\n");
-																// tree findtree = gimple_call_arg(u_stmt, 3);
-																// debug_tree(findtree);
+
 																trace_function_path(function_tree, -1, findtree, &find_freestmt);
 															}
 														}
-														// debug_tree(findtree);
-														// debug_tree(TREE_OPERAND(TREE_OPERAND(findtree, 0), 0));
 													}
-													// tree findtree2 = gimple_call_arg(u_stmt, 3);
-													// if(findtree2 != NULL_TREE)
-													// debug_tree(findtree2);
-													// debug_tree(findtree);
-													// tree findtree2 = gimple_call_arg(u_stmt, 3);
-													// if(findtree2 != NULL)
-													// debug_tree(findtree2);
-													// debug_gimple_stmt(table_temp->last_stmt);
 
 													if (findtree != NULL)
 														if (gimple_call_num_args(table_temp->last_stmt) != 0 && is_gimple_call(table_temp->last_stmt))
@@ -1107,7 +860,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												fprintf(stderr, "\n ================== trace ================== \n");
 												debug_tree(table_temp->target);
 												fprintf(stderr, "trace fucntion name:%s \n", name);
-												// debug_tree(gimple_call_fndecl(u_stmt));
 												trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target, &find_freestmt);
 												fprintf(stderr, "\n ================== trace ================== \n");
 												fprintf(stderr, "trace fucntion free:%d \n", find_freestmt);
@@ -1121,7 +873,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								}
 							}
 							// fprintf(stderr, "\n========================================================================\n");
-							// if (laststmt)
 						}
 
 						if (debugmod)
@@ -1135,8 +886,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								function_maxbasicblock_collect->put(maxbb_type_array[i].relate_funtree, maxbb_type_array[i].now_basicblock);
 								for (int j = 0; j < maxbb_type_array.size(); j++)
 								{
-									// if (i != j)
-									// {
+
 									if (maxbb_type_array[i].relate_funtree == maxbb_type_array[j].relate_funtree)
 									{
 										int max_bb;
@@ -1145,7 +895,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										if (maxbb_type_array[j].now_basicblock >= max_bb)
 											function_maxbasicblock_collect->put(maxbb_type_array[j].relate_funtree, maxbb_type_array[j].now_basicblock);
 									}
-									// }
 								}
 							}
 							vector<relate_type>::iterator it_i;
@@ -1189,7 +938,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						if (function_relate_collect->get(table_temp->target) != NULL)
 						{
 							// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
-
 							fun_array = *(function_relate_collect->get(table_temp->target));
 							relate_type_array = fun_array.relate_type_array;
 
@@ -1204,9 +952,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								// debug_tree((relate_type_array)[k].relate_funtree);
 								// fprintf(stderr, "dot graph subgraph\n");
 								// fprintf(stderr, "dot graph target loc start ");
-								// 				debug_gimple_stmt(table_temp->last_stmt);
-								// 				warning_at(gimple_location_safe(table_temp->last_stmt), 0, "use location");
-								// 				fprintf(stderr, "dot graph target loc end\n\n");
+								// debug_gimple_stmt(table_temp->last_stmt);
+								// warning_at(gimple_location_safe(table_temp->last_stmt), 0, "use location");
+								// fprintf(stderr, "dot graph target loc end\n\n");
 								// fprintf(stderr, "dot graph start relate for1");
 								// fprintf(stderr, "ID : %lu\n", (relate_type_array)[k].now_fucntion);
 								// fprintf(stderr, "from %s basic block %d", (char *)get_name((relate_type_array)[k].relate_funtree), gimple_bb((relate_type_array)[k].stmt)->index);
@@ -1221,31 +969,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								warning_at(gimple_location_safe((relate_type_array)[k].stmt), 0, "use location");
 
 								fprintf(stderr, "dot graph subgrapend\n\n");
-								// warning_at(gimple_location_safe(now_relatelaststmt), 0, "use location");
 							}
-							// fun_array.relate_type_array.push_back(relate_type);
-							// function_relate_collect->put(mallocStmt_tree, fun_array);
 						}
 					}
-					// fprintf(stderr, "\n====================================ffff=================================\n");
-					// vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
-					// for (int k = 0; k < callerRetTypearray.size(); k++)
-					// {
-					// 	// if (ptr_derefs_may_alias_p((callerRetTypearray)[k].free_tree, mallocStmt_tree))
-					// 	// {
-					// 	// fprintf(stderr, "\033[40;31m  find return stmt  \033[0m\n");
-					// 	// fprintf(stderr, "find wwwwwwwwwwwwwww ointer\n");
-					// 	// debug_tree((callerRetTypearray)[k].return_tree);
 
-					// 	// debug_tree(mallocStmt_tree);
-					// 	// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-					// 	// tree get_function_return_tree = gimple_return_retval(as_a<greturn *>((callerRetTypearray)[k].stmt));
-					// 	// if(gimple_return_retval(as_a<greturn *>((callerRetTypearray)[k].stmt)))
-
-					// 	// if((callerRetTypearray)[k].return_tree )
-					// 	// fprintf(stderr ,"%s\n", get_tree_code_name(TREE_CODE((callerRetTypearray)[k].return_tree)));
-					// 	if ((callerRetTypearray)[k].return_tree)
-					// 	{
 					fprintf(stderr, "\n ================== Start Looserules free Check ================== \n");
 					fprintf(stderr, "\n ================== warring ================== \n");
 					fprintf(stderr, "\033[40;35m   this module possiable false positives \033[0m\n");
@@ -1281,9 +1008,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											else
 												fprintf(stderr, "\033[40;35m <Looserules> find free stmt free same pointer \033[0m\n");
 
-											// fprintf(stderr, "find free stmt free same pointer\n");
-											// debug_tree(mallocStmt_tree);
-
 											debug_gimple_stmt((callerRetTypearray)[k].stmt);
 											warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
 											struct free_type free_type;
@@ -1291,86 +1015,17 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											free_type.Looserulesfree = 1;
 											free_array.push_back(free_type);
 											find_Looserulesfreestmt++;
-
-											// if (freemod && debugmod)
-											// {
-
-											// 	// int test =gimple_bb((callerRetTypearray)[k].stmt)->index);
-											// 	// char tmp[20] ;
-											// 	// sprintf(tmp,"%d",gimple_bb((callerRetTypearray)[k].stmt));
-
-											// 	if (*(function_basicblock_collect)->get(gimple_block((callerRetTypearray)[k].stmt)) == 0)
-											// 	{
-											// 		// fprintf(stderr, "dot graph start relate form ");
-											// 		function_basicblock_collect->put(gimple_block((callerRetTypearray)[k].stmt), 1);
-											// 		fprintf(stderr, "dot graph start relate form ");
-											// 		// fprintf(stderr, "dot graph start relate for1 ");
-											// 	}
-											// 	else
-											// 	{
-											// 		fprintf(stderr, "dot graph start relate form ");
-											// 		// fprintf(stderr, "dot graph start relate for1 ");
-											// 	}
-
-											// 	// if (first == 0)
-											// 	// {
-											// 	// fprintf(stderr, "dot graph start relate form ");
-											// 	// 	first++;
-											// 	// }
-											// 	// else
-											// 	// 	fprintf(stderr, "dot graph start relate for1 ");
-
-											// 	fprintf(stderr, "ID : %lu\n", now_fucntion);
-											// 	fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb((callerRetTypearray)[k].stmt)->index);
-											// 	fprintf(stderr, "dot graph end relate end\n\n");
-											// 	now_laststmt = (callerRetTypearray)[k].stmt;
-											// 	// ready add dot graph
-											// 	unsigned long x = rand();
-											// 	now_laststmtid = x;
-
-											// 	// ready add dot graph
-											// 	fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(free) :", x);
-											// 	debug((callerRetTypearray)[k].stmt);
-											// 	warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-											// 	// debug(gimple_assign_lhs((callerRetTypearray)[k].stmt));
-											// 	fprintf(stderr, "dot graph relate end\n\n");
-
-											// 	// ready add dot graph
-											// 	fprintf(stderr, "dot graph target color desc");
-											// 	fprintf(stderr, "green");
-											// 	fprintf(stderr, "dot graph target color desend\n\n");
-
-											// 	// ready add dot graph
-											// 	fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(free) :", x);
-											// 	debug((callerRetTypearray)[k].stmt);
-											// 	warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-											// 	// debug(gimple_assign_lhs((callerRetTypearray)[k].stmt));
-											// 	fprintf(stderr, "dot graph relate end\n\n");
-											// }
-											// debug_tree((callerRetTypearray)[k].free_tree);
 										}
-										// debug_tree((callerRetTypearray)[k].free_tree);
-										// debug_tree (mallocStmt_tree);
 									}
-									// debug_tree(function_tree);
 								}
 							}
 					}
-					// 	}
-					// 	}
-					// if (now_relatelaststmt != NULL)
-					// {
-					// 	// fprintf(stderr, "dot graph subgraph\n");
-					// 	fprintf(stderr, "dot graph subgraph start ID : %lu stmt(relate) :", now_relatelaststmtid);
-					// 	debug(now_relatelaststmt);
-					// 	warning_at(gimple_location_safe(now_relatelaststmt), 0, "use location");
-					// 	fprintf(stderr, "dot graph subgrapend\n\n");
-					// }
+
 					if (useafterfree)
 					{
 						user_tmp = treeGimpleArray->get(table_temp->target);
 						// debug_tree(table_temp->target);
-						// fprintf(stderr, "\n====================================ffff=================================\n");
+
 						gimple_array start;
 						start.stmt = NULL;
 						used_stmt = &start;
@@ -1384,13 +1039,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								// fprintf(stderr, "\n ================== warring ==%d================ \n",free_array.size());
 								for (int i = 0; i < free_array.size(); i++)
 								{
-									// _deb
 
-									// if (gimple_location_safe(u_stmt))
-									// {
-									// debug_gimple_stmt(free_array.at(i).stmt);
-									// debug_gimple_stmt(u_stmt);
-									// if(is_gimple_call(u_stmt);
 									if (gimple_call_fndecl(free_array.at(i).stmt))
 										if (u_stmt != free_array.at(i).stmt)
 										{
@@ -1523,13 +1172,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					// debug_gimple_stmt(table_temp->last_stmt);
 					if (empty_body_p(table_temp->last_stmt))
 						warning_at(gimple_location_safe(table_temp->last_stmt), 0, "use location");
-					// fprintf(stderr, "測試%s\n\n", LOCATION_FILE(gimple_location_safe(table_temp->last_stmt)));
-					// debug_tree(table_temp->target);
-					// if (checkTree != NULL)
-					// {
-					// 	fprintf(stderr, "\033[40;31m 	Possible check from Callee \033[0m\n");
-					// 	debug_tree(checkTree);
-					// }
+
 					fprintf(stderr, "\n======================================================================\n");
 				}
 				else

@@ -6,10 +6,8 @@ bool bb_in_loop_p(basic_block bb)
 bool bb_in_branch_p(gimple *stmt)
 {
 	//function* fn = DECL_STRUCT_FUNCTION(gimple_get_lhs(stmt));
-	// fprintf(stderr, "backkkkkkkbackkkkkkkbackkkkkkkbackkkkkkkbackkkkkkkbackkkkkkk\n");
 	// debug_gimple_stmt(stmt);
 	// debug_bb(stmt->bb);
-	// fprintf(stderr, "prev_bbprev_bbprev_bbprev_bbprev_bbprev_bbprev_bbprev_bb\n");
 	// debug_bb(cfun->cfg->x_exit_block_ptr->prev_bb);
 	// debug_bb(cfun->cfg->x_entry_block_ptr->next_bb);
 	// debug_bb(stmt->bb);

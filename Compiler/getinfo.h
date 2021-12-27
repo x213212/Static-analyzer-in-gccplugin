@@ -20,8 +20,7 @@ function_assign_array ret_function_varstmt(tree function_tree)
 	// fprintf(stderr, "[\n");
 	// if (assign_type_array.size() != 0)
 	return assign_array;
-	// else
-	// 	return ;
+
 }
 
 void get_function_varstmt(tree function_tree, tree vartree)
@@ -40,7 +39,6 @@ void get_function_varstmt(tree function_tree, tree vartree)
 
 		// for (int i = 0; i < (ret_type_array).size(); i++)
 		// {
-
 		debug((assign_type_array)[i].stmt);
 		fprintf(stderr, ",\n");
 		// }
@@ -67,7 +65,6 @@ void get_function_specialstmt(tree function_tree, tree vartree)
 
 		// for (int i = 0; i < (ret_type_array).size(); i++)
 		// {
-
 		debug((ret_type_array)[i].stmt);
 		fprintf(stderr, ",\n");
 		// }

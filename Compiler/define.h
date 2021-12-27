@@ -5,6 +5,51 @@
 #define FOR_EACH_USE_TABLE(USE, STMT) \
 	for ((STMT) = ((USE) == NULL) ? NULL : (USE)->stmt; (USE) != NULL; (USE) = (USE)->next, (STMT) = ((USE) == NULL) ? NULL : (USE)->stmt)
 
+/*state*/
+unsigned int POINTER_NOT_EXIST = 0;
+unsigned int POINTER_STATE_IS_FREE = 1;
+unsigned int POINTER_STATE_IS_NORMAL = 2;
+unsigned int POINTER_STATE_IS_MALLOC = 3;
+unsigned int POINTER_STATE_IS_FILE = 4;
+unsigned int POINTER_STATE_MAY_IS_FREE = 5;
+
+const unsigned int POINTER_NOT = 0;
+const unsigned int POINTER_MAY = 1;
+const unsigned int POINTER_MUST = 2;
+
+unsigned int IS_MALLOC_FUCNTION = 1;
+
+
+unsigned int IS_OTHRER_FUCNTION = 2;
+unsigned int IS_HEAP_FUCNTION = -1;
+unsigned int PTABLE_IS_NULL = -2;
+unsigned int FUNCITON_THREAD = 666;
+unsigned int FUNCITON_HEAP = 777;
+unsigned int RET_HEAP_OBJECT = 888;
+unsigned int EFFECTIVE = 10000;
+unsigned int CREATE_JOINABLE = 0;
+unsigned int CREATE_DETACHED = 1;
+unsigned int DISABLE_TREACE = -100;
+/*dump file */
+FILE *fp;
+ofstream cfginfo("cfginfo.txt");
+
+/*interprocedural analysis*/
+bool ipa = true;
+bool vscode_extensionmod = false;
+bool Looserulesfree =false;
+bool useafterfree =true;
+bool debugmod = true;
+bool threadmod = false;
+bool relatemod = true;
+bool freemod = true;
+bool freemodv2 = false;
+bool retmod = false; //關聯return stmt
+bool pthread_detachedmod = true;
+bool pthread_exitmod = true;
+bool tracerelatestmt = true;
+
+
 /*allocation and deallocation table*/
 struct ptb
 {
@@ -267,45 +312,7 @@ hash_map<tree, gimple_array> *treeGimpleArray;
 hash_map<basic_block, symbolicinfo> *syminfo;
 // hash_map<gimple *, tree> *symbolicExecutionPathConstraintNode;
 
-/*state*/
-unsigned int POINTER_NOT_EXIST = 0;
-unsigned int POINTER_STATE_IS_FREE = 1;
-unsigned int POINTER_STATE_IS_NORMAL = 2;
-unsigned int POINTER_STATE_IS_MALLOC = 3;
-unsigned int POINTER_STATE_IS_FILE = 4;
-unsigned int POINTER_STATE_MAY_IS_FREE = 5;
 
-const unsigned int POINTER_NOT = 0;
-const unsigned int POINTER_MAY = 1;
-const unsigned int POINTER_MUST = 2;
-
-unsigned int IS_MALLOC_FUCNTION = 1;
-unsigned int IS_OTHRER_FUCNTION = 2;
-unsigned int IS_HEAP_FUCNTION = -1;
-unsigned int PTABLE_IS_NULL = -2;
-unsigned int FUNCITON_THREAD = 666;
-unsigned int FUNCITON_HEAP = 777;
-unsigned int CREATE_JOINABLE = 0;
-unsigned int CREATE_DETACHED = 1;
-unsigned int DISABLE_TREACE = -100;
-/*dump file */
-FILE *fp;
-ofstream cfginfo("cfginfo.txt");
-
-/*interprocedural analysis*/
-bool ipa = true;
-bool vscode_extensionmod = false;
-bool Looserulesfree =false;
-bool useafterfree =true;
-bool debugmod = false;
-bool threadmod = false;
-bool relatemod = true;
-bool freemod = true;
-bool freemodv2 = false;
-bool retmod = false; //關聯return stmt
-bool pthread_detachedmod = true;
-bool pthread_exitmod = true;
-bool tracerelatestmt = true;
 
 /*collect  function stack*/
 class CStack : public std::stack<tree>
@@ -344,6 +351,9 @@ static tree now_tree;
 
 unsigned int SDBMHash(char *str);
 tree prechecktree(tree tree);
+
+int dump_points_to_solution2(FILE *file, struct pt_solution *pt);
+
 void Checknew_search_imm_use_rhs(gimple_array *used_stmt, gimple *use_stmt, tree target, tree target2);
 void Checknew_search_imm_use_lhs(gimple_array *used_stmt, gimple *use_stmt, tree target, tree target2);
 int check_stmtStack4(tree target);
@@ -361,7 +371,6 @@ void record_fucntion(cgraph_node *node);
 
 void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb);
 void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb,ptb *ptable);
-void collect_FunctionMapping_Ret(tree function_tree, gimple *u_stmt, gimple_array *user_tmp, ptb *table_temp, ptb *ptable);
 
 int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_tree, int *freecount);
 void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gimple_array *user_tmp);

@@ -1,4 +1,57 @@
 int gimplestmt_count;
+int dump_points_to_solution2(FILE *file, struct pt_solution *pt)
+{
+	if (pt->anything)
+		fprintf(file, ", points-to anything");
+	if (pt->nonlocal)
+		fprintf(file, ", points-to non-local");
+	if (pt->escaped)
+	{
+		fprintf(file, ", points-to escaped");
+	}
+	if (pt->ipa_escaped)
+	{
+		fprintf(file, ", points-to unit escaped");
+	}
+	if (pt->null)
+	{
+		fprintf(file, ", points-to NULL");
+	}
+	if (pt->vars)
+	{
+		fprintf(file, ", points-to vars: ");
+		// dump_decl_set(file, pt->vars);
+		// if (pt->vars_contains_nonlocal || pt->vars_contains_escaped || pt->vars_contains_escaped_heap || pt->vars_contains_restrict)
+		// {
+		// 	const char *comma = "";
+		// 	fprintf(file, " (");
+		// 	if (pt->vars_contains_nonlocal)
+		// 	{
+		// 		fprintf(file, "nonlocal");
+		// 		comma = ", ";
+		// 	}
+		// 	if (pt->vars_contains_escaped)
+		// 	{
+		// 		fprintf(file, "%sescaped", comma);
+		// 		comma = ", ";
+		// 	}
+		// 	if (pt->vars_contains_escaped_heap)
+		// 	{
+		// 		fprintf(file, "%sescaped heap", comma);
+		// 		comma = ", ";
+		// 	}
+		// 	if (pt->vars_contains_restrict)
+		// 	{
+		// 		fprintf(file, "%srestrict", comma);
+		// 		comma = ", ";
+		// 	}
+		// 	if (pt->vars_contains_interposable)
+		// 		fprintf(file, "%sinterposable", comma);
+		// 	fprintf(file, ")");
+		// }
+	}
+	return 1;
+}
 void printfBasicblock()
 {
 	fprintf(stderr, "\n===============Print ALL GIMPLE IR=================\n");
