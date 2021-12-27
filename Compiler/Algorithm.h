@@ -336,6 +336,10 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "\033[40;34m    algorithm time: %f s \033[0m\n", time_used2);
 	fprintf(stderr, "\033[40;34m    gimple stmt count : : %d \033[0m\n", gimplestmt_count);
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
+char *pM = new char[1024*1024*50];    
+for (int i= 0 ; i< 1024*1024*50;i++)
+pM[i]='1';
+delete[] pM;   
 	// totalsize = 0;
 	// // printfunctionCollect(ptable, used_stmt);
 	// fprintf(stderr, "algorithm time: %f s\n", time_used2);
@@ -1494,23 +1498,23 @@ void insert_always_inline()
 				// NULL, DECL_ATTRIBUTES (callee->decl));
 			}
 			always_inline = (DECL_DISREGARD_INLINE_LIMITS(callee->decl) && lookup_attribute("noinline", DECL_ATTRIBUTES(callee->decl)));
-			// fprintf(stderr,"=======%s 's address:%d %d=========\n",get_name(callee->decl),callee->decl,always_inline);
+		
 		}
 
-		// node->debug();
+	
 		push_cfun(DECL_STRUCT_FUNCTION(node->decl));
 		if (cfun == NULL)
 		{
-			// fprintf(stderr,"=======NULL=========\n");
+			
 		}
 
 		FOR_EACH_BB_FN(bb, cfun)
 		{
-			// debug_bb(bb);
+			
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
-				// debug_gimple_stmt(gc);
+			
 				if (is_gimple_call(gc))
 				{
 
@@ -1519,7 +1523,7 @@ void insert_always_inline()
 					name = get_name(gimple_call_fn(gc));
 					if (name == NULL)
 						continue;
-					// fprintf(stderr, "functionname %s\n",name);
+				
 					if (!strcmp(name, "free") ||
 						!strcmp(name, "xfree") ||
 						!strcmp(name, "malloc") ||
@@ -1530,15 +1534,12 @@ void insert_always_inline()
 						!strcmp(name, "strdup"))
 					{
 
-						// fprintf(stderr,"=======add_always:%d=========\n",node->decl);
-						// noinline
-						// always_inline
 						always_inline = (DECL_DISREGARD_INLINE_LIMITS(node->decl) && lookup_attribute("always_inline", DECL_ATTRIBUTES(node->decl)));
 						if (!always_inline && !MAIN_NAME_P(DECL_NAME(node->decl)))
 						{
 							DECL_ATTRIBUTES(node->decl) = tree_cons(get_identifier("always_inline"), NULL, DECL_ATTRIBUTES(node->decl));
 							DECL_DISREGARD_INLINE_LIMITS(node->decl) = 1;
-							// printf("always_inline\n");
+						
 						}
 					}
 				}

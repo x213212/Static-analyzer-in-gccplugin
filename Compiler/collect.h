@@ -1342,7 +1342,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 													assign_array = *(function_assign_collect->get(gimple_assign_rhs1(def_stmt)));
 													assign_type_array = assign_array.assign_type_array;
 												}
-												fprintf(stderr, "mappinggggggggggggggggggggggggggggggg-------\n");
+												// fprintf(stderr, "mappinggggggggggggggggggggggggggggggg-------\n");
 												struct assign_type assign_type;
 
 												assign_type.stmt = gc;

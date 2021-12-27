@@ -1,0 +1,14 @@
+test.c:86:1:winlinks_RB_NEXT	8	static
+test.c:193:1:session_group_find	8	static
+test.c:302:1:winlink_stack_remove	8	static
+test.c:106:1:winlink_find_by_index	16	static
+test.c:511:1:session_select	48	static
+test.c:90:1:xrealloc	16	static
+test.c:160:17:cmd_find_pane	16	static
+test.c:226:1:winlink_add	48	static
+test.c:344:1:winlink_remove	32	static
+test.c:439:1:session_destroy	32	static
+test.c:366:1:session_group_synchronize1	48	static
+test.c:423:1:session_group_synchronize_from	32	static
+test.c:552:1:window_create1	32	static
+test.c:657:5:main	128	static

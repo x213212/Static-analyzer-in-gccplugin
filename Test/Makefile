@@ -158,11 +158,14 @@ NO_OF_FILES := $(words $(FILE_NAME))
 
 LTO=-flto
 WHOLE=-fwhole-program
-FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fno-tree-dce  -fipa-pta  -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions
+FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fno-tree-dce  -fipa-pta  -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions -flto-report
+# -flto-report
+# -ftime-report
 #FLAGS=-O1   -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -pthread   
 #  -I/root/x21321219/mysql8.0/mysql-8.0.23/extra/icu/source/i18n/../common -I/root/x21321219/mysql8.0/mysql-8.0.23/extra/icu/source/i18n 
 #FLAGS=-O1    -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -fdump-tree-all -pthread -fno-diagnostics-color 
 #FLAGS=-O1    -fno-tree-dse  -fno-tree-fre -fno-tree-dce   -nostartfiles -g  -fdump-tree-all -fno-dce -fno-dse -fno-tree-dce    -fno-tree-builtin-call-dce -fipa-pta -pthread -fno-strict-aliasing
+# PLUGIN=
 PLUGIN=-fplugin=../Compiler/newplugin.so 
 all: test.o
 
@@ -170,7 +173,7 @@ test.o:
 	#   $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 		#   $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 	$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
-	# 	#@sh ./test.sh $(FILE_NAME)
+	# @sh ./test.sh $(FILE_NAME)
 	# # # binutils
 	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME1)  -o $@ 2> $(BINUTILSL)1/check.log
 	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME2)  -o $@ 2> $(BINUTILSL)2/check.log
