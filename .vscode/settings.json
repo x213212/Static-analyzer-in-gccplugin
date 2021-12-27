@@ -53,5 +53,6 @@
         "stdexcept": "c",
         "streambuf": "c",
         "cinttypes": "c"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

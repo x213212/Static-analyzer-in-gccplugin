@@ -119,13 +119,13 @@ struct assign_type
 	// int reutnr_type_num = 0;
 	//int return_type;
 };
-struct attr_type
-{
-	gimple *stmt;
-	tree attr_tree;
-	int attr_type_num = 0;
-	//int return_type;
-};
+// struct attr_type2
+// {
+// 	gimple *stmt;
+// 	tree attr_tree;
+// 	int attr_type_num = 0;
+// 	//int return_type;
+// };
 
 struct free_type
 {
@@ -295,7 +295,7 @@ ofstream cfginfo("cfginfo.txt");
 /*interprocedural analysis*/
 bool ipa = true;
 bool vscode_extensionmod = false;
-bool Looserulesfree =true;
+bool Looserulesfree =false;
 bool useafterfree =true;
 bool debugmod = false;
 bool threadmod = false;

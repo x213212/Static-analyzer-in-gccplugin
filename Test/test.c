@@ -1,354 +1,702 @@
 /*
-    buggy parent : 0488c0b
-    commit id : b6306d8049b04dca7fa738a86c892c43ba6a5fc4
+	buggy parent : a2c86dc
+	commit id : 842bc2b
 */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
+#define WINDOW
+#define SESSION
+#define SESSION_GROUP
 #include "stdio.h"
-#include "openssl.h"
+#include "tmux.h"
 
-struct tm {
-	unsigned int tm_sec;
-	unsigned int tm_min;
-	unsigned int tm_hour;
-	unsigned int tm_mday;
-	unsigned int tm_mon;
-	unsigned int tm_year;
+/* Window structure. */
+struct window {
+	char		*name;
+	struct event	 name_timer;
+
+	struct window_pane *active;
+	struct window_panes panes;
+
+	int		 lastlayout;
+	struct layout_cell *layout_root;
+
+	u_int		 sx;
+	u_int		 sy;
+
+	int		 flags;
+#define WINDOW_BELL 0x1
+#define WINDOW_HIDDEN 0x2
+#define WINDOW_ACTIVITY 0x4
+#define WINDOW_CONTENT 0x8
+#define WINDOW_REDRAW 0x10
+
+	struct options	 options;
+
+	u_int		 references;
 };
+ARRAY_DECL(windows, struct window *);
 
-#  define OCSP_REVOKED_STATUS_NOSTATUS               -1
-#  define OCSP_REVOKED_STATUS_UNSPECIFIED             0
-#  define OCSP_REVOKED_STATUS_KEYCOMPROMISE           1
-#  define OCSP_REVOKED_STATUS_CACOMPROMISE            2
-#  define OCSP_REVOKED_STATUS_AFFILIATIONCHANGED      3
-#  define OCSP_REVOKED_STATUS_SUPERSEDED              4
-#  define OCSP_REVOKED_STATUS_CESSATIONOFOPERATION    5
-#  define OCSP_REVOKED_STATUS_CERTIFICATEHOLD         6
-#  define OCSP_REVOKED_STATUS_REMOVEFROMCRL           8
+struct session_group {
+	TAILQ_HEAD(, session) sessions;
 
-/* Various flags and values */
-
-#  define OCSP_DEFAULT_NONCE_LENGTH       16
-
-#  define OCSP_NOCERTS                    0x1
-#  define OCSP_NOINTERN                   0x2
-#  define OCSP_NOSIGS                     0x4
-#  define OCSP_NOCHAIN                    0x8
-#  define OCSP_NOVERIFY                   0x10
-#  define OCSP_NOEXPLICIT                 0x20
-#  define OCSP_NOCASIGN                   0x40
-#  define OCSP_NODELEGATED                0x80
-#  define OCSP_NOCHECKS                   0x100
-#  define OCSP_TRUSTOTHER                 0x200
-#  define OCSP_RESPID_KEY                 0x400
-#  define OCSP_NOTIME                     0x800
-#  define OCSP_RESPONSE_STATUS_SUCCESSFUL           0
-#  define OCSP_RESPONSE_STATUS_MALFORMEDREQUEST     1
-#  define OCSP_RESPONSE_STATUS_INTERNALERROR        2
-#  define OCSP_RESPONSE_STATUS_TRYLATER             3
-#  define OCSP_RESPONSE_STATUS_SIGREQUIRED          5
-#  define OCSP_RESPONSE_STATUS_UNAUTHORIZED         6
-#  define V_OCSP_RESPID_NAME 0
-#  define V_OCSP_RESPID_KEY  1
-#  define V_OCSP_CERTSTATUS_GOOD    0
-#  define V_OCSP_CERTSTATUS_REVOKED 1
-#  define V_OCSP_CERTSTATUS_UNKNOWN 2
-
-
-typedef struct ocsp_cert_id_st OCSP_CERTID;
-typedef struct ocsp_one_request_st OCSP_ONEREQ;
-typedef struct ocsp_req_info_st OCSP_REQINFO;
-typedef struct ocsp_signature_st OCSP_SIGNATURE;
-typedef struct ocsp_request_st OCSP_REQUEST;
-typedef struct ocsp_resp_bytes_st OCSP_RESPBYTES;
-typedef struct ocsp_revoked_info_st OCSP_REVOKEDINFO;
-typedef struct ocsp_cert_status_st OCSP_CERTSTATUS;
-typedef struct ocsp_single_response_st OCSP_SINGLERESP;
-typedef struct ocsp_response_data_st OCSP_RESPDATA;
-typedef struct ocsp_basic_response_st OCSP_BASICRESP;
-typedef struct ocsp_crl_id_st OCSP_CRLID;
-typedef struct ocsp_service_locator_st OCSP_SERVICELOC;
-typedef struct ocsp_response_data_st OCSP_RESPDATA;
-typedef struct ocsp_basic_response_st OCSP_BASICRESP;
-typedef struct ocsp_responder_id_st OCSP_RESPID;
-
-struct ocsp_responder_id_st {
-    int type;
-    union {
-        X509_NAME *byName;
-        ASN1_OCTET_STRING *byKey;
-    } value;
+	TAILQ_ENTRY(session_group) entry;
 };
+TAILQ_HEAD(session_groups, session_group);
 
-struct ocsp_response_data_st {
-    ASN1_INTEGER *version;
-    OCSP_RESPID responderId;
-    ASN1_GENERALIZEDTIME *producedAt;
-    OCSP_SINGLERESP *responses;
+struct session {
+	char		*name;
+
+	u_int		 sx;
+	u_int		 sy;
+
+	struct winlink	*curw;
+	struct winlink_stack lastw;
+	struct winlinks	 windows;
+
+	struct paste_stack buffers;
+
+#define SESSION_UNATTACHED 0x1	/* not attached to any clients */
+#define SESSION_DEAD 0x2
+	int		 flags;
+
+	struct termios	*tio;
+
+	int		 references;
+
+	TAILQ_ENTRY(session) gentry;
 };
+ARRAY_DECL(sessions, struct session *);
 
-struct ocsp_basic_response_st {
-    OCSP_RESPDATA tbsResponseData;
-    X509_ALGOR signatureAlgorithm;
-    ASN1_BIT_STRING *signature;
-};
 
-struct ocsp_single_response_st {
-    OCSP_CERTID *certId;
-    OCSP_CERTSTATUS *certStatus;
-    ASN1_GENERALIZEDTIME *thisUpdate;
-    ASN1_GENERALIZEDTIME *nextUpdate;
-};
+struct session_groups session_groups;
+struct sessions sessions;
+struct windows windows;
 
-# define TEST_true(a)         test_true(__FILE__, __LINE__, #a, (a) != 0)
-# define TEST_ptr(a)          test_ptr(__FILE__, __LINE__, #a, a)
-int test_ptr(const char *file, int line, const char *s, const void *p)
+
+int
+winlink_cmp(struct winlink *wl1, struct winlink *wl2)
 {
-    if (p != NULL)
-        return 1;
-    test_fail_message(NULL, file, line, "ptr", s, "NULL", "!=", "%p", p);
-    return 0;
-}
-int test_true(const char *file, int line, const char *s, int b)
-{
-    if (b)
-        return 1;
-    test_fail_message(NULL, file, line, "bool", s, "true", "==", "false");
-    return 0;
+	return (wl1->idx - wl2->idx);
 }
 
+RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
 
-
-int ASN1_STRING_set(ASN1_STRING *str, const void *_data, int len)
+#define SIZE_MAX (1 << 30)
+void *
+xrealloc(void *oldptr, size_t nmemb, size_t size)
 {
-    unsigned char *c;
-    const char *data = _data;
+	size_t	 newsize = nmemb * size;
+	void	*newptr;
 
-    if (len < 0) {
-        if (data == NULL)
-            return 0;
-        else
-            len = strlen(data);
-    }
-    if ((str->length <= len) || (str->data == NULL)) {
-        c = str->data;
-        str->data = OPENSSL_realloc(c, len + 1);
-        if (str->data == NULL) {
-            str->data = c;
-            return 0;
-        }
-    }
-    str->length = len;
-    if (data != NULL) {
-        memcpy(str->data, data, len);
-        /* an allowance for strings :-) */
-        str->data[len] = '\0';
-    }
-    return 1;
+	if (newsize == 0)
+		fatalx("zero size%s", "");
+	if (SIZE_MAX / nmemb < size)
+		fatalx("nmemb * size > SIZE_MAX%s", "");
+	if ((newptr = realloc(oldptr, newsize)) == NULL)
+		fatal("xrealloc failed%s", "");
+
+	return (newptr);
 }
 
-static int asn1_string_set_uint64(ASN1_STRING *a, uint64_t r, int itype)
+struct winlink *
+winlink_find_by_index(struct winlinks *wwl, int idx)
 {
-    unsigned char tbuf[sizeof(r)];
-    size_t off;
+	struct winlink	wl;
 
-    a->type = itype;
-    off = asn1_put_uint64(tbuf, r);
-    return ASN1_STRING_set(a, tbuf + off, sizeof(tbuf) - off);
+	if (idx < 0)
+		fatalx("bad index%s", "");
+
+	wl.idx = idx;
+	return (RB_FIND(winlinks, wwl, &wl));
 }
 
-int ASN1_INTEGER_set_uint64(ASN1_INTEGER *a, uint64_t r)
+u_int winlink_count(struct winlinks *wwl)
 {
-    return asn1_string_set_uint64(a, r, V_ASN1_INTEGER);
+	struct winlink *wl;
+	u_int n;
+	
+	n = 0;
+	RB_FOREACH(wl, winlinks, wwl)
+		n++;
+
+	return (n);
 }
 
-int ASN1_BIT_STRING_set(ASN1_BIT_STRING *x, unsigned char *d, int len)
+int
+winlink_next_index(struct winlinks *wwl, int idx)
 {
-    return ASN1_STRING_set(x, d, len);
-}
+	int	i;
 
-ASN1_TIME *asn1_time_from_tm(ASN1_TIME *s, struct tm *ts, int type)
-{
-    char* p;
-    ASN1_TIME *tmps = NULL;
-    const size_t len = 20;
-
-    if (type == V_ASN1_UNDEF) {
-        if (is_utc(ts->tm_year))
-            type = V_ASN1_UTCTIME;
-        else
-            type = V_ASN1_GENERALIZEDTIME;
-    } else if (type == V_ASN1_UTCTIME) {
-        if (!is_utc(ts->tm_year))
-            goto err;
-    } else if (type != V_ASN1_GENERALIZEDTIME) {
-        goto err;
-    }
-
-    if (s == NULL)
-        tmps = ASN1_STRING_new();	/* allocation site */
-    else
-        tmps = s;
-    if (tmps == NULL)
-        return NULL;
-
-    if (!ASN1_STRING_set(tmps, NULL, len))
-        goto err;
-
-    tmps->type = type;
-    p = (char*)tmps->data;
-
-    if (type == V_ASN1_GENERALIZEDTIME)
-        tmps->length = BIO_snprintf(p, len, "%04d%02d%02d%02d%02d%02dZ",
-                                    ts->tm_year + 1900, ts->tm_mon + 1,
-                                    ts->tm_mday, ts->tm_hour, ts->tm_min,
-                                    ts->tm_sec);
-    else
-        tmps->length = BIO_snprintf(p, len, "%02d%02d%02d%02d%02d%02dZ",
-                                    ts->tm_year % 100, ts->tm_mon + 1,
-                                    ts->tm_mday, ts->tm_hour, ts->tm_min,
-                                    ts->tm_sec);
-
-    return tmps;
- err:
-    if (tmps != s)
-        ASN1_STRING_free(tmps);
-    return NULL;
-}
-
-ASN1_TIME *ASN1_TIME_adj(ASN1_TIME *s, time_t t,
-                         int offset_day, long offset_sec)
-{
-    struct tm *ts;
-    struct tm data;
-
-    ts = OPENSSL_gmtime(&t, &data);
-    if (ts == NULL) {
-        return NULL;
-    }
-    if (offset_day || offset_sec) {
-        if (!OPENSSL_gmtime_adj(ts, offset_day, offset_sec))
-            return NULL;
-    }
-    return asn1_time_from_tm(s, ts, V_ASN1_UNDEF);
-}
-
-ASN1_TIME *ASN1_TIME_set(ASN1_TIME *s, time_t t)
-{
-    return ASN1_TIME_adj(s, t, 0, 0);
-}
-
-int X509_NAME_add_entry_by_NID(X509_NAME *name, int nid, int type,
-                               const unsigned char *bytes, int len, int loc,
-                               int set)
-{
-    X509_NAME_ENTRY *ne;
-    int ret;
-    ne = X509_NAME_ENTRY_create_by_NID(NULL, nid, type, bytes, len);
-    if (!ne)
-        return 0;
-    ret = X509_NAME_add_entry(name, ne, loc, set);
-    X509_NAME_ENTRY_free(ne);
-    return ret;
-}
-
-OCSP_SINGLERESP *OCSP_basic_add1_status(OCSP_BASICRESP *rsp,
-                                        OCSP_CERTID *cid,
-                                        int status, int reason,
-                                        ASN1_TIME *revtime,
-                                        ASN1_TIME *thisupd,
-                                        ASN1_TIME *nextupd)
-{
-    OCSP_SINGLERESP *single = NULL;
-    OCSP_CERTSTATUS *cs;
-    OCSP_REVOKEDINFO *ri;
-
-    if (rsp->tbsResponseData.responses == NULL
-        && (rsp->tbsResponseData.responses
-                = sk_OCSP_SINGLERESP_new_null()) == NULL)
-        goto err;
-
-    if ((single->certId = OCSP_CERTID_dup(cid)) == NULL)
-        goto err;
-
-        if (!(sk_OCSP_SINGLERESP_push(rsp->tbsResponseData.responses, single)))
-        goto err;
-    return single;
- err:
-    OCSP_SINGLERESP_free(single);
-    return NULL;
-}
-
-static OCSP_BASICRESP *make_dummy_resp(void)
-{
-    const unsigned char namestr[] = "openssl.example.com";
-    unsigned char keybytes[128] = {7};
-    OCSP_BASICRESP *bs = OCSP_BASICRESP_new();					/* allocation site */
-    OCSP_CERTID *cid;
-    ASN1_TIME *thisupd = ASN1_TIME_set(NULL, time(NULL));       
-    ASN1_TIME *nextupd = ASN1_TIME_set(NULL, time(NULL) + 200); 
-    X509_NAME *name = X509_NAME_new();                          /* allocation site */
-    ASN1_BIT_STRING *key = ASN1_BIT_STRING_new();               /* allocation site */
-    ASN1_INTEGER *serial = ASN1_INTEGER_new();                  /* allocation site */
-
-    if (!X509_NAME_add_entry_by_NID(name, NID_commonName, MBSTRING_ASC,
-                                   namestr, -1, -1, 1)
-        || !ASN1_BIT_STRING_set(key, keybytes, sizeof(keybytes)
-        || !ASN1_INTEGER_set_uint64(serial, (uint64_t)1)))
-        return NULL;                                            /* memory leak */
-    cid = OCSP_cert_id_new(EVP_sha256(), name, key, serial);    /* allocation site */
-    if (!TEST_ptr(bs)
-        || !TEST_ptr(thisupd)
-        || !TEST_ptr(nextupd)
-        || !TEST_ptr(cid)
-        || !TEST_true(OCSP_basic_add1_status(bs, cid,
-                                             V_OCSP_CERTSTATUS_UNKNOWN,
-                                             0, NULL, thisupd, nextupd)))
-        return NULL;                                            /* memory leak */
-    ASN1_TIME_free(thisupd);
-    ASN1_TIME_free(nextupd);
-    ASN1_BIT_STRING_free(key);
-    ASN1_INTEGER_free(serial);
-    OCSP_CERTID_free(cid);
-    X509_NAME_free(name);
-    return bs;
-}
-
-int main(void)
-{
-    OCSP_BASICRESP *bs;
-    X509 *signer = NULL, *tmp;
-    EVP_PKEY *key = NULL;
-    /*
-     * Test a response with no certs at all; get the signer from the
-     * extra certs given to OCSP_resp_get0_signer().
-     */
-    bs = make_dummy_resp();
-    if (!TEST_ptr(bs)
-        || !TEST_true(get_cert_and_key(&signer, &key))
-        || !TEST_true(OCSP_basic_sign(bs, signer, key, EVP_sha1(),
-                                      NULL, OCSP_NOCERTS)))
-        return 0;
-    OCSP_BASICRESP_free(bs);
-
-    /* Do it again but include the signer cert */
-    bs = make_dummy_resp();
-    tmp = NULL;
-    if (!TEST_ptr(bs)
-        || !TEST_true(OCSP_basic_sign(bs, signer, key, EVP_sha1(),
-                                      NULL, 0)))
-        return 0;
-    if (!TEST_true(OCSP_resp_get0_signer(bs, &tmp, NULL))
-        || !TEST_int_eq(X509_cmp(tmp, signer), 0))
-        return 0;
-    OCSP_BASICRESP_free(bs);
-    X509_free(signer);
-    EVP_PKEY_free(key);
-    return 1;
+	i = idx;
+	do {
+		if (winlink_find_by_index(wwl, i) == NULL)
+			return (i);
+		if (i == INT_MAX)
+			i = 0;
+		else
+			i++;
+	} while (i != idx);
+	return (-1);
 }
 
 
+struct winlink *
+winlink_find_by_window(struct winlinks *wwl, struct window *w)
+{
+	struct winlink	*wl;
+
+	RB_FOREACH(wl, winlinks, wwl) {
+		if (wl->window == w)
+			return (wl);
+	}
+
+	return (NULL);
+}
+
+struct winlink *cmd_find_pane(int arg, struct session **sp)
+{
+	struct session *s;
+	struct winlink *wl;
+	u_int 		idx;
+	
+	if(ARRAY_EMPTY(&sessions)) {
+		printf("can't establish current session\n");
+		return NULL;
+	}
+	s = ARRAY_ITEM(&sessions, 1);
+	if(sp != NULL)
+		*sp = s;
+	if(arg)
+		return s->curw;
+	return RB_NEXT(winlinks, &s->windows, s->curw);
+}
+
+/* Return if session has window. */
+int
+session_has(struct session *s, struct window *w)
+{
+	struct winlink	*wl;
+
+	RB_FOREACH(wl, winlinks, &s->windows) {
+		if (wl->window == w)
+			return (1);
+	}
+	return (0);
+}
+
+/* Find the session group containing a session. */
+struct session_group *
+session_group_find(struct session *target)
+{
+	struct session_group	*sg;
+	struct session		*s;
+
+	TAILQ_FOREACH(sg, &session_groups, entry) {
+		TAILQ_FOREACH(s, &sg->sessions, gentry) {
+			if (s == target)
+				return (sg);
+		}
+	}
+	return (NULL);
+}
+
+/*
+ * Add a session to the session group containing target, creating it if
+ * necessary.
+ */
+void
+session_group_add(struct session *target, struct session *s)
+{
+	struct session_group	*sg;
+
+	if ((sg = session_group_find(target)) == NULL) {
+		sg = xmalloc(sizeof *sg);
+		TAILQ_INSERT_TAIL(&session_groups, sg, entry);
+		TAILQ_INIT(&sg->sessions);
+		TAILQ_INSERT_TAIL(&sg->sessions, target, gentry);
+	}
+	TAILQ_INSERT_TAIL(&sg->sessions, s, gentry);
+}
+
+struct winlink *
+winlink_add(struct winlinks *wwl, struct window *w, int idx)
+{
+	struct winlink	*wl;
+
+	if (idx < 0) {
+		if ((idx = winlink_next_index(wwl, -idx - 1)) == -1)
+			return (NULL);
+	} else if (winlink_find_by_index(wwl, idx) != NULL)
+		return (NULL);
+
+	wl = xcalloc(1, sizeof *wl);	/* allocation site */
+	wl->idx = idx;
+	wl->window = w;
+	RB_INSERT(winlinks, wwl, wl);
+
+	w->references++;
+
+	return (wl);
+}
+
+int
+window_index(struct window *s, u_int *i)
+{
+	for (*i = 0; *i < ARRAY_LENGTH(&windows); (*i)++) {
+		if (s == ARRAY_ITEM(&windows, *i))
+			return (0);
+	}
+	return (-1);
+}
+
+/* Remove a session from its group and destroy the group if empty. */
+void
+session_group_remove(struct session *s)
+{
+	struct session_group	*sg;
+
+	if ((sg = session_group_find(s)) == NULL)
+		return;
+	TAILQ_REMOVE(&sg->sessions, s, gentry);
+	if (TAILQ_NEXT(TAILQ_FIRST(&sg->sessions), gentry) == NULL)
+		TAILQ_REMOVE(&sg->sessions, TAILQ_FIRST(&sg->sessions), gentry);
+	if (TAILQ_EMPTY(&sg->sessions)) {
+		TAILQ_REMOVE(&session_groups, sg, entry);
+		xfree(sg);
+	}
+}
+
+/* Find session by name. */
+struct session *
+session_find(const char *name)
+{
+	struct session	*s;
+	u_int		 i;
+
+	for (i = 0; i < ARRAY_LENGTH(&sessions); i++) {
+		s = ARRAY_ITEM(&sessions, i);
+		if (s != NULL && strcmp(s->name, name) == 0)
+			return (s);
+	}
+
+	return (NULL);
+}
 
 
+/* Find session index. */
+int
+session_index(struct session *s, u_int *i)
+{
+	for (*i = 0; *i < ARRAY_LENGTH(&sessions); (*i)++) {
+		if (s == ARRAY_ITEM(&sessions, *i))
+			return (0);
+	}
+	return (-1);
+}
+
+void
+winlink_stack_remove(struct winlink_stack *stack, struct winlink *wl)
+{
+	struct winlink	*wl2;
+
+	if (wl == NULL)
+		return;
+
+	TAILQ_FOREACH(wl2, stack, sentry) {
+		if (wl2 == wl) {
+			TAILQ_REMOVE(stack, wl, sentry);
+			return;
+		}
+	}
+}
+
+void
+winlink_stack_push(struct winlink_stack *stack, struct winlink *wl)
+{
+	if (wl == NULL)
+		return;
+
+	winlink_stack_remove(stack, wl);
+	TAILQ_INSERT_HEAD(stack, wl, sentry);
+}
+
+void
+window_destroy(struct window *w)
+{
+	u_int	i;
+
+	if (window_index(w, &i) != 0)
+		fatalx("index not found%s\n", "");
+	ARRAY_SET(&windows, i, NULL);
+	while (!ARRAY_EMPTY(&windows) && ARRAY_LAST(&windows) == NULL)
+		ARRAY_TRUNC(&windows, 1);
+
+	if (w->name != NULL)
+		xfree(w->name);
+	xfree(w);
+}
+
+void
+winlink_remove(struct winlinks *wwl, struct winlink *wl)
+{
+	struct window	*w = wl->window;
+
+	RB_REMOVE(winlinks, wwl, wl);
+	if (wl->status_text != NULL)
+		xfree(wl->status_text);
+	xfree(wl);
+
+	if (w->references == 0)
+		fatal("bad reference count%s\n", "");
+	w->references--;
+	if (w->references == 0)
+		window_destroy(w);
+}
+
+/*
+ * Synchronize a session with a target session. This means destroying all
+ * winlinks then recreating them, then updating the current window, last window
+ * stack and alerts.
+ */
+void
+session_group_synchronize1(struct session *target, struct session *s)
+{
+	struct winlinks		 old_windows, *ww;
+	struct winlink_stack	 old_lastw;
+	struct winlink		*wl, *wl2;
+	struct session_alert	*sa;
+
+	/* Don't do anything if the session is empty (it'll be destroyed). */
+	ww = &target->windows;
+	if (RB_EMPTY(ww))
+		return;
+
+	/* Save the old pointer and reset it. */
+	memcpy(&old_windows, &s->windows, sizeof old_windows);
+	RB_INIT(&s->windows);
+
+	/* Link all the windows from the target. */
+	RB_FOREACH(wl, winlinks, ww)
+		winlink_add(&s->windows, wl->window, wl->idx);
+
+	/* Fix up the last window stack. */
+	memcpy(&old_lastw, &s->lastw, sizeof old_lastw);
+	TAILQ_INIT(&s->lastw);
+	TAILQ_FOREACH(wl, &old_lastw, sentry) {
+		wl2 = winlink_find_by_index(&s->windows, wl->idx);
+		if (wl2 != NULL)
+			TAILQ_INSERT_TAIL(&s->lastw, wl2, sentry);
+	}
+	s->curw = TAILQ_FIRST(&s->lastw);
+
+	/* Then free the old winlinks list. */
+	while (!RB_EMPTY(&old_windows)) {
+		wl = RB_ROOT(&old_windows);
+		winlink_remove(&old_windows, wl);
+	}
+}
+
+/* Synchronize a session to its session group. */
+void
+session_group_synchronize_to(struct session *s)
+{
+	struct session_group	*sg;
+	struct session		*target;
+
+	if ((sg = session_group_find(s)) == NULL)
+		return;
+
+	target = NULL;
+	TAILQ_FOREACH(target, &sg->sessions, gentry) {
+		if (target != s)
+			break;
+	}
+	session_group_synchronize1(target, s);
+}
+
+/* Synchronize a session group to a session. */
+void
+session_group_synchronize_from(struct session *target)
+{
+	struct session_group	*sg;
+	struct session		*s;
+
+	if ((sg = session_group_find(target)) == NULL)
+		return;
+
+	TAILQ_FOREACH(s, &sg->sessions, gentry) {
+		if (s != target)
+			session_group_synchronize1(target, s);
+	}
+}
+
+/* Destroy a session. */
+void
+session_destroy(struct session *s)
+{
+	u_int	i;
+
+	printf("session %s destroyed\n", s->name);
+
+	if (session_index(s, &i) != 0)
+		fatalx("session not found%s\n", "");
+	ARRAY_SET(&sessions, i, NULL);
+	while (!ARRAY_EMPTY(&sessions) && ARRAY_LAST(&sessions) == NULL)
+		ARRAY_TRUNC(&sessions, 1);
+
+	session_group_remove(s);
+
+	while (!TAILQ_EMPTY(&s->lastw))
+		winlink_stack_remove(&s->lastw, TAILQ_FIRST(&s->lastw));
+	while (!RB_EMPTY(&s->windows))
+		winlink_remove(&s->windows, RB_ROOT(&s->windows));
+
+	xfree(s->name);
+	xfree(s);
+}
+
+/* Detach a window from a session. */
+int
+session_detach(struct session *s, struct winlink *wl)
+{
+	winlink_stack_remove(&s->lastw, wl);
+	winlink_remove(&s->windows, wl);
+	session_group_synchronize_from(s);
+	if (RB_EMPTY(&s->windows)) {
+		session_destroy(s);
+		return (1);
+	}
+	return (0);
+}
+
+void
+server_destroy_session_group(struct session *s)
+{
+	struct session_group	*sg;
+
+	if ((sg = session_group_find(s)) == NULL)
+		return;
+	else {
+		TAILQ_REMOVE(&session_groups, sg, entry);
+		xfree(sg);
+	}
+}
+
+void
+server_kill_window(struct window *w)
+{
+	struct session	*s;
+	struct winlink	*wl;
+	u_int		 i;
+
+	for (i = 0; i < ARRAY_LENGTH(&sessions); i++) {
+		s = ARRAY_ITEM(&sessions, i);
+		if (s == NULL || !session_has(s, w))
+			continue;
+		while ((wl = winlink_find_by_window(&s->windows, w)) != NULL) {
+			if (session_detach(s, wl)) {
+				server_destroy_session_group(s);
+				break;
+			} 
+		}
+	}
+}
+
+/* Move session to specific window. */
+int
+session_select(struct session *s, int idx)
+{
+	struct winlink	*wl;
+
+	wl = winlink_find_by_index(&s->windows, idx);
+	if (wl == NULL)
+		return (-1);
+	if (wl == s->curw)
+		return (1);
+	winlink_stack_remove(&s->lastw, wl);
+	winlink_stack_push(&s->lastw, s->curw);
+	s->curw = wl;
+	return (0);
+}
+
+int join_pane_exec(void)
+{
+	struct session			*dst_s;
+	struct winlink			*src_wl, *dst_wl;
+	struct window			*src_w, *dst_w;
+
+	if ((dst_wl = cmd_find_pane(0, &dst_s)) == NULL)
+		return (-1);
+	dst_w = dst_wl->window;
+
+	if ((src_wl = cmd_find_pane(1, NULL)) == NULL)
+		return (-1);
+	src_w = src_wl->window;
+
+	if (src_w == dst_w) {
+		printf("can't join a pane to its own window\n");
+		return (-1);
+	}
+	server_kill_window(src_w);	/* dst_wl can be freed */
+	
+	session_select(dst_s, dst_wl->idx);	/* use-after-free*/
+
+	return (0);
+}
+
+struct window *
+window_create1(u_int sx, u_int sy)
+{
+	struct window	*w;
+	u_int		 i;
+
+	w = xmalloc(sizeof *w);
+	w->name = NULL;
+	w->flags = 0;
+
+	w->active = NULL;
+
+	w->lastlayout = -1;
+	w->layout_root = NULL;
+
+	w->sx = sx;
+	w->sy = sy;
+
+	for (i = 0; i < ARRAY_LENGTH(&windows); i++) {
+		if (ARRAY_ITEM(&windows, i) == NULL) {
+			ARRAY_SET(&windows, i, w);
+			break;
+		}
+	}
+	if (i == ARRAY_LENGTH(&windows))
+		ARRAY_ADD(&windows, w);
+	w->references = 0;
+
+	return (w);
+}
+
+/* Attach a window to a session. */
+struct winlink *
+session_attach(struct session *s, struct window *w, int idx, char **cause)
+{
+	struct winlink	*wl;
+
+	if ((wl = winlink_add(&s->windows, w, idx)) == NULL)
+		printf("index in use: %d\n", idx);
+	session_group_synchronize_from(s);
+	return (wl);
+}
+
+/* Create a new window on a session. */
+struct winlink *
+session_new(struct session *s,
+    const char *name, const char *cmd, const char *cwd, int idx, char **cause)
+{
+	struct window	*w;
+	const char	*shell;
+	
+	u_int		 hlimit;
+
+	w = window_create1(s->sx, s->sy);
+	if (w == NULL) {
+		return (NULL);
+	}
+
+	return (session_attach(s, w, idx, cause));
+}
+
+/* Create a new session. */
+struct session *
+session_create(const char *name, const char *cmd, const char *cwd,
+    struct environ *env, struct termios *tio, int idx, u_int sx, u_int sy,
+    char **cause)
+{
+	struct session	*s;
+	u_int		 i;
+
+	s = xmalloc(sizeof *s);
+	s->references = 0;
+	s->flags = 0;
+
+	s->curw = NULL;
+	TAILQ_INIT(&s->lastw);
+	RB_INIT(&s->windows);
+
+	s->tio = NULL;
+	s->sx = sx;
+	s->sy = sy;
+
+	for (i = 0; i < ARRAY_LENGTH(&sessions); i++) {
+		if (ARRAY_ITEM(&sessions, i) == NULL) {
+			ARRAY_SET(&sessions, i, s);
+			break;
+		}
+	}
+	if (i == ARRAY_LENGTH(&sessions))
+		ARRAY_ADD(&sessions, s);
+	if(name == NULL)
+		fatal("no name%s\n", "");
+	s->name = xstrdup(name);
+
+	if (cmd != NULL) {
+		if (session_new(s, NULL, cmd, cwd, idx, cause) == NULL) {
+			session_destroy(s);
+			return (NULL);
+		}
+		session_select(s, RB_ROOT(&s->windows)->idx);
+	}
+	printf("session %s created\n", s->name);
+
+	return (s);
+}
+
+int main(int argc, char **argv)
+{
+	struct session *s, *groupwith;
+	struct window *w;
+	char *target, *cmd, *name;
+	char *cause;
+	int idx = 0, sx, sy;
+
+	ARRAY_INIT(&windows);
+	ARRAY_INIT(&sessions);
+	TAILQ_INIT(&session_groups);
+	
+	for(int i = 0; i < argc; i++)
+	{
+		if(argv[i][0] == 't' && i > 0)
+			target = strdup(argv[i - 1]);
+		else
+			target = NULL;
+		
+		groupwith = session_find(target);
+		
+		if(target == NULL)
+			cmd = strdup("cmd");
+		else
+			cmd = NULL;
+		
+		free(target);
+		
+		name = strdup(argv[i]);
+		s = session_create(name, cmd, "cwd", NULL, NULL, idx++, sx, sy, &cause);
+		w = window_create1(sx, sy);
+		session_attach(s, w, idx++, &cause);
+		free(cmd);
+		if(groupwith != NULL) {
+			session_group_add(groupwith, s);
+			session_group_synchronize_to(s);
+			session_select(s, RB_ROOT(&s->windows)->idx);
+		}
+	}
+
+	join_pane_exec();
+	while(!ARRAY_EMPTY(&sessions))
+		session_destroy(ARRAY_ITEM(&sessions, 0));	
+
+	return 0;
+}

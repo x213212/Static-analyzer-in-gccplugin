@@ -236,8 +236,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					{
 						ptable_type = IS_OTHRER_FUCNTION;
 						fprintf(stderr, "this other function ------%s-----\n", name);
-						// continue;
+						// if(find_retheapstmt <0)
+						// 	continue;
 					}
+			
 
 				// fprintf(stderr, "\n======================================================================\n");
 				user_tmp = treeGimpleArray->get(table_temp->target);
@@ -287,7 +289,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							calculate_dominance_info(CDI_DOMINATORS);
 							for (int k = 0; k < global_ret_type_array.size(); k++)
 							{
-
+								
 								// fprintf(stderr ,"\nggggggggggggg %d\n" , gimple_bb((global_ret_type_array)[k].stmt)->index);
 								// fprintf(stderr, "\ntest %d\n", global_ret_type_array.size());
 								// 	warning_at(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
@@ -385,7 +387,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														// fprintf(stderr, "\nnow %d\n", gimple_bb(tmp)->index);
 														// debug_tree(gimple_block (tmp));
 														// if(e2->dest)
-														// if((e->dest->index  !=  e2->dest->index) )
+														if((e->dest->index  !=  e2->dest->index) )
 														// debug_gimple_stmt((global_ret_type_array)[k].stmt);
 
 														//   unsigned int dir_index = dom_convert_dir_to_idx (CDI_DOMINATORS);
@@ -411,6 +413,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 															debug_gimple_stmt(tmp);
 															warning_at(gimple_location_safe(tmp), 0, "use location");
 															fprintf(stderr, "beacuse in succ := %d have return or exit\n", gimple_bb(tmp)->index);
+															debug_gimple_stmt((global_ret_type_array)[k].stmt);
+																warning_at(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
 															fprintf(stderr, "gimple stmt in succ := %d ,possiable got to succ := %d\n", gimple_bb(u_stmt)->index, gimple_bb(tmp)->index);
 															// debug_tree((callerRetTypearray)[k].return_tree);
 															// debug_gimple_stmt(u_stmt);
@@ -419,6 +423,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 															// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
 															fprintf(stderr, "\n======================================================================\n");
 															// }
+															// goto nextgimple;
 														}
 													}
 												}
@@ -427,11 +432,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										// }
 									}
 								}
-
+								// nextgimple:;
 								// if (dominated_by_p(CDI_DOMINATORS, gimple_bb((callerRetTypearray)[k].stmt), gimple_bb(u_stmt)))
 								// {
 								// 	// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-								// 	fprintf(stderr, "\n======================================================================\n");
+									// fprintf(stderr, "\n======================================================================\n");
 								// 	// fprintf(stderr, "	no free stmt possible memory leak\n");
 								// 	fprintf(stderr, "\033[40;31m    branch possiable have return  \033[0m\n");
 
@@ -445,9 +450,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							}
 							pop_cfun();
 
-
-
-							
 							if (bb_in_loop_p(gimple_bb(u_stmt)))
 							{
 								// debug_gimple_stmt(u_stmt);
@@ -982,7 +984,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										if (name != NULL)
 											if (!strcmp(name, "free") || !strcmp(name, "xfree") || !strcmp(name, "realloc"))
 											{
-												find_freestmt++;
+
 												free_type.stmt = u_stmt;
 												free_array.push_back(free_type);
 												fprintf(stderr, "\n ================== find ================== \n");
@@ -994,7 +996,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													fprintf(stderr, "\033[40;32m    this stmt possiable free memory \033[0m\n", find_freestmt, name);
 												}
 												else
+												{
 													fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
+													find_freestmt++;
+												}
 												fprintf(stderr, "\n ================== find ================== \n");
 											}
 											else if (!strcmp(name, "pthread_create"))
@@ -1411,6 +1416,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												}
 												else
 													fprintf(stderr, "\033[40;35m    Use after free error! \033[0m\n");
+
+												check_bbinfo(gimple_bb(free_array.at(i).stmt));
 												// debug(checkTree);
 												// fprintf(stderr, "\033[40;35m    Use after free error! \033[0m\n");
 												// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");

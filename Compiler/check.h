@@ -14,6 +14,7 @@ int check_stmtStack(tree target)
 		}
 	}
 	int size = sizeof(tree);
+	// fprintf(stderr, "stmt sisze%d\n",size);
 	totalsize += size;
 	new_gimpletree_array.push_back(target);
 	return 0;

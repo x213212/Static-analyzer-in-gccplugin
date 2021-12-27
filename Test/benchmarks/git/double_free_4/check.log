@@ -1,2 +1,1506 @@
-cc1: error: cannot load plugin ../Compiler/newplugin.so
-   ../Compiler/newplugin.so: cannot open shared object file: No such file or directory
+In file included from ./benchmarks/git/double_free_4/git_df_4.c:10:0:
+./benchmarks/git/double_free_4/../git.h: In function ‘copy_array’:
+./benchmarks/git/double_free_4/../git.h:161:3: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   memcpy(dst, src, st_mult(size, n));
+   ^~~~~~
+./benchmarks/git/double_free_4/../git.h:161:3: warning: incompatible implicit declaration of built-in function ‘memcpy’
+./benchmarks/git/double_free_4/../git.h:161:3: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/double_free_4/../git.h:161:20: warning: implicit declaration of function ‘st_mult’; did you mean ‘stdout’? [-Wimplicit-function-declaration]
+   memcpy(dst, src, st_mult(size, n));
+                    ^~~~~~~
+                    stdout
+./benchmarks/git/double_free_4/../git.h: In function ‘move_array’:
+./benchmarks/git/double_free_4/../git.h:169:3: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+   memmove(dst, src, st_mult(size, n));
+   ^~~~~~~
+./benchmarks/git/double_free_4/../git.h:169:3: warning: incompatible implicit declaration of built-in function ‘memmove’
+./benchmarks/git/double_free_4/../git.h:169:3: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/double_free_4/git_df_4.c:9:0:
+./benchmarks/git/double_free_4/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/double_free_4/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/double_free_4/../git.h:174:15: note: in expansion of macro ‘xstrdup’
+  return str ? xstrdup(str) : NULL;
+               ^~~~~~~
+./benchmarks/git/double_free_4/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/double_free_4/../git.h:174:15: note: in expansion of macro ‘xstrdup’
+  return str ? xstrdup(str) : NULL;
+               ^~~~~~~
+In file included from ./benchmarks/git/double_free_4/git_df_4.c:10:0:
+./benchmarks/git/double_free_4/../git.h: At top level:
+./benchmarks/git/double_free_4/../git.h:236:55: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  int (*write_archive)(const struct archiver *, struct archiver_args *);
+                                                       ^~~~~~~~~~~~~
+./benchmarks/git/double_free_4/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/double_free_4/../git.h:126:2: warning: incompatible implicit declaration of built-in function ‘memcpy’
+  memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));  \
+  ^
+./benchmarks/git/double_free_4/../git.h:407:2: note: in expansion of macro ‘SWAP’
+  SWAP(*a, *b);
+  ^~~~
+./benchmarks/git/double_free_4/../git.h:126:2: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));  \
+  ^
+./benchmarks/git/double_free_4/../git.h:407:2: note: in expansion of macro ‘SWAP’
+  SWAP(*a, *b);
+  ^~~~
+./benchmarks/git/double_free_4/git_df_4.c: In function ‘find_ref_by_name’:
+./benchmarks/git/double_free_4/git_df_4.c:81:14: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+         if (!strcmp(list->name, name))
+              ^~~~~~
+./benchmarks/git/double_free_4/git_df_4.c: In function ‘alloc_ref_with_prefix’:
+./benchmarks/git/double_free_4/git_df_4.c:89:15: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+  size_t len = strlen(name);
+               ^~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:89:15: warning: incompatible implicit declaration of built-in function ‘strlen’
+./benchmarks/git/double_free_4/git_df_4.c:89:15: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/git/double_free_4/git_df_4.c:91:2: warning: incompatible implicit declaration of built-in function ‘memcpy’
+  memcpy(ref->name, prefix, prefixlen);
+  ^~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:91:2: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/double_free_4/git_df_4.c: In function ‘copy_ref’:
+./benchmarks/git/double_free_4/git_df_4.c:107:8: warning: incompatible implicit declaration of built-in function ‘strlen’
+  len = strlen(ref->name);
+        ^~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:107:8: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/git/double_free_4/git_df_4.c:109:2: warning: incompatible implicit declaration of built-in function ‘memcpy’
+  memcpy(cpy, ref, sizeof(struct ref) + len + 1);
+  ^~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:109:2: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+In file included from ./benchmarks/git/double_free_4/git_df_4.c:9:0:
+./benchmarks/git/double_free_4/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’
+ #define xstrdup(a) strdup(a)
+                    ^
+./benchmarks/git/double_free_4/git_df_4.c:111:30: note: in expansion of macro ‘xstrdup’
+  cpy->symref = ref->symref ? xstrdup(ref->symref) : NULL;
+                              ^~~~~~~
+./benchmarks/git/double_free_4/git_df_4.c: In function ‘try_explicit_object_name’:
+./benchmarks/git/double_free_4/git_df_4.c:124:3: warning: implicit declaration of function ‘hashclr’ [-Wimplicit-function-declaration]
+   hashclr(ref->new_sha1);
+   ^~~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:127:6: warning: implicit declaration of function ‘get_sha1’; did you mean ‘getchar’? [-Wimplicit-function-declaration]
+  if (get_sha1(name, sha1))
+      ^~~~~~~~
+      getchar
+./benchmarks/git/double_free_4/git_df_4.c:130:2: warning: implicit declaration of function ‘hashcpy’ [-Wimplicit-function-declaration]
+  hashcpy(ref->new_sha1, sha1);
+  ^~~~~~~
+./benchmarks/git/double_free_4/git_df_4.c: In function ‘main’:
+./benchmarks/git/double_free_4/git_df_4.c:215:15: warning: implicit declaration of function ‘get_local_heads’ [-Wimplicit-function-declaration]
+  local_refs = get_local_heads();
+               ^~~~~~~~~~~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:215:13: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  local_refs = get_local_heads();
+             ^
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+--------GIMPLE Cond -------
+succs:= 2
+succs:= 2
+--------GIMPLE Cond -------
+--------GIMPLE Cond -------
+succs:= 3
+succs:= 3
+succs:= 4
+--------GIMPLE Cond -------
+succs:= 5
+--------GIMPLE Cond -------
+succs:= 5
+succs:= 7
+--------GIMPLE Cond -------
+succs:= 8
+--------GIMPLE Cond -------
+succs:= 8
+--------GIMPLE Cond -------
+succs:= 10
+--------GIMPLE Cond -------
+succs:= 10
+succs:= 11
+--------GIMPLE Cond -------
+succs:= 14
+succs:= 9
+succs:= 9
+succs:= 11
+succs:= 4
+--------GIMPLE Cond -------
+succs:= 19
+--------GIMPLE Cond -------
+succs:= 20
+--------GIMPLE Cond -------
+succs:= 21
+succs:= 20
+succs:= 21
+--------GIMPLE Cond -------
+succs:= 25
+--------GIMPLE Cond -------
+succs:= 28
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 1 
+pointer ptable is 1 
+===============The second stage : Mapping stmt=================
+# .MEM_8 = VDEF <.MEM_7(D)>
+free_ref (_1);
+# .MEM_20 = VDEF <.MEM_19(D)>
+_1 = get_local_heads ();
+# VUSE <.MEM_69>
+_44 = strcmp (_43, dst_name_29);
+# VUSE <.MEM_69>
+len_54 = strlen (dst_name_29);
+# .MEM_76 = VDEF <.MEM_69>
+ref_57 = calloc (1, _56);
+# .MEM_77 = VDEF <.MEM_76>
+memcpy (_60, dst_name_29, len_54);
+# .MEM_83 = VDEF <.MEM_81>
+hashcpy (_38, _37);
+# .MEM_23 = VDEF <.MEM_69>
+_17 = __fprintf_chk (_6, 1, "No refs in common and none specified; doing nothing.\n");
+# .MEM_74 = VDEF <.MEM_70>
+free_ref (ref_64);
+# .MEM_73 = VDEF <.MEM_71>
+free_ref (ref_62);
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:free_ref========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path free_ref  function_call count: 2 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:free_ref========= [0m
+[40;41m =======recursive_fun:free_ref========= [0m
+[40;42m =======pre_check_funciton:free_ref========= [0m
+[40;42m =======start_check_funciton:free_ref========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fc94a4eb900
+    type <pointer_type 0x7fc94a010dc8
+        type <record_type 0x7fc94a010e70 ref BLK
+            size <integer_cst 0x7fc94a59cc30 constant 640>
+            unit size <integer_cst 0x7fc94a013198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc94a010e70 fields <field_decl 0x7fc94a012980 next> context <translation_unit_decl 0x7fc94a4ee168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fc94a010dc8> chain <type_decl 0x7fc94a012a18 D.4001>>
+        public unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fc94a010348>>
+   
+    def_stmt _1 = ref_5(D)->peer_ref;
+    version 1
+    ptr-info 0x7fc94a013f60>
+# VUSE <.MEM_7(D)>
+_1 = ref_5(D)->peer_ref;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+[40;33m =======POP node_fun stack:free_ref========= [0m
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 9 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free_ref========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path free_ref  function_call count: 2 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:free_ref========= [0m
+[40;41m =======recursive_fun:free_ref========= [0m
+[40;42m =======pre_check_funciton:free_ref========= [0m
+[40;42m =======start_check_funciton:free_ref========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fc94a4eb900
+    type <pointer_type 0x7fc94a010dc8
+        type <record_type 0x7fc94a010e70 ref BLK
+            size <integer_cst 0x7fc94a59cc30 constant 640>
+            unit size <integer_cst 0x7fc94a013198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc94a010e70 fields <field_decl 0x7fc94a012980 next> context <translation_unit_decl 0x7fc94a4ee168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fc94a010dc8> chain <type_decl 0x7fc94a012a18 D.4001>>
+        public unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fc94a010348>>
+   
+    def_stmt _1 = ref_5(D)->peer_ref;
+    version 1
+    ptr-info 0x7fc94a013f60>
+# VUSE <.MEM_7(D)>
+_1 = ref_5(D)->peer_ref;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+[40;33m =======POP node_fun stack:free_ref========= [0m
+[40;42m =======pre add _ fucntion:__fprintf_chk========= [0m
+[40;33m =======POP node_fun stack:__fprintf_chk========= [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:hashcpy========= [0m
+[40;33m =======POP node_fun stack:hashcpy========= [0m
+[40;42m =======pre add _ fucntion:memcpy========= [0m
+[40;33m =======POP node_fun stack:memcpy========= [0m
+[40;42m =======pre add _ fucntion:calloc========= [0m
+[40;33m =======POP node_fun stack:calloc========= [0m
+[40;42m =======pre add _ fucntion:strlen========= [0m
+[40;33m =======POP node_fun stack:strlen========= [0m
+[40;42m =======pre add _ fucntion:strcmp========= [0m
+[40;33m =======POP node_fun stack:strcmp========= [0m
+[40;42m =======pre add _ fucntion:get_local_heads========= [0m
+[40;33m =======POP node_fun stack:get_local_heads========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fc94a03af78
+    type <pointer_type 0x7fc94a010dc8
+        type <record_type 0x7fc94a010e70 ref BLK
+            size <integer_cst 0x7fc94a59cc30 constant 640>
+            unit size <integer_cst 0x7fc94a013198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc94a010e70 fields <field_decl 0x7fc94a012980 next> context <translation_unit_decl 0x7fc94a4ee168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fc94a010dc8> chain <type_decl 0x7fc94a012a18 D.4001>>
+        public unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fc94a010348>>
+    var <var_decl 0x7fc94a040120 ref>
+    def_stmt ref_57 = calloc (1, _56);
+    version 57
+    ptr-info 0x7fc94a046240>
+# .MEM_76 = VDEF <.MEM_69>
+ref_57 = calloc (1, _56);
+
+ ================== trace ptable================== 
+trace fucntion name:calloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---calloc-----
+this Reserved word function ------calloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_78 = ref_57;
+In function ‘main’:
+lto1: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_53 = _78;
+./benchmarks/git/double_free_4/git_df_4.c:98:9: warning: use location
+  return alloc_ref_with_prefix("", 0, name);
+         ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_79 = _53;
+lto1: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+ret_47 = _79;
+./benchmarks/git/double_free_4/git_df_4.c:144:14: warning: use location
+  struct ref *ret = alloc_ref(name);
+              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+ref_49 = PHI <ret_47(12), ref_50(13)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_52 = &ref_49->next;
+./benchmarks/git/double_free_4/git_df_4.c:139:10: warning: use location
+  *tail = &ref->next;
+          ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+remote_tail = _52;
+./benchmarks/git/double_free_4/git_df_4.c:139:8: warning: use location
+  *tail = &ref->next;
+        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_48 = remote_tail;
+./benchmarks/git/double_free_4/git_df_4.c:136:3: warning: use location
+  **tail = ref;
+   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+*_48 = ret_47;
+./benchmarks/git/double_free_4/git_df_4.c:136:9: warning: use location
+  **tail = ref;
+         ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_51 = ref_49->next;
+./benchmarks/git/double_free_4/git_df_4.c:137:12: warning: use location
+  while (ref->next)
+            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_51 != 0B)
+./benchmarks/git/double_free_4/git_df_4.c:137:8: warning: use location
+  while (ref->next)
+        ^
+if (_51 != 0B)
+
+ ================== find cond branch ================= 
+./benchmarks/git/double_free_4/git_df_4.c:137:8: warning: use location
+Cond in fucntion main basic block 14
+ ================== possible direct basic block ================= 
+from main basic block 13
+ ================== possible direct basic block ================= 
+from main basic block 15
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+ref_50 = ref_49->next;
+./benchmarks/git/double_free_4/git_df_4.c:138:7: warning: use location
+   ref = ref->next;
+       ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_82 = ret_47;
+lto1: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+dst_peer_36 = _82;
+./benchmarks/git/double_free_4/git_df_4.c:186:13: warning: use location
+    dst_peer = make_linked_ref(dst_name, dst_tail);
+             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+dst_peer_39 = PHI <dst_peer_31(9), dst_peer_36(15)>
+lto1: warning: use location
+this stmt have mutiple branch --------
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+dst_peer_39->force = _40;
+./benchmarks/git/double_free_4/git_df_4.c:190:19: warning: use location
+   dst_peer->force = pat->force;
+                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+dst_peer_39->force = _40;
+./benchmarks/git/double_free_4/git_df_4.c:190:19: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_40 = MEM[(const struct refspec *)0B].force;
+./benchmarks/git/double_free_4/git_df_4.c:190:24: warning: use location
+   dst_peer->force = pat->force;
+                        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+dst_peer_39->peer_ref = src_28;
+./benchmarks/git/double_free_4/git_df_4.c:189:22: warning: use location
+   dst_peer->peer_ref = src;
+                      ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_68>
+src_41 = src_28->next;
+bb index := 18
+# VUSE <.MEM_6>
+return;
+lto1: warning: use location
+beacuse in succ := 4 have return or exit
+gimple stmt in succ := 18 ,possiable got to succ := 4
+
+======================================================================
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_68>
+src_41 = src_28->next;
+bb index := 18
+# VUSE <.MEM_71>
+return 0;
+<built-in>: warning: use location
+beacuse in succ := 29 have return or exit
+gimple stmt in succ := 18 ,possiable got to succ := 29
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+src_41 = src_28->next;
+./benchmarks/git/double_free_4/git_df_4.c:163:19: warning: use location
+  for ( ; src; src = src->next) {
+                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_37 = &src_28->new_sha1;
+./benchmarks/git/double_free_4/git_df_4.c:187:32: warning: use location
+    hashcpy(dst_peer->new_sha1, src->new_sha1);
+                                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+hashcpy (_38, _37);
+./benchmarks/git/double_free_4/git_df_4.c:187:4: warning: use location
+    hashcpy(dst_peer->new_sha1, src->new_sha1);
+    ^
+this stmt is child function---hashcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7fc94a03af78
+    type <pointer_type 0x7fc94a010dc8
+        type <record_type 0x7fc94a010e70 ref BLK
+            size <integer_cst 0x7fc94a59cc30 constant 640>
+            unit size <integer_cst 0x7fc94a013198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc94a010e70 fields <field_decl 0x7fc94a012980 next> context <translation_unit_decl 0x7fc94a4ee168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fc94a010dc8> chain <type_decl 0x7fc94a012a18 D.4001>>
+        public unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fc94a010348>>
+    var <var_decl 0x7fc94a040120 ref>
+    def_stmt ref_57 = calloc (1, _56);
+    version 57
+    ptr-info 0x7fc94a046240>
+trace fucntion name:hashcpy 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+# VUSE <.MEM_69>
+_30 = src_28->peer_ref;
+bb index := 3
+# VUSE <.MEM_71>
+return 0;
+<built-in>: warning: use location
+beacuse in succ := 29 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 29
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_30 = src_28->peer_ref;
+./benchmarks/git/double_free_4/git_df_4.c:167:10: warning: use location
+   if (src->peer_ref)
+          ^
+
+======================================================================
+[40;31m    branch possiable have return or exit  [0m
+dst_name_29 = &src_28->name;
+bb index := 3
+# VUSE <.MEM_71>
+return 0;
+<built-in>: warning: use location
+beacuse in succ := 29 have return or exit
+gimple stmt in succ := 3 ,possiable got to succ := 29
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+dst_name_29 = &src_28->name;
+./benchmarks/git/double_free_4/git_df_4.c:166:9: warning: use location
+   char *dst_name = src->name;
+         ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+len_54 = strlen (dst_name_29);
+./benchmarks/git/double_free_4/git_df_4.c:89:9: warning: use location
+  size_t len = strlen(name);
+         ^
+this stmt is child function---strlen-----
+
+ ================== trace ================== 
+ <ssa_name 0x7fc94a03af78
+    type <pointer_type 0x7fc94a010dc8
+        type <record_type 0x7fc94a010e70 ref BLK
+            size <integer_cst 0x7fc94a59cc30 constant 640>
+            unit size <integer_cst 0x7fc94a013198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc94a010e70 fields <field_decl 0x7fc94a012980 next> context <translation_unit_decl 0x7fc94a4ee168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fc94a010dc8> chain <type_decl 0x7fc94a012a18 D.4001>>
+        public unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fc94a010348>>
+    var <var_decl 0x7fc94a040120 ref>
+    def_stmt ref_57 = calloc (1, _56);
+    version 57
+    ptr-info 0x7fc94a046240>
+trace fucntion name:strlen 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_55 = len_54;
+./benchmarks/git/double_free_4/git_df_4.c:90:20: warning: use location
+  struct ref *ref = xcalloc(1, sizeof(struct ref) + prefixlen + len + 1);
+                    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_56 = _55 + 81;
+./benchmarks/git/double_free_4/git_df_4.c:90:20: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+ref_57 = calloc (1, _56);
+./benchmarks/git/double_free_4/git_df_4.c:90:14: warning: use location
+  struct ref *ref = xcalloc(1, sizeof(struct ref) + prefixlen + len + 1);
+              ^
+this stmt is child function---calloc-----
+
+ ================== trace ================== 
+ <ssa_name 0x7fc94a03af78
+    type <pointer_type 0x7fc94a010dc8
+        type <record_type 0x7fc94a010e70 ref BLK
+            size <integer_cst 0x7fc94a59cc30 constant 640>
+            unit size <integer_cst 0x7fc94a013198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc94a010e70 fields <field_decl 0x7fc94a012980 next> context <translation_unit_decl 0x7fc94a4ee168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fc94a010dc8> chain <type_decl 0x7fc94a012a18 D.4001>>
+        public unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fc94a010348>>
+    var <var_decl 0x7fc94a040120 ref>
+    def_stmt ref_57 = calloc (1, _56);
+    version 57
+    ptr-info 0x7fc94a046240>
+trace fucntion name:calloc 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+memcpy (_60, dst_name_29, len_54);
+./benchmarks/git/double_free_4/git_df_4.c:92:2: warning: use location
+  memcpy(ref->name + prefixlen, name, len);
+  ^
+this stmt is child function---memcpy-----
+
+ ================== trace ================== 
+ <ssa_name 0x7fc94a03af78
+    type <pointer_type 0x7fc94a010dc8
+        type <record_type 0x7fc94a010e70 ref BLK
+            size <integer_cst 0x7fc94a59cc30 constant 640>
+            unit size <integer_cst 0x7fc94a013198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc94a010e70 fields <field_decl 0x7fc94a012980 next> context <translation_unit_decl 0x7fc94a4ee168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fc94a010dc8> chain <type_decl 0x7fc94a012a18 D.4001>>
+        public unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fc94a010348>>
+    var <var_decl 0x7fc94a040120 ref>
+    def_stmt ref_57 = calloc (1, _56);
+    version 57
+    ptr-info 0x7fc94a046240>
+trace fucntion name:memcpy 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_44 = strcmp (_43, dst_name_29);
+./benchmarks/git/double_free_4/git_df_4.c:81:14: warning: use location
+         if (!strcmp(list->name, name))
+              ^
+this stmt is child function---strcmp-----
+
+ ================== trace ================== 
+ <ssa_name 0x7fc94a03af78
+    type <pointer_type 0x7fc94a010dc8
+        type <record_type 0x7fc94a010e70 ref BLK
+            size <integer_cst 0x7fc94a59cc30 constant 640>
+            unit size <integer_cst 0x7fc94a013198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc94a010e70 fields <field_decl 0x7fc94a012980 next> context <translation_unit_decl 0x7fc94a4ee168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fc94a010dc8> chain <type_decl 0x7fc94a012a18 D.4001>>
+        public unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fc94a010348>>
+    var <var_decl 0x7fc94a040120 ref>
+    def_stmt ref_57 = calloc (1, _56);
+    version 57
+    ptr-info 0x7fc94a046240>
+trace fucntion name:strcmp 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_44 == 0)
+./benchmarks/git/double_free_4/git_df_4.c:81:12: warning: use location
+         if (!strcmp(list->name, name))
+            ^
+if (_44 == 0)
+
+ ================== find cond branch ================= 
+./benchmarks/git/double_free_4/git_df_4.c:81:12: warning: use location
+Cond in fucntion main basic block 5
+ ================== possible direct basic block ================= 
+from main basic block 8
+ ================== possible direct basic block ================= 
+from main basic block 6
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+free (dst_name_29);
+./benchmarks/git/double_free_4/git_df_4.c:192:3: warning: use location
+   free(dst_name);
+   ^
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (dst_name_29);
+./benchmarks/git/double_free_4/git_df_4.c:192:3: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_38 = &dst_peer_36->new_sha1;
+./benchmarks/git/double_free_4/git_df_4.c:187:12: warning: use location
+    hashcpy(dst_peer->new_sha1, src->new_sha1);
+            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_61 = ref_57;
+./benchmarks/git/double_free_4/git_df_4.c:93:9: warning: use location
+  return ref;
+         ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_59 = &ref_57->name;
+./benchmarks/git/double_free_4/git_df_4.c:92:9: warning: use location
+  memcpy(ref->name + prefixlen, name, len);
+         ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_60 = _59;
+./benchmarks/git/double_free_4/git_df_4.c:92:2: warning: use location
+  memcpy(ref->name + prefixlen, name, len);
+  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_58 = &ref_57->name;
+./benchmarks/git/double_free_4/git_df_4.c:91:9: warning: use location
+  memcpy(ref->name, prefix, prefixlen);
+         ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fc94a03af78
+    type <pointer_type 0x7fc94a010dc8
+        type <record_type 0x7fc94a010e70 ref BLK
+            size <integer_cst 0x7fc94a59cc30 constant 640>
+            unit size <integer_cst 0x7fc94a013198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc94a010e70 fields <field_decl 0x7fc94a012980 next> context <translation_unit_decl 0x7fc94a4ee168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fc94a010dc8> chain <type_decl 0x7fc94a012a18 D.4001>>
+        public unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fc94a010348>>
+    var <var_decl 0x7fc94a040120 ref>
+    def_stmt ref_57 = calloc (1, _56);
+    version 57
+    ptr-info 0x7fc94a046240>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_86 = VDEF <.MEM_67>
+free (dst_name_29);
+./benchmarks/git/double_free_4/git_df_4.c:192:3: warning: use location
+   free(dst_name);
+   ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_86 = VDEF <.MEM_67>
+free (dst_name_29);
+./benchmarks/git/double_free_4/git_df_4.c:192:3: warning: Use after free error!: free location 
+ref_49 = PHI <ret_47(12), ref_50(13)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_86 = VDEF <.MEM_67>
+free (dst_name_29);
+./benchmarks/git/double_free_4/git_df_4.c:192:3: warning: Use after free error!: free location 
+ref_49 = PHI <ret_47(12), ref_50(13)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_86 = VDEF <.MEM_67>
+free (dst_name_29);
+./benchmarks/git/double_free_4/git_df_4.c:192:3: warning: Use after free error!: free location 
+dst_peer_39 = PHI <dst_peer_31(9), dst_peer_36(15)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_86 = VDEF <.MEM_67>
+free (dst_name_29);
+./benchmarks/git/double_free_4/git_df_4.c:192:3: warning: Use after free error!: free location 
+dst_peer_39 = PHI <dst_peer_31(9), dst_peer_36(15)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_86 = VDEF <.MEM_67>
+free (dst_name_29);
+./benchmarks/git/double_free_4/git_df_4.c:192:3: warning: Use after free error!: free location 
+# VUSE <.MEM_68>
+src_41 = src_28->next;
+./benchmarks/git/double_free_4/git_df_4.c:163:19: warning: use location
+  for ( ; src; src = src->next) {
+                   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_86 = VDEF <.MEM_67>
+free (dst_name_29);
+./benchmarks/git/double_free_4/git_df_4.c:192:3: warning: Use after free error!: free location 
+   free(dst_name);
+   ^
+# VUSE <.MEM_68>
+src_41 = src_28->next;
+./benchmarks/git/double_free_4/git_df_4.c:163:19: warning: use location
+  for ( ; src; src = src->next) {
+                   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+
+======================================================================
+
+======================================================================
+[40;31m   need check branch because multiple direction varible[0m
+
+======================================================================
+
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fc94a4ebc18
+    type <integer_type 0x7fc94a4f75e8 int public SI
+        size <integer_cst 0x7fc94a4e3e28 constant 32>
+        unit size <integer_cst 0x7fc94a4e3e40 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fc94a4f75e8 precision 32 min <integer_cst 0x7fc94a4e3de0 -2147483648> max <integer_cst 0x7fc94a4e3df8 2147483647>
+        pointer_to_this <pointer_type 0x7fc94a4fea80>>
+   
+    def_stmt _1 = get_local_heads ();
+    version 1>
+# .MEM_20 = VDEF <.MEM_19(D)>
+_1 = get_local_heads ();
+
+ ================== trace ptable================== 
+trace fucntion name:get_local_heads 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---get_local_heads-----
+this other function ------get_local_heads-----
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fc94a03a090
+    type <pointer_type 0x7fc94a01f738
+        type <array_type 0x7fc94a01f690 type <integer_type 0x7fc94a0100a8 char>
+            BLK
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fc94a0109d8>
+            pointer_to_this <pointer_type 0x7fc94a01f738>>
+        unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _43 = &list_42->name;
+    version 43
+    ptr-info 0x7fc94a046150>
+_43 = &list_42->name;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fc94a030ab0
+    type <pointer_type 0x7fc94a0107e0
+        type <integer_type 0x7fc94a010738 char public string-flag QI
+            size <integer_cst 0x7fc94a4e3cd8 constant 8>
+            unit size <integer_cst 0x7fc94a4e3cf0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7fc94a4f73f0 precision 8 min <integer_cst 0x7fc94a013180 -128> max <integer_cst 0x7fc94a013168 127>
+            pointer_to_this <pointer_type 0x7fc94a0107e0>>
+        unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality context <translation_unit_decl 0x7fc94a4ee168 ./benchmarks/git/double_free_4/git_df_4.c>
+        pointer_to_this <pointer_type 0x7fc94a010888>>
+    var <var_decl 0x7fc94a02dc60 dst_name>
+    def_stmt dst_name_29 = &src_28->name;
+    version 29
+    ptr-info 0x7fc94a046060>
+dst_name_29 = &src_28->name;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7fc94a013f30 type <integer_type 0x7fc94a019000 size_t> constant 1>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fc94a4eb750
+    type <pointer_type 0x7fc94a4fe0a8
+        type <void_type 0x7fc94a4f7f18 void VOID
+            align 8 symtab 0 alias set -1 structural equality
+            pointer_to_this <pointer_type 0x7fc94a4fe0a8>>
+        public unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fc94a503bd0>>
+   
+    def_stmt _60 = _59;
+    version 60
+    ptr-info 0x7fc94a046288>
+_60 = _59;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fc94a030d38
+    type <pointer_type 0x7fc94a01cb28
+        type <array_type 0x7fc94a010d20 type <integer_type 0x7fc94a4f7348 unsigned char>
+            BLK
+            size <integer_cst 0x7fc94a013288 constant 160>
+            unit size <integer_cst 0x7fc94a013270 constant 20>
+            align 8 symtab 0 alias set -1 structural equality domain <integer_type 0x7fc94a010c78>
+            pointer_to_this <pointer_type 0x7fc94a01cb28>>
+        unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality>
+   
+    def_stmt _38 = &dst_peer_36->new_sha1;
+    version 38
+    ptr-info 0x7fc94a0460f0>
+_38 = &dst_peer_36->new_sha1;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fc94a4ebd80
+    type <pointer_type 0x7fc94a019e70
+        type <record_type 0x7fc94a019dc8 FILE BLK
+            size <integer_cst 0x7fc94a0132b8 constant 1728>
+            unit size <integer_cst 0x7fc94a0133a8 constant 216>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc94a019c78 fields <field_decl 0x7fc94a01b098 _flags> context <translation_unit_decl 0x7fc94a4ee168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fc94a019e70> chain <type_decl 0x7fc94a01b130 D.4046>>
+        unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fc94a01c690>>
+   
+    def_stmt _6 = stderr;
+    version 6
+    ptr-info 0x7fc94a013e40>
+# VUSE <.MEM_69>
+_6 = stderr;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fc94a042288
+    type <pointer_type 0x7fc94a010dc8
+        type <record_type 0x7fc94a010e70 ref BLK
+            size <integer_cst 0x7fc94a59cc30 constant 640>
+            unit size <integer_cst 0x7fc94a013198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc94a010e70 fields <field_decl 0x7fc94a012980 next> context <translation_unit_decl 0x7fc94a4ee168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fc94a010dc8> chain <type_decl 0x7fc94a012a18 D.4001>>
+        public unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fc94a010348>>
+    var <var_decl 0x7fc94a0406c0 ref>
+    def_stmt ref_64 = PHI <local_refs_12(23), next_65(24)>
+    version 64
+    ptr-info 0x7fc94a0462e8>
+ref_64 = PHI <local_refs_12(23), next_65(24)>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fc94a0421b0
+    type <pointer_type 0x7fc94a010dc8
+        type <record_type 0x7fc94a010e70 ref BLK
+            size <integer_cst 0x7fc94a59cc30 constant 640>
+            unit size <integer_cst 0x7fc94a013198 constant 80>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc94a010e70 fields <field_decl 0x7fc94a012980 next> context <translation_unit_decl 0x7fc94a4ee168 ./benchmarks/git/double_free_4/git_df_4.c>
+            pointer_to_this <pointer_type 0x7fc94a010dc8> chain <type_decl 0x7fc94a012a18 D.4001>>
+        public unsigned DI
+        size <integer_cst 0x7fc94a4e3be8 constant 64>
+        unit size <integer_cst 0x7fc94a4e3c00 constant 8>
+        align 64 symtab 0 alias set -1 structural equality
+        pointer_to_this <pointer_type 0x7fc94a010348>>
+    var <var_decl 0x7fc94a040510 ref>
+    def_stmt ref_62 = PHI <_7(26), next_63(27)>
+    version 62
+    ptr-info 0x7fc94a0462b8>
+ref_62 = PHI <_7(26), next_63(27)>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:free_ref=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+if (ref_5(D) == 0B)
+  goto <bb 4>; [68.98%]
+else
+  goto <bb 3>; [31.02%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [31.02%]:
+_1 = ref_5(D)->peer_ref;
+free_ref (_1);
+_2 = ref_5(D)->remote_status;
+free (_2);
+_3 = ref_5(D)->symref;
+free (_3);
+free (ref_5(D));
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [100.00%]:
+return;
+
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [8.49%]:
+_1 = get_local_heads ();
+_2 = (long int) _1;
+local_refs_12 = (struct ref *) _2;
+remote_tail = &remote_refs;
+_3 = remote_refs;
+send_all_26 = 1;
+send_mirror_27 = 0;
+goto <bb 19>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [48.13%]:
+dst_name_29 = &src_28->name;
+_30 = src_28->peer_ref;
+if (_30 != 0B)
+  goto <bb 4>; [70.00%]
+else
+  goto <bb 7>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [33.69%]:
+// predicted unlikely by continue predictor.
+goto <bb 18>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [92.50%]:
+_43 = &list_42->name;
+_44 = strcmp (_43, dst_name_29);
+if (_44 == 0)
+  goto <bb 8>; [7.50%]
+else
+  goto <bb 6>; [92.50%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [85.56%]:
+list_45 = list_42->next;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [100.00%]:
+# list_42 = PHI <_3(3), list_45(6)>
+if (list_42 != 0B)
+  goto <bb 5>; [92.50%]
+else
+  goto <bb 8>; [7.50%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [14.44%]:
+# _46 = PHI <list_42(5), 0B(7)>
+_75 = _46;
+dst_peer_31 = _75;
+if (dst_peer_31 != 0B)
+  goto <bb 9>; [70.00%]
+else
+  goto <bb 10>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [10.11%]:
+_32 = dst_peer_31->peer_ref;
+if (_32 != 0B)
+  goto <bb 17> (free_name); [70.00%]
+else
+  goto <bb 16>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [4.33%]:
+_33 = BIT_FIELD_REF <MEM[(const struct refspec *)0B], 8, 0>;
+_34 = _33 & 4;
+if (_34 != 0)
+  goto <bb 11>; [67.00%]
+else
+  goto <bb 12>; [33.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [2.90%]:
+_35 = 1;
+if (_35 == 0)
+  goto <bb 17> (free_name); [50.00%]
+else
+  goto <bb 12>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [2.88%]:
+len_54 = strlen (dst_name_29);
+_55 = len_54;
+_56 = _55 + 81;
+ref_57 = calloc (1, _56);
+_58 = &ref_57->name;
+GIMPLE_NOP
+_59 = &ref_57->name;
+_60 = _59;
+memcpy (_60, dst_name_29, len_54);
+_61 = ref_57;
+_78 = ref_57;
+_53 = _78;
+_79 = _53;
+ret_47 = _79;
+_48 = remote_tail;
+*_48 = ret_47;
+goto <bb 14>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [16.32%]:
+ref_50 = ref_49->next;
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [19.20%]:
+# ref_49 = PHI <ret_47(12), ref_50(13)>
+_51 = ref_49->next;
+if (_51 != 0B)
+  goto <bb 13>; [85.00%]
+else
+  goto <bb 15>; [15.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [2.88%]:
+_52 = &ref_49->next;
+remote_tail = _52;
+_82 = ret_47;
+dst_peer_36 = _82;
+_37 = &src_28->new_sha1;
+_38 = &dst_peer_36->new_sha1;
+hashcpy (_38, _37);
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [5.91%]:
+# dst_peer_39 = PHI <dst_peer_31(9), dst_peer_36(15)>
+dst_peer_39->peer_ref = src_28;
+_40 = MEM[(const struct refspec *)0B].force;
+dst_peer_39->force = _40;
+
+=======is loop:1=========
+
+ bb index 17 
+free_name [14.44%]:
+free (dst_name_29);
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [48.13%]:
+src_41 = src_28->next;
+
+=======is loop:1=========
+
+ bb index 19 
+<bb 19> [56.62%]:
+# src_28 = PHI <local_refs_12(2), src_41(18)>
+if (src_28 != 0B)
+  goto <bb 3>; [85.00%]
+else
+  goto <bb 20>; [15.00%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [8.49%]:
+_72 = 0;
+_4 = _72;
+if (_4 != 0)
+  goto <bb 23> (cleanup); [46.00%]
+else
+  goto <bb 21>; [54.00%]
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [4.59%]:
+_5 = remote_refs;
+if (_5 == 0B)
+  goto <bb 22>; [19.86%]
+else
+  goto <bb 23> (cleanup); [80.14%]
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [0.91%]:
+_6 = stderr;
+_17 = __fprintf_chk (_6, 1, "No refs in common and none specified; doing nothing.\n");
+
+=======is loop:0=========
+
+ bb index 23 
+cleanup [8.49%]:
+goto <bb 25>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 24 
+<bb 24> [48.12%]:
+next_65 = ref_64->next;
+free_ref (ref_64);
+
+=======is loop:1=========
+
+ bb index 25 
+<bb 25> [56.62%]:
+# ref_64 = PHI <local_refs_12(23), next_65(24)>
+if (ref_64 != 0B)
+  goto <bb 24>; [85.00%]
+else
+  goto <bb 26>; [15.00%]
+
+=======is loop:0=========
+
+ bb index 26 
+<bb 26> [8.49%]:
+_7 = remote_refs;
+goto <bb 28>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 27 
+<bb 27> [48.12%]:
+next_63 = ref_62->next;
+free_ref (ref_62);
+
+=======is loop:1=========
+
+ bb index 28 
+<bb 28> [56.62%]:
+# ref_62 = PHI <_7(26), next_63(27)>
+if (ref_62 != 0B)
+  goto <bb 27>; [85.00%]
+else
+  goto <bb 29>; [15.00%]
+
+=======is loop:0=========
+
+ bb index 29 
+<bb 29> [8.49%]:
+return 0;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 9 [0m
+[40;34m    used_stmt array stack totalsize of : 4672 [0m
+[40;34m    collect time: : 0.000313 s [0m
+[40;34m    algorithm time: 0.007421 s [0m
+[40;34m    gimple stmt count : : 84 [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+/usr/bin/ld: /tmp/ccJAk2ed.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0x44): undefined reference to `get_local_heads'
+/usr/bin/ld: <artificial>:(.text+0x131): undefined reference to `hashcpy'
+collect2: error: ld returned 1 exit status

@@ -30,17 +30,6 @@ using namespace std;
 #include "analyze.h"
 
 
-// static int totalsize; //宣告一個整數型態size變數，用來儲存x的位元組大小
-// static int levelsize = 0;
-// static tree now_tree;
-
-// bool bb_in_branch_p(tree a, tree b)
-// {
-// 	return dominated_by_p(CDI_DOMINATORS, a, a);
-// }
-
-
-/*Pointer Constraint  5*/
 void PointerConstraint(ptb *ptable, ptb *ftable)
 {
 	gimple *u_stmt;
@@ -143,7 +132,6 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 						// if(gimple_assign_rhs1(def_stmt))
 						// 	debug_tree(gimple_assign_rhs1(def_stmt));
 
-						// fprintf(stderr, "qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw%ddqwdqwdqwdqwd\n");
 						if (gimple_call_fn(def_stmt) && gimple_call_fndecl(def_stmt))
 						{
 							// debug_tree(gimple_call_fn(def_stmt));
@@ -155,7 +143,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 									strcmp(name, "malloc"))
 
 								{
-									// fprintf(stderr, "qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqw%ddqwdqwdqwdqwd\n");
+							
 									Prenew_search_imm_use(used_stmt, table1->target, table1->target);
 								}
 						}
@@ -195,7 +183,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// table1->size
 			// debug_tree(used_stmt->target);
 			// table1->size=colectCount ;
-			// fprintf(stderr, "---------------------------%d-rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n",table1->size);
+		
 			// debug_tree(table1->target);
 			// tree teewtetqq;
 			// size = sizeof(teewtetqq);
@@ -219,14 +207,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// 	// if (bitmap_intersect_p(pt1->vars, pt2->vars))
 			// 	// {
 
-			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 	// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+
 			// 	// 	gimple_array *user_tmp2;
 			// 	// 	user_tmp2 = tvpt2->get(table1->target);
 			// 	// 	if (user_tmp2 != NULL)
@@ -259,14 +240,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			// 			continue;
 			// 		fprintf(stderr, "filter\n\n");
 
-			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
-			// 		// fprintf(stderr, "----------------------------rkooooooooooooooooooooooooooooooooooooooooooooooooooooo\n");
+
 
 			// 		if (treeGimpleArray->get(table1->target) != NULL)
 			// 			break;
@@ -357,7 +331,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, " ~~~~~~\n");
 	fprintf(stderr, "           ~~~~~~~\n");
 	fprintf(stderr, "\033[40;34m    find Entry point : %d \033[0m\n", Entrypoint);
-	fprintf(stderr, "\033[40;34m    used_stmt array stack totalsize of : %d \033[0m\n", totalsize);
+	fprintf(stderr, "\033[40;34m    used_stmt array stack totalsize of : %f mb\033[0m\n", (totalsize*0.000001));
 	fprintf(stderr, "\033[40;34m    collect time: : %f s \033[0m\n", time_used);
 	fprintf(stderr, "\033[40;34m    algorithm time: %f s \033[0m\n", time_used2);
 	fprintf(stderr, "\033[40;34m    gimple stmt count : : %d \033[0m\n", gimplestmt_count);
@@ -466,7 +440,7 @@ void record_fucntion(cgraph_node *node)
 		for (e = node->callees; e; e = e->next_callee)
 		{
 			// funct_state l;
-			cgraph_node *caller = e->caller->global.inlined_to ? e->caller->global.inlined_to : e->caller;
+			cgraph_node *caller = e->caller->inlined_to ? e->caller->inlined_to : e->caller;
 			cgraph_node *callee = e->callee->ultimate_alias_target(&avail, caller);
 
 			// fprintf(stderr, "=======child node_fun:%s=========\n", get_name(callee->decl));
@@ -1504,7 +1478,7 @@ void insert_always_inline()
 		for (e = node->callees; e; e = e->next_callee)
 		{
 
-			cgraph_node *caller = e->caller->global.inlined_to ? e->caller->global.inlined_to : e->caller;
+			cgraph_node *caller = e->caller->inlined_to ? e->caller->inlined_to : e->caller;
 			cgraph_node *callee = e->callee->ultimate_alias_target(&avail, caller);
 			tree callee_tree = callee ? DECL_FUNCTION_SPECIFIC_OPTIMIZATION(callee->decl) : NULL;
 			// DECL_DISREGARD_INLINE_LIMITS (callee->decl)=1;
