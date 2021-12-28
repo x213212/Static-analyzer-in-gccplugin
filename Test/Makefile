@@ -158,7 +158,8 @@ NO_OF_FILES := $(words $(FILE_NAME))
 
 LTO=-flto
 WHOLE=-fwhole-program
-FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fno-tree-dce  -fipa-pta  -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions -flto-report
+# https://gcc.gnu.org/onlinedocs/gcc/Developer-Options.html
+FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fno-tree-dce  -fipa-pta  -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions -fprofile-report
 # -flto-report
 # -ftime-report
 #FLAGS=-O1   -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -pthread   
@@ -170,8 +171,8 @@ PLUGIN=-fplugin=../Compiler/newplugin.so
 all: test.o
 
 test.o:  
-	#   $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
-		#   $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
+	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
+	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 	$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
 	# @sh ./test.sh $(FILE_NAME)
 	# # # binutils

@@ -121,7 +121,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			now_tree = processtable->target;
 			new_search_imm_use(used_stmt, processtable->target, processtable->target);
 			set_gimple_array(used_stmt, processtable->last_stmt, processtable->target, processtable->target, NULL);
-			;
+			
 
 			if (!strcmp(get_tree_code_name(TREE_CODE(used_stmt->target)), "<invalid tree code>"))
 			{

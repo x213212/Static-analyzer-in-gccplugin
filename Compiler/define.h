@@ -19,7 +19,7 @@ const unsigned int POINTER_MUST = 2;
 
 unsigned int IS_MALLOC_FUCNTION = 1;
 
-
+unsigned int IS_PTHREAD_FUCNTION = 3;
 unsigned int IS_OTHRER_FUCNTION = 2;
 unsigned int IS_HEAP_FUCNTION = -1;
 unsigned int PTABLE_IS_NULL = -2;
@@ -39,11 +39,10 @@ bool ipa = true;
 bool vscode_extensionmod = false;
 bool Looserulesfree =false;
 bool useafterfree =true;
-bool debugmod = true;
+bool debugmod = false;
 bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;
-bool freemodv2 = false;
 bool retmod = false; //關聯return stmt
 bool pthread_detachedmod = true;
 bool pthread_exitmod = true;

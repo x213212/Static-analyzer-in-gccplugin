@@ -75,14 +75,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		if (table_temp->node->get_fun()->decl == function_tree)
 			if (table_temp->target != NULL)
 			{
+				// debug_tree(table_temp->target);
 				vector<free_type> free_array;
 				find_freestmt = find_mallocstmt = find_phistmt = 0;
 				// debug_tree(function_tree);
-				// debug_tree(table_temp->target);
 
-			
 				fprintf(stderr, "\ndot graph START\n");
-			
+
 				fprintf(stderr, "\n======================================================================\n");
 				// vector<relate_type> relate_type_array;
 				// function_relate_array fun_array;
@@ -113,7 +112,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// 	continue;
 				// debug_tree(table_temp->target);
 				const char *name = "";
-				const char *name2 = "";
 
 				if (TREE_CODE(table_temp->target) == INTEGER_CST || TREE_CODE(table_temp->target) == STRING_CST)
 				{
@@ -192,8 +190,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				// if(def_stmt != NULL)
 				// debug_tree(table_temp->target);
 				// warning_at(gimple_location_safe(def_stmt), 0, "use location");
-				
-				//filter fucntion name preprocess
+
+				// filter fucntion name preprocess
 				if (name != NULL)
 
 					if (!strcmp(name, "realloc") ||
@@ -351,7 +349,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																// debug_gimple_stmt(u_stmt);
 																// debug_gimple_stmt((callerRetTypearray)[k].stmt);
 																// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-																//check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
+																// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
 																fprintf(stderr, "\n======================================================================\n");
 															}
 													}
@@ -741,13 +739,15 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 									if ((gimple_code(u_stmt) == GIMPLE_CALL) && (find_mallocstmt == IS_MALLOC_FUCNTION || find_mallocstmt == IS_OTHRER_FUCNTION))
 									{
+										// fprintf(stderr, "\n ================== find ================== \n");
+										// debug(u_stmt);
 
 										find_mallocstmt = IS_MALLOC_FUCNTION;
 
 										// gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
 										// fprintf(stderr, "NEWX FUCNTIONMWEQMEQWP: \n");
 										gimple *def_stmt = SSA_NAME_DEF_STMT(user_tmp->target);
-										// debug(def_stmt);
+
 										const char *name;
 										name = get_name(gimple_call_fn(u_stmt));
 
@@ -774,6 +774,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											}
 											else if (!strcmp(name, "pthread_create"))
 											{
+
+												table_temp->last_stmt = u_stmt;
+												table_temp->swap_type = FUNCITON_THREAD;
+
 												if (table_temp->swap_type == FUNCITON_THREAD)
 												{
 													fprintf(stderr, "\n ================== find ================== \n");
@@ -800,9 +804,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														tree findtree;
 														if (gimple_call_num_args(u_stmt) != 0)
 														{
-
 															findtree = gimple_call_arg(u_stmt, 3);
-
 															if (TREE_CODE(findtree) == ADDR_EXPR)
 															{
 
@@ -858,16 +860,32 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											{
 												int freecount = find_freestmt;
 												fprintf(stderr, "\n ================== trace ================== \n");
-												debug_tree(table_temp->target);
-												fprintf(stderr, "trace fucntion name:%s \n", name);
-												trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target, &find_freestmt);
-												fprintf(stderr, "\n ================== trace ================== \n");
-												fprintf(stderr, "trace fucntion free:%d \n", find_freestmt);
-												if (find_freestmt > freecount)
-												{
-													free_type.stmt = u_stmt;
-													free_array.push_back(free_type);
-												}
+												if (name != NULL)
+													if (!strcmp(name, "realloc") ||
+														!strcmp(name, "malloc") ||
+														!strcmp(name, "xmalloc") ||
+														!strcmp(name, "calloc") ||
+														!strcmp(name, "xcalloc") ||
+														!strcmp(name, "strdup") ||
+														!strcmp(name, "xstrdup"))
+													{
+													}
+													else
+													{
+														find_mallocstmt = IS_MALLOC_FUCNTION;
+
+														// debug_tree(table_temp->target);
+
+														fprintf(stderr, "trace fucntion name:%s \n", name);
+														trace_function_path(gimple_call_fndecl(u_stmt), 0, table_temp->target, &find_freestmt);
+														fprintf(stderr, "\n ================== trace ================== \n");
+														fprintf(stderr, "trace fucntion free:%d \n", find_freestmt);
+														if (find_freestmt > freecount)
+														{
+															free_type.stmt = u_stmt;
+															free_array.push_back(free_type);
+														}
+													}
 											}
 									}
 								}

@@ -85,7 +85,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 				// fprintf(stderr, "====================pthread_create============================\n");
 				// gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
 				// debug_tree(gimple_call_arg(gc, 0));
-				set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+				set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, IS_PTHREAD_FUCNTION, gc, node);
 				// if (gimple_call_arg(gc, 3) != NULL)
 				// 	set_ptb(bb, ptable, gimple_call_arg(gc, 3), loc, 0, gc, node);
 			}
