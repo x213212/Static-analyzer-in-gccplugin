@@ -10,21 +10,20 @@ RWCALLSBIN=
 
 
 ifneq "$(RDTYPE)" ""
-RDOPTS=-D$(RDTYPE)
+RDOPTS=-D$(RDTYPE) 
 endif
 
-FOO:= $(shell echo $(UNAME))
-#GCCPLUGINS_DIR:= $(shell $(GCC) -print-file-name=plugin)
+
 GCCPLUGINS_DIR:= $(shell $(GCC) -print-file-name=plugin)
-CFLAGS+=  -I$(GCCPLUGINS_DIR)/include -fPIC -g -fno-rtti $(RDOPTS)  -w   
-X=-I${GMPDIR}/include/ -I${GCCSRCDIR}/include
+CFLAGS+=   -I$(GCCPLUGINS_DIR)/include  -fPIC  -g -fno-rtti $(RDOPTS)  -w  
+
 #-fopenmp
 #LDFLAGS+= -shared  -fopenmp -flto  -Wl,--print-memory-usage
-LDFLAGS+= -shared  -flto 
+LDFLAGS+= -shared  -flto   
 all: newplugin.so
 
 %.o: %.cpp
-	$(GCC) $(CFLAGS) -c $^ -o $@
+	$(GCC)  $(CFLAGS) -c $^ -o $@
 
 %.o: %.c
 	$(GCC) $(CFLAGS) -c $^ -o $@

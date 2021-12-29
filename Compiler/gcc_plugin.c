@@ -12,15 +12,12 @@
 #include "gimple.h"
 #include "gimple-iterator.h"
 #include "tree-inline.h"
-
 #include "cgraph.h"
 #include "gimple-walk.h"
 #include "gimple-pretty-print.h"
 #include "gimple-ssa.h"
 #include "context.h"
 #include "tree-dfa.h"
-#include "attribs.h"
-
 #include "config.h"
 #include "system.h"
 #include <coretypes.h>
@@ -35,6 +32,8 @@
 #include "stor-layout.h"
 #include "stmt.h"
 #include "ssa-iterators.h"
+#include "attribs.h"
+
 //#include "DFS.h"
 #include "Algorithm.h"
 #include "tree-pass.h"

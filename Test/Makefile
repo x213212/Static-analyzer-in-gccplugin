@@ -1,6 +1,5 @@
 
 CC=gcc-11.1
-INCLUDE=-I/home/cc/gcc/ins/lib/gcc/x86_64-pc-linux-gnu/7.3.0/plugin/include
 
 BINUTILSL=./benchmarks/binutils/leak_
 BINUTILSD=./benchmarks/binutils/double_free_
@@ -157,9 +156,9 @@ TEST=../Test/test2.c
 NO_OF_FILES := $(words $(FILE_NAME))
 
 LTO=-flto
-WHOLE=-fwhole-program
+WHOLE=-fwhole-program 
 # https://gcc.gnu.org/onlinedocs/gcc/Developer-Options.html
-FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fno-tree-dce  -fipa-pta  -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions -fprofile-report
+FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fno-tree-dce  -fipa-pta  -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions -fprofile-report -D  GCC_STRINGPOOL_H
 # -flto-report
 # -ftime-report
 #FLAGS=-O1   -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -pthread   
