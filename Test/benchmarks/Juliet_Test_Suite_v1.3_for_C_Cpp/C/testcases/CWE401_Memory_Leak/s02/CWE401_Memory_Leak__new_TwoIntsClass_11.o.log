@@ -1,0 +1,112 @@
+CWE401_Memory_Leak__new_TwoIntsClass_11.cpp: In function ‘void CWE401_Memory_Leak__new_TwoIntsClass_11::goodB2G1()’:
+CWE401_Memory_Leak__new_TwoIntsClass_11.cpp:63:22: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   63 |         data->intOne = 0;
+      |         ~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_TwoIntsClass_11::goodB2G1()’: events 1-4
+    |
+    |   58 |     if(globalReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   61 |         data = new TwoIntsClass;
+    |      |                    ~~~~~~~~~~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) this call could return NULL
+    |   62 |         /* Initialize and make use of data */
+    |   63 |         data->intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~
+    |      |                      |
+    |      |                      (4) ‘operator new(8)’ could be NULL: unchecked value from (3)
+    |
+CWE401_Memory_Leak__new_TwoIntsClass_11.cpp:78:1: warning: leak of ‘data’ [CWE-401] [-Wanalyzer-malloc-leak]
+   78 | }
+      | ^
+  ‘void CWE401_Memory_Leak__new_TwoIntsClass_11::goodB2G1()’: events 1-7
+    |
+    |   58 |     if(globalReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   61 |         data = new TwoIntsClass;
+    |      |                    ~~~~~~~~~~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) allocated here
+    |   62 |         /* Initialize and make use of data */
+    |   63 |         data->intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~
+    |      |                      |
+    |      |                      (4) assuming ‘operator new(8)’ is non-NULL
+    |......
+    |   68 |     if(globalReturnsFalse())
+    |      |     ~~
+    |      |     |
+    |      |     (5) following ‘true’ branch...
+    |......
+    |   71 |         printLine("Benign, fixed string");
+    |      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                  |
+    |      |                  (6) ...to here
+    |......
+    |   78 | }
+    |      | ~    
+    |      | |
+    |      | (7) ‘data’ leaks here; was allocated at (3)
+    |
+CWE401_Memory_Leak__new_TwoIntsClass_11.cpp: In function ‘void CWE401_Memory_Leak__new_TwoIntsClass_11::goodB2G2()’:
+CWE401_Memory_Leak__new_TwoIntsClass_11.cpp:90:22: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   90 |         data->intOne = 0;
+      |         ~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_TwoIntsClass_11::goodB2G2()’: events 1-4
+    |
+    |   85 |     if(globalReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   88 |         data = new TwoIntsClass;
+    |      |                    ~~~~~~~~~~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) this call could return NULL
+    |   89 |         /* Initialize and make use of data */
+    |   90 |         data->intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~
+    |      |                      |
+    |      |                      (4) ‘operator new(8)’ could be NULL: unchecked value from (3)
+    |
+CWE401_Memory_Leak__new_TwoIntsClass_11.cpp:100:1: warning: leak of ‘data’ [CWE-401] [-Wanalyzer-malloc-leak]
+  100 | }
+      | ^
+  ‘void CWE401_Memory_Leak__new_TwoIntsClass_11::goodB2G2()’: events 1-7
+    |
+    |   85 |     if(globalReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   88 |         data = new TwoIntsClass;
+    |      |                    ~~~~~~~~~~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) allocated here
+    |   89 |         /* Initialize and make use of data */
+    |   90 |         data->intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~
+    |      |                      |
+    |      |                      (4) assuming ‘operator new(8)’ is non-NULL
+    |......
+    |   95 |     if(globalReturnsTrue())
+    |      |     ~~
+    |      |     |
+    |      |     (5) following ‘false’ branch...
+    |......
+    |  100 | }
+    |      | ~    
+    |      | |
+    |      | (6) ...to here
+    |      | (7) ‘data’ leaks here; was allocated at (3)
+    |

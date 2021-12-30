@@ -1,0 +1,712 @@
+
+;; Function fprintf (fprintf, funcdef_no=928, decl_uid=1095, cgraph_uid=262, symbol_order=264)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+__stream = &PARM_NOALIAS(9)
+PARM_NOALIAS(9) = &NONLOCAL
+__fmt = &PARM_NOALIAS(11)
+PARM_NOALIAS(11) = &NONLOCAL
+ESCAPED = __stream
+ESCAPED = &NONLOCAL
+ESCAPED = __fmt
+_5 = NONLOCAL
+ESCAPED = _5
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL PARM_NOALIAS(9) PARM_NOALIAS(11) }
+NONLOCAL = { ESCAPED NONLOCAL } same as _5
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+__stream = { PARM_NOALIAS(9) }
+PARM_NOALIAS(9) = { ESCAPED NONLOCAL }
+__fmt = { PARM_NOALIAS(11) }
+PARM_NOALIAS(11) = { ESCAPED NONLOCAL }
+__fprintf_chk = { }
+_5 = { ESCAPED NONLOCAL }
+
+
+Alias information for fprintf
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.30417 D.30418 } (nonlocal, escaped, restrict)
+
+Flow-insensitive points-to information
+
+__stream_2(D), points-to NULL, points-to vars: { D.30417 } (nonlocal, escaped, restrict)
+__fmt_3(D), points-to NULL, points-to vars: { D.30418 } (nonlocal, escaped, restrict)
+
+__attribute__((__artificial__, __gnu_inline__, __always_inline__))
+fprintf (struct FILE * restrict __stream, const char * restrict __fmt)
+{
+  int _5;
+
+  <bb 2> [0.00%]:
+  _5 = __fprintf_chk (__stream_2(D), 1, __fmt_3(D), __builtin_va_arg_pack ());
+  return _5;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::ErrorContext() (_ZN6pbzip212ErrorContextC2Ev, funcdef_no=1082, decl_uid=26162, cgraph_uid=367, symbol_order=369)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+this = &NONLOCAL
+derefaddrtmp(9) = &NULL
+*this = derefaddrtmp(9)
+derefaddrtmp(10) = &NULL
+*this + 32 = derefaddrtmp(10)
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+this = { NONLOCAL }
+derefaddrtmp(9) = { NULL }
+derefaddrtmp(10) = { NULL } same as derefaddrtmp(9)
+
+
+Alias information for pbzip2::ErrorContext::ErrorContext()
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to NULL, points-to vars: { }
+
+Flow-insensitive points-to information
+
+this_2(D), points-to non-local, points-to NULL, points-to vars: { }
+
+pbzip2::ErrorContext::ErrorContext() (struct ErrorContext * const this)
+{
+  <bb 2> [0.00%]:
+  MEM[(struct  &)this_2(D)] ={v} {CLOBBER};
+  this_2(D)->_first_kernel_err_no = 0;
+  this_2(D)->_last_kernel_err_no = 0;
+  return;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::getInstance() (_ZN6pbzip212ErrorContext11getInstanceEv, funcdef_no=1111, decl_uid=26140, cgraph_uid=396, symbol_order=400)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+_ZN6pbzip212ErrorContext14_err_ctx_mutexE = NONLOCAL
+ESCAPED = &_ZN6pbzip212ErrorContext14_err_ctx_mutexE
+_ZN6pbzip212ErrorContext9_instanceE = NONLOCAL
+_instance.0_1 = _ZN6pbzip212ErrorContext9_instanceE
+ESCAPED = &NONLOCAL
+_ZSt7nothrow = NONLOCAL
+ESCAPED = &_ZSt7nothrow
+_10 = NONLOCAL
+derefaddrtmp(15) = &NULL
+*_10 = derefaddrtmp(15)
+derefaddrtmp(16) = &NULL
+*_10 + 32 = derefaddrtmp(16)
+_ZN6pbzip212ErrorContext9_instanceE = _10
+ESCAPED = _10
+_instance.2_2 = _ZN6pbzip212ErrorContext9_instanceE
+stderr = NONLOCAL
+stderr.3_3 = stderr
+ESCAPED = stderr.3_3
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+_18 = NONLOCAL
+ESCAPED = &_ZN6pbzip212ErrorContext14_err_ctx_mutexE
+_17 = _ZN6pbzip212ErrorContext9_instanceE
+ESCAPED = _17
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL STRING ESCAPED NONLOCAL _ZN6pbzip212ErrorContext14_err_ctx_mutexE _ZSt7nothrow }
+NONLOCAL = { ESCAPED NONLOCAL } same as _ZN6pbzip212ErrorContext9_instanceE
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+pthread_mutex_lock = { }
+_ZN6pbzip212ErrorContext14_err_ctx_mutexE = { ESCAPED NONLOCAL }
+_instance.0_1 = { ESCAPED NONLOCAL } same as _ZN6pbzip212ErrorContext9_instanceE
+_ZN6pbzip212ErrorContext9_instanceE = { ESCAPED NONLOCAL }
+_ZnwmRKSt9nothrow_t = { }
+_ZSt7nothrow = { ESCAPED NONLOCAL }
+_10 = { ESCAPED NONLOCAL } same as _ZN6pbzip212ErrorContext9_instanceE
+derefaddrtmp(15) = { NULL }
+derefaddrtmp(16) = { NULL } same as derefaddrtmp(15)
+_instance.2_2 = { ESCAPED NONLOCAL } same as _ZN6pbzip212ErrorContext9_instanceE
+stderr.3_3 = { ESCAPED NONLOCAL } same as _ZN6pbzip212ErrorContext9_instanceE
+stderr = { ESCAPED NONLOCAL } same as _ZN6pbzip212ErrorContext9_instanceE
+__fprintf_chk = { }
+_18 = { ESCAPED NONLOCAL } same as _ZN6pbzip212ErrorContext9_instanceE
+pthread_mutex_unlock = { }
+_17 = { ESCAPED NONLOCAL } same as _ZN6pbzip212ErrorContext9_instanceE
+
+
+Alias information for pbzip2::ErrorContext::getInstance()
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.11311 D.26129 } (nonlocal, escaped, interposable)
+
+Flow-insensitive points-to information
+
+_instance.0_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_instance.2_2, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+stderr.3_3, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_10, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+_17, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+
+pbzip2::ErrorContext::getInstance() ()
+{
+  int D.30423;
+  struct ErrorContext * _instance.0_1;
+  struct ErrorContext * _instance.2_2;
+  struct FILE * stderr.3_3;
+  void * _10;
+  struct ErrorContext * _17;
+  int _18;
+
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&_err_ctx_mutex);
+  _instance.0_1 = _instance;
+  if (_instance.0_1 == 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _10 = operator new (8, &nothrow);
+  if (_10 != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [100.00%]:
+  MEM[(struct  &)_10] ={v} {CLOBBER};
+  MEM[(struct ErrorContext *)_10]._first_kernel_err_no = 0;
+  MEM[(struct ErrorContext *)_10]._last_kernel_err_no = 0;
+
+  <bb 5> [0.00%]:
+  _instance = _10;
+  _instance.2_2 = _instance;
+  if (_instance.2_2 == 0B)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 6> [100.00%]:
+  stderr.3_3 = stderr;
+  _18 = __fprintf_chk (stderr.3_3, 1, "pbzip2: *ERROR: Can\'t initialize error context - out of memory!\n");
+
+  <bb 7> [0.00%]:
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  _17 = _instance;
+  return _17;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::printErrnoMsg(_IO_FILE*, int) (_ZN6pbzip212ErrorContext13printErrnoMsgEP8_IO_FILEi, funcdef_no=1112, decl_uid=26150, cgraph_uid=397, symbol_order=401)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+out = &NONLOCAL
+err = &NONLOCAL
+ESCAPED = err
+_1 = NONLOCAL
+ESCAPED = out
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = err
+ESCAPED = _1
+_8 = NONLOCAL
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { STRING ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL } same as _1
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+out = { NONLOCAL }
+err = { NONLOCAL } same as out
+strerror = { }
+_1 = { ESCAPED NONLOCAL }
+__fprintf_chk = { }
+_8 = { ESCAPED NONLOCAL } same as _1
+
+
+Alias information for pbzip2::ErrorContext::printErrnoMsg(_IO_FILE*, int)
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { }
+
+Flow-insensitive points-to information
+
+_1, points-to non-local, points-to escaped, points-to NULL, points-to vars: { }
+out_6(D), points-to non-local, points-to NULL, points-to vars: { }
+
+pbzip2::ErrorContext::printErrnoMsg(_IO_FILE*, int) (struct FILE * out, int err)
+{
+  int D.30428;
+  char * _1;
+  int _8;
+
+  <bb 2> [0.00%]:
+  if (err_3(D) != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [100.00%]:
+  _1 = strerror (err_3(D));
+  _8 = __fprintf_chk (out_6(D), 1, "pbzip2: *ERROR: system call failed with errno=[%d: %s]!\n", err_3(D), _1);
+
+  <bb 4> [0.00%]:
+  return;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::syncPrintErrnoMsg(_IO_FILE*, int) (_ZN6pbzip212ErrorContext17syncPrintErrnoMsgEP8_IO_FILEi, funcdef_no=1113, decl_uid=26153, cgraph_uid=398, symbol_order=402)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+out = &NONLOCAL
+err = &NONLOCAL
+_ZN6pbzip212ErrorContext14_err_ctx_mutexE = NONLOCAL
+ESCAPED = &_ZN6pbzip212ErrorContext14_err_ctx_mutexE
+ESCAPED = out
+ESCAPED = err
+ESCAPED = &_ZN6pbzip212ErrorContext14_err_ctx_mutexE
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL _ZN6pbzip212ErrorContext14_err_ctx_mutexE }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+out = { NONLOCAL }
+err = { NONLOCAL } same as out
+pthread_mutex_lock = { }
+_ZN6pbzip212ErrorContext14_err_ctx_mutexE = { ESCAPED NONLOCAL }
+_ZN6pbzip212ErrorContext13printErrnoMsgEP8_IO_FILEi = { }
+pthread_mutex_unlock = { }
+
+
+Alias information for pbzip2::ErrorContext::syncPrintErrnoMsg(_IO_FILE*, int)
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.26129 } (nonlocal, escaped)
+
+Flow-insensitive points-to information
+
+out_3(D), points-to non-local, points-to NULL, points-to vars: { }
+
+pbzip2::ErrorContext::syncPrintErrnoMsg(_IO_FILE*, int) (struct FILE * out, int err)
+{
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&_err_ctx_mutex);
+  pbzip2::ErrorContext::printErrnoMsg (out_3(D), err_4(D));
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  return;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::printErrorMessages(_IO_FILE*) (_ZN6pbzip212ErrorContext18printErrorMessagesEP8_IO_FILE, funcdef_no=1114, decl_uid=26142, cgraph_uid=399, symbol_order=403)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+this = &NONLOCAL
+out = &NONLOCAL
+_ZN6pbzip212ErrorContext14_err_ctx_mutexE = NONLOCAL
+ESCAPED = &_ZN6pbzip212ErrorContext14_err_ctx_mutexE
+_1 = *this
+ESCAPED = out
+ESCAPED = _1
+_2 = *this + 32
+ESCAPED = out
+ESCAPED = _2
+ESCAPED = &_ZN6pbzip212ErrorContext14_err_ctx_mutexE
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL _ZN6pbzip212ErrorContext14_err_ctx_mutexE }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+this = { NONLOCAL }
+out = { NONLOCAL } same as this
+pthread_mutex_lock = { }
+_ZN6pbzip212ErrorContext14_err_ctx_mutexE = { ESCAPED NONLOCAL }
+_1 = { ESCAPED NONLOCAL }
+_ZN6pbzip212ErrorContext13printErrnoMsgEP8_IO_FILEi = { }
+_2 = { ESCAPED NONLOCAL }
+pthread_mutex_unlock = { }
+
+
+Alias information for pbzip2::ErrorContext::printErrorMessages(_IO_FILE*)
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.26129 } (nonlocal, escaped)
+
+Flow-insensitive points-to information
+
+this_5(D), points-to non-local, points-to NULL, points-to vars: { }
+out_6(D), points-to non-local, points-to NULL, points-to vars: { }
+
+pbzip2::ErrorContext::printErrorMessages(_IO_FILE*) (struct ErrorContext * const this, struct FILE * out)
+{
+  int _1;
+  int _2;
+
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&_err_ctx_mutex);
+  _1 = this_5(D)->_first_kernel_err_no;
+  pbzip2::ErrorContext::printErrnoMsg (out_6(D), _1);
+  _2 = this_5(D)->_last_kernel_err_no;
+  pbzip2::ErrorContext::printErrnoMsg (out_6(D), _2);
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  return;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::saveError() (_ZN6pbzip212ErrorContext9saveErrorEv, funcdef_no=1115, decl_uid=26144, cgraph_uid=400, symbol_order=404)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+this = &NONLOCAL
+_1 = &NONLOCAL
+newerr_8 = *_1
+_ZN6pbzip212ErrorContext14_err_ctx_mutexE = NONLOCAL
+ESCAPED = &_ZN6pbzip212ErrorContext14_err_ctx_mutexE
+_2 = *this
+iftmp.4_12 = this
+iftmp.4_11 = this + 32
+iftmp.4_5 = iftmp.4_12
+iftmp.4_5 = iftmp.4_11
+*iftmp.4_5 = newerr_8
+_3 = &NONLOCAL
+_4 = *_3
+*this + 32 = _4
+ESCAPED = &_ZN6pbzip212ErrorContext14_err_ctx_mutexE
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL _ZN6pbzip212ErrorContext14_err_ctx_mutexE }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+this = { NONLOCAL }
+__errno_location = { }
+_1 = { NONLOCAL } same as this
+newerr_8 = { ESCAPED NONLOCAL }
+pthread_mutex_lock = { }
+_ZN6pbzip212ErrorContext14_err_ctx_mutexE = { ESCAPED NONLOCAL }
+_2 = { ESCAPED NONLOCAL }
+iftmp.4_12 = { NONLOCAL } same as this
+iftmp.4_11 = { NONLOCAL }
+iftmp.4_5 = { NONLOCAL }
+_3 = { NONLOCAL } same as this
+_4 = { ESCAPED NONLOCAL }
+pthread_mutex_unlock = { }
+
+
+Alias information for pbzip2::ErrorContext::saveError()
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.26129 } (nonlocal, escaped)
+
+Flow-insensitive points-to information
+
+_1, points-to non-local, points-to NULL, points-to vars: { }
+_3, points-to non-local, points-to NULL, points-to vars: { }
+iftmp.4_5, points-to non-local, points-to NULL, points-to vars: { }
+this_10(D), points-to non-local, points-to NULL, points-to vars: { }
+iftmp.4_11, points-to non-local, points-to NULL, points-to vars: { }
+iftmp.4_12, points-to non-local, points-to NULL, points-to vars: { }
+
+pbzip2::ErrorContext::saveError() (struct ErrorContext * const this)
+{
+  int & err_ref;
+  int newerr;
+  int * _1;
+  int _2;
+  int * _3;
+  int _4;
+  int * iftmp.4_5;
+  int * iftmp.4_11;
+  int * iftmp.4_12;
+
+  <bb 2> [0.00%]:
+  _1 = __errno_location ();
+  newerr_8 = *_1;
+  pthread_mutex_lock (&_err_ctx_mutex);
+  if (newerr_8 != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _2 = this_10(D)->_first_kernel_err_no;
+  if (_2 == 0)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  iftmp.4_12 = &this_10(D)->_first_kernel_err_no;
+  goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  iftmp.4_11 = &this_10(D)->_last_kernel_err_no;
+
+  <bb 6> [0.00%]:
+  # iftmp.4_5 = PHI <iftmp.4_12(4), iftmp.4_11(5)>
+  *iftmp.4_5 = newerr_8;
+
+  <bb 7> [0.00%]:
+  _3 = __errno_location ();
+  _4 = *_3;
+  this_10(D)->_last_kernel_err_no = _4;
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  return;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::reset() (_ZN6pbzip212ErrorContext5resetEv, funcdef_no=1116, decl_uid=26146, cgraph_uid=401, symbol_order=405)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+this = &NONLOCAL
+_ZN6pbzip212ErrorContext14_err_ctx_mutexE = NONLOCAL
+ESCAPED = &_ZN6pbzip212ErrorContext14_err_ctx_mutexE
+derefaddrtmp(11) = &NULL
+*this + 32 = derefaddrtmp(11)
+_1 = *this + 32
+*this = _1
+ESCAPED = &_ZN6pbzip212ErrorContext14_err_ctx_mutexE
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { NULL ESCAPED NONLOCAL _ZN6pbzip212ErrorContext14_err_ctx_mutexE }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+this = { NONLOCAL }
+pthread_mutex_lock = { }
+_ZN6pbzip212ErrorContext14_err_ctx_mutexE = { ESCAPED NONLOCAL }
+derefaddrtmp(11) = { NULL }
+_1 = { ESCAPED NONLOCAL }
+pthread_mutex_unlock = { }
+
+
+Alias information for pbzip2::ErrorContext::reset()
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to NULL, points-to vars: { D.26129 } (nonlocal, escaped)
+
+Flow-insensitive points-to information
+
+this_4(D), points-to non-local, points-to NULL, points-to vars: { }
+
+pbzip2::ErrorContext::reset() (struct ErrorContext * const this)
+{
+  int _1;
+
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&_err_ctx_mutex);
+  this_4(D)->_last_kernel_err_no = 0;
+  _1 = this_4(D)->_last_kernel_err_no;
+  this_4(D)->_first_kernel_err_no = _1;
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  return;
+
+}
+
+

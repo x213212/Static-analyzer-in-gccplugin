@@ -1,0 +1,157 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+------------------------------
+_2 = (unsigned int) _1;
+ <ssa_name 0x7fda7c95e360
+    type <integer_type 0x7fda7d429738 long int public type_6 DI
+        size <integer_cst 0x7fda7d40aeb8 constant 64>
+        unit size <integer_cst 0x7fda7d40aed0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fda7d429738 precision 64 min <integer_cst 0x7fda7d42c150 -9223372036854775808> max <integer_cst 0x7fda7d42c168 9223372036854775807>
+        pointer_to_this <pointer_type 0x7fda7d4381f8>>
+   
+    def_stmt _1 = time (0B);
+    version 1>
+------------------------------
+retval.1_13 = _12 != 0;
+ <ssa_name 0x7fda7c96f3f0
+    type <integer_type 0x7fda7d4295e8 int public type_6 SI
+        size <integer_cst 0x7fda7d42c108 constant 32>
+        unit size <integer_cst 0x7fda7d42c120 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7fda7d4295e8 precision 32 min <integer_cst 0x7fda7d42c0c0 -2147483648> max <integer_cst 0x7fda7d42c0d8 2147483647>
+        pointer_to_this <pointer_type 0x7fda7d431a80> reference_to_this <reference_type 0x7fda7ceda498>>
+   
+    def_stmt _12 = globalReturnsTrueOrFalse ();
+    version 12>
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 4 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre add _ fucntion:good========= [0m
+[40;44m =======print_function_path good  function_call count: 3 level :1========  [0m
+[40;42m =======pre add _ fucntion:operator delete========= [0m
+[40;33m =======POP node_fun stack:operator delete========= [0m
+[40;42m =======pre add _ fucntion:globalReturnsTrueOrFalse========= [0m
+[40;33m =======POP node_fun stack:globalReturnsTrueOrFalse========= [0m
+[40;42m =======pre add _ fucntion:operator new========= [0m
+[40;33m =======POP node_fun stack:operator new========= [0m
+[40;42m =======pre_check_funciton:good========= [0m
+[40;42m =======start_check_funciton:good========= [0m
+[40;33m =======POP node_fun stack:good========= [0m
+[40;42m =======pre add _ fucntion:srand========= [0m
+[40;33m =======POP node_fun stack:srand========= [0m
+[40;42m =======pre add _ fucntion:time========= [0m
+[40;33m =======POP node_fun stack:time========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+algorithm time: 0.000093 s
+=======Mapping node_fun:main=========
+<bb 2> [100.00%]:
+_1 = time (0B);
+_2 = (unsigned int) _1;
+srand (_2);
+printLine ("Calling good()...");
+CWE415_Double_Free__new_delete_int_12::good ();
+printLine ("Finished good()");
+return 0;
+
+=======is loop:0=========
+=======Mapping node_fun:good=========
+<bb 2> [100.00%]:
+_9 = globalReturnsTrueOrFalse ();
+if (_9 != 0)
+  goto <bb 3>; [46.00%]
+else
+  goto <bb 4>; [54.00%]
+
+=======is loop:0=========
+<bb 3> [46.00%]:
+_10 = operator new (4);
+operator delete (_10, 4);
+goto <bb 5>; [100.00%]
+
+=======is loop:0=========
+<bb 4> [54.00%]:
+_11 = operator new (4);
+operator delete (_11, 4);
+
+=======is loop:0=========
+<bb 5> [100.00%]:
+_12 = globalReturnsTrueOrFalse ();
+retval.1_13 = _12 != 0;
+_4 = globalReturnsTrueOrFalse ();
+if (_4 != 0)
+  goto <bb 6>; [50.00%]
+else
+  goto <bb 7>; [50.00%]
+
+=======is loop:0=========
+<bb 6> [50.00%]:
+_5 = operator new (4);
+goto <bb 8>; [100.00%]
+
+=======is loop:0=========
+<bb 7> [50.00%]:
+_6 = operator new (4);
+
+=======is loop:0=========
+<bb 8> [100.00%]:
+# data_8 = PHI <_5(6), _6(7)>
+_7 = globalReturnsTrueOrFalse ();
+if (_7 != 0)
+  goto <bb 9>; [46.00%]
+else
+  goto <bb 10>; [54.00%]
+
+=======is loop:0=========
+<bb 9> [46.00%]:
+operator delete (data_8, 4);
+goto <bb 11>; [100.00%]
+
+=======is loop:0=========
+<bb 10> [54.00%]:
+operator delete (data_8, 4);
+
+=======is loop:0=========
+<bb 11> [100.00%]:
+return;
+
+=======is loop:0=========
+time: 0.000588 s

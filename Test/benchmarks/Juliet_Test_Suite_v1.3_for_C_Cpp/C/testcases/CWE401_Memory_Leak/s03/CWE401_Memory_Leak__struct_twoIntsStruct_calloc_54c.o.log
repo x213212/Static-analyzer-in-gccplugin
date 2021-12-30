@@ -1,0 +1,205 @@
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+===============The second stage : Mapping stmt=================
+# .MEM_3 = VDEF <.MEM_1(D)>
+CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54d_goodB2GSink (data_2(D));
+# .MEM_3 = VDEF <.MEM_1(D)>
+CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54d_goodG2BSink (data_2(D));
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c_goodB2GSink========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c_goodB2GSink  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54d_goodB2GSink========= [0m
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54d_goodB2GSink========= [0m
+[40;42m =======pre_check_funciton:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c_goodB2GSink========= [0m
+[40;42m =======start_check_funciton:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c_goodB2GSink========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7eff0f2b0558
+    type <pointer_type 0x7eff0f2cf150
+        type <record_type 0x7eff0f27f348 _twoIntsStruct type_0 DI
+            size <integer_cst 0x7eff0f708cd8 constant 64>
+            unit size <integer_cst 0x7eff0f708cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7eff0f27f348 fields <field_decl 0x7eff0f265e40 intOne> context <translation_unit_decl 0x7eff0f2c55a0 CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c.c>
+            pointer_to_this <pointer_type 0x7eff0f2cf150> chain <type_decl 0x7eff0f265da8 D.3631>>
+        unsigned DI size <integer_cst 0x7eff0f708cd8 64> unit size <integer_cst 0x7eff0f708cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7eff0f2cf150>
+    var <parm_decl 0x7eff0f2d4380 data>
+    def_stmt GIMPLE_NOP
+    version 2
+    ptr-info 0x7eff0f2d3300>
+GIMPLE_NOP
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_3 = VDEF <.MEM_1(D)>
+CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54d_goodB2GSink (data_2(D));
+CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54d_goodB2GSink (data_2(D));
+CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c.c: In function ‘CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c_goodB2GSink’:
+CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c.c:49:5: warning: use location
+     CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54d_goodB2GSink(data);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+this stmt is child function---CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54d_goodB2GSink-----
+
+ ================== trace ================== 
+ <ssa_name 0x7eff0f2b0558
+    type <pointer_type 0x7eff0f2cf150
+        type <record_type 0x7eff0f27f348 _twoIntsStruct type_0 DI
+            size <integer_cst 0x7eff0f708cd8 constant 64>
+            unit size <integer_cst 0x7eff0f708cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7eff0f27f348 fields <field_decl 0x7eff0f265e40 intOne> context <translation_unit_decl 0x7eff0f2c55a0 CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c.c>
+            pointer_to_this <pointer_type 0x7eff0f2cf150> chain <type_decl 0x7eff0f265da8 D.3631>>
+        unsigned DI size <integer_cst 0x7eff0f708cd8 64> unit size <integer_cst 0x7eff0f708cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7eff0f2cf150>
+    var <parm_decl 0x7eff0f2d4380 data>
+    def_stmt GIMPLE_NOP
+    version 2
+    ptr-info 0x7eff0f2d3300>
+trace fucntion name:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54d_goodB2GSink 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7eff0f2b0558
+    type <pointer_type 0x7eff0f2cf150
+        type <record_type 0x7eff0f27f348 _twoIntsStruct type_0 DI
+            size <integer_cst 0x7eff0f708cd8 constant 64>
+            unit size <integer_cst 0x7eff0f708cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7eff0f27f348 fields <field_decl 0x7eff0f265e40 intOne> context <translation_unit_decl 0x7eff0f2c55a0 CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c.c>
+            pointer_to_this <pointer_type 0x7eff0f2cf150> chain <type_decl 0x7eff0f265da8 D.3631>>
+        unsigned DI size <integer_cst 0x7eff0f708cd8 64> unit size <integer_cst 0x7eff0f708cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7eff0f2cf150>
+    var <parm_decl 0x7eff0f2d4380 data>
+    def_stmt GIMPLE_NOP
+    version 2
+    ptr-info 0x7eff0f2d3300>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c_goodB2GSink========= [0m
+[40;44m =======node_fun:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c_goodG2BSink========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c_goodG2BSink  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54d_goodG2BSink========= [0m
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54d_goodG2BSink========= [0m
+[40;42m =======pre_check_funciton:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c_goodG2BSink========= [0m
+[40;42m =======start_check_funciton:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c_goodG2BSink========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7eff0f2b0480
+    type <pointer_type 0x7eff0f2cf150
+        type <record_type 0x7eff0f27f348 _twoIntsStruct type_0 DI
+            size <integer_cst 0x7eff0f708cd8 constant 64>
+            unit size <integer_cst 0x7eff0f708cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7eff0f27f348 fields <field_decl 0x7eff0f265e40 intOne> context <translation_unit_decl 0x7eff0f2c55a0 CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c.c>
+            pointer_to_this <pointer_type 0x7eff0f2cf150> chain <type_decl 0x7eff0f265da8 D.3631>>
+        unsigned DI size <integer_cst 0x7eff0f708cd8 64> unit size <integer_cst 0x7eff0f708cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7eff0f2cf150>
+    var <parm_decl 0x7eff0f2d4280 data>
+    def_stmt GIMPLE_NOP
+    version 2
+    ptr-info 0x7eff0f2d32b8>
+GIMPLE_NOP
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c_goodG2BSink========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c_goodB2GSink=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54d_goodB2GSink (data_2(D));
+return;
+
+=======Mapping node_fun:CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54c_goodG2BSink=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+CWE401_Memory_Leak__struct_twoIntsStruct_calloc_54d_goodG2BSink (data_2(D));
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 1 [0m
+[40;34m    used_stmt array stack totalsize of : 16 [0m
+[40;34m    collect time: : 0.000057 s [0m
+[40;34m    algorithm time: 0.001269 s [0m
+[40;34m    gimple stmt count : : 4 [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

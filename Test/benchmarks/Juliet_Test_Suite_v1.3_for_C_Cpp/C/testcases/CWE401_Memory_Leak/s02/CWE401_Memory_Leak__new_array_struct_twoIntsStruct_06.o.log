@@ -1,0 +1,32 @@
+CWE401_Memory_Leak__new_array_struct_twoIntsStruct_06.cpp: In function ‘void CWE401_Memory_Leak__new_array_struct_twoIntsStruct_06::goodB2G1()’:
+CWE401_Memory_Leak__new_array_struct_twoIntsStruct_06.cpp:68:24: warning: dereference of possibly-NULL ‘operator new [](800)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   68 |         data[0].intOne = 0;
+      |         ~~~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_array_struct_twoIntsStruct_06::goodB2G1()’: events 1-2
+    |
+    |   66 |         data = new struct _twoIntsStruct[100];
+    |      |                                             ^
+    |      |                                             |
+    |      |                                             (1) this call could return NULL
+    |   67 |         /* Initialize and make use of data */
+    |   68 |         data[0].intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~~~                   
+    |      |                        |
+    |      |                        (2) ‘operator new [](800)’ could be NULL: unchecked value from (1)
+    |
+CWE401_Memory_Leak__new_array_struct_twoIntsStruct_06.cpp: In function ‘void CWE401_Memory_Leak__new_array_struct_twoIntsStruct_06::goodB2G2()’:
+CWE401_Memory_Leak__new_array_struct_twoIntsStruct_06.cpp:94:24: warning: dereference of possibly-NULL ‘operator new [](800)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   94 |         data[0].intOne = 0;
+      |         ~~~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_array_struct_twoIntsStruct_06::goodB2G2()’: events 1-2
+    |
+    |   92 |         data = new struct _twoIntsStruct[100];
+    |      |                                             ^
+    |      |                                             |
+    |      |                                             (1) this call could return NULL
+    |   93 |         /* Initialize and make use of data */
+    |   94 |         data[0].intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~~~                   
+    |      |                        |
+    |      |                        (2) ‘operator new [](800)’ could be NULL: unchecked value from (1)
+    |

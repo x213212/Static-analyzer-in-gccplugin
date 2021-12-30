@@ -1,0 +1,184 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+------------------------------
+_2 = (unsigned int) _1;
+ <ssa_name 0x7f9b95088510
+    type <integer_type 0x7f9b95b53738 long int public type_6 DI
+        size <integer_cst 0x7f9b95b34eb8 constant 64>
+        unit size <integer_cst 0x7f9b95b34ed0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f9b95b53738 precision 64 min <integer_cst 0x7f9b95b56150 -9223372036854775808> max <integer_cst 0x7f9b95b56168 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f9b95b621f8>>
+   
+    def_stmt _1 = time (0B);
+    version 1>
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 4 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre add _ fucntion:good========= [0m
+[40;44m =======print_function_path good  function_call count: 3 level :1========  [0m
+[40;42m =======pre add _ fucntion:operator delete========= [0m
+[40;33m =======POP node_fun stack:operator delete========= [0m
+[40;42m =======pre add _ fucntion:operator new========= [0m
+[40;33m =======POP node_fun stack:operator new========= [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre_check_funciton:good========= [0m
+[40;42m =======start_check_funciton:good========= [0m
+[40;33m =======POP node_fun stack:good========= [0m
+[40;42m =======pre add _ fucntion:srand========= [0m
+[40;33m =======POP node_fun stack:srand========= [0m
+[40;42m =======pre add _ fucntion:time========= [0m
+[40;33m =======POP node_fun stack:time========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+algorithm time: 0.000093 s
+=======Mapping node_fun:main=========
+<bb 2> [100.00%]:
+_1 = time (0B);
+_2 = (unsigned int) _1;
+srand (_2);
+printLine ("Calling good()...");
+CWE415_Double_Free__new_delete_char_13::good ();
+printLine ("Finished good()");
+return 0;
+
+=======is loop:0=========
+=======Mapping node_fun:good=========
+<bb 2> [100.00%]:
+GLOBAL_CONST_FIVE.0_17 = GLOBAL_CONST_FIVE;
+if (GLOBAL_CONST_FIVE.0_17 == 5)
+  goto <bb 3>; [20.24%]
+else
+  goto <bb 4>; [79.76%]
+
+=======is loop:0=========
+<bb 3> [20.24%]:
+_18 = operator new (1);
+operator delete (_18, 1);
+
+=======is loop:0=========
+<bb 4> [100.00%]:
+GLOBAL_CONST_FIVE.1_19 = GLOBAL_CONST_FIVE;
+if (GLOBAL_CONST_FIVE.1_19 != 5)
+  goto <bb 5>; [52.88%]
+else
+  goto <bb 6>; [47.12%]
+
+=======is loop:0=========
+<bb 5> [52.88%]:
+printLine ("Benign, fixed string");
+
+=======is loop:0=========
+<bb 6> [100.00%]:
+GLOBAL_CONST_FIVE.2_14 = GLOBAL_CONST_FIVE;
+if (GLOBAL_CONST_FIVE.2_14 == 5)
+  goto <bb 7>; [22.95%]
+else
+  goto <bb 8>; [77.05%]
+
+=======is loop:0=========
+<bb 7> [22.95%]:
+_15 = operator new (1);
+operator delete (_15, 1);
+
+=======is loop:0=========
+<bb 8> [100.00%]:
+GLOBAL_CONST_FIVE.3_16 = GLOBAL_CONST_FIVE;
+GLOBAL_CONST_FIVE.4_10 = GLOBAL_CONST_FIVE;
+if (GLOBAL_CONST_FIVE.4_10 != 5)
+  goto <bb 9>; [66.00%]
+else
+  goto <bb 10>; [34.00%]
+
+=======is loop:0=========
+<bb 9> [66.00%]:
+printLine ("Benign, fixed string");
+goto <bb 11>; [100.00%]
+
+=======is loop:0=========
+<bb 10> [34.00%]:
+_11 = operator new (1);
+
+=======is loop:0=========
+<bb 11> [100.00%]:
+# data_13 = PHI <0B(9), _11(10)>
+GLOBAL_CONST_FIVE.5_12 = GLOBAL_CONST_FIVE;
+if (GLOBAL_CONST_FIVE.5_12 == 5)
+  goto <bb 12>; [22.95%]
+else
+  goto <bb 13>; [77.05%]
+
+=======is loop:0=========
+<bb 12> [22.95%]:
+operator delete (data_13, 1);
+
+=======is loop:0=========
+<bb 13> [100.00%]:
+GLOBAL_CONST_FIVE.6_6 = GLOBAL_CONST_FIVE;
+if (GLOBAL_CONST_FIVE.6_6 == 5)
+  goto <bb 14>; [20.24%]
+else
+  goto <bb 15>; [79.76%]
+
+=======is loop:0=========
+<bb 14> [20.24%]:
+_7 = operator new (1);
+
+=======is loop:0=========
+<bb 15> [100.00%]:
+# data_9 = PHI <0B(13), _7(14)>
+GLOBAL_CONST_FIVE.7_8 = GLOBAL_CONST_FIVE;
+if (GLOBAL_CONST_FIVE.7_8 == 5)
+  goto <bb 16>; [22.95%]
+else
+  goto <bb 17>; [77.05%]
+
+=======is loop:0=========
+<bb 16> [22.95%]:
+operator delete (data_9, 1);
+
+=======is loop:0=========
+<bb 17> [100.00%]:
+return;
+
+=======is loop:0=========
+time: 0.000544 s

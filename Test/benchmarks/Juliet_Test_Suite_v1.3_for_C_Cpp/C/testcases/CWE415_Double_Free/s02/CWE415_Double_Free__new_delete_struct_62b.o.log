@@ -1,0 +1,80 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+------------------------------
+# VUSE <.MEM_6>
+_1 = *data_5(D);
+ <mem_ref 0x7f2b0a7d4960
+    type <pointer_type 0x7f2b0a7cc1f8
+        type <record_type 0x7f2b0ab6fd20 twoIntsStruct type_5 type_6 DI
+            size <integer_cst 0x7f2b0b27feb8 constant 64>
+            unit size <integer_cst 0x7f2b0b27fed0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f2b0ab6fbd0 fields <field_decl 0x7f2b0ab74260 intOne> context <translation_unit_decl 0x7f2b0b28d168 CWE415_Double_Free__new_delete_struct_62b.cpp>
+            full-name "twoIntsStruct"
+            X() X(constX&) this=(X&) n_parents=0 use_template=0 interface-unknown
+            pointer_to_this <pointer_type 0x7f2b0a7cc1f8> chain <type_decl 0x7f2b0ab74130 _twoIntsStruct>>
+        unsigned DI size <integer_cst 0x7f2b0b27feb8 64> unit size <integer_cst 0x7f2b0b27fed0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f2b0a7cc2a0 reference_to_this <reference_type 0x7f2b0a7cc348>>
+   
+    arg 0 <ssa_name 0x7f2b0a7d3438
+        type <reference_type 0x7f2b0a7cc348 type <pointer_type 0x7f2b0a7cc1f8>
+            public unsigned DI size <integer_cst 0x7f2b0b27feb8 64> unit size <integer_cst 0x7f2b0b27fed0 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2b0a7cc690>
+        var <parm_decl 0x7f2b0a7d2880 data>
+        def_stmt GIMPLE_NOP
+        version 5
+        ptr-info 0x7f2b0abbce40>
+    arg 1 <integer_cst 0x7f2b0abbcd08 type <reference_type 0x7f2b0a7cc348> constant 0>
+    CWE415_Double_Free__new_delete_struct_62b.cpp:50:12 start: CWE415_Double_Free__new_delete_struct_62b.cpp:50:12 finish: CWE415_Double_Free__new_delete_struct_62b.cpp:50:15>
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+algorithm time: 0.000052 s
+=======Mapping node_fun:goodB2GSource=========
+<bb 2> [100.00%]:
+_4 = operator new (8);
+*data_5(D) = _4;
+_1 = *data_5(D);
+operator delete (_1, 8);
+return;
+
+=======is loop:0=========
+=======Mapping node_fun:goodG2BSource=========
+<bb 2> [100.00%]:
+_3 = operator new (8);
+*data_4(D) = _3;
+return;
+
+=======is loop:0=========
+time: 0.000697 s

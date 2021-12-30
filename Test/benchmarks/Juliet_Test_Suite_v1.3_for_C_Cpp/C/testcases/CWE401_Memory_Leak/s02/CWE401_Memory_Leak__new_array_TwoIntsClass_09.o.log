@@ -1,0 +1,32 @@
+CWE401_Memory_Leak__new_array_TwoIntsClass_09.cpp: In function ‘void CWE401_Memory_Leak__new_array_TwoIntsClass_09::goodB2G1()’:
+CWE401_Memory_Leak__new_array_TwoIntsClass_09.cpp:79:1: warning: leak of ‘data’ [CWE-401] [-Wanalyzer-malloc-leak]
+   79 | }
+      | ^
+  ‘void CWE401_Memory_Leak__new_array_TwoIntsClass_09::goodB2G1()’: events 1-6
+    |
+    |   59 |     if(GLOBAL_CONST_TRUE)
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   62 |         data = new TwoIntsClass[100];
+    |      |                                    ~
+    |      |                                    |
+    |      |                                    (2) ...to here
+    |      |                                    (3) allocated here
+    |......
+    |   69 |     if(GLOBAL_CONST_FALSE)
+    |      |     ~~
+    |      |     |
+    |      |     (4) following ‘true’ branch...
+    |......
+    |   72 |         printLine("Benign, fixed string");
+    |      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                  |
+    |      |                  (5) ...to here
+    |......
+    |   79 | }
+    |      | ~    
+    |      | |
+    |      | (6) ‘data’ leaks here; was allocated at (3)
+    |

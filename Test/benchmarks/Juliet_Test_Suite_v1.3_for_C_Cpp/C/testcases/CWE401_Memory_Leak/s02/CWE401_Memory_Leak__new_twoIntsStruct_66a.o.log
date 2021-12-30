@@ -1,0 +1,16 @@
+CWE401_Memory_Leak__new_twoIntsStruct_66a.cpp: In function ‘void CWE401_Memory_Leak__new_twoIntsStruct_66::goodB2G()’:
+CWE401_Memory_Leak__new_twoIntsStruct_66a.cpp:82:18: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   82 |     data->intOne = 0;
+      |     ~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_twoIntsStruct_66::goodB2G()’: events 1-2
+    |
+    |   80 |     data = new twoIntsStruct;
+    |      |                ^~~~~~~~~~~~~
+    |      |                |
+    |      |                (1) this call could return NULL
+    |   81 |     /* Initialize and make use of data */
+    |   82 |     data->intOne = 0;
+    |      |     ~~~~~~~~~~~~~~~~
+    |      |                  |
+    |      |                  (2) ‘operator new(8)’ could be NULL: unchecked value from (1)
+    |

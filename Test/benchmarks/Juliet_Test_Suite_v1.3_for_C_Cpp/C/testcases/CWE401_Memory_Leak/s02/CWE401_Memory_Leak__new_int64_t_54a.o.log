@@ -1,0 +1,16 @@
+CWE401_Memory_Leak__new_int64_t_54a.cpp: In function ‘void CWE401_Memory_Leak__new_int64_t_54::goodB2G()’:
+CWE401_Memory_Leak__new_int64_t_54a.cpp:74:11: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   74 |     *data = 5LL;
+      |     ~~~~~~^~~~~
+  ‘void CWE401_Memory_Leak__new_int64_t_54::goodB2G()’: events 1-2
+    |
+    |   72 |     data = new int64_t;
+    |      |                ^~~~~~~
+    |      |                |
+    |      |                (1) this call could return NULL
+    |   73 |     /* Initialize and make use of data */
+    |   74 |     *data = 5LL;
+    |      |     ~~~~~~~~~~~ 
+    |      |           |
+    |      |           (2) ‘operator new(8)’ could be NULL: unchecked value from (1)
+    |

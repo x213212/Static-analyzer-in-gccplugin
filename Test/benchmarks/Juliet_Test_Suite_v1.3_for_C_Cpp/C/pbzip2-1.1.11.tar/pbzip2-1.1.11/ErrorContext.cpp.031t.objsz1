@@ -1,0 +1,225 @@
+
+;; Function fprintf (fprintf, funcdef_no=928, decl_uid=1095, cgraph_uid=262, symbol_order=264)
+
+__attribute__((__artificial__, __gnu_inline__, __always_inline__))
+fprintf (struct FILE * restrict __stream, const char * restrict __fmt)
+{
+  int _5;
+  int _6;
+
+  <bb 2> [0.00%]:
+  _5 = __fprintf_chk (__stream_2(D), 1, __fmt_3(D), __builtin_va_arg_pack ());
+  _6 = _5;
+  return _6;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::ErrorContext() (_ZN6pbzip212ErrorContextC2Ev, funcdef_no=1082, decl_uid=26162, cgraph_uid=367, symbol_order=369)
+
+pbzip2::ErrorContext::ErrorContext() (struct ErrorContext * const this)
+{
+  <bb 2> [0.00%]:
+  MEM[(struct  &)this_2(D)] ={v} {CLOBBER};
+  this_2(D)->_first_kernel_err_no = 0;
+  this_2(D)->_last_kernel_err_no = 0;
+  return;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::getInstance() (_ZN6pbzip212ErrorContext11getInstanceEv, funcdef_no=1111, decl_uid=26140, cgraph_uid=396, symbol_order=400)
+
+pbzip2::ErrorContext::getInstance() ()
+{
+  int D.30423;
+  struct ErrorContext * _instance.0_1;
+  struct ErrorContext * _instance.2_2;
+  struct FILE * stderr.3_3;
+  struct ErrorContext * iftmp.1_4;
+  void * _10;
+  struct ErrorContext * iftmp.1_11;
+  struct ErrorContext * iftmp.1_13;
+  struct ErrorContext * _17;
+  int _18;
+
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&_err_ctx_mutex);
+  _instance.0_1 = _instance;
+  if (_instance.0_1 == 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _10 = operator new (8, &nothrow);
+  if (_10 != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [100.00%]:
+  MEM[(struct  &)_10] ={v} {CLOBBER};
+  MEM[(struct ErrorContext *)_10]._first_kernel_err_no = 0;
+  MEM[(struct ErrorContext *)_10]._last_kernel_err_no = 0;
+  iftmp.1_13 = _10;
+  goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  iftmp.1_11 = _10;
+
+  <bb 6> [0.00%]:
+  # iftmp.1_4 = PHI <iftmp.1_13(4), iftmp.1_11(5)>
+  _instance = iftmp.1_4;
+  _instance.2_2 = _instance;
+  if (_instance.2_2 == 0B)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 8>; [0.00%]
+
+  <bb 7> [100.00%]:
+  stderr.3_3 = stderr;
+  _18 = __fprintf_chk (stderr.3_3, 1, "pbzip2: *ERROR: Can\'t initialize error context - out of memory!\n");
+  _23 = _18;
+
+  <bb 8> [0.00%]:
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  _17 = _instance;
+  return _17;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::printErrnoMsg(_IO_FILE*, int) (_ZN6pbzip212ErrorContext13printErrnoMsgEP8_IO_FILEi, funcdef_no=1112, decl_uid=26150, cgraph_uid=397, symbol_order=401)
+
+pbzip2::ErrorContext::printErrnoMsg(_IO_FILE*, int) (struct FILE * out, int err)
+{
+  int D.30428;
+  char * _1;
+  int _8;
+
+  <bb 2> [0.00%]:
+  if (err_3(D) != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 4>; [0.00%]
+
+  <bb 3> [100.00%]:
+  _1 = strerror (err_3(D));
+  _8 = __fprintf_chk (out_6(D), 1, "pbzip2: *ERROR: system call failed with errno=[%d: %s]!\n", err_3(D), _1);
+  _10 = _8;
+
+  <bb 4> [0.00%]:
+  return;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::syncPrintErrnoMsg(_IO_FILE*, int) (_ZN6pbzip212ErrorContext17syncPrintErrnoMsgEP8_IO_FILEi, funcdef_no=1113, decl_uid=26153, cgraph_uid=398, symbol_order=402)
+
+pbzip2::ErrorContext::syncPrintErrnoMsg(_IO_FILE*, int) (struct FILE * out, int err)
+{
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&_err_ctx_mutex);
+  pbzip2::ErrorContext::printErrnoMsg (out_3(D), err_4(D));
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  return;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::printErrorMessages(_IO_FILE*) (_ZN6pbzip212ErrorContext18printErrorMessagesEP8_IO_FILE, funcdef_no=1114, decl_uid=26142, cgraph_uid=399, symbol_order=403)
+
+pbzip2::ErrorContext::printErrorMessages(_IO_FILE*) (struct ErrorContext * const this, struct FILE * out)
+{
+  int _1;
+  int _2;
+
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&_err_ctx_mutex);
+  _1 = this_5(D)->_first_kernel_err_no;
+  pbzip2::ErrorContext::printErrnoMsg (out_6(D), _1);
+  _2 = this_5(D)->_last_kernel_err_no;
+  pbzip2::ErrorContext::printErrnoMsg (out_6(D), _2);
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  return;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::saveError() (_ZN6pbzip212ErrorContext9saveErrorEv, funcdef_no=1115, decl_uid=26144, cgraph_uid=400, symbol_order=404)
+
+pbzip2::ErrorContext::saveError() (struct ErrorContext * const this)
+{
+  int & err_ref;
+  int newerr;
+  int * _1;
+  int _2;
+  int * _3;
+  int _4;
+  int * iftmp.4_5;
+  int * iftmp.4_11;
+  int * iftmp.4_12;
+
+  <bb 2> [0.00%]:
+  _1 = __errno_location ();
+  newerr_8 = *_1;
+  pthread_mutex_lock (&_err_ctx_mutex);
+  if (newerr_8 != 0)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _2 = this_10(D)->_first_kernel_err_no;
+  if (_2 == 0)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [0.00%]:
+  iftmp.4_12 = &this_10(D)->_first_kernel_err_no;
+  goto <bb 6>; [0.00%]
+
+  <bb 5> [0.00%]:
+  iftmp.4_11 = &this_10(D)->_last_kernel_err_no;
+
+  <bb 6> [0.00%]:
+  # iftmp.4_5 = PHI <iftmp.4_12(4), iftmp.4_11(5)>
+  err_ref_13 = iftmp.4_5;
+  *err_ref_13 = newerr_8;
+
+  <bb 7> [0.00%]:
+  _3 = __errno_location ();
+  _4 = *_3;
+  this_10(D)->_last_kernel_err_no = _4;
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  return;
+
+}
+
+
+
+;; Function pbzip2::ErrorContext::reset() (_ZN6pbzip212ErrorContext5resetEv, funcdef_no=1116, decl_uid=26146, cgraph_uid=401, symbol_order=405)
+
+pbzip2::ErrorContext::reset() (struct ErrorContext * const this)
+{
+  int _1;
+
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&_err_ctx_mutex);
+  this_4(D)->_last_kernel_err_no = 0;
+  _1 = this_4(D)->_last_kernel_err_no;
+  this_4(D)->_first_kernel_err_no = _1;
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  return;
+
+}
+
+

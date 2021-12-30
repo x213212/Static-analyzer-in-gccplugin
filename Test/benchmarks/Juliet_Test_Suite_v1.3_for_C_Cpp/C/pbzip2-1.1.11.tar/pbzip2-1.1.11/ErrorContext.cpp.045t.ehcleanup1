@@ -1,0 +1,61 @@
+
+;; Function pbzip2::ErrorContext::getInstance() (_ZN6pbzip212ErrorContext11getInstanceEv, funcdef_no=1111, decl_uid=26140, cgraph_uid=396, symbol_order=400)
+
+Before removal of unreachable regions:
+Eh tree:
+   1 cleanup
+Reachable regions: n_bits = 2, set = {}
+Reachable landing pads: n_bits = 1, set = {}
+Removing unreachable region 1
+
+
+After removal of unreachable regions:
+
+
+pbzip2::ErrorContext::getInstance() ()
+{
+  int D.30423;
+  struct ErrorContext * _instance.0_1;
+  struct FILE * stderr.3_3;
+  void * _10;
+  struct ErrorContext * _17;
+
+  <bb 2> [0.00%]:
+  pthread_mutex_lock (&_err_ctx_mutex);
+  _instance.0_1 = _instance;
+  if (_instance.0_1 == 0B)
+    goto <bb 3>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 3> [0.00%]:
+  _10 = operator new (8, &nothrow);
+  if (_10 != 0B)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 5>; [0.00%]
+
+  <bb 4> [100.00%]:
+  MEM[(struct  &)_10] ={v} {CLOBBER};
+  MEM[(struct ErrorContext *)_10]._first_kernel_err_no = 0;
+  MEM[(struct ErrorContext *)_10]._last_kernel_err_no = 0;
+
+  <bb 5> [0.00%]:
+  _instance = _10;
+  if (_10 == 0B)
+    goto <bb 6>; [0.00%]
+  else
+    goto <bb 7>; [0.00%]
+
+  <bb 6> [100.00%]:
+  stderr.3_3 = stderr;
+  __fprintf_chk (stderr.3_3, 1, "pbzip2: *ERROR: Can\'t initialize error context - out of memory!\n");
+
+  <bb 7> [0.00%]:
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  _17 = _instance;
+  return _17;
+
+}
+
+

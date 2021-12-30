@@ -1,0 +1,32 @@
+CWE401_Memory_Leak__new_array_int_05.cpp: In function ‘void CWE401_Memory_Leak__new_array_int_05::goodB2G1()’:
+CWE401_Memory_Leak__new_array_int_05.cpp:81:1: warning: leak of ‘data’ [CWE-401] [-Wanalyzer-malloc-leak]
+   81 | }
+      | ^
+  ‘void CWE401_Memory_Leak__new_array_int_05::goodB2G1()’: events 1-6
+    |
+    |   63 |     if(staticTrue)
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   66 |         data = new int[100];
+    |      |                           ~
+    |      |                           |
+    |      |                           (2) ...to here
+    |      |                           (3) allocated here
+    |......
+    |   71 |     if(staticFalse)
+    |      |     ~~
+    |      |     |
+    |      |     (4) following ‘true’ branch...
+    |......
+    |   74 |         printLine("Benign, fixed string");
+    |      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                  |
+    |      |                  (5) ...to here
+    |......
+    |   81 | }
+    |      | ~    
+    |      | |
+    |      | (6) ‘data’ leaks here; was allocated at (3)
+    |

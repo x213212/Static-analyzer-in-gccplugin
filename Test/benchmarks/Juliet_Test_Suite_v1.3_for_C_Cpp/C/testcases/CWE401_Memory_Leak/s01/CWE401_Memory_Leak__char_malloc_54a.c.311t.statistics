@@ -1,0 +1,18 @@
+26 ssa "unused VAR_DECLs removed" "goodG2B" 1
+38 ccp "Statements deleted" "goodG2B" 1
+55 release_ssa "SSA names released" "goodG2B" 1
+55 release_ssa "SSA name holes removed" "goodG2B" 1
+35 einline "unused VAR_DECLs removed" "goodB2G" 2
+35 einline "Symbol to SSA rewrite" "goodB2G" 1
+38 ccp "Statements deleted" "goodB2G" 1
+55 release_ssa "SSA names released" "goodB2G" 1
+55 release_ssa "SSA name holes removed" "goodB2G" 1
+35 einline "unused VAR_DECLs removed" "CWE401_Memory_Leak__char_malloc_54_bad" 2
+35 einline "Symbol to SSA rewrite" "CWE401_Memory_Leak__char_malloc_54_bad" 1
+38 ccp "Statements deleted" "CWE401_Memory_Leak__char_malloc_54_bad" 1
+55 release_ssa "SSA names released" "CWE401_Memory_Leak__char_malloc_54_bad" 1
+55 release_ssa "SSA name holes removed" "CWE401_Memory_Leak__char_malloc_54_bad" 1
+35 einline "unused VAR_DECLs removed" "CWE401_Memory_Leak__char_malloc_54_good" 2
+35 einline "Symbol to SSA rewrite" "CWE401_Memory_Leak__char_malloc_54_good" 1
+84 inline "unused VAR_DECLs removed" "goodG2B" 1
+84 inline "Symbol to SSA rewrite" "goodG2B" 1

@@ -1,0 +1,79 @@
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 1 
+pointer ptable is 0 
+===============The second stage : Mapping stmt=================
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:CWE401_Memory_Leak__twoIntsStruct_calloc_65b_goodB2GSink========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path CWE401_Memory_Leak__twoIntsStruct_calloc_65b_goodB2GSink  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre_check_funciton:CWE401_Memory_Leak__twoIntsStruct_calloc_65b_goodB2GSink========= [0m
+[40;42m =======start_check_funciton:CWE401_Memory_Leak__twoIntsStruct_calloc_65b_goodB2GSink========= [0m
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__twoIntsStruct_calloc_65b_goodB2GSink========= [0m
+[40;44m =======node_fun:CWE401_Memory_Leak__twoIntsStruct_calloc_65b_goodG2BSink========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path CWE401_Memory_Leak__twoIntsStruct_calloc_65b_goodG2BSink  function_call count: 0 level :0========  [0m
+[40;42m =======pre_check_funciton:CWE401_Memory_Leak__twoIntsStruct_calloc_65b_goodG2BSink========= [0m
+[40;42m =======start_check_funciton:CWE401_Memory_Leak__twoIntsStruct_calloc_65b_goodG2BSink========= [0m
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__twoIntsStruct_calloc_65b_goodG2BSink========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:CWE401_Memory_Leak__twoIntsStruct_calloc_65b_goodB2GSink=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+free (data_2(D));
+return;
+
+=======Mapping node_fun:CWE401_Memory_Leak__twoIntsStruct_calloc_65b_goodG2BSink=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0 [0m
+[40;34m    used_stmt array stack totalsize of : 0 [0m
+[40;34m    collect time: : 0.000028 s [0m
+[40;34m    algorithm time: 0.000067 s [0m
+[40;34m    gimple stmt count : : 3 [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

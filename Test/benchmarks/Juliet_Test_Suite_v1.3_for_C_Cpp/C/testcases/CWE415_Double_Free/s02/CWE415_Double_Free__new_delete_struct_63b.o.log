@@ -1,0 +1,104 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+------------------------------
+# VUSE <.MEM_1(D)>
+data_3 = *dataPtr_2(D);
+ <mem_ref 0x7fbcb67167a8
+    type <pointer_type 0x7fbcb670e1f8
+        type <record_type 0x7fbcb6ab1d20 twoIntsStruct type_5 type_6 DI
+            size <integer_cst 0x7fbcb71c1eb8 constant 64>
+            unit size <integer_cst 0x7fbcb71c1ed0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7fbcb6ab1bd0 fields <field_decl 0x7fbcb6ab6260 intOne> context <translation_unit_decl 0x7fbcb71cf168 CWE415_Double_Free__new_delete_struct_63b.cpp>
+            full-name "twoIntsStruct"
+            X() X(constX&) this=(X&) n_parents=0 use_template=0 interface-unknown
+            pointer_to_this <pointer_type 0x7fbcb670e1f8> chain <type_decl 0x7fbcb6ab6130 _twoIntsStruct>>
+        sizes-gimplified unsigned DI size <integer_cst 0x7fbcb71c1eb8 64> unit size <integer_cst 0x7fbcb71c1ed0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fbcb670e2a0
+        pointer_to_this <pointer_type 0x7fbcb670e348>>
+   
+    arg 0 <ssa_name 0x7fbcb6715288
+        type <pointer_type 0x7fbcb670e348 type <pointer_type 0x7fbcb670e1f8>
+            public unsigned DI size <integer_cst 0x7fbcb71c1eb8 64> unit size <integer_cst 0x7fbcb71c1ed0 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7fbcb670e690>
+        var <parm_decl 0x7fbcb6714400 dataPtr>
+        def_stmt GIMPLE_NOP
+        version 2
+        ptr-info 0x7fbcb6afedb0>
+    arg 1 <integer_cst 0x7fbcb6afecf0 type <pointer_type 0x7fbcb670e348> constant 0>
+    CWE415_Double_Free__new_delete_struct_63b.cpp:49:28 start: CWE415_Double_Free__new_delete_struct_63b.cpp:49:28 finish: CWE415_Double_Free__new_delete_struct_63b.cpp:49:35>
+------------------------------
+# VUSE <.MEM_1(D)>
+data_3 = *dataPtr_2(D);
+ <mem_ref 0x7fbcb6716640
+    type <pointer_type 0x7fbcb670e1f8
+        type <record_type 0x7fbcb6ab1d20 twoIntsStruct type_5 type_6 DI
+            size <integer_cst 0x7fbcb71c1eb8 constant 64>
+            unit size <integer_cst 0x7fbcb71c1ed0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7fbcb6ab1bd0 fields <field_decl 0x7fbcb6ab6260 intOne> context <translation_unit_decl 0x7fbcb71cf168 CWE415_Double_Free__new_delete_struct_63b.cpp>
+            full-name "twoIntsStruct"
+            X() X(constX&) this=(X&) n_parents=0 use_template=0 interface-unknown
+            pointer_to_this <pointer_type 0x7fbcb670e1f8> chain <type_decl 0x7fbcb6ab6130 _twoIntsStruct>>
+        sizes-gimplified unsigned DI size <integer_cst 0x7fbcb71c1eb8 64> unit size <integer_cst 0x7fbcb71c1ed0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fbcb670e2a0
+        pointer_to_this <pointer_type 0x7fbcb670e348>>
+   
+    arg 0 <ssa_name 0x7fbcb6715168
+        type <pointer_type 0x7fbcb670e348 type <pointer_type 0x7fbcb670e1f8>
+            public unsigned DI size <integer_cst 0x7fbcb71c1eb8 64> unit size <integer_cst 0x7fbcb71c1ed0 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7fbcb670e690>
+        var <parm_decl 0x7fbcb6714080 dataPtr>
+        def_stmt GIMPLE_NOP
+        version 2
+        ptr-info 0x7fbcb6afed50>
+    arg 1 <integer_cst 0x7fbcb6afecf0 type <pointer_type 0x7fbcb670e348> constant 0>
+    CWE415_Double_Free__new_delete_struct_63b.cpp:41:28 start: CWE415_Double_Free__new_delete_struct_63b.cpp:41:28 finish: CWE415_Double_Free__new_delete_struct_63b.cpp:41:35>
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+algorithm time: 0.000051 s
+=======Mapping node_fun:goodB2GSink=========
+<bb 2> [100.00%]:
+data_3 = *dataPtr_2(D);
+return;
+
+=======is loop:0=========
+=======Mapping node_fun:goodG2BSink=========
+<bb 2> [100.00%]:
+data_3 = *dataPtr_2(D);
+operator delete (data_3, 8);
+return;
+
+=======is loop:0=========
+time: 0.001121 s

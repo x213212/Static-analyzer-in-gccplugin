@@ -1,0 +1,52 @@
+In member function ‘std::_Rb_tree_node<_Val>* std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Alloc_node::operator()(_Arg&&) const [with _Arg = const std::pair<const int, int*>&; _Key = int; _Val = std::pair<const int, int*>; _KeyOfValue = std::_Select1st<std::pair<const int, int*> >; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, int*> >]’:
+cc1plus: warning: dereference of possibly-NULL ‘*this_3(D)->_M_t.std::_Rb_tree<int, std::pair<const int, int*>, std::_Select1st<std::pair<const int, int*> >, std::less<int>, std::allocator<std::pair<const int, int*> > >::_M_impl.__gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<const int, int*> > >::allocate(1, 0)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  ‘std::_Rb_tree_node<_Val>* std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Alloc_node::operator()(_Arg&&) const [with _Arg = const std::pair<const int, int*>&; _Key = int; _Val = std::pair<const int, int*>; _KeyOfValue = std::_Select1st<std::pair<const int, int*> >; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, int*> >]’: event 1
+    |
+    |/usr/local/gcc-11.2.0/include/c++/11.2.0/bits/stl_tree.h:528:11:
+    |  528 |           operator()(_GLIBCXX_FWDREF(_Arg) __arg) const
+    |      |           ^~~~~~~~
+    |      |           |
+    |      |           (1) entry to ‘std::_Rb_tree<int, std::pair<const int, int*>, std::_Select1st<std::pair<const int, int*> >, std::less<int>, std::allocator<std::pair<const int, int*> > >::_Alloc_node::operator()<const std::pair<const int, int*>&>’
+    |
+  ‘std::_Rb_tree_node<_Val>* std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Alloc_node::operator()(_Arg&&) const [with _Arg = const std::pair<const int, int*>&; _Key = int; _Val = std::pair<const int, int*>; _KeyOfValue = std::_Select1st<std::pair<const int, int*> >; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, int*> >]’: event 2
+    |
+    |/usr/local/gcc-11.2.0/include/c++/11.2.0/bits/alloc_traits.h:460:28:
+    |  460 |       { return __a.allocate(__n); }
+    |      |                ~~~~~~~~~~~~^~~~~
+    |      |                            |
+    |      |                            (2) calling ‘__gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<const int, int*> > >::allocate’ from ‘std::_Rb_tree<int, std::pair<const int, int*>, std::_Select1st<std::pair<const int, int*> >, std::less<int>, std::allocator<std::pair<const int, int*> > >::_Alloc_node::operator()<const std::pair<const int, int*>&>’
+    |
+    +--> ‘_Tp* __gnu_cxx::new_allocator<_Tp>::allocate(__gnu_cxx::new_allocator<_Tp>::size_type, const void*) [with _Tp = std::_Rb_tree_node<std::pair<const int, int*> >]’: events 3-6
+           |
+           |/usr/local/gcc-11.2.0/include/c++/11.2.0/ext/new_allocator.h:103:7:
+           |  103 |       allocate(size_type __n, const void* = static_cast<const void*>(0))
+           |      |       ^~~~~~~~
+           |      |       |
+           |      |       (3) entry to ‘__gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<const int, int*> > >::allocate’
+           |......
+           |  111 |         if (__builtin_expect(__n > this->_M_max_size(), false))
+           |      |         ~~
+           |      |         |
+           |      |         (4) following ‘false’ branch...
+           |......
+           |  127 |         return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+           |      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                                |
+           |      |                                                (5) ...to here
+           |      |                                                (6) this call could return NULL
+           |
+    <------+
+    |
+  ‘std::_Rb_tree_node<_Val>* std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Alloc_node::operator()(_Arg&&) const [with _Arg = const std::pair<const int, int*>&; _Key = int; _Val = std::pair<const int, int*>; _KeyOfValue = std::_Select1st<std::pair<const int, int*> >; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, int*> >]’: event 7
+    |
+    |/usr/local/gcc-11.2.0/include/c++/11.2.0/bits/alloc_traits.h:460:28:
+    |  460 |       { return __a.allocate(__n); }
+    |      |                ~~~~~~~~~~~~^~~~~
+    |      |                            |
+    |      |                            (7) returning to ‘std::_Rb_tree<int, std::pair<const int, int*>, std::_Select1st<std::pair<const int, int*> >, std::less<int>, std::allocator<std::pair<const int, int*> > >::_Alloc_node::operator()<const std::pair<const int, int*>&>’ from ‘__gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<const int, int*> > >::allocate’
+    |
+  ‘std::_Rb_tree_node<_Val>* std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>::_Alloc_node::operator()(_Arg&&) const [with _Arg = const std::pair<const int, int*>&; _Key = int; _Val = std::pair<const int, int*>; _KeyOfValue = std::_Select1st<std::pair<const int, int*> >; _Compare = std::less<int>; _Alloc = std::allocator<std::pair<const int, int*> >]’: event 8
+    |
+    |cc1plus:
+    | (8): ‘[01m[K*this_3(D)->_M_t.std::_Rb_tree<int, std::pair<const int, int*>, std::_Select1st<std::pair<const int, int*> >, std::less<int>, std::allocator<std::pair<const int, int*> > >::_M_impl.__gnu_cxx::new_allocator<std::_Rb_tree_node<std::pair<const int, int*> > >::allocate(1, 0)[m[K’ could be NULL: unchecked value from [01;36m[K(6)[m[K
+    |

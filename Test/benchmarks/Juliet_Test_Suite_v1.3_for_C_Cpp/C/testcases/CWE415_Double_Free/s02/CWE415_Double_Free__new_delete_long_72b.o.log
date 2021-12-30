@@ -1,0 +1,117 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+------------------------------
+# VUSE <.MEM_1(D)>
+_3 = *dataVector_2(D).D.19505._M_impl._M_start;
+ <component_ref 0x7fa5607b93c0
+    type <pointer_type 0x7fa560742930 pointer
+        type <pointer_type 0x7fa5616ec1f8 type <integer_type 0x7fa5616dd738 long int>
+            sizes-gimplified unsigned type_6 DI
+            size <integer_cst 0x7fa5616beeb8 constant 64>
+            unit size <integer_cst 0x7fa5616beed0 constant 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7fa5616ec1f8
+            pointer_to_this <pointer_type 0x7fa56072f2a0> reference_to_this <reference_type 0x7fa560738930>>
+        unsigned DI size <integer_cst 0x7fa5616beeb8 64> unit size <integer_cst 0x7fa5616beed0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fa56072f2a0>
+   
+    arg 0 <component_ref 0x7fa5607b93f0
+        type <record_type 0x7fa5607429d8 _Vector_impl addressable needs-constructing type_1 type_4 type_5 type_6 BLK
+            size <integer_cst 0x7fa5616e0378 constant 192>
+            unit size <integer_cst 0x7fa5616e0348 constant 24>
+            align 64 symtab 0 alias set -1 canonical type 0x7fa5607429d8 fields <field_decl 0x7fa560755980 _M_start> context <record_type 0x7fa560728348 _Vector_base>
+            full-name "struct std::_Vector_base<long int*, std::allocator<long int*> >::_Vector_impl"
+            needs-constructor needs-destructor X() X(constX&) this=(X&) n_parents=1 use_template=1 interface-unknown
+            pointer_to_this <pointer_type 0x7fa560758690> reference_to_this <reference_type 0x7fa560758c78> chain <type_decl 0x7fa560744130 _Vector_impl>>
+       
+        arg 0 <component_ref 0x7fa5607b9420 type <record_type 0x7fa560728348 _Vector_base>
+           
+            arg 0 <mem_ref 0x7fa5607be2a8 type <record_type 0x7fa560728738 vector>
+                tree_0
+                arg 0 <ssa_name 0x7fa5607bf048 type <reference_type 0x7fa56079ef18>
+                    var <parm_decl 0x7fa560729a80 dataVector>
+                    def_stmt GIMPLE_NOP
+                    version 2
+                    ptr-info 0x7fa56078df78>
+                arg 1 <integer_cst 0x7fa56078de70 constant 0>> arg 1 <field_decl 0x7fa5607a0688 D.19505>>
+        arg 1 <field_decl 0x7fa560744260 _M_impl type <record_type 0x7fa5607429d8 _Vector_impl>
+            used nonlocal decl_3 BLK file /usr/include/c++/7/bits/stl_vector.h line 166 col 20 size <integer_cst 0x7fa5616e0378 192> unit size <integer_cst 0x7fa5616e0348 24>
+            align 64 offset_align 128
+            offset <integer_cst 0x7fa5616beee8 constant 0>
+            bit offset <integer_cst 0x7fa5616bef30 constant 0> context <record_type 0x7fa560728348 _Vector_base> chain <type_decl 0x7fa5606bfab0 _Vector_base>>
+        /usr/include/c++/7/bits/stl_vector.h:798:17 start: /usr/include/c++/7/bits/stl_vector.h:798:11 finish: /usr/include/c++/7/bits/stl_vector.h:798:23>
+    arg 1 <field_decl 0x7fa560755980 _M_start type <pointer_type 0x7fa560742930 pointer>
+        used unsigned nonlocal decl_3 DI file /usr/include/c++/7/bits/stl_vector.h line 84 col 10 size <integer_cst 0x7fa5616beeb8 64> unit size <integer_cst 0x7fa5616beed0 8>
+        align 64 offset_align 128 offset <integer_cst 0x7fa5616beee8 0> bit offset <integer_cst 0x7fa5616bef30 0> context <record_type 0x7fa5607429d8 _Vector_impl>
+        chain <field_decl 0x7fa560755a18 _M_finish type <pointer_type 0x7fa560742930 pointer>
+            used unsigned nonlocal decl_3 DI file /usr/include/c++/7/bits/stl_vector.h line 85 col 10 size <integer_cst 0x7fa5616beeb8 64> unit size <integer_cst 0x7fa5616beed0 8>
+            align 64 offset_align 128 offset <integer_cst 0x7fa5616beee8 0> bit offset <integer_cst 0x7fa5616beeb8 64> context <record_type 0x7fa5607429d8 _Vector_impl> chain <field_decl 0x7fa560755ab0 _M_end_of_storage>>>
+    /usr/include/c++/7/bits/stl_vector.h:798:25 start: /usr/include/c++/7/bits/stl_vector.h:798:11 finish: /usr/include/c++/7/bits/stl_vector.h:798:32>
+------------------------------
+# VUSE <.MEM_1(D)>
+data_4 = MEM[(long int * &)_3 + 16];
+ <mem_ref 0x7fa5607b2d98
+    type <pointer_type 0x7fa560738540 value_type
+        type <integer_type 0x7fa5616dd738 long int public type_6 DI
+            size <integer_cst 0x7fa5616beeb8 constant 64>
+            unit size <integer_cst 0x7fa5616beed0 constant 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7fa5616dd738 precision 64 min <integer_cst 0x7fa5616e0150 -9223372036854775808> max <integer_cst 0x7fa5616e0168 9223372036854775807>
+            pointer_to_this <pointer_type 0x7fa5616ec1f8>>
+        sizes-gimplified unsigned DI size <integer_cst 0x7fa5616beeb8 64> unit size <integer_cst 0x7fa5616beed0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fa5616ec1f8
+        pointer_to_this <pointer_type 0x7fa5607abf18> reference_to_this <reference_type 0x7fa560738888>>
+    tree_0
+    arg 0 <ssa_name 0x7fa5607bf090
+        type <pointer_type 0x7fa56072f2a0 type <pointer_type 0x7fa5616ec1f8>
+            unsigned type_6 DI size <integer_cst 0x7fa5616beeb8 64> unit size <integer_cst 0x7fa5616beed0 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7fa56072f2a0>
+       
+        def_stmt _3 = *dataVector_2(D).D.19505._M_impl._M_start;
+        version 3
+        ptr-info 0x7fa56078df90>
+    arg 1 <integer_cst 0x7fa56078df48 type <reference_type 0x7fa56075e7e0 reference> constant 16>
+    CWE415_Double_Free__new_delete_long_72b.cpp:33:31 start: CWE415_Double_Free__new_delete_long_72b.cpp:33:31 finish: CWE415_Double_Free__new_delete_long_72b.cpp:33:31>
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+algorithm time: 0.000052 s
+=======Mapping node_fun:badSink=========
+<bb 2> [100.00%]:
+_3 = *dataVector_2(D).D.19505._M_impl._M_start;
+data_4 = MEM[(long int * &)_3 + 16];
+operator delete (data_4, 8);
+return;
+
+=======is loop:0=========
+time: 0.001888 s

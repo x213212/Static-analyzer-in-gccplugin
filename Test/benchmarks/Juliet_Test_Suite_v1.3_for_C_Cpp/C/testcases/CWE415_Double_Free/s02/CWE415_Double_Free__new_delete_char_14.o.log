@@ -1,0 +1,161 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+=======node_fun: =========
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 1 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:bad========= [0m
+[40;46m =======add node_fun stack:bad========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path bad  function_call count: 0 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre_check_funciton:bad========= [0m
+[40;42m =======start_check_funciton:bad========= [0m
+[40;33m =======POP node_fun stack:bad========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+ <function_decl 0x7f5cccbf1800 main
+    type <function_type 0x7f5cccbf5348
+        type <integer_type 0x7f5ccd65d5e8 int public type_6 SI
+            size <integer_cst 0x7f5ccd660108 constant 32>
+            unit size <integer_cst 0x7f5ccd660120 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f5ccd65d5e8 precision 32 min <integer_cst 0x7f5ccd6600c0 -2147483648> max <integer_cst 0x7f5ccd6600d8 2147483647>
+            pointer_to_this <pointer_type 0x7f5ccd665a80> reference_to_this <reference_type 0x7f5ccd15f7e0>>
+        QI
+        size <integer_cst 0x7f5ccd63efa8 constant 8>
+        unit size <integer_cst 0x7f5ccd63efc0 constant 1>
+        align 8 symtab 0 alias set -1 canonical type 0x7f5cccbf5348
+        arg-types <tree_list 0x7f5cccbf69b0 value <integer_type 0x7f5ccd65d5e8 int>
+            chain <tree_list 0x7f5cccbf69d8 value <pointer_type 0x7f5ccd148f18>
+                chain <tree_list 0x7f5ccd652d20 value <void_type 0x7f5ccd65df18 void>>>>>
+    public static decl_5 QI file CWE415_Double_Free__new_delete_char_14.cpp line 155 col 5 align 8 context <translation_unit_decl 0x7f5ccd64c168 CWE415_Double_Free__new_delete_char_14.cpp> initial <block 0x7f5cccfd4d80>
+    result <result_decl 0x7f5cccf90f78 D.9876 type <integer_type 0x7f5ccd65d5e8 int>
+        ignored SI file CWE415_Double_Free__new_delete_char_14.cpp line 155 col 33 size <integer_cst 0x7f5ccd660108 32> unit size <integer_cst 0x7f5ccd660120 4>
+        align 32 context <function_decl 0x7f5cccbf1800 main>>
+    full-name "int main(int, char**)"
+    pending-inline-info 0x7f5cccbe9ab0
+    arguments <parm_decl 0x7f5cccbf7180 argc type <integer_type 0x7f5ccd65d5e8 int>
+        SI file CWE415_Double_Free__new_delete_char_14.cpp line 155 col 14 size <integer_cst 0x7f5ccd660108 32> unit size <integer_cst 0x7f5ccd660120 4>
+        align 32 context <function_decl 0x7f5cccbf1800 main>
+        arg-type <integer_type 0x7f5ccd65d5e8 int>
+        chain <parm_decl 0x7f5cccbf7200 argv type <pointer_type 0x7f5ccd148f18>
+            unsigned decl_1 DI file CWE415_Double_Free__new_delete_char_14.cpp line 155 col 32
+            size <integer_cst 0x7f5ccd63eeb8 constant 64>
+            unit size <integer_cst 0x7f5ccd63eed0 constant 8>
+            align 64 context <function_decl 0x7f5cccbf1800 main>
+            arg-type <pointer_type 0x7f5ccd148f18>>>
+    struct-function 0x7f5cccbee370 chain <function_decl 0x7f5cccbf1c00 __wcsnrtombs_chk_warn>>
+
+======================================================================
+ <addr_expr 0x7f5cccbfa780
+    type <pointer_type 0x7f5ccd1c9b28
+        type <function_type 0x7f5ccd66c540 type <void_type 0x7f5ccd65df18 void>
+            QI
+            size <integer_cst 0x7f5ccd63efa8 constant 8>
+            unit size <integer_cst 0x7f5ccd63efc0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f5ccd66c540
+            arg-types <tree_list 0x7f5ccd652d20 value <void_type 0x7f5ccd65df18 void>>
+            pointer_to_this <pointer_type 0x7f5ccd1c9b28>>
+        unsigned DI
+        size <integer_cst 0x7f5ccd63eeb8 constant 64>
+        unit size <integer_cst 0x7f5ccd63eed0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f5ccd1c9b28>
+    constant
+    arg 0 <function_decl 0x7f5cccbf1f00 bad type <function_type 0x7f5ccd66c540>
+        addressable used public static decl_5 QI file CWE415_Double_Free__new_delete_char_14.cpp line 26 col 6 align 8 context <namespace_decl 0x7f5cccf9a558 CWE415_Double_Free__new_delete_char_14> initial <block 0x7f5cccfd4d20>
+        result <result_decl 0x7f5cccf90f00 D.9871 type <void_type 0x7f5ccd65df18 void>
+            ignored VOID file CWE415_Double_Free__new_delete_char_14.cpp line 26 col 10
+            align 8 context <function_decl 0x7f5cccbf1f00 bad>>
+        full-name "void CWE415_Double_Free__new_delete_char_14::bad()"
+        pending-inline-info 0x7f5cccbe9990
+        struct-function 0x7f5cccbee2c0>>
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+CWE415_Double_Free__new_delete_char_14.cpp: In function ‘int main(int, char**)’:
+CWE415_Double_Free__new_delete_char_14.cpp:166:8: warning: use location
+     bad();
+     ~~~^~
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======Mapping node_fun:main=========
+<bb 2> [100.00%]:
+_1 = time (0B);
+_2 = (unsigned int) _1;
+srand (_2);
+printLine ("Calling bad()...");
+CWE415_Double_Free__new_delete_char_14::bad ();
+printLine ("Finished bad()");
+return 0;
+
+=======is loop:0=========
+=======Mapping node_fun:bad=========
+<bb 2> [100.00%]:
+globalFive.0_1 = globalFive;
+if (globalFive.0_1 == 5)
+  goto <bb 3>; [20.24%]
+else
+  goto <bb 4>; [79.76%]
+
+=======is loop:0=========
+<bb 3> [20.24%]:
+_8 = operator new (1);
+operator delete (_8, 1);
+
+=======is loop:0=========
+<bb 4> [100.00%]:
+# data_3 = PHI <0B(2), _8(3)>
+globalFive.1_2 = globalFive;
+if (globalFive.1_2 == 5)
+  goto <bb 5>; [22.95%]
+else
+  goto <bb 6>; [77.05%]
+
+=======is loop:0=========
+<bb 5> [22.95%]:
+operator delete (data_3, 1);
+
+=======is loop:0=========
+<bb 6> [100.00%]:
+return;
+
+=======is loop:0=========
+time: 0.003942 s

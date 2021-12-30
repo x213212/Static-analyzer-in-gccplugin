@@ -1,0 +1,16 @@
+CWE401_Memory_Leak__strdup_char_67a.c: In function ‘goodB2G’:
+CWE401_Memory_Leak__strdup_char_67a.c:86:1: warning: leak of ‘data’ [CWE-401] [-Wanalyzer-malloc-leak]
+   86 | }
+      | ^
+  ‘goodB2G’: events 1-2
+    |
+    |   80 |         data = strdup(myString);
+    |      |                ^~~~~~~~~~~~~~~~
+    |      |                |
+    |      |                (1) allocated here
+    |......
+    |   86 | }
+    |      | ~               
+    |      | |
+    |      | (2) ‘data’ leaks here; was allocated at (1)
+    |

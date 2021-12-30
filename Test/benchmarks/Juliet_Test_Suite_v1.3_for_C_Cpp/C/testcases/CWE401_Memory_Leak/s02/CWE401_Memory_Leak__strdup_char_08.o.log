@@ -1,0 +1,36 @@
+CWE401_Memory_Leak__strdup_char_08.c: In function ‘goodB2G1’:
+CWE401_Memory_Leak__strdup_char_08.c:88:1: warning: leak of ‘data’ [CWE-401] [-Wanalyzer-malloc-leak]
+   88 | }
+      | ^
+  ‘goodB2G1’: events 1-6
+    |
+    |   68 |     if(staticReturnsTrue())
+    |      |       ^
+    |      |       |
+    |      |       (1) following ‘true’ branch...
+    |......
+    |   71 |             char myString[] = "myString";
+    |      |                  ~~~~~~~~
+    |      |                  |
+    |      |                  (2) ...to here
+    |   72 |             /* POTENTIAL FLAW: Allocate memory from the heap using a function that requires free() for deallocation */
+    |   73 |             data = strdup(myString);
+    |      |                    ~~~~~~~~~~~~~~~~
+    |      |                    |
+    |      |                    (3) allocated here
+    |......
+    |   78 |     if(staticReturnsFalse())
+    |      |       ~
+    |      |       |
+    |      |       (4) following ‘true’ branch...
+    |......
+    |   81 |         printLine("Benign, fixed string");
+    |      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |         |
+    |      |         (5) ...to here
+    |......
+    |   88 | }
+    |      | ~      
+    |      | |
+    |      | (6) ‘data’ leaks here; was allocated at (3)
+    |

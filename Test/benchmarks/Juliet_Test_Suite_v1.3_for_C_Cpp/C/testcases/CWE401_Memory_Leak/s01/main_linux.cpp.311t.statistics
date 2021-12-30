@@ -1,0 +1,4 @@
+38 ccp "Constants propagated" "int main(int, char**)" 1
+38 ccp "Statements deleted" "int main(int, char**)" 1
+55 release_ssa "SSA names released" "int main(int, char**)" 1
+55 release_ssa "SSA name holes removed" "int main(int, char**)" 1

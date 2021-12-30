@@ -1,0 +1,16 @@
+CWE401_Memory_Leak__new_char_68a.cpp: In function ‘void CWE401_Memory_Leak__new_char_68::goodB2G()’:
+CWE401_Memory_Leak__new_char_68a.cpp:80:11: warning: dereference of possibly-NULL ‘operator new(1)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   80 |     *data = 'A';
+      |     ~~~~~~^~~~~
+  ‘void CWE401_Memory_Leak__new_char_68::goodB2G()’: events 1-2
+    |
+    |   78 |     data = new char;
+    |      |                ^~~~
+    |      |                |
+    |      |                (1) this call could return NULL
+    |   79 |     /* Initialize and make use of data */
+    |   80 |     *data = 'A';
+    |      |     ~~~~~~~~~~~ 
+    |      |           |
+    |      |           (2) ‘operator new(1)’ could be NULL: unchecked value from (1)
+    |

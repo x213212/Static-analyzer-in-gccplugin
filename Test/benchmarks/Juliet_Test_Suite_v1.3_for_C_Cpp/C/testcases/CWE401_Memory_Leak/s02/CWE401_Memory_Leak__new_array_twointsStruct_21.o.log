@@ -1,0 +1,32 @@
+CWE401_Memory_Leak__new_array_twointsStruct_21.cpp: In function ‘void CWE401_Memory_Leak__new_array_twointsStruct_21::goodB2G1()’:
+CWE401_Memory_Leak__new_array_twointsStruct_21.cpp:86:20: warning: dereference of possibly-NULL ‘operator new [](800)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   86 |     data[0].intOne = 0;
+      |     ~~~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_array_twointsStruct_21::goodB2G1()’: events 1-2
+    |
+    |   84 |     data = new twoIntsStruct[100];
+    |      |                                 ^
+    |      |                                 |
+    |      |                                 (1) this call could return NULL
+    |   85 |     /* Initialize and make use of data */
+    |   86 |     data[0].intOne = 0;
+    |      |     ~~~~~~~~~~~~~~~~~~           
+    |      |                    |
+    |      |                    (2) ‘operator new [](800)’ could be NULL: unchecked value from (1)
+    |
+CWE401_Memory_Leak__new_array_twointsStruct_21.cpp: In function ‘void CWE401_Memory_Leak__new_array_twointsStruct_21::goodB2G2()’:
+CWE401_Memory_Leak__new_array_twointsStruct_21.cpp:110:20: warning: dereference of possibly-NULL ‘operator new [](800)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  110 |     data[0].intOne = 0;
+      |     ~~~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_array_twointsStruct_21::goodB2G2()’: events 1-2
+    |
+    |  108 |     data = new twoIntsStruct[100];
+    |      |                                 ^
+    |      |                                 |
+    |      |                                 (1) this call could return NULL
+    |  109 |     /* Initialize and make use of data */
+    |  110 |     data[0].intOne = 0;
+    |      |     ~~~~~~~~~~~~~~~~~~           
+    |      |                    |
+    |      |                    (2) ‘operator new [](800)’ could be NULL: unchecked value from (1)
+    |
