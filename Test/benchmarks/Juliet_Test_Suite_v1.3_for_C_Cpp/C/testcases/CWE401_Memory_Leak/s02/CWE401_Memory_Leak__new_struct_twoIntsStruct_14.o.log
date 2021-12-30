@@ -1,0 +1,44 @@
+CWE401_Memory_Leak__new_struct_twoIntsStruct_14.cpp: In function ‘void CWE401_Memory_Leak__new_struct_twoIntsStruct_14::goodB2G1()’:
+CWE401_Memory_Leak__new_struct_twoIntsStruct_14.cpp:62:22: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   62 |         data->intOne = 0;
+      |         ~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_struct_twoIntsStruct_14::goodB2G1()’: events 1-4
+    |
+    |   57 |     if(globalFive==5)
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   60 |         data = new struct _twoIntsStruct;
+    |      |                           ~~~~~~~~~~~~~~
+    |      |                           |
+    |      |                           (2) ...to here
+    |      |                           (3) this call could return NULL
+    |   61 |         /* Initialize and make use of data */
+    |   62 |         data->intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~
+    |      |                      |
+    |      |                      (4) ‘operator new(8)’ could be NULL: unchecked value from (3)
+    |
+CWE401_Memory_Leak__new_struct_twoIntsStruct_14.cpp: In function ‘void CWE401_Memory_Leak__new_struct_twoIntsStruct_14::goodB2G2()’:
+CWE401_Memory_Leak__new_struct_twoIntsStruct_14.cpp:88:22: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   88 |         data->intOne = 0;
+      |         ~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_struct_twoIntsStruct_14::goodB2G2()’: events 1-4
+    |
+    |   83 |     if(globalFive==5)
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   86 |         data = new struct _twoIntsStruct;
+    |      |                           ~~~~~~~~~~~~~~
+    |      |                           |
+    |      |                           (2) ...to here
+    |      |                           (3) this call could return NULL
+    |   87 |         /* Initialize and make use of data */
+    |   88 |         data->intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~
+    |      |                      |
+    |      |                      (4) ‘operator new(8)’ could be NULL: unchecked value from (3)
+    |

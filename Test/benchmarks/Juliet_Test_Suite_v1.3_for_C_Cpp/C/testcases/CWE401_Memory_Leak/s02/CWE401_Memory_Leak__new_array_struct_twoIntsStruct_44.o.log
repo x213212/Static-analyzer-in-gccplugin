@@ -1,0 +1,16 @@
+CWE401_Memory_Leak__new_array_struct_twoIntsStruct_44.cpp: In function ‘void CWE401_Memory_Leak__new_array_struct_twoIntsStruct_44::goodB2G()’:
+CWE401_Memory_Leak__new_array_struct_twoIntsStruct_44.cpp:92:20: warning: dereference of possibly-NULL ‘operator new [](800)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   92 |     data[0].intOne = 0;
+      |     ~~~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_array_struct_twoIntsStruct_44::goodB2G()’: events 1-2
+    |
+    |   90 |     data = new struct _twoIntsStruct[100];
+    |      |                                         ^
+    |      |                                         |
+    |      |                                         (1) this call could return NULL
+    |   91 |     /* Initialize and make use of data */
+    |   92 |     data[0].intOne = 0;
+    |      |     ~~~~~~~~~~~~~~~~~~                   
+    |      |                    |
+    |      |                    (2) ‘operator new [](800)’ could be NULL: unchecked value from (1)
+    |

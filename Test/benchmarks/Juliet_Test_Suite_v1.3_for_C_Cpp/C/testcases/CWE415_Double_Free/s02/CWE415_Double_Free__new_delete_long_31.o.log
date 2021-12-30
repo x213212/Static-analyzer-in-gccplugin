@@ -1,0 +1,92 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+------------------------------
+_2 = (unsigned int) _1;
+ <ssa_name 0x7fe2be7cf120
+    type <integer_type 0x7fe2bf29a738 long int public type_6 DI
+        size <integer_cst 0x7fe2bf27beb8 constant 64>
+        unit size <integer_cst 0x7fe2bf27bed0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fe2bf29a738 precision 64 min <integer_cst 0x7fe2bf29d150 -9223372036854775808> max <integer_cst 0x7fe2bf29d168 9223372036854775807>
+        pointer_to_this <pointer_type 0x7fe2bf2a91f8>>
+   
+    def_stmt _1 = time (0B);
+    version 1>
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 4 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre add _ fucntion:good========= [0m
+[40;44m =======print_function_path good  function_call count: 2 level :1========  [0m
+[40;42m =======pre add _ fucntion:operator delete========= [0m
+[40;33m =======POP node_fun stack:operator delete========= [0m
+[40;42m =======pre add _ fucntion:operator new========= [0m
+[40;33m =======POP node_fun stack:operator new========= [0m
+[40;42m =======pre_check_funciton:good========= [0m
+[40;42m =======start_check_funciton:good========= [0m
+[40;33m =======POP node_fun stack:good========= [0m
+[40;42m =======pre add _ fucntion:srand========= [0m
+[40;33m =======POP node_fun stack:srand========= [0m
+[40;42m =======pre add _ fucntion:time========= [0m
+[40;33m =======POP node_fun stack:time========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+algorithm time: 0.000092 s
+=======Mapping node_fun:main=========
+<bb 2> [100.00%]:
+_1 = time (0B);
+_2 = (unsigned int) _1;
+srand (_2);
+printLine ("Calling good()...");
+CWE415_Double_Free__new_delete_long_31::good ();
+printLine ("Finished good()");
+return 0;
+
+=======is loop:0=========
+=======Mapping node_fun:good=========
+<bb 2> [100.00%]:
+_5 = operator new (8);
+operator delete (_5, 8);
+_4 = operator new (8);
+operator delete (_4, 8);
+return;
+
+=======is loop:0=========
+time: 0.000409 s

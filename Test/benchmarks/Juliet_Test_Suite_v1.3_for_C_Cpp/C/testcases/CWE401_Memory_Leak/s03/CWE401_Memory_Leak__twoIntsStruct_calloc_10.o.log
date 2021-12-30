@@ -1,0 +1,1749 @@
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+--------GIMPLE Cond -------
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 3
+succs:= 3
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 6
+succs:= 6
+--------GIMPLE Cond -------
+succs:= 9
+--------GIMPLE Cond -------
+succs:= 10
+succs:= 10
+succs:= 9
+--------GIMPLE Cond -------
+succs:= 13
+succs:= 13
+--------GIMPLE Cond -------
+succs:= 2
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 2
+succs:= 2
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 1 
+pointer ptable is 1 
+===============The second stage : Mapping stmt=================
+# .MEM_4 = VDEF <.MEM_3(D)>
+_1 = time (0B);
+# .MEM_5 = VDEF <.MEM_4>
+srand (_2);
+# .MEM_6 = VDEF <.MEM_5>
+printLine ("Calling good()...");
+# .MEM_7 = VDEF <.MEM_6>
+CWE401_Memory_Leak__twoIntsStruct_calloc_10_good ();
+# .MEM_8 = VDEF <.MEM_7>
+printLine ("Finished good()");
+# .MEM_18 = VDEF <.MEM_1(D)>
+data_11 = calloc (100, 8);
+# .MEM_21 = VDEF <.MEM_20>
+printStructLine (data_11);
+# .MEM_24 = VDEF <.MEM_14>
+printLine ("Benign, fixed string");
+# .MEM_25 = VDEF <.MEM_15>
+data_7 = calloc (100, 8);
+# .MEM_28 = VDEF <.MEM_27>
+printStructLine (data_7);
+# .MEM_4 = VDEF <.MEM_17>
+goodG2B1 ();
+# .MEM_5 = VDEF <.MEM_4>
+goodG2B2 ();
+# .MEM_5 = VDEF <.MEM_4(D)>
+data_6 = __builtin_alloca (800);
+# .MEM_9 = VDEF <.MEM_8>
+printStructLine (data_6);
+# .MEM_10 = VDEF <.MEM_4(D)>
+printLine ("Benign, fixed string");
+# .MEM_5 = VDEF <.MEM_4(D)>
+data_6 = __builtin_alloca (800);
+# .MEM_9 = VDEF <.MEM_8>
+printStructLine (data_6);
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 4 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre add _ fucntion:CWE401_Memory_Leak__twoIntsStruct_calloc_10_good========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path CWE401_Memory_Leak__twoIntsStruct_calloc_10_good  function_call count: 7 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:goodG2B2========= [0m
+[40;44m =======print_function_path goodG2B2  function_call count: 2 level :2========  [0m
+[40;42m =======pre add _ fucntion:printStructLine========= [0m
+[40;33m =======POP node_fun stack:printStructLine========= [0m
+[40;42m =======pre add _ fucntion:__builtin_alloca========= [0m
+[40;33m =======POP node_fun stack:__builtin_alloca========= [0m
+[40;42m =======pre_check_funciton:goodG2B2========= [0m
+[40;42m =======start_check_funciton:goodG2B2========= [0m
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f4397930078 type <integer_type 0x7f4397d7d7e0 long unsigned int> constant 800>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4397946318
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f43978acab0 data>
+    def_stmt data_6 = __builtin_alloca (800);
+    version 6
+    ptr-info 0x7f4397930b58>
+# .MEM_5 = VDEF <.MEM_4(D)>
+data_6 = __builtin_alloca (800);
+
+ ================== trace ptable================== 
+trace fucntion name:__builtin_alloca 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---__builtin_alloca-----
+this other function ------__builtin_alloca-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_9 = VDEF <.MEM_8>
+printStructLine (data_6);
+printStructLine (data_6);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c: In function ‘main’:
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:136:9: warning: use location
+         printStructLine(&data[0]);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~
+this stmt is child function---printStructLine-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4397946318
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f43978acab0 data>
+    def_stmt data_6 = __builtin_alloca (800);
+    version 6
+    ptr-info 0x7f4397930b58>
+trace fucntion name:printStructLine 
+
+ ================== trace ================== 
+trace fucntion free:0 
+data_6->intTwo = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:135:24: warning: use location
+         data[0].intTwo = 0;
+         ~~~~~~~~~~~~~~~^~~
+data_6->intOne = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:134:24: warning: use location
+         data[0].intOne = 0;
+         ~~~~~~~~~~~~~~~^~~
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4397946318
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f43978acab0 data>
+    def_stmt data_6 = __builtin_alloca (800);
+    version 6
+    ptr-info 0x7f4397930b58>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:goodG2B2========= [0m
+[40;42m =======pre add _ fucntion:goodG2B1========= [0m
+[40;44m =======print_function_path goodG2B1  function_call count: 3 level :2========  [0m
+[40;42m =======pre add _ fucntion:printStructLine========= [0m
+[40;33m =======POP node_fun stack:printStructLine========= [0m
+[40;42m =======pre add _ fucntion:__builtin_alloca========= [0m
+[40;33m =======POP node_fun stack:__builtin_alloca========= [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre_check_funciton:goodG2B1========= [0m
+[40;42m =======start_check_funciton:goodG2B1========= [0m
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f4397934360
+    type <pointer_type 0x7f439792cf18
+        type <array_type 0x7f4397f062a0 type <integer_type 0x7f4397d7d3f0 char>
+            BLK
+            size <integer_cst 0x7f4397f04390 constant 168>
+            unit size <integer_cst 0x7f4397f04360 constant 21>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4397f062a0 domain <integer_type 0x7f4397f061f8>
+            pointer_to_this <pointer_type 0x7f439792cf18>>
+        unsigned DI
+        size <integer_cst 0x7f4397d65cd8 constant 64>
+        unit size <integer_cst 0x7f4397d65cf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792cf18>
+    readonly constant
+    arg 0 <string_cst 0x7f4397928fc0 type <array_type 0x7f4397f062a0>
+        readonly constant static "Benign, fixed string\000">
+    CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:106:19 start: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:106:19 finish: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:106:40>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4397946090
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f43978aca20 data>
+    def_stmt data_6 = __builtin_alloca (800);
+    version 6
+    ptr-info 0x7f4397930b40>
+# .MEM_5 = VDEF <.MEM_4(D)>
+data_6 = __builtin_alloca (800);
+
+ ================== trace ptable================== 
+trace fucntion name:__builtin_alloca 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---__builtin_alloca-----
+this other function ------__builtin_alloca-----
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:goodG2B1========= [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:printStructLine========= [0m
+[40;33m =======POP node_fun stack:printStructLine========= [0m
+[40;42m =======pre add _ fucntion:exit========= [0m
+[40;33m =======POP node_fun stack:exit========= [0m
+[40;42m =======pre add _ fucntion:calloc========= [0m
+[40;33m =======POP node_fun stack:calloc========= [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre_check_funciton:CWE401_Memory_Leak__twoIntsStruct_calloc_10_good========= [0m
+[40;42m =======start_check_funciton:CWE401_Memory_Leak__twoIntsStruct_calloc_10_good========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4397946900
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f439793dc60 data>
+    def_stmt data_11 = calloc (100, 8);
+    version 11
+    ptr-info 0x7f4397930be8>
+# .MEM_18 = VDEF <.MEM_1(D)>
+data_11 = calloc (100, 8);
+
+ ================== trace ptable================== 
+trace fucntion name:calloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---calloc-----
+this Reserved word function ------calloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+data_13 = PHI <0B(2), data_11(5)>
+cc1: warning: use location
+this stmt have mutiple branch ---exit-----
+free (data_13);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:72:9: warning: use location
+         free(data);
+         ^~~~~~~~~~
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (data_13);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:72:9: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+printStructLine (data_11);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:62:9: warning: use location
+         printStructLine(&data[0]);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~
+this stmt is child function---printStructLine-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4397946900
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f439793dc60 data>
+    def_stmt data_11 = calloc (100, 8);
+    version 11
+    ptr-info 0x7f4397930be8>
+trace fucntion name:printStructLine 
+
+ ================== trace ================== 
+trace fucntion free:1 
+data_11->intTwo = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:61:24: warning: use location
+         data[0].intTwo = 0;
+         ~~~~~~~~~~~~~~~^~~
+data_11->intOne = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:60:24: warning: use location
+         data[0].intOne = 0;
+         ~~~~~~~~~~~~~~~^~~
+if (data_11 == 0B)
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:58:12: warning: use location
+         if (data == NULL) {exit(-1);}
+            ^
+if (data_11 == 0B)
+
+ ================== find cond branch ================= 
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:58:12: warning: use location
+Cond in fucntion CWE401_Memory_Leak__twoIntsStruct_calloc_10_good basic block 3
+ ================== possible direct basic block ================= 
+from CWE401_Memory_Leak__twoIntsStruct_calloc_10_good basic block 4
+ ================== possible direct basic block ================= 
+from CWE401_Memory_Leak__twoIntsStruct_calloc_10_good basic block 5
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4397946900
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f439793dc60 data>
+    def_stmt data_11 = calloc (100, 8);
+    version 11
+    ptr-info 0x7f4397930be8>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_23 = VDEF <.MEM_14>
+free (data_13);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:72:9: warning: use location
+         free(data);
+         ^~~~~~~~~~
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;31m   need check branch because multiple direction varible[0m
+
+======================================================================
+
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f43979467e0
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f439793d990 data>
+    def_stmt data_7 = calloc (100, 8);
+    version 7
+    ptr-info 0x7f4397930bb8>
+# .MEM_25 = VDEF <.MEM_15>
+data_7 = calloc (100, 8);
+
+ ================== trace ptable================== 
+trace fucntion name:calloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---calloc-----
+this Reserved word function ------calloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+data_9 = PHI <0B(9), data_7(12)>
+cc1: warning: use location
+this stmt have mutiple branch ---exit-----
+free (data_9);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:94:9: warning: use location
+         free(data);
+         ^~~~~~~~~~
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (data_9);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:94:9: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    branch possiable have return  [0m
+# .MEM_28 = VDEF <.MEM_27>
+printStructLine (data_7);
+bb index := 10
+# .MEM_29 = VDEF <.MEM_25>
+exit (-1);
+beacuse in succ := 11 have return 
+gimple stmt in succ := 12 ,possiable got to succ := 11
+
+======================================================================
+printStructLine (data_7);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:89:9: warning: use location
+         printStructLine(&data[0]);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~
+this stmt is child function---printStructLine-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f43979467e0
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f439793d990 data>
+    def_stmt data_7 = calloc (100, 8);
+    version 7
+    ptr-info 0x7f4397930bb8>
+trace fucntion name:printStructLine 
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+======================================================================
+[40;31m    branch possiable have return  [0m
+# .MEM_27 = VDEF <.MEM_26>
+data_7->intTwo = 0;
+bb index := 10
+# .MEM_29 = VDEF <.MEM_25>
+exit (-1);
+beacuse in succ := 11 have return 
+gimple stmt in succ := 12 ,possiable got to succ := 11
+
+======================================================================
+data_7->intTwo = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:88:24: warning: use location
+         data[0].intTwo = 0;
+         ~~~~~~~~~~~~~~~^~~
+
+======================================================================
+[40;31m    branch possiable have return  [0m
+# .MEM_26 = VDEF <.MEM_25>
+data_7->intOne = 0;
+bb index := 10
+# .MEM_29 = VDEF <.MEM_25>
+exit (-1);
+beacuse in succ := 11 have return 
+gimple stmt in succ := 12 ,possiable got to succ := 11
+
+======================================================================
+data_7->intOne = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:87:24: warning: use location
+         data[0].intOne = 0;
+         ~~~~~~~~~~~~~~~^~~
+if (data_7 == 0B)
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:85:12: warning: use location
+         if (data == NULL) {exit(-1);}
+            ^
+if (data_7 == 0B)
+
+ ================== find cond branch ================= 
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:85:12: warning: use location
+Cond in fucntion CWE401_Memory_Leak__twoIntsStruct_calloc_10_good basic block 10
+ ================== possible direct basic block ================= 
+from CWE401_Memory_Leak__twoIntsStruct_calloc_10_good basic block 11
+ ================== possible direct basic block ================= 
+from CWE401_Memory_Leak__twoIntsStruct_calloc_10_good basic block 12
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f43979467e0
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f439793d990 data>
+    def_stmt data_7 = calloc (100, 8);
+    version 7
+    ptr-info 0x7f4397930bb8>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_30 = VDEF <.MEM_16>
+free (data_9);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:94:9: warning: use location
+         free(data);
+         ^~~~~~~~~~
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;31m   need check branch because multiple direction varible[0m
+
+======================================================================
+
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f43979302a0 type <integer_type 0x7f4397e833f0 size_t> constant 100>
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f43979492c0
+    type <pointer_type 0x7f439792cf18
+        type <array_type 0x7f4397f062a0 type <integer_type 0x7f4397d7d3f0 char>
+            BLK
+            size <integer_cst 0x7f4397f04390 constant 168>
+            unit size <integer_cst 0x7f4397f04360 constant 21>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4397f062a0 domain <integer_type 0x7f4397f061f8>
+            pointer_to_this <pointer_type 0x7f439792cf18>>
+        unsigned DI
+        size <integer_cst 0x7f4397d65cd8 constant 64>
+        unit size <integer_cst 0x7f4397d65cf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792cf18>
+    readonly constant
+    arg 0 <string_cst 0x7f4397928db0 type <array_type 0x7f4397f062a0>
+        readonly constant static "Benign, fixed string\000">
+    CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:67:19 start: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:67:19 finish: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:67:40>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__twoIntsStruct_calloc_10_good========= [0m
+[40;42m =======pre add _ fucntion:srand========= [0m
+[40;33m =======POP node_fun stack:srand========= [0m
+[40;42m =======pre add _ fucntion:time========= [0m
+[40;33m =======POP node_fun stack:time========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f43979308e8 type <pointer_type 0x7f4397876930> constant 0>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f439790d798
+    type <integer_type 0x7f4397d7d690 unsigned int public unsigned SI
+        size <integer_cst 0x7f4397d65f18 constant 32>
+        unit size <integer_cst 0x7f4397d65f30 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4397d7d690 precision 32 min <integer_cst 0x7f4397d65f48 0> max <integer_cst 0x7f4397d65f00 4294967295> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+        pointer_to_this <pointer_type 0x7f4397d8adc8>>
+   
+    def_stmt _2 = (unsigned int) _1;
+    version 2>
+_2 = (unsigned int) _1;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_5 = VDEF <.MEM_4>
+srand (_2);
+srand (_2);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:165:5: warning: use location
+     srand( (unsigned)time(NULL) );
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+this stmt is child function---srand-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f439790d798
+    type <integer_type 0x7f4397d7d690 unsigned int public unsigned SI
+        size <integer_cst 0x7f4397d65f18 constant 32>
+        unit size <integer_cst 0x7f4397d65f30 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4397d7d690 precision 32 min <integer_cst 0x7f4397d65f48 0> max <integer_cst 0x7f4397d65f00 4294967295> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+        pointer_to_this <pointer_type 0x7f4397d8adc8>>
+   
+    def_stmt _2 = (unsigned int) _1;
+    version 2>
+trace fucntion name:srand 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f439790d798
+    type <integer_type 0x7f4397d7d690 unsigned int public unsigned SI
+        size <integer_cst 0x7f4397d65f18 constant 32>
+        unit size <integer_cst 0x7f4397d65f30 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f4397d7d690 precision 32 min <integer_cst 0x7f4397d65f48 0> max <integer_cst 0x7f4397d65f00 4294967295> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+        pointer_to_this <pointer_type 0x7f4397d8adc8>>
+   
+    def_stmt _2 = (unsigned int) _1;
+    version 2>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f4397934820
+    type <pointer_type 0x7f43979350a8
+        type <array_type 0x7f43978ff348 type <integer_type 0x7f4397d7d3f0 char>
+            BLK
+            size <integer_cst 0x7f4397eb6e70 constant 144>
+            unit size <integer_cst 0x7f43978cdd80 constant 18>
+            align 8 symtab 0 alias set -1 canonical type 0x7f43978ff348 domain <integer_type 0x7f43978ff2a0>
+            pointer_to_this <pointer_type 0x7f43979350a8>>
+        unsigned DI
+        size <integer_cst 0x7f4397d65cd8 constant 64>
+        unit size <integer_cst 0x7f4397d65cf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f43979350a8>
+    readonly constant
+    arg 0 <string_cst 0x7f4397936488 type <array_type 0x7f43978ff348>
+        readonly constant static "Calling good()...\000">
+    CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:167:15 start: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:167:15 finish: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:167:33>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f43979348c0
+    type <pointer_type 0x7f4397935348
+        type <array_type 0x7f4397ed3bd0 type <integer_type 0x7f4397d7d3f0 char>
+            TI
+            size <integer_cst 0x7f4397d65d20 constant 128>
+            unit size <integer_cst 0x7f4397d65d38 constant 16>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4397ed3bd0 domain <integer_type 0x7f4397ed3b28>
+            pointer_to_this <pointer_type 0x7f4397935348>>
+        unsigned DI
+        size <integer_cst 0x7f4397d65cd8 constant 64>
+        unit size <integer_cst 0x7f4397d65cf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f4397935348>
+    readonly constant
+    arg 0 <string_cst 0x7f43979364b0 type <array_type 0x7f4397ed3bd0>
+        readonly constant static "Finished good()\000">
+    CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:169:15 start: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:169:15 finish: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:169:31>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+[40;44m =======node_fun:CWE401_Memory_Leak__twoIntsStruct_calloc_10_good========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path CWE401_Memory_Leak__twoIntsStruct_calloc_10_good  function_call count: 7 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:goodG2B2========= [0m
+[40;44m =======print_function_path goodG2B2  function_call count: 2 level :1========  [0m
+[40;42m =======pre add _ fucntion:printStructLine========= [0m
+[40;33m =======POP node_fun stack:printStructLine========= [0m
+[40;42m =======pre add _ fucntion:__builtin_alloca========= [0m
+[40;33m =======POP node_fun stack:__builtin_alloca========= [0m
+[40;42m =======pre_check_funciton:goodG2B2========= [0m
+[40;42m =======start_check_funciton:goodG2B2========= [0m
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f4397930078 type <integer_type 0x7f4397d7d7e0 long unsigned int> constant 800>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4397946318
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f43978acab0 data>
+    def_stmt data_6 = __builtin_alloca (800);
+    version 6
+    ptr-info 0x7f4397930b58>
+# .MEM_5 = VDEF <.MEM_4(D)>
+data_6 = __builtin_alloca (800);
+
+ ================== trace ptable================== 
+trace fucntion name:__builtin_alloca 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---__builtin_alloca-----
+this other function ------__builtin_alloca-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_9 = VDEF <.MEM_8>
+printStructLine (data_6);
+printStructLine (data_6);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c: In function ‘CWE401_Memory_Leak__twoIntsStruct_calloc_10_good’:
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:136:9: warning: use location
+         printStructLine(&data[0]);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~
+this stmt is child function---printStructLine-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4397946318
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f43978acab0 data>
+    def_stmt data_6 = __builtin_alloca (800);
+    version 6
+    ptr-info 0x7f4397930b58>
+trace fucntion name:printStructLine 
+
+ ================== trace ================== 
+trace fucntion free:0 
+data_6->intTwo = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:135:24: warning: use location
+         data[0].intTwo = 0;
+         ~~~~~~~~~~~~~~~^~~
+data_6->intOne = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:134:24: warning: use location
+         data[0].intOne = 0;
+         ~~~~~~~~~~~~~~~^~~
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4397946318
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f43978acab0 data>
+    def_stmt data_6 = __builtin_alloca (800);
+    version 6
+    ptr-info 0x7f4397930b58>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:goodG2B2========= [0m
+[40;42m =======pre add _ fucntion:goodG2B1========= [0m
+[40;44m =======print_function_path goodG2B1  function_call count: 3 level :1========  [0m
+[40;42m =======pre add _ fucntion:printStructLine========= [0m
+[40;33m =======POP node_fun stack:printStructLine========= [0m
+[40;42m =======pre add _ fucntion:__builtin_alloca========= [0m
+[40;33m =======POP node_fun stack:__builtin_alloca========= [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre_check_funciton:goodG2B1========= [0m
+[40;42m =======start_check_funciton:goodG2B1========= [0m
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f4397934360
+    type <pointer_type 0x7f439792cf18
+        type <array_type 0x7f4397f062a0 type <integer_type 0x7f4397d7d3f0 char>
+            BLK
+            size <integer_cst 0x7f4397f04390 constant 168>
+            unit size <integer_cst 0x7f4397f04360 constant 21>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4397f062a0 domain <integer_type 0x7f4397f061f8>
+            pointer_to_this <pointer_type 0x7f439792cf18>>
+        unsigned DI
+        size <integer_cst 0x7f4397d65cd8 constant 64>
+        unit size <integer_cst 0x7f4397d65cf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792cf18>
+    readonly constant
+    arg 0 <string_cst 0x7f4397928fc0 type <array_type 0x7f4397f062a0>
+        readonly constant static "Benign, fixed string\000">
+    CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:106:19 start: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:106:19 finish: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:106:40>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4397946090
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f43978aca20 data>
+    def_stmt data_6 = __builtin_alloca (800);
+    version 6
+    ptr-info 0x7f4397930b40>
+# .MEM_5 = VDEF <.MEM_4(D)>
+data_6 = __builtin_alloca (800);
+
+ ================== trace ptable================== 
+trace fucntion name:__builtin_alloca 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---__builtin_alloca-----
+this other function ------__builtin_alloca-----
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:goodG2B1========= [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:printStructLine========= [0m
+[40;33m =======POP node_fun stack:printStructLine========= [0m
+[40;42m =======pre add _ fucntion:exit========= [0m
+[40;33m =======POP node_fun stack:exit========= [0m
+[40;42m =======pre add _ fucntion:calloc========= [0m
+[40;33m =======POP node_fun stack:calloc========= [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre_check_funciton:CWE401_Memory_Leak__twoIntsStruct_calloc_10_good========= [0m
+[40;42m =======start_check_funciton:CWE401_Memory_Leak__twoIntsStruct_calloc_10_good========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4397946900
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f439793dc60 data>
+    def_stmt data_11 = calloc (100, 8);
+    version 11
+    ptr-info 0x7f4397930be8>
+# .MEM_18 = VDEF <.MEM_1(D)>
+data_11 = calloc (100, 8);
+
+ ================== trace ptable================== 
+trace fucntion name:calloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---calloc-----
+this Reserved word function ------calloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+data_13 = PHI <0B(2), data_11(5)>
+cc1: warning: use location
+this stmt have mutiple branch ---exit-----
+free (data_13);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:72:9: warning: use location
+         free(data);
+         ^~~~~~~~~~
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (data_13);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:72:9: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+printStructLine (data_11);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:62:9: warning: use location
+         printStructLine(&data[0]);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~
+this stmt is child function---printStructLine-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4397946900
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f439793dc60 data>
+    def_stmt data_11 = calloc (100, 8);
+    version 11
+    ptr-info 0x7f4397930be8>
+trace fucntion name:printStructLine 
+
+ ================== trace ================== 
+trace fucntion free:1 
+data_11->intTwo = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:61:24: warning: use location
+         data[0].intTwo = 0;
+         ~~~~~~~~~~~~~~~^~~
+data_11->intOne = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:60:24: warning: use location
+         data[0].intOne = 0;
+         ~~~~~~~~~~~~~~~^~~
+if (data_11 == 0B)
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:58:12: warning: use location
+         if (data == NULL) {exit(-1);}
+            ^
+if (data_11 == 0B)
+
+ ================== find cond branch ================= 
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:58:12: warning: use location
+Cond in fucntion CWE401_Memory_Leak__twoIntsStruct_calloc_10_good basic block 3
+ ================== possible direct basic block ================= 
+from CWE401_Memory_Leak__twoIntsStruct_calloc_10_good basic block 4
+ ================== possible direct basic block ================= 
+from CWE401_Memory_Leak__twoIntsStruct_calloc_10_good basic block 5
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4397946900
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f439793dc60 data>
+    def_stmt data_11 = calloc (100, 8);
+    version 11
+    ptr-info 0x7f4397930be8>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_23 = VDEF <.MEM_14>
+free (data_13);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:72:9: warning: use location
+         free(data);
+         ^~~~~~~~~~
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;31m   need check branch because multiple direction varible[0m
+
+======================================================================
+
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f43979467e0
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f439793d990 data>
+    def_stmt data_7 = calloc (100, 8);
+    version 7
+    ptr-info 0x7f4397930bb8>
+# .MEM_25 = VDEF <.MEM_15>
+data_7 = calloc (100, 8);
+
+ ================== trace ptable================== 
+trace fucntion name:calloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---calloc-----
+this Reserved word function ------calloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+data_9 = PHI <0B(9), data_7(12)>
+cc1: warning: use location
+this stmt have mutiple branch ---exit-----
+free (data_9);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:94:9: warning: use location
+         free(data);
+         ^~~~~~~~~~
+this stmt is child function---free-----
+
+ ================== find ================== 
+free (data_9);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:94:9: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find ================== 
+
+======================================================================
+[40;31m    branch possiable have return  [0m
+# .MEM_28 = VDEF <.MEM_27>
+printStructLine (data_7);
+bb index := 10
+# .MEM_29 = VDEF <.MEM_25>
+exit (-1);
+beacuse in succ := 11 have return 
+gimple stmt in succ := 12 ,possiable got to succ := 11
+
+======================================================================
+printStructLine (data_7);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:89:9: warning: use location
+         printStructLine(&data[0]);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~
+this stmt is child function---printStructLine-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f43979467e0
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f439793d990 data>
+    def_stmt data_7 = calloc (100, 8);
+    version 7
+    ptr-info 0x7f4397930bb8>
+trace fucntion name:printStructLine 
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+======================================================================
+[40;31m    branch possiable have return  [0m
+# .MEM_27 = VDEF <.MEM_26>
+data_7->intTwo = 0;
+bb index := 10
+# .MEM_29 = VDEF <.MEM_25>
+exit (-1);
+beacuse in succ := 11 have return 
+gimple stmt in succ := 12 ,possiable got to succ := 11
+
+======================================================================
+data_7->intTwo = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:88:24: warning: use location
+         data[0].intTwo = 0;
+         ~~~~~~~~~~~~~~~^~~
+
+======================================================================
+[40;31m    branch possiable have return  [0m
+# .MEM_26 = VDEF <.MEM_25>
+data_7->intOne = 0;
+bb index := 10
+# .MEM_29 = VDEF <.MEM_25>
+exit (-1);
+beacuse in succ := 11 have return 
+gimple stmt in succ := 12 ,possiable got to succ := 11
+
+======================================================================
+data_7->intOne = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:87:24: warning: use location
+         data[0].intOne = 0;
+         ~~~~~~~~~~~~~~~^~~
+if (data_7 == 0B)
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:85:12: warning: use location
+         if (data == NULL) {exit(-1);}
+            ^
+if (data_7 == 0B)
+
+ ================== find cond branch ================= 
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:85:12: warning: use location
+Cond in fucntion CWE401_Memory_Leak__twoIntsStruct_calloc_10_good basic block 10
+ ================== possible direct basic block ================= 
+from CWE401_Memory_Leak__twoIntsStruct_calloc_10_good basic block 11
+ ================== possible direct basic block ================= 
+from CWE401_Memory_Leak__twoIntsStruct_calloc_10_good basic block 12
+ ================== warring ================== 
+[40;35m    need check this branch possible have return or exit stmt [0m
+
+ ================== warring ================== 
+
+ ================== find cond branch ================= 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f43979467e0
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f439793d990 data>
+    def_stmt data_7 = calloc (100, 8);
+    version 7
+    ptr-info 0x7f4397930bb8>
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_30 = VDEF <.MEM_16>
+free (data_9);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:94:9: warning: use location
+         free(data);
+         ^~~~~~~~~~
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;31m   need check branch because multiple direction varible[0m
+
+======================================================================
+
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f43979302a0 type <integer_type 0x7f4397e833f0 size_t> constant 100>
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f43979492c0
+    type <pointer_type 0x7f439792cf18
+        type <array_type 0x7f4397f062a0 type <integer_type 0x7f4397d7d3f0 char>
+            BLK
+            size <integer_cst 0x7f4397f04390 constant 168>
+            unit size <integer_cst 0x7f4397f04360 constant 21>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4397f062a0 domain <integer_type 0x7f4397f061f8>
+            pointer_to_this <pointer_type 0x7f439792cf18>>
+        unsigned DI
+        size <integer_cst 0x7f4397d65cd8 constant 64>
+        unit size <integer_cst 0x7f4397d65cf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792cf18>
+    readonly constant
+    arg 0 <string_cst 0x7f4397928db0 type <array_type 0x7f4397f062a0>
+        readonly constant static "Benign, fixed string\000">
+    CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:67:19 start: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:67:19 finish: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:67:40>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__twoIntsStruct_calloc_10_good========= [0m
+[40;44m =======node_fun:goodG2B2========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path goodG2B2  function_call count: 2 level :0========  [0m
+[40;42m =======pre add _ fucntion:printStructLine========= [0m
+[40;33m =======POP node_fun stack:printStructLine========= [0m
+[40;42m =======pre add _ fucntion:__builtin_alloca========= [0m
+[40;33m =======POP node_fun stack:__builtin_alloca========= [0m
+[40;42m =======pre_check_funciton:goodG2B2========= [0m
+[40;42m =======start_check_funciton:goodG2B2========= [0m
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f4397930078 type <integer_type 0x7f4397d7d7e0 long unsigned int> constant 800>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4397946318
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f43978acab0 data>
+    def_stmt data_6 = __builtin_alloca (800);
+    version 6
+    ptr-info 0x7f4397930b58>
+# .MEM_5 = VDEF <.MEM_4(D)>
+data_6 = __builtin_alloca (800);
+
+ ================== trace ptable================== 
+trace fucntion name:__builtin_alloca 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---__builtin_alloca-----
+this other function ------__builtin_alloca-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_9 = VDEF <.MEM_8>
+printStructLine (data_6);
+printStructLine (data_6);
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c: In function ‘goodG2B2’:
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:136:9: warning: use location
+         printStructLine(&data[0]);
+         ^~~~~~~~~~~~~~~~~~~~~~~~~
+this stmt is child function---printStructLine-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f4397946318
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f43978acab0 data>
+    def_stmt data_6 = __builtin_alloca (800);
+    version 6
+    ptr-info 0x7f4397930b58>
+trace fucntion name:printStructLine 
+
+ ================== trace ================== 
+trace fucntion free:0 
+data_6->intTwo = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:135:24: warning: use location
+         data[0].intTwo = 0;
+         ~~~~~~~~~~~~~~~^~~
+data_6->intOne = 0;
+CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:134:24: warning: use location
+         data[0].intOne = 0;
+         ~~~~~~~~~~~~~~~^~~
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f4397946318
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f43978acab0 data>
+    def_stmt data_6 = __builtin_alloca (800);
+    version 6
+    ptr-info 0x7f4397930b58>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:goodG2B2========= [0m
+[40;44m =======node_fun:goodG2B1========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path goodG2B1  function_call count: 3 level :0========  [0m
+[40;42m =======pre add _ fucntion:printStructLine========= [0m
+[40;33m =======POP node_fun stack:printStructLine========= [0m
+[40;42m =======pre add _ fucntion:__builtin_alloca========= [0m
+[40;33m =======POP node_fun stack:__builtin_alloca========= [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre_check_funciton:goodG2B1========= [0m
+[40;42m =======start_check_funciton:goodG2B1========= [0m
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f4397934360
+    type <pointer_type 0x7f439792cf18
+        type <array_type 0x7f4397f062a0 type <integer_type 0x7f4397d7d3f0 char>
+            BLK
+            size <integer_cst 0x7f4397f04390 constant 168>
+            unit size <integer_cst 0x7f4397f04360 constant 21>
+            align 8 symtab 0 alias set -1 canonical type 0x7f4397f062a0 domain <integer_type 0x7f4397f061f8>
+            pointer_to_this <pointer_type 0x7f439792cf18>>
+        unsigned DI
+        size <integer_cst 0x7f4397d65cd8 constant 64>
+        unit size <integer_cst 0x7f4397d65cf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792cf18>
+    readonly constant
+    arg 0 <string_cst 0x7f4397928fc0 type <array_type 0x7f4397f062a0>
+        readonly constant static "Benign, fixed string\000">
+    CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:106:19 start: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:106:19 finish: CWE401_Memory_Leak__twoIntsStruct_calloc_10.c:106:40>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f4397946090
+    type <pointer_type 0x7f439792c150
+        type <record_type 0x7f43978dc3f0 twoIntsStruct type_0 DI
+            size <integer_cst 0x7f4397d65cd8 constant 64>
+            unit size <integer_cst 0x7f4397d65cf0 constant 8>
+            align 32 symtab 0 alias set -1 canonical type 0x7f43978dc348 fields <field_decl 0x7f43978c2e40 intOne> context <translation_unit_decl 0x7f4397922780 CWE401_Memory_Leak__twoIntsStruct_calloc_10.c>
+            pointer_to_this <pointer_type 0x7f439792c150> chain <type_decl 0x7f43978c2da8 D.3631>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f4397d65cd8 64> unit size <integer_cst 0x7f4397d65cf0 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f439792c3f0>
+    var <var_decl 0x7f43978aca20 data>
+    def_stmt data_6 = __builtin_alloca (800);
+    version 6
+    ptr-info 0x7f4397930b40>
+# .MEM_5 = VDEF <.MEM_4(D)>
+data_6 = __builtin_alloca (800);
+
+ ================== trace ptable================== 
+trace fucntion name:__builtin_alloca 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---__builtin_alloca-----
+this other function ------__builtin_alloca-----
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:goodG2B1========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+_1 = time (0B);
+_2 = (unsigned int) _1;
+srand (_2);
+printLine ("Calling good()...");
+CWE401_Memory_Leak__twoIntsStruct_calloc_10_good ();
+printLine ("Finished good()");
+return 0;
+
+=======Mapping node_fun:CWE401_Memory_Leak__twoIntsStruct_calloc_10_good=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+globalTrue.0_10 = globalTrue;
+if (globalTrue.0_10 != 0)
+  goto <bb 3>; [33.00%]
+else
+  goto <bb 6>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [33.00%]:
+data_11 = calloc (100, 8);
+if (data_11 == 0B)
+  goto <bb 4>; [0.04%]
+else
+  goto <bb 5>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [0.01%]:
+exit (-1);
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [32.99%]:
+data_11->intOne = 0;
+data_11->intTwo = 0;
+printStructLine (data_11);
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [99.99%]:
+# data_13 = PHI <0B(2), data_11(5)>
+globalFalse.1_12 = globalFalse;
+if (globalFalse.1_12 != 0)
+  goto <bb 7>; [46.00%]
+else
+  goto <bb 8>; [54.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [45.99%]:
+printLine ("Benign, fixed string");
+goto <bb 9>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [53.99%]:
+free (data_13);
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [99.99%]:
+globalTrue.2_6 = globalTrue;
+if (globalTrue.2_6 != 0)
+  goto <bb 10>; [33.00%]
+else
+  goto <bb 13>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [33.00%]:
+data_7 = calloc (100, 8);
+if (data_7 == 0B)
+  goto <bb 11>; [0.04%]
+else
+  goto <bb 12>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [0.01%]:
+exit (-1);
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [32.98%]:
+data_7->intOne = 0;
+data_7->intTwo = 0;
+printStructLine (data_7);
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [99.97%]:
+# data_9 = PHI <0B(9), data_7(12)>
+globalTrue.3_8 = globalTrue;
+if (globalTrue.3_8 != 0)
+  goto <bb 14>; [36.64%]
+else
+  goto <bb 15>; [63.36%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [36.63%]:
+free (data_9);
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [99.97%]:
+goodG2B1 ();
+goodG2B2 ();
+return;
+
+=======Mapping node_fun:goodG2B2=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+globalTrue.6_1 = globalTrue;
+if (globalTrue.6_1 != 0)
+  goto <bb 3>; [36.64%]
+else
+  goto <bb 4>; [63.36%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [36.64%]:
+data_6 = __builtin_alloca (800);
+data_6->intOne = 0;
+data_6->intTwo = 0;
+printStructLine (data_6);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [100.00%]:
+globalTrue.7_2 = globalTrue;
+return;
+
+=======Mapping node_fun:goodG2B1=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+globalFalse.4_1 = globalFalse;
+if (globalFalse.4_1 != 0)
+  goto <bb 3>; [46.00%]
+else
+  goto <bb 4>; [54.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [46.00%]:
+printLine ("Benign, fixed string");
+goto <bb 5>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [54.00%]:
+data_6 = __builtin_alloca (800);
+data_6->intOne = 0;
+data_6->intTwo = 0;
+printStructLine (data_6);
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [100.00%]:
+globalTrue.5_2 = globalTrue;
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 4 [0m
+[40;34m    used_stmt array stack totalsize of : 344 [0m
+[40;34m    collect time: : 0.000086 s [0m
+[40;34m    algorithm time: 0.011030 s [0m
+[40;34m    gimple stmt count : : 50 [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

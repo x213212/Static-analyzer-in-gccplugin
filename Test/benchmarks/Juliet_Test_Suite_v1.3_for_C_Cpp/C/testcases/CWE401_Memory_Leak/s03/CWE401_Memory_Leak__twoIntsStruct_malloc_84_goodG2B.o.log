@@ -1,0 +1,20 @@
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+--------GIMPLE Cond -------
+CWE401_Memory_Leak__twoIntsStruct_malloc_84_goodG2B.cpp: In constructor ‘CWE401_Memory_Leak__twoIntsStruct_malloc_84::CWE401_Memory_Leak__twoIntsStruct_malloc_84_goodG2B::CWE401_Memory_Leak__twoIntsStruct_malloc_84_goodG2B(twoIntsStruct*)’:
+CWE401_Memory_Leak__twoIntsStruct_malloc_84_goodG2B.cpp:40:1: internal compiler error: Segmentation fault
+ }
+ ^
+unrecognized DWARF version in .debug_info at 6
+0x7ff200bbf591 set_bbinfo(basic_block_def*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:4416
+0x7ff200bc06dc detect()
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:5059
+0x7ff200bc112c execute_detect
+	/root/x21321219/new_gccplugin/Compiler/gcc_plugin.c:108
+0x7ff200bc11a2 execute
+	/root/x21321219/new_gccplugin/Compiler/gcc_plugin.c:129
+Please submit a full bug report,
+with preprocessed source if appropriate.
+Please include the complete backtrace with any bug report.
+See <file:///usr/share/doc/gcc-7/README.Bugs> for instructions.

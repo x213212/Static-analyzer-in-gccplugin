@@ -1,0 +1,1 @@
+gcc-11.1: warning: io.o: linker input file unused because linking not done

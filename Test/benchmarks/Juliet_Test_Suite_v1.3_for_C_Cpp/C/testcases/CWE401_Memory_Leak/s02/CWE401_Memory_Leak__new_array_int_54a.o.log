@@ -1,0 +1,16 @@
+CWE401_Memory_Leak__new_array_int_54a.cpp: In function ‘void CWE401_Memory_Leak__new_array_int_54::goodB2G()’:
+CWE401_Memory_Leak__new_array_int_54a.cpp:74:13: warning: dereference of possibly-NULL ‘operator new [](400)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   74 |     data[0] = 5;
+      |     ~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_array_int_54::goodB2G()’: events 1-2
+    |
+    |   72 |     data = new int[100];
+    |      |                       ^
+    |      |                       |
+    |      |                       (1) this call could return NULL
+    |   73 |     /* Initialize and make use of data */
+    |   74 |     data[0] = 5;
+    |      |     ~~~~~~~~~~~        
+    |      |             |
+    |      |             (2) ‘operator new [](400)’ could be NULL: unchecked value from (1)
+    |

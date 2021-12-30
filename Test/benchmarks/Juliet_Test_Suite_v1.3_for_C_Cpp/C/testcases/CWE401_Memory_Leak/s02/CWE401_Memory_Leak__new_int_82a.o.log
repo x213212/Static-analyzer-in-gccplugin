@@ -1,0 +1,53 @@
+CWE401_Memory_Leak__new_int_82a.cpp: In function ‘void CWE401_Memory_Leak__new_int_82::goodG2B()’:
+CWE401_Memory_Leak__new_int_82a.cpp:56:23: warning: use of possibly-NULL ‘operator new(8)’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   56 |     baseObject->action(data);
+      |     ~~~~~~~~~~~~~~~~~~^~~~~~
+  ‘void CWE401_Memory_Leak__new_int_82::goodG2B()’: events 1-2
+    |
+    |   55 |     CWE401_Memory_Leak__new_int_82_base* baseObject = new CWE401_Memory_Leak__new_int_82_goodG2B;
+    |      |                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                                           |
+    |      |                                                           (1) this call could return NULL
+    |   56 |     baseObject->action(data);
+    |      |     ~~~~~~~~~~~~~~~~~~~~~~~~                               
+    |      |                       |
+    |      |                       (2) argument 'this' (‘operator new(8)’) from (1) could be NULL where non-null expected
+    |
+In file included from CWE401_Memory_Leak__new_int_82a.cpp:19:
+CWE401_Memory_Leak__new_int_82.h:49:10: note: argument 'this' of ‘virtual void CWE401_Memory_Leak__new_int_82::CWE401_Memory_Leak__new_int_82_goodG2B::action(int*)’ must be non-null
+   49 |     void action(int * data);
+      |          ^~~~~~
+CWE401_Memory_Leak__new_int_82a.cpp: In function ‘void CWE401_Memory_Leak__new_int_82::goodB2G()’:
+CWE401_Memory_Leak__new_int_82a.cpp:68:11: warning: dereference of possibly-NULL ‘operator new(4)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   68 |     *data = 5;
+      |     ~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_int_82::goodB2G()’: events 1-2
+    |
+    |   66 |     data = new int;
+    |      |                ^~~
+    |      |                |
+    |      |                (1) this call could return NULL
+    |   67 |     /* Initialize and make use of data */
+    |   68 |     *data = 5;
+    |      |     ~~~~~~~~~   
+    |      |           |
+    |      |           (2) ‘operator new(4)’ could be NULL: unchecked value from (1)
+    |
+CWE401_Memory_Leak__new_int_82a.cpp:71:23: warning: use of possibly-NULL ‘operator new(8)’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   71 |     baseObject->action(data);
+      |     ~~~~~~~~~~~~~~~~~~^~~~~~
+  ‘void CWE401_Memory_Leak__new_int_82::goodB2G()’: events 1-2
+    |
+    |   70 |     CWE401_Memory_Leak__new_int_82_base* baseObject = new CWE401_Memory_Leak__new_int_82_goodB2G;
+    |      |                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                                           |
+    |      |                                                           (1) this call could return NULL
+    |   71 |     baseObject->action(data);
+    |      |     ~~~~~~~~~~~~~~~~~~~~~~~~                               
+    |      |                       |
+    |      |                       (2) argument 'this' (‘operator new(8)’) from (1) could be NULL where non-null expected
+    |
+In file included from CWE401_Memory_Leak__new_int_82a.cpp:19:
+CWE401_Memory_Leak__new_int_82.h:55:10: note: argument 'this' of ‘virtual void CWE401_Memory_Leak__new_int_82::CWE401_Memory_Leak__new_int_82_goodB2G::action(int*)’ must be non-null
+   55 |     void action(int * data);
+      |          ^~~~~~

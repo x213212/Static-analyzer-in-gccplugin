@@ -1,0 +1,175 @@
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+--------GIMPLE Cond -------
+succs:= 2
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 2
+succs:= 2
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 1 
+pointer ptable is 0 
+===============The second stage : Mapping stmt=================
+# .MEM_6 = VDEF <.MEM_3(D)>
+printLine ("Benign, fixed string");
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodG2BSink========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodG2BSink  function_call count: 0 level :0========  [0m
+[40;42m =======pre_check_funciton:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodG2BSink========= [0m
+[40;42m =======start_check_funciton:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodG2BSink========= [0m
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodG2BSink========= [0m
+[40;44m =======node_fun:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G2Sink========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G2Sink  function_call count: 1 level :0========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre_check_funciton:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G2Sink========= [0m
+[40;42m =======start_check_funciton:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G2Sink========= [0m
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G2Sink========= [0m
+[40;44m =======node_fun:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G1Sink========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G1Sink  function_call count: 2 level :0========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre_check_funciton:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G1Sink========= [0m
+[40;42m =======start_check_funciton:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G1Sink========= [0m
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f7aa6bf2e40
+    type <pointer_type 0x7f7aa6c00540
+        type <array_type 0x7f7aa71da2a0 type <integer_type 0x7f7aa70513f0 char>
+            BLK
+            size <integer_cst 0x7f7aa71d8390 constant 168>
+            unit size <integer_cst 0x7f7aa71d8360 constant 21>
+            align 8 symtab 0 alias set -1 canonical type 0x7f7aa71da2a0 domain <integer_type 0x7f7aa71da1f8>
+            pointer_to_this <pointer_type 0x7f7aa6c00540>>
+        unsigned DI
+        size <integer_cst 0x7f7aa7039cd8 constant 64>
+        unit size <integer_cst 0x7f7aa7039cf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f7aa6c00540>
+    readonly constant
+    arg 0 <string_cst 0x7f7aa6bfcdb0 type <array_type 0x7f7aa71da2a0>
+        readonly constant static "Benign, fixed string\000">
+    CWE401_Memory_Leak__twoIntsStruct_malloc_22b.c:51:19 start: CWE401_Memory_Leak__twoIntsStruct_malloc_22b.c:51:19 finish: CWE401_Memory_Leak__twoIntsStruct_malloc_22b.c:51:40>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G1Sink========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodG2BSink=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodG2BGlobal.2_1 = CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodG2BGlobal;
+return;
+
+=======Mapping node_fun:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G2Sink=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G2Global.1_1 = CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G2Global;
+if (CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G2Global.1_1 != 0)
+  goto <bb 3>; [36.64%]
+else
+  goto <bb 4>; [63.36%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [36.64%]:
+free (data_4(D));
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [100.00%]:
+return;
+
+=======Mapping node_fun:CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G1Sink=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G1Global.0_1 = CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G1Global;
+if (CWE401_Memory_Leak__twoIntsStruct_malloc_22_goodB2G1Global.0_1 != 0)
+  goto <bb 3>; [46.00%]
+else
+  goto <bb 4>; [54.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [46.00%]:
+printLine ("Benign, fixed string");
+goto <bb 5>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [54.00%]:
+free (data_4(D));
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [100.00%]:
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0 [0m
+[40;34m    used_stmt array stack totalsize of : 0 [0m
+[40;34m    collect time: : 0.000029 s [0m
+[40;34m    algorithm time: 0.000464 s [0m
+[40;34m    gimple stmt count : : 11 [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

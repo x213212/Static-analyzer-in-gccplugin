@@ -1,0 +1,44 @@
+CWE401_Memory_Leak__new_int64_t_07.cpp: In function ‘void CWE401_Memory_Leak__new_int64_t_07::goodB2G1()’:
+CWE401_Memory_Leak__new_int64_t_07.cpp:67:15: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   67 |         *data = 5LL;
+      |         ~~~~~~^~~~~
+  ‘void CWE401_Memory_Leak__new_int64_t_07::goodB2G1()’: events 1-4
+    |
+    |   62 |     if(staticFive==5)
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   65 |         data = new int64_t;
+    |      |                    ~~~~~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) this call could return NULL
+    |   66 |         /* Initialize and make use of data */
+    |   67 |         *data = 5LL;
+    |      |         ~~~~~~~~~~~
+    |      |               |
+    |      |               (4) ‘operator new(8)’ could be NULL: unchecked value from (3)
+    |
+CWE401_Memory_Leak__new_int64_t_07.cpp: In function ‘void CWE401_Memory_Leak__new_int64_t_07::goodB2G2()’:
+CWE401_Memory_Leak__new_int64_t_07.cpp:92:15: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   92 |         *data = 5LL;
+      |         ~~~~~~^~~~~
+  ‘void CWE401_Memory_Leak__new_int64_t_07::goodB2G2()’: events 1-4
+    |
+    |   87 |     if(staticFive==5)
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   90 |         data = new int64_t;
+    |      |                    ~~~~~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) this call could return NULL
+    |   91 |         /* Initialize and make use of data */
+    |   92 |         *data = 5LL;
+    |      |         ~~~~~~~~~~~
+    |      |               |
+    |      |               (4) ‘operator new(8)’ could be NULL: unchecked value from (3)
+    |

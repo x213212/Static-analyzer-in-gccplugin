@@ -1,0 +1,168 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+------------------------------
+_2 = (unsigned int) _1;
+ <ssa_name 0x7f8421d481b0
+    type <integer_type 0x7f8422813738 long int public type_6 DI
+        size <integer_cst 0x7f84227f4eb8 constant 64>
+        unit size <integer_cst 0x7f84227f4ed0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8422813738 precision 64 min <integer_cst 0x7f8422816150 -9223372036854775808> max <integer_cst 0x7f8422816168 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f84228221f8>>
+   
+    def_stmt _1 = time (0B);
+    version 1>
+------------------------------
+myUnion$unionFirst_8 = _7;
+ <ssa_name 0x7f8421d48bd0
+    type <pointer_type 0x7f842281df18
+        type <integer_type 0x7f84228133f0 char public string-flag type_6 QI
+            size <integer_cst 0x7f84227f4fa8 constant 8>
+            unit size <integer_cst 0x7f84227f4fc0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f84228133f0 precision 8 min <integer_cst 0x7f8422816000 -128> max <integer_cst 0x7f8422816030 127>
+            pointer_to_this <pointer_type 0x7f842281df18>>
+        sizes-gimplified public unsigned type_6 DI
+        size <integer_cst 0x7f84227f4eb8 constant 64>
+        unit size <integer_cst 0x7f84227f4ed0 constant 8>
+        align 64 symtab 0 alias set 3 canonical type 0x7f842281df18
+        pointer_to_this <pointer_type 0x7f84222ab3f0> reference_to_this <reference_type 0x7f8422959000>>
+   
+    def_stmt _7 = operator new (1);
+    version 7
+    ptr-info 0x7f8421d552a0>
+------------------------------
+data_9 = myUnion$unionFirst_8;
+ <ssa_name 0x7f8421d48c18
+    type <pointer_type 0x7f842281df18
+        type <integer_type 0x7f84228133f0 char public string-flag type_6 QI
+            size <integer_cst 0x7f84227f4fa8 constant 8>
+            unit size <integer_cst 0x7f84227f4fc0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f84228133f0 precision 8 min <integer_cst 0x7f8422816000 -128> max <integer_cst 0x7f8422816030 127>
+            pointer_to_this <pointer_type 0x7f842281df18>>
+        sizes-gimplified public unsigned type_6 DI
+        size <integer_cst 0x7f84227f4eb8 constant 64>
+        unit size <integer_cst 0x7f84227f4ed0 constant 8>
+        align 64 symtab 0 alias set 3 canonical type 0x7f842281df18
+        pointer_to_this <pointer_type 0x7f84222ab3f0> reference_to_this <reference_type 0x7f8422959000>>
+    var <var_decl 0x7f8421d5e2d0 myUnion$unionFirst>
+    def_stmt myUnion$unionFirst_8 = _7;
+    version 8
+    ptr-info 0x7f8421d552b8>
+------------------------------
+myUnion$unionFirst_5 = _4;
+ <ssa_name 0x7f8421d48af8
+    type <pointer_type 0x7f842281df18
+        type <integer_type 0x7f84228133f0 char public string-flag type_6 QI
+            size <integer_cst 0x7f84227f4fa8 constant 8>
+            unit size <integer_cst 0x7f84227f4fc0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f84228133f0 precision 8 min <integer_cst 0x7f8422816000 -128> max <integer_cst 0x7f8422816030 127>
+            pointer_to_this <pointer_type 0x7f842281df18>>
+        sizes-gimplified public unsigned type_6 DI
+        size <integer_cst 0x7f84227f4eb8 constant 64>
+        unit size <integer_cst 0x7f84227f4ed0 constant 8>
+        align 64 symtab 0 alias set 3 canonical type 0x7f842281df18
+        pointer_to_this <pointer_type 0x7f84222ab3f0> reference_to_this <reference_type 0x7f8422959000>>
+   
+    def_stmt _4 = operator new (1);
+    version 4
+    ptr-info 0x7f8421d55258>
+------------------------------
+data_6 = myUnion$unionFirst_5;
+ <ssa_name 0x7f8421d48b40
+    type <pointer_type 0x7f842281df18
+        type <integer_type 0x7f84228133f0 char public string-flag type_6 QI
+            size <integer_cst 0x7f84227f4fa8 constant 8>
+            unit size <integer_cst 0x7f84227f4fc0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f84228133f0 precision 8 min <integer_cst 0x7f8422816000 -128> max <integer_cst 0x7f8422816030 127>
+            pointer_to_this <pointer_type 0x7f842281df18>>
+        sizes-gimplified public unsigned type_6 DI
+        size <integer_cst 0x7f84227f4eb8 constant 64>
+        unit size <integer_cst 0x7f84227f4ed0 constant 8>
+        align 64 symtab 0 alias set 3 canonical type 0x7f842281df18
+        pointer_to_this <pointer_type 0x7f84222ab3f0> reference_to_this <reference_type 0x7f8422959000>>
+    var <var_decl 0x7f8421d5e000 myUnion$unionFirst>
+    def_stmt myUnion$unionFirst_5 = _4;
+    version 5
+    ptr-info 0x7f8421d55270>
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 4 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre add _ fucntion:good========= [0m
+[40;44m =======print_function_path good  function_call count: 2 level :1========  [0m
+[40;42m =======pre add _ fucntion:operator delete========= [0m
+[40;33m =======POP node_fun stack:operator delete========= [0m
+[40;42m =======pre add _ fucntion:operator new========= [0m
+[40;33m =======POP node_fun stack:operator new========= [0m
+[40;42m =======pre_check_funciton:good========= [0m
+[40;42m =======start_check_funciton:good========= [0m
+[40;33m =======POP node_fun stack:good========= [0m
+[40;42m =======pre add _ fucntion:srand========= [0m
+[40;33m =======POP node_fun stack:srand========= [0m
+[40;42m =======pre add _ fucntion:time========= [0m
+[40;33m =======POP node_fun stack:time========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+algorithm time: 0.000088 s
+=======Mapping node_fun:main=========
+<bb 2> [100.00%]:
+_1 = time (0B);
+_2 = (unsigned int) _1;
+srand (_2);
+printLine ("Calling good()...");
+CWE415_Double_Free__new_delete_char_34::good ();
+printLine ("Finished good()");
+return 0;
+
+=======is loop:0=========
+=======Mapping node_fun:good=========
+<bb 2> [100.00%]:
+_7 = operator new (1);
+myUnion$unionFirst_8 = _7;
+data_9 = myUnion$unionFirst_8;
+operator delete (data_9, 1);
+_4 = operator new (1);
+operator delete (_4, 1);
+myUnion$unionFirst_5 = _4;
+data_6 = myUnion$unionFirst_5;
+return;
+
+=======is loop:0=========
+time: 0.001448 s

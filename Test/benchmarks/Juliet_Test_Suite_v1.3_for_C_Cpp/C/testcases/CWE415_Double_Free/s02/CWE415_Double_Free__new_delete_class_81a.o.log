@@ -1,0 +1,219 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+------------------------------
+_2 = (unsigned int) _1;
+ <ssa_name 0x7f46566e1bd0
+    type <integer_type 0x7f46571ac738 long int public type_6 DI
+        size <integer_cst 0x7f465718deb8 constant 64>
+        unit size <integer_cst 0x7f465718ded0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f46571ac738 precision 64 min <integer_cst 0x7f46571af150 -9223372036854775808> max <integer_cst 0x7f46571af168 9223372036854775807>
+        pointer_to_this <pointer_type 0x7f46571bb1f8>>
+   
+    def_stmt _1 = time (0B);
+    version 1>
+------------------------------
+# VUSE <.MEM_11>
+_8 = MEM[(const struct CWE415_Double_Free__new_delete_class_81_base *)&D.9978]._vptr.CWE415_Double_Free__new_delete_class_81_base;
+ <component_ref 0x7f465670c420
+    type <pointer_type 0x7f46572f73f0
+        type <pointer_type 0x7f46572f70a8 __vtbl_ptr_type type <function_type 0x7f46572f7000>
+            unsigned type_6 DI
+            size <integer_cst 0x7f465718deb8 constant 64>
+            unit size <integer_cst 0x7f465718ded0 constant 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f46572f70a8
+            pointer_to_this <pointer_type 0x7f46572f73f0>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f465718deb8 64> unit size <integer_cst 0x7f465718ded0 8>
+        align 64 symtab 0 alias set 2 canonical type 0x7f46572f73f0>
+   
+    arg 0 <mem_ref 0x7f4656701f50
+        type <record_type 0x7f46566da738 CWE415_Double_Free__new_delete_class_81_base readonly sizes-gimplified addressable tree_2 needs-constructing type_5 type_6 BLK size <integer_cst 0x7f465718deb8 64> unit size <integer_cst 0x7f465718ded0 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f46566da738 fields <field_decl 0x7f4656a827b8 _vptr.CWE415_Double_Free__new_delete_class_81_base> context <namespace_decl 0x7f4656a82558 CWE415_Double_Free__new_delete_class_81>
+            full-name "const class CWE415_Double_Free__new_delete_class_81::CWE415_Double_Free__new_delete_class_81_base"
+            needs-constructor X() X(constX&) this=(X&) n_parents=0 use_template=0 interface-unknown
+            pointer_to_this <pointer_type 0x7f46566da888> reference_to_this <reference_type 0x7f46566e7348>>
+       
+        arg 0 <addr_expr 0x7f4656709440 type <pointer_type 0x7f46566e73f0>
+            arg 0 <var_decl 0x7f4656708480 D.9978>>
+        arg 1 <integer_cst 0x7f46566f8480 constant 0>>
+    arg 1 <field_decl 0x7f4656a827b8 _vptr.CWE415_Double_Free__new_delete_class_81_base type <pointer_type 0x7f46572f73f0>
+        unsigned virtual DI file CWE415_Double_Free__new_delete_class_81.h line 25 col 7 size <integer_cst 0x7f465718deb8 64> unit size <integer_cst 0x7f465718ded0 8>
+        align 64 offset_align 128
+        offset <integer_cst 0x7f465718dee8 constant 0>
+        bit offset <integer_cst 0x7f465718df30 constant 0> context <record_type 0x7f46566da1f8 CWE415_Double_Free__new_delete_class_81_base>
+        chain <type_decl 0x7f4656a82720 CWE415_Double_Free__new_delete_class_81_base type <record_type 0x7f46566da2a0 CWE415_Double_Free__new_delete_class_81_base>
+            nonlocal decl_4 VOID file CWE415_Double_Free__new_delete_class_81.h line 26 col 1
+            align 1 context <record_type 0x7f46566da1f8 CWE415_Double_Free__new_delete_class_81_base> result <record_type 0x7f46566da1f8 CWE415_Double_Free__new_delete_class_81_base>
+           >>>
+------------------------------
+# VUSE <.MEM_11>
+_9 = *_8;
+ <mem_ref 0x7f4656701fa0
+    type <pointer_type 0x7f46572f70a8 __vtbl_ptr_type
+        type <function_type 0x7f46572f7000 type <integer_type 0x7f46571ac5e8 int>
+            type_6 QI
+            size <integer_cst 0x7f465718dfa8 constant 8>
+            unit size <integer_cst 0x7f465718dfc0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f46572f7000
+            pointer_to_this <pointer_type 0x7f46572f70a8 __vtbl_ptr_type>>
+        unsigned type_6 DI
+        size <integer_cst 0x7f465718deb8 constant 64>
+        unit size <integer_cst 0x7f465718ded0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f46572f70a8
+        pointer_to_this <pointer_type 0x7f46572f73f0>>
+   
+    arg 0 <ssa_name 0x7f4656707708
+        type <pointer_type 0x7f46572f73f0 type <pointer_type 0x7f46572f70a8 __vtbl_ptr_type>
+            sizes-gimplified public unsigned DI size <integer_cst 0x7f465718deb8 64> unit size <integer_cst 0x7f465718ded0 8>
+            align 64 symtab 0 alias set 2 canonical type 0x7f46572f73f0>
+       
+        def_stmt _8 = MEM[(const struct CWE415_Double_Free__new_delete_class_81_base *)&D.9978]._vptr.CWE415_Double_Free__new_delete_class_81_base;
+        version 8
+        ptr-info 0x7f46566f87c8>
+    arg 1 <integer_cst 0x7f46566f8498 type <pointer_type 0x7f46572f73f0> constant 0>>
+------------------------------
+# VUSE <.MEM_16>
+_5 = MEM[(const struct CWE415_Double_Free__new_delete_class_81_base *)&D.9977]._vptr.CWE415_Double_Free__new_delete_class_81_base;
+ <component_ref 0x7f465670c1e0
+    type <pointer_type 0x7f46572f73f0
+        type <pointer_type 0x7f46572f70a8 __vtbl_ptr_type type <function_type 0x7f46572f7000>
+            unsigned type_6 DI
+            size <integer_cst 0x7f465718deb8 constant 64>
+            unit size <integer_cst 0x7f465718ded0 constant 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f46572f70a8
+            pointer_to_this <pointer_type 0x7f46572f73f0>>
+        sizes-gimplified public unsigned DI size <integer_cst 0x7f465718deb8 64> unit size <integer_cst 0x7f465718ded0 8>
+        align 64 symtab 0 alias set 2 canonical type 0x7f46572f73f0>
+   
+    arg 0 <mem_ref 0x7f4656701d98
+        type <record_type 0x7f46566da738 CWE415_Double_Free__new_delete_class_81_base readonly sizes-gimplified addressable tree_2 needs-constructing type_5 type_6 BLK size <integer_cst 0x7f465718deb8 64> unit size <integer_cst 0x7f465718ded0 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f46566da738 fields <field_decl 0x7f4656a827b8 _vptr.CWE415_Double_Free__new_delete_class_81_base> context <namespace_decl 0x7f4656a82558 CWE415_Double_Free__new_delete_class_81>
+            full-name "const class CWE415_Double_Free__new_delete_class_81::CWE415_Double_Free__new_delete_class_81_base"
+            needs-constructor X() X(constX&) this=(X&) n_parents=0 use_template=0 interface-unknown
+            pointer_to_this <pointer_type 0x7f46566da888> reference_to_this <reference_type 0x7f46566e7348>>
+       
+        arg 0 <addr_expr 0x7f46567092c0 type <pointer_type 0x7f46566eb930>
+            arg 0 <var_decl 0x7f4656708240 D.9977>>
+        arg 1 <integer_cst 0x7f46566f8480 constant 0>>
+    arg 1 <field_decl 0x7f4656a827b8 _vptr.CWE415_Double_Free__new_delete_class_81_base type <pointer_type 0x7f46572f73f0>
+        unsigned virtual DI file CWE415_Double_Free__new_delete_class_81.h line 25 col 7 size <integer_cst 0x7f465718deb8 64> unit size <integer_cst 0x7f465718ded0 8>
+        align 64 offset_align 128
+        offset <integer_cst 0x7f465718dee8 constant 0>
+        bit offset <integer_cst 0x7f465718df30 constant 0> context <record_type 0x7f46566da1f8 CWE415_Double_Free__new_delete_class_81_base>
+        chain <type_decl 0x7f4656a82720 CWE415_Double_Free__new_delete_class_81_base type <record_type 0x7f46566da2a0 CWE415_Double_Free__new_delete_class_81_base>
+            nonlocal decl_4 VOID file CWE415_Double_Free__new_delete_class_81.h line 26 col 1
+            align 1 context <record_type 0x7f46566da1f8 CWE415_Double_Free__new_delete_class_81_base> result <record_type 0x7f46566da1f8 CWE415_Double_Free__new_delete_class_81_base>
+           >>>
+------------------------------
+# VUSE <.MEM_16>
+_6 = *_5;
+ <mem_ref 0x7f4656701de8
+    type <pointer_type 0x7f46572f70a8 __vtbl_ptr_type
+        type <function_type 0x7f46572f7000 type <integer_type 0x7f46571ac5e8 int>
+            type_6 QI
+            size <integer_cst 0x7f465718dfa8 constant 8>
+            unit size <integer_cst 0x7f465718dfc0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f46572f7000
+            pointer_to_this <pointer_type 0x7f46572f70a8 __vtbl_ptr_type>>
+        unsigned type_6 DI
+        size <integer_cst 0x7f465718deb8 constant 64>
+        unit size <integer_cst 0x7f465718ded0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f46572f70a8
+        pointer_to_this <pointer_type 0x7f46572f73f0>>
+   
+    arg 0 <ssa_name 0x7f4656707630
+        type <pointer_type 0x7f46572f73f0 type <pointer_type 0x7f46572f70a8 __vtbl_ptr_type>
+            sizes-gimplified public unsigned DI size <integer_cst 0x7f465718deb8 64> unit size <integer_cst 0x7f465718ded0 8>
+            align 64 symtab 0 alias set 2 canonical type 0x7f46572f73f0>
+       
+        def_stmt _5 = MEM[(const struct CWE415_Double_Free__new_delete_class_81_base *)&D.9977]._vptr.CWE415_Double_Free__new_delete_class_81_base;
+        version 5
+        ptr-info 0x7f46566f8780>
+    arg 1 <integer_cst 0x7f46566f8498 type <pointer_type 0x7f46572f73f0> constant 0>>
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 4 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre add _ fucntion:good========= [0m
+[40;44m =======print_function_path good  function_call count: 2 level :1========  [0m
+[40;42m =======pre add _ fucntion:operator delete========= [0m
+[40;33m =======POP node_fun stack:operator delete========= [0m
+[40;42m =======pre add _ fucntion:operator new========= [0m
+[40;33m =======POP node_fun stack:operator new========= [0m
+[40;42m =======pre_check_funciton:good========= [0m
+[40;42m =======start_check_funciton:good========= [0m
+[40;33m =======POP node_fun stack:good========= [0m
+[40;42m =======pre add _ fucntion:srand========= [0m
+[40;33m =======POP node_fun stack:srand========= [0m
+[40;42m =======pre add _ fucntion:time========= [0m
+[40;33m =======POP node_fun stack:time========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+algorithm time: 0.000091 s
+=======Mapping node_fun:main=========
+<bb 2> [100.00%]:
+_1 = time (0B);
+_2 = (unsigned int) _1;
+srand (_2);
+printLine ("Calling good()...");
+CWE415_Double_Free__new_delete_class_81::good ();
+printLine ("Finished good()");
+return 0;
+
+=======is loop:0=========
+=======Mapping node_fun:good=========
+<bb 2> [100.00%]:
+_7 = operator new (8);
+D.9978.D.9787._vptr.CWE415_Double_Free__new_delete_class_81_base = &MEM[(void *)&_ZTVN39CWE415_Double_Free__new_delete_class_8147CWE415_Double_Free__new_delete_class_81_goodG2BE + 16B];
+_8 = MEM[(const struct CWE415_Double_Free__new_delete_class_81_base *)&D.9978]._vptr.CWE415_Double_Free__new_delete_class_81_base;
+_9 = *_8;
+OBJ_TYPE_REF(_9;(const struct CWE415_Double_Free__new_delete_class_81_base)&D.9978.D.9787->0) (&D.9978.D.9787, _7);
+D.9978 ={v} {CLOBBER};
+_4 = operator new (8);
+operator delete (_4, 8);
+D.9977.D.9796._vptr.CWE415_Double_Free__new_delete_class_81_base = &MEM[(void *)&_ZTVN39CWE415_Double_Free__new_delete_class_8147CWE415_Double_Free__new_delete_class_81_goodB2GE + 16B];
+_5 = MEM[(const struct CWE415_Double_Free__new_delete_class_81_base *)&D.9977]._vptr.CWE415_Double_Free__new_delete_class_81_base;
+_6 = *_5;
+OBJ_TYPE_REF(_6;(const struct CWE415_Double_Free__new_delete_class_81_base)&D.9977.D.9796->0) (&D.9977.D.9796, _4);
+D.9977 ={v} {CLOBBER};
+return;
+
+=======is loop:0=========
+time: 0.002807 s

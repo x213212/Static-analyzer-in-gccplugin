@@ -1,0 +1,140 @@
+dot graph START
+
+--
+dot graph entry CWE401_Memory_Leak__int_malloc_32_bad
+dot graph target entry end
+
+--
+dot graph target loc start # .MEM_4 = VDEF <.MEM_2(D)>
+data_5 = malloc (400);
+--
+dot graph target loc en1
+
+dot graph target line desc form basic block 4: data_8 = data_5;
+CWE401_Memory_Leak__int_malloc_32.c:41:15: warning: use location
+--
+dot graph target line desend
+
+dot graph target loc start # .MEM_4 = VDEF <.MEM_2(D)>
+data_5 = malloc (400);
+--
+dot graph target loc end
+
+dot graph target basicblock start from CWE401_Memory_Leak__int_malloc_32_bad basic block 4dot graph target basicblock en1
+
+dot graph stmt start data_8 = data_5;
+CWE401_Memory_Leak__int_malloc_32.c:41:15: warning: use location
+--
+dot graph stmt end
+
+dot graph entry CWE401_Memory_Leak__int_malloc_32_bad
+dot graph target entry end
+
+--
+dot graph target loc start # .MEM_4 = VDEF <.MEM_2(D)>
+data_5 = malloc (400);
+--
+dot graph target loc en1
+
+dot graph target line desc form basic block 4: data_11 = data_5;
+CWE401_Memory_Leak__int_malloc_32.c:38:19: warning: use location
+--
+dot graph target line desend
+
+dot graph target loc start # .MEM_4 = VDEF <.MEM_2(D)>
+data_5 = malloc (400);
+--
+dot graph target loc end
+
+dot graph target basicblock start from CWE401_Memory_Leak__int_malloc_32_bad basic block 4dot graph target basicblock en1
+
+dot graph stmt start data_11 = data_5;
+CWE401_Memory_Leak__int_malloc_32.c:38:19: warning: use location
+--
+dot graph stmt end
+
+dot graph entry CWE401_Memory_Leak__int_malloc_32_bad
+dot graph target entry end
+
+--
+dot graph target loc start # .MEM_4 = VDEF <.MEM_2(D)>
+data_5 = malloc (400);
+--
+dot graph target loc en1
+
+dot graph target line desc form basic block 4: _1 = *data_5;
+CWE401_Memory_Leak__int_malloc_32.c:37:9: warning: use location
+--
+dot graph target line desend
+
+dot graph target loc start # .MEM_4 = VDEF <.MEM_2(D)>
+data_5 = malloc (400);
+--
+dot graph target loc end
+
+dot graph target basicblock start from CWE401_Memory_Leak__int_malloc_32_bad basic block 4dot graph target basicblock en1
+
+dot graph stmt start _1 = *data_5;
+CWE401_Memory_Leak__int_malloc_32.c:37:9: warning: use location
+--
+dot graph stmt end
+
+dot graph entry CWE401_Memory_Leak__int_malloc_32_bad
+dot graph target entry end
+
+--
+dot graph target loc start # .MEM_4 = VDEF <.MEM_2(D)>
+data_5 = malloc (400);
+--
+dot graph target loc en1
+
+dot graph target line desc form basic block 4: printIntLine (_1);
+CWE401_Memory_Leak__int_malloc_32.c:37:9: warning: use location
+--
+dot graph target line desend
+
+dot graph target loc start # .MEM_4 = VDEF <.MEM_2(D)>
+data_5 = malloc (400);
+--
+dot graph target loc end
+
+dot graph target basicblock start from CWE401_Memory_Leak__int_malloc_32_bad basic block 4dot graph target basicblock en1
+
+dot graph stmt start printIntLine (_1);
+CWE401_Memory_Leak__int_malloc_32.c:37:9: warning: use location
+--
+dot graph stmt end
+
+--
+dot graph entry CWE401_Memory_Leak__int_malloc_32_bad
+dot graph target entry end
+
+--
+dot graph target loc start # .MEM_4 = VDEF <.MEM_2(D)>
+data_5 = malloc (400);
+--
+dot graph target loc en1
+
+dot graph target line desc form basic block 4: *data_5 = 5;
+CWE401_Memory_Leak__int_malloc_32.c:36:17: warning: use location
+--
+dot graph target line desend
+
+dot graph target loc start # .MEM_4 = VDEF <.MEM_2(D)>
+data_5 = malloc (400);
+--
+dot graph target loc end
+
+dot graph target basicblock start from CWE401_Memory_Leak__int_malloc_32_bad basic block 4dot graph target basicblock en1
+
+dot graph stmt start *data_5 = 5;
+CWE401_Memory_Leak__int_malloc_32.c:36:17: warning: use location
+--
+dot graph stmt end
+
+--
+dot graph END
+
+--
+dot graph START
+

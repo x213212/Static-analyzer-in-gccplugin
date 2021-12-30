@@ -1,0 +1,53 @@
+CWE401_Memory_Leak__new_twoIntsStruct_82a.cpp: In function ‘void CWE401_Memory_Leak__new_twoIntsStruct_82::goodG2B()’:
+CWE401_Memory_Leak__new_twoIntsStruct_82a.cpp:58:23: warning: use of possibly-NULL ‘operator new(8)’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   58 |     baseObject->action(data);
+      |     ~~~~~~~~~~~~~~~~~~^~~~~~
+  ‘void CWE401_Memory_Leak__new_twoIntsStruct_82::goodG2B()’: events 1-2
+    |
+    |   57 |     CWE401_Memory_Leak__new_twoIntsStruct_82_base* baseObject = new CWE401_Memory_Leak__new_twoIntsStruct_82_goodG2B;
+    |      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                                                     |
+    |      |                                                                     (1) this call could return NULL
+    |   58 |     baseObject->action(data);
+    |      |     ~~~~~~~~~~~~~~~~~~~~~~~~                                         
+    |      |                       |
+    |      |                       (2) argument 'this' (‘operator new(8)’) from (1) could be NULL where non-null expected
+    |
+In file included from CWE401_Memory_Leak__new_twoIntsStruct_82a.cpp:19:
+CWE401_Memory_Leak__new_twoIntsStruct_82.h:49:10: note: argument 'this' of ‘virtual void CWE401_Memory_Leak__new_twoIntsStruct_82::CWE401_Memory_Leak__new_twoIntsStruct_82_goodG2B::action(twoIntsStruct*)’ must be non-null
+   49 |     void action(twoIntsStruct * data);
+      |          ^~~~~~
+CWE401_Memory_Leak__new_twoIntsStruct_82a.cpp: In function ‘void CWE401_Memory_Leak__new_twoIntsStruct_82::goodB2G()’:
+CWE401_Memory_Leak__new_twoIntsStruct_82a.cpp:70:18: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   70 |     data->intOne = 0;
+      |     ~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_twoIntsStruct_82::goodB2G()’: events 1-2
+    |
+    |   68 |     data = new twoIntsStruct;
+    |      |                ^~~~~~~~~~~~~
+    |      |                |
+    |      |                (1) this call could return NULL
+    |   69 |     /* Initialize and make use of data */
+    |   70 |     data->intOne = 0;
+    |      |     ~~~~~~~~~~~~~~~~
+    |      |                  |
+    |      |                  (2) ‘operator new(8)’ could be NULL: unchecked value from (1)
+    |
+CWE401_Memory_Leak__new_twoIntsStruct_82a.cpp:74:23: warning: use of possibly-NULL ‘operator new(8)’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   74 |     baseObject->action(data);
+      |     ~~~~~~~~~~~~~~~~~~^~~~~~
+  ‘void CWE401_Memory_Leak__new_twoIntsStruct_82::goodB2G()’: events 1-2
+    |
+    |   73 |     CWE401_Memory_Leak__new_twoIntsStruct_82_base* baseObject = new CWE401_Memory_Leak__new_twoIntsStruct_82_goodB2G;
+    |      |                                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                                                     |
+    |      |                                                                     (1) this call could return NULL
+    |   74 |     baseObject->action(data);
+    |      |     ~~~~~~~~~~~~~~~~~~~~~~~~                                         
+    |      |                       |
+    |      |                       (2) argument 'this' (‘operator new(8)’) from (1) could be NULL where non-null expected
+    |
+In file included from CWE401_Memory_Leak__new_twoIntsStruct_82a.cpp:19:
+CWE401_Memory_Leak__new_twoIntsStruct_82.h:55:10: note: argument 'this' of ‘virtual void CWE401_Memory_Leak__new_twoIntsStruct_82::CWE401_Memory_Leak__new_twoIntsStruct_82_goodB2G::action(twoIntsStruct*)’ must be non-null
+   55 |     void action(twoIntsStruct * data);
+      |          ^~~~~~

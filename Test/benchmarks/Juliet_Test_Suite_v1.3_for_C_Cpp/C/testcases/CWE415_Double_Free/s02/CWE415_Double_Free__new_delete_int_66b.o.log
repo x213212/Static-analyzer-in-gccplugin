@@ -1,0 +1,102 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+------------------------------
+# VUSE <.MEM_1(D)>
+data_3 = MEM[(int * *)dataArray_2(D) + 16B];
+ <mem_ref 0x7f7a8161e730
+    type <pointer_type 0x7f7a820f0a80
+        type <integer_type 0x7f7a820e85e8 int public type_6 SI
+            size <integer_cst 0x7f7a820eb108 constant 32>
+            unit size <integer_cst 0x7f7a820eb120 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f7a820e85e8 precision 32 min <integer_cst 0x7f7a820eb0c0 -2147483648> max <integer_cst 0x7f7a820eb0d8 2147483647>
+            pointer_to_this <pointer_type 0x7f7a820f0a80> reference_to_this <reference_type 0x7f7a81b99498>>
+        sizes-gimplified unsigned type_6 DI
+        size <integer_cst 0x7f7a820c9eb8 constant 64>
+        unit size <integer_cst 0x7f7a820c9ed0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f7a820f0a80
+        pointer_to_this <pointer_type 0x7f7a816162a0>>
+   
+    arg 0 <ssa_name 0x7f7a8161d240
+        type <pointer_type 0x7f7a816162a0 type <pointer_type 0x7f7a820f0a80>
+            unsigned DI size <integer_cst 0x7f7a820c9eb8 64> unit size <integer_cst 0x7f7a820c9ed0 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f7a816162a0>
+        var <parm_decl 0x7f7a8161c100 dataArray>
+        def_stmt GIMPLE_NOP
+        version 2
+        ptr-info 0x7f7a81a06db0>
+    arg 1 <integer_cst 0x7f7a81a06a38 type <pointer_type 0x7f7a816162a0> constant 16>>
+------------------------------
+# VUSE <.MEM_1(D)>
+data_3 = MEM[(int * *)dataArray_2(D) + 16B];
+ <mem_ref 0x7f7a8161e5c8
+    type <pointer_type 0x7f7a820f0a80
+        type <integer_type 0x7f7a820e85e8 int public type_6 SI
+            size <integer_cst 0x7f7a820eb108 constant 32>
+            unit size <integer_cst 0x7f7a820eb120 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f7a820e85e8 precision 32 min <integer_cst 0x7f7a820eb0c0 -2147483648> max <integer_cst 0x7f7a820eb0d8 2147483647>
+            pointer_to_this <pointer_type 0x7f7a820f0a80> reference_to_this <reference_type 0x7f7a81b99498>>
+        sizes-gimplified unsigned type_6 DI
+        size <integer_cst 0x7f7a820c9eb8 constant 64>
+        unit size <integer_cst 0x7f7a820c9ed0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f7a820f0a80
+        pointer_to_this <pointer_type 0x7f7a816162a0>>
+   
+    arg 0 <ssa_name 0x7f7a8161d120
+        type <pointer_type 0x7f7a816162a0 type <pointer_type 0x7f7a820f0a80>
+            unsigned DI size <integer_cst 0x7f7a820c9eb8 64> unit size <integer_cst 0x7f7a820c9ed0 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f7a816162a0>
+        var <parm_decl 0x7f7a8161c080 dataArray>
+        def_stmt GIMPLE_NOP
+        version 2
+        ptr-info 0x7f7a81a06d50>
+    arg 1 <integer_cst 0x7f7a81a06a38 type <pointer_type 0x7f7a816162a0> constant 16>>
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+algorithm time: 0.000048 s
+=======Mapping node_fun:goodB2GSink=========
+<bb 2> [100.00%]:
+data_3 = MEM[(int * *)dataArray_2(D) + 16B];
+return;
+
+=======is loop:0=========
+=======Mapping node_fun:goodG2BSink=========
+<bb 2> [100.00%]:
+data_3 = MEM[(int * *)dataArray_2(D) + 16B];
+operator delete (data_3, 4);
+return;
+
+=======is loop:0=========
+time: 0.000959 s

@@ -1,0 +1,112 @@
+CWE401_Memory_Leak__new_int64_t_11.cpp: In function ‘void CWE401_Memory_Leak__new_int64_t_11::goodB2G1()’:
+CWE401_Memory_Leak__new_int64_t_11.cpp:61:15: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   61 |         *data = 5LL;
+      |         ~~~~~~^~~~~
+  ‘void CWE401_Memory_Leak__new_int64_t_11::goodB2G1()’: events 1-4
+    |
+    |   56 |     if(globalReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   59 |         data = new int64_t;
+    |      |                    ~~~~~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) this call could return NULL
+    |   60 |         /* Initialize and make use of data */
+    |   61 |         *data = 5LL;
+    |      |         ~~~~~~~~~~~
+    |      |               |
+    |      |               (4) ‘operator new(8)’ could be NULL: unchecked value from (3)
+    |
+CWE401_Memory_Leak__new_int64_t_11.cpp:74:1: warning: leak of ‘data’ [CWE-401] [-Wanalyzer-malloc-leak]
+   74 | }
+      | ^
+  ‘void CWE401_Memory_Leak__new_int64_t_11::goodB2G1()’: events 1-7
+    |
+    |   56 |     if(globalReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   59 |         data = new int64_t;
+    |      |                    ~~~~~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) allocated here
+    |   60 |         /* Initialize and make use of data */
+    |   61 |         *data = 5LL;
+    |      |         ~~~~~~~~~~~
+    |      |               |
+    |      |               (4) assuming ‘operator new(8)’ is non-NULL
+    |......
+    |   64 |     if(globalReturnsFalse())
+    |      |     ~~
+    |      |     |
+    |      |     (5) following ‘true’ branch...
+    |......
+    |   67 |         printLine("Benign, fixed string");
+    |      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                  |
+    |      |                  (6) ...to here
+    |......
+    |   74 | }
+    |      | ~    
+    |      | |
+    |      | (7) ‘data’ leaks here; was allocated at (3)
+    |
+CWE401_Memory_Leak__new_int64_t_11.cpp: In function ‘void CWE401_Memory_Leak__new_int64_t_11::goodB2G2()’:
+CWE401_Memory_Leak__new_int64_t_11.cpp:86:15: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   86 |         *data = 5LL;
+      |         ~~~~~~^~~~~
+  ‘void CWE401_Memory_Leak__new_int64_t_11::goodB2G2()’: events 1-4
+    |
+    |   81 |     if(globalReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   84 |         data = new int64_t;
+    |      |                    ~~~~~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) this call could return NULL
+    |   85 |         /* Initialize and make use of data */
+    |   86 |         *data = 5LL;
+    |      |         ~~~~~~~~~~~
+    |      |               |
+    |      |               (4) ‘operator new(8)’ could be NULL: unchecked value from (3)
+    |
+CWE401_Memory_Leak__new_int64_t_11.cpp:94:1: warning: leak of ‘data’ [CWE-401] [-Wanalyzer-malloc-leak]
+   94 | }
+      | ^
+  ‘void CWE401_Memory_Leak__new_int64_t_11::goodB2G2()’: events 1-7
+    |
+    |   81 |     if(globalReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   84 |         data = new int64_t;
+    |      |                    ~~~~~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) allocated here
+    |   85 |         /* Initialize and make use of data */
+    |   86 |         *data = 5LL;
+    |      |         ~~~~~~~~~~~
+    |      |               |
+    |      |               (4) assuming ‘operator new(8)’ is non-NULL
+    |......
+    |   89 |     if(globalReturnsTrue())
+    |      |     ~~
+    |      |     |
+    |      |     (5) following ‘false’ branch...
+    |......
+    |   94 | }
+    |      | ~    
+    |      | |
+    |      | (6) ...to here
+    |      | (7) ‘data’ leaks here; was allocated at (3)
+    |

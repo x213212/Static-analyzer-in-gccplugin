@@ -1,0 +1,80 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+------------------------------
+# VUSE <.MEM_6>
+_1 = *data_5(D);
+ <mem_ref 0x7f2d8d06a7d0
+    type <pointer_type 0x7f2d8db3ca80
+        type <integer_type 0x7f2d8db345e8 int public type_6 SI
+            size <integer_cst 0x7f2d8db37108 constant 32>
+            unit size <integer_cst 0x7f2d8db37120 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f2d8db345e8 precision 32 min <integer_cst 0x7f2d8db370c0 -2147483648> max <integer_cst 0x7f2d8db370d8 2147483647>
+            pointer_to_this <pointer_type 0x7f2d8db3ca80> reference_to_this <reference_type 0x7f2d8d5e5498>>
+        unsigned DI
+        size <integer_cst 0x7f2d8db15eb8 constant 64>
+        unit size <integer_cst 0x7f2d8db15ed0 constant 8>
+        align 64 symtab 0 alias set 4 canonical type 0x7f2d8db3ca80 reference_to_this <reference_type 0x7f2d8d0621f8>>
+   
+    arg 0 <ssa_name 0x7f2d8d0693f0
+        type <reference_type 0x7f2d8d0621f8 type <pointer_type 0x7f2d8db3ca80>
+            public unsigned DI size <integer_cst 0x7f2d8db15eb8 64> unit size <integer_cst 0x7f2d8db15ed0 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f2d8d0621f8>
+        var <parm_decl 0x7f2d8d068100 data>
+        def_stmt GIMPLE_NOP
+        version 5
+        ptr-info 0x7f2d8d452e40>
+    arg 1 <integer_cst 0x7f2d8d452d08 type <reference_type 0x7f2d8d0621f8> constant 0>
+    CWE415_Double_Free__new_delete_int_62b.cpp:50:12 start: CWE415_Double_Free__new_delete_int_62b.cpp:50:12 finish: CWE415_Double_Free__new_delete_int_62b.cpp:50:15>
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+algorithm time: 0.000048 s
+=======Mapping node_fun:goodB2GSource=========
+<bb 2> [100.00%]:
+_4 = operator new (4);
+*data_5(D) = _4;
+_1 = *data_5(D);
+operator delete (_1, 4);
+return;
+
+=======is loop:0=========
+=======Mapping node_fun:goodG2BSource=========
+<bb 2> [100.00%]:
+_3 = operator new (4);
+*data_4(D) = _3;
+return;
+
+=======is loop:0=========
+time: 0.000615 s

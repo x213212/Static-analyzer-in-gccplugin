@@ -1,0 +1,299 @@
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 1 
+pointer ptable is 0 
+===============The second stage : Mapping stmt=================
+# .MEM_4 = VDEF <.MEM_3(D)>
+_1 = time (0B);
+# .MEM_5 = VDEF <.MEM_4>
+srand (_2);
+# .MEM_6 = VDEF <.MEM_5>
+printLine ("Calling good()...");
+# .MEM_7 = VDEF <.MEM_6>
+CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61_good ();
+# .MEM_8 = VDEF <.MEM_7>
+printLine ("Finished good()");
+# .MEM_6 = VDEF <.MEM_1(D)>
+data_5 = CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61b_goodG2BSource (0B);
+# .MEM_7 = VDEF <.MEM_6>
+data_4 = CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61b_goodB2GSource (0B);
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 4 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:printLine========= [0m
+[40;33m =======POP node_fun stack:printLine========= [0m
+[40;42m =======pre add _ fucntion:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61_good========= [0m
+[40;44m =======print_function_path CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61_good  function_call count: 3 level :1========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61b_goodB2GSource========= [0m
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61b_goodB2GSource========= [0m
+[40;42m =======pre add _ fucntion:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61b_goodG2BSource========= [0m
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61b_goodG2BSource========= [0m
+[40;42m =======pre_check_funciton:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61_good========= [0m
+[40;42m =======start_check_funciton:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61_good========= [0m
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f97f8f79258 type <pointer_type 0x7f97f8f75150> constant 0>
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f97f8f79258 type <pointer_type 0x7f97f8f75150> constant 0>
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61_good========= [0m
+[40;42m =======pre add _ fucntion:srand========= [0m
+[40;33m =======POP node_fun stack:srand========= [0m
+[40;42m =======pre add _ fucntion:time========= [0m
+[40;33m =======POP node_fun stack:time========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f97f8f79390 type <pointer_type 0x7f97f8ebf930> constant 0>
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f97f8f56558
+    type <integer_type 0x7f97f93c6690 unsigned int public unsigned SI
+        size <integer_cst 0x7f97f93aef18 constant 32>
+        unit size <integer_cst 0x7f97f93aef30 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f97f93c6690 precision 32 min <integer_cst 0x7f97f93aef48 0> max <integer_cst 0x7f97f93aef00 4294967295> context <translation_unit_decl 0x7f97f8f6b690 CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61a.c>
+        pointer_to_this <pointer_type 0x7f97f93d3dc8>>
+   
+    def_stmt _2 = (unsigned int) _1;
+    version 2>
+_2 = (unsigned int) _1;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_5 = VDEF <.MEM_4>
+srand (_2);
+srand (_2);
+CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61a.c: In function ‘main’:
+CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61a.c:82:5: warning: use location
+     srand( (unsigned)time(NULL) );
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+this stmt is child function---srand-----
+
+ ================== trace ================== 
+ <ssa_name 0x7f97f8f56558
+    type <integer_type 0x7f97f93c6690 unsigned int public unsigned SI
+        size <integer_cst 0x7f97f93aef18 constant 32>
+        unit size <integer_cst 0x7f97f93aef30 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f97f93c6690 precision 32 min <integer_cst 0x7f97f93aef48 0> max <integer_cst 0x7f97f93aef00 4294967295> context <translation_unit_decl 0x7f97f8f6b690 CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61a.c>
+        pointer_to_this <pointer_type 0x7f97f93d3dc8>>
+   
+    def_stmt _2 = (unsigned int) _1;
+    version 2>
+trace fucntion name:srand 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f97f8f56558
+    type <integer_type 0x7f97f93c6690 unsigned int public unsigned SI
+        size <integer_cst 0x7f97f93aef18 constant 32>
+        unit size <integer_cst 0x7f97f93aef30 constant 4>
+        align 32 symtab 0 alias set -1 canonical type 0x7f97f93c6690 precision 32 min <integer_cst 0x7f97f93aef48 0> max <integer_cst 0x7f97f93aef00 4294967295> context <translation_unit_decl 0x7f97f8f6b690 CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61a.c>
+        pointer_to_this <pointer_type 0x7f97f93d3dc8>>
+   
+    def_stmt _2 = (unsigned int) _1;
+    version 2>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f97f8f67fe0
+    type <pointer_type 0x7f97f8f7e348
+        type <array_type 0x7f97f8f48348 type <integer_type 0x7f97f93c63f0 char>
+            BLK
+            size <integer_cst 0x7f97f94ffe70 constant 144>
+            unit size <integer_cst 0x7f97f8f16d80 constant 18>
+            align 8 symtab 0 alias set -1 canonical type 0x7f97f8f48348 domain <integer_type 0x7f97f8f482a0>
+            pointer_to_this <pointer_type 0x7f97f8f7e348>>
+        unsigned DI
+        size <integer_cst 0x7f97f93aecd8 constant 64>
+        unit size <integer_cst 0x7f97f93aecf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f97f8f7e348>
+    readonly constant
+    arg 0 <string_cst 0x7f97f8f78ca8 type <array_type 0x7f97f8f48348>
+        readonly constant static "Calling good()...\000">
+    CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61a.c:84:15 start: CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61a.c:84:15 finish: CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61a.c:84:33>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7f97f8f7f080
+    type <pointer_type 0x7f97f8f7e690
+        type <array_type 0x7f97f951cbd0 type <integer_type 0x7f97f93c63f0 char>
+            TI
+            size <integer_cst 0x7f97f93aed20 constant 128>
+            unit size <integer_cst 0x7f97f93aed38 constant 16>
+            align 8 symtab 0 alias set -1 canonical type 0x7f97f951cbd0 domain <integer_type 0x7f97f951cb28>
+            pointer_to_this <pointer_type 0x7f97f8f7e690>>
+        unsigned DI
+        size <integer_cst 0x7f97f93aecd8 constant 64>
+        unit size <integer_cst 0x7f97f93aecf0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f97f8f7e690>
+    readonly constant
+    arg 0 <string_cst 0x7f97f8f78cd0 type <array_type 0x7f97f951cbd0>
+        readonly constant static "Finished good()\000">
+    CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61a.c:86:15 start: CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61a.c:86:15 finish: CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61a.c:86:31>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+[40;44m =======node_fun:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61_good========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61_good  function_call count: 3 level :0========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61b_goodB2GSource========= [0m
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61b_goodB2GSource========= [0m
+[40;42m =======pre add _ fucntion:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61b_goodG2BSource========= [0m
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61b_goodG2BSource========= [0m
+[40;42m =======pre_check_funciton:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61_good========= [0m
+[40;42m =======start_check_funciton:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61_good========= [0m
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f97f8f79258 type <pointer_type 0x7f97f8f75150> constant 0>
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7f97f8f79258 type <pointer_type 0x7f97f8f75150> constant 0>
+[40;33m =======POP node_fun stack:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61_good========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+_1 = time (0B);
+_2 = (unsigned int) _1;
+srand (_2);
+printLine ("Calling good()...");
+CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61_good ();
+printLine ("Finished good()");
+return 0;
+
+=======Mapping node_fun:CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61_good=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [100.00%]:
+data_5 = CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61b_goodG2BSource (0B);
+data_4 = CWE401_Memory_Leak__struct_twoIntsStruct_malloc_61b_goodB2GSource (0B);
+free (data_4);
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 1 [0m
+[40;34m    used_stmt array stack totalsize of : 16 [0m
+[40;34m    collect time: : 0.000037 s [0m
+[40;34m    algorithm time: 0.001516 s [0m
+[40;34m    gimple stmt count : : 11 [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m

@@ -1,0 +1,360 @@
+84 inline "Symbol to SSA rewrite" "handle_error" 3
+84 inline "unused VAR_DECLs removed" "decompressErrCheckSingle" 9
+84 inline "Symbol to SSA rewrite" "decompressErrCheckSingle" 1
+84 inline "Symbol to SSA rewrite" "decompressErrCheckSingle" 3
+84 inline "unused VAR_DECLs removed" "syncSetTerminateFlag" 17
+84 inline "Symbol to SSA rewrite" "syncSetTerminateFlag" 1
+84 inline "Symbol to SSA rewrite" "syncSetTerminateFlag" 1
+84 inline "unused VAR_DECLs removed" "cleanupAndQuit" 7
+84 inline "Symbol to SSA rewrite" "cleanupAndQuit" 1
+84 inline "Symbol to SSA rewrite" "cleanupAndQuit" 1
+84 inline "Symbol to SSA rewrite" "producerDecompressCheckInterrupt" 1
+84 inline "Symbol to SSA rewrite" "producerDecompressCheckInterrupt" 1
+84 inline "Symbol to SSA rewrite" "outputBufferAdd" 1
+84 inline "Symbol to SSA rewrite" "outputBufferAdd" 1
+84 inline "unused VAR_DECLs removed" "testBZ2ErrorHandling" 7
+84 inline "Symbol to SSA rewrite" "testBZ2ErrorHandling" 1
+84 inline "Symbol to SSA rewrite" "usage" 1
+84 inline "Symbol to SSA rewrite" "signalHandlerProc" 1
+84 inline "unused VAR_DECLs removed" "terminatorThreadProc" 9
+84 inline "Symbol to SSA rewrite" "terminatorThreadProc" 1
+84 inline "Symbol to SSA rewrite" "safe_cond_broadcast" 1
+84 inline "Symbol to SSA rewrite" "add" 1
+84 inline "Symbol to SSA rewrite" "safe_mutex_unlock" 1
+84 inline "Symbol to SSA rewrite" "safe_mutex_lock" 1
+84 inline "Symbol to SSA rewrite" "syncSetProducerDone" 1
+84 inline "unused VAR_DECLs removed" "consumer" 2
+84 inline "Symbol to SSA rewrite" "consumer" 1
+84 inline "Symbol to SSA rewrite" "consumer" 2
+84 inline "unused VAR_DECLs removed" "fileWriter" 14
+84 inline "Symbol to SSA rewrite" "fileWriter" 2
+84 inline "unused VAR_DECLs removed" "consumer_decompress" 19
+84 inline "Symbol to SSA rewrite" "consumer_decompress" 1
+84 inline "Symbol to SSA rewrite" "consumer_decompress" 4
+84 inline "unused VAR_DECLs removed" "main" 41
+84 inline "Symbol to SSA rewrite" "main" 2
+84 inline "Symbol to SSA rewrite" "main" 31
+84 inline "unused VAR_DECLs removed" "memstr" 90
+84 inline "Symbol to SSA rewrite" "memstr" 1
+84 inline "Symbol to SSA rewrite" "memstr" 1
+84 inline "unused VAR_DECLs removed" "ends_with_icase" 3
+84 inline "Symbol to SSA rewrite" "ends_with_icase" 1
+84 inline "Symbol to SSA rewrite" "_GLOBAL__sub_I__Z20safe_cond_timed_waitP14pthread_cond_tP15pthread_mutex_tiPKc" 1
+84 inline "unused VAR_DECLs removed" "dispose" 2
+84 inline "Symbol to SSA rewrite" "dispose" 1
+84 inline "Symbol to SSA rewrite" "appendOutBuffData" 2
+84 inline "unused VAR_DECLs removed" "locateHeaderPrefixInBuff" 6
+84 inline "Symbol to SSA rewrite" "locateHeaderPrefixInBuff" 1
+84 inline "Symbol to SSA rewrite" "locateHeaderPrefixInBuff" 1
+84 inline "unused VAR_DECLs removed" "searchNextHeaderInBuff" 1
+84 inline "Symbol to SSA rewrite" "searchNextHeaderInBuff" 1
+84 inline "Symbol to SSA rewrite" "searchNextHeader" 2
+84 inline "unused VAR_DECLs removed" "getNextStream" 2
+84 inline "Symbol to SSA rewrite" "getNextStream" 1
+84 inline "Symbol to SSA rewrite" "getNextStream" 1
+84 inline "unused VAR_DECLs removed" "compare" 9
+84 inline "Symbol to SSA rewrite" "compare" 1
+84 inline "Symbol to SSA rewrite" "assign" 4
+84 inline "unused VAR_DECLs removed" "__find_if" 28
+84 inline "Symbol to SSA rewrite" "__find_if" 2
+90 pta "Symbol to SSA rewrite" "(nofn)" 48
+106 fre "SCC iterations == 2" "__find_if" 3
+106 fre "SCC iterations == 3" "__find_if" 2
+140 sink "Sunk statements" "__find_if" 3
+147 loopinit "Incremental SSA update" "__find_if" 1
+184 dom "Copies propagated" "__find_if" 6
+190 cddce "Statements deleted" "__find_if" 1
+266 combine "two-insn combine" "__find_if" 2
+106 fre "SCC iterations == 2" "__find_if" 3
+106 fre "SCC iterations == 3" "__find_if" 2
+140 sink "Sunk statements" "__find_if" 3
+147 loopinit "Incremental SSA update" "__find_if" 1
+184 dom "Copies propagated" "__find_if" 6
+190 cddce "Statements deleted" "__find_if" 1
+266 combine "two-insn combine" "__find_if" 2
+106 fre "SCC iterations == 2" "__find_if" 3
+106 fre "SCC iterations == 3" "__find_if" 2
+120 ch "Incremental SSA update" "__find_if" 1
+124 dom "Copies propagated" "__find_if" 5
+124 dom "Redundant expressions eliminated" "__find_if" 2
+129 dce "Statements deleted" "__find_if" 2
+140 sink "Sunk statements" "__find_if" 6
+147 loopinit "Incremental SSA update" "__find_if" 1
+184 dom "Copies propagated" "__find_if" 7
+190 cddce "Statements deleted" "__find_if" 1
+266 combine "two-insn combine" "__find_if" 1
+97 ccp "Copies propagated" "memstr" 2
+97 ccp "Statements deleted" "memstr" 2
+106 fre "SCC iterations == 2" "memstr" 3
+106 fre "SCC iterations == 3" "memstr" 4
+111 dce "Statements deleted" "memstr" 1
+124 dom "Jumps threaded" "memstr" 4
+147 loopinit "Incremental SSA update" "memstr" 1
+190 cddce "Statements deleted" "memstr" 1
+266 combine "two-insn combine" "memstr" 6
+106 fre "SCC iterations == 2" "add" 4
+124 dom "Incremental SSA update" "add" 1
+233 optimized "unused VAR_DECLs removed" "add" 3
+266 combine "two-insn combine" "add" 1
+106 fre "SCC iterations == 2" "saveError" 2
+266 combine "two-insn combine" "saveError" 1
+106 fre "SCC iterations == 2" "printErrnoMsg" 1
+106 fre "SCC iterations == 2" "getInstance" 2
+124 dom "Jumps threaded" "getInstance" 2
+184 dom "Constants propagated" "getInstance" 1
+106 fre "SCC iterations == 2" "copy" 1
+111 dce "Statements deleted" "copy" 1
+124 dom "Incremental SSA update" "copy" 1
+106 fre "SCC iterations == 2" "__base_dtor " 1
+233 optimized "unused VAR_DECLs removed" "__base_dtor " 1
+97 ccp "Copies propagated" "assign" 32
+97 ccp "Statements deleted" "assign" 17
+97 ccp "Constants propagated" "assign" 1
+106 fre "SCC iterations == 2" "assign" 12
+106 fre "SCC iterations == 3" "assign" 1
+106 fre "Eliminated" "assign" 19
+111 dce "PHI nodes deleted" "assign" 1
+111 dce "Statements deleted" "assign" 4
+124 dom "Copies propagated" "assign" 1
+124 dom "Redundant expressions eliminated" "assign" 2
+129 dce "Statements deleted" "assign" 1
+140 sink "Sunk statements" "assign" 1
+147 loopinit "Incremental SSA update" "assign" 1
+184 dom "Copies propagated" "assign" 25
+184 dom "Redundant expressions eliminated" "assign" 1
+190 cddce "Statements deleted" "assign" 2
+266 combine "two-insn combine" "assign" 8
+106 fre "SCC iterations == 2" "compare" 5
+106 fre "SCC iterations == 3" "compare" 1
+106 fre "Eliminated" "compare" 2
+111 dce "PHI nodes deleted" "compare" 1
+122 sra "Symbol to SSA rewrite" "compare" 1
+124 dom "Copies propagated" "compare" 3
+124 dom "Jumps threaded" "compare" 3
+129 dce "Statements deleted" "compare" 3
+233 optimized "unused VAR_DECLs removed" "compare" 12
+266 combine "two-insn combine" "compare" 1
+97 ccp "Copies propagated" "locateHeaderPrefixInBuff" 1
+97 ccp "Statements deleted" "locateHeaderPrefixInBuff" 2
+101 phiprop "Symbol to SSA rewrite" "locateHeaderPrefixInBuff" 1
+106 fre "SCC iterations == 2" "locateHeaderPrefixInBuff" 3
+106 fre "SCC iterations == 3" "locateHeaderPrefixInBuff" 4
+106 fre "Eliminated" "locateHeaderPrefixInBuff" 2
+111 dce "Statements deleted" "locateHeaderPrefixInBuff" 5
+124 dom "Incremental SSA update" "locateHeaderPrefixInBuff" 1
+124 dom "Copies propagated" "locateHeaderPrefixInBuff" 2
+132 ccp "Statements deleted" "locateHeaderPrefixInBuff" 2
+140 sink "Sunk statements" "locateHeaderPrefixInBuff" 2
+144 dce "Statements deleted" "locateHeaderPrefixInBuff" 1
+167 cunroll "Incremental SSA update" "locateHeaderPrefixInBuff" 2
+184 dom "Copies propagated" "locateHeaderPrefixInBuff" 9
+184 dom "Constants propagated" "locateHeaderPrefixInBuff" 1
+190 cddce "Statements deleted" "locateHeaderPrefixInBuff" 3
+266 combine "two-insn combine" "locateHeaderPrefixInBuff" 3
+106 fre "SCC iterations == 2" "searchNextHeaderInBuff" 4
+106 fre "SCC iterations == 3" "searchNextHeaderInBuff" 1
+233 optimized "unused VAR_DECLs removed" "searchNextHeaderInBuff" 11
+106 fre "SCC iterations == 2" "dispose" 2
+106 fre "SCC iterations == 2" "__base_dtor " 2
+266 combine "two-insn combine" "__base_dtor " 1
+106 fre "SCC iterations == 2" "ends_with_icase" 1
+106 fre "SCC iterations == 3" "ends_with_icase" 2
+120 ch "Incremental SSA update" "ends_with_icase" 1
+124 dom "Constants propagated" "ends_with_icase" 1
+184 dom "Copies propagated" "ends_with_icase" 3
+184 dom "Redundant expressions eliminated" "ends_with_icase" 2
+190 cddce "Statements deleted" "ends_with_icase" 4
+266 combine "two-insn combine" "ends_with_icase" 1
+106 fre "SCC iterations == 2" "do_close" 1
+233 optimized "unused VAR_DECLs removed" "do_close" 1
+106 fre "SCC iterations == 2" "do_remove" 1
+106 fre "SCC iterations == 2" "safe_open_output" 1
+106 fre "SCC iterations == 2" "do_read" 5
+106 fre "SCC iterations == 3" "do_read" 1
+111 dce "Statements deleted" "do_read" 1
+120 ch "Incremental SSA update" "do_read" 1
+124 dom "Jumps threaded" "do_read" 1
+147 loopinit "Incremental SSA update" "do_read" 1
+184 dom "Copies propagated" "do_read" 1
+106 fre "SCC iterations == 2" "testBZ2ErrorHandling" 2
+124 dom "Incremental SSA update" "testBZ2ErrorHandling" 1
+233 optimized "unused VAR_DECLs removed" "testBZ2ErrorHandling" 1
+266 combine "two-insn combine" "testBZ2ErrorHandling" 1
+97 ccp "Copies propagated" "usage" 1
+97 ccp "Statements deleted" "usage" 2
+106 fre "SCC iterations == 2" "usage" 2
+266 combine "two-insn combine" "usage" 2
+106 fre "SCC iterations == 2" "writeFileMetaData" 2
+233 optimized "unused VAR_DECLs removed" "writeFileMetaData" 1
+106 fre "SCC iterations == 2" "safe_fopen_output" 2
+106 fre "SCC iterations == 2" "do_write" 5
+106 fre "SCC iterations == 3" "do_write" 1
+120 ch "Incremental SSA update" "do_write" 1
+124 dom "Jumps threaded" "do_write" 1
+147 loopinit "Incremental SSA update" "do_write" 1
+184 dom "Copies propagated" "do_write" 1
+106 fre "SCC iterations == 2" "cleanupAndQuit" 6
+124 dom "Incremental SSA update" "cleanupAndQuit" 1
+233 optimized "unused VAR_DECLs removed" "cleanupAndQuit" 1
+106 fre "SCC iterations == 2" "syncSetTerminateFlag" 1
+106 fre "SCC iterations == 2" "handle_error" 1
+197 dce "Statements deleted" "handle_error" 1
+129 dce "Statements deleted" "safe_cond_timed_wait" 2
+132 ccp "Statements deleted" "safe_cond_timed_wait" 1
+144 dce "Statements deleted" "safe_cond_timed_wait" 1
+266 combine "two-insn combine" "safe_cond_timed_wait" 7
+97 ccp "Copies propagated" "decompressErrCheckSingle" 2
+97 ccp "Statements deleted" "decompressErrCheckSingle" 2
+106 fre "SCC iterations == 2" "decompressErrCheckSingle" 9
+106 fre "SCC iterations == 3" "decompressErrCheckSingle" 1
+124 dom "Jumps threaded" "decompressErrCheckSingle" 5
+147 loopinit "Incremental SSA update" "decompressErrCheckSingle" 1
+184 dom "Copies propagated" "decompressErrCheckSingle" 4
+266 combine "two-insn combine" "decompressErrCheckSingle" 18
+97 ccp "Copies propagated" "appendOutBuffData" 2
+97 ccp "Statements deleted" "appendOutBuffData" 3
+106 fre "SCC iterations == 2" "appendOutBuffData" 7
+111 dce "Statements deleted" "appendOutBuffData" 4
+124 dom "Incremental SSA update" "appendOutBuffData" 1
+124 dom "Jumps threaded" "appendOutBuffData" 3
+233 optimized "unused VAR_DECLs removed" "appendOutBuffData" 2
+266 combine "two-insn combine" "appendOutBuffData" 7
+97 ccp "Statements deleted" "searchNextHeader" 2
+106 fre "SCC iterations == 2" "searchNextHeader" 6
+106 fre "SCC iterations == 3" "searchNextHeader" 1
+111 dce "PHI nodes deleted" "searchNextHeader" 2
+124 dom "Incremental SSA update" "searchNextHeader" 1
+124 dom "Jumps threaded" "searchNextHeader" 4
+140 sink "Sunk statements" "searchNextHeader" 1
+233 optimized "unused VAR_DECLs removed" "searchNextHeader" 1
+266 combine "two-insn combine" "searchNextHeader" 6
+97 ccp "Statements deleted" "getNextStream" 3
+97 ccp "Constants propagated" "getNextStream" 2
+106 fre "SCC iterations == 2" "getNextStream" 17
+106 fre "Eliminated" "getNextStream" 8
+111 dce "PHI nodes deleted" "getNextStream" 5
+111 dce "Statements deleted" "getNextStream" 1
+122 sra "Symbol to SSA rewrite" "getNextStream" 1
+124 dom "Copies propagated" "getNextStream" 1
+124 dom "Jumps threaded" "getNextStream" 2
+129 dce "Statements deleted" "getNextStream" 9
+233 optimized "unused VAR_DECLs removed" "getNextStream" 2
+266 combine "two-insn combine" "getNextStream" 5
+101 phiprop "Symbol to SSA rewrite" "outputBufferAdd" 1
+106 fre "SCC iterations == 2" "outputBufferAdd" 4
+106 fre "SCC iterations == 3" "outputBufferAdd" 1
+124 dom "Incremental SSA update" "outputBufferAdd" 1
+129 dce "Statements deleted" "outputBufferAdd" 1
+147 loopinit "Incremental SSA update" "outputBufferAdd" 1
+184 dom "Copies propagated" "outputBufferAdd" 6
+190 cddce "Statements deleted" "outputBufferAdd" 1
+233 optimized "unused VAR_DECLs removed" "outputBufferAdd" 7
+266 combine "two-insn combine" "outputBufferAdd" 6
+97 ccp "Statements deleted" "signalHandlerProc" 1
+97 ccp "Constants propagated" "signalHandlerProc" 1
+106 fre "SCC iterations == 2" "signalHandlerProc" 1
+106 fre "SCC iterations == 3" "terminatorThreadProc" 1
+120 ch "Incremental SSA update" "terminatorThreadProc" 1
+124 dom "Jumps threaded" "terminatorThreadProc" 4
+124 dom "Incremental SSA update" "safe_cond_broadcast" 1
+97 ccp "Copies propagated" "producerDecompressCheckInterrupt" 1
+97 ccp "Statements deleted" "producerDecompressCheckInterrupt" 2
+106 fre "SCC iterations == 2" "producerDecompressCheckInterrupt" 3
+266 combine "two-insn combine" "producerDecompressCheckInterrupt" 4
+233 optimized "unused VAR_DECLs removed" "syncSetProducerDone" 2
+97 ccp "Copies propagated" "consumer" 11
+97 ccp "Statements deleted" "consumer" 13
+97 ccp "Constants propagated" "consumer" 2
+106 fre "SCC iterations == 2" "consumer" 4
+106 fre "SCC iterations == 3" "consumer" 1
+106 fre "Eliminated" "consumer" 1
+124 dom "Jumps threaded" "consumer" 4
+129 dce "PHI nodes deleted" "consumer" 1
+129 dce "Statements deleted" "consumer" 1
+132 ccp "Statements folded" "consumer" 1
+132 ccp "Constants propagated" "consumer" 3
+132 ccp "Statements deleted" "consumer" 2
+140 sink "Sunk statements" "consumer" 5
+147 loopinit "Incremental SSA update" "consumer" 1
+184 dom "Copies propagated" "consumer" 12
+184 dom "Redundant expressions eliminated" "consumer" 1
+184 dom "Constants propagated" "consumer" 1
+190 cddce "Statements deleted" "consumer" 1
+266 combine "two-insn combine" "consumer" 2
+97 ccp "Copies propagated" "fileWriter" 1
+97 ccp "Statements deleted" "fileWriter" 2
+106 fre "SCC iterations == 2" "fileWriter" 9
+106 fre "SCC iterations == 3" "fileWriter" 4
+124 dom "Incremental SSA update" "fileWriter" 1
+124 dom "Jumps threaded" "fileWriter" 2
+147 loopinit "Incremental SSA update" "fileWriter" 1
+184 dom "Copies propagated" "fileWriter" 14
+233 optimized "unused VAR_DECLs removed" "fileWriter" 3
+266 combine "two-insn combine" "fileWriter" 6
+97 ccp "Copies propagated" "consumer_decompress" 25
+97 ccp "Statements deleted" "consumer_decompress" 20
+97 ccp "Constants propagated" "consumer_decompress" 2
+106 fre "SCC iterations == 2" "consumer_decompress" 9
+106 fre "SCC iterations == 4" "consumer_decompress" 2
+106 fre "Eliminated" "consumer_decompress" 3
+115 copyprop "Copies propagated" "consumer_decompress" 2
+115 copyprop "Statements deleted" "consumer_decompress" 2
+120 ch "Incremental SSA update" "consumer_decompress" 1
+124 dom "Incremental SSA update" "consumer_decompress" 1
+124 dom "Copies propagated" "consumer_decompress" 3
+124 dom "Redundant expressions eliminated" "consumer_decompress" 3
+124 dom "Jumps threaded" "consumer_decompress" 23
+124 dom "Constants propagated" "consumer_decompress" 2
+129 dce "PHI nodes deleted" "consumer_decompress" 1
+129 dce "Statements deleted" "consumer_decompress" 11
+132 ccp "Statements deleted" "consumer_decompress" 1
+140 sink "Sunk statements" "consumer_decompress" 6
+144 dce "Statements deleted" "consumer_decompress" 3
+147 loopinit "Incremental SSA update" "consumer_decompress" 1
+153 copyprop "Copies propagated" "consumer_decompress" 1
+153 copyprop "Statements deleted" "consumer_decompress" 1
+184 dom "Copies propagated" "consumer_decompress" 42
+184 dom "Redundant expressions eliminated" "consumer_decompress" 3
+184 dom "Jumps threaded" "consumer_decompress" 3
+184 dom "Constants propagated" "consumer_decompress" 7
+190 cddce "Statements deleted" "consumer_decompress" 10
+233 optimized "unused VAR_DECLs removed" "consumer_decompress" 1
+266 combine "two-insn combine" "consumer_decompress" 24
+124 dom "Incremental SSA update" "_GLOBAL__sub_I__Z20safe_cond_timed_waitP14pthread_cond_tP15pthread_mutex_tiPKc" 1
+184 dom "Incremental SSA update" "_GLOBAL__sub_I__Z20safe_cond_timed_waitP14pthread_cond_tP15pthread_mutex_tiPKc" 1
+233 optimized "unused VAR_DECLs removed" "_GLOBAL__sub_I__Z20safe_cond_timed_waitP14pthread_cond_tP15pthread_mutex_tiPKc" 9
+97 ccp "Copies propagated" "main" 104
+97 ccp "Statements deleted" "main" 66
+97 ccp "Constants propagated" "main" 15
+106 fre "SCC iterations == 2" "main" 85
+106 fre "SCC iterations == 3" "main" 41
+106 fre "SCC iterations == 4" "main" 2
+106 fre "Eliminated" "main" 10
+111 dce "PHI nodes deleted" "main" 3
+111 dce "Statements deleted" "main" 2
+115 copyprop "Copies propagated" "main" 3
+115 copyprop "Statements deleted" "main" 5
+115 copyprop "Constants propagated" "main" 2
+120 ch "Incremental SSA update" "main" 1
+122 sra "Totally-scalarized aggregates" "main" 6
+122 sra "Scalarized aggregates" "main" 8
+122 sra "Modified expressions" "main" 15
+122 sra "Separate LHS and RHS handling" "main" 13
+122 sra "Subtree copy stmts" "main" 28
+122 sra "Deleted stmts" "main" 4
+122 sra "Scalar replacements created" "main" 11
+124 dom "Copies propagated" "main" 9
+124 dom "Redundant expressions eliminated" "main" 13
+124 dom "Jumps threaded" "main" 68
+124 dom "Constants propagated" "main" 32
+129 dce "Statements deleted" "main" 58
+132 ccp "Statements deleted" "main" 1
+140 sink "Sunk statements" "main" 13
+144 dce "Statements deleted" "main" 1
+147 loopinit "Incremental SSA update" "main" 1
+184 dom "Copies propagated" "main" 87
+184 dom "Redundant expressions eliminated" "main" 12
+184 dom "Jumps threaded" "main" 15
+184 dom "Constants propagated" "main" 2
+190 cddce "Statements deleted" "main" 12
+266 combine "two-insn combine" "main" 104

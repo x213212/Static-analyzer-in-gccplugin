@@ -1,0 +1,32 @@
+CWE401_Memory_Leak__new_char_21.cpp: In function ‘void CWE401_Memory_Leak__new_char_21::goodB2G1()’:
+CWE401_Memory_Leak__new_char_21.cpp:85:11: warning: dereference of possibly-NULL ‘operator new(1)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   85 |     *data = 'A';
+      |     ~~~~~~^~~~~
+  ‘void CWE401_Memory_Leak__new_char_21::goodB2G1()’: events 1-2
+    |
+    |   83 |     data = new char;
+    |      |                ^~~~
+    |      |                |
+    |      |                (1) this call could return NULL
+    |   84 |     /* Initialize and make use of data */
+    |   85 |     *data = 'A';
+    |      |     ~~~~~~~~~~~ 
+    |      |           |
+    |      |           (2) ‘operator new(1)’ could be NULL: unchecked value from (1)
+    |
+CWE401_Memory_Leak__new_char_21.cpp: In function ‘void CWE401_Memory_Leak__new_char_21::goodB2G2()’:
+CWE401_Memory_Leak__new_char_21.cpp:108:11: warning: dereference of possibly-NULL ‘operator new(1)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  108 |     *data = 'A';
+      |     ~~~~~~^~~~~
+  ‘void CWE401_Memory_Leak__new_char_21::goodB2G2()’: events 1-2
+    |
+    |  106 |     data = new char;
+    |      |                ^~~~
+    |      |                |
+    |      |                (1) this call could return NULL
+    |  107 |     /* Initialize and make use of data */
+    |  108 |     *data = 'A';
+    |      |     ~~~~~~~~~~~ 
+    |      |           |
+    |      |           (2) ‘operator new(1)’ could be NULL: unchecked value from (1)
+    |

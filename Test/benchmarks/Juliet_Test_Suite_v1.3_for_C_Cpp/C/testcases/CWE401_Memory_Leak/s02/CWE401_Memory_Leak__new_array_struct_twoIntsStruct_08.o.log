@@ -1,0 +1,80 @@
+CWE401_Memory_Leak__new_array_struct_twoIntsStruct_08.cpp: In function ‘void CWE401_Memory_Leak__new_array_struct_twoIntsStruct_08::goodB2G1()’:
+CWE401_Memory_Leak__new_array_struct_twoIntsStruct_08.cpp:76:24: warning: dereference of possibly-NULL ‘operator new [](800)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   76 |         data[0].intOne = 0;
+      |         ~~~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_array_struct_twoIntsStruct_08::goodB2G1()’: events 1-4
+    |
+    |   71 |     if(staticReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   74 |         data = new struct _twoIntsStruct[100];
+    |      |                                             ~
+    |      |                                             |
+    |      |                                             (2) ...to here
+    |      |                                             (3) this call could return NULL
+    |   75 |         /* Initialize and make use of data */
+    |   76 |         data[0].intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~~~
+    |      |                        |
+    |      |                        (4) ‘operator new [](800)’ could be NULL: unchecked value from (3)
+    |
+CWE401_Memory_Leak__new_array_struct_twoIntsStruct_08.cpp:90:1: warning: leak of ‘data’ [CWE-401] [-Wanalyzer-malloc-leak]
+   90 | }
+      | ^
+  ‘void CWE401_Memory_Leak__new_array_struct_twoIntsStruct_08::goodB2G1()’: events 1-7
+    |
+    |   71 |     if(staticReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   74 |         data = new struct _twoIntsStruct[100];
+    |      |                                             ~
+    |      |                                             |
+    |      |                                             (2) ...to here
+    |      |                                             (3) allocated here
+    |   75 |         /* Initialize and make use of data */
+    |   76 |         data[0].intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~~~
+    |      |                        |
+    |      |                        (4) assuming ‘operator new [](800)’ is non-NULL
+    |......
+    |   80 |     if(staticReturnsFalse())
+    |      |     ~~
+    |      |     |
+    |      |     (5) following ‘true’ branch...
+    |......
+    |   83 |         printLine("Benign, fixed string");
+    |      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                  |
+    |      |                  (6) ...to here
+    |......
+    |   90 | }
+    |      | ~    
+    |      | |
+    |      | (7) ‘data’ leaks here; was allocated at (3)
+    |
+CWE401_Memory_Leak__new_array_struct_twoIntsStruct_08.cpp: In function ‘void CWE401_Memory_Leak__new_array_struct_twoIntsStruct_08::goodB2G2()’:
+CWE401_Memory_Leak__new_array_struct_twoIntsStruct_08.cpp:102:24: warning: dereference of possibly-NULL ‘operator new [](800)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  102 |         data[0].intOne = 0;
+      |         ~~~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_array_struct_twoIntsStruct_08::goodB2G2()’: events 1-4
+    |
+    |   97 |     if(staticReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |  100 |         data = new struct _twoIntsStruct[100];
+    |      |                                             ~
+    |      |                                             |
+    |      |                                             (2) ...to here
+    |      |                                             (3) this call could return NULL
+    |  101 |         /* Initialize and make use of data */
+    |  102 |         data[0].intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~~~
+    |      |                        |
+    |      |                        (4) ‘operator new [](800)’ could be NULL: unchecked value from (3)
+    |

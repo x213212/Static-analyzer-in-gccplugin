@@ -1,0 +1,22 @@
+CWE401_Memory_Leak__new_array_twointsStruct_17.cpp: In function ‘void CWE401_Memory_Leak__new_array_twointsStruct_17::goodB2G()’:
+CWE401_Memory_Leak__new_array_twointsStruct_17.cpp:64:24: warning: dereference of possibly-NULL ‘operator new [](800)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   64 |         data[0].intOne = 0;
+      |         ~~~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_array_twointsStruct_17::goodB2G()’: events 1-4
+    |
+    |   59 |     for(i = 0; i < 1; i++)
+    |      |                ~~^~~
+    |      |                  |
+    |      |                  (1) following ‘true’ branch (when ‘i <= 0’)...
+    |......
+    |   62 |         data = new twoIntsStruct[100];
+    |      |                                     ~
+    |      |                                     |
+    |      |                                     (2) ...to here
+    |      |                                     (3) this call could return NULL
+    |   63 |         /* Initialize and make use of data */
+    |   64 |         data[0].intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~~~
+    |      |                        |
+    |      |                        (4) ‘operator new [](800)’ could be NULL: unchecked value from (3)
+    |

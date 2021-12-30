@@ -1,0 +1,138 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+=======node_fun: =========
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 1 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:bad========= [0m
+[40;46m =======add node_fun stack:bad========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path bad  function_call count: 0 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre_check_funciton:bad========= [0m
+[40;42m =======start_check_funciton:bad========= [0m
+[40;33m =======POP node_fun stack:bad========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+ <function_decl 0x7f8e4f29ca00 main
+    type <function_type 0x7f8e4f29e3f0
+        type <integer_type 0x7f8e4fcff5e8 int public type_6 SI
+            size <integer_cst 0x7f8e4fd02108 constant 32>
+            unit size <integer_cst 0x7f8e4fd02120 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7f8e4fcff5e8 precision 32 min <integer_cst 0x7f8e4fd020c0 -2147483648> max <integer_cst 0x7f8e4fd020d8 2147483647>
+            pointer_to_this <pointer_type 0x7f8e4fd07a80> reference_to_this <reference_type 0x7f8e4f8017e0>>
+        QI
+        size <integer_cst 0x7f8e4fce0fa8 constant 8>
+        unit size <integer_cst 0x7f8e4fce0fc0 constant 1>
+        align 8 symtab 0 alias set -1 canonical type 0x7f8e4f29e3f0
+        arg-types <tree_list 0x7f8e4f298aa0 value <integer_type 0x7f8e4fcff5e8 int>
+            chain <tree_list 0x7f8e4f298ac8 value <pointer_type 0x7f8e4f7eaf18>
+                chain <tree_list 0x7f8e4fcf4d20 value <void_type 0x7f8e4fcfff18 void>>>>>
+    public static decl_5 QI file CWE415_Double_Free__new_delete_struct_02.cpp line 156 col 5 align 8 context <translation_unit_decl 0x7f8e4fcee168 CWE415_Double_Free__new_delete_struct_02.cpp> initial <block 0x7f8e4f676d80>
+    result <result_decl 0x7f8e4f632f78 D.9909 type <integer_type 0x7f8e4fcff5e8 int>
+        ignored SI file CWE415_Double_Free__new_delete_struct_02.cpp line 156 col 33 size <integer_cst 0x7f8e4fd02108 32> unit size <integer_cst 0x7f8e4fd02120 4>
+        align 32 context <function_decl 0x7f8e4f29ca00 main>>
+    full-name "int main(int, char**)"
+    pending-inline-info 0x7f8e4f28bab0
+    arguments <parm_decl 0x7f8e4f299c00 argc type <integer_type 0x7f8e4fcff5e8 int>
+        SI file CWE415_Double_Free__new_delete_struct_02.cpp line 156 col 14 size <integer_cst 0x7f8e4fd02108 32> unit size <integer_cst 0x7f8e4fd02120 4>
+        align 32 context <function_decl 0x7f8e4f29ca00 main>
+        arg-type <integer_type 0x7f8e4fcff5e8 int>
+        chain <parm_decl 0x7f8e4f299c80 argv type <pointer_type 0x7f8e4f7eaf18>
+            unsigned decl_1 DI file CWE415_Double_Free__new_delete_struct_02.cpp line 156 col 32
+            size <integer_cst 0x7f8e4fce0eb8 constant 64>
+            unit size <integer_cst 0x7f8e4fce0ed0 constant 8>
+            align 64 context <function_decl 0x7f8e4f29ca00 main>
+            arg-type <pointer_type 0x7f8e4f7eaf18>>>
+    struct-function 0x7f8e4f290370 chain <function_decl 0x7f8e4f293c00 __wcsnrtombs_chk_warn>>
+
+======================================================================
+ <addr_expr 0x7f8e4f29d7c0
+    type <pointer_type 0x7f8e4f86bb28
+        type <function_type 0x7f8e4fd0e540 type <void_type 0x7f8e4fcfff18 void>
+            QI
+            size <integer_cst 0x7f8e4fce0fa8 constant 8>
+            unit size <integer_cst 0x7f8e4fce0fc0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f8e4fd0e540
+            arg-types <tree_list 0x7f8e4fcf4d20 value <void_type 0x7f8e4fcfff18 void>>
+            pointer_to_this <pointer_type 0x7f8e4f86bb28>>
+        unsigned DI
+        size <integer_cst 0x7f8e4fce0eb8 constant 64>
+        unit size <integer_cst 0x7f8e4fce0ed0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7f8e4f86bb28>
+    constant
+    arg 0 <function_decl 0x7f8e4f293f00 bad type <function_type 0x7f8e4fd0e540>
+        addressable used public static decl_5 QI file CWE415_Double_Free__new_delete_struct_02.cpp line 27 col 6 align 8 context <namespace_decl 0x7f8e4f63c558 CWE415_Double_Free__new_delete_struct_02> initial <block 0x7f8e4f676d20>
+        result <result_decl 0x7f8e4f632f00 D.9871 type <void_type 0x7f8e4fcfff18 void>
+            ignored VOID file CWE415_Double_Free__new_delete_struct_02.cpp line 27 col 10
+            align 8 context <function_decl 0x7f8e4f293f00 bad>>
+        full-name "void CWE415_Double_Free__new_delete_struct_02::bad()"
+        pending-inline-info 0x7f8e4f28b990
+        struct-function 0x7f8e4f2902c0>>
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+CWE415_Double_Free__new_delete_struct_02.cpp: In function ‘int main(int, char**)’:
+CWE415_Double_Free__new_delete_struct_02.cpp:167:8: warning: use location
+     bad();
+     ~~~^~
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======Mapping node_fun:main=========
+<bb 2> [100.00%]:
+_1 = time (0B);
+_2 = (unsigned int) _1;
+srand (_2);
+printLine ("Calling bad()...");
+CWE415_Double_Free__new_delete_struct_02::bad ();
+printLine ("Finished bad()");
+return 0;
+
+=======is loop:0=========
+=======Mapping node_fun:bad=========
+<bb 2> [100.00%]:
+_3 = operator new (8);
+operator delete (_3, 8);
+operator delete (_3, 8);
+return;
+
+=======is loop:0=========
+time: 0.002351 s

@@ -1,0 +1,112 @@
+CWE401_Memory_Leak__new_array_twointsStruct_11.cpp: In function ‘void CWE401_Memory_Leak__new_array_twointsStruct_11::goodB2G1()’:
+CWE401_Memory_Leak__new_array_twointsStruct_11.cpp:62:24: warning: dereference of possibly-NULL ‘operator new [](800)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   62 |         data[0].intOne = 0;
+      |         ~~~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_array_twointsStruct_11::goodB2G1()’: events 1-4
+    |
+    |   57 |     if(globalReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   60 |         data = new twoIntsStruct[100];
+    |      |                                     ~
+    |      |                                     |
+    |      |                                     (2) ...to here
+    |      |                                     (3) this call could return NULL
+    |   61 |         /* Initialize and make use of data */
+    |   62 |         data[0].intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~~~
+    |      |                        |
+    |      |                        (4) ‘operator new [](800)’ could be NULL: unchecked value from (3)
+    |
+CWE401_Memory_Leak__new_array_twointsStruct_11.cpp:76:1: warning: leak of ‘data’ [CWE-401] [-Wanalyzer-malloc-leak]
+   76 | }
+      | ^
+  ‘void CWE401_Memory_Leak__new_array_twointsStruct_11::goodB2G1()’: events 1-7
+    |
+    |   57 |     if(globalReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   60 |         data = new twoIntsStruct[100];
+    |      |                                     ~
+    |      |                                     |
+    |      |                                     (2) ...to here
+    |      |                                     (3) allocated here
+    |   61 |         /* Initialize and make use of data */
+    |   62 |         data[0].intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~~~
+    |      |                        |
+    |      |                        (4) assuming ‘operator new [](800)’ is non-NULL
+    |......
+    |   66 |     if(globalReturnsFalse())
+    |      |     ~~
+    |      |     |
+    |      |     (5) following ‘true’ branch...
+    |......
+    |   69 |         printLine("Benign, fixed string");
+    |      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                  |
+    |      |                  (6) ...to here
+    |......
+    |   76 | }
+    |      | ~    
+    |      | |
+    |      | (7) ‘data’ leaks here; was allocated at (3)
+    |
+CWE401_Memory_Leak__new_array_twointsStruct_11.cpp: In function ‘void CWE401_Memory_Leak__new_array_twointsStruct_11::goodB2G2()’:
+CWE401_Memory_Leak__new_array_twointsStruct_11.cpp:88:24: warning: dereference of possibly-NULL ‘operator new [](800)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   88 |         data[0].intOne = 0;
+      |         ~~~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_array_twointsStruct_11::goodB2G2()’: events 1-4
+    |
+    |   83 |     if(globalReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   86 |         data = new twoIntsStruct[100];
+    |      |                                     ~
+    |      |                                     |
+    |      |                                     (2) ...to here
+    |      |                                     (3) this call could return NULL
+    |   87 |         /* Initialize and make use of data */
+    |   88 |         data[0].intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~~~
+    |      |                        |
+    |      |                        (4) ‘operator new [](800)’ could be NULL: unchecked value from (3)
+    |
+CWE401_Memory_Leak__new_array_twointsStruct_11.cpp:97:1: warning: leak of ‘data’ [CWE-401] [-Wanalyzer-malloc-leak]
+   97 | }
+      | ^
+  ‘void CWE401_Memory_Leak__new_array_twointsStruct_11::goodB2G2()’: events 1-7
+    |
+    |   83 |     if(globalReturnsTrue())
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   86 |         data = new twoIntsStruct[100];
+    |      |                                     ~
+    |      |                                     |
+    |      |                                     (2) ...to here
+    |      |                                     (3) allocated here
+    |   87 |         /* Initialize and make use of data */
+    |   88 |         data[0].intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~~~
+    |      |                        |
+    |      |                        (4) assuming ‘operator new [](800)’ is non-NULL
+    |......
+    |   92 |     if(globalReturnsTrue())
+    |      |     ~~
+    |      |     |
+    |      |     (5) following ‘false’ branch...
+    |......
+    |   97 | }
+    |      | ~    
+    |      | |
+    |      | (6) ...to here
+    |      | (7) ‘data’ leaks here; was allocated at (3)
+    |

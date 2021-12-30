@@ -1,0 +1,80 @@
+CWE401_Memory_Leak__new_int_10.cpp: In function ‘void CWE401_Memory_Leak__new_int_10::goodB2G1()’:
+CWE401_Memory_Leak__new_int_10.cpp:62:15: warning: dereference of possibly-NULL ‘operator new(4)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   62 |         *data = 5;
+      |         ~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_int_10::goodB2G1()’: events 1-4
+    |
+    |   57 |     if(globalTrue)
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   60 |         data = new int;
+    |      |                    ~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) this call could return NULL
+    |   61 |         /* Initialize and make use of data */
+    |   62 |         *data = 5;
+    |      |         ~~~~~~~~~
+    |      |               |
+    |      |               (4) ‘operator new(4)’ could be NULL: unchecked value from (3)
+    |
+CWE401_Memory_Leak__new_int_10.cpp:75:1: warning: leak of ‘data’ [CWE-401] [-Wanalyzer-malloc-leak]
+   75 | }
+      | ^
+  ‘void CWE401_Memory_Leak__new_int_10::goodB2G1()’: events 1-7
+    |
+    |   57 |     if(globalTrue)
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   60 |         data = new int;
+    |      |                    ~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) allocated here
+    |   61 |         /* Initialize and make use of data */
+    |   62 |         *data = 5;
+    |      |         ~~~~~~~~~
+    |      |               |
+    |      |               (4) assuming ‘operator new(4)’ is non-NULL
+    |......
+    |   65 |     if(globalFalse)
+    |      |     ~~
+    |      |     |
+    |      |     (5) following ‘true’ branch...
+    |......
+    |   68 |         printLine("Benign, fixed string");
+    |      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                  |
+    |      |                  (6) ...to here
+    |......
+    |   75 | }
+    |      | ~    
+    |      | |
+    |      | (7) ‘data’ leaks here; was allocated at (3)
+    |
+CWE401_Memory_Leak__new_int_10.cpp: In function ‘void CWE401_Memory_Leak__new_int_10::goodB2G2()’:
+CWE401_Memory_Leak__new_int_10.cpp:87:15: warning: dereference of possibly-NULL ‘operator new(4)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   87 |         *data = 5;
+      |         ~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_int_10::goodB2G2()’: events 1-4
+    |
+    |   82 |     if(globalTrue)
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   85 |         data = new int;
+    |      |                    ~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) this call could return NULL
+    |   86 |         /* Initialize and make use of data */
+    |   87 |         *data = 5;
+    |      |         ~~~~~~~~~
+    |      |               |
+    |      |               (4) ‘operator new(4)’ could be NULL: unchecked value from (3)
+    |

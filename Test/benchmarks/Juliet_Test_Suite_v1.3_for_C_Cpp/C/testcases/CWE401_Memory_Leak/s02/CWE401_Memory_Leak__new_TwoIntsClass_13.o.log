@@ -1,0 +1,44 @@
+CWE401_Memory_Leak__new_TwoIntsClass_13.cpp: In function ‘void CWE401_Memory_Leak__new_TwoIntsClass_13::goodB2G1()’:
+CWE401_Memory_Leak__new_TwoIntsClass_13.cpp:63:22: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   63 |         data->intOne = 0;
+      |         ~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_TwoIntsClass_13::goodB2G1()’: events 1-4
+    |
+    |   58 |     if(GLOBAL_CONST_FIVE==5)
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   61 |         data = new TwoIntsClass;
+    |      |                    ~~~~~~~~~~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) this call could return NULL
+    |   62 |         /* Initialize and make use of data */
+    |   63 |         data->intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~
+    |      |                      |
+    |      |                      (4) ‘operator new(8)’ could be NULL: unchecked value from (3)
+    |
+CWE401_Memory_Leak__new_TwoIntsClass_13.cpp: In function ‘void CWE401_Memory_Leak__new_TwoIntsClass_13::goodB2G2()’:
+CWE401_Memory_Leak__new_TwoIntsClass_13.cpp:90:22: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   90 |         data->intOne = 0;
+      |         ~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_TwoIntsClass_13::goodB2G2()’: events 1-4
+    |
+    |   85 |     if(GLOBAL_CONST_FIVE==5)
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘true’ branch...
+    |......
+    |   88 |         data = new TwoIntsClass;
+    |      |                    ~~~~~~~~~~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |      |                    (3) this call could return NULL
+    |   89 |         /* Initialize and make use of data */
+    |   90 |         data->intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~
+    |      |                      |
+    |      |                      (4) ‘operator new(8)’ could be NULL: unchecked value from (3)
+    |

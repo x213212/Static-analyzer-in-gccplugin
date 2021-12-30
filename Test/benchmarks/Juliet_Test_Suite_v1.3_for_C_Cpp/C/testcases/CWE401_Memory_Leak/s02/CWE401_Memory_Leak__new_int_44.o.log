@@ -1,0 +1,16 @@
+CWE401_Memory_Leak__new_int_44.cpp: In function ‘void CWE401_Memory_Leak__new_int_44::goodB2G()’:
+CWE401_Memory_Leak__new_int_44.cpp:90:11: warning: dereference of possibly-NULL ‘operator new(4)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   90 |     *data = 5;
+      |     ~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_int_44::goodB2G()’: events 1-2
+    |
+    |   88 |     data = new int;
+    |      |                ^~~
+    |      |                |
+    |      |                (1) this call could return NULL
+    |   89 |     /* Initialize and make use of data */
+    |   90 |     *data = 5;
+    |      |     ~~~~~~~~~   
+    |      |           |
+    |      |           (2) ‘operator new(4)’ could be NULL: unchecked value from (1)
+    |

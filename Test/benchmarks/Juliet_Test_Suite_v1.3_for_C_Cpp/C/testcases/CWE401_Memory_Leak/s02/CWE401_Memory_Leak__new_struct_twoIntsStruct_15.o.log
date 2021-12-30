@@ -1,0 +1,32 @@
+CWE401_Memory_Leak__new_struct_twoIntsStruct_15.cpp: In function ‘void CWE401_Memory_Leak__new_struct_twoIntsStruct_15::goodB2G1()’:
+CWE401_Memory_Leak__new_struct_twoIntsStruct_15.cpp:75:22: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   75 |         data->intOne = 0;
+      |         ~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_struct_twoIntsStruct_15::goodB2G1()’: events 1-2
+    |
+    |   73 |         data = new struct _twoIntsStruct;
+    |      |                           ^~~~~~~~~~~~~~
+    |      |                           |
+    |      |                           (1) this call could return NULL
+    |   74 |         /* Initialize and make use of data */
+    |   75 |         data->intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~   
+    |      |                      |
+    |      |                      (2) ‘operator new(8)’ could be NULL: unchecked value from (1)
+    |
+CWE401_Memory_Leak__new_struct_twoIntsStruct_15.cpp: In function ‘void CWE401_Memory_Leak__new_struct_twoIntsStruct_15::goodB2G2()’:
+CWE401_Memory_Leak__new_struct_twoIntsStruct_15.cpp:108:22: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  108 |         data->intOne = 0;
+      |         ~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_struct_twoIntsStruct_15::goodB2G2()’: events 1-2
+    |
+    |  106 |         data = new struct _twoIntsStruct;
+    |      |                           ^~~~~~~~~~~~~~
+    |      |                           |
+    |      |                           (1) this call could return NULL
+    |  107 |         /* Initialize and make use of data */
+    |  108 |         data->intOne = 0;
+    |      |         ~~~~~~~~~~~~~~~~   
+    |      |                      |
+    |      |                      (2) ‘operator new(8)’ could be NULL: unchecked value from (1)
+    |

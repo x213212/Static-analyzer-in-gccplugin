@@ -1,0 +1,780 @@
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::__ops::__iter_equal_to_iter()" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getInBuffCapacity() const" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::failed()" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::isBz2HeaderFound() const" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getSearchStatus() const" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::eof() const" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getInBuffEnd()" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getInBuffBegin()" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getInBuffCurrent()" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getInBuffSearchPtr()" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getOutBuffEnd()" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getUnsearchedCount() const" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getOutBuffCapacityLimit() const" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::isOutBuffFullEnough() const" 1
+26 ssa "unused VAR_DECLs removed" "std::min<unsigned char*>(unsigned char* const&, unsigned char* const&)unsigned char* const&" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::initOutBuff(char*, unsigned long, unsigned long)" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::appendOutBuffData(unsigned char*)" 4
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::appendOutBuffData()" 4
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::size() const" 2
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getHeaderSize() const" 1
+26 ssa "unused VAR_DECLs removed" "disposeMemory<char>(char*&)void" 1
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::appendOutBuffDataUpToLimit()" 1
+26 ssa "unused VAR_DECLs removed" "std::min<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 3
+26 ssa "unused VAR_DECLs removed" "std::move<std::allocator<unsigned char>&>(std::allocator<unsigned char>&)std::remove_reference<std::allocator<unsigned char>&>::type&&" 1
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::char_traits<unsigned char>::eq(unsigned char const&, unsigned char const&)" 1
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::char_traits<unsigned char>::length(unsigned char const*)" 1
+26 ssa "unused VAR_DECLs removed" "std::__miter_base<unsigned char*>(unsigned char*)unsigned char*" 2
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check(unsigned long, char const*) const" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_limit(unsigned long, unsigned long) const" 2
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::char_traits<unsigned char>::lt(unsigned char const&, unsigned char const&)" 2
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::char_traits<unsigned char>::compare(unsigned char const*, unsigned char const*, unsigned long)" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_data() const" 3
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::operator[](unsigned long)" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_compare(unsigned long, unsigned long)" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::compare(unsigned long, unsigned long, unsigned char const*, unsigned long) const" 1
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::__normal_iterator(unsigned char* const&)" 2
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator++()" 1
+26 ssa "unused VAR_DECLs removed" "std::__addressof<unsigned char>(unsigned char&)unsigned char*" 1
+26 ssa "unused VAR_DECLs removed" "std::addressof<unsigned char>(unsigned char&)unsigned char*" 1
+26 ssa "unused VAR_DECLs removed" "std::pointer_traits<unsigned char*>::pointer_to(unsigned char&)" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data()" 1
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::new_allocator<unsigned char>::new_allocator(__gnu_cxx::new_allocator<unsigned char> const&)" 1
+26 ssa "unused VAR_DECLs removed" "std::__copy_move<false, true, std::random_access_iterator_tag>::__copy_m<unsigned char>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 1
+26 ssa "unused VAR_DECLs removed" "std::__copy_move_a<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 1
+26 ssa "unused VAR_DECLs removed" "std::__copy_move_a2<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 1
+26 ssa "unused VAR_DECLs removed" "std::copy<unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 2
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::rewindInBuff()" 2
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::readData()" 4
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::base() const" 4
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::operator==<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >(__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > const&, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > const&)bool" 1
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >::_Iter_equals_iter(__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)" 1
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::__ops::_Iter_equal_to_iter::operator()<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >) constbool" 1
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::new_allocator<unsigned char>::deallocate(unsigned char*, unsigned long)" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_disjunct(unsigned char const*) const" 1
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::char_traits<unsigned char>::move(unsigned char*, unsigned char const*, unsigned long)" 2
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_move(unsigned char*, unsigned char const*, unsigned long)" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_data(unsigned char*)" 1
+26 ssa "unused VAR_DECLs removed" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 1
+26 ssa "unused VAR_DECLs removed" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >)unsigned char*" 8
+26 ssa "unused VAR_DECLs removed" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 3
+26 ssa "unused VAR_DECLs removed" "std::search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)unsigned char*" 12
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 3
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 7
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::searchNextHeader()" 10
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getNextStream()" 8
+26 ssa "unused VAR_DECLs removed" "std::__addressof<unsigned char const>(unsigned char const&)unsigned char const*" 14
+26 ssa "unused VAR_DECLs removed" "std::addressof<unsigned char const>(unsigned char const&)unsigned char const*" 1
+26 ssa "unused VAR_DECLs removed" "std::pointer_traits<unsigned char const*>::pointer_to(unsigned char const&)" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data() const" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_is_local() const" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_dispose()" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::~basic_string()" 2
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_get_allocator() const" 3
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::new_allocator<unsigned char>::max_size() const" 1
+26 ssa "unused VAR_DECLs removed" "std::allocator_traits<std::allocator<unsigned char> >::max_size(std::allocator<unsigned char> const&)" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::max_size() const" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check_length(unsigned long, unsigned long, char const*) const" 1
+26 ssa "unused VAR_DECLs removed" "std::__miter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 1
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*)" 1
+26 ssa "unused VAR_DECLs removed" "std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long)" 3
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_create(unsigned long&, unsigned long)" 2
+26 ssa "unused VAR_DECLs removed" "std::__niter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 4
+26 ssa "unused VAR_DECLs removed" "std::__copy_move_a<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 1
+26 ssa "unused VAR_DECLs removed" "std::__copy_move_a2<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 1
+26 ssa "unused VAR_DECLs removed" "std::copy<unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 1
+26 ssa "unused VAR_DECLs removed" "__gnu_cxx::char_traits<unsigned char>::copy(unsigned char*, unsigned char const*, unsigned long)" 2
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_copy(unsigned char*, unsigned char const*, unsigned long)" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_replace(unsigned long, unsigned long, unsigned char const*, unsigned long)" 1
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::assign(unsigned char const*)" 3
+26 ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::operator=(unsigned char const*)" 3
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::init(int, unsigned long)" 2
+26 ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::BZ2StreamScanner(int, unsigned long)" 3
+38 ccp "Copies propagated" "pbzip2::BZ2StreamScanner::isOutBuffFullEnough() const" 1
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::isOutBuffFullEnough() const" 2
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::isOutBuffFullEnough() const" 1
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::isOutBuffFullEnough() const" 2
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::isOutBuffFullEnough() const" 2
+35 einline "unused VAR_DECLs removed" "std::min<unsigned char*>(unsigned char* const&, unsigned char* const&)unsigned char* const&" 1
+35 einline "Symbol to SSA rewrite" "std::min<unsigned char*>(unsigned char* const&, unsigned char* const&)unsigned char* const&" 1
+38 ccp "Copies propagated" "std::min<unsigned char*>(unsigned char* const&, unsigned char* const&)unsigned char* const&" 2
+38 ccp "Statements deleted" "std::min<unsigned char*>(unsigned char* const&, unsigned char* const&)unsigned char* const&" 2
+43 fre "SCC iterations == 2" "std::min<unsigned char*>(unsigned char* const&, unsigned char* const&)unsigned char* const&" 1
+55 release_ssa "SSA names released" "std::min<unsigned char*>(unsigned char* const&, unsigned char* const&)unsigned char* const&" 2
+55 release_ssa "SSA name holes removed" "std::min<unsigned char*>(unsigned char* const&, unsigned char* const&)unsigned char* const&" 2
+38 ccp "Copies propagated" "pbzip2::BZ2StreamScanner::ensureOutBuffCapacity(unsigned long)" 4
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::ensureOutBuffCapacity(unsigned long)" 13
+38 ccp "Constants propagated" "pbzip2::BZ2StreamScanner::ensureOutBuffCapacity(unsigned long)" 5
+40 ethread "Jumps threaded" "pbzip2::BZ2StreamScanner::ensureOutBuffCapacity(unsigned long)" 2
+43 fre "SCC iterations == 2" "pbzip2::BZ2StreamScanner::ensureOutBuffCapacity(unsigned long)" 9
+43 fre "Eliminated" "pbzip2::BZ2StreamScanner::ensureOutBuffCapacity(unsigned long)" 7
+47 cddce "PHI nodes deleted" "pbzip2::BZ2StreamScanner::ensureOutBuffCapacity(unsigned long)" 1
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::ensureOutBuffCapacity(unsigned long)" 4
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::ensureOutBuffCapacity(unsigned long)" 23
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::ensureOutBuffCapacity(unsigned long)" 23
+35 einline "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::appendOutBuffData(unsigned char*)" 6
+35 einline "Symbol to SSA rewrite" "pbzip2::BZ2StreamScanner::appendOutBuffData(unsigned char*)" 1
+38 ccp "Copies propagated" "pbzip2::BZ2StreamScanner::appendOutBuffData(unsigned char*)" 7
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::appendOutBuffData(unsigned char*)" 13
+38 ccp "Constants propagated" "pbzip2::BZ2StreamScanner::appendOutBuffData(unsigned char*)" 2
+40 ethread "Incremental SSA update" "pbzip2::BZ2StreamScanner::appendOutBuffData(unsigned char*)" 1
+43 fre "SCC iterations == 2" "pbzip2::BZ2StreamScanner::appendOutBuffData(unsigned char*)" 3
+43 fre "Eliminated" "pbzip2::BZ2StreamScanner::appendOutBuffData(unsigned char*)" 1
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::appendOutBuffData(unsigned char*)" 5
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::appendOutBuffData(unsigned char*)" 17
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::appendOutBuffData(unsigned char*)" 17
+35 einline "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::appendOutBuffData()" 7
+35 einline "Symbol to SSA rewrite" "pbzip2::BZ2StreamScanner::appendOutBuffData()" 1
+38 ccp "Copies propagated" "pbzip2::BZ2StreamScanner::appendOutBuffData()" 2
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::appendOutBuffData()" 3
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::appendOutBuffData()" 1
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::appendOutBuffData()" 3
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::appendOutBuffData()" 3
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::size() const" 1
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::size() const" 1
+38 ccp "Copies propagated" "pbzip2::BZ2StreamScanner::getHeaderSize() const" 1
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::getHeaderSize() const" 2
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getHeaderSize() const" 1
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::getHeaderSize() const" 3
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::getHeaderSize() const" 3
+35 einline "unused VAR_DECLs removed" "disposeMemory<char>(char*&)void" 1
+35 einline "Symbol to SSA rewrite" "disposeMemory<char>(char*&)void" 1
+43 fre "SCC iterations == 2" "disposeMemory<char>(char*&)void" 2
+43 fre "Eliminated" "disposeMemory<char>(char*&)void" 2
+55 release_ssa "SSA names released" "disposeMemory<char>(char*&)void" 3
+55 release_ssa "SSA name holes removed" "disposeMemory<char>(char*&)void" 3
+43 fre "SCC iterations == 2" "disposeMemory<unsigned char>(unsigned char*&)void" 2
+43 fre "Eliminated" "disposeMemory<unsigned char>(unsigned char*&)void" 2
+55 release_ssa "SSA names released" "disposeMemory<unsigned char>(unsigned char*&)void" 3
+55 release_ssa "SSA name holes removed" "disposeMemory<unsigned char>(unsigned char*&)void" 3
+43 fre "SCC iterations == 2" "pbzip2::BZ2StreamScanner::dispose()" 2
+47 cddce "Statements deleted" "pbzip2::BZ2StreamScanner::dispose()" 2
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::dispose()" 4
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::dispose()" 4
+35 einline "unused VAR_DECLs removed" "std::max<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 2
+35 einline "Symbol to SSA rewrite" "std::max<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 1
+38 ccp "Copies propagated" "std::max<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 2
+38 ccp "Statements deleted" "std::max<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 2
+43 fre "SCC iterations == 2" "std::max<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 1
+55 release_ssa "SSA names released" "std::max<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 2
+55 release_ssa "SSA name holes removed" "std::max<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 2
+38 ccp "Copies propagated" "pbzip2::BZ2StreamScanner::appendOutBuffDataUpToLimit()" 9
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::appendOutBuffDataUpToLimit()" 18
+38 ccp "Constants propagated" "pbzip2::BZ2StreamScanner::appendOutBuffDataUpToLimit()" 1
+43 fre "SCC iterations == 2" "pbzip2::BZ2StreamScanner::appendOutBuffDataUpToLimit()" 6
+43 fre "Eliminated" "pbzip2::BZ2StreamScanner::appendOutBuffDataUpToLimit()" 4
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::appendOutBuffDataUpToLimit()" 10
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::appendOutBuffDataUpToLimit()" 28
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::appendOutBuffDataUpToLimit()" 28
+35 einline "unused VAR_DECLs removed" "std::min<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 13
+35 einline "Symbol to SSA rewrite" "std::min<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 1
+38 ccp "Copies propagated" "std::min<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 2
+38 ccp "Statements deleted" "std::min<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 2
+43 fre "SCC iterations == 2" "std::min<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 1
+55 release_ssa "SSA names released" "std::min<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 2
+55 release_ssa "SSA name holes removed" "std::min<unsigned long>(unsigned long const&, unsigned long const&)unsigned long const&" 2
+38 ccp "Copies propagated" "std::move<std::allocator<unsigned char>&>(std::allocator<unsigned char>&)std::remove_reference<std::allocator<unsigned char>&>::type&&" 1
+38 ccp "Statements deleted" "std::move<std::allocator<unsigned char>&>(std::allocator<unsigned char>&)std::remove_reference<std::allocator<unsigned char>&>::type&&" 1
+55 release_ssa "SSA names released" "std::move<std::allocator<unsigned char>&>(std::allocator<unsigned char>&)std::remove_reference<std::allocator<unsigned char>&>::type&&" 1
+55 release_ssa "SSA name holes removed" "std::move<std::allocator<unsigned char>&>(std::allocator<unsigned char>&)std::remove_reference<std::allocator<unsigned char>&>::type&&" 1
+38 ccp "Copies propagated" "__gnu_cxx::char_traits<unsigned char>::length(unsigned char const*)" 1
+38 ccp "Statements deleted" "__gnu_cxx::char_traits<unsigned char>::length(unsigned char const*)" 5
+38 ccp "Constants propagated" "__gnu_cxx::char_traits<unsigned char>::length(unsigned char const*)" 2
+43 fre "SCC iterations == 2" "__gnu_cxx::char_traits<unsigned char>::length(unsigned char const*)" 1
+43 fre "SCC iterations == 3" "__gnu_cxx::char_traits<unsigned char>::length(unsigned char const*)" 1
+47 cddce "Statements deleted" "__gnu_cxx::char_traits<unsigned char>::length(unsigned char const*)" 1
+55 release_ssa "unused VAR_DECLs removed" "__gnu_cxx::char_traits<unsigned char>::length(unsigned char const*)" 2
+55 release_ssa "SSA names released" "__gnu_cxx::char_traits<unsigned char>::length(unsigned char const*)" 11
+55 release_ssa "SSA name holes removed" "__gnu_cxx::char_traits<unsigned char>::length(unsigned char const*)" 11
+35 einline "unused VAR_DECLs removed" "std::__miter_base<unsigned char*>(unsigned char*)unsigned char*" 2
+35 einline "Symbol to SSA rewrite" "std::__miter_base<unsigned char*>(unsigned char*)unsigned char*" 2
+38 ccp "Copies propagated" "std::__miter_base<unsigned char*>(unsigned char*)unsigned char*" 1
+38 ccp "Statements deleted" "std::__miter_base<unsigned char*>(unsigned char*)unsigned char*" 1
+55 release_ssa "SSA names released" "std::__miter_base<unsigned char*>(unsigned char*)unsigned char*" 1
+55 release_ssa "SSA name holes removed" "std::__miter_base<unsigned char*>(unsigned char*)unsigned char*" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check(unsigned long, char const*) const" 3
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check(unsigned long, char const*) const" 5
+43 fre "Eliminated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check(unsigned long, char const*) const" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check(unsigned long, char const*) const" 2
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check(unsigned long, char const*) const" 7
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check(unsigned long, char const*) const" 7
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_limit(unsigned long, unsigned long) const" 2
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_limit(unsigned long, unsigned long) const" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_limit(unsigned long, unsigned long) const" 4
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_limit(unsigned long, unsigned long) const" 6
+43 fre "SCC iterations == 2" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_limit(unsigned long, unsigned long) const" 2
+43 fre "Eliminated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_limit(unsigned long, unsigned long) const" 2
+47 cddce "PHI nodes deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_limit(unsigned long, unsigned long) const" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_limit(unsigned long, unsigned long) const" 3
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_limit(unsigned long, unsigned long) const" 10
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_limit(unsigned long, unsigned long) const" 10
+35 einline "unused VAR_DECLs removed" "__gnu_cxx::char_traits<unsigned char>::lt(unsigned char const&, unsigned char const&)" 2
+35 einline "Symbol to SSA rewrite" "__gnu_cxx::char_traits<unsigned char>::lt(unsigned char const&, unsigned char const&)" 1
+38 ccp "Copies propagated" "__gnu_cxx::char_traits<unsigned char>::compare(unsigned char const*, unsigned char const*, unsigned long)" 2
+38 ccp "Statements deleted" "__gnu_cxx::char_traits<unsigned char>::compare(unsigned char const*, unsigned char const*, unsigned long)" 8
+38 ccp "Constants propagated" "__gnu_cxx::char_traits<unsigned char>::compare(unsigned char const*, unsigned char const*, unsigned long)" 4
+43 fre "SCC iterations == 2" "__gnu_cxx::char_traits<unsigned char>::compare(unsigned char const*, unsigned char const*, unsigned long)" 3
+43 fre "SCC iterations == 3" "__gnu_cxx::char_traits<unsigned char>::compare(unsigned char const*, unsigned char const*, unsigned long)" 1
+43 fre "Eliminated" "__gnu_cxx::char_traits<unsigned char>::compare(unsigned char const*, unsigned char const*, unsigned long)" 4
+47 cddce "PHI nodes deleted" "__gnu_cxx::char_traits<unsigned char>::compare(unsigned char const*, unsigned char const*, unsigned long)" 1
+55 release_ssa "unused VAR_DECLs removed" "__gnu_cxx::char_traits<unsigned char>::compare(unsigned char const*, unsigned char const*, unsigned long)" 2
+55 release_ssa "SSA names released" "__gnu_cxx::char_traits<unsigned char>::compare(unsigned char const*, unsigned char const*, unsigned long)" 15
+55 release_ssa "SSA name holes removed" "__gnu_cxx::char_traits<unsigned char>::compare(unsigned char const*, unsigned char const*, unsigned long)" 15
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_data() const" 4
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_data() const" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::operator[](unsigned long)" 1
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::operator[](unsigned long)" 2
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::operator[](unsigned long)" 1
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::operator[](unsigned long)" 2
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::operator[](unsigned long)" 2
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_compare(unsigned long, unsigned long)" 1
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_compare(unsigned long, unsigned long)" 1
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_compare(unsigned long, unsigned long)" 2
+38 ccp "Constants propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_compare(unsigned long, unsigned long)" 2
+43 fre "SCC iterations == 2" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_compare(unsigned long, unsigned long)" 1
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_compare(unsigned long, unsigned long)" 2
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_compare(unsigned long, unsigned long)" 2
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::compare(unsigned long, unsigned long, unsigned char const*, unsigned long) const" 6
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::compare(unsigned long, unsigned long, unsigned char const*, unsigned long) const" 11
+43 fre "SCC iterations == 2" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::compare(unsigned long, unsigned long, unsigned char const*, unsigned long) const" 6
+43 fre "SCC iterations == 3" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::compare(unsigned long, unsigned long, unsigned char const*, unsigned long) const" 1
+43 fre "Eliminated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::compare(unsigned long, unsigned long, unsigned char const*, unsigned long) const" 4
+47 cddce "PHI nodes deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::compare(unsigned long, unsigned long, unsigned char const*, unsigned long) const" 1
+47 cddce "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::compare(unsigned long, unsigned long, unsigned char const*, unsigned long) const" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::compare(unsigned long, unsigned long, unsigned char const*, unsigned long) const" 6
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::compare(unsigned long, unsigned long, unsigned char const*, unsigned long) const" 20
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::compare(unsigned long, unsigned long, unsigned char const*, unsigned long) const" 20
+35 einline "unused VAR_DECLs removed" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::__normal_iterator(unsigned char* const&)" 14
+35 einline "Symbol to SSA rewrite" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::__normal_iterator(unsigned char* const&)" 1
+38 ccp "Copies propagated" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator+(long) const" 1
+38 ccp "Statements deleted" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator+(long) const" 2
+41 esra "Totally-scalarized aggregates" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator+(long) const" 1
+41 esra "Scalarized aggregates" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator+(long) const" 1
+41 esra "Modified expressions" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator+(long) const" 2
+41 esra "Separate LHS and RHS handling" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator+(long) const" 2
+41 esra "Scalar replacements created" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator+(long) const" 1
+55 release_ssa "unused VAR_DECLs removed" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator+(long) const" 3
+55 release_ssa "SSA names released" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator+(long) const" 9
+55 release_ssa "SSA name holes removed" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator+(long) const" 9
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::begin()" 2
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::begin()" 2
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::begin()" 1
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::begin()" 4
+41 esra "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::begin()" 1
+41 esra "Totally-scalarized aggregates" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::begin()" 1
+41 esra "Scalarized aggregates" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::begin()" 1
+41 esra "Modified expressions" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::begin()" 2
+41 esra "Separate LHS and RHS handling" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::begin()" 2
+41 esra "Scalar replacements created" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::begin()" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::begin()" 4
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::begin()" 11
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::begin()" 11
+35 einline "unused VAR_DECLs removed" "__gnu_cxx::new_allocator<unsigned char>::new_allocator()" 3
+35 einline "Symbol to SSA rewrite" "__gnu_cxx::new_allocator<unsigned char>::new_allocator()" 2
+41 esra "Symbol to SSA rewrite" "__gnu_cxx::new_allocator<unsigned char>::new_allocator()" 1
+55 release_ssa "SSA names released" "std::allocator<unsigned char>::allocator()" 1
+55 release_ssa "SSA name holes removed" "std::allocator<unsigned char>::allocator()" 1
+35 einline "unused VAR_DECLs removed" "__gnu_cxx::new_allocator<unsigned char>::~new_allocator()" 1
+55 release_ssa "SSA names released" "std::allocator<unsigned char>::~allocator()" 1
+55 release_ssa "SSA name holes removed" "std::allocator<unsigned char>::~allocator()" 1
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_Alloc_hider::~_Alloc_hider()" 1
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_Alloc_hider::~_Alloc_hider()" 1
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_Alloc_hider::~_Alloc_hider()" 1
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_length(unsigned long)" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_set_length(unsigned long)" 1
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_set_length(unsigned long)" 4
+38 ccp "Constants propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_set_length(unsigned long)" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_set_length(unsigned long)" 2
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_set_length(unsigned long)" 9
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_set_length(unsigned long)" 9
+35 einline "unused VAR_DECLs removed" "std::__niter_base<unsigned char*>(unsigned char*)unsigned char*" 5
+35 einline "Symbol to SSA rewrite" "std::__niter_base<unsigned char*>(unsigned char*)unsigned char*" 2
+38 ccp "Copies propagated" "std::__niter_base<unsigned char*>(unsigned char*)unsigned char*" 1
+38 ccp "Statements deleted" "std::__niter_base<unsigned char*>(unsigned char*)unsigned char*" 1
+55 release_ssa "SSA names released" "std::__niter_base<unsigned char*>(unsigned char*)unsigned char*" 1
+55 release_ssa "SSA name holes removed" "std::__niter_base<unsigned char*>(unsigned char*)unsigned char*" 1
+38 ccp "Copies propagated" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator++()" 1
+38 ccp "Statements deleted" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator++()" 1
+55 release_ssa "SSA names released" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator++()" 1
+55 release_ssa "SSA name holes removed" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator++()" 1
+38 ccp "Copies propagated" "std::__addressof<unsigned char>(unsigned char&)unsigned char*" 1
+38 ccp "Statements deleted" "std::__addressof<unsigned char>(unsigned char&)unsigned char*" 1
+55 release_ssa "SSA names released" "std::__addressof<unsigned char>(unsigned char&)unsigned char*" 1
+55 release_ssa "SSA name holes removed" "std::__addressof<unsigned char>(unsigned char&)unsigned char*" 1
+38 ccp "Copies propagated" "std::addressof<unsigned char>(unsigned char&)unsigned char*" 1
+38 ccp "Statements deleted" "std::addressof<unsigned char>(unsigned char&)unsigned char*" 2
+55 release_ssa "unused VAR_DECLs removed" "std::addressof<unsigned char>(unsigned char&)unsigned char*" 1
+55 release_ssa "SSA names released" "std::addressof<unsigned char>(unsigned char&)unsigned char*" 2
+55 release_ssa "SSA name holes removed" "std::addressof<unsigned char>(unsigned char&)unsigned char*" 2
+35 einline "unused VAR_DECLs removed" "std::pointer_traits<unsigned char*>::pointer_to(unsigned char&)" 1
+35 einline "Symbol to SSA rewrite" "std::pointer_traits<unsigned char*>::pointer_to(unsigned char&)" 1
+38 ccp "Copies propagated" "std::pointer_traits<unsigned char*>::pointer_to(unsigned char&)" 1
+38 ccp "Statements deleted" "std::pointer_traits<unsigned char*>::pointer_to(unsigned char&)" 2
+55 release_ssa "unused VAR_DECLs removed" "std::pointer_traits<unsigned char*>::pointer_to(unsigned char&)" 1
+55 release_ssa "SSA names released" "std::pointer_traits<unsigned char*>::pointer_to(unsigned char&)" 2
+55 release_ssa "SSA name holes removed" "std::pointer_traits<unsigned char*>::pointer_to(unsigned char&)" 2
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data()" 1
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data()" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data()" 1
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data()" 2
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data()" 1
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data()" 2
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data()" 2
+35 einline "unused VAR_DECLs removed" "__gnu_cxx::new_allocator<unsigned char>::new_allocator(__gnu_cxx::new_allocator<unsigned char> const&)" 1
+35 einline "Symbol to SSA rewrite" "__gnu_cxx::new_allocator<unsigned char>::new_allocator(__gnu_cxx::new_allocator<unsigned char> const&)" 1
+55 release_ssa "SSA names released" "std::allocator<unsigned char>::allocator(std::allocator<unsigned char> const&)" 1
+55 release_ssa "SSA name holes removed" "std::allocator<unsigned char>::allocator(std::allocator<unsigned char> const&)" 1
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_Alloc_hider::_Alloc_hider(unsigned char*, std::allocator<unsigned char>&&)" 2
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_Alloc_hider::_Alloc_hider(unsigned char*, std::allocator<unsigned char>&&)" 2
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_Alloc_hider::_Alloc_hider(unsigned char*, std::allocator<unsigned char>&&)" 1
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_Alloc_hider::_Alloc_hider(unsigned char*, std::allocator<unsigned char>&&)" 3
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_Alloc_hider::_Alloc_hider(unsigned char*, std::allocator<unsigned char>&&)" 3
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::basic_string()" 3
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::basic_string()" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::basic_string()" 2
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::basic_string()" 3
+43 fre "Eliminated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::basic_string()" 1
+47 cddce "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::basic_string()" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::basic_string()" 1
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::basic_string()" 8
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::basic_string()" 8
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_get_allocator()" 9
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_get_allocator()" 1
+43 fre "SCC iterations == 2" "std::__copy_move<false, true, std::random_access_iterator_tag>::__copy_m<unsigned char>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 1
+38 ccp "Copies propagated" "std::__copy_move_a<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 1
+38 ccp "Statements deleted" "std::__copy_move_a<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 3
+43 fre "SCC iterations == 2" "std::__copy_move_a<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__copy_move_a<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 2
+55 release_ssa "SSA names released" "std::__copy_move_a<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 4
+55 release_ssa "SSA name holes removed" "std::__copy_move_a<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 4
+35 einline "unused VAR_DECLs removed" "std::__copy_move_a2<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 3
+35 einline "Symbol to SSA rewrite" "std::__copy_move_a2<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 1
+38 ccp "Copies propagated" "std::__copy_move_a2<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 6
+38 ccp "Statements deleted" "std::__copy_move_a2<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 9
+43 fre "SCC iterations == 2" "std::__copy_move_a2<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__copy_move_a2<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 4
+55 release_ssa "SSA names released" "std::__copy_move_a2<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 10
+55 release_ssa "SSA name holes removed" "std::__copy_move_a2<false, unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 10
+35 einline "unused VAR_DECLs removed" "std::copy<unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 6
+35 einline "Symbol to SSA rewrite" "std::copy<unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 1
+38 ccp "Copies propagated" "std::copy<unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 4
+38 ccp "Statements deleted" "std::copy<unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 7
+43 fre "SCC iterations == 2" "std::copy<unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 1
+55 release_ssa "unused VAR_DECLs removed" "std::copy<unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 3
+55 release_ssa "SSA names released" "std::copy<unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 8
+55 release_ssa "SSA name holes removed" "std::copy<unsigned char*, unsigned char*>(unsigned char*, unsigned char*, unsigned char*)unsigned char*" 8
+35 einline "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::rewindInBuff()" 5
+35 einline "Symbol to SSA rewrite" "pbzip2::BZ2StreamScanner::rewindInBuff()" 1
+38 ccp "Copies propagated" "pbzip2::BZ2StreamScanner::rewindInBuff()" 17
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::rewindInBuff()" 33
+38 ccp "Constants propagated" "pbzip2::BZ2StreamScanner::rewindInBuff()" 4
+40 ethread "Jumps threaded" "pbzip2::BZ2StreamScanner::rewindInBuff()" 3
+43 fre "SCC iterations == 2" "pbzip2::BZ2StreamScanner::rewindInBuff()" 7
+43 fre "Eliminated" "pbzip2::BZ2StreamScanner::rewindInBuff()" 11
+47 cddce "Statements deleted" "pbzip2::BZ2StreamScanner::rewindInBuff()" 2
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::rewindInBuff()" 16
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::rewindInBuff()" 48
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::rewindInBuff()" 48
+35 einline "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::readData()" 16
+35 einline "Symbol to SSA rewrite" "pbzip2::BZ2StreamScanner::readData()" 1
+38 ccp "Copies propagated" "pbzip2::BZ2StreamScanner::readData()" 11
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::readData()" 21
+38 ccp "Constants propagated" "pbzip2::BZ2StreamScanner::readData()" 2
+40 ethread "Incremental SSA update" "pbzip2::BZ2StreamScanner::readData()" 1
+43 fre "SCC iterations == 2" "pbzip2::BZ2StreamScanner::readData()" 3
+43 fre "Eliminated" "pbzip2::BZ2StreamScanner::readData()" 15
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::readData()" 8
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::readData()" 39
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::readData()" 39
+35 einline "unused VAR_DECLs removed" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::base() const" 8
+35 einline "Symbol to SSA rewrite" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::base() const" 1
+38 ccp "Copies propagated" "__gnu_cxx::operator==<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >(__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > const&, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > const&)bool" 2
+38 ccp "Statements deleted" "__gnu_cxx::operator==<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >(__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > const&, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > const&)bool" 4
+55 release_ssa "unused VAR_DECLs removed" "__gnu_cxx::operator==<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >(__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > const&, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > const&)bool" 2
+55 release_ssa "SSA names released" "__gnu_cxx::operator==<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >(__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > const&, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > const&)bool" 6
+55 release_ssa "SSA name holes removed" "__gnu_cxx::operator==<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >(__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > const&, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > const&)bool" 6
+35 einline "unused VAR_DECLs removed" "__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >::_Iter_equals_iter(__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)" 2
+35 einline "Symbol to SSA rewrite" "__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >::_Iter_equals_iter(__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)" 1
+41 esra "Totally-scalarized aggregates" "__gnu_cxx::__ops::__iter_comp_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(__gnu_cxx::__ops::_Iter_equal_to_iter, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >" 2
+41 esra "Scalarized aggregates" "__gnu_cxx::__ops::__iter_comp_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(__gnu_cxx::__ops::_Iter_equal_to_iter, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >" 2
+41 esra "Modified expressions" "__gnu_cxx::__ops::__iter_comp_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(__gnu_cxx::__ops::_Iter_equal_to_iter, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >" 4
+41 esra "Separate LHS and RHS handling" "__gnu_cxx::__ops::__iter_comp_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(__gnu_cxx::__ops::_Iter_equal_to_iter, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >" 3
+41 esra "Scalar replacements created" "__gnu_cxx::__ops::__iter_comp_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(__gnu_cxx::__ops::_Iter_equal_to_iter, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >" 2
+55 release_ssa "unused VAR_DECLs removed" "__gnu_cxx::__ops::__iter_comp_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(__gnu_cxx::__ops::_Iter_equal_to_iter, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >" 3
+55 release_ssa "SSA names released" "__gnu_cxx::__ops::__iter_comp_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(__gnu_cxx::__ops::_Iter_equal_to_iter, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >" 6
+55 release_ssa "SSA name holes removed" "__gnu_cxx::__ops::__iter_comp_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(__gnu_cxx::__ops::_Iter_equal_to_iter, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >" 6
+35 einline "unused VAR_DECLs removed" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator*() const" 1
+35 einline "Symbol to SSA rewrite" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator*() const" 1
+41 esra "Symbol to SSA rewrite" "__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >::operator*() const" 1
+38 ccp "Copies propagated" "__gnu_cxx::__ops::_Iter_equal_to_iter::operator()<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >) constbool" 1
+38 ccp "Statements deleted" "__gnu_cxx::__ops::_Iter_equal_to_iter::operator()<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >) constbool" 2
+55 release_ssa "unused VAR_DECLs removed" "__gnu_cxx::__ops::_Iter_equal_to_iter::operator()<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >) constbool" 1
+55 release_ssa "SSA names released" "__gnu_cxx::__ops::_Iter_equal_to_iter::operator()<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >) constbool" 2
+55 release_ssa "SSA name holes removed" "__gnu_cxx::__ops::_Iter_equal_to_iter::operator()<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >) constbool" 2
+35 einline "unused VAR_DECLs removed" "__gnu_cxx::new_allocator<unsigned char>::deallocate(unsigned char*, unsigned long)" 1
+35 einline "Symbol to SSA rewrite" "__gnu_cxx::new_allocator<unsigned char>::deallocate(unsigned char*, unsigned long)" 1
+55 release_ssa "SSA names released" "std::allocator_traits<std::allocator<unsigned char> >::deallocate(std::allocator<unsigned char>&, unsigned char*, unsigned long)" 1
+55 release_ssa "SSA name holes removed" "std::allocator_traits<std::allocator<unsigned char> >::deallocate(std::allocator<unsigned char>&, unsigned char*, unsigned long)" 1
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_destroy(unsigned long)" 3
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_destroy(unsigned long)" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_destroy(unsigned long)" 1
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_destroy(unsigned long)" 4
+47 cddce "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_destroy(unsigned long)" 2
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_destroy(unsigned long)" 2
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_destroy(unsigned long)" 7
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_destroy(unsigned long)" 7
+35 einline "unused VAR_DECLs removed" "std::less<unsigned char const*>::operator()(unsigned char const* const&, unsigned char const* const&) const" 5
+35 einline "Symbol to SSA rewrite" "std::less<unsigned char const*>::operator()(unsigned char const* const&, unsigned char const* const&) const" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_disjunct(unsigned char const*) const" 9
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_disjunct(unsigned char const*) const" 19
+38 ccp "Constants propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_disjunct(unsigned char const*) const" 2
+43 fre "SCC iterations == 2" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_disjunct(unsigned char const*) const" 3
+43 fre "Eliminated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_disjunct(unsigned char const*) const" 1
+47 cddce "PHI nodes deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_disjunct(unsigned char const*) const" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_disjunct(unsigned char const*) const" 7
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_disjunct(unsigned char const*) const" 32
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_disjunct(unsigned char const*) const" 32
+35 einline "unused VAR_DECLs removed" "__gnu_cxx::char_traits<unsigned char>::move(unsigned char*, unsigned char const*, unsigned long)" 11
+35 einline "Symbol to SSA rewrite" "__gnu_cxx::char_traits<unsigned char>::move(unsigned char*, unsigned char const*, unsigned long)" 2
+43 fre "SCC iterations == 2" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_move(unsigned char*, unsigned char const*, unsigned long)" 1
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_move(unsigned char*, unsigned char const*, unsigned long)" 1
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_move(unsigned char*, unsigned char const*, unsigned long)" 1
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::length() const" 2
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::length() const" 1
+38 ccp "Copies propagated" "__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >::operator()<unsigned char*>(unsigned char*)bool" 1
+38 ccp "Statements deleted" "__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >::operator()<unsigned char*>(unsigned char*)bool" 2
+55 release_ssa "unused VAR_DECLs removed" "__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >::operator()<unsigned char*>(unsigned char*)bool" 1
+55 release_ssa "SSA names released" "__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >::operator()<unsigned char*>(unsigned char*)bool" 3
+55 release_ssa "SSA name holes removed" "__gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >::operator()<unsigned char*>(unsigned char*)bool" 3
+35 einline "unused VAR_DECLs removed" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 1
+35 einline "Symbol to SSA rewrite" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 1
+38 ccp "Copies propagated" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 15
+38 ccp "Statements deleted" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 22
+41 esra "Scalarized aggregates" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 1
+41 esra "Modified expressions" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 7
+41 esra "Separate LHS and RHS handling" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 7
+41 esra "Subtree copy stmts" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 1
+41 esra "Scalar replacements created" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 1
+43 fre "SCC iterations == 2" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 8
+43 fre "SCC iterations == 3" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 2
+43 fre "Eliminated" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 4
+47 cddce "PHI nodes deleted" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 3
+47 cddce "Statements deleted" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 7
+55 release_ssa "SSA names released" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 44
+55 release_ssa "SSA name holes removed" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >, std::random_access_iterator_tag)unsigned char*" 44
+35 einline "unused VAR_DECLs removed" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >)unsigned char*" 14
+35 einline "Symbol to SSA rewrite" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >)unsigned char*" 1
+38 ccp "Copies propagated" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >)unsigned char*" 1
+38 ccp "Statements deleted" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >)unsigned char*" 1
+41 esra "Symbol to SSA rewrite" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >)unsigned char*" 1
+55 release_ssa "SSA names released" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >)unsigned char*" 3
+55 release_ssa "SSA name holes removed" "std::__find_if<unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > > >(unsigned char*, unsigned char*, __gnu_cxx::__ops::_Iter_equals_iter<__gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >)unsigned char*" 3
+38 ccp "Symbol to SSA rewrite" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 1
+38 ccp "Copies propagated" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 14
+38 ccp "Statements deleted" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 28
+38 ccp "Constants propagated" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 4
+40 ethread "Jumps threaded" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 2
+41 esra "Totally-scalarized aggregates" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 7
+41 esra "Scalarized aggregates" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 10
+41 esra "Modified expressions" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 28
+41 esra "Separate LHS and RHS handling" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 24
+41 esra "Subtree copy stmts" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 1
+41 esra "Scalar replacements created" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 10
+43 fre "SCC iterations == 2" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 7
+43 fre "SCC iterations == 3" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 4
+43 fre "Eliminated" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 6
+47 cddce "PHI nodes deleted" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 1
+47 cddce "Statements deleted" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 30
+55 release_ssa "SSA names released" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 65
+55 release_ssa "SSA name holes removed" "std::__search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter>(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__ops::_Iter_equal_to_iter)unsigned char*" 65
+35 einline "unused VAR_DECLs removed" "std::search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)unsigned char*" 14
+35 einline "Symbol to SSA rewrite" "std::search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)unsigned char*" 1
+38 ccp "Copies propagated" "std::search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)unsigned char*" 1
+38 ccp "Statements deleted" "std::search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)unsigned char*" 1
+40 ethread "Incremental SSA update" "std::search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)unsigned char*" 1
+41 esra "Symbol to SSA rewrite" "std::search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)unsigned char*" 1
+41 esra "Totally-scalarized aggregates" "std::search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)unsigned char*" 1
+55 release_ssa "unused VAR_DECLs removed" "std::search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)unsigned char*" 2
+55 release_ssa "SSA names released" "std::search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)unsigned char*" 3
+55 release_ssa "SSA name holes removed" "std::search<unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > > >(unsigned char*, unsigned char*, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >, __gnu_cxx::__normal_iterator<unsigned char*, std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> > >)unsigned char*" 3
+35 einline "Symbol to SSA rewrite" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 1
+38 ccp "Copies propagated" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 14
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 32
+38 ccp "Constants propagated" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 5
+40 ethread "Jumps threaded" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 2
+41 esra "Totally-scalarized aggregates" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 6
+41 esra "Scalarized aggregates" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 7
+41 esra "Modified expressions" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 14
+41 esra "Separate LHS and RHS handling" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 10
+41 esra "Scalar replacements created" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 7
+43 fre "SCC iterations == 2" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 6
+43 fre "Eliminated" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 5
+47 cddce "PHI nodes deleted" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 2
+47 cddce "Statements deleted" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 1
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 27
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 56
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::locateHeaderPrefixInBuff()" 56
+35 einline "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 17
+35 einline "Symbol to SSA rewrite" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 1
+38 ccp "Copies propagated" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 16
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 38
+38 ccp "Constants propagated" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 14
+40 ethread "Incremental SSA update" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 1
+40 ethread "Jumps threaded" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 3
+41 esra "Symbol to SSA rewrite" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 1
+43 fre "SCC iterations == 2" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 9
+43 fre "SCC iterations == 3" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 1
+43 fre "Eliminated" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 10
+47 cddce "PHI nodes deleted" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 2
+47 cddce "Statements deleted" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 2
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 17
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 62
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::searchNextHeaderInBuff()" 62
+35 einline "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::searchNextHeader()" 17
+35 einline "Symbol to SSA rewrite" "pbzip2::BZ2StreamScanner::searchNextHeader()" 1
+38 ccp "Copies propagated" "pbzip2::BZ2StreamScanner::searchNextHeader()" 11
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::searchNextHeader()" 24
+38 ccp "Constants propagated" "pbzip2::BZ2StreamScanner::searchNextHeader()" 2
+40 ethread "Incremental SSA update" "pbzip2::BZ2StreamScanner::searchNextHeader()" 1
+40 ethread "Jumps threaded" "pbzip2::BZ2StreamScanner::searchNextHeader()" 2
+43 fre "SCC iterations == 2" "pbzip2::BZ2StreamScanner::searchNextHeader()" 8
+43 fre "SCC iterations == 3" "pbzip2::BZ2StreamScanner::searchNextHeader()" 1
+43 fre "Eliminated" "pbzip2::BZ2StreamScanner::searchNextHeader()" 4
+47 cddce "PHI nodes deleted" "pbzip2::BZ2StreamScanner::searchNextHeader()" 2
+47 cddce "Statements deleted" "pbzip2::BZ2StreamScanner::searchNextHeader()" 6
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::searchNextHeader()" 10
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::searchNextHeader()" 40
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::searchNextHeader()" 40
+35 einline "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getNextStream()" 10
+35 einline "Symbol to SSA rewrite" "pbzip2::BZ2StreamScanner::getNextStream()" 1
+38 ccp "Copies propagated" "pbzip2::BZ2StreamScanner::getNextStream()" 28
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::getNextStream()" 58
+38 ccp "Constants propagated" "pbzip2::BZ2StreamScanner::getNextStream()" 6
+40 ethread "Incremental SSA update" "pbzip2::BZ2StreamScanner::getNextStream()" 1
+40 ethread "Jumps threaded" "pbzip2::BZ2StreamScanner::getNextStream()" 6
+43 fre "SCC iterations == 2" "pbzip2::BZ2StreamScanner::getNextStream()" 23
+43 fre "Eliminated" "pbzip2::BZ2StreamScanner::getNextStream()" 13
+47 cddce "PHI nodes deleted" "pbzip2::BZ2StreamScanner::getNextStream()" 4
+47 cddce "Statements deleted" "pbzip2::BZ2StreamScanner::getNextStream()" 4
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::getNextStream()" 21
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::getNextStream()" 89
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::getNextStream()" 89
+35 einline "unused VAR_DECLs removed" "std::__addressof<unsigned char const>(unsigned char const&)unsigned char const*" 29
+35 einline "Symbol to SSA rewrite" "std::__addressof<unsigned char const>(unsigned char const&)unsigned char const*" 1
+38 ccp "Copies propagated" "std::__addressof<unsigned char const>(unsigned char const&)unsigned char const*" 1
+38 ccp "Statements deleted" "std::__addressof<unsigned char const>(unsigned char const&)unsigned char const*" 1
+40 ethread "Incremental SSA update" "std::__addressof<unsigned char const>(unsigned char const&)unsigned char const*" 1
+55 release_ssa "SSA names released" "std::__addressof<unsigned char const>(unsigned char const&)unsigned char const*" 1
+55 release_ssa "SSA name holes removed" "std::__addressof<unsigned char const>(unsigned char const&)unsigned char const*" 1
+38 ccp "Copies propagated" "std::addressof<unsigned char const>(unsigned char const&)unsigned char const*" 1
+38 ccp "Statements deleted" "std::addressof<unsigned char const>(unsigned char const&)unsigned char const*" 2
+55 release_ssa "unused VAR_DECLs removed" "std::addressof<unsigned char const>(unsigned char const&)unsigned char const*" 1
+55 release_ssa "SSA names released" "std::addressof<unsigned char const>(unsigned char const&)unsigned char const*" 2
+55 release_ssa "SSA name holes removed" "std::addressof<unsigned char const>(unsigned char const&)unsigned char const*" 2
+35 einline "unused VAR_DECLs removed" "std::pointer_traits<unsigned char const*>::pointer_to(unsigned char const&)" 1
+35 einline "Symbol to SSA rewrite" "std::pointer_traits<unsigned char const*>::pointer_to(unsigned char const&)" 1
+38 ccp "Copies propagated" "std::pointer_traits<unsigned char const*>::pointer_to(unsigned char const&)" 1
+38 ccp "Statements deleted" "std::pointer_traits<unsigned char const*>::pointer_to(unsigned char const&)" 2
+55 release_ssa "unused VAR_DECLs removed" "std::pointer_traits<unsigned char const*>::pointer_to(unsigned char const&)" 1
+55 release_ssa "SSA names released" "std::pointer_traits<unsigned char const*>::pointer_to(unsigned char const&)" 2
+55 release_ssa "SSA name holes removed" "std::pointer_traits<unsigned char const*>::pointer_to(unsigned char const&)" 2
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data() const" 1
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data() const" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data() const" 1
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data() const" 2
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data() const" 1
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data() const" 2
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_local_data() const" 2
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_is_local() const" 1
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_is_local() const" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_is_local() const" 2
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_is_local() const" 4
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_is_local() const" 2
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_is_local() const" 4
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_is_local() const" 4
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_dispose()" 2
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_dispose()" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_dispose()" 1
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_dispose()" 3
+43 fre "SCC iterations == 2" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_dispose()" 1
+43 fre "Eliminated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_dispose()" 1
+47 cddce "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_dispose()" 2
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_dispose()" 1
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_dispose()" 8
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_dispose()" 8
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::~basic_string()" 3
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::~basic_string()" 1
+43 fre "SCC iterations == 2" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::~basic_string()" 1
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::~basic_string()" 4
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::~basic_string()" 4
+35 einline "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::~BZ2StreamScanner()" 2
+35 einline "Symbol to SSA rewrite" "pbzip2::BZ2StreamScanner::~BZ2StreamScanner()" 1
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::~BZ2StreamScanner()" 1
+38 ccp "Constants propagated" "pbzip2::BZ2StreamScanner::~BZ2StreamScanner()" 1
+43 fre "SCC iterations == 2" "pbzip2::BZ2StreamScanner::~BZ2StreamScanner()" 2
+47 cddce "Statements deleted" "pbzip2::BZ2StreamScanner::~BZ2StreamScanner()" 2
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::~BZ2StreamScanner()" 6
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::~BZ2StreamScanner()" 6
+35 einline "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::~BZ2StreamScanner()" 2
+35 einline "Symbol to SSA rewrite" "pbzip2::BZ2StreamScanner::~BZ2StreamScanner()" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::capacity() const" 2
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::capacity() const" 5
+38 ccp "Constants propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::capacity() const" 1
+43 fre "SCC iterations == 2" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::capacity() const" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::capacity() const" 1
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::capacity() const" 6
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::capacity() const" 6
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_get_allocator() const" 1
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_get_allocator() const" 1
+38 ccp "Statements deleted" "__gnu_cxx::new_allocator<unsigned char>::max_size() const" 1
+38 ccp "Constants propagated" "__gnu_cxx::new_allocator<unsigned char>::max_size() const" 1
+55 release_ssa "SSA names released" "__gnu_cxx::new_allocator<unsigned char>::max_size() const" 1
+55 release_ssa "SSA name holes removed" "__gnu_cxx::new_allocator<unsigned char>::max_size() const" 1
+38 ccp "Statements deleted" "std::allocator_traits<std::allocator<unsigned char> >::max_size(std::allocator<unsigned char> const&)" 2
+38 ccp "Constants propagated" "std::allocator_traits<std::allocator<unsigned char> >::max_size(std::allocator<unsigned char> const&)" 1
+55 release_ssa "unused VAR_DECLs removed" "std::allocator_traits<std::allocator<unsigned char> >::max_size(std::allocator<unsigned char> const&)" 1
+55 release_ssa "SSA names released" "std::allocator_traits<std::allocator<unsigned char> >::max_size(std::allocator<unsigned char> const&)" 2
+55 release_ssa "SSA name holes removed" "std::allocator_traits<std::allocator<unsigned char> >::max_size(std::allocator<unsigned char> const&)" 2
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::max_size() const" 1
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::max_size() const" 1
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::max_size() const" 6
+38 ccp "Constants propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::max_size() const" 1
+47 cddce "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::max_size() const" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::max_size() const" 2
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::max_size() const" 7
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::max_size() const" 7
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check_length(unsigned long, unsigned long, char const*) const" 2
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check_length(unsigned long, unsigned long, char const*) const" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check_length(unsigned long, unsigned long, char const*) const" 2
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check_length(unsigned long, unsigned long, char const*) const" 5
+38 ccp "Constants propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check_length(unsigned long, unsigned long, char const*) const" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check_length(unsigned long, unsigned long, char const*) const" 2
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check_length(unsigned long, unsigned long, char const*) const" 6
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_check_length(unsigned long, unsigned long, char const*) const" 6
+35 einline "unused VAR_DECLs removed" "std::__miter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 2
+35 einline "Symbol to SSA rewrite" "std::__miter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 2
+38 ccp "Copies propagated" "std::__miter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 1
+38 ccp "Statements deleted" "std::__miter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 1
+55 release_ssa "SSA names released" "std::__miter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 1
+55 release_ssa "SSA name holes removed" "std::__miter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 1
+38 ccp "Statements folded" "__gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*)" 1
+38 ccp "Copies propagated" "__gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*)" 1
+38 ccp "Statements deleted" "__gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*)" 4
+38 ccp "Constants propagated" "__gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*)" 1
+55 release_ssa "unused VAR_DECLs removed" "__gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*)" 1
+55 release_ssa "SSA names released" "__gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*)" 5
+55 release_ssa "SSA name holes removed" "__gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*)" 5
+35 einline "unused VAR_DECLs removed" "std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long)" 1
+35 einline "Symbol to SSA rewrite" "std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long)" 1
+38 ccp "Copies propagated" "std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long)" 1
+38 ccp "Statements deleted" "std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long)" 3
+55 release_ssa "unused VAR_DECLs removed" "std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long)" 1
+55 release_ssa "SSA names released" "std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long)" 4
+55 release_ssa "SSA name holes removed" "std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long)" 4
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_create(unsigned long&, unsigned long)" 3
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_create(unsigned long&, unsigned long)" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_create(unsigned long&, unsigned long)" 1
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_create(unsigned long&, unsigned long)" 11
+38 ccp "Constants propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_create(unsigned long&, unsigned long)" 3
+43 fre "SCC iterations == 2" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_create(unsigned long&, unsigned long)" 1
+43 fre "Eliminated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_create(unsigned long&, unsigned long)" 4
+47 cddce "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_create(unsigned long&, unsigned long)" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_create(unsigned long&, unsigned long)" 5
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_create(unsigned long&, unsigned long)" 18
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_create(unsigned long&, unsigned long)" 18
+35 einline "unused VAR_DECLs removed" "std::__niter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 6
+35 einline "Symbol to SSA rewrite" "std::__niter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 1
+38 ccp "Copies propagated" "std::__niter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 1
+38 ccp "Statements deleted" "std::__niter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 1
+55 release_ssa "SSA names released" "std::__niter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 1
+55 release_ssa "SSA name holes removed" "std::__niter_base<unsigned char const*>(unsigned char const*)unsigned char const*" 1
+38 ccp "Copies propagated" "std::__copy_move_a<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 1
+38 ccp "Statements deleted" "std::__copy_move_a<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 3
+43 fre "SCC iterations == 2" "std::__copy_move_a<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__copy_move_a<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 2
+55 release_ssa "SSA names released" "std::__copy_move_a<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 4
+55 release_ssa "SSA name holes removed" "std::__copy_move_a<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 4
+35 einline "unused VAR_DECLs removed" "std::__copy_move_a2<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 3
+35 einline "Symbol to SSA rewrite" "std::__copy_move_a2<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 1
+38 ccp "Copies propagated" "std::__copy_move_a2<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 6
+38 ccp "Statements deleted" "std::__copy_move_a2<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 8
+43 fre "SCC iterations == 2" "std::__copy_move_a2<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__copy_move_a2<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 4
+55 release_ssa "SSA names released" "std::__copy_move_a2<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 9
+55 release_ssa "SSA name holes removed" "std::__copy_move_a2<false, unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 9
+35 einline "unused VAR_DECLs removed" "std::copy<unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 6
+35 einline "Symbol to SSA rewrite" "std::copy<unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 1
+38 ccp "Copies propagated" "std::copy<unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 4
+38 ccp "Statements deleted" "std::copy<unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 7
+43 fre "SCC iterations == 2" "std::copy<unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 1
+55 release_ssa "unused VAR_DECLs removed" "std::copy<unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 3
+55 release_ssa "SSA names released" "std::copy<unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 8
+55 release_ssa "SSA name holes removed" "std::copy<unsigned char const*, unsigned char*>(unsigned char const*, unsigned char const*, unsigned char*)unsigned char*" 8
+35 einline "unused VAR_DECLs removed" "__gnu_cxx::char_traits<unsigned char>::copy(unsigned char*, unsigned char const*, unsigned long)" 5
+35 einline "Symbol to SSA rewrite" "__gnu_cxx::char_traits<unsigned char>::copy(unsigned char*, unsigned char const*, unsigned long)" 1
+38 ccp "Copies propagated" "__gnu_cxx::char_traits<unsigned char>::copy(unsigned char*, unsigned char const*, unsigned long)" 1
+38 ccp "Statements deleted" "__gnu_cxx::char_traits<unsigned char>::copy(unsigned char*, unsigned char const*, unsigned long)" 2
+43 fre "SCC iterations == 2" "__gnu_cxx::char_traits<unsigned char>::copy(unsigned char*, unsigned char const*, unsigned long)" 1
+47 cddce "Statements deleted" "__gnu_cxx::char_traits<unsigned char>::copy(unsigned char*, unsigned char const*, unsigned long)" 4
+55 release_ssa "unused VAR_DECLs removed" "__gnu_cxx::char_traits<unsigned char>::copy(unsigned char*, unsigned char const*, unsigned long)" 1
+55 release_ssa "SSA names released" "__gnu_cxx::char_traits<unsigned char>::copy(unsigned char*, unsigned char const*, unsigned long)" 9
+55 release_ssa "SSA name holes removed" "__gnu_cxx::char_traits<unsigned char>::copy(unsigned char*, unsigned char const*, unsigned long)" 9
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_copy(unsigned char*, unsigned char const*, unsigned long)" 3
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_copy(unsigned char*, unsigned char const*, unsigned long)" 1
+43 fre "SCC iterations == 2" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_copy(unsigned char*, unsigned char const*, unsigned long)" 1
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_copy(unsigned char*, unsigned char const*, unsigned long)" 1
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_S_copy(unsigned char*, unsigned char const*, unsigned long)" 1
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_mutate(unsigned long, unsigned long, unsigned char const*, unsigned long)" 2
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_mutate(unsigned long, unsigned long, unsigned char const*, unsigned long)" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_mutate(unsigned long, unsigned long, unsigned char const*, unsigned long)" 11
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_mutate(unsigned long, unsigned long, unsigned char const*, unsigned long)" 11
+43 fre "SCC iterations == 2" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_mutate(unsigned long, unsigned long, unsigned char const*, unsigned long)" 5
+43 fre "Eliminated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_mutate(unsigned long, unsigned long, unsigned char const*, unsigned long)" 2
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_mutate(unsigned long, unsigned long, unsigned char const*, unsigned long)" 6
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_mutate(unsigned long, unsigned long, unsigned char const*, unsigned long)" 20
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_mutate(unsigned long, unsigned long, unsigned char const*, unsigned long)" 20
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_replace(unsigned long, unsigned long, unsigned char const*, unsigned long)" 19
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_replace(unsigned long, unsigned long, unsigned char const*, unsigned long)" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_replace(unsigned long, unsigned long, unsigned char const*, unsigned long)" 6
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_replace(unsigned long, unsigned long, unsigned char const*, unsigned long)" 9
+40 ethread "Jumps threaded" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_replace(unsigned long, unsigned long, unsigned char const*, unsigned long)" 3
+43 fre "SCC iterations == 2" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_replace(unsigned long, unsigned long, unsigned char const*, unsigned long)" 9
+43 fre "Eliminated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_replace(unsigned long, unsigned long, unsigned char const*, unsigned long)" 9
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_replace(unsigned long, unsigned long, unsigned char const*, unsigned long)" 5
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_replace(unsigned long, unsigned long, unsigned char const*, unsigned long)" 27
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::_M_replace(unsigned long, unsigned long, unsigned char const*, unsigned long)" 27
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::assign(unsigned char const*)" 35
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::assign(unsigned char const*)" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::assign(unsigned char const*)" 2
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::assign(unsigned char const*)" 3
+40 ethread "Incremental SSA update" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::assign(unsigned char const*)" 1
+43 fre "SCC iterations == 3" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::assign(unsigned char const*)" 1
+55 release_ssa "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::assign(unsigned char const*)" 2
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::assign(unsigned char const*)" 6
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::assign(unsigned char const*)" 6
+35 einline "unused VAR_DECLs removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::operator=(unsigned char const*)" 2
+35 einline "Symbol to SSA rewrite" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::operator=(unsigned char const*)" 1
+38 ccp "Copies propagated" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::operator=(unsigned char const*)" 1
+38 ccp "Statements deleted" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::operator=(unsigned char const*)" 1
+55 release_ssa "SSA names released" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::operator=(unsigned char const*)" 1
+55 release_ssa "SSA name holes removed" "std::__cxx11::basic_string<unsigned char, std::char_traits<unsigned char>, std::allocator<unsigned char> >::operator=(unsigned char const*)" 1
+38 ccp "Copies propagated" "pbzip2::BZ2StreamScanner::init(int, unsigned long)" 3
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::init(int, unsigned long)" 9
+38 ccp "Constants propagated" "pbzip2::BZ2StreamScanner::init(int, unsigned long)" 2
+43 fre "SCC iterations == 2" "pbzip2::BZ2StreamScanner::init(int, unsigned long)" 5
+43 fre "Eliminated" "pbzip2::BZ2StreamScanner::init(int, unsigned long)" 6
+47 cddce "PHI nodes deleted" "pbzip2::BZ2StreamScanner::init(int, unsigned long)" 1
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::init(int, unsigned long)" 4
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::init(int, unsigned long)" 27
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::init(int, unsigned long)" 27
+35 einline "unused VAR_DECLs removed" "pbzip2::BZ2StreamScanner::BZ2StreamScanner(int, unsigned long)" 6
+35 einline "Symbol to SSA rewrite" "pbzip2::BZ2StreamScanner::BZ2StreamScanner(int, unsigned long)" 1
+38 ccp "Statements deleted" "pbzip2::BZ2StreamScanner::BZ2StreamScanner(int, unsigned long)" 1
+38 ccp "Constants propagated" "pbzip2::BZ2StreamScanner::BZ2StreamScanner(int, unsigned long)" 1
+43 fre "SCC iterations == 2" "pbzip2::BZ2StreamScanner::BZ2StreamScanner(int, unsigned long)" 2
+43 fre "Eliminated" "pbzip2::BZ2StreamScanner::BZ2StreamScanner(int, unsigned long)" 4
+47 cddce "Statements deleted" "pbzip2::BZ2StreamScanner::BZ2StreamScanner(int, unsigned long)" 3
+55 release_ssa "SSA names released" "pbzip2::BZ2StreamScanner::BZ2StreamScanner(int, unsigned long)" 15
+55 release_ssa "SSA name holes removed" "pbzip2::BZ2StreamScanner::BZ2StreamScanner(int, unsigned long)" 15

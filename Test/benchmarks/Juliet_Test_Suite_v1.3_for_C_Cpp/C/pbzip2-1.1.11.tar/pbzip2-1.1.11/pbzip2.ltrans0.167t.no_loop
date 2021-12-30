@@ -1,0 +1,2264 @@
+
+;; Function add (_ZN5queue3addEP7outBuff, funcdef_no=31, decl_uid=4248, cgraph_uid=65, symbol_order=366) (unlikely executed)
+
+add (struct queue * const this, struct ElementType * element)
+{
+  int _1;
+  struct ElementType * _2;
+  struct ElementType * * _3;
+  long int _4;
+  long unsigned int _5;
+  long unsigned int _6;
+  struct ElementType * * _7;
+  long int _8;
+  long int _9;
+  long int _10;
+  long int _11;
+  long int _12;
+  long int _13;
+  long int _14;
+  long int _15;
+
+  <bb 2> [100.00%]:
+  _1 = element_21(D)->sequenceNumber;
+  if (_1 > 1)
+    goto <bb 3>; [64.00%]
+  else
+    goto <bb 4>; [36.00%]
+
+  <bb 3> [64.00%]:
+  _2 = this_22(D)->lastElement;
+  _2->next = element_21(D);
+  goto <bb 9>; [100.00%]
+
+  <bb 4> [36.00%]:
+  _3 = this_22(D)->qData;
+  _4 = this_22(D)->tail;
+  _5 = (long unsigned int) _4;
+  _6 = _5 * 8;
+  _7 = _3 + _6;
+  *_7 = element_21(D);
+  _8 = this_22(D)->tail;
+  _9 = _8 + 1;
+  this_22(D)->tail = _9;
+  _10 = this_22(D)->size;
+  if (_9 == _10)
+    goto <bb 5>; [34.00%]
+  else
+    goto <bb 12>; [66.00%]
+
+  <bb 12> [23.76%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [12.24%]:
+  this_22(D)->tail = 0;
+
+  <bb 6> [36.00%]:
+  _11 = this_22(D)->tail;
+  _12 = this_22(D)->head;
+  if (_11 == _12)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 13>; [66.00%]
+
+  <bb 13> [23.76%]:
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [12.24%]:
+  this_22(D)->topLevelFull = 1;
+
+  <bb 8> [36.00%]:
+  this_22(D)->topLevelEmpty = 0;
+
+  <bb 9> [100.00%]:
+  this_22(D)->lastElement = element_21(D);
+  _13 = this_22(D)->count;
+  _14 = _13 + 1;
+  this_22(D)->count = _14;
+  _15 = this_22(D)->size;
+  if (_14 == _15)
+    goto <bb 10>; [37.68%]
+  else
+    goto <bb 14>; [62.32%]
+
+  <bb 14> [62.32%]:
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [37.68%]:
+  this_22(D)->full = 1;
+
+  <bb 11> [100.00%]:
+  this_22(D)->empty = 0;
+  return;
+
+}
+
+
+
+;; Function saveError (_ZN6pbzip212ErrorContext9saveErrorEv, funcdef_no=112, decl_uid=3989, cgraph_uid=0, symbol_order=4641)
+
+saveError (struct ErrorContext * const this)
+{
+  int newerr;
+  int * _1;
+  int _2;
+  int _3;
+  int * _4;
+  int * _10;
+  int * _11;
+
+  <bb 2> [100.00%]:
+  _1 = __errno_location ();
+  newerr_7 = *_1;
+  pthread_mutex_lock (&_err_ctx_mutex);
+  if (newerr_7 != 0)
+    goto <bb 3>; [54.00%]
+  else
+    goto <bb 8>; [46.00%]
+
+  <bb 8> [46.00%]:
+  goto <bb 7>; [100.00%]
+
+  <bb 3> [54.00%]:
+  _2 = this_9(D)->_first_kernel_err_no;
+  if (_2 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 4> [27.00%]:
+  _11 = &this_9(D)->_first_kernel_err_no;
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [27.00%]:
+  _10 = &this_9(D)->_last_kernel_err_no;
+
+  <bb 6> [54.00%]:
+  # _4 = PHI <_11(4), _10(5)>
+  *_4 = newerr_7;
+
+  <bb 7> [100.00%]:
+  _3 = *_1;
+  this_9(D)->_last_kernel_err_no = _3;
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  return;
+
+}
+
+
+
+;; Function banner (_Z6bannerv, funcdef_no=24, decl_uid=4290, cgraph_uid=125, symbol_order=791) (executed once)
+
+banner ()
+{
+  struct FILE * _1;
+  struct FILE * _2;
+  struct FILE * _3;
+  struct FILE * _4;
+
+  <bb 2> [100.00%]:
+  _1 = stderr;
+  __builtin_fwrite ("Parallel BZIP2 v1.1.11 [Dec 12, 2014]\n", 1, 38, _1);
+  _2 = stderr;
+  __builtin_fwrite ("By: Jeff Gilchrist [http://compression.ca]\n", 1, 43, _2);
+  _3 = stderr;
+  __builtin_fwrite ("Major contributions: Yavor Nikolov [http://javornikolov.wordpress.com]\n", 1, 71, _3);
+  _4 = stderr;
+  __builtin_fwrite ("Uses libbzip2 by Julian Seward\n", 1, 31, _4);
+  return;
+
+}
+
+
+
+;; Function printErrnoMsg (_ZN6pbzip212ErrorContext13printErrnoMsgEP8_IO_FILEi, funcdef_no=109, decl_uid=4031, cgraph_uid=3, symbol_order=4638)
+
+printErrnoMsg (struct FILE * out, int err)
+{
+  char * _1;
+
+  <bb 2> [100.00%]:
+  if (err_3(D) != 0)
+    goto <bb 3>; [36.64%]
+  else
+    goto <bb 5>; [63.36%]
+
+  <bb 5> [63.36%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [36.64%]:
+  _1 = strerror (err_3(D));
+  __fprintf_chk (out_6(D), 1, "pbzip2: *ERROR: system call failed with errno=[%d: %s]!\n", err_3(D), _1);
+
+  <bb 4> [100.00%]:
+  return;
+
+}
+
+
+
+;; Function syncPrintErrnoMsg (_ZN6pbzip212ErrorContext17syncPrintErrnoMsgEP8_IO_FILEi, funcdef_no=110, decl_uid=4030, cgraph_uid=2, symbol_order=4639)
+
+syncPrintErrnoMsg (struct FILE * out, int err)
+{
+  <bb 2> [100.00%]:
+  pthread_mutex_lock (&_err_ctx_mutex);
+  printErrnoMsg (out_3(D), err_4(D));
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  return;
+
+}
+
+
+
+;; Function printErrorMessages (_ZN6pbzip212ErrorContext18printErrorMessagesEP8_IO_FILE, funcdef_no=111, decl_uid=4029, cgraph_uid=1, symbol_order=4640)
+
+printErrorMessages (struct ErrorContext * const this, struct FILE * out)
+{
+  int _1;
+  int _2;
+
+  <bb 2> [100.00%]:
+  pthread_mutex_lock (&_err_ctx_mutex);
+  _1 = this_5(D)->_first_kernel_err_no;
+  printErrnoMsg (out_6(D), _1);
+  _2 = this_5(D)->_last_kernel_err_no;
+  printErrnoMsg (out_6(D), _2);
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  return;
+
+}
+
+
+
+;; Function getInstance (_ZN6pbzip212ErrorContext11getInstanceEv, funcdef_no=108, decl_uid=4032, cgraph_uid=4, symbol_order=4637)
+
+getInstance ()
+{
+  struct ErrorContext * _1;
+  struct FILE * _2;
+  void * _8;
+  struct ErrorContext * _11;
+
+  <bb 2> [100.00%]:
+  pthread_mutex_lock (&_err_ctx_mutex);
+  _1 = _instance;
+  if (_1 == 0B)
+    goto <bb 3>; [19.86%]
+  else
+    goto <bb 7>; [80.14%]
+
+  <bb 7> [80.14%]:
+  goto <bb 5>; [100.00%]
+
+  <bb 3> [19.86%]:
+  _8 = operator new (8, &nothrow);
+  if (_8 != 0B)
+    goto <bb 4>; [70.00%]
+  else
+    goto <bb 6>; [30.00%]
+
+  <bb 4> [13.90%]:
+  MEM[(struct  &)_8] ={v} {CLOBBER};
+  MEM[(struct ErrorContext *)_8]._first_kernel_err_no = 0;
+  MEM[(struct ErrorContext *)_8]._last_kernel_err_no = 0;
+  _instance = _8;
+
+  <bb 5> [100.00%]:
+  pthread_mutex_unlock (&_err_ctx_mutex);
+  _11 = _instance;
+  return _11;
+
+  <bb 6> [5.96%]:
+  _instance = _8;
+  _2 = stderr;
+  __builtin_fwrite ("pbzip2: *ERROR: Can\'t initialize error context - out of memory!\n", 1, 64, _2);
+  goto <bb 5>; [100.00%]
+
+}
+
+
+
+;; Function copy (_ZN9__gnu_cxx11char_traitsIhE4copyEPhPKhm, funcdef_no=107, decl_uid=4038, cgraph_uid=5, symbol_order=3634) (unlikely executed)
+
+copy (char_type * __s1, const char_type * __s2, size_t __n)
+{
+  const ptrdiff_t _Num;
+
+  <bb 2> [100.00%]:
+  if (__n_2(D) != 0)
+    goto <bb 3>; [36.64%]
+  else
+    goto <bb 5>; [63.36%]
+
+  <bb 5> [63.36%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [36.64%]:
+  __builtin_memmove (__s1_4(D), __s2_1(D), __n_2(D));
+
+  <bb 4> [100.00%]:
+  return __s1_4(D);
+
+}
+
+
+
+;; Function __base_dtor  (_ZNSt6vectorI7outBuffSaIS0_EED2Ev, funcdef_no=81, decl_uid=4149, cgraph_uid=39, symbol_order=1255)
+
+__base_dtor  (struct vector * const this)
+{
+  struct outBuff * _1;
+
+  <bb 2> [100.00%]:
+  _1 = this_2(D)->D.4140._M_impl._M_start;
+  if (_1 != 0B)
+    goto <bb 3>; [57.44%]
+  else
+    goto <bb 5>; [42.56%]
+
+  <bb 5> [42.56%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [57.44%]:
+  operator delete (_1);
+
+  <bb 4> [100.00%]:
+  MEM[(struct  &)this_2(D)] ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function dispose (_ZN6pbzip216BZ2StreamScanner7disposeEv, funcdef_no=86, decl_uid=4124, cgraph_uid=33, symbol_order=3086)
+
+dispose (struct BZ2StreamScanner * const this)
+{
+  unsigned char * _5;
+  char * _6;
+
+  <bb 2> [100.00%]:
+  _6 = MEM[(char * &)this_1(D) + 128];
+  if (_6 != 0B)
+    goto <bb 3>; [53.47%]
+  else
+    goto <bb 7>; [46.53%]
+
+  <bb 7> [46.53%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [53.47%]:
+  operator delete [] (_6);
+  MEM[(char * &)this_1(D) + 128] = 0B;
+
+  <bb 4> [100.00%]:
+  this_1(D)->_outBuff.bufSize = 0;
+  _5 = MEM[(unsigned char * &)this_1(D) + 88];
+  if (_5 != 0B)
+    goto <bb 5>; [57.44%]
+  else
+    goto <bb 8>; [42.56%]
+
+  <bb 8> [42.56%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [57.44%]:
+  operator delete [] (_5);
+  MEM[(unsigned char * &)this_1(D) + 88] = 0B;
+
+  <bb 6> [100.00%]:
+  this_1(D)->_inBuffCapacity = 0;
+  return;
+
+}
+
+
+
+;; Function __base_dtor  (_ZN6pbzip216BZ2StreamScannerD2Ev, funcdef_no=87, decl_uid=4122, cgraph_uid=31, symbol_order=3088)
+
+__base_dtor  (struct BZ2StreamScanner * const this)
+{
+  unsigned char * _6;
+  const unsigned char[16] * _7;
+  unsigned char * _8;
+  const unsigned char[16] * _9;
+
+  <bb 2> [100.00%]:
+  this_2(D)->_vptr.BZ2StreamScanner = &MEM[(void *)&_ZTVN6pbzip216BZ2StreamScannerE + 16B];
+  dispose (this_2(D));
+  _8 = MEM[(const struct basic_string *)this_2(D) + 48B]._M_dataplus._M_p;
+  _9 = &MEM[(const struct basic_string *)this_2(D) + 48B].D.4058._M_local_buf;
+  if (_8 != _9)
+    goto <bb 3>; [53.47%]
+  else
+    goto <bb 7>; [46.53%]
+
+  <bb 7> [46.53%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [53.47%]:
+  operator delete (_8);
+
+  <bb 4> [100.00%]:
+  MEM[(struct  &)this_2(D) + 48] ={v} {CLOBBER};
+  _6 = MEM[(const struct basic_string *)this_2(D) + 16B]._M_dataplus._M_p;
+  _7 = &MEM[(const struct basic_string *)this_2(D) + 16B].D.4058._M_local_buf;
+  if (_6 != _7)
+    goto <bb 5>; [57.44%]
+  else
+    goto <bb 8>; [42.56%]
+
+  <bb 8> [42.56%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [57.44%]:
+  operator delete (_6);
+
+  <bb 6> [100.00%]:
+  MEM[(struct  &)this_2(D)] ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function __deleting_dtor  (_ZN6pbzip216BZ2StreamScannerD0Ev, funcdef_no=88, decl_uid=4121, cgraph_uid=30, symbol_order=3090)
+
+__deleting_dtor  (struct BZ2StreamScanner * const this)
+{
+  <bb 2> [100.00%]:
+  __comp_dtor  (this_2(D));
+  operator delete (this_2(D), 208);
+  return;
+
+}
+
+
+
+;; Function do_close (_Z8do_closei, funcdef_no=5, decl_uid=4331, cgraph_uid=251, symbol_order=738)
+
+do_close (int fd)
+{
+  int _5;
+  struct ErrorContext * _7;
+
+  <bb 2> [100.00%]:
+  _5 = close (fd_3(D));
+  if (_5 == -1)
+    goto <bb 3>; [22.95%]
+  else
+    goto <bb 5>; [77.05%]
+
+  <bb 5> [77.05%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [22.95%]:
+  _7 = getInstance ();
+  saveError (_7);
+
+  <bb 4> [100.00%]:
+  return _5;
+
+}
+
+
+
+;; Function do_remove (_Z9do_removePKc, funcdef_no=6, decl_uid=4330, cgraph_uid=250, symbol_order=742)
+
+do_remove (const char * pathname)
+{
+  int ret;
+  struct ErrorContext * _7;
+
+  <bb 2> [100.00%]:
+  ret_5 = remove (pathname_3(D));
+  if (ret_5 == -1)
+    goto <bb 3>; [22.95%]
+  else
+    goto <bb 5>; [77.05%]
+
+  <bb 5> [77.05%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [22.95%]:
+  _7 = getInstance ();
+  saveError (_7);
+
+  <bb 4> [100.00%]:
+  return ret_5;
+
+}
+
+
+
+;; Function safe_open_output (_Z16safe_open_outputPKc, funcdef_no=3, decl_uid=4333, cgraph_uid=253, symbol_order=736)
+
+safe_open_output (const char * path)
+{
+  struct ErrorContext * _5;
+  int _7;
+
+  <bb 2> [100.00%]:
+  _7 = __open_alias (path_3(D), 193, 384);
+  if (_7 == -1)
+    goto <bb 3>; [22.95%]
+  else
+    goto <bb 5>; [77.05%]
+
+  <bb 5> [77.05%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [22.95%]:
+  _5 = getInstance ();
+  saveError (_5);
+
+  <bb 4> [100.00%]:
+  return _7;
+
+}
+
+
+
+;; Function testBZ2ErrorHandling (_Z20testBZ2ErrorHandlingiPvi, funcdef_no=22, decl_uid=4293, cgraph_uid=127, symbol_order=786)
+
+testBZ2ErrorHandling (int bzerr, BZFILE * bzf, int streamNo)
+{
+  int bzerr_dummy;
+  struct FILE * _1;
+  struct FILE * _2;
+  struct FILE * _3;
+  struct FILE * _4;
+  struct FILE * _5;
+  struct FILE * _6;
+  struct FILE * _7;
+  struct FILE * _8;
+  int _9;
+
+  <bb 2> [100.00%]:
+  BZ2_bzReadClose (&bzerr_dummy, bzf_12(D));
+  switch (bzerr_14(D)) <default: <L6> [0.04%], case -9: <L0> [0.04%], case -7: <L4> [20.00%], case -6: <L1> [20.00%], case -5: <L5> [20.00%], case -4: <L2> [20.00%], case -3: <L3> [20.00%]>
+
+<L0> [0.04%]:
+  _1 = stderr;
+  __builtin_fwrite ("pbzip2: *ERROR: Integers are not the right size for libbzip2. Aborting!\n", 1, 72, _1);
+  exit (3);
+
+<L1> [20.00%]:
+  _2 = stderr;
+  __builtin_fwrite ("pbzip2: *ERROR: Integers are not the right size for libbzip2. Aborting!\n", 1, 72, _2);
+  goto <bb 12>; [100.00%]
+
+<L2> [20.00%]:
+  _3 = stderr;
+  __builtin_fwrite ("pbzip2: *ERROR: Data integrity (CRC) error in data!  Skipping...\n", 1, 65, _3);
+  goto <bb 12>; [100.00%]
+
+<L3> [20.00%]:
+  _4 = stderr;
+  __builtin_fwrite ("pbzip2: *ERROR: Could NOT allocate enough memory. Aborting!\n", 1, 60, _4);
+  goto <bb 12>; [100.00%]
+
+<L4> [20.00%]:
+  _5 = stderr;
+  __builtin_fwrite ("pbzip2: *ERROR: File ends unexpectedly!  Skipping...\n", 1, 53, _5);
+  goto <bb 12>; [100.00%]
+
+<L5> [20.00%]:
+  if (streamNo_15(D) == 1)
+    goto <bb 9>; [1.04%]
+  else
+    goto <bb 10>; [98.96%]
+
+  <bb 9> [0.21%]:
+  _6 = stderr;
+  __builtin_fwrite ("pbzip2: *ERROR: Bad magic number (file not created by bzip2)!  Skipping...\n", 1, 75, _6);
+  goto <bb 12>; [100.00%]
+
+  <bb 10> [19.79%]:
+  _7 = stderr;
+  __builtin_fwrite ("pbzip2: *WARNING: Trailing garbage after EOF ignored!\n", 1, 54, _7);
+  goto <bb 12>; [100.00%]
+
+<L6> [0.04%]:
+  _8 = stderr;
+  __builtin_fwrite ("pbzip2: *ERROR: Unexpected error. Aborting!\n", 1, 44, _8);
+  exit (3);
+
+  <bb 12> [100.00%]:
+  # _9 = PHI <1(4), -1(5), 1(6), -1(7), -1(9), 0(10)>
+  bzerr_dummy ={v} {CLOBBER};
+  return _9;
+
+}
+
+
+
+;; Function usage (_Z5usagePcPKc, funcdef_no=25, decl_uid=4289, cgraph_uid=124, symbol_order=792) (executed once)
+
+usage (char * progname, const char * reason)
+{
+  int ncpu;
+  int D.5066;
+  int _1;
+  struct FILE * _2;
+  struct FILE * _3;
+  struct FILE * _4;
+  struct FILE * _5;
+  struct FILE * _6;
+  struct FILE * _7;
+  struct FILE * _8;
+  struct FILE * _9;
+  struct FILE * _10;
+  struct FILE * _11;
+  struct FILE * _12;
+  struct FILE * _13;
+  struct FILE * _14;
+  struct FILE * _16;
+  struct FILE * _17;
+  struct FILE * _18;
+  struct FILE * _19;
+  struct FILE * _20;
+  struct FILE * _21;
+  struct FILE * _22;
+  struct FILE * _23;
+  struct FILE * _24;
+  struct FILE * _25;
+  struct FILE * _26;
+  struct FILE * _27;
+  struct FILE * _28;
+  struct FILE * _29;
+  struct FILE * _30;
+  struct FILE * _31;
+  struct FILE * _32;
+  struct FILE * _33;
+  struct FILE * _34;
+  long int _77;
+
+  <bb 2> [100.00%]:
+  banner ();
+  _1 = strncmp (reason_38(D), "HELP", 4);
+  if (_1 == 0)
+    goto <bb 3>; [50.00%]
+  else
+    goto <bb 4>; [50.00%]
+
+  <bb 3> [50.00%]:
+  _2 = stderr;
+  __builtin_fputc (10, _2);
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [50.00%]:
+  _3 = stderr;
+  __fprintf_chk (_3, 1, "\nInvalid command line: %s.  Aborting...\n\n", reason_38(D));
+
+  <bb 5> [100.00%]:
+  _4 = stderr;
+  __fprintf_chk (_4, 1, "Usage: %s [-1 .. -9] [-b#cdfhklm#p#qrS#tVz] <filename> <filename2> <filenameN>\n", progname_39(D));
+  _5 = stderr;
+  __builtin_fwrite (" -1 .. -9        set BWT block size to 100k .. 900k (default 900k)\n", 1, 67, _5);
+  _6 = stderr;
+  __builtin_fwrite (" -b#             Block size in 100k steps (default 9 = 900k)\n", 1, 61, _6);
+  _7 = stderr;
+  __builtin_fwrite (" -c,--stdout     Output to standard out (stdout)\n", 1, 49, _7);
+  _8 = stderr;
+  __builtin_fwrite (" -d,--decompress Decompress file\n", 1, 33, _8);
+  _9 = stderr;
+  __builtin_fwrite (" -f,--force      Overwrite existing output file\n", 1, 48, _9);
+  _10 = stderr;
+  __builtin_fwrite (" -h,--help       Print this help message\n", 1, 41, _10);
+  _11 = stderr;
+  __builtin_fwrite (" -k,--keep       Keep input file, don\'t delete\n", 1, 47, _11);
+  _12 = stderr;
+  __builtin_fwrite (" -l,--loadavg    Load average determines max number processors to use\n", 1, 70, _12);
+  _13 = stderr;
+  __builtin_fwrite (" -m#             Maximum memory usage in 1MB steps (default 100 = 100MB)\n", 1, 73, _13);
+  _14 = stderr;
+  __builtin_fwrite (" -p#             Number of processors to use (default", 1, 53, _14);
+  _77 = sysconf (84);
+  ncpu_78 = (int) _77;
+  if (ncpu_78 <= 0)
+    goto <bb 6>; [39.77%]
+  else
+    goto <bb 8>; [60.23%]
+
+  <bb 8> [60.23%]:
+  goto <bb 7>; [100.00%]
+
+  <bb 6> [39.77%]:
+
+  <bb 7> [100.00%]:
+  # ncpu_79 = PHI <ncpu_78(8), 1(6)>
+  _16 = stderr;
+  __fprintf_chk (_16, 1, ": autodetect [%d])\n", ncpu_79);
+  _17 = stderr;
+  __builtin_fwrite (" -q,--quiet      Quiet mode (default)\n", 1, 38, _17);
+  _18 = stderr;
+  __builtin_fwrite (" -r,--read       Read entire input file into RAM and split between processors\n", 1, 78, _18);
+  _19 = stderr;
+  __builtin_fwrite (" -S#             Child thread stack size in 1KB steps (default stack size if unspecified)\n", 1, 90, _19);
+  _20 = stderr;
+  __builtin_fwrite (" -t,--test       Test compressed file integrity\n", 1, 48, _20);
+  _21 = stderr;
+  __builtin_fwrite (" -v,--verbose    Verbose mode\n", 1, 30, _21);
+  _22 = stderr;
+  __builtin_fwrite (" -V,--version    Display version info for pbzip2 then exit\n", 1, 59, _22);
+  _23 = stderr;
+  __builtin_fwrite (" -z,--compress   Compress file (default)\n", 1, 41, _23);
+  _24 = stderr;
+  __builtin_fwrite (" --ignore-trailing-garbage=# Ignore trailing garbage flag (1 - ignored; 0 - forbidden)\n", 1, 87, _24);
+  _25 = stderr;
+  __builtin_fputc (10, _25);
+  _26 = stderr;
+  __builtin_fwrite ("If no file names are given, pbzip2 compresses or decompresses from standard input to standard output.\n", 1, 102, _26);
+  _27 = stderr;
+  __builtin_fputc (10, _27);
+  _28 = stderr;
+  __builtin_fwrite ("Example: pbzip2 -b15vk myfile.tar\n", 1, 34, _28);
+  _29 = stderr;
+  __builtin_fwrite ("Example: pbzip2 -p4 -r -5 myfile.tar second*.txt\n", 1, 49, _29);
+  _30 = stderr;
+  __builtin_fwrite ("Example: tar cf myfile.tar.bz2 --use-compress-prog=pbzip2 dir_to_compress/\n", 1, 75, _30);
+  _31 = stderr;
+  __builtin_fwrite ("Example: pbzip2 -d -m500 myfile.tar.bz2\n", 1, 40, _31);
+  _32 = stderr;
+  __builtin_fwrite ("Example: pbzip2 -dc myfile.tar.bz2 | tar x\n", 1, 43, _32);
+  _33 = stderr;
+  __builtin_fwrite ("Example: pbzip2 -c < myfile.txt > myfile.txt.bz2 \n", 1, 50, _33);
+  _34 = stderr;
+  __builtin_fputc (10, _34);
+  exit (-1);
+
+}
+
+
+
+;; Function writeFileMetaData (_Z17writeFileMetaDataPKc, funcdef_no=23, decl_uid=4291, cgraph_uid=126, symbol_order=789)
+
+writeFileMetaData (const char * fileName)
+{
+  struct utimbuf uTimBuf;
+  int ret;
+  long int _1;
+  long int _2;
+  unsigned int _3;
+  unsigned int _4;
+  unsigned int _5;
+  unsigned int _6;
+  int _7;
+  struct ErrorContext * _20;
+  struct ErrorContext * _24;
+  struct ErrorContext * _27;
+
+  <bb 2> [100.00%]:
+  _1 = fileMetaData.st_atim.tv_sec;
+  uTimBuf.actime = _1;
+  _2 = fileMetaData.st_mtim.tv_sec;
+  uTimBuf.modtime = _2;
+  _3 = fileMetaData.st_mode;
+  ret_14 = chmod (fileName_12(D), _3);
+  if (ret_14 != 0)
+    goto <bb 3>; [46.00%]
+  else
+    goto <bb 4>; [54.00%]
+
+  <bb 3> [46.00%]:
+  _27 = getInstance ();
+  saveError (_27);
+  goto <bb 9>; [100.00%]
+
+  <bb 4> [54.00%]:
+  ret_16 = utime (fileName_12(D), &uTimBuf);
+  if (ret_16 != 0)
+    goto <bb 5>; [46.00%]
+  else
+    goto <bb 6>; [54.00%]
+
+  <bb 5> [24.84%]:
+  _24 = getInstance ();
+  saveError (_24);
+  goto <bb 9>; [100.00%]
+
+  <bb 6> [29.16%]:
+  _4 = fileMetaData.st_gid;
+  _5 = fileMetaData.st_uid;
+  ret_18 = chown (fileName_12(D), _5, _4);
+  if (ret_18 != 0)
+    goto <bb 7>; [36.64%]
+  else
+    goto <bb 10>; [63.36%]
+
+  <bb 10> [18.48%]:
+  goto <bb 9>; [100.00%]
+
+  <bb 7> [10.68%]:
+  _20 = getInstance ();
+  saveError (_20);
+  _6 = geteuid ();
+  if (_6 == 0)
+    goto <bb 11>; [46.00%]
+  else
+    goto <bb 8>; [54.00%]
+
+  <bb 11> [4.91%]:
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [5.77%]:
+
+  <bb 9> [100.00%]:
+  # _7 = PHI <ret_14(3), ret_16(5), 0(10), ret_18(11), 0(8)>
+  uTimBuf ={v} {CLOBBER};
+  return _7;
+
+}
+
+
+
+;; Function safe_fopen_output (_Z17safe_fopen_outputPKcS0_, funcdef_no=4, decl_uid=4332, cgraph_uid=252, symbol_order=737) (unlikely executed)
+
+safe_fopen_output (const char * path, const char * mode)
+{
+  struct FILE * fp;
+  struct FILE * _1;
+  int _6;
+  struct ErrorContext * _11;
+
+  <bb 2> [100.00%]:
+  _6 = safe_open_output (path_4(D));
+  if (_6 == -1)
+    goto <bb 6>; [9.37%]
+  else
+    goto <bb 3>; [90.63%]
+
+  <bb 6> [9.37%]:
+  goto <bb 5>; [100.00%]
+
+  <bb 3> [90.63%]:
+  fp_9 = fdopen (_6, mode_7(D));
+  if (fp_9 == 0B)
+    goto <bb 4>; [19.86%]
+  else
+    goto <bb 7>; [80.14%]
+
+  <bb 7> [72.63%]:
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [18.00%]:
+  _11 = getInstance ();
+  saveError (_11);
+  close (_6);
+
+  <bb 5> [100.00%]:
+  # _1 = PHI <0B(6), fp_9(7), fp_9(4)>
+  return _1;
+
+}
+
+
+
+;; Function cleanupAndQuit (_Z14cleanupAndQuiti, funcdef_no=16, decl_uid=4318, cgraph_uid=205, symbol_order=767) (executed once)
+
+cleanupAndQuit (int exitCode)
+{
+  struct stat statBuf;
+  int ret;
+  int ret;
+  struct FILE * _1;
+  int _16;
+  const char * _17;
+  const char * _18;
+  int _19;
+  int _20;
+  struct FILE * _21;
+  const char * _22;
+  int _23;
+  int _24;
+  const char * _25;
+  struct FILE * _26;
+  const char * _27;
+  int * _29;
+  int _30;
+  struct FILE * _31;
+  struct FILE * _32;
+  struct FILE * _33;
+  struct FILE * _34;
+  const char * _35;
+  struct FILE * _36;
+
+  <bb 2> [100.00%]:
+  ret_5 = pthread_mutex_lock (&ErrorHandlerMutex);
+  if (ret_5 != 0)
+    goto <bb 3>; [33.00%]
+  else
+    goto <bb 21>; [67.00%]
+
+  <bb 21> [67.00%]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [33.00%]:
+  _1 = stderr;
+  __builtin_fwrite ("Cleanup Handler: Failed to lock ErrorHandlerMutex! May double cleanup...\n", 1, 73, _1);
+
+  <bb 4> [100.00%]:
+  _16 = unfinishedWorkCleaned;
+  if (_16 != 0)
+    goto <bb 22>; [50.00%]
+  else
+    goto <bb 5>; [50.00%]
+
+  <bb 5> [50.00%]:
+  _17 = sigInFilename;
+  if (_17 == 0B)
+    goto <bb 23>; [30.00%]
+  else
+    goto <bb 6>; [70.00%]
+
+  <bb 23> [15.00%]:
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [35.00%]:
+  _18 = sigOutFilename;
+  if (_18 == 0B)
+    goto <bb 24>; [30.00%]
+  else
+    goto <bb 7>; [70.00%]
+
+  <bb 24> [10.50%]:
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [24.50%]:
+  _19 = OutputStdOut;
+  if (_19 == 1)
+    goto <bb 25>; [34.00%]
+  else
+    goto <bb 9>; [66.00%]
+
+  <bb 25> [8.33%]:
+
+  <bb 8> [33.83%]:
+  unfinishedWorkCleaned = 1;
+  goto <bb 19>; [100.00%]
+
+  <bb 9> [16.17%]:
+  _20 = QuietMode;
+  if (_20 != 1)
+    goto <bb 10>; [48.88%]
+  else
+    goto <bb 26>; [51.12%]
+
+  <bb 26> [8.27%]:
+  goto <bb 11>; [100.00%]
+
+  <bb 10> [7.90%]:
+  _21 = stderr;
+  __fprintf_chk (_21, 1, "Cleanup unfinished work [Outfile: %s]...\n", _18);
+
+  <bb 11> [16.17%]:
+  _22 = sigInFilename;
+  _23 = __xstat (1, _22, &statBuf);
+  if (_23 == 0)
+    goto <bb 12>; [67.00%]
+  else
+    goto <bb 17>; [33.00%]
+
+  <bb 12> [10.83%]:
+  _24 = QuietMode;
+  if (_24 != 1)
+    goto <bb 13>; [48.88%]
+  else
+    goto <bb 27>; [51.12%]
+
+  <bb 27> [5.54%]:
+  goto <bb 14>; [100.00%]
+
+  <bb 13> [5.30%]:
+  _25 = sigOutFilename;
+  _26 = stderr;
+  __fprintf_chk (_26, 1, "Deleting output file: %s, if it exists...\n", _25);
+
+  <bb 14> [10.83%]:
+  _27 = sigOutFilename;
+  ret_28 = remove (_27);
+  if (ret_28 != 0)
+    goto <bb 15>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 15> [5.42%]:
+  _29 = __errno_location ();
+  _30 = *_29;
+  _31 = stderr;
+  syncPrintErrnoMsg (_31, _30);
+  _32 = stderr;
+  __builtin_fwrite ("pbzip2:  *WARNING: Deletion of output file (apparently) failed.\n", 1, 64, _32);
+  goto <bb 18>; [100.00%]
+
+  <bb 16> [5.42%]:
+  _33 = stderr;
+  __builtin_fwrite ("pbzip2:  *INFO: Deletion of output file succeeded.\n", 1, 51, _33);
+  sigOutFilename = 0B;
+  goto <bb 18>; [100.00%]
+
+  <bb 17> [5.34%]:
+  _34 = stderr;
+  __builtin_fwrite ("pbzip2:  *WARNING: Output file was not deleted since input file no longer exists.\n", 1, 82, _34);
+  _35 = sigOutFilename;
+  _36 = stderr;
+  __fprintf_chk (_36, 1, "pbzip2:  *WARNING: Output file: %s, may be incomplete!\n", _35);
+
+  <bb 18> [16.17%]:
+  unfinishedWorkCleaned = 1;
+  statBuf ={v} {CLOBBER};
+  goto <bb 20>; [100.00%]
+
+  <bb 22> [50.00%]:
+
+  <bb 19> [83.83%]:
+  statBuf ={v} {CLOBBER};
+
+  <bb 20> [100.00%]:
+  pthread_mutex_unlock (&ErrorHandlerMutex);
+  exit (exitCode_8(D));
+
+}
+
+
+
+;; Function syncSetTerminateFlag (_Z20syncSetTerminateFlagi, funcdef_no=8, decl_uid=4320, cgraph_uid=207, symbol_order=747) (unlikely executed)
+
+syncSetTerminateFlag (int newValue)
+{
+  int ret;
+  int ret;
+  int ret;
+  int ret;
+  int ret;
+  int ret;
+  int ret;
+  union pthread_mutex_t * _1;
+  union pthread_cond_t * _2;
+  union pthread_mutex_t * _3;
+  struct queue * _4;
+  union pthread_mutex_t * _5;
+  struct queue * _6;
+  union pthread_cond_t * _7;
+  struct queue * _8;
+  union pthread_cond_t * _9;
+  struct queue * _10;
+  union pthread_mutex_t * _11;
+  struct FILE * _31;
+  struct FILE * _33;
+  struct FILE * _35;
+  struct FILE * _37;
+  struct FILE * _39;
+  struct FILE * _41;
+  struct FILE * _43;
+
+  <bb 2> [100.00%]:
+  ret_30 = pthread_mutex_lock (&TerminateFlagMutex);
+  if (ret_30 != 0)
+    goto <bb 3>; [0.04%]
+  else
+    goto <bb 4>; [99.96%]
+
+  <bb 3> [0.04%]:
+  _31 = stderr;
+  __fprintf_chk (_31, 1, "pthread_mutex_lock error [%d]! Aborting immediately!\n", ret_30);
+  cleanupAndQuit (-5);
+
+  <bb 4> [99.96%]:
+  terminateFlag = newValue_15(D);
+  if (newValue_15(D) != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 5> [49.98%]:
+  pthread_cond_signal (&TerminateCond);
+  ret_36 = pthread_mutex_unlock (&TerminateFlagMutex);
+  if (ret_36 != 0)
+    goto <bb 6>; [0.04%]
+  else
+    goto <bb 7>; [99.96%]
+
+  <bb 6> [0.02%]:
+  _37 = stderr;
+  __fprintf_chk (_37, 1, "pthread_mutex_unlock error [%d]! Aborting immediately!\n", ret_36);
+  cleanupAndQuit (-6);
+
+  <bb 7> [49.96%]:
+  _1 = OutMutex;
+  ret_34 = pthread_mutex_lock (_1);
+  if (ret_34 != 0)
+    goto <bb 8>; [0.04%]
+  else
+    goto <bb 9>; [99.96%]
+
+  <bb 8> [0.02%]:
+  _35 = stderr;
+  __fprintf_chk (_35, 1, "pthread_mutex_lock error [%d]! Aborting immediately!\n", ret_34);
+  cleanupAndQuit (-5);
+
+  <bb 9> [49.94%]:
+  _2 = notTooMuchNumBuffered;
+  pthread_cond_broadcast (_2);
+  _3 = OutMutex;
+  ret_32 = pthread_mutex_unlock (_3);
+  if (ret_32 != 0)
+    goto <bb 10>; [0.04%]
+  else
+    goto <bb 11>; [99.96%]
+
+  <bb 10> [0.02%]:
+  _33 = stderr;
+  __fprintf_chk (_33, 1, "pthread_mutex_unlock error [%d]! Aborting immediately!\n", ret_32);
+  cleanupAndQuit (-6);
+
+  <bb 11> [49.92%]:
+  _4 = FifoQueue;
+  if (_4 != 0B)
+    goto <bb 12>; [53.47%]
+  else
+    goto <bb 19>; [46.53%]
+
+  <bb 12> [26.69%]:
+  _5 = _4->mut;
+  ret_40 = pthread_mutex_lock (_5);
+  if (ret_40 != 0)
+    goto <bb 13>; [0.04%]
+  else
+    goto <bb 14>; [99.96%]
+
+  <bb 13> [0.01%]:
+  _41 = stderr;
+  __fprintf_chk (_41, 1, "pthread_mutex_lock error [%d]! Aborting immediately!\n", ret_40);
+  cleanupAndQuit (-5);
+
+  <bb 14> [26.68%]:
+  _6 = FifoQueue;
+  _7 = _6->notFull;
+  pthread_cond_broadcast (_7);
+  _8 = FifoQueue;
+  _9 = _8->notEmpty;
+  pthread_cond_broadcast (_9);
+  _10 = FifoQueue;
+  _11 = _10->mut;
+  ret_38 = pthread_mutex_unlock (_11);
+  if (ret_38 != 0)
+    goto <bb 15>; [0.04%]
+  else
+    goto <bb 20>; [99.96%]
+
+  <bb 20> [26.67%]:
+  goto <bb 18>; [100.00%]
+
+  <bb 15> [0.01%]:
+  _39 = stderr;
+  __fprintf_chk (_39, 1, "pthread_mutex_unlock error [%d]! Aborting immediately!\n", ret_38);
+  cleanupAndQuit (-6);
+
+  <bb 16> [49.98%]:
+  ret_42 = pthread_mutex_unlock (&TerminateFlagMutex);
+  if (ret_42 != 0)
+    goto <bb 17>; [0.04%]
+  else
+    goto <bb 21>; [99.96%]
+
+  <bb 21> [49.96%]:
+  goto <bb 18>; [100.00%]
+
+  <bb 17> [0.02%]:
+  _43 = stderr;
+  __fprintf_chk (_43, 1, "pthread_mutex_unlock error [%d]! Aborting immediately!\n", ret_42);
+  cleanupAndQuit (-6);
+
+  <bb 19> [23.23%]:
+
+  <bb 18> [99.86%]:
+  return;
+
+}
+
+
+
+;; Function handle_error (_Z12handle_error8ExitFlagiPKcz, funcdef_no=7, decl_uid=4329, cgraph_uid=239, symbol_order=753)
+
+handle_error (ExitFlag exitFlag, int exitCode, const char * fmt)
+{
+  int ret;
+  int ret;
+  int ret;
+  int ret;
+  int ret;
+  int ret;
+  struct  args[1];
+  struct FILE * _1;
+  struct FILE * _2;
+  struct FILE * _3;
+  struct ErrorContext * _9;
+  union pthread_mutex_t * _28;
+  union pthread_cond_t * _29;
+  union pthread_mutex_t * _30;
+  struct queue * _31;
+  union pthread_mutex_t * _32;
+  struct queue * _33;
+  union pthread_cond_t * _34;
+  struct queue * _35;
+  union pthread_cond_t * _36;
+  struct queue * _37;
+  union pthread_mutex_t * _38;
+  struct FILE * _40;
+  struct FILE * _42;
+  struct FILE * _44;
+  struct FILE * _46;
+  struct FILE * _48;
+  struct FILE * _50;
+
+  <bb 2> [100.00%]:
+  __builtin_va_start (&args, 0);
+  _1 = stderr;
+  __vfprintf_chk (_1, 1, fmt_7(D), &args);
+  _9 = getInstance ();
+  _2 = stderr;
+  printErrorMessages (_9, _2);
+  _3 = stderr;
+  fflush (_3);
+  __builtin_va_end (&args);
+  if (exitFlag_13(D) == 2)
+    goto <bb 3>; [0.04%]
+  else
+    goto <bb 4>; [99.96%]
+
+  <bb 3> [0.04%]:
+  syncSetTerminateFlag (1);
+  abort ();
+
+  <bb 4> [99.96%]:
+  if (exitFlag_13(D) == 1)
+    goto <bb 5>; [22.95%]
+  else
+    goto <bb 19>; [77.05%]
+
+  <bb 5> [22.94%]:
+  ret_39 = pthread_mutex_lock (&TerminateFlagMutex);
+  if (ret_39 != 0)
+    goto <bb 6>; [0.04%]
+  else
+    goto <bb 7>; [99.96%]
+
+  <bb 6> [0.01%]:
+  _40 = stderr;
+  __fprintf_chk (_40, 1, "pthread_mutex_lock error [%d]! Aborting immediately!\n", ret_39);
+  cleanupAndQuit (-5);
+
+  <bb 7> [22.93%]:
+  terminateFlag = 1;
+  pthread_cond_signal (&TerminateCond);
+  ret_45 = pthread_mutex_unlock (&TerminateFlagMutex);
+  if (ret_45 != 0)
+    goto <bb 8>; [0.04%]
+  else
+    goto <bb 9>; [99.96%]
+
+  <bb 8> [0.01%]:
+  _46 = stderr;
+  __fprintf_chk (_46, 1, "pthread_mutex_unlock error [%d]! Aborting immediately!\n", ret_45);
+  cleanupAndQuit (-6);
+
+  <bb 9> [22.92%]:
+  _28 = OutMutex;
+  ret_43 = pthread_mutex_lock (_28);
+  if (ret_43 != 0)
+    goto <bb 10>; [0.04%]
+  else
+    goto <bb 11>; [99.96%]
+
+  <bb 10> [0.01%]:
+  _44 = stderr;
+  __fprintf_chk (_44, 1, "pthread_mutex_lock error [%d]! Aborting immediately!\n", ret_43);
+  cleanupAndQuit (-5);
+
+  <bb 11> [22.91%]:
+  _29 = notTooMuchNumBuffered;
+  pthread_cond_broadcast (_29);
+  _30 = OutMutex;
+  ret_41 = pthread_mutex_unlock (_30);
+  if (ret_41 != 0)
+    goto <bb 12>; [0.04%]
+  else
+    goto <bb 13>; [99.96%]
+
+  <bb 12> [0.01%]:
+  _42 = stderr;
+  __fprintf_chk (_42, 1, "pthread_mutex_unlock error [%d]! Aborting immediately!\n", ret_41);
+  cleanupAndQuit (-6);
+
+  <bb 13> [22.90%]:
+  _31 = FifoQueue;
+  if (_31 != 0B)
+    goto <bb 14>; [53.47%]
+  else
+    goto <bb 20>; [46.53%]
+
+  <bb 20> [10.66%]:
+  goto <bb 18>; [100.00%]
+
+  <bb 14> [12.25%]:
+  _32 = _31->mut;
+  ret_49 = pthread_mutex_lock (_32);
+  if (ret_49 != 0)
+    goto <bb 15>; [0.04%]
+  else
+    goto <bb 16>; [99.96%]
+
+  <bb 15> [0.00%]:
+  _50 = stderr;
+  __fprintf_chk (_50, 1, "pthread_mutex_lock error [%d]! Aborting immediately!\n", ret_49);
+  cleanupAndQuit (-5);
+
+  <bb 16> [12.24%]:
+  _33 = FifoQueue;
+  _34 = _33->notFull;
+  pthread_cond_broadcast (_34);
+  _35 = FifoQueue;
+  _36 = _35->notEmpty;
+  pthread_cond_broadcast (_36);
+  _37 = FifoQueue;
+  _38 = _37->mut;
+  ret_47 = pthread_mutex_unlock (_38);
+  if (ret_47 != 0)
+    goto <bb 17>; [0.04%]
+  else
+    goto <bb 21>; [99.96%]
+
+  <bb 21> [12.24%]:
+  goto <bb 18>; [100.00%]
+
+  <bb 17> [0.00%]:
+  _48 = stderr;
+  __fprintf_chk (_48, 1, "pthread_mutex_unlock error [%d]! Aborting immediately!\n", ret_47);
+  cleanupAndQuit (-6);
+
+  <bb 19> [77.02%]:
+
+  <bb 18> [99.91%]:
+  args ={v} {CLOBBER};
+  return exitCode_15(D);
+
+}
+
+
+
+;; Function safe_cond_timed_wait (_Z20safe_cond_timed_waitP14pthread_cond_tP15pthread_mutex_tiPKc, funcdef_no=0, decl_uid=4336, cgraph_uid=256, symbol_order=733)
+
+safe_cond_timed_wait (union pthread_cond_t * cond, union pthread_mutex_t * mutex, int seconds, const char * caller)
+{
+  struct timezone tz;
+  struct timeval tv;
+  struct timespec waitTimer;
+  long int _1;
+  long int _2;
+  long int _3;
+  long int _4;
+  long int _5;
+  bool _9;
+  bool _10;
+  bool _11;
+  int _20;
+  struct ErrorContext * _22;
+  int _39;
+
+  <bb 2> [100.00%]:
+  gettimeofday (&tv, &tz);
+  _1 = tv.tv_sec;
+  _2 = (long int) seconds_14(D);
+  _3 = _1 + _2;
+  waitTimer.tv_sec = _3;
+  _4 = tv.tv_usec;
+  _5 = _4 * 1000;
+  waitTimer.tv_nsec = _5;
+  _20 = pthread_cond_timedwait (cond_17(D), mutex_18(D), &waitTimer);
+  _39 = _20 & -5;
+  if (_39 != 0)
+    goto <bb 3>; [54.00%]
+  else
+    goto <bb 5>; [46.00%]
+
+  <bb 3> [54.00%]:
+  _9 = _20 != 16;
+  _10 = _20 != 110;
+  _11 = _9 & _10;
+  if (_11 != 0)
+    goto <bb 4>; [0.04%]
+  else
+    goto <bb 5>; [99.96%]
+
+  <bb 4> [0.02%]:
+  _22 = getInstance ();
+  saveError (_22);
+  pthread_mutex_unlock (mutex_18(D));
+  handle_error (1, 1, "pbzip2: *ERROR: %s:  pthread_cond_timedwait() call invalid [pret=%d].  This machine\n         does not have compatible pthreads library.  Aborting.\n", caller_25(D), _20);
+  cleanupAndQuit (-9);
+
+  <bb 5> [99.98%]:
+  waitTimer ={v} {CLOBBER};
+  tv ={v} {CLOBBER};
+  tz ={v} {CLOBBER};
+  return 0;
+
+}
+
+
+
+;; Function appendOutBuffData (_ZN6pbzip216BZ2StreamScanner17appendOutBuffDataEPh, funcdef_no=89, decl_uid=4119, cgraph_uid=28, symbol_order=3092) (unlikely executed)
+
+appendOutBuffData (struct BZ2StreamScanner * const this, CharType * end)
+{
+  char * newBuff;
+  int D.5911;
+  size_t newSize;
+  int additionSize;
+  long int _1;
+  long int _2;
+  long int _3;
+  unsigned int _4;
+  unsigned int _5;
+  unsigned int _6;
+  long unsigned int _7;
+  unsigned int _8;
+  unsigned int _9;
+  int _10;
+  bool _16;
+  CharType * _18;
+  bool _22;
+  char * _25;
+  unsigned int _26;
+  sizetype _27;
+  char * _28;
+  CharType * _29;
+  long unsigned int _37;
+  long unsigned int _38;
+  long unsigned int _39;
+  long unsigned int _40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _44;
+  unsigned int _45;
+  unsigned int _46;
+  char * _47;
+  unsigned int _48;
+  long unsigned int _49;
+  char * _51;
+  long unsigned int _52;
+  bool _53;
+  bool _54;
+
+  <bb 2> [100.00%]:
+  _1 = (long int) end_13(D);
+  _18 = this_15(D)->_inBuffCurrent;
+  _2 = (long int) _18;
+  _3 = _1 - _2;
+  additionSize_17 = (int) _3;
+  if (additionSize_17 <= 0)
+    goto <bb 17>; [32.39%]
+  else
+    goto <bb 3>; [67.61%]
+
+  <bb 17> [32.39%]:
+  goto <bb 15>; [100.00%]
+
+  <bb 3> [67.61%]:
+  _16 = MEM[(const struct BZ2StreamScanner *)this_15(D)]._bz2HeaderFound;
+  if (_16 != 0)
+    goto <bb 4>; [33.00%]
+  else
+    goto <bb 18>; [67.00%]
+
+  <bb 4> [22.31%]:
+  _4 = this_15(D)->_outBuff.bufSize;
+  _5 = (unsigned int) _3;
+  _6 = _4 + _5;
+  newSize_19 = (size_t) _6;
+  _37 = this_15(D)->_outBuffCapacity;
+  if (newSize_19 <= _37)
+    goto <bb 19>; [46.00%]
+  else
+    goto <bb 5>; [54.00%]
+
+  <bb 5> [12.05%]:
+  _38 = this_15(D)->_outBuffCapacityHint;
+  if (newSize_19 > _38)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 20>; [50.00%]
+
+  <bb 20> [6.03%]:
+  goto <bb 8>; [100.00%]
+
+  <bb 6> [6.02%]:
+  _39 = newSize_19 * 11;
+  _40 = _39 / 10;
+  this_15(D)->_outBuffCapacityHint = _40;
+  _41 = MEM[(const struct BZ2StreamScanner *)this_15(D)]._outBuffCapacityLimit;
+  _22 = _40 > _41;
+  _53 = newSize_19 <= _41;
+  _54 = _22 & _53;
+  if (_54 != 0)
+    goto <bb 7>; [25.00%]
+  else
+    goto <bb 21>; [75.00%]
+
+  <bb 21> [4.52%]:
+  goto <bb 8>; [100.00%]
+
+  <bb 7> [1.51%]:
+  this_15(D)->_outBuffCapacityHint = _41;
+
+  <bb 8> [12.05%]:
+  _42 = this_15(D)->_outBuffCapacityHint;
+  newBuff_43 = operator new [] (_42, &nothrow);
+  if (newBuff_43 == 0B)
+    goto <bb 9>; [0.43%]
+  else
+    goto <bb 10>; [99.57%]
+
+  <bb 9> [0.05%]:
+  _44 = this_15(D)->_outBuffCapacityHint;
+  handle_error (1, -1, "pbzip2: *ERROR: Could not allocate memory (ensureOutBuffCapacity/%u)!Aborting...\n", _44);
+  _45 = this_15(D)->_errState;
+  _46 = _45 | 2;
+  this_15(D)->_errState = _46;
+  goto <bb 15>; [100.00%]
+
+  <bb 10> [12.00%]:
+  _47 = this_15(D)->_outBuff.buf;
+  if (_47 != 0B)
+    goto <bb 11>; [53.47%]
+  else
+    goto <bb 22>; [46.53%]
+
+  <bb 22> [5.58%]:
+  goto <bb 13>; [100.00%]
+
+  <bb 11> [6.41%]:
+  _48 = this_15(D)->_outBuff.bufSize;
+  _49 = (long unsigned int) _48;
+  __builtin_memcpy (newBuff_43, _47, _49);
+  _51 = this_15(D)->_outBuff.buf;
+  if (_51 != 0B)
+    goto <bb 12>; [53.47%]
+  else
+    goto <bb 23>; [46.53%]
+
+  <bb 23> [2.98%]:
+  goto <bb 13>; [100.00%]
+
+  <bb 12> [3.43%]:
+  operator delete [] (_51);
+
+  <bb 13> [12.00%]:
+  _52 = this_15(D)->_outBuffCapacityHint;
+  this_15(D)->_outBuff.buf = newBuff_43;
+  this_15(D)->_outBuffCapacity = _52;
+  this_15(D)->_outBuff.inSize = 0;
+  goto <bb 16>; [100.00%]
+
+  <bb 18> [45.30%]:
+
+  <bb 14> [66.72%]:
+  this_15(D)->_inBuffCurrent = end_13(D);
+
+  <bb 15> [100.00%]:
+  # _10 = PHI <0(17), -1(9), additionSize_17(14)>
+  return _10;
+
+  <bb 19> [10.26%]:
+
+  <bb 16> [22.26%]:
+  _7 = (long unsigned int) additionSize_17;
+  _29 = this_15(D)->_inBuffCurrent;
+  _25 = this_15(D)->_outBuff.buf;
+  _26 = this_15(D)->_outBuff.bufSize;
+  _27 = (sizetype) _26;
+  _28 = _25 + _27;
+  __builtin_memcpy (_28, _29, _7);
+  _8 = this_15(D)->_outBuff.bufSize;
+  _9 = _5 + _8;
+  this_15(D)->_outBuff.bufSize = _9;
+  goto <bb 14>; [100.00%]
+
+}
+
+
+
+;; Function getNextStream (_ZN6pbzip216BZ2StreamScanner13getNextStreamEv, funcdef_no=98, decl_uid=4109, cgraph_uid=17, symbol_order=3100) (unlikely executed)
+
+getNextStream (struct BZ2StreamScanner * const this)
+{
+  const long unsigned int D.6010;
+  unsigned char * const D.6009;
+  unsigned char * const D.6008;
+  size_t maxCapacity;
+  int maxAddition;
+  CharType * end1;
+  CharType * end2;
+  CharType * end;
+  int D.6007;
+  unsigned char * const D.5984;
+  unsigned char * const D.5983;
+  unsigned int _1;
+  unsigned int _2;
+  CharType * _3;
+  int _5;
+  int _6;
+  int _7;
+  unsigned int _8;
+  int _9;
+  int _10;
+  void * _21;
+  unsigned int _24;
+  long unsigned int _27;
+  bool _29;
+  bool _30;
+  CharType * _32;
+  bool _33;
+  CharType * _35;
+  CharType * _41;
+  unsigned int _43;
+  bool _44;
+  unsigned int _50;
+  unsigned int _60;
+  CharType * _61;
+  CharType * _62;
+  CharType * _63;
+  CharType * _64;
+  long unsigned int _110;
+  long unsigned int _111;
+  unsigned char * _112;
+  unsigned int _114;
+  unsigned int _115;
+  unsigned int _116;
+  bool _118;
+  CharType * _119;
+  CharType * _120;
+  long unsigned int _121;
+  sizetype _122;
+  CharType * _123;
+  CharType * _124;
+  CharType * _127;
+  sizetype _128;
+  CharType * _129;
+  unsigned char * _131;
+
+  <bb 2> [100.00%]:
+  this_18(D)->_outBuff.buf = 0B;
+  this_18(D)->_outBuff.bufSize = 0;
+  this_18(D)->_outBuffCapacity = 0;
+  this_18(D)->_outBuff.inSize = 0;
+  _21 = operator new (40, &nothrow);
+  if (_21 != 0B)
+    goto <bb 3>; [70.00%]
+  else
+    goto <bb 30>; [30.00%]
+
+  <bb 3> [84.76%]:
+  MEM[(struct  &)_21] ={v} {CLOBBER};
+  MEM[(struct outBuff *)_21].blockNumber = 0;
+  MEM[(struct outBuff *)_21].sequenceNumber = 0;
+  MEM[(struct outBuff *)_21].inSize = 0;
+  MEM[(struct outBuff *)_21].isLastInSequence = 1;
+  MEM[(struct outBuff *)_21].next = 0B;
+  MEM[(struct outBuff *)_21].buf = 0B;
+  MEM[(struct outBuff *)_21].bufSize = 4294967295;
+  _50 = this_18(D)->_errState;
+  if (_50 == 0)
+    goto <bb 4>; [50.00%]
+  else
+    goto <bb 31>; [50.00%]
+
+  <bb 31> [42.38%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [42.38%]:
+  _44 = MEM[(const struct BZ2StreamScanner *)this_18(D)]._bz2HeaderFound;
+  if (_44 != 0)
+    goto <bb 32>; [67.00%]
+  else
+    goto <bb 5>; [33.00%]
+
+  <bb 32> [28.39%]:
+  goto <bb 6>; [100.00%]
+
+  <bb 5> [13.99%]:
+  this_18(D)->_searchStatus = 0;
+  searchNextHeader (this_18(D));
+
+  <bb 6> [84.76%]:
+  _43 = this_18(D)->_errState;
+  if (_43 != 0)
+    goto <bb 33>; [46.00%]
+  else
+    goto <bb 7>; [54.00%]
+
+  <bb 33> [38.99%]:
+  goto <bb 29>; [100.00%]
+
+  <bb 7> [45.77%]:
+  _35 = this_18(D)->_inBuffCurrent;
+  _41 = this_18(D)->_inBuffEnd;
+  if (_35 == _41)
+    goto <bb 8>; [30.00%]
+  else
+    goto <bb 34>; [70.00%]
+
+  <bb 34> [32.04%]:
+  goto <bb 9>; [100.00%]
+
+  <bb 8> [13.73%]:
+  _33 = MEM[(const struct BZ2StreamScanner *)this_18(D)]._eof;
+  if (_33 != 0)
+    goto <bb 10>; [46.00%]
+  else
+    goto <bb 35>; [54.00%]
+
+  <bb 35> [7.41%]:
+
+  <bb 9> [39.45%]:
+  _32 = this_18(D)->_inBuffSearchPtr;
+  if (_32 == _35)
+    goto <bb 36>; [30.00%]
+  else
+    goto <bb 11>; [70.00%]
+
+  <bb 36> [11.84%]:
+  goto <bb 13>; [100.00%]
+
+  <bb 10> [6.32%]:
+  MEM[(struct outBuff *)_21].bufSize = 0;
+  goto <bb 29>; [100.00%]
+
+  <bb 11> [27.62%]:
+  _30 = MEM[(const struct BZ2StreamScanner *)this_18(D)]._searchStatus;
+  if (_30 != 0)
+    goto <bb 37>; [50.00%]
+  else
+    goto <bb 12>; [50.00%]
+
+  <bb 37> [13.81%]:
+  goto <bb 14>; [100.00%]
+
+  <bb 12> [13.81%]:
+  _29 = MEM[(const struct BZ2StreamScanner *)this_18(D)]._eof;
+  if (_29 != 0)
+    goto <bb 39>; [50.00%]
+  else
+    goto <bb 38>; [50.00%]
+
+  <bb 39> [6.91%]:
+  goto <bb 14>; [100.00%]
+
+  <bb 38> [6.91%]:
+
+  <bb 13> [18.74%]:
+  _27 = MEM[(const struct basic_string *)this_18(D) + 16B]._M_string_length;
+  _3 = _32 + _27;
+  _112 = MIN_EXPR <_3, _41>;
+  this_18(D)->_inBuffSearchPtr = _112;
+  this_18(D)->_searchStatus = 0;
+  searchNextHeader (this_18(D));
+
+  <bb 14> [39.45%]:
+  _24 = this_18(D)->_errState;
+  if (_24 != 0)
+    goto <bb 40>; [63.36%]
+  else
+    goto <bb 15>; [36.64%]
+
+  <bb 40> [25.00%]:
+  goto <bb 29>; [100.00%]
+
+  <bb 15> [14.46%]:
+  _110 = MEM[(const struct BZ2StreamScanner *)this_18(D)]._outBuffCapacityLimit;
+  _111 = MEM[(const long unsigned int &)this_18(D) + 168];
+  maxCapacity_125 = MAX_EXPR <_110, _111>;
+  _114 = (unsigned int) maxCapacity_125;
+  _115 = this_18(D)->_outBuff.bufSize;
+  _116 = _114 - _115;
+  maxAddition_117 = (int) _116;
+  if (maxAddition_117 <= 0)
+    goto <bb 41>; [32.39%]
+  else
+    goto <bb 16>; [67.61%]
+
+  <bb 41> [4.68%]:
+  goto <bb 20>; [100.00%]
+
+  <bb 16> [9.77%]:
+  _118 = MEM[(const struct BZ2StreamScanner *)this_18(D)]._eof;
+  if (_118 != 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 18>; [50.00%]
+
+  <bb 17> [4.89%]:
+  _119 = this_18(D)->_inBuffEnd;
+  goto <bb 19>; [100.00%]
+
+  <bb 18> [4.89%]:
+  _120 = this_18(D)->_inBuffEnd;
+  _121 = MEM[(const struct basic_string *)this_18(D) + 16B]._M_string_length;
+  _122 = 1 - _121;
+  _123 = _120 + _122;
+  _124 = this_18(D)->_inBuffSearchPtr;
+  _131 = MIN_EXPR <_123, _124>;
+
+  <bb 19> [9.77%]:
+  # end1_132 = PHI <_119(17), _131(18)>
+  _127 = this_18(D)->_inBuffCurrent;
+  _128 = (sizetype) maxAddition_117;
+  _129 = _127 + _128;
+  end_134 = MIN_EXPR <_129, end1_132>;
+  appendOutBuffData (this_18(D), end_134);
+
+  <bb 20> [14.46%]:
+  _60 = this_18(D)->_errState;
+  if (_60 != 0)
+    goto <bb 42>; [46.00%]
+  else
+    goto <bb 21>; [54.00%]
+
+  <bb 42> [6.65%]:
+  goto <bb 29>; [100.00%]
+
+  <bb 21> [7.81%]:
+  _5 = this_18(D)->_outSequenceNumber;
+  if (_5 > 0)
+    goto <bb 22>; [64.00%]
+  else
+    goto <bb 23>; [36.00%]
+
+  <bb 22> [5.00%]:
+  _6 = _5 + 1;
+  this_18(D)->_outSequenceNumber = _6;
+  goto <bb 25>; [100.00%]
+
+  <bb 23> [2.81%]:
+  _62 = this_18(D)->_inBuffCurrent;
+  _61 = this_18(D)->_inBuffSearchPtr;
+  if (_61 != _62)
+    goto <bb 24>; [70.00%]
+  else
+    goto <bb 43>; [30.00%]
+
+  <bb 43> [0.84%]:
+  goto <bb 25>; [100.00%]
+
+  <bb 24> [1.97%]:
+  this_18(D)->_outSequenceNumber = 1;
+
+  <bb 25> [7.81%]:
+  _7 = this_18(D)->_outSequenceNumber;
+  this_18(D)->_outBuff.sequenceNumber = _7;
+  _8 = this_18(D)->_outBuff.bufSize;
+  this_18(D)->_outBuff.inSize = _8;
+  _9 = this_18(D)->_streamNumber;
+  this_18(D)->_outBuff.blockNumber = _9;
+  _64 = this_18(D)->_inBuffCurrent;
+  _63 = this_18(D)->_inBuffSearchPtr;
+  if (_63 == _64)
+    goto <bb 26>; [30.00%]
+  else
+    goto <bb 27>; [70.00%]
+
+  <bb 26> [2.34%]:
+  this_18(D)->_outBuff.isLastInSequence = 1;
+  this_18(D)->_outSequenceNumber = 0;
+  _10 = _9 + 1;
+  this_18(D)->_streamNumber = _10;
+  goto <bb 28>; [100.00%]
+
+  <bb 27> [5.46%]:
+  this_18(D)->_outBuff.isLastInSequence = 0;
+
+  <bb 28> [7.81%]:
+  MEM[(struct outBuff *)_21] = this_18(D)->_outBuff;
+  this_18(D)->_outBuff.buf = 0B;
+  this_18(D)->_outBuff.bufSize = 0;
+  this_18(D)->_outBuffCapacity = 0;
+  this_18(D)->_outBuff.inSize = 0;
+
+  <bb 29> [100.00%]:
+  return _21;
+
+  <bb 30> [30.00%]:
+  handle_error (1, -1, "pbzip2: *ERROR: Could not allocate memory (getNextStream/%u)!Aborting...\n", 40);
+  _1 = this_18(D)->_errState;
+  _2 = _1 | 2;
+  this_18(D)->_errState = _2;
+  goto <bb 29>; [100.00%]
+
+}
+
+
+
+;; Function signalHandlerProc (signalHandlerProc, funcdef_no=27, decl_uid=4285, cgraph_uid=119, symbol_order=766)
+
+signalHandlerProc (void * arg)
+{
+  int ret;
+  int ret;
+  int ret;
+  int ret;
+  int ret;
+  int ret;
+  int signalCaught;
+  struct FILE * _1;
+  int _2;
+  struct FILE * _4;
+  int _8;
+  union pthread_mutex_t * _16;
+  union pthread_cond_t * _17;
+  union pthread_mutex_t * _18;
+  struct queue * _19;
+  union pthread_mutex_t * _20;
+  struct queue * _21;
+  union pthread_cond_t * _22;
+  struct queue * _23;
+  union pthread_cond_t * _24;
+  struct queue * _25;
+  union pthread_mutex_t * _26;
+  struct FILE * _28;
+  struct FILE * _30;
+  struct FILE * _32;
+  struct FILE * _34;
+  struct FILE * _36;
+  struct FILE * _38;
+
+  <bb 2> [100.00%]:
+  _8 = sigwait (&SignalMask, &signalCaught);
+  if (_8 != 0)
+    goto <bb 3>; [29.56%]
+  else
+    goto <bb 4>; [70.44%]
+
+  <bb 3> [29.56%]:
+  _1 = stderr;
+  __fprintf_chk (_1, 1, "\n *signalHandlerProc - sigwait error: %d\n", _8);
+  goto <bb 18>; [100.00%]
+
+  <bb 4> [70.44%]:
+  _2 = signalCaught;
+  if (_2 == 10)
+    goto <bb 19>; [47.11%]
+  else
+    goto <bb 5>; [52.89%]
+
+  <bb 5> [37.26%]:
+  _4 = stderr;
+  __fprintf_chk (_4, 1, "\n *Control-C or similar caught [sig=%d], quitting...\n", _2);
+  ret_27 = pthread_mutex_lock (&TerminateFlagMutex);
+  if (ret_27 != 0)
+    goto <bb 6>; [0.04%]
+  else
+    goto <bb 7>; [99.96%]
+
+  <bb 6> [0.01%]:
+  _28 = stderr;
+  __fprintf_chk (_28, 1, "pthread_mutex_lock error [%d]! Aborting immediately!\n", ret_27);
+  cleanupAndQuit (-5);
+
+  <bb 7> [37.24%]:
+  terminateFlag = 1;
+  pthread_cond_signal (&TerminateCond);
+  ret_33 = pthread_mutex_unlock (&TerminateFlagMutex);
+  if (ret_33 != 0)
+    goto <bb 8>; [0.04%]
+  else
+    goto <bb 9>; [99.96%]
+
+  <bb 8> [0.01%]:
+  _34 = stderr;
+  __fprintf_chk (_34, 1, "pthread_mutex_unlock error [%d]! Aborting immediately!\n", ret_33);
+  cleanupAndQuit (-6);
+
+  <bb 9> [37.23%]:
+  _16 = OutMutex;
+  ret_31 = pthread_mutex_lock (_16);
+  if (ret_31 != 0)
+    goto <bb 10>; [0.04%]
+  else
+    goto <bb 11>; [99.96%]
+
+  <bb 10> [0.01%]:
+  _32 = stderr;
+  __fprintf_chk (_32, 1, "pthread_mutex_lock error [%d]! Aborting immediately!\n", ret_31);
+  cleanupAndQuit (-5);
+
+  <bb 11> [37.21%]:
+  _17 = notTooMuchNumBuffered;
+  pthread_cond_broadcast (_17);
+  _18 = OutMutex;
+  ret_29 = pthread_mutex_unlock (_18);
+  if (ret_29 != 0)
+    goto <bb 12>; [0.04%]
+  else
+    goto <bb 13>; [99.96%]
+
+  <bb 12> [0.01%]:
+  _30 = stderr;
+  __fprintf_chk (_30, 1, "pthread_mutex_unlock error [%d]! Aborting immediately!\n", ret_29);
+  cleanupAndQuit (-6);
+
+  <bb 13> [37.20%]:
+  _19 = FifoQueue;
+  if (_19 != 0B)
+    goto <bb 14>; [53.47%]
+  else
+    goto <bb 20>; [46.53%]
+
+  <bb 20> [17.31%]:
+  goto <bb 18>; [100.00%]
+
+  <bb 14> [19.89%]:
+  _20 = _19->mut;
+  ret_37 = pthread_mutex_lock (_20);
+  if (ret_37 != 0)
+    goto <bb 15>; [0.04%]
+  else
+    goto <bb 16>; [99.96%]
+
+  <bb 15> [0.01%]:
+  _38 = stderr;
+  __fprintf_chk (_38, 1, "pthread_mutex_lock error [%d]! Aborting immediately!\n", ret_37);
+  cleanupAndQuit (-5);
+
+  <bb 16> [19.88%]:
+  _21 = FifoQueue;
+  _22 = _21->notFull;
+  pthread_cond_broadcast (_22);
+  _23 = FifoQueue;
+  _24 = _23->notEmpty;
+  pthread_cond_broadcast (_24);
+  _25 = FifoQueue;
+  _26 = _25->mut;
+  ret_35 = pthread_mutex_unlock (_26);
+  if (ret_35 != 0)
+    goto <bb 17>; [0.04%]
+  else
+    goto <bb 21>; [99.96%]
+
+  <bb 21> [19.87%]:
+  goto <bb 18>; [100.00%]
+
+  <bb 17> [0.01%]:
+  _36 = stderr;
+  __fprintf_chk (_36, 1, "pthread_mutex_unlock error [%d]! Aborting immediately!\n", ret_35);
+  cleanupAndQuit (-6);
+
+  <bb 19> [33.18%]:
+
+  <bb 18> [99.92%]:
+  signalCaught ={v} {CLOBBER};
+  return 0B;
+
+}
+
+
+
+;; Function safe_cond_broadcast (_Z19safe_cond_broadcastP14pthread_cond_t, funcdef_no=29, decl_uid=4250, cgraph_uid=73, symbol_order=731) (unlikely executed)
+
+safe_cond_broadcast (union pthread_cond_t * cond)
+{
+  int ret;
+  struct FILE * _1;
+
+  <bb 2> [100.00%]:
+  ret_5 = pthread_cond_broadcast (cond_3(D));
+  if (ret_5 != 0)
+    goto <bb 3>; [0.04%]
+  else
+    goto <bb 4>; [99.96%]
+
+  <bb 3> [0.04%]:
+  _1 = stderr;
+  __fprintf_chk (_1, 1, "pthread_cond_broadcast error [%d]! Aborting immediately!\n", ret_5);
+  cleanupAndQuit (-7);
+
+  <bb 4> [99.96%]:
+  return;
+
+}
+
+
+
+;; Function safe_mutex_unlock (_Z17safe_mutex_unlockP15pthread_mutex_t, funcdef_no=10, decl_uid=4245, cgraph_uid=55, symbol_order=729)
+
+safe_mutex_unlock (union pthread_mutex_t * mutex)
+{
+  int ret;
+  struct FILE * _1;
+
+  <bb 2> [100.00%]:
+  ret_5 = pthread_mutex_unlock (mutex_3(D));
+  if (ret_5 != 0)
+    goto <bb 3>; [0.04%]
+  else
+    goto <bb 4>; [99.96%]
+
+  <bb 3> [0.04%]:
+  _1 = stderr;
+  __fprintf_chk (_1, 1, "pthread_mutex_unlock error [%d]! Aborting immediately!\n", ret_5);
+  cleanupAndQuit (-6);
+
+  <bb 4> [99.96%]:
+  return;
+
+}
+
+
+
+;; Function safe_mutex_lock (_Z15safe_mutex_lockP15pthread_mutex_t, funcdef_no=9, decl_uid=4244, cgraph_uid=53, symbol_order=728)
+
+safe_mutex_lock (union pthread_mutex_t * mutex)
+{
+  int ret;
+  struct FILE * _1;
+
+  <bb 2> [100.00%]:
+  ret_5 = pthread_mutex_lock (mutex_3(D));
+  if (ret_5 != 0)
+    goto <bb 3>; [0.04%]
+  else
+    goto <bb 4>; [99.96%]
+
+  <bb 3> [0.04%]:
+  _1 = stderr;
+  __fprintf_chk (_1, 1, "pthread_mutex_lock error [%d]! Aborting immediately!\n", ret_5);
+  cleanupAndQuit (-5);
+
+  <bb 4> [99.96%]:
+  return;
+
+}
+
+
+
+;; Function producerDecompressCheckInterrupt (_Z32producerDecompressCheckInterruptiRP7outBuffi, funcdef_no=18, decl_uid=4316, cgraph_uid=203, symbol_order=768) (unlikely executed)
+
+producerDecompressCheckInterrupt (int hInfile, struct outBuff * & fileData, int lastBlock)
+{
+  int ret;
+  int D.5021;
+  int ret;
+  bool isInterrupted;
+  int _2;
+  bool _6;
+  struct outBuff * _11;
+  bool _14;
+  union pthread_mutex_t * _20;
+  union pthread_mutex_t * _22;
+  bool _25;
+
+  <bb 2> [100.00%]:
+  _20 = OutMutex;
+  safe_mutex_lock (_20);
+  ret_21 = LastGoodBlock;
+  _22 = OutMutex;
+  safe_mutex_unlock (_22);
+  _14 = ret_21 != -1;
+  safe_mutex_lock (&TerminateFlagMutex);
+  ret_10 = terminateFlag;
+  safe_mutex_unlock (&TerminateFlagMutex);
+  _25 = ret_10 != 0;
+  _6 = _14 | _25;
+  if (_6 != 0)
+    goto <bb 3>; [69.18%]
+  else
+    goto <bb 6>; [30.82%]
+
+  <bb 6> [30.82%]:
+  goto <bb 5>; [100.00%]
+
+  <bb 3> [69.18%]:
+  close (hInfile_7(D));
+  _11 = MEM[(struct outBuff * &)fileData_9(D)];
+  if (_11 != 0B)
+    goto <bb 4>; [57.44%]
+  else
+    goto <bb 7>; [42.56%]
+
+  <bb 7> [29.44%]:
+  goto <bb 5>; [100.00%]
+
+  <bb 4> [39.74%]:
+  operator delete (_11, 40);
+  MEM[(struct outBuff * &)fileData_9(D)] = 0B;
+
+  <bb 5> [100.00%]:
+  # _2 = PHI <0(6), 1(7), 1(4)>
+  return _2;
+
+}
+
+
+
+;; Function syncSetProducerDone (_Z19syncSetProducerDonei, funcdef_no=35, decl_uid=4243, cgraph_uid=51, symbol_order=745) (unlikely executed)
+
+syncSetProducerDone (int newValue)
+{
+  int ret;
+  int ret;
+  union pthread_mutex_t * _1;
+  union pthread_mutex_t * _2;
+  struct FILE * _11;
+  struct FILE * _13;
+
+  <bb 2> [100.00%]:
+  _1 = ProducerDoneMutex;
+  ret_12 = pthread_mutex_lock (_1);
+  if (ret_12 != 0)
+    goto <bb 3>; [0.04%]
+  else
+    goto <bb 4>; [99.96%]
+
+  <bb 3> [0.04%]:
+  _13 = stderr;
+  __fprintf_chk (_13, 1, "pthread_mutex_lock error [%d]! Aborting immediately!\n", ret_12);
+  cleanupAndQuit (-5);
+
+  <bb 4> [99.96%]:
+  producerDone = newValue_5(D);
+  _2 = ProducerDoneMutex;
+  ret_10 = pthread_mutex_unlock (_2);
+  if (ret_10 != 0)
+    goto <bb 5>; [0.04%]
+  else
+    goto <bb 6>; [99.96%]
+
+  <bb 5> [0.04%]:
+  _11 = stderr;
+  __fprintf_chk (_11, 1, "pthread_mutex_unlock error [%d]! Aborting immediately!\n", ret_10);
+  cleanupAndQuit (-6);
+
+  <bb 6> [99.92%]:
+  return;
+
+}
+
+
+
+;; Function _GLOBAL__sub_I__Z20safe_cond_timed_waitP14pthread_cond_tP15pthread_mutex_tiPKc (_GLOBAL__sub_I__Z20safe_cond_timed_waitP14pthread_cond_tP15pthread_mutex_tiPKc, funcdef_no=84, decl_uid=4125, cgraph_uid=34, symbol_order=1959) (executed once)
+
+_GLOBAL__sub_I__Z20safe_cond_timed_waitP14pthread_cond_tP15pthread_mutex_tiPKc ()
+{
+  <bb 2> [100.00%]:
+  MEM[(struct  &)&OutputBuffer] ={v} {CLOBBER};
+  MEM[(struct _Vector_impl *)&OutputBuffer]._M_start = 0B;
+  MEM[(struct _Vector_impl *)&OutputBuffer]._M_finish = 0B;
+  MEM[(struct _Vector_impl *)&OutputBuffer]._M_end_of_storage = 0B;
+  __cxa_atexit (__comp_dtor , &OutputBuffer, &__dso_handle);
+  return;
+
+}
+
+

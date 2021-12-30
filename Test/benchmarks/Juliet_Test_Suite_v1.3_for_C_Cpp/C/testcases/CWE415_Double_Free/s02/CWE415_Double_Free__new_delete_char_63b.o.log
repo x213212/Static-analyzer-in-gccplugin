@@ -1,0 +1,104 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+------------------------------
+# VUSE <.MEM_1(D)>
+data_3 = *dataPtr_2(D);
+ <mem_ref 0x7f6795f866e0
+    type <pointer_type 0x7f6796a5af18
+        type <integer_type 0x7f6796a503f0 char public string-flag type_6 QI
+            size <integer_cst 0x7f6796a31fa8 constant 8>
+            unit size <integer_cst 0x7f6796a31fc0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f6796a503f0 precision 8 min <integer_cst 0x7f6796a53000 -128> max <integer_cst 0x7f6796a53030 127>
+            pointer_to_this <pointer_type 0x7f6796a5af18>>
+        sizes-gimplified unsigned type_6 DI
+        size <integer_cst 0x7f6796a31eb8 constant 64>
+        unit size <integer_cst 0x7f6796a31ed0 constant 8>
+        align 64 symtab 0 alias set 3 canonical type 0x7f6796a5af18
+        pointer_to_this <pointer_type 0x7f67964e83f0> reference_to_this <reference_type 0x7f6796b96000>>
+   
+    arg 0 <ssa_name 0x7f6795f85240
+        type <pointer_type 0x7f67964e83f0 type <pointer_type 0x7f6796a5af18>
+            public unsigned DI size <integer_cst 0x7f6796a31eb8 64> unit size <integer_cst 0x7f6796a31ed0 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f67964e83f0>
+        var <parm_decl 0x7f6795f84100 dataPtr>
+        def_stmt GIMPLE_NOP
+        version 2
+        ptr-info 0x7f679636ed98>
+    arg 1 <integer_cst 0x7f679652c270 type <pointer_type 0x7f67964e83f0> constant 0>
+    CWE415_Double_Free__new_delete_char_63b.cpp:49:19 start: CWE415_Double_Free__new_delete_char_63b.cpp:49:19 finish: CWE415_Double_Free__new_delete_char_63b.cpp:49:26>
+------------------------------
+# VUSE <.MEM_1(D)>
+data_3 = *dataPtr_2(D);
+ <mem_ref 0x7f6795f86578
+    type <pointer_type 0x7f6796a5af18
+        type <integer_type 0x7f6796a503f0 char public string-flag type_6 QI
+            size <integer_cst 0x7f6796a31fa8 constant 8>
+            unit size <integer_cst 0x7f6796a31fc0 constant 1>
+            align 8 symtab 0 alias set -1 canonical type 0x7f6796a503f0 precision 8 min <integer_cst 0x7f6796a53000 -128> max <integer_cst 0x7f6796a53030 127>
+            pointer_to_this <pointer_type 0x7f6796a5af18>>
+        sizes-gimplified unsigned type_6 DI
+        size <integer_cst 0x7f6796a31eb8 constant 64>
+        unit size <integer_cst 0x7f6796a31ed0 constant 8>
+        align 64 symtab 0 alias set 3 canonical type 0x7f6796a5af18
+        pointer_to_this <pointer_type 0x7f67964e83f0> reference_to_this <reference_type 0x7f6796b96000>>
+   
+    arg 0 <ssa_name 0x7f6795f85120
+        type <pointer_type 0x7f67964e83f0 type <pointer_type 0x7f6796a5af18>
+            public unsigned DI size <integer_cst 0x7f6796a31eb8 64> unit size <integer_cst 0x7f6796a31ed0 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7f67964e83f0>
+        var <parm_decl 0x7f6795f84080 dataPtr>
+        def_stmt GIMPLE_NOP
+        version 2
+        ptr-info 0x7f679636ed38>
+    arg 1 <integer_cst 0x7f679652c270 type <pointer_type 0x7f67964e83f0> constant 0>
+    CWE415_Double_Free__new_delete_char_63b.cpp:41:19 start: CWE415_Double_Free__new_delete_char_63b.cpp:41:19 finish: CWE415_Double_Free__new_delete_char_63b.cpp:41:26>
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+algorithm time: 0.000049 s
+=======Mapping node_fun:goodB2GSink=========
+<bb 2> [100.00%]:
+data_3 = *dataPtr_2(D);
+return;
+
+=======is loop:0=========
+=======Mapping node_fun:goodG2BSink=========
+<bb 2> [100.00%]:
+data_3 = *dataPtr_2(D);
+operator delete (data_3, 1);
+return;
+
+=======is loop:0=========
+time: 0.000979 s

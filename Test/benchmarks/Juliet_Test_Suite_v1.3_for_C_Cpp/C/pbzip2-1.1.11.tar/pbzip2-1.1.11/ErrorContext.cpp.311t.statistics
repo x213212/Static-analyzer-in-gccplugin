@@ -1,0 +1,33 @@
+26 ssa "unused VAR_DECLs removed" "pbzip2::ErrorContext::ErrorContext()" 2
+26 ssa "unused VAR_DECLs removed" "pbzip2::ErrorContext::printErrnoMsg(_IO_FILE*, int)" 3
+26 ssa "unused VAR_DECLs removed" "pbzip2::ErrorContext::reset()" 1
+38 ccp "Copies propagated" "fprintf" 1
+38 ccp "Statements deleted" "fprintf" 1
+55 release_ssa "SSA names released" "fprintf" 1
+55 release_ssa "SSA name holes removed" "fprintf" 1
+38 ccp "Copies propagated" "pbzip2::ErrorContext::getInstance()" 1
+38 ccp "Statements deleted" "pbzip2::ErrorContext::getInstance()" 4
+43 fre "SCC iterations == 2" "pbzip2::ErrorContext::getInstance()" 2
+43 fre "Eliminated" "pbzip2::ErrorContext::getInstance()" 1
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::ErrorContext::getInstance()" 1
+55 release_ssa "SSA names released" "pbzip2::ErrorContext::getInstance()" 8
+55 release_ssa "SSA name holes removed" "pbzip2::ErrorContext::getInstance()" 8
+35 einline "unused VAR_DECLs removed" "pbzip2::ErrorContext::printErrnoMsg(_IO_FILE*, int)" 3
+35 einline "Symbol to SSA rewrite" "pbzip2::ErrorContext::printErrnoMsg(_IO_FILE*, int)" 1
+38 ccp "Statements deleted" "pbzip2::ErrorContext::printErrnoMsg(_IO_FILE*, int)" 1
+43 fre "SCC iterations == 2" "pbzip2::ErrorContext::printErrnoMsg(_IO_FILE*, int)" 1
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::ErrorContext::printErrnoMsg(_IO_FILE*, int)" 1
+55 release_ssa "SSA names released" "pbzip2::ErrorContext::printErrnoMsg(_IO_FILE*, int)" 3
+55 release_ssa "SSA name holes removed" "pbzip2::ErrorContext::printErrnoMsg(_IO_FILE*, int)" 3
+35 einline "unused VAR_DECLs removed" "pbzip2::ErrorContext::syncPrintErrnoMsg(_IO_FILE*, int)" 2
+35 einline "Symbol to SSA rewrite" "pbzip2::ErrorContext::syncPrintErrnoMsg(_IO_FILE*, int)" 1
+38 ccp "Copies propagated" "pbzip2::ErrorContext::saveError()" 1
+38 ccp "Statements deleted" "pbzip2::ErrorContext::saveError()" 1
+43 fre "SCC iterations == 2" "pbzip2::ErrorContext::saveError()" 2
+43 fre "Eliminated" "pbzip2::ErrorContext::saveError()" 1
+55 release_ssa "unused VAR_DECLs removed" "pbzip2::ErrorContext::saveError()" 1
+55 release_ssa "SSA names released" "pbzip2::ErrorContext::saveError()" 2
+55 release_ssa "SSA name holes removed" "pbzip2::ErrorContext::saveError()" 2
+43 fre "Eliminated" "pbzip2::ErrorContext::reset()" 1
+55 release_ssa "SSA names released" "pbzip2::ErrorContext::reset()" 1
+55 release_ssa "SSA name holes removed" "pbzip2::ErrorContext::reset()" 1

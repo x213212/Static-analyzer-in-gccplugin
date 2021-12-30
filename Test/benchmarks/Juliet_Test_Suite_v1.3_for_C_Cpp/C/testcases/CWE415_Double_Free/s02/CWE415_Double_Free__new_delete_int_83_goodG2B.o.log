@@ -1,0 +1,97 @@
+=======ipa_pta=========
+start PointerConstraint
+pointer ftable is 0 
+pointer ptable is 0 
+------------------------------
+# VUSE <.MEM_2(D)>
+_1 = this_3(D)->data;
+ <component_ref 0x7fc8333a4cc0
+    type <pointer_type 0x7fc833a87a80
+        type <integer_type 0x7fc833a7f5e8 int public type_6 SI
+            size <integer_cst 0x7fc833a82108 constant 32>
+            unit size <integer_cst 0x7fc833a82120 constant 4>
+            align 32 symtab 0 alias set -1 canonical type 0x7fc833a7f5e8 precision 32 min <integer_cst 0x7fc833a820c0 -2147483648> max <integer_cst 0x7fc833a820d8 2147483647>
+            pointer_to_this <pointer_type 0x7fc833a87a80> reference_to_this <reference_type 0x7fc833530498>>
+        unsigned DI
+        size <integer_cst 0x7fc833a60eb8 constant 64>
+        unit size <integer_cst 0x7fc833a60ed0 constant 8>
+        align 64 symtab 0 alias set -1 canonical type 0x7fc833a87a80>
+   
+    arg 0 <mem_ref 0x7fc832fb5e60
+        type <record_type 0x7fc832fad1f8 CWE415_Double_Free__new_delete_int_83_goodG2B addressable needs-constructing type_1 type_4 type_5 type_6 BLK size <integer_cst 0x7fc833a60eb8 64> unit size <integer_cst 0x7fc833a60ed0 8>
+            align 64 symtab 0 alias set -1 canonical type 0x7fc832fad1f8 fields <field_decl 0x7fc8333557b8 data> context <namespace_decl 0x7fc833355558 CWE415_Double_Free__new_delete_int_83>
+            full-name "class CWE415_Double_Free__new_delete_int_83::CWE415_Double_Free__new_delete_int_83_goodG2B"
+            needs-constructor needs-destructor X(constX&) this=(X&) n_parents=0 use_template=0 interface-unknown
+            pointer_to_this <pointer_type 0x7fc832fad738> chain <type_decl 0x7fc833355688 CWE415_Double_Free__new_delete_int_83_goodG2B>>
+       
+        arg 0 <ssa_name 0x7fc832fb45e8 type <pointer_type 0x7fc832fad7e0>
+            var <parm_decl 0x7fc832fb3580 this>
+            def_stmt GIMPLE_NOP
+            version 3
+            ptr-info 0x7fc832fbf0c0>
+        arg 1 <integer_cst 0x7fc83339df90 constant 0>
+        CWE415_Double_Free__new_delete_int_83_goodG2B.cpp:34:12 start: CWE415_Double_Free__new_delete_int_83_goodG2B.cpp:34:12 finish: CWE415_Double_Free__new_delete_int_83_goodG2B.cpp:34:15>
+    arg 1 <field_decl 0x7fc8333557b8 data type <pointer_type 0x7fc833a87a80>
+        used private unsigned nonlocal decl_3 DI file CWE415_Double_Free__new_delete_int_83.h line 48 col 11 size <integer_cst 0x7fc833a60eb8 64> unit size <integer_cst 0x7fc833a60ed0 8>
+        align 64 offset_align 128
+        offset <integer_cst 0x7fc833a60ee8 constant 0>
+        bit offset <integer_cst 0x7fc833a60f30 constant 0> context <record_type 0x7fc832fad1f8 CWE415_Double_Free__new_delete_int_83_goodG2B>
+        chain <type_decl 0x7fc833355720 CWE415_Double_Free__new_delete_int_83_goodG2B type <record_type 0x7fc832fad2a0 CWE415_Double_Free__new_delete_int_83_goodG2B>
+            used nonlocal decl_4 VOID file CWE415_Double_Free__new_delete_int_83.h line 42 col 1
+            align 1 context <record_type 0x7fc832fad1f8 CWE415_Double_Free__new_delete_int_83_goodG2B> result <record_type 0x7fc832fad1f8 CWE415_Double_Free__new_delete_int_83_goodG2B>
+           >>
+    CWE415_Double_Free__new_delete_int_83_goodG2B.cpp:34:12 start: CWE415_Double_Free__new_delete_int_83_goodG2B.cpp:34:12 finish: CWE415_Double_Free__new_delete_int_83_goodG2B.cpp:34:15>
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+=======================================================
+fucntion collect path finsh
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    find Entry point : 0
+ [0m
+[40;34m    used_stmt array stack totalsize of : 0
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+algorithm time: 0.000049 s
+=======Mapping node_fun:__comp_dtor =========
+CWE415_Double_Free__new_delete_int_83_goodG2B.cpp: In destructor ‘CWE415_Double_Free__new_delete_int_83::CWE415_Double_Free__new_delete_int_83_goodG2B::~CWE415_Double_Free__new_delete_int_83_goodG2B()’:
+CWE415_Double_Free__new_delete_int_83_goodG2B.cpp:36:1: internal compiler error: Segmentation fault
+ }
+ ^
+unrecognized DWARF version in .debug_info at 6
+0x7fc833a16cbc printfBasicblock()
+	/root/x21321219/new_gccplugin/Compiler/debug.h:33
+0x7fc833a228ce PointerConstraint(ptb*, ptb*)
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:1206
+0x7fc833a267dc detect()
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:2700
+0x7fc833a2704e execute_detect
+	/root/x21321219/new_gccplugin/Compiler/gcc_plugin.c:108
+0x7fc833a270c4 execute
+	/root/x21321219/new_gccplugin/Compiler/gcc_plugin.c:129
+Please submit a full bug report,
+with preprocessed source if appropriate.
+Please include the complete backtrace with any bug report.
+See <file:///usr/share/doc/gcc-7/README.Bugs> for instructions.

@@ -1,0 +1,48 @@
+CWE401_Memory_Leak__twoIntsStruct_malloc_82a.cpp: In function ‘void CWE401_Memory_Leak__twoIntsStruct_malloc_82::goodG2B()’:
+CWE401_Memory_Leak__twoIntsStruct_malloc_82a.cpp:58:23: warning: use of possibly-NULL ‘operator new(8)’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   58 |     baseObject->action(data);
+      |     ~~~~~~~~~~~~~~~~~~^~~~~~
+  ‘void CWE401_Memory_Leak__twoIntsStruct_malloc_82::goodG2B()’: events 1-2
+    |
+    |   57 |     CWE401_Memory_Leak__twoIntsStruct_malloc_82_base* baseObject = new CWE401_Memory_Leak__twoIntsStruct_malloc_82_goodG2B;
+    |      |                                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                                                        |
+    |      |                                                                        (1) this call could return NULL
+    |   58 |     baseObject->action(data);
+    |      |     ~~~~~~~~~~~~~~~~~~~~~~~~                                            
+    |      |                       |
+    |      |                       (2) argument 'this' (‘operator new(8)’) from (1) could be NULL where non-null expected
+    |
+In file included from CWE401_Memory_Leak__twoIntsStruct_malloc_82a.cpp:19:
+CWE401_Memory_Leak__twoIntsStruct_malloc_82.h:47:10: note: argument 'this' of ‘virtual void CWE401_Memory_Leak__twoIntsStruct_malloc_82::CWE401_Memory_Leak__twoIntsStruct_malloc_82_goodG2B::action(twoIntsStruct*)’ must be non-null
+   47 |     void action(twoIntsStruct * data);
+      |          ^~~~~~
+CWE401_Memory_Leak__twoIntsStruct_malloc_82a.cpp: In function ‘void CWE401_Memory_Leak__twoIntsStruct_malloc_82::goodB2G()’:
+CWE401_Memory_Leak__twoIntsStruct_malloc_82a.cpp:75:23: warning: use of possibly-NULL ‘operator new(8)’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   75 |     baseObject->action(data);
+      |     ~~~~~~~~~~~~~~~~~~^~~~~~
+  ‘void CWE401_Memory_Leak__twoIntsStruct_malloc_82::goodB2G()’: events 1-4
+    |
+    |   69 |     if (data == NULL) {exit(-1);}
+    |      |     ^~
+    |      |     |
+    |      |     (1) following ‘false’ branch (when ‘data’ is non-NULL)...
+    |   70 |     /* Initialize and make use of data */
+    |   71 |     data[0].intOne = 0;
+    |      |     ~~~~~~~~~~~~~~~~~~
+    |      |                    |
+    |      |                    (2) ...to here
+    |......
+    |   74 |     CWE401_Memory_Leak__twoIntsStruct_malloc_82_base* baseObject = new CWE401_Memory_Leak__twoIntsStruct_malloc_82_goodB2G;
+    |      |                                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                                                        |
+    |      |                                                                        (3) this call could return NULL
+    |   75 |     baseObject->action(data);
+    |      |     ~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                       |
+    |      |                       (4) argument 'this' (‘operator new(8)’) from (3) could be NULL where non-null expected
+    |
+In file included from CWE401_Memory_Leak__twoIntsStruct_malloc_82a.cpp:19:
+CWE401_Memory_Leak__twoIntsStruct_malloc_82.h:53:10: note: argument 'this' of ‘virtual void CWE401_Memory_Leak__twoIntsStruct_malloc_82::CWE401_Memory_Leak__twoIntsStruct_malloc_82_goodB2G::action(twoIntsStruct*)’ must be non-null
+   53 |     void action(twoIntsStruct * data);
+      |          ^~~~~~

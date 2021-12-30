@@ -1,0 +1,36 @@
+CWE401_Memory_Leak__new_TwoIntsClass_67a.cpp: In function ‘void CWE401_Memory_Leak__new_TwoIntsClass_67::goodB2G()’:
+CWE401_Memory_Leak__new_TwoIntsClass_67a.cpp:94:1: warning: leak of ‘myStruct.CWE401_Memory_Leak__new_TwoIntsClass_67::_structType::structFirst’ [CWE-401] [-Wanalyzer-malloc-leak]
+   94 | }
+      | ^
+  ‘void CWE401_Memory_Leak__new_TwoIntsClass_67::goodB2G()’: events 1-3
+    |
+    |   86 |     data = new TwoIntsClass;
+    |      |                ^~~~~~~~~~~~
+    |      |                |
+    |      |                (1) allocated here
+    |   87 |     /* Initialize and make use of data */
+    |   88 |     data->intOne = 0;
+    |      |     ~~~~~~~~~~~~~~~~
+    |      |                  |
+    |      |                  (2) assuming ‘operator new(8)’ is non-NULL
+    |......
+    |   94 | }
+    |      | ~               
+    |      | |
+    |      | (3) ‘myStruct.CWE401_Memory_Leak__new_TwoIntsClass_67::_structType::structFirst’ leaks here; was allocated at (1)
+    |
+CWE401_Memory_Leak__new_TwoIntsClass_67a.cpp:88:18: warning: dereference of possibly-NULL ‘operator new(8)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   88 |     data->intOne = 0;
+      |     ~~~~~~~~~~~~~^~~
+  ‘void CWE401_Memory_Leak__new_TwoIntsClass_67::goodB2G()’: events 1-2
+    |
+    |   86 |     data = new TwoIntsClass;
+    |      |                ^~~~~~~~~~~~
+    |      |                |
+    |      |                (1) this call could return NULL
+    |   87 |     /* Initialize and make use of data */
+    |   88 |     data->intOne = 0;
+    |      |     ~~~~~~~~~~~~~~~~
+    |      |                  |
+    |      |                  (2) ‘operator new(8)’ could be NULL: unchecked value from (1)
+    |

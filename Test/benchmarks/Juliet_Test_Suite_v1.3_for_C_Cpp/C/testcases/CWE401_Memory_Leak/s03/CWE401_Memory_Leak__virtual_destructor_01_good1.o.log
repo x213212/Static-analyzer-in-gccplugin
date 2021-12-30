@@ -1,0 +1,150 @@
+CWE401_Memory_Leak__virtual_destructor_01_good1.cpp: In constructor ‘CWE401_Memory_Leak__virtual_destructor_01::GoodDerivedClass::GoodDerivedClass(const char*)’:
+CWE401_Memory_Leak__virtual_destructor_01_good1.cpp:37:23: warning: use of possibly-NULL ‘*this.CWE401_Memory_Leak__virtual_destructor_01::GoodDerivedClass::name’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   37 |                 strcpy(this->name, name);
+      |                 ~~~~~~^~~~~~~~~~~~~~~~~~
+  ‘CWE401_Memory_Leak__virtual_destructor_01::GoodDerivedClass::GoodDerivedClass(const char*)’: events 1-4
+    |
+    |   34 |             if (name)
+    |      |             ^~
+    |      |             |
+    |      |             (1) following ‘true’ branch (when ‘name’ is non-NULL)...
+    |   35 |             {
+    |   36 |                 this->name = new char[strlen(name) + 1];
+    |      |                                       ~~~~~~~~~~~~    ~
+    |      |                                             |         |
+    |      |                                             |         (3) this call could return NULL
+    |      |                                             (2) ...to here
+    |   37 |                 strcpy(this->name, name);
+    |      |                 ~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                       |
+    |      |                       (4) argument 1 (‘operator new []((strlen(name) + 1))’) from (3) could be NULL where non-null expected
+    |
+In file included from ../../../testcasesupport/std_testcase.h:43,
+                 from CWE401_Memory_Leak__virtual_destructor_01_good1.cpp:6:
+/usr/include/string.h:125:14: note: argument 1 of ‘char* strcpy(char*, const char*)’ must be non-null
+  125 | extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+      |              ^~~~~~
+CWE401_Memory_Leak__virtual_destructor_01_good1.cpp:37:23: warning: use of possibly-NULL ‘operator new []((strlen(name) + 1))’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   37 |                 strcpy(this->name, name);
+      |                 ~~~~~~^~~~~~~~~~~~~~~~~~
+  ‘void CWE401_Memory_Leak__virtual_destructor_01::good1()’: events 1-2
+    |
+    |   75 | static void good1()
+    |      |             ^~~~~
+    |      |             |
+    |      |             (1) entry to ‘CWE401_Memory_Leak__virtual_destructor_01::good1’
+    |   76 | {
+    |   77 |     GoodBaseClass * baseClassObject = new GoodDerivedClass("GoodClass");
+    |      |                                                                       ~
+    |      |                                                                       |
+    |      |                                                                       (2) calling ‘CWE401_Memory_Leak__virtual_destructor_01::GoodDerivedClass::GoodDerivedClass’ from ‘CWE401_Memory_Leak__virtual_destructor_01::good1’
+    |
+    +--> ‘CWE401_Memory_Leak__virtual_destructor_01::GoodDerivedClass::GoodDerivedClass(const char*)’: events 3-7
+           |
+           |   31 |         GoodDerivedClass(const char * name)
+           |      |         ^~~~~~~~~~~~~~~~
+           |      |         |
+           |      |         (3) entry to ‘CWE401_Memory_Leak__virtual_destructor_01::GoodDerivedClass::GoodDerivedClass’
+           |......
+           |   34 |             if (name)
+           |      |             ~~
+           |      |             |
+           |      |             (4) following ‘true’ branch (when ‘name’ is non-NULL)...
+           |   35 |             {
+           |   36 |                 this->name = new char[strlen(name) + 1];
+           |      |                                       ~~~~~~~~~~~~    ~
+           |      |                                             |         |
+           |      |                                             |         (6) this call could return NULL
+           |      |                                             (5) ...to here
+           |   37 |                 strcpy(this->name, name);
+           |      |                 ~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                       |
+           |      |                       (7) argument 1 (‘operator new []((strlen(name) + 1))’) from (6) could be NULL where non-null expected
+           |
+In file included from ../../../testcasesupport/std_testcase.h:43,
+                 from CWE401_Memory_Leak__virtual_destructor_01_good1.cpp:6:
+/usr/include/string.h:125:14: note: argument 1 of ‘char* strcpy(char*, const char*)’ must be non-null
+  125 | extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
+      |              ^~~~~~
+CWE401_Memory_Leak__virtual_destructor_01_good1.cpp:43:31: warning: dereference of possibly-NULL ‘*this.CWE401_Memory_Leak__virtual_destructor_01::GoodDerivedClass::name’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   43 |                 *(this->name) = '\0';
+      |                 ~~~~~~~~~~~~~~^~~~~~
+  ‘CWE401_Memory_Leak__virtual_destructor_01::GoodDerivedClass::GoodDerivedClass(const char*)’: events 1-4
+    |
+    |   34 |             if (name)
+    |      |             ^~
+    |      |             |
+    |      |             (1) following ‘false’ branch (when ‘name’ is NULL)...
+    |......
+    |   42 |                 this->name = new char[1];
+    |      |                                        ~
+    |      |                                        |
+    |      |                                        (2) ...to here
+    |      |                                        (3) this call could return NULL
+    |   43 |                 *(this->name) = '\0';
+    |      |                 ~~~~~~~~~~~~~~~~~~~~
+    |      |                               |
+    |      |                               (4) ‘operator new [](1)’ could be NULL: unchecked value from (3)
+    |
+CWE401_Memory_Leak__virtual_destructor_01_good1.cpp: In function ‘void CWE401_Memory_Leak__virtual_destructor_01::good1()’:
+CWE401_Memory_Leak__virtual_destructor_01_good1.cpp:77:71: warning: use of possibly-NULL ‘operator new(16)’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   77 |     GoodBaseClass * baseClassObject = new GoodDerivedClass("GoodClass");
+      |                                                                       ^
+  ‘void CWE401_Memory_Leak__virtual_destructor_01::good1()’: events 1-2
+    |
+    |   77 |     GoodBaseClass * baseClassObject = new GoodDerivedClass("GoodClass");
+    |      |                                                                       ^
+    |      |                                                                       |
+    |      |                                                                       (1) this call could return NULL
+    |      |                                                                       (2) argument 'this' (‘operator new(16)’) from (1) could be NULL where non-null expected
+    |
+CWE401_Memory_Leak__virtual_destructor_01_good1.cpp:31:9: note: argument 'this' of ‘CWE401_Memory_Leak__virtual_destructor_01::GoodDerivedClass::GoodDerivedClass(const char*)’ must be non-null
+   31 |         GoodDerivedClass(const char * name)
+      |         ^~~~~~~~~~~~~~~~
+CWE401_Memory_Leak__virtual_destructor_01_good1.cpp:77:71: warning: leak of ‘<unknown>’ [CWE-401] [-Wanalyzer-malloc-leak]
+   77 |     GoodBaseClass * baseClassObject = new GoodDerivedClass("GoodClass");
+      |                                                                       ^
+  ‘void CWE401_Memory_Leak__virtual_destructor_01::good1()’: events 1-2
+    |
+    |   75 | static void good1()
+    |      |             ^~~~~
+    |      |             |
+    |      |             (1) entry to ‘CWE401_Memory_Leak__virtual_destructor_01::good1’
+    |   76 | {
+    |   77 |     GoodBaseClass * baseClassObject = new GoodDerivedClass("GoodClass");
+    |      |                                                                       ~
+    |      |                                                                       |
+    |      |                                                                       (2) calling ‘CWE401_Memory_Leak__virtual_destructor_01::GoodDerivedClass::GoodDerivedClass’ from ‘CWE401_Memory_Leak__virtual_destructor_01::good1’
+    |
+    +--> ‘CWE401_Memory_Leak__virtual_destructor_01::GoodDerivedClass::GoodDerivedClass(const char*)’: events 3-7
+           |
+           |   31 |         GoodDerivedClass(const char * name)
+           |      |         ^~~~~~~~~~~~~~~~
+           |      |         |
+           |      |         (3) entry to ‘CWE401_Memory_Leak__virtual_destructor_01::GoodDerivedClass::GoodDerivedClass’
+           |......
+           |   34 |             if (name)
+           |      |             ~~
+           |      |             |
+           |      |             (4) following ‘true’ branch (when ‘name’ is non-NULL)...
+           |   35 |             {
+           |   36 |                 this->name = new char[strlen(name) + 1];
+           |      |                                       ~~~~~~~~~~~~    ~
+           |      |                                             |         |
+           |      |                                             |         (6) allocated here
+           |      |                                             (5) ...to here
+           |   37 |                 strcpy(this->name, name);
+           |      |                 ~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                       |
+           |      |                       (7) assuming ‘operator new []((strlen(name) + 1))’ is non-NULL
+           |
+    <------+
+    |
+  ‘void CWE401_Memory_Leak__virtual_destructor_01::good1()’: events 8-9
+    |
+    |   77 |     GoodBaseClass * baseClassObject = new GoodDerivedClass("GoodClass");
+    |      |                                                                       ^
+    |      |                                                                       |
+    |      |                                                                       (8) returning to ‘CWE401_Memory_Leak__virtual_destructor_01::good1’ from ‘CWE401_Memory_Leak__virtual_destructor_01::GoodDerivedClass::GoodDerivedClass’
+    |      |                                                                       (9) ‘<unknown>’ leaks here; was allocated at (6)
+    |

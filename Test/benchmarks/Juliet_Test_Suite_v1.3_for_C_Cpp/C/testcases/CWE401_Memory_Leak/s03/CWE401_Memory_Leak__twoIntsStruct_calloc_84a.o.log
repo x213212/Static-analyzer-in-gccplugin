@@ -1,0 +1,32 @@
+CWE401_Memory_Leak__twoIntsStruct_calloc_84a.cpp: In function ‘void CWE401_Memory_Leak__twoIntsStruct_calloc_84::goodG2B()’:
+CWE401_Memory_Leak__twoIntsStruct_calloc_84a.cpp:43:135: warning: use of possibly-NULL ‘operator new(8)’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   43 |     CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodG2B * goodG2BObject = new CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodG2B(data);
+      |                                                                                                                                       ^
+  ‘void CWE401_Memory_Leak__twoIntsStruct_calloc_84::goodG2B()’: events 1-2
+    |
+    |   43 |     CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodG2B * goodG2BObject = new CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodG2B(data);
+    |      |                                                                                                                                       ^
+    |      |                                                                                                                                       |
+    |      |                                                                                                                                       (1) this call could return NULL
+    |      |                                                                                                                                       (2) argument 'this' (‘operator new(8)’) from (1) could be NULL where non-null expected
+    |
+In file included from CWE401_Memory_Leak__twoIntsStruct_calloc_84a.cpp:19:
+CWE401_Memory_Leak__twoIntsStruct_calloc_84.h:44:5: note: argument 'this' of ‘CWE401_Memory_Leak__twoIntsStruct_calloc_84::CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodG2B::CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodG2B(twoIntsStruct*)’ must be non-null
+   44 |     CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodG2B(twoIntsStruct * dataCopy);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CWE401_Memory_Leak__twoIntsStruct_calloc_84a.cpp: In function ‘void CWE401_Memory_Leak__twoIntsStruct_calloc_84::goodB2G()’:
+CWE401_Memory_Leak__twoIntsStruct_calloc_84a.cpp:52:135: warning: use of possibly-NULL ‘operator new(8)’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   52 |     CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodB2G * goodB2GObject = new CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodB2G(data);
+      |                                                                                                                                       ^
+  ‘void CWE401_Memory_Leak__twoIntsStruct_calloc_84::goodB2G()’: events 1-2
+    |
+    |   52 |     CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodB2G * goodB2GObject = new CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodB2G(data);
+    |      |                                                                                                                                       ^
+    |      |                                                                                                                                       |
+    |      |                                                                                                                                       (1) this call could return NULL
+    |      |                                                                                                                                       (2) argument 'this' (‘operator new(8)’) from (1) could be NULL where non-null expected
+    |
+In file included from CWE401_Memory_Leak__twoIntsStruct_calloc_84a.cpp:19:
+CWE401_Memory_Leak__twoIntsStruct_calloc_84.h:54:5: note: argument 'this' of ‘CWE401_Memory_Leak__twoIntsStruct_calloc_84::CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodB2G::CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodB2G(twoIntsStruct*)’ must be non-null
+   54 |     CWE401_Memory_Leak__twoIntsStruct_calloc_84_goodB2G(twoIntsStruct * dataCopy);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
