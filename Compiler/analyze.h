@@ -327,31 +327,32 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														// fprintf(stderr, " succs3:= %d\n", gimple_bb((callerRetTypearray)[k].stmt)->index);
 														// fprintf(stderr, " succs4:= %d\n", e2->dest->index);
 
-														if ((e->dest->index != e2->dest->index))
-															if (dominated_by_p(CDI_DOMINATORS, gimple_bb(tmp), e2->dest))
+														if (!gimple_bb(tmp) && !e2->dest)
+															if ((e->dest->index != e2->dest->index))
+																if (dominated_by_p(CDI_DOMINATORS, gimple_bb(tmp), e2->dest))
 
-															{
+																{
 
-																// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-																fprintf(stderr, "\n======================================================================\n");
-																// fprintf(stderr, "	no free stmt possible memory leak\n");
-																fprintf(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
+																	// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+																	fprintf(stderr, "\n======================================================================\n");
+																	// fprintf(stderr, "	no free stmt possible memory leak\n");
+																	fprintf(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
 
-																debug_gimple_stmt(u_stmt);
-																fprintf(stderr, "bb index := %d\n", gimple_bb(u_stmt)->index);
-																debug_gimple_stmt(tmp);
-																warning_at(gimple_location_safe(tmp), 0, "use location");
-																fprintf(stderr, "beacuse in succ := %d have return or exit\n", gimple_bb(tmp)->index);
-																debug_gimple_stmt((global_ret_type_array)[k].stmt);
-																warning_at(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
-																fprintf(stderr, "gimple stmt in succ := %d ,possiable got to succ := %d\n", gimple_bb(u_stmt)->index, gimple_bb(tmp)->index);
-																// debug_tree((callerRetTypearray)[k].return_tree);
-																// debug_gimple_stmt(u_stmt);
-																// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-																// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-																// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
-																fprintf(stderr, "\n======================================================================\n");
-															}
+																	debug_gimple_stmt(u_stmt);
+																	fprintf(stderr, "bb index := %d\n", gimple_bb(u_stmt)->index);
+																	debug_gimple_stmt(tmp);
+																	warning_at(gimple_location_safe(tmp), 0, "use location");
+																	fprintf(stderr, "beacuse in succ := %d have return or exit\n", gimple_bb(tmp)->index);
+																	debug_gimple_stmt((global_ret_type_array)[k].stmt);
+																	warning_at(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
+																	fprintf(stderr, "gimple stmt in succ := %d ,possiable got to succ := %d\n", gimple_bb(u_stmt)->index, gimple_bb(tmp)->index);
+																	// debug_tree((callerRetTypearray)[k].return_tree);
+																	// debug_gimple_stmt(u_stmt);
+																	// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+																	// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+																	// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
+																	fprintf(stderr, "\n======================================================================\n");
+																}
 													}
 												}
 											}
@@ -762,13 +763,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												warning_at(gimple_location_safe(u_stmt), 0, "use location");
 												if (!strcmp(name, "realloc"))
 												{
-													fprintf(stderr, "\033[40;32m    FIND realloc STMT count:%d name:%s \033[0m\n", find_freestmt, name);
+													find_freestmt++;
+													fprintf(stderr, "\033[40;32m    FIND REALLOC STMT count:%d name:%s \033[0m\n", find_freestmt, name);
 													fprintf(stderr, "\033[40;32m    this stmt possiable free memory \033[0m\n", find_freestmt, name);
 												}
 												else
 												{
-													fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
 													find_freestmt++;
+													fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
 												}
 												fprintf(stderr, "\n ================== find ================== \n");
 											}
@@ -1140,7 +1142,17 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				{
 					fprintf(stderr, "\n======================================================================\n");
 					// fprintf(stderr, "	possible double free\n");
+
 					fprintf(stderr, "\033[40;35m  	Looserules free count:%d \033[0m\n", find_Looserulesfreestmt);
+					fprintf(stderr, "\033[40;31m  	free count:%d \033[0m\n", find_freestmt);
+					if (find_Looserulesfreestmt >= 2)
+					{
+						fprintf(stderr, "\033[40;31m  	possible double free [Looserules]:%d \033[0m\n", find_Looserulesfreestmt);
+					}
+					if (find_freestmt >= 2)
+					{
+						fprintf(stderr, "\033[40;31m  	possible double free [rigorous]:%d \033[0m\n", find_freestmt);
+					}
 					fprintf(stderr, "\n======================================================================\n");
 				}
 				if ((find_mallocstmt == IS_MALLOC_FUCNTION))
@@ -1170,7 +1182,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					{
 						fprintf(stderr, "\n======================================================================\n");
 						// fprintf(stderr, "	possible double free\n");
-						fprintf(stderr, "\033[40;31m  	possible double free :%d \033[0m\n", find_freestmt);
+
+						fprintf(stderr, "\033[40;31m  	possible double free [rigorous]:%d \033[0m\n", find_freestmt);
 						fprintf(stderr, "\n======================================================================\n");
 					}
 				}

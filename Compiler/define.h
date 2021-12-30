@@ -30,6 +30,8 @@ unsigned int EFFECTIVE = 10000;
 unsigned int CREATE_JOINABLE = 0;
 unsigned int CREATE_DETACHED = 1;
 unsigned int DISABLE_TREACE = -100;
+int GIMPLE_MALLOC_COUNT=0;
+int GIMPLE_FREE_COUNT=0;
 /*dump file */
 FILE *fp;
 ofstream cfginfo("cfginfo.txt");
@@ -37,9 +39,9 @@ ofstream cfginfo("cfginfo.txt");
 /*interprocedural analysis*/
 bool ipa = true;
 bool vscode_extensionmod = false;
-bool Looserulesfree =false;
+bool Looserulesfree =true;
 bool useafterfree =true;
-bool debugmod = true;
+bool debugmod = false;
 bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;
@@ -347,7 +349,7 @@ static gimple *now_stmt;
 static int totalsize; //宣告一個整數型態size變數，用來儲存x的位元組大小
 static int levelsize = 0;
 static tree now_tree;
-
+static enum cdi_direction nowdir;
 unsigned int SDBMHash(char *str);
 tree prechecktree(tree tree);
 

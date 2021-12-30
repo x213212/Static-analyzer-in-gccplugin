@@ -59,7 +59,7 @@ const pass_data inline_pass_data =
 const pass_data detect_pass_data =
     {
         .type = SIMPLE_IPA_PASS, // SIMPLE_IPA_PASS,GIMPLE_PASS
-        .name = "x213212",
+        .name = "static_analyzer",
         .optinfo_flags = OPTGROUP_NONE,
         .tv_id = TV_IPA_PTA,
         .properties_required = PROP_ssa,
@@ -71,7 +71,7 @@ static int test_always(void)
 {
   insert_always_inline();
   // fprintf(stderr,"=======end=========\n");
-  return false;
+  return 0;
 }
 namespace
 {
@@ -156,7 +156,7 @@ int plugin_init(struct plugin_name_args *plugin_info, struct plugin_gcc_version 
 
   const char *const plugin_name = plugin_info->base_name;
 
-  // register_callback("always_inline", PLUGIN_PASS_MANAGER_SETUP, NULL, &inline_passinfo);
+  // register_callback("rest_inline", PLUGIN_PASS_MANAGER_SETUP, NULL, &inline_passinfo);
   register_callback("static_analyzer", PLUGIN_PASS_MANAGER_SETUP, NULL, &detect_passinfo);
 
   return 0;

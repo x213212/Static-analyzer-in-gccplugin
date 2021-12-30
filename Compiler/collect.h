@@ -54,6 +54,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 
 			if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 			{
+				GIMPLE_FREE_COUNT++;
 				// fprintf(stderr, "===================free===========================\n");
 				// debug_gimple_stmt(gc);
 				// addr_expr free (&a)
@@ -73,6 +74,8 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 
 			else if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xcalloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup") || !strcmp(name, "xstrdup"))
 			{
+				 GIMPLE_MALLOC_COUNT++;
+
 				// debug_tree(gimple_call_lhs(gc));
 				set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
 				// warning_at(gimple_location(gc), 0, "use location");
@@ -485,7 +488,8 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 							assign_array = *(function_assign_collect->get(getVARDECLtree));
 							assign_type_array = assign_array.assign_type_array;
 						}
-
+	// fprintf(stderr, "check vardecl-------\n");
+	// debug_tree(getVARDECLtree);
 						struct assign_type assign_type;
 
 						assign_type.stmt = gc;

@@ -69,18 +69,21 @@ void printfBasicblock()
 
 	FOR_EACH_FUNCTION(node)
 	{
-		if (!ipa)
-			init_table();
+
+		
 		push_cfun(node->get_fun());
+		if (!gimple_has_body_p(node->decl))
+			continue;
 		// if (strcmp(get_name(cfun->decl), "main") == 0)
 		// debug_tree(cfun->decl);
 		if (cfun == NULL)
 			continue;
 		name = get_name(cfun->decl);
+		
 		if (name != NULL)
 		{
 
-			fprintf(stderr, "=======Mapping node_fun:%s=========\n", get_name(cfun->decl));
+			fprintf(stderr, "=======Mapping node_fun:%s=========\n", name);
 			// debug_tree(cfun->decl);
 			// debug_tree(cfun->decl);
 		}
@@ -186,8 +189,7 @@ void printfunctionCollect2(ptb *ptable, gimple_array *user_tmp)
 	struct cgraph_node *node;
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
-		if (!ipa)
-			init_table();
+	
 		push_cfun(node->get_fun());
 		// if (strcmp(get_name(cfun->decl), "main") == 0)
 		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
@@ -215,8 +217,7 @@ void printfunctionCollect(ptb *ptable, gimple_array *user_tmp)
 	const char *name;
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
-		if (!ipa)
-			init_table();
+	
 		push_cfun(node->get_fun());
 		// if (strcmp(get_name(cfun->decl), "main") == 0)
 		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));

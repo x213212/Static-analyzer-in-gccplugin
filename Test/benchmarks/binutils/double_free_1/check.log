@@ -1,0 +1,48 @@
+./benchmarks/binutils/double_free_1/binutils_df_1.c: In function ‘remote_filename_p’:
+./benchmarks/binutils/double_free_1/binutils_df_1.c:52:16: warning: implicit declaration of function ‘strncmp’ [-Wimplicit-function-declaration]
+   52 |         return strncmp (filename, "remote:", 7) == 0;
+      |                ^~~~~~~
+./benchmarks/binutils/double_free_1/binutils_df_1.c:7:1: note: include ‘<string.h>’ or provide a declaration of ‘strncmp’
+    6 | #include "../include/common.h"
+  +++ |+#include <string.h>
+    7 | #define PT_LDINFO 1
+./benchmarks/binutils/double_free_1/binutils_df_1.c:52:46: warning: ‘strncmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+   52 |         return strncmp (filename, "remote:", 7) == 0;
+      |                                              ^
+<built-in>: note: built-in ‘strncmp’ declared here
+./benchmarks/binutils/double_free_1/binutils_df_1.c: In function ‘main’:
+./benchmarks/binutils/double_free_1/binutils_df_1.c:122:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  122 |         srand(time(&t));
+      |               ^~~~
+./benchmarks/binutils/double_free_1/binutils_df_1.c:127:32: warning: initialization of ‘ULONGEST *’ {aka ‘long unsigned int *’} from incompatible pointer type ‘int *’ [-Wincompatible-pointer-types]
+  127 |         ULONGEST *xfered_len = &len;
+      |                                ^
+Profile consistency report:
+
+                                 |mismatch     |mismatch     |                     |
+Pass name                        |IN    |IN    |OUT   |OUT   |overall              |
+                                 |freq  |count |freq  |count |size      |time      |
+cfg                  ------------|      |      |      |      |          |          |
+ompexp                           |      |      |      |      |   +100.0%|          |
+fixup_cfg            ------------|      |      |      |      |          |          |
+ssa                              |      |      |      |      |     -2.9%|          |
+nothrow                          |      |      |      |      |     -3.0%|          |
+fixup_cfg            ------------|      |      |      |      |          |          |
+local-fnsummary      ------------|      |      |      |      |          |          |
+einline              ------------|      |      |      |      |          |          |
+early_optimizations  ------------|      |      |      |      |          |          |
+objsz                ------------|      |      |      |      |          |          |
+ccp                  ------------|      |      |      |      |          |          |
+forwprop             ------------|      |      |      |      |          |          |
+ethread              ------------|      |      |      |      |          |          |
+esra                 ------------|      |      |      |      |          |          |
+ealias               ------------|      |      |      |      |          |          |
+mergephi             ------------|      |      |      |      |          |          |
+cddce                            |      |      |      |      |     -0.3%|          |
+phiopt                           |      |      |      |      |     -0.6%|          |
+modref                           |      |      |      |      |     -0.3%|          |
+iftoswitch           ------------|      |      |      |      |          |          |
+profile_estimate     ------------|      |      |      |      |          |          |
+local-pure-const                 |      |      |      |      |          |   +100.0%|
+release_ssa          ------------|      |      |      |      |          |          |
+local-fnsummary      ------------|      |      |      |      |          |          |

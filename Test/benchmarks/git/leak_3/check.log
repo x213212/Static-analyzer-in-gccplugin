@@ -1,0 +1,1210 @@
+In file included from ./benchmarks/git/leak_3/git_leak_3.c:10:
+./benchmarks/git/leak_3/../git.h: In function ‘copy_array’:
+./benchmarks/git/leak_3/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_3/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/leak_3/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_3/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/leak_3/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/leak_3/../git.h: In function ‘move_array’:
+./benchmarks/git/leak_3/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/leak_3/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/leak_3/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/leak_3/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/leak_3/git_leak_3.c:9:
+./benchmarks/git/leak_3/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/leak_3/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_3/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/leak_3/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_3/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/leak_3/git_leak_3.c:10:
+./benchmarks/git/leak_3/../git.h: At top level:
+./benchmarks/git/leak_3/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/leak_3/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/leak_3/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_3/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_3/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_3/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_3/git_leak_3.c: In function ‘find_bisection’:
+./benchmarks/git/leak_3/git_leak_3.c:19:9: warning: implicit declaration of function ‘show_list’ [-Wimplicit-function-declaration]
+   19 |         show_list("bisection 2 entry", 0, 0, *commit_list);
+      |         ^~~~~~~~~
+Profile consistency report:
+
+                                 |mismatch     |mismatch     |                     |
+Pass name                        |IN    |IN    |OUT   |OUT   |overall              |
+                                 |freq  |count |freq  |count |size      |time      |
+cfg                  ------------|      |      |      |      |          |          |
+ompexp                           |      |      |      |      |   +100.0%|          |
+fixup_cfg            ------------|      |      |      |      |          |          |
+ssa                              |      |      |      |      |     -5.5%|          |
+nothrow                          |      |      |      |      |     -5.8%|          |
+fixup_cfg            ------------|      |      |      |      |          |          |
+local-fnsummary      ------------|      |      |      |      |          |          |
+einline              ------------|      |      |      |      |          |          |
+early_optimizations  ------------|      |      |      |      |          |          |
+objsz                ------------|      |      |      |      |          |          |
+ccp                  ------------|      |      |      |      |          |          |
+forwprop             ------------|      |      |      |      |          |          |
+ethread              ------------|      |      |      |      |          |          |
+esra                 ------------|      |      |      |      |          |          |
+ealias               ------------|      |      |      |      |          |          |
+mergephi             ------------|      |      |      |      |          |          |
+cddce                            |      |      |      |      |     -0.5%|          |
+phiopt                           |      |      |      |      |     -0.5%|          |
+modref               ------------|      |      |      |      |          |          |
+iftoswitch           ------------|      |      |      |      |          |          |
+profile_estimate     ------------|      |      |      |      |          |          |
+local-pure-const                 |      |      |      |      |          |   +100.0%|
+release_ssa          ------------|      |      |      |      |          |          |
+local-fnsummary      ------------|      |      |      |      |          |          |
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+=======node_fun:main=========
+
+--------GIMPLE Cond -------
+succs:= 4
+=======node_fun:free_commit_list=========
+
+succs:= 4
+--------GIMPLE Cond -------
+succs:= 4
+=======node_fun:pop_commit=========
+
+--------GIMPLE Cond -------
+succs:= 2
+--------GIMPLE Cond -------
+succs:= 2
+succs:= 4
+succs:= 4
+succs:= 4
+=======node_fun:commit_list_insert=========
+
+=======node_fun:find_bisection=========
+
+--------GIMPLE Cond -------
+--------GIMPLE Cond -------
+succs:= 3
+succs:= 3
+succs:= 4
+--------GIMPLE Cond -------
+succs:= 5
+--------GIMPLE Cond -------
+succs:= 10
+===============The first stage : Point of interest stmt collect=================
+start PointerConstraint
+pointer ftable is 1 
+pointer ptable is 1 
+===============The second stage : Mapping stmt=================
+# .MEM_20 = VDEF <.MEM_13>
+commit_list_insert (0B, &list);
+# .MEM_15 = VDEF <.MEM_13>
+find_bisection (&list, &reaches, &all, find_all_5(D));
+# .MEM_16 = VDEF <.MEM_15>
+free_commit_list (_1);
+# .MEM_4 = VDEF <.MEM_2>
+pop_commit (&list);
+# .MEM_9 = VDEF <.MEM_8(D)>
+new_list_4 = malloc (16);
+# .MEM_29 = VDEF <.MEM_28(D)>
+show_list ("bisection 2 entry", 0, 0, _1);
+# .MEM_30 = VDEF <.MEM_27>
+show_list ("bisection 2 sorted", 0, nr_7, last_10);
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+===============The second stage : record fucntion =================
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 3 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free_commit_list========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path free_commit_list  function_call count: 1 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:pop_commit========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path pop_commit  function_call count: 1 level :2========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre_check_funciton:pop_commit========= [0m
+[40;42m =======start_check_funciton:pop_commit========= [0m
+[40;33m =======POP node_fun stack:pop_commit========= [0m
+[40;42m =======pre_check_funciton:free_commit_list========= [0m
+[40;42m =======start_check_funciton:free_commit_list========= [0m
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7effa6b45c20
+    type <pointer_type 0x7effa6472888
+        type <pointer_type 0x7effa64727e0 type <record_type 0x7effa6472738 commit_list>
+            public unsigned DI
+            size <integer_cst 0x7effa6949bb8 constant 64>
+            unit-size <integer_cst 0x7effa6949bd0 constant 8>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7effa6472888>>
+        public unsigned DI size <integer_cst 0x7effa6949bb8 64> unit-size <integer_cst 0x7effa6949bd0 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+   
+    arg:0 <parm_decl 0x7effa6489000 list type <pointer_type 0x7effa64727e0>
+        addressable unsigned DI ./benchmarks/git/leak_3/git_leak_3.c:71:43 size <integer_cst 0x7effa6949bb8 64> unit-size <integer_cst 0x7effa6949bd0 8>
+        align:64 warn_if_not_align:0 context <function_decl 0x7effa6473d00 free_commit_list> arg-type <pointer_type 0x7effa64727e0>>
+    ./benchmarks/git/leak_3/git_leak_3.c:74:3 start: ./benchmarks/git/leak_3/git_leak_3.c:74:3 finish: ./benchmarks/git/leak_3/git_leak_3.c:74:3>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:free_commit_list========= [0m
+[40;42m =======pre add _ fucntion:find_bisection========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path find_bisection  function_call count: 1 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:show_list========= [0m
+[40;33m =======POP node_fun stack:show_list========= [0m
+[40;42m =======pre_check_funciton:find_bisection========= [0m
+[40;42m =======start_check_funciton:find_bisection========= [0m
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7effa6b45d80
+    type <pointer_type 0x7effa647a9d8
+        type <array_type 0x7effa647a930 type <integer_type 0x7effa647a888 char>
+            BLK
+            size <integer_cst 0x7effa64698a0 constant 144>
+            unit-size <integer_cst 0x7effa6469888 constant 18>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality domain <integer_type 0x7effa647a7e0>
+            pointer_to_this <pointer_type 0x7effa647a9d8>>
+        unsigned DI
+        size <integer_cst 0x7effa6949bb8 constant 64>
+        unit-size <integer_cst 0x7effa6949bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    readonly constant
+    arg:0 <string_cst 0x7effa648ad48 type <array_type 0x7effa647a930>
+        readonly constant static "bisection 2 entry\000">
+    ./benchmarks/git/leak_3/git_leak_3.c:19:12 start: ./benchmarks/git/leak_3/git_leak_3.c:19:12 finish: ./benchmarks/git/leak_3/git_leak_3.c:19:12>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7effa6b45dc0
+    type <pointer_type 0x7effa647abd0
+        type <array_type 0x7effa647ab28 type <integer_type 0x7effa647a888 char>
+            BLK
+            size <integer_cst 0x7effa64698e8 constant 152>
+            unit-size <integer_cst 0x7effa6469780 constant 19>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality domain <integer_type 0x7effa647aa80>
+            pointer_to_this <pointer_type 0x7effa647abd0>>
+        unsigned DI
+        size <integer_cst 0x7effa6949bb8 constant 64>
+        unit-size <integer_cst 0x7effa6949bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    readonly constant
+    arg:0 <string_cst 0x7effa648ae60 type <array_type 0x7effa647ab28>
+        readonly constant static "bisection 2 sorted\000">
+    ./benchmarks/git/leak_3/git_leak_3.c:42:12 start: ./benchmarks/git/leak_3/git_leak_3.c:42:12 finish: ./benchmarks/git/leak_3/git_leak_3.c:42:12>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:find_bisection========= [0m
+[40;42m =======pre add _ fucntion:commit_list_insert========= [0m
+[40;44m =======print_function_type 2  ========  [0m
+[40;44m =======print_function_path commit_list_insert  function_call count: 1 level :1========  [0m
+[40;44m =======print_function_type 2  ========  [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre_check_funciton:commit_list_insert========= [0m
+[40;42m =======start_check_funciton:commit_list_insert========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7effa6951d80
+    type <pointer_type 0x7effa64727e0
+        type <record_type 0x7effa6472738 commit_list TI
+            size <integer_cst 0x7effa6949c00 constant 128>
+            unit-size <integer_cst 0x7effa6949c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7effa6472738 fields <field_decl 0x7effa64751c8 item> context <translation_unit_decl 0x7effa6954168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7effa64727e0>>
+        public unsigned DI
+        size <integer_cst 0x7effa6949bb8 constant 64>
+        unit-size <integer_cst 0x7effa6949bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7effa6472888>>
+    var <var_decl 0x7effa6488360 new_list>
+    def_stmt new_list_4 = malloc (16);
+    version:4
+    ptr-info 0x7effa64834b0>
+# .MEM_9 = VDEF <.MEM_8(D)>
+new_list_4 = malloc (16);
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+return new_list_4;
+In function ‘main’:
+./benchmarks/git/leak_3/git_leak_3.c:55:16: warning: use location
+   55 |         return new_list;
+      |                ^
+*list_p_7(D) = new_list_4;
+./benchmarks/git/leak_3/git_leak_3.c:54:17: warning: use location
+   54 |         *list_p = new_list;
+      |                 ^
+new_list_4->next = _1;
+./benchmarks/git/leak_3/git_leak_3.c:53:24: warning: use location
+   53 |         new_list->next = *list_p;
+      |                        ^
+new_list_4->next = _1;
+./benchmarks/git/leak_3/git_leak_3.c:53:24: warning: use location
+new_list_4->item = item_5(D);
+./benchmarks/git/leak_3/git_leak_3.c:52:24: warning: use location
+   52 |         new_list->item = item;
+      |                        ^
+new_list_4->item = item_5(D);
+./benchmarks/git/leak_3/git_leak_3.c:52:24: warning: use location
+new_list_4 = malloc (16);
+./benchmarks/git/leak_3/git_leak_3.c:51:40: warning: use location
+   51 |         struct commit_list *new_list = xmalloc(sizeof(struct commit_list));
+      |                                        ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7effa6951d80
+    type <pointer_type 0x7effa64727e0
+        type <record_type 0x7effa6472738 commit_list TI
+            size <integer_cst 0x7effa6949c00 constant 128>
+            unit-size <integer_cst 0x7effa6949c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7effa6472738 fields <field_decl 0x7effa64751c8 item> context <translation_unit_decl 0x7effa6954168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7effa64727e0>>
+        public unsigned DI
+        size <integer_cst 0x7effa6949bb8 constant 64>
+        unit-size <integer_cst 0x7effa6949bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7effa6472888>>
+    var <var_decl 0x7effa6488360 new_list>
+    def_stmt new_list_4 = malloc (16);
+    version:4
+    ptr-info 0x7effa64834b0>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7effa6483390 type <integer_type 0x7effa695e7e0 long unsigned int> constant 16>
+[40;33m =======POP node_fun stack:commit_list_insert========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7effa64832b8 type <pointer_type 0x7effa647a690> constant 0>
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7effa6b45b20
+    type <pointer_type 0x7effa6472888
+        type <pointer_type 0x7effa64727e0 type <record_type 0x7effa6472738 commit_list>
+            public unsigned DI
+            size <integer_cst 0x7effa6949bb8 constant 64>
+            unit-size <integer_cst 0x7effa6949bd0 constant 8>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7effa6472888>>
+        public unsigned DI size <integer_cst 0x7effa6949bb8 64> unit-size <integer_cst 0x7effa6949bd0 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+   
+    arg:0 <var_decl 0x7effa71f1cf0 list type <pointer_type 0x7effa64727e0>
+        addressable unsigned DI ./benchmarks/git/leak_3/git_leak_3.c:79:25 size <integer_cst 0x7effa6949bb8 64> unit-size <integer_cst 0x7effa6949bd0 8>
+        align:64 warn_if_not_align:0 context <function_decl 0x7effa6473e00 main>
+        chain <var_decl 0x7effa71f1c60 reaches type <integer_type 0x7effa695e5e8 int>
+            addressable SI ./benchmarks/git/leak_3/git_leak_3.c:80:9
+            size <integer_cst 0x7effa6949df8 constant 32>
+            unit-size <integer_cst 0x7effa6949e10 constant 4>
+            align:32 warn_if_not_align:0 context <function_decl 0x7effa6473e00 main> chain <var_decl 0x7effa71f1bd0 all>>>
+    ./benchmarks/git/leak_3/git_leak_3.c:85:5 start: ./benchmarks/git/leak_3/git_leak_3.c:85:5 finish: ./benchmarks/git/leak_3/git_leak_3.c:85:5>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7effa6951630
+    type <pointer_type 0x7effa64727e0
+        type <record_type 0x7effa6472738 commit_list TI
+            size <integer_cst 0x7effa6949c00 constant 128>
+            unit-size <integer_cst 0x7effa6949c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7effa6472738 fields <field_decl 0x7effa64751c8 item> context <translation_unit_decl 0x7effa6954168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7effa64727e0>>
+        public unsigned DI
+        size <integer_cst 0x7effa6949bb8 constant 64>
+        unit-size <integer_cst 0x7effa6949bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7effa6472888>>
+   
+    def_stmt _1 = list;
+    version:1
+    ptr-info 0x7effa64833f0>
+# VUSE <.MEM_15>
+_1 = list;
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_16 = VDEF <.MEM_15>
+free_commit_list (_1);
+free_commit_list (_1);
+./benchmarks/git/leak_3/git_leak_3.c:87:5: warning: use location
+   87 |     free_commit_list(list);
+      |     ^
+this stmt is child function---free_commit_list-----
+
+ ================== trace ================== 
+trace fucntion name:free_commit_list 
+[40;44m =======trace_function_path free_commit_list  function_call count: 1 level :0========  [0m
+[40;36m ======= node_fun:free_commit_list========= [0m
+[40;36m ======= find relate stmt with (null) ========= [0m
+[40;36m ======= relate stmt argument:(null) ========= [0m
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:pop_commit========= [0m
+[40;46m =======add node_fun stack:pop_commit========= [0m
+[40;44m =======trace_function_path pop_commit  function_call count: 1 level :1========  [0m
+# .MEM_11 = VDEF <.MEM_10>
+free (top_6);
+[40;31m  find free stmt free same pointer [0m
+# .MEM_11 = VDEF <.MEM_10>
+free (top_6);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: use location
+   65 |                 free(top);
+      |                 ^
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;46m =======add node_fun stack:free========= [0m
+
+ ================== trace ================== 
+trace fucntion free:1 
+# .MEM_16 = VDEF <.MEM_15>
+free_commit_list (_1);
+free_commit_list (_1);
+./benchmarks/git/leak_3/git_leak_3.c:87:5: warning: use location
+   87 |     free_commit_list(list);
+      |     ^
+this stmt is child function---free_commit_list-----
+
+ ================== trace ================== 
+trace fucntion name:free_commit_list 
+[40;44m =======trace_function_path free_commit_list  function_call count: 1 level :0========  [0m
+[40;36m ======= node_fun:free_commit_list========= [0m
+[40;36m ======= find relate stmt with (null) ========= [0m
+[40;36m ======= relate stmt argument:(null) ========= [0m
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:pop_commit========= [0m
+[40;46m =======add node_fun stack:pop_commit========= [0m
+[40;44m =======trace_function_path pop_commit  function_call count: 1 level :1========  [0m
+# .MEM_11 = VDEF <.MEM_10>
+free (top_6);
+[40;31m  find free stmt free same pointer [0m
+# .MEM_11 = VDEF <.MEM_10>
+free (top_6);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: use location
+   65 |                 free(top);
+      |                 ^
+[40;36m ======= node_fun:pop_commit========= [0m
+[40;36m ======= find relate stmt with (null) ========= [0m
+[40;36m ======= relate stmt argument:(null) ========= [0m
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;46m =======add node_fun stack:free========= [0m
+
+ ================== trace ================== 
+trace fucntion free:2 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7effa6951630
+    type <pointer_type 0x7effa64727e0
+        type <record_type 0x7effa6472738 commit_list TI
+            size <integer_cst 0x7effa6949c00 constant 128>
+            unit-size <integer_cst 0x7effa6949c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7effa6472738 fields <field_decl 0x7effa64751c8 item> context <translation_unit_decl 0x7effa6954168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7effa64727e0>>
+        public unsigned DI
+        size <integer_cst 0x7effa6949bb8 constant 64>
+        unit-size <integer_cst 0x7effa6949bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7effa6472888>>
+   
+    def_stmt _1 = list;
+    version:1
+    ptr-info 0x7effa64833f0>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:2 [0m
+[40;31m  	possible double free [rigorous]:2 [0m
+
+======================================================================
+
+======================================================================
+[40;31m  	possible double free [rigorous]:2 [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+[40;44m =======node_fun:free_commit_list========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path free_commit_list  function_call count: 1 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:pop_commit========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path pop_commit  function_call count: 1 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre_check_funciton:pop_commit========= [0m
+[40;42m =======start_check_funciton:pop_commit========= [0m
+[40;33m =======POP node_fun stack:pop_commit========= [0m
+[40;42m =======pre_check_funciton:free_commit_list========= [0m
+[40;42m =======start_check_funciton:free_commit_list========= [0m
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7effa6b45c20
+    type <pointer_type 0x7effa6472888
+        type <pointer_type 0x7effa64727e0 type <record_type 0x7effa6472738 commit_list>
+            public unsigned DI
+            size <integer_cst 0x7effa6949bb8 constant 64>
+            unit-size <integer_cst 0x7effa6949bd0 constant 8>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7effa6472888>>
+        public unsigned DI size <integer_cst 0x7effa6949bb8 64> unit-size <integer_cst 0x7effa6949bd0 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+   
+    arg:0 <parm_decl 0x7effa6489000 list type <pointer_type 0x7effa64727e0>
+        addressable unsigned DI ./benchmarks/git/leak_3/git_leak_3.c:71:43 size <integer_cst 0x7effa6949bb8 64> unit-size <integer_cst 0x7effa6949bd0 8>
+        align:64 warn_if_not_align:0 context <function_decl 0x7effa6473d00 free_commit_list> arg-type <pointer_type 0x7effa64727e0>>
+    ./benchmarks/git/leak_3/git_leak_3.c:74:3 start: ./benchmarks/git/leak_3/git_leak_3.c:74:3 finish: ./benchmarks/git/leak_3/git_leak_3.c:74:3>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:free_commit_list========= [0m
+[40;44m =======node_fun:pop_commit========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path pop_commit  function_call count: 1 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre_check_funciton:pop_commit========= [0m
+[40;42m =======start_check_funciton:pop_commit========= [0m
+[40;33m =======POP node_fun stack:pop_commit========= [0m
+[40;44m =======node_fun:commit_list_insert========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path commit_list_insert  function_call count: 1 level :0========  [0m
+[40;44m =======print_function_type 2  ========  [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre_check_funciton:commit_list_insert========= [0m
+[40;42m =======start_check_funciton:commit_list_insert========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7effa6951d80
+    type <pointer_type 0x7effa64727e0
+        type <record_type 0x7effa6472738 commit_list TI
+            size <integer_cst 0x7effa6949c00 constant 128>
+            unit-size <integer_cst 0x7effa6949c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7effa6472738 fields <field_decl 0x7effa64751c8 item> context <translation_unit_decl 0x7effa6954168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7effa64727e0>>
+        public unsigned DI
+        size <integer_cst 0x7effa6949bb8 constant 64>
+        unit-size <integer_cst 0x7effa6949bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7effa6472888>>
+    var <var_decl 0x7effa6488360 new_list>
+    def_stmt new_list_4 = malloc (16);
+    version:4
+    ptr-info 0x7effa64834b0>
+# .MEM_9 = VDEF <.MEM_8(D)>
+new_list_4 = malloc (16);
+
+ ================== trace ptable================== 
+trace fucntion name:malloc 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr---malloc-----
+this Reserved word function ------malloc-----
+ 
+ Start check Pointer Collect  
+
+======================================================================
+return new_list_4;
+In function ‘commit_list_insert’:
+./benchmarks/git/leak_3/git_leak_3.c:55:16: warning: use location
+   55 |         return new_list;
+      |                ^
+*list_p_7(D) = new_list_4;
+./benchmarks/git/leak_3/git_leak_3.c:54:17: warning: use location
+   54 |         *list_p = new_list;
+      |                 ^
+new_list_4->next = _1;
+./benchmarks/git/leak_3/git_leak_3.c:53:24: warning: use location
+   53 |         new_list->next = *list_p;
+      |                        ^
+new_list_4->next = _1;
+./benchmarks/git/leak_3/git_leak_3.c:53:24: warning: use location
+new_list_4->item = item_5(D);
+./benchmarks/git/leak_3/git_leak_3.c:52:24: warning: use location
+   52 |         new_list->item = item;
+      |                        ^
+new_list_4->item = item_5(D);
+./benchmarks/git/leak_3/git_leak_3.c:52:24: warning: use location
+new_list_4 = malloc (16);
+./benchmarks/git/leak_3/git_leak_3.c:51:40: warning: use location
+   51 |         struct commit_list *new_list = xmalloc(sizeof(struct commit_list));
+      |                                        ^
+this stmt is child function---malloc-----
+
+ ================== trace ================== 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7effa6951d80
+    type <pointer_type 0x7effa64727e0
+        type <record_type 0x7effa6472738 commit_list TI
+            size <integer_cst 0x7effa6949c00 constant 128>
+            unit-size <integer_cst 0x7effa6949c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7effa6472738 fields <field_decl 0x7effa64751c8 item> context <translation_unit_decl 0x7effa6954168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7effa64727e0>>
+        public unsigned DI
+        size <integer_cst 0x7effa6949bb8 constant 64>
+        unit-size <integer_cst 0x7effa6949bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7effa6472888>>
+    var <var_decl 0x7effa6488360 new_list>
+    def_stmt new_list_4 = malloc (16);
+    version:4
+    ptr-info 0x7effa64834b0>
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+
+ ================== collect possiable invalid ================== 
+ <integer_cst 0x7effa6483390 type <integer_type 0x7effa695e7e0 long unsigned int> constant 16>
+[40;33m =======POP node_fun stack:commit_list_insert========= [0m
+[40;44m =======node_fun:find_bisection========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path find_bisection  function_call count: 1 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:show_list========= [0m
+[40;33m =======POP node_fun stack:show_list========= [0m
+[40;42m =======pre_check_funciton:find_bisection========= [0m
+[40;42m =======start_check_funciton:find_bisection========= [0m
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7effa6b45d80
+    type <pointer_type 0x7effa647a9d8
+        type <array_type 0x7effa647a930 type <integer_type 0x7effa647a888 char>
+            BLK
+            size <integer_cst 0x7effa64698a0 constant 144>
+            unit-size <integer_cst 0x7effa6469888 constant 18>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality domain <integer_type 0x7effa647a7e0>
+            pointer_to_this <pointer_type 0x7effa647a9d8>>
+        unsigned DI
+        size <integer_cst 0x7effa6949bb8 constant 64>
+        unit-size <integer_cst 0x7effa6949bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    readonly constant
+    arg:0 <string_cst 0x7effa648ad48 type <array_type 0x7effa647a930>
+        readonly constant static "bisection 2 entry\000">
+    ./benchmarks/git/leak_3/git_leak_3.c:19:12 start: ./benchmarks/git/leak_3/git_leak_3.c:19:12 finish: ./benchmarks/git/leak_3/git_leak_3.c:19:12>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <addr_expr 0x7effa6b45dc0
+    type <pointer_type 0x7effa647abd0
+        type <array_type 0x7effa647ab28 type <integer_type 0x7effa647a888 char>
+            BLK
+            size <integer_cst 0x7effa64698e8 constant 152>
+            unit-size <integer_cst 0x7effa6469780 constant 19>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality domain <integer_type 0x7effa647aa80>
+            pointer_to_this <pointer_type 0x7effa647abd0>>
+        unsigned DI
+        size <integer_cst 0x7effa6949bb8 constant 64>
+        unit-size <integer_cst 0x7effa6949bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    readonly constant
+    arg:0 <string_cst 0x7effa648ae60 type <array_type 0x7effa647ab28>
+        readonly constant static "bisection 2 sorted\000">
+    ./benchmarks/git/leak_3/git_leak_3.c:42:12 start: ./benchmarks/git/leak_3/git_leak_3.c:42:12 finish: ./benchmarks/git/leak_3/git_leak_3.c:42:12>
+
+ ================== trace ptable================== 
+
+ ================== trace ptable ================== 
+GIMPLE CODE :addr_expr--------
+this other function -----------
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+[40;33m =======POP node_fun stack:find_bisection========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 97603128]:
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 976138697]:
+commit_list_insert (0B, &list);
+i_12 = i_2 + 1;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# i_2 = PHI <0(2), i_12(3)>
+if (i_2 <= 9)
+  goto <bb 3>; [90.91%]
+else
+  goto <bb 5>; [9.09%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 97603128]:
+find_bisection (&list, &reaches, &all, find_all_5(D));
+_1 = list;
+free_commit_list (_1);
+list ={v} {CLOBBER};
+reaches ={v} {CLOBBER};
+all ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:free_commit_list=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+pop_commit (&list);
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+_1 = list;
+if (_1 != 0B)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 5>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 118111600]:
+return;
+
+=======Mapping node_fun:pop_commit=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+top_6 = *stack_5(D);
+if (top_6 != 0B)
+  goto <bb 3>; [85.10%]
+else
+  goto <bb 4>; [14.90%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 913754297]:
+_7 = top_6->item;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# _2 = PHI <0B(2), _7(3)>
+if (top_6 != 0B)
+  goto <bb 5>; [53.47%]
+else
+  goto <bb 6>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 574129753]:
+_1 = top_6->next;
+*stack_5(D) = _1;
+free (top_6);
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+return _2;
+
+=======Mapping node_fun:commit_list_insert=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+new_list_4 = malloc (16);
+new_list_4->item = item_5(D);
+_1 = *list_p_7(D);
+new_list_4->next = _1;
+*list_p_7(D) = new_list_4;
+return new_list_4;
+
+=======Mapping node_fun:find_bisection=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+_1 = *commit_list_13(D);
+show_list ("bisection 2 entry", 0, 0, _1);
+p_17 = *commit_list_13(D);
+goto <bb 10>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_2 = p_9->item;
+_3 = _2->object.flags;
+next_23 = p_9->next;
+_15 = _3 & 2;
+if (_15 != 0)
+  goto <bb 4>; [33.00%]
+else
+  goto <bb 5>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 315357972]:
+// predicted unlikely by continue predictor.
+goto <bb 8>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 640272253]:
+p_9->next = last_10;
+_16 = _3 & 4;
+if (_16 == 0)
+  goto <bb 6>; [50.00%]
+else
+  goto <bb 7>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 320136126]:
+nr_25 = nr_7 + 1;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 640272253]:
+# nr_6 = PHI <nr_7(5), nr_25(6)>
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 955630225]:
+# nr_8 = PHI <nr_7(4), nr_6(7)>
+# p_22 = PHI <next_23(4), next_23(7)>
+# last_4 = PHI <last_10(4), p_9(7)>
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 1073741824]:
+# nr_7 = PHI <0(2), nr_8(8)>
+# p_9 = PHI <p_17(2), p_22(8)>
+# last_10 = PHI <0B(2), last_4(8)>
+if (p_9 != 0B)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 9>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 118111600]:
+show_list ("bisection 2 sorted", 0, nr_7, last_10);
+*all_19(D) = nr_7;
+*commit_list_13(D) = last_10;
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 1 [0m
+[40;34m    gimple free   count : 1 [0m
+[40;34m    find Entry point : 2 [0m
+[40;34m    used_stmt array stack totalsize of : 0.000128 mb[0m
+[40;34m    collect time: : 0.000139 s [0m
+[40;34m    algorithm time: 0.008377 s [0m
+[40;34m    gimple stmt count : : 46 [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+Profile consistency report:
+
+                                 |mismatch     |mismatch     |                     |
+Pass name                        |IN    |IN    |OUT   |OUT   |overall              |
+                                 |freq  |count |freq  |count |size      |time      |
+cp                   ------------|      |      |      |      |          |          |
+inline               ------------|      |      |      |      |          |          |
+fixup_cfg            ------------|      |      |      |      |          |          |
+adjust_alignment     ------------|      |      |      |      |          |          |
+ccp                  ------------|      |      |      |      |          |          |
+backprop             ------------|      |      |      |      |          |          |
+phiprop              ------------|      |      |      |      |          |          |
+forwprop             ------------|      |      |      |      |          |          |
+objsz                ------------|      |      |      |      |          |          |
+alias                ------------|      |      |      |      |          |          |
+retslot              ------------|      |      |      |      |          |          |
+mergephi             ------------|      |      |      |      |          |          |
+dce                  ------------|      |      |      |      |          |          |
+stdarg               ------------|      |      |      |      |          |          |
+cdce                 ------------|      |      |      |      |          |          |
+cselim               ------------|      |      |      |      |          |          |
+copyprop             ------------|      |      |      |      |          |          |
+ifcombine            ------------|      |      |      |      |          |          |
+mergephi             ------------|      |      |      |      |          |          |
+phiopt               ------------|      |      |      |      |          |          |
+ch                               |      |      |      |      |     +3.7%|     -0.1%|
+cplxlower                        |      |    +1|      |      |     +3.5%|     -0.1%|
+sra                  ------------|      |      |      |      |          |          |
+dom                              |      |      |      |      |     -1.4%|     +1.4%|
+copyprop                         |      |      |      |      |     -1.4%|     +1.4%|
+reassoc              ------------|      |      |      |      |          |          |
+dce                  ------------|      |      |      |      |          |          |
+forwprop             ------------|      |      |      |      |          |          |
+phiopt               ------------|      |      |      |      |          |          |
+ccp                  ------------|      |      |      |      |          |          |
+sincos               ------------|      |      |      |      |          |          |
+laddress             ------------|      |      |      |      |          |          |
+lim                  ------------|      |      |      |      |          |          |
+walloca              ------------|      |      |      |      |          |          |
+sink                 ------------|      |      |      |      |          |          |
+dce                  ------------|      |      |      |      |          |          |
+fix_loops            ------------|      |      |      |      |          |          |
+loop                 ------------|      |      |      |      |          |          |
+loopinit                         |      |      |      |      |    -23.9%|    -44.8%|
+sccp                 ------------|      |      |      |      |          |          |
+cddce                ------------|      |      |      |      |          |          |
+ivcanon                          |      |      |      |      |     +0.9%|     +1.1%|
+copyprop                         |      |      |      |      |     +0.9%|     +1.0%|
+cunroll              ------------|      |      |      |      |          |          |
+ivopts                           |      |      |      |      |     -0.9%|     -1.0%|
+lim                              |      |      |      |      |     -0.9%|     -1.0%|
+loopdone             ------------|      |      |      |      |          |          |
+no_loop                          |      |      |      |      |    +31.5%|    +81.3%|
+veclower2            ------------|      |      |      |      |          |          |
+switchlower          ------------|      |      |      |      |          |          |
+reassoc              ------------|      |      |      |      |          |          |
+slsr                 ------------|      |      |      |      |          |          |
+dom                  ------------|      |      |      |      |          |          |
+strlen               ------------|      |      |      |      |          |          |
+copyprop             ------------|      |      |      |      |          |          |
+wrestrict            ------------|      |      |      |      |          |          |
+cddce                ------------|      |      |      |      |          |          |
+forwprop             ------------|      |      |      |      |          |          |
+phiopt               ------------|      |      |      |      |          |          |
+fab                  ------------|      |      |      |      |          |          |
+dce                  ------------|      |      |      |      |          |          |
+crited               ------------|      |      |      |      |          |          |
+uncprop              ------------|      |      |      |      |          |          |
+local-pure-const     ------------|      |      |      |      |          |          |
+modref               ------------|      |      |      |      |          |          |
+nrv                  ------------|      |      |      |      |          |          |
+isel                 ------------|      |      |      |      |          |          |
+optimized            ------------|      |      |      |      |          |          |
+expand                           |      |      |      |      |----------|----------|
+vregs                            |      |      |      |      |    +74.7%|    +54.6%|
+into_cfglayout                   |      |      |      |      |     -1.2%|     -0.9%|
+jump                             |      |      |      |      |     -2.1%|     -1.1%|
+subreg1                          |      |      |      |      |     -0.8%|     -0.2%|
+dfinit               ------------|      |      |      |      |          |          |
+cse1                 ------------|      |      |      |      |          |          |
+fwprop1                          |      |      |      |      |     -0.9%|     -0.8%|
+ce1                              |      |      |      |      |     -0.9%|     -0.6%|
+reginfo                          |      |      |      |      |          |     +0.2%|
+loop2                ------------|      |      |      |      |          |          |
+loop2_init           ------------|      |      |      |      |          |          |
+loop2_invariant                  |      |      |      |      |          |     -1.3%|
+loop2_done                       |      |      |      |      |          |     -1.3%|
+dse1                             |      |      |      |      |     -0.4%|     -0.1%|
+fwprop2                          |      |      |      |      |     -0.4%|     -0.1%|
+init-regs                        |      |      |      |      |     +0.4%|     +0.1%|
+combine                          |      |      |      |      |     +1.7%|     +1.5%|
+ce2                              |      |      |      |      |     +1.3%|     +1.4%|
+outof_cfglayout                  |      |      |      |      |     +0.8%|     +0.7%|
+split1                           |      |      |      |      |     +0.8%|     +0.7%|
+subreg3              ------------|      |      |      |      |          |          |
+mode_sw              ------------|      |      |      |      |          |          |
+asmcons              ------------|      |      |      |      |          |          |
+ira                              |      |      |      |      |     -0.8%|     -0.1%|
+reload                           |      |      |      |      |     -6.7%|     -6.0%|
+postreload                       |      |      |      |      |     -6.7%|     -6.5%|
+split2                           |      |      |      |      |     -0.5%|     -0.3%|
+cmpelim              ------------|      |      |      |      |          |          |
+pro_and_epilogue                 |      |      |      |      |    +15.5%|    +11.6%|
+dse2                             |      |      |      |      |    +13.4%|    +10.4%|
+csa                  ------------|      |      |      |      |          |          |
+jump2                ------------|      |      |      |      |          |          |
+ce3                  ------------|      |      |      |      |          |          |
+cprop_hardreg                    |      |      |      |      |     -0.4%|     -0.1%|
+rtl_dce                          |      |      |      |      |     -0.4%|     -0.1%|
+bbro                             |      |      |      |      |     +0.4%|     -0.3%|
+split4                           |      |      |      |      |     +0.4%|     -0.3%|
+stack                ------------|      |      |      |      |          |          |
+zero_call_used_regs  ------------|      |      |      |      |          |          |
+alignments           ------------|      |      |      |      |          |          |
+/usr/bin/ld: /tmp/ccQrLNiz.ltrans0.ltrans.o: in function `find_bisection':
+<artificial>:(.text+0x28): undefined reference to `show_list'
+/usr/bin/ld: <artificial>:(.text+0x8b): undefined reference to `show_list'
+collect2: error: ld returned 1 exit status

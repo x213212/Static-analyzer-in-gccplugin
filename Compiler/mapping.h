@@ -132,9 +132,7 @@ void FunctionStmtMappingAssign(ptb *ptable, gimple_array *user_tmp)
 	struct cgraph_node *node;
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
-		if (!ipa)
-			init_table();
-
+	
 		if (!gimple_has_body_p(node->decl))
 			continue;
 		push_cfun(node->get_fun());
