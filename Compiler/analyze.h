@@ -327,7 +327,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														// fprintf(stderr, " succs3:= %d\n", gimple_bb((callerRetTypearray)[k].stmt)->index);
 														// fprintf(stderr, " succs4:= %d\n", e2->dest->index);
 
-														if (!gimple_bb(tmp) && !e2->dest)
+														// if (!gimple_bb(tmp) && !e2->dest)
 															if ((e->dest->index != e2->dest->index))
 																if (dominated_by_p(CDI_DOMINATORS, gimple_bb(tmp), e2->dest))
 
@@ -376,12 +376,12 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							// fprintf(stderr, "\n======================================================================\n");
 							// debug_gimple_stmt(u_stmt);
 							// check_bbinfo2(gimple_bb(u_stmt));
-							// fprintf(stderr, "\n======================================================================\n");
 							if (gimple_code(table_temp->last_stmt) == GIMPLE_CALL)
 							{
+							
 								if (gimple_code(u_stmt) == GIMPLE_CALL)
-									if (gimple_call_lhs(table_temp->last_stmt) == NULL)
-										if (gimple_call_lhs(u_stmt) == NULL)
+									if (gimple_call_fn(table_temp->last_stmt) != NULL)
+										if (gimple_call_fn(u_stmt) != NULL)
 										{
 
 											// debug_tree(gimple_call_fn(table_temp->last_stmt));
@@ -409,6 +409,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														debug_gimple_stmt(u_stmt);
 														warning_at(gimple_location_safe(u_stmt), 0, "use location");
 														// fprintf(stderr, "\n Expand conflict %d \n", gimple_bb(u_stmt)->index);
+														
 														check_bbinfo(gimple_bb(u_stmt));
 														continue;
 													}

@@ -70,16 +70,18 @@ void printfBasicblock()
 	FOR_EACH_FUNCTION(node)
 	{
 
-		
-		push_cfun(node->get_fun());
 		if (!gimple_has_body_p(node->decl))
 			continue;
+		push_cfun(node->get_fun());
 		// if (strcmp(get_name(cfun->decl), "main") == 0)
 		// debug_tree(cfun->decl);
 		if (cfun == NULL)
+		{
+			pop_cfun();
 			continue;
+		}
 		name = get_name(cfun->decl);
-		
+
 		if (name != NULL)
 		{
 
@@ -103,9 +105,8 @@ void printfBasicblock()
 				gimple *gc = gsi_stmt(gsi);
 				// if (gimple_code(gc) == GIMPLE_RETURN)
 				// debug_gimple_stmt(gc);
-				gimplestmt_count+=1;
+				gimplestmt_count += 1;
 			}
-		
 		}
 		pop_cfun();
 	}
@@ -121,7 +122,7 @@ void print_function_path(vector<return_type> *path)
 		fprintf(stderr, ",\n");
 	}
 	fprintf(stderr, "]\n");
-	//fprintf(stderr, "	function ->%s in loc %d \n", IDENTIFIER_POINTER(DECL_NAME((*path)[i].first.fndecl)), LOCATION_LINE((*path)[i].second));
+	// fprintf(stderr, "	function ->%s in loc %d \n", IDENTIFIER_POINTER(DECL_NAME((*path)[i].first.fndecl)), LOCATION_LINE((*path)[i].second));
 }
 
 void print_function_return2(tree function_tree)
@@ -131,8 +132,8 @@ void print_function_return2(tree function_tree)
 	function_return_array fun_array = *(function_return_collect->get(function_tree));
 
 	vector<return_type> ret_type_array = fun_array.return_type_array;
-	//debug_tree(function_tree);
-	//vector<pair<fdecl,location_t>> loc;
+	// debug_tree(function_tree);
+	// vector<pair<fdecl,location_t>> loc;
 	fprintf(stderr, "=======print_function_return %d   %d========\n", function_tree, ret_type_array.size());
 	fprintf(stderr, "[\n");
 	for (int i = 0; i < ret_type_array.size(); i++)
@@ -156,8 +157,8 @@ void print_function_return(tree function_tree)
 	function_return_array fun_array = *(function_return_collect->get(function_tree));
 
 	vector<return_type> ret_type_array = fun_array.return_type_array;
-	//debug_tree(function_tree);
-	//vector<pair<fdecl,location_t>> loc;
+	// debug_tree(function_tree);
+	// vector<pair<fdecl,location_t>> loc;
 	fprintf(stderr, "=======print_function_return %d   %d========\n", function_tree, ret_type_array.size());
 	fprintf(stderr, "[\n");
 	for (int i = 0; i < ret_type_array.size(); i++)
@@ -189,14 +190,14 @@ void printfunctionCollect2(ptb *ptable, gimple_array *user_tmp)
 	struct cgraph_node *node;
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
-	
+
 		push_cfun(node->get_fun());
 		// if (strcmp(get_name(cfun->decl), "main") == 0)
 		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 		// debug_tree(cfun->decl);
 		if (cfun == NULL)
 			continue;
-		calculate_dominance_info(CDI_DOMINATORS);
+		// calculate_dominance_info(CDI_DOMINATORS);
 		print_function_return2(node->get_fun()->decl);
 		pop_cfun();
 	}
@@ -217,7 +218,7 @@ void printfunctionCollect(ptb *ptable, gimple_array *user_tmp)
 	const char *name;
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
-	
+
 		push_cfun(node->get_fun());
 		// if (strcmp(get_name(cfun->decl), "main") == 0)
 		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
@@ -234,7 +235,7 @@ void printfunctionCollect(ptb *ptable, gimple_array *user_tmp)
 			// debug_tree(cfun->decl);
 			// debug_tree(cfun->decl);
 		}
-		calculate_dominance_info(CDI_DOMINATORS);
+		// calculate_dominance_info(CDI_DOMINATORS);
 		print_function_return(node->get_fun()->decl);
 		pop_cfun();
 	}

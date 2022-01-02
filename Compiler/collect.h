@@ -16,7 +16,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 	// else
 	// 		return ;
 	// fprintf(stderr, "file line\n\n", LOCATION_LINE(loc));
-	
+
 	if (vscode_extensionmod)
 	{
 		int find = 0;
@@ -74,7 +74,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 
 			else if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xcalloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup") || !strcmp(name, "xstrdup"))
 			{
-				 GIMPLE_MALLOC_COUNT++;
+				GIMPLE_MALLOC_COUNT++;
 
 				// debug_tree(gimple_call_lhs(gc));
 				set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
@@ -113,13 +113,13 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 
 				if (pthread_attr_setdetachstates->get(getvardecl) == NULL)
 				{
-			
+
 					// pthread_attr_array.attr_type_array = attr_type_array;
 					// debug(gc);
 				}
 				else
 				{
-				
+
 					// debug(gc);
 					pthread_attr_array = *(pthread_attr_setdetachstates->get(getvardecl));
 					// attr_type_array = pthread_attr_array.attr_type_array;
@@ -136,10 +136,8 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 				// pthread_attr_array.attr_type_array.push_back(attr_type);
 				pthread_attr_setdetachstates->put(getvardecl, pthread_attr_array);
 			}
-			
 		}
 	}
-
 }
 
 void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb, ptb *ptable)
@@ -154,11 +152,10 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 	// https://doc.ecoscentric.com/gnutools/doc/gccint/Storage-References.html
 	if (gimple_code(gc) == GIMPLE_CALL)
 	{
-	
+
 		// fprintf(stderr, "GIMPLE_CALL\n");
 		name = get_name(gimple_call_fn(gc));
 
-	
 		tree get_function_return_tree = gimple_call_fn(gc);
 		// debug_tree(get_function_return_tree);
 		if (TREE_CODE(get_function_return_tree) == SSA_NAME)
@@ -168,7 +165,6 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			if (!strcmp(name, "free") || !strcmp(name, "xfree") || !strcmp(name, "realloc"))
 			{
 
-				
 				if (TREE_CODE(gimple_call_arg(gc, 0)) == ADDR_EXPR)
 				{
 
@@ -180,13 +176,13 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 						if (function_assign_collect->get(second) == NULL)
 						{
-							
+
 							// debug(gc);
 							assign_array.assign_type_array = assign_type_array;
 						}
 						else
 						{
-						
+
 							// debug(gc);
 							assign_array = *(function_assign_collect->get(second));
 							assign_type_array = assign_array.assign_type_array;
@@ -206,7 +202,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				{
 					// free(ptr_ssaname)
 					// debug_gimple_stmt(gc);
-			
+
 					//  debug_tree(gimple_call_arg(gc, 0));
 
 					tree getFucntionDecl = (node->get_fun()->decl);
@@ -243,19 +239,19 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 						if (def_stmt != NULL)
 							if (is_gimple_assign(def_stmt))
 							{
-						
+
 								if (TREE_CODE(gimple_assign_rhs1(def_stmt)) == VAR_DECL)
 								{
 									debug_tree(gimple_assign_rhs1(def_stmt));
 									if (function_assign_collect->get(gimple_assign_rhs1(def_stmt)) == NULL)
 									{
-									
+
 										// debug(gc);
 										assign_array.assign_type_array = assign_type_array;
 									}
 									else
 									{
-									
+
 										// debug(gc);
 										assign_array = *(function_assign_collect->get(gimple_assign_rhs1(def_stmt)));
 										assign_type_array = assign_array.assign_type_array;
@@ -272,11 +268,8 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 									function_assign_collect->put(gimple_assign_rhs1(def_stmt), assign_array);
 								}
 							}
-
-						
 					}
 				}
-				
 			}
 			else if (!strcmp(name, "exit"))
 			{
@@ -339,18 +332,18 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				getFunctionAssignRHS = TREE_OPERAND(getFunctionAssignRHS, 0);
 				function_assign_array assign_array;
 				vector<assign_type> assign_type_array;
-			
+
 				// debug(gc);
 				// debug_tree(getFunctionAssignRHS);
 				if (function_assign_collect->get(getFunctionAssignRHS) == NULL)
 				{
-			
+
 					// debug(gc);
 					assign_array.assign_type_array = assign_type_array;
 				}
 				else
 				{
-				
+
 					// debug(gc);
 					assign_array = *(function_assign_collect->get(getFunctionAssignRHS));
 					assign_type_array = assign_array.assign_type_array;
@@ -370,18 +363,18 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					getFunctionAssignRHS = TREE_OPERAND(getFunctionAssignRHS, 0);
 					// if (getFunctionAssignRHS != NULL)
 					// 	debug_tree(getFunctionAssignRHS);
-			
+
 					// debug(gc);
 					// debug_tree(getFunctionAssignRHS);
 					if (function_assign_collect->get(getFunctionAssignRHS) == NULL)
 					{
-					
+
 						// debug(gc);
 						assign_array.assign_type_array = assign_type_array;
 					}
 					else
 					{
-				
+
 						// debug(gc);
 						assign_array = *(function_assign_collect->get(getFunctionAssignRHS));
 						assign_type_array = assign_array.assign_type_array;
@@ -447,7 +440,6 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			else
 			{
 
-				
 				debug_gimple_stmt(gc);
 				for (int i = 0; i < gimple_call_num_args(gc); i++)
 				{
@@ -467,29 +459,29 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 							getVARDECLtree = gimple_call_arg(gc, i);
 
 						// debug_tree(getVARDECLtree);
-				
+
 						function_assign_array assign_array;
 						vector<assign_type> assign_type_array;
 
 						if (function_assign_collect->get(getVARDECLtree) == NULL)
 						{
-						
+
 							// debug(gc);
 							// debug_tree(gimple_call_fn(gc));
-					
+
 							assign_array.assign_type_array = assign_type_array;
 							// debug(gc);
 						}
 						else
 						{
-						
+
 							// debug(gc);
 							// debug_tree(gimple_call_fn(gc));
 							assign_array = *(function_assign_collect->get(getVARDECLtree));
 							assign_type_array = assign_array.assign_type_array;
 						}
-	// fprintf(stderr, "check vardecl-------\n");
-	// debug_tree(getVARDECLtree);
+						// fprintf(stderr, "check vardecl-------\n");
+						// debug_tree(getVARDECLtree);
 						struct assign_type assign_type;
 
 						assign_type.stmt = gc;
@@ -504,7 +496,6 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					}
 				}
 
-			
 				tree getVARDECLtree;
 				// name = get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0)));
 				// if (name != NULL)
@@ -519,14 +510,13 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 							// fprintf(stderr, "other fucntion call addexpr-------\n");
 							// debug(gc);
 							// debug_tree(gimple_call_fn(gc));
-				
+
 							assign_array.assign_type_array = assign_type_array;
-					
 						}
 						else
 						{
 							// fprintf(stderr, "other fucntion call addexpr-------\n");
-				
+
 							assign_array = *(function_assign_collect->get(gimple_call_fn(gc)));
 							assign_type_array = assign_array.assign_type_array;
 						}
@@ -542,13 +532,13 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 						// debug_tree(second);
 						if (TREE_CODE(second) == VAR_DECL)
 						{
-					
+
 							function_assign_collect->put(second, assign_array);
 						}
 					}
 
 				tree checklhstree = gimple_call_lhs(gc);
-			
+
 				if (gimple_code(gc) == GIMPLE_CALL)
 				{
 					if (vscode_extensionmod)
@@ -572,21 +562,19 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					if (name != NULL)
 					{
 
-						if (gimple_call_num_args(gc) == 0)
+						if (gimple_code(gc) == GIMPLE_CALL)
+							if (gimple_call_lhs(gc))
+								if (TREE_CODE(gimple_call_lhs(gc)) == SSA_NAME)
+									set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
+
+						if (gimple_call_num_args(gc) != 0)
 						{
-						
-							if (gimple_code(gc) == GIMPLE_CALL)
-								if (gimple_call_lhs(gc))
-									if (TREE_CODE(gimple_call_lhs(gc)) == SSA_NAME)
-										set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
-						
+							for (int i = 0; i < gimple_call_num_args(gc); i++)
+							{
+								if (TREE_CODE(gimple_call_arg(gc, i)) == SSA_NAME)
+									set_ptb(bb, ptable, gimple_call_arg(gc, i), loc, 0, gc, node);
+							}
 						}
-						else
-						{
-						
-							set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
-						}
-				
 					}
 				}
 
@@ -595,7 +583,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				{
 					if (function_return_collect->get(getreturnFucntionDecl) == NULL)
 					{
-					
+
 						return;
 					}
 					tree getFucntionDecl = (node->get_fun()->decl);
@@ -620,23 +608,19 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					fun_array.return_type_array.push_back(ret_type);
 					function_return_collect->put(node->get_fun()->decl, fun_array);
 				}
-			
 			}
-
 	}
 	else if (gimple_code(gc) == GIMPLE_ASSIGN)
 	{
 
-		
 		// if (TREE_CODE(gimple_assign_lhs(gc)) == VAR_DECL== NULL)
 		// fprintf(stderr, "GIMPLE_ASSIGN\n");
 
 		if ((gimple_assign_lhs(gc) == NULL) || (gimple_assign_rhs1(gc)) == NULL)
 			return;
-	
+
 		tree getFunctionAssignRHS = gimple_assign_rhs1(gc);
 		tree getFunctionAssignLHS = gimple_assign_lhs(gc);
-		
 
 		if (TREE_CODE(getFunctionAssignLHS) == VAR_DECL)
 		{
@@ -646,7 +630,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				tree second = TREE_OPERAND(getFunctionAssignRHS, 0);
 				if (TREE_CODE(second) == VAR_DECL)
 				{
-					
+
 					function_assign_array assign_array;
 					vector<assign_type> assign_type_array;
 
@@ -669,12 +653,11 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					assign_array.assign_type_array.push_back(assign_type);
 
 					function_assign_collect->put(getFunctionAssignLHS, assign_array);
-					
 				}
 			}
 			else if (TREE_CODE(getFunctionAssignRHS) == SSA_NAME)
 			{
-				
+
 				// debug_gimple_stmt(gc);
 				// debug_tree(getFunctionAssignLHS);
 				function_assign_array assign_array;
@@ -705,7 +688,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 		{
 			if (TREE_CODE(getFunctionAssignLHS) == SSA_NAME)
 			{
-			
+
 				// debug_gimple_stmt(gc);
 				function_assign_array assign_array;
 				vector<assign_type> assign_type_array;
@@ -749,13 +732,13 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 				if (function_assign_collect->get(second) == NULL)
 				{
-					
+
 					// debug(gc);
 					assign_array.assign_type_array = assign_type_array;
 				}
 				else
 				{
-					
+
 					// debug(gc);
 					assign_array = *(function_assign_collect->get(second));
 					assign_type_array = assign_array.assign_type_array;
@@ -774,7 +757,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			}
 			if (TREE_CODE(getFunctionAssignRHS) == INTEGER_CST)
 			{
-	
+
 				// debug_gimple_stmt(gc);
 				// debug_tree(gimple_assign_lhs(gc));
 				tree second = NULL_TREE;
@@ -783,30 +766,29 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				vector<assign_type> assign_type_array;
 				if (TREE_CODE(second) == SSA_NAME)
 				{
-			
+
 					// debug_tree(second);
 
 					gimple *def_stmt = SSA_NAME_DEF_STMT(second);
 					if (def_stmt != NULL)
 						if (is_gimple_assign(def_stmt))
 						{
-						
+
 							// debug_tree(gimple_assign_rhs1(def_stmt));
 							// debug_tree(gimple_assign_lhs(gc));
-						
+
 							if (TREE_CODE(gimple_assign_rhs1(def_stmt)) == VAR_DECL)
 							{
 								if (function_assign_collect->get(gimple_assign_rhs1(def_stmt)) == NULL)
 								{
 									// debug_tree(gimple_assign_rhs1(def_stmt));
-								
+
 									// debug((gc));
 									assign_array.assign_type_array = assign_type_array;
-								
 								}
 								else
 								{
-								
+
 									// debug(gc);
 									assign_array = *(function_assign_collect->get(gimple_assign_rhs1(def_stmt)));
 									assign_type_array = assign_array.assign_type_array;
@@ -825,14 +807,12 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 								function_assign_collect->put(gimple_assign_rhs1(def_stmt), assign_array);
 							}
 						}
-
 				}
-		
 			}
 		}
 		else if (TREE_CODE(getFunctionAssignLHS) == SSA_NAME)
 		{
-	
+
 			if (TREE_CODE(getFunctionAssignRHS) == MEM_REF)
 			{
 				tree first = TREE_OPERAND(getFunctionAssignRHS, 0);
@@ -848,13 +828,13 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 					if (function_assign_collect->get(second) == NULL)
 					{
-						
+
 						// debug(gc);
 						assign_array.assign_type_array = assign_type_array;
 					}
 					else
 					{
-					
+
 						// debug(gc);
 						assign_array = *(function_assign_collect->get(second));
 						assign_type_array = assign_array.assign_type_array;
@@ -878,20 +858,19 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 				if (function_assign_collect->get(getFunctionAssignRHS) == NULL)
 				{
-					
+
 					// debug(gc);
 					assign_array.assign_type_array = assign_type_array;
 				}
 				else
 				{
-			
+
 					// debug(gc);
 					assign_array = *(function_assign_collect->get(getFunctionAssignRHS));
 					assign_type_array = assign_array.assign_type_array;
 				}
 				struct assign_type assign_type;
 
-			
 				// debug(gc);
 
 				ptb *table1 = ptable;
@@ -909,7 +888,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 								// debug_tree(getFunctionAssignLHS);
 								// debug_tree(table1->target);
 								// debug_tree(second);
-							
+
 								table1->swap_target = table1->target;
 								table1->swap_stmt = table1->last_stmt;
 								table1->target = getFunctionAssignLHS;
@@ -939,13 +918,13 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 				if (function_assign_collect->get(second) == NULL)
 				{
-				
+
 					// debug(gc);
 					assign_array.assign_type_array = assign_type_array;
 				}
 				else
 				{
-				
+
 					// debug(gc);
 					assign_array = *(function_assign_collect->get(second));
 					assign_type_array = assign_array.assign_type_array;
@@ -964,7 +943,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			}
 			else if (TREE_CODE(getFunctionAssignRHS) == COMPONENT_REF)
 			{
-				
+
 				// debug_gimple_stmt(gc);
 				tree second = TREE_OPERAND(getFunctionAssignRHS, 0);
 				tree second2 = TREE_OPERAND(getFunctionAssignRHS, 1);
@@ -995,18 +974,18 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 										if (function_assign_collect->get(gimple_assign_rhs1(def_stmt)) == NULL)
 										{
-											
+
 											// debug(gc);
 											assign_array.assign_type_array = assign_type_array;
 										}
 										else
 										{
-										
+
 											// debug(gc);
 											assign_array = *(function_assign_collect->get(gimple_assign_rhs1(def_stmt)));
 											assign_type_array = assign_array.assign_type_array;
 										}
-									
+
 										struct assign_type assign_type;
 
 										assign_type.stmt = gc;
@@ -1019,10 +998,8 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 										// debug_tree(gimple_assign_rhs1(def_stmt));
 										// debug_gimple_stmt(def_stmt);
 									}
-							
 							}
 						}
-
 					}
 					else if (TREE_CODE(second) == VAR_DECL)
 					{
@@ -1030,7 +1007,6 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 						function_assign_array assign_array;
 						vector<assign_type> assign_type_array;
 
-					
 						// debug_gimple_stmt(gc);
 						if (function_assign_collect->get(second) == NULL)
 						{
@@ -1039,12 +1015,12 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 						}
 						else
 						{
-					
+
 							// debug(gc);
 							assign_array = *(function_assign_collect->get(second));
 							assign_type_array = assign_array.assign_type_array;
 						}
-						
+
 						struct assign_type assign_type;
 
 						assign_type.stmt = gc;
@@ -1081,18 +1057,18 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 												if (function_assign_collect->get(gimple_assign_rhs1(def_stmt)) == NULL)
 												{
-													
+
 													// debug(gc);
 													assign_array.assign_type_array = assign_type_array;
 												}
 												else
 												{
-													
+
 													// debug(gc);
 													assign_array = *(function_assign_collect->get(gimple_assign_rhs1(def_stmt)));
 													assign_type_array = assign_array.assign_type_array;
 												}
-												
+
 												struct assign_type assign_type;
 
 												assign_type.stmt = gc;
@@ -1105,7 +1081,6 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 												// debug_tree(gimple_assign_rhs1(def_stmt));
 												// debug_gimple_stmt(def_stmt);
 											}
-										
 									}
 								}
 							}
@@ -1120,7 +1095,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					// 	debug_tree( gimple_assign_lhs(gc));
 					if (TREE_CODE(second2) == FIELD_DECL)
 					{
-				
+
 						function_assign_array assign_array;
 						vector<assign_type> assign_type_array;
 
