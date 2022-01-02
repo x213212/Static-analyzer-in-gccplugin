@@ -132,13 +132,16 @@ void FunctionStmtMappingAssign(ptb *ptable, gimple_array *user_tmp)
 	struct cgraph_node *node;
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
-	
+
 		if (!gimple_has_body_p(node->decl))
 			continue;
 		push_cfun(node->get_fun());
 		// if (strcmp(get_name(cfun->decl), "main") == 0)
 		if (cfun == NULL)
+		{
+			pop_cfun();
 			continue;
+		}
 		// fprintf(stderr, "=======Mapping node_fun:%s=========\n", get_name(cfun->decl));
 		// debug_tree(cfun->decl);
 		calculate_dominance_info(CDI_DOMINATORS);

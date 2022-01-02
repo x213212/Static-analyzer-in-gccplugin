@@ -104,3 +104,30 @@ profile_estimate     ------------|      |      |      |      |          |       
 local-pure-const                 |      |      |      |      |          |   +100.0%|
 release_ssa          ------------|      |      |      |      |          |          |
 local-fnsummary      ------------|      |      |      |      |          |          |
+=======ipa_pta=========
+===============The first stage : Point of interest stmt collect=================
+=======node_fun:main=========
+=======node_fun:demangle_template_value_parm=========
+during IPA pass: static_analyzer
+In function ‘demangle_template_value_parm’:
+lto1: internal compiler error: Segmentation fault
+0x7f1b08b2dbce bb_in_branch_p(gimple*)
+	/root/x21321219/new_gccplugin/Compiler/unit.h:16
+0x7f1b08b2ee19 set_ptb(basic_block_def*, ptb*, tree_node*, unsigned int, int, gimple*, cgraph_node*)
+	/root/x21321219/new_gccplugin/Compiler/gimplearray.h:15
+0x7f1b08b336dc collect_function_call(gimple*, cgraph_node*, basic_block_def*)
+	/root/x21321219/new_gccplugin/Compiler/collect.h:80
+0x7f1b08b44985 detect()
+	/root/x21321219/new_gccplugin/Compiler/Algorithm.h:760
+0x7f1b08b451ba execute_detect
+	/root/x21321219/new_gccplugin/Compiler/gcc_plugin.c:107
+0x7f1b08b45230 execute
+	/root/x21321219/new_gccplugin/Compiler/gcc_plugin.c:130
+Please submit a full bug report,
+with preprocessed source if appropriate.
+Please include the complete backtrace with any bug report.
+See <https://gcc.gnu.org/bugs/> for instructions.
+lto-wrapper: fatal error: gcc-11.1 returned 1 exit status
+compilation terminated.
+/usr/bin/ld: error: lto-wrapper failed
+collect2: error: ld returned 1 exit status
