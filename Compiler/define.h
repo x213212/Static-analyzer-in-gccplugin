@@ -313,6 +313,8 @@ hash_map<tree, gimple_array> *treeGimpleArray;
 hash_map<basic_block, symbolicinfo> *syminfo;
 // hash_map<gimple *, tree> *symbolicExecutionPathConstraintNode;
 
+/*record each DFS graph*/
+hash_map<cgraph_node *, Graph> *fDFS;
 
 
 /*collect  function stack*/
@@ -330,6 +332,7 @@ public:
 
 vector<gimple *> new_gimple_array;
 vector<tree> new_gimpletree_array;
+vector<basic_block> new_path_array;
 vector<tree> traceStack;
 vector<tree> pathStack;
 vector<basic_block> symbolicExecution;
@@ -365,7 +368,8 @@ int check_stmtStack(tree target);
 void printf_bbinfo(basic_block bb, int flag);
 void set_PathConstraintarray(basic_block bb, int flag);
 void set_bbinfo(basic_block bb);
-void check_bbinfo(basic_block bb);
+// void check_bbinfo(basic_block bb);
+void check_bbinfo(cgraph_node *m,basic_block bb);
 int check_stmtStack(tree target);
 void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_tmp, tree checkTree, int threadcheck);
 void record_fucntion(cgraph_node *node);
