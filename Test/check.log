@@ -88,92 +88,94 @@ local-fnsummary      ------------|      |      |      |      |          |       
 =======ipa_pta=========
 ===============The first stage : Point of interest stmt collect=================
 =======node_fun:main=========
+node:= 2 
+ 	from_branch :=2
+	next_branch :=3
+	from_branch :=2
+	next_branch :=12
 --------GIMPLE Cond -------
  initssssss:= 0
  initssssss:= 1
-if (test_38(D) != 0)
-FIND 1:= 3
+node:= 3 
+ 	from_branch :=3
+	next_branch :=4
+	from_branch :=3
+	next_branch :=7
 --------GIMPLE Cond -------
  initssssss:= 0
  initssssss:= 1
- testtss:= 2
-if (test_38(D) != 0)
-FIND 1:= 3
-succs:= 2
-if (test_38(D) > test2_40(D))
-FIND 1:= 4
+node:= 4 
+ 	from_branch :=4
+	next_branch :=5
+	from_branch :=4
+	next_branch :=6
 --------GIMPLE Cond -------
  initssssss:= 0
  initssssss:= 1
- testtss:= 3
- testtss:= 2
-if (test_38(D) > test2_40(D))
-FIND 1:= 4
-succs:= 3
-if (test_38(D) < test2_40(D))
-FIND 1:= 5
-if (test_38(D) < test2_40(D))
-FIND 1:= 5
-succs:= 4
-if (test_38(D) < test2_40(D))
-FIND 2:= 6
-if (test_38(D) > test2_40(D))
-FIND 2:= 7
+node:= 5 
+ 	from_branch :=5
+	next_branch :=10
+node:= 6 
+ 	from_branch :=6
+	next_branch :=10
+node:= 7 
+ 	from_branch :=7
+	next_branch :=8
+	from_branch :=7
+	next_branch :=9
 --------GIMPLE Cond -------
  initssssss:= 0
  initssssss:= 1
- testtss:= 3
- testtss:= 2
-if (test_38(D) > test2_40(D))
-FIND 2:= 7
-succs2:= 3
-if (test_38(D) < test2_40(D))
-FIND 1:= 8
-if (test_38(D) < test2_40(D))
-FIND 2:= 9
+node:= 8 
+ 	from_branch :=8
+	next_branch :=10
+node:= 9 
+ 	from_branch :=9
+	next_branch :=10
+node:= 10 
+ 	from_branch :=10
+	next_branch :=11
+	from_branch :=10
+	next_branch :=12
 --------GIMPLE Cond -------
  initssssss:= 0
  initssssss:= 1
- testtss:= 2
-if (test3_49(D) != 0)
-FIND 1:= 11
+node:= 11 
+ 	from_branch :=11
+	next_branch :=12
+node:= 12 
+ 	from_branch :=12
+	next_branch :=13
+	from_branch :=12
+	next_branch :=14
 --------GIMPLE Cond -------
  initssssss:= 0
  initssssss:= 1
- testtss:= 10
- testtss:= 2
-if (test_38(D) != 0)
-FIND 2:= 12
-if (test3_49(D) != 0)
-FIND 2:= 12
-if (test_38(D) == test2_40(D))
-FIND 1:= 13
+node:= 13 
+ 	from_branch :=13
+	next_branch :=18
+node:= 14 
+ 	from_branch :=14
+	next_branch :=15
+	from_branch :=14
+	next_branch :=16
 --------GIMPLE Cond -------
  initssssss:= 0
  initssssss:= 1
- testtss:= 12
- testtss:= 10
- testtss:= 2
-if (test_38(D) == test2_40(D))
-FIND 2:= 14
-if (test_38(D) >= test2_40(D))
-FIND 1:= 15
+node:= 15 
+ 	from_branch :=15
+	next_branch :=18
+node:= 16 
+ 	from_branch :=16
+	next_branch :=17
+	from_branch :=16
+	next_branch :=18
 --------GIMPLE Cond -------
  initssssss:= 0
  initssssss:= 1
- testtss:= 14
- testtss:= 12
- testtss:= 10
- testtss:= 2
-if (test_38(D) >= test2_40(D))
-FIND 2:= 16
-if (test_38(D) > test2_40(D))
-FIND 1:= 17
-if (test_38(D) > test2_40(D))
-FIND 1:= 17
-succs:= 16
-if (test_38(D) > test2_40(D))
-FIND 2:= 18
+node:= 17 
+ 	from_branch :=17
+	next_branch :=18
 =======node_fun:foo9=========
 =======node_fun:foo=========
 ===============The first stage : Point of interest stmt collect=================
@@ -278,21 +280,21 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19a870
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a0870
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3acf0 p6>
+    var <var_decl 0x7f971cb40cf0 p6>
     def_stmt p6_15 = malloc (100);
     version:15
-    ptr-info 0x7f091ecc9228>
+    ptr-info 0x7f971bdc5228>
 # .MEM_57 = VDEF <.MEM_56(D)>
 p6_15 = malloc (100);
 
@@ -493,21 +495,21 @@ this stmt is child function---malloc-----
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19a870
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a0870
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3acf0 p6>
+    var <var_decl 0x7f971cb40cf0 p6>
     def_stmt p6_15 = malloc (100);
     version:15
-    ptr-info 0x7f091ecc9228>
+    ptr-info 0x7f971bdc5228>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_58 = VDEF <.MEM_57>
 p6_17 = realloc (p6_15, 100);
@@ -537,6 +539,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -554,6 +561,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -572,6 +584,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -590,6 +607,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -607,6 +629,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -624,6 +651,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -642,6 +674,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -660,6 +697,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -677,6 +719,11 @@ test.c:60:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -694,6 +741,11 @@ test.c:60:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -712,6 +764,11 @@ test.c:60:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -730,6 +787,11 @@ test.c:60:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -747,6 +809,11 @@ test.c:60:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -764,6 +831,11 @@ test.c:60:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -782,6 +854,11 @@ test.c:60:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -800,6 +877,11 @@ test.c:60:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -817,6 +899,11 @@ test.c:59:15: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -834,6 +921,11 @@ test.c:59:15: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -852,6 +944,11 @@ test.c:59:15: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -870,6 +967,11 @@ test.c:59:15: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -891,21 +993,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19a8b8
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a08b8
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3acf0 p6>
+    var <var_decl 0x7f971cb40cf0 p6>
     def_stmt p6_17 = realloc (p6_15, 100);
     version:17
-    ptr-info 0x7f091ecc9240>
+    ptr-info 0x7f971bdc5240>
 # .MEM_58 = VDEF <.MEM_57>
 p6_17 = realloc (p6_15, 100);
 
@@ -1053,6 +1155,11 @@ p7_19 = realloc (p6_17, 100);
 test.c:58:14: warning: use location
    58 |         p7 = realloc(p6, 100);
       |              ^
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
 ======================================================================
 [40;31m    branch possiable have return or exit  [0m
@@ -1080,21 +1187,21 @@ test.c:59:15: warning: use location
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19a8b8
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a08b8
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3acf0 p6>
+    var <var_decl 0x7f971cb40cf0 p6>
     def_stmt p6_17 = realloc (p6_15, 100);
     version:17
-    ptr-info 0x7f091ecc9240>
+    ptr-info 0x7f971bdc5240>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_58 = VDEF <.MEM_57>
 p6_17 = realloc (p6_15, 100);
@@ -1124,6 +1231,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1142,6 +1254,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1160,6 +1277,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1177,6 +1299,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1195,6 +1322,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1213,6 +1345,11 @@ test.c:61:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1230,6 +1367,11 @@ test.c:60:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1248,59 +1390,11 @@ test.c:60:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
 
- ================== warring ================== 
+=======================Path Constaint===========================
 
-============================================================
-[40;35m <Looserules> find free stmt free same pointer [0m
-# .MEM_59 = VDEF <.MEM_58>
-p7_19 = realloc (p6_17, 100);
-test.c:58:14: warning: Use after free error!: free location 
-   58 |         p7 = realloc(p6, 100);
-      |              ^
-# .MEM_61 = VDEF <.MEM_60>
-*p6_15 = _2;
-test.c:60:14: warning: use location
-   60 |         q[0] = "0";
-      |              ^
-
- ================== warring ================== 
-[40;35m  realloc Use after free error! [0m
-
- ================== warring ================== 
-
-============================================================
-# .MEM_58 = VDEF <.MEM_57>
-p6_17 = realloc (p6_15, 100);
-test.c:57:14: warning: Use after free error!: free location 
-   57 |         p6 = realloc(p6, 100);
-      |              ^
-# .MEM_61 = VDEF <.MEM_60>
-*p6_15 = _2;
-test.c:60:14: warning: use location
-   60 |         q[0] = "0";
-      |              ^
-
- ================== warring ================== 
-[40;35m  realloc Use after free error! [0m
-
- ================== warring ================== 
-
-============================================================
-[40;35m <Looserules> find free stmt free same pointer [0m
-# .MEM_58 = VDEF <.MEM_57>
-p6_17 = realloc (p6_15, 100);
-test.c:57:14: warning: Use after free error!: free location 
-   57 |         p6 = realloc(p6, 100);
-      |              ^
-# .MEM_61 = VDEF <.MEM_60>
-*p6_15 = _2;
-test.c:60:14: warning: use location
-   60 |         q[0] = "0";
-      |              ^
-
- ================== warring ================== 
-[40;35m  realloc Use after free error! [0m
 
  ================== warring ================== 
 
@@ -1319,6 +1413,79 @@ test.c:60:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_58 = VDEF <.MEM_57>
+p6_17 = realloc (p6_15, 100);
+test.c:57:14: warning: Use after free error!: free location 
+   57 |         p6 = realloc(p6, 100);
+      |              ^
+# .MEM_61 = VDEF <.MEM_60>
+*p6_15 = _2;
+test.c:60:14: warning: use location
+   60 |         q[0] = "0";
+      |              ^
+
+ ================== warring ================== 
+[40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_58 = VDEF <.MEM_57>
+p6_17 = realloc (p6_15, 100);
+test.c:57:14: warning: Use after free error!: free location 
+   57 |         p6 = realloc(p6, 100);
+      |              ^
+# .MEM_61 = VDEF <.MEM_60>
+*p6_15 = _2;
+test.c:60:14: warning: use location
+   60 |         q[0] = "0";
+      |              ^
+
+ ================== warring ================== 
+[40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_59 = VDEF <.MEM_58>
+p7_19 = realloc (p6_17, 100);
+test.c:58:14: warning: Use after free error!: free location 
+   58 |         p7 = realloc(p6, 100);
+      |              ^
+# .MEM_61 = VDEF <.MEM_60>
+*p6_15 = _2;
+test.c:60:14: warning: use location
+   60 |         q[0] = "0";
+      |              ^
+
+ ================== warring ================== 
+[40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1336,6 +1503,11 @@ test.c:59:15: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1354,6 +1526,11 @@ test.c:59:15: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1372,6 +1549,11 @@ test.c:59:15: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1393,21 +1575,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19a900
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a0900
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3ac60 p7>
+    var <var_decl 0x7f971cb40c60 p7>
     def_stmt p7_19 = realloc (p6_17, 100);
     version:19
-    ptr-info 0x7f091ecc9258>
+    ptr-info 0x7f971bdc5258>
 # .MEM_59 = VDEF <.MEM_58>
 p7_19 = realloc (p6_17, 100);
 
@@ -1479,21 +1661,21 @@ test.c:59:15: warning: use location
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19a900
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a0900
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3ac60 p7>
+    var <var_decl 0x7f971cb40c60 p7>
     def_stmt p7_19 = realloc (p6_17, 100);
     version:19
-    ptr-info 0x7f091ecc9258>
+    ptr-info 0x7f971bdc5258>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
 */If realloc() fails, the initial memory block will not be freed() */# .MEM_58 = VDEF <.MEM_57>
 p6_17 = realloc (p6_15, 100);
@@ -1521,6 +1703,11 @@ test.c:59:15: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1539,6 +1726,11 @@ test.c:59:15: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1557,6 +1749,11 @@ test.c:59:15: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -1578,21 +1775,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19a948
-    type <pointer_type 0x7f091ecbb348
-        type <record_type 0x7f091ecbbf18 st TI
-            size <integer_cst 0x7f091f192c00 constant 128>
-            unit-size <integer_cst 0x7f091f192c18 constant 16>
-            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091ecbbf18 fields <field_decl 0x7f091ecbe1c8 flag> context <translation_unit_decl 0x7f091f19d168 test.c>
-            pointer_to_this <pointer_type 0x7f091ecbb348>>
+ <ssa_name 0x7f971c2a0948
+    type <pointer_type 0x7f971bdb7348
+        type <record_type 0x7f971bdb7f18 st TI
+            size <integer_cst 0x7f971c298c00 constant 128>
+            unit-size <integer_cst 0x7f971c298c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971bdb7f18 fields <field_decl 0x7f971bdba1c8 flag> context <translation_unit_decl 0x7f971c2a3168 test.c>
+            pointer_to_this <pointer_type 0x7f971bdb7348>>
         unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3abd0 p9>
+    var <var_decl 0x7f971cb40bd0 p9>
     def_stmt p9_24 = malloc (0);
     version:24
-    ptr-info 0x7f091ecc9270>
+    ptr-info 0x7f971bdc5270>
 # .MEM_63 = VDEF <.MEM_62>
 p9_24 = malloc (0);
 
@@ -1704,21 +1901,21 @@ this stmt is child function---malloc-----
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19a948
-    type <pointer_type 0x7f091ecbb348
-        type <record_type 0x7f091ecbbf18 st TI
-            size <integer_cst 0x7f091f192c00 constant 128>
-            unit-size <integer_cst 0x7f091f192c18 constant 16>
-            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091ecbbf18 fields <field_decl 0x7f091ecbe1c8 flag> context <translation_unit_decl 0x7f091f19d168 test.c>
-            pointer_to_this <pointer_type 0x7f091ecbb348>>
+ <ssa_name 0x7f971c2a0948
+    type <pointer_type 0x7f971bdb7348
+        type <record_type 0x7f971bdb7f18 st TI
+            size <integer_cst 0x7f971c298c00 constant 128>
+            unit-size <integer_cst 0x7f971c298c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971bdb7f18 fields <field_decl 0x7f971bdba1c8 flag> context <translation_unit_decl 0x7f971c2a3168 test.c>
+            pointer_to_this <pointer_type 0x7f971bdb7348>>
         unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3abd0 p9>
+    var <var_decl 0x7f971cb40bd0 p9>
     def_stmt p9_24 = malloc (0);
     version:24
-    ptr-info 0x7f091ecc9270>
+    ptr-info 0x7f971bdc5270>
 [40;35m <Looserules> find free stmt free same pointer [0m
 # .MEM_66 = VDEF <.MEM_65>
 free (p9_24);
@@ -1745,20 +1942,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19a708
-    type <pointer_type 0x7f091f1ae000
-        type <void_type 0x7f091f1a7f18 void VOID
+ <ssa_name 0x7f971c2a0708
+    type <pointer_type 0x7f971c2b4000
+        type <void_type 0x7f971c2adf18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f091f1ae000>>
+            pointer_to_this <pointer_type 0x7f971c2b4000>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f091f1b39d8>>
+        pointer_to_this <pointer_type 0x7f971c2b99d8>>
    
     def_stmt _5 = malloc (1);
     version:5
-    ptr-info 0x7f091ecc91e0>
+    ptr-info 0x7f971bdc51e0>
 # .MEM_64 = VDEF <.MEM_63>
 _5 = malloc (1);
 
@@ -1870,20 +2067,20 @@ this stmt is child function---malloc-----
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19a708
-    type <pointer_type 0x7f091f1ae000
-        type <void_type 0x7f091f1a7f18 void VOID
+ <ssa_name 0x7f971c2a0708
+    type <pointer_type 0x7f971c2b4000
+        type <void_type 0x7f971c2adf18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f091f1ae000>>
+            pointer_to_this <pointer_type 0x7f971c2b4000>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f091f1b39d8>>
+        pointer_to_this <pointer_type 0x7f971c2b99d8>>
    
     def_stmt _5 = malloc (1);
     version:5
-    ptr-info 0x7f091ecc91e0>
+    ptr-info 0x7f971bdc51e0>
 
  ================== Start Use after free Check ================== 
 
@@ -1904,21 +2101,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19a990
-    type <pointer_type 0x7f091ecbb348
-        type <record_type 0x7f091ecbbf18 st TI
-            size <integer_cst 0x7f091f192c00 constant 128>
-            unit-size <integer_cst 0x7f091f192c18 constant 16>
-            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091ecbbf18 fields <field_decl 0x7f091ecbe1c8 flag> context <translation_unit_decl 0x7f091f19d168 test.c>
-            pointer_to_this <pointer_type 0x7f091ecbb348>>
+ <ssa_name 0x7f971c2a0990
+    type <pointer_type 0x7f971bdb7348
+        type <record_type 0x7f971bdb7f18 st TI
+            size <integer_cst 0x7f971c298c00 constant 128>
+            unit-size <integer_cst 0x7f971c298c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971bdb7f18 fields <field_decl 0x7f971bdba1c8 flag> context <translation_unit_decl 0x7f971c2a3168 test.c>
+            pointer_to_this <pointer_type 0x7f971bdb7348>>
         unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3ab40 p>
+    var <var_decl 0x7f971cb40b40 p>
     def_stmt p_29 = malloc (10);
     version:29
-    ptr-info 0x7f091ecc9288>
+    ptr-info 0x7f971bdc5288>
 # .MEM_67 = VDEF <.MEM_66>
 p_29 = malloc (10);
 
@@ -2228,21 +2425,21 @@ this stmt is child function---malloc-----
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19a990
-    type <pointer_type 0x7f091ecbb348
-        type <record_type 0x7f091ecbbf18 st TI
-            size <integer_cst 0x7f091f192c00 constant 128>
-            unit-size <integer_cst 0x7f091f192c18 constant 16>
-            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091ecbbf18 fields <field_decl 0x7f091ecbe1c8 flag> context <translation_unit_decl 0x7f091f19d168 test.c>
-            pointer_to_this <pointer_type 0x7f091ecbb348>>
+ <ssa_name 0x7f971c2a0990
+    type <pointer_type 0x7f971bdb7348
+        type <record_type 0x7f971bdb7f18 st TI
+            size <integer_cst 0x7f971c298c00 constant 128>
+            unit-size <integer_cst 0x7f971c298c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971bdb7f18 fields <field_decl 0x7f971bdba1c8 flag> context <translation_unit_decl 0x7f971c2a3168 test.c>
+            pointer_to_this <pointer_type 0x7f971bdb7348>>
         unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3ab40 p>
+    var <var_decl 0x7f971cb40b40 p>
     def_stmt p_29 = malloc (10);
     version:29
-    ptr-info 0x7f091ecc9288>
+    ptr-info 0x7f971bdc5288>
 
  ================== Start Use after free Check ================== 
 
@@ -2263,20 +2460,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19a750
-    type <pointer_type 0x7f091f1ae000
-        type <void_type 0x7f091f1a7f18 void VOID
+ <ssa_name 0x7f971c2a0750
+    type <pointer_type 0x7f971c2b4000
+        type <void_type 0x7f971c2adf18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f091f1ae000>>
+            pointer_to_this <pointer_type 0x7f971c2b4000>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f091f1b39d8>>
+        pointer_to_this <pointer_type 0x7f971c2b99d8>>
    
     def_stmt _6 = malloc (1);
     version:6
-    ptr-info 0x7f091ecc91f8>
+    ptr-info 0x7f971bdc51f8>
 # .MEM_68 = VDEF <.MEM_67>
 _6 = malloc (1);
 
@@ -2550,20 +2747,20 @@ this stmt is child function---malloc-----
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19a750
-    type <pointer_type 0x7f091f1ae000
-        type <void_type 0x7f091f1a7f18 void VOID
+ <ssa_name 0x7f971c2a0750
+    type <pointer_type 0x7f971c2b4000
+        type <void_type 0x7f971c2adf18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f091f1ae000>>
+            pointer_to_this <pointer_type 0x7f971c2b4000>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f091f1b39d8>>
+        pointer_to_this <pointer_type 0x7f971c2b99d8>>
    
     def_stmt _6 = malloc (1);
     version:6
-    ptr-info 0x7f091ecc91f8>
+    ptr-info 0x7f971bdc51f8>
 
  ================== Start Use after free Check ================== 
 
@@ -2583,20 +2780,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19a798
-    type <pointer_type 0x7f091f1ae000
-        type <void_type 0x7f091f1a7f18 void VOID
+ <ssa_name 0x7f971c2a0798
+    type <pointer_type 0x7f971c2b4000
+        type <void_type 0x7f971c2adf18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f091f1ae000>>
+            pointer_to_this <pointer_type 0x7f971c2b4000>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f091f1b39d8>>
+        pointer_to_this <pointer_type 0x7f971c2b99d8>>
    
     def_stmt _7 = malloc (1);
     version:7
-    ptr-info 0x7f091ecc9210>
+    ptr-info 0x7f971bdc5210>
 # .MEM_70 = VDEF <.MEM_69>
 _7 = malloc (1);
 
@@ -2870,20 +3067,20 @@ this stmt is child function---malloc-----
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19a798
-    type <pointer_type 0x7f091f1ae000
-        type <void_type 0x7f091f1a7f18 void VOID
+ <ssa_name 0x7f971c2a0798
+    type <pointer_type 0x7f971c2b4000
+        type <void_type 0x7f971c2adf18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f091f1ae000>>
+            pointer_to_this <pointer_type 0x7f971c2b4000>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f091f1b39d8>>
+        pointer_to_this <pointer_type 0x7f971c2b99d8>>
    
     def_stmt _7 = malloc (1);
     version:7
-    ptr-info 0x7f091ecc9210>
+    ptr-info 0x7f971bdc5210>
 
  ================== Start Use after free Check ================== 
 
@@ -2903,20 +3100,20 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19a798
-    type <pointer_type 0x7f091f1ae000
-        type <void_type 0x7f091f1a7f18 void VOID
+ <ssa_name 0x7f971c2a0798
+    type <pointer_type 0x7f971c2b4000
+        type <void_type 0x7f971c2adf18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f091f1ae000>>
+            pointer_to_this <pointer_type 0x7f971c2b4000>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f091f1b39d8>>
+        pointer_to_this <pointer_type 0x7f971c2b99d8>>
    
     def_stmt _7 = malloc (1);
     version:7
-    ptr-info 0x7f091ecc9210>
+    ptr-info 0x7f971bdc5210>
 # .MEM_70 = VDEF <.MEM_69>
 _7 = malloc (1);
 
@@ -3190,20 +3387,20 @@ this stmt is child function---malloc-----
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19a798
-    type <pointer_type 0x7f091f1ae000
-        type <void_type 0x7f091f1a7f18 void VOID
+ <ssa_name 0x7f971c2a0798
+    type <pointer_type 0x7f971c2b4000
+        type <void_type 0x7f971c2adf18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f091f1ae000>>
+            pointer_to_this <pointer_type 0x7f971c2b4000>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f091f1b39d8>>
+        pointer_to_this <pointer_type 0x7f971c2b99d8>>
    
     def_stmt _7 = malloc (1);
     version:7
-    ptr-info 0x7f091ecc9210>
+    ptr-info 0x7f971bdc5210>
 
  ================== Start Use after free Check ================== 
 
@@ -3223,12 +3420,12 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19a7e0
-    type <integer_type 0x7f091f1a75e8 int public SI
-        size <integer_cst 0x7f091f192df8 constant 32>
-        unit-size <integer_cst 0x7f091f192e10 constant 4>
-        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-        pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a07e0
+    type <integer_type 0x7f971c2ad5e8 int public SI
+        size <integer_cst 0x7f971c298df8 constant 32>
+        unit-size <integer_cst 0x7f971c298e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+        pointer_to_this <pointer_type 0x7f971c2b49d8>>
    
     def_stmt _8 = foo9 (p5_35(D));
     version:8>
@@ -3363,38 +3560,30 @@ foo9 (p5_37);
 test.c:157:25: warning: use location
   157 |                         foo9(p5);
       |                         ^
+prev:= 17
 =======================Path Constaint===========================
 
+if (test_38(D) != 0)
+test.c:114:12: warning: use location
+  114 |         if (test)
+      |            ^
+if (test3_49(D) != 0)
+test.c:143:20: warning: use location
+  143 |                 if (test3)
+      |                    ^
+if (test_38(D) == test2_40(D))
+test.c:149:12: warning: use location
+  149 |         if (test == test2)
+      |            ^
+if (test_38(D) >= test2_40(D))
+test.c:151:17: warning: use location
+  151 |         else if (test >= test2)
+      |                 ^
 succs:= 16
 if (test_38(D) > test2_40(D))
 test.c:155:20: warning: use location
   155 |                 if (test > test2)
       |                    ^
-	relate logic:= 1
-succs:= 14
-if (test_38(D) >= test2_40(D))
-test.c:151:17: warning: use location
-  151 |         else if (test >= test2)
-      |                 ^
-	relate logic:= 0
-succs:= 12
-if (test_38(D) == test2_40(D))
-test.c:149:12: warning: use location
-  149 |         if (test == test2)
-      |            ^
-	relate logic:= 0
-succs:= 10
-if (test3_49(D) != 0)
-test.c:143:20: warning: use location
-  143 |                 if (test3)
-      |                    ^
-	relate logic:= 0
-succs:= 2
-if (test_38(D) != 0)
-test.c:114:12: warning: use location
-  114 |         if (test)
-      |            ^
-	relate logic:= 0
 =======================Path Constaint===========================
 
 
@@ -3410,32 +3599,26 @@ foo9 (p5_37);
 test.c:152:17: warning: use location
   152 |                 foo9(p5);
       |                 ^
+prev:= 15
 =======================Path Constaint===========================
 
+if (test_38(D) != 0)
+test.c:114:12: warning: use location
+  114 |         if (test)
+      |            ^
+if (test3_49(D) != 0)
+test.c:143:20: warning: use location
+  143 |                 if (test3)
+      |                    ^
+if (test_38(D) == test2_40(D))
+test.c:149:12: warning: use location
+  149 |         if (test == test2)
+      |            ^
 succs:= 14
 if (test_38(D) >= test2_40(D))
 test.c:151:17: warning: use location
   151 |         else if (test >= test2)
       |                 ^
-	relate logic:= 1
-succs:= 12
-if (test_38(D) == test2_40(D))
-test.c:149:12: warning: use location
-  149 |         if (test == test2)
-      |            ^
-	relate logic:= 0
-succs:= 10
-if (test3_49(D) != 0)
-test.c:143:20: warning: use location
-  143 |                 if (test3)
-      |                    ^
-	relate logic:= 0
-succs:= 2
-if (test_38(D) != 0)
-test.c:114:12: warning: use location
-  114 |         if (test)
-      |            ^
-	relate logic:= 0
 =======================Path Constaint===========================
 
 
@@ -3451,26 +3634,22 @@ foo9 (p5_37);
 test.c:150:17: warning: use location
   150 |                 foo9(p5);
       |                 ^
+prev:= 13
 =======================Path Constaint===========================
 
+if (test_38(D) != 0)
+test.c:114:12: warning: use location
+  114 |         if (test)
+      |            ^
+if (test3_49(D) != 0)
+test.c:143:20: warning: use location
+  143 |                 if (test3)
+      |                    ^
 succs:= 12
 if (test_38(D) == test2_40(D))
 test.c:149:12: warning: use location
   149 |         if (test == test2)
       |            ^
-	relate logic:= 1
-succs:= 10
-if (test3_49(D) != 0)
-test.c:143:20: warning: use location
-  143 |                 if (test3)
-      |                    ^
-	relate logic:= 0
-succs:= 2
-if (test_38(D) != 0)
-test.c:114:12: warning: use location
-  114 |         if (test)
-      |            ^
-	relate logic:= 0
 =======================Path Constaint===========================
 
 
@@ -3486,26 +3665,22 @@ foo9 (p5_37);
 test.c:140:33: warning: use location
   140 |                                 foo9(p5);
       |                                 ^
+prev:= 9
 =======================Path Constaint===========================
 
-=succs:= 7
-if (test_38(D) < test2_40(D))
-test.c:135:28: warning: use location
-  135 |                         if (test < test2)
-      |                            ^
-	relate logic:= 0
-=succs:= 3
-if (test_38(D) > test2_40(D))
-test.c:121:20: warning: use location
-  121 |                 if (test > test2)
-      |                    ^
-	relate logic:= 0
-=succs:= 2
+succs:= 2
 if (test_38(D) != 0)
 test.c:114:12: warning: use location
   114 |         if (test)
       |            ^
-	relate logic:= 0
+if (test_38(D) > test2_40(D))
+test.c:121:20: warning: use location
+  121 |                 if (test > test2)
+      |                    ^
+if (test_38(D) < test2_40(D))
+test.c:135:28: warning: use location
+  135 |                         if (test < test2)
+      |                            ^
 =======================Path Constaint===========================
 
 
@@ -3521,26 +3696,24 @@ foo9 (p5_37);
 test.c:127:33: warning: use location
   127 |                                 foo9(p5);
       |                                 ^
+prev:= 5
 =======================Path Constaint===========================
 
-succs:= 4
-if (test_38(D) < test2_40(D))
-test.c:124:28: warning: use location
-  124 |                         if (test < test2)
-      |                            ^
-	relate logic:= 1
-succs:= 3
-if (test_38(D) > test2_40(D))
-test.c:121:20: warning: use location
-  121 |                 if (test > test2)
-      |                    ^
-	relate logic:= 1
 succs:= 2
 if (test_38(D) != 0)
 test.c:114:12: warning: use location
   114 |         if (test)
       |            ^
-	relate logic:= 1
+succs:= 3
+if (test_38(D) > test2_40(D))
+test.c:121:20: warning: use location
+  121 |                 if (test > test2)
+      |                    ^
+succs:= 4
+if (test_38(D) < test2_40(D))
+test.c:124:28: warning: use location
+  124 |                         if (test < test2)
+      |                            ^
 =======================Path Constaint===========================
 
 
@@ -3572,6 +3745,7 @@ foo9 (p5_37);
 test.c:116:17: warning: use location
   116 |                 foo9(p5);
       |                 ^
+prev:= 3
 =======================Path Constaint===========================
 
 succs:= 2
@@ -3579,7 +3753,6 @@ if (test_38(D) != 0)
 test.c:114:12: warning: use location
   114 |         if (test)
       |            ^
-	relate logic:= 1
 =======================Path Constaint===========================
 
 
@@ -3589,12 +3762,12 @@ test.c:114:12: warning: use location
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19a7e0
-    type <integer_type 0x7f091f1a75e8 int public SI
-        size <integer_cst 0x7f091f192df8 constant 32>
-        unit-size <integer_cst 0x7f091f192e10 constant 4>
-        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-        pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a07e0
+    type <integer_type 0x7f971c2ad5e8 int public SI
+        size <integer_cst 0x7f971c298df8 constant 32>
+        unit-size <integer_cst 0x7f971c298e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+        pointer_to_this <pointer_type 0x7f971c2b49d8>>
    
     def_stmt _8 = foo9 (p5_35(D));
     version:8>
@@ -3634,6 +3807,11 @@ test.c:99:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3652,6 +3830,11 @@ test.c:99:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3670,69 +3853,11 @@ test.c:99:14: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
 
- ================== warring ================== 
+=======================Path Constaint===========================
 
-============================================================
-# .MEM_73 = VDEF <.MEM_72>
-_8 = foo9 (p5_35(D));
-test.c:99:14: warning: Use after free error!: free location 
-_9 = (long int) _8;
-test.c:99:14: warning: use location
-
- ================== warring ================== 
-[40;35m    Use after free error! [0m
-
- ================== warring ================== 
-
-============================================================
-[40;35m <Looserules> find free stmt free same pointer [0m
-# .MEM_58 = VDEF <.MEM_57>
-p6_17 = realloc (p6_15, 100);
-test.c:57:14: warning: Use after free error!: free location 
-   57 |         p6 = realloc(p6, 100);
-      |              ^
-_9 = (long int) _8;
-test.c:99:14: warning: use location
-   99 |         p5 = foo9(p5);
-      |              ^
-
- ================== warring ================== 
-[40;35m  realloc Use after free error! [0m
-
- ================== warring ================== 
-
-============================================================
-[40;35m <Looserules> find free stmt free same pointer [0m
-# .MEM_59 = VDEF <.MEM_58>
-p7_19 = realloc (p6_17, 100);
-test.c:58:14: warning: Use after free error!: free location 
-   58 |         p7 = realloc(p6, 100);
-      |              ^
-_9 = (long int) _8;
-test.c:99:14: warning: use location
-   99 |         p5 = foo9(p5);
-      |              ^
-
- ================== warring ================== 
-[40;35m  realloc Use after free error! [0m
-
- ================== warring ================== 
-
-============================================================
-[40;35m <Looserules> find free stmt free same pointer [0m
-# .MEM_66 = VDEF <.MEM_65>
-free (p9_24);
-test.c:74:9: warning: Use after free error!: free location 
-   74 |         free(p9);
-      |         ^
-_9 = (long int) _8;
-test.c:99:14: warning: use location
-   99 |         p5 = foo9(p5);
-      |              ^
-
- ================== warring ================== 
-[40;35m    Use after free error! [0m
 
  ================== warring ================== 
 
@@ -3740,6 +3865,89 @@ test.c:99:14: warning: use location
 # .MEM_73 = VDEF <.MEM_72>
 _8 = foo9 (p5_35(D));
 test.c:99:14: warning: Use after free error!: free location 
+_9 = (long int) _8;
+test.c:99:14: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_58 = VDEF <.MEM_57>
+p6_17 = realloc (p6_15, 100);
+test.c:57:14: warning: Use after free error!: free location 
+   57 |         p6 = realloc(p6, 100);
+      |              ^
+_9 = (long int) _8;
+test.c:99:14: warning: use location
+   99 |         p5 = foo9(p5);
+      |              ^
+
+ ================== warring ================== 
+[40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_59 = VDEF <.MEM_58>
+p7_19 = realloc (p6_17, 100);
+test.c:58:14: warning: Use after free error!: free location 
+   58 |         p7 = realloc(p6, 100);
+      |              ^
+_9 = (long int) _8;
+test.c:99:14: warning: use location
+   99 |         p5 = foo9(p5);
+      |              ^
+
+ ================== warring ================== 
+[40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_66 = VDEF <.MEM_65>
+free (p9_24);
+test.c:74:9: warning: Use after free error!: free location 
+   74 |         free(p9);
+      |         ^
+_9 = (long int) _8;
+test.c:99:14: warning: use location
+   99 |         p5 = foo9(p5);
+      |              ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_73 = VDEF <.MEM_72>
+_8 = foo9 (p5_35(D));
+test.c:99:14: warning: Use after free error!: free location 
 p5_37 = (int *) _9;
 test.c:99:12: warning: use location
    99 |         p5 = foo9(p5);
@@ -3747,6 +3955,11 @@ test.c:99:12: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3764,6 +3977,11 @@ test.c:99:12: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3781,6 +3999,11 @@ test.c:99:12: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3798,6 +4021,11 @@ test.c:99:12: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3816,6 +4044,11 @@ test.c:157:25: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3834,6 +4067,11 @@ test.c:157:25: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3852,6 +4090,11 @@ test.c:157:25: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3870,6 +4113,11 @@ test.c:152:17: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3888,6 +4136,11 @@ test.c:152:17: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3906,6 +4159,11 @@ test.c:152:17: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3924,6 +4182,11 @@ test.c:150:17: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3942,6 +4205,11 @@ test.c:150:17: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3960,6 +4228,11 @@ test.c:150:17: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3978,6 +4251,11 @@ test.c:140:33: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -3996,6 +4274,11 @@ test.c:140:33: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4014,6 +4297,11 @@ test.c:140:33: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4032,6 +4320,11 @@ test.c:127:33: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4050,6 +4343,11 @@ test.c:127:33: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4068,6 +4366,11 @@ test.c:127:33: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4086,6 +4389,11 @@ test.c:116:17: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4104,6 +4412,11 @@ test.c:116:17: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4122,6 +4435,11 @@ test.c:116:17: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4142,18 +4460,18 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19a9d8
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a09d8
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3af30 p5>
+    var <var_decl 0x7f971cb40f30 p5>
     def_stmt GIMPLE_NOP
     version:35>
 GIMPLE_NOP
@@ -4274,38 +4592,30 @@ foo9 (p5_37);
 test.c:157:25: warning: use location
   157 |                         foo9(p5);
       |                         ^
+prev:= 17
 =======================Path Constaint===========================
 
+if (test_38(D) != 0)
+test.c:114:12: warning: use location
+  114 |         if (test)
+      |            ^
+if (test3_49(D) != 0)
+test.c:143:20: warning: use location
+  143 |                 if (test3)
+      |                    ^
+if (test_38(D) == test2_40(D))
+test.c:149:12: warning: use location
+  149 |         if (test == test2)
+      |            ^
+if (test_38(D) >= test2_40(D))
+test.c:151:17: warning: use location
+  151 |         else if (test >= test2)
+      |                 ^
 succs:= 16
 if (test_38(D) > test2_40(D))
 test.c:155:20: warning: use location
   155 |                 if (test > test2)
       |                    ^
-	relate logic:= 1
-succs:= 14
-if (test_38(D) >= test2_40(D))
-test.c:151:17: warning: use location
-  151 |         else if (test >= test2)
-      |                 ^
-	relate logic:= 0
-succs:= 12
-if (test_38(D) == test2_40(D))
-test.c:149:12: warning: use location
-  149 |         if (test == test2)
-      |            ^
-	relate logic:= 0
-succs:= 10
-if (test3_49(D) != 0)
-test.c:143:20: warning: use location
-  143 |                 if (test3)
-      |                    ^
-	relate logic:= 0
-succs:= 2
-if (test_38(D) != 0)
-test.c:114:12: warning: use location
-  114 |         if (test)
-      |            ^
-	relate logic:= 0
 =======================Path Constaint===========================
 
 
@@ -4321,32 +4631,26 @@ foo9 (p5_37);
 test.c:152:17: warning: use location
   152 |                 foo9(p5);
       |                 ^
+prev:= 15
 =======================Path Constaint===========================
 
+if (test_38(D) != 0)
+test.c:114:12: warning: use location
+  114 |         if (test)
+      |            ^
+if (test3_49(D) != 0)
+test.c:143:20: warning: use location
+  143 |                 if (test3)
+      |                    ^
+if (test_38(D) == test2_40(D))
+test.c:149:12: warning: use location
+  149 |         if (test == test2)
+      |            ^
 succs:= 14
 if (test_38(D) >= test2_40(D))
 test.c:151:17: warning: use location
   151 |         else if (test >= test2)
       |                 ^
-	relate logic:= 1
-succs:= 12
-if (test_38(D) == test2_40(D))
-test.c:149:12: warning: use location
-  149 |         if (test == test2)
-      |            ^
-	relate logic:= 0
-succs:= 10
-if (test3_49(D) != 0)
-test.c:143:20: warning: use location
-  143 |                 if (test3)
-      |                    ^
-	relate logic:= 0
-succs:= 2
-if (test_38(D) != 0)
-test.c:114:12: warning: use location
-  114 |         if (test)
-      |            ^
-	relate logic:= 0
 =======================Path Constaint===========================
 
 
@@ -4362,26 +4666,22 @@ foo9 (p5_37);
 test.c:150:17: warning: use location
   150 |                 foo9(p5);
       |                 ^
+prev:= 13
 =======================Path Constaint===========================
 
+if (test_38(D) != 0)
+test.c:114:12: warning: use location
+  114 |         if (test)
+      |            ^
+if (test3_49(D) != 0)
+test.c:143:20: warning: use location
+  143 |                 if (test3)
+      |                    ^
 succs:= 12
 if (test_38(D) == test2_40(D))
 test.c:149:12: warning: use location
   149 |         if (test == test2)
       |            ^
-	relate logic:= 1
-succs:= 10
-if (test3_49(D) != 0)
-test.c:143:20: warning: use location
-  143 |                 if (test3)
-      |                    ^
-	relate logic:= 0
-succs:= 2
-if (test_38(D) != 0)
-test.c:114:12: warning: use location
-  114 |         if (test)
-      |            ^
-	relate logic:= 0
 =======================Path Constaint===========================
 
 
@@ -4397,26 +4697,22 @@ foo9 (p5_37);
 test.c:140:33: warning: use location
   140 |                                 foo9(p5);
       |                                 ^
+prev:= 9
 =======================Path Constaint===========================
 
-=succs:= 7
-if (test_38(D) < test2_40(D))
-test.c:135:28: warning: use location
-  135 |                         if (test < test2)
-      |                            ^
-	relate logic:= 0
-=succs:= 3
-if (test_38(D) > test2_40(D))
-test.c:121:20: warning: use location
-  121 |                 if (test > test2)
-      |                    ^
-	relate logic:= 0
-=succs:= 2
+succs:= 2
 if (test_38(D) != 0)
 test.c:114:12: warning: use location
   114 |         if (test)
       |            ^
-	relate logic:= 0
+if (test_38(D) > test2_40(D))
+test.c:121:20: warning: use location
+  121 |                 if (test > test2)
+      |                    ^
+if (test_38(D) < test2_40(D))
+test.c:135:28: warning: use location
+  135 |                         if (test < test2)
+      |                            ^
 =======================Path Constaint===========================
 
 
@@ -4432,26 +4728,24 @@ foo9 (p5_37);
 test.c:127:33: warning: use location
   127 |                                 foo9(p5);
       |                                 ^
+prev:= 5
 =======================Path Constaint===========================
 
-succs:= 4
-if (test_38(D) < test2_40(D))
-test.c:124:28: warning: use location
-  124 |                         if (test < test2)
-      |                            ^
-	relate logic:= 1
-succs:= 3
-if (test_38(D) > test2_40(D))
-test.c:121:20: warning: use location
-  121 |                 if (test > test2)
-      |                    ^
-	relate logic:= 1
 succs:= 2
 if (test_38(D) != 0)
 test.c:114:12: warning: use location
   114 |         if (test)
       |            ^
-	relate logic:= 1
+succs:= 3
+if (test_38(D) > test2_40(D))
+test.c:121:20: warning: use location
+  121 |                 if (test > test2)
+      |                    ^
+succs:= 4
+if (test_38(D) < test2_40(D))
+test.c:124:28: warning: use location
+  124 |                         if (test < test2)
+      |                            ^
 =======================Path Constaint===========================
 
 
@@ -4483,6 +4777,7 @@ foo9 (p5_37);
 test.c:116:17: warning: use location
   116 |                 foo9(p5);
       |                 ^
+prev:= 3
 =======================Path Constaint===========================
 
 succs:= 2
@@ -4490,7 +4785,6 @@ if (test_38(D) != 0)
 test.c:114:12: warning: use location
   114 |         if (test)
       |            ^
-	relate logic:= 1
 =======================Path Constaint===========================
 
 
@@ -4500,18 +4794,18 @@ test.c:114:12: warning: use location
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19a9d8
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a09d8
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3af30 p5>
+    var <var_decl 0x7f971cb40f30 p5>
     def_stmt GIMPLE_NOP
     version:35>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
@@ -4550,6 +4844,11 @@ test.c:99:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4568,6 +4867,11 @@ test.c:99:14: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4586,69 +4890,11 @@ test.c:99:14: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
 
- ================== warring ================== 
+=======================Path Constaint===========================
 
-============================================================
-# .MEM_73 = VDEF <.MEM_72>
-_8 = foo9 (p5_35(D));
-test.c:99:14: warning: Use after free error!: free location 
-_9 = (long int) _8;
-test.c:99:14: warning: use location
-
- ================== warring ================== 
-[40;35m    Use after free error! [0m
-
- ================== warring ================== 
-
-============================================================
-[40;35m <Looserules> find free stmt free same pointer [0m
-# .MEM_58 = VDEF <.MEM_57>
-p6_17 = realloc (p6_15, 100);
-test.c:57:14: warning: Use after free error!: free location 
-   57 |         p6 = realloc(p6, 100);
-      |              ^
-_9 = (long int) _8;
-test.c:99:14: warning: use location
-   99 |         p5 = foo9(p5);
-      |              ^
-
- ================== warring ================== 
-[40;35m  realloc Use after free error! [0m
-
- ================== warring ================== 
-
-============================================================
-[40;35m <Looserules> find free stmt free same pointer [0m
-# .MEM_59 = VDEF <.MEM_58>
-p7_19 = realloc (p6_17, 100);
-test.c:58:14: warning: Use after free error!: free location 
-   58 |         p7 = realloc(p6, 100);
-      |              ^
-_9 = (long int) _8;
-test.c:99:14: warning: use location
-   99 |         p5 = foo9(p5);
-      |              ^
-
- ================== warring ================== 
-[40;35m  realloc Use after free error! [0m
-
- ================== warring ================== 
-
-============================================================
-[40;35m <Looserules> find free stmt free same pointer [0m
-# .MEM_66 = VDEF <.MEM_65>
-free (p9_24);
-test.c:74:9: warning: Use after free error!: free location 
-   74 |         free(p9);
-      |         ^
-_9 = (long int) _8;
-test.c:99:14: warning: use location
-   99 |         p5 = foo9(p5);
-      |              ^
-
- ================== warring ================== 
-[40;35m    Use after free error! [0m
 
  ================== warring ================== 
 
@@ -4656,6 +4902,89 @@ test.c:99:14: warning: use location
 # .MEM_73 = VDEF <.MEM_72>
 _8 = foo9 (p5_35(D));
 test.c:99:14: warning: Use after free error!: free location 
+_9 = (long int) _8;
+test.c:99:14: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_58 = VDEF <.MEM_57>
+p6_17 = realloc (p6_15, 100);
+test.c:57:14: warning: Use after free error!: free location 
+   57 |         p6 = realloc(p6, 100);
+      |              ^
+_9 = (long int) _8;
+test.c:99:14: warning: use location
+   99 |         p5 = foo9(p5);
+      |              ^
+
+ ================== warring ================== 
+[40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_59 = VDEF <.MEM_58>
+p7_19 = realloc (p6_17, 100);
+test.c:58:14: warning: Use after free error!: free location 
+   58 |         p7 = realloc(p6, 100);
+      |              ^
+_9 = (long int) _8;
+test.c:99:14: warning: use location
+   99 |         p5 = foo9(p5);
+      |              ^
+
+ ================== warring ================== 
+[40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_66 = VDEF <.MEM_65>
+free (p9_24);
+test.c:74:9: warning: Use after free error!: free location 
+   74 |         free(p9);
+      |         ^
+_9 = (long int) _8;
+test.c:99:14: warning: use location
+   99 |         p5 = foo9(p5);
+      |              ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_73 = VDEF <.MEM_72>
+_8 = foo9 (p5_35(D));
+test.c:99:14: warning: Use after free error!: free location 
 p5_37 = (int *) _9;
 test.c:99:12: warning: use location
    99 |         p5 = foo9(p5);
@@ -4663,6 +4992,11 @@ test.c:99:12: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4680,6 +5014,11 @@ test.c:99:12: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4697,6 +5036,11 @@ test.c:99:12: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4714,6 +5058,11 @@ test.c:99:12: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4732,6 +5081,11 @@ test.c:157:25: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4750,6 +5104,11 @@ test.c:157:25: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4768,6 +5127,11 @@ test.c:157:25: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4786,6 +5150,11 @@ test.c:152:17: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4804,6 +5173,11 @@ test.c:152:17: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4822,6 +5196,11 @@ test.c:152:17: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4840,6 +5219,11 @@ test.c:150:17: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4858,6 +5242,11 @@ test.c:150:17: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4876,6 +5265,11 @@ test.c:150:17: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4894,6 +5288,11 @@ test.c:140:33: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4912,6 +5311,11 @@ test.c:140:33: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4930,6 +5334,11 @@ test.c:140:33: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4948,6 +5357,11 @@ test.c:127:33: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4966,6 +5380,11 @@ test.c:127:33: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -4984,6 +5403,11 @@ test.c:127:33: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -5002,6 +5426,11 @@ test.c:116:17: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -5020,6 +5449,11 @@ test.c:116:17: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -5038,6 +5472,11 @@ test.c:116:17: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -5058,21 +5497,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19aa20
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a0a20
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3af30 p5>
+    var <var_decl 0x7f971cb40f30 p5>
     def_stmt p5_37 = (int *) _9;
     version:37
-    ptr-info 0x7f091ecc92a0>
+    ptr-info 0x7f971bdc52a0>
 p5_37 = (int *) _9;
 
  ================== trace ptable================== 
@@ -5111,38 +5550,30 @@ foo9 (p5_37);
 test.c:157:25: warning: use location
   157 |                         foo9(p5);
       |                         ^
+prev:= 17
 =======================Path Constaint===========================
 
+if (test_38(D) != 0)
+test.c:114:12: warning: use location
+  114 |         if (test)
+      |            ^
+if (test3_49(D) != 0)
+test.c:143:20: warning: use location
+  143 |                 if (test3)
+      |                    ^
+if (test_38(D) == test2_40(D))
+test.c:149:12: warning: use location
+  149 |         if (test == test2)
+      |            ^
+if (test_38(D) >= test2_40(D))
+test.c:151:17: warning: use location
+  151 |         else if (test >= test2)
+      |                 ^
 succs:= 16
 if (test_38(D) > test2_40(D))
 test.c:155:20: warning: use location
   155 |                 if (test > test2)
       |                    ^
-	relate logic:= 1
-succs:= 14
-if (test_38(D) >= test2_40(D))
-test.c:151:17: warning: use location
-  151 |         else if (test >= test2)
-      |                 ^
-	relate logic:= 0
-succs:= 12
-if (test_38(D) == test2_40(D))
-test.c:149:12: warning: use location
-  149 |         if (test == test2)
-      |            ^
-	relate logic:= 0
-succs:= 10
-if (test3_49(D) != 0)
-test.c:143:20: warning: use location
-  143 |                 if (test3)
-      |                    ^
-	relate logic:= 0
-succs:= 2
-if (test_38(D) != 0)
-test.c:114:12: warning: use location
-  114 |         if (test)
-      |            ^
-	relate logic:= 0
 =======================Path Constaint===========================
 
 
@@ -5158,32 +5589,26 @@ foo9 (p5_37);
 test.c:152:17: warning: use location
   152 |                 foo9(p5);
       |                 ^
+prev:= 15
 =======================Path Constaint===========================
 
+if (test_38(D) != 0)
+test.c:114:12: warning: use location
+  114 |         if (test)
+      |            ^
+if (test3_49(D) != 0)
+test.c:143:20: warning: use location
+  143 |                 if (test3)
+      |                    ^
+if (test_38(D) == test2_40(D))
+test.c:149:12: warning: use location
+  149 |         if (test == test2)
+      |            ^
 succs:= 14
 if (test_38(D) >= test2_40(D))
 test.c:151:17: warning: use location
   151 |         else if (test >= test2)
       |                 ^
-	relate logic:= 1
-succs:= 12
-if (test_38(D) == test2_40(D))
-test.c:149:12: warning: use location
-  149 |         if (test == test2)
-      |            ^
-	relate logic:= 0
-succs:= 10
-if (test3_49(D) != 0)
-test.c:143:20: warning: use location
-  143 |                 if (test3)
-      |                    ^
-	relate logic:= 0
-succs:= 2
-if (test_38(D) != 0)
-test.c:114:12: warning: use location
-  114 |         if (test)
-      |            ^
-	relate logic:= 0
 =======================Path Constaint===========================
 
 
@@ -5199,26 +5624,22 @@ foo9 (p5_37);
 test.c:150:17: warning: use location
   150 |                 foo9(p5);
       |                 ^
+prev:= 13
 =======================Path Constaint===========================
 
+if (test_38(D) != 0)
+test.c:114:12: warning: use location
+  114 |         if (test)
+      |            ^
+if (test3_49(D) != 0)
+test.c:143:20: warning: use location
+  143 |                 if (test3)
+      |                    ^
 succs:= 12
 if (test_38(D) == test2_40(D))
 test.c:149:12: warning: use location
   149 |         if (test == test2)
       |            ^
-	relate logic:= 1
-succs:= 10
-if (test3_49(D) != 0)
-test.c:143:20: warning: use location
-  143 |                 if (test3)
-      |                    ^
-	relate logic:= 0
-succs:= 2
-if (test_38(D) != 0)
-test.c:114:12: warning: use location
-  114 |         if (test)
-      |            ^
-	relate logic:= 0
 =======================Path Constaint===========================
 
 
@@ -5234,26 +5655,22 @@ foo9 (p5_37);
 test.c:140:33: warning: use location
   140 |                                 foo9(p5);
       |                                 ^
+prev:= 9
 =======================Path Constaint===========================
 
-=succs:= 7
-if (test_38(D) < test2_40(D))
-test.c:135:28: warning: use location
-  135 |                         if (test < test2)
-      |                            ^
-	relate logic:= 0
-=succs:= 3
-if (test_38(D) > test2_40(D))
-test.c:121:20: warning: use location
-  121 |                 if (test > test2)
-      |                    ^
-	relate logic:= 0
-=succs:= 2
+succs:= 2
 if (test_38(D) != 0)
 test.c:114:12: warning: use location
   114 |         if (test)
       |            ^
-	relate logic:= 0
+if (test_38(D) > test2_40(D))
+test.c:121:20: warning: use location
+  121 |                 if (test > test2)
+      |                    ^
+if (test_38(D) < test2_40(D))
+test.c:135:28: warning: use location
+  135 |                         if (test < test2)
+      |                            ^
 =======================Path Constaint===========================
 
 
@@ -5269,26 +5686,24 @@ foo9 (p5_37);
 test.c:127:33: warning: use location
   127 |                                 foo9(p5);
       |                                 ^
+prev:= 5
 =======================Path Constaint===========================
 
-succs:= 4
-if (test_38(D) < test2_40(D))
-test.c:124:28: warning: use location
-  124 |                         if (test < test2)
-      |                            ^
-	relate logic:= 1
+succs:= 2
+if (test_38(D) != 0)
+test.c:114:12: warning: use location
+  114 |         if (test)
+      |            ^
 succs:= 3
 if (test_38(D) > test2_40(D))
 test.c:121:20: warning: use location
   121 |                 if (test > test2)
       |                    ^
-	relate logic:= 1
-succs:= 2
-if (test_38(D) != 0)
-test.c:114:12: warning: use location
-  114 |         if (test)
-      |            ^
-	relate logic:= 1
+succs:= 4
+if (test_38(D) < test2_40(D))
+test.c:124:28: warning: use location
+  124 |                         if (test < test2)
+      |                            ^
 =======================Path Constaint===========================
 
 
@@ -5372,21 +5787,21 @@ trace fucntion free:0
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19aa20
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a0a20
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3af30 p5>
+    var <var_decl 0x7f971cb40f30 p5>
     def_stmt p5_37 = (int *) _9;
     version:37
-    ptr-info 0x7f091ecc92a0>
+    ptr-info 0x7f971bdc52a0>
 
  ================== Start Use after free Check ================== 
 
@@ -5406,21 +5821,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19aa20
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a0a20
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3af30 p5>
+    var <var_decl 0x7f971cb40f30 p5>
     def_stmt p5_37 = (int *) _9;
     version:37
-    ptr-info 0x7f091ecc92a0>
+    ptr-info 0x7f971bdc52a0>
 p5_37 = (int *) _9;
 
  ================== trace ptable================== 
@@ -5461,38 +5876,30 @@ foo9 (p5_37);
 test.c:157:25: warning: use location
   157 |                         foo9(p5);
       |                         ^
+prev:= 17
 =======================Path Constaint===========================
 
+if (test_38(D) != 0)
+test.c:114:12: warning: use location
+  114 |         if (test)
+      |            ^
+if (test3_49(D) != 0)
+test.c:143:20: warning: use location
+  143 |                 if (test3)
+      |                    ^
+if (test_38(D) == test2_40(D))
+test.c:149:12: warning: use location
+  149 |         if (test == test2)
+      |            ^
+if (test_38(D) >= test2_40(D))
+test.c:151:17: warning: use location
+  151 |         else if (test >= test2)
+      |                 ^
 succs:= 16
 if (test_38(D) > test2_40(D))
 test.c:155:20: warning: use location
   155 |                 if (test > test2)
       |                    ^
-	relate logic:= 1
-succs:= 14
-if (test_38(D) >= test2_40(D))
-test.c:151:17: warning: use location
-  151 |         else if (test >= test2)
-      |                 ^
-	relate logic:= 0
-succs:= 12
-if (test_38(D) == test2_40(D))
-test.c:149:12: warning: use location
-  149 |         if (test == test2)
-      |            ^
-	relate logic:= 0
-succs:= 10
-if (test3_49(D) != 0)
-test.c:143:20: warning: use location
-  143 |                 if (test3)
-      |                    ^
-	relate logic:= 0
-succs:= 2
-if (test_38(D) != 0)
-test.c:114:12: warning: use location
-  114 |         if (test)
-      |            ^
-	relate logic:= 0
 =======================Path Constaint===========================
 
 
@@ -5508,32 +5915,26 @@ foo9 (p5_37);
 test.c:152:17: warning: use location
   152 |                 foo9(p5);
       |                 ^
+prev:= 15
 =======================Path Constaint===========================
 
+if (test_38(D) != 0)
+test.c:114:12: warning: use location
+  114 |         if (test)
+      |            ^
+if (test3_49(D) != 0)
+test.c:143:20: warning: use location
+  143 |                 if (test3)
+      |                    ^
+if (test_38(D) == test2_40(D))
+test.c:149:12: warning: use location
+  149 |         if (test == test2)
+      |            ^
 succs:= 14
 if (test_38(D) >= test2_40(D))
 test.c:151:17: warning: use location
   151 |         else if (test >= test2)
       |                 ^
-	relate logic:= 1
-succs:= 12
-if (test_38(D) == test2_40(D))
-test.c:149:12: warning: use location
-  149 |         if (test == test2)
-      |            ^
-	relate logic:= 0
-succs:= 10
-if (test3_49(D) != 0)
-test.c:143:20: warning: use location
-  143 |                 if (test3)
-      |                    ^
-	relate logic:= 0
-succs:= 2
-if (test_38(D) != 0)
-test.c:114:12: warning: use location
-  114 |         if (test)
-      |            ^
-	relate logic:= 0
 =======================Path Constaint===========================
 
 
@@ -5549,26 +5950,22 @@ foo9 (p5_37);
 test.c:150:17: warning: use location
   150 |                 foo9(p5);
       |                 ^
+prev:= 13
 =======================Path Constaint===========================
 
+if (test_38(D) != 0)
+test.c:114:12: warning: use location
+  114 |         if (test)
+      |            ^
+if (test3_49(D) != 0)
+test.c:143:20: warning: use location
+  143 |                 if (test3)
+      |                    ^
 succs:= 12
 if (test_38(D) == test2_40(D))
 test.c:149:12: warning: use location
   149 |         if (test == test2)
       |            ^
-	relate logic:= 1
-succs:= 10
-if (test3_49(D) != 0)
-test.c:143:20: warning: use location
-  143 |                 if (test3)
-      |                    ^
-	relate logic:= 0
-succs:= 2
-if (test_38(D) != 0)
-test.c:114:12: warning: use location
-  114 |         if (test)
-      |            ^
-	relate logic:= 0
 =======================Path Constaint===========================
 
 
@@ -5584,26 +5981,22 @@ foo9 (p5_37);
 test.c:140:33: warning: use location
   140 |                                 foo9(p5);
       |                                 ^
+prev:= 9
 =======================Path Constaint===========================
 
-=succs:= 7
-if (test_38(D) < test2_40(D))
-test.c:135:28: warning: use location
-  135 |                         if (test < test2)
-      |                            ^
-	relate logic:= 0
-=succs:= 3
-if (test_38(D) > test2_40(D))
-test.c:121:20: warning: use location
-  121 |                 if (test > test2)
-      |                    ^
-	relate logic:= 0
-=succs:= 2
+succs:= 2
 if (test_38(D) != 0)
 test.c:114:12: warning: use location
   114 |         if (test)
       |            ^
-	relate logic:= 0
+if (test_38(D) > test2_40(D))
+test.c:121:20: warning: use location
+  121 |                 if (test > test2)
+      |                    ^
+if (test_38(D) < test2_40(D))
+test.c:135:28: warning: use location
+  135 |                         if (test < test2)
+      |                            ^
 =======================Path Constaint===========================
 
 # .MEM_81 = VDEF <.MEM_80>
@@ -5655,6 +6048,7 @@ foo9 (p5_37);
 test.c:116:17: warning: use location
   116 |                 foo9(p5);
       |                 ^
+prev:= 3
 =======================Path Constaint===========================
 
 succs:= 2
@@ -5662,7 +6056,6 @@ if (test_38(D) != 0)
 test.c:114:12: warning: use location
   114 |         if (test)
       |            ^
-	relate logic:= 1
 =======================Path Constaint===========================
 
 
@@ -5694,6 +6087,7 @@ foo9 (p5_37);
 test.c:116:17: warning: use location
   116 |                 foo9(p5);
       |                 ^
+prev:= 3
 =======================Path Constaint===========================
 
 succs:= 2
@@ -5701,7 +6095,6 @@ if (test_38(D) != 0)
 test.c:114:12: warning: use location
   114 |         if (test)
       |            ^
-	relate logic:= 1
 =======================Path Constaint===========================
 
 
@@ -5711,21 +6104,21 @@ test.c:114:12: warning: use location
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19aa20
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a0a20
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091fa3af30 p5>
+    var <var_decl 0x7f971cb40f30 p5>
     def_stmt p5_37 = (int *) _9;
     version:37
-    ptr-info 0x7f091ecc92a0>
+    ptr-info 0x7f971bdc52a0>
 
  ================== Start Use after free Check ================== 
 
@@ -5745,18 +6138,18 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19aaf8
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a0af8
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091ecc4090 p3>
+    var <var_decl 0x7f971bdc0090 p3>
     def_stmt GIMPLE_NOP
     version:43>
 GIMPLE_NOP
@@ -5825,18 +6218,18 @@ trace fucntion free:2
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f091f19aaf8
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a0af8
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091ecc4090 p3>
+    var <var_decl 0x7f971bdc0090 p3>
     def_stmt GIMPLE_NOP
     version:43>
 [40;35m <Looserules> find realloc stmt free same pointer [0m
@@ -5875,6 +6268,11 @@ test.c:137:33: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -5893,6 +6291,11 @@ test.c:137:33: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -5911,6 +6314,11 @@ test.c:137:33: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -5929,6 +6337,11 @@ test.c:137:33: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -5947,6 +6360,11 @@ test.c:137:33: warning: use location
 
  ================== warring ================== 
 [40;35m  realloc Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -5965,6 +6383,11 @@ test.c:137:33: warning: use location
 
  ================== warring ================== 
 [40;35m    Use after free error! [0m
+prev:= 2
+=======================Path Constaint===========================
+
+=======================Path Constaint===========================
+
 
  ================== warring ================== 
 
@@ -5986,18 +6409,18 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f091f19ab88
-    type <pointer_type 0x7f091f1ae9d8
-        type <integer_type 0x7f091f1a75e8 int public SI
-            size <integer_cst 0x7f091f192df8 constant 32>
-            unit-size <integer_cst 0x7f091f192e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f091f1a75e8 precision:32 min <integer_cst 0x7f091f192db0 -2147483648> max <integer_cst 0x7f091f192dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f091f1ae9d8>>
+ <ssa_name 0x7f971c2a0b88
+    type <pointer_type 0x7f971c2b49d8
+        type <integer_type 0x7f971c2ad5e8 int public SI
+            size <integer_cst 0x7f971c298df8 constant 32>
+            unit-size <integer_cst 0x7f971c298e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f971c2ad5e8 precision:32 min <integer_cst 0x7f971c298db0 -2147483648> max <integer_cst 0x7f971c298dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f971c2b49d8>>
         public unsigned DI
-        size <integer_cst 0x7f091f192bb8 constant 64>
-        unit-size <integer_cst 0x7f091f192bd0 constant 8>
+        size <integer_cst 0x7f971c298bb8 constant 64>
+        unit-size <integer_cst 0x7f971c298bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f091ecc4000 p4>
+    var <var_decl 0x7f971bdc0000 p4>
     def_stmt GIMPLE_NOP
     version:52>
 GIMPLE_NOP
@@ -6234,8 +6657,8 @@ return;
 [40;34m    gimple free   count : 3 [0m
 [40;34m    find Entry point : 12 [0m
 [40;34m    used_stmt array stack totalsize of : 0.001712 mb[0m
-[40;34m    collect time: : 0.000584 s [0m
-[40;34m    algorithm time: 0.029999 s [0m
+[40;34m    collect time: : 0.000367 s [0m
+[40;34m    algorithm time: 0.029256 s [0m
 [40;34m    gimple stmt count : : 49 [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 Profile consistency report:

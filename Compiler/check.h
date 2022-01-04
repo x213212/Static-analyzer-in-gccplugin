@@ -15,6 +15,23 @@ int check_stmtStack(tree target)
 	new_gimpletree_array.push_back(target);
 	return 0;
 }
+int check_bbStack(basic_block target)
+{
+	for (int o = 0; o < new_path_array.size(); o++)
+	{
+
+		if (new_path_array[o] == target)
+		{
+
+			return 1;
+		}
+	}
+	// fprintf(stderr, "stmt sisze%d\n",size);
+	// int size = sizeof(tree);
+	// totalsize += size;
+	new_path_array.push_back(target);
+	return 0;
+}
 int check_stmtStack2(gimple *stmt)
 {
 
