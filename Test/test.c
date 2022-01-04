@@ -135,6 +135,7 @@ int main()
 			if (test < test2)
 			{
 				foo(p3);
+			return 0;
 			}
 			else
 				foo9(p5);
@@ -143,6 +144,8 @@ int main()
 		if (test3)
 		{
 			foo(p);
+				
+			exit(0);
 			// goto label2;
 		}
 	}
@@ -152,11 +155,15 @@ int main()
 		foo9(p5);
 	else
 	{
+			
 		if (test > test2)
 		{
 			foo9(p5);
 			foo(p4);
+		
 		}
+			foo9(p5);
+			return 0;
 	}
 	// else if (test > test2)
 	// 	foo(p);

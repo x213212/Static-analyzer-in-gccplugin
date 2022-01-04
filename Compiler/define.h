@@ -96,6 +96,7 @@ struct symbolicinfo
 	gimple *switch_stmt;
 	tree cond_rhs;
 	tree cond_lhs;
+	cgraph_node *node;
 	vector<basic_block> switchs;
 	basic_block cond_truebranch;
 	basic_block cond_falsebranch;
