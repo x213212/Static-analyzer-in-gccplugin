@@ -224,9 +224,11 @@ void record_fucntion(cgraph_node *node)
 {
 
 	cgraph_edge *e;
+	basic_block bb;
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
 
+	
 		if (!gimple_has_body_p(node->decl))
 			continue;
 		push_cfun(node->get_fun());
@@ -236,7 +238,6 @@ void record_fucntion(cgraph_node *node)
 			pop_cfun();
 			continue;
 		}
-
 		enum availability avail;
 
 		function_path_array fun_array;
@@ -271,7 +272,67 @@ void record_fucntion(cgraph_node *node)
 				}
 			}
 		}
+		
+		FOR_EACH_BB_FN(bb, cfun)
+		{
+			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
+			{
+				gimple *gc = gsi_stmt(gsi);
+				if (gimple_cond_code(gc))
+				{
+					enum tree_code code = gimple_cond_code(gc);
+					// if (code == LT_EXPR || code == GT_EXPR || code == LE_EXPR || code == GE_EXPR || code == EQ_EXPR || code == NE_EXPR)
 
+					// 	fprintf(stderr, "--------GIMPLE ok -------\n");
+					// if (dom_info_state(CDI_DOMINATORS) == DOM_OK)
+
+					if (!is_gimple_assign(gc))
+					{
+						// if (gimple_cond_lhs(use_stmt))
+						// debug_gimple_stmt(gc);
+						fprintf(stderr, "--------GIMPLE Cond -------\n");
+
+						symbolicExecution.push_back(bb);
+						symbolicinfo symbolicinfo;
+						symbolicinfo.cond_stmt = gc;
+						symbolicinfo.cond_lhs = gimple_cond_lhs(gc);
+						symbolicinfo.cond_rhs = gimple_cond_rhs(gc);
+						symbolicinfo.node = node;
+
+						// symbolicinfo.cond_stmt= gc;
+
+						if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
+						{
+							edge e;
+							edge_iterator ei;
+							// fprintf(stderr, "node:= %d \n", bb->index);
+							// BLOCK_SUPERCONTEXT(gimple_block(u_stmt)
+							int init = 0;
+							FOR_EACH_EDGE(e, ei, bb->succs)
+							{
+								// DFS.addEdge(bb->index, e->dest->index);
+
+								// debug_tree(test);
+								if (init == 0)
+								{
+									symbolicinfo.cond_truebranch = e->dest;
+									// fprintf(stderr, " true succs:= %d\n", e->dest->index);
+								}
+
+								else
+								{
+									symbolicinfo.cond_falsebranch = e->dest;
+									// fprintf(stderr, " false succs:= %d\n", e->dest->index);
+								}
+								fprintf(stderr, " initssssss:= %d\n", init);
+								init++;
+							}
+						}
+						syminfo->put(bb, symbolicinfo);
+					}
+				}
+			}
+		}
 		function_path_collect->put(node->get_fun()->decl, fun_array);
 		pop_cfun();
 	}
@@ -280,6 +341,7 @@ void record_fucntion(cgraph_node *node)
 void check_bbinfo(cgraph_node *m, basic_block bb)
 {
 
+	int find_path_constraint=0;
 	// fprintf(stderr, "succs:= %d\n", bb->index);
 	// debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
 	// fprintf(stderr, " relate logic:= %d\n", syminfo->get(bb)->prevlogic);
@@ -306,10 +368,13 @@ void check_bbinfo(cgraph_node *m, basic_block bb)
 		if (syminfo->get(symbolicExecution[o]) != NULL)
 		{
 			struct symbolicinfo *symbolicinfotmp = syminfo->get(symbolicExecution[o]);
+			push_cfun(symbolicinfotmp->node->get_fun());
+			calculate_dominance_info(CDI_DOMINATORS);
+
 			if (symbolicinfotmp->cond_truebranch == bb || dominated_by_p(CDI_DOMINATORS, bb, symbolicinfotmp->cond_truebranch))
 			{
 				// if (!check_bbStack(symbolicinfotmp->cond_truebranch))
-				fprintf(stderr, "succs:= %d\n", symbolicExecution[o]->index);
+				// fprintf(stderr, "succs:= %d\n", symbolicExecution[o]->index);
 
 				if (gimple_location_safe(symbolicinfotmp->cond_stmt), 0, "use location")
 					debug_gimple_stmt(symbolicinfotmp->cond_stmt);
@@ -319,6 +384,8 @@ void check_bbinfo(cgraph_node *m, basic_block bb)
 				// check_bbinfo2(symbolicinfotmp->cond_truebranch);
 				// printf_bbinfo(symbolicExecution[o], 1);
 				// break;
+
+				find_path_constraint++;
 			}
 			if (symbolicinfotmp->cond_falsebranch == bb || dominated_by_p(CDI_DOMINATORS, bb, symbolicinfotmp->cond_falsebranch))
 			{
@@ -330,9 +397,15 @@ void check_bbinfo(cgraph_node *m, basic_block bb)
 				// if(!check_bbStack(symbolicinfotmp->cond_falsebranch))
 				// check_bbinfo2(symbolicinfotmp->cond_falsebranch);
 				// printf_bbinfo(symbolicExecution[o], 0);
+				find_path_constraint++;
 			}
+			pop_cfun();
 		}
 	}
+	if(			!find_path_constraint)
+	fprintf(stderr, "=======================NO find Path Constaint===========================\n\n");
+	else
+	fprintf(stderr, "=======================Path Constaint=====%d======================\n\n",find_path_constraint);
 	fprintf(stderr, "=======================Path Constaint===========================\n\n");
 }
 
@@ -443,7 +516,7 @@ void detect()
 				FOR_EACH_EDGE(e, ei, bb->succs)
 				{
 					DFS.addEdge(bb->index, e->dest->index);
-					fprintf(stderr, "	from_branch :=%d\n", e->src->index);
+					// fprintf(stderr, "	from_branch :=%d\n", e->src->index);
 					fprintf(stderr, "	next_branch :=%d\n", e->dest->index);
 					// fprintf(stderr,"%d",e->dest->index);
 				}
@@ -548,58 +621,58 @@ void detect()
 				// 	}
 				// }
 
-				if (gimple_cond_code(gc))
-				{
-					enum tree_code code = gimple_cond_code(gc);
-					// if (code == LT_EXPR || code == GT_EXPR || code == LE_EXPR || code == GE_EXPR || code == EQ_EXPR || code == NE_EXPR)
+				// if (gimple_cond_code(gc))
+				// {
+				// 	enum tree_code code = gimple_cond_code(gc);
+				// 	// if (code == LT_EXPR || code == GT_EXPR || code == LE_EXPR || code == GE_EXPR || code == EQ_EXPR || code == NE_EXPR)
 
-					// 	fprintf(stderr, "--------GIMPLE ok -------\n");
-					// if (dom_info_state(CDI_DOMINATORS) == DOM_OK)
+				// 	// 	fprintf(stderr, "--------GIMPLE ok -------\n");
+				// 	// if (dom_info_state(CDI_DOMINATORS) == DOM_OK)
 
-					if (!is_gimple_assign(gc))
-					{
-						// if (gimple_cond_lhs(use_stmt))
-						// debug_gimple_stmt(gc);
-						fprintf(stderr, "--------GIMPLE Cond -------\n");
+				// 	if (!is_gimple_assign(gc))
+				// 	{
+				// 		// if (gimple_cond_lhs(use_stmt))
+				// 		// debug_gimple_stmt(gc);
+				// 		fprintf(stderr, "--------GIMPLE Cond -------\n");
 
-						symbolicExecution.push_back(bb);
-						symbolicinfo symbolicinfo;
-						symbolicinfo.cond_stmt = gc;
-						symbolicinfo.cond_lhs = gimple_cond_lhs(gc);
-						symbolicinfo.cond_rhs = gimple_cond_rhs(gc);
+				// 		symbolicExecution.push_back(bb);
+				// 		symbolicinfo symbolicinfo;
+				// 		symbolicinfo.cond_stmt = gc;
+				// 		symbolicinfo.cond_lhs = gimple_cond_lhs(gc);
+				// 		symbolicinfo.cond_rhs = gimple_cond_rhs(gc);
 
-						// symbolicinfo.cond_stmt= gc;
+				// 		// symbolicinfo.cond_stmt= gc;
 
-						if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
-						{
-							edge e;
-							edge_iterator ei;
-							// fprintf(stderr, "node:= %d \n", bb->index);
-							// BLOCK_SUPERCONTEXT(gimple_block(u_stmt)
-							int init = 0;
-							FOR_EACH_EDGE(e, ei, bb->succs)
-							{
-								// DFS.addEdge(bb->index, e->dest->index);
+				// 		if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
+				// 		{
+				// 			edge e;
+				// 			edge_iterator ei;
+				// 			// fprintf(stderr, "node:= %d \n", bb->index);
+				// 			// BLOCK_SUPERCONTEXT(gimple_block(u_stmt)
+				// 			int init = 0;
+				// 			FOR_EACH_EDGE(e, ei, bb->succs)
+				// 			{
+				// 				// DFS.addEdge(bb->index, e->dest->index);
 
-								// debug_tree(test);
-								if (init == 0)
-								{
-									symbolicinfo.cond_truebranch = e->dest;
-									// fprintf(stderr, " true succs:= %d\n", e->dest->index);
-								}
+				// 				// debug_tree(test);
+				// 				if (init == 0)
+				// 				{
+				// 					symbolicinfo.cond_truebranch = e->dest;
+				// 					// fprintf(stderr, " true succs:= %d\n", e->dest->index);
+				// 				}
 
-								else
-								{
-									symbolicinfo.cond_falsebranch = e->dest;
-									// fprintf(stderr, " false succs:= %d\n", e->dest->index);
-								}
-								fprintf(stderr, " initssssss:= %d\n", init);
-								init++;
-							}
-						}
-						syminfo->put(bb, symbolicinfo);
-					}
-				}
+				// 				else
+				// 				{
+				// 					symbolicinfo.cond_falsebranch = e->dest;
+				// 					// fprintf(stderr, " false succs:= %d\n", e->dest->index);
+				// 				}
+				// 				fprintf(stderr, " initssssss:= %d\n", init);
+				// 				init++;
+				// 			}
+				// 		}
+				// 		syminfo->put(bb, symbolicinfo);
+				// 	}
+				// }
 
 				if (is_gimple_call(gc))
 				{

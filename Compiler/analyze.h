@@ -257,16 +257,19 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							// walk return table input fucntion_tree
 							push_cfun(table_temp->node->get_fun());
 							calculate_dominance_info(CDI_DOMINATORS);
+							int succ_havereturn =0;
 							for (int k = 0; k < global_ret_type_array.size(); k++)
 							{
 
 								// fprintf(stderr ,"\global_ret_type_array index %d\n" , gimple_bb((global_ret_type_array)[k].stmt)->index);
 								// fprintf(stderr, "\ntest %d\n", global_ret_type_array.size());
-								// warning_at(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
+								// debug_gimple_stmt((global_ret_type_array)[k].stmt);
+								// warning_at(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "te222222st");
 								// debug_gimple_stmt(u_stmt);
 								// debug_gimple_stmt((callerRetTypearray)[k].stmt);
 								// debug(findedge);
 								basic_block bb;
+								
 								FOR_EACH_BB_FN(bb, table_temp->node->get_fun())
 								{
 
@@ -294,7 +297,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											if (name)
 											{
 												if (!strcmp(name, "exit"))
+												{
 													check = 1;
+													// fprintf(stderr, "\033[40;31m   exit exit  \033[0m\n");
+												}
 											}
 											if (gimple_code((global_ret_type_array)[k].stmt) == GIMPLE_RETURN)
 											{
@@ -328,31 +334,44 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														// fprintf(stderr, " succs4:= %d\n", e2->dest->index);
 
 														// if (!gimple_bb(tmp) && !e2->dest)
+														// if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
+
 														if ((e->dest->index != e2->dest->index))
+														{
 															if (dominated_by_p(CDI_DOMINATORS, gimple_bb(tmp), e2->dest))
+																if (!dominated_by_p(CDI_DOMINATORS, cfun->cfg->x_exit_block_ptr->prev_bb, gimple_bb(tmp)))
+																{
 
-															{
+																	// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+																	fprintf(stderr, "\n======================================================================\n");
+																	// fprintf(stderr, "	no free stmt possible memory leak\n");
+																	fprintf(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
 
-																// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-																fprintf(stderr, "\n======================================================================\n");
-																// fprintf(stderr, "	no free stmt possible memory leak\n");
-																fprintf(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
-
-																debug_gimple_stmt(u_stmt);
-																fprintf(stderr, "bb index := %d\n", gimple_bb(u_stmt)->index);
-																debug_gimple_stmt(tmp);
-																warning_at(gimple_location_safe(tmp), 0, "use location");
-																fprintf(stderr, "beacuse in succ := %d have return or exit\n", gimple_bb(tmp)->index);
-																debug_gimple_stmt((global_ret_type_array)[k].stmt);
-																warning_at(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
-																fprintf(stderr, "gimple stmt in succ := %d ,possiable got to succ := %d\n", gimple_bb(u_stmt)->index, gimple_bb(tmp)->index);
-																// debug_tree((callerRetTypearray)[k].return_tree);
-																// debug_gimple_stmt(u_stmt);
-																// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-																// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-																// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
-																fprintf(stderr, "\n======================================================================\n");
-															}
+																	debug_gimple_stmt(u_stmt);
+																	fprintf(stderr, "bb index := %d\n", gimple_bb(u_stmt)->index);
+																	debug_gimple_stmt(tmp);
+																	warning_at(gimple_location_safe(tmp), 0, "use location");
+																	fprintf(stderr, "beacuse in succ := %d have return or exit\n", gimple_bb(tmp)->index);
+																	debug_gimple_stmt((global_ret_type_array)[k].stmt);
+																	warning_at(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
+																	fprintf(stderr, "gimple stmt in succ := %d ,possiable got to succ := %d\n", gimple_bb(u_stmt)->index, gimple_bb(tmp)->index);
+																	// debug_tree((callerRetTypearray)[k].return_tree);
+																	// debug_gimple_stmt(u_stmt);
+																	// debug_gimple_stmt((callerRetTypearray)[k].stmt);
+																	// warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+																	// check_bbinfo(gimple_bb((callerRetTypearray)[k].stmt));
+																	fprintf(stderr, "\n======================================================================\n");
+																}
+														}
+														else if (!succ_havereturn&&(e2->dest->index == cfun->cfg->x_exit_block_ptr->prev_bb->index))
+														{
+															debug_gimple_stmt(u_stmt);
+															warning_at(gimple_location_safe(u_stmt), 0, "use location");
+															succ_havereturn=1;
+															fprintf(stderr, "\033[40;31m    branch possiable have return in bb:%d \033[0m\n", bb->index);
+															fprintf(stderr, "beacuse in succ := %d have return \n", cfun->cfg->x_exit_block_ptr->prev_bb->index);
+															continue; // break;
+														}
 													}
 												}
 											}
@@ -401,6 +420,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												{
 													if (!strcmp(name, get_name(gimple_call_fn(table_temp->last_stmt))))
 													{
+														fprintf(stderr, "\n======================================================================\n");
 														fprintf(stderr, "\n Expand conflict \n", name);
 														fprintf(stderr, " The same function may have multiple branches :%s\n", name);
 														debug_gimple_stmt(table_temp->last_stmt);
@@ -411,14 +431,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														// fprintf(stderr, "\n Expand conflict %d \n", gimple_bb(u_stmt)->index);
 
 														// check_bbinfo(gimple_bb(u_stmt));
-														check_bbinfo(table_temp->node,gimple_bb(u_stmt));
-															// fprintf(stderr, "succs:= %d\n", gimple_bb(u_stmt)->index);
+														check_bbinfo(table_temp->node, gimple_bb(u_stmt));
+														// fprintf(stderr, "succs:= %d\n", gimple_bb(u_stmt)->index);
 
-														while (new_path_array.size())
-														{
+														// while (new_path_array.size())
+														// {
 
-															new_path_array.pop_back();
-														}
+														// 	new_path_array.pop_back();
+														// }
 														continue;
 													}
 												}
@@ -699,53 +719,53 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										}
 									}
 
-									if (gimple_cond_code(u_stmt))
-									{
-										if (!is_gimple_assign(u_stmt))
-											if (gimple_cond_lhs(u_stmt))
-											{
-												debug_gimple_stmt(u_stmt);
-												fprintf(stderr, "\n ================== find cond branch ================= \n");
-												// debug(u_stmt);
-												warning_at(gimple_location_safe(u_stmt), 0, "use location");
-												// fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
+									// if (gimple_cond_code(u_stmt))
+									// {
+									// 	if (!is_gimple_assign(u_stmt))
+									// 		if (gimple_cond_lhs(u_stmt))
+									// 		{
+									// 			debug_gimple_stmt(u_stmt);
+									// 			fprintf(stderr, "\n ================== find cond branch ================= \n");
+									// 			// debug(u_stmt);
+									// 			warning_at(gimple_location_safe(u_stmt), 0, "use location");
+									// 			// fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
 
-												//
+									// 			//
 
-												basic_block bb;
-												FOR_EACH_BB_FN(bb, table_temp->node->get_fun())
-												{
-													// debug_tree( table_temp->node->get_fun()->decl);
-													if (bb->index == gimple_bb(u_stmt)->index)
-													{
-														if (bb != table_temp->node->get_fun()->cfg->x_exit_block_ptr->prev_bb)
-														{
-															edge e;
-															edge_iterator ei;
+									// 			basic_block bb;
+									// 			FOR_EACH_BB_FN(bb, table_temp->node->get_fun())
+									// 			{
+									// 				// debug_tree( table_temp->node->get_fun()->decl);
+									// 				if (bb->index == gimple_bb(u_stmt)->index)
+									// 				{
+									// 					if (bb != table_temp->node->get_fun()->cfg->x_exit_block_ptr->prev_bb)
+									// 					{
+									// 						edge e;
+									// 						edge_iterator ei;
 
-															// fprintf(stderr, "node:= %d\n", bb->index);
-															fprintf(stderr, "Cond in fucntion %s basic block %d", (char *)get_name(table_temp->node->get_fun()->decl), bb->index);
-															FOR_EACH_EDGE(e, ei, bb->succs)
-															{
-																// DFS.addEdge(bb->index, e->dest->index);
-																fprintf(stderr, "\n ================== possible direct basic block ================= \n");
-																fprintf(stderr, "from %s basic block %d", (char *)get_name(table_temp->node->get_fun()->decl), e->dest->index);
-																// fprintf(stderr, "succs:= %d\n", e->dest->index);
-															}
-															fprintf(stderr, "\n ================== warring ================== \n");
+									// 						// fprintf(stderr, "node:= %d\n", bb->index);
+									// 						fprintf(stderr, "Cond in fucntion %s basic block %d", (char *)get_name(table_temp->node->get_fun()->decl), bb->index);
+									// 						FOR_EACH_EDGE(e, ei, bb->succs)
+									// 						{
+									// 							// DFS.addEdge(bb->index, e->dest->index);
+									// 							fprintf(stderr, "\n ================== possible direct basic block ================= \n");
+									// 							fprintf(stderr, "from %s basic block %d", (char *)get_name(table_temp->node->get_fun()->decl), e->dest->index);
+									// 							// fprintf(stderr, "succs:= %d\n", e->dest->index);
+									// 						}
+									// 						fprintf(stderr, "\n ================== warring ================== \n");
 
-															// debug(checkTree);
-															fprintf(stderr, "\033[40;35m    need check this branch possible have return or exit stmt \033[0m\n");
-															// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
+									// 						// debug(checkTree);
+									// 						fprintf(stderr, "\033[40;35m    need check this branch possible have return or exit stmt \033[0m\n");
+									// 						// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");
 
-															// fprintf(stderr, "this stmt possible is heap-object 。\n");
-															fprintf(stderr, "\n ================== warring ================== \n");
-														}
-													}
-												}
-												fprintf(stderr, "\n ================== find cond branch ================= \n");
-											}
-									}
+									// 						// fprintf(stderr, "this stmt possible is heap-object 。\n");
+									// 						fprintf(stderr, "\n ================== warring ================== \n");
+									// 					}
+									// 				}
+									// 			}
+									// 			fprintf(stderr, "\n ================== find cond branch ================= \n");
+									// 		}
+									// }
 
 									if ((gimple_code(u_stmt) == GIMPLE_CALL) && (find_mallocstmt == IS_MALLOC_FUCNTION || find_mallocstmt == IS_OTHRER_FUCNTION))
 									{
@@ -1084,8 +1104,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												// free_type.Looserulesfree = 1;
 												debug_gimple_stmt(free_array.at(i).stmt);
 												warning_at(gimple_location_safe(free_array.at(i).stmt), 0, "Use after free error!: free location ");
+												check_bbinfo(table_temp->node, gimple_bb(free_array.at(i).stmt));
 												debug_gimple_stmt(u_stmt);
 												warning_at(gimple_location_safe(u_stmt), 0, "use location");
+												check_bbinfo(table_temp->node, gimple_bb(u_stmt));
 												fprintf(stderr, "\n ================== warring ================== \n");
 
 												if (!strcmp(name, "realloc"))
@@ -1096,7 +1118,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													fprintf(stderr, "\033[40;35m    Use after free error! \033[0m\n");
 
 												// check_bbinfo(gimple_bb(free_array.at(i).stmt));
-												check_bbinfo(table_temp->node,gimple_bb(free_array.at(i).stmt));
+												// debug_tree(table_temp->node->decl);
+												// debug_tree(gimple_call_fndecl(free_array.at(i).stmt));
+												// fprintf(stderr, "\033[40;35m    Use after free error! %d \033[0m\n",gimple_bb(free_array.at(i).stmt)->index);
+												// check_bbinfo(table_temp->node, gimple_bb(free_array.at(i).stmt));
+
 												// debug(checkTree);
 												// fprintf(stderr, "\033[40;35m    Use after free error! \033[0m\n");
 												// fprintf(stderr, "\033[40;35m    this stmt possible is heap-object 。 \033[0m\n");

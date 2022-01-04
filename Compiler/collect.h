@@ -277,7 +277,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 				tree get_function_arg_tree = gimple_call_arg(gc, 0);
 				vector<return_type> ret_type_array;
 
-				// fprintf(stderr, "GIMPLE_RETURN\n");
+				// fprintf(stderr, "GIMPLE_exit\n");
 				if (get_function_return_tree)
 				{
 					// debug_gimple_stmt(gc);
@@ -289,6 +289,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					ret_type.stmt = gc;
 					ret_type.return_tree = get_function_return_tree;
 					// ret_type.reutnr_type_num = 0;
+						global_ret_type_array.push_back(ret_type);
 					fun_array.return_type_array.push_back(ret_type);
 					function_return_collect->put(node->get_fun()->decl, fun_array);
 				}
