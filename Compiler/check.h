@@ -49,7 +49,23 @@ int check_stmtStack2(gimple *stmt)
 	new_gimple_array.push_back(stmt);
 	return 0;
 }
-int check_stmtStack3(gimple *stmt)
+int check_stmtStack3(tree target)
+{
+	for (int o = 0; o < new_gimpletree_array.size(); o++)
+	{
+
+		if (new_gimpletree_array[o] == target)
+		{
+
+			return 1;
+		}
+	}
+	int size = sizeof(tree);
+	totalsize += size;
+
+	return 0;
+}
+int check_stmtStack4(gimple *stmt)
 {
 
 	for (int o = 0; o < new_gimple_array.size(); o++)
@@ -62,22 +78,6 @@ int check_stmtStack3(gimple *stmt)
 		}
 	}
 	int size = sizeof(stmt);
-	totalsize += size;
-
-	return 0;
-}
-int check_stmtStack4(tree target)
-{
-	for (int o = 0; o < new_gimpletree_array.size(); o++)
-	{
-
-		if (new_gimpletree_array[o] == target)
-		{
-
-			return 1;
-		}
-	}
-	int size = sizeof(tree);
 	totalsize += size;
 
 	return 0;

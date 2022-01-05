@@ -434,11 +434,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														check_bbinfo(table_temp->node, gimple_bb(u_stmt));
 														// fprintf(stderr, "succs:= %d\n", gimple_bb(u_stmt)->index);
 
-														// while (new_path_array.size())
-														// {
-
-														// 	new_path_array.pop_back();
-														// }
 														continue;
 													}
 												}

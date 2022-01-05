@@ -1,11 +1,12 @@
 CC=gcc-11.1
 CPP=g++-11.1
 DEBUG=-g
-CFLAGS=-c -O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fno-inline  -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions -fprofile-report 
+CFLAGS=-c -O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fprofile-report 
 LFLAGS=-lpthread -lm
 LD=ld
 INCLUDE_MAIN=-DINCLUDEMAIN
 PLUGIN=-fanalyzer -Wanalyzer-use-after-free
+#PLUGIN=-fplugin=./newplugin.so
 INCLUDES=-I ../../testcasesupport
 
 MAIN=main_linux.cpp
@@ -57,10 +58,10 @@ $(INDIVIDUALS_CPP): $(C_SUPPORT_OBJECTS)
 	$(CPP) $(INCLUDES) $(INCLUDE_MAIN) -o $@ $(wildcard $(subst .out,,$@)*.cpp) $(C_SUPPORT_OBJECTS) $(LFLAGS)
 
 $(TARGET) : $(OBJECTS)
-	$(CPP) $(LFLAGS) -D OMITBAD $(OBJECTS) -o $(TARGET)
+	$(CPP) $(LFLAGS)  $(OBJECTS) -o $(TARGET)
 
 $(C_OBJECTS) : %.o:%.c 
-	$(CC) -D INCLUDEMAIN -D OMITGOO $(PLUGIN) $(LTO) $(CFLAGS) $(INCLUDES)  $^ -o  2> $@.log $@
+	$(CC) -D INCLUDEMAIN  $(PLUGIN) $(LTO) $(CFLAGS) $(INCLUDES)  $^ -o  2> $@.log $@
 
 $(CPP_OBJECTS) : %.o:%.cpp
 	#$(CPP) -D INCLUDEMAIN -D OMITGOOD $(PLUGIN) $(LTO) $(CFLAGS) $(INCLUDES) $^ -o 2> $@.log $@

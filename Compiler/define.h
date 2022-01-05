@@ -41,7 +41,7 @@ bool ipa = true;
 bool vscode_extensionmod = false;
 bool Looserulesfree =true;
 bool useafterfree =true;
-bool debugmod = false;
+bool debugmod = true;
 bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;
@@ -361,8 +361,8 @@ int dump_points_to_solution2(FILE *file, struct pt_solution *pt);
 
 void Checknew_search_imm_use_rhs(gimple_array *used_stmt, gimple *use_stmt, tree target, tree target2);
 void Checknew_search_imm_use_lhs(gimple_array *used_stmt, gimple *use_stmt, tree target, tree target2);
-int check_stmtStack4(tree target);
-int check_stmtStack3(gimple *stmt);
+int check_stmtStack4(gimple *stmt);
+int check_stmtStack3(tree target);
 int check_stmtStack2(gimple *stmt);
 int check_stmtStack(tree target);
 

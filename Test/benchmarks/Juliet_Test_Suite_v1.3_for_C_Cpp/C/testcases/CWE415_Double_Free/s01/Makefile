@@ -7,7 +7,8 @@ LD=ld
 INCLUDE_MAIN=-DINCLUDEMAIN
 
 INCLUDES=-I ../../../testcasesupport
-PLUGIN=-fplugin=./newplugin.so
+PLUGIN=-fanalyzer -Wanalyzer-double-free
+#PLUGIN=-fplugin=./newplugin.so
 MAIN=main_linux.cpp
 MAIN_OBJECT=$(MAIN:.cpp=.o)
 

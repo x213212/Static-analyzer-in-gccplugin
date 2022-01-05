@@ -324,7 +324,7 @@ void record_fucntion(cgraph_node *node)
 									symbolicinfo.cond_falsebranch = e->dest;
 									// fprintf(stderr, " false succs:= %d\n", e->dest->index);
 								}
-								fprintf(stderr, " initssssss:= %d\n", init);
+							
 								init++;
 							}
 						}
@@ -342,25 +342,8 @@ void check_bbinfo(cgraph_node *m, basic_block bb)
 {
 
 	int find_path_constraint=0;
-	// fprintf(stderr, "succs:= %d\n", bb->index);
-	// debug_gimple_stmt(syminfo->get(bb)->cond_stmt);
-	// fprintf(stderr, " relate logic:= %d\n", syminfo->get(bb)->prevlogic);
-	// syminfo->get(syminfo->get(bb)->prevlogic;
-	// if(symbolicExecution.size())
 	fprintf(stderr, "prev:= %d\n", bb->index);
-	// basic_block bb2;
 
-	// unsigned int i;
-	// vec<basic_block> region;
-	// region = get_all_dominated_blocks(CDI_DOMINATORS, bb);
-	// FOR_EACH_VEC_ELT(region, i, bb2)
-	// {
-	// 	fprintf(stderr, "succs:= %d\n", bb2->index);
-	// 	//   et_free_tree_force (bb->dom[dir_index]);
-	// 	//   bb->dom[dir_index] = NULL;
-	// }
-	// fDFS->get(m)->is_succ(bb, bb);
-	// if (!check_bbStack(bb))
 	fprintf(stderr, "=======================Path Constaint===========================\n\n");
 	for (int o = 0; o < symbolicExecution.size(); o++)
 	{
@@ -373,17 +356,9 @@ void check_bbinfo(cgraph_node *m, basic_block bb)
 
 			if (symbolicinfotmp->cond_truebranch == bb || dominated_by_p(CDI_DOMINATORS, bb, symbolicinfotmp->cond_truebranch))
 			{
-				// if (!check_bbStack(symbolicinfotmp->cond_truebranch))
-				// fprintf(stderr, "succs:= %d\n", symbolicExecution[o]->index);
-
 				if (gimple_location_safe(symbolicinfotmp->cond_stmt), 0, "use location")
 					debug_gimple_stmt(symbolicinfotmp->cond_stmt);
 				warning_at(gimple_location_safe(symbolicinfotmp->cond_stmt), 0, "use location");
-
-				// if(!check_bbStack(symbolicinfotmp->cond_truebranch))
-				// check_bbinfo2(symbolicinfotmp->cond_truebranch);
-				// printf_bbinfo(symbolicExecution[o], 1);
-				// break;
 
 				find_path_constraint++;
 			}
@@ -394,9 +369,6 @@ void check_bbinfo(cgraph_node *m, basic_block bb)
 					debug_gimple_stmt(symbolicinfotmp->cond_stmt);
 				warning_at(gimple_location_safe(symbolicinfotmp->cond_stmt), 0, "use location");
 
-				// if(!check_bbStack(symbolicinfotmp->cond_falsebranch))
-				// check_bbinfo2(symbolicinfotmp->cond_falsebranch);
-				// printf_bbinfo(symbolicExecution[o], 0);
 				find_path_constraint++;
 			}
 			pop_cfun();
@@ -528,152 +500,6 @@ void detect()
 			{
 				gimple *gc = gsi_stmt(gsi);
 
-				// debug_gimple_stmt(gc);
-				// debug_tree(gimple_block_label(gimple_bb(gc)));
-				// fprintf(stderr, " succs:= %d\n", gimple_bb(gc)->index);
-
-				// gimple stmt type
-				// if (gimple_code(gc) == GIMPLE_GOTO)
-				// {
-				// 	fprintf(stderr, "--------GIMPLE gc -------\n");
-				// 	debug_gimple_stmt(gc);
-				// }
-				// if (gimple_code(gc) == GIMPLE_LABEL)
-				// {
-				// 	fprintf(stderr, "--------GIMPLE gc -------\n");
-				// 	debug_gimple_stmt(gc);
-				// }
-				// if (gimple_code(gc) == EQ_EXPR)
-				// {
-				// 	fprintf(stderr, "--------GIMPLE EQ_EXPR -------\n");
-				// 	debug_gimple_stmt(gc);
-				// }
-				// debug_gimple_stmt(gc);
-				// if (gimple_code(gc) == GIMPLE_SWITCH)
-				// {
-				// 	fprintf(stderr, "--------GIMPLE_SWITCH -------\n");
-				// 	// debug_gimple_stmt(gc);
-				// 	gswitch *swtch = as_a<gswitch *>(gc);
-
-				// 	unsigned lsize1, lsize2, i;
-				// 	lsize1 = gimple_switch_num_labels(swtch);
-				// 	pretty_printer buffer;
-				// 	buffer.buffer->stream = stderr;
-				// 	// debug_tree(gimple_switch_index(swtch));
-				// 	// dump_gimple_fmt (&buffer, 0, "%G <%T, ", swtch,gimple_switch_index (swtch));
-				// 	// pp_gimple_stmt_1(&pp, gc, 1 /* spc */, 0 /* flags */);
-				// 	// for (i = 0; i < lsize1; i++)
-				// 	// {
-				// 	// 	// fprintf(stderr, "--------GIMPLE_SWITCHss %d -------\n",i);
-				// 	// 	tree label1 = gimple_switch_label(swtch, i);
-				// 	// 	tree label = CASE_LABEL(label1);
-				// 	// 	// debug_tree(label);
-				// 	// 	// debug_tree(label1);
-
-				// 	// 	// dump_gimple_switch(buffer, label, spc, flags, false);
-				// 	// 	//    pp_gimple_stmt_1  (&buffer,swtch, 0, 0);
-
-				// 	// 	// if (cfun && cfun->cfg)
-				// 	// 	// {
-				// 	// 	// 	basic_block dest = label_to_block(label);
-				// 	// 	// 	if (dest)
-				// 	// 	// 	{
-				// 	// 	// 		edge label_edge = find_edge(gimple_bb(swtch), dest);
-				// 	// 	// 		debug( label_edge);
-				// 	// 	// 		// if (label_edge && !(flags & TDF_GIMPLE))
-				// 	// 	// 		// 	dump_edge_probability(buffer, label_edge);
-				// 	// 	// 	}
-				// 	// 	// }
-				// 	// 	// debug_tree(label1);
-				// 	// }
-
-				// 	// fprintf(stderr, "--------GIMPLE_SWITCHss -------\n");
-				// 	symbolicExecutionswitch.push_back(bb);
-				// 	symbolicinfo symbolicinfo;
-				// 	symbolicinfo.switch_stmt = gc;
-
-				// 	if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
-				// 	{
-				// 		edge e;
-				// 		edge_iterator ei;
-				// 		// fprintf(stderr, "node:= %d \n", bb->index);
-				// 		// 	//BLOCK_SUPERCONTEXT(gimple_block(u_stmt)
-				// 		// 	int init = 0;
-				// 		FOR_EACH_EDGE(e, ei, bb->succs)
-				// 		{
-				// 			// 		// DFS.addEdge(bb->index, e->dest->index);
-				// 			// 		// debug_tree(test);
-				// 			// 		// if (init == 0)
-				// 			// 		// {
-				// 			// 		// 	symbolicinfo.cond_truebranch = e->dest;
-				// 			// 		// 	fprintf(stderr, " true succs:= %d\n", e->dest->index);
-				// 			// 		// }
-				// 			// 		// else
-				// 			// 		// {
-				// 			// 		// 	symbolicinfo.cond_falsebranch = e->dest;
-				// 			// 		// 	fprintf(stderr, " false succs:= %d\n", e->dest->index);
-				// 			// 		// }
-				// 			// 		// init++;
-				// 			symbolicinfo.switchs.push_back(e->dest);
-				// 			// fprintf(stderr, " succs:= %d\n", e->dest->index);
-				// 		}
-				// 		syminfo->put(bb, symbolicinfo);
-				// 	}
-				// }
-
-				// if (gimple_cond_code(gc))
-				// {
-				// 	enum tree_code code = gimple_cond_code(gc);
-				// 	// if (code == LT_EXPR || code == GT_EXPR || code == LE_EXPR || code == GE_EXPR || code == EQ_EXPR || code == NE_EXPR)
-
-				// 	// 	fprintf(stderr, "--------GIMPLE ok -------\n");
-				// 	// if (dom_info_state(CDI_DOMINATORS) == DOM_OK)
-
-				// 	if (!is_gimple_assign(gc))
-				// 	{
-				// 		// if (gimple_cond_lhs(use_stmt))
-				// 		// debug_gimple_stmt(gc);
-				// 		fprintf(stderr, "--------GIMPLE Cond -------\n");
-
-				// 		symbolicExecution.push_back(bb);
-				// 		symbolicinfo symbolicinfo;
-				// 		symbolicinfo.cond_stmt = gc;
-				// 		symbolicinfo.cond_lhs = gimple_cond_lhs(gc);
-				// 		symbolicinfo.cond_rhs = gimple_cond_rhs(gc);
-
-				// 		// symbolicinfo.cond_stmt= gc;
-
-				// 		if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
-				// 		{
-				// 			edge e;
-				// 			edge_iterator ei;
-				// 			// fprintf(stderr, "node:= %d \n", bb->index);
-				// 			// BLOCK_SUPERCONTEXT(gimple_block(u_stmt)
-				// 			int init = 0;
-				// 			FOR_EACH_EDGE(e, ei, bb->succs)
-				// 			{
-				// 				// DFS.addEdge(bb->index, e->dest->index);
-
-				// 				// debug_tree(test);
-				// 				if (init == 0)
-				// 				{
-				// 					symbolicinfo.cond_truebranch = e->dest;
-				// 					// fprintf(stderr, " true succs:= %d\n", e->dest->index);
-				// 				}
-
-				// 				else
-				// 				{
-				// 					symbolicinfo.cond_falsebranch = e->dest;
-				// 					// fprintf(stderr, " false succs:= %d\n", e->dest->index);
-				// 				}
-				// 				fprintf(stderr, " initssssss:= %d\n", init);
-				// 				init++;
-				// 			}
-				// 		}
-				// 		syminfo->put(bb, symbolicinfo);
-				// 	}
-				// }
-
 				if (is_gimple_call(gc))
 				{
 
@@ -689,19 +515,6 @@ void detect()
 
 					collect_function_return(gc, node, bb);
 				}
-				// set_basic_block info
-				// set_bbinfo(gimple_bb(gc));
-				// basic_block bb2;
-				// unsigned int i;
-				// vec<basic_block> region;
-				// region = get_all_dominated_blocks(CDI_DOMINATORS, bb);
-				// FOR_EACH_VEC_ELT(region, i, bb2)
-				// {
-				// 	fprintf(stderr, "succs:= %d\n", bb2->index);
-				// 	//   et_free_tree_force (bb->dom[dir_index]);
-				// 	//   bb->dom[dir_index] = NULL;
-				// }
-				// fprintf(stderr, "============= \n");
 			}
 		}
 

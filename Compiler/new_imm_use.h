@@ -571,7 +571,7 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 								else
 									set_gimple_array(used_stmt, nowstmt, gimple_assign_lhs(nowstmt), target, NULL);
 
-								if (!check_stmtStack3(nowstmt))
+								if (!check_stmtStack4(nowstmt))
 									if (gimple_assign_lhs(nowstmt) != target2 && !check_stmtStack2(nowstmt))
 
 										new_search_imm_use(used_stmt, gimple_assign_lhs(nowstmt), gimple_assign_lhs(nowstmt));
@@ -669,7 +669,7 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 								if (gimple_assign_rhs1(nowstmt) != target2)
 								{
 
-									if (!check_stmtStack3(nowstmt))
+									if (!check_stmtStack4(nowstmt))
 										if (gimple_assign_rhs1(nowstmt) != target2 && !check_stmtStack2(nowstmt))
 											new_search_imm_use(used_stmt, gimple_assign_rhs1(nowstmt), gimple_assign_rhs1(nowstmt));
 								}
@@ -911,7 +911,7 @@ void Prenew_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 															set_gimple_array(used_stmt, (assign_array.assign_type_array)[i].stmt, gimple_assign_lhs((assign_array.assign_type_array)[i].stmt), target, NULL);
 														// debug(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt));
 														// used_stmt = used_stmt2;
-														if (!check_stmtStack3((assign_array.assign_type_array)[i].stmt))
+														if (!check_stmtStack4((assign_array.assign_type_array)[i].stmt))
 															if (gimple_assign_lhs((assign_array.assign_type_array)[i].stmt) != target2 && !check_stmtStack2((assign_array.assign_type_array)[i].stmt))
 																new_search_imm_use(used_stmt, gimple_assign_lhs((assign_array.assign_type_array)[i].stmt), gimple_assign_lhs((assign_array.assign_type_array)[i].stmt));
 													}
@@ -940,7 +940,7 @@ void Prenew_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 																					// if (!check_stmtStack3((assign_array.assign_type_array)[i].stmt))
 																					// if (gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt) != target2 && !check_stmtStack2((assign_array.assign_type_array)[i].stmt))
-																					// if (!check_stmtStack4(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)))
+																					// if (!check_stmtStack3(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)))
 																					if (gimple_assign_lhs(def_stmt) != target2)
 																						new_search_imm_use(used_stmt, gimple_assign_lhs(def_stmt), gimple_assign_lhs(def_stmt));
 																					// }
@@ -1005,7 +1005,7 @@ void Prenew_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 															// 	debug_gimple_stmt(use_stmt2);
 
 															// }
-															if (!check_stmtStack3((assign_array.assign_type_array)[i].stmt))
+															if (!check_stmtStack4((assign_array.assign_type_array)[i].stmt))
 																if (gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt) != target2 && !check_stmtStack2((assign_array.assign_type_array)[i].stmt))
 																	new_search_imm_use(used_stmt, gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt), gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt));
 														}
@@ -1035,7 +1035,7 @@ void Prenew_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 																					// if (!check_stmtStack3((assign_array.assign_type_array)[i].stmt))
 																					// if (gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt) != target2 && !check_stmtStack2((assign_array.assign_type_array)[i].stmt))
-																					// if (!check_stmtStack4(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)))
+																					// if (!check_stmtStack3(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)))
 																					if (gimple_assign_lhs(def_stmt) != target2)
 																						new_search_imm_use(used_stmt, gimple_assign_lhs(def_stmt), gimple_assign_lhs(def_stmt));
 																					// }
@@ -1179,7 +1179,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 			FOR_EACH_IMM_USE_FAST(use_p, imm_iter, target)
 			{
 				use_stmt = USE_STMT(use_p);
-				if (!check_stmtStack3(use_stmt))
+				if (!check_stmtStack4(use_stmt))
 				{
 
 					// debug_gimple_stmt(use_stmt);

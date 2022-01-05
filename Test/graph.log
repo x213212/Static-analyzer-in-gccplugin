@@ -1,82 +1,2904 @@
 
 
 
+" main
+"->
 
 
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
 
+"
 
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)p6_16 + 4B] = _4
+test.c:61:14: warning: use location
 
+" ]
 
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
 
+"->
 
+" from main basic block 2"
 
+->" MEM[(int *)p6_16 + 4B] = _4
+p6_16 = malloc (100)
+"
 
+->" MEM[(int *)p6_16 + 4B] = _4
+test.c:61:14: warning: use location
 
+"
 
 
+" main
+"->
 
 
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
 
+"
 
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)p6_16 + 4B] = _4
+test.c:61:14: warning: use location
 
+" ]
 
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
 
+"->
 
+" from main basic block 2"
 
+->" MEM[(int *)p6_16 + 4B] = _4
+p6_16 = malloc (100)
+"
 
+->" MEM[(int *)p6_16 + 4B] = _4
+test.c:61:14: warning: use location
 
+"
 
 
+" main
+"->
 
 
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
 
+"
 
+[fontsize = 15 fontcolor=white;label=" form basic block 2: *p6_16 = _2
+test.c:60:14: warning: use location
 
+" ]
 
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
 
+"->
 
+" from main basic block 2"
 
+->" *p6_16 = _2
+p6_16 = malloc (100)
+"
 
+->" *p6_16 = _2
+test.c:60:14: warning: use location
 
+"
 
 
+" main
+"->
 
 
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
 
+"
 
+[fontsize = 15 fontcolor=white;label=" form basic block 2: *p6_16 = _2
+test.c:60:14: warning: use location
 
+" ]
 
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
 
+"->
 
+" from main basic block 2"
 
+->" *p6_16 = _2
+p6_16 = malloc (100)
+"
 
+->" *p6_16 = _2
+test.c:60:14: warning: use location
 
+"
 
 
+" main
+"->
 
 
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
 
+"
 
+[fontsize = 15 fontcolor=white;label=" form basic block 2: p6_18 = realloc (p6_16, 100)
+test.c:57:14: warning: use location
 
+" ]
 
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
 
+"->
 
+" from main basic block 2"
 
+->" p6_18 = realloc (p6_16, 100)
+p6_16 = malloc (100)
+"
 
+->" p6_18 = realloc (p6_16, 100)
+test.c:57:14: warning: use location
 
+"
 
+[color="red" ]
 
 
+" main
+"->
 
 
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
 
+"
 
+[fontsize = 15 fontcolor=white;label=" form basic block 2: p7_20 = realloc (p6_18, 100)
+test.c:58:14: warning: use location
 
+" ]
 
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
 
+"->
 
+" from main basic block 2"
 
+->" p7_20 = realloc (p6_18, 100)
+p6_16 = malloc (100)
+"
 
+->" p7_20 = realloc (p6_18, 100)
+test.c:58:14: warning: use location
+
+"
+
+[color="red" ]
+
+
+" main
+"->
+
+
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: *p7_20 = 48
+test.c:59:15: warning: use location
+
+" ]
+
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
+
+"->
+
+" from main basic block 2"
+
+->" *p7_20 = 48
+p6_16 = malloc (100)
+"
+
+->" *p7_20 = 48
+test.c:59:15: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: p6_16 = malloc (100)
+test.c:54:19: warning: use location
+" ]
+
+" # .MEM_60 = VDEF <.MEM_59(D)>
+p6_16 = malloc (100)
+
+"->
+
+" from main basic block 2"
+
+->" p6_16 = malloc (100)
+p6_16 = malloc (100)
+"
+
+->" p6_16 = malloc (100)
+test.c:54:19: warning: use location
+"
+
+
+" from main basic block 2"
+
+->subgraph cluster_2104475015 { color=lightgrey; style ="dashed";"  MEM[(int *)p6_16 + 4B] = _4
+p6_16 = malloc (100)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_2096599136 { color=lightgrey; style ="dashed";"  MEM[(int *)p6_16 + 4B] = _4
+_4 = (int) _3
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1547785288 { color=lightgrey; style ="dashed";"  *p6_16 = _2
+p6_16 = malloc (100)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1801007264 { color=lightgrey; style ="dashed";"  *p6_16 = _2
+_2 = (int) _1
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_22756292 { color=lightgrey; style ="dashed";"  p6_18 = realloc (p6_16, 100)
+p6_16 = malloc (100)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1385475697 { color=lightgrey; style ="dashed";"  p7_20 = realloc (p6_18, 100)
+p6_18 = realloc (p6_16, 100)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1003026346 { color=lightgrey; style ="dashed";"  *p7_20 = 48
+p7_20 = realloc (p6_18, 100)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1996576307 { color=lightgrey; style ="dashed";"  p6_16 = malloc (100)
+p6_16 = malloc (100)
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_61 = VDEF <.MEM_60>
+p6_18 = realloc (p6_16, 100)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)p6_16 + 4B] = _4
+test.c:61:14: warning: use location
+
+" ]
+
+" # .MEM_61 = VDEF <.MEM_60>
+p6_18 = realloc (p6_16, 100)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(int *)p6_16 + 4B] = _4
+p6_18 = realloc (p6_16, 100)
+"
+
+->" MEM[(int *)p6_16 + 4B] = _4
+test.c:61:14: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_61 = VDEF <.MEM_60>
+p6_18 = realloc (p6_16, 100)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)p6_16 + 4B] = _4
+test.c:61:14: warning: use location
+
+" ]
+
+" # .MEM_61 = VDEF <.MEM_60>
+p6_18 = realloc (p6_16, 100)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(int *)p6_16 + 4B] = _4
+p6_18 = realloc (p6_16, 100)
+"
+
+->" MEM[(int *)p6_16 + 4B] = _4
+test.c:61:14: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_61 = VDEF <.MEM_60>
+p6_18 = realloc (p6_16, 100)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: *p6_16 = _2
+test.c:60:14: warning: use location
+
+" ]
+
+" # .MEM_61 = VDEF <.MEM_60>
+p6_18 = realloc (p6_16, 100)
+
+"->
+
+" from main basic block 2"
+
+->" *p6_16 = _2
+p6_18 = realloc (p6_16, 100)
+"
+
+->" *p6_16 = _2
+test.c:60:14: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_61 = VDEF <.MEM_60>
+p6_18 = realloc (p6_16, 100)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: *p6_16 = _2
+test.c:60:14: warning: use location
+
+" ]
+
+" # .MEM_61 = VDEF <.MEM_60>
+p6_18 = realloc (p6_16, 100)
+
+"->
+
+" from main basic block 2"
+
+->" *p6_16 = _2
+p6_18 = realloc (p6_16, 100)
+"
+
+->" *p6_16 = _2
+test.c:60:14: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_61 = VDEF <.MEM_60>
+p6_18 = realloc (p6_16, 100)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: p6_18 = realloc (p6_16, 100)
+test.c:57:14: warning: use location
+" ]
+
+" # .MEM_61 = VDEF <.MEM_60>
+p6_18 = realloc (p6_16, 100)
+
+"->
+
+" from main basic block 2"
+
+->" p6_18 = realloc (p6_16, 100)
+p6_18 = realloc (p6_16, 100)
+"
+
+->" p6_18 = realloc (p6_16, 100)
+test.c:57:14: warning: use location
+"
+
+[color="red" ]
+
+
+" main
+"->
+
+
+" # .MEM_61 = VDEF <.MEM_60>
+p6_18 = realloc (p6_16, 100)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: *p7_20 = 48
+test.c:59:15: warning: use location
+
+" ]
+
+" # .MEM_61 = VDEF <.MEM_60>
+p6_18 = realloc (p6_16, 100)
+
+"->
+
+" from main basic block 2"
+
+->" *p7_20 = 48
+p6_18 = realloc (p6_16, 100)
+"
+
+->" *p7_20 = 48
+test.c:59:15: warning: use location
+
+"
+
+" from main basic block 2"
+
+->subgraph cluster_1785972442 { color=lightgrey; style ="dashed";"  MEM[(int *)p6_16 + 4B] = _4
+p6_16 = malloc (100)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1169162576 { color=lightgrey; style ="dashed";"  MEM[(int *)p6_16 + 4B] = _4
+_4 = (int) _3
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1574818733 { color=lightgrey; style ="dashed";"  *p6_16 = _2
+p6_16 = malloc (100)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1369134201 { color=lightgrey; style ="dashed";"  *p6_16 = _2
+_2 = (int) _1
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_546792840 { color=lightgrey; style ="dashed";"  p6_18 = realloc (p6_16, 100)
+p6_16 = malloc (100)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_119615750 { color=lightgrey; style ="dashed";"  *p7_20 = 48
+p7_20 = realloc (p6_18, 100)
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_62 = VDEF <.MEM_61>
+p7_20 = realloc (p6_18, 100)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: p7_20 = realloc (p6_18, 100)
+test.c:58:14: warning: use location
+" ]
+
+" # .MEM_62 = VDEF <.MEM_61>
+p7_20 = realloc (p6_18, 100)
+
+"->
+
+" from main basic block 2"
+
+->" p7_20 = realloc (p6_18, 100)
+p7_20 = realloc (p6_18, 100)
+"
+
+->" p7_20 = realloc (p6_18, 100)
+test.c:58:14: warning: use location
+"
+
+[color="red" ]
+
+
+" main
+"->
+
+
+" # .MEM_62 = VDEF <.MEM_61>
+p7_20 = realloc (p6_18, 100)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: *p7_20 = 48
+test.c:59:15: warning: use location
+
+" ]
+
+" # .MEM_62 = VDEF <.MEM_61>
+p7_20 = realloc (p6_18, 100)
+
+"->
+
+" from main basic block 2"
+
+->" *p7_20 = 48
+p7_20 = realloc (p6_18, 100)
+"
+
+->" *p7_20 = 48
+test.c:59:15: warning: use location
+
+"
+
+" from main basic block 2"
+
+->subgraph cluster_1953287939 { color=lightgrey; style ="dashed";"  p7_20 = realloc (p6_18, 100)
+p6_18 = realloc (p6_16, 100)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_571179789 { color=lightgrey; style ="dashed";"  *p7_20 = 48
+p7_20 = realloc (p6_18, 100)
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_66 = VDEF <.MEM_65>
+p9_25 = malloc (0)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: free (p9_25)
+test.c:74:9: warning: use location
+
+" ]
+
+" # .MEM_66 = VDEF <.MEM_65>
+p9_25 = malloc (0)
+
+"->
+
+" from main basic block 2"
+
+->" free (p9_25)
+p9_25 = malloc (0)
+"
+
+->" free (p9_25)
+test.c:74:9: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_66 = VDEF <.MEM_65>
+p9_25 = malloc (0)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p9_25 + 48B].f = _5
+test.c:73:17: warning: use location
+
+" ]
+
+" # .MEM_66 = VDEF <.MEM_65>
+p9_25 = malloc (0)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p9_25 + 48B].f = _5
+p9_25 = malloc (0)
+"
+
+->" MEM[(struct st *)p9_25 + 48B].f = _5
+test.c:73:17: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_66 = VDEF <.MEM_65>
+p9_25 = malloc (0)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p9_25 + 48B].f = _5
+test.c:73:17: warning: use location
+
+" ]
+
+" # .MEM_66 = VDEF <.MEM_65>
+p9_25 = malloc (0)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p9_25 + 48B].f = _5
+p9_25 = malloc (0)
+"
+
+->" MEM[(struct st *)p9_25 + 48B].f = _5
+test.c:73:17: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_66 = VDEF <.MEM_65>
+p9_25 = malloc (0)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: p9_25 = malloc (0)
+test.c:72:25: warning: use location
+" ]
+
+" # .MEM_66 = VDEF <.MEM_65>
+p9_25 = malloc (0)
+
+"->
+
+" from main basic block 2"
+
+->" p9_25 = malloc (0)
+p9_25 = malloc (0)
+"
+
+->" p9_25 = malloc (0)
+test.c:72:25: warning: use location
+"
+
+
+" from main basic block 2"
+
+->subgraph cluster_870127490 { color=lightgrey; style ="dashed";"  free (p9_25)
+p9_25 = malloc (0)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_480744742 { color=lightgrey; style ="dashed";"  MEM[(struct st *)p9_25 + 48B].f = _5
+p9_25 = malloc (0)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1783353679 { color=lightgrey; style ="dashed";"  MEM[(struct st *)p9_25 + 48B].f = _5
+_5 = malloc (1)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_354409708 { color=lightgrey; style ="dashed";"  p9_25 = malloc (0)
+p9_25 = malloc (0)
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_67 = VDEF <.MEM_66>
+_5 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p9_25 + 48B].f = _5
+test.c:73:17: warning: use location
+
+" ]
+
+" # .MEM_67 = VDEF <.MEM_66>
+_5 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p9_25 + 48B].f = _5
+_5 = malloc (1)
+"
+
+->" MEM[(struct st *)p9_25 + 48B].f = _5
+test.c:73:17: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_67 = VDEF <.MEM_66>
+_5 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p9_25 + 48B].f = _5
+test.c:73:17: warning: use location
+
+" ]
+
+" # .MEM_67 = VDEF <.MEM_66>
+_5 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p9_25 + 48B].f = _5
+_5 = malloc (1)
+"
+
+->" MEM[(struct st *)p9_25 + 48B].f = _5
+test.c:73:17: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_67 = VDEF <.MEM_66>
+_5 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: free (p9_25)
+test.c:74:9: warning: use location
+
+" ]
+
+" # .MEM_67 = VDEF <.MEM_66>
+_5 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" free (p9_25)
+_5 = malloc (1)
+"
+
+->" free (p9_25)
+test.c:74:9: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_67 = VDEF <.MEM_66>
+_5 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: _5 = malloc (1)
+test.c:73:19: warning: use location
+" ]
+
+" # .MEM_67 = VDEF <.MEM_66>
+_5 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" _5 = malloc (1)
+_5 = malloc (1)
+"
+
+->" _5 = malloc (1)
+test.c:73:19: warning: use location
+"
+
+
+" from main basic block 2"
+
+->subgraph cluster_392316437 { color=lightgrey; style ="dashed";"  MEM[(struct st *)p9_25 + 48B].f = _5
+_5 = malloc (1)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1502579510 { color=lightgrey; style ="dashed";"  MEM[(struct st *)p9_25 + 48B].f = _5
+_5 = malloc (1)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1005156476 { color=lightgrey; style ="dashed";"  free (p9_25)
+p9_25 = malloc (0)
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1648970461 { color=lightgrey; style ="dashed";"  _5 = malloc (1)
+_5 = malloc (1)
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 11: foo (p_30)
+test.c:146:25: warning: use location
+
+" ]
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"->
+
+" from main basic block 11"
+
+->" foo (p_30)
+p_30 = malloc (10)
+"
+
+->" foo (p_30)
+test.c:146:25: warning: use location
+
+"
+
+
+->" ID : 2138094289
+from foo basic block 2"->
+
+" ID : 90520858 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 90520858 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 7: foo (p_30)
+test.c:134:25: warning: use location
+
+" ]
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"->
+
+" from main basic block 7"
+
+->" foo (p_30)
+p_30 = malloc (10)
+"
+
+->" foo (p_30)
+test.c:134:25: warning: use location
+
+"
+
+
+->" ID : 1203808843
+from foo basic block 2"->
+
+" ID : 939760659 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 939760659 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 6: foo (p_30)
+test.c:130:33: warning: use location
+
+" ]
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"->
+
+" from main basic block 6"
+
+->" foo (p_30)
+p_30 = malloc (10)
+"
+
+->" foo (p_30)
+test.c:130:33: warning: use location
+
+"
+
+
+->" ID : 1577271301
+from foo basic block 2"->
+
+" ID : 300547459 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 300547459 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 5: foo (p_30)
+test.c:126:33: warning: use location
+
+" ]
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"->
+
+" from main basic block 5"
+
+->" foo (p_30)
+p_30 = malloc (10)
+"
+
+->" foo (p_30)
+test.c:126:33: warning: use location
+
+"
+
+
+->" ID : 1767611870
+from foo basic block 2"->
+
+" ID : 1534262668 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1534262668 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 4: foo (p_30)
+test.c:123:25: warning: use location
+
+" ]
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"->
+
+" from main basic block 4"
+
+->" foo (p_30)
+p_30 = malloc (10)
+"
+
+->" foo (p_30)
+test.c:123:25: warning: use location
+
+"
+
+
+->" ID : 249662948
+from foo basic block 2"->
+
+" ID : 1167913510 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1167913510 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: foo (p_30)
+test.c:80:9: warning: use location
+
+" ]
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"->
+
+" from main basic block 2"
+
+->" foo (p_30)
+p_30 = malloc (10)
+"
+
+->" foo (p_30)
+test.c:80:9: warning: use location
+
+"
+
+
+->" ID : 1187786284
+from foo basic block 2"->
+
+" ID : 272419240 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 272419240 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+" ]
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+p_30 = malloc (10)
+"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+" ]
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+p_30 = malloc (10)
+"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+" ]
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+p_30 = malloc (10)
+"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+" ]
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+p_30 = malloc (10)
+"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: p_30 = malloc (10)
+test.c:75:24: warning: use location
+" ]
+
+" # .MEM_70 = VDEF <.MEM_69>
+p_30 = malloc (10)
+
+"->
+
+" from main basic block 2"
+
+->" p_30 = malloc (10)
+p_30 = malloc (10)
+"
+
+->" p_30 = malloc (10)
+test.c:75:24: warning: use location
+"
+
+
+" from main basic block 11"
+
+->subgraph cluster_405905560 { color=lightgrey; style ="dashed";"  foo (p_30)
+p_30 = malloc (10)
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+" ]
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+_6 = malloc (1)
+"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+" ]
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+_6 = malloc (1)
+"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 11: foo (p_30)
+test.c:146:25: warning: use location
+
+" ]
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"->
+
+" from main basic block 11"
+
+->" foo (p_30)
+_6 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:146:25: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 7: foo (p_30)
+test.c:134:25: warning: use location
+
+" ]
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"->
+
+" from main basic block 7"
+
+->" foo (p_30)
+_6 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:134:25: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 6: foo (p_30)
+test.c:130:33: warning: use location
+
+" ]
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"->
+
+" from main basic block 6"
+
+->" foo (p_30)
+_6 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:130:33: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 5: foo (p_30)
+test.c:126:33: warning: use location
+
+" ]
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"->
+
+" from main basic block 5"
+
+->" foo (p_30)
+_6 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:126:33: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 4: foo (p_30)
+test.c:123:25: warning: use location
+
+" ]
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"->
+
+" from main basic block 4"
+
+->" foo (p_30)
+_6 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:123:25: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: foo (p_30)
+test.c:80:9: warning: use location
+
+" ]
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" foo (p_30)
+_6 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:80:9: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+" ]
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+_6 = malloc (1)
+"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+" ]
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+_6 = malloc (1)
+"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: _6 = malloc (1)
+test.c:76:18: warning: use location
+" ]
+
+" # .MEM_71 = VDEF <.MEM_70>
+_6 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" _6 = malloc (1)
+_6 = malloc (1)
+"
+
+->" _6 = malloc (1)
+test.c:76:18: warning: use location
+"
+
+
+" from main basic block 11"
+
+->subgraph cluster_1759284399 { color=lightgrey; style ="dashed";"  foo (p_30)
+p_30 = malloc (10)
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+_7 = malloc (1)
+"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+_7 = malloc (1)
+"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 11: foo (p_30)
+test.c:146:25: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 11"
+
+->" foo (p_30)
+_7 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:146:25: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 7: foo (p_30)
+test.c:134:25: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 7"
+
+->" foo (p_30)
+_7 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:134:25: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 6: foo (p_30)
+test.c:130:33: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 6"
+
+->" foo (p_30)
+_7 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:130:33: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 5: foo (p_30)
+test.c:126:33: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 5"
+
+->" foo (p_30)
+_7 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:126:33: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 4: foo (p_30)
+test.c:123:25: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 4"
+
+->" foo (p_30)
+_7 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:123:25: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: foo (p_30)
+test.c:80:9: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" foo (p_30)
+_7 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:80:9: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+_7 = malloc (1)
+"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+_7 = malloc (1)
+"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: _7 = malloc (1)
+test.c:79:18: warning: use location
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" _7 = malloc (1)
+_7 = malloc (1)
+"
+
+->" _7 = malloc (1)
+test.c:79:18: warning: use location
+"
+
+
+" from main basic block 11"
+
+->subgraph cluster_892999932 { color=lightgrey; style ="dashed";"  foo (p_30)
+p_30 = malloc (10)
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+_7 = malloc (1)
+"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+_7 = malloc (1)
+"
+
+->" MEM[(struct st *)p_30 + 32B].f = _7
+test.c:79:16: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 11: foo (p_30)
+test.c:146:25: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 11"
+
+->" foo (p_30)
+_7 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:146:25: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 7: foo (p_30)
+test.c:134:25: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 7"
+
+->" foo (p_30)
+_7 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:134:25: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 6: foo (p_30)
+test.c:130:33: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 6"
+
+->" foo (p_30)
+_7 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:130:33: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 5: foo (p_30)
+test.c:126:33: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 5"
+
+->" foo (p_30)
+_7 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:126:33: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 4: foo (p_30)
+test.c:123:25: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 4"
+
+->" foo (p_30)
+_7 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:123:25: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: foo (p_30)
+test.c:80:9: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" foo (p_30)
+_7 = malloc (1)
+"
+
+->" foo (p_30)
+test.c:80:9: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+_7 = malloc (1)
+"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+_7 = malloc (1)
+"
+
+->" MEM[(struct st *)p_30 + 48B].f = _6
+test.c:76:16: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: _7 = malloc (1)
+test.c:79:18: warning: use location
+" ]
+
+" # .MEM_73 = VDEF <.MEM_72>
+_7 = malloc (1)
+
+"->
+
+" from main basic block 2"
+
+->" _7 = malloc (1)
+_7 = malloc (1)
+"
+
+->" _7 = malloc (1)
+test.c:79:18: warning: use location
+"
+
+
+" from main basic block 11"
+
+->subgraph cluster_650206033 { color=lightgrey; style ="dashed";"  foo (p_30)
+p_30 = malloc (10)
+";}
+
+
+
+
+
+
+
+
+->" ID : 104317735
+from foo9 basic block 2"->
+
+" ID : 1418464919 stmt(free) :free (z_2(D))
+test.c:33:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1418464919 stmt(free) :free (z_2(D))
+test.c:33:9: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_76 = VDEF <.MEM_75>
+_8 = foo9 (p5_36(D))
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: _8 = foo9 (p5_36(D))
+test.c:99:14: warning: use location
+" ]
+
+" # .MEM_76 = VDEF <.MEM_75>
+_8 = foo9 (p5_36(D))
+
+"->
+
+" from main basic block 2"
+
+->" _8 = foo9 (p5_36(D))
+_8 = foo9 (p5_36(D))
+"
+
+->" _8 = foo9 (p5_36(D))
+test.c:99:14: warning: use location
+"
+
+
+->" ID : 950753493
+from foo9 basic block 2"->
+
+" ID : 1871929605 stmt(free) :free (z_2(D))
+test.c:33:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1871929605 stmt(free) :free (z_2(D))
+test.c:33:9: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_76 = VDEF <.MEM_75>
+_8 = foo9 (p5_36(D))
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: _9 = (long int) _8
+test.c:99:14: warning: use location
+" ]
+
+" # .MEM_76 = VDEF <.MEM_75>
+_8 = foo9 (p5_36(D))
+
+"->
+
+" from main basic block 2"
+
+->" _9 = (long int) _8
+_8 = foo9 (p5_36(D))
+"
+
+->" _9 = (long int) _8
+test.c:99:14: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_76 = VDEF <.MEM_75>
+_8 = foo9 (p5_36(D))
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: p5_38 = (int *) _9
+test.c:99:12: warning: use location
+
+" ]
+
+" # .MEM_76 = VDEF <.MEM_75>
+_8 = foo9 (p5_36(D))
+
+"->
+
+" from main basic block 2"
+
+->" p5_38 = (int *) _9
+_8 = foo9 (p5_36(D))
+"
+
+->" p5_38 = (int *) _9
+test.c:99:12: warning: use location
+
+"
+
+
+" from main basic block 2"
+
+->subgraph cluster_805243940 { color=lightgrey; style ="dashed";"  _8 = foo9 (p5_36(D))
+GIMPLE_NOP
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1200416441 { color=lightgrey; style ="dashed";"  _9 = (long int) _8
+_8 = foo9 (p5_36(D))
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_892359467 { color=lightgrey; style ="dashed";"  p5_38 = (int *) _9
+_9 = (long int) _8
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_76 = VDEF <.MEM_75>
+_8 = foo9 (p5_36(D))
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: _8 = foo9 (p5_36(D))
+test.c:99:14: warning: use location
+" ]
+
+" # .MEM_76 = VDEF <.MEM_75>
+_8 = foo9 (p5_36(D))
+
+"->
+
+" from main basic block 2"
+
+->" _8 = foo9 (p5_36(D))
+_8 = foo9 (p5_36(D))
+"
+
+->" _8 = foo9 (p5_36(D))
+test.c:99:14: warning: use location
+"
+
+
+->" ID : 1993030224
+from foo9 basic block 2"->
+
+" ID : 1472835681 stmt(free) :free (z_2(D))
+test.c:33:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1472835681 stmt(free) :free (z_2(D))
+test.c:33:9: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_76 = VDEF <.MEM_75>
+_8 = foo9 (p5_36(D))
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: _9 = (long int) _8
+test.c:99:14: warning: use location
+" ]
+
+" # .MEM_76 = VDEF <.MEM_75>
+_8 = foo9 (p5_36(D))
+
+"->
+
+" from main basic block 2"
+
+->" _9 = (long int) _8
+_8 = foo9 (p5_36(D))
+"
+
+->" _9 = (long int) _8
+test.c:99:14: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_76 = VDEF <.MEM_75>
+_8 = foo9 (p5_36(D))
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: p5_38 = (int *) _9
+test.c:99:12: warning: use location
+
+" ]
+
+" # .MEM_76 = VDEF <.MEM_75>
+_8 = foo9 (p5_36(D))
+
+"->
+
+" from main basic block 2"
+
+->" p5_38 = (int *) _9
+_8 = foo9 (p5_36(D))
+"
+
+->" p5_38 = (int *) _9
+test.c:99:12: warning: use location
+
+"
+
+
+" from main basic block 2"
+
+->subgraph cluster_1298265027 { color=lightgrey; style ="dashed";"  _8 = foo9 (p5_36(D))
+GIMPLE_NOP
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_2036359207 { color=lightgrey; style ="dashed";"  _9 = (long int) _8
+_8 = foo9 (p5_36(D))
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1594347580 { color=lightgrey; style ="dashed";"  p5_38 = (int *) _9
+_9 = (long int) _8
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_77 = VDEF <.MEM_76>
+foo9 (p5_38)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 3: foo9 (p5_38)
+test.c:116:17: warning: use location
+" ]
+
+" # .MEM_77 = VDEF <.MEM_76>
+foo9 (p5_38)
+
+"->
+
+" from main basic block 3"
+
+->" foo9 (p5_38)
+foo9 (p5_38)
+"
+
+->" foo9 (p5_38)
+test.c:116:17: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_77 = VDEF <.MEM_76>
+foo9 (p5_38)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 3: foo9 (p5_38)
+test.c:116:17: warning: use location
+" ]
+
+" # .MEM_77 = VDEF <.MEM_76>
+foo9 (p5_38)
+
+"->
+
+" from main basic block 3"
+
+->" foo9 (p5_38)
+foo9 (p5_38)
+"
+
+->" foo9 (p5_38)
+test.c:116:17: warning: use location
+"
+
+
+" from main basic block 3"
+
+->subgraph cluster_1143194564 { color=lightgrey; style ="dashed";"  foo9 (p5_38)
+p5_38 = (int *) _9
+";}
+
+" from main basic block 3"
+
+->subgraph cluster_608704288 { color=lightgrey; style ="dashed";"  foo9 (p5_38)
+p5_38 = (int *) _9
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_84 = VDEF <.MEM_83>
+foo9 (p5_38)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 5: foo9 (p5_38)
+test.c:127:33: warning: use location
+" ]
+
+" # .MEM_84 = VDEF <.MEM_83>
+foo9 (p5_38)
+
+"->
+
+" from main basic block 5"
+
+->" foo9 (p5_38)
+foo9 (p5_38)
+"
+
+->" foo9 (p5_38)
+test.c:127:33: warning: use location
+"
+
+
+" from main basic block 5"
+
+->subgraph cluster_811657298 { color=lightgrey; style ="dashed";"  foo9 (p5_38)
+p5_38 = (int *) _9
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_80 = VDEF <.MEM_78>
+foo (p3_44(D))
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 8: foo (p3_44(D))
+test.c:137:33: warning: use location
+" ]
+
+" # .MEM_80 = VDEF <.MEM_78>
+foo (p3_44(D))
+
+"->
+
+" from main basic block 8"
+
+->" foo (p3_44(D))
+foo (p3_44(D))
+"
+
+->" foo (p3_44(D))
+test.c:137:33: warning: use location
+"
+
+
+->" ID : 1828037134
+from foo basic block 2"->
+
+" ID : 896148411 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 896148411 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_80 = VDEF <.MEM_78>
+foo (p3_44(D))
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 8: foo (p3_44(D))
+test.c:137:33: warning: use location
+" ]
+
+" # .MEM_80 = VDEF <.MEM_78>
+foo (p3_44(D))
+
+"->
+
+" from main basic block 8"
+
+->" foo (p3_44(D))
+foo (p3_44(D))
+"
+
+->" foo (p3_44(D))
+test.c:137:33: warning: use location
+"
+
+
+->" ID : 1350247522
+from foo basic block 2"->
+
+" ID : 1380631075 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1380631075 stmt(free) :free (z_2(D))
+test.c:29:9: warning: use location
+"
+
+
+" from main basic block 8"
+
+->subgraph cluster_714998983 { color=lightgrey; style ="dashed";"  foo (p3_44(D))
+GIMPLE_NOP
+";}
+
+" from main basic block 8"
+
+->subgraph cluster_95763807 { color=lightgrey; style ="dashed";"  foo (p3_44(D))
+GIMPLE_NOP
+";}
 
 
 

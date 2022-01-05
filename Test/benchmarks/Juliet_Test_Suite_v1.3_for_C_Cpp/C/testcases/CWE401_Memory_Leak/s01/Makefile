@@ -7,6 +7,7 @@ LD=ld
 INCLUDE_MAIN=-DINCLUDEMAIN
 
 INCLUDES=-I ../../../testcasesupport
+#PLUGIN=-fanalyzer  -Wanalyzer-malloc-leak
 PLUGIN=-fplugin=./newplugin.so
 MAIN=main_linux.cpp
 MAIN_OBJECT=$(MAIN:.cpp=.o)
@@ -60,11 +61,11 @@ $(TARGET) : $(OBJECTS)
 	$(CPP) $(LFLAGS) $(OBJECTS) -o $(TARGET)  
 
 $(C_OBJECTS) : %.o:%.c 
-	-$(CC) -D INCLUDEMAIN -D OMITGOO $(PLUGIN) $(LTO) $(CFLAGS) $(INCLUDES)  $^ -o  2> $@.log $@
+	-$(CC) -D INCLUDEMAIN  $(PLUGIN) $(LTO) $(CFLAGS) $(INCLUDES)  $^ -o  2> $@.log $@
 	#@sh ./test.sh $@
 
 $(CPP_OBJECTS) : %.o:%.cpp
-	#-$(CPP) -D INCLUDEMAIN -D OMITGOO $(PLUGIN) $(LTO) $(CFLAGS) $(INCLUDES) $^ -o 2> $@.log $@
+	#-$(CPP) -D INCLUDEMAIN -D OMITBAD $(PLUGIN) $(LTO) $(CFLAGS) $(INCLUDES) $^ -o 2> $@.log $@
 	#@sh ./test.sh $@
 
 $(C_SUPPORT_OBJECTS) : $(C_SUPPORT_FILES)
