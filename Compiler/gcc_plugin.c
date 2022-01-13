@@ -33,7 +33,7 @@
 #include "stmt.h"
 #include "ssa-iterators.h"
 #include "attribs.h"
-
+// #include "timevar.h"
 //#include "DFS.h"
 #include "Algorithm.h"
 #include "tree-pass.h"
@@ -56,12 +56,15 @@ const pass_data inline_pass_data =
         0,               /* todo_flags_start */
         0,               /* todo_flags_finish */
 };
+        // "inline_pass_test",   /* name */
+        // OPTGROUP_INLINE, /* optinfo_flags */
+        // TV_ANALYZER_TESTHAHA,  
 const pass_data detect_pass_data =
     {
         .type = SIMPLE_IPA_PASS, // SIMPLE_IPA_PASS,GIMPLE_PASS
         .name = "static_analyzer",
         .optinfo_flags = OPTGROUP_NONE,
-        .tv_id = TV_IPA_PTA,
+        .tv_id = TV_IPA_DECTE,
         .properties_required = PROP_ssa,
         .properties_provided = 0,
         .properties_destroyed = 0,
@@ -104,6 +107,7 @@ make_pass_ipa_always(gcc::context *ctxt)
 
 static int execute_detect(void)
 {
+  
   detect();
 
   return 0;
@@ -154,7 +158,7 @@ int plugin_init(struct plugin_name_args *plugin_info, struct plugin_gcc_version 
   detect_passinfo.ref_pass_instance_number = 0;
   detect_passinfo.pos_op = PASS_POS_INSERT_AFTER;
 
-  const char *const plugin_name = plugin_info->base_name;
+  // const char *const plugin_name = plugin_info->base_name;
 
   // register_callback("rest_inline", PLUGIN_PASS_MANAGER_SETUP, NULL, &inline_passinfo);
   register_callback("static_analyzer", PLUGIN_PASS_MANAGER_SETUP, NULL, &detect_passinfo);

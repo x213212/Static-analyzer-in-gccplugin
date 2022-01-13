@@ -10,7 +10,6 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 		gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == ARRAY_REF ||
 		gimple_assign_rhs1(use_stmt) && TREE_CODE(gimple_assign_rhs1(use_stmt)) == COMPONENT_REF ||
 		gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == COMPONENT_REF)
-
 	{
 		/*
 		int *foo(int z)
@@ -115,19 +114,14 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 									assign_type_array = assign_array.assign_type_array;
 									if (function_assign_collect->get(second2) != NULL)
 									{
-
 										if (TREE_CODE(second) != VAR_DECL)
 											for (int i = 0; i < assign_array.assign_type_array.size(); i++)
 											{
-
 												if (gimple_code((assign_array.assign_type_array)[i].stmt) == GIMPLE_ASSIGN)
 												{
-
 													if (TREE_CODE(gimple_assign_rhs1((assign_array.assign_type_array)[i].stmt)) == SSA_NAME)
 													{
-
 														tree filed_from = TREE_OPERAND(second, 0);
-
 														tree filed_from2 = TREE_OPERAND((assign_array.assign_type_array)[i].assign_tree, 0);
 
 														if (TREE_CODE(filed_from2) == MEM_REF)
@@ -1158,21 +1152,14 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 				has_single_use_flag = 1;
 				if (target != target2)
 				{
-
 					use_stmt = USE_STMT(head->next);
-
 					goto has_single_use_jump;
 				}
 			}
 
 		if (levelsize > 1)
 			if (target == now_tree)
-			{
-				// if (!check_stmtStack3(use_stmt))
-				// goto has_single_use_jump2;
-				// 	// return;
 				return;
-			}
 
 		// need check tree target != null than compiler error
 		if (num_imm_uses(target) && head->next != NULL)
@@ -1181,45 +1168,9 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 				use_stmt = USE_STMT(use_p);
 				if (!check_stmtStack4(use_stmt))
 				{
-
 					// debug_gimple_stmt(use_stmt);
-					// if(gimple_code (use_stmt) == GIMPLE_LABEL){
-					// 	fprintf(stderr, "--------GIMPLE LABEL -------\n");
-					// 	debug_gimple_stmt(use_stmt);
-					// }
-					// if(target ==target2)
-					// if (target2 == NULL)
-					// {
-					// debug_tree(target);
-					// if(target == target2)
-					// fprintf(stderr, "possible recivedebug module\n");
-					// debug(use_stmt);
-					// fprintf(stderr, "debug module2\n");
-					// continue;
-					// if (gimple_code(use_stmt) == GIMPLE_ASSIGN)
-					// 	if (gimple_assign_lhs(use_stmt) && TREE_CODE(gimple_assign_lhs(use_stmt)) == VAR_DECL)
-					// 	{
-					// 		gimple *def_stmt = SSA_NAME_DEF_STMT(target2);
-					// 		if (gimple_code(def_stmt) == GIMPLE_ASSIGN)
-					// 		{
-					// 			if (TREE_CODE(gimple_assign_rhs1(def_stmt)) == VAR_DECL)
-					// 			{
-					// 				fprintf(stderr, "debug mo\n");
-					// 			}
-					// 		}
-					// 	}
-					// continue;
-					// }
-					// gimple *def_stmt2 = SSA_NAME_DEF_STMT(target2);
-					// if ( (target2 == gimple_assign_rhs1(use_stmt)))
-					// 	continue;
-					// if ( (target2 == gimple_assign_lhs(use_stmt)))
-					// 	continue;
-					// if(gimple_assign_lhs(def_stmt)==)
-					// fprintf(stderr,"			FOR_EACH_IMM_USE_STMT INSIDE-------------------------------\n");
 
 				has_single_use_jump:
-
 					if (gimple_cond_code(use_stmt))
 					{
 						// debug_gimple_stmt(use_stmt);
@@ -1227,17 +1178,10 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						if (!is_gimple_assign(use_stmt))
 							if (gimple_cond_lhs(use_stmt))
 							{
-								// debug_gimple_stmt(use_stmt);
-								// fprintf(stderr, "--------GIMPLE Cond -------\n");
-
 								const gcond *gc = GIMPLE_CHECK2<const gcond *>(use_stmt);
-
 								if (gimple_cond_rhs(gc) && gimple_cond_lhs(gc))
 									if (!check_stmtStack(gimple_cond_rhs(gc)))
-									{
-
 										set_gimple_array(used_stmt, use_stmt, gimple_cond_lhs(gc), target, NULL);
-									}
 							}
 					}
 
@@ -1247,9 +1191,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						// fprintf(stderr, "------------------GIMPLE_RETURN : LHS------------------\n");
 						tree return_tree = gimple_return_retval(as_a<greturn *>(use_stmt));
 						if (!check_stmtStack(return_tree))
-						{
 							set_gimple_array(used_stmt, use_stmt, return_tree, return_tree, NULL);
-						}
 					}
 					// add new rule in there warring need double check possiable loop
 					else if (gimple_code(use_stmt) == GIMPLE_ASSIGN)
@@ -1289,10 +1231,8 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 										// check_stmtStack2((use_stmt));
 										// set_gimple_array(used_stmt, use_stmt, gimple_assign_rhs1(use_stmt), target, NULL);
 										if (gimpleassignrhs != target2 && !check_stmtStack2((use_stmt)))
-										{
-
 											new_search_imm_use(used_stmt, gimpleassignrhs, gimpleassignrhs);
-										}
+
 										Checknew_search_imm_use_rhs(used_stmt, use_stmt, target, target2);
 									}
 								}
@@ -1302,42 +1242,32 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 							if (!check_stmtStack(gimpleassignrhs))
 							{
 								// fprintf(stderr, "------------------SSA_NAME : rhs ssaname------------------\n");
-
 								set_gimple_array(used_stmt, use_stmt, gimpleassignrhs, target, NULL);
 
 								if (gimpleassignrhs != target2)
-								{
-
 									new_search_imm_use(used_stmt, gimpleassignrhs, gimpleassignrhs);
-								}
+
 								Checknew_search_imm_use_rhs(used_stmt, use_stmt, target, target2);
 							}
 						}
+
 						// if (!check_stmtStack3(use_stmt))
 						// possiable rhs is vardecl
 						if (!check_stmtStack(target))
 						{
-							// fprintf(stderr, "------------------SSA_NAME : rhs ssaname------------------\n");
-
 							set_gimple_array(used_stmt, use_stmt, target, target2, NULL);
-
-							// if (target != target2)
-							// {
-							// }
 						}
 						Varnew_search_imm_use(used_stmt, use_stmt, target, target2);
-
+						// lhssssssssssssssssssssssssssss
 						if (gimpleassignlhs && TREE_CODE(gimpleassignlhs) == MEM_REF)
 						{
 
 							tree fundecl = TREE_OPERAND(gimpleassignlhs, 0);
 
+							// fprintf(stderr, "============MEM_REF==================\n");
+							// debug_gimple_stmt(use_stmt);
 							if (!check_stmtStack(gimpleassignlhs))
-							{
-								// fprintf(stderr, "ewwwwwwwwwwwwwwwwwwwwww");
-								// debug_gimple_stmt(use_stmt);
 								set_gimple_array(used_stmt, use_stmt, gimpleassignlhs, target, NULL);
-							}
 						}
 
 						else if (gimpleassignlhs && TREE_CODE(gimpleassignlhs) == COMPONENT_REF)
@@ -1376,32 +1306,19 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 					else if (gimple_code(use_stmt) == GIMPLE_PHI)
 					{
-						// debug_tree(gimple_assign_lhs(use_stmt));
-						// debug_tree(gimple_phi_result(use_stmt));
-
 						if (gimple_phi_result(use_stmt) && TREE_CODE(gimple_phi_result(use_stmt)) == SSA_NAME)
-						{
 							if (TREE_CODE(gimple_phi_result(use_stmt)) == SSA_NAME)
-							{
 								if (!check_stmtStack(gimple_phi_result(use_stmt)) && !check_stmtStack2(use_stmt))
 								{
 									set_gimple_array(used_stmt, use_stmt, gimple_phi_result(use_stmt), target, NULL);
 									// debug_tree(gimple_phi_result(use_stmt));
 									if (gimple_phi_result(use_stmt) != target2)
-									{
-										// if (has_zero_uses(gimple_phi_result(use_stmt)))
-										//  const ssa_use_operand_t *const head = &(SSA_NAME_IMM_USE_NODE (gimple_phi_result(use_stmt)));
-										//  if(head->next != NULL){
-										// }
 										new_search_imm_use(used_stmt, gimple_phi_result(use_stmt), gimple_phi_result(use_stmt));
-									}
 								}
-							}
-						}
 					}
 					else if (gimple_code(use_stmt) == GIMPLE_CALL)
 					{
-						// fprintf(stderr, "GIMPLE_CALL2\n");
+						// fprintf(stderr, "GIMPLE_CALL\n");
 
 						if (gimple_call_fn(use_stmt) == NULL)
 							return;
@@ -1410,7 +1327,6 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						if (name != NULL)
 							if (!strcmp(name, "realloc"))
 							{
-
 								if (gimple_call_lhs(use_stmt))
 									if (!check_stmtStack(gimple_call_lhs(use_stmt)))
 									{
@@ -1420,22 +1336,20 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 										if (TREE_CODE(gimple_call_lhs(use_stmt)) == SSA_NAME)
 											new_search_imm_use(used_stmt, gimple_call_lhs(use_stmt), gimple_call_lhs(use_stmt));
 									}
-									else 
-								 if (gimple_call_fn(use_stmt))
+									else if (gimple_call_fn(use_stmt))
 									{
-										if (!check_stmtStack(gimple_call_arg(use_stmt,0)))
+										if (!check_stmtStack(gimple_call_arg(use_stmt, 0)))
 										{
 
-											set_gimple_array(used_stmt, use_stmt,gimple_call_arg(use_stmt,0), target, NULL);
+											set_gimple_array(used_stmt, use_stmt, gimple_call_arg(use_stmt, 0), target, NULL);
 
-											if (TREE_CODE(gimple_call_arg(use_stmt,0)) == SSA_NAME)
-												new_search_imm_use(used_stmt, gimple_call_arg(use_stmt,0), gimple_call_arg(use_stmt,0));
+											if (TREE_CODE(gimple_call_arg(use_stmt, 0)) == SSA_NAME)
+												new_search_imm_use(used_stmt, gimple_call_arg(use_stmt, 0), gimple_call_arg(use_stmt, 0));
 										}
 									}
 							}
 							else if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 							{
-
 								if (!check_stmtStack(gimple_call_fn(use_stmt)))
 								{
 
@@ -1444,7 +1358,6 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 										new_search_imm_use(used_stmt, gimple_call_fn(use_stmt), gimple_call_fn(use_stmt));
 								}
 							}
-
 							else if (!strcmp(name, "pthread_create") || !strcmp(name, "pthread_join"))
 							{
 
@@ -1549,12 +1462,6 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 												}
 											}
 										}
-
-									// if (gimple_code(use_stmt) == GIMPLE_CALL)
-									// 	name = get_name(gimple_call_fn(use_stmt));
-									// 			!strcmp(name, "pthread_join")
-									// debug_gimple_stmt(use_stmt);
-									// debug_gimple_stmt(use_stmt);
 									if (var_declsuperjump == 1)
 									{
 										return;

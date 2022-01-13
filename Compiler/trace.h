@@ -58,22 +58,16 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 								debug_gimple_stmt(gc);
 							}
 					}
-					// debug_gimple_stmt(gc);
+
 					if (is_gimple_assign(gc))
 					{
 
 						struct ptr_info_def *pi1, *pi2, *pi3, *pi4;
 						pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
 						struct pt_solution *pt1 = &pi1->pt;
-						// dump_points_to_solution2(stderr, &pi1->pt);
-						// fprintf(stderr, "tx%d\n", dump_points_to_solution2(stderr, &pi1->pt));
-						// pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
-						// struct pt_solution *pt1 = &pi1->pt;
-						// now_relatelaststmt = NULL;
 						if (pt1 && relatemod && debugmod)
 							if (TREE_CODE(mallocStmt_tree) == SSA_NAME)
 							{
-								// debug_points_to_info_for(mallocStmt_tree);
 								if (gimple_assign_lhs(gc) != NULL)
 								{
 									if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME || TREE_CODE(gimple_assign_lhs(gc)) == MEM_REF)
@@ -330,11 +324,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 											}
 											pi2 = SSA_NAME_PTR_INFO(gimple_call_arg(gc, 0));
 											struct pt_solution *pt2 = &pi2->pt;
-											// if (pt1->anything)
-											// fprintf(stderr, "ptsoul%u", *pt1.anything);
-											// debug_points_to_info_for(mallocStmt_tree);
-											// debug_points_to_info_for(gimple_call_arg(gc, 0));
-											// debug_tree(gimple_call_arg(gc, 0));
+
 											if (pt2)
 											{
 												if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_call_arg(gc, 0)))
@@ -436,19 +426,16 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 
 int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_tree, int *freecount)
 {
-	// srand((unsigned) time(NULL) + getpid());
 	if (function_path_collect->get(function_tree) == NULL)
 	{
 		return 0;
 	}
 	now_fucntion = rand();
-	// now_laststmtid = 0;
 	function_path_array fun_array = *(function_path_collect->get(function_tree));
 	vector<function_path> function_path_array = fun_array.function_path_array;
 	const char *name;
 	fistconunt = 0;
 
-	// fprintf(stderr, "=======trace_function_path %s  function_call count: %d level :%d========\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 	fprintf(stderr, "\033[40;44m =======trace_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 	if (retmod)
 		if (function_return_collect->get(function_tree) != NULL && fucntion_level == DISABLE_TREACE)
@@ -466,23 +453,14 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 					if (TREE_CODE(mallocStmt_tree) != INTEGER_CST && TREE_CODE(mallocStmt_tree) != FUNCTION_DECL && TREE_CODE((callerRetTypearray)[k].return_tree) != FUNCTION_DECL)
 						if (TREE_CODE((callerRetTypearray)[k].return_tree) != INTEGER_CST)
 						{
-							// fprintf(stderr, "\033[40;31m  find return stmt  \033[0m\n");
-							// debug_tree(mallocStmt_tree);
-							// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-							// debug_points_to_info_for((callerRetTypearray)[k].return_tree);
 							struct ptr_info_def *pi;
 							pi = SSA_NAME_PTR_INFO(mallocStmt_tree);
-
 							struct pt_solution *pt = &pi->pt;
 							if (pi)
 								if (ptr_derefs_may_alias_p((callerRetTypearray)[k].return_tree, mallocStmt_tree))
 								{
 									fprintf(stderr, "\033[40;31m  find return stmt  \033[0m\n");
 									fprintf(stderr, "\033[40;31m  this fucntion return heap-object  \033[0m\n");
-									// debug_tree(mallocStmt_tree);
-									// debug_tree((callerRetTypearray)[k].return_tree);
-									// debug_points_to_info_for(mallocStmt_tree);
-									// debug_points_to_info_for((callerRetTypearray)[k].return_tree);
 									debug_gimple_stmt((callerRetTypearray)[k].stmt);
 									warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
 								}
@@ -506,21 +484,14 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 				debug_gimple_stmt((callerRetTypearray)[k].stmt);
 				if (ptr_derefs_may_alias_p((callerRetTypearray)[k].free_tree, mallocStmt_tree))
 				{
-
-					// fprintf(stderr, "find free stmt free same pointer\n");
-					// debug_tree(mallocStmt_tree);
 					fprintf(stderr, "\033[40;31m  find free stmt free same pointer \033[0m\n");
 					debug_gimple_stmt((callerRetTypearray)[k].stmt);
 					warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-
 					++(*freecount);
-
 					if (freemod && debugmod)
 					{
-
 						if (*(function_basicblock_collect)->get(gimple_block((callerRetTypearray)[k].stmt)) == 0)
 						{
-
 							function_basicblock_collect->put(gimple_block((callerRetTypearray)[k].stmt), 1);
 							fprintf(stderr, "dot graph start relate form ");
 						}
@@ -539,7 +510,6 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 						fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(free) :", x);
 						debug((callerRetTypearray)[k].stmt);
 						warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-						// debug(gimple_assign_lhs((callerRetTypearray)[k].stmt));
 						fprintf(stderr, "dot graph relate end\n\n");
 						// ready add dot graph
 						fprintf(stderr, "dot graph target color desc");
@@ -549,11 +519,11 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 						fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(free) :", x);
 						debug((callerRetTypearray)[k].stmt);
 						warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
-						// debug(gimple_assign_lhs((callerRetTypearray)[k].stmt));
 						fprintf(stderr, "dot graph relate end\n\n");
 					}
 				}
 			}
+			delete function_basicblock_collect;
 		}
 	}
 
@@ -571,7 +541,6 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			if (pthread_detachedmod)
 			{
 				fprintf(stderr, "dot graph start relate form ");
-
 				fprintf(stderr, "ID : %lu\n", now_fucntion);
 				fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb((callerRetTypearray)[k].stmt)->index);
 				fprintf(stderr, "dot graph end relate end\n\n");
@@ -632,27 +601,15 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			struct ptr_info_def *pi1, *pi2, *pi3;
 			pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
 			struct pt_solution *pt1 = &pi1->pt;
-
 			if (pt1 && pt1->null)
 			{
 				trace_fucntion_relate_stmt(node, function_tree, mallocStmt_tree);
-				// if (now_relatelaststmt != NULL)
-				// {
-				// 	// fprintf(stderr, "dot graph subgraph\n");
-				// 	fprintf(stderr, "dot graph subgraph start ID : %lu stmt(free) :", now_relatelaststmtid);
-				// 	debug(now_relatelaststmt);
-				// 	warning_at(gimple_location(now_relatelaststmt), 0, "use location");
-				// 	fprintf(stderr, "dot graph subgrapend\n\n");
-				// }
 			}
 		}
 	}
 	if (fucntion_level != -1 && fucntion_level != DISABLE_TREACE)
 		fucntion_level += 1;
 
-	// checkPointerConstraint(function_tree,ptable,user_tmp);
-	// fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
-	// pathStack.push(function_tree);
 	if (function_path_array.size() == 0)
 	{
 		if (function_return_collect->get(function_tree) != NULL)
@@ -669,9 +626,6 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 	vector<return_type> callerRetTypearray;
 	function_return_array calleeFunArray;
 
-	// thread lock set
-	// function_return_array find_fun_array;
-	// vector<return_type> ret_type_find_fun_array;
 	if (callerFunArray)
 		for (int i = 0; i < function_path_array.size(); i++)
 		{
@@ -688,16 +642,13 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 					break;
 				}
 			}
-			// fprintf(stderr, "%s this is fucntion return value is heap-object \n", get_name((function_path_array)[i].next));
+
 			if ((function_path_array)[i].next)
 				if (function_return_collect->get((function_path_array)[i].next) != NULL)
 				{
-					// if(callerFunArray)
-					// debug_tree(function_tree);
+
 					callerRetTypearray = callerFunArray->return_type_array;
 					calleeFunArray = *(function_return_collect->get((function_path_array)[i].next));
-					// fprintf(stderr, "\033[40;44m =======print_function_type2 %d  ========  \033[0m\n", calleeFunArray.return_type_num);
-					// thread lock set
 					function_return_array find_fun_array;
 					vector<return_type> ret_type_find_fun_array;
 					tree getFucntionDecl = ((function_path_array)[i].next);
@@ -710,12 +661,9 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 					{
 						find_fun_array = *(function_return_collect->get(getFucntionDecl));
 					}
-					// vector<return_type> funcalleeRetTypearray = find_fun_array.return_type_array;
-					// fprintf(stderr, "\033[40;44m =======print_function_typ123123 %d  ========  \033[0m\n", calleeFunArray.return_type_num);
+
 					for (int k = 0; k < callerRetTypearray.size(); k++)
 					{
-						// fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
-
 						if (calleeFunArray.return_type_num == 2)
 							if ((callerRetTypearray)[k].return_tree == (function_path_array)[i].next)
 							{
@@ -729,11 +677,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			if (find == 0)
 			{
 				fprintf(stderr, "\033[40;46m =======add node_fun stack:%s========= \033[0m\n", get_name((function_path_array)[i].next));
-				// fprintf(stderr, "=======add node_fun trace stack:%s=========\n", get_name((function_path_array)[i].next));
-				// debug_tree((function_path_array)[i].next);
 				traceStack.push_back((function_path_array)[i].next);
-				// function_return_array callerFunArray = *(function_return_collect->get(function_tree));
-				// vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
 				trace_function_path((function_path_array)[i].next, fucntion_level, mallocStmt_tree, freecount);
 				traceStack.pop_back();
 			}
@@ -766,24 +710,21 @@ void tracefree_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 
 void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gimple_array *user_tmp)
 {
-	// debug_tree(function_tree);
-	// fprintf(stderr, "\033[40;33m =======POP ode_fun stack:%s========= \033[0m\n", get_name(function_tree));
 	if (function_path_collect->get(function_tree) == NULL)
 		return;
-	// fprintf(stderr, "\033[40;33m =======POP ode_fun stack:%s========= \033[0m\n", get_name(function_tree));
+
 	function_path_array fun_array = *(function_path_collect->get(function_tree));
 	vector<function_path> function_path_array = fun_array.function_path_array;
 	function_return_array callerFunArray;
 	vector<return_type> callerRetTypearray;
-	// debug_tree(function_tree);
-	// vector<pair<fdecl,location_t>> loc;
+
 	fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 	if (function_return_collect->get(function_tree) != NULL)
 	{
 		callerFunArray = *(function_return_collect->get(function_tree));
 		callerRetTypearray = callerFunArray.return_type_array;
 		fprintf(stderr, "\033[40;44m =======print_function_type %d  ========  \033[0m\n", callerFunArray.return_type_num);
-		// fprintf(stderr, "rrrrrr%d-------\n", callerFunArray.pthread_type_num );
+
 		if (callerFunArray.pthread_type_num == FUNCITON_THREAD)
 			fprintf(stderr, "\033[40;44m =======print_pthread_type_is thread_fucntion  ========  \033[0m\n");
 	}
@@ -799,7 +740,6 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 
 		for (int o = 0; o < pathStack.size(); o++)
 		{
-
 			if (pathStack[o] == (function_path_array)[i].next)
 			{
 				find = 1;
@@ -809,10 +749,7 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 		}
 		if (find == 0)
 		{
-			// fprintf(stderr, "\033[40;46m =======add node_fun stack2:%s========= \033[0m\n", get_name((function_path_array)[i].next));
 			pathStack.push_back((function_path_array)[i].next);
-			// checkPointerConstraint((function_path_array)[i].next, ptable, user_tmp, NULL, 0);
-
 			if (function_return_collect->get((function_path_array)[i].next) != NULL)
 			{
 				function_return_array calleeFunArray = *(function_return_collect->get((function_path_array)[i].next));
@@ -823,13 +760,10 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 				tree getFucntionDecl = ((function_path_array)[i].next);
 
 				if (function_return_collect->get(getFucntionDecl) == NULL)
-				{
 					find_fun_array.return_type_array = ret_type_find_fun_array;
-				}
 				else
-				{
 					find_fun_array = *(function_return_collect->get(getFucntionDecl));
-				}
+
 				vector<return_type> funcalleeRetTypearray = find_fun_array.return_type_array;
 
 				for (int k = 0; k < callerRetTypearray.size(); k++)
@@ -844,9 +778,7 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 						}
 						if (find_diff == 0)
 						{
-							// fprintf(stderr, "\033[40;44m ======= print pthread lock stmt %d ========  \033[0m\n" ,(callerRetTypearray)[k].return_type_stmt_num);
-							// debug_gimple_stmt((callerRetTypearray)[k].stmt);
-							// debug_tree((callerRetTypearray)[k].return_tree);
+
 							struct return_type ret_type;
 							ret_type.stmt = (callerRetTypearray)[k].stmt;
 							ret_type.return_tree = (callerRetTypearray)[k].return_tree;
@@ -860,22 +792,15 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 				}
 			}
 			walk_function_path((function_path_array)[i].next, fucntion_level, ptable, user_tmp);
-			// vec.front() - 回傳 vector 第一個元素的值。
-			// vec.back() - 回傳 vector 最尾元素的值。
 			fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
 			pathStack.pop_back();
 		}
 	}
-	// fprintf(stderr, "\033[40;33m =======POP ode_fun stack:%s========= \033[0m\n", get_name(pathStack.top()));
+
 	if (find_thread == FUNCITON_THREAD)
-	{
 		checkPointerConstraint(function_tree, ptable, user_tmp, NULL, FUNCITON_THREAD);
-	}
 	else
-	{
-		// debug_tree(function_tree);
 		checkPointerConstraint(function_tree, ptable, user_tmp, NULL, 0);
-	}
 }
 
 void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
@@ -902,19 +827,17 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 			continue;
 		}
 		// mutlple entry point
-		// fprintf(stderr, "filter\n\n");
 		// if (!strcmp(get_name(cfun->decl), "main"))
-		//  {
+
 		fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
-		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 		fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
-		// fprintf(stderr, "fucntion collect path \n");
+
 		pathStack.push_back(cfun->decl);
 		// debug_tree(node->get_fun()->decl );
 		walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
 		fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
 		pathStack.pop_back();
-		// }
+
 		pop_cfun();
 	}
 	fprintf(stderr, "fucntion collect path finsh\n");

@@ -29,6 +29,112 @@ using namespace std;
 #include "new_imm_use.h"
 #include "check.h"
 #include "analyze.h"
+#include <unistd.h>
+#include <string>
+#include <cstdio>
+#include <cstring>
+void record_fucntion(cgraph_node *node)
+{
+	cgraph_edge *e;
+	basic_block bb;
+	FOR_EACH_DEFINED_FUNCTION(node)
+	{
+
+		if (!gimple_has_body_p(node->decl))
+			continue;
+		push_cfun(node->get_fun());
+
+		if (cfun == NULL)
+		{
+			pop_cfun();
+			continue;
+		}
+		enum availability avail;
+
+		function_path_array fun_array;
+
+		vector<function_path> function_path_array;
+		fun_array.function_path_array = function_path_array;
+
+		for (e = node->callees; e; e = e->next_callee)
+		{
+			cgraph_node *caller = e->caller->inlined_to ? e->caller->inlined_to : e->caller;
+			cgraph_node *callee = e->callee->ultimate_alias_target(&avail, caller);
+
+			if (callee != NULL)
+			{
+				int find = 0;
+				vector<function_path>::iterator it_i;
+				for (it_i = fun_array.function_path_array.begin(); it_i != fun_array.function_path_array.end(); ++it_i)
+				{
+					if (it_i->next == callee->decl)
+						find = 1;
+				}
+
+				if (find == 0)
+				{
+
+					struct function_path path_type;
+					path_type.cgnext = callee;
+					path_type.next = callee->decl;
+					fun_array.function_path_array.push_back(path_type);
+				}
+			}
+		}
+
+		FOR_EACH_BB_FN(bb, cfun)
+		{
+			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
+			{
+				gimple *gc = gsi_stmt(gsi);
+				if (gimple_cond_code(gc))
+				{
+					enum tree_code code = gimple_cond_code(gc);
+					// if (code == LT_EXPR || code == GT_EXPR || code == LE_EXPR || code == GE_EXPR || code == EQ_EXPR || code == NE_EXPR)
+
+					// 	fprintf(stderr, "--------GIMPLE ok -------\n");
+					// if (dom_info_state(CDI_DOMINATORS) == DOM_OK)
+
+					if (!is_gimple_assign(gc))
+					{
+						symbolicExecution.push_back(bb);
+						symbolicinfo symbolicinfo;
+						symbolicinfo.cond_stmt = gc;
+						symbolicinfo.cond_lhs = gimple_cond_lhs(gc);
+						symbolicinfo.cond_rhs = gimple_cond_rhs(gc);
+						symbolicinfo.node = node;
+
+						if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
+						{
+							edge e;
+							edge_iterator ei;
+
+							int init = 0;
+							FOR_EACH_EDGE(e, ei, bb->succs)
+							{
+								if (init == 0)
+								{
+									symbolicinfo.cond_truebranch = e->dest;
+									// fprintf(stderr, " true succs:= %d\n", e->dest->index);
+								}
+
+								else
+								{
+									symbolicinfo.cond_falsebranch = e->dest;
+									// fprintf(stderr, " false succs:= %d\n", e->dest->index);
+								}
+								init++;
+							}
+						}
+						syminfo->put(bb, symbolicinfo);
+					}
+				}
+			}
+		}
+		function_path_collect->put(node->get_fun()->decl, fun_array);
+		pop_cfun();
+	}
+}
 
 void PointerConstraint(ptb *ptable, ptb *ftable)
 {
@@ -52,11 +158,6 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	FunctionStmtMappingAssign(ptable, used_stmt);
 
 	ptb *processtable = ptable;
-
-	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
-	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
-	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
-	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
 	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
 
 	if (GIMPLE_FREE_COUNT)
@@ -87,7 +188,6 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				gimple_array start;
 				start.stmt = NULL;
 				used_stmt = &start;
-
 				const char *name;
 
 				gimple *def_stmt = SSA_NAME_DEF_STMT(processtable->target);
@@ -102,29 +202,18 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 					if (gimple_code(def_stmt) == GIMPLE_ASSIGN)
 						if (TREE_CODE(gimple_assign_rhs1(def_stmt)) != MEM_REF && TREE_CODE(gimple_assign_rhs1(def_stmt)) != VAR_DECL)
-
 							pass = 1;
 
 					if (TREE_CODE(processtable->target) != ADDR_EXPR && pass == 1)
 						if (def_stmt)
-						{
 							if (gimple_code(def_stmt) == GIMPLE_CALL)
 								if (gimple_call_fn(def_stmt) && gimple_call_fndecl(def_stmt))
 								{
-
 									name = get_name(gimple_call_fn(def_stmt));
-
 									if (name != NULL)
-
-										if (
-											strcmp(name, "malloc"))
-
-										{
-
+										if (strcmp(name, "malloc"))
 											Prenew_search_imm_use(used_stmt, processtable->target, processtable->target);
-										}
 								}
-						}
 				}
 				now_tree = processtable->target;
 				new_search_imm_use(used_stmt, processtable->target, processtable->target);
@@ -139,12 +228,10 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				while (new_gimple_array.size())
 				{
 					colectCount++;
-
 					new_gimple_array.pop_back();
 				}
 				while (new_gimpletree_array.size())
 				{
-
 					new_gimpletree_array.pop_back();
 				}
 
@@ -161,7 +248,6 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 					break;
 				else
 				{
-
 					processtable = processtable->next;
 				}
 			}
@@ -190,6 +276,10 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 		time_used = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
 		fprintf(stderr, "\n=============== The third stage : Start detection  =================\n");
 		dump_fucntion(node, ptable, used_stmt);
+
+		// fprintf(stderr, "physicalMem%d\n", GetProcessMemory().physicalMem);
+		// fprintf(stderr, "virtualMem%d\n", GetProcessMemory().virtualMem);
+
 		fprintf(stderr, "\n=============== The third stage : detection  End=================\n");
 		clock_gettime(CLOCK_MONOTONIC, &aend);
 		temp = diff(astart, aend);
@@ -219,171 +309,8 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "\033[40;34m    gimple stmt count : : %d \033[0m\n", gimplestmt_count);
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 }
-
-void record_fucntion(cgraph_node *node)
-{
-
-	cgraph_edge *e;
-	basic_block bb;
-	FOR_EACH_DEFINED_FUNCTION(node)
-	{
-
-	
-		if (!gimple_has_body_p(node->decl))
-			continue;
-		push_cfun(node->get_fun());
-
-		if (cfun == NULL)
-		{
-			pop_cfun();
-			continue;
-		}
-		enum availability avail;
-
-		function_path_array fun_array;
-
-		vector<function_path> function_path_array;
-		fun_array.function_path_array = function_path_array;
-
-		for (e = node->callees; e; e = e->next_callee)
-		{
-
-			cgraph_node *caller = e->caller->inlined_to ? e->caller->inlined_to : e->caller;
-			cgraph_node *callee = e->callee->ultimate_alias_target(&avail, caller);
-
-			if (callee != NULL)
-			{
-
-				int find = 0;
-				vector<function_path>::iterator it_i;
-				for (it_i = fun_array.function_path_array.begin(); it_i != fun_array.function_path_array.end(); ++it_i)
-				{
-					if (it_i->next == callee->decl)
-						find = 1;
-				}
-
-				if (find == 0)
-				{
-
-					struct function_path path_type;
-					path_type.cgnext = callee;
-					path_type.next = callee->decl;
-					fun_array.function_path_array.push_back(path_type);
-				}
-			}
-		}
-		
-		FOR_EACH_BB_FN(bb, cfun)
-		{
-			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
-			{
-				gimple *gc = gsi_stmt(gsi);
-				if (gimple_cond_code(gc))
-				{
-					enum tree_code code = gimple_cond_code(gc);
-					// if (code == LT_EXPR || code == GT_EXPR || code == LE_EXPR || code == GE_EXPR || code == EQ_EXPR || code == NE_EXPR)
-
-					// 	fprintf(stderr, "--------GIMPLE ok -------\n");
-					// if (dom_info_state(CDI_DOMINATORS) == DOM_OK)
-
-					if (!is_gimple_assign(gc))
-					{
-						// if (gimple_cond_lhs(use_stmt))
-						// debug_gimple_stmt(gc);
-						fprintf(stderr, "--------GIMPLE Cond -------\n");
-
-						symbolicExecution.push_back(bb);
-						symbolicinfo symbolicinfo;
-						symbolicinfo.cond_stmt = gc;
-						symbolicinfo.cond_lhs = gimple_cond_lhs(gc);
-						symbolicinfo.cond_rhs = gimple_cond_rhs(gc);
-						symbolicinfo.node = node;
-
-						// symbolicinfo.cond_stmt= gc;
-
-						if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
-						{
-							edge e;
-							edge_iterator ei;
-							// fprintf(stderr, "node:= %d \n", bb->index);
-							// BLOCK_SUPERCONTEXT(gimple_block(u_stmt)
-							int init = 0;
-							FOR_EACH_EDGE(e, ei, bb->succs)
-							{
-								// DFS.addEdge(bb->index, e->dest->index);
-
-								// debug_tree(test);
-								if (init == 0)
-								{
-									symbolicinfo.cond_truebranch = e->dest;
-									// fprintf(stderr, " true succs:= %d\n", e->dest->index);
-								}
-
-								else
-								{
-									symbolicinfo.cond_falsebranch = e->dest;
-									// fprintf(stderr, " false succs:= %d\n", e->dest->index);
-								}
-							
-								init++;
-							}
-						}
-						syminfo->put(bb, symbolicinfo);
-					}
-				}
-			}
-		}
-		function_path_collect->put(node->get_fun()->decl, fun_array);
-		pop_cfun();
-	}
-}
-
-void check_bbinfo(cgraph_node *m, basic_block bb)
-{
-
-	int find_path_constraint=0;
-	fprintf(stderr, "prev:= %d\n", bb->index);
-
-	fprintf(stderr, "=======================Path Constaint===========================\n\n");
-	for (int o = 0; o < symbolicExecution.size(); o++)
-	{
-
-		if (syminfo->get(symbolicExecution[o]) != NULL)
-		{
-			struct symbolicinfo *symbolicinfotmp = syminfo->get(symbolicExecution[o]);
-			push_cfun(symbolicinfotmp->node->get_fun());
-			calculate_dominance_info(CDI_DOMINATORS);
-
-			if (symbolicinfotmp->cond_truebranch == bb || dominated_by_p(CDI_DOMINATORS, bb, symbolicinfotmp->cond_truebranch))
-			{
-				if (gimple_location_safe(symbolicinfotmp->cond_stmt), 0, "use location")
-					debug_gimple_stmt(symbolicinfotmp->cond_stmt);
-				warning_at(gimple_location_safe(symbolicinfotmp->cond_stmt), 0, "use location");
-
-				find_path_constraint++;
-			}
-			if (symbolicinfotmp->cond_falsebranch == bb || dominated_by_p(CDI_DOMINATORS, bb, symbolicinfotmp->cond_falsebranch))
-			{
-				// if (!check_bbStack(symbolicinfotmp->cond_falsebranch))
-				if (gimple_location_safe(symbolicinfotmp->cond_stmt), 0, "use location")
-					debug_gimple_stmt(symbolicinfotmp->cond_stmt);
-				warning_at(gimple_location_safe(symbolicinfotmp->cond_stmt), 0, "use location");
-
-				find_path_constraint++;
-			}
-			pop_cfun();
-		}
-	}
-	if(			!find_path_constraint)
-	fprintf(stderr, "=======================NO find Path Constaint===========================\n\n");
-	else
-	fprintf(stderr, "=======================Path Constaint=====%d======================\n\n",find_path_constraint);
-	fprintf(stderr, "=======================Path Constaint===========================\n\n");
-}
-
 void detect()
 {
-
 	struct rusage ru;
 	struct timeval utime;
 	struct timeval stime;
@@ -412,7 +339,14 @@ void detect()
 	function_graph_collect = new hash_map<tree, function_graph_array>;
 	function_relate_collect = new hash_map<tree, function_relate_array>;
 	breakpoint getbp;
-
+	// timer *g_timer2 =g_timer;;
+	auto_timevar tv(TV_IPA_DECTE);
+	// g_timer->start(TV_IPA_DECTE );
+	// fprintf(stderr, "start trace %d\n", timevar_cond_start(TV_IPA_DECTE));
+	// timevar_push(TV_PLUGIN_RUN );
+	// g_timer->start(TV_PLUGIN_RUN );
+	// fprintf(stderr, "physicalMem%d\n", GetProcessMemory().physicalMem);
+	// fprintf(stderr, "virtualMem%d\n", GetProcessMemory().virtualMem);
 	if (vscode_extensionmod)
 	{
 		std::ifstream ifs("/root/.vscode-server/data/User/globalStorage/vscode-samples.helloworld-sample/breakpoint.txt", std::ios::in);
@@ -438,10 +372,9 @@ void detect()
 		}
 		ifs.close();
 	}
+
 	srand((unsigned)time(NULL) + getpid());
-
 	fprintf(stderr, "=======ipa_pta=========\n");
-
 	init_table();
 
 	double s = 0.0;
@@ -521,19 +454,62 @@ void detect()
 		pop_cfun();
 	}
 	fprintf(stderr, "===============The first stage : Point of interest stmt collect=================\n");
-	if (ipa)
-	{
 
-		// new_memory_leak_analysis(ptable, ftable);
-		// new_double_free_analysis(ptable,ftable);
+	// Start analysis
+	if (ipa)
 		PointerConstraint(ptable, ftable);
-		// new_double_free_analysis(ptable,ftable);
-		// new_use_after_free_analysis(ptable, ftable);
-	}
+
+	// fprintf(stderr, "physicalMem%f\n", GetProcessMemory().physicalMem);
+	// fprintf(stderr, "virtualMem%f\n", GetProcessMemory().virtualMem);
+
+	delete tvpt;
+	delete treeGimpleArray;
+	delete syminfo;
+	delete fDFS;
+	delete function_return_collect;
+	delete function_assign_collect;
+	delete pthread_attr_setdetachstates;
+	delete function_pthread_detched_collect;
+	delete function_pthread_exit_collect;
+	delete function_path_collect;
+	delete function_free_collect;
+	delete function_graph_collect;
+	delete function_relate_collect;
 	clock_gettime(CLOCK_MONOTONIC, &end);
 	struct timespec temp = diff(start, end);
 	double time_used;
 	time_used = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
+	struct timevar_time_def now;
+	// g_timer
+	// fprintf (stderr, "%24lu kB ggc",(unsigned) (now.ggc_mem >> 10));
+	// 	fprintf (stderr, "%24lu kB ggc",(unsigned) (timevar_ggc_mem_total >> 10));
+	// timevar_ggc_mem_total
+
+	// char *data= new char[1024*1024*20];    ;
+	// for (int i = 0 ;i<(1024*1024);i++)
+	// data[i] ='1';
+	// delete(data);
+
+	// const char *name= now.name;
+	// g_timer->print(stderr);
+	// g_timer->stop(TV_IPA_DECTE );
+	// unsigned int /* timevar_id_t */ id;
+	// for (id = 0; id < (unsigned int)TIMEVAR_LAST - 2; id++)
+	// {
+	// 	// timevar_def2 *tv =&(g_timer->m_timevars[id]);
+	// 	const char *name = g_timer->m_timevars[(unsigned int)id].name;
+	// 	if (name && *name != '\0')
+	// 	{
+	// 		//不为空
+	// 		fprintf(stderr, "%s %24lu %24lu\n", name, g_timer->m_timevars[(unsigned int)id].start_time.ggc_mem, g_timer->m_timevars[(unsigned int)id].elapsed.ggc_mem);
+	// 	}
+	// }
+
+	// timevar_pop(TV_PLUGIN_RUN );
+	// g_timer->validate_phases(stderr);
+	// struct timevar_stack_def *popped = m_stack;
+	/* What time is it?  */
+	// get_time(&now);
 
 	ofstream myfile("time.txt");
 	if (myfile.is_open())

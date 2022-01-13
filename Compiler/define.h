@@ -39,16 +39,23 @@ ofstream cfginfo("cfginfo.txt");
 /*interprocedural analysis*/
 bool ipa = true;
 bool vscode_extensionmod = false;
-bool Looserulesfree =true;
-bool useafterfree =true;
-bool debugmod = true;
+bool memoryleakcheck = true;
+bool Looserulesfree =false;
+bool useafterfree =false;
+bool debugmod = false;
 bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;
-bool retmod = false; //關聯return stmt
+bool retmod = false; 
 bool pthread_detachedmod = true;
 bool pthread_exitmod = true;
 bool tracerelatestmt = true;
+bool prebranchexit = false;
+bool stmtloopcheck = true;
+bool samefucntioncheck = false;
+bool maxbasicblockcalc = true;
+bool pathconstraint = false;
+
 
 
 /*allocation and deallocation table*/
@@ -133,7 +140,6 @@ struct var_points_to
 };
 
 /*
-
 int return_type
 return type
 normal 0
@@ -142,44 +148,31 @@ function pointer
 */
 struct function_path
 {
-	//gimple *stmt;
-	//n/p treee
 	cgraph_node *cgnext;
 	tree prev;
 	tree next;
 
-	//int return_type;
 };
 struct return_type
 {
 	int return_type_stmt_num = 0;
 	gimple *stmt;
 	tree return_tree;
-
-	//int return_type;
 };
 struct assign_type
 {
 	gimple *stmt;
 	tree assign_tree;
 	tree form_tree;
-	// int reutnr_type_num = 0;
-	//int return_type;
+
 };
-// struct attr_type2
-// {
-// 	gimple *stmt;
-// 	tree attr_tree;
-// 	int attr_type_num = 0;
-// 	//int return_type;
-// };
 
 struct free_type
 {
 	gimple *stmt;
 	tree free_tree;
 	int Looserulesfree = 0;
-	//int return_type;
+
 };
 struct relate_type
 {
@@ -190,24 +183,21 @@ struct relate_type
 	unsigned int now_fucntion = 0;
 	unsigned int now_stmt = 0;
 	int now_basicblock = 0;
-	// int reutnr_type_num = 0;
-	//int return_type;
+
 };
 
 struct pthread_detched_type
 {
 	gimple *stmt;
 	tree pthread_detched_tree;
-	// int reutnr_type_num = 0;
-	//int return_type;
+
 };
 
 struct pthread_exit_type
 {
 	gimple *stmt;
 	tree pthread_exit_tree;
-	// int reutnr_type_num = 0;
-	//int return_type;
+
 };
 
 /*define return_type struct*/
@@ -239,8 +229,6 @@ struct pthread_attr_array
 	gimple *stmt;
 	tree attr_tree;
 	int attr_type_num = 0;
-	// int pass = 0;
-	// vector<attr_type> attr_type_array;
 };
 
 /*define free_type struct*/
@@ -270,15 +258,8 @@ struct function_relate_array
 {
 	vector<relate_type> relate_type_array;
 };
-// struct function_relate_array2
-// {
-// 	<relate_type> relate_type_array;
-// };
-// struct function_relate_array
-// {
-// 	Graph graph_type_array;
-// 	cgraph_node *graph_node;
-// };
+
+
 /*collect function return types */
 hash_map<tree, function_return_array> *function_return_collect;
 /*collect function var decl ssa name */
@@ -297,6 +278,7 @@ hash_map<tree, function_free_array> *function_free_collect;
 hash_map<tree, function_graph_array> *function_graph_collect;
 /*collect fucntion graph_array*/
 hash_map<tree, function_relate_array> *function_relate_collect;
+
 // /*collect fucntion maxbasicblock*/
 // hash_map<tree, int> *function_maxbasicblock_collect;
 
@@ -341,14 +323,11 @@ vector<basic_block> symbolicExecutionswitch;
 vector<breakpoint> vbreakpoint;
 vector<return_type> global_ret_type_array;
 
-
-// CStack pathStack;
-// CStack traceStack;
 CStack stmtStack;
 CstmtStack stmtStack2;
-//stack<tree> pathStack;  // 建立堆疊
+
 function *main_fun;
-//int check_stmtStack(gimple *stmt);
+
 static gimple *now_stmt;
 static int totalsize; //宣告一個整數型態size變數，用來儲存x的位元組大小
 static int levelsize = 0;
@@ -358,7 +337,7 @@ unsigned int SDBMHash(char *str);
 tree prechecktree(tree tree);
 
 int dump_points_to_solution2(FILE *file, struct pt_solution *pt);
-
+void check_bbinfo(cgraph_node *m,basic_block bb);
 void Checknew_search_imm_use_rhs(gimple_array *used_stmt, gimple *use_stmt, tree target, tree target2);
 void Checknew_search_imm_use_lhs(gimple_array *used_stmt, gimple *use_stmt, tree target, tree target2);
 int check_stmtStack4(gimple *stmt);
@@ -369,8 +348,7 @@ int check_stmtStack(tree target);
 void printf_bbinfo(basic_block bb, int flag);
 void set_PathConstraintarray(basic_block bb, int flag);
 void set_bbinfo(basic_block bb);
-// void check_bbinfo(basic_block bb);
-void check_bbinfo(cgraph_node *m,basic_block bb);
+
 int check_stmtStack(tree target);
 void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_tmp, tree checkTree, int threadcheck);
 void record_fucntion(cgraph_node *node);

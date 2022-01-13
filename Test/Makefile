@@ -159,7 +159,7 @@ LTO=-flto
 WHOLE=-fwhole-program 
 # https://gcc.gnu.org/onlinedocs/gcc/Developer-Options.html
 #-fno-inline-functions-called-once
-FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fno-inline  -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions -fprofile-report 
+FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fno-inline  -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions -ftime-report
 # -fno-inline 
 # -flto-report
 # -ftime-report

@@ -55,7 +55,7 @@ int dump_points_to_solution2(FILE *file, struct pt_solution *pt)
 void printfBasicblock()
 {
 	fprintf(stderr, "\n===============Print ALL GIMPLE IR=================\n");
-	// set_gimple_array(used_stmt, use_stmt, fundecl, fundecl);
+
 	gimple *u_stmt;
 	gimple_array start;
 	start.stmt = NULL;
@@ -63,7 +63,7 @@ void printfBasicblock()
 	ptb *table_temp = ptable;
 	tree t;
 	basic_block bb;
-	//
+
 	struct cgraph_node *node;
 	const char *name;
 
@@ -73,8 +73,7 @@ void printfBasicblock()
 		if (!gimple_has_body_p(node->decl))
 			continue;
 		push_cfun(node->get_fun());
-		// if (strcmp(get_name(cfun->decl), "main") == 0)
-		// debug_tree(cfun->decl);
+	
 		if (cfun == NULL)
 		{
 			pop_cfun();
@@ -86,15 +85,10 @@ void printfBasicblock()
 		{
 
 			fprintf(stderr, "=======Mapping node_fun:%s=========\n", name);
-			// debug_tree(cfun->decl);
-			// debug_tree(cfun->decl);
+	
 		}
 		calculate_dominance_info(CDI_DOMINATORS);
-		// FOR_EACH_BB_FN(bb, cfun)
-		// 	{
-		// 		for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
-		// 		{
-		// 			gimple *gc = gsi_stmt(gsi);
+
 		FOR_EACH_BB_FN(bb, cfun)
 		{
 			fprintf(stderr, "=======is loop:%d=========\n", bb_in_loop_p(bb));
@@ -103,8 +97,6 @@ void printfBasicblock()
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
-				// if (gimple_code(gc) == GIMPLE_RETURN)
-				// debug_gimple_stmt(gc);
 				gimplestmt_count += 1;
 			}
 		}
@@ -177,7 +169,6 @@ void print_function_return(tree function_tree)
 
 void printfunctionCollect2(ptb *ptable, gimple_array *user_tmp)
 {
-
 	// set_gimple_array(used_stmt, use_stmt, fundecl, fundecl);
 	gimple *u_stmt;
 	gimple_array start;
@@ -204,7 +195,6 @@ void printfunctionCollect2(ptb *ptable, gimple_array *user_tmp)
 }
 void printfunctionCollect(ptb *ptable, gimple_array *user_tmp)
 {
-
 	// set_gimple_array(used_stmt, use_stmt, fundecl, fundecl);
 	gimple *u_stmt;
 	gimple_array start;
@@ -218,7 +208,6 @@ void printfunctionCollect(ptb *ptable, gimple_array *user_tmp)
 	const char *name;
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
-
 		push_cfun(node->get_fun());
 		// if (strcmp(get_name(cfun->decl), "main") == 0)
 		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
@@ -274,22 +263,17 @@ void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp)
 				if (user_tmp->size > 0)
 					FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 					{
-						fprintf(stderr, "------------------------------------------\n");
+				
 						if (user_tmp->ret_stmt != NULL)
 						{
-
-							// debug(user_tmp->ret_stmt);
-
 							location_t loc = gimple_location(user_tmp->ret_stmt);
 							warning_at(loc, 0, "loc");
 						}
 						else
 						{
-							// debug(u_stmt);
 							location_t loc = gimple_location(u_stmt);
 							warning_at(loc, 0, "loc");
 						}
-						// user_tmp->
 					}
 			}
 			else
@@ -309,12 +293,11 @@ void printfPointerConstraint2(ptb *ftable, gimple_array *user_tmp)
 	gimple_array *used_stmt = &start;
 	ptb *table_temp = ptable;
 	tree t;
-	//
 
 	FOR_EACH_TABLE(table_temp, t)
 	{
 		fprintf(stderr, "\n ------------------------------------------\n");
-		// debug_tree(table_temp->target);
+	
 		if (table_temp->target != NULL)
 		{
 			debug_tree(table_temp->target);
@@ -327,21 +310,11 @@ void printfPointerConstraint2(ptb *ftable, gimple_array *user_tmp)
 				if (user_tmp->size > 0)
 					FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 					{
-
 						if (user_tmp->ret_stmt != NULL)
-						{
-
 							debug(user_tmp->ret_stmt);
-						}
-						else
-						{
-							debug(u_stmt);
-							// if (gimple_code(u_stmt) == GIMPLE_RETURN)
-							// {
 
-							// }
-						}
-						// user_tmp->
+						else
+							debug(u_stmt);
 					}
 				fprintf(stderr, "] \n");
 			}
