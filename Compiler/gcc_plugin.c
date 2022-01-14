@@ -64,7 +64,7 @@ const pass_data detect_pass_data =
         .type = SIMPLE_IPA_PASS, // SIMPLE_IPA_PASS,GIMPLE_PASS
         .name = "static_analyzer",
         .optinfo_flags = OPTGROUP_NONE,
-        .tv_id = TV_IPA_DECTE,
+        .tv_id = TV_PLUGIN_RUN,
         .properties_required = PROP_ssa,
         .properties_provided = 0,
         .properties_destroyed = 0,
@@ -148,6 +148,9 @@ int plugin_init(struct plugin_name_args *plugin_info, struct plugin_gcc_version 
     printf("incompatible gcc/plugin versions\n");
     return 1;
   }
+  
+  fprintf(stderr,"%s %s %s\n",plugin_info->full_name,version->basever,version->devphase);
+
   inline_passinfo.pass = make_pass_ipa_always(g);
   inline_passinfo.reference_pass_name = "einline";
   inline_passinfo.ref_pass_instance_number = 0;

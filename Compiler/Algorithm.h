@@ -340,7 +340,8 @@ void detect()
 	function_relate_collect = new hash_map<tree, function_relate_array>;
 	breakpoint getbp;
 	// timer *g_timer2 =g_timer;;
-	auto_timevar tv(TV_IPA_DECTE);
+	// timevar_push (TV_IPA_DECTE);
+
 	// g_timer->start(TV_IPA_DECTE );
 	// fprintf(stderr, "start trace %d\n", timevar_cond_start(TV_IPA_DECTE));
 	// timevar_push(TV_PLUGIN_RUN );
@@ -504,8 +505,9 @@ void detect()
 	// 		fprintf(stderr, "%s %24lu %24lu\n", name, g_timer->m_timevars[(unsigned int)id].start_time.ggc_mem, g_timer->m_timevars[(unsigned int)id].elapsed.ggc_mem);
 	// 	}
 	// }
+	// timevar_push (TV_IPA_DECTE);
 
-	// timevar_pop(TV_PLUGIN_RUN );
+	// timevar_pop(TV_IPA_DECTE );
 	// g_timer->validate_phases(stderr);
 	// struct timevar_stack_def *popped = m_stack;
 	/* What time is it?  */
