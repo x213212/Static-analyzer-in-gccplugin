@@ -1,7 +1,7 @@
 /*set allocation and deallocation table*/
 void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stmt, cgraph_node *node)
 {
-
+		
 	if (table->target == NULL_TREE)
 	{
 		table->bb = b;
@@ -86,20 +86,25 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree fucntion, tre
 	{
 		bool same = false;
 		int size_tmp = 0;
-		while (table->next != NULL)
+		// check_stmtStack4(used_stmt)
+		while ( table->next != NULL)
 		{
 			//  fprintf(stderr, "set_gimple_array----------------\n");
 			//  debug(table->stmt);
-			//  debug(used_stmt);
+			//  debug_tree(target);
+			//  if (table == NULL) 
+			//  break;
+
 			if (table->stmt == used_stmt)
 			{
 
 				same = true;
-				break;
+				// break;
 			}
 			size_tmp = size_tmp + 1;
 			table = table->next;
 		}
+		// if(!	check_stmtStack4(used_stmt))
 		if (!same)
 		{
 			table->next = new gimple_array();

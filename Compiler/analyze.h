@@ -1,3 +1,4 @@
+#include <set>
 void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_tmp, tree checkTree, int calleetype)
 {
 
@@ -178,9 +179,15 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					fprintf(stderr, "\n======================================================================\n");
 					if (user_tmp->size > 0)
 					{
+						set<gimple *> myset;
+
 						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 						{
-
+							// gimple stmt = u_stmt;
+							// if(!myset.insert(*u_stmt))
+							// continue;
+								// debug_gimple_stmt(u_stmt);
+										// fprintf(stderr, "\n=====================hello================\n");
 							if (prebranchexit)
 							{
 								push_cfun(table_temp->node->get_fun());

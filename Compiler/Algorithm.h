@@ -33,6 +33,7 @@ using namespace std;
 #include <string>
 #include <cstdio>
 #include <cstring>
+
 void record_fucntion(cgraph_node *node)
 {
 	cgraph_edge *e;
@@ -216,6 +217,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 								}
 				}
 				now_tree = processtable->target;
+				
 				new_search_imm_use(used_stmt, processtable->target, processtable->target);
 				set_gimple_array(used_stmt, processtable->last_stmt, processtable->target, processtable->target, NULL);
 
@@ -228,6 +230,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				while (new_gimple_array.size())
 				{
 					colectCount++;
+					// debug_gimple_stmt(new_gimple_array.back());
 					new_gimple_array.pop_back();
 				}
 				while (new_gimpletree_array.size())

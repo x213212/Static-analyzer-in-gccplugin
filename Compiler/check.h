@@ -35,8 +35,8 @@ int check_stmtStack3(tree target)
 		if (new_gimpletree_array[o] == target)
 			return 1;
 
-	int size = sizeof(tree);
-	totalsize += size;
+	// int size = sizeof(tree);
+	// totalsize += size;
 
 	return 0;
 }
@@ -45,8 +45,8 @@ int check_stmtStack4(gimple *stmt)
 	for (int o = new_gimple_array.size()-1; o >=0; o--)
 		if (new_gimple_array[o] == stmt)
 			return 1;
-	int size = sizeof(stmt);
-	totalsize += size;
+	// int size = sizeof(stmt);
+	// totalsize += size;
 
 	return 0;
 }
