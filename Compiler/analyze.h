@@ -6,7 +6,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 	gimple *u_stmt2;
 	gimple_array start;
 	gimple_array start2;
-	
+
 	start.stmt = NULL;
 	start2.stmt = NULL;
 	gimple_array *used_stmt = &start;
@@ -97,8 +97,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								if (gimple_code(def_stmt))
 								{
 									debug_gimple_stmt(def_stmt);
+
 									if (gimple_code(def_stmt) == GIMPLE_CALL)
-										name = get_name(gimple_call_fndecl(def_stmt));
+										if (gimple_call_fndecl(def_stmt))
+											name = get_name(gimple_call_fndecl(def_stmt));
 								}
 						}
 
@@ -186,8 +188,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							// gimple stmt = u_stmt;
 							// if(!myset.insert(*u_stmt))
 							// continue;
-								// debug_gimple_stmt(u_stmt);
-										// fprintf(stderr, "\n=====================hello================\n");
+							// debug_gimple_stmt(u_stmt);
+							// fprintf(stderr, "\n=====================hello================\n");
 							if (prebranchexit)
 							{
 								push_cfun(table_temp->node->get_fun());

@@ -40,103 +40,107 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 		if (name != NULL)
 		{
 
-				if (is_gimple_assign(gc))
-					if (gimple_assign_lhs(gc) != NULL)
-						if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME)
-						{
-							// fprintf(stderr, "====================POINTER_TYPE============================\n");
-							// debug(gimple_assign_lhs(gc));
-							// debug(gimple_assign_rhs1(gc));
-							// debug_tree(gimple_assign_lhs(gc));
-							// warning_at(gimple_location(gc), 0, "use location");
-							// fprintf(stderr, "====================POINTER_TYPE============================\n");
-						}
+			// if (gimple_call_lhs(gc))
+			// {
+			// debug(gimple_call_lhs(gc));
 
-				if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+			// }
+
+			if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+			{
+				GIMPLE_FREE_COUNT++;
+				// fprintf(stderr, "===================free===========================\n");
+				// debug_gimple_stmt(gc);
+				// addr_expr free (&a)
+				// ADDR_EXPR
+				if (TREE_CODE(gimple_call_arg(gc, 0)) == ADDR_EXPR)
 				{
-					GIMPLE_FREE_COUNT++;
-					// fprintf(stderr, "===================free===========================\n");
 					// debug_gimple_stmt(gc);
-					// addr_expr free (&a)
-					// ADDR_EXPR
-					if (TREE_CODE(gimple_call_arg(gc, 0)) == ADDR_EXPR)
-					{
-						// debug_gimple_stmt(gc);
-						// debug_tree(gimple_call_arg(gc, 0));
-						// fprintf(stderr, "addr_expraddr_expraddr_expraddr_expraddr_expr--------\n");
-					}
-					else
-					{
-						// debug_tree(gimple_call_arg(gc, 0));
-						set_ptb(bb, ftable, gimple_call_arg(gc, 0), loc, 0, gc, node);
-					}
-				}
-
-				else if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xcalloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup") || !strcmp(name, "xstrdup"))
-				{
-					GIMPLE_MALLOC_COUNT++;
-
-					// debug_tree(gimple_call_lhs(gc));
-					set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
-					// warning_at(gimple_location(gc), 0, "use location");
-					// if(TREE_CODE(TREE_TYPE((gimple_call_lhs(gc))))==POINTER_TYPE){
-					// fprintf(stderr, "====================POINTER_TYPE============================\n");
-					// }
-				}
-				else if (!strcmp(name, "pthread_create"))
-				{
-					// fprintf(stderr, "====================pthread_create============================\n");
-					// gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
 					// debug_tree(gimple_call_arg(gc, 0));
-					set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, IS_PTHREAD_FUCNTION, gc, node);
-					// if (gimple_call_arg(gc, 3) != NULL)
-					// 	set_ptb(bb, ptable, gimple_call_arg(gc, 3), loc, 0, gc, node);
+					// fprintf(stderr, "addr_expraddr_expraddr_expraddr_expraddr_expr--------\n");
 				}
-				else if (!strcmp(name, "pthread_attr_setdetachstate"))
+				else
 				{
-					// fprintf(stderr, "====================pthread_attr_setdetachstate============================\n");
 					// debug_tree(gimple_call_arg(gc, 0));
-					// debug_tree(gimple_call_arg(gc, 1));
-					tree getvardecl = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
-					if (TREE_CODE(gimple_call_arg(gc, 1)) == INTEGER_CST)
-					{
-						// fprintf(stderr, "%d\n",	 int_cst_value (gimple_call_arg(gc, 1)));
-						// printf("<units>%d</units>\n", int_cst_value (gimple_call_arg(gc, 1)));
-					}
-					// fprintf(stderr, "====================pthread_attr_setdetachstate============================\n");
-					// printf("<units>%d</units>\n", TREE_INT_CST_NUNITS(gimple_call_arg(gc, 1)));
-					// gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
-					//  debug_tree(gimple_call_arg(gc, 0));
-					// set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
-					pthread_attr_array pthread_attr_array;
-					// vector<attr_type> attr_type_array;
+					set_ptb(bb, ftable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+				}
+			}
 
-					if (pthread_attr_setdetachstates->get(getvardecl) == NULL)
-					{
+			else if (!strcmp(name, "realloc") || !strcmp(name, "malloc") || !strcmp(get_name(gimple_call_fn(gc)), "calloc") || !strcmp(name, "xcalloc") || !strcmp(name, "xmalloc") || !strcmp(name, "strdup") || !strcmp(name, "xstrdup"))
+			{
+				GIMPLE_MALLOC_COUNT++;
 
-						// pthread_attr_array.attr_type_array = attr_type_array;
-						// debug(gc);
-					}
-					else
-					{
+				// debug_tree(gimple_call_lhs(gc));
+				set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
+				// warning_at(gimple_location(gc), 0, "use location");
+				// if(TREE_CODE(TREE_TYPE((gimple_call_lhs(gc))))==POINTER_TYPE){
+				// fprintf(stderr, "====================POINTER_TYPE============================\n");
+				// }
+			}
+			else if (!strcmp(name, "pthread_create"))
+			{
+				// fprintf(stderr, "====================pthread_create============================\n");
+				// gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
+				// debug_tree(gimple_call_arg(gc, 0));
+				set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, IS_PTHREAD_FUCNTION, gc, node);
+				// if (gimple_call_arg(gc, 3) != NULL)
+				// 	set_ptb(bb, ptable, gimple_call_arg(gc, 3), loc, 0, gc, node);
+			}
+			else if (!strcmp(name, "pthread_attr_setdetachstate"))
+			{
+				// fprintf(stderr, "====================pthread_attr_setdetachstate============================\n");
+				// debug_tree(gimple_call_arg(gc, 0));
+				// debug_tree(gimple_call_arg(gc, 1));
+				tree getvardecl = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
+				if (TREE_CODE(gimple_call_arg(gc, 1)) == INTEGER_CST)
+				{
+					// fprintf(stderr, "%d\n",	 int_cst_value (gimple_call_arg(gc, 1)));
+					// printf("<units>%d</units>\n", int_cst_value (gimple_call_arg(gc, 1)));
+				}
+				// fprintf(stderr, "====================pthread_attr_setdetachstate============================\n");
+				// printf("<units>%d</units>\n", TREE_INT_CST_NUNITS(gimple_call_arg(gc, 1)));
+				// gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
+				//  debug_tree(gimple_call_arg(gc, 0));
+				// set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+				pthread_attr_array pthread_attr_array;
+				// vector<attr_type> attr_type_array;
 
-						// debug(gc);
-						pthread_attr_array = *(pthread_attr_setdetachstates->get(getvardecl));
-						// attr_type_array = pthread_attr_array.attr_type_array;
-					}
+				if (pthread_attr_setdetachstates->get(getvardecl) == NULL)
+				{
+
+					// pthread_attr_array.attr_type_array = attr_type_array;
+					// debug(gc);
+				}
+				else
+				{
 
 					// debug(gc);
-					pthread_attr_array.stmt = gc;
-					pthread_attr_array.attr_tree = gimple_call_arg(gc, 0);
-					if (TREE_CODE(gimple_call_arg(gc, 1)) == INTEGER_CST)
-					{
-						pthread_attr_array.attr_type_num = int_cst_value(gimple_call_arg(gc, 1));
-					}
-
-					// pthread_attr_array.attr_type_array.push_back(attr_type);
-					pthread_attr_setdetachstates->put(getvardecl, pthread_attr_array);
+					pthread_attr_array = *(pthread_attr_setdetachstates->get(getvardecl));
+					// attr_type_array = pthread_attr_array.attr_type_array;
 				}
-			
+
+				// debug(gc);
+				pthread_attr_array.stmt = gc;
+				pthread_attr_array.attr_tree = gimple_call_arg(gc, 0);
+				if (TREE_CODE(gimple_call_arg(gc, 1)) == INTEGER_CST)
+				{
+					pthread_attr_array.attr_type_num = int_cst_value(gimple_call_arg(gc, 1));
+				}
+
+				// pthread_attr_array.attr_type_array.push_back(attr_type);
+				pthread_attr_setdetachstates->put(getvardecl, pthread_attr_array);
+			}
+			else if (gimple_call_lhs(gc) != NULL && gimple_call_fn(gc)!= NULL)
+				if (TREE_CODE(gimple_call_lhs(gc)) == SSA_NAME)
+				{
+					set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
+					// fprintf(stderr, "====================POINTER_TYPE============================\n");
+					// debug(gimple_call_lhs(gc));
+					// debug(gimple_assign_rhs1(gc));
+					// debug_tree(gimple_assign_lhs(gc));
+					// warning_at(gimple_location(gc), 0, "use location");
+					// fprintf(stderr, "====================POINTER_TYPE============================\n");
+				}
 		}
 	}
 }
@@ -163,210 +167,179 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			return;
 
 		if (name != NULL)
-	
-		if(strcmp(name, "printf") )
-			if (!strcmp(name, "free") || !strcmp(name, "xfree") || !strcmp(name, "realloc"))
-			{
 
-				if (TREE_CODE(gimple_call_arg(gc, 0)) == ADDR_EXPR)
+			if (strcmp(name, "printf"))
+				if (!strcmp(name, "free") || !strcmp(name, "xfree") || !strcmp(name, "realloc"))
 				{
 
-					tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
+					if (TREE_CODE(gimple_call_arg(gc, 0)) == ADDR_EXPR)
 					{
 
-						function_assign_array assign_array;
-						vector<assign_type> assign_type_array;
-
-						if (function_assign_collect->get(second) == NULL)
+						tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
 						{
 
-							// debug(gc);
-							assign_array.assign_type_array = assign_type_array;
+							function_assign_array assign_array;
+							vector<assign_type> assign_type_array;
+
+							if (function_assign_collect->get(second) == NULL)
+							{
+
+								// debug(gc);
+								assign_array.assign_type_array = assign_type_array;
+							}
+							else
+							{
+
+								// debug(gc);
+								assign_array = *(function_assign_collect->get(second));
+								assign_type_array = assign_array.assign_type_array;
+							}
+
+							struct assign_type assign_type;
+
+							assign_type.stmt = gc;
+							assign_type.assign_tree = gimple_call_arg(gc, 0);
+							assign_type.form_tree = node->get_fun()->decl;
+							// ret_type.reutnr_type_num = 0;
+							assign_array.assign_type_array.push_back(assign_type);
+							function_assign_collect->put(second, assign_array);
+						}
+					}
+					else if (TREE_CODE(gimple_call_arg(gc, 0)) == SSA_NAME)
+					{
+						// free(ptr_ssaname)
+						// debug_gimple_stmt(gc);
+
+						//  debug_tree(gimple_call_arg(gc, 0));
+
+						tree getFucntionDecl = (node->get_fun()->decl);
+
+						vector<free_type> free_type_array;
+						function_free_array fun_array;
+						if (function_free_collect->get(getFucntionDecl) == NULL)
+						{
+							// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
+							fun_array.free_type_array = free_type_array;
 						}
 						else
 						{
-
-							// debug(gc);
-							assign_array = *(function_assign_collect->get(second));
-							assign_type_array = assign_array.assign_type_array;
+							fun_array = *(function_free_collect->get(getFucntionDecl));
+							free_type_array = fun_array.free_type_array;
 						}
 
-						struct assign_type assign_type;
+						struct free_type free_type;
+						free_type.stmt = gc;
+						free_type.free_tree = gimple_call_arg(gc, 0);
 
-						assign_type.stmt = gc;
-						assign_type.assign_tree = gimple_call_arg(gc, 0);
-						assign_type.form_tree = node->get_fun()->decl;
-						// ret_type.reutnr_type_num = 0;
-						assign_array.assign_type_array.push_back(assign_type);
-						function_assign_collect->put(second, assign_array);
+						fun_array.free_type_array.push_back(free_type);
+						function_free_collect->put(getFucntionDecl, fun_array);
+
+						if (TREE_CODE(gimple_call_arg(gc, 0)) == SSA_NAME)
+						{
+							// fprintf(stderr, "SSA_NAME\n");
+							// debug((gc));
+							// debug_tree(second);
+							// second = TREE_OPERAND(gimple_assign_lhs(gc), 0);
+							function_assign_array assign_array;
+							vector<assign_type> assign_type_array;
+							gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
+							if (def_stmt != NULL)
+								if (is_gimple_assign(def_stmt))
+								{
+
+									if (TREE_CODE(gimple_assign_rhs1(def_stmt)) == VAR_DECL)
+									{
+										debug_tree(gimple_assign_rhs1(def_stmt));
+										if (function_assign_collect->get(gimple_assign_rhs1(def_stmt)) == NULL)
+										{
+
+											// debug(gc);
+											assign_array.assign_type_array = assign_type_array;
+										}
+										else
+										{
+
+											// debug(gc);
+											assign_array = *(function_assign_collect->get(gimple_assign_rhs1(def_stmt)));
+											assign_type_array = assign_array.assign_type_array;
+										}
+
+										struct assign_type assign_type;
+
+										assign_type.stmt = gc;
+										assign_type.assign_tree = gimple_call_arg(gc, 0);
+										assign_type.form_tree = node->get_fun()->decl;
+										// debug_tree(gimple_assign_lhs(gc));
+										// ret_type.reutnr_type_num = 0;
+										assign_array.assign_type_array.push_back(assign_type);
+										function_assign_collect->put(gimple_assign_rhs1(def_stmt), assign_array);
+									}
+								}
+						}
 					}
 				}
-				else if (TREE_CODE(gimple_call_arg(gc, 0)) == SSA_NAME)
+				else if (!strcmp(name, "exit"))
 				{
-					// free(ptr_ssaname)
-					// debug_gimple_stmt(gc);
+					function_return_array fun_array;
+					tree get_function_arg_tree = gimple_call_arg(gc, 0);
+					vector<return_type> ret_type_array;
 
-					//  debug_tree(gimple_call_arg(gc, 0));
-
-					tree getFucntionDecl = (node->get_fun()->decl);
-
-					vector<free_type> free_type_array;
-					function_free_array fun_array;
-					if (function_free_collect->get(getFucntionDecl) == NULL)
+					// fprintf(stderr, "GIMPLE_exit\n");
+					if (get_function_return_tree)
 					{
-						// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
-						fun_array.free_type_array = free_type_array;
+						// debug_gimple_stmt(gc);
+						// debug_tree(get_function_return_tree);
+						// debug_tree(node->get_fun()->decl);
+						// debug_tree(get_function_return_tree);
+						// fun_array.return_type_array = ret_type_array;
+						struct return_type ret_type;
+						ret_type.stmt = gc;
+						ret_type.return_tree = get_function_return_tree;
+						// ret_type.reutnr_type_num = 0;
+						global_ret_type_array.push_back(ret_type);
+						fun_array.return_type_array.push_back(ret_type);
+						function_return_collect->put(node->get_fun()->decl, fun_array);
+					}
+				}
+
+				else if (!strcmp(name, "pthread_mutex_lock") || !strcmp(name, "pthread_mutex_unlock"))
+				{
+					// fprintf(stderr, "======================pthread_mutex_lock unlock==========================\n");
+					// debug(gc);
+
+					// debug_tree(gimple_call_arg(gc, 0));
+					// fprintf(stderr, "================================================\n");
+					// // tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
+					// // debug_tree(second);
+					// // set_ptb(bb, locktable, second, loc, 0, gc, node);
+					function_return_array fun_array;
+					vector<return_type> ret_type_array;
+					tree getFucntionDecl = (node->get_fun()->decl);
+					if (function_return_collect->get(getFucntionDecl) == NULL)
+					{
+						fun_array.return_type_array = ret_type_array;
 					}
 					else
 					{
-						fun_array = *(function_free_collect->get(getFucntionDecl));
-						free_type_array = fun_array.free_type_array;
+						fun_array = *(function_return_collect->get(getFucntionDecl));
+						// ret_type_array = fun_array.return_type_array;
 					}
+					// fprintf(stderr, "======================pthread_mutex_lock unlock==========================\n");
 
-					struct free_type free_type;
-					free_type.stmt = gc;
-					free_type.free_tree = gimple_call_arg(gc, 0);
-
-					fun_array.free_type_array.push_back(free_type);
-					function_free_collect->put(getFucntionDecl, fun_array);
-
-					if (TREE_CODE(gimple_call_arg(gc, 0)) == SSA_NAME)
-					{
-						// fprintf(stderr, "SSA_NAME\n");
-						// debug((gc));
-						// debug_tree(second);
-						// second = TREE_OPERAND(gimple_assign_lhs(gc), 0);
-						function_assign_array assign_array;
-						vector<assign_type> assign_type_array;
-						gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(gc, 0));
-						if (def_stmt != NULL)
-							if (is_gimple_assign(def_stmt))
-							{
-
-								if (TREE_CODE(gimple_assign_rhs1(def_stmt)) == VAR_DECL)
-								{
-									debug_tree(gimple_assign_rhs1(def_stmt));
-									if (function_assign_collect->get(gimple_assign_rhs1(def_stmt)) == NULL)
-									{
-
-										// debug(gc);
-										assign_array.assign_type_array = assign_type_array;
-									}
-									else
-									{
-
-										// debug(gc);
-										assign_array = *(function_assign_collect->get(gimple_assign_rhs1(def_stmt)));
-										assign_type_array = assign_array.assign_type_array;
-									}
-
-									struct assign_type assign_type;
-
-									assign_type.stmt = gc;
-									assign_type.assign_tree = gimple_call_arg(gc, 0);
-									assign_type.form_tree = node->get_fun()->decl;
-									// debug_tree(gimple_assign_lhs(gc));
-									// ret_type.reutnr_type_num = 0;
-									assign_array.assign_type_array.push_back(assign_type);
-									function_assign_collect->put(gimple_assign_rhs1(def_stmt), assign_array);
-								}
-							}
-					}
-				}
-			}
-			else if (!strcmp(name, "exit"))
-			{
-				function_return_array fun_array;
-				tree get_function_arg_tree = gimple_call_arg(gc, 0);
-				vector<return_type> ret_type_array;
-
-				// fprintf(stderr, "GIMPLE_exit\n");
-				if (get_function_return_tree)
-				{
-					// debug_gimple_stmt(gc);
-					// debug_tree(get_function_return_tree);
-					// debug_tree(node->get_fun()->decl);
-					// debug_tree(get_function_return_tree);
-					// fun_array.return_type_array = ret_type_array;
 					struct return_type ret_type;
 					ret_type.stmt = gc;
-					ret_type.return_tree = get_function_return_tree;
-					// ret_type.reutnr_type_num = 0;
-					global_ret_type_array.push_back(ret_type);
+					ret_type.return_tree = gimple_call_arg(gc, 0);
+					ret_type.return_type_stmt_num = FUNCITON_THREAD;
+
 					fun_array.return_type_array.push_back(ret_type);
 					function_return_collect->put(node->get_fun()->decl, fun_array);
 				}
-			}
-
-			else if (!strcmp(name, "pthread_mutex_lock") || !strcmp(name, "pthread_mutex_unlock"))
-			{
-				// fprintf(stderr, "======================pthread_mutex_lock unlock==========================\n");
-				// debug(gc);
-
-				// debug_tree(gimple_call_arg(gc, 0));
-				// fprintf(stderr, "================================================\n");
-				// // tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
-				// // debug_tree(second);
-				// // set_ptb(bb, locktable, second, loc, 0, gc, node);
-				function_return_array fun_array;
-				vector<return_type> ret_type_array;
-				tree getFucntionDecl = (node->get_fun()->decl);
-				if (function_return_collect->get(getFucntionDecl) == NULL)
+				else if (!strcmp(name, "pthread_create"))
 				{
-					fun_array.return_type_array = ret_type_array;
-				}
-				else
-				{
-					fun_array = *(function_return_collect->get(getFucntionDecl));
-					// ret_type_array = fun_array.return_type_array;
-				}
-				// fprintf(stderr, "======================pthread_mutex_lock unlock==========================\n");
-
-				struct return_type ret_type;
-				ret_type.stmt = gc;
-				ret_type.return_tree = gimple_call_arg(gc, 0);
-				ret_type.return_type_stmt_num = FUNCITON_THREAD;
-
-				fun_array.return_type_array.push_back(ret_type);
-				function_return_collect->put(node->get_fun()->decl, fun_array);
-			}
-			else if (!strcmp(name, "pthread_create"))
-			{
-				tree getFunctionAssignRHS = gimple_call_arg(gc, 0);
-				getFunctionAssignRHS = TREE_OPERAND(getFunctionAssignRHS, 0);
-				function_assign_array assign_array;
-				vector<assign_type> assign_type_array;
-
-				// debug(gc);
-				// debug_tree(getFunctionAssignRHS);
-				if (function_assign_collect->get(getFunctionAssignRHS) == NULL)
-				{
-
-					// debug(gc);
-					assign_array.assign_type_array = assign_type_array;
-				}
-				else
-				{
-
-					// debug(gc);
-					assign_array = *(function_assign_collect->get(getFunctionAssignRHS));
-					assign_type_array = assign_array.assign_type_array;
-				}
-				struct assign_type assign_type;
-
-				assign_type.stmt = gc;
-				assign_type.assign_tree = gimple_call_arg(gc, 0);
-				assign_type.form_tree = node->get_fun()->decl;
-				// ret_type.reutnr_type_num = 0;
-				assign_array.assign_type_array.push_back(assign_type);
-				function_assign_collect->put(getFunctionAssignRHS, assign_array);
-
-				if (gimple_call_arg(gc, 3) != NULL)
-				{
-					getFunctionAssignRHS = gimple_call_arg(gc, 3);
+					tree getFunctionAssignRHS = gimple_call_arg(gc, 0);
 					getFunctionAssignRHS = TREE_OPERAND(getFunctionAssignRHS, 0);
-					// if (getFunctionAssignRHS != NULL)
-					// 	debug_tree(getFunctionAssignRHS);
+					function_assign_array assign_array;
+					vector<assign_type> assign_type_array;
 
 					// debug(gc);
 					// debug_tree(getFunctionAssignRHS);
@@ -386,233 +359,264 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					struct assign_type assign_type;
 
 					assign_type.stmt = gc;
-					assign_type.assign_tree = gimple_call_arg(gc, 3);
+					assign_type.assign_tree = gimple_call_arg(gc, 0);
 					assign_type.form_tree = node->get_fun()->decl;
 					// ret_type.reutnr_type_num = 0;
 					assign_array.assign_type_array.push_back(assign_type);
 					function_assign_collect->put(getFunctionAssignRHS, assign_array);
-				}
-			}
-			else if (!strcmp(name, "pthread_detach"))
-			{
-				tree getFucntionDecl = (node->get_fun()->decl);
 
-				function_pthread_detched_array fun_array;
-				vector<pthread_detched_type> pthread_detched_array;
-				if (function_pthread_detched_collect->get(getFucntionDecl) == NULL)
-				{
-					// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
-					fun_array.pthread_detched_array = pthread_detched_array;
-				}
-				else
-				{
-					fun_array = *(function_pthread_detched_collect->get(getFucntionDecl));
-					pthread_detched_array = fun_array.pthread_detched_array;
-				}
-
-				struct pthread_detched_type pthread_detched_type;
-				pthread_detched_type.stmt = gc;
-				pthread_detched_type.pthread_detched_tree = gimple_call_arg(gc, 0);
-
-				fun_array.pthread_detched_array.push_back(pthread_detched_type);
-				function_pthread_detched_collect->put(getFucntionDecl, fun_array);
-			}
-			else if (!strcmp(name, "pthread_exit"))
-			{
-				tree getFucntionDecl = (node->get_fun()->decl);
-
-				function_pthread_exit_array fun_array;
-				vector<pthread_exit_type> pthread_exit_array;
-				if (function_pthread_exit_collect->get(getFucntionDecl) == NULL)
-				{
-					// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
-					fun_array.pthread_exit_array = pthread_exit_array;
-				}
-				else
-				{
-					fun_array = *(function_pthread_exit_collect->get(getFucntionDecl));
-					pthread_exit_array = fun_array.pthread_exit_array;
-				}
-
-				struct pthread_exit_type pthread_exit_type;
-				pthread_exit_type.stmt = gc;
-				pthread_exit_type.pthread_exit_tree = gimple_call_arg(gc, 0);
-
-				fun_array.pthread_exit_array.push_back(pthread_exit_type);
-				function_pthread_exit_collect->put(getFucntionDecl, fun_array);
-			}
-			else
-			{
-
-				debug_gimple_stmt(gc);
-				for (int i = 0; i < gimple_call_num_args(gc); i++)
-				{
-					// ADDR_EXPR
-
-					// get vardecl
-					tree getVARDECLtree;
-					// name = get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0)));
-					// if (name != NULL)
-
-					if (TREE_CODE(gimple_call_arg(gc, i)) == ADDR_EXPR || TREE_CODE(gimple_call_arg(gc, i)) == VAR_DECL)
+					if (gimple_call_arg(gc, 3) != NULL)
 					{
-						// debug_tree(gimple_call_arg(gc, i));
-						if (TREE_CODE(gimple_call_arg(gc, i)) == ADDR_EXPR)
-							getVARDECLtree = TREE_OPERAND(gimple_call_arg(gc, i), 0);
-						else
-							getVARDECLtree = gimple_call_arg(gc, i);
+						getFunctionAssignRHS = gimple_call_arg(gc, 3);
+						getFunctionAssignRHS = TREE_OPERAND(getFunctionAssignRHS, 0);
+						// if (getFunctionAssignRHS != NULL)
+						// 	debug_tree(getFunctionAssignRHS);
 
-						// debug_tree(getVARDECLtree);
-
-						function_assign_array assign_array;
-						vector<assign_type> assign_type_array;
-
-						if (function_assign_collect->get(getVARDECLtree) == NULL)
+						// debug(gc);
+						// debug_tree(getFunctionAssignRHS);
+						if (function_assign_collect->get(getFunctionAssignRHS) == NULL)
 						{
 
 							// debug(gc);
-							// debug_tree(gimple_call_fn(gc));
-
-							assign_array.assign_type_array = assign_type_array;
-							// debug(gc);
-						}
-						else
-						{
-
-							// debug(gc);
-							// debug_tree(gimple_call_fn(gc));
-							assign_array = *(function_assign_collect->get(getVARDECLtree));
-							assign_type_array = assign_array.assign_type_array;
-						}
-						// fprintf(stderr, "check vardecl-------\n");
-						// debug_tree(getVARDECLtree);
-						struct assign_type assign_type;
-
-						assign_type.stmt = gc;
-						assign_type.assign_tree = gimple_call_arg(gc, i);
-						assign_type.form_tree = node->get_fun()->decl;
-						// ret_type.reutnr_type_num = 0;
-						assign_array.assign_type_array.push_back(assign_type);
-						// tree second = TREE_OPERAND(gimple_call_arg(gc, i), 0);
-						// debug_tree(second);
-
-						function_assign_collect->put(getVARDECLtree, assign_array);
-					}
-				}
-
-				tree getVARDECLtree;
-				// name = get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0)));
-				// if (name != NULL)
-				if (gimple_call_num_args(gc) != 0)
-					if (TREE_CODE(gimple_call_arg(gc, 0)) == ADDR_EXPR)
-					{
-						function_assign_array assign_array;
-						vector<assign_type> assign_type_array;
-
-						if (function_assign_collect->get(gimple_call_fn(gc)) == NULL)
-						{
-							// fprintf(stderr, "other fucntion call addexpr-------\n");
-							// debug(gc);
-							// debug_tree(gimple_call_fn(gc));
-
 							assign_array.assign_type_array = assign_type_array;
 						}
 						else
 						{
-							// fprintf(stderr, "other fucntion call addexpr-------\n");
 
-							assign_array = *(function_assign_collect->get(gimple_call_fn(gc)));
+							// debug(gc);
+							assign_array = *(function_assign_collect->get(getFunctionAssignRHS));
 							assign_type_array = assign_array.assign_type_array;
 						}
-
 						struct assign_type assign_type;
 
 						assign_type.stmt = gc;
-						assign_type.assign_tree = gimple_call_arg(gc, 0);
+						assign_type.assign_tree = gimple_call_arg(gc, 3);
 						assign_type.form_tree = node->get_fun()->decl;
 						// ret_type.reutnr_type_num = 0;
 						assign_array.assign_type_array.push_back(assign_type);
-						tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
-						// debug_tree(second);
-						if (TREE_CODE(second) == VAR_DECL)
-						{
-
-							function_assign_collect->put(second, assign_array);
-						}
-					}
-
-				tree checklhstree = gimple_call_lhs(gc);
-
-				if (gimple_code(gc) == GIMPLE_CALL)
-				{
-					if (vscode_extensionmod)
-					{
-						int find = 0;
-						for (int i = 0; i < vbreakpoint.size(); i++)
-						{
-							size_t found = vbreakpoint[i].name.find(LOCATION_FILE(loc));
-							if (found)
-								if (vbreakpoint[i].line == LOCATION_LINE(loc))
-								{
-									debug_gimple_stmt(gc);
-									fprintf(stderr, "set breakpoint %s %d\n", vbreakpoint[i].name.c_str(), vbreakpoint[i].line);
-									find = 1;
-								}
-						}
-						if (find == 0)
-							return;
-					}
-					name = get_name(gimple_call_fn(gc));
-					if (name != NULL)
-					{
-
-						if (gimple_code(gc) == GIMPLE_CALL)
-							if (gimple_call_lhs(gc))
-								if (TREE_CODE(gimple_call_lhs(gc)) == SSA_NAME)
-									set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
-
-						if (gimple_call_num_args(gc) != 0)
-						{
-							for (int i = 0; i < gimple_call_num_args(gc); i++)
-							{
-								if (TREE_CODE(gimple_call_arg(gc, i)) == SSA_NAME)
-									set_ptb(bb, ptable, gimple_call_arg(gc, i), loc, 0, gc, node);
-							}
-						}
+						function_assign_collect->put(getFunctionAssignRHS, assign_array);
 					}
 				}
-
-				tree getreturnFucntionDecl = TREE_OPERAND(get_function_return_tree, 0);
-				if (getreturnFucntionDecl)
+				else if (!strcmp(name, "pthread_detach"))
 				{
-					if (function_return_collect->get(getreturnFucntionDecl) == NULL)
-					{
-
-						return;
-					}
 					tree getFucntionDecl = (node->get_fun()->decl);
-					// debug_tree(getFucntionDecl);
-					vector<return_type> ret_type_array;
-					function_return_array fun_array;
 
-					if (function_return_collect->get(getFucntionDecl) == NULL)
+					function_pthread_detched_array fun_array;
+					vector<pthread_detched_type> pthread_detched_array;
+					if (function_pthread_detched_collect->get(getFucntionDecl) == NULL)
 					{
-						fun_array.return_type_array = ret_type_array;
+						// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
+						fun_array.pthread_detched_array = pthread_detched_array;
 					}
 					else
 					{
-						fun_array = *(function_return_collect->get(getFucntionDecl));
-						ret_type_array = fun_array.return_type_array;
+						fun_array = *(function_pthread_detched_collect->get(getFucntionDecl));
+						pthread_detched_array = fun_array.pthread_detched_array;
 					}
 
-					struct return_type ret_type;
-					ret_type.stmt = gc;
-					ret_type.return_tree = getreturnFucntionDecl;
+					struct pthread_detched_type pthread_detched_type;
+					pthread_detched_type.stmt = gc;
+					pthread_detched_type.pthread_detched_tree = gimple_call_arg(gc, 0);
 
-					fun_array.return_type_array.push_back(ret_type);
-					function_return_collect->put(node->get_fun()->decl, fun_array);
+					fun_array.pthread_detched_array.push_back(pthread_detched_type);
+					function_pthread_detched_collect->put(getFucntionDecl, fun_array);
 				}
-			}
+				else if (!strcmp(name, "pthread_exit"))
+				{
+					tree getFucntionDecl = (node->get_fun()->decl);
+
+					function_pthread_exit_array fun_array;
+					vector<pthread_exit_type> pthread_exit_array;
+					if (function_pthread_exit_collect->get(getFucntionDecl) == NULL)
+					{
+						// fprintf(stderr, "%s\n",get_name (getFucntionDecl));
+						fun_array.pthread_exit_array = pthread_exit_array;
+					}
+					else
+					{
+						fun_array = *(function_pthread_exit_collect->get(getFucntionDecl));
+						pthread_exit_array = fun_array.pthread_exit_array;
+					}
+
+					struct pthread_exit_type pthread_exit_type;
+					pthread_exit_type.stmt = gc;
+					pthread_exit_type.pthread_exit_tree = gimple_call_arg(gc, 0);
+
+					fun_array.pthread_exit_array.push_back(pthread_exit_type);
+					function_pthread_exit_collect->put(getFucntionDecl, fun_array);
+				}
+				else
+				{
+
+					debug_gimple_stmt(gc);
+					for (int i = 0; i < gimple_call_num_args(gc); i++)
+					{
+						// ADDR_EXPR
+
+						// get vardecl
+						tree getVARDECLtree;
+						// name = get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0)));
+						// if (name != NULL)
+
+						if (TREE_CODE(gimple_call_arg(gc, i)) == ADDR_EXPR || TREE_CODE(gimple_call_arg(gc, i)) == VAR_DECL)
+						{
+							// debug_tree(gimple_call_arg(gc, i));
+							if (TREE_CODE(gimple_call_arg(gc, i)) == ADDR_EXPR)
+								getVARDECLtree = TREE_OPERAND(gimple_call_arg(gc, i), 0);
+							else
+								getVARDECLtree = gimple_call_arg(gc, i);
+
+							// debug_tree(getVARDECLtree);
+
+							function_assign_array assign_array;
+							vector<assign_type> assign_type_array;
+
+							if (function_assign_collect->get(getVARDECLtree) == NULL)
+							{
+
+								// debug(gc);
+								// debug_tree(gimple_call_fn(gc));
+
+								assign_array.assign_type_array = assign_type_array;
+								// debug(gc);
+							}
+							else
+							{
+
+								// debug(gc);
+								// debug_tree(gimple_call_fn(gc));
+								assign_array = *(function_assign_collect->get(getVARDECLtree));
+								assign_type_array = assign_array.assign_type_array;
+							}
+							// fprintf(stderr, "check vardecl-------\n");
+							// debug_tree(getVARDECLtree);
+							struct assign_type assign_type;
+
+							assign_type.stmt = gc;
+							assign_type.assign_tree = gimple_call_arg(gc, i);
+							assign_type.form_tree = node->get_fun()->decl;
+							// ret_type.reutnr_type_num = 0;
+							assign_array.assign_type_array.push_back(assign_type);
+							// tree second = TREE_OPERAND(gimple_call_arg(gc, i), 0);
+							// debug_tree(second);
+
+							function_assign_collect->put(getVARDECLtree, assign_array);
+						}
+					}
+
+					tree getVARDECLtree;
+					// name = get_tree_code_name(TREE_CODE(gimple_call_arg(gc, 0)));
+					// if (name != NULL)
+					if (gimple_call_num_args(gc) != 0)
+						if (TREE_CODE(gimple_call_arg(gc, 0)) == ADDR_EXPR)
+						{
+							function_assign_array assign_array;
+							vector<assign_type> assign_type_array;
+
+							if (function_assign_collect->get(gimple_call_fn(gc)) == NULL)
+							{
+								// fprintf(stderr, "other fucntion call addexpr-------\n");
+								// debug(gc);
+								// debug_tree(gimple_call_fn(gc));
+
+								assign_array.assign_type_array = assign_type_array;
+							}
+							else
+							{
+								// fprintf(stderr, "other fucntion call addexpr-------\n");
+
+								assign_array = *(function_assign_collect->get(gimple_call_fn(gc)));
+								assign_type_array = assign_array.assign_type_array;
+							}
+
+							struct assign_type assign_type;
+
+							assign_type.stmt = gc;
+							assign_type.assign_tree = gimple_call_arg(gc, 0);
+							assign_type.form_tree = node->get_fun()->decl;
+							// ret_type.reutnr_type_num = 0;
+							assign_array.assign_type_array.push_back(assign_type);
+							tree second = TREE_OPERAND(gimple_call_arg(gc, 0), 0);
+							// debug_tree(second);
+							if (TREE_CODE(second) == VAR_DECL)
+							{
+
+								function_assign_collect->put(second, assign_array);
+							}
+						}
+
+					tree checklhstree = gimple_call_lhs(gc);
+
+					if (gimple_code(gc) == GIMPLE_CALL)
+					{
+						if (vscode_extensionmod)
+						{
+							int find = 0;
+							for (int i = 0; i < vbreakpoint.size(); i++)
+							{
+								size_t found = vbreakpoint[i].name.find(LOCATION_FILE(loc));
+								if (found)
+									if (vbreakpoint[i].line == LOCATION_LINE(loc))
+									{
+										debug_gimple_stmt(gc);
+										fprintf(stderr, "set breakpoint %s %d\n", vbreakpoint[i].name.c_str(), vbreakpoint[i].line);
+										find = 1;
+									}
+							}
+							if (find == 0)
+								return;
+						}
+						name = get_name(gimple_call_fn(gc));
+						if (name != NULL)
+						{
+
+							if (gimple_code(gc) == GIMPLE_CALL)
+								if (gimple_call_lhs(gc))
+									if (TREE_CODE(gimple_call_lhs(gc)) == SSA_NAME)
+										set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
+
+							if (gimple_call_num_args(gc) != 0)
+							{
+								for (int i = 0; i < gimple_call_num_args(gc); i++)
+								{
+									if (TREE_CODE(gimple_call_arg(gc, i)) == SSA_NAME)
+										set_ptb(bb, ptable, gimple_call_arg(gc, i), loc, 0, gc, node);
+								}
+							}
+						}
+					}
+
+					tree getreturnFucntionDecl = TREE_OPERAND(get_function_return_tree, 0);
+					if (getreturnFucntionDecl)
+					{
+						if (function_return_collect->get(getreturnFucntionDecl) == NULL)
+						{
+
+							return;
+						}
+						tree getFucntionDecl = (node->get_fun()->decl);
+						// debug_tree(getFucntionDecl);
+						vector<return_type> ret_type_array;
+						function_return_array fun_array;
+
+						if (function_return_collect->get(getFucntionDecl) == NULL)
+						{
+							fun_array.return_type_array = ret_type_array;
+						}
+						else
+						{
+							fun_array = *(function_return_collect->get(getFucntionDecl));
+							ret_type_array = fun_array.return_type_array;
+						}
+
+						struct return_type ret_type;
+						ret_type.stmt = gc;
+						ret_type.return_tree = getreturnFucntionDecl;
+
+						fun_array.return_type_array.push_back(ret_type);
+						function_return_collect->put(node->get_fun()->decl, fun_array);
+					}
+				}
 	}
 	else if (gimple_code(gc) == GIMPLE_ASSIGN)
 	{

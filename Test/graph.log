@@ -6,28 +6,28 @@
 
 
 " # .MEM_5 = VDEF <.MEM_4(D)>
-ptr1_3 = malloc (20)
+ptr2_3 = malloc (40)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: return ptr1_3
-test.c:6:12: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 2: return ptr2_3
+test.c:14:12: warning: use location
 
 " ]
 
 " # .MEM_5 = VDEF <.MEM_4(D)>
-ptr1_3 = malloc (20)
+ptr2_3 = malloc (40)
 
 "->
 
 " from foo basic block 2"
 
-->" return ptr1_3
-ptr1_3 = malloc (20)
+->" return ptr2_3
+ptr2_3 = malloc (40)
 "
 
-->" return ptr1_3
-test.c:6:12: warning: use location
+->" return ptr2_3
+test.c:14:12: warning: use location
 
 "
 
@@ -36,28 +36,28 @@ test.c:6:12: warning: use location
 
 
 " # .MEM_5 = VDEF <.MEM_4(D)>
-ptr1_3 = malloc (20)
+ptr2_3 = malloc (40)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: *ptr1_3 = 1
-test.c:5:16: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)ptr2_3 + 8B] = 8
+test.c:13:12: warning: use location
 
 " ]
 
 " # .MEM_5 = VDEF <.MEM_4(D)>
-ptr1_3 = malloc (20)
+ptr2_3 = malloc (40)
 
 "->
 
 " from foo basic block 2"
 
-->" *ptr1_3 = 1
-ptr1_3 = malloc (20)
+->" MEM[(int *)ptr2_3 + 8B] = 8
+ptr2_3 = malloc (40)
 "
 
-->" *ptr1_3 = 1
-test.c:5:16: warning: use location
+->" MEM[(int *)ptr2_3 + 8B] = 8
+test.c:13:12: warning: use location
 
 "
 
@@ -67,47 +67,165 @@ test.c:5:16: warning: use location
 
 
 " # .MEM_5 = VDEF <.MEM_4(D)>
-ptr1_3 = malloc (20)
+ptr2_3 = malloc (40)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: ptr1_3 = malloc (20)
-test.c:4:17: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 2: ptr2_3 = malloc (40)
+test.c:12:17: warning: use location
 " ]
 
 " # .MEM_5 = VDEF <.MEM_4(D)>
-ptr1_3 = malloc (20)
+ptr2_3 = malloc (40)
 
 "->
 
 " from foo basic block 2"
 
-->" ptr1_3 = malloc (20)
-ptr1_3 = malloc (20)
+->" ptr2_3 = malloc (40)
+ptr2_3 = malloc (40)
 "
 
-->" ptr1_3 = malloc (20)
-test.c:4:17: warning: use location
+->" ptr2_3 = malloc (40)
+test.c:12:17: warning: use location
 "
 
 
 " from foo basic block 2"
 
-->subgraph cluster_1653189835 { color=lightgrey; style ="dashed";"  return ptr1_3
-ptr1_3 = malloc (20)
+->subgraph cluster_1970836309 { color=lightgrey; style ="dashed";"  return ptr2_3
+ptr2_3 = malloc (40)
 ";}
 
 " from foo basic block 2"
 
-->subgraph cluster_1066544339 { color=lightgrey; style ="dashed";"  *ptr1_3 = 1
-ptr1_3 = malloc (20)
+->subgraph cluster_656659531 { color=lightgrey; style ="dashed";"  MEM[(int *)ptr2_3 + 8B] = 8
+ptr2_3 = malloc (40)
 ";}
 
 " from foo basic block 2"
 
-->subgraph cluster_391813618 { color=lightgrey; style ="dashed";"  ptr1_3 = malloc (20)
-ptr1_3 = malloc (20)
+->subgraph cluster_443887682 { color=lightgrey; style ="dashed";"  ptr2_3 = malloc (40)
+ptr2_3 = malloc (40)
 ";}
+
+
+
+
+
+
+
+
+" foo
+"->
+
+
+" # .MEM_5 = VDEF <.MEM_4(D)>
+ptr2_3 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: return ptr2_3
+test.c:14:12: warning: use location
+
+" ]
+
+" # .MEM_5 = VDEF <.MEM_4(D)>
+ptr2_3 = malloc (40)
+
+"->
+
+" from foo basic block 2"
+
+->" return ptr2_3
+ptr2_3 = malloc (40)
+"
+
+->" return ptr2_3
+test.c:14:12: warning: use location
+
+"
+
+" foo
+"->
+
+
+" # .MEM_5 = VDEF <.MEM_4(D)>
+ptr2_3 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)ptr2_3 + 8B] = 8
+test.c:13:12: warning: use location
+
+" ]
+
+" # .MEM_5 = VDEF <.MEM_4(D)>
+ptr2_3 = malloc (40)
+
+"->
+
+" from foo basic block 2"
+
+->" MEM[(int *)ptr2_3 + 8B] = 8
+ptr2_3 = malloc (40)
+"
+
+->" MEM[(int *)ptr2_3 + 8B] = 8
+test.c:13:12: warning: use location
+
+"
+
+
+" foo
+"->
+
+
+" # .MEM_5 = VDEF <.MEM_4(D)>
+ptr2_3 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: ptr2_3 = malloc (40)
+test.c:12:17: warning: use location
+" ]
+
+" # .MEM_5 = VDEF <.MEM_4(D)>
+ptr2_3 = malloc (40)
+
+"->
+
+" from foo basic block 2"
+
+->" ptr2_3 = malloc (40)
+ptr2_3 = malloc (40)
+"
+
+->" ptr2_3 = malloc (40)
+test.c:12:17: warning: use location
+"
+
+
+" from foo basic block 2"
+
+->subgraph cluster_1886835180 { color=lightgrey; style ="dashed";"  return ptr2_3
+ptr2_3 = malloc (40)
+";}
+
+" from foo basic block 2"
+
+->subgraph cluster_2026889790 { color=lightgrey; style ="dashed";"  MEM[(int *)ptr2_3 + 8B] = 8
+ptr2_3 = malloc (40)
+";}
+
+" from foo basic block 2"
+
+->subgraph cluster_1451749080 { color=lightgrey; style ="dashed";"  ptr2_3 = malloc (40)
+ptr2_3 = malloc (40)
+";}
+
+
+
 
 
 
@@ -117,28 +235,44 @@ ptr1_3 = malloc (20)
 "->
 
 
-" # .MEM_12 = VDEF <.MEM_11>
-a_8 = malloc (40)
+" # .MEM_10 = VDEF <.MEM_9(D)>
+a_3 = foo ()
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 5: a_1 = PHI <a_5(3), a_8(4)>
-lto1: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 2: freeptr (a_3)
+test.c:22:5: warning: use location
+
 " ]
 
-" # .MEM_12 = VDEF <.MEM_11>
-a_8 = malloc (40)
+" # .MEM_10 = VDEF <.MEM_9(D)>
+a_3 = foo ()
 
 "->
 
-" from main basic block 5"
+" from main basic block 2"
 
-->" a_1 = PHI <a_5(3), a_8(4)>
-a_8 = malloc (40)
+->" freeptr (a_3)
+a_3 = foo ()
 "
 
-->" a_1 = PHI <a_5(3), a_8(4)>
-lto1: warning: use location
+->" freeptr (a_3)
+test.c:22:5: warning: use location
+
+"
+
+
+->" ID : 1899312487
+from freeptr basic block 2"->
+
+" ID : 2097948609 stmt(free) :free (p_2(D))
+test.c:3:5: warning: use location
+"
+
+[color="green" ]
+
+" ID : 2097948609 stmt(free) :free (p_2(D))
+test.c:3:5: warning: use location
 "
 
 
@@ -146,29 +280,247 @@ lto1: warning: use location
 "->
 
 
-" # .MEM_12 = VDEF <.MEM_11>
-a_8 = malloc (40)
+" # .MEM_10 = VDEF <.MEM_9(D)>
+a_3 = foo ()
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 5: free (a_1)
-test.c:19:5: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 2: foo2 (a_3)
+test.c:21:5: warning: use location
 
 " ]
 
-" # .MEM_12 = VDEF <.MEM_11>
-a_8 = malloc (40)
+" # .MEM_10 = VDEF <.MEM_9(D)>
+a_3 = foo ()
 
 "->
 
-" from main basic block 5"
+" from main basic block 2"
 
-->" free (a_1)
-a_8 = malloc (40)
+->" foo2 (a_3)
+a_3 = foo ()
 "
 
-->" free (a_1)
-test.c:19:5: warning: use location
+->" foo2 (a_3)
+test.c:21:5: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_10 = VDEF <.MEM_9(D)>
+a_3 = foo ()
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)a_3 + 8B] = 10
+test.c:20:9: warning: use location
+
+" ]
+
+" # .MEM_10 = VDEF <.MEM_9(D)>
+a_3 = foo ()
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(int *)a_3 + 8B] = 10
+a_3 = foo ()
+"
+
+->" MEM[(int *)a_3 + 8B] = 10
+test.c:20:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_10 = VDEF <.MEM_9(D)>
+a_3 = foo ()
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)a_3 + 8B] = 10
+test.c:20:9: warning: use location
+
+" ]
+
+" # .MEM_10 = VDEF <.MEM_9(D)>
+a_3 = foo ()
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(int *)a_3 + 8B] = 10
+a_3 = foo ()
+"
+
+->" MEM[(int *)a_3 + 8B] = 10
+test.c:20:9: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_10 = VDEF <.MEM_9(D)>
+a_3 = foo ()
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: a_3 = foo ()
+test.c:19:7: warning: use location
+" ]
+
+" # .MEM_10 = VDEF <.MEM_9(D)>
+a_3 = foo ()
+
+"->
+
+" from main basic block 2"
+
+->" a_3 = foo ()
+a_3 = foo ()
+"
+
+->" a_3 = foo ()
+test.c:19:7: warning: use location
+"
+
+
+" from main basic block 2"
+
+->subgraph cluster_1578931678 { color=lightgrey; style ="dashed";"  freeptr (a_3)
+a_3 = foo ()
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1597646961 { color=lightgrey; style ="dashed";"  foo2 (a_3)
+a_3 = foo ()
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_2087997102 { color=lightgrey; style ="dashed";"  MEM[(int *)a_3 + 8B] = 10
+a_3 = foo ()
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1534039552 { color=lightgrey; style ="dashed";"  MEM[(int *)a_3 + 8B] = 10
+a_3 = foo ()
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_462813273 { color=lightgrey; style ="dashed";"  a_3 = foo ()
+a_3 = foo ()
+";}
+
+
+
+
+
+
+
+
+" main
+"->
+
+
+" # .MEM_14 = VDEF <.MEM_13>
+a_8 = foo ()
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)a_8 + 24B] = 4
+test.c:26:9: warning: use location
+
+" ]
+
+" # .MEM_14 = VDEF <.MEM_13>
+a_8 = foo ()
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(int *)a_8 + 24B] = 4
+a_8 = foo ()
+"
+
+->" MEM[(int *)a_8 + 24B] = 4
+test.c:26:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_14 = VDEF <.MEM_13>
+a_8 = foo ()
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)a_8 + 24B] = 4
+test.c:26:9: warning: use location
+
+" ]
+
+" # .MEM_14 = VDEF <.MEM_13>
+a_8 = foo ()
+
+"->
+
+" from main basic block 2"
+
+->" MEM[(int *)a_8 + 24B] = 4
+a_8 = foo ()
+"
+
+->" MEM[(int *)a_8 + 24B] = 4
+test.c:26:9: warning: use location
+
+"
+
+" main
+"->
+
+
+" # .MEM_14 = VDEF <.MEM_13>
+a_8 = foo ()
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: free (a_8)
+test.c:25:5: warning: use location
+
+" ]
+
+" # .MEM_14 = VDEF <.MEM_13>
+a_8 = foo ()
+
+"->
+
+" from main basic block 2"
+
+->" free (a_8)
+a_8 = foo ()
+"
+
+->" free (a_8)
+test.c:25:5: warning: use location
 
 "
 
@@ -179,64 +531,57 @@ test.c:19:5: warning: use location
 "->
 
 
-" # .MEM_12 = VDEF <.MEM_11>
-a_8 = malloc (40)
+" # .MEM_14 = VDEF <.MEM_13>
+a_8 = foo ()
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 4: a_8 = malloc (40)
-test.c:17:17: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 2: a_8 = foo ()
+test.c:24:7: warning: use location
 " ]
 
-" # .MEM_12 = VDEF <.MEM_11>
-a_8 = malloc (40)
+" # .MEM_14 = VDEF <.MEM_13>
+a_8 = foo ()
 
 "->
 
-" from main basic block 4"
+" from main basic block 2"
 
-->" a_8 = malloc (40)
-a_8 = malloc (40)
+->" a_8 = foo ()
+a_8 = foo ()
 "
 
-->" a_8 = malloc (40)
-test.c:17:17: warning: use location
+->" a_8 = foo ()
+test.c:24:7: warning: use location
 "
 
 
-" from main basic block 5"
+" from main basic block 2"
 
-->subgraph cluster_1089372259 { color=lightgrey; style ="dashed";"  a_1 = PHI <a_5(3), a_8(4)>
-a_8 = malloc (40)
+->subgraph cluster_2004532425 { color=lightgrey; style ="dashed";"  MEM[(int *)a_8 + 24B] = 4
+a_8 = foo ()
 ";}
 
-" from main basic block 5"
+" from main basic block 2"
 
-->subgraph cluster_1033648365 { color=lightgrey; style ="dashed";"  free (a_1)
-a_1 = PHI <a_5(3), a_8(4)>
+->subgraph cluster_118117197 { color=lightgrey; style ="dashed";"  MEM[(int *)a_8 + 24B] = 4
+a_8 = foo ()
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1785574292 { color=lightgrey; style ="dashed";"  free (a_8)
+a_8 = foo ()
+";}
+
+" from main basic block 2"
+
+->subgraph cluster_1226468050 { color=lightgrey; style ="dashed";"  a_8 = foo ()
+a_8 = foo ()
 ";}
 
 
 
-
-
-->"ID : 2053368307
-from foo basic block 2"->
-
-" ID : 1435277305 stmt(call) :ptr1_3 = malloc (20)
-In function ‘foo’:
-
-"
-
-
-->"ID : 2053368307
-from foo basic block 2"->
-
-
-" ID : 2070784204 stmt(LHS) :*ptr1_3 = 1
-test.c:5:16: warning: use location
-
-"
 
 
 
@@ -247,28 +592,28 @@ test.c:5:16: warning: use location
 
 
 " # .MEM_5 = VDEF <.MEM_4(D)>
-ptr1_3 = malloc (20)
+ptr2_3 = malloc (40)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: return ptr1_3
-test.c:6:12: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 2: return ptr2_3
+test.c:14:12: warning: use location
 
 " ]
 
 " # .MEM_5 = VDEF <.MEM_4(D)>
-ptr1_3 = malloc (20)
+ptr2_3 = malloc (40)
 
 "->
 
 " from foo basic block 2"
 
-->" return ptr1_3
-ptr1_3 = malloc (20)
+->" return ptr2_3
+ptr2_3 = malloc (40)
 "
 
-->" return ptr1_3
-test.c:6:12: warning: use location
+->" return ptr2_3
+test.c:14:12: warning: use location
 
 "
 
@@ -277,28 +622,28 @@ test.c:6:12: warning: use location
 
 
 " # .MEM_5 = VDEF <.MEM_4(D)>
-ptr1_3 = malloc (20)
+ptr2_3 = malloc (40)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: *ptr1_3 = 1
-test.c:5:16: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)ptr2_3 + 8B] = 8
+test.c:13:12: warning: use location
 
 " ]
 
 " # .MEM_5 = VDEF <.MEM_4(D)>
-ptr1_3 = malloc (20)
+ptr2_3 = malloc (40)
 
 "->
 
 " from foo basic block 2"
 
-->" *ptr1_3 = 1
-ptr1_3 = malloc (20)
+->" MEM[(int *)ptr2_3 + 8B] = 8
+ptr2_3 = malloc (40)
 "
 
-->" *ptr1_3 = 1
-test.c:5:16: warning: use location
+->" MEM[(int *)ptr2_3 + 8B] = 8
+test.c:13:12: warning: use location
 
 "
 
@@ -308,45 +653,163 @@ test.c:5:16: warning: use location
 
 
 " # .MEM_5 = VDEF <.MEM_4(D)>
-ptr1_3 = malloc (20)
+ptr2_3 = malloc (40)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: ptr1_3 = malloc (20)
-test.c:4:17: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 2: ptr2_3 = malloc (40)
+test.c:12:17: warning: use location
 " ]
 
 " # .MEM_5 = VDEF <.MEM_4(D)>
-ptr1_3 = malloc (20)
+ptr2_3 = malloc (40)
 
 "->
 
 " from foo basic block 2"
 
-->" ptr1_3 = malloc (20)
-ptr1_3 = malloc (20)
+->" ptr2_3 = malloc (40)
+ptr2_3 = malloc (40)
 "
 
-->" ptr1_3 = malloc (20)
-test.c:4:17: warning: use location
+->" ptr2_3 = malloc (40)
+test.c:12:17: warning: use location
 "
 
 
 " from foo basic block 2"
 
-->subgraph cluster_926955780 { color=lightgrey; style ="dashed";"  return ptr1_3
-ptr1_3 = malloc (20)
+->subgraph cluster_548974882 { color=lightgrey; style ="dashed";"  return ptr2_3
+ptr2_3 = malloc (40)
 ";}
 
 " from foo basic block 2"
 
-->subgraph cluster_1457671934 { color=lightgrey; style ="dashed";"  *ptr1_3 = 1
-ptr1_3 = malloc (20)
+->subgraph cluster_1082518790 { color=lightgrey; style ="dashed";"  MEM[(int *)ptr2_3 + 8B] = 8
+ptr2_3 = malloc (40)
 ";}
 
 " from foo basic block 2"
 
-->subgraph cluster_218638346 { color=lightgrey; style ="dashed";"  ptr1_3 = malloc (20)
-ptr1_3 = malloc (20)
+->subgraph cluster_949611419 { color=lightgrey; style ="dashed";"  ptr2_3 = malloc (40)
+ptr2_3 = malloc (40)
 ";}
+
+
+
+
+
+
+
+
+" foo
+"->
+
+
+" # .MEM_5 = VDEF <.MEM_4(D)>
+ptr2_3 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: return ptr2_3
+test.c:14:12: warning: use location
+
+" ]
+
+" # .MEM_5 = VDEF <.MEM_4(D)>
+ptr2_3 = malloc (40)
+
+"->
+
+" from foo basic block 2"
+
+->" return ptr2_3
+ptr2_3 = malloc (40)
+"
+
+->" return ptr2_3
+test.c:14:12: warning: use location
+
+"
+
+" foo
+"->
+
+
+" # .MEM_5 = VDEF <.MEM_4(D)>
+ptr2_3 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)ptr2_3 + 8B] = 8
+test.c:13:12: warning: use location
+
+" ]
+
+" # .MEM_5 = VDEF <.MEM_4(D)>
+ptr2_3 = malloc (40)
+
+"->
+
+" from foo basic block 2"
+
+->" MEM[(int *)ptr2_3 + 8B] = 8
+ptr2_3 = malloc (40)
+"
+
+->" MEM[(int *)ptr2_3 + 8B] = 8
+test.c:13:12: warning: use location
+
+"
+
+
+" foo
+"->
+
+
+" # .MEM_5 = VDEF <.MEM_4(D)>
+ptr2_3 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: ptr2_3 = malloc (40)
+test.c:12:17: warning: use location
+" ]
+
+" # .MEM_5 = VDEF <.MEM_4(D)>
+ptr2_3 = malloc (40)
+
+"->
+
+" from foo basic block 2"
+
+->" ptr2_3 = malloc (40)
+ptr2_3 = malloc (40)
+"
+
+->" ptr2_3 = malloc (40)
+test.c:12:17: warning: use location
+"
+
+
+" from foo basic block 2"
+
+->subgraph cluster_2010818202 { color=lightgrey; style ="dashed";"  return ptr2_3
+ptr2_3 = malloc (40)
+";}
+
+" from foo basic block 2"
+
+->subgraph cluster_1148922909 { color=lightgrey; style ="dashed";"  MEM[(int *)ptr2_3 + 8B] = 8
+ptr2_3 = malloc (40)
+";}
+
+" from foo basic block 2"
+
+->subgraph cluster_288301772 { color=lightgrey; style ="dashed";"  ptr2_3 = malloc (40)
+ptr2_3 = malloc (40)
+";}
+
+
+
 

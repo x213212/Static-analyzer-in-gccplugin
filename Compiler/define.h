@@ -40,11 +40,12 @@ ofstream cfginfo("cfginfo.txt");
 bool ipa = true;
 bool vscode_extensionmod = false;
 bool memoryleakcheck = true;
+//kroren testcase need turn on
 bool Looserulesfree =true;
-bool useafterfree =false;
+bool useafterfree =true;
 bool debugmod = true;
 bool threadmod = false;
-bool relatemod = true;
+bool relatemod = false;
 bool freemod = true;
 bool retmod = true; 
 bool pthread_detachedmod = true;
@@ -54,7 +55,7 @@ bool prebranchexit = false;
 bool stmtloopcheck = true;
 bool samefucntioncheck = true;
 bool maxbasicblockcalc = true;
-bool pathconstraint = true;
+bool pathconstraint = false;
 
 
 

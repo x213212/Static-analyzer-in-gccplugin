@@ -122,31 +122,40 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 																struct pt_solution *pt2 = &pi1->pt;
 																if (!pt1 || pt1->anything)
 																	continue;
-
-																if (!pt1->nonlocal && !pt2->nonlocal)
-																{
-
-																	if (!is_global_var(gimple_assign_rhs1(def_stmt2)))
+																//
+																if (is_gimple_assign(def_stmt) && is_gimple_assign(def_stmt2))
+																	if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "<invalid tree code>"))
 																	{
 
-																		if (pt1)
-																			if (is_global_var(gimple_assign_rhs1(def_stmt)))
+																		if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt2))), "<invalid tree code>"))
+																		{
+																			if (!pt1->nonlocal && !pt2->nonlocal)
 																			{
-																				if (!ptr_derefs_may_alias_p(mallocStmt_tree, first))
-																				{
-																					continue;
-																				}
+																				if (gimple_assign_rhs1(def_stmt2) != NULL)
+																					if (!is_global_var(gimple_assign_rhs1(def_stmt2)))
+																					{
+
+																						if (pt1)
+																							if (gimple_assign_rhs1(def_stmt) != NULL)
+																								if (is_global_var(gimple_assign_rhs1(def_stmt)))
+																								{
+																									if (!ptr_derefs_may_alias_p(mallocStmt_tree, first))
+																									{
+																										continue;
+																									}
+																								}
+																					}
+																					else
+																					{
+																						continue;
+																					}
 																			}
+																			else
+																			{
+																				continue;
+																			}
+																		}
 																	}
-																	else
-																	{
-																		continue;
-																	}
-																}
-																else
-																{
-																	continue;
-																}
 															}
 														}
 														else if (TREE_CODE(gimple_assign_rhs1(gc)) == VAR_DECL)
@@ -433,17 +442,17 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 	fistconunt = 0;
 
 	fprintf(stderr, "\033[40;44m =======trace_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
-	
+
 	if (retmod)
 		if (function_return_collect->get(function_tree) != NULL && fucntion_level == RET_HEAP_OBJECT)
-		{	
+		{
 			// function_pthread_exit_array callerFunArray = *(function_pthread_exit_collect->get(function_tree));
 			function_return_array callerFunArray = *(function_return_collect->get(function_tree));
 
 			vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
 			for (int k = 0; k < callerRetTypearray.size(); k++)
 			{
-		
+
 				if ((callerRetTypearray)[k].return_tree)
 				{
 					// debug_points_to_info_for(mallocStmt_tree);

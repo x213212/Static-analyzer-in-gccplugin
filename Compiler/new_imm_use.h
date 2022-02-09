@@ -742,76 +742,85 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 						// 	debug_tree(getFunctionAssignVAR);
 						// debug_gimple_stmt(nowstmt);
 						const char *name;
-						name = get_name(gimple_call_fn(use_stmt));
+						// debug_gimple_stmt(use_stmt);
+						// debug_gimple_stmt(nowstmt);
+						// debug(gimple_call_fndecl(use_stmt));
 
-						if (gimple_call_lhs(nowstmt) || gimple_call_fndecl(nowstmt))
-							if (!check_stmtStack(gimple_call_lhs(nowstmt)))
+						if (gimple_code(nowstmt) == GIMPLE_CALL)
+							if (gimple_call_fn(nowstmt))
 							{
 
-								if (name != NULL)
-									if (!strcmp(name, "free"))
+								name = get_name(gimple_call_fn(nowstmt));
+
+								if (gimple_call_lhs(nowstmt) || gimple_call_fndecl(nowstmt))
+									if (!check_stmtStack(gimple_call_lhs(nowstmt)))
 									{
-										// free (&a);唯一
-										if (!check_stmtStack2(nowstmt))
-											set_gimple_array(used_stmt, nowstmt, gimple_call_arg(nowstmt, 0), target, NULL);
+
+										if (name != NULL)
+											if (!strcmp(name, "free"))
+											{
+												// free (&a);唯一
+												if (!check_stmtStack2(nowstmt))
+													set_gimple_array(used_stmt, nowstmt, gimple_call_arg(nowstmt, 0), target, NULL);
+											}
+											else
+											{
+												// _1 = foo(1,2,3)
+												// foo(1,2,3)
+												if ((assign_array.assign_type_array)[i].form_tree != NULL)
+												{
+													set_gimple_array(used_stmt, nowstmt, (assign_array.assign_type_array)[i].form_tree, target, NULL);
+												}
+												else
+												{
+													set_gimple_array(used_stmt, nowstmt, gimple_call_lhs(nowstmt), target, NULL);
+												}
+											}
+
+										int size = gimple_call_num_args(nowstmt);
+
+										for (int i = 0; i < size; i++)
+										{
+											if (!check_stmtStack(gimple_call_arg(nowstmt, i)))
+												if (TREE_CODE(gimple_call_arg(nowstmt, i)) == SSA_NAME)
+												{
+
+													if (gimple_call_arg(nowstmt, i) != target2)
+														new_search_imm_use(used_stmt, gimple_call_arg(nowstmt, i), gimple_call_arg(nowstmt, i));
+												}
+												else if (TREE_CODE(gimple_call_arg(nowstmt, i)) == ADDR_EXPR)
+												{
+
+													set_gimple_array(used_stmt, nowstmt, gimple_call_arg(nowstmt, i), target, NULL);
+												}
+										}
 									}
 									else
 									{
-										// _1 = foo(1,2,3)
-										// foo(1,2,3)
-										if ((assign_array.assign_type_array)[i].form_tree != NULL)
+										if (!check_stmtStack2(nowstmt))
 										{
-											set_gimple_array(used_stmt, nowstmt, (assign_array.assign_type_array)[i].form_tree, target, NULL);
-										}
-										else
-										{
-											set_gimple_array(used_stmt, nowstmt, gimple_call_lhs(nowstmt), target, NULL);
-										}
-									}
-
-								int size = gimple_call_num_args(nowstmt);
-
-								for (int i = 0; i < size; i++)
-								{
-									if (!check_stmtStack(gimple_call_arg(nowstmt, i)))
-										if (TREE_CODE(gimple_call_arg(nowstmt, i)) == SSA_NAME)
-										{
-
-											if (gimple_call_arg(nowstmt, i) != target2)
-												new_search_imm_use(used_stmt, gimple_call_arg(nowstmt, i), gimple_call_arg(nowstmt, i));
-										}
-										else if (TREE_CODE(gimple_call_arg(nowstmt, i)) == ADDR_EXPR)
-										{
-
-											set_gimple_array(used_stmt, nowstmt, gimple_call_arg(nowstmt, i), target, NULL);
-										}
-								}
-							}
-							else
-							{
-								if (!check_stmtStack2(nowstmt))
-								{
-									// free (&a);
-									if (TREE_CODE(gimple_call_arg(nowstmt, 0)) == ADDR_EXPR)
-									{
-										set_gimple_array(used_stmt, nowstmt, gimple_call_arg(nowstmt, 0), target, NULL);
-									}
-									int size = gimple_call_num_args(nowstmt);
-									for (int i = 0; i < size; i++)
-									{
-										if (!check_stmtStack(gimple_call_arg(nowstmt, i)))
-										{
-
-											if (TREE_CODE(gimple_call_arg(nowstmt, i)) == SSA_NAME)
+											// free (&a);
+											if (TREE_CODE(gimple_call_arg(nowstmt, 0)) == ADDR_EXPR)
 											{
-
+												set_gimple_array(used_stmt, nowstmt, gimple_call_arg(nowstmt, 0), target, NULL);
+											}
+											int size = gimple_call_num_args(nowstmt);
+											for (int i = 0; i < size; i++)
+											{
 												if (!check_stmtStack(gimple_call_arg(nowstmt, i)))
-													if (gimple_call_arg(nowstmt, i) != target2)
-														new_search_imm_use(used_stmt, gimple_call_arg(nowstmt, i), gimple_call_arg(nowstmt, i));
+												{
+
+													if (TREE_CODE(gimple_call_arg(nowstmt, i)) == SSA_NAME)
+													{
+
+														if (!check_stmtStack(gimple_call_arg(nowstmt, i)))
+															if (gimple_call_arg(nowstmt, i) != target2)
+																new_search_imm_use(used_stmt, gimple_call_arg(nowstmt, i), gimple_call_arg(nowstmt, i));
+													}
+												}
 											}
 										}
 									}
-								}
 							}
 					}
 				}

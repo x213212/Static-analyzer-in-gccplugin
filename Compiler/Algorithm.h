@@ -210,12 +210,14 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 							if (gimple_code(def_stmt) == GIMPLE_CALL)
 								if (gimple_call_fn(def_stmt) && gimple_call_fndecl(def_stmt))
 								{
+									
 									name = get_name(gimple_call_fn(def_stmt));
 									if (name != NULL)
 										if (strcmp(name, "malloc"))
 											Prenew_search_imm_use(used_stmt, processtable->target, processtable->target);
 								}
 				}
+					
 				now_tree = processtable->target;
 				
 				new_search_imm_use(used_stmt, processtable->target, processtable->target);
