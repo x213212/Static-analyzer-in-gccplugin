@@ -179,7 +179,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					fprintf(stderr, "\n======================================================================\n");
 					if (user_tmp->size > 0)
 					{
-						set<gimple *> myset;
+						// set<gimple *> myset;
 
 						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 						{

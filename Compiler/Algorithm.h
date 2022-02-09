@@ -139,11 +139,11 @@ void record_fucntion(cgraph_node *node)
 
 void PointerConstraint(ptb *ptable, ptb *ftable)
 {
+	struct timespec astart, aend;
 	gimple_array *used_stmt = NULL;
 	gimple_array start;
 	start.stmt = NULL;
 	used_stmt = &start;
-	struct timespec astart, aend;
 	clock_gettime(CLOCK_MONOTONIC, &astart);
 	struct cgraph_node *node;
 	struct timespec temp;
@@ -320,8 +320,9 @@ void detect()
 	struct cgraph_node *node;
 	struct var_points_to vpt;
 	const int N = 1e2;
-	tree ptr;
 	unsigned i;
+	breakpoint getbp;
+	tree ptr;
 	tree attr;
 	function *ofun;
 	function *fn;
@@ -341,16 +342,7 @@ void detect()
 	function_free_collect = new hash_map<tree, function_free_array>;
 	function_graph_collect = new hash_map<tree, function_graph_array>;
 	function_relate_collect = new hash_map<tree, function_relate_array>;
-	breakpoint getbp;
-	// timer *g_timer2 =g_timer;;
-	// timevar_push (TV_IPA_DECTE);
 
-	// g_timer->start(TV_IPA_DECTE );
-	// fprintf(stderr, "start trace %d\n", timevar_cond_start(TV_IPA_DECTE));
-	// timevar_push(TV_PLUGIN_RUN );
-	// g_timer->start(TV_PLUGIN_RUN );
-	// fprintf(stderr, "physicalMem%d\n", GetProcessMemory().physicalMem);
-	// fprintf(stderr, "virtualMem%d\n", GetProcessMemory().virtualMem);
 	if (vscode_extensionmod)
 	{
 		std::ifstream ifs("/root/.vscode-server/data/User/globalStorage/vscode-samples.helloworld-sample/breakpoint.txt", std::ios::in);
@@ -484,37 +476,6 @@ void detect()
 	double time_used;
 	time_used = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
 	struct timevar_time_def now;
-	// g_timer
-	// fprintf (stderr, "%24lu kB ggc",(unsigned) (now.ggc_mem >> 10));
-	// 	fprintf (stderr, "%24lu kB ggc",(unsigned) (timevar_ggc_mem_total >> 10));
-	// timevar_ggc_mem_total
-
-	// char *data= new char[1024*1024*20];    ;
-	// for (int i = 0 ;i<(1024*1024);i++)
-	// data[i] ='1';
-	// delete(data);
-
-	// const char *name= now.name;
-	// g_timer->print(stderr);
-	// g_timer->stop(TV_IPA_DECTE );
-	// unsigned int /* timevar_id_t */ id;
-	// for (id = 0; id < (unsigned int)TIMEVAR_LAST - 2; id++)
-	// {
-	// 	// timevar_def2 *tv =&(g_timer->m_timevars[id]);
-	// 	const char *name = g_timer->m_timevars[(unsigned int)id].name;
-	// 	if (name && *name != '\0')
-	// 	{
-	// 		//不为空
-	// 		fprintf(stderr, "%s %24lu %24lu\n", name, g_timer->m_timevars[(unsigned int)id].start_time.ggc_mem, g_timer->m_timevars[(unsigned int)id].elapsed.ggc_mem);
-	// 	}
-	// }
-	// timevar_push (TV_IPA_DECTE);
-
-	// timevar_pop(TV_IPA_DECTE );
-	// g_timer->validate_phases(stderr);
-	// struct timevar_stack_def *popped = m_stack;
-	/* What time is it?  */
-	// get_time(&now);
 
 	ofstream myfile("time.txt");
 	if (myfile.is_open())

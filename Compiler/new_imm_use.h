@@ -1307,6 +1307,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 					else if (gimple_code(use_stmt) == GIMPLE_PHI)
 					{
 						if (gimple_phi_result(use_stmt) && TREE_CODE(gimple_phi_result(use_stmt)) == SSA_NAME)
+						{
 							if (TREE_CODE(gimple_phi_result(use_stmt)) == SSA_NAME)
 								if (!check_stmtStack(gimple_phi_result(use_stmt)) && !check_stmtStack2(use_stmt))
 								{
@@ -1315,6 +1316,32 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 									if (gimple_phi_result(use_stmt) != target2)
 										new_search_imm_use(used_stmt, gimple_phi_result(use_stmt), gimple_phi_result(use_stmt));
 								}
+							// if (gimple_phi_num_args(use_stmt))
+							// {
+							// 	for (int i = 0; i < gimple_phi_num_args(use_stmt); i++)
+							// 	{
+							// 		tree arg = gimple_phi_arg_def(use_stmt, i);
+							// 		if (arg)
+							// 			if (TREE_CODE(arg) == SSA_NAME)
+							// 				if (!check_stmtStack(arg))
+							// 				{
+							// 					set_gimple_array(used_stmt, use_stmt, arg, target, NULL);
+
+							// 					// debug_tree(gimple_phi_result(use_stmt));
+
+							// 					if (arg != target2)
+							// 					{
+
+							// 						new_search_imm_use(used_stmt, arg, arg);
+							// 						// debug(target2);
+							// 						// debug(arg);
+							// 						// fprintf(stderr, "-------Untreated-------------------------\n");
+							// 					}
+							// 				}
+							// 	}
+							// 	// debug_gimple_stmt(use_stmt);
+							// }
+						}
 					}
 					else if (gimple_code(use_stmt) == GIMPLE_CALL)
 					{

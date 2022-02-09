@@ -1,4 +1,4 @@
-GCC=g++-11.1
+GCC=g++-11.2
 
 LIBIBERTYDIR=$(shell brew --prefix)/lib/x86_64
 GMPDIR=$(shell brew --prefix)/Cellar/gmp4/4.3.2

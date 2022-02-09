@@ -61,7 +61,6 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 
 					if (is_gimple_assign(gc))
 					{
-
 						struct ptr_info_def *pi1, *pi2, *pi3, *pi4;
 						pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
 						struct pt_solution *pt1 = &pi1->pt;
@@ -73,16 +72,13 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 									if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME || TREE_CODE(gimple_assign_lhs(gc)) == MEM_REF)
 									{
 										pi2 = SSA_NAME_PTR_INFO(gimple_assign_lhs(gc));
-
 										struct pt_solution *pt2 = &pi2->pt;
 
 										if (pt2)
 										{
 											if (gimple_assign_rhs1(gc) != NULL)
 											{
-
 												if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
-
 												{
 
 													if (gimple_assign_rhs1(gc) != NULL)
@@ -437,16 +433,17 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 	fistconunt = 0;
 
 	fprintf(stderr, "\033[40;44m =======trace_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
+	
 	if (retmod)
-		if (function_return_collect->get(function_tree) != NULL && fucntion_level == DISABLE_TREACE)
-		{
+		if (function_return_collect->get(function_tree) != NULL && fucntion_level == RET_HEAP_OBJECT)
+		{	
 			// function_pthread_exit_array callerFunArray = *(function_pthread_exit_collect->get(function_tree));
 			function_return_array callerFunArray = *(function_return_collect->get(function_tree));
 
 			vector<return_type> callerRetTypearray = callerFunArray.return_type_array;
 			for (int k = 0; k < callerRetTypearray.size(); k++)
 			{
-
+		
 				if ((callerRetTypearray)[k].return_tree)
 				{
 					// debug_points_to_info_for(mallocStmt_tree);

@@ -1,5 +1,5 @@
 
-CC=gcc-11.1
+CC=gcc-11.2
 
 BINUTILSL=./benchmarks/binutils/leak_
 BINUTILSD=./benchmarks/binutils/double_free_

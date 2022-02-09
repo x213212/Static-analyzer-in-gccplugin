@@ -1,6 +1,16 @@
+int check_bbStack(basic_block target)
+{
+	for (int o = new_path_array.size() - 1; o >= 0; o--)
+		if (new_path_array[o] == target)
+			return 1;
+	int size = sizeof(target);
+	totalsize += size;
+	new_path_array.push_back(target);
+	return 0;
+}
 int check_stmtStack(tree target)
 {
-	for (int o = new_gimpletree_array.size()-1; o >= 0; o--)
+	for (int o = new_gimpletree_array.size() - 1; o >= 0; o--)
 		if (new_gimpletree_array[o] == target)
 			return 1;
 
@@ -9,18 +19,9 @@ int check_stmtStack(tree target)
 	new_gimpletree_array.push_back(target);
 	return 0;
 }
-int check_bbStack(basic_block target)
-{
-	for (int o = new_path_array.size()-1; o >= 0; o--)
-		if (new_path_array[o] == target)
-			return 1;
-
-	new_path_array.push_back(target);
-	return 0;
-}
 int check_stmtStack2(gimple *stmt)
 {
-	for (int o =new_gimple_array.size()-1; o >=0; o--)
+	for (int o = new_gimple_array.size() - 1; o >= 0; o--)
 		if (new_gimple_array[o] == stmt)
 			return 1;
 
@@ -31,22 +32,17 @@ int check_stmtStack2(gimple *stmt)
 }
 int check_stmtStack3(tree target)
 {
-	for (int o = new_gimpletree_array.size()-1; o >=0; o--)
+	for (int o = new_gimpletree_array.size() - 1; o >= 0; o--)
 		if (new_gimpletree_array[o] == target)
 			return 1;
-
-	// int size = sizeof(tree);
-	// totalsize += size;
 
 	return 0;
 }
 int check_stmtStack4(gimple *stmt)
 {
-	for (int o = new_gimple_array.size()-1; o >=0; o--)
+	for (int o = new_gimple_array.size() - 1; o >= 0; o--)
 		if (new_gimple_array[o] == stmt)
 			return 1;
-	// int size = sizeof(stmt);
-	// totalsize += size;
 
 	return 0;
 }
@@ -87,7 +83,7 @@ void Checknew_search_imm_use_rhs(gimple_array *used_stmt, gimple *use_stmt, tree
 			else if (TREE_CODE(gimple_assign_rhs1(def_stmt)) == MEM_REF)
 
 				Varnew_search_imm_use(used_stmt, def_stmt, target, target2);
-			
+
 			else if (TREE_CODE(target) == VAR_DECL)
 
 				Varnew_search_imm_use(used_stmt, use_stmt, target, target2);

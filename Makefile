@@ -1,6 +1,6 @@
 
 MAKE=make
-CC=gcc-11.1
+CC=gcc-11.2
 CFLAGS=-g 
 
 

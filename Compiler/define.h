@@ -40,21 +40,21 @@ ofstream cfginfo("cfginfo.txt");
 bool ipa = true;
 bool vscode_extensionmod = false;
 bool memoryleakcheck = true;
-bool Looserulesfree =false;
+bool Looserulesfree =true;
 bool useafterfree =false;
-bool debugmod = false;
+bool debugmod = true;
 bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;
-bool retmod = false; 
+bool retmod = true; 
 bool pthread_detachedmod = true;
 bool pthread_exitmod = true;
 bool tracerelatestmt = true;
 bool prebranchexit = false;
 bool stmtloopcheck = true;
-bool samefucntioncheck = false;
+bool samefucntioncheck = true;
 bool maxbasicblockcalc = true;
-bool pathconstraint = false;
+bool pathconstraint = true;
 
 
 
