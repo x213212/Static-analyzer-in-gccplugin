@@ -1,278 +1,287 @@
 
 
 
-" foo
+" main
 "->
 
 
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: return ptr2_3
-test.c:14:12: warning: use location
-
+[fontsize = 15 fontcolor=white;label=" form basic block 8: name_54 = strdup (_14)
+test.c:685:24: warning: use location
 " ]
 
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from foo basic block 2"
+" from main basic block 8"
 
-->" return ptr2_3
-ptr2_3 = malloc (40)
+->" name_54 = strdup (_14)
+name_54 = strdup (_14)
 "
 
-->" return ptr2_3
-test.c:14:12: warning: use location
-
+->" name_54 = strdup (_14)
+test.c:685:24: warning: use location
 "
-
-" foo
-"->
-
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
-
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)ptr2_3 + 8B] = 8
-test.c:13:12: warning: use location
-
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
-
-"->
-
-" from foo basic block 2"
-
-->" MEM[(int *)ptr2_3 + 8B] = 8
-ptr2_3 = malloc (40)
-"
-
-->" MEM[(int *)ptr2_3 + 8B] = 8
-test.c:13:12: warning: use location
-
-"
-
-
-" foo
-"->
-
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
-
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: ptr2_3 = malloc (40)
-test.c:12:17: warning: use location
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
-
-"->
-
-" from foo basic block 2"
-
-->" ptr2_3 = malloc (40)
-ptr2_3 = malloc (40)
-"
-
-->" ptr2_3 = malloc (40)
-test.c:12:17: warning: use location
-"
-
-
-" from foo basic block 2"
-
-->subgraph cluster_1970836309 { color=lightgrey; style ="dashed";"  return ptr2_3
-ptr2_3 = malloc (40)
-";}
-
-" from foo basic block 2"
-
-->subgraph cluster_656659531 { color=lightgrey; style ="dashed";"  MEM[(int *)ptr2_3 + 8B] = 8
-ptr2_3 = malloc (40)
-";}
-
-" from foo basic block 2"
-
-->subgraph cluster_443887682 { color=lightgrey; style ="dashed";"  ptr2_3 = malloc (40)
-ptr2_3 = malloc (40)
-";}
-
-
-
-
-
-
-
-
-" foo
-"->
-
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
-
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: return ptr2_3
-test.c:14:12: warning: use location
-
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
-
-"->
-
-" from foo basic block 2"
-
-->" return ptr2_3
-ptr2_3 = malloc (40)
-"
-
-->" return ptr2_3
-test.c:14:12: warning: use location
-
-"
-
-" foo
-"->
-
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
-
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)ptr2_3 + 8B] = 8
-test.c:13:12: warning: use location
-
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
-
-"->
-
-" from foo basic block 2"
-
-->" MEM[(int *)ptr2_3 + 8B] = 8
-ptr2_3 = malloc (40)
-"
-
-->" MEM[(int *)ptr2_3 + 8B] = 8
-test.c:13:12: warning: use location
-
-"
-
-
-" foo
-"->
-
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
-
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: ptr2_3 = malloc (40)
-test.c:12:17: warning: use location
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
-
-"->
-
-" from foo basic block 2"
-
-->" ptr2_3 = malloc (40)
-ptr2_3 = malloc (40)
-"
-
-->" ptr2_3 = malloc (40)
-test.c:12:17: warning: use location
-"
-
-
-" from foo basic block 2"
-
-->subgraph cluster_1886835180 { color=lightgrey; style ="dashed";"  return ptr2_3
-ptr2_3 = malloc (40)
-";}
-
-" from foo basic block 2"
-
-->subgraph cluster_2026889790 { color=lightgrey; style ="dashed";"  MEM[(int *)ptr2_3 + 8B] = 8
-ptr2_3 = malloc (40)
-";}
-
-" from foo basic block 2"
-
-->subgraph cluster_1451749080 { color=lightgrey; style ="dashed";"  ptr2_3 = malloc (40)
-ptr2_3 = malloc (40)
-";}
-
-
-
-
-
-
 
 
 " main
 "->
 
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-a_3 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: freeptr (a_3)
-test.c:22:5: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 8: s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
+test.c:686:21: warning: use location
 
 " ]
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-a_3 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from main basic block 2"
+" from main basic block 8"
 
-->" freeptr (a_3)
-a_3 = foo ()
+->" s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
+name_54 = strdup (_14)
 "
 
-->" freeptr (a_3)
-test.c:22:5: warning: use location
+->" s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
+test.c:686:21: warning: use location
 
 "
 
 
-->" ID : 1899312487
-from freeptr basic block 2"->
+->" ID : 63121945
+from session_destroy basic block 7"->
 
-" ID : 2097948609 stmt(free) :free (p_2(D))
-test.c:3:5: warning: use location
+" ID : 541388638 stmt(free) :free (_11)
+test.c:449:17: warning: use location
 "
 
 [color="green" ]
 
-" ID : 2097948609 stmt(free) :free (p_2(D))
-test.c:3:5: warning: use location
+" ID : 541388638 stmt(free) :free (_11)
+test.c:449:17: warning: use location
+"
+
+
+->" ID : 63121945
+from session_destroy basic block 16"->
+
+" ID : 201440848 stmt(free) :free (_26)
+test.c:458:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 201440848 stmt(free) :free (_26)
+test.c:458:9: warning: use location
+"
+
+
+->" ID : 63121945
+from session_destroy basic block 16"->
+
+" ID : 1221584635 stmt(free) :free (s_31(D))
+test.c:459:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1221584635 stmt(free) :free (s_31(D))
+test.c:459:9: warning: use location
+"
+
+
+->" ID : 1121893857
+from winlink_remove basic block 3"->
+
+" ID : 115827477 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 115827477 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+
+->" ID : 1121893857
+from winlink_remove basic block 4"->
+
+" ID : 1367574649 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1367574649 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+
+->" ID : 645082109
+from window_destroy basic block 7"->
+
+" ID : 660864051 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 660864051 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+
+->" ID : 645082109
+from window_destroy basic block 12"->
+
+" ID : 192134750 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 192134750 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+
+->" ID : 645082109
+from window_destroy basic block 13"->
+
+" ID : 1419583156 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1419583156 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+
+->" ID : 2102611392
+from session_group_remove basic block 15"->
+
+" ID : 122931892 stmt(free) :free (sg_35)
+test.c:269:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 122931892 stmt(free) :free (sg_35)
+test.c:269:17: warning: use location
+"
+
+
+->" ID : 828624041
+from winlink_remove basic block 3"->
+
+" ID : 627782354 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 627782354 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+
+->" ID : 828624041
+from winlink_remove basic block 4"->
+
+" ID : 670893239 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 670893239 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+
+->" ID : 167449671
+from window_destroy basic block 7"->
+
+" ID : 894360776 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 894360776 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+
+->" ID : 167449671
+from window_destroy basic block 12"->
+
+" ID : 1713392386 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1713392386 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+
+->" ID : 167449671
+from window_destroy basic block 13"->
+
+" ID : 1988184422 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1988184422 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+
+->" ID : 657807682
+from xrealloc basic block 6"->
+
+" ID : 577234332 stmt(free) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+test.c:99:23: warning: use location
+"
+
+[color="green" ]
+
+" ID : 577234332 stmt(free) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+test.c:99:23: warning: use location
+"
+
+
+->" ID : 560757027
+from xrealloc basic block 6"->
+
+" ID : 1508423001 stmt(free) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+test.c:99:23: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1508423001 stmt(free) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+test.c:99:23: warning: use location
 "
 
 
@@ -280,29 +289,29 @@ test.c:3:5: warning: use location
 "->
 
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-a_3 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: foo2 (a_3)
-test.c:21:5: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 9: session_select (s_59, _20)
+test.c:693:25: warning: use location
 
 " ]
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-a_3 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from main basic block 2"
+" from main basic block 9"
 
-->" foo2 (a_3)
-a_3 = foo ()
+->" session_select (s_59, _20)
+name_54 = strdup (_14)
 "
 
-->" foo2 (a_3)
-test.c:21:5: warning: use location
+->" session_select (s_59, _20)
+test.c:693:25: warning: use location
 
 "
 
@@ -311,59 +320,29 @@ test.c:21:5: warning: use location
 "->
 
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-a_3 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)a_3 + 8B] = 10
-test.c:20:9: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 9: _19 = s_59->windows.rbh_root
+test.c:693:43: warning: use location
 
 " ]
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-a_3 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from main basic block 2"
+" from main basic block 9"
 
-->" MEM[(int *)a_3 + 8B] = 10
-a_3 = foo ()
+->" _19 = s_59->windows.rbh_root
+name_54 = strdup (_14)
 "
 
-->" MEM[(int *)a_3 + 8B] = 10
-test.c:20:9: warning: use location
-
-"
-
-" main
-"->
-
-
-" # .MEM_10 = VDEF <.MEM_9(D)>
-a_3 = foo ()
-
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)a_3 + 8B] = 10
-test.c:20:9: warning: use location
-
-" ]
-
-" # .MEM_10 = VDEF <.MEM_9(D)>
-a_3 = foo ()
-
-"->
-
-" from main basic block 2"
-
-->" MEM[(int *)a_3 + 8B] = 10
-a_3 = foo ()
-"
-
-->" MEM[(int *)a_3 + 8B] = 10
-test.c:20:9: warning: use location
+->" _19 = s_59->windows.rbh_root
+test.c:693:43: warning: use location
 
 "
 
@@ -372,155 +351,293 @@ test.c:20:9: warning: use location
 "->
 
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-a_3 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: a_3 = foo ()
-test.c:19:7: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 9: _20 = _19->idx
+test.c:693:25: warning: use location
+
 " ]
 
-" # .MEM_10 = VDEF <.MEM_9(D)>
-a_3 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from main basic block 2"
+" from main basic block 9"
 
-->" a_3 = foo ()
-a_3 = foo ()
+->" _20 = _19->idx
+name_54 = strdup (_14)
 "
 
-->" a_3 = foo ()
-test.c:19:7: warning: use location
+->" _20 = _19->idx
+test.c:693:25: warning: use location
+
 "
-
-
-" from main basic block 2"
-
-->subgraph cluster_1578931678 { color=lightgrey; style ="dashed";"  freeptr (a_3)
-a_3 = foo ()
-";}
-
-" from main basic block 2"
-
-->subgraph cluster_1597646961 { color=lightgrey; style ="dashed";"  foo2 (a_3)
-a_3 = foo ()
-";}
-
-" from main basic block 2"
-
-->subgraph cluster_2087997102 { color=lightgrey; style ="dashed";"  MEM[(int *)a_3 + 8B] = 10
-a_3 = foo ()
-";}
-
-" from main basic block 2"
-
-->subgraph cluster_1534039552 { color=lightgrey; style ="dashed";"  MEM[(int *)a_3 + 8B] = 10
-a_3 = foo ()
-";}
-
-" from main basic block 2"
-
-->subgraph cluster_462813273 { color=lightgrey; style ="dashed";"  a_3 = foo ()
-a_3 = foo ()
-";}
-
-
-
-
-
-
 
 
 " main
 "->
 
 
-" # .MEM_14 = VDEF <.MEM_13>
-a_8 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)a_8 + 24B] = 4
-test.c:26:9: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 9: session_group_synchronize_to (s_59)
+test.c:692:25: warning: use location
 
 " ]
 
-" # .MEM_14 = VDEF <.MEM_13>
-a_8 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from main basic block 2"
+" from main basic block 9"
 
-->" MEM[(int *)a_8 + 24B] = 4
-a_8 = foo ()
+->" session_group_synchronize_to (s_59)
+name_54 = strdup (_14)
 "
 
-->" MEM[(int *)a_8 + 24B] = 4
-test.c:26:9: warning: use location
+->" session_group_synchronize_to (s_59)
+test.c:692:25: warning: use location
 
 "
+
+
+->" ID : 2135946132
+from winlink_remove basic block 3"->
+
+" ID : 1847950175 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1847950175 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+
+->" ID : 2135946132
+from winlink_remove basic block 4"->
+
+" ID : 1624791235 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1624791235 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+
+->" ID : 890859938
+from window_destroy basic block 7"->
+
+" ID : 1236233215 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1236233215 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+
+->" ID : 890859938
+from window_destroy basic block 12"->
+
+" ID : 1919689766 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1919689766 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+
+->" ID : 890859938
+from window_destroy basic block 13"->
+
+" ID : 544560453 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 544560453 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
 
 " main
 "->
 
 
-" # .MEM_14 = VDEF <.MEM_13>
-a_8 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)a_8 + 24B] = 4
-test.c:26:9: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 9: session_group_add (groupwith_49, s_59)
+test.c:691:25: warning: use location
 
 " ]
 
-" # .MEM_14 = VDEF <.MEM_13>
-a_8 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from main basic block 2"
+" from main basic block 9"
 
-->" MEM[(int *)a_8 + 24B] = 4
-a_8 = foo ()
+->" session_group_add (groupwith_49, s_59)
+name_54 = strdup (_14)
 "
 
-->" MEM[(int *)a_8 + 24B] = 4
-test.c:26:9: warning: use location
+->" session_group_add (groupwith_49, s_59)
+test.c:691:25: warning: use location
 
 "
+
 
 " main
 "->
 
 
-" # .MEM_14 = VDEF <.MEM_13>
-a_8 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: free (a_8)
-test.c:25:5: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 8: session_attach (s_59, w_61, idx_57, &cause)
+test.c:688:17: warning: use location
 
 " ]
 
-" # .MEM_14 = VDEF <.MEM_13>
-a_8 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from main basic block 2"
+" from main basic block 8"
 
-->" free (a_8)
-a_8 = foo ()
+->" session_attach (s_59, w_61, idx_57, &cause)
+name_54 = strdup (_14)
 "
 
-->" free (a_8)
-test.c:25:5: warning: use location
+->" session_attach (s_59, w_61, idx_57, &cause)
+test.c:688:17: warning: use location
+
+"
+
+
+->" ID : 192283497
+from winlink_remove basic block 3"->
+
+" ID : 2058701066 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 2058701066 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+
+->" ID : 192283497
+from winlink_remove basic block 4"->
+
+" ID : 1865790505 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1865790505 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+
+->" ID : 1428516713
+from window_destroy basic block 7"->
+
+" ID : 1830907185 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1830907185 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+
+->" ID : 1428516713
+from window_destroy basic block 12"->
+
+" ID : 262867310 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 262867310 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+
+->" ID : 1428516713
+from window_destroy basic block 13"->
+
+" ID : 2023120362 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 2023120362 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 8: free (cmd_25)
+test.c:689:17: warning: use location
+
+" ]
+
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
+
+"->
+
+" from main basic block 8"
+
+->" free (cmd_25)
+name_54 = strdup (_14)
+"
+
+->" free (cmd_25)
+test.c:689:17: warning: use location
 
 "
 
@@ -531,285 +648,775 @@ test.c:25:5: warning: use location
 "->
 
 
-" # .MEM_14 = VDEF <.MEM_13>
-a_8 = foo ()
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: a_8 = foo ()
-test.c:24:7: warning: use location
-" ]
-
-" # .MEM_14 = VDEF <.MEM_13>
-a_8 = foo ()
-
-"->
-
-" from main basic block 2"
-
-->" a_8 = foo ()
-a_8 = foo ()
-"
-
-->" a_8 = foo ()
-test.c:24:7: warning: use location
-"
-
-
-" from main basic block 2"
-
-->subgraph cluster_2004532425 { color=lightgrey; style ="dashed";"  MEM[(int *)a_8 + 24B] = 4
-a_8 = foo ()
-";}
-
-" from main basic block 2"
-
-->subgraph cluster_118117197 { color=lightgrey; style ="dashed";"  MEM[(int *)a_8 + 24B] = 4
-a_8 = foo ()
-";}
-
-" from main basic block 2"
-
-->subgraph cluster_1785574292 { color=lightgrey; style ="dashed";"  free (a_8)
-a_8 = foo ()
-";}
-
-" from main basic block 2"
-
-->subgraph cluster_1226468050 { color=lightgrey; style ="dashed";"  a_8 = foo ()
-a_8 = foo ()
-";}
-
-
-
-
-
-
-
-
-" foo
-"->
-
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
-
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: return ptr2_3
-test.c:14:12: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 8: idx_57 = idx_26 + 1
+test.c:686:21: warning: use location
 
 " ]
 
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from foo basic block 2"
+" from main basic block 8"
 
-->" return ptr2_3
-ptr2_3 = malloc (40)
+->" idx_57 = idx_26 + 1
+name_54 = strdup (_14)
 "
 
-->" return ptr2_3
-test.c:14:12: warning: use location
+->" idx_57 = idx_26 + 1
+test.c:686:21: warning: use location
 
 "
 
-" foo
+" from main basic block 9"
+
+->subgraph cluster_1788312847 { color=lightgrey; style ="dashed";"  session_select (s_59, _20)
+s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
+";}
+
+" from main basic block 9"
+
+->subgraph cluster_1457069817 { color=lightgrey; style ="dashed";"  _19 = s_59->windows.rbh_root
+s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
+";}
+
+" from main basic block 9"
+
+->subgraph cluster_1897543447 { color=lightgrey; style ="dashed";"  _20 = _19->idx
+_19 = s_59->windows.rbh_root
+";}
+
+" from main basic block 9"
+
+->subgraph cluster_251259130 { color=lightgrey; style ="dashed";"  session_group_synchronize_to (s_59)
+s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
+";}
+
+" from main basic block 9"
+
+->subgraph cluster_1560909040 { color=lightgrey; style ="dashed";"  session_group_add (groupwith_49, s_59)
+s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
+";}
+
+
+
+ 
+
+
+
+
+" main
 "->
 
 
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)ptr2_3 + 8B] = 8
-test.c:13:12: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 8: name_54 = strdup (_14)
+test.c:685:24: warning: use location
+" ]
+
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
+
+"->
+
+" from main basic block 8"
+
+->" name_54 = strdup (_14)
+name_54 = strdup (_14)
+"
+
+->" name_54 = strdup (_14)
+test.c:685:24: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 8: s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
+test.c:686:21: warning: use location
 
 " ]
 
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from foo basic block 2"
+" from main basic block 8"
 
-->" MEM[(int *)ptr2_3 + 8B] = 8
-ptr2_3 = malloc (40)
+->" s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
+name_54 = strdup (_14)
 "
 
-->" MEM[(int *)ptr2_3 + 8B] = 8
-test.c:13:12: warning: use location
+->" s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
+test.c:686:21: warning: use location
 
 "
 
 
-" foo
+->" ID : 406069735
+from session_destroy basic block 7"->
+
+" ID : 1543342785 stmt(free) :free (_11)
+test.c:449:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1543342785 stmt(free) :free (_11)
+test.c:449:17: warning: use location
+"
+
+
+->" ID : 406069735
+from session_destroy basic block 16"->
+
+" ID : 1923289499 stmt(free) :free (_26)
+test.c:458:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1923289499 stmt(free) :free (_26)
+test.c:458:9: warning: use location
+"
+
+
+->" ID : 406069735
+from session_destroy basic block 16"->
+
+" ID : 917193784 stmt(free) :free (s_31(D))
+test.c:459:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 917193784 stmt(free) :free (s_31(D))
+test.c:459:9: warning: use location
+"
+
+
+->" ID : 1605920648
+from winlink_remove basic block 3"->
+
+" ID : 1175344214 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1175344214 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+
+->" ID : 1605920648
+from winlink_remove basic block 4"->
+
+" ID : 106410723 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 106410723 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+
+->" ID : 507482945
+from window_destroy basic block 7"->
+
+" ID : 919215899 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 919215899 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+
+->" ID : 507482945
+from window_destroy basic block 12"->
+
+" ID : 1877021142 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1877021142 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+
+->" ID : 507482945
+from window_destroy basic block 13"->
+
+" ID : 383975810 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 383975810 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+
+->" ID : 629133058
+from session_group_remove basic block 15"->
+
+" ID : 1983926212 stmt(free) :free (sg_35)
+test.c:269:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1983926212 stmt(free) :free (sg_35)
+test.c:269:17: warning: use location
+"
+
+
+->" ID : 458780997
+from winlink_remove basic block 3"->
+
+" ID : 1912370206 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1912370206 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+
+->" ID : 458780997
+from winlink_remove basic block 4"->
+
+" ID : 1904899474 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1904899474 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+
+->" ID : 831614907
+from window_destroy basic block 7"->
+
+" ID : 1028604913 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1028604913 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+
+->" ID : 831614907
+from window_destroy basic block 12"->
+
+" ID : 783451307 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 783451307 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+
+->" ID : 831614907
+from window_destroy basic block 13"->
+
+" ID : 1942367340 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1942367340 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+
+->" ID : 939211363
+from xrealloc basic block 6"->
+
+" ID : 465993215 stmt(free) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+test.c:99:23: warning: use location
+"
+
+[color="green" ]
+
+" ID : 465993215 stmt(free) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+test.c:99:23: warning: use location
+"
+
+
+->" ID : 1817850822
+from xrealloc basic block 6"->
+
+" ID : 898442541 stmt(free) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+test.c:99:23: warning: use location
+"
+
+[color="green" ]
+
+" ID : 898442541 stmt(free) :newptr_8 = realloc (oldptr_6(D), newsize_4)
+test.c:99:23: warning: use location
+"
+
+
+" main
 "->
 
 
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: ptr2_3 = malloc (40)
-test.c:12:17: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 9: session_select (s_59, _20)
+test.c:693:25: warning: use location
+
 " ]
 
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from foo basic block 2"
+" from main basic block 9"
 
-->" ptr2_3 = malloc (40)
-ptr2_3 = malloc (40)
+->" session_select (s_59, _20)
+name_54 = strdup (_14)
 "
 
-->" ptr2_3 = malloc (40)
-test.c:12:17: warning: use location
+->" session_select (s_59, _20)
+test.c:693:25: warning: use location
+
 "
 
 
-" from foo basic block 2"
-
-->subgraph cluster_548974882 { color=lightgrey; style ="dashed";"  return ptr2_3
-ptr2_3 = malloc (40)
-";}
-
-" from foo basic block 2"
-
-->subgraph cluster_1082518790 { color=lightgrey; style ="dashed";"  MEM[(int *)ptr2_3 + 8B] = 8
-ptr2_3 = malloc (40)
-";}
-
-" from foo basic block 2"
-
-->subgraph cluster_949611419 { color=lightgrey; style ="dashed";"  ptr2_3 = malloc (40)
-ptr2_3 = malloc (40)
-";}
-
-
-
-
-
-
-
-
-" foo
+" main
 "->
 
 
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: return ptr2_3
-test.c:14:12: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 9: _19 = s_59->windows.rbh_root
+test.c:693:43: warning: use location
 
 " ]
 
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from foo basic block 2"
+" from main basic block 9"
 
-->" return ptr2_3
-ptr2_3 = malloc (40)
+->" _19 = s_59->windows.rbh_root
+name_54 = strdup (_14)
 "
 
-->" return ptr2_3
-test.c:14:12: warning: use location
+->" _19 = s_59->windows.rbh_root
+test.c:693:43: warning: use location
 
 "
 
-" foo
+
+" main
 "->
 
 
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: MEM[(int *)ptr2_3 + 8B] = 8
-test.c:13:12: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 9: _20 = _19->idx
+test.c:693:25: warning: use location
 
 " ]
 
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from foo basic block 2"
+" from main basic block 9"
 
-->" MEM[(int *)ptr2_3 + 8B] = 8
-ptr2_3 = malloc (40)
+->" _20 = _19->idx
+name_54 = strdup (_14)
 "
 
-->" MEM[(int *)ptr2_3 + 8B] = 8
-test.c:13:12: warning: use location
+->" _20 = _19->idx
+test.c:693:25: warning: use location
 
 "
 
 
-" foo
+" main
 "->
 
 
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 2: ptr2_3 = malloc (40)
-test.c:12:17: warning: use location
+[fontsize = 15 fontcolor=white;label=" form basic block 9: session_group_synchronize_to (s_59)
+test.c:692:25: warning: use location
+
 " ]
 
-" # .MEM_5 = VDEF <.MEM_4(D)>
-ptr2_3 = malloc (40)
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
 
 "->
 
-" from foo basic block 2"
+" from main basic block 9"
 
-->" ptr2_3 = malloc (40)
-ptr2_3 = malloc (40)
+->" session_group_synchronize_to (s_59)
+name_54 = strdup (_14)
 "
 
-->" ptr2_3 = malloc (40)
-test.c:12:17: warning: use location
+->" session_group_synchronize_to (s_59)
+test.c:692:25: warning: use location
+
 "
 
 
-" from foo basic block 2"
+->" ID : 1626855818
+from winlink_remove basic block 3"->
 
-->subgraph cluster_2010818202 { color=lightgrey; style ="dashed";"  return ptr2_3
-ptr2_3 = malloc (40)
+" ID : 964333463 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 964333463 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+
+->" ID : 1626855818
+from winlink_remove basic block 4"->
+
+" ID : 1654002705 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1654002705 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+
+->" ID : 982712499
+from window_destroy basic block 7"->
+
+" ID : 91376514 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 91376514 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+
+->" ID : 982712499
+from window_destroy basic block 12"->
+
+" ID : 1612159101 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1612159101 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+
+->" ID : 982712499
+from window_destroy basic block 13"->
+
+" ID : 1632081562 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1632081562 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 9: session_group_add (groupwith_49, s_59)
+test.c:691:25: warning: use location
+
+" ]
+
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
+
+"->
+
+" from main basic block 9"
+
+->" session_group_add (groupwith_49, s_59)
+name_54 = strdup (_14)
+"
+
+->" session_group_add (groupwith_49, s_59)
+test.c:691:25: warning: use location
+
+"
+
+
+" main
+"->
+
+
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 8: session_attach (s_59, w_61, idx_57, &cause)
+test.c:688:17: warning: use location
+
+" ]
+
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
+
+"->
+
+" from main basic block 8"
+
+->" session_attach (s_59, w_61, idx_57, &cause)
+name_54 = strdup (_14)
+"
+
+->" session_attach (s_59, w_61, idx_57, &cause)
+test.c:688:17: warning: use location
+
+"
+
+
+->" ID : 433248710
+from winlink_remove basic block 3"->
+
+" ID : 295196602 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 295196602 stmt(free) :free (_2)
+test.c:350:17: warning: use location
+"
+
+
+->" ID : 433248710
+from winlink_remove basic block 4"->
+
+" ID : 1960760972 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1960760972 stmt(free) :free (wl_10(D))
+test.c:351:9: warning: use location
+"
+
+
+->" ID : 524625224
+from window_destroy basic block 7"->
+
+" ID : 1907355704 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1907355704 stmt(free) :free (_10)
+test.c:336:17: warning: use location
+"
+
+
+->" ID : 524625224
+from window_destroy basic block 12"->
+
+" ID : 1445358886 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+[color="green" ]
+
+" ID : 1445358886 stmt(free) :free (_20)
+test.c:339:17: warning: use location
+"
+
+
+->" ID : 524625224
+from window_destroy basic block 13"->
+
+" ID : 805972527 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+[color="green" ]
+
+" ID : 805972527 stmt(free) :free (w_24(D))
+test.c:340:9: warning: use location
+"
+
+
+" main
+"->
+
+
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 8: free (cmd_25)
+test.c:689:17: warning: use location
+
+" ]
+
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
+
+"->
+
+" from main basic block 8"
+
+->" free (cmd_25)
+name_54 = strdup (_14)
+"
+
+->" free (cmd_25)
+test.c:689:17: warning: use location
+
+"
+
+[color="green" ]
+
+
+" main
+"->
+
+
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 8: idx_57 = idx_26 + 1
+test.c:686:21: warning: use location
+
+" ]
+
+" # .MEM_89 = VDEF <.MEM_88>
+name_54 = strdup (_14)
+
+"->
+
+" from main basic block 8"
+
+->" idx_57 = idx_26 + 1
+name_54 = strdup (_14)
+"
+
+->" idx_57 = idx_26 + 1
+test.c:686:21: warning: use location
+
+"
+
+" from main basic block 9"
+
+->subgraph cluster_974920546 { color=lightgrey; style ="dashed";"  session_select (s_59, _20)
+s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
 ";}
 
-" from foo basic block 2"
+" from main basic block 9"
 
-->subgraph cluster_1148922909 { color=lightgrey; style ="dashed";"  MEM[(int *)ptr2_3 + 8B] = 8
-ptr2_3 = malloc (40)
+->subgraph cluster_1336351775 { color=lightgrey; style ="dashed";"  _19 = s_59->windows.rbh_root
+s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
 ";}
 
-" from foo basic block 2"
+" from main basic block 9"
 
-->subgraph cluster_288301772 { color=lightgrey; style ="dashed";"  ptr2_3 = malloc (40)
-ptr2_3 = malloc (40)
+->subgraph cluster_1753856618 { color=lightgrey; style ="dashed";"  _20 = _19->idx
+_19 = s_59->windows.rbh_root
 ";}
 
+" from main basic block 9"
+
+->subgraph cluster_867163417 { color=lightgrey; style ="dashed";"  session_group_synchronize_to (s_59)
+s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
+";}
+
+" from main basic block 9"
+
+->subgraph cluster_1282275530 { color=lightgrey; style ="dashed";"  session_group_add (groupwith_49, s_59)
+s_59 = session_create (name_54, cmd_25, cwd, 0B, 0B, idx_26, _16, _15, &cause)
+";}
+
+
+
+ 
 
 
 

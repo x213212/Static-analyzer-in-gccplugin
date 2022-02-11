@@ -179,7 +179,8 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('welcome use Gcc plugin analyzer');
 		const storagePath = context.storagePath;
 		const globalStoragePath = context.globalStoragePath;
-		console.log("storagePath" + storagePath);
+		// console.log("storagePath" + storagePath);
+		console.log("storagePath:" + globalStoragePath);
 
 		vscode.window.showInformationMessage(globalStoragePath + "/breakpoint.txt")
 		// var fs = require('fs');

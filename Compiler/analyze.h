@@ -69,7 +69,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				find_freestmt = find_mallocstmt = find_phistmt = 0;
 				// debug_tree(function_tree);
 				// debug_tree(table_temp->target);
-				if (debugmod)
+				// if (debugmod)
 					fprintf(stderr, "\ndot graph START\n");
 				fprintf(stderr, "\n======================================================================\n");
 
@@ -973,7 +973,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								}
 								// }
 							}
-						if (debugmod)
+						// if (debugmod)
 							fprintf(stderr, "\ndot graph END\n");
 						// fprintf(stderr, "\n ================== Start Use after free Check ================== \n");
 					}

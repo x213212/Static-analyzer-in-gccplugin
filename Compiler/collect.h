@@ -20,16 +20,36 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 	if (vscode_extensionmod)
 	{
 		int find = 0;
+		if (vscode_extensionIgonefreemod)
+		{
+			if (is_gimple_call(gc))
+			{
+
+				name = get_name(gimple_call_fn(gc));
+				if (name != NULL)
+				{
+					if (!strcmp(name, "free") || !strcmp(name, "xfree")){
+						find = 1;
+						fprintf(stderr, "set breakpoint free stmt igone\n");
+							warning_at(gimple_location_safe(gc), 0, "use location");
+						}
+				}
+			}
+		}
 		for (int i = 0; i < vbreakpoint.size(); i++)
 		{
-			size_t found = vbreakpoint[i].name.find(LOCATION_FILE(loc));
-			if (found)
-				if (vbreakpoint[i].line == LOCATION_LINE(loc))
-				{
-					debug_gimple_stmt(gc);
-					fprintf(stderr, "set breakpoint %s %d\n", vbreakpoint[i].name.c_str(), vbreakpoint[i].line);
-					find = 1;
-				}
+
+			if (LOCATION_FILE(loc))
+			{
+				size_t found = vbreakpoint[i].name.find(LOCATION_FILE(loc));
+				if (found)
+					if (vbreakpoint[i].line == LOCATION_LINE(loc))
+					{
+						debug_gimple_stmt(gc);
+						fprintf(stderr, "set breakpoint %s %d\n", vbreakpoint[i].name.c_str(), vbreakpoint[i].line);
+						find = 1;
+					}
+			}
 		}
 		if (find == 0)
 			return;
@@ -130,7 +150,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 				// pthread_attr_array.attr_type_array.push_back(attr_type);
 				pthread_attr_setdetachstates->put(getvardecl, pthread_attr_array);
 			}
-			else if (gimple_call_lhs(gc) != NULL && gimple_call_fn(gc)!= NULL)
+			else if (gimple_call_lhs(gc) != NULL && gimple_call_fn(gc) != NULL)
 				if (TREE_CODE(gimple_call_lhs(gc)) == SSA_NAME)
 				{
 					set_ptb(bb, ptable, gimple_call_lhs(gc), loc, 0, gc, node);
