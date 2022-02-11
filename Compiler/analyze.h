@@ -890,7 +890,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												fprintf(stderr, "\033[40;35m <Looserules> find free stmt free same pointer \033[0m\n");
 
 											debug_gimple_stmt((callerRetTypearray)[k].stmt);
-											warning_at(gimple_location((callerRetTypearray)[k].stmt), 0, "use location");
+											warning_at(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
 											struct free_type free_type;
 											free_type.stmt = (callerRetTypearray)[k].stmt;
 											free_type.Looserulesfree = 1;

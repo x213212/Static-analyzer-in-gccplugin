@@ -7,16 +7,18 @@ test.c:21:5: warning: implicit declaration of function ‘foo2’; did you mean 
 
 Time variable                                   usr           sys          wall           GGC
  phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 65%)
- phase parsing                      :   0.02 (100%)   0.00 (  0%)   0.03 (100%)   653k ( 33%)
- preprocessing                      :   0.01 ( 50%)   0.00 (  0%)   0.01 ( 33%)   222k ( 11%)
- lexical analysis                   :   0.01 ( 50%)   0.00 (  0%)   0.01 ( 33%)     0  (  0%)
+ phase parsing                      :   0.00 (  0%)   0.02 (100%)   0.03 (100%)   653k ( 33%)
+ phase opt and generate             :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)    37k (  2%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)   222k ( 11%)
+ lexical analysis                   :   0.00 (  0%)   0.02 (100%)   0.01 ( 33%)     0  (  0%)
  parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)   372k ( 19%)
- TOTAL                              :   0.02          0.00          0.03         1999k
+ plugin execution                   :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.01          0.02          0.03         1999k
 ../Compiler/newplugin.so 11.2.0 
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.01 (100%)   0.00 (  0%)   0.01 (100%)  2157k ( 99%)
- TOTAL                              :   0.01          0.00          0.01         2181k
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 99%)
+ TOTAL                              :   0.00          0.00          0.00         2181k
 ../Compiler/newplugin.so 11.2.0 
 =======ipa_pta=========
 ===============The first stage : Point of interest stmt collect=================
@@ -73,21 +75,21 @@ start collect similar stmtstart collect similar stmtstart collect similar stmtst
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f97967998b8
-    type <pointer_type 0x7f97967ad9d8
-        type <integer_type 0x7f97967a65e8 int public SI
-            size <integer_cst 0x7f9796791df8 constant 32>
-            unit-size <integer_cst 0x7f9796791e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f97967a65e8 precision:32 min <integer_cst 0x7f9796791db0 -2147483648> max <integer_cst 0x7f9796791dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f97967ad9d8>>
+ <ssa_name 0x7f03d55cc8b8
+    type <pointer_type 0x7f03d55e09d8
+        type <integer_type 0x7f03d55d95e8 int public SI
+            size <integer_cst 0x7f03d55c4df8 constant 32>
+            unit-size <integer_cst 0x7f03d55c4e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f03d55d95e8 precision:32 min <integer_cst 0x7f03d55c4db0 -2147483648> max <integer_cst 0x7f03d55c4dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f03d55e09d8>>
         unsigned DI
-        size <integer_cst 0x7f9796791bb8 constant 64>
-        unit-size <integer_cst 0x7f9796791bd0 constant 8>
+        size <integer_cst 0x7f03d55c4bb8 constant 64>
+        unit-size <integer_cst 0x7f03d55c4bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f9797039ea0 ptr2>
+    var <var_decl 0x7f03d5e6cea0 ptr2>
     def_stmt ptr2_3 = malloc (40);
     version:3
-    ptr-info 0x7f97962b7150>
+    ptr-info 0x7f03d50ea150>
 # .MEM_5 = VDEF <.MEM_4(D)>
 ptr2_3 = malloc (40);
 
@@ -217,19 +219,19 @@ this stmt is child function---malloc-----
  ================== trace ================== 
 dot graph target basicblock start from foo basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_1436659817 dot graph subgraph  return ptr2_3;
+dot graph arrowsubgraph cluster_455119169 dot graph subgraph  return ptr2_3;
 ptr2_3 = malloc (40);
 dot graph subgrapend
 
 dot graph target basicblock start from foo basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_2114540495 dot graph subgraph  MEM[(int *)ptr2_3 + 8B] = 8;
+dot graph arrowsubgraph cluster_608938462 dot graph subgraph  MEM[(int *)ptr2_3 + 8B] = 8;
 ptr2_3 = malloc (40);
 dot graph subgrapend
 
 dot graph target basicblock start from foo basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_1924146367 dot graph subgraph  ptr2_3 = malloc (40);
+dot graph arrowsubgraph cluster_895111595 dot graph subgraph  ptr2_3 = malloc (40);
 ptr2_3 = malloc (40);
 dot graph subgrapend
 
@@ -246,21 +248,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f97967998b8
-    type <pointer_type 0x7f97967ad9d8
-        type <integer_type 0x7f97967a65e8 int public SI
-            size <integer_cst 0x7f9796791df8 constant 32>
-            unit-size <integer_cst 0x7f9796791e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f97967a65e8 precision:32 min <integer_cst 0x7f9796791db0 -2147483648> max <integer_cst 0x7f9796791dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f97967ad9d8>>
+ <ssa_name 0x7f03d55cc8b8
+    type <pointer_type 0x7f03d55e09d8
+        type <integer_type 0x7f03d55d95e8 int public SI
+            size <integer_cst 0x7f03d55c4df8 constant 32>
+            unit-size <integer_cst 0x7f03d55c4e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f03d55d95e8 precision:32 min <integer_cst 0x7f03d55c4db0 -2147483648> max <integer_cst 0x7f03d55c4dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f03d55e09d8>>
         unsigned DI
-        size <integer_cst 0x7f9796791bb8 constant 64>
-        unit-size <integer_cst 0x7f9796791bd0 constant 8>
+        size <integer_cst 0x7f03d55c4bb8 constant 64>
+        unit-size <integer_cst 0x7f03d55c4bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f9797039ea0 ptr2>
+    var <var_decl 0x7f03d5e6cea0 ptr2>
     def_stmt ptr2_3 = malloc (40);
     version:3
-    ptr-info 0x7f97962b7150>
+    ptr-info 0x7f03d50ea150>
 # .MEM_5 = VDEF <.MEM_4(D)>
 ptr2_3 = malloc (40);
 
@@ -389,19 +391,19 @@ this stmt is child function---malloc-----
  ================== trace ================== 
 dot graph target basicblock start from foo basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_1696568785 dot graph subgraph  return ptr2_3;
+dot graph arrowsubgraph cluster_1247864237 dot graph subgraph  return ptr2_3;
 ptr2_3 = malloc (40);
 dot graph subgrapend
 
 dot graph target basicblock start from foo basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_194177782 dot graph subgraph  MEM[(int *)ptr2_3 + 8B] = 8;
+dot graph arrowsubgraph cluster_247648133 dot graph subgraph  MEM[(int *)ptr2_3 + 8B] = 8;
 ptr2_3 = malloc (40);
 dot graph subgrapend
 
 dot graph target basicblock start from foo basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_2081531150 dot graph subgraph  ptr2_3 = malloc (40);
+dot graph arrowsubgraph cluster_2109896506 dot graph subgraph  ptr2_3 = malloc (40);
 ptr2_3 = malloc (40);
 dot graph subgrapend
 
@@ -432,21 +434,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f97967995e8
-    type <pointer_type 0x7f97967ad9d8
-        type <integer_type 0x7f97967a65e8 int public SI
-            size <integer_cst 0x7f9796791df8 constant 32>
-            unit-size <integer_cst 0x7f9796791e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f97967a65e8 precision:32 min <integer_cst 0x7f9796791db0 -2147483648> max <integer_cst 0x7f9796791dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f97967ad9d8>>
+ <ssa_name 0x7f03d55cc5e8
+    type <pointer_type 0x7f03d55e09d8
+        type <integer_type 0x7f03d55d95e8 int public SI
+            size <integer_cst 0x7f03d55c4df8 constant 32>
+            unit-size <integer_cst 0x7f03d55c4e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f03d55d95e8 precision:32 min <integer_cst 0x7f03d55c4db0 -2147483648> max <integer_cst 0x7f03d55c4dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f03d55e09d8>>
         unsigned DI
-        size <integer_cst 0x7f9796791bb8 constant 64>
-        unit-size <integer_cst 0x7f9796791bd0 constant 8>
+        size <integer_cst 0x7f03d55c4bb8 constant 64>
+        unit-size <integer_cst 0x7f03d55c4bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f9797039b40 a>
+    var <var_decl 0x7f03d5e6cb40 a>
     def_stmt a_3 = foo ();
     version:3
-    ptr-info 0x7f97962b7120>
+    ptr-info 0x7f03d50ea120>
 # .MEM_10 = VDEF <.MEM_9(D)>
 a_3 = foo ();
 
@@ -462,10 +464,10 @@ test.c:14:12: warning: use location
       |            ^
 [40;36m ======= node_fun:foo========= [0m
 [40;36m ======= find relate stmt with a ========= [0m
-dot graph arrowdot graph start relate for1ID : 2114784820
+dot graph arrowdot graph start relate for1ID : 71840885
 from foo basic block 2dot graph end relate end
 
-dot graph relate stmt start ID : 574869012 stmt(call) :ptr2_3 = malloc (40);
+dot graph relate stmt start ID : 1699118479 stmt(call) :ptr2_3 = malloc (40);
 In function ‘foo’:
 test.c:12:17: warning: use location
    12 |     ptr2=(int*) malloc(40);
@@ -479,13 +481,13 @@ dot graph relate end
 
 
 
-dot graph arrowdot graph start relate for1ID : 2114784820
+dot graph arrowdot graph start relate for1ID : 71840885
 from foo basic block 2dot graph end relate end
 
 test.c:13:12: warning: use location
    13 |     ptr2[2]=8;
       |            ^
-dot graph relate stmt start ID : 629127529 stmt(LHS) :MEM[(int *)ptr2_3 + 8B] = 8;
+dot graph relate stmt start ID : 370713944 stmt(LHS) :MEM[(int *)ptr2_3 + 8B] = 8;
 test.c:13:12: warning: use location
 MEM[(int *)ptr2_3 + 8B]
 dot graph relate end
@@ -559,16 +561,16 @@ free (p_2(D));
 test.c:3:5: warning: use location
     3 |     free(p);
       |     ^
-dot graph start relate form ID : 1008523297
+dot graph start relate form ID : 749796540
 from freeptr basic block 2dot graph end relate end
 
-dot graph relate stmt start ID : 2762025 stmt(free) :free (p_2(D));
+dot graph relate stmt start ID : 1407054860 stmt(free) :free (p_2(D));
 test.c:3:5: warning: use location
 dot graph relate end
 
 dot graph target color descgreendot graph target color desend
 
-dot graph relate stmt start ID : 2762025 stmt(free) :free (p_2(D));
+dot graph relate stmt start ID : 1407054860 stmt(free) :free (p_2(D));
 test.c:3:5: warning: use location
 dot graph relate end
 
@@ -742,10 +744,10 @@ trace fucntion name:foo
 [40;44m =======trace_function_path foo  function_call count: 1 level :0========  [0m
 [40;36m ======= node_fun:foo========= [0m
 [40;36m ======= find relate stmt with a ========= [0m
-dot graph arrowdot graph start relate for1ID : 1928822741
+dot graph arrowdot graph start relate for1ID : 2065713417
 from foo basic block 2dot graph end relate end
 
-dot graph relate stmt start ID : 508508589 stmt(call) :ptr2_3 = malloc (40);
+dot graph relate stmt start ID : 2134465458 stmt(call) :ptr2_3 = malloc (40);
 In function ‘foo’:
 test.c:12:17: warning: use location
    12 |     ptr2=(int*) malloc(40);
@@ -759,13 +761,13 @@ dot graph relate end
 
 
 
-dot graph arrowdot graph start relate for1ID : 1928822741
+dot graph arrowdot graph start relate for1ID : 2065713417
 from foo basic block 2dot graph end relate end
 
 test.c:13:12: warning: use location
    13 |     ptr2[2]=8;
       |            ^
-dot graph relate stmt start ID : 1388049386 stmt(LHS) :MEM[(int *)ptr2_3 + 8B] = 8;
+dot graph relate stmt start ID : 953089342 stmt(LHS) :MEM[(int *)ptr2_3 + 8B] = 8;
 test.c:13:12: warning: use location
 MEM[(int *)ptr2_3 + 8B]
 dot graph relate end
@@ -784,46 +786,46 @@ fucntion collect path finsh
 trace fucntion free:1 
 dot graph target basicblock start from main basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_1825184754 dot graph subgraph  freeptr (a_3);
+dot graph arrowsubgraph cluster_1243523136 dot graph subgraph  freeptr (a_3);
 a_3 = foo ();
 dot graph subgrapend
 
 dot graph target basicblock start from main basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_916213519 dot graph subgraph  foo2 (a_3);
+dot graph arrowsubgraph cluster_1385913703 dot graph subgraph  foo2 (a_3);
 a_3 = foo ();
 dot graph subgrapend
 
 dot graph target basicblock start from main basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_402743872 dot graph subgraph  MEM[(int *)a_3 + 8B] = 10;
+dot graph arrowsubgraph cluster_1879474529 dot graph subgraph  MEM[(int *)a_3 + 8B] = 10;
 a_3 = foo ();
 dot graph subgrapend
 
 dot graph target basicblock start from main basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_1975249821 dot graph subgraph  MEM[(int *)a_3 + 8B] = 10;
+dot graph arrowsubgraph cluster_1189006432 dot graph subgraph  MEM[(int *)a_3 + 8B] = 10;
 a_3 = foo ();
 dot graph subgrapend
 
 dot graph target basicblock start from main basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_1444482364 dot graph subgraph  a_3 = foo ();
+dot graph arrowsubgraph cluster_510474451 dot graph subgraph  a_3 = foo ();
 a_3 = foo ();
 dot graph subgrapend
 
-dot graph start relate for1ID : 2114784820
+dot graph start relate for1ID : 71840885
 from foo basic block 2dot graph end relate end
 
-subgraph cluster_1867817797 dot graph subgraph  start ID : 629127529 stmt(relate) ， Tree ID : 2114784820 : MEM[(int *)ptr2_3 + 8B] = 8;
+subgraph cluster_1919163957 dot graph subgraph  start ID : 370713944 stmt(relate) ， Tree ID : 71840885 : MEM[(int *)ptr2_3 + 8B] = 8;
 In function ‘main’:
 test.c:13:12: warning: use location
 dot graph subgrapend
 
-dot graph start relate for1ID : 1928822741
+dot graph start relate for1ID : 2065713417
 from foo basic block 2dot graph end relate end
 
-subgraph cluster_248101333 dot graph subgraph  start ID : 1388049386 stmt(relate) ， Tree ID : 1928822741 : MEM[(int *)ptr2_3 + 8B] = 8;
+subgraph cluster_1213893586 dot graph subgraph  start ID : 953089342 stmt(relate) ， Tree ID : 2065713417 : MEM[(int *)ptr2_3 + 8B] = 8;
 test.c:13:12: warning: use location
 dot graph subgrapend
 
@@ -841,21 +843,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f9796799630
-    type <pointer_type 0x7f97967ad9d8
-        type <integer_type 0x7f97967a65e8 int public SI
-            size <integer_cst 0x7f9796791df8 constant 32>
-            unit-size <integer_cst 0x7f9796791e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f97967a65e8 precision:32 min <integer_cst 0x7f9796791db0 -2147483648> max <integer_cst 0x7f9796791dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f97967ad9d8>>
+ <ssa_name 0x7f03d55cc630
+    type <pointer_type 0x7f03d55e09d8
+        type <integer_type 0x7f03d55d95e8 int public SI
+            size <integer_cst 0x7f03d55c4df8 constant 32>
+            unit-size <integer_cst 0x7f03d55c4e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f03d55d95e8 precision:32 min <integer_cst 0x7f03d55c4db0 -2147483648> max <integer_cst 0x7f03d55c4dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f03d55e09d8>>
         unsigned DI
-        size <integer_cst 0x7f9796791bb8 constant 64>
-        unit-size <integer_cst 0x7f9796791bd0 constant 8>
+        size <integer_cst 0x7f03d55c4bb8 constant 64>
+        unit-size <integer_cst 0x7f03d55c4bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f9797039b40 a>
+    var <var_decl 0x7f03d5e6cb40 a>
     def_stmt a_8 = foo ();
     version:8
-    ptr-info 0x7f97962b7138>
+    ptr-info 0x7f03d50ea138>
 # .MEM_14 = VDEF <.MEM_13>
 a_8 = foo ();
 
@@ -871,10 +873,10 @@ test.c:14:12: warning: use location
       |            ^
 [40;36m ======= node_fun:foo========= [0m
 [40;36m ======= find relate stmt with a ========= [0m
-dot graph arrowdot graph start relate for1ID : 555489513
+dot graph arrowdot graph start relate for1ID : 387675278
 from foo basic block 2dot graph end relate end
 
-dot graph relate stmt start ID : 1462921823 stmt(call) :ptr2_3 = malloc (40);
+dot graph relate stmt start ID : 241268416 stmt(call) :ptr2_3 = malloc (40);
 In function ‘foo’:
 test.c:12:17: warning: use location
    12 |     ptr2=(int*) malloc(40);
@@ -888,13 +890,13 @@ dot graph relate end
 
 
 
-dot graph arrowdot graph start relate for1ID : 555489513
+dot graph arrowdot graph start relate for1ID : 387675278
 from foo basic block 2dot graph end relate end
 
 test.c:13:12: warning: use location
    13 |     ptr2[2]=8;
       |            ^
-dot graph relate stmt start ID : 517111130 stmt(LHS) :MEM[(int *)ptr2_3 + 8B] = 8;
+dot graph relate stmt start ID : 1267466372 stmt(LHS) :MEM[(int *)ptr2_3 + 8B] = 8;
 test.c:13:12: warning: use location
 MEM[(int *)ptr2_3 + 8B]
 dot graph relate end
@@ -1081,10 +1083,10 @@ trace fucntion name:foo
 [40;44m =======trace_function_path foo  function_call count: 1 level :0========  [0m
 [40;36m ======= node_fun:foo========= [0m
 [40;36m ======= find relate stmt with a ========= [0m
-dot graph arrowdot graph start relate for1ID : 705600500
+dot graph arrowdot graph start relate for1ID : 1237895813
 from foo basic block 2dot graph end relate end
 
-dot graph relate stmt start ID : 245303331 stmt(call) :ptr2_3 = malloc (40);
+dot graph relate stmt start ID : 29986107 stmt(call) :ptr2_3 = malloc (40);
 In function ‘foo’:
 test.c:12:17: warning: use location
    12 |     ptr2=(int*) malloc(40);
@@ -1098,13 +1100,13 @@ dot graph relate end
 
 
 
-dot graph arrowdot graph start relate for1ID : 705600500
+dot graph arrowdot graph start relate for1ID : 1237895813
 from foo basic block 2dot graph end relate end
 
 test.c:13:12: warning: use location
    13 |     ptr2[2]=8;
       |            ^
-dot graph relate stmt start ID : 804173207 stmt(LHS) :MEM[(int *)ptr2_3 + 8B] = 8;
+dot graph relate stmt start ID : 1349873364 stmt(LHS) :MEM[(int *)ptr2_3 + 8B] = 8;
 test.c:13:12: warning: use location
 MEM[(int *)ptr2_3 + 8B]
 dot graph relate end
@@ -1123,40 +1125,40 @@ fucntion collect path finsh
 trace fucntion free:1 
 dot graph target basicblock start from main basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_1288038311 dot graph subgraph  MEM[(int *)a_8 + 24B] = 4;
+dot graph arrowsubgraph cluster_606183646 dot graph subgraph  MEM[(int *)a_8 + 24B] = 4;
 a_8 = foo ();
 dot graph subgrapend
 
 dot graph target basicblock start from main basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_382859615 dot graph subgraph  MEM[(int *)a_8 + 24B] = 4;
+dot graph arrowsubgraph cluster_1436117150 dot graph subgraph  MEM[(int *)a_8 + 24B] = 4;
 a_8 = foo ();
 dot graph subgrapend
 
 dot graph target basicblock start from main basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_2044047848 dot graph subgraph  free (a_8);
+dot graph arrowsubgraph cluster_1422693686 dot graph subgraph  free (a_8);
 a_8 = foo ();
 dot graph subgrapend
 
 dot graph target basicblock start from main basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_21581156 dot graph subgraph  a_8 = foo ();
+dot graph arrowsubgraph cluster_1585633877 dot graph subgraph  a_8 = foo ();
 a_8 = foo ();
 dot graph subgrapend
 
-dot graph start relate for1ID : 555489513
+dot graph start relate for1ID : 387675278
 from foo basic block 2dot graph end relate end
 
-subgraph cluster_1819519432 dot graph subgraph  start ID : 517111130 stmt(relate) ， Tree ID : 555489513 : MEM[(int *)ptr2_3 + 8B] = 8;
+subgraph cluster_1891236319 dot graph subgraph  start ID : 1267466372 stmt(relate) ， Tree ID : 387675278 : MEM[(int *)ptr2_3 + 8B] = 8;
 In function ‘main’:
 test.c:13:12: warning: use location
 dot graph subgrapend
 
-dot graph start relate for1ID : 705600500
+dot graph start relate for1ID : 1237895813
 from foo basic block 2dot graph end relate end
 
-subgraph cluster_2011104695 dot graph subgraph  start ID : 804173207 stmt(relate) ， Tree ID : 705600500 : MEM[(int *)ptr2_3 + 8B] = 8;
+subgraph cluster_2031632148 dot graph subgraph  start ID : 1349873364 stmt(relate) ， Tree ID : 1237895813 : MEM[(int *)ptr2_3 + 8B] = 8;
 test.c:13:12: warning: use location
 dot graph subgrapend
 
@@ -1219,21 +1221,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f97967998b8
-    type <pointer_type 0x7f97967ad9d8
-        type <integer_type 0x7f97967a65e8 int public SI
-            size <integer_cst 0x7f9796791df8 constant 32>
-            unit-size <integer_cst 0x7f9796791e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f97967a65e8 precision:32 min <integer_cst 0x7f9796791db0 -2147483648> max <integer_cst 0x7f9796791dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f97967ad9d8>>
+ <ssa_name 0x7f03d55cc8b8
+    type <pointer_type 0x7f03d55e09d8
+        type <integer_type 0x7f03d55d95e8 int public SI
+            size <integer_cst 0x7f03d55c4df8 constant 32>
+            unit-size <integer_cst 0x7f03d55c4e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f03d55d95e8 precision:32 min <integer_cst 0x7f03d55c4db0 -2147483648> max <integer_cst 0x7f03d55c4dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f03d55e09d8>>
         unsigned DI
-        size <integer_cst 0x7f9796791bb8 constant 64>
-        unit-size <integer_cst 0x7f9796791bd0 constant 8>
+        size <integer_cst 0x7f03d55c4bb8 constant 64>
+        unit-size <integer_cst 0x7f03d55c4bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f9797039ea0 ptr2>
+    var <var_decl 0x7f03d5e6cea0 ptr2>
     def_stmt ptr2_3 = malloc (40);
     version:3
-    ptr-info 0x7f97962b7150>
+    ptr-info 0x7f03d50ea150>
 # .MEM_5 = VDEF <.MEM_4(D)>
 ptr2_3 = malloc (40);
 
@@ -1363,19 +1365,19 @@ this stmt is child function---malloc-----
  ================== trace ================== 
 dot graph target basicblock start from foo basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_1945727523 dot graph subgraph  return ptr2_3;
+dot graph arrowsubgraph cluster_333261824 dot graph subgraph  return ptr2_3;
 ptr2_3 = malloc (40);
 dot graph subgrapend
 
 dot graph target basicblock start from foo basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_1368604569 dot graph subgraph  MEM[(int *)ptr2_3 + 8B] = 8;
+dot graph arrowsubgraph cluster_991616909 dot graph subgraph  MEM[(int *)ptr2_3 + 8B] = 8;
 ptr2_3 = malloc (40);
 dot graph subgrapend
 
 dot graph target basicblock start from foo basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_57798829 dot graph subgraph  ptr2_3 = malloc (40);
+dot graph arrowsubgraph cluster_131796633 dot graph subgraph  ptr2_3 = malloc (40);
 ptr2_3 = malloc (40);
 dot graph subgrapend
 
@@ -1392,21 +1394,21 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f97967998b8
-    type <pointer_type 0x7f97967ad9d8
-        type <integer_type 0x7f97967a65e8 int public SI
-            size <integer_cst 0x7f9796791df8 constant 32>
-            unit-size <integer_cst 0x7f9796791e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f97967a65e8 precision:32 min <integer_cst 0x7f9796791db0 -2147483648> max <integer_cst 0x7f9796791dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f97967ad9d8>>
+ <ssa_name 0x7f03d55cc8b8
+    type <pointer_type 0x7f03d55e09d8
+        type <integer_type 0x7f03d55d95e8 int public SI
+            size <integer_cst 0x7f03d55c4df8 constant 32>
+            unit-size <integer_cst 0x7f03d55c4e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f03d55d95e8 precision:32 min <integer_cst 0x7f03d55c4db0 -2147483648> max <integer_cst 0x7f03d55c4dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f03d55e09d8>>
         unsigned DI
-        size <integer_cst 0x7f9796791bb8 constant 64>
-        unit-size <integer_cst 0x7f9796791bd0 constant 8>
+        size <integer_cst 0x7f03d55c4bb8 constant 64>
+        unit-size <integer_cst 0x7f03d55c4bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
-    var <var_decl 0x7f9797039ea0 ptr2>
+    var <var_decl 0x7f03d5e6cea0 ptr2>
     def_stmt ptr2_3 = malloc (40);
     version:3
-    ptr-info 0x7f97962b7150>
+    ptr-info 0x7f03d50ea150>
 # .MEM_5 = VDEF <.MEM_4(D)>
 ptr2_3 = malloc (40);
 
@@ -1535,19 +1537,19 @@ this stmt is child function---malloc-----
  ================== trace ================== 
 dot graph target basicblock start from foo basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_1879775025 dot graph subgraph  return ptr2_3;
+dot graph arrowsubgraph cluster_295674682 dot graph subgraph  return ptr2_3;
 ptr2_3 = malloc (40);
 dot graph subgrapend
 
 dot graph target basicblock start from foo basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_1335905741 dot graph subgraph  MEM[(int *)ptr2_3 + 8B] = 8;
+dot graph arrowsubgraph cluster_1063457794 dot graph subgraph  MEM[(int *)ptr2_3 + 8B] = 8;
 ptr2_3 = malloc (40);
 dot graph subgrapend
 
 dot graph target basicblock start from foo basic block 2dot graph target basicblock en1
 
-dot graph arrowsubgraph cluster_632667841 dot graph subgraph  ptr2_3 = malloc (40);
+dot graph arrowsubgraph cluster_1830915112 dot graph subgraph  ptr2_3 = malloc (40);
 ptr2_3 = malloc (40);
 dot graph subgrapend
 
@@ -1621,20 +1623,21 @@ return;
 [40;34m    gimple free   count : 2 [0m
 [40;34m    find Entry point : 3 [0m
 [40;34m    used_stmt array stack totalsize of : 0.000072 mb[0m
-[40;34m    collect time: : 0.000304 s [0m
-[40;34m    algorithm time: 0.006901 s [0m
+[40;34m    collect time: : 0.000191 s [0m
+[40;34m    algorithm time: 0.006158 s [0m
 [40;34m    gimple stmt count : : 13 [0m
+[40;34m    this report analysis in Fri Feb 11 18:34:05 2022
+ [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 
 Time variable                                   usr           sys          wall           GGC
  phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 92%)
  phase opt and generate             :   0.02 (100%)   0.00 (  0%)   0.02 (100%)   167k (  7%)
  callgraph functions expansion      :   0.01 ( 50%)   0.00 (  0%)   0.01 ( 50%)   131k (  6%)
- ipa lto gimple in                  :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    29k (  1%)
- CSE                                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)     0  (  0%)
- plugin execution                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)    96  (  0%)
- initialize rtl                     :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    12k (  1%)
+ ipa points-to                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)  1304  (  0%)
+ plugin execution                   :   0.02 (100%)   0.00 (  0%)   0.00 (  0%)    96  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)    12k (  1%)
  TOTAL                              :   0.02          0.00          0.02         2347k
-/usr/bin/ld: /tmp/ccoyWpYy.ltrans0.ltrans.o: in function `main':
+/usr/bin/ld: /tmp/ccz1gNPN.ltrans0.ltrans.o: in function `main':
 <artificial>:(.text+0x41): undefined reference to `foo2'
 collect2: error: ld returned 1 exit status

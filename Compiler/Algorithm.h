@@ -210,16 +210,16 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 							if (gimple_code(def_stmt) == GIMPLE_CALL)
 								if (gimple_call_fn(def_stmt) && gimple_call_fndecl(def_stmt))
 								{
-									
+
 									name = get_name(gimple_call_fn(def_stmt));
 									if (name != NULL)
 										if (strcmp(name, "malloc"))
 											Prenew_search_imm_use(used_stmt, processtable->target, processtable->target);
 								}
 				}
-					
+
 				now_tree = processtable->target;
-				
+
 				new_search_imm_use(used_stmt, processtable->target, processtable->target);
 				set_gimple_array(used_stmt, processtable->last_stmt, processtable->target, processtable->target, NULL);
 
@@ -295,6 +295,11 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	}
 	else
 		fprintf(stderr, "\033[40;41m GIMPLE STMT NO FREE STMT\033[0m\n");
+	time_t rawtime;
+	struct tm *timeinfo;
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
 
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 	fprintf(stderr, "    =()=\n");
@@ -312,6 +317,8 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "\033[40;34m    collect time: : %f s \033[0m\n", time_used);
 	fprintf(stderr, "\033[40;34m    algorithm time: %f s \033[0m\n", time_used2);
 	fprintf(stderr, "\033[40;34m    gimple stmt count : : %d \033[0m\n", gimplestmt_count);
+	fprintf(stderr, "\033[40;34m    this report analysis in %s \033[0m\n",  asctime(timeinfo));
+
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 }
 void detect()

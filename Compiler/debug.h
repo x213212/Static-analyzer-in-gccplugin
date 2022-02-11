@@ -248,7 +248,7 @@ void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp)
 		{
 			// debug(table_temp->last_stmt);
 
-			location_t loc = gimple_location(table_temp->last_stmt);
+			location_t loc = gimple_location_safe(table_temp->last_stmt);
 			fprintf(stderr, "------------------------------------------\n");
 			warning_at(loc, 0, "loc");
 
@@ -266,12 +266,12 @@ void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp)
 				
 						if (user_tmp->ret_stmt != NULL)
 						{
-							location_t loc = gimple_location(user_tmp->ret_stmt);
+							location_t loc = gimple_location_safe(user_tmp->ret_stmt);
 							warning_at(loc, 0, "loc");
 						}
 						else
 						{
-							location_t loc = gimple_location(u_stmt);
+							location_t loc = gimple_location_safe(u_stmt);
 							warning_at(loc, 0, "loc");
 						}
 					}

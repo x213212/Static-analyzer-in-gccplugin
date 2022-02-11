@@ -1,7 +1,7 @@
 void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 {
 
-	location_t loc = gimple_location(gc);
+	location_t loc = gimple_location_safe(gc);
 
 	tree a;
 	cgraph_node *node2;
@@ -147,7 +147,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 
 void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb, ptb *ptable)
 {
-	location_t loc = gimple_location(gc);
+	location_t loc = gimple_location_safe(gc);
 	tree a;
 	cgraph_node *node2;
 	const char *name;
