@@ -1,0 +1,186 @@
+
+;; Function freeptr (freeptr, funcdef_no=2, decl_uid=4419, cgraph_uid=1, symbol_order=6) (executed once)
+
+
+;; Generating RTL for gimple basic block 2
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 4 into block 2...
+Merged blocks 2 and 4.
+Merged 2 and 4 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (reg/v/f:DI 82 [ p ])
+        (reg:DI 5 di [ p ])) "test.c":2:21 -1
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg:DI 5 di)
+        (reg/v/f:DI 82 [ p ])) "test.c":3:5 -1
+     (nil))
+(call_insn 7 6 0 2 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7f4dad00cd00 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "test.c":3:5 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+
+;; Function foo (foo, funcdef_no=1, decl_uid=4420, cgraph_uid=2, symbol_order=7) (executed once)
+
+
+;; Generating RTL for gimple basic block 2
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Removing jump 10.
+Merging block 4 into block 2...
+Merged blocks 2 and 4.
+Merged 2 and 4 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 3 NOTE_INSN_DELETED)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg:DI 5 di)
+        (const_int 40 [0x28])) "test.c":12:17 -1
+     (nil))
+(call_insn 6 5 7 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("malloc") [flags 0x41]  <function_decl 0x7f4dad00ce00 malloc>) [0 __builtin_malloc S1 A8])
+            (const_int 0 [0]))) "test.c":12:17 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 7 6 8 2 (set (reg/f:DI 83)
+        (reg:DI 0 ax)) "test.c":12:17 -1
+     (expr_list:REG_NOALIAS (reg/f:DI 83)
+        (nil)))
+(insn 8 7 9 2 (set (reg/v/f:DI 82 [ <retval> ])
+        (reg/f:DI 83)) "test.c":12:17 -1
+     (nil))
+(insn 9 8 13 2 (set (mem:SI (plus:DI (reg/v/f:DI 82 [ <retval> ])
+                (const_int 8 [0x8])) [1 MEM[(int *)ptr2_3 + 8B]+0 S4 A64])
+        (const_int 8 [0x8])) "test.c":13:12 -1
+     (nil))
+(insn 13 9 14 2 (set (reg/i:DI 0 ax)
+        (reg/v/f:DI 82 [ <retval> ])) "test.c":15:1 -1
+     (nil))
+(insn 14 13 0 2 (use (reg/i:DI 0 ax)) "test.c":15:1 -1
+     (nil))
+
+;; Function main (main, funcdef_no=0, decl_uid=4421, cgraph_uid=3, symbol_order=8) (executed once)
+
+
+;; Generating RTL for gimple basic block 2
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Removing jump 19.
+Merging block 4 into block 2...
+Merged blocks 2 and 4.
+Merged 2 and 4 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 3 NOTE_INSN_DELETED)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(call_insn 5 2 6 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("foo") [flags 0x3]  <function_decl 0x7f4dad00cb00 foo>) [0 foo S1 A8])
+            (const_int 0 [0]))) "test.c":19:7 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (nil))
+(insn 6 5 7 2 (set (reg/v/f:DI 82 [ a ])
+        (reg:DI 0 ax)) "test.c":19:7 -1
+     (nil))
+(insn 7 6 8 2 (set (mem:SI (plus:DI (reg/v/f:DI 82 [ a ])
+                (const_int 8 [0x8])) [1 MEM[(int *)a_3 + 8B]+0 S4 A32])
+        (const_int 10 [0xa])) "test.c":20:9 -1
+     (nil))
+(insn 8 7 9 2 (set (reg:DI 5 di)
+        (reg/v/f:DI 82 [ a ])) "test.c":21:5 -1
+     (nil))
+(insn 9 8 10 2 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "test.c":21:5 -1
+     (nil))
+(call_insn 10 9 11 2 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("foo2") [flags 0x41]  <function_decl 0x7f4dad00cf00 foo2>) [0 foo2 S1 A8])
+            (const_int 0 [0]))) "test.c":21:5 -1
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (nil))))
+(insn 11 10 12 2 (set (reg:DI 5 di)
+        (reg/v/f:DI 82 [ a ])) "test.c":22:5 -1
+     (nil))
+(call_insn 12 11 13 2 (call (mem:QI (symbol_ref:DI ("freeptr") [flags 0x3]  <function_decl 0x7f4dad00ca00 freeptr>) [0 freeptr S1 A8])
+        (const_int 0 [0])) "test.c":22:5 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(call_insn 13 12 14 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("foo") [flags 0x3]  <function_decl 0x7f4dad00cb00 foo>) [0 foo S1 A8])
+            (const_int 0 [0]))) "test.c":24:7 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (nil))
+(insn 14 13 15 2 (set (reg/v/f:DI 83 [ a ])
+        (reg:DI 0 ax)) "test.c":24:7 -1
+     (nil))
+(insn 15 14 16 2 (set (reg:DI 5 di)
+        (reg/v/f:DI 83 [ a ])) "test.c":25:5 -1
+     (nil))
+(call_insn 16 15 17 2 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7f4dad00cd00 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "test.c":25:5 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 17 16 18 2 (set (mem:SI (plus:DI (reg/v/f:DI 83 [ a ])
+                (const_int 24 [0x18])) [1 MEM[(int *)a_8 + 24B]+0 S4 A32])
+        (const_int 4 [0x4])) "test.c":26:9 -1
+     (nil))
+(insn 18 17 22 2 (set (reg:SI 84 [ <retval> ])
+        (const_int 0 [0])) "<built-in>":0:0 -1
+     (nil))
+(insn 22 18 23 2 (set (reg/i:SI 0 ax)
+        (reg:SI 84 [ <retval> ])) "test.c":27:1 -1
+     (nil))
+(insn 23 22 0 2 (use (reg/i:SI 0 ax)) "test.c":27:1 -1
+     (nil))

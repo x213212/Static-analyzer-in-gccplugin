@@ -41,11 +41,11 @@ bool ipa = true;
 bool vscode_extensionmod = false;
 bool memoryleakcheck = true;
 //kroren testcase need turn on
-bool Looserulesfree =true;
+bool Looserulesfree =false;
 bool useafterfree =true;
 bool debugmod = true;
 bool threadmod = false;
-bool relatemod = false;
+bool relatemod = true;
 bool freemod = true;
 bool retmod = true; 
 bool pthread_detachedmod = true;

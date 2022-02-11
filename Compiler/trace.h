@@ -38,7 +38,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 			fprintf(stderr, "\033[40;36m ======= node_fun:%s========= \033[0m\n", get_name(function_tree));
 			fprintf(stderr, "\033[40;36m ======= find relate stmt with %s ========= \033[0m\n", get_name(mallocStmt_tree));
 
-			fprintf(stderr, "\033[40;36m ======= relate stmt argument:%s ========= \033[0m\n", get_name(mallocStmt_tree));
+			// fprintf(stderr, "\033[40;36m ======= relate stmt argument:%s ========= \033[0m\n", get_name(mallocStmt_tree));
 			int seccount = 0;
 			FOR_EACH_BB_FN(bb, cfun)
 			{
@@ -61,6 +61,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 
 					if (is_gimple_assign(gc))
 					{
+						// fprintf(stderr, "\033[40;35m this pointer possible  reference other address (rhs)\033[0m\n");
 						struct ptr_info_def *pi1, *pi2, *pi3, *pi4;
 						pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
 						struct pt_solution *pt1 = &pi1->pt;
@@ -76,182 +77,180 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 
 										if (pt2)
 										{
-											if (gimple_assign_rhs1(gc) != NULL)
+
+											if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
 											{
-												if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
+
+												if (gimple_assign_rhs1(gc) != NULL)
 												{
 
-													if (gimple_assign_rhs1(gc) != NULL)
+													if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
+													{
+
+														if (TREE_CODE(gimple_assign_lhs(gc)) == ADDR_EXPR)
+														{
+
+															if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
+															{
+																debug_tree(gimple_assign_rhs1(gc));
+																fprintf(stderr, "\n ================== warring ================== \n");
+
+																fprintf(stderr, "\033[40;35m this pointer possible  reference other address (rhs)\033[0m\n");
+																fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
+																fprintf(stderr, "\n ================== warring ================== \n");
+															}
+														}
+													}
+
+													if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME && TREE_CODE(gimple_assign_rhs1(gc)) == INTEGER_CST)
+													{
+
+														continue;
+													}
+													if (TREE_CODE(gimple_assign_lhs(gc)) == MEM_REF && TREE_CODE(gimple_assign_rhs1(gc)) == INTEGER_CST)
+													{
+
+														// fprintf(stderr, "\n ================== warring GLOBOBLBOLBO================== \n");
+														tree first = TREE_OPERAND(gimple_assign_lhs(gc), 0);
+														gimple *def_stmt = SSA_NAME_DEF_STMT(first);
+														gimple *def_stmt2 = SSA_NAME_DEF_STMT(mallocStmt_tree);
+														if (def_stmt && def_stmt2)
+														{
+
+															pi4 = SSA_NAME_PTR_INFO(first);
+															struct pt_solution *pt1 = &pi4->pt;
+															struct pt_solution *pt2 = &pi1->pt;
+															if (!pt1 || pt1->anything)
+																continue;
+															//
+															if (is_gimple_assign(def_stmt) && is_gimple_assign(def_stmt2))
+																if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "<invalid tree code>"))
+																{
+
+																	if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt2))), "<invalid tree code>"))
+																	{
+																		if (!pt1->nonlocal && !pt2->nonlocal)
+																		{
+																			if (gimple_assign_rhs1(def_stmt2) != NULL)
+																				if (!is_global_var(gimple_assign_rhs1(def_stmt2)))
+																				{
+
+																					if (pt1)
+																						if (gimple_assign_rhs1(def_stmt) != NULL)
+																							if (is_global_var(gimple_assign_rhs1(def_stmt)))
+																							{
+																								if (!ptr_derefs_may_alias_p(mallocStmt_tree, first))
+																								{
+																									continue;
+																								}
+																							}
+																				}
+																				else
+																				{
+																					continue;
+																				}
+																		}
+																		else
+																		{
+																			continue;
+																		}
+																	}
+																}
+														}
+													}
+													else if (TREE_CODE(gimple_assign_rhs1(gc)) == VAR_DECL)
 													{
 
 														if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
 														{
-
-															if (TREE_CODE(gimple_assign_lhs(gc)) == ADDR_EXPR)
+															if (is_global_var(gimple_assign_rhs1(gc)))
 															{
-
-																if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
-																{
-																	debug_tree(gimple_assign_rhs1(gc));
-																	fprintf(stderr, "\n ================== warring ================== \n");
-
-																	fprintf(stderr, "\033[40;35m this pointer possible  reference other address (rhs)\033[0m\n");
-																	fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
-																	fprintf(stderr, "\n ================== warring ================== \n");
-																}
-															}
-														}
-
-														if (TREE_CODE(gimple_assign_lhs(gc)) == SSA_NAME && TREE_CODE(gimple_assign_rhs1(gc)) == INTEGER_CST)
-														{
-
-															continue;
-														}
-														if (TREE_CODE(gimple_assign_lhs(gc)) == MEM_REF && TREE_CODE(gimple_assign_rhs1(gc)) == INTEGER_CST)
-														{
-
-															// fprintf(stderr, "\n ================== warring GLOBOBLBOLBO================== \n");
-															tree first = TREE_OPERAND(gimple_assign_lhs(gc), 0);
-															gimple *def_stmt = SSA_NAME_DEF_STMT(first);
-															gimple *def_stmt2 = SSA_NAME_DEF_STMT(mallocStmt_tree);
-															if (def_stmt && def_stmt2)
-															{
-
-																pi4 = SSA_NAME_PTR_INFO(first);
-																struct pt_solution *pt1 = &pi4->pt;
-																struct pt_solution *pt2 = &pi1->pt;
-																if (!pt1 || pt1->anything)
-																	continue;
-																//
-																if (is_gimple_assign(def_stmt) && is_gimple_assign(def_stmt2))
-																	if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "<invalid tree code>"))
-																	{
-
-																		if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt2))), "<invalid tree code>"))
-																		{
-																			if (!pt1->nonlocal && !pt2->nonlocal)
-																			{
-																				if (gimple_assign_rhs1(def_stmt2) != NULL)
-																					if (!is_global_var(gimple_assign_rhs1(def_stmt2)))
-																					{
-
-																						if (pt1)
-																							if (gimple_assign_rhs1(def_stmt) != NULL)
-																								if (is_global_var(gimple_assign_rhs1(def_stmt)))
-																								{
-																									if (!ptr_derefs_may_alias_p(mallocStmt_tree, first))
-																									{
-																										continue;
-																									}
-																								}
-																					}
-																					else
-																					{
-																						continue;
-																					}
-																			}
-																			else
-																			{
-																				continue;
-																			}
-																		}
-																	}
-															}
-														}
-														else if (TREE_CODE(gimple_assign_rhs1(gc)) == VAR_DECL)
-														{
-
-															if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
-															{
-																if (is_global_var(gimple_assign_rhs1(gc)))
-																{
-																	continue;
-																}
-															}
-														}
-														else if (TREE_CODE(gimple_assign_rhs1(gc)) == SSA_NAME)
-														{
-
-															pi3 = SSA_NAME_PTR_INFO(gimple_assign_lhs(gc));
-															pi4 = SSA_NAME_PTR_INFO(gimple_assign_rhs1(gc));
-															struct pt_solution *pt3 = &pi3->pt;
-															struct pt_solution *pt4 = &pi4->pt;
-															if (!pt3 || !pt4)
 																continue;
-															else if (!ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
-																continue;
+															}
 														}
 													}
-
-													fprintf(stderr, "\033[40;36m ======= relate node_fun argument:%s========= \033[0m\n", get_name(mallocStmt_tree));
-													fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", gimple_assign_lhs(gc));
-													// ready add dot graph
-													fprintf(stderr, "\n\n\n\n");
-													unsigned long x = rand();
-													if (freemod == true)
+													else if (TREE_CODE(gimple_assign_rhs1(gc)) == SSA_NAME)
 													{
-														if (seccount == 0)
-														{
-															fprintf(stderr, "dot graph arrow");
-														}
-														else
-														{
-															if (now_laststmt != NULL)
-															{
 
-																fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
-																debug(now_laststmt);
-																warning_at(gimple_location(now_laststmt), 0, "use location");
-															}
-															fprintf(stderr, "dot graph relate en1\n\n");
-														}
-														fprintf(stderr, "dot graph start relate for1");
+														pi3 = SSA_NAME_PTR_INFO(gimple_assign_lhs(gc));
+														pi4 = SSA_NAME_PTR_INFO(gimple_assign_rhs1(gc));
+														struct pt_solution *pt3 = &pi3->pt;
+														struct pt_solution *pt4 = &pi4->pt;
+														if (!pt3 || !pt4)
+															continue;
+														else if (!ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
+															continue;
+													}
+												}
+
+												fprintf(stderr, "\033[40;36m ======= relate node_fun argument:%s========= \033[0m\n", get_name(mallocStmt_tree));
+												fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", get_name(gimple_assign_lhs(gc)));
+												// ready add dot graph
+												fprintf(stderr, "\n\n\n\n");
+												unsigned long x = rand();
+												if (freemod == true)
+												{
+													if (seccount == 0)
+													{
+														fprintf(stderr, "dot graph arrow");
 													}
 													else
 													{
+														if (now_laststmt != NULL)
+														{
 
-														if (fistconunt == 0)
-														{
-															fprintf(stderr, "dot graph start relate form");
-															fistconunt++;
+															fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
+															debug(now_laststmt);
+															warning_at(gimple_location(now_laststmt), 0, "use location");
 														}
-														else
-														{
-															if (now_laststmt != NULL)
-															{
-																fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
-																debug(now_laststmt);
-																warning_at(gimple_location(now_laststmt), 0, "use location");
-																fprintf(stderr, "dot graph relate en1\n\n");
-																now_laststmt = gc;
-																now_laststmtid = x;
-															}
-															fprintf(stderr, "dot graph start relate for1");
-														}
+														fprintf(stderr, "dot graph relate en1\n\n");
 													}
-													fistconunt++;
-													fprintf(stderr, "ID : %lu\n", now_fucntion);
-													fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
-													fprintf(stderr, "dot graph end relate end\n\n");
-
-													// print address error
-													warning_at(gimple_location(gc), 0, "use location");
-													fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(LHS) :", x);
-													debug(gc);
-													// check_bbinfo2(gimple_bb(gc));
-													warning_at(gimple_location(gc), 0, "use location");
-													debug(gimple_assign_lhs(gc));
-													fprintf(stderr, "dot graph relate end\n\n");
-													// ready add dot graph
-													now_relatelaststmt = gc;
-													now_relatelaststmtid = x;
-													now_laststmtid = x;
-
-													fprintf(stderr, "\n ================== warring ================== \n");
-													fprintf(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
-													fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
-													fprintf(stderr, "\n ================== warring ================== \n");
+													fprintf(stderr, "dot graph start relate for1");
 												}
+												else
+												{
+
+													if (fistconunt == 0)
+													{
+														fprintf(stderr, "dot graph start relate form");
+														fistconunt++;
+													}
+													else
+													{
+														if (now_laststmt != NULL)
+														{
+															fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
+															debug(now_laststmt);
+															warning_at(gimple_location(now_laststmt), 0, "use location");
+															fprintf(stderr, "dot graph relate en1\n\n");
+															now_laststmt = gc;
+															now_laststmtid = x;
+														}
+														fprintf(stderr, "dot graph start relate for1");
+													}
+												}
+												fistconunt++;
+												fprintf(stderr, "ID : %lu\n", now_fucntion);
+												fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
+												fprintf(stderr, "dot graph end relate end\n\n");
+
+												// print address error
+												warning_at(gimple_location(gc), 0, "use location");
+												fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(LHS) :", x);
+												debug(gc);
+												// check_bbinfo2(gimple_bb(gc));
+												warning_at(gimple_location(gc), 0, "use location");
+												debug(gimple_assign_lhs(gc));
+												fprintf(stderr, "dot graph relate end\n\n");
+												// ready add dot graph
+												now_relatelaststmt = gc;
+												now_relatelaststmtid = x;
+												now_laststmtid = x;
+
+												fprintf(stderr, "\n ================== warring ================== \n");
+												fprintf(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
+												fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
+												fprintf(stderr, "\n ================== warring ================== \n");
 											}
 										}
 									}

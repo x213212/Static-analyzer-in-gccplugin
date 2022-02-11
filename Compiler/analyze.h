@@ -917,10 +917,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							{
 								// debug_gimple_stmt(u_stmt);
 								// debug_tree(user_tmp->aptr);
-								// fprintf(stderr, "\n ================== warring ==%d================ \n",free_array.size());
+								// fprintf(stderr, "\n ================== test ============== \n", free_array.size());
 								for (int i = 0; i < free_array.size(); i++)
 								{
-
+									// fprintf(stderr, "\n ================== warring ==%d================ \n",free_array.size());
 									if (gimple_call_fndecl(free_array.at(i).stmt))
 										if (u_stmt != free_array.at(i).stmt)
 										{
@@ -929,18 +929,26 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													continue;
 											if (Location_b2(free_array.at(i).stmt, u_stmt, function_tree))
 											{
+												
 												fprintf(stderr, "\n============================================================\n");
-												name = get_name(gimple_call_fn(free_array.at(i).stmt));
 												if (free_array.at(i).Looserulesfree)
 													fprintf(stderr, "\033[40;35m <Looserules> find free stmt free same pointer \033[0m\n");
 												debug_gimple_stmt(free_array.at(i).stmt);
-												warning_at(gimple_location_safe(free_array.at(i).stmt), 0, "Use after free error!: free location ");
+												warning_at(gimple_location_safe(free_array.at(i).stmt), 0, "free in this location");
 												check_bbinfo(table_temp->node, gimple_bb(free_array.at(i).stmt));
+												if (user_tmp->aptr)
+												{
+												
+													name = get_tree_code_name(TREE_CODE(user_tmp->aptr));
+													if (name)
+														fprintf(stderr, "\033[40;35m target gimple type: %s \033[0m\n", name);
+												
+												}
 												debug_gimple_stmt(u_stmt);
 												warning_at(gimple_location_safe(u_stmt), 0, "use location");
 												check_bbinfo(table_temp->node, gimple_bb(u_stmt));
 												fprintf(stderr, "\n ================== warring ================== \n");
-
+												name = get_name(gimple_call_fn(free_array.at(i).stmt));
 												if (!strcmp(name, "realloc"))
 												{
 													fprintf(stderr, "\033[40;35m  realloc Use after free error! \033[0m\n");

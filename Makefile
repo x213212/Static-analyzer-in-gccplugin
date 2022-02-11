@@ -8,7 +8,7 @@ COMPLILER_FILES=Compiler/Makefile
 PARTIALS=$(patsubst %Makefile,%newplugin,$(COMPLILER_FILES))
 TEST_FILES=./Test/test.o
 
-
+# egypt ./gcc_plugin.c.245r.expand | dot -Grankdir=LR -Tsvg -o callgraph.svg
 $(TEST_FILES) : $(PARTIALS)  
 	$(MAKE) -C  $(dir $@) $(notdir $@) 
 

@@ -1,0 +1,69 @@
+digraph "test.o-test.c.015t.cfg" {
+overlap=false;
+subgraph "cluster_freeptr" {
+	style="dashed";
+	color="black";
+	label="freeptr ()";
+	fn_6_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_6_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_6_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|free\ (p);\l\
+|return;\l\
+}"];
+
+	fn_6_basic_block_0:s -> fn_6_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_6_basic_block_2:s -> fn_6_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_6_basic_block_0:s -> fn_6_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_foo" {
+	style="dashed";
+	color="black";
+	label="foo ()";
+	fn_7_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_7_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_7_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|ptr1\ =\ malloc\ (20);\l\
+|_1\ =\ ptr1\ +\ 4;\l\
+|*_1\ =\ 10;\l\
+|ptr2\ =\ malloc\ (40);\l\
+|_2\ =\ ptr2\ +\ 8;\l\
+|*_2\ =\ 8;\l\
+|D.2542\ =\ ptr2;\l\
+|return\ D.2542;\l\
+}"];
+
+	fn_7_basic_block_0:s -> fn_7_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_7_basic_block_2:s -> fn_7_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_7_basic_block_0:s -> fn_7_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_main" {
+	style="dashed";
+	color="black";
+	label="main ()";
+	fn_8_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_8_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_8_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|a\ =\ foo\ ();\l\
+|_1\ =\ a\ +\ 8;\l\
+|*_1\ =\ 10;\l\
+|foo2\ (a);\l\
+|freeptr\ (a);\l\
+|a\ =\ foo\ ();\l\
+|free\ (a);\l\
+|_2\ =\ a\ +\ 24;\l\
+|*_2\ =\ 4;\l\
+|D.2544\ =\ 0;\l\
+|return\ D.2544;\l\
+}"];
+
+	fn_8_basic_block_0:s -> fn_8_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_8_basic_block_2:s -> fn_8_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_8_basic_block_0:s -> fn_8_basic_block_1:n [style="invis",constraint=true];
+}
+}
