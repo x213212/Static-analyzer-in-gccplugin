@@ -65,7 +65,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 						struct ptr_info_def *pi1, *pi2, *pi3, *pi4;
 						pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
 						struct pt_solution *pt1 = &pi1->pt;
-						if (pt1 && relatemod && debugmod)
+						if (pt1 && relatemod)
 							if (TREE_CODE(mallocStmt_tree) == SSA_NAME)
 							{
 								if (gimple_assign_lhs(gc) != NULL)
@@ -186,69 +186,83 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 												fprintf(stderr, "\033[40;36m ======= relate node_fun argument:%s========= \033[0m\n", get_name(mallocStmt_tree));
 												fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", get_name(gimple_assign_lhs(gc)));
 												// ready add dot graph
-												fprintf(stderr, "\n\n\n\n");
+											
 												unsigned long x = rand();
-												if (freemod == true)
+												if (debugmod)
 												{
-													if (seccount == 0)
+													if (freemod)
 													{
-														fprintf(stderr, "dot graph arrow");
-													}
-													else
-													{
-														if (now_laststmt != NULL)
+														if (seccount == 0)
 														{
-
-															fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
-															debug(now_laststmt);
-															warning_at(gimple_location_safe(now_laststmt), 0, "use location");
+															fprintf(stderr, "dot graph arrow");
 														}
-														fprintf(stderr, "dot graph relate en1\n\n");
-													}
-													fprintf(stderr, "dot graph start relate for1");
-												}
-												else
-												{
-
-													if (fistconunt == 0)
-													{
-														fprintf(stderr, "dot graph start relate form");
-														fistconunt++;
-													}
-													else
-													{
-														if (now_laststmt != NULL)
+														else
 														{
-															fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
-															debug(now_laststmt);
-															warning_at(gimple_location_safe(now_laststmt), 0, "use location");
+															if (now_laststmt != NULL)
+															{
+
+																fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
+																debug(now_laststmt);
+																warning_at(gimple_location_safe(now_laststmt), 0, "use location");
+															}
 															fprintf(stderr, "dot graph relate en1\n\n");
-															now_laststmt = gc;
-															now_laststmtid = x;
 														}
 														fprintf(stderr, "dot graph start relate for1");
 													}
-												}
-												fistconunt++;
-												fprintf(stderr, "ID : %lu\n", now_fucntion);
-												fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
-												fprintf(stderr, "dot graph end relate end\n\n");
+													else
+													{
 
-												// print address error
-												warning_at(gimple_location_safe(gc), 0, "use location");
-												fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(LHS) :", x);
-												debug(gc);
-												// check_bbinfo2(gimple_bb(gc));
-												warning_at(gimple_location_safe(gc), 0, "use location");
-												debug(gimple_assign_lhs(gc));
-												fprintf(stderr, "dot graph relate end\n\n");
+														if (fistconunt == 0)
+														{
+															fprintf(stderr, "dot graph start relate form");
+															fistconunt++;
+														}
+														else
+														{
+															if (now_laststmt != NULL)
+															{
+																fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
+																debug(now_laststmt);
+																warning_at(gimple_location_safe(now_laststmt), 0, "use location");
+																fprintf(stderr, "dot graph relate en1\n\n");
+																now_laststmt = gc;
+																now_laststmtid = x;
+															}
+															fprintf(stderr, "dot graph start relate for1");
+														}
+													}
+													fprintf(stderr, "ID : %lu\n", now_fucntion);
+													fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
+													fprintf(stderr, "dot graph end relate end\n\n");
+
+													// print address error
+													fistconunt++;
+													warning_at(gimple_location_safe(gc), 0, "use location");
+													debug(gc);
+
+													fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(LHS) :", x);
+
+													// check_bbinfo2(gimple_bb(gc));
+													warning_at(gimple_location_safe(gc), 0, "use location");
+													debug(gimple_assign_lhs(gc));
+
+													fprintf(stderr, "dot graph relate end\n\n");
+												}
+												else
+												{
+													warning_at(gimple_location_safe(gc), 0, "use location");
+													debug(gc);
+
+													warning_at(gimple_location_safe(gc), 0, "use location");
+													debug(gimple_assign_lhs(gc));
+												}
 												// ready add dot graph
 												now_relatelaststmt = gc;
 												now_relatelaststmtid = x;
 												now_laststmtid = x;
 
 												fprintf(stderr, "\n ================== warring ================== \n");
-												fprintf(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
+												fprintf(stderr, "\033[40;35m this pointer possible reference other address \033[0m\n");
 												fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
 												fprintf(stderr, "\n ================== warring ================== \n");
 											}
@@ -334,62 +348,71 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 												if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_call_arg(gc, 0)))
 												{
 													unsigned long x = rand();
-													if (freemod == true)
+													if (debugmod)
 													{
-														if (seccount == 0)
+														if (freemod)
 														{
-															fprintf(stderr, "dot graph arrow");
-														}
-														else
-														{
-															if (now_laststmt != NULL)
+															if (seccount == 0)
 															{
-																fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
-																debug(now_laststmt);
-																warning_at(gimple_location_safe(now_laststmt), 0, "use location");
+																fprintf(stderr, "dot graph arrow");
 															}
-															fprintf(stderr, "dot graph relate en1\n\n");
-														}
-														fprintf(stderr, "dot graph start relate for1");
-													}
-													else
-													{
-
-														if (fistconunt == 0)
-														{
-															fprintf(stderr, "dot graph start relate form");
-															fistconunt++;
-														}
-														else
-														{
-															if (now_laststmt != NULL)
+															else
 															{
-																fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
-																debug(now_laststmt);
-																warning_at(gimple_location_safe(now_laststmt), 0, "use location");
+																if (now_laststmt != NULL)
+																{
+																	fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
+																	debug(now_laststmt);
+																	warning_at(gimple_location_safe(now_laststmt), 0, "use location");
+																}
 																fprintf(stderr, "dot graph relate en1\n\n");
-																now_laststmt = gc;
-																now_laststmtid = x;
 															}
 															fprintf(stderr, "dot graph start relate for1");
 														}
+														else
+														{
+
+															if (fistconunt == 0)
+															{
+																fprintf(stderr, "dot graph start relate form");
+																fistconunt++;
+															}
+															else
+															{
+																if (now_laststmt != NULL)
+																{
+																	fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
+																	debug(now_laststmt);
+																	warning_at(gimple_location_safe(now_laststmt), 0, "use location");
+																	fprintf(stderr, "dot graph relate en1\n\n");
+																	now_laststmt = gc;
+																	now_laststmtid = x;
+																}
+																fprintf(stderr, "dot graph start relate for1");
+															}
+														}
+
+														fistconunt++;
+
+														// debug_tree(gimple_call_arg(gc, 0));
+														fprintf(stderr, "ID : %lu\n", now_fucntion);
+														fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
+														fprintf(stderr, "dot graph end relate end\n\n");
+														fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(call) :", x);
+														debug(gc);
+														warning_at(gimple_location_safe(gc), 0, "use location");
+														debug(gimple_call_arg(gc, 0));
+														fprintf(stderr, "dot graph relate end\n\n");
 													}
-
-													fistconunt++;
-
-													// debug_tree(gimple_call_arg(gc, 0));
-													fprintf(stderr, "ID : %lu\n", now_fucntion);
-													fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
-													fprintf(stderr, "dot graph end relate end\n\n");
-													fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(call) :", x);
-													debug(gc);
+													else
+													{
+														debug(gc);
+														warning_at(gimple_location_safe(gc), 0, "use location");
+														debug(gimple_call_arg(gc, 0));
+													}
 													// check_bbinfo2(gimple_bb(gc));
 													now_relatelaststmt = gc;
 													now_relatelaststmtid = x;
 													now_laststmtid = x;
-													warning_at(gimple_location_safe(gc), 0, "use location");
-													debug(gimple_call_arg(gc, 0));
-													fprintf(stderr, "dot graph relate end\n\n");
 												}
 											}
 										}

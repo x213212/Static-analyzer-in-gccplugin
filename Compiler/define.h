@@ -41,11 +41,11 @@ bool ipa = true;
 bool vscode_extensionmod = false;
 bool memoryleakcheck = true;
 //kroren testcase need turn on
-bool Looserulesfree =false;
+bool Looserulesfree =true;
 bool useafterfree =true;
-bool debugmod = true;
+bool debugmod = false;
 bool threadmod = false;
-bool relatemod = true;
+bool relatemod = false;
 bool freemod = true;
 bool retmod = true; 
 bool pthread_detachedmod = true;
@@ -324,6 +324,7 @@ vector<basic_block> symbolicExecutionswitch;
 vector<breakpoint> vbreakpoint;
 vector<return_type> global_ret_type_array;
 
+
 CStack stmtStack;
 CstmtStack stmtStack2;
 
@@ -332,6 +333,8 @@ function *main_fun;
 static gimple *now_stmt;
 static int totalsize; //宣告一個整數型態size變數，用來儲存x的位元組大小
 static int levelsize = 0;
+static int pointtablecount = 0;
+// static int levelsize = 0;
 static tree now_tree;
 static enum cdi_direction nowdir;
 unsigned int SDBMHash(char *str);

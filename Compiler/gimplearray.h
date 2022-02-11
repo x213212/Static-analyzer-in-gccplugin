@@ -1,9 +1,10 @@
 /*set allocation and deallocation table*/
 void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stmt, cgraph_node *node)
 {
-		
+
 	if (table->target == NULL_TREE)
 	{
+		pointtablecount++;
 		table->bb = b;
 		table->target = t;
 		table->next = NULL;
@@ -16,7 +17,7 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 		table->fun = node->get_fun();
 		if (gimple_code(stmt) == GIMPLE_PHI)
 		{
-			//fprintf(stderr, "add phi stmt ");debug_head(table->target);
+			// fprintf(stderr, "add phi stmt ");debug_head(table->target);
 		}
 		table->removed = false;
 		table->size = table->size + 1;
@@ -34,14 +35,14 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 			{
 				same = true;
 				// fprintf(stderr, "\n======================================================================\n");
-				
 			}
-				table = table->next;
+			table = table->next;
 		}
-	
+
 		if (!same)
 		{
-		// fprintf(stderr, "\n======================================================================\n");
+			pointtablecount++;
+			// fprintf(stderr, "\n======================================================================\n");
 			// debug_tree(t);
 			table->next = new ptb();
 			table = table->next;
@@ -57,7 +58,7 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 			table->fun = node->get_fun();
 			if (gimple_code(stmt) == GIMPLE_PHI)
 			{
-				//fprintf(stderr, "add phi stmt ");debug_head(table->target);
+				// fprintf(stderr, "add phi stmt ");debug_head(table->target);
 				table->is_phi_stmt = true;
 			}
 			else
@@ -71,7 +72,6 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 void set_gimple_array(gimple_array *table, gimple *used_stmt, tree fucntion, tree target, gimple *ret_stmt)
 {
 	// fprintf(stderr, "set_gimple_array----------------\n");
-
 
 	if (table->stmt == NULL)
 	{
@@ -87,12 +87,12 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree fucntion, tre
 		bool same = false;
 		int size_tmp = 0;
 		// check_stmtStack4(used_stmt)
-		while ( table->next != NULL)
+		while (table->next != NULL)
 		{
 			//  fprintf(stderr, "set_gimple_array----------------\n");
 			//  debug(table->stmt);
 			//  debug_tree(target);
-			//  if (table == NULL) 
+			//  if (table == NULL)
 			//  break;
 
 			if (table->stmt == used_stmt)

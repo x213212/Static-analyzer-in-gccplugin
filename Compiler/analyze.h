@@ -69,8 +69,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				find_freestmt = find_mallocstmt = find_phistmt = 0;
 				// debug_tree(function_tree);
 				// debug_tree(table_temp->target);
-
-				fprintf(stderr, "\ndot graph START\n");
+				if (debugmod)
+					fprintf(stderr, "\ndot graph START\n");
 				fprintf(stderr, "\n======================================================================\n");
 
 				const char *name = "";
@@ -104,7 +104,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								}
 						}
 
-						fprintf(stderr, "\n ================== trace ptable================== \n");
+						fprintf(stderr, "\n ================== pre trace ptable ================== \n");
 						if (def_stmt)
 							if (TREE_CODE(table_temp->target) == FUNCTION_DECL)
 							{
@@ -130,8 +130,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											fprintf(stderr, "some fucntion return value is heap-object and with Collection SSA_NAME alias relation\n");
 									}
 							}
+						fprintf(stderr, "\n ================== pre trace ptable finish================== \n");
 					}
-				fprintf(stderr, "\n ================== trace ptable ================== \n");
+				fprintf(stderr, "\n ================== this stmt hava call fucntion ================== \n");
 
 				if (name != NULL)
 					if (!strcmp(name, "realloc") ||
@@ -143,12 +144,12 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						!strcmp(name, "xstrdup"))
 					{
 						ptable_type = IS_MALLOC_FUCNTION;
-						fprintf(stderr, "this Reserved word function ------%s-----\n", name);
+						fprintf(stderr, "is Reserved word function :%s\n", name);
 					}
 					else
 					{
 						ptable_type = IS_OTHRER_FUCNTION;
-						fprintf(stderr, "this other function ------%s-----\n", name);
+						fprintf(stderr, "is Other function %s\n", name);
 						// 	continue;
 					}
 				user_tmp = treeGimpleArray->get(table_temp->target);
@@ -540,9 +541,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												name = get_name(gimple_call_fndecl(u_stmt));
 
 												if (name != NULL)
-													fprintf(stderr, "this stmt is child function---%s-----\n", name);
+													fprintf(stderr, "this stmt call this function :%s\n", name);
 												else
-													fprintf(stderr, "this other child function---i null-----\n", name);
+													fprintf(stderr, "this stmt call this function :null\n", name);
 											}
 										}
 										if (gimple_code(u_stmt) == GIMPLE_PHI)
@@ -625,7 +626,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 													free_type.stmt = u_stmt;
 													free_array.push_back(free_type);
-													fprintf(stderr, "\n ================== find ================== \n");
+													fprintf(stderr, "\n ================== find free stmt ================== \n");
 													debug(u_stmt);
 													warning_at(gimple_location_safe(u_stmt), 0, "use location");
 													if (!strcmp(name, "realloc"))
@@ -639,7 +640,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														find_freestmt++;
 														fprintf(stderr, "\033[40;32m    HAS FREE STMT count:%d name:%s \033[0m\n", find_freestmt, name);
 													}
-													fprintf(stderr, "\n ================== find ================== \n");
+													fprintf(stderr, "\n ================== find free stmt ================== \n");
 												}
 												else if (!strcmp(name, "pthread_create"))
 												{
@@ -649,7 +650,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 													if (table_temp->swap_type == FUNCITON_THREAD)
 													{
-														fprintf(stderr, "\n ================== find ================== \n");
+														fprintf(stderr, "\n ================== find pthread stmt ================== \n");
 														debug(u_stmt);
 														warning_at(gimple_location_safe(u_stmt), 0, "use location");
 														fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED STMT  \033[0m\n");
@@ -714,7 +715,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 															fprintf(stderr, "\033[40;32m    FIND PTHREAD_CREATED TYPE is CREATE_DETACHED  \033[0m\n");
 															is_pthread_detched = 1;
 														}
-														fprintf(stderr, "\n ================== find ================== \n");
+														fprintf(stderr, "\n ================== find pthread stmt ================== \n");
 													}
 												}
 												else if (!strcmp(name, "pthread_join"))
@@ -728,7 +729,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												else
 												{
 													int freecount = find_freestmt;
-													fprintf(stderr, "\n ================== trace ================== \n");
+													// fprintf(stderr, "\n ================== trace ================== \n");
 													if (name != NULL)
 														if (!strcmp(name, "realloc") ||
 															!strcmp(name, "malloc") ||
@@ -929,7 +930,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													continue;
 											if (Location_b2(free_array.at(i).stmt, u_stmt, function_tree))
 											{
-												
+
 												fprintf(stderr, "\n============================================================\n");
 												if (free_array.at(i).Looserulesfree)
 													fprintf(stderr, "\033[40;35m <Looserules> find free stmt free same pointer \033[0m\n");
@@ -938,11 +939,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												check_bbinfo(table_temp->node, gimple_bb(free_array.at(i).stmt));
 												if (user_tmp->aptr)
 												{
-												
+
 													name = get_tree_code_name(TREE_CODE(user_tmp->aptr));
 													if (name)
 														fprintf(stderr, "\033[40;35m target gimple type: %s \033[0m\n", name);
-												
 												}
 												debug_gimple_stmt(u_stmt);
 												warning_at(gimple_location_safe(u_stmt), 0, "use location");
@@ -973,9 +973,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								}
 								// }
 							}
-						fprintf(stderr, "\ndot graph END\n");
+						if (debugmod)
+							fprintf(stderr, "\ndot graph END\n");
 						// fprintf(stderr, "\n ================== Start Use after free Check ================== \n");
 					}
+					fprintf(stderr, " \n Finish check Pointer Collect  \n");
 				}
 				else
 				{
@@ -1119,8 +1121,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							fprintf(stderr, "\n======================================================================\n");
 						}
 					}
-					fprintf(stderr, "\n======================================================================\n");
 				}
+
+				fprintf(stderr, "\n======================================================================\n");
 			}
 	}
 }

@@ -153,13 +153,14 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	int Entrypoint = 0;
 
 	fprintf(stderr, "start PointerConstraint\n");
-	fprintf(stderr, "pointer ftable is %d \n", ftable->size);
-	fprintf(stderr, "pointer ptable is %d \n", ptable->size);
+
+	// fprintf(stderr, "pointer ftable is %d \n", ftable->size);
+	fprintf(stderr, "ptable point %d \n", pointtablecount);
 	fprintf(stderr, "===============The second stage : Mapping stmt=================\n");
 	FunctionStmtMappingAssign(ptable, used_stmt);
 
 	ptb *processtable = ptable;
-	fprintf(stderr, "start collect similar stmtstart collect similar stmtstart collect similar stmtstart collect similar stmt\n");
+	fprintf(stderr, "===============The second stage : Program slicing=================\n");
 
 	if (GIMPLE_FREE_COUNT)
 	{
@@ -248,6 +249,10 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 				treeGimpleArray->put(processtable->target, *used_stmt);
 				Entrypoint++;
+				fprintf(stderr, "=============== *this point analyzable =================\n");
+				debug(processtable->last_stmt);
+				// fprintf(stderr, "=============== *this point analyzable =================\n");
+				// debug(processtable->swap_stmt);
 
 				if (processtable->next->target == NULL)
 					break;
@@ -273,9 +278,6 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 		fprintf(stderr, "\033[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 		fprintf(stderr, "\033[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 
-		fprintf(stderr, "===============The second stage : record fucntion =================\n");
-
-		record_fucntion(node);
 		clock_gettime(CLOCK_MONOTONIC, &aend);
 		temp = diff(astart, aend);
 		time_used = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
@@ -302,6 +304,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	timeinfo = localtime(&rawtime);
 
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
+	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 	fprintf(stderr, "    =()=\n");
 	fprintf(stderr, " ,/'\_||_\n");
 	fprintf(stderr, "  (___  `.\n");
@@ -312,13 +315,14 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "           ~~~~~~~\n");
 	fprintf(stderr, "\033[40;34m    gimple malloc count : %d \033[0m\n", GIMPLE_MALLOC_COUNT);
 	fprintf(stderr, "\033[40;34m    gimple free   count : %d \033[0m\n", GIMPLE_FREE_COUNT);
-	fprintf(stderr, "\033[40;34m    find Entry point : %d \033[0m\n", Entrypoint);
+	fprintf(stderr, "\033[40;34m    all ptable point : %d \033[0m\n", pointtablecount);
+	fprintf(stderr, "\033[40;34m    analyzable ptable point : %d \033[0m\n", Entrypoint);
 	fprintf(stderr, "\033[40;34m    used_stmt array stack totalsize of : %f mb\033[0m\n", (totalsize * 0.000001));
 	fprintf(stderr, "\033[40;34m    collect time: : %f s \033[0m\n", time_used);
 	fprintf(stderr, "\033[40;34m    algorithm time: %f s \033[0m\n", time_used2);
 	fprintf(stderr, "\033[40;34m    gimple stmt count : : %d \033[0m\n", gimplestmt_count);
-	fprintf(stderr, "\033[40;34m    this report analysis in %s \033[0m\n",  asctime(timeinfo));
-
+	fprintf(stderr, "\033[40;34m    this report analysis in %s \033[0m\n", asctime(timeinfo));
+	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 }
 void detect()
@@ -390,7 +394,7 @@ void detect()
 	utime = ru.ru_utime;
 	stime = ru.ru_stime;
 
-	fprintf(stderr, "===============The first stage : Point of interest stmt collect=================\n");
+	fprintf(stderr, "=============== The first stage : Point of interest stmt collect =================\n");
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
 		fprintf(stderr, "=======node_fun:%s=========\n", get_name(node->decl));
@@ -458,8 +462,9 @@ void detect()
 
 		pop_cfun();
 	}
-	fprintf(stderr, "===============The first stage : Point of interest stmt collect=================\n");
 
+	fprintf(stderr, "=============== The first stage :  record fucntion =================\n");
+	record_fucntion(node);
 	// Start analysis
 	if (ipa)
 		PointerConstraint(ptable, ftable);
