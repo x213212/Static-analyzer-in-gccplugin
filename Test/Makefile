@@ -159,7 +159,8 @@ LTO=-flto
 WHOLE=-fwhole-program 
 # https://gcc.gnu.org/onlinedocs/gcc/Developer-Options.html
 #-fno-inline-functions-called-once
-FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fno-inline -fdump-tree-cfg-graph -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions -ftime-report
+FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fdump-tree-cfg-graph -pthread  --param max-ssa-name-query-depth=10  -ftime-report
+# FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta   --param max-ssa-name-query-depth=10 -ftime-report
 # -fno-inline 
 # -flto-report
 # -ftime-report
@@ -174,135 +175,348 @@ all: test.o
 test.o:  
 	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
-	$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
-	@sh ./test.sh $(FILE_NAME)
-	# # binutils
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME1)  -o $@ 2> $(BINUTILSL)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME2)  -o $@ 2> $(BINUTILSL)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME3)  -o $@ 2> $(BINUTILSL)3/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME4)  -o $@ 2> $(BINUTILSL)4/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME5)  -o $@ 2> $(BINUTILSL)5/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME6)  -o $@ 2> $(BINUTILSL)6/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME7)  -o $@ 2> $(BINUTILSL)7/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME8)  -o $@ 2> $(BINUTILSL)8/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME9)  -o $@ 2> $(BINUTILSL)9/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME10)  -o $@ 2> $(BINUTILSL)10/check.log
+	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
+	# @sh ./test.sh $(FILE_NAME)
+	# binutils
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME1)  -o $@ 2> $(BINUTILSL)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME2)  -o $@ 2> $(BINUTILSL)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME3)  -o $@ 2> $(BINUTILSL)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME4)  -o $@ 2> $(BINUTILSL)4/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME5)  -o $@ 2> $(BINUTILSL)5/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME6)  -o $@ 2> $(BINUTILSL)6/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME7)  -o $@ 2> $(BINUTILSL)7/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME8)  -o $@ 2> $(BINUTILSL)8/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME9)  -o $@ 2> $(BINUTILSL)9/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME10)  -o $@ 2> $(BINUTILSL)10/check.log
 
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMEU1)  -o $@ 2> $(BINUTILSU)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMEU2)  -o $@ 2> $(BINUTILSU)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMEU3)  -o $@ 2> $(BINUTILSU)3/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMEU4)  -o $@ 2> $(BINUTILSU)4/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMEU5)  -o $@ 2> $(BINUTILSU)5/check.log
-
-	
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMED1)  -o $@ 2> $(BINUTILSD)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMED2)  -o $@ 2> $(BINUTILSD)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMED3)  -o $@ 2> $(BINUTILSD)3/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMED4)  -o $@ 2> $(BINUTILSD)4/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMED5)  -o $@ 2> $(BINUTILSD)5/check.log
-	
-	# # git
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME1)  -o $@ 2> $(GITL)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME2)  -o $@ 2> $(GITL)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME3)  -o $@ 2> $(GITL)3/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME4)  -o $@ 2> $(GITL)4/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME5)  -o $@ 2> $(GITL)5/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME6)  -o $@ 2> $(GITL)6/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME7)  -o $@ 2> $(GITL)7/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME8)  -o $@ 2> $(GITL)8/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME9)  -o $@ 2> $(GITL)9/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME10)  -o $@ 2> $(GITL)10/check.log
-
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMEU1)  -o $@ 2> $(GITU)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMEU2)  -o $@ 2> $(GITU)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMEU3)  -o $@ 2> $(GITU)3/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMEU4)  -o $@ 2> $(GITU)4/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMEU5)  -o $@ 2> $(GITU)5/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMEU6)  -o $@ 2> $(GITU)6/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMEU1)  -o $@ 2> $(BINUTILSU)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMEU2)  -o $@ 2> $(BINUTILSU)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMEU3)  -o $@ 2> $(BINUTILSU)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMEU4)  -o $@ 2> $(BINUTILSU)4/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMEU5)  -o $@ 2> $(BINUTILSU)5/check.log
 
 	
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMED1)  -o $@ 2> $(GITD)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMED2)  -o $@ 2> $(GITD)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMED3)  -o $@ 2> $(GITD)3/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMED4)  -o $@ 2> $(GITD)4/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMED1)  -o $@ 2> $(BINUTILSD)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMED2)  -o $@ 2> $(BINUTILSD)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMED3)  -o $@ 2> $(BINUTILSD)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMED4)  -o $@ 2> $(BINUTILSD)4/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAMED5)  -o $@ 2> $(BINUTILSD)5/check.log
+	
+	# git
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME1)  -o $@ 2> $(GITL)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME2)  -o $@ 2> $(GITL)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME3)  -o $@ 2> $(GITL)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME4)  -o $@ 2> $(GITL)4/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME5)  -o $@ 2> $(GITL)5/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME6)  -o $@ 2> $(GITL)6/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME7)  -o $@ 2> $(GITL)7/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME8)  -o $@ 2> $(GITL)8/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME9)  -o $@ 2> $(GITL)9/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAME10)  -o $@ 2> $(GITL)10/check.log
 
-	# #openssh
-
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME1)  -o $@ 2> $(OPSSHL)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME2)  -o $@ 2> $(OPSSHL)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME3)  -o $@ 2> $(OPSSHL)3/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME4)  -o $@ 2> $(OPSSHL)4/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME5)  -o $@ 2> $(OPSSHL)5/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME6)  -o $@ 2> $(OPSSHL)6/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME7)  -o $@ 2> $(OPSSHL)7/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME8)  -o $@ 2> $(OPSSHL)8/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME9)  -o $@ 2> $(OPSSHL)9/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME10)  -o $@ 2> $(OPSSHL)10/check.log
-
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMEU1)  -o $@ 2> $(OPSSHU)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMEU2)  -o $@ 2> $(OPSSHU)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMEU3)  -o $@ 2> $(OPSSHU)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMEU1)  -o $@ 2> $(GITU)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMEU2)  -o $@ 2> $(GITU)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMEU3)  -o $@ 2> $(GITU)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMEU4)  -o $@ 2> $(GITU)4/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMEU5)  -o $@ 2> $(GITU)5/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMEU6)  -o $@ 2> $(GITU)6/check.log
 
 	
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED1)  -o $@ 2> $(OPSSHD)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED2)  -o $@ 2> $(OPSSHD)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED3)  -o $@ 2> $(OPSSHD)3/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED4)  -o $@ 2> $(OPSSHD)4/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED5)  -o $@ 2> $(OPSSHD)5/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED6)  -o $@ 2> $(OPSSHD)6/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED7)  -o $@ 2> $(OPSSHD)7/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMED1)  -o $@ 2> $(GITD)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMED2)  -o $@ 2> $(GITD)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMED3)  -o $@ 2> $(GITD)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(GITFILE_NAMED4)  -o $@ 2> $(GITD)4/check.log
 
+	#openssh
 
-	# #openssl
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME1)  -o $@ 2> $(OPSSHL)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME2)  -o $@ 2> $(OPSSHL)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME3)  -o $@ 2> $(OPSSHL)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME4)  -o $@ 2> $(OPSSHL)4/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME5)  -o $@ 2> $(OPSSHL)5/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME6)  -o $@ 2> $(OPSSHL)6/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME7)  -o $@ 2> $(OPSSHL)7/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME8)  -o $@ 2> $(OPSSHL)8/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME9)  -o $@ 2> $(OPSSHL)9/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAME10)  -o $@ 2> $(OPSSHL)10/check.log
 
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME1)  -o $@ 2> $(OPSSLL)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME2)  -o $@ 2> $(OPSSLL)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME3)  -o $@ 2> $(OPSSLL)3/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME4)  -o $@ 2> $(OPSSLL)4/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME5)  -o $@ 2> $(OPSSLL)5/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME6)  -o $@ 2> $(OPSSLL)6/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME7)  -o $@ 2> $(OPSSLL)7/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME8)  -o $@ 2> $(OPSSLL)8/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME9)  -o $@ 2> $(OPSSLL)9/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME10)  -o $@ 2> $(OPSSLL)10/check.log
-
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMED1)  -o $@ 2> $(OPSSLD)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMED2)  -o $@ 2> $(OPSSLD)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMED3)  -o $@ 2> $(OPSSLD)3/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMED4)  -o $@ 2> $(OPSSLD)4/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMED5)  -o $@ 2> $(OPSSLD)5/check.log
-
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMEU1)  -o $@ 2> $(OPSSLU)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMEU2)  -o $@ 2> $(OPSSLU)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMEU3)  -o $@ 2> $(OPSSLU)3/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMEU4)  -o $@ 2> $(OPSSLU)4/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMEU5)  -o $@ 2> $(OPSSLU)5/check.log
-
-	# #tmux
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME1)  -o $@ 2> $(TMUXL)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME2)  -o $@ 2> $(TMUXL)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME3)  -o $@ 2> $(TMUXL)3/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME4)  -o $@ 2> $(TMUXL)4/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME5)  -o $@ 2> $(TMUXL)5/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME6)  -o $@ 2> $(TMUXL)6/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME7)  -o $@ 2> $(TMUXL)7/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME8)  -o $@ 2> $(TMUXL)8/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME9)  -o $@ 2> $(TMUXL)9/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME10)  -o $@ 2> $(TMUXL)10/check.log
-
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU1)  -o $@ 2> $(TMUXU)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU2)  -o $@ 2> $(TMUXU)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU3)  -o $@ 2> $(TMUXU)3/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU4)  -o $@ 2> $(TMUXU)4/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU5)  -o $@ 2> $(TMUXU)5/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU6)  -o $@ 2> $(TMUXU)6/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU7)  -o $@ 2> $(TMUXU)7/check.log
-	
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMED1)  -o $@ 2> $(TMUXD)1/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMED2)  -o $@ 2> $(TMUXD)2/check.log
-	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMED3)  -o $@ 2> $(TMUXD)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMEU1)  -o $@ 2> $(OPSSHU)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMEU2)  -o $@ 2> $(OPSSHU)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMEU3)  -o $@ 2> $(OPSSHU)3/check.log
 
 	
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED1)  -o $@ 2> $(OPSSHD)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED2)  -o $@ 2> $(OPSSHD)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED3)  -o $@ 2> $(OPSSHD)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED4)  -o $@ 2> $(OPSSHD)4/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED5)  -o $@ 2> $(OPSSHD)5/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED6)  -o $@ 2> $(OPSSHD)6/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSHFILE_NAMED7)  -o $@ 2> $(OPSSHD)7/check.log
+
+
+	#openssl
+
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME1)  -o $@ 2> $(OPSSLL)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME2)  -o $@ 2> $(OPSSLL)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME3)  -o $@ 2> $(OPSSLL)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME4)  -o $@ 2> $(OPSSLL)4/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME5)  -o $@ 2> $(OPSSLL)5/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME6)  -o $@ 2> $(OPSSLL)6/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME7)  -o $@ 2> $(OPSSLL)7/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME8)  -o $@ 2> $(OPSSLL)8/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME9)  -o $@ 2> $(OPSSLL)9/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAME10)  -o $@ 2> $(OPSSLL)10/check.log
+
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMED1)  -o $@ 2> $(OPSSLD)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMED2)  -o $@ 2> $(OPSSLD)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMED3)  -o $@ 2> $(OPSSLD)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMED4)  -o $@ 2> $(OPSSLD)4/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMED5)  -o $@ 2> $(OPSSLD)5/check.log
+
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMEU1)  -o $@ 2> $(OPSSLU)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMEU2)  -o $@ 2> $(OPSSLU)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMEU3)  -o $@ 2> $(OPSSLU)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMEU4)  -o $@ 2> $(OPSSLU)4/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(OPSSLFILE_NAMEU5)  -o $@ 2> $(OPSSLU)5/check.log
+
+	#tmux
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME1)  -o $@ 2> $(TMUXL)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME2)  -o $@ 2> $(TMUXL)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME3)  -o $@ 2> $(TMUXL)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME4)  -o $@ 2> $(TMUXL)4/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME5)  -o $@ 2> $(TMUXL)5/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME6)  -o $@ 2> $(TMUXL)6/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME7)  -o $@ 2> $(TMUXL)7/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME8)  -o $@ 2> $(TMUXL)8/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME9)  -o $@ 2> $(TMUXL)9/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXLFILE_NAME10)  -o $@ 2> $(TMUXL)10/check.log
+
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU1)  -o $@ 2> $(TMUXU)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU2)  -o $@ 2> $(TMUXU)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU3)  -o $@ 2> $(TMUXU)3/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU4)  -o $@ 2> $(TMUXU)4/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU5)  -o $@ 2> $(TMUXU)5/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU6)  -o $@ 2> $(TMUXU)6/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMEU7)  -o $@ 2> $(TMUXU)7/check.log
+	
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMED1)  -o $@ 2> $(TMUXD)1/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMED2)  -o $@ 2> $(TMUXD)2/check.log
+	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMED3)  -o $@ 2> $(TMUXD)3/check.log
+
+unittest:
+	#unittet
+	# binutils
+	grep "Please submit a full bug report"   ./benchmarks/binutils/leak_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/leak_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/leak_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/leak_4/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/leak_5/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/leak_6/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/leak_7/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/leak_8/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/leak_9/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/leak_10/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/use_after_free_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/use_after_free_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/use_after_free_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/use_after_free_4/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/use_after_free_5/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/double_free_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/double_free_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/double_free_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/double_free_4/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/binutils/double_free_5/check.log | uniq -c    | wc -l
+	# git
+	grep "Please submit a full bug report"   ./benchmarks/git/leak_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/leak_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/leak_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/leak_4/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/leak_5/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/leak_6/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/leak_7/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/leak_8/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/leak_9/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/leak_10/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/use_after_free_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/use_after_free_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/use_after_free_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/use_after_free_4/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/use_after_free_5/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/use_after_free_6/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/double_free_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/double_free_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/double_free_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/git/double_free_4/check.log | uniq -c    | wc -l
+	#openssh
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/leak_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/leak_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/leak_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/leak_4/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/leak_5/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/leak_6/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/leak_7/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/leak_8/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/leak_9/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/leak_10/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/use_after_free_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/use_after_free_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/use_after_free_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/double_free_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/double_free_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/double_free_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/double_free_4/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/double_free_5/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/double_free_6/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssh-portable/double_free_7/check.log | uniq -c    | wc -l
+	#openssl
+	grep "Please submit a full bug report"   ./benchmarks/openssl/leak_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/leak_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/leak_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/leak_4/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/leak_5/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/leak_6/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/leak_7/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/leak_8/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/leak_9/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/leak_10/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/double_free_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/double_free_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/double_free_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/double_free_4/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/double_free_5/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/use_after_free_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/use_after_free_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/use_after_free_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/use_after_free_4/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/openssl/use_after_free_5/check.log | uniq -c    | wc -l
+	#tmux
+	grep "Please submit a full bug report"   ./benchmarks/tmux/leak_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/leak_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/leak_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/leak_4/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/leak_5/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/leak_6/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/leak_7/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/leak_8/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/leak_9/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/leak_10/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/use_after_free_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/use_after_free_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/use_after_free_3/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/use_after_free_4/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/use_after_free_5/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/use_after_free_6/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/use_after_free_7/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/double_free_1/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/double_free_2/check.log | uniq -c    | wc -l
+	grep "Please submit a full bug report"   ./benchmarks/tmux/double_free_3/check.log | uniq -c    | wc -l
+
+undeffun:
+	# binutils				
+	grep "undefined reference to"   ./benchmarks/binutils/leak_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/leak_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/leak_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/leak_4/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/leak_5/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/leak_6/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/leak_7/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/leak_8/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/leak_9/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/leak_10/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/use_after_free_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/use_after_free_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/use_after_free_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/use_after_free_4/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/use_after_free_5/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/double_free_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/double_free_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/double_free_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/double_free_4/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/binutils/double_free_5/check.log | uniq -c    | wc -l				
+	# git				
+	grep "undefined reference to"   ./benchmarks/git/leak_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/leak_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/leak_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/leak_4/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/leak_5/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/leak_6/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/leak_7/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/leak_8/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/leak_9/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/leak_10/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/use_after_free_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/use_after_free_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/use_after_free_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/use_after_free_4/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/use_after_free_5/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/use_after_free_6/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/double_free_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/double_free_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/double_free_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/git/double_free_4/check.log | uniq -c    | wc -l				
+	#openssh				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/leak_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/leak_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/leak_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/leak_4/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/leak_5/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/leak_6/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/leak_7/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/leak_8/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/leak_9/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/leak_10/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/use_after_free_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/use_after_free_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/use_after_free_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/double_free_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/double_free_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/double_free_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/double_free_4/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/double_free_5/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/double_free_6/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssh-portable/double_free_7/check.log | uniq -c    | wc -l				
+	#openssl				
+	grep "undefined reference to"   ./benchmarks/openssl/leak_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/leak_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/leak_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/leak_4/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/leak_5/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/leak_6/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/leak_7/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/leak_8/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/leak_9/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/leak_10/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/double_free_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/double_free_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/double_free_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/double_free_4/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/double_free_5/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/use_after_free_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/use_after_free_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/use_after_free_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/use_after_free_4/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/openssl/use_after_free_5/check.log | uniq -c    | wc -l				
+	#tmux				
+	grep "undefined reference to"   ./benchmarks/tmux/leak_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/leak_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/leak_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/leak_4/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/leak_5/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/leak_6/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/leak_7/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/leak_8/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/leak_9/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/leak_10/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/use_after_free_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/use_after_free_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/use_after_free_3/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/use_after_free_4/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/use_after_free_5/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/use_after_free_6/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/use_after_free_7/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/double_free_1/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/double_free_2/check.log | uniq -c    | wc -l				
+	grep "undefined reference to"   ./benchmarks/tmux/double_free_3/check.log | uniq -c    | wc -l				
 graphviz:  
 	@sh ./test.sh $(FILE_NAME)
 clean:

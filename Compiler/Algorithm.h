@@ -7,7 +7,7 @@ using namespace std;
 #include <vector>
 #include <time.h>
 #include <sys/time.h>
-#include <sys/resource.h>
+
 #include <fstream>
 #include <stack>
 #include <string.h>
@@ -31,8 +31,8 @@ using namespace std;
 #include "analyze.h"
 #include <unistd.h>
 #include <string>
-#include <cstdio>
-#include <cstring>
+
+
 
 void record_fucntion(cgraph_node *node)
 {
@@ -162,7 +162,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	ptb *processtable = ptable;
 	fprintf(stderr, "===============The second stage : Program slicing=================\n");
 
-	if (GIMPLE_FREE_COUNT)
+	if (GIMPLE_FREE_COUNT || freeanysis)
 	{
 
 		if (processtable->size > 0)
@@ -288,7 +288,9 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 		// fprintf(stderr, "virtualMem%d\n", GetProcessMemory().virtualMem);
 
 		fprintf(stderr, "\n=============== The third stage : detection  End=================\n");
+		// sleep(5); //5s check time
 		clock_gettime(CLOCK_MONOTONIC, &aend);
+
 		temp = diff(astart, aend);
 
 		time_used2 = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;

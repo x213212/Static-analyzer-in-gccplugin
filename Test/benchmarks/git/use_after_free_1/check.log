@@ -1,0 +1,193 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/git/use_after_free_1/git_uaf_1.c:10:
+./benchmarks/git/use_after_free_1/../git.h: In function ‘copy_array’:
+./benchmarks/git/use_after_free_1/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/use_after_free_1/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/use_after_free_1/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/use_after_free_1/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/use_after_free_1/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/use_after_free_1/../git.h: In function ‘move_array’:
+./benchmarks/git/use_after_free_1/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/use_after_free_1/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/use_after_free_1/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/use_after_free_1/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/use_after_free_1/git_uaf_1.c:9:
+./benchmarks/git/use_after_free_1/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/use_after_free_1/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/use_after_free_1/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/use_after_free_1/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/use_after_free_1/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/use_after_free_1/git_uaf_1.c:10:
+./benchmarks/git/use_after_free_1/../git.h: At top level:
+./benchmarks/git/use_after_free_1/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/use_after_free_1/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/use_after_free_1/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/use_after_free_1/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/use_after_free_1/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/use_after_free_1/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c: In function ‘strbuf_init’:
+./benchmarks/git/use_after_free_1/git_uaf_1.c:31:17: warning: implicit declaration of function ‘strbuf_grow’ [-Wimplicit-function-declaration]
+   31 |                 strbuf_grow(sb, hint);
+      |                 ^~~~~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c: At top level:
+./benchmarks/git/use_after_free_1/git_uaf_1.c:71:6: warning: conflicting types for ‘strbuf_grow’; have ‘void(struct strbuf *, size_t)’ {aka ‘void(struct strbuf *, long unsigned int)’}
+   71 | void strbuf_grow(struct strbuf *sb, size_t extra)
+      |      ^~~~~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:31:17: note: previous implicit declaration of ‘strbuf_grow’ with type ‘void(struct strbuf *, size_t)’ {aka ‘void(struct strbuf *, long unsigned int)’}
+   31 |                 strbuf_grow(sb, hint);
+      |                 ^~~~~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c: In function ‘strbuf_grow’:
+./benchmarks/git/use_after_free_1/git_uaf_1.c:74:13: warning: implicit declaration of function ‘unsigned_add_overflows’ [-Wimplicit-function-declaration]
+   74 |         if (unsigned_add_overflows(extra, 1) ||
+      |             ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/git/use_after_free_1/git_uaf_1.c:10:
+./benchmarks/git/use_after_free_1/../git.h:112:29: warning: implicit declaration of function ‘alloc_nr’; did you mean ‘alloca’? [-Wimplicit-function-declaration]
+  112 |                         if (alloc_nr(alloc) < (nr)) \
+      |                             ^~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:79:9: note: in expansion of macro ‘ALLOC_GROW’
+   79 |         ALLOC_GROW(sb->buf, sb->len + extra + 1, sb->alloc);    /* allocation site */
+      |         ^~~~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c: In function ‘strbuf_vaddf’:
+./benchmarks/git/use_after_free_1/git_uaf_1.c:88:14: warning: implicit declaration of function ‘strbuf_avail’; did you mean ‘strbuf_vaddf’? [-Wimplicit-function-declaration]
+   88 |         if (!strbuf_avail(sb))
+      |              ^~~~~~~~~~~~
+      |              strbuf_vaddf
+./benchmarks/git/use_after_free_1/git_uaf_1.c: In function ‘add_path’:
+./benchmarks/git/use_after_free_1/git_uaf_1.c:102:17: warning: implicit declaration of function ‘strbuf_addch’; did you mean ‘strbuf_addf’? [-Wimplicit-function-declaration]
+  102 |                 strbuf_addch(buf, '/');
+      |                 ^~~~~~~~~~~~
+      |                 strbuf_addf
+./benchmarks/git/use_after_free_1/git_uaf_1.c:103:9: warning: implicit declaration of function ‘strbuf_addstr’; did you mean ‘strbuf_addf’? [-Wimplicit-function-declaration]
+  103 |         strbuf_addstr(buf, path);
+      |         ^~~~~~~~~~~~~
+      |         strbuf_addf
+./benchmarks/git/use_after_free_1/git_uaf_1.c: In function ‘checkout_entry’:
+./benchmarks/git/use_after_free_1/git_uaf_1.c:110:21: error: storage size of ‘st’ isn’t known
+  110 |         struct stat st;
+      |                     ^~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:113:24: warning: implicit declaration of function ‘write_entry’ [-Wimplicit-function-declaration]
+  113 |                 return write_entry(ce, topath, state, 1);
+      |                        ^~~~~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:115:9: warning: implicit declaration of function ‘strbuf_reset’; did you mean ‘strbuf_setlen’? [-Wimplicit-function-declaration]
+  115 |         strbuf_reset(&path);
+      |         ^~~~~~~~~~~~
+      |         strbuf_setlen
+./benchmarks/git/use_after_free_1/git_uaf_1.c:116:9: warning: implicit declaration of function ‘strbuf_add’; did you mean ‘strbuf_addf’? [-Wimplicit-function-declaration]
+  116 |         strbuf_add(&path, state->base_dir, state->base_dir_len);
+      |         ^~~~~~~~~~
+      |         strbuf_addf
+./benchmarks/git/use_after_free_1/git_uaf_1.c:118:9: warning: implicit declaration of function ‘create_directories’ [-Wimplicit-function-declaration]
+  118 |         create_directories(path.buf, path.len, state);
+      |         ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c: In function ‘checkout_path’:
+./benchmarks/git/use_after_free_1/git_uaf_1.c:127:14: warning: implicit declaration of function ‘make_cache_entry’ [-Wimplicit-function-declaration]
+  127 |         ce = make_cache_entry(mode, oid->hash, path, 0, 0);
+      |              ^~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:127:12: warning: assignment to ‘struct cache_entry *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  127 |         ce = make_cache_entry(mode, oid->hash, path, 0, 0);
+      |            ^
+./benchmarks/git/use_after_free_1/git_uaf_1.c: In function ‘run_dir_diff’:
+./benchmarks/git/use_after_free_1/git_uaf_1.c:148:29: error: storage size of ‘iter’ isn’t known
+  148 |         struct hashmap_iter iter;
+      |                             ^~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:156:19: warning: implicit declaration of function ‘get_git_work_tree’ [-Wimplicit-function-declaration]
+  156 |         workdir = get_git_work_tree();
+      |                   ^~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:156:17: warning: assignment to ‘const char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  156 |         workdir = get_git_work_tree();
+      |                 ^
+./benchmarks/git/use_after_free_1/git_uaf_1.c:160:9: warning: implicit declaration of function ‘xsnprintf’; did you mean ‘vsnprintf’? [-Wimplicit-function-declaration]
+  160 |         xsnprintf(tmpdir, sizeof(tmpdir), "%s/git-difftool.XXXXXX", tmp ? tmp : "/tmp");
+      |         ^~~~~~~~~
+      |         vsnprintf
+./benchmarks/git/use_after_free_1/git_uaf_1.c:162:24: warning: implicit declaration of function ‘error’; did you mean ‘perror’? [-Wimplicit-function-declaration]
+  162 |                 return error("could not create '%s'", tmpdir);
+      |                        ^~~~~
+      |                        perror
+./benchmarks/git/use_after_free_1/git_uaf_1.c:166:28: warning: implicit declaration of function ‘is_dir_sep’ [-Wimplicit-function-declaration]
+  166 |         if (!wtdir.len || !is_dir_sep(wtdir.buf[wtdir.len - 1]))
+      |                            ^~~~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:168:9: warning: implicit declaration of function ‘mkdir’ [-Wimplicit-function-declaration]
+  168 |         mkdir(ldir.buf, 0700);
+      |         ^~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:171:9: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+  171 |         memset(&wtindex, 0, sizeof(wtindex));
+      |         ^~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+   10 | #include "../git.h"
+  +++ |+#include <string.h>
+   11 | 
+./benchmarks/git/use_after_free_1/git_uaf_1.c:171:9: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+  171 |         memset(&wtindex, 0, sizeof(wtindex));
+      |         ^~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:171:9: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/git/use_after_free_1/git_uaf_1.c:188:17: warning: implicit declaration of function ‘strbuf_getline_nul’; did you mean ‘strbuf_setlen’? [-Wimplicit-function-declaration]
+  188 |         while (!strbuf_getline_nul(&info, fp)) {
+      |                 ^~~~~~~~~~~~~~~~~~
+      |                 strbuf_setlen
+./benchmarks/git/use_after_free_1/git_uaf_1.c:199:31: warning: implicit declaration of function ‘S_ISLNK’ [-Wimplicit-function-declaration]
+  199 |                 if (rmode && !S_ISLNK(rmode)) {
+      |                               ^~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:202:30: warning: implicit declaration of function ‘use_wt_file’ [-Wimplicit-function-declaration]
+  202 |                         if (!use_wt_file(workdir, dst_path, &roid)) {
+      |                              ^~~~~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:206:37: warning: implicit declaration of function ‘is_null_oid’ [-Wimplicit-function-declaration]
+  206 |                         } else if (!is_null_oid(&roid)) {
+      |                                     ^~~~~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:213:41: warning: initialization of ‘struct cache_entry *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  213 |                                         make_cache_entry(rmode, roid.hash,
+      |                                         ^~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:218:45: warning: implicit declaration of function ‘symlink’ [-Wimplicit-function-declaration]
+  218 |                                         if (symlink(wtdir.buf, rdir.buf)) {
+      |                                             ^~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c:219:55: warning: implicit declaration of function ‘error_errno’ [-Wimplicit-function-declaration]
+  219 |                                                 ret = error_errno("could not symlink '%s' to '%s'", wtdir.buf, rdir.buf);
+      |                                                       ^~~~~~~~~~~
+./benchmarks/git/use_after_free_1/git_uaf_1.c: In function ‘main’:
+./benchmarks/git/use_after_free_1/git_uaf_1.c:243:54: warning: passing argument 5 of ‘run_dir_diff’ from incompatible pointer type [-Wincompatible-pointer-types]
+  243 |     run_dir_diff("extcmd", symlinks, "prefix", argc, argv);
+      |                                                      ^~~~
+      |                                                      |
+      |                                                      char **
+./benchmarks/git/use_after_free_1/git_uaf_1.c:136:48: note: expected ‘const char **’ but argument is of type ‘char **’
+  136 |                         int argc, const char **argv)
+      |                                   ~~~~~~~~~~~~~^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 47%)
+ phase parsing                      :   0.04 (100%)   0.01 ( 50%)   0.06 ( 86%)  1224k ( 44%)
+ phase opt and generate             :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 14%)   220k (  8%)
+ callgraph construction             :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 14%)    84k (  3%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)   353k ( 13%)
+ lexical analysis                   :   0.01 ( 25%)   0.00 (  0%)   0.04 ( 57%)     0  (  0%)
+ parser (global)                    :   0.02 ( 50%)   0.01 ( 50%)   0.00 (  0%)   620k ( 23%)
+ parser function body               :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 14%)    92k (  3%)
+ TOTAL                              :   0.04          0.02          0.07         2754k

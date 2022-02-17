@@ -1,0 +1,2822 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/openssl/double_free_3/openssl_df_3.c: In function ‘PACKET_memdup’:
+./benchmarks/openssl/double_free_3/openssl_df_3.c:53:14: warning: implicit declaration of function ‘PACKET_remaining’ [-Wimplicit-function-declaration]
+   53 |     length = PACKET_remaining(pkt);
+      |              ^~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssl/double_free_3/openssl_df_3.c:9:
+./benchmarks/openssl/double_free_3/../openssl.h:9:33: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+    9 | #define OPENSSL_memdup(p, size) strdup(p)
+      |                                 ^~~~~~
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: note: in expansion of macro ‘OPENSSL_memdup’
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |             ^~~~~~~~~~~~~~
+./benchmarks/openssl/double_free_3/../openssl.h:9:33: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+    9 | #define OPENSSL_memdup(p, size) strdup(p)
+      |                                 ^~~~~~
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: note: in expansion of macro ‘OPENSSL_memdup’
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |             ^~~~~~~~~~~~~~
+./benchmarks/openssl/double_free_3/openssl_df_3.c: In function ‘tls_parse_stoc_cookie’:
+./benchmarks/openssl/double_free_3/openssl_df_3.c:71:10: warning: implicit declaration of function ‘PACKET_as_length_prefixed_2’ [-Wimplicit-function-declaration]
+   71 |     if (!PACKET_as_length_prefixed_2(pkt, &cookie)
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/double_free_3/openssl_df_3.c: In function ‘tls_construct_ctos_cookie’:
+./benchmarks/openssl/double_free_3/openssl_df_3.c:89:10: warning: implicit declaration of function ‘WPACKET_put_bytes_u16’ [-Wimplicit-function-declaration]
+   89 |     if (!WPACKET_put_bytes_u16(pkt, 0)
+      |          ^~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/double_free_3/openssl_df_3.c:91:17: warning: implicit declaration of function ‘WPACKET_start_sub_packet_u16’ [-Wimplicit-function-declaration]
+   91 |             || !WPACKET_start_sub_packet_u16(pkt)
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: implicit declaration of function ‘WPACKET_sub_memcpy_u16’ [-Wimplicit-function-declaration]
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |                 ^~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/double_free_3/openssl_df_3.c:94:17: warning: implicit declaration of function ‘WPACKET_close’ [-Wimplicit-function-declaration]
+   94 |             || !WPACKET_close(pkt)) {
+      |                 ^~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  9%)  1298k ( 38%)
+ phase parsing                      :   0.09 ( 90%)   0.01 (100%)   0.10 ( 91%)  2041k ( 59%)
+ phase opt and generate             :   0.01 ( 10%)   0.00 (  0%)   0.00 (  0%)   101k (  3%)
+ callgraph construction             :   0.01 ( 10%)   0.00 (  0%)   0.00 (  0%)    11k (  0%)
+ preprocessing                      :   0.01 ( 10%)   0.00 (  0%)   0.01 (  9%)  1072k ( 31%)
+ lexical analysis                   :   0.01 ( 10%)   0.00 (  0%)   0.02 ( 18%)     0  (  0%)
+ parser (global)                    :   0.01 ( 10%)   0.00 (  0%)   0.00 (  0%)   784k ( 23%)
+ parser struct body                 :   0.01 ( 10%)   0.00 (  0%)   0.01 (  9%)   102k (  3%)
+ parser function body               :   0.05 ( 50%)   0.01 (100%)   0.06 ( 55%)    23k (  1%)
+ TOTAL                              :   0.10          0.01          0.11         3451k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)  2157k ( 98%)
+ TOTAL                              :   0.00          0.00          0.01         2200k
+../Compiler/newplugin.so 11.2.0 
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+node:= 2 
+ 	next_branch :=7
+	next_branch :=3
+node:= 3 
+ 	next_branch :=6
+	next_branch :=4
+node:= 4 
+ 	next_branch :=6
+	next_branch :=5
+node:= 5 
+ 	next_branch :=6
+node:= 6 
+ 	next_branch :=7
+	next_branch :=8
+node:= 7 
+ 	next_branch :=8
+node:= 8 
+ 	next_branch :=15
+	next_branch :=9
+node:= 9 
+ 	next_branch :=13
+	next_branch :=10
+node:= 10 
+ 	next_branch :=13
+	next_branch :=11
+node:= 11 
+ 	next_branch :=13
+	next_branch :=12
+node:= 12 
+ 	next_branch :=13
+	next_branch :=14
+node:= 13 
+ 	next_branch :=14
+node:= 14 
+ 	next_branch :=15
+node:= 15 
+ 	next_branch :=17
+	next_branch :=16
+node:= 16 
+ 	next_branch :=17
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 12 
+===============The second stage : Mapping stmt=================
+# .MEM_5 = VDEF <.MEM_4(D)>
+s_3 = malloc (16);
+# .MEM_43 = VDEF <.MEM_8>
+_24 = PACKET_as_length_prefixed_2 (&pkt, &cookie);
+# .MEM_47 = VDEF <.MEM_46>
+_30 = PACKET_remaining (&cookie);
+# .MEM_48 = VDEF <.MEM_47>
+_33 = strdup (_32);
+# .MEM_53 = VDEF <.MEM_52>
+_15 = WPACKET_put_bytes_u16 (0B, 0);
+# .MEM_54 = VDEF <.MEM_53>
+_16 = WPACKET_start_sub_packet_u16 (0B);
+# .MEM_55 = VDEF <.MEM_54>
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+# .MEM_56 = VDEF <.MEM_55>
+_20 = WPACKET_close (0B);
+===============The second stage : Program slicing=================
+=============== *this point analyzable =================
+s_3 = malloc (16);
+=============== *this point analyzable =================
+_24 = PACKET_as_length_prefixed_2 (&pkt, &cookie);
+=============== *this point analyzable =================
+_30 = PACKET_remaining (&cookie);
+=============== *this point analyzable =================
+_33 = strdup (_32);
+=============== *this point analyzable =================
+_15 = WPACKET_put_bytes_u16 (0B, 0);
+=============== *this point analyzable =================
+_16 = WPACKET_start_sub_packet_u16 (0B);
+=============== *this point analyzable =================
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+=============== *this point analyzable =================
+_20 = WPACKET_close (0B);
+=============== *this point analyzable =================
+_33 = strdup (_32);
+=============== *this point analyzable =================
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 9 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:WPACKET_close========= [0m
+[40;33m =======POP node_fun stack:WPACKET_close========= [0m
+[40;42m =======pre add _ fucntion:WPACKET_sub_memcpy_u16========= [0m
+[40;33m =======POP node_fun stack:WPACKET_sub_memcpy_u16========= [0m
+[40;42m =======pre add _ fucntion:WPACKET_start_sub_packet_u16========= [0m
+[40;33m =======POP node_fun stack:WPACKET_start_sub_packet_u16========= [0m
+[40;42m =======pre add _ fucntion:WPACKET_put_bytes_u16========= [0m
+[40;33m =======POP node_fun stack:WPACKET_put_bytes_u16========= [0m
+[40;42m =======pre add _ fucntion:strdup========= [0m
+[40;33m =======POP node_fun stack:strdup========= [0m
+[40;42m =======pre add _ fucntion:PACKET_remaining========= [0m
+[40;33m =======POP node_fun stack:PACKET_remaining========= [0m
+[40;42m =======pre add _ fucntion:PACKET_as_length_prefixed_2========= [0m
+[40;33m =======POP node_fun stack:PACKET_as_length_prefixed_2========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdb5e6a85e8
+    type <pointer_type 0x7fdb5e1bf9d8
+        type <record_type 0x7fdb5e1bf930 SSL TI
+            size <integer_cst 0x7fdb5e6a0c00 constant 128>
+            unit-size <integer_cst 0x7fdb5e6a0c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e1bf888 fields <field_decl 0x7fdb5e1bb260 ext> context <translation_unit_decl 0x7fdb5e6ab168 ./benchmarks/openssl/double_free_3/openssl_df_3.c>
+            pointer_to_this <pointer_type 0x7fdb5e1bf9d8>>
+        public unsigned DI
+        size <integer_cst 0x7fdb5e6a0bb8 constant 64>
+        unit-size <integer_cst 0x7fdb5e6a0bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fdb5ef48b40 s>
+    def_stmt s_3 = malloc (16);
+    version:3
+    ptr-info 0x7fdb5e1c73a8>
+# .MEM_5 = VDEF <.MEM_4(D)>
+s_3 = malloc (16);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_26 = &s_3->ext.tls13_cookie;
+In function ‘main’:
+./benchmarks/openssl/double_free_3/openssl_df_3.c:72:17: warning: use location
+   72 |             || !PACKET_memdup(&cookie, &s->ext.tls13_cookie,
+      |                 ^
+_34 = *_26;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:59:9: warning: use location
+   59 |     if (*data == NULL)
+      |         ^
+if (_34 == 0B)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:59:8: warning: use location
+   59 |     if (*data == NULL)
+      |        ^
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |           ^
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+*_26 = 0B;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:50:11: warning: use location
+   50 |     *data = NULL;
+      |           ^
+_29 = *_26;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: use location
+   49 |     OPENSSL_free(*data);
+      |     ^
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: use location
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find free stmt ================== 
+_25 = &s_3->ext.tls13_cookie_len;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:72:17: warning: use location
+   72 |             || !PACKET_memdup(&cookie, &s->ext.tls13_cookie,
+      |                 ^
+*_25 = length_31;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:62:10: warning: use location
+   62 |     *len = length;
+      |          ^
+*_25 = length_31;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:62:10: warning: use location
+if (length_31 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:55:8: warning: use location
+   55 |     if (length == 0)
+      |        ^
+*_25 = 0;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:51:10: warning: use location
+   51 |     *len = 0;
+      |          ^
+s_3->ext.tls13_cookie_len = 0;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:101:29: warning: use location
+  101 |     s->ext.tls13_cookie_len = 0;
+      |                             ^
+_21 = s_3->ext.tls13_cookie;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find free stmt ================== 
+_18 = s_3->ext.tls13_cookie;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |                 ^
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: use location
+this stmt call this function :WPACKET_sub_memcpy_u16
+trace fucntion name:WPACKET_sub_memcpy_u16 
+
+ ================== trace ================== 
+trace fucntion free:2 
+if (_19 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:13: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |             ^
+_17 = s_3->ext.tls13_cookie_len;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |                 ^
+_14 = s_3->ext.tls13_cookie_len;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:86:15: warning: use location
+   86 |     if (s->ext.tls13_cookie_len == 0)
+      |               ^
+free (s_3);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:33:5: warning: use location
+   33 |     OPENSSL_free(s);
+      |     ^
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (s_3);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:33:5: warning: use location
+[40;32m    HAS FREE STMT count:3 name:free [0m
+
+ ================== find free stmt ================== 
+_13 = s_3->ext.tls13_cookie;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+free (_13);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (_13);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+[40;32m    HAS FREE STMT count:4 name:free [0m
+
+ ================== find free stmt ================== 
+if (s_3 == 0B)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:29:8: warning: use location
+   29 |     if (s == NULL)
+      |        ^
+s_3->ext.tls13_cookie_len = 0;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:111:29: warning: use location
+  111 |     s->ext.tls13_cookie_len = 0;
+      |                             ^
+s_3->ext.tls13_cookie = 0B;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:110:25: warning: use location
+  110 |     s->ext.tls13_cookie = NULL;
+      |                         ^
+# .MEM_5 = VDEF <.MEM_4(D)>
+s_3 = malloc (16);
+s_3 = malloc (16);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:109:14: warning: use location
+  109 |     SSL *s = malloc(sizeof(SSL));
+      |              ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fdb5e6a85e8
+    type <pointer_type 0x7fdb5e1bf9d8
+        type <record_type 0x7fdb5e1bf930 SSL TI
+            size <integer_cst 0x7fdb5e6a0c00 constant 128>
+            unit-size <integer_cst 0x7fdb5e6a0c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e1bf888 fields <field_decl 0x7fdb5e1bb260 ext> context <translation_unit_decl 0x7fdb5e6ab168 ./benchmarks/openssl/double_free_3/openssl_df_3.c>
+            pointer_to_this <pointer_type 0x7fdb5e1bf9d8>>
+        public unsigned DI
+        size <integer_cst 0x7fdb5e6a0bb8 constant 64>
+        unit-size <integer_cst 0x7fdb5e6a0bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fdb5ef48b40 s>
+    def_stmt s_3 = malloc (16);
+    version:3
+    ptr-info 0x7fdb5e1c73a8>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: use location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_59 = VDEF <.MEM_39>
+free (_13);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_59>
+free (s_3);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:33:5: warning: use location
+   33 |     OPENSSL_free(s);
+      |     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_49>
+_34 = *_26;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:59:9: warning: use location
+   59 |     if (*data == NULL)
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_49>
+_34 = *_26;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:59:9: warning: use location
+   59 |     if (*data == NULL)
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (_34 == 0B)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:59:8: warning: use location
+   59 |     if (*data == NULL)
+      |        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (_34 == 0B)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:59:8: warning: use location
+   59 |     if (*data == NULL)
+      |        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_49 = VDEF <.MEM_48>
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_49 = VDEF <.MEM_48>
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: mem_ref [0m
+# .MEM_49 = VDEF <.MEM_48>
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: mem_ref [0m
+# .MEM_49 = VDEF <.MEM_48>
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: mem_ref [0m
+# .MEM_45 = VDEF <.MEM_44>
+*_26 = 0B;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:50:11: warning: use location
+   50 |     *data = NULL;
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: mem_ref [0m
+# .MEM_45 = VDEF <.MEM_44>
+*_26 = 0B;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:50:11: warning: use location
+   50 |     *data = NULL;
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_50 = VDEF <.MEM_49>
+*_25 = length_31;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:62:10: warning: use location
+   62 |     *len = length;
+      |          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_50 = VDEF <.MEM_49>
+*_25 = length_31;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:62:10: warning: use location
+   62 |     *len = length;
+      |          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: mem_ref [0m
+# .MEM_50 = VDEF <.MEM_49>
+*_25 = length_31;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:62:10: warning: use location
+   62 |     *len = length;
+      |          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: mem_ref [0m
+# .MEM_50 = VDEF <.MEM_49>
+*_25 = length_31;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:62:10: warning: use location
+   62 |     *len = length;
+      |          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (length_31 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:55:8: warning: use location
+   55 |     if (length == 0)
+      |        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (length_31 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:55:8: warning: use location
+   55 |     if (length == 0)
+      |        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: mem_ref [0m
+# .MEM_46 = VDEF <.MEM_45>
+*_25 = 0;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:51:10: warning: use location
+   51 |     *len = 0;
+      |          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: mem_ref [0m
+# .MEM_46 = VDEF <.MEM_45>
+*_25 = 0;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:51:10: warning: use location
+   51 |     *len = 0;
+      |          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_58 = VDEF <.MEM_57>
+s_3->ext.tls13_cookie_len = 0;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:101:29: warning: use location
+  101 |     s->ext.tls13_cookie_len = 0;
+      |                             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: free in this location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_58 = VDEF <.MEM_57>
+s_3->ext.tls13_cookie_len = 0;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:101:29: warning: use location
+  101 |     s->ext.tls13_cookie_len = 0;
+      |                             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_58 = VDEF <.MEM_57>
+s_3->ext.tls13_cookie_len = 0;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:101:29: warning: use location
+  101 |     s->ext.tls13_cookie_len = 0;
+      |                             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: free in this location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_58 = VDEF <.MEM_57>
+s_3->ext.tls13_cookie_len = 0;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:101:29: warning: use location
+  101 |     s->ext.tls13_cookie_len = 0;
+      |                             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_38>
+_21 = s_3->ext.tls13_cookie;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_38>
+_21 = s_3->ext.tls13_cookie;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_54>
+_18 = s_3->ext.tls13_cookie;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_54>
+_18 = s_3->ext.tls13_cookie;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_55 = VDEF <.MEM_54>
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_55 = VDEF <.MEM_54>
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (_19 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:13: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (_19 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:13: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_54>
+_17 = s_3->ext.tls13_cookie_len;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_54>
+_17 = s_3->ext.tls13_cookie_len;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_52>
+_14 = s_3->ext.tls13_cookie_len;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:86:15: warning: use location
+   86 |     if (s->ext.tls13_cookie_len == 0)
+      |               ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_52>
+_14 = s_3->ext.tls13_cookie_len;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:86:15: warning: use location
+   86 |     if (s->ext.tls13_cookie_len == 0)
+      |               ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_39>
+_13 = s_3->ext.tls13_cookie;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: free in this location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_39>
+_13 = s_3->ext.tls13_cookie;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_39>
+_13 = s_3->ext.tls13_cookie;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: free in this location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_39>
+_13 = s_3->ext.tls13_cookie;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (s_3 == 0B)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:29:8: warning: use location
+   29 |     if (s == NULL)
+      |        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: free in this location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (s_3 == 0B)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:29:8: warning: use location
+   29 |     if (s == NULL)
+      |        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (s_3 == 0B)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:29:8: warning: use location
+   29 |     if (s == NULL)
+      |        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: free in this location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (s_3 == 0B)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:29:8: warning: use location
+   29 |     if (s == NULL)
+      |        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+[40;31m  	free count:4 [0m
+[40;31m  	possible double free [Looserules]:4 [0m
+[40;31m  	possible double free [rigorous]:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m  	possible double free [rigorous]:4 [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdb5e1d51f8
+    type <integer_type 0x7fdb5e6b55e8 int public SI
+        size <integer_cst 0x7fdb5e6a0df8 constant 32>
+        unit-size <integer_cst 0x7fdb5e6a0e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b55e8 precision:32 min <integer_cst 0x7fdb5e6a0db0 -2147483648> max <integer_cst 0x7fdb5e6a0dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fdb5e6bc9d8>>
+   
+    def_stmt _24 = PACKET_as_length_prefixed_2 (&pkt, &cookie);
+    version:24>
+# .MEM_43 = VDEF <.MEM_8>
+_24 = PACKET_as_length_prefixed_2 (&pkt, &cookie);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:PACKET_as_length_prefixed_2 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function PACKET_as_length_prefixed_2
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_43 = VDEF <.MEM_8>
+_24 = PACKET_as_length_prefixed_2 (&pkt, &cookie);
+_24 = PACKET_as_length_prefixed_2 (&pkt, &cookie);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:71:10: warning: use location
+   71 |     if (!PACKET_as_length_prefixed_2(pkt, &cookie)
+      |          ^
+this stmt call this function :PACKET_as_length_prefixed_2
+trace fucntion name:PACKET_as_length_prefixed_2 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_30 = PACKET_remaining (&cookie);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:53:14: warning: use location
+   53 |     length = PACKET_remaining(pkt);
+      |              ^
+this stmt call this function :PACKET_remaining
+trace fucntion name:PACKET_remaining 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_32 = cookie.curr;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |             ^
+_33 = strdup (_32);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: warning: use location
+this stmt call this function :strdup
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |           ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fdb5e1d51f8
+    type <integer_type 0x7fdb5e6b55e8 int public SI
+        size <integer_cst 0x7fdb5e6a0df8 constant 32>
+        unit-size <integer_cst 0x7fdb5e6a0e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b55e8 precision:32 min <integer_cst 0x7fdb5e6a0db0 -2147483648> max <integer_cst 0x7fdb5e6a0dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fdb5e6bc9d8>>
+   
+    def_stmt _24 = PACKET_as_length_prefixed_2 (&pkt, &cookie);
+    version:24>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: use location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_59 = VDEF <.MEM_39>
+free (_13);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_59>
+free (s_3);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:33:5: warning: use location
+   33 |     OPENSSL_free(s);
+      |     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: addr_expr [0m
+# .MEM_47 = VDEF <.MEM_46>
+_30 = PACKET_remaining (&cookie);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:53:14: warning: use location
+   53 |     length = PACKET_remaining(pkt);
+      |              ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: function_decl [0m
+# VUSE <.MEM_47>
+_32 = cookie.curr;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_48 = VDEF <.MEM_47>
+_33 = strdup (_32);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: mem_ref [0m
+# .MEM_49 = VDEF <.MEM_48>
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+[40;31m  	free count:0 [0m
+[40;31m  	possible double free [Looserules]:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdb5e1d5678
+    type <integer_type 0x7fdb5e6b55e8 int public SI
+        size <integer_cst 0x7fdb5e6a0df8 constant 32>
+        unit-size <integer_cst 0x7fdb5e6a0e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b55e8 precision:32 min <integer_cst 0x7fdb5e6a0db0 -2147483648> max <integer_cst 0x7fdb5e6a0dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fdb5e6bc9d8>>
+   
+    def_stmt _30 = PACKET_remaining (&cookie);
+    version:30>
+# .MEM_47 = VDEF <.MEM_46>
+_30 = PACKET_remaining (&cookie);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:PACKET_remaining 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function PACKET_remaining
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_47 = VDEF <.MEM_46>
+_30 = PACKET_remaining (&cookie);
+_30 = PACKET_remaining (&cookie);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:53:14: warning: use location
+   53 |     length = PACKET_remaining(pkt);
+      |              ^
+this stmt call this function :PACKET_remaining
+trace fucntion name:PACKET_remaining 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_32 = cookie.curr;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |             ^
+_33 = strdup (_32);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: warning: use location
+this stmt call this function :strdup
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |           ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fdb5e1d5678
+    type <integer_type 0x7fdb5e6b55e8 int public SI
+        size <integer_cst 0x7fdb5e6a0df8 constant 32>
+        unit-size <integer_cst 0x7fdb5e6a0e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b55e8 precision:32 min <integer_cst 0x7fdb5e6a0db0 -2147483648> max <integer_cst 0x7fdb5e6a0dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fdb5e6bc9d8>>
+   
+    def_stmt _30 = PACKET_remaining (&cookie);
+    version:30>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: use location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_59 = VDEF <.MEM_39>
+free (_13);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_59>
+free (s_3);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:33:5: warning: use location
+   33 |     OPENSSL_free(s);
+      |     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: addr_expr [0m
+# .MEM_47 = VDEF <.MEM_46>
+_30 = PACKET_remaining (&cookie);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:53:14: warning: use location
+   53 |     length = PACKET_remaining(pkt);
+      |              ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: function_decl [0m
+# VUSE <.MEM_47>
+_32 = cookie.curr;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_48 = VDEF <.MEM_47>
+_33 = strdup (_32);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: mem_ref [0m
+# .MEM_49 = VDEF <.MEM_48>
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+[40;31m  	free count:0 [0m
+[40;31m  	possible double free [Looserules]:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdb5e1d5750
+    type <pointer_type 0x7fdb5e1bf690
+        type <integer_type 0x7fdb5e1bf498 char public QI
+            size <integer_cst 0x7fdb5e6a0ca8 constant 8>
+            unit-size <integer_cst 0x7fdb5e6a0cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b53f0 precision:8 min <integer_cst 0x7fdb5e1af768 -128> max <integer_cst 0x7fdb5e1af750 127>
+            pointer_to_this <pointer_type 0x7fdb5e1bf690>>
+        unsigned DI
+        size <integer_cst 0x7fdb5e6a0bb8 constant 64>
+        unit-size <integer_cst 0x7fdb5e6a0bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7fdb5e6ab168 ./benchmarks/openssl/double_free_3/openssl_df_3.c>>
+   
+    def_stmt _33 = strdup (_32);
+    version:33
+    ptr-info 0x7fdb5e1c7468>
+# .MEM_48 = VDEF <.MEM_47>
+_33 = strdup (_32);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:strdup 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :strdup
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_48 = VDEF <.MEM_47>
+_33 = strdup (_32);
+_33 = strdup (_32);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |             ^
+this stmt call this function :strdup
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |           ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fdb5e1d5750
+    type <pointer_type 0x7fdb5e1bf690
+        type <integer_type 0x7fdb5e1bf498 char public QI
+            size <integer_cst 0x7fdb5e6a0ca8 constant 8>
+            unit-size <integer_cst 0x7fdb5e6a0cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b53f0 precision:8 min <integer_cst 0x7fdb5e1af768 -128> max <integer_cst 0x7fdb5e1af750 127>
+            pointer_to_this <pointer_type 0x7fdb5e1bf690>>
+        unsigned DI
+        size <integer_cst 0x7fdb5e6a0bb8 constant 64>
+        unit-size <integer_cst 0x7fdb5e6a0bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7fdb5e6ab168 ./benchmarks/openssl/double_free_3/openssl_df_3.c>>
+   
+    def_stmt _33 = strdup (_32);
+    version:33
+    ptr-info 0x7fdb5e1c7468>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: use location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_59 = VDEF <.MEM_39>
+free (_13);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_48 = VDEF <.MEM_47>
+_33 = strdup (_32);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: mem_ref [0m
+# .MEM_49 = VDEF <.MEM_48>
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:3 [0m
+[40;31m  	free count:0 [0m
+[40;31m  	possible double free [Looserules]:3 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdb5e6a8d80
+    type <integer_type 0x7fdb5e6b55e8 int public SI
+        size <integer_cst 0x7fdb5e6a0df8 constant 32>
+        unit-size <integer_cst 0x7fdb5e6a0e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b55e8 precision:32 min <integer_cst 0x7fdb5e6a0db0 -2147483648> max <integer_cst 0x7fdb5e6a0dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fdb5e6bc9d8>>
+   
+    def_stmt _15 = WPACKET_put_bytes_u16 (0B, 0);
+    version:15>
+# .MEM_53 = VDEF <.MEM_52>
+_15 = WPACKET_put_bytes_u16 (0B, 0);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:WPACKET_put_bytes_u16 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function WPACKET_put_bytes_u16
+ 
+ Start check Pointer Collect  
+
+======================================================================
+if (_15 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:89:8: warning: use location
+   89 |     if (!WPACKET_put_bytes_u16(pkt, 0)
+      |        ^
+# .MEM_53 = VDEF <.MEM_52>
+_15 = WPACKET_put_bytes_u16 (0B, 0);
+_15 = WPACKET_put_bytes_u16 (0B, 0);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:89:10: warning: use location
+   89 |     if (!WPACKET_put_bytes_u16(pkt, 0)
+      |          ^
+this stmt call this function :WPACKET_put_bytes_u16
+trace fucntion name:WPACKET_put_bytes_u16 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fdb5e6a8d80
+    type <integer_type 0x7fdb5e6b55e8 int public SI
+        size <integer_cst 0x7fdb5e6a0df8 constant 32>
+        unit-size <integer_cst 0x7fdb5e6a0e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b55e8 precision:32 min <integer_cst 0x7fdb5e6a0db0 -2147483648> max <integer_cst 0x7fdb5e6a0dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fdb5e6bc9d8>>
+   
+    def_stmt _15 = WPACKET_put_bytes_u16 (0B, 0);
+    version:15>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: use location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_59 = VDEF <.MEM_39>
+free (_13);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_59>
+free (s_3);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:33:5: warning: use location
+   33 |     OPENSSL_free(s);
+      |     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (_15 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:89:8: warning: use location
+   89 |     if (!WPACKET_put_bytes_u16(pkt, 0)
+      |        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_53 = VDEF <.MEM_52>
+_15 = WPACKET_put_bytes_u16 (0B, 0);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:89:10: warning: use location
+   89 |     if (!WPACKET_put_bytes_u16(pkt, 0)
+      |          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+[40;31m  	free count:0 [0m
+[40;31m  	possible double free [Looserules]:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdb5e6a8dc8
+    type <integer_type 0x7fdb5e6b55e8 int public SI
+        size <integer_cst 0x7fdb5e6a0df8 constant 32>
+        unit-size <integer_cst 0x7fdb5e6a0e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b55e8 precision:32 min <integer_cst 0x7fdb5e6a0db0 -2147483648> max <integer_cst 0x7fdb5e6a0dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fdb5e6bc9d8>>
+   
+    def_stmt _16 = WPACKET_start_sub_packet_u16 (0B);
+    version:16>
+# .MEM_54 = VDEF <.MEM_53>
+_16 = WPACKET_start_sub_packet_u16 (0B);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:WPACKET_start_sub_packet_u16 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function WPACKET_start_sub_packet_u16
+ 
+ Start check Pointer Collect  
+
+======================================================================
+if (_16 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:91:13: warning: use location
+   91 |             || !WPACKET_start_sub_packet_u16(pkt)
+      |             ^
+# .MEM_54 = VDEF <.MEM_53>
+_16 = WPACKET_start_sub_packet_u16 (0B);
+_16 = WPACKET_start_sub_packet_u16 (0B);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:91:17: warning: use location
+   91 |             || !WPACKET_start_sub_packet_u16(pkt)
+      |                 ^
+this stmt call this function :WPACKET_start_sub_packet_u16
+trace fucntion name:WPACKET_start_sub_packet_u16 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fdb5e6a8dc8
+    type <integer_type 0x7fdb5e6b55e8 int public SI
+        size <integer_cst 0x7fdb5e6a0df8 constant 32>
+        unit-size <integer_cst 0x7fdb5e6a0e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b55e8 precision:32 min <integer_cst 0x7fdb5e6a0db0 -2147483648> max <integer_cst 0x7fdb5e6a0dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fdb5e6bc9d8>>
+   
+    def_stmt _16 = WPACKET_start_sub_packet_u16 (0B);
+    version:16>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: use location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_59 = VDEF <.MEM_39>
+free (_13);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_59>
+free (s_3);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:33:5: warning: use location
+   33 |     OPENSSL_free(s);
+      |     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (_16 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:91:13: warning: use location
+   91 |             || !WPACKET_start_sub_packet_u16(pkt)
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_54 = VDEF <.MEM_53>
+_16 = WPACKET_start_sub_packet_u16 (0B);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:91:17: warning: use location
+   91 |             || !WPACKET_start_sub_packet_u16(pkt)
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+[40;31m  	free count:0 [0m
+[40;31m  	possible double free [Looserules]:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdb5e6a8ea0
+    type <integer_type 0x7fdb5e6b55e8 int public SI
+        size <integer_cst 0x7fdb5e6a0df8 constant 32>
+        unit-size <integer_cst 0x7fdb5e6a0e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b55e8 precision:32 min <integer_cst 0x7fdb5e6a0db0 -2147483648> max <integer_cst 0x7fdb5e6a0dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fdb5e6bc9d8>>
+   
+    def_stmt _19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+    version:19>
+# .MEM_55 = VDEF <.MEM_54>
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:WPACKET_sub_memcpy_u16 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function WPACKET_sub_memcpy_u16
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_55 = VDEF <.MEM_54>
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |                 ^
+this stmt call this function :WPACKET_sub_memcpy_u16
+trace fucntion name:WPACKET_sub_memcpy_u16 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_19 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:13: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |             ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fdb5e6a8ea0
+    type <integer_type 0x7fdb5e6b55e8 int public SI
+        size <integer_cst 0x7fdb5e6a0df8 constant 32>
+        unit-size <integer_cst 0x7fdb5e6a0e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b55e8 precision:32 min <integer_cst 0x7fdb5e6a0db0 -2147483648> max <integer_cst 0x7fdb5e6a0dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fdb5e6bc9d8>>
+   
+    def_stmt _19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+    version:19>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: use location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_59 = VDEF <.MEM_39>
+free (_13);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_59>
+free (s_3);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:33:5: warning: use location
+   33 |     OPENSSL_free(s);
+      |     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_55 = VDEF <.MEM_54>
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (_19 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:13: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+[40;31m  	free count:0 [0m
+[40;31m  	possible double free [Looserules]:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdb5e6a8ee8
+    type <integer_type 0x7fdb5e6b55e8 int public SI
+        size <integer_cst 0x7fdb5e6a0df8 constant 32>
+        unit-size <integer_cst 0x7fdb5e6a0e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b55e8 precision:32 min <integer_cst 0x7fdb5e6a0db0 -2147483648> max <integer_cst 0x7fdb5e6a0dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fdb5e6bc9d8>>
+   
+    def_stmt _20 = WPACKET_close (0B);
+    version:20>
+# .MEM_56 = VDEF <.MEM_55>
+_20 = WPACKET_close (0B);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:WPACKET_close 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function WPACKET_close
+ 
+ Start check Pointer Collect  
+
+======================================================================
+if (_20 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:94:13: warning: use location
+   94 |             || !WPACKET_close(pkt)) {
+      |             ^
+# .MEM_56 = VDEF <.MEM_55>
+_20 = WPACKET_close (0B);
+_20 = WPACKET_close (0B);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:94:17: warning: use location
+   94 |             || !WPACKET_close(pkt)) {
+      |                 ^
+this stmt call this function :WPACKET_close
+trace fucntion name:WPACKET_close 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fdb5e6a8ee8
+    type <integer_type 0x7fdb5e6b55e8 int public SI
+        size <integer_cst 0x7fdb5e6a0df8 constant 32>
+        unit-size <integer_cst 0x7fdb5e6a0e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b55e8 precision:32 min <integer_cst 0x7fdb5e6a0db0 -2147483648> max <integer_cst 0x7fdb5e6a0dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fdb5e6bc9d8>>
+   
+    def_stmt _20 = WPACKET_close (0B);
+    version:20>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: use location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_59 = VDEF <.MEM_39>
+free (_13);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_59>
+free (s_3);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:33:5: warning: use location
+   33 |     OPENSSL_free(s);
+      |     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (_20 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:94:13: warning: use location
+   94 |             || !WPACKET_close(pkt)) {
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_56 = VDEF <.MEM_55>
+_20 = WPACKET_close (0B);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:94:17: warning: use location
+   94 |             || !WPACKET_close(pkt)) {
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+[40;31m  	free count:0 [0m
+[40;31m  	possible double free [Looserules]:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdb5e1d5708
+    type <pointer_type 0x7fdb5e1bfbd0
+        type <integer_type 0x7fdb5e1bfb28 unsigned char readonly unsigned QI
+            size <integer_cst 0x7fdb5e6a0ca8 constant 8>
+            unit-size <integer_cst 0x7fdb5e6a0cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b53f0 precision:8 min <integer_cst 0x7fdb5e6a0cd8 0> max <integer_cst 0x7fdb5e6a0c78 255> context <translation_unit_decl 0x7fdb5e6ab168 ./benchmarks/openssl/double_free_3/openssl_df_3.c>
+            pointer_to_this <pointer_type 0x7fdb5e1bfbd0>>
+        unsigned DI
+        size <integer_cst 0x7fdb5e6a0bb8 constant 64>
+        unit-size <integer_cst 0x7fdb5e6a0bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+   
+    def_stmt _32 = cookie.curr;
+    version:32
+    ptr-info 0x7fdb5e1c7450>
+# VUSE <.MEM_47>
+_32 = cookie.curr;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_48 = VDEF <.MEM_47>
+_33 = strdup (_32);
+_33 = strdup (_32);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |             ^
+this stmt call this function :strdup
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |           ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fdb5e1d5708
+    type <pointer_type 0x7fdb5e1bfbd0
+        type <integer_type 0x7fdb5e1bfb28 unsigned char readonly unsigned QI
+            size <integer_cst 0x7fdb5e6a0ca8 constant 8>
+            unit-size <integer_cst 0x7fdb5e6a0cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b53f0 precision:8 min <integer_cst 0x7fdb5e6a0cd8 0> max <integer_cst 0x7fdb5e6a0c78 255> context <translation_unit_decl 0x7fdb5e6ab168 ./benchmarks/openssl/double_free_3/openssl_df_3.c>
+            pointer_to_this <pointer_type 0x7fdb5e1bfbd0>>
+        unsigned DI
+        size <integer_cst 0x7fdb5e6a0bb8 constant 64>
+        unit-size <integer_cst 0x7fdb5e6a0bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+   
+    def_stmt _32 = cookie.curr;
+    version:32
+    ptr-info 0x7fdb5e1c7450>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: use location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_59 = VDEF <.MEM_39>
+free (_13);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_59>
+free (s_3);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:33:5: warning: use location
+   33 |     OPENSSL_free(s);
+      |     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_48 = VDEF <.MEM_47>
+_33 = strdup (_32);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:13: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: mem_ref [0m
+# .MEM_49 = VDEF <.MEM_48>
+*_26 = _33;
+./benchmarks/openssl/double_free_3/openssl_df_3.c:58:11: warning: use location
+   58 |     *data = OPENSSL_memdup(pkt->curr, length);  /* allocation site */
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+[40;31m  	free count:0 [0m
+[40;31m  	possible double free [Looserules]:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdb5e6a8e58
+    type <pointer_type 0x7fdb5e1bf000
+        type <integer_type 0x7fdb5e6b5348 unsigned char public unsigned QI
+            size <integer_cst 0x7fdb5e6a0ca8 constant 8>
+            unit-size <integer_cst 0x7fdb5e6a0cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b53f0 precision:8 min <integer_cst 0x7fdb5e6a0cd8 0> max <integer_cst 0x7fdb5e6a0c78 255>
+            pointer_to_this <pointer_type 0x7fdb5e1bf000>>
+        public unsigned DI
+        size <integer_cst 0x7fdb5e6a0bb8 constant 64>
+        unit-size <integer_cst 0x7fdb5e6a0bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7fdb5e1bf0a8>>
+   
+    def_stmt _18 = s_3->ext.tls13_cookie;
+    version:18
+    ptr-info 0x7fdb5e1c73d8>
+# VUSE <.MEM_54>
+_18 = s_3->ext.tls13_cookie;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_55 = VDEF <.MEM_54>
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |                 ^
+this stmt call this function :WPACKET_sub_memcpy_u16
+trace fucntion name:WPACKET_sub_memcpy_u16 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_19 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:13: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |             ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fdb5e6a8e58
+    type <pointer_type 0x7fdb5e1bf000
+        type <integer_type 0x7fdb5e6b5348 unsigned char public unsigned QI
+            size <integer_cst 0x7fdb5e6a0ca8 constant 8>
+            unit-size <integer_cst 0x7fdb5e6a0cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b53f0 precision:8 min <integer_cst 0x7fdb5e6a0cd8 0> max <integer_cst 0x7fdb5e6a0c78 255>
+            pointer_to_this <pointer_type 0x7fdb5e1bf000>>
+        public unsigned DI
+        size <integer_cst 0x7fdb5e6a0bb8 constant 64>
+        unit-size <integer_cst 0x7fdb5e6a0bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7fdb5e1bf0a8>>
+   
+    def_stmt _18 = s_3->ext.tls13_cookie;
+    version:18
+    ptr-info 0x7fdb5e1c73d8>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: use location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_57 = VDEF <.MEM_38>
+free (_21);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:100:5: warning: use location
+  100 |     OPENSSL_free(s->ext.tls13_cookie);  /* freed */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_59 = VDEF <.MEM_39>
+free (_13);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:32:5: warning: use location
+   32 |     OPENSSL_free(s->ext.tls13_cookie);  /* double-free */
+      |     ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_60 = VDEF <.MEM_59>
+free (s_3);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:33:5: warning: use location
+   33 |     OPENSSL_free(s);
+      |     ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_55 = VDEF <.MEM_54>
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:17: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_44 = VDEF <.MEM_43>
+free (_29);
+./benchmarks/openssl/double_free_3/openssl_df_3.c:49:5: warning: free in this location
+   49 |     OPENSSL_free(*data);
+      |     ^
+[40;35m target gimple type: ssa_name [0m
+if (_19 == 0)
+./benchmarks/openssl/double_free_3/openssl_df_3.c:92:13: warning: use location
+   92 |             || !WPACKET_sub_memcpy_u16(pkt, s->ext.tls13_cookie,
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+[40;31m  	free count:0 [0m
+[40;31m  	possible double free [Looserules]:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fdb5e6a8e10
+    type <integer_type 0x7fdb5e6b57e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fdb5e6a0bb8 constant 64>
+        unit-size <integer_cst 0x7fdb5e6a0bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fdb5e6b5738 precision:64 min <integer_cst 0x7fdb5e6a0e88 0> max <integer_cst 0x7fdb5e6a1500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fdb5e6c17e0>>
+   
+    def_stmt _17 = s_3->ext.tls13_cookie_len;
+    version:17>
+# VUSE <.MEM_54>
+_17 = s_3->ext.tls13_cookie_len;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741821]:
+s_3 = malloc (16);
+s_3->ext.tls13_cookie = 0B;
+s_3->ext.tls13_cookie_len = 0;
+pkt.curr = "PACKET";
+_24 = PACKET_as_length_prefixed_2 (&pkt, &cookie);
+if (_24 == 0)
+  goto <bb 7>; [51.12%]
+else
+  goto <bb 3>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 524844998]:
+_25 = &s_3->ext.tls13_cookie_len;
+_26 = &s_3->ext.tls13_cookie;
+_29 = *_26;
+free (_29);
+*_26 = 0B;
+*_25 = 0;
+_30 = PACKET_remaining (&cookie);
+length_31 = (size_t) _30;
+if (length_31 == 0)
+  goto <bb 6>; [51.12%]
+else
+  goto <bb 4>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 256544233]:
+_32 = cookie.curr;
+_33 = strdup (_32);
+*_26 = _33;
+_34 = *_26;
+if (_34 == 0B)
+  goto <bb 6>; [18.09%]
+else
+  goto <bb 5>; [81.91%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 210135382]:
+*_25 = length_31;
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 524844999]:
+# _35 = PHI <1(3), 0(4), 1(5)>
+_51 = _35;
+_27 = _51;
+if (_27 == 0)
+  goto <bb 7>; [34.00%]
+else
+  goto <bb 8>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 727344124]:
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 1073741823]:
+# _28 = PHI <1(6), 0(7)>
+cookie ={v} {CLOBBER};
+_14 = s_3->ext.tls13_cookie_len;
+if (_14 == 0)
+  goto <bb 15>; [51.12%]
+else
+  goto <bb 9>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 524844999]:
+_15 = WPACKET_put_bytes_u16 (0B, 0);
+if (_15 == 0)
+  goto <bb 13>; [51.12%]
+else
+  goto <bb 10>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 256544234]:
+_16 = WPACKET_start_sub_packet_u16 (0B);
+if (_16 == 0)
+  goto <bb 13>; [51.12%]
+else
+  goto <bb 11>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 125398821]:
+_17 = s_3->ext.tls13_cookie_len;
+_18 = s_3->ext.tls13_cookie;
+_19 = WPACKET_sub_memcpy_u16 (0B, _18, _17);
+if (_19 == 0)
+  goto <bb 13>; [51.12%]
+else
+  goto <bb 12>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 61294943]:
+_20 = WPACKET_close (0B);
+if (_20 == 0)
+  goto <bb 13>; [34.00%]
+else
+  goto <bb 14>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 484390337]:
+// predicted unlikely by goto predictor.
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 524845000]:
+# ret_22 = PHI <1(12), 0(13)>
+end:
+_21 = s_3->ext.tls13_cookie;
+free (_21);
+s_3->ext.tls13_cookie_len = 0;
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 1073741824]:
+# _23 = PHI <1(8), ret_22(14)>
+if (s_3 == 0B)
+  goto <bb 17>; [30.95%]
+else
+  goto <bb 16>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 741418729]:
+_13 = s_3->ext.tls13_cookie;
+free (_13);
+free (s_3);
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 1073741824]:
+pkt ={v} {CLOBBER};
+return 0;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 2 [0m
+[40;34m    gimple free   count : 4 [0m
+[40;34m    all ptable point : 15 [0m
+[40;34m    analyzable ptable point : 10 [0m
+[40;34m    used_stmt array stack totalsize of : 0.000760 mb[0m
+[40;34m    collect time: : 0.000704 s [0m
+[40;34m    algorithm time: 0.014347 s [0m
+[40;34m    gimple stmt count : : 48 [0m
+[40;34m    this report analysis in Fri Feb 18 06:36:59 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 90%)
+ phase opt and generate             :   0.02 (100%)   0.01 (100%)   0.03 (100%)   205k (  9%)
+ callgraph functions expansion      :   0.01 ( 50%)   0.01 (100%)   0.01 ( 33%)   105k (  4%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)    26k (  1%)
+ plugin execution                   :   0.01 ( 50%)   0.00 (  0%)   0.02 ( 67%)   824  (  0%)
+ rest of compilation                :   0.01 ( 50%)   0.01 (100%)   0.00 (  0%)  2600  (  0%)
+ TOTAL                              :   0.02          0.01          0.03         2402k
+/usr/bin/ld: /tmp/ccZQJvYg.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0x39): undefined reference to `PACKET_as_length_prefixed_2'
+/usr/bin/ld: <artificial>:(.text+0x84): undefined reference to `PACKET_remaining'
+/usr/bin/ld: <artificial>:(.text+0xb7): undefined reference to `WPACKET_put_bytes_u16'
+/usr/bin/ld: <artificial>:(.text+0xdf): undefined reference to `WPACKET_start_sub_packet_u16'
+/usr/bin/ld: <artificial>:(.text+0xf9): undefined reference to `WPACKET_sub_memcpy_u16'
+/usr/bin/ld: <artificial>:(.text+0x10c): undefined reference to `WPACKET_close'
+collect2: error: ld returned 1 exit status

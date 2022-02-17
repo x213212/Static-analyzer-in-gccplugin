@@ -1,0 +1,3238 @@
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 37%)
+ phase parsing                      :   0.02 ( 67%)   0.03 ( 75%)   0.05 ( 71%)  2056k ( 58%)
+ phase opt and generate             :   0.01 ( 33%)   0.01 ( 25%)   0.02 ( 29%)   155k (  4%)
+ callgraph construction             :   0.00 (  0%)   0.01 ( 25%)   0.00 (  0%)  9192  (  0%)
+ callgraph ipa passes               :   0.01 ( 33%)   0.00 (  0%)   0.02 ( 29%)    88k (  3%)
+ lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ ipa free lang data                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  3808  (  0%)
+ ipa modref                         :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)  2888  (  0%)
+ preprocessing                      :   0.00 (  0%)   0.01 ( 25%)   0.02 ( 29%)  1075k ( 31%)
+ lexical analysis                   :   0.02 ( 67%)   0.02 ( 50%)   0.01 ( 14%)     0  (  0%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)   104k (  3%)
+ parser inl. func. body             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    59k (  2%)
+ TOTAL                              :   0.03          0.04          0.07         3520k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 98%)
+ TOTAL                              :   0.00          0.00          0.00         2199k
+../Compiler/newplugin.so 11.2.0 
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+node:= 2 
+ 	next_branch :=3
+	next_branch :=16
+node:= 3 
+ 	next_branch :=4
+	next_branch :=14
+node:= 4 
+ 	next_branch :=5
+	next_branch :=9
+node:= 5 
+ 	next_branch :=6
+	next_branch :=10
+node:= 6 
+ 	next_branch :=7
+	next_branch :=10
+node:= 7 
+ 	next_branch :=8
+	next_branch :=9
+node:= 8 
+ 	next_branch :=9
+node:= 9 
+ 	next_branch :=10
+	next_branch :=11
+node:= 10 
+ 	next_branch :=11
+node:= 11 
+ 	next_branch :=12
+	next_branch :=13
+node:= 12 
+ 	next_branch :=15
+node:= 13 
+ 	next_branch :=14
+node:= 14 
+ 	next_branch :=15
+node:= 15 
+ 	next_branch :=29
+	next_branch :=16
+node:= 16 
+ 	next_branch :=17
+	next_branch :=18
+node:= 17 
+ 	next_branch :=29
+node:= 18 
+ 	next_branch :=19
+	next_branch :=29
+node:= 19 
+ 	next_branch :=20
+	next_branch :=28
+node:= 20 
+ 	next_branch :=21
+	next_branch :=25
+node:= 21 
+ 	next_branch :=23
+	next_branch :=22
+node:= 22 
+ 	next_branch :=23
+	next_branch :=25
+node:= 23 
+ 	next_branch :=24
+	next_branch :=25
+node:= 24 
+ 	next_branch :=27
+node:= 25 
+ 	next_branch :=26
+	next_branch :=27
+node:= 26 
+ 	next_branch :=27
+node:= 27 
+ 	next_branch :=28
+node:= 28 
+ 	next_branch :=29
+node:= 29 
+ 	next_branch :=30
+	next_branch :=31
+node:= 30 
+ 	next_branch :=31
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 7 
+===============The second stage : Mapping stmt=================
+# .MEM_14 = VDEF <.MEM_13(D)>
+s_11 = malloc (48);
+# .MEM_15 = VDEF <.MEM_14>
+_1 = malloc (24);
+# .MEM_85 = VDEF <.MEM_78>
+result_54 = malloc (_53);
+===============The second stage : Program slicing=================
+=============== *this point analyzable =================
+s_11 = malloc (48);
+=============== *this point analyzable =================
+_1 = malloc (24);
+=============== *this point analyzable =================
+result_54 = malloc (_53);
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 3 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:printf========= [0m
+[40;33m =======POP node_fun stack:printf========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f70992987e0
+    type <pointer_type 0x7f7098db0f18
+        type <record_type 0x7f7098db0e70 SSL BLK
+            size <integer_cst 0x7f70993650a8 constant 384>
+            unit-size <integer_cst 0x7f7098d9f7b0 constant 48>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f7098db0dc8 fields <field_decl 0x7f7098dab850 s3> context <translation_unit_decl 0x7f709929b168 ./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f7098db0f18>>
+        public unsigned DI
+        size <integer_cst 0x7f7099290bb8 constant 64>
+        unit-size <integer_cst 0x7f7099290bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7f7099b38b40 s>
+    def_stmt s_11 = malloc (48);
+    version:11
+    ptr-info 0x7f7098db74b0>
+# .MEM_14 = VDEF <.MEM_13(D)>
+s_11 = malloc (48);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_63 = s_11->s3;
+In function ‘main’:
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:104:18: warning: use location
+  104 |                 s->s3->rbuf.buf = NULL; /* still reachable */
+      |                  ^
+_63->rbuf.buf = 0B;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:104:33: warning: use location
+  104 |                 s->s3->rbuf.buf = NULL; /* still reachable */
+      |                                 ^
+s_11->s3 = _1;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:170:15: warning: use location
+  170 |         s->s3 = OPENSSL_malloc(sizeof(*s->s3));
+      |               ^
+_22 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:142:14: warning: use location
+  142 |         if (s->s3->rbuf.buf == NULL) /* Not initialized yet */
+      |              ^
+_23 = _22->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:142:24: warning: use location
+  142 |         if (s->s3->rbuf.buf == NULL) /* Not initialized yet */
+      |                        ^
+if (_23 == 0B)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:142:12: warning: use location
+  142 |         if (s->s3->rbuf.buf == NULL) /* Not initialized yet */
+      |            ^
+_30 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:118:14: warning: use location
+  118 |         if (s->s3->rbuf.buf == NULL)
+      |              ^
+_31 = _30->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:118:24: warning: use location
+  118 |         if (s->s3->rbuf.buf == NULL)
+      |                        ^
+_37 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:125:18: warning: use location
+  125 |                 s->s3->rbuf.buf = p;
+      |                  ^
+_37->rbuf.buf = p_36;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:125:33: warning: use location
+  125 |                 s->s3->rbuf.buf = p;
+      |                                 ^
+_37->rbuf.buf = p_36;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:125:33: warning: use location
+_38 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:126:18: warning: use location
+  126 |                 s->s3->rbuf.len = len;
+      |                  ^
+_38->rbuf.len = len_33;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:126:33: warning: use location
+  126 |                 s->s3->rbuf.len = len;
+      |                                 ^
+_38->rbuf.len = len_33;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:126:33: warning: use location
+_34 = (int) len_33;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:123:24: warning: use location
+  123 |                 if ((p=freelist_extract(s->ctx, 1, len)) == NULL)
+      |                        ^
+if (_34 == _46)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:62:26: warning: use location
+   62 |         if (list != NULL && sz == (int)list->chunklen)
+      |                          ^
+_53 = (long unsigned int) _34;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:72:26: warning: use location
+   72 |                 result = OPENSSL_malloc(sz);    /* allocation site */
+      |                          ^
+
+======================================================================
+
+ Expand conflict 
+ The same function may have multiple branches :malloc
+# .MEM_14 = VDEF <.MEM_13(D)>
+s_11 = malloc (48);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:169:18: warning: use location
+  169 |         SSL *s = OPENSSL_malloc(sizeof(*s));;
+      |                  ^
+# .MEM_85 = VDEF <.MEM_78>
+result_54 = malloc (_53);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:72:26: warning: use location
+   72 |                 result = OPENSSL_malloc(sz);    /* allocation site */
+      |                          ^
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+_86 = result_55;
+lto1: warning: use location
+_39 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:129:23: warning: use location
+  129 |         s->packet= &(s->s3->rbuf.buf[0]); /* alias */
+      |                       ^
+_40 = _39->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:129:20: warning: use location
+  129 |         s->packet= &(s->s3->rbuf.buf[0]); /* alias */
+      |                    ^
+_4 = s_11->packet;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:173:17: warning: use location
+  173 |                 __USE(s->packet);
+      |                 ^
+printf ("%d\n", _4);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:173:17: warning: use location
+this stmt call this function :printf
+trace fucntion name:printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+s_11->packet = _40;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:129:18: warning: use location
+  129 |         s->packet= &(s->s3->rbuf.buf[0]); /* alias */
+      |                  ^
+_56 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:101:14: warning: use location
+  101 |         if (s->s3->rbuf.buf != NULL)
+      |              ^
+_57 = _56->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:101:24: warning: use location
+  101 |         if (s->s3->rbuf.buf != NULL)
+      |                        ^
+_58 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:103:62: warning: use location
+  103 |                 freelist_insert(s->ctx, 1, s->s3->rbuf.len, s->s3->rbuf.buf);
+      |                                                              ^
+_59 = _58->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:103:72: warning: use location
+  103 |                 freelist_insert(s->ctx, 1, s->s3->rbuf.len, s->s3->rbuf.buf);
+      |                                                                        ^
+MEM[(struct SSL3_BUF_FREELIST *)_64].head = _59;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:90:28: warning: use location
+   90 |                 list->head = ent;
+      |                            ^
+if (_64 != 0B)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:83:12: warning: use location
+   83 |         if (list != NULL &&
+      |            ^
+_67 = MEM[(struct SSL3_BUF_FREELIST *)_64].chunklen;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:84:24: warning: use location
+   84 |             (sz == list->chunklen || list->chunklen == 0) &&
+      |                        ^
+_68 = MEM[(struct SSL3_BUF_FREELIST *)_64].chunklen;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:84:42: warning: use location
+   84 |             (sz == list->chunklen || list->chunklen == 0) &&
+      |                                          ^
+if (_68 == 0)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:84:35: warning: use location
+   84 |             (sz == list->chunklen || list->chunklen == 0) &&
+      |                                   ^
+MEM[(struct SSL3_BUF_FREELIST *)_64].chunklen = _61;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:87:32: warning: use location
+   87 |                 list->chunklen = sz;
+      |                                ^
+if (_61 > 7)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:84:59: warning: use location
+   84 |             (sz == list->chunklen || list->chunklen == 0) &&
+      |                                                           ^
+_69 = MEM[(struct SSL3_BUF_FREELIST *)_64].head;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:89:33: warning: use location
+   89 |                 ent->next = list->head;
+      |                                 ^
+MEM[(struct SSL3_BUF_FREELIST_ENTRY *)_59].next = _69;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:89:27: warning: use location
+   89 |                 ent->next = list->head;
+      |                           ^
+_70 = MEM[(struct SSL3_BUF_FREELIST *)_64].len;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:91:23: warning: use location
+   91 |                 ++list->len;
+      |                       ^
+MEM[(struct SSL3_BUF_FREELIST *)_64].len = _71;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:91:17: warning: use location
+   91 |                 ++list->len;
+      |                 ^
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+this stmt have mutiple branch ---printf-----
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: use location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find free stmt ================== 
+if (mem_72 != 0B)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:95:12: warning: use location
+   95 |         if (mem)
+      |            ^
+_60 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:103:45: warning: use location
+  103 |                 freelist_insert(s->ctx, 1, s->s3->rbuf.len, s->s3->rbuf.buf);
+      |                                             ^
+_61 = _60->rbuf.len;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:103:17: warning: use location
+  103 |                 freelist_insert(s->ctx, 1, s->s3->rbuf.len, s->s3->rbuf.buf);
+      |                 ^
+_2 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:13: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |             ^
+_3 = _2->rbuf.left;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:23: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |                       ^
+if (_3 != 0)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:11: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |           ^
+_5 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+_6 = _5->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find free stmt ================== 
+_7 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+[40;32m    HAS FREE STMT count:3 name:free [0m
+
+ ================== find free stmt ================== 
+_62 = s_11->ctx;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:103:17: warning: use location
+  103 |                 freelist_insert(s->ctx, 1, s->s3->rbuf.len, s->s3->rbuf.buf);
+      |                 ^
+_64 = _62->rbuf_freelist;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:82:14: warning: use location
+   82 |         list = for_read ? ctx->rbuf_freelist : ctx->wbuf_freelist;
+      |              ^
+_35 = s_11->ctx;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:123:24: warning: use location
+  123 |                 if ((p=freelist_extract(s->ctx, 1, len)) == NULL)
+      |                        ^
+_42 = _35->rbuf_freelist;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:61:14: warning: use location
+   61 |         list = for_read ? ctx->rbuf_freelist : ctx->wbuf_freelist;
+      |              ^
+_45 = MEM[(struct SSL3_BUF_FREELIST *)_42].chunklen;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:62:44: warning: use location
+   62 |         if (list != NULL && sz == (int)list->chunklen)
+      |                                            ^
+ent_47 = MEM[(struct SSL3_BUF_FREELIST *)_42].head;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:63:21: warning: use location
+   63 |                 ent = list->head;
+      |                     ^
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+this stmt have mutiple branch ---free-----
+_48 = ent_47->next;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:66:33: warning: use location
+   66 |                 list->head = ent->next;
+      |                                 ^
+MEM[(struct SSL3_BUF_FREELIST *)_42].head = _48;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:66:28: warning: use location
+   66 |                 list->head = ent->next;
+      |                            ^
+if (ent_47 != 0B)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:64:12: warning: use location
+   64 |         if (ent != NULL)
+      |            ^
+_49 = MEM[(struct SSL3_BUF_FREELIST *)_42].len;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:68:27: warning: use location
+   68 |                 if (--list->len == 0)
+      |                           ^
+_50 = _49 + 4294967295;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:68:21: warning: use location
+   68 |                 if (--list->len == 0)
+      |                     ^
+_51 = MEM[(struct SSL3_BUF_FREELIST *)_42].len;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:68:27: warning: use location
+   68 |                 if (--list->len == 0)
+      |                           ^
+if (_51 == 0)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:68:20: warning: use location
+   68 |                 if (--list->len == 0)
+      |                    ^
+MEM[(struct SSL3_BUF_FREELIST *)_42].len = _50;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:68:20: warning: use location
+MEM[(struct SSL3_BUF_FREELIST *)_42].chunklen = 0;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:69:40: warning: use location
+   69 |                         list->chunklen = 0;
+      |                                        ^
+_27 = s_11->mode;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:161:22: warning: use location
+  161 |                 if (s->mode & SSL_MODE_RELEASE_BUFFERS)
+      |                      ^
+_28 = _27 & 16;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:161:29: warning: use location
+  161 |                 if (s->mode & SSL_MODE_RELEASE_BUFFERS)
+      |                             ^
+if (_28 != 0)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:161:20: warning: use location
+  161 |                 if (s->mode & SSL_MODE_RELEASE_BUFFERS)
+      |                    ^
+s_11->rstate = 240;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:160:26: warning: use location
+  160 |                 s->rstate=SSL_ST_READ_HEADER;
+      |                          ^
+s_11->rwstate = 1;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:150:27: warning: use location
+  150 |                 s->rwstate=SSL_NOTHING;
+      |                           ^
+_25 = s_11->shutdown;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:148:14: warning: use location
+  148 |         if (s->shutdown & SSL_RECEIVED_SHUTDOWN)
+      |              ^
+_26 = _25 & 2;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:148:25: warning: use location
+  148 |         if (s->shutdown & SSL_RECEIVED_SHUTDOWN)
+      |                         ^
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: use location
+  176 |         OPENSSL_free(s);
+      |         ^
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: use location
+[40;32m    HAS FREE STMT count:4 name:free [0m
+
+ ================== find free stmt ================== 
+# .MEM_14 = VDEF <.MEM_13(D)>
+s_11 = malloc (48);
+s_11 = malloc (48);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:169:18: warning: use location
+  169 |         SSL *s = OPENSSL_malloc(sizeof(*s));;
+      |                  ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f70992987e0
+    type <pointer_type 0x7f7098db0f18
+        type <record_type 0x7f7098db0e70 SSL BLK
+            size <integer_cst 0x7f70993650a8 constant 384>
+            unit-size <integer_cst 0x7f7098d9f7b0 constant 48>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f7098db0dc8 fields <field_decl 0x7f7098dab850 s3> context <translation_unit_decl 0x7f709929b168 ./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c>
+            pointer_to_this <pointer_type 0x7f7098db0f18>>
+        public unsigned DI
+        size <integer_cst 0x7f7099290bb8 constant 64>
+        unit-size <integer_cst 0x7f7099290bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7f7099b38b40 s>
+    def_stmt s_11 = malloc (48);
+    version:11
+    ptr-info 0x7f7098db74b0>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: use location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_21 = VDEF <.MEM_20>
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: use location
+  176 |         OPENSSL_free(s);
+      |         ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_81>
+_63 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:104:18: warning: use location
+  104 |                 s->s3->rbuf.buf = NULL; /* still reachable */
+      |                  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_81>
+_63 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:104:18: warning: use location
+  104 |                 s->s3->rbuf.buf = NULL; /* still reachable */
+      |                  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_97 = VDEF <.MEM_81>
+_63->rbuf.buf = 0B;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:104:33: warning: use location
+  104 |                 s->s3->rbuf.buf = NULL; /* still reachable */
+      |                                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_97 = VDEF <.MEM_81>
+_63->rbuf.buf = 0B;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:104:33: warning: use location
+  104 |                 s->s3->rbuf.buf = NULL; /* still reachable */
+      |                                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_21 = VDEF <.MEM_20>
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: free in this location
+  176 |         OPENSSL_free(s);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_21 = VDEF <.MEM_20>
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: free in this location
+  176 |         OPENSSL_free(s);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_74>
+_4 = s_11->packet;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:173:17: warning: use location
+  173 |                 __USE(s->packet);
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_74>
+_4 = s_11->packet;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:173:17: warning: use location
+  173 |                 __USE(s->packet);
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: addr_expr [0m
+# .MEM_18 = VDEF <.MEM_74>
+printf ("%d\n", _4);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:173:17: warning: use location
+  173 |                 __USE(s->packet);
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: addr_expr [0m
+# .MEM_18 = VDEF <.MEM_74>
+printf ("%d\n", _4);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:173:17: warning: use location
+  173 |                 __USE(s->packet);
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_21 = VDEF <.MEM_20>
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: free in this location
+  176 |         OPENSSL_free(s);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_21 = VDEF <.MEM_20>
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: free in this location
+  176 |         OPENSSL_free(s);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_74>
+_2 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:13: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_74>
+_2 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:13: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_74>
+_3 = _2->rbuf.left;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:23: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_74>
+_3 = _2->rbuf.left;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:23: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+if (_3 != 0)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:11: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+if (_3 != 0)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:11: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_12>
+_5 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_12>
+_5 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_12>
+_6 = _5->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_12>
+_6 = _5->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_19>
+_7 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_19>
+_7 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_19>
+_7 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_19>
+_7 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_21 = VDEF <.MEM_20>
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: free in this location
+  176 |         OPENSSL_free(s);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_21 = VDEF <.MEM_20>
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: free in this location
+  176 |         OPENSSL_free(s);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:4 [0m
+[40;31m  	free count:4 [0m
+[40;31m  	possible double free [Looserules]:4 [0m
+[40;31m  	possible double free [rigorous]:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m  	possible double free [rigorous]:4 [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f70992985e8
+    type <pointer_type 0x7f70992ac000
+        type <void_type 0x7f70992a5f18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f70992ac000>>
+        public unsigned DI
+        size <integer_cst 0x7f7099290bb8 constant 64>
+        unit-size <integer_cst 0x7f7099290bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f70992b19d8>>
+   
+    def_stmt _1 = malloc (24);
+    version:1
+    ptr-info 0x7f7098db7420>
+# .MEM_15 = VDEF <.MEM_14>
+_1 = malloc (24);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+s_11->s3 = _1;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:170:15: warning: use location
+  170 |         s->s3 = OPENSSL_malloc(sizeof(*s->s3));
+      |               ^
+s_11->s3 = _1;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:170:15: warning: use location
+_63 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:104:18: warning: use location
+  104 |                 s->s3->rbuf.buf = NULL; /* still reachable */
+      |                  ^
+_63->rbuf.buf = 0B;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:104:33: warning: use location
+  104 |                 s->s3->rbuf.buf = NULL; /* still reachable */
+      |                                 ^
+_22 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:142:14: warning: use location
+  142 |         if (s->s3->rbuf.buf == NULL) /* Not initialized yet */
+      |              ^
+_23 = _22->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:142:24: warning: use location
+  142 |         if (s->s3->rbuf.buf == NULL) /* Not initialized yet */
+      |                        ^
+if (_23 == 0B)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:142:12: warning: use location
+  142 |         if (s->s3->rbuf.buf == NULL) /* Not initialized yet */
+      |            ^
+_30 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:118:14: warning: use location
+  118 |         if (s->s3->rbuf.buf == NULL)
+      |              ^
+_31 = _30->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:118:24: warning: use location
+  118 |         if (s->s3->rbuf.buf == NULL)
+      |                        ^
+_37 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:125:18: warning: use location
+  125 |                 s->s3->rbuf.buf = p;
+      |                  ^
+_37->rbuf.buf = p_36;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:125:33: warning: use location
+  125 |                 s->s3->rbuf.buf = p;
+      |                                 ^
+_37->rbuf.buf = p_36;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:125:33: warning: use location
+_38 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:126:18: warning: use location
+  126 |                 s->s3->rbuf.len = len;
+      |                  ^
+_38->rbuf.len = len_33;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:126:33: warning: use location
+  126 |                 s->s3->rbuf.len = len;
+      |                                 ^
+_38->rbuf.len = len_33;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:126:33: warning: use location
+_34 = (int) len_33;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:123:24: warning: use location
+  123 |                 if ((p=freelist_extract(s->ctx, 1, len)) == NULL)
+      |                        ^
+if (_34 == _46)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:62:26: warning: use location
+   62 |         if (list != NULL && sz == (int)list->chunklen)
+      |                          ^
+_53 = (long unsigned int) _34;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:72:26: warning: use location
+   72 |                 result = OPENSSL_malloc(sz);    /* allocation site */
+      |                          ^
+
+======================================================================
+
+ Expand conflict 
+ The same function may have multiple branches :malloc
+# .MEM_15 = VDEF <.MEM_14>
+_1 = malloc (24);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:170:17: warning: use location
+  170 |         s->s3 = OPENSSL_malloc(sizeof(*s->s3));
+      |                 ^
+# .MEM_85 = VDEF <.MEM_78>
+result_54 = malloc (_53);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:72:26: warning: use location
+   72 |                 result = OPENSSL_malloc(sz);    /* allocation site */
+      |                          ^
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+_86 = result_55;
+lto1: warning: use location
+_39 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:129:23: warning: use location
+  129 |         s->packet= &(s->s3->rbuf.buf[0]); /* alias */
+      |                       ^
+_40 = _39->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:129:20: warning: use location
+  129 |         s->packet= &(s->s3->rbuf.buf[0]); /* alias */
+      |                    ^
+_4 = s_11->packet;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:173:17: warning: use location
+  173 |                 __USE(s->packet);
+      |                 ^
+printf ("%d\n", _4);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:173:17: warning: use location
+this stmt call this function :printf
+trace fucntion name:printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+s_11->packet = _40;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:129:18: warning: use location
+  129 |         s->packet= &(s->s3->rbuf.buf[0]); /* alias */
+      |                  ^
+_56 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:101:14: warning: use location
+  101 |         if (s->s3->rbuf.buf != NULL)
+      |              ^
+_57 = _56->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:101:24: warning: use location
+  101 |         if (s->s3->rbuf.buf != NULL)
+      |                        ^
+_58 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:103:62: warning: use location
+  103 |                 freelist_insert(s->ctx, 1, s->s3->rbuf.len, s->s3->rbuf.buf);
+      |                                                              ^
+_59 = _58->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:103:72: warning: use location
+  103 |                 freelist_insert(s->ctx, 1, s->s3->rbuf.len, s->s3->rbuf.buf);
+      |                                                                        ^
+MEM[(struct SSL3_BUF_FREELIST *)_64].head = _59;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:90:28: warning: use location
+   90 |                 list->head = ent;
+      |                            ^
+if (_64 != 0B)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:83:12: warning: use location
+   83 |         if (list != NULL &&
+      |            ^
+_67 = MEM[(struct SSL3_BUF_FREELIST *)_64].chunklen;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:84:24: warning: use location
+   84 |             (sz == list->chunklen || list->chunklen == 0) &&
+      |                        ^
+_68 = MEM[(struct SSL3_BUF_FREELIST *)_64].chunklen;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:84:42: warning: use location
+   84 |             (sz == list->chunklen || list->chunklen == 0) &&
+      |                                          ^
+if (_68 == 0)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:84:35: warning: use location
+   84 |             (sz == list->chunklen || list->chunklen == 0) &&
+      |                                   ^
+MEM[(struct SSL3_BUF_FREELIST *)_64].chunklen = _61;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:87:32: warning: use location
+   87 |                 list->chunklen = sz;
+      |                                ^
+if (_61 > 7)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:84:59: warning: use location
+   84 |             (sz == list->chunklen || list->chunklen == 0) &&
+      |                                                           ^
+_69 = MEM[(struct SSL3_BUF_FREELIST *)_64].head;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:89:33: warning: use location
+   89 |                 ent->next = list->head;
+      |                                 ^
+MEM[(struct SSL3_BUF_FREELIST_ENTRY *)_59].next = _69;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:89:27: warning: use location
+   89 |                 ent->next = list->head;
+      |                           ^
+_70 = MEM[(struct SSL3_BUF_FREELIST *)_64].len;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:91:23: warning: use location
+   91 |                 ++list->len;
+      |                       ^
+MEM[(struct SSL3_BUF_FREELIST *)_64].len = _71;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:91:17: warning: use location
+   91 |                 ++list->len;
+      |                 ^
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+this stmt have mutiple branch ---printf-----
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: use location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find free stmt ================== 
+if (mem_72 != 0B)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:95:12: warning: use location
+   95 |         if (mem)
+      |            ^
+_60 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:103:45: warning: use location
+  103 |                 freelist_insert(s->ctx, 1, s->s3->rbuf.len, s->s3->rbuf.buf);
+      |                                             ^
+_61 = _60->rbuf.len;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:103:17: warning: use location
+  103 |                 freelist_insert(s->ctx, 1, s->s3->rbuf.len, s->s3->rbuf.buf);
+      |                 ^
+_2 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:13: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |             ^
+_3 = _2->rbuf.left;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:23: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |                       ^
+if (_3 != 0)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:11: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |           ^
+_5 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+_6 = _5->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find free stmt ================== 
+_7 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+[40;32m    HAS FREE STMT count:3 name:free [0m
+
+ ================== find free stmt ================== 
+_62 = s_11->ctx;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:103:17: warning: use location
+  103 |                 freelist_insert(s->ctx, 1, s->s3->rbuf.len, s->s3->rbuf.buf);
+      |                 ^
+_64 = _62->rbuf_freelist;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:82:14: warning: use location
+   82 |         list = for_read ? ctx->rbuf_freelist : ctx->wbuf_freelist;
+      |              ^
+_35 = s_11->ctx;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:123:24: warning: use location
+  123 |                 if ((p=freelist_extract(s->ctx, 1, len)) == NULL)
+      |                        ^
+_42 = _35->rbuf_freelist;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:61:14: warning: use location
+   61 |         list = for_read ? ctx->rbuf_freelist : ctx->wbuf_freelist;
+      |              ^
+_45 = MEM[(struct SSL3_BUF_FREELIST *)_42].chunklen;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:62:44: warning: use location
+   62 |         if (list != NULL && sz == (int)list->chunklen)
+      |                                            ^
+ent_47 = MEM[(struct SSL3_BUF_FREELIST *)_42].head;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:63:21: warning: use location
+   63 |                 ent = list->head;
+      |                     ^
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+this stmt have mutiple branch ---free-----
+_48 = ent_47->next;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:66:33: warning: use location
+   66 |                 list->head = ent->next;
+      |                                 ^
+MEM[(struct SSL3_BUF_FREELIST *)_42].head = _48;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:66:28: warning: use location
+   66 |                 list->head = ent->next;
+      |                            ^
+if (ent_47 != 0B)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:64:12: warning: use location
+   64 |         if (ent != NULL)
+      |            ^
+_49 = MEM[(struct SSL3_BUF_FREELIST *)_42].len;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:68:27: warning: use location
+   68 |                 if (--list->len == 0)
+      |                           ^
+_50 = _49 + 4294967295;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:68:21: warning: use location
+   68 |                 if (--list->len == 0)
+      |                     ^
+_51 = MEM[(struct SSL3_BUF_FREELIST *)_42].len;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:68:27: warning: use location
+   68 |                 if (--list->len == 0)
+      |                           ^
+if (_51 == 0)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:68:20: warning: use location
+   68 |                 if (--list->len == 0)
+      |                    ^
+MEM[(struct SSL3_BUF_FREELIST *)_42].len = _50;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:68:20: warning: use location
+MEM[(struct SSL3_BUF_FREELIST *)_42].chunklen = 0;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:69:40: warning: use location
+   69 |                         list->chunklen = 0;
+      |                                        ^
+_27 = s_11->mode;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:161:22: warning: use location
+  161 |                 if (s->mode & SSL_MODE_RELEASE_BUFFERS)
+      |                      ^
+_28 = _27 & 16;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:161:29: warning: use location
+  161 |                 if (s->mode & SSL_MODE_RELEASE_BUFFERS)
+      |                             ^
+if (_28 != 0)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:161:20: warning: use location
+  161 |                 if (s->mode & SSL_MODE_RELEASE_BUFFERS)
+      |                    ^
+s_11->rstate = 240;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:160:26: warning: use location
+  160 |                 s->rstate=SSL_ST_READ_HEADER;
+      |                          ^
+s_11->rwstate = 1;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:150:27: warning: use location
+  150 |                 s->rwstate=SSL_NOTHING;
+      |                           ^
+_25 = s_11->shutdown;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:148:14: warning: use location
+  148 |         if (s->shutdown & SSL_RECEIVED_SHUTDOWN)
+      |              ^
+_26 = _25 & 2;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:148:25: warning: use location
+  148 |         if (s->shutdown & SSL_RECEIVED_SHUTDOWN)
+      |                         ^
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: use location
+  176 |         OPENSSL_free(s);
+      |         ^
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: use location
+[40;32m    HAS FREE STMT count:4 name:free [0m
+
+ ================== find free stmt ================== 
+# .MEM_15 = VDEF <.MEM_14>
+_1 = malloc (24);
+_1 = malloc (24);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:170:17: warning: use location
+  170 |         s->s3 = OPENSSL_malloc(sizeof(*s->s3));
+      |                 ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f70992985e8
+    type <pointer_type 0x7f70992ac000
+        type <void_type 0x7f70992a5f18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f70992ac000>>
+        public unsigned DI
+        size <integer_cst 0x7f7099290bb8 constant 64>
+        unit-size <integer_cst 0x7f7099290bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f70992b19d8>>
+   
+    def_stmt _1 = malloc (24);
+    version:1
+    ptr-info 0x7f7098db7420>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: use location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_81>
+_63 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:104:18: warning: use location
+  104 |                 s->s3->rbuf.buf = NULL; /* still reachable */
+      |                  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_81>
+_63 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:104:18: warning: use location
+  104 |                 s->s3->rbuf.buf = NULL; /* still reachable */
+      |                  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_97 = VDEF <.MEM_81>
+_63->rbuf.buf = 0B;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:104:33: warning: use location
+  104 |                 s->s3->rbuf.buf = NULL; /* still reachable */
+      |                                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_97 = VDEF <.MEM_81>
+_63->rbuf.buf = 0B;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:104:33: warning: use location
+  104 |                 s->s3->rbuf.buf = NULL; /* still reachable */
+      |                                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_21 = VDEF <.MEM_20>
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: free in this location
+  176 |         OPENSSL_free(s);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_74>
+_4 = s_11->packet;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:173:17: warning: use location
+  173 |                 __USE(s->packet);
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_74>
+_4 = s_11->packet;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:173:17: warning: use location
+  173 |                 __USE(s->packet);
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: addr_expr [0m
+# .MEM_18 = VDEF <.MEM_74>
+printf ("%d\n", _4);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:173:17: warning: use location
+  173 |                 __USE(s->packet);
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: addr_expr [0m
+# .MEM_18 = VDEF <.MEM_74>
+printf ("%d\n", _4);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:173:17: warning: use location
+  173 |                 __USE(s->packet);
+      |                 ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_21 = VDEF <.MEM_20>
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: free in this location
+  176 |         OPENSSL_free(s);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+mem_72 = PHI <_59(20), _59(22), _59(23)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_74>
+_2 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:13: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_74>
+_2 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:13: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |             ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_74>
+_3 = _2->rbuf.left;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:23: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_74>
+_3 = _2->rbuf.left;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:23: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+if (_3 != 0)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:11: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+if (_3 != 0)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:172:11: warning: use location
+  172 |         if(s->s3->rbuf.left != 0)
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_12>
+_5 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_12>
+_5 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_12>
+_6 = _5->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_12>
+_6 = _5->rbuf.buf;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_19>
+_7 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_19>
+_7 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_19>
+_7 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_19>
+_7 = s_11->s3;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_21 = VDEF <.MEM_20>
+free (s_11);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:176:9: warning: free in this location
+  176 |         OPENSSL_free(s);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:3 [0m
+[40;31m  	free count:4 [0m
+[40;31m  	possible double free [Looserules]:3 [0m
+[40;31m  	possible double free [rigorous]:4 [0m
+
+======================================================================
+
+======================================================================
+[40;31m  	possible double free [rigorous]:4 [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f7098dcb048
+    type <pointer_type 0x7f70992ac000
+        type <void_type 0x7f70992a5f18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f70992ac000>>
+        public unsigned DI
+        size <integer_cst 0x7f7099290bb8 constant 64>
+        unit-size <integer_cst 0x7f7099290bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f70992b19d8>>
+    var <var_decl 0x7f7098dc9120 result>
+    def_stmt result_54 = malloc (_53);
+    version:54
+    ptr-info 0x7f7098db7618>
+# .MEM_85 = VDEF <.MEM_78>
+result_54 = malloc (_53);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+_86 = result_55;
+lto1: warning: use location
+_37->rbuf.buf = p_36;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:125:33: warning: use location
+  125 |                 s->s3->rbuf.buf = p;
+      |                                 ^
+if (p_36 == 0B)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:123:20: warning: use location
+  123 |                 if ((p=freelist_extract(s->ctx, 1, len)) == NULL)
+      |                    ^
+# .MEM_85 = VDEF <.MEM_78>
+result_54 = malloc (_53);
+result_54 = malloc (_53);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:72:26: warning: use location
+   72 |                 result = OPENSSL_malloc(sz);    /* allocation site */
+      |                          ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f7098dcb048
+    type <pointer_type 0x7f70992ac000
+        type <void_type 0x7f70992a5f18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f70992ac000>>
+        public unsigned DI
+        size <integer_cst 0x7f7099290bb8 constant 64>
+        unit-size <integer_cst 0x7f7099290bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f70992b19d8>>
+    var <var_decl 0x7f7098dc9120 result>
+    def_stmt result_54 = malloc (_53);
+    version:54
+    ptr-info 0x7f7098db7618>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: use location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:3 [0m
+[40;31m  	free count:0 [0m
+[40;31m  	possible double free [Looserules]:3 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f7098dcb048
+    type <pointer_type 0x7f70992ac000
+        type <void_type 0x7f70992a5f18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f70992ac000>>
+        public unsigned DI
+        size <integer_cst 0x7f7099290bb8 constant 64>
+        unit-size <integer_cst 0x7f7099290bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f70992b19d8>>
+    var <var_decl 0x7f7098dc9120 result>
+    def_stmt result_54 = malloc (_53);
+    version:54
+    ptr-info 0x7f7098db7618>
+# .MEM_85 = VDEF <.MEM_78>
+result_54 = malloc (_53);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+_86 = result_55;
+lto1: warning: use location
+_37->rbuf.buf = p_36;
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:125:33: warning: use location
+  125 |                 s->s3->rbuf.buf = p;
+      |                                 ^
+if (p_36 == 0B)
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:123:20: warning: use location
+  123 |                 if ((p=freelist_extract(s->ctx, 1, len)) == NULL)
+      |                    ^
+# .MEM_85 = VDEF <.MEM_78>
+result_54 = malloc (_53);
+result_54 = malloc (_53);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:72:26: warning: use location
+   72 |                 result = OPENSSL_malloc(sz);    /* allocation site */
+      |                          ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f7098dcb048
+    type <pointer_type 0x7f70992ac000
+        type <void_type 0x7f70992a5f18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f70992ac000>>
+        public unsigned DI
+        size <integer_cst 0x7f7099290bb8 constant 64>
+        unit-size <integer_cst 0x7f7099290bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f70992b19d8>>
+    var <var_decl 0x7f7098dc9120 result>
+    def_stmt result_54 = malloc (_53);
+    version:54
+    ptr-info 0x7f7098db7618>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: use location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: use location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: use location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_96 = VDEF <.MEM_91>
+free (mem_72);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:96:17: warning: free in this location
+   96 |                 OPENSSL_free(mem);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_19 = VDEF <.MEM_12>
+free (_6);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:174:9: warning: free in this location
+  174 |         OPENSSL_free(s->s3->rbuf.buf);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_20 = VDEF <.MEM_19>
+free (_7);
+./benchmarks/openssl/use_after_free_3/openssl_uaf_3.c:175:9: warning: free in this location
+  175 |         OPENSSL_free(s->s3);
+      |         ^
+[40;35m target gimple type: ssa_name [0m
+result_55 = PHI <result_52(9), result_54(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:3 [0m
+[40;31m  	free count:0 [0m
+[40;31m  	possible double free [Looserules]:3 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f7098dcb000
+    type <integer_type 0x7f70992a57e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f7099290bb8 constant 64>
+        unit-size <integer_cst 0x7f7099290bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f70992a5738 precision:64 min <integer_cst 0x7f7099290e88 0> max <integer_cst 0x7f7099291500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f70992b17e0>>
+   
+    def_stmt _53 = (long unsigned int) _34;
+    version:53>
+_53 = (long unsigned int) _34;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+s_11 = malloc (48);
+_1 = malloc (24);
+s_11->s3 = _1;
+_22 = s_11->s3;
+_23 = _22->rbuf.buf;
+if (_23 == 0B)
+  goto <bb 3>; [17.43%]
+else
+  goto <bb 16>; [82.57%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 187153200]:
+_30 = s_11->s3;
+_31 = _30->rbuf.buf;
+if (_31 == 0B)
+  goto <bb 4>; [17.43%]
+else
+  goto <bb 14>; [82.57%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 32620803]:
+len_33 = headerlen_32(D) + 16704;
+_34 = (int) len_33;
+_35 = s_11->ctx;
+_42 = _35->rbuf_freelist;
+if (_42 != 0B)
+  goto <bb 5>; [70.00%]
+else
+  goto <bb 9>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 22834562]:
+_45 = MEM[(struct SSL3_BUF_FREELIST *)_42].chunklen;
+_46 = (int) _45;
+if (_34 == _46)
+  goto <bb 6>; [34.00%]
+else
+  goto <bb 10>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 7763751]:
+ent_47 = MEM[(struct SSL3_BUF_FREELIST *)_42].head;
+if (ent_47 != 0B)
+  goto <bb 7>; [70.00%]
+else
+  goto <bb 10>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 5434626]:
+_48 = ent_47->next;
+MEM[(struct SSL3_BUF_FREELIST *)_42].head = _48;
+_49 = MEM[(struct SSL3_BUF_FREELIST *)_42].len;
+_50 = _49 + 4294967295;
+MEM[(struct SSL3_BUF_FREELIST *)_42].len = _50;
+_51 = MEM[(struct SSL3_BUF_FREELIST *)_42].len;
+if (_51 == 0)
+  goto <bb 8>; [50.00%]
+else
+  goto <bb 9>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 2717313]:
+MEM[(struct SSL3_BUF_FREELIST *)_42].chunklen = 0;
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 15220867]:
+# result_52 = PHI <0B(4), ent_47(7), ent_47(8)>
+if (result_52 == 0B)
+  goto <bb 10>; [30.00%]
+else
+  goto <bb 11>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 21966196]:
+_53 = (long unsigned int) _34;
+result_54 = malloc (_53);
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 32620803]:
+# result_55 = PHI <result_52(9), result_54(10)>
+_86 = result_55;
+p_36 = _86;
+if (p_36 == 0B)
+  goto <bb 12>; [18.09%]
+else
+  goto <bb 13>; [81.91%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 5901103]:
+// predicted unlikely by goto predictor.
+goto <bb 15>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 26719700]:
+_37 = s_11->s3;
+_37->rbuf.buf = p_36;
+_38 = s_11->s3;
+_38->rbuf.len = len_33;
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 181252097]:
+_39 = s_11->s3;
+_40 = _39->rbuf.buf;
+s_11->packet = _40;
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 187153200]:
+# _41 = PHI <0(12), 1(14)>
+_90 = _41;
+_24 = _90;
+if (_24 == 0)
+  goto <bb 29>; [1.04%]
+else
+  goto <bb 16>; [98.96%]
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 1071795430]:
+_25 = s_11->shutdown;
+_26 = _25 & 2;
+if (_26 != 0)
+  goto <bb 17>; [34.00%]
+else
+  goto <bb 18>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 364410450]:
+s_11->rwstate = 1;
+goto <bb 29>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [local count: 707384981]:
+s_11->rstate = 240;
+_27 = s_11->mode;
+_28 = _27 & 16;
+if (_28 != 0)
+  goto <bb 19>; [33.00%]
+else
+  goto <bb 29>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 233437042]:
+_56 = s_11->s3;
+_57 = _56->rbuf.buf;
+if (_57 != 0B)
+  goto <bb 20>; [53.47%]
+else
+  goto <bb 28>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 124818786]:
+_58 = s_11->s3;
+_59 = _58->rbuf.buf;
+_60 = s_11->s3;
+_61 = _60->rbuf.len;
+_62 = s_11->ctx;
+_64 = _62->rbuf_freelist;
+if (_64 != 0B)
+  goto <bb 21>; [70.00%]
+else
+  goto <bb 25>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [local count: 87373151]:
+_67 = MEM[(struct SSL3_BUF_FREELIST *)_64].chunklen;
+if (_61 == _67)
+  goto <bb 23>; [34.00%]
+else
+  goto <bb 22>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [local count: 57666279]:
+_68 = MEM[(struct SSL3_BUF_FREELIST *)_64].chunklen;
+if (_68 == 0)
+  goto <bb 23>; [50.00%]
+else
+  goto <bb 25>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 23 
+<bb 23> [local count: 58540011]:
+if (_61 > 7)
+  goto <bb 24>; [50.00%]
+else
+  goto <bb 25>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 24 
+<bb 24> [local count: 29270006]:
+MEM[(struct SSL3_BUF_FREELIST *)_64].chunklen = _61;
+_69 = MEM[(struct SSL3_BUF_FREELIST *)_64].head;
+MEM[(struct SSL3_BUF_FREELIST_ENTRY *)_59].next = _69;
+MEM[(struct SSL3_BUF_FREELIST *)_64].head = _59;
+_70 = MEM[(struct SSL3_BUF_FREELIST *)_64].len;
+_71 = _70 + 1;
+MEM[(struct SSL3_BUF_FREELIST *)_64].len = _71;
+goto <bb 27>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 25 
+<bb 25> [local count: 95548781]:
+# mem_72 = PHI <_59(20), _59(22), _59(23)>
+if (mem_72 != 0B)
+  goto <bb 26>; [53.47%]
+else
+  goto <bb 27>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 26 
+<bb 26> [local count: 51089933]:
+free (mem_72);
+
+=======is loop:0=========
+
+ bb index 27 
+<bb 27> [local count: 124818786]:
+_63 = s_11->s3;
+_63->rbuf.buf = 0B;
+
+=======is loop:0=========
+
+ bb index 28 
+<bb 28> [local count: 233437042]:
+
+=======is loop:0=========
+
+ bb index 29 
+<bb 29> [local count: 1073741824]:
+# _29 = PHI <-1(15), 0(17), 1(28), 1(18)>
+_2 = s_11->s3;
+_3 = _2->rbuf.left;
+if (_3 != 0)
+  goto <bb 30>; [33.00%]
+else
+  goto <bb 31>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 30 
+<bb 30> [local count: 354334800]:
+_4 = s_11->packet;
+printf ("%d\n", _4);
+
+=======is loop:0=========
+
+ bb index 31 
+<bb 31> [local count: 1073741824]:
+_5 = s_11->s3;
+_6 = _5->rbuf.buf;
+free (_6);
+_7 = s_11->s3;
+free (_7);
+free (s_11);
+return 0;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 3 [0m
+[40;34m    gimple free   count : 4 [0m
+[40;34m    all ptable point : 9 [0m
+[40;34m    analyzable ptable point : 3 [0m
+[40;34m    used_stmt array stack totalsize of : 0.003144 mb[0m
+[40;34m    collect time: : 0.000777 s [0m
+[40;34m    algorithm time: 0.016794 s [0m
+[40;34m    gimple stmt count : : 90 [0m
+[40;34m    this report analysis in Fri Feb 18 06:37:01 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 86%)
+ phase opt and generate             :   0.02 (100%)   0.01 (100%)   0.04 (100%)   324k ( 13%)
+ callgraph functions expansion      :   0.01 ( 50%)   0.01 (100%)   0.01 ( 25%)   152k (  6%)
+ ipa lto gimple in                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    79k (  3%)
+ df live regs                       :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)     0  (  0%)
+ plugin execution                   :   0.01 ( 50%)   0.00 (  0%)   0.02 ( 50%)  1448  (  0%)
+ initialize rtl                     :   0.01 ( 50%)   0.01 (100%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.02          0.01          0.04         2521k

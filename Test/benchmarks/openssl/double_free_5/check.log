@@ -1,0 +1,3693 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/openssl/double_free_5/openssl_df_5.c: In function ‘_CONF_get_section’:
+./benchmarks/openssl/double_free_5/openssl_df_5.c:140:36: warning: passing argument 1 of ‘lh_CONF_VALUE_retrieve’ from incompatible pointer type [-Wincompatible-pointer-types]
+  140 |     v = lh_CONF_VALUE_retrieve(conf->data, &vv);
+      |                                ~~~~^~~~~~
+      |                                    |
+      |                                    struct lhash_st_CONF_VALUE *
+./benchmarks/openssl/double_free_5/openssl_df_5.c:113:51: note: expected ‘OPENSSL_LHASH *’ {aka ‘struct lhash_st *’} but argument is of type ‘struct lhash_st_CONF_VALUE *’
+  113 | CONF_VALUE *lh_CONF_VALUE_retrieve(OPENSSL_LHASH *lh, const void *data)
+      |                                    ~~~~~~~~~~~~~~~^~
+./benchmarks/openssl/double_free_5/openssl_df_5.c: In function ‘_CONF_new_data’:
+./benchmarks/openssl/double_free_5/openssl_df_5.c:185:20: warning: assignment to ‘struct lhash_st_CONF_VALUE *’ from incompatible pointer type ‘CONF_VALUE *’ [-Wincompatible-pointer-types]
+  185 |         conf->data = lh_CONF_VALUE_new();
+      |                    ^
+./benchmarks/openssl/double_free_5/openssl_df_5.c: In function ‘CONF_load_bio’:
+./benchmarks/openssl/double_free_5/openssl_df_5.c:210:5: warning: implicit declaration of function ‘CONF_set_nconf’; did you mean ‘CONF_get_section’? [-Wimplicit-function-declaration]
+  210 |     CONF_set_nconf(&ctmp, conf);
+      |     ^~~~~~~~~~~~~~
+      |     CONF_get_section
+./benchmarks/openssl/double_free_5/openssl_df_5.c: In function ‘CONF_load’:
+./benchmarks/openssl/double_free_5/openssl_df_5.c:224:10: warning: implicit declaration of function ‘BIO_new_file’ [-Wimplicit-function-declaration]
+  224 |     in = BIO_new_file(file, "r");
+      |          ^~~~~~~~~~~~
+./benchmarks/openssl/double_free_5/openssl_df_5.c:224:8: warning: assignment to ‘BIO *’ {aka ‘struct bio_st *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  224 |     in = BIO_new_file(file, "r");
+      |        ^
+./benchmarks/openssl/double_free_5/openssl_df_5.c:230:5: warning: implicit declaration of function ‘BIO_free’ [-Wimplicit-function-declaration]
+  230 |     BIO_free(in);
+      |     ^~~~~~~~
+./benchmarks/openssl/double_free_5/openssl_df_5.c: In function ‘certify_spkac’:
+./benchmarks/openssl/double_free_5/openssl_df_5.c:256:27: warning: passing argument 1 of ‘CONF_get_section’ from incompatible pointer type [-Wincompatible-pointer-types]
+  256 |     sk = CONF_get_section(parms, "default");
+      |                           ^~~~~
+      |                           |
+      |                           struct lhash_st_CONF_VALUE *
+./benchmarks/openssl/double_free_5/openssl_df_5.c:158:52: note: expected ‘const CONF *’ {aka ‘const struct conf_st *’} but argument is of type ‘struct lhash_st_CONF_VALUE *’
+  158 | STACK_OF(CONF_VALUE) *CONF_get_section(const CONF *conf, const char *section)
+      |                                        ~~~~~~~~~~~~^~~~
+./benchmarks/openssl/double_free_5/openssl_df_5.c:257:9: warning: implicit declaration of function ‘sk_CONF_VALUE_num’; did you mean ‘lh_CONF_VALUE_new’? [-Wimplicit-function-declaration]
+  257 |     if (sk_CONF_VALUE_num(sk) == 0) {
+      |         ^~~~~~~~~~~~~~~~~
+      |         lh_CONF_VALUE_new
+./benchmarks/openssl/double_free_5/openssl_df_5.c:258:9: warning: implicit declaration of function ‘CONF_free’ [-Wimplicit-function-declaration]
+  258 |         CONF_free(parms);       /* freed */
+      |         ^~~~~~~~~
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: implicit declaration of function ‘sk_CONF_VALUE_value’; did you mean ‘lh_CONF_VALUE_new’? [-Wimplicit-function-declaration]
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |              ^~~~~~~~~~~~~~~~~~~
+      |              lh_CONF_VALUE_new
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:12: warning: assignment to ‘CONF_VALUE *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |            ^
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:14: warning: implicit declaration of function ‘X509_NAME_add_entry_by_NID’ [-Wimplicit-function-declaration]
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 34%)
+ phase parsing                      :   0.08 ( 89%)   0.01 (100%)   0.08 ( 80%)  2236k ( 59%)
+ phase opt and generate             :   0.01 ( 11%)   0.00 (  0%)   0.02 ( 20%)   230k (  6%)
+ callgraph ipa passes               :   0.01 ( 11%)   0.00 (  0%)   0.01 ( 10%)   124k (  3%)
+ preprocessing                      :   0.03 ( 33%)   0.00 (  0%)   0.02 ( 20%)  1210k ( 32%)
+ lexical analysis                   :   0.01 ( 11%)   0.00 (  0%)   0.01 ( 10%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)   796k ( 21%)
+ parser function body               :   0.04 ( 44%)   0.01 (100%)   0.04 ( 40%)    51k (  1%)
+ tree SSA other                     :   0.01 ( 11%)   0.00 (  0%)   0.00 (  0%)  1816  (  0%)
+ tree forward propagate             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)   400  (  0%)
+ plugin execution                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)     0  (  0%)
+ TOTAL                              :   0.09          0.01          0.10         3775k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 97%)
+ phase stream out                   :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ whopr wpa I/O                      :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.01          0.00          0.00         2222k
+../Compiler/newplugin.so 11.2.0 
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+node:= 2 
+ 	next_branch :=13
+	next_branch :=3
+node:= 3 
+ 	next_branch :=4
+	next_branch :=8
+node:= 4 
+ 	next_branch :=5
+	next_branch :=6
+node:= 5 
+ 	next_branch :=6
+node:= 6 
+ 	next_branch :=7
+	next_branch :=8
+node:= 7 
+ 	next_branch :=8
+node:= 8 
+ 	next_branch :=9
+	next_branch :=10
+node:= 9 
+ 	next_branch :=10
+node:= 10 
+ 	next_branch :=11
+	next_branch :=12
+node:= 11 
+ 	next_branch :=12
+node:= 12 
+ 	next_branch :=13
+node:= 13 
+ 	next_branch :=14
+	next_branch :=15
+node:= 14 
+ 	next_branch :=45
+node:= 15 
+ 	next_branch :=33
+	next_branch :=16
+node:= 16 
+ 	next_branch :=30
+	next_branch :=17
+node:= 17 
+ 	next_branch :=18
+	next_branch :=19
+node:= 18 
+ 	next_branch :=19
+node:= 19 
+ 	next_branch :=25
+node:= 20 
+ 	next_branch :=21
+	next_branch :=22
+node:= 21 
+ 	next_branch :=24
+node:= 22 
+ 	next_branch :=26
+	next_branch :=23
+node:= 23 
+ 	next_branch :=24
+node:= 24 
+ 	next_branch :=25
+node:= 25 
+ 	next_branch :=20
+	next_branch :=26
+node:= 26 
+ 	next_branch :=27
+	next_branch :=28
+node:= 27 
+ 	next_branch :=29
+node:= 28 
+ 	next_branch :=29
+node:= 29 
+ 	next_branch :=30
+node:= 30 
+ 	next_branch :=31
+	next_branch :=32
+node:= 31 
+ 	next_branch :=32
+node:= 32 
+ 	next_branch :=33
+node:= 33 
+ 	next_branch :=34
+	next_branch :=35
+node:= 34 
+ 	next_branch :=45
+node:= 35 
+ 	next_branch :=45
+	next_branch :=36
+node:= 36 
+ 	next_branch :=41
+node:= 37 
+ 	next_branch :=39
+	next_branch :=38
+node:= 38 
+ 	next_branch :=39
+	next_branch :=40
+node:= 39 
+ 	next_branch :=42
+node:= 40 
+ 	next_branch :=41
+node:= 41 
+ 	next_branch :=37
+	next_branch :=42
+node:= 42 
+ 	next_branch :=43
+	next_branch :=44
+node:= 43 
+ 	next_branch :=45
+node:= 44 
+ 	next_branch :=35
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 7 
+===============The second stage : Mapping stmt=================
+# .MEM_109 = VDEF <.MEM_6(D)>
+_30 = BIO_new_file (_2, "r");
+# .MEM_110 = VDEF <.MEM_109>
+CONF_set_nconf (&ctmp, 0B);
+# .MEM_111 = VDEF <.MEM_110>
+ret_44 = malloc (24);
+# .MEM_118 = VDEF <.MEM_116>
+BIO_free (in_32);
+# .MEM_138 = VDEF <.MEM_103>
+_10 = sk_CONF_VALUE_num (sk_9);
+# .MEM_142 = VDEF <.MEM_138>
+CONF_free (parms_8);
+# .MEM_139 = VDEF <.MEM_99>
+_11 = sk_CONF_VALUE_num (sk_9);
+# .MEM_140 = VDEF <.MEM_139>
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+# .MEM_141 = VDEF <.MEM_140>
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+# .MEM_143 = VDEF <.MEM_100>
+CONF_free (parms_8);
+===============The second stage : Program slicing=================
+=============== *this point analyzable =================
+_30 = BIO_new_file (_2, "r");
+=============== *this point analyzable =================
+ret_44 = malloc (24);
+=============== *this point analyzable =================
+_94 = cf_78 (_93, &vv);
+=============== *this point analyzable =================
+_10 = sk_CONF_VALUE_num (sk_9);
+=============== *this point analyzable =================
+_11 = sk_CONF_VALUE_num (sk_9);
+=============== *this point analyzable =================
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+=============== *this point analyzable =================
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+=============== *this point analyzable =================
+_30 = BIO_new_file (_2, "r");
+=============== *this point analyzable =================
+BIO_free (in_32);
+=============== *this point analyzable =================
+_10 = sk_CONF_VALUE_num (sk_9);
+=============== *this point analyzable =================
+CONF_free (parms_8);
+=============== *this point analyzable =================
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+=============== *this point analyzable =================
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+=============== *this point analyzable =================
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 8 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:CONF_free========= [0m
+[40;33m =======POP node_fun stack:CONF_free========= [0m
+[40;42m =======pre add _ fucntion:X509_NAME_add_entry_by_NID========= [0m
+[40;33m =======POP node_fun stack:X509_NAME_add_entry_by_NID========= [0m
+[40;42m =======pre add _ fucntion:sk_CONF_VALUE_value========= [0m
+[40;33m =======POP node_fun stack:sk_CONF_VALUE_value========= [0m
+[40;42m =======pre add _ fucntion:sk_CONF_VALUE_num========= [0m
+[40;33m =======POP node_fun stack:sk_CONF_VALUE_num========= [0m
+[40;42m =======pre add _ fucntion:BIO_free========= [0m
+[40;33m =======POP node_fun stack:BIO_free========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:CONF_set_nconf========= [0m
+[40;33m =======POP node_fun stack:CONF_set_nconf========= [0m
+[40;42m =======pre add _ fucntion:BIO_new_file========= [0m
+[40;33m =======POP node_fun stack:BIO_new_file========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc0b30750
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+   
+    def_stmt _30 = BIO_new_file (_2, "r");
+    version:30>
+# .MEM_109 = VDEF <.MEM_6(D)>
+_30 = BIO_new_file (_2, "r");
+
+ ================== pre trace ptable ================== 
+trace fucntion name:BIO_new_file 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function BIO_new_file
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_109 = VDEF <.MEM_6(D)>
+_30 = BIO_new_file (_2, "r");
+_30 = BIO_new_file (_2, "r");
+In function ‘main’:
+./benchmarks/openssl/double_free_5/openssl_df_5.c:224:10: warning: use location
+  224 |     in = BIO_new_file(file, "r");
+      |          ^
+this stmt call this function :BIO_new_file
+trace fucntion name:BIO_new_file 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_30 == 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:225:8: warning: use location
+  225 |     if (in == NULL) {
+      |        ^
+_31 = (long int) _30;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:224:10: warning: use location
+  224 |     in = BIO_new_file(file, "r");
+      |          ^
+in_32 = (struct BIO *) _31;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:224:8: warning: use location
+  224 |     in = BIO_new_file(file, "r");
+      |        ^
+BIO_free (in_32);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:230:5: warning: use location
+  230 |     BIO_free(in);
+      |     ^
+this stmt call this function :BIO_free
+trace fucntion name:BIO_free 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc0b30750
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+   
+    def_stmt _30 = BIO_new_file (_2, "r");
+    version:30>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc10005e8
+    type <pointer_type 0x7fcdc0b19d20
+        type <record_type 0x7fcdc0b19c78 CONF_VALUE BLK
+            size <integer_cst 0x7fcdc1016078 constant 192>
+            unit-size <integer_cst 0x7fcdc1016048 constant 24>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc0b19bd0 fields <field_decl 0x7fcdc0b1b2f8 section> context <translation_unit_decl 0x7fcdc1003168 ./benchmarks/openssl/double_free_5/openssl_df_5.c>
+            pointer_to_this <pointer_type 0x7fcdc0b19d20>>
+        public unsigned DI
+        size <integer_cst 0x7fcdc0ff8bb8 constant 64>
+        unit-size <integer_cst 0x7fcdc0ff8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fcdc0b37480 ret>
+    def_stmt ret_44 = malloc (24);
+    version:44
+    ptr-info 0x7fcdc0b27c00>
+# .MEM_111 = VDEF <.MEM_110>
+ret_44 = malloc (24);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_45 = PHI <ret_44(4), 0B(5)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+_112 = _45;
+lto1: warning: use location
+_41 = _112;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:185:22: warning: use location
+  185 |         conf->data = lh_CONF_VALUE_new();
+      |                      ^
+ctmp.data = _41;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:185:20: warning: use location
+  185 |         conf->data = lh_CONF_VALUE_new();
+      |                    ^
+CONF_set_nconf (&ctmp, 0B);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:210:5: warning: use location
+  210 |     CONF_set_nconf(&ctmp, conf);
+      |     ^
+this stmt call this function :CONF_set_nconf
+trace fucntion name:CONF_set_nconf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+CONF_set_nconf (&ctmp, 0B);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:210:5: warning: use location
+this stmt call this function :CONF_set_nconf
+trace fucntion name:CONF_set_nconf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_40 = ctmp.data;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:184:13: warning: use location
+  184 |     if (conf->data == NULL) {
+      |             ^
+_42 = ctmp.data;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:186:17: warning: use location
+  186 |         if (conf->data == NULL)
+      |                 ^
+_36 = ctmp.data;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:214:20: warning: use location
+  214 |         return ctmp.data;
+      |                    ^
+_37 = PHI <0B(10), _36(11)>
+lto1: warning: use location
+this stmt have mutiple branch ---CONF_set_nconf-----
+ltmp_33 = _117;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:229:12: warning: use location
+  229 |     ltmp = CONF_load_bio(conf, in, eline);
+      |            ^
+_34 = PHI <0B(2), ltmp_33(12)>
+lto1: warning: use location
+this stmt have mutiple branch ---CONF_set_nconf-----
+_119 = _34;
+lto1: warning: use location
+parms_8 = _119;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:251:13: warning: use location
+  251 |     parms = CONF_load(NULL, infile, &errline);
+      |             ^
+CONF_free (parms_8);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:289:5: warning: use location
+  289 |     CONF_free(parms);   /* double-free */
+      |     ^
+this stmt call this function :CONF_free
+trace fucntion name:CONF_free 
+
+ ================== trace ================== 
+trace fucntion free:0 
+CONF_free (parms_8);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:258:9: warning: use location
+  258 |         CONF_free(parms);       /* freed */
+      |         ^
+this stmt call this function :CONF_free
+trace fucntion name:CONF_free 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_54 = MEM[(const struct CONF *)parms_8].data;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:140:36: warning: use location
+  140 |     v = lh_CONF_VALUE_retrieve(conf->data, &vv);
+      |                                    ^
+MEM[(struct OPENSSL_LHASH *)_54].num_retrieve = _64;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:127:25: warning: use location
+  127 |         lh->num_retrieve++;
+      |                         ^
+_63 = MEM[(struct OPENSSL_LHASH *)_54].num_retrieve;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:127:11: warning: use location
+  127 |         lh->num_retrieve++;
+      |           ^
+MEM[(struct OPENSSL_LHASH *)_54].num_retrieve_miss = _60;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:123:30: warning: use location
+  123 |         lh->num_retrieve_miss++;
+      |                              ^
+_59 = MEM[(struct OPENSSL_LHASH *)_54].num_retrieve_miss;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:123:11: warning: use location
+  123 |         lh->num_retrieve_miss++;
+      |           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+MEM[(struct OPENSSL_LHASH *)_54].num_comp_calls = _92;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:105:27: warning: use location
+  105 |         lh->num_comp_calls++;
+      |                           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_91 = MEM[(struct OPENSSL_LHASH *)_54].num_comp_calls;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:105:11: warning: use location
+  105 |         lh->num_comp_calls++;
+      |           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+MEM[(struct OPENSSL_LHASH *)_54].num_hash_comps = _87;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:100:27: warning: use location
+  100 |         lh->num_hash_comps++;
+      |                           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_86 = MEM[(struct OPENSSL_LHASH *)_54].num_hash_comps;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:100:11: warning: use location
+  100 |         lh->num_hash_comps++;
+      |           ^
+_79 = MEM[(struct OPENSSL_LHASH *)_54].b;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:98:15: warning: use location
+   98 |     ret = &(lh->b[(int)nn]);
+      |               ^
+ret_84 = _79 + _83;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:98:9: warning: use location
+   98 |     ret = &(lh->b[(int)nn]);
+      |         ^
+n1_85 = *ret_84;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:99:13: warning: use location
+   99 |     for (n1 = *ret; n1 != NULL; n1 = n1->next) {
+      |             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+n1_88 = PHI <n1_85(19), n1_96(24)>
+lto1: warning: use location
+this stmt have mutiple branch ---CONF_free-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+n1_96 = n1_88->next;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:99:36: warning: use location
+   99 |     for (n1 = *ret; n1 != NULL; n1 = n1->next) {
+      |                                    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_94 = cf_78 (_93, &vv);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:106:13: warning: use location
+  106 |         if (cf(n1->data, data) == 0)
+      |             ^
+trace fucntion name:cf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_94 == 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:106:12: warning: use location
+  106 |         if (cf(n1->data, data) == 0)
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_89 = n1_88->hash;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:101:15: warning: use location
+  101 |         if (n1->hash != hash) {
+      |               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (n1_88 != 0B)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:99:24: warning: use location
+   99 |     for (n1 = *ret; n1 != NULL; n1 = n1->next) {
+      |                        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+ret_95 = &n1_88->next;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:108:13: warning: use location
+  108 |         ret = &(n1->next);
+      |             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+ret_98 = PHI <ret_90(21), ret_95(23)>
+lto1: warning: use location
+this stmt have mutiple branch ---cf-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+ret_97 = PHI <ret_84(19), ret_98(24)>
+lto1: warning: use location
+this stmt have mutiple branch ---cf-----
+_129 = ret_97;
+lto1: warning: use location
+_61 = *rn_57;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:126:16: warning: use location
+  126 |         ret = (*rn)->data;
+      |                ^
+ret_62 = _61->data;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:126:13: warning: use location
+  126 |         ret = (*rn)->data;
+      |             ^
+_65 = PHI <0B(27), ret_62(28)>
+lto1: warning: use location
+this stmt have mutiple branch ---cf-----
+_133 = _65;
+lto1: warning: use location
+v_55 = _133;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:140:9: warning: use location
+  140 |     v = lh_CONF_VALUE_retrieve(conf->data, &vv);
+      |         ^
+_56 = PHI <0B(16), v_55(29)>
+lto1: warning: use location
+this stmt have mutiple branch ---cf-----
+_135 = _56;
+lto1: warning: use location
+v_48 = _135;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:150:9: warning: use location
+  150 |     v = _CONF_get_section(conf, section);
+      |         ^
+_49 = v_48->value;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:152:17: warning: use location
+  152 |         return ((STACK_OF(CONF_VALUE) *)v->value);
+      |                 ^
+_50 = PHI <0B(30), _49(31)>
+lto1: warning: use location
+this stmt have mutiple branch ---cf-----
+_136 = _50;
+lto1: warning: use location
+_46 = _136;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:168:12: warning: use location
+  168 |     return _CONF_get_section_values(conf, section);
+      |            ^
+_47 = PHI <0B(15), _46(32)>
+lto1: warning: use location
+this stmt have mutiple branch ---cf-----
+_137 = _47;
+lto1: warning: use location
+sk_9 = _137;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:256:10: warning: use location
+  256 |     sk = CONF_get_section(parms, "default");
+      |          ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |              ^
+this stmt call this function :sk_CONF_VALUE_value
+trace fucntion name:sk_CONF_VALUE_value 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_14 = (long int) _13;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+cv_15 = (struct CONF_VALUE *) _14;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:12: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_16 = cv_15->name;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:18: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_17 = PHI <buf_16(36), buf_24(40)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_25 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_25 != 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_22 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:52: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_22 == 46)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:48: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_18 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:18: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_27 = PHI <buf_23(39), buf_17(41)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:14: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |              ^
+this stmt call this function :X509_NAME_add_entry_by_NID
+trace fucntion name:X509_NAME_add_entry_by_NID 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_29 = i_12 + 1;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:266:19: warning: use location
+  266 |     for (i = 0;; i++) {
+      |                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_11 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:267:13: warning: use location
+  267 |         if (sk_CONF_VALUE_num(sk) <= i)
+      |             ^
+this stmt call this function :sk_CONF_VALUE_num
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_10 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:257:9: warning: use location
+  257 |     if (sk_CONF_VALUE_num(sk) == 0) {
+      |         ^
+this stmt call this function :sk_CONF_VALUE_num
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (v_48 != 0B)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:151:8: warning: use location
+  151 |     if (v != NULL)
+      |        ^
+_58 = *rn_57;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:122:9: warning: use location
+  122 |     if (*rn == NULL) {
+      |         ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+ret_90 = &n1_88->next;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:102:17: warning: use location
+  102 |             ret = &(n1->next);
+      |                 ^
+cf_78 = MEM[(struct OPENSSL_LHASH *)_54].comp;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:97:8: warning: use location
+   97 |     cf = lh->comp;
+      |        ^
+_75 = MEM[(struct OPENSSL_LHASH *)_54].num_alloc_nodes;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:95:23: warning: use location
+   95 |         nn = hash % lh->num_alloc_nodes;
+      |                       ^
+_76 = (long unsigned int) _75;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:95:23: warning: use location
+nn_80 = PHI <nn_72(17), nn_77(18)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_num-----
+_81 = (int) nn_80;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:98:19: warning: use location
+   98 |     ret = &(lh->b[(int)nn]);
+      |                   ^
+_82 = (long unsigned int) _81;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:98:19: warning: use location
+_83 = _82 * 8;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:98:18: warning: use location
+   98 |     ret = &(lh->b[(int)nn]);
+      |                  ^
+_73 = MEM[(struct OPENSSL_LHASH *)_54].p;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:94:16: warning: use location
+   94 |     if (nn < lh->p)
+      |                ^
+_74 = (long unsigned int) _73;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:94:16: warning: use location
+_70 = MEM[(struct OPENSSL_LHASH *)_54].pmax;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:93:19: warning: use location
+   93 |     nn = hash % lh->pmax;
+      |                   ^
+_71 = (long unsigned int) _70;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:93:19: warning: use location
+MEM[(struct OPENSSL_LHASH *)_54].num_hash_calls = _69;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:90:23: warning: use location
+   90 |     lh->num_hash_calls++;
+      |                       ^
+_68 = MEM[(struct OPENSSL_LHASH *)_54].num_hash_calls;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:90:7: warning: use location
+   90 |     lh->num_hash_calls++;
+      |       ^
+MEM[(struct OPENSSL_LHASH *)_54].error = 0;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:119:15: warning: use location
+  119 |     lh->error = 0;
+      |               ^
+_51 = parms_8 == 0B;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:136:15: warning: use location
+  136 |     if ((conf == NULL) || (section == NULL))
+      |               ^
+_53 = _51 | _52;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:136:24: warning: use location
+  136 |     if ((conf == NULL) || (section == NULL))
+      |                        ^
+if (_53 != 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:136:8: warning: use location
+  136 |     if ((conf == NULL) || (section == NULL))
+      |        ^
+if (parms_8 == 0B)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:160:8: warning: use location
+  160 |     if (conf == NULL) {
+      |        ^
+# .MEM_111 = VDEF <.MEM_110>
+ret_44 = malloc (24);
+ret_44 = malloc (24);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:174:19: warning: use location
+  174 |         if((ret = OPENSSL_zalloc(sizeof(*ret))) == NULL)        /* allocation site */
+      |                   ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc10005e8
+    type <pointer_type 0x7fcdc0b19d20
+        type <record_type 0x7fcdc0b19c78 CONF_VALUE BLK
+            size <integer_cst 0x7fcdc1016078 constant 192>
+            unit-size <integer_cst 0x7fcdc1016048 constant 24>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc0b19bd0 fields <field_decl 0x7fcdc0b1b2f8 section> context <translation_unit_decl 0x7fcdc1003168 ./benchmarks/openssl/double_free_5/openssl_df_5.c>
+            pointer_to_this <pointer_type 0x7fcdc0b19d20>>
+        public unsigned DI
+        size <integer_cst 0x7fcdc0ff8bb8 constant 64>
+        unit-size <integer_cst 0x7fcdc0ff8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fcdc0b37480 ret>
+    def_stmt ret_44 = malloc (24);
+    version:44
+    ptr-info 0x7fcdc0b27c00>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc0b47048
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+   
+    def_stmt _94 = cf_78 (_93, &vv);
+    version:94>
+# .MEM_128 = VDEF <.MEM_127>
+_94 = cf_78 (_93, &vv);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:cf 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_94 == 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:106:12: warning: use location
+  106 |         if (cf(n1->data, data) == 0)
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_128 = VDEF <.MEM_127>
+_94 = cf_78 (_93, &vv);
+_94 = cf_78 (_93, &vv);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:106:13: warning: use location
+  106 |         if (cf(n1->data, data) == 0)
+      |             ^
+trace fucntion name:cf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc0b47048
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+   
+    def_stmt _94 = cf_78 (_93, &vv);
+    version:94>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc1000630
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+   
+    def_stmt _10 = sk_CONF_VALUE_num (sk_9);
+    version:10>
+# .MEM_138 = VDEF <.MEM_103>
+_10 = sk_CONF_VALUE_num (sk_9);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function sk_CONF_VALUE_num
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |              ^
+this stmt call this function :sk_CONF_VALUE_value
+trace fucntion name:sk_CONF_VALUE_value 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_14 = (long int) _13;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+cv_15 = (struct CONF_VALUE *) _14;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:12: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_16 = cv_15->name;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:18: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_17 = PHI <buf_16(36), buf_24(40)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_25 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_25 != 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_22 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:52: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_22 == 46)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:48: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_18 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:18: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_27 = PHI <buf_23(39), buf_17(41)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:14: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |              ^
+this stmt call this function :X509_NAME_add_entry_by_NID
+trace fucntion name:X509_NAME_add_entry_by_NID 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_28 == 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:12: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_29 = i_12 + 1;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:266:19: warning: use location
+  266 |     for (i = 0;; i++) {
+      |                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+
+======================================================================
+
+ Expand conflict 
+ The same function may have multiple branches :sk_CONF_VALUE_num
+# .MEM_138 = VDEF <.MEM_103>
+_10 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:257:9: warning: use location
+  257 |     if (sk_CONF_VALUE_num(sk) == 0) {
+      |         ^
+# .MEM_139 = VDEF <.MEM_99>
+_11 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:267:13: warning: use location
+  267 |         if (sk_CONF_VALUE_num(sk) <= i)
+      |             ^
+# .MEM_138 = VDEF <.MEM_103>
+_10 = sk_CONF_VALUE_num (sk_9);
+_10 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:257:9: warning: use location
+  257 |     if (sk_CONF_VALUE_num(sk) == 0) {
+      |         ^
+this stmt call this function :sk_CONF_VALUE_num
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== trace ================== 
+trace fucntion free:0 
+# .MEM_138 = VDEF <.MEM_103>
+_10 = sk_CONF_VALUE_num (sk_9);
+_10 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:257:9: warning: use location
+this stmt call this function :sk_CONF_VALUE_num
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc1000630
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+   
+    def_stmt _10 = sk_CONF_VALUE_num (sk_9);
+    version:10>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc1000ee8
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+   
+    def_stmt _11 = sk_CONF_VALUE_num (sk_9);
+    version:11>
+# .MEM_139 = VDEF <.MEM_99>
+_11 = sk_CONF_VALUE_num (sk_9);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function sk_CONF_VALUE_num
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |              ^
+this stmt call this function :sk_CONF_VALUE_value
+trace fucntion name:sk_CONF_VALUE_value 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_14 = (long int) _13;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+cv_15 = (struct CONF_VALUE *) _14;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:12: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_16 = cv_15->name;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:18: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_17 = PHI <buf_16(36), buf_24(40)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_25 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_25 != 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_22 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:52: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_22 == 46)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:48: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_18 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:18: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_27 = PHI <buf_23(39), buf_17(41)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:14: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |              ^
+this stmt call this function :X509_NAME_add_entry_by_NID
+trace fucntion name:X509_NAME_add_entry_by_NID 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_28 == 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:12: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_29 = i_12 + 1;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:266:19: warning: use location
+  266 |     for (i = 0;; i++) {
+      |                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_139 = VDEF <.MEM_99>
+_11 = sk_CONF_VALUE_num (sk_9);
+_11 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:267:13: warning: use location
+  267 |         if (sk_CONF_VALUE_num(sk) <= i)
+      |             ^
+this stmt call this function :sk_CONF_VALUE_num
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+
+ Expand conflict 
+ The same function may have multiple branches :sk_CONF_VALUE_num
+# .MEM_139 = VDEF <.MEM_99>
+_11 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:267:13: warning: use location
+# .MEM_138 = VDEF <.MEM_103>
+_10 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:257:9: warning: use location
+  257 |     if (sk_CONF_VALUE_num(sk) == 0) {
+      |         ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc1000ee8
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+   
+    def_stmt _11 = sk_CONF_VALUE_num (sk_9);
+    version:11>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc0b30048
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+   
+    def_stmt _13 = sk_CONF_VALUE_value (sk_9, i_12);
+    version:13>
+# .MEM_140 = VDEF <.MEM_139>
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:sk_CONF_VALUE_value 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function sk_CONF_VALUE_value
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_140 = VDEF <.MEM_139>
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |              ^
+this stmt call this function :sk_CONF_VALUE_value
+trace fucntion name:sk_CONF_VALUE_value 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_14 = (long int) _13;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+cv_15 = (struct CONF_VALUE *) _14;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:12: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_16 = cv_15->name;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:18: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_17 = PHI <buf_16(36), buf_24(40)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_25 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_25 != 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_22 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:52: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_22 == 46)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:48: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_18 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:18: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_27 = PHI <buf_23(39), buf_17(41)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:14: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |              ^
+this stmt call this function :X509_NAME_add_entry_by_NID
+trace fucntion name:X509_NAME_add_entry_by_NID 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_28 == 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:12: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_29 = i_12 + 1;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:266:19: warning: use location
+  266 |     for (i = 0;; i++) {
+      |                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_11 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:267:13: warning: use location
+  267 |         if (sk_CONF_VALUE_num(sk) <= i)
+      |             ^
+this stmt call this function :sk_CONF_VALUE_num
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_10 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:257:9: warning: use location
+  257 |     if (sk_CONF_VALUE_num(sk) == 0) {
+      |         ^
+this stmt call this function :sk_CONF_VALUE_num
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc0b30048
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+   
+    def_stmt _13 = sk_CONF_VALUE_value (sk_9, i_12);
+    version:13>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc0b30480
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+   
+    def_stmt _28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+    version:28>
+# .MEM_141 = VDEF <.MEM_140>
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:X509_NAME_add_entry_by_NID 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function X509_NAME_add_entry_by_NID
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_141 = VDEF <.MEM_140>
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:14: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |              ^
+this stmt call this function :X509_NAME_add_entry_by_NID
+trace fucntion name:X509_NAME_add_entry_by_NID 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_28 == 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:12: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |            ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc0b30480
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+   
+    def_stmt _28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+    version:28>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc10006c0
+    type <pointer_type 0x7fcdc0b10a80
+        type <integer_type 0x7fcdc0b109d8 char public QI
+            size <integer_cst 0x7fcdc0ff8ca8 constant 8>
+            unit-size <integer_cst 0x7fcdc0ff8cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d3f0 precision:8 min <integer_cst 0x7fcdc0b07720 -128> max <integer_cst 0x7fcdc0b07708 127>
+            pointer_to_this <pointer_type 0x7fcdc0b10a80>>
+        public unsigned DI
+        size <integer_cst 0x7fcdc0ff8bb8 constant 64>
+        unit-size <integer_cst 0x7fcdc0ff8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7fcdc1003168 ./benchmarks/openssl/double_free_5/openssl_df_5.c>
+        pointer_to_this <pointer_type 0x7fcdc0b10b28>>
+   
+    def_stmt _2 = *argv_5(D);
+    version:2
+    ptr-info 0x7fcdc0b27a50>
+# VUSE <.MEM_6(D)>
+_2 = *argv_5(D);
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_109 = VDEF <.MEM_6(D)>
+_30 = BIO_new_file (_2, "r");
+_30 = BIO_new_file (_2, "r");
+./benchmarks/openssl/double_free_5/openssl_df_5.c:224:10: warning: use location
+  224 |     in = BIO_new_file(file, "r");
+      |          ^
+this stmt call this function :BIO_new_file
+trace fucntion name:BIO_new_file 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (_30 == 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:225:8: warning: use location
+  225 |     if (in == NULL) {
+      |        ^
+_31 = (long int) _30;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:224:10: warning: use location
+  224 |     in = BIO_new_file(file, "r");
+      |          ^
+in_32 = (struct BIO *) _31;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:224:8: warning: use location
+  224 |     in = BIO_new_file(file, "r");
+      |        ^
+BIO_free (in_32);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:230:5: warning: use location
+  230 |     BIO_free(in);
+      |     ^
+this stmt call this function :BIO_free
+trace fucntion name:BIO_free 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc10006c0
+    type <pointer_type 0x7fcdc0b10a80
+        type <integer_type 0x7fcdc0b109d8 char public QI
+            size <integer_cst 0x7fcdc0ff8ca8 constant 8>
+            unit-size <integer_cst 0x7fcdc0ff8cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d3f0 precision:8 min <integer_cst 0x7fcdc0b07720 -128> max <integer_cst 0x7fcdc0b07708 127>
+            pointer_to_this <pointer_type 0x7fcdc0b10a80>>
+        public unsigned DI
+        size <integer_cst 0x7fcdc0ff8bb8 constant 64>
+        unit-size <integer_cst 0x7fcdc0ff8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7fcdc1003168 ./benchmarks/openssl/double_free_5/openssl_df_5.c>
+        pointer_to_this <pointer_type 0x7fcdc0b10b28>>
+   
+    def_stmt _2 = *argv_5(D);
+    version:2
+    ptr-info 0x7fcdc0b27a50>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc0b307e0
+    type <pointer_type 0x7fcdc0b179d8
+        type <record_type 0x7fcdc0b17930 BIO VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7fcdc1003168 ./benchmarks/openssl/double_free_5/openssl_df_5.c>
+            pointer_to_this <pointer_type 0x7fcdc0b179d8>>
+        unsigned DI
+        size <integer_cst 0x7fcdc0ff8bb8 constant 64>
+        unit-size <integer_cst 0x7fcdc0ff8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fcdc0b32510 in>
+    def_stmt in_32 = (struct BIO *) _31;
+    version:32
+    ptr-info 0x7fcdc0b27b40>
+in_32 = (struct BIO *) _31;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_118 = VDEF <.MEM_116>
+BIO_free (in_32);
+BIO_free (in_32);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:230:5: warning: use location
+this stmt call this function :BIO_free
+trace fucntion name:BIO_free 
+
+ ================== trace ================== 
+trace fucntion free:0 
+# .MEM_118 = VDEF <.MEM_116>
+BIO_free (in_32);
+BIO_free (in_32);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:230:5: warning: use location
+this stmt call this function :BIO_free
+trace fucntion name:BIO_free 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc0b307e0
+    type <pointer_type 0x7fcdc0b179d8
+        type <record_type 0x7fcdc0b17930 BIO VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7fcdc1003168 ./benchmarks/openssl/double_free_5/openssl_df_5.c>
+            pointer_to_this <pointer_type 0x7fcdc0b179d8>>
+        unsigned DI
+        size <integer_cst 0x7fcdc0ff8bb8 constant 64>
+        unit-size <integer_cst 0x7fcdc0ff8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fcdc0b32510 in>
+    def_stmt in_32 = (struct BIO *) _31;
+    version:32
+    ptr-info 0x7fcdc0b27b40>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc1000f78
+    type <pointer_type 0x7fcdc0b10540
+        type <record_type 0x7fcdc0b10498 stack_st_CONF_VALUE VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7fcdc1003168 ./benchmarks/openssl/double_free_5/openssl_df_5.c>
+            pointer_to_this <pointer_type 0x7fcdc0b10540>>
+        public unsigned DI
+        size <integer_cst 0x7fcdc0ff8bb8 constant 64>
+        unit-size <integer_cst 0x7fcdc0ff8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fcdc0b2c7e0 sk>
+    def_stmt sk_9 = _137;
+    version:9
+    ptr-info 0x7fcdc0b27a98>
+sk_9 = _137;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |              ^
+this stmt call this function :sk_CONF_VALUE_value
+trace fucntion name:sk_CONF_VALUE_value 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_14 = (long int) _13;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+cv_15 = (struct CONF_VALUE *) _14;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:12: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_16 = cv_15->name;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:18: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_17 = PHI <buf_16(36), buf_24(40)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_25 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_25 != 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_22 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:52: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_22 == 46)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:48: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_18 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:18: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_27 = PHI <buf_23(39), buf_17(41)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:14: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |              ^
+this stmt call this function :X509_NAME_add_entry_by_NID
+trace fucntion name:X509_NAME_add_entry_by_NID 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_28 == 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:12: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_29 = i_12 + 1;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:266:19: warning: use location
+  266 |     for (i = 0;; i++) {
+      |                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+
+======================================================================
+
+ Expand conflict 
+ The same function may have multiple branches :sk_CONF_VALUE_num
+# .MEM_138 = VDEF <.MEM_103>
+_10 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:257:9: warning: use location
+  257 |     if (sk_CONF_VALUE_num(sk) == 0) {
+      |         ^
+# .MEM_139 = VDEF <.MEM_99>
+_11 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:267:13: warning: use location
+  267 |         if (sk_CONF_VALUE_num(sk) <= i)
+      |             ^
+# .MEM_138 = VDEF <.MEM_103>
+_10 = sk_CONF_VALUE_num (sk_9);
+_10 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:257:9: warning: use location
+  257 |     if (sk_CONF_VALUE_num(sk) == 0) {
+      |         ^
+this stmt call this function :sk_CONF_VALUE_num
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== trace ================== 
+trace fucntion free:0 
+# .MEM_138 = VDEF <.MEM_103>
+_10 = sk_CONF_VALUE_num (sk_9);
+_10 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:257:9: warning: use location
+this stmt call this function :sk_CONF_VALUE_num
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc1000f78
+    type <pointer_type 0x7fcdc0b10540
+        type <record_type 0x7fcdc0b10498 stack_st_CONF_VALUE VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7fcdc1003168 ./benchmarks/openssl/double_free_5/openssl_df_5.c>
+            pointer_to_this <pointer_type 0x7fcdc0b10540>>
+        public unsigned DI
+        size <integer_cst 0x7fcdc0ff8bb8 constant 64>
+        unit-size <integer_cst 0x7fcdc0ff8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fcdc0b2c7e0 sk>
+    def_stmt sk_9 = _137;
+    version:9
+    ptr-info 0x7fcdc0b27a98>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc1000f30
+    type <pointer_type 0x7fcdc0b1c498
+        type <record_type 0x7fcdc0b1c3f0 lhash_st_CONF_VALUE DI
+            size <integer_cst 0x7fcdc0ff8bb8 constant 64>
+            unit-size <integer_cst 0x7fcdc0ff8bd0 constant 8>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc0b1c3f0 fields <field_decl 0x7fcdc0b1b720 dummy> context <translation_unit_decl 0x7fcdc1003168 ./benchmarks/openssl/double_free_5/openssl_df_5.c>
+            pointer_to_this <pointer_type 0x7fcdc0b1c498>>
+        public unsigned DI size <integer_cst 0x7fcdc0ff8bb8 64> unit-size <integer_cst 0x7fcdc0ff8bd0 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fcdc0b2c870 parms>
+    def_stmt parms_8 = _119;
+    version:8
+    ptr-info 0x7fcdc0b27a80>
+parms_8 = _119;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+
+ Expand conflict 
+ The same function may have multiple branches :CONF_free
+# .MEM_142 = VDEF <.MEM_138>
+CONF_free (parms_8);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:258:9: warning: use location
+  258 |         CONF_free(parms);       /* freed */
+      |         ^
+# .MEM_143 = VDEF <.MEM_100>
+CONF_free (parms_8);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:289:5: warning: use location
+  289 |     CONF_free(parms);   /* double-free */
+      |     ^
+# .MEM_142 = VDEF <.MEM_138>
+CONF_free (parms_8);
+CONF_free (parms_8);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:258:9: warning: use location
+  258 |         CONF_free(parms);       /* freed */
+      |         ^
+this stmt call this function :CONF_free
+trace fucntion name:CONF_free 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_54 = MEM[(const struct CONF *)parms_8].data;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:140:36: warning: use location
+  140 |     v = lh_CONF_VALUE_retrieve(conf->data, &vv);
+      |                                    ^
+MEM[(struct OPENSSL_LHASH *)_54].num_retrieve = _64;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:127:25: warning: use location
+  127 |         lh->num_retrieve++;
+      |                         ^
+_63 = MEM[(struct OPENSSL_LHASH *)_54].num_retrieve;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:127:11: warning: use location
+  127 |         lh->num_retrieve++;
+      |           ^
+MEM[(struct OPENSSL_LHASH *)_54].num_retrieve_miss = _60;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:123:30: warning: use location
+  123 |         lh->num_retrieve_miss++;
+      |                              ^
+_59 = MEM[(struct OPENSSL_LHASH *)_54].num_retrieve_miss;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:123:11: warning: use location
+  123 |         lh->num_retrieve_miss++;
+      |           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+MEM[(struct OPENSSL_LHASH *)_54].num_comp_calls = _92;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:105:27: warning: use location
+  105 |         lh->num_comp_calls++;
+      |                           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_91 = MEM[(struct OPENSSL_LHASH *)_54].num_comp_calls;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:105:11: warning: use location
+  105 |         lh->num_comp_calls++;
+      |           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+MEM[(struct OPENSSL_LHASH *)_54].num_hash_comps = _87;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:100:27: warning: use location
+  100 |         lh->num_hash_comps++;
+      |                           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_86 = MEM[(struct OPENSSL_LHASH *)_54].num_hash_comps;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:100:11: warning: use location
+  100 |         lh->num_hash_comps++;
+      |           ^
+_79 = MEM[(struct OPENSSL_LHASH *)_54].b;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:98:15: warning: use location
+   98 |     ret = &(lh->b[(int)nn]);
+      |               ^
+ret_84 = _79 + _83;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:98:9: warning: use location
+   98 |     ret = &(lh->b[(int)nn]);
+      |         ^
+n1_85 = *ret_84;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:99:13: warning: use location
+   99 |     for (n1 = *ret; n1 != NULL; n1 = n1->next) {
+      |             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+n1_88 = PHI <n1_85(19), n1_96(24)>
+lto1: warning: use location
+this stmt have mutiple branch ---CONF_free-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+n1_96 = n1_88->next;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:99:36: warning: use location
+   99 |     for (n1 = *ret; n1 != NULL; n1 = n1->next) {
+      |                                    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_94 = cf_78 (_93, &vv);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:106:13: warning: use location
+  106 |         if (cf(n1->data, data) == 0)
+      |             ^
+trace fucntion name:cf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_94 == 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:106:12: warning: use location
+  106 |         if (cf(n1->data, data) == 0)
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_89 = n1_88->hash;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:101:15: warning: use location
+  101 |         if (n1->hash != hash) {
+      |               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (n1_88 != 0B)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:99:24: warning: use location
+   99 |     for (n1 = *ret; n1 != NULL; n1 = n1->next) {
+      |                        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+ret_95 = &n1_88->next;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:108:13: warning: use location
+  108 |         ret = &(n1->next);
+      |             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+ret_98 = PHI <ret_90(21), ret_95(23)>
+lto1: warning: use location
+this stmt have mutiple branch ---cf-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+ret_97 = PHI <ret_84(19), ret_98(24)>
+lto1: warning: use location
+this stmt have mutiple branch ---cf-----
+_129 = ret_97;
+lto1: warning: use location
+_61 = *rn_57;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:126:16: warning: use location
+  126 |         ret = (*rn)->data;
+      |                ^
+ret_62 = _61->data;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:126:13: warning: use location
+  126 |         ret = (*rn)->data;
+      |             ^
+_65 = PHI <0B(27), ret_62(28)>
+lto1: warning: use location
+this stmt have mutiple branch ---cf-----
+_133 = _65;
+lto1: warning: use location
+v_55 = _133;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:140:9: warning: use location
+  140 |     v = lh_CONF_VALUE_retrieve(conf->data, &vv);
+      |         ^
+_56 = PHI <0B(16), v_55(29)>
+lto1: warning: use location
+this stmt have mutiple branch ---cf-----
+_135 = _56;
+lto1: warning: use location
+v_48 = _135;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:150:9: warning: use location
+  150 |     v = _CONF_get_section(conf, section);
+      |         ^
+_49 = v_48->value;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:152:17: warning: use location
+  152 |         return ((STACK_OF(CONF_VALUE) *)v->value);
+      |                 ^
+_50 = PHI <0B(30), _49(31)>
+lto1: warning: use location
+this stmt have mutiple branch ---cf-----
+_136 = _50;
+lto1: warning: use location
+_46 = _136;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:168:12: warning: use location
+  168 |     return _CONF_get_section_values(conf, section);
+      |            ^
+_47 = PHI <0B(15), _46(32)>
+lto1: warning: use location
+this stmt have mutiple branch ---cf-----
+_137 = _47;
+lto1: warning: use location
+sk_9 = _137;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:256:10: warning: use location
+  256 |     sk = CONF_get_section(parms, "default");
+      |          ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |              ^
+this stmt call this function :sk_CONF_VALUE_value
+trace fucntion name:sk_CONF_VALUE_value 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_14 = (long int) _13;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+cv_15 = (struct CONF_VALUE *) _14;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:12: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_16 = cv_15->name;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:18: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_17 = PHI <buf_16(36), buf_24(40)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_25 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_25 != 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_22 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:52: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_22 == 46)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:48: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_18 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:18: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_27 = PHI <buf_23(39), buf_17(41)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:14: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |              ^
+this stmt call this function :X509_NAME_add_entry_by_NID
+trace fucntion name:X509_NAME_add_entry_by_NID 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_29 = i_12 + 1;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:266:19: warning: use location
+  266 |     for (i = 0;; i++) {
+      |                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_11 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:267:13: warning: use location
+  267 |         if (sk_CONF_VALUE_num(sk) <= i)
+      |             ^
+this stmt call this function :sk_CONF_VALUE_num
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_10 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:257:9: warning: use location
+  257 |     if (sk_CONF_VALUE_num(sk) == 0) {
+      |         ^
+this stmt call this function :sk_CONF_VALUE_num
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== trace ================== 
+trace fucntion free:0 
+if (v_48 != 0B)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:151:8: warning: use location
+  151 |     if (v != NULL)
+      |        ^
+_58 = *rn_57;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:122:9: warning: use location
+  122 |     if (*rn == NULL) {
+      |         ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+ret_90 = &n1_88->next;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:102:17: warning: use location
+  102 |             ret = &(n1->next);
+      |                 ^
+cf_78 = MEM[(struct OPENSSL_LHASH *)_54].comp;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:97:8: warning: use location
+   97 |     cf = lh->comp;
+      |        ^
+_75 = MEM[(struct OPENSSL_LHASH *)_54].num_alloc_nodes;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:95:23: warning: use location
+   95 |         nn = hash % lh->num_alloc_nodes;
+      |                       ^
+_76 = (long unsigned int) _75;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:95:23: warning: use location
+nn_80 = PHI <nn_72(17), nn_77(18)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_num-----
+_81 = (int) nn_80;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:98:19: warning: use location
+   98 |     ret = &(lh->b[(int)nn]);
+      |                   ^
+_82 = (long unsigned int) _81;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:98:19: warning: use location
+_83 = _82 * 8;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:98:18: warning: use location
+   98 |     ret = &(lh->b[(int)nn]);
+      |                  ^
+_73 = MEM[(struct OPENSSL_LHASH *)_54].p;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:94:16: warning: use location
+   94 |     if (nn < lh->p)
+      |                ^
+_74 = (long unsigned int) _73;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:94:16: warning: use location
+_70 = MEM[(struct OPENSSL_LHASH *)_54].pmax;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:93:19: warning: use location
+   93 |     nn = hash % lh->pmax;
+      |                   ^
+_71 = (long unsigned int) _70;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:93:19: warning: use location
+MEM[(struct OPENSSL_LHASH *)_54].num_hash_calls = _69;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:90:23: warning: use location
+   90 |     lh->num_hash_calls++;
+      |                       ^
+_68 = MEM[(struct OPENSSL_LHASH *)_54].num_hash_calls;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:90:7: warning: use location
+   90 |     lh->num_hash_calls++;
+      |       ^
+MEM[(struct OPENSSL_LHASH *)_54].error = 0;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:119:15: warning: use location
+  119 |     lh->error = 0;
+      |               ^
+_51 = parms_8 == 0B;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:136:15: warning: use location
+  136 |     if ((conf == NULL) || (section == NULL))
+      |               ^
+_53 = _51 | _52;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:136:24: warning: use location
+  136 |     if ((conf == NULL) || (section == NULL))
+      |                        ^
+if (_53 != 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:136:8: warning: use location
+  136 |     if ((conf == NULL) || (section == NULL))
+      |        ^
+if (parms_8 == 0B)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:160:8: warning: use location
+  160 |     if (conf == NULL) {
+      |        ^
+if (parms_8 == 0B)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:252:8: warning: use location
+  252 |     if (parms == NULL) {
+      |        ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc1000f30
+    type <pointer_type 0x7fcdc0b1c498
+        type <record_type 0x7fcdc0b1c3f0 lhash_st_CONF_VALUE DI
+            size <integer_cst 0x7fcdc0ff8bb8 constant 64>
+            unit-size <integer_cst 0x7fcdc0ff8bd0 constant 8>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc0b1c3f0 fields <field_decl 0x7fcdc0b1b720 dummy> context <translation_unit_decl 0x7fcdc1003168 ./benchmarks/openssl/double_free_5/openssl_df_5.c>
+            pointer_to_this <pointer_type 0x7fcdc0b1c498>>
+        public unsigned DI size <integer_cst 0x7fcdc0ff8bb8 64> unit-size <integer_cst 0x7fcdc0ff8bd0 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fcdc0b2c870 parms>
+    def_stmt parms_8 = _119;
+    version:8
+    ptr-info 0x7fcdc0b27a80>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc0b30000
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+    var <var_decl 0x7fcdc0b2ca20 i>
+    def_stmt i_12 = PHI <0(33), i_29(44)>
+    version:12>
+i_12 = PHI <0(33), i_29(44)>
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_140 = VDEF <.MEM_139>
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |              ^
+this stmt call this function :sk_CONF_VALUE_value
+trace fucntion name:sk_CONF_VALUE_value 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_14 = (long int) _13;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+cv_15 = (struct CONF_VALUE *) _14;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:12: warning: use location
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_16 = cv_15->name;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:18: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_17 = PHI <buf_16(36), buf_24(40)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_25 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+  275 |         for (buf = cv->name; *buf; buf++)
+      |                              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_25 != 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:275:30: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_22 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:52: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_22 == 46)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:48: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                                                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_18 = *buf_17;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:276:18: warning: use location
+  276 |             if ((*buf == ':') || (*buf == ',') || (*buf == '.')) {
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+buf_27 = PHI <buf_23(39), buf_17(41)>
+lto1: warning: use location
+this stmt have mutiple branch ---sk_CONF_VALUE_value-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:14: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |              ^
+this stmt call this function :X509_NAME_add_entry_by_NID
+trace fucntion name:X509_NAME_add_entry_by_NID 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_28 == 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:12: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_11 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:267:13: warning: use location
+  267 |         if (sk_CONF_VALUE_num(sk) <= i)
+      |             ^
+this stmt call this function :sk_CONF_VALUE_num
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_11 <= i_12)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:267:12: warning: use location
+  267 |         if (sk_CONF_VALUE_num(sk) <= i)
+      |            ^
+_10 = sk_CONF_VALUE_num (sk_9);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:257:9: warning: use location
+  257 |     if (sk_CONF_VALUE_num(sk) == 0) {
+      |         ^
+this stmt call this function :sk_CONF_VALUE_num
+trace fucntion name:sk_CONF_VALUE_num 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+i_29 = i_12 + 1;
+./benchmarks/openssl/double_free_5/openssl_df_5.c:266:19: warning: use location
+  266 |     for (i = 0;; i++) {
+      |                   ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc0b30000
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+    var <var_decl 0x7fcdc0b2ca20 i>
+    def_stmt i_12 = PHI <0(33), i_29(44)>
+    version:12>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc0b303f0
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+    var <var_decl 0x7fcdc0b2cb40 nid>
+    def_stmt GIMPLE_NOP
+    version:26>
+GIMPLE_NOP
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_141 = VDEF <.MEM_140>
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:14: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |              ^
+this stmt call this function :X509_NAME_add_entry_by_NID
+trace fucntion name:X509_NAME_add_entry_by_NID 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_28 == 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:12: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |            ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc0b303f0
+    type <integer_type 0x7fcdc100d5e8 int public SI
+        size <integer_cst 0x7fcdc0ff8df8 constant 32>
+        unit-size <integer_cst 0x7fcdc0ff8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d5e8 precision:32 min <integer_cst 0x7fcdc0ff8db0 -2147483648> max <integer_cst 0x7fcdc0ff8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7fcdc10149d8>>
+    var <var_decl 0x7fcdc0b2cb40 nid>
+    def_stmt GIMPLE_NOP
+    version:26>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc1000678
+    type <integer_type 0x7fcdc100d7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fcdc0ff8bb8 constant 64>
+        unit-size <integer_cst 0x7fcdc0ff8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d738 precision:64 min <integer_cst 0x7fcdc0ff8e88 0> max <integer_cst 0x7fcdc0ff9500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fcdc0b171f8>>
+   
+    def_stmt _1 = (long unsigned int) argc_3(D);
+    version:1>
+_1 = (long unsigned int) argc_3(D);
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_141 = VDEF <.MEM_140>
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:14: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |              ^
+this stmt call this function :X509_NAME_add_entry_by_NID
+trace fucntion name:X509_NAME_add_entry_by_NID 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_28 == 0)
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:12: warning: use location
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |            ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fcdc1000678
+    type <integer_type 0x7fcdc100d7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7fcdc0ff8bb8 constant 64>
+        unit-size <integer_cst 0x7fcdc0ff8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d738 precision:64 min <integer_cst 0x7fcdc0ff8e88 0> max <integer_cst 0x7fcdc0ff9500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7fcdc0b171f8>>
+   
+    def_stmt _1 = (long unsigned int) argc_3(D);
+    version:1>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fcdc0b30438
+    type <pointer_type 0x7fcdc0b10a80
+        type <integer_type 0x7fcdc0b109d8 char public QI
+            size <integer_cst 0x7fcdc0ff8ca8 constant 8>
+            unit-size <integer_cst 0x7fcdc0ff8cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fcdc100d3f0 precision:8 min <integer_cst 0x7fcdc0b07720 -128> max <integer_cst 0x7fcdc0b07708 127>
+            pointer_to_this <pointer_type 0x7fcdc0b10a80>>
+        public unsigned DI
+        size <integer_cst 0x7fcdc0ff8bb8 constant 64>
+        unit-size <integer_cst 0x7fcdc0ff8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7fcdc1003168 ./benchmarks/openssl/double_free_5/openssl_df_5.c>
+        pointer_to_this <pointer_type 0x7fcdc0b10b28>>
+    var <var_decl 0x7fcdc0b2c990 buf>
+    def_stmt buf_27 = PHI <buf_23(39), buf_17(41)>
+    version:27
+    ptr-info 0x7fcdc0b27b28>
+buf_27 = PHI <buf_23(39), buf_17(41)>
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 23356714]:
+_1 = (long unsigned int) argc_3(D);
+_2 = *argv_5(D);
+_30 = BIO_new_file (_2, "r");
+_31 = (long int) _30;
+in_32 = (struct BIO *) _31;
+if (_30 == 0)
+  goto <bb 13>; [29.93%]
+else
+  goto <bb 3>; [70.07%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 16366050]:
+CONF_set_nconf (&ctmp, 0B);
+_40 = ctmp.data;
+if (_40 == 0B)
+  goto <bb 4>; [17.43%]
+else
+  goto <bb 8>; [82.57%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 2852602]:
+ret_44 = malloc (24);
+if (ret_44 == 0B)
+  goto <bb 5>; [0.04%]
+else
+  goto <bb 6>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1141]:
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 2852602]:
+# _45 = PHI <ret_44(4), 0B(5)>
+_112 = _45;
+_41 = _112;
+ctmp.data = _41;
+_42 = ctmp.data;
+if (_42 == 0B)
+  goto <bb 7>; [18.09%]
+else
+  goto <bb 8>; [81.91%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 516036]:
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 16366050]:
+# _43 = PHI <0(7), 1(3), 1(6)>
+_114 = _43;
+_38 = _114;
+if (_38 == 0)
+  goto <bb 9>; [34.00%]
+else
+  goto <bb 10>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 5564457]:
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 16366050]:
+# _39 = PHI <0(9), 1(8)>
+_115 = _39;
+ret_35 = _115;
+if (ret_35 != 0)
+  goto <bb 11>; [55.78%]
+else
+  goto <bb 12>; [44.22%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 9128983]:
+_36 = ctmp.data;
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 16366050]:
+# _37 = PHI <0B(10), _36(11)>
+ctmp ={v} {CLOBBER};
+_117 = _37;
+ltmp_33 = _117;
+BIO_free (in_32);
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 23356714]:
+# _34 = PHI <0B(2), ltmp_33(12)>
+_119 = _34;
+parms_8 = _119;
+if (parms_8 == 0B)
+  goto <bb 14>; [30.95%]
+else
+  goto <bb 15>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 7228903]:
+// predicted unlikely by goto predictor.
+goto <bb 45>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 16127811]:
+if (parms_8 == 0B)
+  goto <bb 33>; [8.27%]
+else
+  goto <bb 16>; [91.73%]
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 14794041]:
+_51 = parms_8 == 0B;
+_52 = 0;
+_53 = _51 | _52;
+if (_53 != 0)
+  goto <bb 30>; [29.93%]
+else
+  goto <bb 17>; [70.07%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 10366185]:
+vv.name = 0B;
+vv.section = "default";
+_54 = MEM[(const struct CONF *)parms_8].data;
+MEM[(struct OPENSSL_LHASH *)_54].error = 0;
+_66 = MEM[(struct OPENSSL_LHASH *)_54].hash;
+hash_67 = _66 (&vv);
+_68 = MEM[(struct OPENSSL_LHASH *)_54].num_hash_calls;
+_69 = _68 + 1;
+MEM[(struct OPENSSL_LHASH *)_54].num_hash_calls = _69;
+hash_145 = hash_67;
+_70 = MEM[(struct OPENSSL_LHASH *)_54].pmax;
+_71 = (long unsigned int) _70;
+nn_72 = hash_67 % _71;
+_73 = MEM[(struct OPENSSL_LHASH *)_54].p;
+_74 = (long unsigned int) _73;
+if (nn_72 < _74)
+  goto <bb 18>; [50.00%]
+else
+  goto <bb 19>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [local count: 5183092]:
+_75 = MEM[(struct OPENSSL_LHASH *)_54].num_alloc_nodes;
+_76 = (long unsigned int) _75;
+nn_77 = hash_67 % _76;
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 10366185]:
+# nn_80 = PHI <nn_72(17), nn_77(18)>
+cf_78 = MEM[(struct OPENSSL_LHASH *)_54].comp;
+_79 = MEM[(struct OPENSSL_LHASH *)_54].b;
+_81 = (int) nn_80;
+_82 = (long unsigned int) _81;
+_83 = _82 * 8;
+ret_84 = _79 + _83;
+n1_85 = *ret_84;
+goto <bb 25>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 20 
+<bb 20> [local count: 120094278]:
+_86 = MEM[(struct OPENSSL_LHASH *)_54].num_hash_comps;
+_87 = _86 + 1;
+MEM[(struct OPENSSL_LHASH *)_54].num_hash_comps = _87;
+_89 = n1_88->hash;
+if (hash_67 != _89)
+  goto <bb 21>; [48.88%]
+else
+  goto <bb 22>; [51.12%]
+
+=======is loop:1=========
+
+ bb index 21 
+<bb 21> [local count: 58702083]:
+ret_90 = &n1_88->next;
+// predicted unlikely by continue predictor.
+goto <bb 24>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 22 
+<bb 22> [local count: 61392195]:
+_91 = MEM[(struct OPENSSL_LHASH *)_54].num_comp_calls;
+_92 = _91 + 1;
+MEM[(struct OPENSSL_LHASH *)_54].num_comp_calls = _92;
+_93 = n1_88->data;
+_94 = cf_78 (_93, &vv);
+if (_94 == 0)
+  goto <bb 26>; [5.50%]
+else
+  goto <bb 23>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 23 
+<bb 23> [local count: 58015625]:
+ret_95 = &n1_88->next;
+
+=======is loop:1=========
+
+ bb index 24 
+<bb 24> [local count: 116717707]:
+# ret_98 = PHI <ret_90(21), ret_95(23)>
+n1_96 = n1_88->next;
+
+=======is loop:1=========
+
+ bb index 25 
+<bb 25> [local count: 127083892]:
+# ret_97 = PHI <ret_84(19), ret_98(24)>
+# n1_88 = PHI <n1_85(19), n1_96(24)>
+if (n1_88 != 0B)
+  goto <bb 20>; [94.50%]
+else
+  goto <bb 26>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 26 
+<bb 26> [local count: 10366185]:
+_129 = ret_97;
+rn_57 = _129;
+_58 = *rn_57;
+if (_58 == 0B)
+  goto <bb 27>; [8.27%]
+else
+  goto <bb 28>; [91.73%]
+
+=======is loop:0=========
+
+ bb index 27 
+<bb 27> [local count: 857283]:
+_59 = MEM[(struct OPENSSL_LHASH *)_54].num_retrieve_miss;
+_60 = _59 + 1;
+MEM[(struct OPENSSL_LHASH *)_54].num_retrieve_miss = _60;
+goto <bb 29>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 28 
+<bb 28> [local count: 9508901]:
+_61 = *rn_57;
+ret_62 = _61->data;
+_63 = MEM[(struct OPENSSL_LHASH *)_54].num_retrieve;
+_64 = _63 + 1;
+MEM[(struct OPENSSL_LHASH *)_54].num_retrieve = _64;
+
+=======is loop:0=========
+
+ bb index 29 
+<bb 29> [local count: 10366185]:
+# _65 = PHI <0B(27), ret_62(28)>
+_133 = _65;
+v_55 = _133;
+
+=======is loop:0=========
+
+ bb index 30 
+<bb 30> [local count: 14794041]:
+# _56 = PHI <0B(16), v_55(29)>
+vv ={v} {CLOBBER};
+_135 = _56;
+v_48 = _135;
+if (v_48 != 0B)
+  goto <bb 31>; [85.10%]
+else
+  goto <bb 32>; [14.90%]
+
+=======is loop:0=========
+
+ bb index 31 
+<bb 31> [local count: 12589729]:
+_49 = v_48->value;
+
+=======is loop:0=========
+
+ bb index 32 
+<bb 32> [local count: 14794041]:
+# _50 = PHI <0B(30), _49(31)>
+_136 = _50;
+_46 = _136;
+
+=======is loop:0=========
+
+ bb index 33 
+<bb 33> [local count: 16127811]:
+# _47 = PHI <0B(15), _46(32)>
+_137 = _47;
+sk_9 = _137;
+_10 = sk_CONF_VALUE_num (sk_9);
+if (_10 == 0)
+  goto <bb 34>; [20.24%]
+else
+  goto <bb 35>; [79.76%]
+
+=======is loop:0=========
+
+ bb index 34 
+<bb 34> [local count: 3264269]:
+CONF_free (parms_8);
+// predicted unlikely by goto predictor.
+goto <bb 45>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 35 
+<bb 35> [local count: 120248121]:
+# i_12 = PHI <0(33), i_29(44)>
+_11 = sk_CONF_VALUE_num (sk_9);
+if (_11 <= i_12)
+  goto <bb 45>; [5.50%]
+else
+  goto <bb 36>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 36 
+<bb 36> [local count: 113634474]:
+_13 = sk_CONF_VALUE_value (sk_9, i_12);
+_14 = (long int) _13;
+cv_15 = (struct CONF_VALUE *) _14;
+buf_16 = cv_15->name;
+goto <bb 41>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 37 
+<bb 37> [local count: 1034442874]:
+_18 = *buf_17;
+_19 = _18 == 58;
+_20 = _18 == 44;
+_21 = _19 | _20;
+if (_21 != 0)
+  goto <bb 39>; [3.66%]
+else
+  goto <bb 38>; [96.34%]
+
+=======is loop:1=========
+
+ bb index 38 
+<bb 38> [local count: 996582264]:
+_22 = *buf_17;
+if (_22 == 46)
+  goto <bb 39>; [3.66%]
+else
+  goto <bb 40>; [96.34%]
+
+=======is loop:1=========
+
+ bb index 39 
+<bb 39> [local count: 74335522]:
+buf_23 = buf_17 + 1;
+goto <bb 42>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 40 
+<bb 40> [local count: 960107352]:
+buf_24 = buf_17 + 1;
+
+=======is loop:1=========
+
+ bb index 41 
+<bb 41> [local count: 1073741824]:
+# buf_17 = PHI <buf_16(36), buf_24(40)>
+_25 = *buf_17;
+if (_25 != 0)
+  goto <bb 37>; [96.34%]
+else
+  goto <bb 42>; [3.66%]
+
+=======is loop:1=========
+
+ bb index 42 
+<bb 42> [local count: 113634474]:
+# buf_27 = PHI <buf_23(39), buf_17(41)>
+_28 = X509_NAME_add_entry_by_NID (0B, nid_26(D), _1, buf_27, -1, -1, 0);
+if (_28 == 0)
+  goto <bb 43>; [5.50%]
+else
+  goto <bb 44>; [94.50%]
+
+=======is loop:0=========
+
+ bb index 43 
+<bb 43> [local count: 6249896]:
+// predicted unlikely by goto predictor.
+goto <bb 45>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 44 
+<bb 44> [local count: 107384578]:
+i_29 = i_12 + 1;
+goto <bb 35>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 45 
+<bb 45> [local count: 23356715]:
+end:
+CONF_free (parms_8);
+return 0;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 1 [0m
+[40;34m    gimple free   count : 0 [0m
+[40;34m    all ptable point : 15 [0m
+[40;34m    analyzable ptable point : 14 [0m
+[40;34m    used_stmt array stack totalsize of : 0.006232 mb[0m
+[40;34m    collect time: : 0.001762 s [0m
+[40;34m    algorithm time: 0.023729 s [0m
+[40;34m    gimple stmt count : : 129 [0m
+[40;34m    this report analysis in Fri Feb 18 06:37:00 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 79%)
+ phase opt and generate             :   0.02 (100%)   0.02 (100%)   0.05 (100%)   509k ( 19%)
+ callgraph functions expansion      :   0.01 ( 50%)   0.00 (  0%)   0.02 ( 40%)   257k (  9%)
+ ipa lto gimple in                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   111k (  4%)
+ dominator optimization             :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    24k (  1%)
+ loop fini                          :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ plugin execution                   :   0.01 ( 50%)   0.02 (100%)   0.02 ( 40%)  1880  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    12k (  0%)
+ TOTAL                              :   0.02          0.02          0.05         2726k
+/usr/bin/ld: /tmp/ccLOqgOO.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0x23): undefined reference to `BIO_new_file'
+/usr/bin/ld: <artificial>:(.text+0x47): undefined reference to `CONF_set_nconf'
+/usr/bin/ld: <artificial>:(.text+0x65): undefined reference to `BIO_free'
+/usr/bin/ld: <artificial>:(.text+0x114): undefined reference to `BIO_free'
+/usr/bin/ld: <artificial>:(.text+0x175): undefined reference to `sk_CONF_VALUE_num'
+/usr/bin/ld: <artificial>:(.text+0x192): undefined reference to `CONF_free'
+/usr/bin/ld: <artificial>:(.text+0x19f): undefined reference to `CONF_free'
+/usr/bin/ld: <artificial>:(.text+0x1e0): undefined reference to `X509_NAME_add_entry_by_NID'
+/usr/bin/ld: <artificial>:(.text+0x1f8): undefined reference to `sk_CONF_VALUE_num'
+/usr/bin/ld: <artificial>:(.text+0x20b): undefined reference to `sk_CONF_VALUE_value'
+collect2: error: ld returned 1 exit status

@@ -267,7 +267,7 @@ sed -i "s/$SRC/$DST/g" ./graph.log
 
 
 value=`cat graph.log`
-echo "digraph {   graph [bgcolor=black];node [fillcolor=black color=lightgray     fontsize = 15 fontcolor=white  style="'"'"filled"','"dashed"'"'"]; edge [color=lightgray]; constraint=false ;rankdir = LR; rank=same; nodesep=1.0;" "$value" "}" >> graph.dot
+echo "digraph {   graph [bgcolor=black];node [fillcolor=black color=lightgray     fontsize = 18 fontcolor=white  style="'"'"filled"','"dashed"'"'"]; edge [color=lightgray]; constraint=false ;rankdir = LR; rank=same; nodesep=1.0;" "$value" "}" >> graph.dot
 dot -Tsvg -o graph.svg  graph.dot 
 gvpr -f graphinfo.gvpr graph.dot 
 echo "Username: $user";

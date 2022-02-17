@@ -1,0 +1,504 @@
+digraph "test.o-openssh_df_2.c.015t.cfg" {
+overlap=false;
+subgraph "cluster_buffer_get_string_ret" {
+	style="dashed";
+	color="black";
+	label="buffer_get_string_ret ()";
+	fn_23_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_23_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_23_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ rand\ ();\l\
+|_2\ =\ _1\ %\ 1024;\l\
+|len\ =\ (u_int)\ _2;\l\
+|_3\ =\ len\ +\ 1;\l\
+|_4\ =\ (long\ unsigned\ int)\ _3;\l\
+|value\ =\ malloc\ (_4);\l\
+|_5\ =\ rand\ ();\l\
+|_6\ =\ _5\ %\ 2;\l\
+|if\ (_6\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|__builtin_puts\ (&\"buffer_get_string_ret:\ buffer_get\ failed\"[0]);\l\
+|free\ (value);\l\
+|D.3539\ =\ 0B;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_7\ =\ (sizetype)\ len;\l\
+|_8\ =\ value\ +\ _7;\l\
+|*_8\ =\ 0;\l\
+|if\ (length_ptr\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|*length_ptr\ =\ len;\l\
+}"];
+
+	fn_23_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|D.3539\ =\ value;\l\
+}"];
+
+	fn_23_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|return\ D.3539;\l\
+}"];
+
+	fn_23_basic_block_0:s -> fn_23_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_2:s -> fn_23_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_2:s -> fn_23_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_3:s -> fn_23_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_4:s -> fn_23_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_4:s -> fn_23_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_5:s -> fn_23_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_6:s -> fn_23_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_7:s -> fn_23_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_0:s -> fn_23_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_buffer_get_string" {
+	style="dashed";
+	color="black";
+	label="buffer_get_string ()";
+	fn_24_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_24_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_24_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|ret\ =\ buffer_get_string_ret\ (length_ptr);\l\
+|if\ (ret\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|printf\ (\"buffer_get_string:\ buffer\ error%s\\n\",\ \"\");\l\
+|exit\ (1);\l\
+}"];
+
+	fn_24_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|D.3545\ =\ ret;\l\
+|return\ D.3545;\l\
+}"];
+
+	fn_24_basic_block_0:s -> fn_24_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_2:s -> fn_24_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_2:s -> fn_24_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_4:s -> fn_24_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_0:s -> fn_24_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_key_load_public_type" {
+	style="dashed";
+	color="black";
+	label="key_load_public_type ()";
+	fn_27_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_27_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_27_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|if\ (type\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|pub\ =\ key_load_public_rsa1\ (filename,\ commentp);\l\
+|D.3549\ =\ pub;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|D.3549\ =\ 0B;\l\
+}"];
+
+	fn_27_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|return\ D.3549;\l\
+}"];
+
+	fn_27_basic_block_0:s -> fn_27_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_2:s -> fn_27_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_2:s -> fn_27_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_3:s -> fn_27_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_4:s -> fn_27_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_5:s -> fn_27_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_0:s -> fn_27_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_key_load_public_rsa1" {
+	style="dashed";
+	color="black";
+	label="key_load_public_rsa1 ()";
+	fn_26_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_26_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_26_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|pub\ =\ key_parse_public_rsa1\ (commentp);\l\
+|if\ (pub\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|printf\ (\"Could\ not\ load\ \\\"%s\\\"\ as\ a\ RSA1\ public\ key\",\ filename);\l\
+}"];
+
+	fn_26_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|D.3553\ =\ pub;\l\
+|return\ D.3553;\l\
+}"];
+
+	fn_26_basic_block_0:s -> fn_26_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_2:s -> fn_26_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_2:s -> fn_26_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_3:s -> fn_26_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_4:s -> fn_26_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_0:s -> fn_26_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_key_parse_public_rsa1" {
+	style="dashed";
+	color="black";
+	label="key_parse_public_rsa1 ()";
+	fn_25_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_25_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_25_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|pub\ =\ &key;\l\
+|if\ (commentp\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_1\ =\ buffer_get_string\ (0B);\l\
+|*commentp\ =\ _1;\l\
+}"];
+
+	fn_25_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|D.3557\ =\ pub;\l\
+|return\ D.3557;\l\
+}"];
+
+	fn_25_basic_block_0:s -> fn_25_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_2:s -> fn_25_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_2:s -> fn_25_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_3:s -> fn_25_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_4:s -> fn_25_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_0:s -> fn_25_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_key_load_public" {
+	style="dashed";
+	color="black";
+	label="key_load_public ()";
+	fn_28_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_28_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_28_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|pub\ =\ key_load_public_type\ (0,\ filename,\ commentp);\l\
+|if\ (pub\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|D.3561\ =\ pub;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|pub\ =\ &key;\l\
+|_1\ =\ key_try_load_public\ (pub,\ filename,\ commentp);\l\
+|if\ (_1\ ==\ 1)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|D.3561\ =\ pub;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|pub\ =\ &key;\l\
+|_2\ =\ key_try_load_public\ (pub,\ filename,\ commentp);\l\
+|if\ (_2\ ==\ 1)\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|D.3561\ =\ pub;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|D.3561\ =\ 0B;\l\
+}"];
+
+	fn_28_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|file\ =\ \{CLOBBER\};\l\
+|return\ D.3561;\l\
+}"];
+
+	fn_28_basic_block_0:s -> fn_28_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_2:s -> fn_28_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_2:s -> fn_28_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_3:s -> fn_28_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_4:s -> fn_28_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_4:s -> fn_28_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_5:s -> fn_28_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_6:s -> fn_28_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_6:s -> fn_28_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_7:s -> fn_28_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_8:s -> fn_28_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_9:s -> fn_28_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_0:s -> fn_28_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_key_try_load_public" {
+	style="dashed";
+	color="black";
+	label="key_try_load_public ()";
+	fn_22_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_22_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_22_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|linenum\ =\ 0;\l\
+|f\ =\ fopen\ (filename,\ \"r\");\l\
+|if\ (f\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|if\ (commentp\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_1\ =\ strdup\ (filename);\l\
+|*commentp\ =\ _1;\l\
+}"];
+
+	fn_22_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|fclose\ (f);\l\
+|D.3572\ =\ 1;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_2\ =\ rand\ ();\l\
+|_3\ =\ _2\ %\ 2;\l\
+|if\ (_3\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|fclose\ (f);\l\
+}"];
+
+	fn_22_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|D.3572\ =\ 0;\l\
+}"];
+
+	fn_22_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|line\ =\ \{CLOBBER\};\l\
+|return\ D.3572;\l\
+}"];
+
+	fn_22_basic_block_0:s -> fn_22_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_2:s -> fn_22_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_2:s -> fn_22_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_3:s -> fn_22_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_3:s -> fn_22_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_4:s -> fn_22_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_5:s -> fn_22_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_6:s -> fn_22_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_6:s -> fn_22_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_7:s -> fn_22_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_8:s -> fn_22_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_9:s -> fn_22_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_0:s -> fn_22_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_main" {
+	style="dashed";
+	color="black";
+	label="main ()";
+	fn_30_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_30_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_30_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ argc\ ==\ 1;\l\
+|key_only\ =\ (int)\ _1;\l\
+|if\ (argc\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|iftmp.0\ =\ *argv;\l\
+goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|iftmp.0\ =\ MEM[(char\ *\ *)argv\ +\ 8B];\l\
+}"];
+
+	fn_30_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|filename\ =\ iftmp.0;\l\
+|_2\ =\ time\ (0B);\l\
+|_3\ =\ (unsigned\ int)\ _2;\l\
+|srand\ (_3);\l\
+|delete_file\ (filename,\ key_only);\l\
+|D.3579\ =\ 0;\l\
+|return\ D.3579;\l\
+}"];
+
+	fn_30_basic_block_0:s -> fn_30_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_30_basic_block_2:s -> fn_30_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_2:s -> fn_30_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_3:s -> fn_30_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_30_basic_block_4:s -> fn_30_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_30_basic_block_5:s -> fn_30_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_0:s -> fn_30_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_delete_file" {
+	style="dashed";
+	color="black";
+	label="delete_file ()";
+	fn_29_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_29_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_29_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|public\ =\ 0B;\l\
+|cert\ =\ 0B;\l\
+|certpath\ =\ 0B;\l\
+|comment\ =\ 0B;\l\
+|ret\ =\ -1;\l\
+|public\ =\ key_load_public\ (filename,\ &comment);\l\
+|if\ (public\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|printf\ (\"Bad\ key\ file\ %s\\n\",\ filename);\l\
+|D.3583\ =\ -1;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|comment.1_1\ =\ comment;\l\
+|stderr.2_2\ =\ stderr;\l\
+|fprintf\ (stderr.2_2,\ \"Identity\ removed:\ %s\ (%s)\\n\",\ filename,\ comment.1_1);\l\
+|if\ (key_only\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|comment.3_3\ =\ comment;\l\
+|free\ (comment.3_3);\l\
+|certpath\ =\ \"filename\";\l\
+|cert\ =\ key_load_public\ (certpath,\ &comment);\l\
+|if\ (cert\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|_4\ =\ rand\ ();\l\
+|_5\ =\ _4\ %\ 2;\l\
+|if\ (_5\ ==\ 1)\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|comment.4_6\ =\ comment;\l\
+|stderr.5_7\ =\ stderr;\l\
+|fprintf\ (stderr.5_7,\ \"Identity\ removed:\ %s\ (%s)\\n\",\ certpath,\ comment.4_6);\l\
+|ret\ =\ 0;\l\
+goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|stderr.6_8\ =\ stderr;\l\
+|fprintf\ (stderr.6_8,\ \"Could\ not\ remove\ identity:\ %s\\n\",\ certpath);\l\
+}"];
+
+	fn_29_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|out:\l\
+|comment.7_9\ =\ comment;\l\
+|free\ (comment.7_9);\l\
+|D.3583\ =\ ret;\l\
+}"];
+
+	fn_29_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|comment\ =\ \{CLOBBER\};\l\
+|return\ D.3583;\l\
+}"];
+
+	fn_29_basic_block_0:s -> fn_29_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_2:s -> fn_29_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_2:s -> fn_29_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_3:s -> fn_29_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_4:s -> fn_29_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_4:s -> fn_29_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_5:s -> fn_29_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_6:s -> fn_29_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_6:s -> fn_29_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_7:s -> fn_29_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_8:s -> fn_29_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_8:s -> fn_29_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_9:s -> fn_29_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_10:s -> fn_29_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_11:s -> fn_29_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_12:s -> fn_29_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_0:s -> fn_29_basic_block_1:n [style="invis",constraint=true];
+}
+}

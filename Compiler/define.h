@@ -38,13 +38,14 @@ ofstream cfginfo("cfginfo.txt");
 
 /*interprocedural analysis*/
 bool ipa = true;
-bool vscode_extensionmod = true;
+bool freeanysis = true;
+bool vscode_extensionmod = false;
 bool vscode_extensionIgonefreemod = true;
 bool memoryleakcheck = true;
 //kroren testcase need turn on
 bool Looserulesfree =true;
 bool useafterfree =true;
-bool debugmod = true;
+bool debugmod = false;
 bool threadmod = false;
 bool relatemod = false;
 bool freemod = true;

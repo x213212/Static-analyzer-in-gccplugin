@@ -1,0 +1,475 @@
+digraph "test.o-openssl_uaf_3.c.015t.cfg" {
+overlap=false;
+subgraph "cluster_ssl3_release_read_buffer" {
+	style="dashed";
+	color="black";
+	label="ssl3_release_read_buffer ()";
+	fn_24_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_24_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_24_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ s-\>s3;\l\
+|_2\ =\ _1-\>rbuf.buf;\l\
+|if\ (_2\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_3\ =\ s-\>s3;\l\
+|_4\ =\ _3-\>rbuf.buf;\l\
+|_5\ =\ s-\>s3;\l\
+|_6\ =\ _5-\>rbuf.len;\l\
+|_7\ =\ s-\>ctx;\l\
+|freelist_insert\ (_7,\ 1,\ _6,\ _4);\l\
+|_8\ =\ s-\>s3;\l\
+|_8-\>rbuf.buf\ =\ 0B;\l\
+}"];
+
+	fn_24_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|D.3612\ =\ 1;\l\
+|return\ D.3612;\l\
+}"];
+
+	fn_24_basic_block_0:s -> fn_24_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_2:s -> fn_24_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_2:s -> fn_24_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_3:s -> fn_24_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_4:s -> fn_24_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_0:s -> fn_24_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_freelist_insert" {
+	style="dashed";
+	color="black";
+	label="freelist_insert ()";
+	fn_23_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_23_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_23_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|if\ (for_read\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|iftmp.0\ =\ ctx-\>rbuf_freelist;\l\
+goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|iftmp.0\ =\ ctx-\>wbuf_freelist;\l\
+}"];
+
+	fn_23_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|list\ =\ iftmp.0;\l\
+|if\ (list\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_1\ =\ list-\>chunklen;\l\
+|if\ (sz\ ==\ _1)\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|_2\ =\ list-\>chunklen;\l\
+|if\ (_2\ ==\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|if\ (sz\ \>\ 7)\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|list-\>chunklen\ =\ sz;\l\
+|ent\ =\ mem;\l\
+|_3\ =\ list-\>head;\l\
+|ent-\>next\ =\ _3;\l\
+|list-\>head\ =\ ent;\l\
+|_4\ =\ list-\>len;\l\
+|_5\ =\ _4\ +\ 1;\l\
+|list-\>len\ =\ _5;\l\
+|mem\ =\ 0B;\l\
+}"];
+
+	fn_23_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|if\ (mem\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|free\ (mem);\l\
+}"];
+
+	fn_23_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|return;\l\
+}"];
+
+	fn_23_basic_block_0:s -> fn_23_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_2:s -> fn_23_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_2:s -> fn_23_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_3:s -> fn_23_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_4:s -> fn_23_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_5:s -> fn_23_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_5:s -> fn_23_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_6:s -> fn_23_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_6:s -> fn_23_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_7:s -> fn_23_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_7:s -> fn_23_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_8:s -> fn_23_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_8:s -> fn_23_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_9:s -> fn_23_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_10:s -> fn_23_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_10:s -> fn_23_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_11:s -> fn_23_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_12:s -> fn_23_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_0:s -> fn_23_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_ssl3_setup_read_buffer" {
+	style="dashed";
+	color="black";
+	label="ssl3_setup_read_buffer ()";
+	fn_25_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_25_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_25_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|align\ =\ 0;\l\
+|_1\ =\ s-\>s3;\l\
+|_2\ =\ _1-\>rbuf.buf;\l\
+|if\ (_2\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_3\ =\ headerlen\ +\ align;\l\
+|len\ =\ _3\ +\ 16704;\l\
+|_4\ =\ (int)\ len;\l\
+|_5\ =\ s-\>ctx;\l\
+|p\ =\ freelist_extract\ (_5,\ 1,\ _4);\l\
+|if\ (p\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+|D.3631\ =\ 0;\l\
+goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|_6\ =\ s-\>s3;\l\
+|_6-\>rbuf.buf\ =\ p;\l\
+|_7\ =\ s-\>s3;\l\
+|_7-\>rbuf.len\ =\ len;\l\
+}"];
+
+	fn_25_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_8\ =\ s-\>s3;\l\
+|_9\ =\ _8-\>rbuf.buf;\l\
+|s-\>packet\ =\ _9;\l\
+|D.3631\ =\ 1;\l\
+}"];
+
+	fn_25_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|return\ D.3631;\l\
+}"];
+
+	fn_25_basic_block_0:s -> fn_25_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_2:s -> fn_25_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_2:s -> fn_25_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_3:s -> fn_25_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_3:s -> fn_25_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_4:s -> fn_25_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_5:s -> fn_25_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_6:s -> fn_25_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_7:s -> fn_25_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_0:s -> fn_25_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_freelist_extract" {
+	style="dashed";
+	color="black";
+	label="freelist_extract ()";
+	fn_22_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_22_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_22_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|ent\ =\ 0B;\l\
+|result\ =\ 0B;\l\
+|if\ (for_read\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|iftmp.1\ =\ ctx-\>rbuf_freelist;\l\
+goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|iftmp.1\ =\ ctx-\>wbuf_freelist;\l\
+}"];
+
+	fn_22_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|list\ =\ iftmp.1;\l\
+|if\ (list\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_1\ =\ list-\>chunklen;\l\
+|_2\ =\ (int)\ _1;\l\
+|if\ (sz\ ==\ _2)\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|ent\ =\ list-\>head;\l\
+}"];
+
+	fn_22_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|if\ (ent\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|_3\ =\ ent-\>next;\l\
+|list-\>head\ =\ _3;\l\
+|result\ =\ ent;\l\
+|_4\ =\ list-\>len;\l\
+|_5\ =\ _4\ +\ 4294967295;\l\
+|list-\>len\ =\ _5;\l\
+|_6\ =\ list-\>len;\l\
+|if\ (_6\ ==\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|list-\>chunklen\ =\ 0;\l\
+}"];
+
+	fn_22_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|if\ (result\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|_7\ =\ (long\ unsigned\ int)\ sz;\l\
+|result\ =\ malloc\ (_7);\l\
+}"];
+
+	fn_22_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|D.3647\ =\ result;\l\
+|return\ D.3647;\l\
+}"];
+
+	fn_22_basic_block_0:s -> fn_22_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_2:s -> fn_22_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_2:s -> fn_22_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_3:s -> fn_22_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_4:s -> fn_22_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_5:s -> fn_22_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_5:s -> fn_22_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_6:s -> fn_22_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_6:s -> fn_22_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_7:s -> fn_22_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_8:s -> fn_22_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_8:s -> fn_22_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_9:s -> fn_22_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_9:s -> fn_22_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_10:s -> fn_22_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_11:s -> fn_22_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_11:s -> fn_22_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_12:s -> fn_22_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_13:s -> fn_22_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_0:s -> fn_22_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_ssl3_read_bytes" {
+	style="dashed";
+	color="black";
+	label="ssl3_read_bytes ()";
+	fn_26_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_26_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_26_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ s-\>s3;\l\
+|_2\ =\ _1-\>rbuf.buf;\l\
+|if\ (_2\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_3\ =\ ssl3_setup_read_buffer\ (s);\l\
+|if\ (_3\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|D.3653\ =\ -1;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|_4\ =\ s-\>shutdown;\l\
+|_5\ =\ _4\ &\ 2;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|s-\>rwstate\ =\ 1;\l\
+|D.3653\ =\ 0;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|if\ (len\ \<=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|D.3653\ =\ len;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|n\ =\ (unsigned\ int)\ len;\l\
+|if\ (peek\ ==\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|s-\>rstate\ =\ 240;\l\
+|_6\ =\ s-\>mode;\l\
+|_7\ =\ _6\ &\ 16;\l\
+|if\ (_7\ !=\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|ssl3_release_read_buffer\ (s);\l\
+}"];
+
+	fn_26_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|D.3653\ =\ (int)\ n;\l\
+}"];
+
+	fn_26_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|return\ D.3653;\l\
+}"];
+
+	fn_26_basic_block_0:s -> fn_26_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_2:s -> fn_26_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_2:s -> fn_26_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_3:s -> fn_26_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_3:s -> fn_26_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_4:s -> fn_26_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_5:s -> fn_26_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_5:s -> fn_26_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_6:s -> fn_26_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_7:s -> fn_26_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_7:s -> fn_26_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_8:s -> fn_26_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_9:s -> fn_26_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_9:s -> fn_26_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_10:s -> fn_26_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_10:s -> fn_26_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_11:s -> fn_26_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_12:s -> fn_26_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_13:s -> fn_26_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_0:s -> fn_26_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_main" {
+	style="dashed";
+	color="black";
+	label="main ()";
+	fn_27_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_27_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_27_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|s\ =\ malloc\ (48);\l\
+|_1\ =\ malloc\ (24);\l\
+|s-\>s3\ =\ _1;\l\
+|ssl3_read_bytes\ (s,\ 0,\ \"buf\",\ 1,\ 0);\l\
+|_2\ =\ s-\>s3;\l\
+|_3\ =\ _2-\>rbuf.left;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_4\ =\ s-\>packet;\l\
+|printf\ (\"%d\\n\",\ _4);\l\
+}"];
+
+	fn_27_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_5\ =\ s-\>s3;\l\
+|_6\ =\ _5-\>rbuf.buf;\l\
+|free\ (_6);\l\
+|_7\ =\ s-\>s3;\l\
+|free\ (_7);\l\
+|free\ (s);\l\
+|D.3665\ =\ 0;\l\
+|return\ D.3665;\l\
+}"];
+
+	fn_27_basic_block_0:s -> fn_27_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_2:s -> fn_27_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_2:s -> fn_27_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_3:s -> fn_27_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_4:s -> fn_27_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_0:s -> fn_27_basic_block_1:n [style="invis",constraint=true];
+}
+}

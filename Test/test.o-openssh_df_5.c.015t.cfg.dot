@@ -1,0 +1,697 @@
+digraph "test.o-openssh_df_5.c.015t.cfg" {
+overlap=false;
+subgraph "cluster_buffer_get_string" {
+	style="dashed";
+	color="black";
+	label="buffer_get_string ()";
+	fn_22_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_22_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_22_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ buffer_get_int\ (buffer);\l\
+|len\ =\ (u_int)\ _1;\l\
+|if\ (len\ \>\ 262144)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|printf\ (\"Received\ packet\ with\ bad\ string\ length\ %d\",\ len);\l\
+|exit\ (1);\l\
+}"];
+
+	fn_22_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_2\ =\ len\ +\ 1;\l\
+|_3\ =\ (long\ unsigned\ int)\ _2;\l\
+|value\ =\ malloc\ (_3);\l\
+|buffer_get\ (buffer,\ value,\ len);\l\
+|_4\ =\ (sizetype)\ len;\l\
+|_5\ =\ value\ +\ _4;\l\
+|*_5\ =\ 0;\l\
+|if\ (length_ptr\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|*length_ptr\ =\ len;\l\
+}"];
+
+	fn_22_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|D.3634\ =\ value;\l\
+|return\ D.3634;\l\
+}"];
+
+	fn_22_basic_block_0:s -> fn_22_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_2:s -> fn_22_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_2:s -> fn_22_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_4:s -> fn_22_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_4:s -> fn_22_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_5:s -> fn_22_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_6:s -> fn_22_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_0:s -> fn_22_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_packet_get_string" {
+	style="dashed";
+	color="black";
+	label="packet_get_string ()";
+	fn_23_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_23_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_23_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|D.3636\ =\ buffer_get_string\ (&incoming_packet,\ length_ptr);\l\
+|return\ D.3636;\l\
+}"];
+
+	fn_23_basic_block_0:s -> fn_23_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_2:s -> fn_23_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_0:s -> fn_23_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_auth_krb4" {
+	style="dashed";
+	color="black";
+	label="auth_krb4 ()";
+	fn_24_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_24_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_24_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|adat\ =\ \{\};\l\
+|r\ =\ krb_rd_req\ (auth,\ \"rcmd\",\ &instance,\ 0,\ &adat,\ \"\");\l\
+|if\ (r\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|D.3640\ =\ 0;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_1\ =\ malloc\ (10);\l\
+|*client\ =\ _1;\l\
+|_2\ =\ authctxt-\>user;\l\
+|_3\ =\ kuserok\ (&adat,\ _2);\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|_4\ =\ *client;\l\
+|free\ (_4);\l\
+|D.3640\ =\ 0;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|D.3640\ =\ 1;\l\
+}"];
+
+	fn_24_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|adat\ =\ \{CLOBBER\};\l\
+|instance\ =\ \{CLOBBER\};\l\
+|return\ D.3640;\l\
+}"];
+
+	fn_24_basic_block_0:s -> fn_24_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_2:s -> fn_24_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_2:s -> fn_24_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_3:s -> fn_24_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_4:s -> fn_24_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_4:s -> fn_24_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_5:s -> fn_24_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_6:s -> fn_24_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_7:s -> fn_24_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_0:s -> fn_24_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_main" {
+	style="dashed";
+	color="black";
+	label="main ()";
+	fn_26_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_26_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_26_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|do_authloop\ (&authctxt);\l\
+|D.3645\ =\ 0;\l\
+|authctxt\ =\ \{CLOBBER\};\l\
+|return\ D.3645;\l\
+}"];
+
+	fn_26_basic_block_0:s -> fn_26_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_2:s -> fn_26_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_0:s -> fn_26_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_do_authloop" {
+	style="dashed";
+	color="black";
+	label="do_authloop ()";
+	subgraph cluster_25_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_25_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|authenticated\ =\ 0;\l\
+|info[0]\ =\ 0;\l\
+|type\ =\ packet_read\ (&plen);\l\
+|switch\ (type)\ \<default:\ \<L61\>\ [INV],\ case\ 5:\ \<L15\>\ [INV],\ case\ 6:\ \<L28\>\ [INV],\ case\ 9:\ \<L31\>\ [INV],\ case\ 35:\ \<L18\>\ [INV],\ case\ 39:\ \<L34\>\ [INV],\ case\ 41:\ \<L39\>\ [INV],\ case\ 42:\ \<L6\>\ [INV],\ case\ 65:\ \<L14\>\ [INV]\>\l\
+}"];
+
+	fn_25_basic_block_41 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 41\>:\l\
+|\<L61\>:\l\
+|_62\ =\ authctxt-\>valid;\l\
+|if\ (_62\ ==\ 0)\l\
+\ \ goto\ \<bb\ 42\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 44\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 17\>:\l\
+|\<L15\>:\l\
+|if\ (type\ !=\ 0)\l\
+\ \ goto\ \<bb\ 18\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_30 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 30\>:\l\
+|\<L28\>:\l\
+|if\ (type\ !=\ 0)\l\
+\ \ goto\ \<bb\ 31\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 32\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_33 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 33\>:\l\
+|\<L31\>:\l\
+|if\ (type\ !=\ 0)\l\
+\ \ goto\ \<bb\ 34\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 35\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 20\>:\l\
+|\<L18\>:\l\
+|if\ (type\ !=\ 0)\l\
+\ \ goto\ \<bb\ 21\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 22\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_36 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 36\>:\l\
+|\<L34\>:\l\
+|debug\ (\"rcvd\ SSH_CMSG_AUTH_TIS\");\l\
+|if\ (type\ ==\ 1)\l\
+\ \ goto\ \<bb\ 37\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_39 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 39\>:\l\
+|\<L39\>:\l\
+|debug\ (\"rcvd\ SSH_CMSG_AUTH_TIS_RESPONSE\");\l\
+|if\ (type\ ==\ 1)\l\
+\ \ goto\ \<bb\ 40\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|\<L6\>:\l\
+|if\ (type\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 16\>:\l\
+|\<L14\>:\l\
+|packet_send_debug\ (\"AFS\ token\ passing\ disabled\ before\ authentication.\");\l\
+goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_42 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 42\>:\l\
+|if\ (authenticated\ !=\ 0)\l\
+\ \ goto\ \<bb\ 43\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 44\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_44 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 44\>:\l\
+|if\ (authenticated\ !=\ 0)\l\
+\ \ goto\ \<bb\ 45\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 47\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 18\>:\l\
+|verbose\ (\"Rhosts\ authentication\ disabled.\");\l\
+goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 19\>:\l\
+|_11\ =\ packet_get_string\ (&ulen);\l\
+|client_user\ =\ _11;\l\
+|ulen.5_12\ =\ ulen;\l\
+|_13\ =\ ulen.5_12\ +\ 4;\l\
+|plen.6_14\ =\ plen;\l\
+|packet_integrity_check\ (plen.6_14,\ _13,\ type);\l\
+|client_user.7_15\ =\ client_user;\l\
+|authenticated\ =\ auth_rhosts\ (pw,\ client_user.7_15);\l\
+|client_user.8_16\ =\ client_user;\l\
+|snprintf\ (&info,\ 1024,\ \"\ ruser\ %.100s\",\ client_user.8_16);\l\
+goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_31 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 31\>:\l\
+|verbose\ (\"RSA\ authentication\ disabled.\");\l\
+goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_32 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 32\>:\l\
+|_47\ =\ BN_new\ ();\l\
+|_48\ =\ (long\ int)\ _47;\l\
+|n\ =\ (struct\ BIGNUM\ *)\ _48;\l\
+|packet_get_bignum\ (n,\ &nlen);\l\
+|nlen.17_49\ =\ nlen;\l\
+|plen.18_50\ =\ plen;\l\
+|packet_integrity_check\ (plen.18_50,\ nlen.17_49,\ type);\l\
+|authenticated\ =\ auth_rsa\ (pw,\ n);\l\
+|BN_clear_free\ (n);\l\
+goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_34 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 34\>:\l\
+|verbose\ (\"Password\ authentication\ disabled.\");\l\
+goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_35 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 35\>:\l\
+|password\ =\ packet_get_string\ (&dlen);\l\
+|dlen.19_51\ =\ dlen;\l\
+|_52\ =\ dlen.19_51\ +\ 4;\l\
+|plen.20_53\ =\ plen;\l\
+|packet_integrity_check\ (plen.20_53,\ _52,\ type);\l\
+|authenticated\ =\ auth_pam_password\ (pw,\ password);\l\
+|_54\ =\ strlen\ (password);\l\
+|memset\ (password,\ 0,\ _54);\l\
+|free\ (password);\l\
+goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 21\>:\l\
+|verbose\ (\"Rhosts\ with\ RSA\ authentication\ disabled.\");\l\
+goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 22\>:\l\
+|_17\ =\ packet_get_string\ (&ulen);\l\
+|client_user\ =\ _17;\l\
+|_18\ =\ RSA_new\ ();\l\
+|_19\ =\ (long\ int)\ _18;\l\
+|client_host_key\ =\ (struct\ RSA\ *)\ _19;\l\
+|if\ (client_host_key\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 23\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_37 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 37\>:\l\
+|_55\ =\ get_challenge\ (authctxt);\l\
+|_56\ =\ (long\ int)\ _55;\l\
+|challenge\ =\ (char\ *)\ _56;\l\
+|if\ (challenge\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 38\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_40 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 40\>:\l\
+|response\ =\ packet_get_string\ (&dlen);\l\
+|debug\ (\"got\ response\ \\'%s\\'\",\ response);\l\
+|dlen.21_57\ =\ dlen;\l\
+|_58\ =\ dlen.21_57\ +\ 4;\l\
+|plen.22_59\ =\ plen;\l\
+|packet_integrity_check\ (plen.22_59,\ _58,\ type);\l\
+|authenticated\ =\ verify_response\ (authctxt,\ response);\l\
+|dlen.23_60\ =\ dlen;\l\
+|_61\ =\ (long\ unsigned\ int)\ dlen.23_60;\l\
+|memset\ (response,\ 114,\ _61);\l\
+|free\ (response);\l\
+}"];
+
+	fn_25_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|verbose\ (\"Kerberos\ authentication\ disabled.\");\l\
+goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|kdata\ =\ packet_get_string\ (&dlen);\l\
+|dlen.1_4\ =\ dlen;\l\
+|_5\ =\ dlen.1_4\ +\ 4;\l\
+|plen.2_6\ =\ plen;\l\
+|packet_integrity_check\ (plen.2_6,\ _5,\ type);\l\
+|_7\ =\ *kdata;\l\
+|if\ (_7\ ==\ 4)\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_45 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 45\>:\l\
+|client_user.24_64\ =\ client_user;\l\
+|_65\ =\ pw-\>pw_name;\l\
+|_66\ =\ do_pam_account\ (_65,\ client_user.24_64);\l\
+|if\ (_66\ ==\ 0)\l\
+\ \ goto\ \<bb\ 46\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 47\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_47 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 47\>:\l\
+|_67\ =\ get_authname\ (type);\l\
+|auth_log\ (authctxt,\ authenticated,\ _67,\ &info);\l\
+|client_user.25_68\ =\ client_user;\l\
+|if\ (client_user.25_68\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 48\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 49\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 24\>:\l\
+|_20\ =\ BN_new\ ();\l\
+|_21\ =\ (long\ int)\ _20;\l\
+|_22\ =\ (struct\ BIGNUM\ *)\ _21;\l\
+|client_host_key-\>e\ =\ _22;\l\
+|_23\ =\ BN_new\ ();\l\
+|_24\ =\ (long\ int)\ _23;\l\
+|_25\ =\ (struct\ BIGNUM\ *)\ _24;\l\
+|client_host_key-\>n\ =\ _25;\l\
+|_26\ =\ client_host_key-\>e;\l\
+|if\ (_26\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 26\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 25\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_38 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 38\>:\l\
+|debug\ (\"sending\ challenge\ \\'%s\\'\",\ challenge);\l\
+|packet_start\ (40);\l\
+|packet_put_cstring\ (challenge);\l\
+|free\ (challenge);\l\
+|packet_send\ ();\l\
+|packet_write_wait\ ();\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|_8\ =\ auth_krb4\ (authctxt,\ &tkt,\ &client_user);\l\
+|if\ (_8\ !=\ 0)\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 15\>:\l\
+|free\ (kdata);\l\
+goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_46 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 46\>:\l\
+|authenticated\ =\ 0;\l\
+}"];
+
+	fn_25_basic_block_48 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 48\>:\l\
+|client_user.26_69\ =\ client_user;\l\
+|free\ (client_user.26_69);\l\
+|client_user\ =\ 0B;\l\
+}"];
+
+	fn_25_basic_block_49 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 49\>:\l\
+|if\ (authenticated\ !=\ 0)\l\
+\ \ goto\ \<bb\ 50\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 51\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 25\>:\l\
+|_27\ =\ client_host_key-\>n;\l\
+|if\ (_27\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 26\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 27\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|authenticated\ =\ 1;\l\
+|client_user.3_9\ =\ client_user;\l\
+|snprintf\ (&info,\ 1024,\ \"\ tktuser\ %.100s\",\ client_user.3_9);\l\
+|client_user.4_10\ =\ client_user;\l\
+|free\ (client_user.4_10);\l\
+}"];
+
+	fn_25_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 14\>:\l\
+|tkt\ =\ \{CLOBBER\};\l\
+}"];
+
+	fn_25_basic_block_51 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 51\>:\l\
+|_70\ =\ authctxt-\>failures;\l\
+|_71\ =\ _70;\l\
+|_72\ =\ _71\ +\ 1;\l\
+|authctxt-\>failures\ =\ _72;\l\
+|if\ (_71\ \>\ 6)\l\
+\ \ goto\ \<bb\ 52\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 53\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 27\>:\l\
+|_28\ =\ packet_get_int\ ();\l\
+|bits\ =\ (u_int)\ _28;\l\
+|_29\ =\ client_host_key-\>e;\l\
+|packet_get_bignum\ (_29,\ &elen);\l\
+|_30\ =\ client_host_key-\>n;\l\
+|packet_get_bignum\ (_30,\ &nlen);\l\
+|_31\ =\ client_host_key-\>n;\l\
+|_32\ =\ BN_num_bits\ (_31);\l\
+|_33\ =\ (unsigned\ int)\ _32;\l\
+|if\ (bits\ !=\ _33)\l\
+\ \ goto\ \<bb\ 28\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 29\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_52 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 52\>:\l\
+|_73\ =\ authctxt-\>user;\l\
+|packet_disconnect\ (\"Too\ many\ authentication\ failures\ for\ %.100s\",\ _73);\l\
+}"];
+
+	fn_25_basic_block_53 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 53\>:\l\
+|packet_start\ (15);\l\
+|packet_send\ ();\l\
+|packet_write_wait\ ();\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 28\>:\l\
+|_34\ =\ client_host_key-\>n;\l\
+|_35\ =\ BN_num_bits\ (_34);\l\
+|verbose\ (\"Warning:\ keysize\ mismatch\ for\ client_host_key:\ actual\ %d,\ announced\ %d\",\ _35,\ bits);\l\
+}"];
+
+	fn_25_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 29\>:\l\
+|ulen.9_36\ =\ ulen;\l\
+|elen.10_37\ =\ elen;\l\
+|elen.11_38\ =\ (unsigned\ int)\ elen.10_37;\l\
+|_39\ =\ ulen.9_36\ +\ elen.11_38;\l\
+|nlen.12_40\ =\ nlen;\l\
+|nlen.13_41\ =\ (unsigned\ int)\ nlen.12_40;\l\
+|_42\ =\ _39\ +\ nlen.13_41;\l\
+|_43\ =\ _42\ +\ 8;\l\
+|plen.14_44\ =\ plen;\l\
+|packet_integrity_check\ (plen.14_44,\ _43,\ type);\l\
+|client_user.15_45\ =\ client_user;\l\
+|authenticated\ =\ auth_rhosts_rsa\ (pw,\ client_user.15_45,\ client_host_key);\l\
+|RSA_free\ (client_host_key);\l\
+|client_user.16_46\ =\ client_user;\l\
+|snprintf\ (&info,\ 1024,\ \"\ ruser\ %.100s\",\ client_user.16_46);\l\
+goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	}
+	fn_25_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_25_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_25_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|authenticated\ =\ 0;\l\
+|type\ =\ 0;\l\
+|pw\ =\ authctxt-\>pw;\l\
+|_1\ =\ authctxt-\>user;\l\
+|_2\ =\ authctxt-\>valid;\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|iftmp.0\ =\ \"\";\l\
+goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|iftmp.0\ =\ \"illegal\ user\ \";\l\
+}"];
+
+	fn_25_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|debug\ (\"Attempting\ authentication\ for\ %s%.100s.\",\ iftmp.0,\ _1);\l\
+|_3\ =\ auth_password\ (authctxt,\ \"\");\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|auth_log\ (authctxt,\ 1,\ \"without\ authentication\",\ \"\");\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 54\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|client_user\ =\ 0B;\l\
+}"];
+
+	fn_25_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 23\>:\l\
+|printf\ (\"RSA_new\ failed%s\",\ \"\");\l\
+|exit\ (1);\l\
+}"];
+
+	fn_25_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 26\>:\l\
+|printf\ (\"BN_new\ failed%s\",\ \"\");\l\
+|exit\ (1);\l\
+}"];
+
+	fn_25_basic_block_43 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 43\>:\l\
+|_63\ =\ authctxt-\>user;\l\
+|printf\ (\"INTERNAL\ ERROR:\ authenticated\ invalid\ user\ %s\",\ _63);\l\
+|exit\ (1);\l\
+}"];
+
+	fn_25_basic_block_50 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 50\>:\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 54\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_54 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 54\>:\l\
+|client_user\ =\ \{CLOBBER\};\l\
+|info\ =\ \{CLOBBER\};\l\
+|dlen\ =\ \{CLOBBER\};\l\
+|plen\ =\ \{CLOBBER\};\l\
+|nlen\ =\ \{CLOBBER\};\l\
+|elen\ =\ \{CLOBBER\};\l\
+|ulen\ =\ \{CLOBBER\};\l\
+|return;\l\
+}"];
+
+	fn_25_basic_block_0:s -> fn_25_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_2:s -> fn_25_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_2:s -> fn_25_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_3:s -> fn_25_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_4:s -> fn_25_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_5:s -> fn_25_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_5:s -> fn_25_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_6:s -> fn_25_basic_block_54:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_7:s -> fn_25_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_8:s -> fn_25_basic_block_41:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_8:s -> fn_25_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_8:s -> fn_25_basic_block_30:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_8:s -> fn_25_basic_block_33:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_8:s -> fn_25_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_8:s -> fn_25_basic_block_36:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_8:s -> fn_25_basic_block_39:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_8:s -> fn_25_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_8:s -> fn_25_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_9:s -> fn_25_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_9:s -> fn_25_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_10:s -> fn_25_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_11:s -> fn_25_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_11:s -> fn_25_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_12:s -> fn_25_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_12:s -> fn_25_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_13:s -> fn_25_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_14:s -> fn_25_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_15:s -> fn_25_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_16:s -> fn_25_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_17:s -> fn_25_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_17:s -> fn_25_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_18:s -> fn_25_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_19:s -> fn_25_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_20:s -> fn_25_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_20:s -> fn_25_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_21:s -> fn_25_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_22:s -> fn_25_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_22:s -> fn_25_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_24:s -> fn_25_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_24:s -> fn_25_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_25:s -> fn_25_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_25:s -> fn_25_basic_block_27:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_27:s -> fn_25_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_27:s -> fn_25_basic_block_29:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_28:s -> fn_25_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_29:s -> fn_25_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_30:s -> fn_25_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_30:s -> fn_25_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_31:s -> fn_25_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_32:s -> fn_25_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_33:s -> fn_25_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_33:s -> fn_25_basic_block_35:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_34:s -> fn_25_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_35:s -> fn_25_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_36:s -> fn_25_basic_block_37:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_36:s -> fn_25_basic_block_41:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_37:s -> fn_25_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_37:s -> fn_25_basic_block_41:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_38:s -> fn_25_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_25_basic_block_39:s -> fn_25_basic_block_40:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_39:s -> fn_25_basic_block_41:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_40:s -> fn_25_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_41:s -> fn_25_basic_block_42:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_41:s -> fn_25_basic_block_44:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_42:s -> fn_25_basic_block_43:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_42:s -> fn_25_basic_block_44:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_44:s -> fn_25_basic_block_45:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_44:s -> fn_25_basic_block_47:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_45:s -> fn_25_basic_block_46:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_45:s -> fn_25_basic_block_47:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_46:s -> fn_25_basic_block_47:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_47:s -> fn_25_basic_block_48:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_47:s -> fn_25_basic_block_49:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_48:s -> fn_25_basic_block_49:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_49:s -> fn_25_basic_block_50:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_49:s -> fn_25_basic_block_51:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_50:s -> fn_25_basic_block_54:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_51:s -> fn_25_basic_block_52:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_51:s -> fn_25_basic_block_53:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_52:s -> fn_25_basic_block_53:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_53:s -> fn_25_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_25_basic_block_54:s -> fn_25_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_0:s -> fn_25_basic_block_1:n [style="invis",constraint=true];
+}
+}

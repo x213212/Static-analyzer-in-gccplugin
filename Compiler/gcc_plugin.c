@@ -2,7 +2,6 @@
 #include "gcc-plugin.h"
 #include "plugin-version.h"
 #include <coretypes.h>
-
 #include "tm.h"
 #include <tree.h>
 #include <tree-pass.h>

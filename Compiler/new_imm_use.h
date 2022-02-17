@@ -135,14 +135,17 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 														if (TREE_CODE(filed_from2) == SSA_NAME)
 														{
 															def_stmt = SSA_NAME_DEF_STMT(filed_from2);
-															if (def_stmt)
-																if (gimple_code(def_stmt) != GIMPLE_NOP)
-																	if (gimple_assign_rhs1(def_stmt))
-																		if (TREE_CODE(gimple_assign_rhs1(def_stmt)) != ERROR_MARK)
-																			if (def_stmt)
-																				treecheck = gimple_assign_rhs1(def_stmt);
-																			else
-																				treecheck = filed_from2;
+
+															tree getfiledtree = filed_from2;
+															if (TREE_CODE(filed_from) != VAR_DECL)
+															{
+																getfiledtree = gimple_assign_rhs1(def_stmt);
+																if (def_stmt)
+																	if (gimple_code(def_stmt) != GIMPLE_NOP)
+																		if (getfiledtree)
+																			if (TREE_CODE(getfiledtree) != ERROR_MARK)
+																				treecheck = getfiledtree;
+															}
 														}
 														else
 															treecheck = filed_from2;
@@ -152,14 +155,16 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 														if (TREE_CODE(second) != VAR_DECL && TREE_CODE(filed_from) != INTEGER_CST)
 														{
 															gimple *def_stmt2 = SSA_NAME_DEF_STMT(filed_from);
-															if (def_stmt2)
-																if (gimple_code(def_stmt2) != GIMPLE_NOP)
-																	if (gimple_assign_rhs1(def_stmt2))
-																		if (TREE_CODE(gimple_assign_rhs1(def_stmt2)) != ERROR_MARK)
-																			if (def_stmt2)
-																				treecheck2 = gimple_assign_rhs1(def_stmt2);
-																			else
-																				treecheck2 = filed_from;
+															tree getfiledtree = filed_from;
+															if (TREE_CODE(filed_from) != VAR_DECL)
+															{
+																getfiledtree = gimple_assign_rhs1(def_stmt2);
+																if (def_stmt2)
+																	if (gimple_code(def_stmt2) != GIMPLE_NOP)
+																		if (getfiledtree)
+																			if (TREE_CODE(getfiledtree) != ERROR_MARK)
+																				treecheck2 = getfiledtree;
+															}
 														}
 														else
 															treecheck2 = filed_from;
@@ -198,14 +203,17 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 														if (TREE_CODE(filed_from2) == SSA_NAME)
 														{
 															def_stmt = SSA_NAME_DEF_STMT(filed_from2);
-															if (def_stmt)
-																if (gimple_code(def_stmt) != GIMPLE_NOP)
-																	if (gimple_assign_rhs1(def_stmt))
-																		if (TREE_CODE(gimple_assign_rhs1(def_stmt)) != ERROR_MARK)
-																			if (def_stmt)
-																				treecheck = gimple_assign_rhs1(def_stmt);
-																			else
-																				treecheck = filed_from2;
+
+															tree getfiledtree = filed_from2;
+															if (TREE_CODE(filed_from) != VAR_DECL)
+															{
+																getfiledtree = gimple_assign_rhs1(def_stmt);
+																if (def_stmt)
+																	if (gimple_code(def_stmt) != GIMPLE_NOP)
+																		if (getfiledtree)
+																			if (TREE_CODE(getfiledtree) != ERROR_MARK)
+																				treecheck = getfiledtree;
+															}
 														}
 														else
 															treecheck = filed_from2;
@@ -216,15 +224,18 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 														if (TREE_CODE(second) != VAR_DECL && TREE_CODE(filed_from) != INTEGER_CST)
 														{
 															gimple *def_stmt2 = SSA_NAME_DEF_STMT(filed_from);
-
-															if (def_stmt2)
-																if (gimple_code(def_stmt2) != GIMPLE_NOP)
-																	if (gimple_assign_rhs1(def_stmt2))
-																		if (TREE_CODE(gimple_assign_rhs1(def_stmt2)) != ERROR_MARK)
-																			if (def_stmt2)
-																				treecheck2 = gimple_assign_rhs1(def_stmt2);
-																			else
-																				treecheck2 = filed_from;
+															tree getfiledtree = filed_from;
+															if (TREE_CODE(filed_from) != VAR_DECL)
+															{
+																getfiledtree = gimple_assign_rhs1(def_stmt2);
+																if (def_stmt2)
+																	if (gimple_code(def_stmt2) != GIMPLE_NOP)
+																		if (getfiledtree)
+																			if (TREE_CODE(getfiledtree) != ERROR_MARK)
+																				treecheck2 = getfiledtree;
+															}
+															// debug_tree(filed_from);
+															// debug_gimple_stmt(def_stmt2);
 														}
 														else
 															treecheck2 = filed_from;
@@ -1144,9 +1155,9 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 	// you can chang there max expan stmt
 	// fprintf(stderr, "max expan %d   %d\n", levelsize, num_imm_uses(target));
 	// if(levelsize <17)
-
 	if (TREE_CODE(target) == SSA_NAME || TREE_CODE(target) == ADDR_EXPR)
 	{
+
 		const ssa_use_operand_t *const head = &(SSA_NAME_IMM_USE_NODE(target));
 		if (TREE_CODE(target) == ADDR_EXPR)
 		{
@@ -1158,13 +1169,16 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 		if (USE_STMT(head->next))
 			if (num_imm_uses(target) == 1)
 			{
+
 				has_single_use_flag = 1;
 				if (target != target2)
 				{
+
 					use_stmt = USE_STMT(head->next);
 					goto has_single_use_jump;
 				}
 			}
+		// debug_tree(target);
 
 		if (levelsize > 1)
 			if (target == now_tree)
@@ -1218,6 +1232,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 							// debug_tree(gimple_assign_lhs(use_stmt));
 
 							if (gimple_call_fn(use_stmt))
+							{
 								if (!check_stmtStack(gimpleassignlhs) && !check_stmtStack(gimple_call_fn(use_stmt)))
 								{
 									// fprintf(stderr, "-------always in therealways in therealways in there----------------------------\n");
@@ -1245,6 +1260,22 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 										Checknew_search_imm_use_rhs(used_stmt, use_stmt, target, target2);
 									}
 								}
+							}
+							else if (gimpleassignlhs && TREE_CODE(gimpleassignlhs) == SSA_NAME)
+							{
+								// fprintf(stderr, "--------GIMPLE goto -------\n");
+								// debug_gimple_stmt(use_stmt);
+								if (!check_stmtStack(gimpleassignlhs))
+								{
+									// fprintf(stderr, "------------------SSA_NAME : rhs ssaname------------------\n");
+									// check_stmtStack2((use_stmt));
+									// set_gimple_array(used_stmt, use_stmt, gimple_assign_rhs1(use_stmt), target, NULL);
+									if (gimpleassignlhs != target2 && !check_stmtStack2((use_stmt)))
+										new_search_imm_use(used_stmt, gimpleassignlhs, gimpleassignlhs);
+
+									Checknew_search_imm_use_rhs(used_stmt, use_stmt, target, target2);
+								}
+							}
 						}
 						else if (gimpleassignrhs && TREE_CODE(gimpleassignrhs) == SSA_NAME)
 						{

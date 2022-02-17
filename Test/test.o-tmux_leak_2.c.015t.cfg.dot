@@ -1,0 +1,2867 @@
+digraph "test.o-tmux_leak_2.c.015t.cfg" {
+overlap=false;
+subgraph "cluster_winlinks_RB_INSERT_COLOR" {
+	style="dashed";
+	color="black";
+	label="winlinks_RB_INSERT_COLOR ()";
+	subgraph cluster_22_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_22_basic_block_44 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 44\>:\l\
+|parent\ =\ elm-\>entry.rbe_parent;\l\
+|if\ (parent\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 45\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 46\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_45 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 45\>:\l\
+|_46\ =\ parent-\>entry.rbe_color;\l\
+|if\ (_46\ ==\ 1)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 46\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|gparent\ =\ parent-\>entry.rbe_parent;\l\
+|_1\ =\ gparent-\>entry.rbe_left;\l\
+|if\ (parent\ ==\ _1)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|tmp\ =\ gparent-\>entry.rbe_right;\l\
+|if\ (tmp\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 24\>:\l\
+|tmp\ =\ gparent-\>entry.rbe_left;\l\
+|if\ (tmp\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 25\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 27\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|_2\ =\ tmp-\>entry.rbe_color;\l\
+|if\ (_2\ ==\ 1)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|_3\ =\ parent-\>entry.rbe_right;\l\
+|if\ (elm\ ==\ _3)\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 25\>:\l\
+|_24\ =\ tmp-\>entry.rbe_color;\l\
+|if\ (_24\ ==\ 1)\l\
+\ \ goto\ \<bb\ 26\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 27\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 27\>:\l\
+|_25\ =\ parent-\>entry.rbe_left;\l\
+|if\ (elm\ ==\ _25)\l\
+\ \ goto\ \<bb\ 28\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 36\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|tmp-\>entry.rbe_color\ =\ 0;\l\
+|parent-\>entry.rbe_color\ =\ 0;\l\
+|gparent-\>entry.rbe_color\ =\ 1;\l\
+|elm\ =\ gparent;\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 44\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|tmp\ =\ parent-\>entry.rbe_right;\l\
+|_4\ =\ tmp-\>entry.rbe_left;\l\
+|parent-\>entry.rbe_right\ =\ _4;\l\
+|_5\ =\ parent-\>entry.rbe_right;\l\
+|if\ (_5\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 16\>:\l\
+|parent-\>entry.rbe_color\ =\ 0;\l\
+|gparent-\>entry.rbe_color\ =\ 1;\l\
+|tmp\ =\ gparent-\>entry.rbe_left;\l\
+|_14\ =\ tmp-\>entry.rbe_right;\l\
+|gparent-\>entry.rbe_left\ =\ _14;\l\
+|_15\ =\ gparent-\>entry.rbe_left;\l\
+|if\ (_15\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 17\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 18\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 26\>:\l\
+|tmp-\>entry.rbe_color\ =\ 0;\l\
+|parent-\>entry.rbe_color\ =\ 0;\l\
+|gparent-\>entry.rbe_color\ =\ 1;\l\
+|elm\ =\ gparent;\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 44\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 28\>:\l\
+|tmp\ =\ parent-\>entry.rbe_left;\l\
+|_26\ =\ tmp-\>entry.rbe_right;\l\
+|parent-\>entry.rbe_left\ =\ _26;\l\
+|_27\ =\ parent-\>entry.rbe_left;\l\
+|if\ (_27\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 29\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 30\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_36 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 36\>:\l\
+|parent-\>entry.rbe_color\ =\ 0;\l\
+|gparent-\>entry.rbe_color\ =\ 1;\l\
+|tmp\ =\ gparent-\>entry.rbe_right;\l\
+|_36\ =\ tmp-\>entry.rbe_left;\l\
+|gparent-\>entry.rbe_right\ =\ _36;\l\
+|_37\ =\ gparent-\>entry.rbe_right;\l\
+|if\ (_37\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 37\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 38\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|_6\ =\ tmp-\>entry.rbe_left;\l\
+|_6-\>entry.rbe_parent\ =\ parent;\l\
+}"];
+
+	fn_22_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|_7\ =\ parent-\>entry.rbe_parent;\l\
+|tmp-\>entry.rbe_parent\ =\ _7;\l\
+|_8\ =\ tmp-\>entry.rbe_parent;\l\
+|if\ (_8\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 17\>:\l\
+|_16\ =\ tmp-\>entry.rbe_right;\l\
+|_16-\>entry.rbe_parent\ =\ gparent;\l\
+}"];
+
+	fn_22_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 18\>:\l\
+|_17\ =\ gparent-\>entry.rbe_parent;\l\
+|tmp-\>entry.rbe_parent\ =\ _17;\l\
+|_18\ =\ tmp-\>entry.rbe_parent;\l\
+|if\ (_18\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 19\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 22\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 29\>:\l\
+|_28\ =\ tmp-\>entry.rbe_right;\l\
+|_28-\>entry.rbe_parent\ =\ parent;\l\
+}"];
+
+	fn_22_basic_block_30 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 30\>:\l\
+|_29\ =\ parent-\>entry.rbe_parent;\l\
+|tmp-\>entry.rbe_parent\ =\ _29;\l\
+|_30\ =\ tmp-\>entry.rbe_parent;\l\
+|if\ (_30\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 31\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 34\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_37 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 37\>:\l\
+|_38\ =\ tmp-\>entry.rbe_left;\l\
+|_38-\>entry.rbe_parent\ =\ gparent;\l\
+}"];
+
+	fn_22_basic_block_38 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 38\>:\l\
+|_39\ =\ gparent-\>entry.rbe_parent;\l\
+|tmp-\>entry.rbe_parent\ =\ _39;\l\
+|_40\ =\ tmp-\>entry.rbe_parent;\l\
+|if\ (_40\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 39\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 42\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|_9\ =\ parent-\>entry.rbe_parent;\l\
+|_10\ =\ _9-\>entry.rbe_left;\l\
+|if\ (parent\ ==\ _10)\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 14\>:\l\
+|head-\>rbh_root\ =\ tmp;\l\
+}"];
+
+	fn_22_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 19\>:\l\
+|_19\ =\ gparent-\>entry.rbe_parent;\l\
+|_20\ =\ _19-\>entry.rbe_left;\l\
+|if\ (gparent\ ==\ _20)\l\
+\ \ goto\ \<bb\ 20\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 21\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 22\>:\l\
+|head-\>rbh_root\ =\ tmp;\l\
+}"];
+
+	fn_22_basic_block_31 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 31\>:\l\
+|_31\ =\ parent-\>entry.rbe_parent;\l\
+|_32\ =\ _31-\>entry.rbe_left;\l\
+|if\ (parent\ ==\ _32)\l\
+\ \ goto\ \<bb\ 32\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 33\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_34 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 34\>:\l\
+|head-\>rbh_root\ =\ tmp;\l\
+}"];
+
+	fn_22_basic_block_39 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 39\>:\l\
+|_41\ =\ gparent-\>entry.rbe_parent;\l\
+|_42\ =\ _41-\>entry.rbe_left;\l\
+|if\ (gparent\ ==\ _42)\l\
+\ \ goto\ \<bb\ 40\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_42 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 42\>:\l\
+|head-\>rbh_root\ =\ tmp;\l\
+}"];
+
+	fn_22_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|_11\ =\ parent-\>entry.rbe_parent;\l\
+|_11-\>entry.rbe_left\ =\ tmp;\l\
+goto\ \<bb\ 15\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|_12\ =\ parent-\>entry.rbe_parent;\l\
+|_12-\>entry.rbe_right\ =\ tmp;\l\
+goto\ \<bb\ 15\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 15\>:\l\
+|tmp-\>entry.rbe_left\ =\ parent;\l\
+|parent-\>entry.rbe_parent\ =\ tmp;\l\
+|_13\ =\ tmp-\>entry.rbe_parent;\l\
+|tmp\ =\ parent;\l\
+|parent\ =\ elm;\l\
+|elm\ =\ tmp;\l\
+}"];
+
+	fn_22_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 20\>:\l\
+|_21\ =\ gparent-\>entry.rbe_parent;\l\
+|_21-\>entry.rbe_left\ =\ tmp;\l\
+goto\ \<bb\ 23\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 21\>:\l\
+|_22\ =\ gparent-\>entry.rbe_parent;\l\
+|_22-\>entry.rbe_right\ =\ tmp;\l\
+goto\ \<bb\ 23\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 23\>:\l\
+|tmp-\>entry.rbe_right\ =\ gparent;\l\
+|gparent-\>entry.rbe_parent\ =\ tmp;\l\
+|_23\ =\ tmp-\>entry.rbe_parent;\l\
+goto\ \<bb\ 44\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_32 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 32\>:\l\
+|_33\ =\ parent-\>entry.rbe_parent;\l\
+|_33-\>entry.rbe_left\ =\ tmp;\l\
+goto\ \<bb\ 35\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_33 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 33\>:\l\
+|_34\ =\ parent-\>entry.rbe_parent;\l\
+|_34-\>entry.rbe_right\ =\ tmp;\l\
+goto\ \<bb\ 35\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_35 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 35\>:\l\
+|tmp-\>entry.rbe_right\ =\ parent;\l\
+|parent-\>entry.rbe_parent\ =\ tmp;\l\
+|_35\ =\ tmp-\>entry.rbe_parent;\l\
+|tmp\ =\ parent;\l\
+|parent\ =\ elm;\l\
+|elm\ =\ tmp;\l\
+}"];
+
+	fn_22_basic_block_40 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 40\>:\l\
+|_43\ =\ gparent-\>entry.rbe_parent;\l\
+|_43-\>entry.rbe_left\ =\ tmp;\l\
+goto\ \<bb\ 43\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_41 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 41\>:\l\
+|_44\ =\ gparent-\>entry.rbe_parent;\l\
+|_44-\>entry.rbe_right\ =\ tmp;\l\
+goto\ \<bb\ 43\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_43 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 43\>:\l\
+|tmp-\>entry.rbe_left\ =\ gparent;\l\
+|gparent-\>entry.rbe_parent\ =\ tmp;\l\
+|_45\ =\ tmp-\>entry.rbe_parent;\l\
+}"];
+
+	}
+	fn_22_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_22_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_22_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+goto\ \<bb\ 44\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_46 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 46\>:\l\
+|_47\ =\ head-\>rbh_root;\l\
+|_47-\>entry.rbe_color\ =\ 0;\l\
+|return;\l\
+}"];
+
+	fn_22_basic_block_0:s -> fn_22_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_2:s -> fn_22_basic_block_44:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_3:s -> fn_22_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_3:s -> fn_22_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_4:s -> fn_22_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_4:s -> fn_22_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_5:s -> fn_22_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_5:s -> fn_22_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_6:s -> fn_22_basic_block_44:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_22_basic_block_7:s -> fn_22_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_7:s -> fn_22_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_8:s -> fn_22_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_8:s -> fn_22_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_9:s -> fn_22_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_10:s -> fn_22_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_10:s -> fn_22_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_11:s -> fn_22_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_11:s -> fn_22_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_12:s -> fn_22_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_13:s -> fn_22_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_14:s -> fn_22_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_15:s -> fn_22_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_16:s -> fn_22_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_16:s -> fn_22_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_17:s -> fn_22_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_18:s -> fn_22_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_18:s -> fn_22_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_19:s -> fn_22_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_19:s -> fn_22_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_20:s -> fn_22_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_21:s -> fn_22_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_22:s -> fn_22_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_23:s -> fn_22_basic_block_44:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_22_basic_block_24:s -> fn_22_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_24:s -> fn_22_basic_block_27:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_25:s -> fn_22_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_25:s -> fn_22_basic_block_27:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_26:s -> fn_22_basic_block_44:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_22_basic_block_27:s -> fn_22_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_27:s -> fn_22_basic_block_36:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_28:s -> fn_22_basic_block_29:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_28:s -> fn_22_basic_block_30:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_29:s -> fn_22_basic_block_30:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_30:s -> fn_22_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_30:s -> fn_22_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_31:s -> fn_22_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_31:s -> fn_22_basic_block_33:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_32:s -> fn_22_basic_block_35:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_33:s -> fn_22_basic_block_35:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_34:s -> fn_22_basic_block_35:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_35:s -> fn_22_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_36:s -> fn_22_basic_block_37:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_36:s -> fn_22_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_37:s -> fn_22_basic_block_38:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_38:s -> fn_22_basic_block_39:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_38:s -> fn_22_basic_block_42:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_39:s -> fn_22_basic_block_40:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_39:s -> fn_22_basic_block_41:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_40:s -> fn_22_basic_block_43:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_41:s -> fn_22_basic_block_43:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_42:s -> fn_22_basic_block_43:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_43:s -> fn_22_basic_block_44:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_22_basic_block_44:s -> fn_22_basic_block_45:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_44:s -> fn_22_basic_block_46:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_45:s -> fn_22_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_45:s -> fn_22_basic_block_46:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_46:s -> fn_22_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_0:s -> fn_22_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_winlinks_RB_REMOVE_COLOR" {
+	style="dashed";
+	color="black";
+	label="winlinks_RB_REMOVE_COLOR ()";
+	subgraph cluster_23_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_23_basic_block_76 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 76\>:\l\
+|if\ (elm\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 78\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 77\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_78 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 78\>:\l\
+|_89\ =\ head-\>rbh_root;\l\
+|if\ (elm\ !=\ _89)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 79\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_77 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 77\>:\l\
+|_88\ =\ elm-\>entry.rbe_color;\l\
+|if\ (_88\ ==\ 0)\l\
+\ \ goto\ \<bb\ 78\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 79\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_1\ =\ parent-\>entry.rbe_left;\l\
+|if\ (elm\ ==\ _1)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 40\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|tmp\ =\ parent-\>entry.rbe_right;\l\
+|_2\ =\ tmp-\>entry.rbe_color;\l\
+|if\ (_2\ ==\ 1)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_40 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 40\>:\l\
+|tmp\ =\ parent-\>entry.rbe_left;\l\
+|_45\ =\ tmp-\>entry.rbe_color;\l\
+|if\ (_45\ ==\ 1)\l\
+\ \ goto\ \<bb\ 41\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 49\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|tmp-\>entry.rbe_color\ =\ 0;\l\
+|parent-\>entry.rbe_color\ =\ 1;\l\
+|tmp\ =\ parent-\>entry.rbe_right;\l\
+|_3\ =\ tmp-\>entry.rbe_left;\l\
+|parent-\>entry.rbe_right\ =\ _3;\l\
+|_4\ =\ parent-\>entry.rbe_right;\l\
+|if\ (_4\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|_13\ =\ tmp-\>entry.rbe_left;\l\
+|if\ (_13\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 15\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_41 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 41\>:\l\
+|tmp-\>entry.rbe_color\ =\ 0;\l\
+|parent-\>entry.rbe_color\ =\ 1;\l\
+|tmp\ =\ parent-\>entry.rbe_left;\l\
+|_46\ =\ tmp-\>entry.rbe_right;\l\
+|parent-\>entry.rbe_left\ =\ _46;\l\
+|_47\ =\ parent-\>entry.rbe_left;\l\
+|if\ (_47\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 42\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 43\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_49 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 49\>:\l\
+|_56\ =\ tmp-\>entry.rbe_left;\l\
+|if\ (_56\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 51\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 50\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_5\ =\ tmp-\>entry.rbe_left;\l\
+|_5-\>entry.rbe_parent\ =\ parent;\l\
+}"];
+
+	fn_23_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|_6\ =\ parent-\>entry.rbe_parent;\l\
+|tmp-\>entry.rbe_parent\ =\ _6;\l\
+|_7\ =\ tmp-\>entry.rbe_parent;\l\
+|if\ (_7\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 15\>:\l\
+|_16\ =\ tmp-\>entry.rbe_right;\l\
+|if\ (_16\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 17\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 14\>:\l\
+|_14\ =\ tmp-\>entry.rbe_left;\l\
+|_15\ =\ _14-\>entry.rbe_color;\l\
+|if\ (_15\ ==\ 0)\l\
+\ \ goto\ \<bb\ 15\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 18\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_42 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 42\>:\l\
+|_48\ =\ tmp-\>entry.rbe_right;\l\
+|_48-\>entry.rbe_parent\ =\ parent;\l\
+}"];
+
+	fn_23_basic_block_43 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 43\>:\l\
+|_49\ =\ parent-\>entry.rbe_parent;\l\
+|tmp-\>entry.rbe_parent\ =\ _49;\l\
+|_50\ =\ tmp-\>entry.rbe_parent;\l\
+|if\ (_50\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 44\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 47\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_51 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 51\>:\l\
+|_59\ =\ tmp-\>entry.rbe_right;\l\
+|if\ (_59\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 53\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 52\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_50 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 50\>:\l\
+|_57\ =\ tmp-\>entry.rbe_left;\l\
+|_58\ =\ _57-\>entry.rbe_color;\l\
+|if\ (_58\ ==\ 0)\l\
+\ \ goto\ \<bb\ 51\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 54\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|_8\ =\ parent-\>entry.rbe_parent;\l\
+|_9\ =\ _8-\>entry.rbe_left;\l\
+|if\ (parent\ ==\ _9)\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|head-\>rbh_root\ =\ tmp;\l\
+}"];
+
+	fn_23_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 17\>:\l\
+|tmp-\>entry.rbe_color\ =\ 1;\l\
+|elm\ =\ parent;\l\
+|parent\ =\ elm-\>entry.rbe_parent;\l\
+goto\ \<bb\ 76\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 16\>:\l\
+|_17\ =\ tmp-\>entry.rbe_right;\l\
+|_18\ =\ _17-\>entry.rbe_color;\l\
+|if\ (_18\ ==\ 0)\l\
+\ \ goto\ \<bb\ 17\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 18\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_44 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 44\>:\l\
+|_51\ =\ parent-\>entry.rbe_parent;\l\
+|_52\ =\ _51-\>entry.rbe_left;\l\
+|if\ (parent\ ==\ _52)\l\
+\ \ goto\ \<bb\ 45\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 46\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_47 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 47\>:\l\
+|head-\>rbh_root\ =\ tmp;\l\
+}"];
+
+	fn_23_basic_block_53 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 53\>:\l\
+|tmp-\>entry.rbe_color\ =\ 1;\l\
+|elm\ =\ parent;\l\
+|parent\ =\ elm-\>entry.rbe_parent;\l\
+goto\ \<bb\ 76\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_52 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 52\>:\l\
+|_60\ =\ tmp-\>entry.rbe_right;\l\
+|_61\ =\ _60-\>entry.rbe_color;\l\
+|if\ (_61\ ==\ 0)\l\
+\ \ goto\ \<bb\ 53\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 54\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|_10\ =\ parent-\>entry.rbe_parent;\l\
+|_10-\>entry.rbe_left\ =\ tmp;\l\
+goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|_11\ =\ parent-\>entry.rbe_parent;\l\
+|_11-\>entry.rbe_right\ =\ tmp;\l\
+goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|tmp-\>entry.rbe_left\ =\ parent;\l\
+|parent-\>entry.rbe_parent\ =\ tmp;\l\
+|_12\ =\ tmp-\>entry.rbe_parent;\l\
+|tmp\ =\ parent-\>entry.rbe_right;\l\
+}"];
+
+	fn_23_basic_block_45 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 45\>:\l\
+|_53\ =\ parent-\>entry.rbe_parent;\l\
+|_53-\>entry.rbe_left\ =\ tmp;\l\
+goto\ \<bb\ 48\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_46 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 46\>:\l\
+|_54\ =\ parent-\>entry.rbe_parent;\l\
+|_54-\>entry.rbe_right\ =\ tmp;\l\
+goto\ \<bb\ 48\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_48 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 48\>:\l\
+|tmp-\>entry.rbe_right\ =\ parent;\l\
+|parent-\>entry.rbe_parent\ =\ tmp;\l\
+|_55\ =\ tmp-\>entry.rbe_parent;\l\
+|tmp\ =\ parent-\>entry.rbe_left;\l\
+}"];
+
+	}
+	fn_23_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_23_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_23_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+goto\ \<bb\ 76\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 18\>:\l\
+|_19\ =\ tmp-\>entry.rbe_right;\l\
+|if\ (_19\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 20\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 19\>:\l\
+|_20\ =\ tmp-\>entry.rbe_right;\l\
+|_21\ =\ _20-\>entry.rbe_color;\l\
+|if\ (_21\ ==\ 0)\l\
+\ \ goto\ \<bb\ 20\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 30\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 20\>:\l\
+|oleft\ =\ tmp-\>entry.rbe_left;\l\
+|if\ (oleft\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 21\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 22\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 21\>:\l\
+|oleft-\>entry.rbe_color\ =\ 0;\l\
+}"];
+
+	fn_23_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 22\>:\l\
+|tmp-\>entry.rbe_color\ =\ 1;\l\
+|oleft\ =\ tmp-\>entry.rbe_left;\l\
+|_22\ =\ oleft-\>entry.rbe_right;\l\
+|tmp-\>entry.rbe_left\ =\ _22;\l\
+|_23\ =\ tmp-\>entry.rbe_left;\l\
+|if\ (_23\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 23\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 23\>:\l\
+|_24\ =\ oleft-\>entry.rbe_right;\l\
+|_24-\>entry.rbe_parent\ =\ tmp;\l\
+}"];
+
+	fn_23_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 24\>:\l\
+|_25\ =\ tmp-\>entry.rbe_parent;\l\
+|oleft-\>entry.rbe_parent\ =\ _25;\l\
+|_26\ =\ oleft-\>entry.rbe_parent;\l\
+|if\ (_26\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 25\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 28\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 25\>:\l\
+|_27\ =\ tmp-\>entry.rbe_parent;\l\
+|_28\ =\ _27-\>entry.rbe_left;\l\
+|if\ (tmp\ ==\ _28)\l\
+\ \ goto\ \<bb\ 26\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 27\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 26\>:\l\
+|_29\ =\ tmp-\>entry.rbe_parent;\l\
+|_29-\>entry.rbe_left\ =\ oleft;\l\
+goto\ \<bb\ 29\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 27\>:\l\
+|_30\ =\ tmp-\>entry.rbe_parent;\l\
+|_30-\>entry.rbe_right\ =\ oleft;\l\
+goto\ \<bb\ 29\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 28\>:\l\
+|head-\>rbh_root\ =\ oleft;\l\
+}"];
+
+	fn_23_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 29\>:\l\
+|oleft-\>entry.rbe_right\ =\ tmp;\l\
+|tmp-\>entry.rbe_parent\ =\ oleft;\l\
+|_31\ =\ oleft-\>entry.rbe_parent;\l\
+|tmp\ =\ parent-\>entry.rbe_right;\l\
+}"];
+
+	fn_23_basic_block_30 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 30\>:\l\
+|_32\ =\ parent-\>entry.rbe_color;\l\
+|tmp-\>entry.rbe_color\ =\ _32;\l\
+|parent-\>entry.rbe_color\ =\ 0;\l\
+|_33\ =\ tmp-\>entry.rbe_right;\l\
+|if\ (_33\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 31\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 32\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_31 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 31\>:\l\
+|_34\ =\ tmp-\>entry.rbe_right;\l\
+|_34-\>entry.rbe_color\ =\ 0;\l\
+}"];
+
+	fn_23_basic_block_32 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 32\>:\l\
+|tmp\ =\ parent-\>entry.rbe_right;\l\
+|_35\ =\ tmp-\>entry.rbe_left;\l\
+|parent-\>entry.rbe_right\ =\ _35;\l\
+|_36\ =\ parent-\>entry.rbe_right;\l\
+|if\ (_36\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 33\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 34\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_33 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 33\>:\l\
+|_37\ =\ tmp-\>entry.rbe_left;\l\
+|_37-\>entry.rbe_parent\ =\ parent;\l\
+}"];
+
+	fn_23_basic_block_34 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 34\>:\l\
+|_38\ =\ parent-\>entry.rbe_parent;\l\
+|tmp-\>entry.rbe_parent\ =\ _38;\l\
+|_39\ =\ tmp-\>entry.rbe_parent;\l\
+|if\ (_39\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 35\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 38\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_35 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 35\>:\l\
+|_40\ =\ parent-\>entry.rbe_parent;\l\
+|_41\ =\ _40-\>entry.rbe_left;\l\
+|if\ (parent\ ==\ _41)\l\
+\ \ goto\ \<bb\ 36\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 37\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_36 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 36\>:\l\
+|_42\ =\ parent-\>entry.rbe_parent;\l\
+|_42-\>entry.rbe_left\ =\ tmp;\l\
+goto\ \<bb\ 39\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_37 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 37\>:\l\
+|_43\ =\ parent-\>entry.rbe_parent;\l\
+|_43-\>entry.rbe_right\ =\ tmp;\l\
+goto\ \<bb\ 39\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_38 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 38\>:\l\
+|head-\>rbh_root\ =\ tmp;\l\
+}"];
+
+	fn_23_basic_block_39 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 39\>:\l\
+|tmp-\>entry.rbe_left\ =\ parent;\l\
+|parent-\>entry.rbe_parent\ =\ tmp;\l\
+|_44\ =\ tmp-\>entry.rbe_parent;\l\
+|elm\ =\ head-\>rbh_root;\l\
+goto\ \<bb\ 79\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_54 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 54\>:\l\
+|_62\ =\ tmp-\>entry.rbe_left;\l\
+|if\ (_62\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 56\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 55\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_55 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 55\>:\l\
+|_63\ =\ tmp-\>entry.rbe_left;\l\
+|_64\ =\ _63-\>entry.rbe_color;\l\
+|if\ (_64\ ==\ 0)\l\
+\ \ goto\ \<bb\ 56\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 66\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_56 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 56\>:\l\
+|oright\ =\ tmp-\>entry.rbe_right;\l\
+|if\ (oright\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 57\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 58\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_57 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 57\>:\l\
+|oright-\>entry.rbe_color\ =\ 0;\l\
+}"];
+
+	fn_23_basic_block_58 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 58\>:\l\
+|tmp-\>entry.rbe_color\ =\ 1;\l\
+|oright\ =\ tmp-\>entry.rbe_right;\l\
+|_65\ =\ oright-\>entry.rbe_left;\l\
+|tmp-\>entry.rbe_right\ =\ _65;\l\
+|_66\ =\ tmp-\>entry.rbe_right;\l\
+|if\ (_66\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 59\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 60\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_59 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 59\>:\l\
+|_67\ =\ oright-\>entry.rbe_left;\l\
+|_67-\>entry.rbe_parent\ =\ tmp;\l\
+}"];
+
+	fn_23_basic_block_60 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 60\>:\l\
+|_68\ =\ tmp-\>entry.rbe_parent;\l\
+|oright-\>entry.rbe_parent\ =\ _68;\l\
+|_69\ =\ oright-\>entry.rbe_parent;\l\
+|if\ (_69\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 61\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 64\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_61 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 61\>:\l\
+|_70\ =\ tmp-\>entry.rbe_parent;\l\
+|_71\ =\ _70-\>entry.rbe_left;\l\
+|if\ (tmp\ ==\ _71)\l\
+\ \ goto\ \<bb\ 62\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 63\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_62 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 62\>:\l\
+|_72\ =\ tmp-\>entry.rbe_parent;\l\
+|_72-\>entry.rbe_left\ =\ oright;\l\
+goto\ \<bb\ 65\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_63 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 63\>:\l\
+|_73\ =\ tmp-\>entry.rbe_parent;\l\
+|_73-\>entry.rbe_right\ =\ oright;\l\
+goto\ \<bb\ 65\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_64 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 64\>:\l\
+|head-\>rbh_root\ =\ oright;\l\
+}"];
+
+	fn_23_basic_block_65 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 65\>:\l\
+|oright-\>entry.rbe_left\ =\ tmp;\l\
+|tmp-\>entry.rbe_parent\ =\ oright;\l\
+|_74\ =\ oright-\>entry.rbe_parent;\l\
+|tmp\ =\ parent-\>entry.rbe_left;\l\
+}"];
+
+	fn_23_basic_block_66 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 66\>:\l\
+|_75\ =\ parent-\>entry.rbe_color;\l\
+|tmp-\>entry.rbe_color\ =\ _75;\l\
+|parent-\>entry.rbe_color\ =\ 0;\l\
+|_76\ =\ tmp-\>entry.rbe_left;\l\
+|if\ (_76\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 67\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 68\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_67 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 67\>:\l\
+|_77\ =\ tmp-\>entry.rbe_left;\l\
+|_77-\>entry.rbe_color\ =\ 0;\l\
+}"];
+
+	fn_23_basic_block_68 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 68\>:\l\
+|tmp\ =\ parent-\>entry.rbe_left;\l\
+|_78\ =\ tmp-\>entry.rbe_right;\l\
+|parent-\>entry.rbe_left\ =\ _78;\l\
+|_79\ =\ parent-\>entry.rbe_left;\l\
+|if\ (_79\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 69\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 70\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_69 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 69\>:\l\
+|_80\ =\ tmp-\>entry.rbe_right;\l\
+|_80-\>entry.rbe_parent\ =\ parent;\l\
+}"];
+
+	fn_23_basic_block_70 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 70\>:\l\
+|_81\ =\ parent-\>entry.rbe_parent;\l\
+|tmp-\>entry.rbe_parent\ =\ _81;\l\
+|_82\ =\ tmp-\>entry.rbe_parent;\l\
+|if\ (_82\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 71\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 74\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_71 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 71\>:\l\
+|_83\ =\ parent-\>entry.rbe_parent;\l\
+|_84\ =\ _83-\>entry.rbe_left;\l\
+|if\ (parent\ ==\ _84)\l\
+\ \ goto\ \<bb\ 72\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 73\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_72 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 72\>:\l\
+|_85\ =\ parent-\>entry.rbe_parent;\l\
+|_85-\>entry.rbe_left\ =\ tmp;\l\
+goto\ \<bb\ 75\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_73 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 73\>:\l\
+|_86\ =\ parent-\>entry.rbe_parent;\l\
+|_86-\>entry.rbe_right\ =\ tmp;\l\
+goto\ \<bb\ 75\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_74 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 74\>:\l\
+|head-\>rbh_root\ =\ tmp;\l\
+}"];
+
+	fn_23_basic_block_75 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 75\>:\l\
+|tmp-\>entry.rbe_right\ =\ parent;\l\
+|parent-\>entry.rbe_parent\ =\ tmp;\l\
+|_87\ =\ tmp-\>entry.rbe_parent;\l\
+|elm\ =\ head-\>rbh_root;\l\
+goto\ \<bb\ 79\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_79 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 79\>:\l\
+|if\ (elm\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 80\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 81\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_80 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 80\>:\l\
+|elm-\>entry.rbe_color\ =\ 0;\l\
+}"];
+
+	fn_23_basic_block_81 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 81\>:\l\
+|return;\l\
+}"];
+
+	fn_23_basic_block_0:s -> fn_23_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_2:s -> fn_23_basic_block_76:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_3:s -> fn_23_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_3:s -> fn_23_basic_block_40:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_4:s -> fn_23_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_4:s -> fn_23_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_5:s -> fn_23_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_5:s -> fn_23_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_6:s -> fn_23_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_7:s -> fn_23_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_7:s -> fn_23_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_8:s -> fn_23_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_8:s -> fn_23_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_9:s -> fn_23_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_10:s -> fn_23_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_11:s -> fn_23_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_12:s -> fn_23_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_13:s -> fn_23_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_13:s -> fn_23_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_14:s -> fn_23_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_14:s -> fn_23_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_15:s -> fn_23_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_15:s -> fn_23_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_16:s -> fn_23_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_16:s -> fn_23_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_17:s -> fn_23_basic_block_76:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_23_basic_block_18:s -> fn_23_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_18:s -> fn_23_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_19:s -> fn_23_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_19:s -> fn_23_basic_block_30:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_20:s -> fn_23_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_20:s -> fn_23_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_21:s -> fn_23_basic_block_22:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_22:s -> fn_23_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_22:s -> fn_23_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_23:s -> fn_23_basic_block_24:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_24:s -> fn_23_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_24:s -> fn_23_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_25:s -> fn_23_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_25:s -> fn_23_basic_block_27:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_26:s -> fn_23_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_27:s -> fn_23_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_28:s -> fn_23_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_29:s -> fn_23_basic_block_30:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_30:s -> fn_23_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_30:s -> fn_23_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_31:s -> fn_23_basic_block_32:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_32:s -> fn_23_basic_block_33:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_32:s -> fn_23_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_33:s -> fn_23_basic_block_34:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_34:s -> fn_23_basic_block_35:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_34:s -> fn_23_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_35:s -> fn_23_basic_block_36:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_35:s -> fn_23_basic_block_37:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_36:s -> fn_23_basic_block_39:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_37:s -> fn_23_basic_block_39:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_38:s -> fn_23_basic_block_39:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_39:s -> fn_23_basic_block_79:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_40:s -> fn_23_basic_block_41:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_40:s -> fn_23_basic_block_49:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_41:s -> fn_23_basic_block_42:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_41:s -> fn_23_basic_block_43:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_42:s -> fn_23_basic_block_43:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_43:s -> fn_23_basic_block_44:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_43:s -> fn_23_basic_block_47:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_44:s -> fn_23_basic_block_45:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_44:s -> fn_23_basic_block_46:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_45:s -> fn_23_basic_block_48:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_46:s -> fn_23_basic_block_48:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_47:s -> fn_23_basic_block_48:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_48:s -> fn_23_basic_block_49:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_49:s -> fn_23_basic_block_51:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_49:s -> fn_23_basic_block_50:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_50:s -> fn_23_basic_block_51:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_50:s -> fn_23_basic_block_54:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_51:s -> fn_23_basic_block_53:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_51:s -> fn_23_basic_block_52:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_52:s -> fn_23_basic_block_53:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_52:s -> fn_23_basic_block_54:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_53:s -> fn_23_basic_block_76:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_23_basic_block_54:s -> fn_23_basic_block_56:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_54:s -> fn_23_basic_block_55:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_55:s -> fn_23_basic_block_56:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_55:s -> fn_23_basic_block_66:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_56:s -> fn_23_basic_block_57:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_56:s -> fn_23_basic_block_58:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_57:s -> fn_23_basic_block_58:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_58:s -> fn_23_basic_block_59:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_58:s -> fn_23_basic_block_60:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_59:s -> fn_23_basic_block_60:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_60:s -> fn_23_basic_block_61:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_60:s -> fn_23_basic_block_64:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_61:s -> fn_23_basic_block_62:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_61:s -> fn_23_basic_block_63:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_62:s -> fn_23_basic_block_65:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_63:s -> fn_23_basic_block_65:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_64:s -> fn_23_basic_block_65:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_65:s -> fn_23_basic_block_66:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_66:s -> fn_23_basic_block_67:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_66:s -> fn_23_basic_block_68:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_67:s -> fn_23_basic_block_68:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_68:s -> fn_23_basic_block_69:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_68:s -> fn_23_basic_block_70:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_69:s -> fn_23_basic_block_70:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_70:s -> fn_23_basic_block_71:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_70:s -> fn_23_basic_block_74:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_71:s -> fn_23_basic_block_72:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_71:s -> fn_23_basic_block_73:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_72:s -> fn_23_basic_block_75:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_73:s -> fn_23_basic_block_75:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_74:s -> fn_23_basic_block_75:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_75:s -> fn_23_basic_block_79:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_76:s -> fn_23_basic_block_78:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_76:s -> fn_23_basic_block_77:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_77:s -> fn_23_basic_block_78:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_77:s -> fn_23_basic_block_79:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_78:s -> fn_23_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_78:s -> fn_23_basic_block_79:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_79:s -> fn_23_basic_block_80:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_79:s -> fn_23_basic_block_81:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_80:s -> fn_23_basic_block_81:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_81:s -> fn_23_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_0:s -> fn_23_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_winlinks_RB_INSERT" {
+	style="dashed";
+	color="black";
+	label="winlinks_RB_INSERT ()";
+	subgraph cluster_24_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_24_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|if\ (tmp\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|parent\ =\ tmp;\l\
+|if\ (comp\ \<\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|tmp\ =\ tmp-\>entry.rbe_left;\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|if\ (comp\ \>\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|tmp\ =\ tmp-\>entry.rbe_right;\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	}
+	fn_24_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_24_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_24_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|parent\ =\ 0B;\l\
+|comp\ =\ 0;\l\
+|tmp\ =\ head-\>rbh_root;\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|D.4484\ =\ tmp;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 15\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|elm-\>entry.rbe_parent\ =\ parent;\l\
+|elm-\>entry.rbe_right\ =\ 0B;\l\
+|_1\ =\ elm-\>entry.rbe_right;\l\
+|elm-\>entry.rbe_left\ =\ _1;\l\
+|elm-\>entry.rbe_color\ =\ 1;\l\
+|if\ (parent\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|if\ (comp\ \<\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|parent-\>entry.rbe_left\ =\ elm;\l\
+goto\ \<bb\ 14\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|parent-\>entry.rbe_right\ =\ elm;\l\
+goto\ \<bb\ 14\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|head-\>rbh_root\ =\ elm;\l\
+}"];
+
+	fn_24_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 14\>:\l\
+|winlinks_RB_INSERT_COLOR\ (head,\ elm);\l\
+|D.4484\ =\ 0B;\l\
+}"];
+
+	fn_24_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 15\>:\l\
+|return\ D.4484;\l\
+}"];
+
+	fn_24_basic_block_0:s -> fn_24_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_2:s -> fn_24_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_3:s -> fn_24_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_3:s -> fn_24_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_4:s -> fn_24_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_24_basic_block_5:s -> fn_24_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_5:s -> fn_24_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_6:s -> fn_24_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_24_basic_block_7:s -> fn_24_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_8:s -> fn_24_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_8:s -> fn_24_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_9:s -> fn_24_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_9:s -> fn_24_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_10:s -> fn_24_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_10:s -> fn_24_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_11:s -> fn_24_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_12:s -> fn_24_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_13:s -> fn_24_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_14:s -> fn_24_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_15:s -> fn_24_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_0:s -> fn_24_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_winlinks_RB_REMOVE" {
+	style="dashed";
+	color="black";
+	label="winlinks_RB_REMOVE ()";
+	subgraph cluster_25_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_25_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 27\>:\l\
+|left\ =\ left-\>entry.rbe_parent;\l\
+|if\ (left\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 27\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 28\>;\ [INV]\l\
+}"];
+
+	}
+	subgraph cluster_25_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_25_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|left\ =\ elm-\>entry.rbe_left;\l\
+|if\ (left\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|elm\ =\ left;\l\
+}"];
+
+	}
+	fn_25_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_25_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_25_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|old\ =\ elm;\l\
+|_1\ =\ elm-\>entry.rbe_left;\l\
+|if\ (_1\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|child\ =\ elm-\>entry.rbe_right;\l\
+goto\ \<bb\ 29\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_2\ =\ elm-\>entry.rbe_right;\l\
+|if\ (_2\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|child\ =\ elm-\>entry.rbe_left;\l\
+goto\ \<bb\ 29\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|elm\ =\ elm-\>entry.rbe_right;\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|child\ =\ elm-\>entry.rbe_right;\l\
+|parent\ =\ elm-\>entry.rbe_parent;\l\
+|color\ =\ elm-\>entry.rbe_color;\l\
+|if\ (child\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|child-\>entry.rbe_parent\ =\ parent;\l\
+}"];
+
+	fn_25_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|if\ (parent\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|_3\ =\ parent-\>entry.rbe_left;\l\
+|if\ (elm\ ==\ _3)\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|parent-\>entry.rbe_left\ =\ child;\l\
+goto\ \<bb\ 16\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 14\>:\l\
+|parent-\>entry.rbe_right\ =\ child;\l\
+goto\ \<bb\ 16\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 15\>:\l\
+|head-\>rbh_root\ =\ child;\l\
+}"];
+
+	fn_25_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 16\>:\l\
+|_4\ =\ elm-\>entry.rbe_parent;\l\
+|if\ (old\ ==\ _4)\l\
+\ \ goto\ \<bb\ 17\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 18\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 17\>:\l\
+|parent\ =\ elm;\l\
+}"];
+
+	fn_25_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 18\>:\l\
+|elm-\>entry\ =\ old-\>entry;\l\
+|_5\ =\ old-\>entry.rbe_parent;\l\
+|if\ (_5\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 19\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 22\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 19\>:\l\
+|_6\ =\ old-\>entry.rbe_parent;\l\
+|_7\ =\ _6-\>entry.rbe_left;\l\
+|if\ (old\ ==\ _7)\l\
+\ \ goto\ \<bb\ 20\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 21\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 20\>:\l\
+|_8\ =\ old-\>entry.rbe_parent;\l\
+|_8-\>entry.rbe_left\ =\ elm;\l\
+goto\ \<bb\ 23\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 21\>:\l\
+|_9\ =\ old-\>entry.rbe_parent;\l\
+|_9-\>entry.rbe_right\ =\ elm;\l\
+goto\ \<bb\ 23\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 22\>:\l\
+|head-\>rbh_root\ =\ elm;\l\
+}"];
+
+	fn_25_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 23\>:\l\
+|_10\ =\ old-\>entry.rbe_left;\l\
+|_10-\>entry.rbe_parent\ =\ elm;\l\
+|_11\ =\ old-\>entry.rbe_right;\l\
+|if\ (_11\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 24\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 25\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 24\>:\l\
+|_12\ =\ old-\>entry.rbe_right;\l\
+|_12-\>entry.rbe_parent\ =\ elm;\l\
+}"];
+
+	fn_25_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 25\>:\l\
+|if\ (parent\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 26\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 28\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 26\>:\l\
+|left\ =\ parent;\l\
+}"];
+
+	fn_25_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 28\>:\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 36\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 29\>:\l\
+|parent\ =\ elm-\>entry.rbe_parent;\l\
+|color\ =\ elm-\>entry.rbe_color;\l\
+|if\ (child\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 30\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 31\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_30 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 30\>:\l\
+|child-\>entry.rbe_parent\ =\ parent;\l\
+}"];
+
+	fn_25_basic_block_31 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 31\>:\l\
+|if\ (parent\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 32\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 35\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_32 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 32\>:\l\
+|_13\ =\ parent-\>entry.rbe_left;\l\
+|if\ (elm\ ==\ _13)\l\
+\ \ goto\ \<bb\ 33\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 34\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_33 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 33\>:\l\
+|parent-\>entry.rbe_left\ =\ child;\l\
+goto\ \<bb\ 36\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_34 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 34\>:\l\
+|parent-\>entry.rbe_right\ =\ child;\l\
+goto\ \<bb\ 36\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_35 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 35\>:\l\
+|head-\>rbh_root\ =\ child;\l\
+}"];
+
+	fn_25_basic_block_36 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 36\>:\l\
+|color:\l\
+|if\ (color\ ==\ 0)\l\
+\ \ goto\ \<bb\ 37\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 38\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_37 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 37\>:\l\
+|winlinks_RB_REMOVE_COLOR\ (head,\ parent,\ child);\l\
+}"];
+
+	fn_25_basic_block_38 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 38\>:\l\
+|D.4528\ =\ old;\l\
+|return\ D.4528;\l\
+}"];
+
+	fn_25_basic_block_0:s -> fn_25_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_2:s -> fn_25_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_2:s -> fn_25_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_3:s -> fn_25_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_4:s -> fn_25_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_4:s -> fn_25_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_5:s -> fn_25_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_6:s -> fn_25_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_7:s -> fn_25_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_25_basic_block_8:s -> fn_25_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_8:s -> fn_25_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_9:s -> fn_25_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_9:s -> fn_25_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_10:s -> fn_25_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_11:s -> fn_25_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_11:s -> fn_25_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_12:s -> fn_25_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_12:s -> fn_25_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_13:s -> fn_25_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_14:s -> fn_25_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_15:s -> fn_25_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_16:s -> fn_25_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_16:s -> fn_25_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_17:s -> fn_25_basic_block_18:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_18:s -> fn_25_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_18:s -> fn_25_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_19:s -> fn_25_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_19:s -> fn_25_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_20:s -> fn_25_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_21:s -> fn_25_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_22:s -> fn_25_basic_block_23:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_23:s -> fn_25_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_23:s -> fn_25_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_24:s -> fn_25_basic_block_25:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_25:s -> fn_25_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_25:s -> fn_25_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_26:s -> fn_25_basic_block_27:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_27:s -> fn_25_basic_block_27:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_25_basic_block_27:s -> fn_25_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_28:s -> fn_25_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_29:s -> fn_25_basic_block_30:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_29:s -> fn_25_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_30:s -> fn_25_basic_block_31:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_31:s -> fn_25_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_31:s -> fn_25_basic_block_35:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_32:s -> fn_25_basic_block_33:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_32:s -> fn_25_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_33:s -> fn_25_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_34:s -> fn_25_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_35:s -> fn_25_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_36:s -> fn_25_basic_block_37:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_36:s -> fn_25_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_37:s -> fn_25_basic_block_38:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_38:s -> fn_25_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_0:s -> fn_25_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_winlinks_RB_FIND" {
+	style="dashed";
+	color="black";
+	label="winlinks_RB_FIND ()";
+	subgraph cluster_26_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_26_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|if\ (tmp\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|comp\ =\ winlink_cmp\ (elm,\ tmp);\l\
+|if\ (comp\ \<\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|tmp\ =\ tmp-\>entry.rbe_left;\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|if\ (comp\ \>\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|tmp\ =\ tmp-\>entry.rbe_right;\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	}
+	fn_26_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_26_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_26_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|tmp\ =\ head-\>rbh_root;\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|D.4536\ =\ tmp;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|D.4536\ =\ 0B;\l\
+}"];
+
+	fn_26_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|return\ D.4536;\l\
+}"];
+
+	fn_26_basic_block_0:s -> fn_26_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_2:s -> fn_26_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_3:s -> fn_26_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_3:s -> fn_26_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_4:s -> fn_26_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_26_basic_block_5:s -> fn_26_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_5:s -> fn_26_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_6:s -> fn_26_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_26_basic_block_7:s -> fn_26_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_8:s -> fn_26_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_8:s -> fn_26_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_9:s -> fn_26_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_10:s -> fn_26_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_0:s -> fn_26_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_winlinks_RB_NFIND" {
+	style="dashed";
+	color="black";
+	label="winlinks_RB_NFIND ()";
+	subgraph cluster_27_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_27_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|if\ (tmp\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|comp\ =\ winlink_cmp\ (elm,\ tmp);\l\
+|if\ (comp\ \<\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|res\ =\ tmp;\l\
+|tmp\ =\ tmp-\>entry.rbe_left;\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|if\ (comp\ \>\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|tmp\ =\ tmp-\>entry.rbe_right;\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	}
+	fn_27_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_27_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_27_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|tmp\ =\ head-\>rbh_root;\l\
+|res\ =\ 0B;\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|D.4544\ =\ tmp;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|D.4544\ =\ res;\l\
+}"];
+
+	fn_27_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|return\ D.4544;\l\
+}"];
+
+	fn_27_basic_block_0:s -> fn_27_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_2:s -> fn_27_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_3:s -> fn_27_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_3:s -> fn_27_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_4:s -> fn_27_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_27_basic_block_5:s -> fn_27_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_5:s -> fn_27_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_6:s -> fn_27_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_27_basic_block_7:s -> fn_27_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_8:s -> fn_27_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_8:s -> fn_27_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_9:s -> fn_27_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_10:s -> fn_27_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_0:s -> fn_27_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_winlinks_RB_NEXT" {
+	style="dashed";
+	color="black";
+	label="winlinks_RB_NEXT ()";
+	subgraph cluster_28_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_28_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|_2\ =\ elm-\>entry.rbe_left;\l\
+|if\ (_2\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|elm\ =\ elm-\>entry.rbe_left;\l\
+}"];
+
+	}
+	subgraph cluster_28_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_28_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|_6\ =\ elm-\>entry.rbe_parent;\l\
+|if\ (_6\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|_7\ =\ elm-\>entry.rbe_parent;\l\
+|_8\ =\ _7-\>entry.rbe_right;\l\
+|if\ (elm\ ==\ _8)\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|elm\ =\ elm-\>entry.rbe_parent;\l\
+}"];
+
+	}
+	fn_28_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_28_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_28_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ elm-\>entry.rbe_right;\l\
+|if\ (_1\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|elm\ =\ elm-\>entry.rbe_right;\l\
+goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_3\ =\ elm-\>entry.rbe_parent;\l\
+|if\ (_3\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|_4\ =\ elm-\>entry.rbe_parent;\l\
+|_5\ =\ _4-\>entry.rbe_left;\l\
+|if\ (elm\ ==\ _5)\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|elm\ =\ elm-\>entry.rbe_parent;\l\
+goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|elm\ =\ elm-\>entry.rbe_parent;\l\
+}"];
+
+	fn_28_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|D.4554\ =\ elm;\l\
+|return\ D.4554;\l\
+}"];
+
+	fn_28_basic_block_0:s -> fn_28_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_2:s -> fn_28_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_2:s -> fn_28_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_3:s -> fn_28_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_4:s -> fn_28_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_28_basic_block_5:s -> fn_28_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_5:s -> fn_28_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_6:s -> fn_28_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_6:s -> fn_28_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_7:s -> fn_28_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_7:s -> fn_28_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_8:s -> fn_28_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_9:s -> fn_28_basic_block_10:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_28_basic_block_10:s -> fn_28_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_10:s -> fn_28_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_11:s -> fn_28_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_11:s -> fn_28_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_12:s -> fn_28_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_13:s -> fn_28_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_0:s -> fn_28_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_winlinks_RB_PREV" {
+	style="dashed";
+	color="black";
+	label="winlinks_RB_PREV ()";
+	subgraph cluster_29_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_29_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|_2\ =\ elm-\>entry.rbe_right;\l\
+|if\ (_2\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|elm\ =\ elm-\>entry.rbe_right;\l\
+}"];
+
+	}
+	subgraph cluster_29_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_29_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|_6\ =\ elm-\>entry.rbe_parent;\l\
+|if\ (_6\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|_7\ =\ elm-\>entry.rbe_parent;\l\
+|_8\ =\ _7-\>entry.rbe_left;\l\
+|if\ (elm\ ==\ _8)\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|elm\ =\ elm-\>entry.rbe_parent;\l\
+}"];
+
+	}
+	fn_29_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_29_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_29_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ elm-\>entry.rbe_left;\l\
+|if\ (_1\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|elm\ =\ elm-\>entry.rbe_left;\l\
+goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_3\ =\ elm-\>entry.rbe_parent;\l\
+|if\ (_3\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|_4\ =\ elm-\>entry.rbe_parent;\l\
+|_5\ =\ _4-\>entry.rbe_right;\l\
+|if\ (elm\ ==\ _5)\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|elm\ =\ elm-\>entry.rbe_parent;\l\
+goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|elm\ =\ elm-\>entry.rbe_parent;\l\
+}"];
+
+	fn_29_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|D.4564\ =\ elm;\l\
+|return\ D.4564;\l\
+}"];
+
+	fn_29_basic_block_0:s -> fn_29_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_2:s -> fn_29_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_2:s -> fn_29_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_3:s -> fn_29_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_4:s -> fn_29_basic_block_5:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_29_basic_block_5:s -> fn_29_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_5:s -> fn_29_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_6:s -> fn_29_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_6:s -> fn_29_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_7:s -> fn_29_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_7:s -> fn_29_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_8:s -> fn_29_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_9:s -> fn_29_basic_block_10:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_29_basic_block_10:s -> fn_29_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_10:s -> fn_29_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_11:s -> fn_29_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_11:s -> fn_29_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_12:s -> fn_29_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_13:s -> fn_29_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_0:s -> fn_29_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_winlinks_RB_MINMAX" {
+	style="dashed";
+	color="black";
+	label="winlinks_RB_MINMAX ()";
+	subgraph cluster_30_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_30_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|if\ (tmp\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|parent\ =\ tmp;\l\
+|if\ (val\ \<\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|tmp\ =\ tmp-\>entry.rbe_left;\l\
+goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|tmp\ =\ tmp-\>entry.rbe_right;\l\
+}"];
+
+	}
+	fn_30_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_30_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_30_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|tmp\ =\ head-\>rbh_root;\l\
+|parent\ =\ 0B;\l\
+goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|D.4569\ =\ parent;\l\
+|return\ D.4569;\l\
+}"];
+
+	fn_30_basic_block_0:s -> fn_30_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_30_basic_block_2:s -> fn_30_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_30_basic_block_3:s -> fn_30_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_3:s -> fn_30_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_4:s -> fn_30_basic_block_6:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_30_basic_block_5:s -> fn_30_basic_block_6:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_30_basic_block_6:s -> fn_30_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_6:s -> fn_30_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_7:s -> fn_30_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_0:s -> fn_30_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_winlink_cmp" {
+	style="dashed";
+	color="black";
+	label="winlink_cmp ()";
+	fn_31_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_31_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_31_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ wl1-\>idx;\l\
+|_2\ =\ wl2-\>idx;\l\
+|D.4571\ =\ _1\ -\ _2;\l\
+|return\ D.4571;\l\
+}"];
+
+	fn_31_basic_block_0:s -> fn_31_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_31_basic_block_2:s -> fn_31_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_31_basic_block_0:s -> fn_31_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_xasprintf" {
+	style="dashed";
+	color="black";
+	label="xasprintf ()";
+	fn_32_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_32_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_32_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|i\ =\ xvasprintf\ (ret,\ fmt,\ ap);\l\
+|D.4573\ =\ i;\l\
+|return\ D.4573;\l\
+}"];
+
+	fn_32_basic_block_0:s -> fn_32_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_2:s -> fn_32_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_0:s -> fn_32_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_xvasprintf" {
+	style="dashed";
+	color="black";
+	label="xvasprintf ()";
+	fn_33_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_33_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_33_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|i\ =\ vasprintf\ (ret,\ fmt,\ ap);\l\
+|if\ (i\ \<\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+}"];
+
+	fn_33_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_1\ =\ *ret;\l\
+|if\ (_1\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_33_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_2\ =\ __errno_location\ ();\l\
+|_3\ =\ *_2;\l\
+|_4\ =\ strerror\ (_3);\l\
+|printf\ (\"xasprintf:\ %s\",\ _4);\l\
+|exit\ (1);\l\
+}"];
+
+	fn_33_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|D.4578\ =\ i;\l\
+|return\ D.4578;\l\
+}"];
+
+	fn_33_basic_block_0:s -> fn_33_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_33_basic_block_2:s -> fn_33_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_2:s -> fn_33_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_3:s -> fn_33_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_3:s -> fn_33_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_5:s -> fn_33_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_0:s -> fn_33_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_main" {
+	style="dashed";
+	color="black";
+	label="main ()";
+	fn_37_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_37_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_37_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|status_prompt_complete\ (&session,\ \"string\");\l\
+|D.4580\ =\ 0;\l\
+|session\ =\ \{CLOBBER\};\l\
+|return\ D.4580;\l\
+}"];
+
+	fn_37_basic_block_0:s -> fn_37_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_37_basic_block_2:s -> fn_37_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_37_basic_block_0:s -> fn_37_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_status_prompt_complete" {
+	style="dashed";
+	color="black";
+	label="status_prompt_complete ()";
+	subgraph cluster_36_3 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 3";
+	labeljust=l;
+	penwidth=2;
+	fn_36_basic_block_46 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 46\>:\l\
+|size.35_92\ =\ size;\l\
+|if\ (i\ \<\ size.35_92)\l\
+\ \ goto\ \<bb\ 45\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 47\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_45 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 45\>:\l\
+|_88\ =\ (long\ unsigned\ int)\ i;\l\
+|_89\ =\ _88\ *\ 8;\l\
+|_90\ =\ list\ +\ _89;\l\
+|_91\ =\ *_90;\l\
+|free\ (_91);\l\
+|i\ =\ i\ +\ 1;\l\
+}"];
+
+	}
+	subgraph cluster_36_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_36_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 29\>:\l\
+|if\ (wl\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 23\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 38\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 23\>:\l\
+|_27\ =\ wl-\>window;\l\
+|_28\ =\ _27-\>name;\l\
+|xasprintf\ (&tmp,\ \":%s\",\ _28);\l\
+|_29\ =\ strlen\ (s);\l\
+|tmp.9_30\ =\ tmp;\l\
+|_31\ =\ strncmp\ (tmp.9_30,\ s,\ _29);\l\
+|if\ (_31\ ==\ 0)\l\
+\ \ goto\ \<bb\ 24\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 25\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 24\>:\l\
+|size.10_32\ =\ size;\l\
+|size.11_33\ =\ size.10_32;\l\
+|_34\ =\ size.11_33\ +\ 1;\l\
+|size\ =\ _34;\l\
+|_35\ =\ (long\ unsigned\ int)\ size.11_33;\l\
+|_36\ =\ _35\ *\ 8;\l\
+|_37\ =\ list\ +\ _36;\l\
+|tmp.12_38\ =\ tmp;\l\
+|*_37\ =\ tmp.12_38;\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 28\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 25\>:\l\
+|tmp.13_39\ =\ tmp;\l\
+|free\ (tmp.13_39);\l\
+|_40\ =\ wl-\>idx;\l\
+|_41\ =\ (long\ int)\ _40;\l\
+|_42\ =\ (char\ *)\ _41;\l\
+|xasprintf\ (&tmp,\ \":%d\",\ _42);\l\
+|_43\ =\ strlen\ (s);\l\
+|tmp.14_44\ =\ tmp;\l\
+|_45\ =\ strncmp\ (tmp.14_44,\ s,\ _43);\l\
+|if\ (_45\ ==\ 0)\l\
+\ \ goto\ \<bb\ 26\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 27\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 28\>:\l\
+|wl\ =\ winlinks_RB_NEXT\ (wl);\l\
+}"];
+
+	fn_36_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 26\>:\l\
+|size.15_46\ =\ size;\l\
+|size.16_47\ =\ size.15_46;\l\
+|_48\ =\ size.16_47\ +\ 1;\l\
+|size\ =\ _48;\l\
+|_49\ =\ (long\ unsigned\ int)\ size.16_47;\l\
+|_50\ =\ _49\ *\ 8;\l\
+|_51\ =\ list\ +\ _50;\l\
+|tmp.17_52\ =\ tmp;\l\
+|*_51\ =\ tmp.17_52;\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 28\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 27\>:\l\
+|tmp.18_53\ =\ tmp;\l\
+|free\ (tmp.18_53);\l\
+}"];
+
+	}
+	subgraph cluster_36_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_36_basic_block_37 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 37\>:\l\
+|if\ (wl\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 31\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 38\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_31 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 31\>:\l\
+|w\ =\ wl-\>window;\l\
+|_55\ =\ s_loop-\>name;\l\
+|xasprintf\ (&tmp,\ \"%ss\",\ _55);\l\
+|_56\ =\ strlen\ (s);\l\
+|tmp.19_57\ =\ tmp;\l\
+|_58\ =\ strncmp\ (tmp.19_57,\ s,\ _56);\l\
+|if\ (_58\ ==\ 0)\l\
+\ \ goto\ \<bb\ 32\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 33\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_32 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 32\>:\l\
+|size.20_59\ =\ size;\l\
+|size.21_60\ =\ size.20_59;\l\
+|_61\ =\ size.21_60\ +\ 1;\l\
+|size\ =\ _61;\l\
+|_62\ =\ (long\ unsigned\ int)\ size.21_60;\l\
+|_63\ =\ _62\ *\ 8;\l\
+|_64\ =\ list\ +\ _63;\l\
+|tmp.22_65\ =\ tmp;\l\
+|*_64\ =\ tmp.22_65;\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 36\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_33 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 33\>:\l\
+|tmp.23_66\ =\ tmp;\l\
+|free\ (tmp.23_66);\l\
+|_67\ =\ s_loop-\>name;\l\
+|xasprintf\ (&tmp,\ \"%s:\",\ _67);\l\
+|_68\ =\ strlen\ (s);\l\
+|tmp.24_69\ =\ tmp;\l\
+|_70\ =\ strncmp\ (tmp.24_69,\ s,\ _68);\l\
+|if\ (_70\ ==\ 0)\l\
+\ \ goto\ \<bb\ 34\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 35\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_36 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 36\>:\l\
+|wl\ =\ winlinks_RB_NEXT\ (wl);\l\
+}"];
+
+	fn_36_basic_block_34 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 34\>:\l\
+|size.25_71\ =\ size;\l\
+|size.26_72\ =\ size.25_71;\l\
+|_73\ =\ size.26_72\ +\ 1;\l\
+|size\ =\ _73;\l\
+|_74\ =\ (long\ unsigned\ int)\ size.26_72;\l\
+|_75\ =\ _74\ *\ 8;\l\
+|_76\ =\ list\ +\ _75;\l\
+|tmp.27_77\ =\ tmp;\l\
+|*_76\ =\ tmp.27_77;\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 36\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_35 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 35\>:\l\
+|tmp.28_78\ =\ tmp;\l\
+|free\ (tmp.28_78);\l\
+}"];
+
+	}
+	fn_36_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_36_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_36_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|list\ =\ 0B;\l\
+|size\ =\ 0;\l\
+|_1\ =\ *s;\l\
+|if\ (_1\ ==\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|D.4585\ =\ 0B;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 48\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|out\ =\ 0B;\l\
+|_2\ =\ strncmp\ (s,\ \"-t\",\ 2);\l\
+|if\ (_2\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|_3\ =\ strncmp\ (s,\ \"-s\",\ 2);\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|list\ =\ status_prompt_complete_list\ (&size,\ s);\l\
+|size.0_4\ =\ size;\l\
+|if\ (size.0_4\ ==\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|out\ =\ 0B;\l\
+goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|size.1_5\ =\ size;\l\
+|if\ (size.1_5\ ==\ 1)\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|_6\ =\ *list;\l\
+|xasprintf\ (&out,\ \"%s\ \",\ _6);\l\
+goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|size.2_7\ =\ size;\l\
+|_8\ =\ status_prompt_complete_prefix\ (list,\ size.2_7);\l\
+|out\ =\ _8;\l\
+}"];
+
+	fn_36_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|free\ (list);\l\
+|D.4585\ =\ out;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 48\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|copy\ =\ strdup\ (s);\l\
+|colon\ =\ \":\";\l\
+|_9\ =\ strlen\ (copy);\l\
+|_10\ =\ _9\ +\ 18446744073709551615;\l\
+|_11\ =\ copy\ +\ _10;\l\
+|_12\ =\ *_11;\l\
+|if\ (_12\ ==\ 58)\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|_13\ =\ strlen\ (copy);\l\
+|_14\ =\ _13\ +\ 18446744073709551615;\l\
+|_15\ =\ copy\ +\ _14;\l\
+|*_15\ =\ 0;\l\
+goto\ \<bb\ 15\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 14\>:\l\
+|colon\ =\ \"\";\l\
+}"];
+
+	fn_36_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 15\>:\l\
+|s\ =\ copy\ +\ 2;\l\
+|size.3_16\ =\ size;\l\
+|if\ (size.3_16\ ==\ 1)\l\
+\ \ goto\ \<bb\ 16\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 17\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 16\>:\l\
+|_17\ =\ *list;\l\
+|_18\ =\ strdup\ (_17);\l\
+|out\ =\ _18;\l\
+goto\ \<bb\ 19\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 17\>:\l\
+|size.4_19\ =\ size;\l\
+|if\ (size.4_19\ !=\ 0)\l\
+\ \ goto\ \<bb\ 18\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 19\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 18\>:\l\
+|size.5_20\ =\ size;\l\
+|_21\ =\ status_prompt_complete_prefix\ (list,\ size.5_20);\l\
+|out\ =\ _21;\l\
+}"];
+
+	fn_36_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 19\>:\l\
+|out.6_22\ =\ out;\l\
+|if\ (out.6_22\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 20\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 21\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 20\>:\l\
+|out.7_23\ =\ out;\l\
+|xasprintf\ (&tmp,\ \"-%s\",\ out.7_23);\l\
+|tmp.8_24\ =\ tmp;\l\
+|out\ =\ tmp.8_24;\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 47\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 21\>:\l\
+|colon\ =\ \"\";\l\
+|_25\ =\ *s;\l\
+|if\ (_25\ ==\ 58)\l\
+\ \ goto\ \<bb\ 22\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 30\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 22\>:\l\
+|_26\ =\ &session-\>windows;\l\
+|wl\ =\ winlinks_RB_MINMAX\ (_26,\ -1);\l\
+goto\ \<bb\ 29\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_30 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 30\>:\l\
+|_54\ =\ &s_loop-\>windows;\l\
+|wl\ =\ winlinks_RB_MINMAX\ (_54,\ -1);\l\
+goto\ \<bb\ 37\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_38 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 38\>:\l\
+|size.29_79\ =\ size;\l\
+|if\ (size.29_79\ ==\ 1)\l\
+\ \ goto\ \<bb\ 39\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 40\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_39 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 39\>:\l\
+|_80\ =\ *list;\l\
+|_81\ =\ strdup\ (_80);\l\
+|out\ =\ _81;\l\
+|colon\ =\ \"\ \";\l\
+goto\ \<bb\ 42\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_40 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 40\>:\l\
+|size.30_82\ =\ size;\l\
+|if\ (size.30_82\ !=\ 0)\l\
+\ \ goto\ \<bb\ 41\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 42\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_41 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 41\>:\l\
+|size.31_83\ =\ size;\l\
+|_84\ =\ status_prompt_complete_prefix\ (list,\ size.31_83);\l\
+|out\ =\ _84;\l\
+}"];
+
+	fn_36_basic_block_42 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 42\>:\l\
+|out.32_85\ =\ out;\l\
+|if\ (out.32_85\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 43\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 44\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_43 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 43\>:\l\
+|out.33_86\ =\ out;\l\
+|xasprintf\ (&tmp,\ \"-%s\",\ out.33_86);\l\
+|tmp.34_87\ =\ tmp;\l\
+|out\ =\ tmp.34_87;\l\
+}"];
+
+	fn_36_basic_block_44 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 44\>:\l\
+|i\ =\ 0;\l\
+goto\ \<bb\ 46\>;\ [INV]\l\
+}"];
+
+	fn_36_basic_block_47 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 47\>:\l\
+|found:\l\
+|free\ (copy);\l\
+|free\ (list);\l\
+|D.4585\ =\ out;\l\
+}"];
+
+	fn_36_basic_block_48 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 48\>:\l\
+|size\ =\ \{CLOBBER\};\l\
+|out\ =\ \{CLOBBER\};\l\
+|tmp\ =\ \{CLOBBER\};\l\
+|return\ D.4585;\l\
+}"];
+
+	fn_36_basic_block_0:s -> fn_36_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_2:s -> fn_36_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_2:s -> fn_36_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_3:s -> fn_36_basic_block_48:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_4:s -> fn_36_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_4:s -> fn_36_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_5:s -> fn_36_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_5:s -> fn_36_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_6:s -> fn_36_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_6:s -> fn_36_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_7:s -> fn_36_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_8:s -> fn_36_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_8:s -> fn_36_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_9:s -> fn_36_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_10:s -> fn_36_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_11:s -> fn_36_basic_block_48:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_12:s -> fn_36_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_12:s -> fn_36_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_13:s -> fn_36_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_14:s -> fn_36_basic_block_15:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_15:s -> fn_36_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_15:s -> fn_36_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_16:s -> fn_36_basic_block_19:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_17:s -> fn_36_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_17:s -> fn_36_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_18:s -> fn_36_basic_block_19:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_19:s -> fn_36_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_19:s -> fn_36_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_20:s -> fn_36_basic_block_47:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_21:s -> fn_36_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_21:s -> fn_36_basic_block_30:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_22:s -> fn_36_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_23:s -> fn_36_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_23:s -> fn_36_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_24:s -> fn_36_basic_block_28:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_25:s -> fn_36_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_25:s -> fn_36_basic_block_27:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_26:s -> fn_36_basic_block_28:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_27:s -> fn_36_basic_block_28:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_28:s -> fn_36_basic_block_29:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_36_basic_block_29:s -> fn_36_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_29:s -> fn_36_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_30:s -> fn_36_basic_block_37:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_31:s -> fn_36_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_31:s -> fn_36_basic_block_33:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_32:s -> fn_36_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_33:s -> fn_36_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_33:s -> fn_36_basic_block_35:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_34:s -> fn_36_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_35:s -> fn_36_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_36:s -> fn_36_basic_block_37:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_36_basic_block_37:s -> fn_36_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_37:s -> fn_36_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_38:s -> fn_36_basic_block_39:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_38:s -> fn_36_basic_block_40:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_39:s -> fn_36_basic_block_42:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_40:s -> fn_36_basic_block_41:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_40:s -> fn_36_basic_block_42:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_41:s -> fn_36_basic_block_42:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_42:s -> fn_36_basic_block_43:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_42:s -> fn_36_basic_block_44:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_43:s -> fn_36_basic_block_44:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_44:s -> fn_36_basic_block_46:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_45:s -> fn_36_basic_block_46:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_36_basic_block_46:s -> fn_36_basic_block_45:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_46:s -> fn_36_basic_block_47:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_47:s -> fn_36_basic_block_48:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_36_basic_block_48:s -> fn_36_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_36_basic_block_0:s -> fn_36_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_status_prompt_complete_list" {
+	style="dashed";
+	color="black";
+	label="status_prompt_complete_list ()";
+	subgraph cluster_35_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_35_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_14\ =\ *layout;\l\
+|if\ (_14\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_35_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_4\ =\ strlen\ (s);\l\
+|_5\ =\ *layout;\l\
+|_6\ =\ strncmp\ (_5,\ s,\ _4);\l\
+|if\ (_6\ ==\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_35_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_7\ =\ *size;\l\
+|_8\ =\ _7;\l\
+|_9\ =\ _8\ +\ 1;\l\
+|*size\ =\ _9;\l\
+|_10\ =\ (long\ unsigned\ int)\ _8;\l\
+|_11\ =\ _10\ *\ 8;\l\
+|_12\ =\ list\ +\ _11;\l\
+|_13\ =\ *layout;\l\
+|*_12\ =\ _13;\l\
+}"];
+
+	fn_35_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|layout\ =\ layout\ +\ 8;\l\
+}"];
+
+	}
+	fn_35_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_35_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_35_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|list\ =\ 0B;\l\
+|layouts[0]\ =\ \"even-horizontal\";\l\
+|layouts[1]\ =\ \"even-vertical\";\l\
+|layouts[2]\ =\ \"main-horizontal\";\l\
+|layouts[3]\ =\ \"main-vertical\";\l\
+|layouts[4]\ =\ \"tiled\";\l\
+|layouts[5]\ =\ 0B;\l\
+|*size\ =\ 0;\l\
+|_1\ =\ *size;\l\
+|_2\ =\ (long\ unsigned\ int)\ _1;\l\
+|_3\ =\ _2\ *\ 8;\l\
+|list\ =\ malloc\ (_3);\l\
+|layout\ =\ &layouts;\l\
+goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_35_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|D.4628\ =\ list;\l\
+|layouts\ =\ \{CLOBBER\};\l\
+|return\ D.4628;\l\
+}"];
+
+	fn_35_basic_block_0:s -> fn_35_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_35_basic_block_2:s -> fn_35_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_35_basic_block_3:s -> fn_35_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_35_basic_block_3:s -> fn_35_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_35_basic_block_4:s -> fn_35_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_35_basic_block_5:s -> fn_35_basic_block_6:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_35_basic_block_6:s -> fn_35_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_35_basic_block_6:s -> fn_35_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_35_basic_block_7:s -> fn_35_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_35_basic_block_0:s -> fn_35_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_status_prompt_complete_prefix" {
+	style="dashed";
+	color="black";
+	label="status_prompt_complete_prefix ()";
+	subgraph cluster_34_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	subgraph cluster_34_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey77";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_34_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|if\ (j\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_34_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|_7\ =\ j\ +\ 18446744073709551615;\l\
+|_8\ =\ out\ +\ _7;\l\
+|_9\ =\ *_8;\l\
+|_10\ =\ (long\ unsigned\ int)\ i;\l\
+|_11\ =\ _10\ *\ 8;\l\
+|_12\ =\ list\ +\ _11;\l\
+|_13\ =\ *_12;\l\
+|_14\ =\ j\ +\ 18446744073709551615;\l\
+|_15\ =\ _13\ +\ _14;\l\
+|_16\ =\ *_15;\l\
+|if\ (_9\ !=\ _16)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_34_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_17\ =\ j\ +\ 18446744073709551615;\l\
+|_18\ =\ out\ +\ _17;\l\
+|*_18\ =\ 0;\l\
+}"];
+
+	fn_34_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|j\ =\ j\ +\ 18446744073709551615;\l\
+}"];
+
+	}
+	fn_34_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|if\ (i\ \<\ size)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_34_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_2\ =\ (long\ unsigned\ int)\ i;\l\
+|_3\ =\ _2\ *\ 8;\l\
+|_4\ =\ list\ +\ _3;\l\
+|_5\ =\ *_4;\l\
+|j\ =\ strlen\ (_5);\l\
+|_6\ =\ strlen\ (out);\l\
+|if\ (j\ \>\ _6)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_34_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|j\ =\ strlen\ (out);\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_34_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|i\ =\ i\ +\ 1;\l\
+}"];
+
+	}
+	fn_34_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_34_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_34_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ *list;\l\
+|out\ =\ strdup\ (_1);\l\
+|i\ =\ 1;\l\
+goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_34_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|D.4635\ =\ out;\l\
+|return\ D.4635;\l\
+}"];
+
+	fn_34_basic_block_0:s -> fn_34_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_34_basic_block_2:s -> fn_34_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_34_basic_block_3:s -> fn_34_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_34_basic_block_3:s -> fn_34_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_34_basic_block_4:s -> fn_34_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_34_basic_block_5:s -> fn_34_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_34_basic_block_5:s -> fn_34_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_34_basic_block_6:s -> fn_34_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_34_basic_block_7:s -> fn_34_basic_block_8:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_34_basic_block_8:s -> fn_34_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_34_basic_block_8:s -> fn_34_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_34_basic_block_9:s -> fn_34_basic_block_10:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_34_basic_block_10:s -> fn_34_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_34_basic_block_10:s -> fn_34_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_34_basic_block_11:s -> fn_34_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_34_basic_block_0:s -> fn_34_basic_block_1:n [style="invis",constraint=true];
+}
+}

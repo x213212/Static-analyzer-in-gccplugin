@@ -1,0 +1,1058 @@
+digraph "test.o-git_leak_2.c.015t.cfg" {
+overlap=false;
+subgraph "cluster_xrealloc" {
+	style="dashed";
+	color="black";
+	label="xrealloc ()";
+	fn_26_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_26_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_26_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|ret\ =\ realloc\ (ptr,\ size);\l\
+|_1\ =\ ret\ ==\ 0B;\l\
+|_2\ =\ size\ ==\ 0;\l\
+|_3\ =\ _1\ &\ _2;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|ret\ =\ realloc\ (ptr,\ 1);\l\
+}"];
+
+	fn_26_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|if\ (ret\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|ret\ =\ realloc\ (ptr,\ size);\l\
+|_4\ =\ ret\ ==\ 0B;\l\
+|_5\ =\ size\ ==\ 0;\l\
+|_6\ =\ _4\ &\ _5;\l\
+|if\ (_6\ !=\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|ret\ =\ realloc\ (ptr,\ 1);\l\
+}"];
+
+	fn_26_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|if\ (ret\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|printf\ (\"Out\ of\ memory,\ realloc\ failed%s\",\ \"\");\l\
+|exit\ (1);\l\
+}"];
+
+	fn_26_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|D.3358\ =\ ret;\l\
+|return\ D.3358;\l\
+}"];
+
+	fn_26_basic_block_0:s -> fn_26_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_2:s -> fn_26_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_2:s -> fn_26_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_3:s -> fn_26_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_4:s -> fn_26_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_4:s -> fn_26_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_5:s -> fn_26_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_5:s -> fn_26_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_6:s -> fn_26_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_7:s -> fn_26_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_7:s -> fn_26_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_9:s -> fn_26_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_0:s -> fn_26_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_pop_commit" {
+	style="dashed";
+	color="black";
+	label="pop_commit ()";
+	fn_27_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_27_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_27_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|top\ =\ *stack;\l\
+|if\ (top\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|iftmp.0\ =\ top-\>item;\l\
+goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|iftmp.0\ =\ 0B;\l\
+}"];
+
+	fn_27_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|item\ =\ iftmp.0;\l\
+|if\ (top\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_1\ =\ top-\>next;\l\
+|*stack\ =\ _1;\l\
+|free\ (top);\l\
+}"];
+
+	fn_27_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|D.3366\ =\ item;\l\
+|return\ D.3366;\l\
+}"];
+
+	fn_27_basic_block_0:s -> fn_27_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_2:s -> fn_27_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_2:s -> fn_27_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_3:s -> fn_27_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_4:s -> fn_27_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_5:s -> fn_27_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_5:s -> fn_27_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_6:s -> fn_27_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_7:s -> fn_27_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_0:s -> fn_27_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_free_commit_list" {
+	style="dashed";
+	color="black";
+	label="free_commit_list ()";
+	subgraph cluster_28_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_28_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|list.1_1\ =\ list;\l\
+|if\ (list.1_1\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|pop_commit\ (&list);\l\
+}"];
+
+	}
+	fn_28_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_28_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_28_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|return;\l\
+}"];
+
+	fn_28_basic_block_0:s -> fn_28_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_2:s -> fn_28_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_3:s -> fn_28_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_28_basic_block_4:s -> fn_28_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_4:s -> fn_28_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_5:s -> fn_28_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_0:s -> fn_28_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_commit_list_insert" {
+	style="dashed";
+	color="black";
+	label="commit_list_insert ()";
+	fn_29_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_29_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_29_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|new_list\ =\ malloc\ (16);\l\
+|new_list-\>item\ =\ item;\l\
+|_1\ =\ *list_p;\l\
+|new_list-\>next\ =\ _1;\l\
+|*list_p\ =\ new_list;\l\
+|D.3368\ =\ new_list;\l\
+|return\ D.3368;\l\
+}"];
+
+	fn_29_basic_block_0:s -> fn_29_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_2:s -> fn_29_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_0:s -> fn_29_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_find_bisection" {
+	style="dashed";
+	color="black";
+	label="find_bisection ()";
+	subgraph cluster_33_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_33_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|if\ (p\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_33_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_2\ =\ p-\>item;\l\
+|_3\ =\ _2-\>object.flags;\l\
+|flags\ =\ (unsigned\ int)\ _3;\l\
+|next\ =\ p-\>next;\l\
+|_4\ =\ flags\ &\ 2;\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_33_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|free\ (p);\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_33_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|p-\>next\ =\ last;\l\
+|last\ =\ p;\l\
+|_5\ =\ flags\ &\ 4;\l\
+|if\ (_5\ ==\ 0)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_33_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|p\ =\ next;\l\
+}"];
+
+	fn_33_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|nr\ =\ nr\ +\ 1;\l\
+}"];
+
+	fn_33_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|on_list\ =\ on_list\ +\ 1;\l\
+}"];
+
+	}
+	fn_33_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_33_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_33_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ *commit_list;\l\
+|show_list\ (\"bisection\ 2\ entry\",\ 0,\ 0,\ _1);\l\
+|on_list\ =\ 0;\l\
+|nr\ =\ on_list;\l\
+|last\ =\ 0B;\l\
+|p\ =\ *commit_list;\l\
+goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_33_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|list\ =\ last;\l\
+|show_list\ (\"bisection\ 2\ sorted\",\ 0,\ nr,\ list);\l\
+|*all\ =\ nr;\l\
+|_6\ =\ (long\ unsigned\ int)\ on_list;\l\
+|weights\ =\ calloc\ (_6,\ 4);\l\
+|best\ =\ do_find_bisection\ (list,\ nr,\ weights,\ find_all);\l\
+|if\ (best\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [INV]\l\
+}"];
+
+	fn_33_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|if\ (find_all\ ==\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_33_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|best-\>next\ =\ 0B;\l\
+}"];
+
+	fn_33_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|_7\ =\ weight\ (best);\l\
+|*reaches\ =\ _7;\l\
+}"];
+
+	fn_33_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 14\>:\l\
+|free\ (weights);\l\
+|*commit_list\ =\ best;\l\
+|return;\l\
+}"];
+
+	fn_33_basic_block_0:s -> fn_33_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_33_basic_block_2:s -> fn_33_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_33_basic_block_3:s -> fn_33_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_3:s -> fn_33_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_4:s -> fn_33_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_33_basic_block_5:s -> fn_33_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_5:s -> fn_33_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_6:s -> fn_33_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_33_basic_block_7:s -> fn_33_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_33_basic_block_8:s -> fn_33_basic_block_9:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_33_basic_block_9:s -> fn_33_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_9:s -> fn_33_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_10:s -> fn_33_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_10:s -> fn_33_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_11:s -> fn_33_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_11:s -> fn_33_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_12:s -> fn_33_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_33_basic_block_13:s -> fn_33_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_33_basic_block_14:s -> fn_33_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_33_basic_block_0:s -> fn_33_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_do_find_bisection" {
+	style="dashed";
+	color="black";
+	label="do_find_bisection ()";
+	subgraph cluster_32_3 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 3";
+	labeljust=l;
+	penwidth=2;
+	subgraph cluster_32_4 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey77";
+	label="loop 4";
+	labeljust=l;
+	penwidth=2;
+	subgraph cluster_32_5 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey66";
+	label="loop 5";
+	labeljust=l;
+	penwidth=2;
+	fn_32_basic_block_30 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 30\>:\l\
+|if\ (q\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 26\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 31\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 26\>:\l\
+|_20\ =\ q-\>item;\l\
+|_21\ =\ _20-\>object.flags;\l\
+|_22\ =\ (unsigned\ int)\ _21;\l\
+|_23\ =\ _22\ &\ 2;\l\
+|if\ (_23\ !=\ 0)\l\
+\ \ goto\ \<bb\ 27\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 28\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 27\>:\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 29\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 28\>:\l\
+|_24\ =\ weight\ (q);\l\
+|if\ (_24\ \>=\ 0)\l\
+\ \ goto\ \<bb\ 31\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 29\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 29\>:\l\
+|q\ =\ q-\>next;\l\
+}"];
+
+	}
+	fn_32_basic_block_40 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 40\>:\l\
+|if\ (p\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 23\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 23\>:\l\
+|_16\ =\ p-\>item;\l\
+|_17\ =\ _16-\>object.flags;\l\
+|flags\ =\ (unsigned\ int)\ _17;\l\
+|_18\ =\ weight\ (p);\l\
+|if\ (_18\ \>=\ 0)\l\
+\ \ goto\ \<bb\ 24\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 25\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 24\>:\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 39\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 25\>:\l\
+|_19\ =\ p-\>item;\l\
+|q\ =\ _19-\>parents;\l\
+goto\ \<bb\ 30\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_39 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 39\>:\l\
+|p\ =\ p-\>next;\l\
+}"];
+
+	fn_32_basic_block_31 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 31\>:\l\
+|if\ (q\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 32\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 33\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_32 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 32\>:\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 39\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_33 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 33\>:\l\
+|_25\ =\ flags\ &\ 4;\l\
+|if\ (_25\ ==\ 0)\l\
+\ \ goto\ \<bb\ 34\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 35\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_34 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 34\>:\l\
+|_26\ =\ weight\ (q);\l\
+|_27\ =\ _26\ +\ 1;\l\
+|weight_set\ (p,\ _27);\l\
+|counted\ =\ counted\ +\ 1;\l\
+|show_list\ (\"bisection\ 2\ count\ one\",\ counted,\ nr,\ list);\l\
+goto\ \<bb\ 36\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_35 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 35\>:\l\
+|_28\ =\ weight\ (q);\l\
+|weight_set\ (p,\ _28);\l\
+}"];
+
+	fn_32_basic_block_36 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 36\>:\l\
+|if\ (find_all\ ==\ 0)\l\
+\ \ goto\ \<bb\ 37\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 39\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_37 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 37\>:\l\
+|_29\ =\ halfway\ (p,\ nr);\l\
+|if\ (_29\ !=\ 0)\l\
+\ \ goto\ \<bb\ 38\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 39\>;\ [INV]\l\
+}"];
+
+	}
+	fn_32_basic_block_41 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 41\>:\l\
+|if\ (counted\ \<\ nr)\l\
+\ \ goto\ \<bb\ 22\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 42\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 22\>:\l\
+|p\ =\ list;\l\
+goto\ \<bb\ 40\>;\ [INV]\l\
+}"];
+
+	}
+	subgraph cluster_32_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_32_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 20\>:\l\
+|if\ (p\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 21\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|_9\ =\ p-\>item;\l\
+|_10\ =\ _9-\>object.flags;\l\
+|_11\ =\ (unsigned\ int)\ _10;\l\
+|_12\ =\ _11\ &\ 2;\l\
+|if\ (_12\ !=\ 0)\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 19\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|_13\ =\ weight\ (p);\l\
+|if\ (_13\ !=\ -2)\l\
+\ \ goto\ \<bb\ 14\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 19\>:\l\
+|p\ =\ p-\>next;\l\
+}"];
+
+	fn_32_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 14\>:\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 19\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 15\>:\l\
+|_14\ =\ count_distance\ (p);\l\
+|weight_set\ (p,\ _14);\l\
+|clear_distance\ (list);\l\
+|if\ (find_all\ ==\ 0)\l\
+\ \ goto\ \<bb\ 16\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 18\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 16\>:\l\
+|_15\ =\ halfway\ (p,\ nr);\l\
+|if\ (_15\ !=\ 0)\l\
+\ \ goto\ \<bb\ 17\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 18\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 18\>:\l\
+|counted\ =\ counted\ +\ 1;\l\
+}"];
+
+	}
+	subgraph cluster_32_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_32_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|if\ (p\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|commit\ =\ p-\>item;\l\
+|_1\ =\ commit-\>object.flags;\l\
+|flags\ =\ (unsigned\ int)\ _1;\l\
+|n.2_2\ =\ n;\l\
+|n\ =\ n.2_2\ +\ 1;\l\
+|_3\ =\ (long\ unsigned\ int)\ n.2_2;\l\
+|_4\ =\ _3\ *\ 4;\l\
+|_5\ =\ p-\>item;\l\
+|_6\ =\ weights\ +\ _4;\l\
+|_5-\>util\ =\ _6;\l\
+|_7\ =\ count_interesting_parents\ (commit);\l\
+|switch\ (_7)\ \<default:\ \<L5\>\ [INV],\ case\ 0:\ \<L1\>\ [INV],\ case\ 1:\ \<L4\>\ [INV]\>\l\
+}"];
+
+	fn_32_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|\<L5\>:\l\
+|weight_set\ (p,\ -2);\l\
+}"];
+
+	fn_32_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|\<L1\>:\l\
+|_8\ =\ flags\ &\ 4;\l\
+|if\ (_8\ ==\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|\<L4\>:\l\
+|weight_set\ (p,\ -1);\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|p\ =\ p-\>next;\l\
+}"];
+
+	fn_32_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|weight_set\ (p,\ 1);\l\
+|counted\ =\ counted\ +\ 1;\l\
+|show_list\ (\"bisection\ 2\ count\ one\",\ counted,\ nr,\ list);\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	}
+	fn_32_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_32_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_32_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|counted\ =\ 0;\l\
+|n\ =\ 0;\l\
+|p\ =\ list;\l\
+goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|show_list\ (\"bisection\ 2\ initialize\",\ counted,\ nr,\ list);\l\
+|p\ =\ list;\l\
+goto\ \<bb\ 20\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 17\>:\l\
+|D.3388\ =\ p;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 45\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 21\>:\l\
+|show_list\ (\"bisection\ 2\ count_distance\",\ counted,\ nr,\ list);\l\
+goto\ \<bb\ 41\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_38 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 38\>:\l\
+|D.3388\ =\ p;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 45\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_42 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 42\>:\l\
+|show_list\ (\"bisection\ 2\ counted\ all\",\ counted,\ nr,\ list);\l\
+|if\ (find_all\ ==\ 0)\l\
+\ \ goto\ \<bb\ 43\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 44\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_43 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 43\>:\l\
+|D.3388\ =\ best_bisection\ (list,\ nr);\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 45\>;\ [INV]\l\
+}"];
+
+	fn_32_basic_block_44 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 44\>:\l\
+|D.3388\ =\ best_bisection_sorted\ (list,\ nr);\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+}"];
+
+	fn_32_basic_block_45 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 45\>:\l\
+|return\ D.3388;\l\
+}"];
+
+	fn_32_basic_block_0:s -> fn_32_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_2:s -> fn_32_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_3:s -> fn_32_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_3:s -> fn_32_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_3:s -> fn_32_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_4:s -> fn_32_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_4:s -> fn_32_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_5:s -> fn_32_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_6:s -> fn_32_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_7:s -> fn_32_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_8:s -> fn_32_basic_block_9:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_32_basic_block_9:s -> fn_32_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_9:s -> fn_32_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_10:s -> fn_32_basic_block_20:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_11:s -> fn_32_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_11:s -> fn_32_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_12:s -> fn_32_basic_block_19:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_13:s -> fn_32_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_13:s -> fn_32_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_14:s -> fn_32_basic_block_19:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_15:s -> fn_32_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_15:s -> fn_32_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_16:s -> fn_32_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_16:s -> fn_32_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_17:s -> fn_32_basic_block_45:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_18:s -> fn_32_basic_block_19:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_19:s -> fn_32_basic_block_20:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_32_basic_block_20:s -> fn_32_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_20:s -> fn_32_basic_block_21:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_21:s -> fn_32_basic_block_41:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_22:s -> fn_32_basic_block_40:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_23:s -> fn_32_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_23:s -> fn_32_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_24:s -> fn_32_basic_block_39:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_25:s -> fn_32_basic_block_30:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_26:s -> fn_32_basic_block_27:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_26:s -> fn_32_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_27:s -> fn_32_basic_block_29:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_28:s -> fn_32_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_28:s -> fn_32_basic_block_29:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_29:s -> fn_32_basic_block_30:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_32_basic_block_30:s -> fn_32_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_30:s -> fn_32_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_31:s -> fn_32_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_31:s -> fn_32_basic_block_33:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_32:s -> fn_32_basic_block_39:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_33:s -> fn_32_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_33:s -> fn_32_basic_block_35:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_34:s -> fn_32_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_35:s -> fn_32_basic_block_36:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_36:s -> fn_32_basic_block_37:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_36:s -> fn_32_basic_block_39:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_37:s -> fn_32_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_37:s -> fn_32_basic_block_39:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_38:s -> fn_32_basic_block_45:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_39:s -> fn_32_basic_block_40:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_32_basic_block_40:s -> fn_32_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_40:s -> fn_32_basic_block_41:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_32_basic_block_41:s -> fn_32_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_41:s -> fn_32_basic_block_42:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_42:s -> fn_32_basic_block_43:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_42:s -> fn_32_basic_block_44:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_43:s -> fn_32_basic_block_45:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_44:s -> fn_32_basic_block_45:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_32_basic_block_45:s -> fn_32_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_32_basic_block_0:s -> fn_32_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_best_bisection" {
+	style="dashed";
+	color="black";
+	label="best_bisection ()";
+	subgraph cluster_30_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_30_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|if\ (p\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_1\ =\ p-\>item;\l\
+|_2\ =\ _1-\>object.flags;\l\
+|flags\ =\ (unsigned\ int)\ _2;\l\
+|_3\ =\ flags\ &\ 4;\l\
+|if\ (_3\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|distance\ =\ weight\ (p);\l\
+|_4\ =\ nr\ -\ distance;\l\
+|if\ (distance\ \>\ _4)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|p\ =\ p-\>next;\l\
+}"];
+
+	fn_30_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|distance\ =\ nr\ -\ distance;\l\
+}"];
+
+	fn_30_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|if\ (distance\ \>\ best_distance)\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|best\ =\ p;\l\
+|best_distance\ =\ distance;\l\
+}"];
+
+	}
+	fn_30_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_30_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_30_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|best_distance\ =\ -1;\l\
+|best\ =\ list;\l\
+|p\ =\ list;\l\
+goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|D.3412\ =\ best;\l\
+|return\ D.3412;\l\
+}"];
+
+	fn_30_basic_block_0:s -> fn_30_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_30_basic_block_2:s -> fn_30_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_30_basic_block_3:s -> fn_30_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_3:s -> fn_30_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_4:s -> fn_30_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_30_basic_block_5:s -> fn_30_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_5:s -> fn_30_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_6:s -> fn_30_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_30_basic_block_7:s -> fn_30_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_7:s -> fn_30_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_8:s -> fn_30_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_30_basic_block_9:s -> fn_30_basic_block_10:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_30_basic_block_10:s -> fn_30_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_10:s -> fn_30_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_11:s -> fn_30_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_0:s -> fn_30_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_best_bisection_sorted" {
+	style="dashed";
+	color="black";
+	label="best_bisection_sorted ()";
+	subgraph cluster_31_2 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 2";
+	labeljust=l;
+	penwidth=2;
+	fn_31_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 14\>:\l\
+|if\ (i\ \<\ cnt)\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [INV]\l\
+}"];
+
+	fn_31_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|_13\ =\ (long\ unsigned\ int)\ i;\l\
+|_14\ =\ _13\ *\ 16;\l\
+|_15\ =\ array\ +\ _14;\l\
+|_16\ =\ _15-\>commit;\l\
+|obj\ =\ &_16-\>object;\l\
+|strbuf_reset\ (&buf);\l\
+|_17\ =\ (long\ unsigned\ int)\ i;\l\
+|_18\ =\ _17\ *\ 16;\l\
+|_19\ =\ array\ +\ _18;\l\
+|_20\ =\ _19-\>distance;\l\
+|strbuf_addf\ (&buf,\ \"dist=%d\",\ _20);\l\
+|_21\ =\ buf.buf;\l\
+|add_name_decoration\ (0,\ _21,\ obj);\l\
+|_22\ =\ (long\ unsigned\ int)\ i;\l\
+|_23\ =\ _22\ *\ 16;\l\
+|_24\ =\ array\ +\ _23;\l\
+|_25\ =\ _24-\>commit;\l\
+|p-\>item\ =\ _25;\l\
+|_26\ =\ cnt\ +\ -1;\l\
+|if\ (i\ \<\ _26)\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_31_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|p\ =\ p-\>next;\l\
+}"];
+
+	fn_31_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|i\ =\ i\ +\ 1;\l\
+}"];
+
+	}
+	subgraph cluster_31_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_31_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|if\ (p\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_31_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_2\ =\ p-\>item;\l\
+|_3\ =\ _2-\>object.flags;\l\
+|flags\ =\ (unsigned\ int)\ _3;\l\
+|_4\ =\ flags\ &\ 4;\l\
+|if\ (_4\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_31_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_31_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|distance\ =\ weight\ (p);\l\
+|_5\ =\ nr\ -\ distance;\l\
+|if\ (distance\ \>\ _5)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_31_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|p\ =\ p-\>next;\l\
+}"];
+
+	fn_31_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|distance\ =\ nr\ -\ distance;\l\
+}"];
+
+	fn_31_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|_6\ =\ (long\ unsigned\ int)\ cnt;\l\
+|_7\ =\ _6\ *\ 16;\l\
+|_8\ =\ array\ +\ _7;\l\
+|_9\ =\ p-\>item;\l\
+|_8-\>commit\ =\ _9;\l\
+|_10\ =\ (long\ unsigned\ int)\ cnt;\l\
+|_11\ =\ _10\ *\ 16;\l\
+|_12\ =\ array\ +\ _11;\l\
+|_12-\>distance\ =\ distance;\l\
+|cnt\ =\ cnt\ +\ 1;\l\
+}"];
+
+	}
+	fn_31_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_31_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_31_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ (long\ unsigned\ int)\ nr;\l\
+|array\ =\ calloc\ (_1,\ 16);\l\
+|buf.alloc\ =\ 0;\l\
+|buf.len\ =\ 0;\l\
+|buf.buf\ =\ &strbuf_slopbuf;\l\
+|p\ =\ list;\l\
+|cnt\ =\ 0;\l\
+goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_31_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|p\ =\ list;\l\
+|i\ =\ 0;\l\
+goto\ \<bb\ 14\>;\ [INV]\l\
+}"];
+
+	fn_31_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 15\>:\l\
+|_27\ =\ p-\>next;\l\
+|free_commit_list\ (_27);\l\
+|p-\>next\ =\ 0B;\l\
+|strbuf_release\ (&buf);\l\
+|free\ (array);\l\
+|D.3420\ =\ list;\l\
+|buf\ =\ \{CLOBBER\};\l\
+|return\ D.3420;\l\
+}"];
+
+	fn_31_basic_block_0:s -> fn_31_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_31_basic_block_2:s -> fn_31_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_31_basic_block_3:s -> fn_31_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_31_basic_block_3:s -> fn_31_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_31_basic_block_4:s -> fn_31_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_31_basic_block_5:s -> fn_31_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_31_basic_block_5:s -> fn_31_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_31_basic_block_6:s -> fn_31_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_31_basic_block_7:s -> fn_31_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_31_basic_block_8:s -> fn_31_basic_block_9:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_31_basic_block_9:s -> fn_31_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_31_basic_block_9:s -> fn_31_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_31_basic_block_10:s -> fn_31_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_31_basic_block_11:s -> fn_31_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_31_basic_block_11:s -> fn_31_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_31_basic_block_12:s -> fn_31_basic_block_13:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_31_basic_block_13:s -> fn_31_basic_block_14:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_31_basic_block_14:s -> fn_31_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_31_basic_block_14:s -> fn_31_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_31_basic_block_15:s -> fn_31_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_31_basic_block_0:s -> fn_31_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_main" {
+	style="dashed";
+	color="black";
+	label="main ()";
+	subgraph cluster_34_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_34_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|if\ (i\ \<=\ 9)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_34_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|commit_list_insert\ (0B,\ &list);\l\
+|i\ =\ i\ +\ 1;\l\
+}"];
+
+	}
+	fn_34_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_34_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_34_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|i\ =\ 0;\l\
+goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_34_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|find_bisection\ (&list,\ &reaches,\ &all,\ find_all);\l\
+|list.3_1\ =\ list;\l\
+|free_commit_list\ (list.3_1);\l\
+|D.3423\ =\ 0;\l\
+|list\ =\ \{CLOBBER\};\l\
+|reaches\ =\ \{CLOBBER\};\l\
+|all\ =\ \{CLOBBER\};\l\
+|return\ D.3423;\l\
+}"];
+
+	fn_34_basic_block_0:s -> fn_34_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_34_basic_block_2:s -> fn_34_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_34_basic_block_3:s -> fn_34_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_34_basic_block_4:s -> fn_34_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_34_basic_block_4:s -> fn_34_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_34_basic_block_5:s -> fn_34_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_34_basic_block_0:s -> fn_34_basic_block_1:n [style="invis",constraint=true];
+}
+}

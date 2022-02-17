@@ -1,0 +1,935 @@
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  1298k ( 38%)
+ phase parsing                      :   0.05 ( 83%)   0.00 (  0%)   0.04 ( 67%)  2037k ( 59%)
+ phase opt and generate             :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 17%)    99k (  3%)
+ callgraph construction             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  7472  (  0%)
+ callgraph ipa passes               :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)    55k (  2%)
+ preprocessing                      :   0.02 ( 33%)   0.00 (  0%)   0.02 ( 33%)  1072k ( 31%)
+ lexical analysis                   :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ parser (global)                    :   0.02 ( 33%)   0.00 (  0%)   0.01 ( 17%)   783k ( 23%)
+ tree operand scan                  :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)  6184  (  0%)
+ TOTAL                              :   0.06          0.00          0.06         3445k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 98%)
+ TOTAL                              :   0.00          0.00          0.00         2194k
+../Compiler/newplugin.so 11.2.0 
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+node:= 2 
+ 	next_branch :=17
+node:= 3 
+ 	next_branch :=5
+	next_branch :=4
+node:= 4 
+ 	next_branch :=5
+node:= 5 
+ 	next_branch :=7
+	next_branch :=6
+node:= 6 
+ 	next_branch :=7
+node:= 7 
+ 	next_branch :=8
+	next_branch :=11
+node:= 8 
+ 	next_branch :=10
+	next_branch :=9
+node:= 9 
+ 	next_branch :=10
+node:= 10 
+ 	next_branch :=11
+node:= 11 
+ 	next_branch :=16
+	next_branch :=12
+node:= 12 
+ 	next_branch :=13
+	next_branch :=14
+node:= 13 
+ 	next_branch :=14
+node:= 14 
+ 	next_branch :=15
+	next_branch :=16
+node:= 15 
+ 	next_branch :=16
+node:= 16 
+ 	next_branch :=17
+node:= 17 
+ 	next_branch :=3
+	next_branch :=19
+node:= 18 
+ 	next_branch :=19
+node:= 19 
+ 	next_branch :=18
+	next_branch :=20
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 2 
+===============The second stage : Mapping stmt=================
+# .MEM_54 = VDEF <.MEM_53>
+thread_local_storage[_29] = 0B;
+# .MEM_56 = VDEF <.MEM_49>
+local_35 = malloc (8);
+# .MEM_57 = VDEF <.MEM_56>
+thread_local_storage[_42] = local_35;
+===============The second stage : Program slicing=================
+=============== *this point analyzable =================
+local_35 = malloc (8);
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 3 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:printf========= [0m
+[40;33m =======POP node_fun stack:printf========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fa2d80823f0
+    type <pointer_type 0x7fa2d80703f0
+        type <record_type 0x7fa2d8070348 thread_local_inits_st DI
+            size <integer_cst 0x7fa2d8550bb8 constant 64>
+            unit-size <integer_cst 0x7fa2d8550bd0 constant 8>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fa2d8070348 fields <field_decl 0x7fa2d806b1c8 async> context <translation_unit_decl 0x7fa2d855b168 ./benchmarks/openssl/leak_7/openssl_leak_7.c>
+            pointer_to_this <pointer_type 0x7fa2d80703f0>>
+        public unsigned DI size <integer_cst 0x7fa2d8550bb8 64> unit-size <integer_cst 0x7fa2d8550bd0 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fa2d807ccf0 local>
+    def_stmt local_35 = malloc (8);
+    version:35
+    ptr-info 0x7fa2d8076558>
+# .MEM_56 = VDEF <.MEM_49>
+local_35 = malloc (8);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+local_36 = PHI <local_31(7), local_35(10)>
+In function ‘main’:
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_58 = local_36;
+lto1: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+locals_21 = _58;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:78:44: warning: use location
+   78 |     struct thread_local_inits_st *locals = ossl_init_get_thread_local(1);
+      |                                            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+locals_21->err_state = 1;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:96:27: warning: use location
+   96 |         locals->err_state = 1;
+      |                           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+locals_21->async = 1;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:88:23: warning: use location
+   88 |         locals->async = 1;
+      |                       ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (locals_21 == 0B)
+./benchmarks/openssl/leak_7/openssl_leak_7.c:80:8: warning: use location
+   80 |     if (locals == NULL)
+      |        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+thread_local_storage[_42] = local_35;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:55:32: warning: use location
+   55 |     thread_local_storage[*key] = val;
+      |                                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+thread_local_storage[_42] = local_35;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:55:32: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_39 = thread_local_storage[_38];
+./benchmarks/openssl/leak_7/openssl_leak_7.c:47:32: warning: use location
+   47 |     return thread_local_storage[*key];
+      |                                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_40 = PHI <0B(5), _39(6)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_55 = _40;
+lto1: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_32 = local_31 == 0B;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:65:15: warning: use location
+   65 |     if (local == NULL && alloc) {
+      |               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_34 = _32 & _33;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:65:23: warning: use location
+   65 |     if (local == NULL && alloc) {
+      |                       ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_34 != 0)
+./benchmarks/openssl/leak_7/openssl_leak_7.c:65:8: warning: use location
+   65 |     if (local == NULL && alloc) {
+      |        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_1 = thread_local_storage[i_4];
+./benchmarks/openssl/leak_7/openssl_leak_7.c:110:17: warning: use location
+  110 |                 printf("%d\n", thread_local_storage[i]);
+      |                 ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+printf ("%d\n", _1);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:110:17: warning: use location
+this stmt call this function :printf
+trace fucntion name:printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_2 = thread_local_storage[i_4];
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: use location
+  111 |                 free(thread_local_storage[i]);
+      |                 ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: use location
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find free stmt ================== 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_56 = VDEF <.MEM_49>
+local_35 = malloc (8);
+local_35 = malloc (8);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:66:17: warning: use location
+   66 |         local = OPENSSL_zalloc(sizeof *local);  /* allocation site */
+      |                 ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fa2d80823f0
+    type <pointer_type 0x7fa2d80703f0
+        type <record_type 0x7fa2d8070348 thread_local_inits_st DI
+            size <integer_cst 0x7fa2d8550bb8 constant 64>
+            unit-size <integer_cst 0x7fa2d8550bd0 constant 8>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fa2d8070348 fields <field_decl 0x7fa2d806b1c8 async> context <translation_unit_decl 0x7fa2d855b168 ./benchmarks/openssl/leak_7/openssl_leak_7.c>
+            pointer_to_this <pointer_type 0x7fa2d80703f0>>
+        public unsigned DI size <integer_cst 0x7fa2d8550bb8 64> unit-size <integer_cst 0x7fa2d8550bd0 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fa2d807ccf0 local>
+    def_stmt local_35 = malloc (8);
+    version:35
+    ptr-info 0x7fa2d8076558>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_18 = VDEF <.MEM_17>
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: use location
+  111 |                 free(thread_local_storage[i]);
+      |                 ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_18 = VDEF <.MEM_17>
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+local_36 = PHI <local_31(7), local_35(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_18 = VDEF <.MEM_17>
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+local_36 = PHI <local_31(7), local_35(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_18 = VDEF <.MEM_17>
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_40 = PHI <0B(5), _39(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_18 = VDEF <.MEM_17>
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_40 = PHI <0B(5), _39(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+[40;31m  	free count:1 [0m
+
+======================================================================
+
+======================================================================
+[40;31m   need check branch because multiple direction varible[0m
+
+======================================================================
+
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7fa2d80823f0
+    type <pointer_type 0x7fa2d80703f0
+        type <record_type 0x7fa2d8070348 thread_local_inits_st DI
+            size <integer_cst 0x7fa2d8550bb8 constant 64>
+            unit-size <integer_cst 0x7fa2d8550bd0 constant 8>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fa2d8070348 fields <field_decl 0x7fa2d806b1c8 async> context <translation_unit_decl 0x7fa2d855b168 ./benchmarks/openssl/leak_7/openssl_leak_7.c>
+            pointer_to_this <pointer_type 0x7fa2d80703f0>>
+        public unsigned DI size <integer_cst 0x7fa2d8550bb8 64> unit-size <integer_cst 0x7fa2d8550bd0 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fa2d807ccf0 local>
+    def_stmt local_35 = malloc (8);
+    version:35
+    ptr-info 0x7fa2d8076558>
+# .MEM_56 = VDEF <.MEM_49>
+local_35 = malloc (8);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+local_36 = PHI <local_31(7), local_35(10)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_58 = local_36;
+lto1: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+locals_21 = _58;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:78:44: warning: use location
+   78 |     struct thread_local_inits_st *locals = ossl_init_get_thread_local(1);
+      |                                            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+locals_21->err_state = 1;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:96:27: warning: use location
+   96 |         locals->err_state = 1;
+      |                           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+locals_21->async = 1;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:88:23: warning: use location
+   88 |         locals->async = 1;
+      |                       ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (locals_21 == 0B)
+./benchmarks/openssl/leak_7/openssl_leak_7.c:80:8: warning: use location
+   80 |     if (locals == NULL)
+      |        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+thread_local_storage[_42] = local_35;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:55:32: warning: use location
+   55 |     thread_local_storage[*key] = val;
+      |                                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+thread_local_storage[_42] = local_35;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:55:32: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_39 = thread_local_storage[_38];
+./benchmarks/openssl/leak_7/openssl_leak_7.c:47:32: warning: use location
+   47 |     return thread_local_storage[*key];
+      |                                ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_40 = PHI <0B(5), _39(6)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_55 = _40;
+lto1: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_32 = local_31 == 0B;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:65:15: warning: use location
+   65 |     if (local == NULL && alloc) {
+      |               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_34 = _32 & _33;
+./benchmarks/openssl/leak_7/openssl_leak_7.c:65:23: warning: use location
+   65 |     if (local == NULL && alloc) {
+      |                       ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_34 != 0)
+./benchmarks/openssl/leak_7/openssl_leak_7.c:65:8: warning: use location
+   65 |     if (local == NULL && alloc) {
+      |        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_1 = thread_local_storage[i_4];
+./benchmarks/openssl/leak_7/openssl_leak_7.c:110:17: warning: use location
+  110 |                 printf("%d\n", thread_local_storage[i]);
+      |                 ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+printf ("%d\n", _1);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:110:17: warning: use location
+this stmt call this function :printf
+trace fucntion name:printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_2 = thread_local_storage[i_4];
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: use location
+  111 |                 free(thread_local_storage[i]);
+      |                 ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: use location
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find free stmt ================== 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_56 = VDEF <.MEM_49>
+local_35 = malloc (8);
+local_35 = malloc (8);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:66:17: warning: use location
+   66 |         local = OPENSSL_zalloc(sizeof *local);  /* allocation site */
+      |                 ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7fa2d80823f0
+    type <pointer_type 0x7fa2d80703f0
+        type <record_type 0x7fa2d8070348 thread_local_inits_st DI
+            size <integer_cst 0x7fa2d8550bb8 constant 64>
+            unit-size <integer_cst 0x7fa2d8550bd0 constant 8>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7fa2d8070348 fields <field_decl 0x7fa2d806b1c8 async> context <translation_unit_decl 0x7fa2d855b168 ./benchmarks/openssl/leak_7/openssl_leak_7.c>
+            pointer_to_this <pointer_type 0x7fa2d80703f0>>
+        public unsigned DI size <integer_cst 0x7fa2d8550bb8 64> unit-size <integer_cst 0x7fa2d8550bd0 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7fa2d807ccf0 local>
+    def_stmt local_35 = malloc (8);
+    version:35
+    ptr-info 0x7fa2d8076558>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_18 = VDEF <.MEM_17>
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: use location
+  111 |                 free(thread_local_storage[i]);
+      |                 ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_18 = VDEF <.MEM_17>
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+local_36 = PHI <local_31(7), local_35(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_18 = VDEF <.MEM_17>
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+local_36 = PHI <local_31(7), local_35(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_18 = VDEF <.MEM_17>
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_40 = PHI <0B(5), _39(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_18 = VDEF <.MEM_17>
+free (_2);
+./benchmarks/openssl/leak_7/openssl_leak_7.c:111:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_40 = PHI <0B(5), _39(6)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+[40;31m  	free count:1 [0m
+
+======================================================================
+
+======================================================================
+[40;31m   need check branch because multiple direction varible[0m
+
+======================================================================
+
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 97603126]:
+goto <bb 17>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 976138698]:
+_25 = thread_local_key;
+if (_25 > 255)
+  goto <bb 5>; [34.00%]
+else
+  goto <bb 4>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 644251537]:
+_26 = thread_local_key;
+_27 = _26 + 1;
+thread_local_key = _27;
+_28 = (int) _26;
+threadstopkey = _28;
+_29 = threadstopkey;
+thread_local_storage[_29] = 0B;
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 976138698]:
+# _30 = PHI <0(3), 1(4)>
+_37 = threadstopkey;
+if (_37 > 255)
+  goto <bb 7>; [17.38%]
+else
+  goto <bb 6>; [82.62%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 806485792]:
+_38 = threadstopkey;
+_39 = thread_local_storage[_38];
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 976138698]:
+# _40 = PHI <0B(5), _39(6)>
+_55 = _40;
+local_31 = _55;
+_32 = local_31 == 0B;
+_33 = 1;
+_34 = _32 & _33;
+if (_34 != 0)
+  goto <bb 8>; [33.00%]
+else
+  goto <bb 11>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 322125768]:
+local_35 = malloc (8);
+_41 = threadstopkey;
+if (_41 > 255)
+  goto <bb 10>; [34.00%]
+else
+  goto <bb 9>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 212603006]:
+_42 = threadstopkey;
+thread_local_storage[_42] = local_35;
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 322125768]:
+# _43 = PHI <0(8), 1(9)>
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 976138698]:
+# local_36 = PHI <local_31(7), local_35(10)>
+_58 = local_36;
+locals_21 = _58;
+if (locals_21 == 0B)
+  goto <bb 16>; [18.09%]
+else
+  goto <bb 12>; [81.91%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 799555207]:
+_22 = 0;
+if (_22 != 0)
+  goto <bb 13>; [50.00%]
+else
+  goto <bb 14>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 399777603]:
+locals_21->async = 1;
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 799555207]:
+_23 = 2;
+if (_23 != 0)
+  goto <bb 15>; [50.00%]
+else
+  goto <bb 16>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 399777603]:
+locals_21->err_state = 1;
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 976138698]:
+# _24 = PHI <0(11), 1(14), 1(15)>
+i_13 = i_3 + 1;
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [local count: 1073741824]:
+# i_3 = PHI <0(2), i_13(16)>
+if (i_3 <= 9)
+  goto <bb 3>; [90.91%]
+else
+  goto <bb 19>; [9.09%]
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [local count: 976138698]:
+_1 = thread_local_storage[i_4];
+printf ("%d\n", _1);
+_2 = thread_local_storage[i_4];
+free (_2);
+i_10 = i_4 + 1;
+
+=======is loop:1=========
+
+ bb index 19 
+<bb 19> [local count: 1073741824]:
+# i_4 = PHI <0(17), i_10(18)>
+if (i_4 <= 9)
+  goto <bb 18>; [90.91%]
+else
+  goto <bb 20>; [9.09%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 97603128]:
+return 0;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 1 [0m
+[40;34m    gimple free   count : 1 [0m
+[40;34m    all ptable point : 3 [0m
+[40;34m    analyzable ptable point : 1 [0m
+[40;34m    used_stmt array stack totalsize of : 0.000328 mb[0m
+[40;34m    collect time: : 0.000300 s [0m
+[40;34m    algorithm time: 0.004341 s [0m
+[40;34m    gimple stmt count : : 42 [0m
+[40;34m    this report analysis in Fri Feb 18 06:36:57 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)  2157k ( 89%)
+ phase opt and generate             :   0.02 (100%)   0.00 (  0%)   0.01 ( 50%)   226k (  9%)
+ callgraph functions expansion      :   0.01 ( 50%)   0.00 (  0%)   0.01 ( 50%)   132k (  5%)
+ ipa lto gimple in                  :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    55k (  2%)
+ initialize rtl                     :   0.01 ( 50%)   0.00 (  0%)   0.01 ( 50%)    12k (  1%)
+ TOTAL                              :   0.02          0.00          0.02         2418k

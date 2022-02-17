@@ -1,0 +1,844 @@
+digraph "test.o-openssh_uaf_1.c.015t.cfg" {
+overlap=false;
+subgraph "cluster_sshbuf_init" {
+	style="dashed";
+	color="black";
+	label="sshbuf_init ()";
+	fn_22_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_22_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_22_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|explicit_bzero\ (ret,\ 72);\l\
+|ret-\>alloc\ =\ 256;\l\
+|ret-\>max_size\ =\ 134217728;\l\
+|ret-\>readonly\ =\ 0;\l\
+|ret-\>dont_free\ =\ 1;\l\
+|ret-\>refcount\ =\ 1;\l\
+|_1\ =\ ret-\>alloc;\l\
+|_2\ =\ calloc\ (1,\ _1);\l\
+|ret-\>d\ =\ _2;\l\
+|_3\ =\ ret-\>d;\l\
+|ret-\>cd\ =\ _3;\l\
+|_4\ =\ ret-\>cd;\l\
+|if\ (_4\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|ret-\>alloc\ =\ 0;\l\
+}"];
+
+	fn_22_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|return;\l\
+}"];
+
+	fn_22_basic_block_0:s -> fn_22_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_2:s -> fn_22_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_2:s -> fn_22_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_3:s -> fn_22_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_4:s -> fn_22_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_0:s -> fn_22_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_sshbuf_free" {
+	style="dashed";
+	color="black";
+	label="sshbuf_free ()";
+	fn_23_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_23_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_23_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|dont_free\ =\ 0;\l\
+|if\ (buf\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_1\ =\ sshbuf_check_sanity\ (buf);\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_2\ =\ buf-\>parent;\l\
+|sshbuf_free\ (_2);\l\
+|buf-\>parent\ =\ 0B;\l\
+|_3\ =\ buf-\>refcount;\l\
+|_4\ =\ _3\ +\ 4294967295;\l\
+|buf-\>refcount\ =\ _4;\l\
+|_5\ =\ buf-\>refcount;\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|dont_free\ =\ buf-\>dont_free;\l\
+|_6\ =\ buf-\>readonly;\l\
+|if\ (_6\ ==\ 0)\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|_7\ =\ buf-\>alloc;\l\
+|_8\ =\ buf-\>d;\l\
+|explicit_bzero\ (_8,\ _7);\l\
+|_9\ =\ buf-\>d;\l\
+|free\ (_9);\l\
+}"];
+
+	fn_23_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|explicit_bzero\ (buf,\ 72);\l\
+|if\ (dont_free\ ==\ 0)\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|free\ (buf);\l\
+}"];
+
+	fn_23_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|return;\l\
+}"];
+
+	fn_23_basic_block_0:s -> fn_23_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_2:s -> fn_23_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_2:s -> fn_23_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_3:s -> fn_23_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_4:s -> fn_23_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_4:s -> fn_23_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_5:s -> fn_23_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_6:s -> fn_23_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_6:s -> fn_23_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_7:s -> fn_23_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_8:s -> fn_23_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_8:s -> fn_23_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_9:s -> fn_23_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_10:s -> fn_23_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_10:s -> fn_23_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_11:s -> fn_23_basic_block_12:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_12:s -> fn_23_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_0:s -> fn_23_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_sshbuf_reset" {
+	style="dashed";
+	color="black";
+	label="sshbuf_reset ()";
+	fn_24_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_24_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_24_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ buf-\>readonly;\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_2\ =\ buf-\>refcount;\l\
+|if\ (_2\ \>\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_3\ =\ buf-\>size;\l\
+|buf-\>off\ =\ _3;\l\
+|//\ predicted\ unlikely\ by\ early\ return\ (on\ trees)\ predictor.\l\
+goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|sshbuf_check_sanity\ (buf);\l\
+|buf-\>size\ =\ 0;\l\
+|_4\ =\ buf-\>size;\l\
+|buf-\>off\ =\ _4;\l\
+|_5\ =\ buf-\>alloc;\l\
+|if\ (_5\ !=\ 256)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_6\ =\ buf-\>alloc;\l\
+|_7\ =\ buf-\>d;\l\
+|_8\ =\ recallocarray\ (_7,\ _6,\ 256,\ 1);\l\
+|_9\ =\ (long\ int)\ _8;\l\
+|d\ =\ (u_char\ *)\ _9;\l\
+|if\ (d\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+}"];
+
+	fn_24_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|buf-\>d\ =\ d;\l\
+|_10\ =\ buf-\>d;\l\
+|buf-\>cd\ =\ _10;\l\
+|buf-\>alloc\ =\ 256;\l\
+}"];
+
+	fn_24_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|_11\ =\ buf-\>d;\l\
+|explicit_bzero\ (_11,\ 256);\l\
+}"];
+
+	fn_24_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|return;\l\
+}"];
+
+	fn_24_basic_block_0:s -> fn_24_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_2:s -> fn_24_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_2:s -> fn_24_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_3:s -> fn_24_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_3:s -> fn_24_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_4:s -> fn_24_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_5:s -> fn_24_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_5:s -> fn_24_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_6:s -> fn_24_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_6:s -> fn_24_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_7:s -> fn_24_basic_block_8:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_8:s -> fn_24_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_24_basic_block_9:s -> fn_24_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_24_basic_block_0:s -> fn_24_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_channel_new" {
+	style="dashed";
+	color="black";
+	label="channel_new ()";
+	subgraph cluster_26_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_26_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_6\ =\ sc-\>channels_alloc;\l\
+|if\ (i\ \<\ _6)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_1\ =\ sc-\>channels;\l\
+|_2\ =\ (long\ unsigned\ int)\ i;\l\
+|_3\ =\ _2\ *\ 8;\l\
+|_4\ =\ _1\ +\ _3;\l\
+|_5\ =\ *_4;\l\
+|if\ (_5\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|i\ =\ i\ +\ 1;\l\
+}"];
+
+	}
+	fn_26_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_26_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_26_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|sc\ =\ ssh-\>chanctxt;\l\
+|i\ =\ 0;\l\
+goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|found\ =\ i;\l\
+goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|_7\ =\ sc-\>channels_alloc;\l\
+|if\ (i\ \>=\ _7)\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|found\ =\ sc-\>channels_alloc;\l\
+|_8\ =\ sc-\>channels_alloc;\l\
+|if\ (_8\ \>\ 16384)\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|printf\ (\"%s:\ internal\ error:\ channels_alloc\ too\ big\",\ &__func__);\l\
+|exit\ (1);\l\
+}"];
+
+	fn_26_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|_9\ =\ sc-\>channels_alloc;\l\
+|_10\ =\ _9\ +\ 10;\l\
+|_11\ =\ sc-\>channels_alloc;\l\
+|_12\ =\ sc-\>channels;\l\
+|_13\ =\ xrecallocarray\ (_12,\ _11,\ _10,\ 8);\l\
+|_14\ =\ (long\ int)\ _13;\l\
+|_15\ =\ (struct\ Channel\ *\ *)\ _14;\l\
+|sc-\>channels\ =\ _15;\l\
+|_16\ =\ sc-\>channels_alloc;\l\
+|_17\ =\ _16\ +\ 10;\l\
+|sc-\>channels_alloc\ =\ _17;\l\
+|_18\ =\ sc-\>channels_alloc;\l\
+|debug2\ (\"channel:\ expanding\ %d\",\ _18);\l\
+}"];
+
+	fn_26_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|_19\ =\ sc-\>channels;\l\
+|_20\ =\ (long\ unsigned\ int)\ found;\l\
+|_21\ =\ _20\ *\ 8;\l\
+|_22\ =\ _19\ +\ _21;\l\
+|_23\ =\ calloc\ (1,\ 272);\l\
+|*_22\ =\ _23;\l\
+|c\ =\ *_22;\l\
+|_24\ =\ sshbuf_new\ ();\l\
+|_25\ =\ (long\ int)\ _24;\l\
+|_26\ =\ (struct\ sshbuf\ *)\ _25;\l\
+|c-\>input\ =\ _26;\l\
+|_27\ =\ c-\>input;\l\
+|if\ (_27\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 14\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|_28\ =\ sshbuf_new\ ();\l\
+|_29\ =\ (long\ int)\ _28;\l\
+|_30\ =\ (struct\ sshbuf\ *)\ _29;\l\
+|c-\>output\ =\ _30;\l\
+|_31\ =\ c-\>output;\l\
+|if\ (_31\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 14\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|_32\ =\ sshbuf_new\ ();\l\
+|_33\ =\ (long\ int)\ _32;\l\
+|_34\ =\ (struct\ sshbuf\ *)\ _33;\l\
+|c-\>extended\ =\ _34;\l\
+|_35\ =\ c-\>extended;\l\
+|if\ (_35\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 14\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 15\>;\ [INV]\l\
+}"];
+
+	fn_26_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 14\>:\l\
+|printf\ (\"%s:\ sshbuf_new\ failed\",\ &__func__);\l\
+|exit\ (1);\l\
+}"];
+
+	fn_26_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 15\>:\l\
+|c-\>ostate\ =\ 0;\l\
+|c-\>istate\ =\ 0;\l\
+|channel_register_fds\ (ssh,\ c,\ rfd,\ wfd,\ efd,\ extusage,\ nonblock,\ 0);\l\
+|found.0_36\ =\ (int)\ found;\l\
+|c-\>self\ =\ found.0_36;\l\
+|c-\>type\ =\ type;\l\
+|c-\>ctype\ =\ ctype;\l\
+|c-\>local_window\ =\ window;\l\
+|c-\>local_window_max\ =\ window;\l\
+|c-\>local_maxpacket\ =\ maxpack;\l\
+|_37\ =\ strdup\ (remote_name);\l\
+|c-\>remote_name\ =\ _37;\l\
+|c-\>ctl_chan\ =\ -1;\l\
+|c-\>delayed\ =\ 1;\l\
+|debug\ (\"channel\ %d:\ new\ [%s]\",\ found,\ remote_name);\l\
+|D.3794\ =\ c;\l\
+|return\ D.3794;\l\
+}"];
+
+	fn_26_basic_block_0:s -> fn_26_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_2:s -> fn_26_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_3:s -> fn_26_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_3:s -> fn_26_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_4:s -> fn_26_basic_block_7:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_5:s -> fn_26_basic_block_6:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_26_basic_block_6:s -> fn_26_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_6:s -> fn_26_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_7:s -> fn_26_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_7:s -> fn_26_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_8:s -> fn_26_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_8:s -> fn_26_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_10:s -> fn_26_basic_block_11:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_26_basic_block_11:s -> fn_26_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_11:s -> fn_26_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_12:s -> fn_26_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_12:s -> fn_26_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_13:s -> fn_26_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_13:s -> fn_26_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_15:s -> fn_26_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_26_basic_block_0:s -> fn_26_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_channel_init_channels" {
+	style="dashed";
+	color="black";
+	label="channel_init_channels ()";
+	fn_27_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_27_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_27_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|sc\ =\ calloc\ (1,\ 112);\l\
+|if\ (sc\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_1\ =\ calloc\ (21,\ 8);\l\
+|sc-\>channel_pre\ =\ _1;\l\
+|_2\ =\ sc-\>channel_pre;\l\
+|if\ (_2\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_3\ =\ calloc\ (21,\ 8);\l\
+|sc-\>channel_post\ =\ _3;\l\
+|_4\ =\ sc-\>channel_post;\l\
+|if\ (_4\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_27_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|printf\ (\"%s:\ allocation\ failed\",\ &__func__);\l\
+|exit\ (1);\l\
+}"];
+
+	fn_27_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|sc-\>channels_alloc\ =\ 10;\l\
+|_5\ =\ sc-\>channels_alloc;\l\
+|_6\ =\ (long\ unsigned\ int)\ _5;\l\
+|_7\ =\ calloc\ (_6,\ 8);\l\
+|sc-\>channels\ =\ _7;\l\
+|channel_handler_init\ (sc);\l\
+|ssh-\>chanctxt\ =\ sc;\l\
+|return;\l\
+}"];
+
+	fn_27_basic_block_0:s -> fn_27_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_27_basic_block_2:s -> fn_27_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_2:s -> fn_27_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_3:s -> fn_27_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_3:s -> fn_27_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_4:s -> fn_27_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_4:s -> fn_27_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_6:s -> fn_27_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_27_basic_block_0:s -> fn_27_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_channel_free" {
+	style="dashed";
+	color="black";
+	label="channel_free ()";
+	subgraph cluster_28_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_28_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|_8\ =\ sc-\>channels_alloc;\l\
+|if\ (i\ \<\ _8)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_1\ =\ sc-\>channels;\l\
+|_2\ =\ (long\ unsigned\ int)\ i;\l\
+|_3\ =\ _2\ *\ 8;\l\
+|_4\ =\ _1\ +\ _3;\l\
+|other\ =\ *_4;\l\
+|if\ (other\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|//\ predicted\ unlikely\ by\ continue\ predictor.\l\
+goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|n\ =\ n\ +\ 1;\l\
+|_5\ =\ c-\>type;\l\
+|if\ (_5\ ==\ 16)\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|i\ =\ i\ +\ 1;\l\
+}"];
+
+	fn_28_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_6\ =\ other-\>type;\l\
+|if\ (_6\ ==\ 20)\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|_7\ =\ other-\>mux_ctx;\l\
+|if\ (c\ ==\ _7)\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|other-\>mux_ctx\ =\ 0B;\l\
+|other-\>type\ =\ 4;\l\
+|other-\>istate\ =\ 3;\l\
+|other-\>ostate\ =\ 3;\l\
+}"];
+
+	}
+	fn_28_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_28_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_28_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|sc\ =\ ssh-\>chanctxt;\l\
+|n\ =\ 0;\l\
+|i\ =\ 0;\l\
+goto\ \<bb\ 10\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|_9\ =\ c-\>remote_name;\l\
+|if\ (_9\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|iftmp.1\ =\ c-\>remote_name;\l\
+goto\ \<bb\ 14\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|iftmp.1\ =\ \"???\";\l\
+}"];
+
+	fn_28_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 14\>:\l\
+|_10\ =\ c-\>self;\l\
+|debug\ (\"channel\ %d:\ free:\ %s,\ nchannels\ %u\",\ _10,\ iftmp.1,\ n);\l\
+|_11\ =\ c-\>type;\l\
+|if\ (_11\ ==\ 16)\l\
+\ \ goto\ \<bb\ 15\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [INV]\l\
+}"];
+
+	fn_28_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 15\>:\l\
+|mux_remove_remote_forwardings\ (ssh,\ c);\l\
+}"];
+
+	fn_28_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 16\>:\l\
+|_12\ =\ channel_open_message\ (ssh);\l\
+|_13\ =\ (long\ int)\ _12;\l\
+|s\ =\ (char\ *)\ _13;\l\
+|_14\ =\ c-\>self;\l\
+|debug3\ (\"channel\ %d:\ status:\ %s\",\ _14,\ s);\l\
+|free\ (s);\l\
+|channel_close_fds\ (ssh,\ c);\l\
+|_15\ =\ c-\>input;\l\
+|sshbuf_free\ (_15);\l\
+|_16\ =\ c-\>output;\l\
+|sshbuf_free\ (_16);\l\
+|_17\ =\ c-\>extended;\l\
+|sshbuf_free\ (_17);\l\
+|c-\>extended\ =\ 0B;\l\
+|_18\ =\ c-\>extended;\l\
+|c-\>output\ =\ _18;\l\
+|_19\ =\ c-\>output;\l\
+|c-\>input\ =\ _19;\l\
+|_20\ =\ c-\>remote_name;\l\
+|free\ (_20);\l\
+|c-\>remote_name\ =\ 0B;\l\
+|_21\ =\ c-\>path;\l\
+|free\ (_21);\l\
+|c-\>path\ =\ 0B;\l\
+|_22\ =\ c-\>listening_addr;\l\
+|free\ (_22);\l\
+|c-\>listening_addr\ =\ 0B;\l\
+|_23\ =\ sc-\>channels;\l\
+|_24\ =\ c-\>self;\l\
+|_25\ =\ (long\ unsigned\ int)\ _24;\l\
+|_26\ =\ _25\ *\ 8;\l\
+|_27\ =\ _23\ +\ _26;\l\
+|*_27\ =\ 0B;\l\
+|__builtin_memset\ (c,\ 0,\ 272);\l\
+|free\ (c);\l\
+|return;\l\
+}"];
+
+	fn_28_basic_block_0:s -> fn_28_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_2:s -> fn_28_basic_block_10:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_3:s -> fn_28_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_3:s -> fn_28_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_4:s -> fn_28_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_5:s -> fn_28_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_5:s -> fn_28_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_6:s -> fn_28_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_6:s -> fn_28_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_7:s -> fn_28_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_7:s -> fn_28_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_8:s -> fn_28_basic_block_9:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_9:s -> fn_28_basic_block_10:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_28_basic_block_10:s -> fn_28_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_10:s -> fn_28_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_11:s -> fn_28_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_11:s -> fn_28_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_12:s -> fn_28_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_13:s -> fn_28_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_14:s -> fn_28_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_14:s -> fn_28_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_15:s -> fn_28_basic_block_16:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_28_basic_block_16:s -> fn_28_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_28_basic_block_0:s -> fn_28_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_channel_free_all" {
+	style="dashed";
+	color="black";
+	label="channel_free_all ()";
+	subgraph cluster_29_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_29_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|_13\ =\ ssh-\>chanctxt;\l\
+|_14\ =\ _13-\>channels_alloc;\l\
+|if\ (i\ \<\ _14)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_1\ =\ ssh-\>chanctxt;\l\
+|_2\ =\ _1-\>channels;\l\
+|_3\ =\ (long\ unsigned\ int)\ i;\l\
+|_4\ =\ _3\ *\ 8;\l\
+|_5\ =\ _2\ +\ _4;\l\
+|_6\ =\ *_5;\l\
+|if\ (_6\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_7\ =\ ssh-\>chanctxt;\l\
+|_8\ =\ _7-\>channels;\l\
+|_9\ =\ (long\ unsigned\ int)\ i;\l\
+|_10\ =\ _9\ *\ 8;\l\
+|_11\ =\ _8\ +\ _10;\l\
+|_12\ =\ *_11;\l\
+|channel_free\ (ssh,\ _12);\l\
+}"];
+
+	fn_29_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|i\ =\ i\ +\ 1;\l\
+}"];
+
+	}
+	fn_29_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_29_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_29_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|i\ =\ 0;\l\
+goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_29_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|return;\l\
+}"];
+
+	fn_29_basic_block_0:s -> fn_29_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_2:s -> fn_29_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_3:s -> fn_29_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_3:s -> fn_29_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_4:s -> fn_29_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_29_basic_block_5:s -> fn_29_basic_block_6:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_29_basic_block_6:s -> fn_29_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_6:s -> fn_29_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_7:s -> fn_29_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_29_basic_block_0:s -> fn_29_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_main" {
+	style="dashed";
+	color="black";
+	label="main ()";
+	subgraph cluster_30_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_30_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|if\ (i\ \<\ argc)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|c\ =\ channel_new\ (&ssh,\ \"stdio-forward\",\ 3,\ in,\ out,\ -1,\ 2097152,\ 32768,\ 0,\ \"stdio-forward\",\ 0);\l\
+|i\ =\ i\ +\ 1;\l\
+}"];
+
+	}
+	fn_30_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_30_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_30_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|channel_init_channels\ (&ssh);\l\
+|i\ =\ 1;\l\
+goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_30_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|_1\ =\ c-\>extended;\l\
+|_2\ =\ c-\>output;\l\
+|_3\ =\ c-\>input;\l\
+|client_suspend_self\ (_3,\ _2,\ _1);\l\
+|channel_free_all\ (&ssh);\l\
+|D.3816\ =\ 0;\l\
+|ssh\ =\ \{CLOBBER\};\l\
+|return\ D.3816;\l\
+}"];
+
+	fn_30_basic_block_0:s -> fn_30_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_30_basic_block_2:s -> fn_30_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_30_basic_block_3:s -> fn_30_basic_block_4:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_30_basic_block_4:s -> fn_30_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_4:s -> fn_30_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_5:s -> fn_30_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_30_basic_block_0:s -> fn_30_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_client_suspend_self" {
+	style="dashed";
+	color="black";
+	label="client_suspend_self ()";
+	fn_25_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_25_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_25_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ sshbuf_len\ (bout);\l\
+|if\ (_1\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_2\ =\ sshbuf_len\ (bout);\l\
+|_3\ =\ (unsigned\ int)\ _2;\l\
+|_4\ =\ sshbuf_mutable_ptr\ (bout);\l\
+|stdout.2_5\ =\ stdout;\l\
+|_6\ =\ fileno\ (stdout.2_5);\l\
+|atomicio\ (vwrite,\ _6,\ _4,\ _3);\l\
+}"];
+
+	fn_25_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_7\ =\ sshbuf_len\ (berr);\l\
+|if\ (_7\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_25_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|_8\ =\ sshbuf_len\ (berr);\l\
+|_9\ =\ (unsigned\ int)\ _8;\l\
+|_10\ =\ sshbuf_mutable_ptr\ (berr);\l\
+|stderr.3_11\ =\ stderr;\l\
+|_12\ =\ fileno\ (stderr.3_11);\l\
+|atomicio\ (vwrite,\ _12,\ _10,\ _9);\l\
+}"];
+
+	fn_25_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|sshbuf_free\ (bin);\l\
+|sshbuf_free\ (bout);\l\
+|sshbuf_free\ (berr);\l\
+|received_window_change_signal\ =\ 1;\l\
+|sshbuf_init\ (bin);\l\
+|sshbuf_init\ (bout);\l\
+|sshbuf_init\ (berr);\l\
+|return;\l\
+}"];
+
+	fn_25_basic_block_0:s -> fn_25_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_2:s -> fn_25_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_2:s -> fn_25_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_3:s -> fn_25_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_4:s -> fn_25_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_4:s -> fn_25_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_5:s -> fn_25_basic_block_6:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_25_basic_block_6:s -> fn_25_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_25_basic_block_0:s -> fn_25_basic_block_1:n [style="invis",constraint=true];
+}
+}

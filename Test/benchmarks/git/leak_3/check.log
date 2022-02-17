@@ -1,0 +1,1785 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/git/leak_3/git_leak_3.c:10:
+./benchmarks/git/leak_3/../git.h: In function ‘copy_array’:
+./benchmarks/git/leak_3/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_3/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/leak_3/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_3/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/leak_3/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/leak_3/../git.h: In function ‘move_array’:
+./benchmarks/git/leak_3/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/leak_3/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/leak_3/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/leak_3/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/leak_3/git_leak_3.c:9:
+./benchmarks/git/leak_3/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/leak_3/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_3/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/leak_3/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_3/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/leak_3/git_leak_3.c:10:
+./benchmarks/git/leak_3/../git.h: At top level:
+./benchmarks/git/leak_3/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/leak_3/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/leak_3/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_3/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_3/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_3/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_3/git_leak_3.c: In function ‘find_bisection’:
+./benchmarks/git/leak_3/git_leak_3.c:19:9: warning: implicit declaration of function ‘show_list’ [-Wimplicit-function-declaration]
+   19 |         show_list("bisection 2 entry", 0, 0, *commit_list);
+      |         ^~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 51%)
+ phase parsing                      :   0.03 ( 75%)   0.00 (  0%)   0.04 ( 67%)  1130k ( 44%)
+ phase opt and generate             :   0.01 ( 25%)   0.01 (100%)   0.01 ( 17%)   123k (  5%)
+ callgraph construction             :   0.01 ( 25%)   0.01 (100%)   0.00 (  0%)  9960  (  0%)
+ callgraph ipa passes               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    74k (  3%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   343k ( 13%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ parser (global)                    :   0.02 ( 50%)   0.00 (  0%)   0.01 ( 17%)   608k ( 24%)
+ parser inl. func. body             :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)    71k (  3%)
+ backwards jump threading           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ TOTAL                              :   0.04          0.01          0.06         2562k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 98%)
+ phase stream in                    :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)    48k (  2%)
+ ipa lto cgraph I/O                 :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)  4720  (  0%)
+ TOTAL                              :   0.00          0.00          0.01         2208k
+../Compiler/newplugin.so 11.2.0 
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+node:= 2 
+ 	next_branch :=4
+node:= 3 
+ 	next_branch :=4
+node:= 4 
+ 	next_branch :=3
+	next_branch :=5
+node:= 5 
+ 	next_branch :=12
+node:= 6 
+ 	next_branch :=7
+	next_branch :=8
+node:= 7 
+ 	next_branch :=11
+node:= 8 
+ 	next_branch :=9
+	next_branch :=10
+node:= 9 
+ 	next_branch :=10
+node:= 10 
+ 	next_branch :=11
+node:= 11 
+ 	next_branch :=12
+node:= 12 
+ 	next_branch :=6
+	next_branch :=13
+node:= 13 
+ 	next_branch :=19
+node:= 14 
+ 	next_branch :=15
+	next_branch :=16
+node:= 15 
+ 	next_branch :=16
+node:= 16 
+ 	next_branch :=17
+	next_branch :=18
+node:= 17 
+ 	next_branch :=18
+node:= 18 
+ 	next_branch :=19
+node:= 19 
+ 	next_branch :=14
+	next_branch :=20
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 2 
+===============The second stage : Mapping stmt=================
+# .MEM_56 = VDEF <.MEM_13>
+new_list_21 = malloc (16);
+# .MEM_47 = VDEF <.MEM_13>
+show_list ("bisection 2 entry", 0, 0, _24);
+# .MEM_48 = VDEF <.MEM_45>
+show_list ("bisection 2 sorted", 0, nr_33, last_31);
+===============The second stage : Program slicing=================
+=============== *this point analyzable =================
+new_list_21 = malloc (16);
+=============== *this point analyzable =================
+show_list ("bisection 2 entry", 0, 0, _24);
+=============== *this point analyzable =================
+show_list ("bisection 2 sorted", 0, nr_33, last_31);
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 3 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:show_list========= [0m
+[40;33m =======POP node_fun stack:show_list========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f194ee2eab0
+    type <pointer_type 0x7f194e93e7e0
+        type <record_type 0x7f194e93e738 commit_list TI
+            size <integer_cst 0x7f194ee26c00 constant 128>
+            unit-size <integer_cst 0x7f194ee26c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f194e93e738 fields <field_decl 0x7f194e9411c8 item> context <translation_unit_decl 0x7f194ee31168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7f194e93e7e0>>
+        public unsigned DI
+        size <integer_cst 0x7f194ee26bb8 constant 64>
+        unit-size <integer_cst 0x7f194ee26bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f194e93e888>>
+    var <var_decl 0x7f194e954360 new_list>
+    def_stmt new_list_21 = malloc (16);
+    version:21
+    ptr-info 0x7f194e94f450>
+# .MEM_56 = VDEF <.MEM_13>
+new_list_21 = malloc (16);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+list_71 = new_list_21;
+In function ‘main’:
+./benchmarks/git/leak_3/git_leak_3.c:54:17: warning: use location
+   54 |         *list_p = new_list;
+      |                 ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+list_60 = PHI <list_63(D)(2), list_71(3)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_22 = list_60;
+./benchmarks/git/leak_3/git_leak_3.c:53:26: warning: use location
+   53 |         new_list->next = *list_p;
+      |                          ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+new_list_21->next = _22;
+./benchmarks/git/leak_3/git_leak_3.c:53:24: warning: use location
+   53 |         new_list->next = *list_p;
+      |                        ^
+p_25 = list_60;
+./benchmarks/git/leak_3/git_leak_3.c:25:47: warning: use location
+   25 |         for (nr = on_list = 0, last = NULL, p = *commit_list;
+      |                                               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+p_26 = PHI <p_25(5), p_37(11)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+p_26->next = last_31;
+./benchmarks/git/leak_3/git_leak_3.c:35:25: warning: use location
+   35 |                 p->next = last;
+      |                         ^
+list_65 = last_31;
+./benchmarks/git/leak_3/git_leak_3.c:46:22: warning: use location
+   46 |         *commit_list = list;
+      |                      ^
+_1 = list_65;
+./benchmarks/git/leak_3/git_leak_3.c:87:5: warning: use location
+   87 |     free_commit_list(list);
+      |     ^
+list_66 = _1;
+lto1: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+list_62 = PHI <list_66(13), list_61(18)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+list_61 = PHI <list_62(16), list_70(17)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+top_39 = list_62;
+./benchmarks/git/leak_3/git_leak_3.c:60:29: warning: use location
+   60 |         struct commit_list *top = *stack;
+      |                             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: use location
+   65 |                 free(top);
+      |                 ^
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find free stmt ================== 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_41 = top_39->next;
+./benchmarks/git/leak_3/git_leak_3.c:64:29: warning: use location
+   64 |                 *stack = top->next;
+      |                             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_40 = top_39->item;
+./benchmarks/git/leak_3/git_leak_3.c:61:47: warning: use location
+   61 |         struct commit *item = top ? top->item : NULL;
+      |                                               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_42 = PHI <0B(14), _40(15)>
+lto1: warning: use location
+this stmt have mutiple branch ---free-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (top_39 != 0B)
+./benchmarks/git/leak_3/git_leak_3.c:63:12: warning: use location
+   63 |         if (top) {
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_23 = list_62;
+./benchmarks/git/leak_3/git_leak_3.c:73:16: warning: use location
+   73 |         while (list)
+      |                ^
+show_list ("bisection 2 sorted", 0, nr_33, last_31);
+./benchmarks/git/leak_3/git_leak_3.c:42:9: warning: use location
+   42 |         show_list("bisection 2 sorted", 0, nr, list);
+      |         ^
+this stmt call this function :show_list
+trace fucntion name:show_list 
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+next_29 = p_26->next;
+./benchmarks/git/leak_3/git_leak_3.c:30:22: warning: use location
+   30 |                 next = p->next;
+      |                      ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+p_37 = PHI <next_29(7), next_29(10)>
+lto1: warning: use location
+this stmt have mutiple branch ---show_list-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+last_38 = PHI <last_31(7), p_26(10)>
+lto1: warning: use location
+this stmt have mutiple branch ---show_list-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_27 = p_26->item;
+./benchmarks/git/leak_3/git_leak_3.c:28:35: warning: use location
+   28 |                 unsigned flags = p->item->object.flags;
+      |                                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_28 = _27->object.flags;
+./benchmarks/git/leak_3/git_leak_3.c:28:49: warning: use location
+   28 |                 unsigned flags = p->item->object.flags;
+      |                                                 ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_32 == 0)
+./benchmarks/git/leak_3/git_leak_3.c:37:20: warning: use location
+   37 |                 if (!(flags & TREESAME))
+      |                    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_30 = _28 & 2;
+lto1: warning: use location
+_24 = list_60;
+./benchmarks/git/leak_3/git_leak_3.c:19:9: warning: use location
+   19 |         show_list("bisection 2 entry", 0, 0, *commit_list);
+      |         ^
+show_list ("bisection 2 entry", 0, 0, _24);
+./benchmarks/git/leak_3/git_leak_3.c:19:9: warning: use location
+this stmt call this function :show_list
+trace fucntion name:show_list 
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+new_list_21->item = 0B;
+./benchmarks/git/leak_3/git_leak_3.c:52:24: warning: use location
+   52 |         new_list->item = item;
+      |                        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_56 = VDEF <.MEM_13>
+new_list_21 = malloc (16);
+new_list_21 = malloc (16);
+./benchmarks/git/leak_3/git_leak_3.c:51:40: warning: use location
+   51 |         struct commit_list *new_list = xmalloc(sizeof(struct commit_list));
+      |                                        ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f194ee2eab0
+    type <pointer_type 0x7f194e93e7e0
+        type <record_type 0x7f194e93e738 commit_list TI
+            size <integer_cst 0x7f194ee26c00 constant 128>
+            unit-size <integer_cst 0x7f194ee26c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f194e93e738 fields <field_decl 0x7f194e9411c8 item> context <translation_unit_decl 0x7f194ee31168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7f194e93e7e0>>
+        public unsigned DI
+        size <integer_cst 0x7f194ee26bb8 constant 64>
+        unit-size <integer_cst 0x7f194ee26bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f194e93e888>>
+    var <var_decl 0x7f194e954360 new_list>
+    def_stmt new_list_21 = malloc (16);
+    version:21
+    ptr-info 0x7f194e94f450>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: use location
+   65 |                 free(top);
+      |                 ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+list_60 = PHI <list_63(D)(2), list_71(3)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+list_60 = PHI <list_63(D)(2), list_71(3)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+p_26 = PHI <p_25(5), p_37(11)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+p_26 = PHI <p_25(5), p_37(11)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+list_62 = PHI <list_66(13), list_61(18)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+list_62 = PHI <list_66(13), list_61(18)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+list_61 = PHI <list_62(16), list_70(17)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+list_61 = PHI <list_62(16), list_70(17)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_42 = PHI <0B(14), _40(15)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_42 = PHI <0B(14), _40(15)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_23 = list_62;
+./benchmarks/git/leak_3/git_leak_3.c:73:16: warning: use location
+   73 |         while (list)
+      |                ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+   65 |                 free(top);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+_23 = list_62;
+./benchmarks/git/leak_3/git_leak_3.c:73:16: warning: use location
+   73 |         while (list)
+      |                ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+   65 |                 free(top);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+p_37 = PHI <next_29(7), next_29(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+p_37 = PHI <next_29(7), next_29(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+last_38 = PHI <last_31(7), p_26(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+last_38 = PHI <last_31(7), p_26(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+[40;31m  	free count:1 [0m
+
+======================================================================
+
+======================================================================
+[40;31m   need check branch because multiple direction varible[0m
+
+======================================================================
+
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f194ee2eab0
+    type <pointer_type 0x7f194e93e7e0
+        type <record_type 0x7f194e93e738 commit_list TI
+            size <integer_cst 0x7f194ee26c00 constant 128>
+            unit-size <integer_cst 0x7f194ee26c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f194e93e738 fields <field_decl 0x7f194e9411c8 item> context <translation_unit_decl 0x7f194ee31168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7f194e93e7e0>>
+        public unsigned DI
+        size <integer_cst 0x7f194ee26bb8 constant 64>
+        unit-size <integer_cst 0x7f194ee26bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f194e93e888>>
+    var <var_decl 0x7f194e954360 new_list>
+    def_stmt new_list_21 = malloc (16);
+    version:21
+    ptr-info 0x7f194e94f450>
+# .MEM_56 = VDEF <.MEM_13>
+new_list_21 = malloc (16);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+list_71 = new_list_21;
+./benchmarks/git/leak_3/git_leak_3.c:54:17: warning: use location
+   54 |         *list_p = new_list;
+      |                 ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+list_60 = PHI <list_63(D)(2), list_71(3)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_22 = list_60;
+./benchmarks/git/leak_3/git_leak_3.c:53:26: warning: use location
+   53 |         new_list->next = *list_p;
+      |                          ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+new_list_21->next = _22;
+./benchmarks/git/leak_3/git_leak_3.c:53:24: warning: use location
+   53 |         new_list->next = *list_p;
+      |                        ^
+p_25 = list_60;
+./benchmarks/git/leak_3/git_leak_3.c:25:47: warning: use location
+   25 |         for (nr = on_list = 0, last = NULL, p = *commit_list;
+      |                                               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+p_26 = PHI <p_25(5), p_37(11)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+p_26->next = last_31;
+./benchmarks/git/leak_3/git_leak_3.c:35:25: warning: use location
+   35 |                 p->next = last;
+      |                         ^
+list_65 = last_31;
+./benchmarks/git/leak_3/git_leak_3.c:46:22: warning: use location
+   46 |         *commit_list = list;
+      |                      ^
+_1 = list_65;
+./benchmarks/git/leak_3/git_leak_3.c:87:5: warning: use location
+   87 |     free_commit_list(list);
+      |     ^
+list_66 = _1;
+lto1: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+list_62 = PHI <list_66(13), list_61(18)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+list_61 = PHI <list_62(16), list_70(17)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+top_39 = list_62;
+./benchmarks/git/leak_3/git_leak_3.c:60:29: warning: use location
+   60 |         struct commit_list *top = *stack;
+      |                             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: use location
+   65 |                 free(top);
+      |                 ^
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find free stmt ================== 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_41 = top_39->next;
+./benchmarks/git/leak_3/git_leak_3.c:64:29: warning: use location
+   64 |                 *stack = top->next;
+      |                             ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_40 = top_39->item;
+./benchmarks/git/leak_3/git_leak_3.c:61:47: warning: use location
+   61 |         struct commit *item = top ? top->item : NULL;
+      |                                               ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_42 = PHI <0B(14), _40(15)>
+lto1: warning: use location
+this stmt have mutiple branch ---free-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (top_39 != 0B)
+./benchmarks/git/leak_3/git_leak_3.c:63:12: warning: use location
+   63 |         if (top) {
+      |            ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_23 = list_62;
+./benchmarks/git/leak_3/git_leak_3.c:73:16: warning: use location
+   73 |         while (list)
+      |                ^
+show_list ("bisection 2 sorted", 0, nr_33, last_31);
+./benchmarks/git/leak_3/git_leak_3.c:42:9: warning: use location
+   42 |         show_list("bisection 2 sorted", 0, nr, list);
+      |         ^
+this stmt call this function :show_list
+trace fucntion name:show_list 
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+next_29 = p_26->next;
+./benchmarks/git/leak_3/git_leak_3.c:30:22: warning: use location
+   30 |                 next = p->next;
+      |                      ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+p_37 = PHI <next_29(7), next_29(10)>
+lto1: warning: use location
+this stmt have mutiple branch ---show_list-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+last_38 = PHI <last_31(7), p_26(10)>
+lto1: warning: use location
+this stmt have mutiple branch ---show_list-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_27 = p_26->item;
+./benchmarks/git/leak_3/git_leak_3.c:28:35: warning: use location
+   28 |                 unsigned flags = p->item->object.flags;
+      |                                   ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_28 = _27->object.flags;
+./benchmarks/git/leak_3/git_leak_3.c:28:49: warning: use location
+   28 |                 unsigned flags = p->item->object.flags;
+      |                                                 ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (_32 == 0)
+./benchmarks/git/leak_3/git_leak_3.c:37:20: warning: use location
+   37 |                 if (!(flags & TREESAME))
+      |                    ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_30 = _28 & 2;
+lto1: warning: use location
+_24 = list_60;
+./benchmarks/git/leak_3/git_leak_3.c:19:9: warning: use location
+   19 |         show_list("bisection 2 entry", 0, 0, *commit_list);
+      |         ^
+show_list ("bisection 2 entry", 0, 0, _24);
+./benchmarks/git/leak_3/git_leak_3.c:19:9: warning: use location
+this stmt call this function :show_list
+trace fucntion name:show_list 
+
+ ================== trace ================== 
+trace fucntion free:1 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+new_list_21->item = 0B;
+./benchmarks/git/leak_3/git_leak_3.c:52:24: warning: use location
+   52 |         new_list->item = item;
+      |                        ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_56 = VDEF <.MEM_13>
+new_list_21 = malloc (16);
+new_list_21 = malloc (16);
+./benchmarks/git/leak_3/git_leak_3.c:51:40: warning: use location
+   51 |         struct commit_list *new_list = xmalloc(sizeof(struct commit_list));
+      |                                        ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f194ee2eab0
+    type <pointer_type 0x7f194e93e7e0
+        type <record_type 0x7f194e93e738 commit_list TI
+            size <integer_cst 0x7f194ee26c00 constant 128>
+            unit-size <integer_cst 0x7f194ee26c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f194e93e738 fields <field_decl 0x7f194e9411c8 item> context <translation_unit_decl 0x7f194ee31168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7f194e93e7e0>>
+        public unsigned DI
+        size <integer_cst 0x7f194ee26bb8 constant 64>
+        unit-size <integer_cst 0x7f194ee26bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f194e93e888>>
+    var <var_decl 0x7f194e954360 new_list>
+    def_stmt new_list_21 = malloc (16);
+    version:21
+    ptr-info 0x7f194e94f450>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: use location
+   65 |                 free(top);
+      |                 ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+list_60 = PHI <list_63(D)(2), list_71(3)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+list_60 = PHI <list_63(D)(2), list_71(3)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+p_26 = PHI <p_25(5), p_37(11)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+p_26 = PHI <p_25(5), p_37(11)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+list_62 = PHI <list_66(13), list_61(18)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+list_62 = PHI <list_66(13), list_61(18)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+list_61 = PHI <list_62(16), list_70(17)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+list_61 = PHI <list_62(16), list_70(17)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_42 = PHI <0B(14), _40(15)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_42 = PHI <0B(14), _40(15)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_23 = list_62;
+./benchmarks/git/leak_3/git_leak_3.c:73:16: warning: use location
+   73 |         while (list)
+      |                ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+   65 |                 free(top);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+_23 = list_62;
+./benchmarks/git/leak_3/git_leak_3.c:73:16: warning: use location
+   73 |         while (list)
+      |                ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+   65 |                 free(top);
+      |                 ^
+[40;35m target gimple type: ssa_name [0m
+p_37 = PHI <next_29(7), next_29(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+p_37 = PHI <next_29(7), next_29(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+last_38 = PHI <last_31(7), p_26(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+last_38 = PHI <last_31(7), p_26(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+[40;31m  	free count:1 [0m
+
+======================================================================
+
+======================================================================
+[40;31m   need check branch because multiple direction varible[0m
+
+======================================================================
+
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f194e959090
+    type <pointer_type 0x7f194e93e7e0
+        type <record_type 0x7f194e93e738 commit_list TI
+            size <integer_cst 0x7f194ee26c00 constant 128>
+            unit-size <integer_cst 0x7f194ee26c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f194e93e738 fields <field_decl 0x7f194e9411c8 item> context <translation_unit_decl 0x7f194ee31168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7f194e93e7e0>>
+        public unsigned DI
+        size <integer_cst 0x7f194ee26bb8 constant 64>
+        unit-size <integer_cst 0x7f194ee26bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f194e93e888>>
+   
+    def_stmt _24 = list_60;
+    version:24
+    ptr-info 0x7f194e94f498>
+_24 = list_60;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_47 = VDEF <.MEM_13>
+show_list ("bisection 2 entry", 0, 0, _24);
+show_list ("bisection 2 entry", 0, 0, _24);
+./benchmarks/git/leak_3/git_leak_3.c:19:9: warning: use location
+   19 |         show_list("bisection 2 entry", 0, 0, *commit_list);
+      |         ^
+this stmt call this function :show_list
+trace fucntion name:show_list 
+
+ ================== trace ================== 
+trace fucntion free:0 
+# .MEM_47 = VDEF <.MEM_13>
+show_list ("bisection 2 entry", 0, 0, _24);
+show_list ("bisection 2 entry", 0, 0, _24);
+./benchmarks/git/leak_3/git_leak_3.c:19:9: warning: use location
+this stmt call this function :show_list
+trace fucntion name:show_list 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f194e959090
+    type <pointer_type 0x7f194e93e7e0
+        type <record_type 0x7f194e93e738 commit_list TI
+            size <integer_cst 0x7f194ee26c00 constant 128>
+            unit-size <integer_cst 0x7f194ee26c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f194e93e738 fields <field_decl 0x7f194e9411c8 item> context <translation_unit_decl 0x7f194ee31168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7f194e93e7e0>>
+        public unsigned DI
+        size <integer_cst 0x7f194ee26bb8 constant 64>
+        unit-size <integer_cst 0x7f194ee26bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f194e93e888>>
+   
+    def_stmt _24 = list_60;
+    version:24
+    ptr-info 0x7f194e94f498>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: use location
+   65 |                 free(top);
+      |                 ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f194e959318
+    type <integer_type 0x7f194ee3b5e8 int public SI
+        size <integer_cst 0x7f194ee26df8 constant 32>
+        unit-size <integer_cst 0x7f194ee26e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f194ee3b5e8 precision:32 min <integer_cst 0x7f194ee26db0 -2147483648> max <integer_cst 0x7f194ee26dc8 2147483647>
+        pointer_to_this <pointer_type 0x7f194ee429d8>>
+    var <var_decl 0x7f194e954c60 nr>
+    def_stmt nr_33 = PHI <0(5), nr_36(11)>
+    version:33>
+nr_33 = PHI <0(5), nr_36(11)>
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+all_64 = nr_33;
+./benchmarks/git/leak_3/git_leak_3.c:44:14: warning: use location
+   44 |         *all = nr;
+      |              ^
+all_64 = nr_33;
+./benchmarks/git/leak_3/git_leak_3.c:44:14: warning: use location
+# .MEM_48 = VDEF <.MEM_45>
+show_list ("bisection 2 sorted", 0, nr_33, last_31);
+show_list ("bisection 2 sorted", 0, nr_33, last_31);
+./benchmarks/git/leak_3/git_leak_3.c:42:9: warning: use location
+   42 |         show_list("bisection 2 sorted", 0, nr, list);
+      |         ^
+this stmt call this function :show_list
+trace fucntion name:show_list 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+nr_36 = PHI <nr_33(7), nr_35(10)>
+lto1: warning: use location
+this stmt have mutiple branch ---show_list-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+nr_35 = PHI <nr_33(8), nr_34(9)>
+lto1: warning: use location
+this stmt have mutiple branch ---show_list-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+nr_34 = nr_33 + 1;
+./benchmarks/git/leak_3/git_leak_3.c:38:27: warning: use location
+   38 |                         nr++;
+      |                           ^
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f194e959318
+    type <integer_type 0x7f194ee3b5e8 int public SI
+        size <integer_cst 0x7f194ee26df8 constant 32>
+        unit-size <integer_cst 0x7f194ee26e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f194ee3b5e8 precision:32 min <integer_cst 0x7f194ee26db0 -2147483648> max <integer_cst 0x7f194ee26dc8 2147483647>
+        pointer_to_this <pointer_type 0x7f194ee429d8>>
+    var <var_decl 0x7f194e954c60 nr>
+    def_stmt nr_33 = PHI <0(5), nr_36(11)>
+    version:33>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: use location
+   65 |                 free(top);
+      |                 ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+nr_36 = PHI <nr_33(7), nr_35(10)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_54 = VDEF <.MEM_43>
+free (top_39);
+./benchmarks/git/leak_3/git_leak_3.c:65:17: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+nr_35 = PHI <nr_33(8), nr_34(9)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f194e959288
+    type <pointer_type 0x7f194e93e7e0
+        type <record_type 0x7f194e93e738 commit_list TI
+            size <integer_cst 0x7f194ee26c00 constant 128>
+            unit-size <integer_cst 0x7f194ee26c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f194e93e738 fields <field_decl 0x7f194e9411c8 item> context <translation_unit_decl 0x7f194ee31168 ./benchmarks/git/leak_3/git_leak_3.c>
+            pointer_to_this <pointer_type 0x7f194e93e7e0>>
+        public unsigned DI
+        size <integer_cst 0x7f194ee26bb8 constant 64>
+        unit-size <integer_cst 0x7f194ee26bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f194e93e888>>
+    var <var_decl 0x7f194e954e10 last>
+    def_stmt last_31 = PHI <0B(5), last_38(11)>
+    version:31
+    ptr-info 0x7f194e94f510>
+last_31 = PHI <0B(5), last_38(11)>
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 97603128]:
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 976138697]:
+new_list_21 = malloc (16);
+new_list_21->item = 0B;
+_22 = list_60;
+new_list_21->next = _22;
+list_71 = new_list_21;
+i_12 = i_2 + 1;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# i_2 = PHI <0(2), i_12(3)>
+# list_60 = PHI <list_63(D)(2), list_71(3)>
+if (i_2 <= 9)
+  goto <bb 3>; [90.91%]
+else
+  goto <bb 5>; [9.09%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 97603128]:
+_24 = list_60;
+show_list ("bisection 2 entry", 0, 0, _24);
+p_25 = list_60;
+goto <bb 12>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 789698041]:
+_27 = p_26->item;
+_28 = _27->object.flags;
+next_29 = p_26->next;
+_30 = _28 & 2;
+if (_30 != 0)
+  goto <bb 7>; [33.00%]
+else
+  goto <bb 8>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 260600352]:
+// predicted unlikely by continue predictor.
+goto <bb 11>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 529097689]:
+p_26->next = last_31;
+_32 = _28 & 4;
+if (_32 == 0)
+  goto <bb 9>; [50.00%]
+else
+  goto <bb 10>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 264548844]:
+nr_34 = nr_33 + 1;
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 529097689]:
+# nr_35 = PHI <nr_33(8), nr_34(9)>
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 789698041]:
+# nr_36 = PHI <nr_33(7), nr_35(10)>
+# p_37 = PHI <next_29(7), next_29(10)>
+# last_38 = PHI <last_31(7), p_26(10)>
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 887301169]:
+# nr_33 = PHI <0(5), nr_36(11)>
+# p_26 = PHI <p_25(5), p_37(11)>
+# last_31 = PHI <0B(5), last_38(11)>
+if (p_26 != 0B)
+  goto <bb 6>; [89.00%]
+else
+  goto <bb 13>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 97603128]:
+show_list ("bisection 2 sorted", 0, nr_33, last_31);
+all_64 = nr_33;
+list_65 = last_31;
+_1 = list_65;
+list_66 = _1;
+goto <bb 19>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 789698041]:
+top_39 = list_62;
+if (top_39 != 0B)
+  goto <bb 15>; [85.10%]
+else
+  goto <bb 16>; [14.90%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 672033036]:
+_40 = top_39->item;
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 789698041]:
+# _42 = PHI <0B(14), _40(15)>
+if (top_39 != 0B)
+  goto <bb 17>; [53.47%]
+else
+  goto <bb 18>; [46.53%]
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [local count: 422251541]:
+_41 = top_39->next;
+list_70 = _41;
+free (top_39);
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [local count: 789698041]:
+# list_61 = PHI <list_62(16), list_70(17)>
+
+=======is loop:1=========
+
+ bb index 19 
+<bb 19> [local count: 887301169]:
+# list_62 = PHI <list_66(13), list_61(18)>
+_23 = list_62;
+if (_23 != 0B)
+  goto <bb 14>; [89.00%]
+else
+  goto <bb 20>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 97603128]:
+return 0;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 1 [0m
+[40;34m    gimple free   count : 1 [0m
+[40;34m    all ptable point : 6 [0m
+[40;34m    analyzable ptable point : 3 [0m
+[40;34m    used_stmt array stack totalsize of : 0.001368 mb[0m
+[40;34m    collect time: : 0.000490 s [0m
+[40;34m    algorithm time: 0.007895 s [0m
+[40;34m    gimple stmt count : : 36 [0m
+[40;34m    this report analysis in Fri Feb 18 06:36:37 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  2157k ( 89%)
+ phase opt and generate             :   0.01 (100%)   0.01 (100%)   0.02 ( 67%)   215k (  9%)
+ callgraph functions expansion      :   0.01 (100%)   0.01 (100%)   0.01 ( 33%)   123k (  5%)
+ df use-def / def-use chains        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)     0  (  0%)
+ plugin execution                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)   856  (  0%)
+ initialize rtl                     :   0.01 (100%)   0.01 (100%)   0.00 (  0%)    12k (  1%)
+ TOTAL                              :   0.01          0.01          0.03         2413k
+/usr/bin/ld: /tmp/ccMK7uyj.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0x41): undefined reference to `show_list'
+/usr/bin/ld: <artificial>:(.text+0x93): undefined reference to `show_list'
+collect2: error: ld returned 1 exit status

@@ -1,0 +1,163 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/git/use_after_free_3/git_uaf_3.c:11:
+./benchmarks/git/use_after_free_3/../git.h: In function ‘copy_array’:
+./benchmarks/git/use_after_free_3/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/use_after_free_3/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/use_after_free_3/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/use_after_free_3/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/use_after_free_3/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/use_after_free_3/../git.h: In function ‘move_array’:
+./benchmarks/git/use_after_free_3/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/use_after_free_3/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/use_after_free_3/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/use_after_free_3/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/use_after_free_3/git_uaf_3.c:10:
+./benchmarks/git/use_after_free_3/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/use_after_free_3/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/use_after_free_3/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/use_after_free_3/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/use_after_free_3/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/use_after_free_3/git_uaf_3.c:11:
+./benchmarks/git/use_after_free_3/../git.h: At top level:
+./benchmarks/git/use_after_free_3/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/use_after_free_3/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/use_after_free_3/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/use_after_free_3/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/use_after_free_3/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c: At top level:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:13: warning: "die_errno" redefined
+   13 | #define die_errno die
+      | 
+In file included from ./benchmarks/git/use_after_free_3/git_uaf_3.c:10:
+./benchmarks/git/use_after_free_3/../stdio.h:131: note: this is the location of the previous definition
+  131 | #define die_errno(a, b) die(a, b)
+      | 
+./benchmarks/git/use_after_free_3/git_uaf_3.c: In function ‘save_env_before_alias’:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:83:20: warning: implicit declaration of function ‘xgetcwd’; did you mean ‘getw’? [-Wimplicit-function-declaration]
+   83 |         orig_cwd = xgetcwd();                               /* allocation site */
+      |                    ^~~~~~~
+      |                    getw
+./benchmarks/git/use_after_free_3/git_uaf_3.c:83:18: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   83 |         orig_cwd = xgetcwd();                               /* allocation site */
+      |                  ^
+./benchmarks/git/use_after_free_3/git_uaf_3.c:84:25: warning: implicit declaration of function ‘ARRAY_SIZE’ [-Wimplicit-function-declaration]
+   84 |         for (i = 0; i < ARRAY_SIZE(env_names); i++) {
+      |                         ^~~~~~~~~~
+In file included from ./benchmarks/git/use_after_free_3/git_uaf_3.c:10:
+./benchmarks/git/use_after_free_3/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:87:39: note: in expansion of macro ‘xstrdup’
+   87 |                         orig_env[i] = xstrdup(orig_env[i]);
+      |                                       ^~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c: In function ‘restore_env’:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:94:44: warning: implicit declaration of function ‘chdir’ [-Wimplicit-function-declaration]
+   94 |         if (!external_alias && orig_cwd && chdir(orig_cwd)) /* use-after-free */
+      |                                            ^~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:99:22: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+   99 |                     !strcmp(env_names[i], GIT_PREFIX_ENVIRONMENT))
+      |                      ^~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:12:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+   11 | #include "../git.h"
+  +++ |+#include <string.h>
+   12 | 
+./benchmarks/git/use_after_free_3/git_uaf_3.c: In function ‘new_handle_alias’:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:121:9: warning: implicit declaration of function ‘setup_git_directory_gently’ [-Wimplicit-function-declaration]
+  121 |         setup_git_directory_gently(&unused_nongit);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:124:24: warning: implicit declaration of function ‘alias_lookup’ [-Wimplicit-function-declaration]
+  124 |         alias_string = alias_lookup(alias_command);
+      |                        ^~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:124:22: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  124 |         alias_string = alias_lookup(alias_command);
+      |                      ^
+./benchmarks/git/use_after_free_3/git_uaf_3.c:130:25: warning: implicit declaration of function ‘commit_pager_choice’ [-Wimplicit-function-declaration]
+  130 |                         commit_pager_choice();
+      |                         ^~~~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:140:31: warning: implicit declaration of function ‘run_command_v_opt’ [-Wimplicit-function-declaration]
+  140 |                         ret = run_command_v_opt(alias_argv, RUN_USING_SHELL);
+      |                               ^~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:147:25: warning: implicit declaration of function ‘split_cmdline’ [-Wimplicit-function-declaration]
+  147 |                 count = split_cmdline(alias_string, &new_argv);
+      |                         ^~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:150:32: warning: implicit declaration of function ‘handle_options’ [-Wimplicit-function-declaration]
+  150 |                 option_count = handle_options(&new_argv, &count, &envchanged);
+      |                                ^~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:155:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+  155 |                 memmove(new_argv - option_count, new_argv,
+      |                 ^~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:155:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/use_after_free_3/git_uaf_3.c:165:17: warning: implicit declaration of function ‘trace_argv_printf’ [-Wimplicit-function-declaration]
+  165 |                 trace_argv_printf(new_argv,
+      |                 ^~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c: In function ‘handle_alias’:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:193:22: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  193 |         alias_string = alias_lookup(alias_command);
+      |                      ^
+./benchmarks/git/use_after_free_3/git_uaf_3.c:224:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+  224 |                 memmove(new_argv - option_count, new_argv,
+      |                 ^~~~~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:224:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/use_after_free_3/git_uaf_3.c: In function ‘main’:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:250:25: warning: passing argument 2 of ‘handle_alias’ from incompatible pointer type [-Wincompatible-pointer-types]
+  250 |     handle_alias(&argc, &argv);
+      |                         ^~~~~
+      |                         |
+      |                         char ***
+./benchmarks/git/use_after_free_3/git_uaf_3.c:180:51: note: expected ‘const char ***’ but argument is of type ‘char ***’
+  180 | static int handle_alias(int *argcp, const char ***argv)
+      |                                     ~~~~~~~~~~~~~~^~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c:251:29: warning: passing argument 2 of ‘new_handle_alias’ from incompatible pointer type [-Wincompatible-pointer-types]
+  251 |     new_handle_alias(&argc, &argv);
+      |                             ^~~~~
+      |                             |
+      |                             char ***
+./benchmarks/git/use_after_free_3/git_uaf_3.c:108:55: note: expected ‘const char ***’ but argument is of type ‘char ***’
+  108 | static int new_handle_alias(int *argcp, const char ***argv)
+      |                                         ~~~~~~~~~~~~~~^~~~
+./benchmarks/git/use_after_free_3/git_uaf_3.c: At top level:
+./benchmarks/git/use_after_free_3/git_uaf_3.c:67:28: error: storage size of ‘git_startup_info’ isn’t known
+   67 | static struct startup_info git_startup_info;
+      |                            ^~~~~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 46%)
+ phase parsing                      :   0.04 (100%)   0.01 ( 50%)   0.05 ( 83%)  1339k ( 47%)
+ phase opt and generate             :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 17%)   180k (  6%)
+ callgraph construction             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    80k (  3%)
+ preprocessing                      :   0.02 ( 50%)   0.01 ( 50%)   0.00 (  0%)   503k ( 18%)
+ parser (global)                    :   0.01 ( 25%)   0.00 (  0%)   0.02 ( 33%)   619k ( 22%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    73k (  3%)
+ parser function body               :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)    64k (  2%)
+ parser inl. func. body             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    71k (  3%)
+ tree gimplify                      :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)    73k (  3%)
+ TOTAL                              :   0.04          0.02          0.06         2828k

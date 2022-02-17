@@ -1,0 +1,3966 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/binutils/leak_3/binutils_leak_3.c: In function ‘bfd_hash_table_init_n’:
+./benchmarks/binutils/leak_3/binutils_leak_3.c:148:39: warning: passing argument 1 of ‘objalloc_free’ from incompatible pointer type [-Wincompatible-pointer-types]
+  148 |                         objalloc_free(table);
+      |                                       ^~~~~
+      |                                       |
+      |                                       struct bfd_hash_table *
+./benchmarks/binutils/leak_3/binutils_leak_3.c:110:33: note: expected ‘struct objalloc *’ but argument is of type ‘struct bfd_hash_table *’
+  110 | objalloc_free (struct objalloc *o)
+      |                ~~~~~~~~~~~~~~~~~^
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+  152 |   memset ((void *) table->table, 0, alloc);
+      |   ^~~~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:7:1: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+    6 | #include "../include/common.h"
+  +++ |+#include <string.h>
+    7 | 
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+  152 |   memset ((void *) table->table, 0, alloc);
+      |   ^~~~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/binutils/leak_3/binutils_leak_3.c: In function ‘main’:
+./benchmarks/binutils/leak_3/binutils_leak_3.c:197:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  197 |         srand(time(&t));
+      |               ^~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:200:17: warning: ‘return’ with no value, in function returning non-void
+  200 |                 return;
+      |                 ^~~~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:185:5: note: declared here
+  185 | int main()
+      |     ^~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^~~~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.01 ( 12%)   0.00 (  0%)   0.01 (  9%)  1298k ( 46%)
+ phase parsing                      :   0.04 ( 50%)   0.02 ( 67%)   0.07 ( 64%)  1235k ( 44%)
+ phase opt and generate             :   0.03 ( 38%)   0.01 ( 33%)   0.03 ( 27%)   253k (  9%)
+ callgraph construction             :   0.02 ( 25%)   0.00 (  0%)   0.02 ( 18%)    22k (  1%)
+ callgraph ipa passes               :   0.01 ( 12%)   0.01 ( 33%)   0.01 (  9%)   151k (  5%)
+ lto stream compression             :   0.01 ( 12%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ preprocessing                      :   0.01 ( 13%)   0.00 (  0%)   0.01 (  9%)   443k ( 16%)
+ lexical analysis                   :   0.01 ( 12%)   0.00 (  0%)   0.03 ( 27%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.01 (  9%)   634k ( 23%)
+ parser struct body                 :   0.00 (  0%)   0.01 ( 33%)   0.00 (  0%)    40k (  1%)
+ parser function body               :   0.01 ( 13%)   0.01 ( 33%)   0.01 (  9%)    56k (  2%)
+ parser inl. func. body             :   0.01 ( 12%)   0.00 (  0%)   0.00 (  0%)    59k (  2%)
+ dominance computation              :   0.00 (  0%)   0.00 (  0%)   0.01 (  9%)     0  (  0%)
+ plugin execution                   :   0.00 (  0%)   0.01 ( 33%)   0.01 (  9%)     0  (  0%)
+ TOTAL                              :   0.08          0.03          0.11         2797k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.01 (100%)   0.00 (  0%)   0.01 (100%)  2157k ( 97%)
+ TOTAL                              :   0.01          0.00          0.01         2225k
+../Compiler/newplugin.so 11.2.0 
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+node:= 2 
+ 	next_branch :=6
+	next_branch :=3
+node:= 3 
+ 	next_branch :=4
+	next_branch :=5
+node:= 4 
+ 	next_branch :=6
+node:= 5 
+ 	next_branch :=6
+node:= 6 
+ 	next_branch :=10
+	next_branch :=7
+node:= 7 
+ 	next_branch :=8
+	next_branch :=9
+node:= 8 
+ 	next_branch :=10
+node:= 9 
+ 	next_branch :=10
+node:= 10 
+ 	next_branch :=11
+	next_branch :=13
+node:= 11 
+ 	next_branch :=1
+node:= 12 
+ 	next_branch :=13
+node:= 13 
+ 	next_branch :=12
+	next_branch :=14
+=======node_fun:objalloc_free=========
+node:= 2 
+ 	next_branch :=4
+node:= 3 
+ 	next_branch :=4
+node:= 4 
+ 	next_branch :=3
+	next_branch :=5
+=======node_fun:objalloc_alloc=========
+node:= 2 
+ 	next_branch :=3
+	next_branch :=4
+node:= 3 
+ node:= 4 
+ 	next_branch :=6
+	next_branch :=5
+node:= 5 
+ 	next_branch :=6
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 9 
+===============The second stage : Mapping stmt=================
+# .MEM_31 = VDEF <.MEM_30(D)>
+hash[0] = "a";
+# .MEM_32 = VDEF <.MEM_31>
+hash[1] = "b";
+# .MEM_33 = VDEF <.MEM_32>
+hash[2] = "c";
+# .MEM_34 = VDEF <.MEM_33>
+hash[3] = "d";
+# .MEM_35 = VDEF <.MEM_34>
+hash[4] = "e";
+# .MEM_36 = VDEF <.MEM_35>
+hash[5] = "f";
+# .MEM_37 = VDEF <.MEM_36>
+hash[6] = "g";
+# .MEM_38 = VDEF <.MEM_37>
+hash[7] = "h";
+# .MEM_39 = VDEF <.MEM_38>
+hash[8] = "i";
+# .MEM_40 = VDEF <.MEM_39>
+hash[9] = "j";
+# .MEM_41 = VDEF <.MEM_40>
+_1 = time (&t);
+# .MEM_42 = VDEF <.MEM_41>
+srand (_2);
+# .MEM_82 = VDEF <.MEM_42>
+ret_62 = malloc (24);
+# .MEM_83 = VDEF <.MEM_82>
+_63 = malloc (4064);
+# .MEM_93 = VDEF <.MEM_92>
+_58 = objalloc_alloc (_57, alloc_54);
+# .MEM_99 = VDEF <.MEM_94>
+objalloc_free (&table);
+# .MEM_95 = VDEF <.MEM_94>
+memset (_60, 0, alloc_54);
+# .MEM_102 = VDEF <.MEM_29>
+hashp_69 = objalloc_alloc (_68, 24);
+# .MEM_101 = VDEF <.MEM_29>
+objalloc_free (_79);
+# .MEM_45 = VDEF <.MEM_101>
+memset (&table, 0, 32);
+# .MEM_18 = VDEF <.MEM_17(D)>
+chunk_8 = malloc (4064);
+===============The second stage : Program slicing=================
+=============== *this point analyzable =================
+_1 = time (&t);
+=============== *this point analyzable =================
+ret_62 = malloc (24);
+=============== *this point analyzable =================
+_63 = malloc (4064);
+=============== *this point analyzable =================
+_58 = objalloc_alloc (_57, alloc_54);
+=============== *this point analyzable =================
+hashp_69 = objalloc_alloc (_68, 24);
+=============== *this point analyzable =================
+chunk_8 = malloc (4064);
+=============== *this point analyzable =================
+srand (_2);
+=============== *this point analyzable =================
+_58 = objalloc_alloc (_57, alloc_54);
+=============== *this point analyzable =================
+_58 = objalloc_alloc (_57, alloc_54);
+=============== *this point analyzable =================
+memset (_60, 0, alloc_54);
+=============== *this point analyzable =================
+hashp_69 = objalloc_alloc (_68, 24);
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+[40;44m =======node_fun:main========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path main  function_call count: 7 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:memset========= [0m
+[40;33m =======POP node_fun stack:memset========= [0m
+[40;42m =======pre add _ fucntion:objalloc_free========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path objalloc_free  function_call count: 1 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre_check_funciton:objalloc_free========= [0m
+[40;42m =======start_check_funciton:objalloc_free========= [0m
+[40;33m =======POP node_fun stack:objalloc_free========= [0m
+[40;42m =======pre add _ fucntion:objalloc_alloc========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path objalloc_alloc  function_call count: 2 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:exit========= [0m
+[40;33m =======POP node_fun stack:exit========= [0m
+[40;42m =======pre_check_funciton:objalloc_alloc========= [0m
+[40;42m =======start_check_funciton:objalloc_alloc========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f817c683b40
+    type <pointer_type 0x7f817c6697e0
+        type <record_type 0x7f817c669738 objalloc_chunk TI
+            size <integer_cst 0x7f817cb49c00 constant 128>
+            unit-size <integer_cst 0x7f817cb49c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817c669738 fields <field_decl 0x7f817c664390 next> context <translation_unit_decl 0x7f817cb54168 ./benchmarks/binutils/leak_3/binutils_leak_3.c>
+            pointer_to_this <pointer_type 0x7f817c6697e0>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7f817c682870 chunk>
+    def_stmt chunk_8 = malloc (4064);
+    version:8
+    ptr-info 0x7f817c6708e8>
+# .MEM_18 = VDEF <.MEM_17(D)>
+chunk_8 = malloc (4064);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_3 = PHI <0B(4), _15(5)>
+In function ‘main’:
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+_15 = chunk_8 + 512;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:106:16: warning: use location
+  106 |         return (PTR) (chunk + CHUNK_HEADER_SIZE);
+      |                ^
+o_9(D)->chunks = chunk_8;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:104:19: warning: use location
+  104 |         o->chunks = (PTR) chunk;
+      |                   ^
+o_9(D)->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:102:26: warning: use location
+  102 |         o->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                          ^
+o_9(D)->current_ptr = _2;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:101:24: warning: use location
+  101 |         o->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+      |                        ^
+o_9(D)->current_ptr = _2;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:101:24: warning: use location
+_1 = o_9(D)->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:50: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                                                  ^
+chunk_8->next = _1;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:21: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                     ^
+chunk_8->current_ptr = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:99:28: warning: use location
+   99 |         chunk->current_ptr = NULL;
+      |                            ^
+if (chunk_8 == 0B)
+./benchmarks/binutils/leak_3/binutils_leak_3.c:95:12: warning: use location
+   95 |         if (chunk == NULL)
+      |            ^
+# .MEM_18 = VDEF <.MEM_17(D)>
+chunk_8 = malloc (4064);
+chunk_8 = malloc (4064);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:94:43: warning: use location
+   94 |         chunk = (struct objalloc_chunk *) malloc (CHUNK_SIZE); /* allocation site */
+      |                                           ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f817c683b40
+    type <pointer_type 0x7f817c6697e0
+        type <record_type 0x7f817c669738 objalloc_chunk TI
+            size <integer_cst 0x7f817cb49c00 constant 128>
+            unit-size <integer_cst 0x7f817cb49c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817c669738 fields <field_decl 0x7f817c664390 next> context <translation_unit_decl 0x7f817cb54168 ./benchmarks/binutils/leak_3/binutils_leak_3.c>
+            pointer_to_this <pointer_type 0x7f817c6697e0>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7f817c682870 chunk>
+    def_stmt chunk_8 = malloc (4064);
+    version:8
+    ptr-info 0x7f817c6708e8>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+[40;33m =======POP node_fun stack:objalloc_alloc========= [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:srand========= [0m
+[40;33m =======POP node_fun stack:srand========= [0m
+[40;42m =======pre add _ fucntion:time========= [0m
+[40;33m =======POP node_fun stack:time========= [0m
+[40;42m =======pre_check_funciton:main========= [0m
+[40;42m =======start_check_funciton:main========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f817cb51630
+    type <integer_type 0x7f817cb5e5e8 int public SI
+        size <integer_cst 0x7f817cb49df8 constant 32>
+        unit-size <integer_cst 0x7f817cb49e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817cb5e5e8 precision:32 min <integer_cst 0x7f817cb49db0 -2147483648> max <integer_cst 0x7f817cb49dc8 2147483647>
+        pointer_to_this <pointer_type 0x7f817cb659d8>>
+   
+    def_stmt _1 = time (&t);
+    version:1>
+# .MEM_41 = VDEF <.MEM_40>
+_1 = time (&t);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:time 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function time
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_41 = VDEF <.MEM_40>
+_1 = time (&t);
+_1 = time (&t);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:197:15: warning: use location
+  197 |         srand(time(&t));
+      |               ^
+this stmt call this function :time
+trace fucntion name:time 
+
+ ================== trace ================== 
+trace fucntion free:0 
+_2 = (unsigned int) _1;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:197:9: warning: use location
+  197 |         srand(time(&t));
+      |         ^
+srand (_2);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:197:9: warning: use location
+this stmt call this function :srand
+trace fucntion name:srand 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f817cb51630
+    type <integer_type 0x7f817cb5e5e8 int public SI
+        size <integer_cst 0x7f817cb49df8 constant 32>
+        unit-size <integer_cst 0x7f817cb49e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817cb5e5e8 precision:32 min <integer_cst 0x7f817cb49db0 -2147483648> max <integer_cst 0x7f817cb49dc8 2147483647>
+        pointer_to_this <pointer_type 0x7f817cb659d8>>
+   
+    def_stmt _1 = time (&t);
+    version:1>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: use location
+   69 |                         free (ret);
+      |                         ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f817c67b708
+    type <pointer_type 0x7f817c669540
+        type <record_type 0x7f817c669498 objalloc BLK
+            size <integer_cst 0x7f817cb67078 constant 192>
+            unit-size <integer_cst 0x7f817cb67048 constant 24>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817c669498 fields <field_decl 0x7f817c664260 current_ptr> context <translation_unit_decl 0x7f817cb54168 ./benchmarks/binutils/leak_3/binutils_leak_3.c>
+            pointer_to_this <pointer_type 0x7f817c669540>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7f817c678ab0 ret>
+    def_stmt ret_62 = malloc (24);
+    version:62
+    ptr-info 0x7f817c670720>
+# .MEM_82 = VDEF <.MEM_42>
+ret_62 = malloc (24);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_67 = PHI <0B(2), 0B(4), ret_62(5)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+_91 = _67;
+lto1: warning: use location
+_55 = _91;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:137:34: warning: use location
+  137 |         table->memory = (void *) objalloc_create ();
+      |                                  ^
+table.memory = _55;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:137:23: warning: use location
+  137 |         table->memory = (void *) objalloc_create ();
+      |                       ^
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+ret_62->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:79:28: warning: use location
+   79 |         ret->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                            ^
+ret_62->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:79:28: warning: use location
+ret_62->current_ptr = _66;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:78:26: warning: use location
+   78 |         ret->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+      |                          ^
+o_9(D)->current_ptr = _2;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:101:24: warning: use location
+  101 |         o->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+      |                        ^
+chunk_65 = ret_62->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:73:15: warning: use location
+   73 |         chunk = (struct objalloc_chunk *) ret->chunks;
+      |               ^
+chunk_65->next = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:76:21: warning: use location
+   76 |         chunk->next = NULL;
+      |                     ^
+chunk_65->current_ptr = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:75:28: warning: use location
+   75 |         chunk->current_ptr = NULL;
+      |                            ^
+chunk_65->next = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:74:21: warning: use location
+   74 |         chunk->next = NULL;
+      |                     ^
+ret_62->chunks = _63;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:66:21: warning: use location
+   66 |         ret->chunks = (PTR) malloc (CHUNK_SIZE); /* allocation site */
+      |                     ^
+_64 = ret_62->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:67:16: warning: use location
+   67 |         if (ret->chunks == NULL)
+      |                ^
+if (_64 == 0B)
+./benchmarks/binutils/leak_3/binutils_leak_3.c:67:12: warning: use location
+   67 |         if (ret->chunks == NULL)
+      |            ^
+l_5 = o_4(D)->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:115:11: warning: use location
+  115 |         l = (struct objalloc_chunk *) o->chunks;
+      |           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+l_1 = PHI <l_5(2), next_7(3)>
+lto1: warning: use location
+this stmt have mutiple branch ---memset-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (l_1 != 0B)
+./benchmarks/binutils/leak_3/binutils_leak_3.c:116:18: warning: use location
+  116 |         while (l != NULL)
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+free (l_1);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:122:25: warning: use location
+  122 |                         free(l);
+      |                         ^
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (l_1);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:122:25: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find free stmt ================== 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+next_7 = l_1->next;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:121:30: warning: use location
+  121 |                         next = l->next;
+      |                              ^
+_1 = o_9(D)->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:50: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                                                  ^
+chunk_8->next = _1;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:21: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                     ^
+_3 = PHI <0B(4), _15(5)>
+lto1: warning: use location
+this stmt have mutiple branch ---free-----
+o_9(D)->chunks = chunk_8;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:104:19: warning: use location
+  104 |         o->chunks = (PTR) chunk;
+      |                   ^
+o_9(D)->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:102:26: warning: use location
+  102 |         o->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                          ^
+chunk_8->current_ptr = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:99:28: warning: use location
+   99 |         chunk->current_ptr = NULL;
+      |                            ^
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: use location
+   69 |                         free (ret);
+      |                         ^
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find free stmt ================== 
+if (ret_62 == 0B)
+./benchmarks/binutils/leak_3/binutils_leak_3.c:63:12: warning: use location
+   63 |         if (ret == NULL)
+      |            ^
+# .MEM_82 = VDEF <.MEM_42>
+ret_62 = malloc (24);
+ret_62 = malloc (24);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:61:35: warning: use location
+   61 |         ret = (struct objalloc *) malloc (sizeof *ret); /* allocation site */
+      |                                   ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f817c67b708
+    type <pointer_type 0x7f817c669540
+        type <record_type 0x7f817c669498 objalloc BLK
+            size <integer_cst 0x7f817cb67078 constant 192>
+            unit-size <integer_cst 0x7f817cb67048 constant 24>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817c669498 fields <field_decl 0x7f817c664260 current_ptr> context <translation_unit_decl 0x7f817cb54168 ./benchmarks/binutils/leak_3/binutils_leak_3.c>
+            pointer_to_this <pointer_type 0x7f817c669540>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7f817c678ab0 ret>
+    def_stmt ret_62 = malloc (24);
+    version:62
+    ptr-info 0x7f817c670720>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: use location
+   69 |                         free (ret);
+      |                         ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_67 = PHI <0B(2), 0B(4), ret_62(5)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_67 = PHI <0B(2), 0B(4), ret_62(5)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_91 = _67;
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_91 = _67;
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_55 = _91;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:137:34: warning: use location
+  137 |         table->memory = (void *) objalloc_create ();
+      |                                  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+_55 = _91;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:137:34: warning: use location
+  137 |         table->memory = (void *) objalloc_create ();
+      |                                  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_92 = VDEF <.MEM_81>
+table.memory = _55;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:137:23: warning: use location
+  137 |         table->memory = (void *) objalloc_create ();
+      |                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_92 = VDEF <.MEM_81>
+table.memory = _55;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:137:23: warning: use location
+  137 |         table->memory = (void *) objalloc_create ();
+      |                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: function_decl [0m
+# .MEM_45 = VDEF <.MEM_101>
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: function_decl [0m
+# .MEM_45 = VDEF <.MEM_101>
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: addr_expr [0m
+# .MEM_45 = VDEF <.MEM_101>
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: addr_expr [0m
+# .MEM_45 = VDEF <.MEM_101>
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_89 = VDEF <.MEM_88>
+ret_62->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:79:28: warning: use location
+   79 |         ret->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_89 = VDEF <.MEM_88>
+ret_62->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:79:28: warning: use location
+   79 |         ret->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_89 = VDEF <.MEM_88>
+ret_62->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:79:28: warning: use location
+   79 |         ret->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_89 = VDEF <.MEM_88>
+ret_62->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:79:28: warning: use location
+   79 |         ret->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_88 = VDEF <.MEM_87>
+ret_62->current_ptr = _66;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:78:26: warning: use location
+   78 |         ret->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+      |                          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_88 = VDEF <.MEM_87>
+ret_62->current_ptr = _66;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:78:26: warning: use location
+   78 |         ret->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+      |                          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_21 = VDEF <.MEM_20>
+o_9(D)->current_ptr = _2;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:101:24: warning: use location
+  101 |         o->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+      |                        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_21 = VDEF <.MEM_20>
+o_9(D)->current_ptr = _2;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:101:24: warning: use location
+  101 |         o->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+      |                        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_84>
+chunk_65 = ret_62->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:73:15: warning: use location
+   73 |         chunk = (struct objalloc_chunk *) ret->chunks;
+      |               ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_84>
+chunk_65 = ret_62->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:73:15: warning: use location
+   73 |         chunk = (struct objalloc_chunk *) ret->chunks;
+      |               ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_87 = VDEF <.MEM_86>
+chunk_65->next = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:76:21: warning: use location
+   76 |         chunk->next = NULL;
+      |                     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_87 = VDEF <.MEM_86>
+chunk_65->next = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:76:21: warning: use location
+   76 |         chunk->next = NULL;
+      |                     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_86 = VDEF <.MEM_85>
+chunk_65->current_ptr = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:75:28: warning: use location
+   75 |         chunk->current_ptr = NULL;
+      |                            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_86 = VDEF <.MEM_85>
+chunk_65->current_ptr = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:75:28: warning: use location
+   75 |         chunk->current_ptr = NULL;
+      |                            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_85 = VDEF <.MEM_84>
+chunk_65->next = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:74:21: warning: use location
+   74 |         chunk->next = NULL;
+      |                     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_85 = VDEF <.MEM_84>
+chunk_65->next = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:74:21: warning: use location
+   74 |         chunk->next = NULL;
+      |                     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_9(D)>
+l_5 = o_4(D)->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:115:11: warning: use location
+  115 |         l = (struct objalloc_chunk *) o->chunks;
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_9(D)>
+l_5 = o_4(D)->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:115:11: warning: use location
+  115 |         l = (struct objalloc_chunk *) o->chunks;
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+l_1 = PHI <l_5(2), next_7(3)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+l_1 = PHI <l_5(2), next_7(3)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+if (l_1 != 0B)
+./benchmarks/binutils/leak_3/binutils_leak_3.c:116:18: warning: use location
+  116 |         while (l != NULL)
+      |                  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+if (l_1 != 0B)
+./benchmarks/binutils/leak_3/binutils_leak_3.c:116:18: warning: use location
+  116 |         while (l != NULL)
+      |                  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_8>
+next_7 = l_1->next;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:121:30: warning: use location
+  121 |                         next = l->next;
+      |                              ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_8>
+next_7 = l_1->next;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:121:30: warning: use location
+  121 |                         next = l->next;
+      |                              ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_18>
+_1 = o_9(D)->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:50: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                                                  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_18>
+_1 = o_9(D)->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:50: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                                                  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_19 = VDEF <.MEM_18>
+chunk_8->next = _1;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:21: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_19 = VDEF <.MEM_18>
+chunk_8->next = _1;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:21: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+_3 = PHI <0B(4), _15(5)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_3 = PHI <0B(4), _15(5)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+# .MEM_23 = VDEF <.MEM_22>
+o_9(D)->chunks = chunk_8;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:104:19: warning: use location
+  104 |         o->chunks = (PTR) chunk;
+      |                   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_23 = VDEF <.MEM_22>
+o_9(D)->chunks = chunk_8;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:104:19: warning: use location
+  104 |         o->chunks = (PTR) chunk;
+      |                   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_22 = VDEF <.MEM_21>
+o_9(D)->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:102:26: warning: use location
+  102 |         o->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_22 = VDEF <.MEM_21>
+o_9(D)->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:102:26: warning: use location
+  102 |         o->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_20 = VDEF <.MEM_19>
+chunk_8->current_ptr = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:99:28: warning: use location
+   99 |         chunk->current_ptr = NULL;
+      |                            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_20 = VDEF <.MEM_19>
+chunk_8->current_ptr = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:99:28: warning: use location
+   99 |         chunk->current_ptr = NULL;
+      |                            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+[40;31m  	free count:2 [0m
+[40;31m  	possible double free [rigorous]:2 [0m
+
+======================================================================
+
+======================================================================
+[40;31m  	possible double free [rigorous]:2 [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f817c67b750
+    type <pointer_type 0x7f817cb65000
+        type <void_type 0x7f817cb5ef18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f817cb65000>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f817cb6a9d8>>
+   
+    def_stmt _63 = malloc (4064);
+    version:63
+    ptr-info 0x7f817c670738>
+# .MEM_83 = VDEF <.MEM_82>
+_63 = malloc (4064);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+ret_62->chunks = _63;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:66:21: warning: use location
+   66 |         ret->chunks = (PTR) malloc (CHUNK_SIZE); /* allocation site */
+      |                     ^
+ret_62->chunks = _63;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:66:21: warning: use location
+_67 = PHI <0B(2), 0B(4), ret_62(5)>
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+_91 = _67;
+lto1: warning: use location
+_55 = _91;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:137:34: warning: use location
+  137 |         table->memory = (void *) objalloc_create ();
+      |                                  ^
+table.memory = _55;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:137:23: warning: use location
+  137 |         table->memory = (void *) objalloc_create ();
+      |                       ^
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+ret_62->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:79:28: warning: use location
+   79 |         ret->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                            ^
+ret_62->current_ptr = _66;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:78:26: warning: use location
+   78 |         ret->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+      |                          ^
+o_9(D)->current_ptr = _2;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:101:24: warning: use location
+  101 |         o->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+      |                        ^
+chunk_65 = ret_62->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:73:15: warning: use location
+   73 |         chunk = (struct objalloc_chunk *) ret->chunks;
+      |               ^
+chunk_65->next = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:76:21: warning: use location
+   76 |         chunk->next = NULL;
+      |                     ^
+chunk_65->current_ptr = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:75:28: warning: use location
+   75 |         chunk->current_ptr = NULL;
+      |                            ^
+chunk_65->next = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:74:21: warning: use location
+   74 |         chunk->next = NULL;
+      |                     ^
+_64 = ret_62->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:67:16: warning: use location
+   67 |         if (ret->chunks == NULL)
+      |                ^
+if (_64 == 0B)
+./benchmarks/binutils/leak_3/binutils_leak_3.c:67:12: warning: use location
+   67 |         if (ret->chunks == NULL)
+      |            ^
+l_5 = o_4(D)->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:115:11: warning: use location
+  115 |         l = (struct objalloc_chunk *) o->chunks;
+      |           ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+l_1 = PHI <l_5(2), next_7(3)>
+lto1: warning: use location
+this stmt have mutiple branch ---memset-----
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+if (l_1 != 0B)
+./benchmarks/binutils/leak_3/binutils_leak_3.c:116:18: warning: use location
+  116 |         while (l != NULL)
+      |                  ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+free (l_1);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:122:25: warning: use location
+  122 |                         free(l);
+      |                         ^
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (l_1);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:122:25: warning: use location
+[40;32m    HAS FREE STMT count:1 name:free [0m
+
+ ================== find free stmt ================== 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+next_7 = l_1->next;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:121:30: warning: use location
+  121 |                         next = l->next;
+      |                              ^
+_1 = o_9(D)->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:50: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                                                  ^
+chunk_8->next = _1;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:21: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                     ^
+_3 = PHI <0B(4), _15(5)>
+lto1: warning: use location
+this stmt have mutiple branch ---free-----
+o_9(D)->chunks = chunk_8;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:104:19: warning: use location
+  104 |         o->chunks = (PTR) chunk;
+      |                   ^
+o_9(D)->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:102:26: warning: use location
+  102 |         o->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                          ^
+chunk_8->current_ptr = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:99:28: warning: use location
+   99 |         chunk->current_ptr = NULL;
+      |                            ^
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: use location
+   69 |                         free (ret);
+      |                         ^
+this stmt call this function :free
+
+ ================== find free stmt ================== 
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: use location
+[40;32m    HAS FREE STMT count:2 name:free [0m
+
+ ================== find free stmt ================== 
+if (ret_62 == 0B)
+./benchmarks/binutils/leak_3/binutils_leak_3.c:63:12: warning: use location
+   63 |         if (ret == NULL)
+      |            ^
+# .MEM_83 = VDEF <.MEM_82>
+_63 = malloc (4064);
+_63 = malloc (4064);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:66:23: warning: use location
+   66 |         ret->chunks = (PTR) malloc (CHUNK_SIZE); /* allocation site */
+      |                       ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f817c67b750
+    type <pointer_type 0x7f817cb65000
+        type <void_type 0x7f817cb5ef18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f817cb65000>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f817cb6a9d8>>
+   
+    def_stmt _63 = malloc (4064);
+    version:63
+    ptr-info 0x7f817c670738>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+_67 = PHI <0B(2), 0B(4), ret_62(5)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_91 = _67;
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_55 = _91;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:137:34: warning: use location
+  137 |         table->memory = (void *) objalloc_create ();
+      |                                  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_92 = VDEF <.MEM_81>
+table.memory = _55;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:137:23: warning: use location
+  137 |         table->memory = (void *) objalloc_create ();
+      |                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: function_decl [0m
+# .MEM_45 = VDEF <.MEM_101>
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: addr_expr [0m
+# .MEM_45 = VDEF <.MEM_101>
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_89 = VDEF <.MEM_88>
+ret_62->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:79:28: warning: use location
+   79 |         ret->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_88 = VDEF <.MEM_87>
+ret_62->current_ptr = _66;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:78:26: warning: use location
+   78 |         ret->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+      |                          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_21 = VDEF <.MEM_20>
+o_9(D)->current_ptr = _2;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:101:24: warning: use location
+  101 |         o->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+      |                        ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_84>
+chunk_65 = ret_62->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:73:15: warning: use location
+   73 |         chunk = (struct objalloc_chunk *) ret->chunks;
+      |               ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_87 = VDEF <.MEM_86>
+chunk_65->next = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:76:21: warning: use location
+   76 |         chunk->next = NULL;
+      |                     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_86 = VDEF <.MEM_85>
+chunk_65->current_ptr = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:75:28: warning: use location
+   75 |         chunk->current_ptr = NULL;
+      |                            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_85 = VDEF <.MEM_84>
+chunk_65->next = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:74:21: warning: use location
+   74 |         chunk->next = NULL;
+      |                     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_9(D)>
+l_5 = o_4(D)->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:115:11: warning: use location
+  115 |         l = (struct objalloc_chunk *) o->chunks;
+      |           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+l_1 = PHI <l_5(2), next_7(3)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+if (l_1 != 0B)
+./benchmarks/binutils/leak_3/binutils_leak_3.c:116:18: warning: use location
+  116 |         while (l != NULL)
+      |                  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# VUSE <.MEM_8>
+next_7 = l_1->next;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:121:30: warning: use location
+  121 |                         next = l->next;
+      |                              ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# VUSE <.MEM_18>
+_1 = o_9(D)->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:50: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                                                  ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_19 = VDEF <.MEM_18>
+chunk_8->next = _1;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:21: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+_3 = PHI <0B(4), _15(5)>
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+# .MEM_23 = VDEF <.MEM_22>
+o_9(D)->chunks = chunk_8;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:104:19: warning: use location
+  104 |         o->chunks = (PTR) chunk;
+      |                   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_22 = VDEF <.MEM_21>
+o_9(D)->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:102:26: warning: use location
+  102 |         o->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                          ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_20 = VDEF <.MEM_19>
+chunk_8->current_ptr = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:99:28: warning: use location
+   99 |         chunk->current_ptr = NULL;
+      |                            ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:2 [0m
+[40;31m  	possible double free [rigorous]:2 [0m
+
+======================================================================
+
+======================================================================
+[40;31m  	possible double free [rigorous]:2 [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f817c67b438
+    type <pointer_type 0x7f817cb65000
+        type <void_type 0x7f817cb5ef18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f817cb65000>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f817cb6a9d8>>
+   
+    def_stmt _58 = objalloc_alloc (_57, alloc_54);
+    version:58
+    ptr-info 0x7f817c6706d8>
+# .MEM_93 = VDEF <.MEM_92>
+_58 = objalloc_alloc (_57, alloc_54);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:objalloc_alloc 
+[40;44m =======trace_function_path objalloc_alloc  function_call count: 2 level :888========  [0m
+[40;31m  find return stmt  [0m
+[40;31m  this fucntion return heap-object  [0m
+# .MEM_24 = VDEF <.MEM_17(D)>
+exit (1);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:92:17: warning: use location
+   92 |                 exit (1);
+      |                 ^
+[40;36m ======= node_fun:objalloc_alloc========= [0m
+[40;36m ======= find relate stmt with (null) ========= [0m
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;46m =======add node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:exit========= [0m
+[40;46m =======add node_fun stack:exit========= [0m
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function objalloc_alloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_93 = VDEF <.MEM_92>
+_58 = objalloc_alloc (_57, alloc_54);
+_58 = objalloc_alloc (_57, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:144:7: warning: use location
+  144 |       objalloc_alloc ((struct objalloc *) table->memory, alloc);
+      |       ^
+this stmt call this function :objalloc_alloc
+trace fucntion name:objalloc_alloc 
+[40;44m =======trace_function_path objalloc_alloc  function_call count: 2 level :0========  [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;46m =======add node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:exit========= [0m
+[40;46m =======add node_fun stack:exit========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+table.table = _58;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:143:16: warning: use location
+  143 |   table->table = (struct bfd_hash_entry **)
+      |                ^
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+memset (_60, 0, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: use location
+  152 |   memset ((void *) table->table, 0, alloc);
+      |   ^
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f817c67b438
+    type <pointer_type 0x7f817cb65000
+        type <void_type 0x7f817cb5ef18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f817cb65000>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f817cb6a9d8>>
+   
+    def_stmt _58 = objalloc_alloc (_57, alloc_54);
+    version:58
+    ptr-info 0x7f817c6706d8>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f817c67bcf0
+    type <pointer_type 0x7f817c669dc8
+        type <record_type 0x7f817c669d20 bfd_hash_entry BLK
+            size <integer_cst 0x7f817cb67078 constant 192>
+            unit-size <integer_cst 0x7f817cb67048 constant 24>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817c669d20 fields <field_decl 0x7f817c664850 next> context <translation_unit_decl 0x7f817cb54168 ./benchmarks/binutils/leak_3/binutils_leak_3.c>
+            pointer_to_this <pointer_type 0x7f817c669dc8>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f817c669e70>>
+    var <var_decl 0x7f817c6821b0 hashp>
+    def_stmt hashp_69 = objalloc_alloc (_68, 24);
+    version:69
+    ptr-info 0x7f817c6707c8>
+# .MEM_102 = VDEF <.MEM_29>
+hashp_69 = objalloc_alloc (_68, 24);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:objalloc_alloc 
+[40;44m =======trace_function_path objalloc_alloc  function_call count: 2 level :888========  [0m
+[40;31m  find return stmt  [0m
+[40;31m  this fucntion return heap-object  [0m
+# .MEM_24 = VDEF <.MEM_17(D)>
+exit (1);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:92:17: warning: use location
+   92 |                 exit (1);
+      |                 ^
+[40;36m ======= node_fun:objalloc_alloc========= [0m
+[40;36m ======= find relate stmt with hashp ========= [0m
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;46m =======add node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:exit========= [0m
+[40;46m =======add node_fun stack:exit========= [0m
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function objalloc_alloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_102 = VDEF <.MEM_29>
+hashp_69 = objalloc_alloc (_68, 24);
+hashp_69 = objalloc_alloc (_68, 24);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:168:43: warning: use location
+  168 |         hashp = (struct bfd_hash_entry *) objalloc_alloc (table->memory, sizeof (*hashp));
+      |                                           ^
+this stmt call this function :objalloc_alloc
+trace fucntion name:objalloc_alloc 
+[40;44m =======trace_function_path objalloc_alloc  function_call count: 2 level :0========  [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;46m =======add node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:exit========= [0m
+[40;46m =======add node_fun stack:exit========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+*_76 = hashp_69;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:172:30: warning: use location
+  172 |         table->table[_index] = hashp;
+      |                              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+hashp_69->string = _5;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:170:23: warning: use location
+  170 |         hashp->string = string;
+      |                       ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+hashp_69->string = _5;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:170:23: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_5 = hash[cnt_6];
+./benchmarks/binutils/leak_3/binutils_leak_3.c:204:25: warning: use location
+  204 |                         bfd_hash_insert (&table, hash[cnt], cnt);
+      |                         ^
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+hashp_69->hash = _4;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:169:21: warning: use location
+  169 |         hashp->hash = hash;
+      |                     ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_72 = _4 % _71;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:171:23: warning: use location
+  171 |         _index = hash % table->size;
+      |                       ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_74 = _72 & 4294967295;
+lto1: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_75 = _74 * 8;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:172:21: warning: use location
+  172 |         table->table[_index] = hashp;
+      |                     ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_76 = _73 + _75;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:172:21: warning: use location
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f817c67bcf0
+    type <pointer_type 0x7f817c669dc8
+        type <record_type 0x7f817c669d20 bfd_hash_entry BLK
+            size <integer_cst 0x7f817cb67078 constant 192>
+            unit-size <integer_cst 0x7f817cb67048 constant 24>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817c669d20 fields <field_decl 0x7f817c664850 next> context <translation_unit_decl 0x7f817cb54168 ./benchmarks/binutils/leak_3/binutils_leak_3.c>
+            pointer_to_this <pointer_type 0x7f817c669dc8>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f817c669e70>>
+    var <var_decl 0x7f817c6821b0 hashp>
+    def_stmt hashp_69 = objalloc_alloc (_68, 24);
+    version:69
+    ptr-info 0x7f817c6707c8>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f817cb51678
+    type <integer_type 0x7f817cb5e690 unsigned int public unsigned SI
+        size <integer_cst 0x7f817cb49df8 constant 32>
+        unit-size <integer_cst 0x7f817cb49e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817cb5e690 precision:32 min <integer_cst 0x7f817cb49e28 0> max <integer_cst 0x7f817cb49de0 4294967295>
+        pointer_to_this <pointer_type 0x7f817cb6a690>>
+   
+    def_stmt _2 = (unsigned int) _1;
+    version:2>
+_2 = (unsigned int) _1;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_42 = VDEF <.MEM_41>
+srand (_2);
+srand (_2);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:197:9: warning: use location
+  197 |         srand(time(&t));
+      |         ^
+this stmt call this function :srand
+trace fucntion name:srand 
+
+ ================== trace ================== 
+trace fucntion free:0 
+# .MEM_42 = VDEF <.MEM_41>
+srand (_2);
+srand (_2);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:197:9: warning: use location
+this stmt call this function :srand
+trace fucntion name:srand 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f817cb51678
+    type <integer_type 0x7f817cb5e690 unsigned int public unsigned SI
+        size <integer_cst 0x7f817cb49df8 constant 32>
+        unit-size <integer_cst 0x7f817cb49e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817cb5e690 precision:32 min <integer_cst 0x7f817cb49e28 0> max <integer_cst 0x7f817cb49de0 4294967295>
+        pointer_to_this <pointer_type 0x7f817cb6a690>>
+   
+    def_stmt _2 = (unsigned int) _1;
+    version:2>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: use location
+   69 |                         free (ret);
+      |                         ^
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f817c67b3f0
+    type <pointer_type 0x7f817cb65000
+        type <void_type 0x7f817cb5ef18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f817cb65000>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f817cb6a9d8>>
+   
+    def_stmt _57 = table.memory;
+    version:57
+    ptr-info 0x7f817c6706c0>
+# VUSE <.MEM_92>
+_57 = table.memory;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_93 = VDEF <.MEM_92>
+_58 = objalloc_alloc (_57, alloc_54);
+_58 = objalloc_alloc (_57, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:144:7: warning: use location
+  144 |       objalloc_alloc ((struct objalloc *) table->memory, alloc);
+      |       ^
+this stmt call this function :objalloc_alloc
+trace fucntion name:objalloc_alloc 
+[40;44m =======trace_function_path objalloc_alloc  function_call count: 2 level :0========  [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;46m =======add node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:exit========= [0m
+[40;46m =======add node_fun stack:exit========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+table.table = _58;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:143:16: warning: use location
+  143 |   table->table = (struct bfd_hash_entry **)
+      |                ^
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+memset (_60, 0, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: use location
+  152 |   memset ((void *) table->table, 0, alloc);
+      |   ^
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f817c67b3f0
+    type <pointer_type 0x7f817cb65000
+        type <void_type 0x7f817cb5ef18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f817cb65000>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f817cb6a9d8>>
+   
+    def_stmt _57 = table.memory;
+    version:57
+    ptr-info 0x7f817c6706c0>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: use location
+   69 |                         free (ret);
+      |                         ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+# .MEM_93 = VDEF <.MEM_92>
+_58 = objalloc_alloc (_57, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:144:7: warning: use location
+  144 |       objalloc_alloc ((struct objalloc *) table->memory, alloc);
+      |       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_94 = VDEF <.MEM_93>
+table.table = _58;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:143:16: warning: use location
+  143 |   table->table = (struct bfd_hash_entry **)
+      |                ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: function_decl [0m
+# .MEM_45 = VDEF <.MEM_101>
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: addr_expr [0m
+# .MEM_45 = VDEF <.MEM_101>
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: addr_expr [0m
+# .MEM_95 = VDEF <.MEM_94>
+memset (_60, 0, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: use location
+  152 |   memset ((void *) table->table, 0, alloc);
+      |   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f817c67b318
+    type <integer_type 0x7f817cb5e7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817cb5e738 precision:64 min <integer_cst 0x7f817cb49e88 0> max <integer_cst 0x7f817cb4a500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f817cb6a7e0>>
+    var <var_decl 0x7f817c678480 alloc>
+    def_stmt alloc_54 = alloc_53 * 8;
+    version:54>
+alloc_54 = alloc_53 * 8;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+memset (_60, 0, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: use location
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+# .MEM_93 = VDEF <.MEM_92>
+_58 = objalloc_alloc (_57, alloc_54);
+_58 = objalloc_alloc (_57, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:144:7: warning: use location
+  144 |       objalloc_alloc ((struct objalloc *) table->memory, alloc);
+      |       ^
+this stmt call this function :objalloc_alloc
+trace fucntion name:objalloc_alloc 
+[40;44m =======trace_function_path objalloc_alloc  function_call count: 2 level :0========  [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;46m =======add node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:exit========= [0m
+[40;46m =======add node_fun stack:exit========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+table.table = _58;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:143:16: warning: use location
+  143 |   table->table = (struct bfd_hash_entry **)
+      |                ^
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f817c67b318
+    type <integer_type 0x7f817cb5e7e0 long unsigned int public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817cb5e738 precision:64 min <integer_cst 0x7f817cb49e88 0> max <integer_cst 0x7f817cb4a500 18446744073709551615>
+        pointer_to_this <pointer_type 0x7f817cb6a7e0>>
+    var <var_decl 0x7f817c678480 alloc>
+    def_stmt alloc_54 = alloc_53 * 8;
+    version:54>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: use location
+   69 |                         free (ret);
+      |                         ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: addr_expr [0m
+# .MEM_95 = VDEF <.MEM_94>
+memset (_60, 0, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: use location
+  152 |   memset ((void *) table->table, 0, alloc);
+      |   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_93 = VDEF <.MEM_92>
+_58 = objalloc_alloc (_57, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:144:7: warning: use location
+  144 |       objalloc_alloc ((struct objalloc *) table->memory, alloc);
+      |       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_94 = VDEF <.MEM_93>
+table.table = _58;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:143:16: warning: use location
+  143 |   table->table = (struct bfd_hash_entry **)
+      |                ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: function_decl [0m
+# .MEM_45 = VDEF <.MEM_101>
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: addr_expr [0m
+# .MEM_45 = VDEF <.MEM_101>
+memset (&table, 0, 32);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: use location
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f817c67b4c8
+    type <pointer_type 0x7f817c669e70
+        type <pointer_type 0x7f817c669dc8 type <record_type 0x7f817c669d20 bfd_hash_entry>
+            public unsigned DI
+            size <integer_cst 0x7f817cb49bb8 constant 64>
+            unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f817c669e70>>
+        public unsigned DI size <integer_cst 0x7f817cb49bb8 64> unit-size <integer_cst 0x7f817cb49bd0 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+   
+    def_stmt _60 = table.table;
+    version:60
+    ptr-info 0x7f817c670708>
+# VUSE <.MEM_94>
+_60 = table.table;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_95 = VDEF <.MEM_94>
+memset (_60, 0, alloc_54);
+memset (_60, 0, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: use location
+  152 |   memset ((void *) table->table, 0, alloc);
+      |   ^
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+# .MEM_95 = VDEF <.MEM_94>
+memset (_60, 0, alloc_54);
+memset (_60, 0, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: use location
+this stmt call this function :memset
+trace fucntion name:memset 
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f817c67b4c8
+    type <pointer_type 0x7f817c669e70
+        type <pointer_type 0x7f817c669dc8 type <record_type 0x7f817c669d20 bfd_hash_entry>
+            public unsigned DI
+            size <integer_cst 0x7f817cb49bb8 constant 64>
+            unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f817c669e70>>
+        public unsigned DI size <integer_cst 0x7f817cb49bb8 64> unit-size <integer_cst 0x7f817cb49bd0 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+   
+    def_stmt _60 = table.table;
+    version:60
+    ptr-info 0x7f817c670708>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: use location
+   69 |                         free (ret);
+      |                         ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: addr_expr [0m
+# .MEM_95 = VDEF <.MEM_94>
+memset (_60, 0, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: use location
+  152 |   memset ((void *) table->table, 0, alloc);
+      |   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_95 = VDEF <.MEM_94>
+memset (_60, 0, alloc_54);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: use location
+  152 |   memset ((void *) table->table, 0, alloc);
+      |   ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f817c67bca8
+    type <pointer_type 0x7f817cb65000
+        type <void_type 0x7f817cb5ef18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f817cb65000>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f817cb6a9d8>>
+   
+    def_stmt _68 = table.memory;
+    version:68
+    ptr-info 0x7f817c6707b0>
+# VUSE <.MEM_29>
+_68 = table.memory;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+# .MEM_102 = VDEF <.MEM_29>
+hashp_69 = objalloc_alloc (_68, 24);
+hashp_69 = objalloc_alloc (_68, 24);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:168:43: warning: use location
+  168 |         hashp = (struct bfd_hash_entry *) objalloc_alloc (table->memory, sizeof (*hashp));
+      |                                           ^
+this stmt call this function :objalloc_alloc
+trace fucntion name:objalloc_alloc 
+[40;44m =======trace_function_path objalloc_alloc  function_call count: 2 level :0========  [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;46m =======add node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:exit========= [0m
+[40;46m =======add node_fun stack:exit========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+*_76 = hashp_69;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:172:30: warning: use location
+  172 |         table->table[_index] = hashp;
+      |                              ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+hashp_69->string = _5;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:170:23: warning: use location
+  170 |         hashp->string = string;
+      |                       ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+hashp_69->string = _5;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:170:23: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_5 = hash[cnt_6];
+./benchmarks/binutils/leak_3/binutils_leak_3.c:204:25: warning: use location
+  204 |                         bfd_hash_insert (&table, hash[cnt], cnt);
+      |                         ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+hashp_69->hash = _4;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:169:21: warning: use location
+  169 |         hashp->hash = hash;
+      |                     ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_72 = _4 % _71;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:171:23: warning: use location
+  171 |         _index = hash % table->size;
+      |                       ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_74 = _72 & 4294967295;
+lto1: warning: use location
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_75 = _74 * 8;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:172:21: warning: use location
+  172 |         table->table[_index] = hashp;
+      |                     ^
+
+======================================================================
+[40;31m    collect Stmt in loop [0m
+
+======================================================================
+_76 = _73 + _75;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:172:21: warning: use location
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f817c67bca8
+    type <pointer_type 0x7f817cb65000
+        type <void_type 0x7f817cb5ef18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f817cb65000>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f817cb6a9d8>>
+   
+    def_stmt _68 = table.memory;
+    version:68
+    ptr-info 0x7f817c6707b0>
+
+ ================================================================= 
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: use location
+   69 |                         free (ret);
+      |                         ^
+
+ ================== Start Use after free Check ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+# .MEM_102 = VDEF <.MEM_29>
+hashp_69 = objalloc_alloc (_68, 24);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:168:43: warning: use location
+  168 |         hashp = (struct bfd_hash_entry *) objalloc_alloc (table->memory, sizeof (*hashp));
+      |                                           ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: mem_ref [0m
+# .MEM_105 = VDEF <.MEM_104>
+*_76 = hashp_69;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:172:30: warning: use location
+  172 |         table->table[_index] = hashp;
+      |                              ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_104 = VDEF <.MEM_103>
+hashp_69->string = _5;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:170:23: warning: use location
+  170 |         hashp->string = string;
+      |                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: component_ref [0m
+# .MEM_104 = VDEF <.MEM_103>
+hashp_69->string = _5;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:170:23: warning: use location
+  170 |         hashp->string = string;
+      |                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: array_ref [0m
+# VUSE <.MEM_29>
+_5 = hash[cnt_6];
+./benchmarks/binutils/leak_3/binutils_leak_3.c:204:25: warning: use location
+  204 |                         bfd_hash_insert (&table, hash[cnt], cnt);
+      |                         ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+# .MEM_103 = VDEF <.MEM_102>
+hashp_69->hash = _4;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:169:21: warning: use location
+  169 |         hashp->hash = hash;
+      |                     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+_72 = _4 % _71;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:171:23: warning: use location
+  171 |         _index = hash % table->size;
+      |                       ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+_74 = _72 & 4294967295;
+lto1: warning: use location
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+[40;35m target gimple type: ssa_name [0m
+_75 = _74 * 8;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:172:21: warning: use location
+  172 |         table->table[_index] = hashp;
+      |                     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+============================================================
+[40;35m <Looserules> find free stmt free same pointer [0m
+# .MEM_90 = VDEF <.MEM_84>
+free (ret_62);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:69:25: warning: free in this location
+   69 |                         free (ret);
+      |                         ^
+[40;35m target gimple type: ssa_name [0m
+_76 = _73 + _75;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:172:21: warning: use location
+  172 |         table->table[_index] = hashp;
+      |                     ^
+
+ ================== warring ================== 
+[40;35m    Use after free error! [0m
+
+ ================== warring ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:1 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	this stmt need double check [0m
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f817cb515e8
+    type <pointer_type 0x7f817cb65000
+        type <void_type 0x7f817cb5ef18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f817cb65000>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f817cb6a9d8>>
+   
+    def_stmt _79 = table.memory;
+    version:79
+    ptr-info 0x7f817c670810>
+# VUSE <.MEM_29>
+_79 = table.memory;
+
+ ================== pre trace ptable ================== 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Other function 
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m 	Can't find this fucntion in Pointer table [0m
+[40;31m 	Possiable no other stmt relate with this stmt [0m
+
+======================================================================
+
+======================================================================
+[40;33m =======POP node_fun stack:main========= [0m
+[40;44m =======node_fun:objalloc_free========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path objalloc_free  function_call count: 1 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:free========= [0m
+[40;33m =======POP node_fun stack:free========= [0m
+[40;42m =======pre_check_funciton:objalloc_free========= [0m
+[40;42m =======start_check_funciton:objalloc_free========= [0m
+[40;33m =======POP node_fun stack:objalloc_free========= [0m
+[40;44m =======node_fun:objalloc_alloc========= [0m
+[40;44m fucntion collect path  [0m
+[40;44m =======print_function_path objalloc_alloc  function_call count: 2 level :0========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre add _ fucntion:exit========= [0m
+[40;33m =======POP node_fun stack:exit========= [0m
+[40;42m =======pre_check_funciton:objalloc_alloc========= [0m
+[40;42m =======start_check_funciton:objalloc_alloc========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f817c683b40
+    type <pointer_type 0x7f817c6697e0
+        type <record_type 0x7f817c669738 objalloc_chunk TI
+            size <integer_cst 0x7f817cb49c00 constant 128>
+            unit-size <integer_cst 0x7f817cb49c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817c669738 fields <field_decl 0x7f817c664390 next> context <translation_unit_decl 0x7f817cb54168 ./benchmarks/binutils/leak_3/binutils_leak_3.c>
+            pointer_to_this <pointer_type 0x7f817c6697e0>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7f817c682870 chunk>
+    def_stmt chunk_8 = malloc (4064);
+    version:8
+    ptr-info 0x7f817c6708e8>
+# .MEM_18 = VDEF <.MEM_17(D)>
+chunk_8 = malloc (4064);
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+
+ ================== this stmt hava call fucntion ================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+_3 = PHI <0B(4), _15(5)>
+In function ‘objalloc_alloc’:
+lto1: warning: use location
+this stmt have mutiple branch ---malloc-----
+_15 = chunk_8 + 512;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:106:16: warning: use location
+  106 |         return (PTR) (chunk + CHUNK_HEADER_SIZE);
+      |                ^
+o_9(D)->chunks = chunk_8;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:104:19: warning: use location
+  104 |         o->chunks = (PTR) chunk;
+      |                   ^
+o_9(D)->current_space = 4032;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:102:26: warning: use location
+  102 |         o->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
+      |                          ^
+o_9(D)->current_ptr = _2;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:101:24: warning: use location
+  101 |         o->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
+      |                        ^
+o_9(D)->current_ptr = _2;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:101:24: warning: use location
+_1 = o_9(D)->chunks;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:50: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                                                  ^
+chunk_8->next = _1;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:98:21: warning: use location
+   98 |         chunk->next = (struct objalloc_chunk *) o->chunks;
+      |                     ^
+chunk_8->current_ptr = 0B;
+./benchmarks/binutils/leak_3/binutils_leak_3.c:99:28: warning: use location
+   99 |         chunk->current_ptr = NULL;
+      |                            ^
+if (chunk_8 == 0B)
+./benchmarks/binutils/leak_3/binutils_leak_3.c:95:12: warning: use location
+   95 |         if (chunk == NULL)
+      |            ^
+# .MEM_18 = VDEF <.MEM_17(D)>
+chunk_8 = malloc (4064);
+chunk_8 = malloc (4064);
+./benchmarks/binutils/leak_3/binutils_leak_3.c:94:43: warning: use location
+   94 |         chunk = (struct objalloc_chunk *) malloc (CHUNK_SIZE); /* allocation site */
+      |                                           ^
+this stmt call this function :malloc
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f817c683b40
+    type <pointer_type 0x7f817c6697e0
+        type <record_type 0x7f817c669738 objalloc_chunk TI
+            size <integer_cst 0x7f817cb49c00 constant 128>
+            unit-size <integer_cst 0x7f817cb49c18 constant 16>
+            align:64 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f817c669738 fields <field_decl 0x7f817c664390 next> context <translation_unit_decl 0x7f817cb54168 ./benchmarks/binutils/leak_3/binutils_leak_3.c>
+            pointer_to_this <pointer_type 0x7f817c6697e0>>
+        public unsigned DI
+        size <integer_cst 0x7f817cb49bb8 constant 64>
+        unit-size <integer_cst 0x7f817cb49bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality>
+    var <var_decl 0x7f817c682870 chunk>
+    def_stmt chunk_8 = malloc (4064);
+    version:8
+    ptr-info 0x7f817c6708e8>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+[40;33m =======POP node_fun stack:objalloc_alloc========= [0m
+fucntion collect path finsh
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 147883528]:
+hash[0] = "a";
+hash[1] = "b";
+hash[2] = "c";
+hash[3] = "d";
+hash[4] = "e";
+hash[5] = "f";
+hash[6] = "g";
+hash[7] = "h";
+hash[8] = "i";
+hash[9] = "j";
+_1 = time (&t);
+_2 = (unsigned int) _1;
+srand (_2);
+alloc_53 = 10;
+alloc_54 = alloc_53 * 8;
+ret_62 = malloc (24);
+if (ret_62 == 0B)
+  goto <bb 6>; [0.04%]
+else
+  goto <bb 3>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 147824375]:
+_63 = malloc (4064);
+ret_62->chunks = _63;
+_64 = ret_62->chunks;
+if (_64 == 0B)
+  goto <bb 4>; [4.25%]
+else
+  goto <bb 5>; [95.75%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 6282535]:
+free (ret_62);
+goto <bb 6>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 141541839]:
+chunk_65 = ret_62->chunks;
+chunk_65->next = 0B;
+chunk_65->current_ptr = 0B;
+chunk_65->next = 0B;
+_66 = chunk_65 + 32;
+ret_62->current_ptr = _66;
+ret_62->current_space = 4032;
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 147883528]:
+# _67 = PHI <0B(2), 0B(4), ret_62(5)>
+_91 = _67;
+_55 = _91;
+table.memory = _55;
+_56 = table.memory;
+if (_56 == 0B)
+  goto <bb 10>; [30.95%]
+else
+  goto <bb 7>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 102113576]:
+_57 = table.memory;
+_58 = objalloc_alloc (_57, alloc_54);
+table.table = _58;
+_59 = table.table;
+if (_59 == 0B)
+  goto <bb 8>; [18.09%]
+else
+  goto <bb 9>; [81.91%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 18472346]:
+objalloc_free (&table);
+goto <bb 10>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 83641230]:
+_60 = table.table;
+memset (_60, 0, alloc_54);
+table.size = 10;
+table.entsize = 10;
+table.count = 0;
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 147883528]:
+# _61 = PHI <0(6), 0(8), 1(9)>
+_100 = _61;
+_3 = _100;
+if (_3 == 0)
+  goto <bb 11>; [34.00%]
+else
+  goto <bb 13>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 50280400]:
+t ={v} {CLOBBER};
+table ={v} {CLOBBER};
+hash ={v} {CLOBBER};
+return;
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 976138697]:
+_4 = (long unsigned int) cnt_6;
+_5 = hash[cnt_6];
+_68 = table.memory;
+hashp_69 = objalloc_alloc (_68, 24);
+hashp_69->hash = _4;
+hashp_69->string = _5;
+_70 = table.size;
+_71 = (long unsigned int) _70;
+_72 = _4 % _71;
+_73 = table.table;
+_74 = _72 & 4294967295;
+_75 = _74 * 8;
+_76 = _73 + _75;
+*_76 = hashp_69;
+_77 = table.count;
+_78 = _77 + 1;
+table.count = _78;
+cnt_28 = cnt_6 + 1;
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 1073741824]:
+# cnt_6 = PHI <0(10), cnt_28(12)>
+if (cnt_6 <= 9)
+  goto <bb 12>; [90.91%]
+else
+  goto <bb 14>; [9.09%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 97603128]:
+_79 = table.memory;
+objalloc_free (_79);
+memset (&table, 0, 32);
+t ={v} {CLOBBER};
+table ={v} {CLOBBER};
+hash ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:objalloc_free=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+l_5 = o_4(D)->chunks;
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+next_7 = l_1->next;
+free (l_1);
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# l_1 = PHI <l_5(2), next_7(3)>
+if (l_1 != 0B)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 5>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 118111600]:
+free (o_4(D));
+return;
+
+=======Mapping node_fun:objalloc_alloc=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (len_5(D) > 4064)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+chunk_8 = malloc (4064);
+if (chunk_8 == 0B)
+  goto <bb 6>; [0.04%]
+else
+  goto <bb 5>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1072883005]:
+_1 = o_9(D)->chunks;
+chunk_8->next = _1;
+chunk_8->current_ptr = 0B;
+_2 = chunk_8 + 32;
+o_9(D)->current_ptr = _2;
+o_9(D)->current_space = 4032;
+o_9(D)->chunks = chunk_8;
+_15 = chunk_8 + 512;
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073312329]:
+# _3 = PHI <0B(4), _15(5)>
+return _3;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 3 [0m
+[40;34m    gimple free   count : 3 [0m
+[40;34m    all ptable point : 15 [0m
+[40;34m    analyzable ptable point : 11 [0m
+[40;34m    used_stmt array stack totalsize of : 0.001984 mb[0m
+[40;34m    collect time: : 0.001018 s [0m
+[40;34m    algorithm time: 0.030551 s [0m
+[40;34m    gimple stmt count : : 97 [0m
+[40;34m    this report analysis in Fri Feb 18 06:36:26 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 83%)
+ phase opt and generate             :   0.02 (100%)   0.03 ( 75%)   0.06 (100%)   395k ( 15%)
+ phase stream in                    :   0.00 (  0%)   0.01 ( 25%)   0.00 (  0%)    39k (  2%)
+ callgraph functions expansion      :   0.02 (100%)   0.01 ( 25%)   0.02 ( 33%)   263k ( 10%)
+ ipa lto decl in                    :   0.00 (  0%)   0.01 ( 25%)   0.00 (  0%)    31k (  1%)
+ alias analysis                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  9688  (  0%)
+ integration                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    28k (  1%)
+ expand                             :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    37k (  1%)
+ plugin execution                   :   0.00 (  0%)   0.02 ( 50%)   0.04 ( 67%)   952  (  0%)
+ initialize rtl                     :   0.01 ( 50%)   0.01 ( 25%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.02          0.04          0.06         2594k

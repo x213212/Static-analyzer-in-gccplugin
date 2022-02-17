@@ -1,0 +1,711 @@
+digraph "test.o-openssl_leak_2.c.015t.cfg" {
+overlap=false;
+subgraph "cluster_main" {
+	style="dashed";
+	color="black";
+	label="main ()";
+	subgraph cluster_23_1 {
+	style="filled";
+	color="darkgreen";
+	fillcolor="grey88";
+	label="loop 1";
+	labeljust=l;
+	penwidth=2;
+	fn_23_basic_block_21 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 21\>:\l\
+|\<L23\>:\l\
+|o\ =\ opt_next\ ();\l\
+|if\ (o\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 22\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|if\ (connect_type\ ==\ 1)\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_5\ =\ IS_INET_FLAG\ (o);\l\
+|if\ (_5\ !=\ 0)\l\
+\ \ goto\ \<bb\ 5\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 6\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_6 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 6\>:\l\
+|if\ (connect_type\ ==\ 0)\l\
+\ \ goto\ \<bb\ 7\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_7 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 7\>:\l\
+|_8\ =\ IS_UNIX_FLAG\ (o);\l\
+|if\ (_8\ !=\ 0)\l\
+\ \ goto\ \<bb\ 8\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 9\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_9 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 9\>:\l\
+|_11\ =\ IS_PROT_FLAG\ (o);\l\
+|if\ (_11\ !=\ 0)\l\
+\ \ goto\ \<bb\ 10\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_10 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 10\>:\l\
+|prot_opt\ =\ prot_opt\ +\ 1;\l\
+|if\ (prot_opt\ \>\ 1)\l\
+\ \ goto\ \<bb\ 11\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 12\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_12 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 12\>:\l\
+|o.5_13\ =\ (unsigned\ int)\ o;\l\
+|_14\ =\ o.5_13\ +\ 4294964295;\l\
+|if\ (_14\ \<=\ 4)\l\
+\ \ goto\ \<bb\ 13\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 14\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_13 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 13\>:\l\
+|no_prot_opt\ =\ no_prot_opt\ +\ 1;\l\
+}"];
+
+	fn_23_basic_block_14 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 14\>:\l\
+|_15\ =\ prot_opt\ ==\ 1;\l\
+|_16\ =\ no_prot_opt\ !=\ 0;\l\
+|_17\ =\ _15\ &\ _16;\l\
+|if\ (_17\ !=\ 0)\l\
+\ \ goto\ \<bb\ 15\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 16\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_16 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 16\>:\l\
+|switch\ (o)\ \<default:\ \<L23\>\ [INV],\ case\ -1\ ...\ 0:\ opthelp\ [INV],\ case\ 4:\ \<L20\>\ [INV],\ case\ 79:\ \<L21\>\ [INV],\ case\ 80:\ \<L22\>\ [INV]\>\l\
+}"];
+
+	fn_23_basic_block_18 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 18\>:\l\
+|\<L20\>:\l\
+|connect_type\ =\ 0;\l\
+|_21\ =\ opt_arg\ ();\l\
+|_22\ =\ (long\ int)\ _21;\l\
+|_23\ =\ (const\ char\ *)\ _22;\l\
+|freeandcopy\ (&host,\ _23);\l\
+goto\ \<bb\ 21\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_19 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 19\>:\l\
+|\<L21\>:\l\
+|_24\ =\ opt_arg\ ();\l\
+|_25\ =\ (long\ int)\ _24;\l\
+|servername\ =\ (char\ *)\ _25;\l\
+goto\ \<bb\ 21\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_20 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 20\>:\l\
+|\<L22\>:\l\
+|noservername\ =\ 1;\l\
+}"];
+
+	}
+	fn_23_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_23_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_23_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|con\ =\ 0B;\l\
+|cctx\ =\ 0B;\l\
+|dane_tlsa_domain\ =\ 0B;\l\
+|dane_ee_no_name\ =\ 0;\l\
+|CApath\ =\ 0B;\l\
+|CAfile\ =\ 0B;\l\
+|cbuf\ =\ 0B;\l\
+|sbuf\ =\ 0B;\l\
+|mbuf\ =\ 0B;\l\
+|proxystr\ =\ 0B;\l\
+|connectstr\ =\ 0B;\l\
+|cert_file\ =\ 0B;\l\
+|key_file\ =\ 0B;\l\
+|chain_file\ =\ 0B;\l\
+|chCApath\ =\ 0B;\l\
+|chCAfile\ =\ 0B;\l\
+|host\ =\ 0B;\l\
+|_1\ =\ OPENSSL_strdup\ (\"4433\");\l\
+|_2\ =\ (long\ int)\ _1;\l\
+|port\ =\ (char\ *)\ _2;\l\
+|passarg\ =\ 0B;\l\
+|pass\ =\ 0B;\l\
+|vfyCApath\ =\ 0B;\l\
+|vfyCAfile\ =\ 0B;\l\
+|ReqCAfile\ =\ 0B;\l\
+|sess_in\ =\ 0B;\l\
+|crl_file\ =\ 0B;\l\
+|protohost\ =\ 0B;\l\
+|noCApath\ =\ 0;\l\
+|noCAfile\ =\ 0;\l\
+|build_chain\ =\ 0;\l\
+|cert_format\ =\ 32773;\l\
+|key_format\ =\ 32773;\l\
+|crlf\ =\ 0;\l\
+|full_log\ =\ 1;\l\
+|mbuf_len\ =\ 0;\l\
+|prexit\ =\ 0;\l\
+|sdebug\ =\ 0;\l\
+|reconnect\ =\ 0;\l\
+|verify\ =\ 0;\l\
+|vpmtouched\ =\ 0;\l\
+|ret\ =\ 1;\l\
+|in_init\ =\ 1;\l\
+|nbio_test\ =\ 0;\l\
+|s\ =\ -1;\l\
+|state\ =\ 0;\l\
+|cmdletters\ =\ 1;\l\
+|starttls_proto\ =\ 0;\l\
+|crl_format\ =\ 32773;\l\
+|crl_download\ =\ 0;\l\
+|at_eof\ =\ 0;\l\
+|read_buf_len\ =\ 0;\l\
+|fallback_scsv\ =\ 0;\l\
+|enable_timeouts\ =\ 0;\l\
+|socket_mtu\ =\ 0;\l\
+|servername\ =\ 0B;\l\
+|noservername\ =\ 0;\l\
+|alpn_in\ =\ 0B;\l\
+|ssl_config\ =\ 0B;\l\
+|serverinfo_count\ =\ 0;\l\
+|start\ =\ 0;\l\
+|next_proto_neg_in\ =\ 0B;\l\
+|srppass\ =\ 0B;\l\
+|srp_lateuser\ =\ 0;\l\
+|ctlog_file\ =\ 0B;\l\
+|ct_validation\ =\ 0;\l\
+|min_version\ =\ 0;\l\
+|max_version\ =\ 0;\l\
+|prot_opt\ =\ 0;\l\
+|no_prot_opt\ =\ 0;\l\
+|async\ =\ 0;\l\
+|max_send_fragment\ =\ 0;\l\
+|split_send_fragment\ =\ 0;\l\
+|max_pipelines\ =\ 0;\l\
+|connect_type\ =\ 2;\l\
+|count4or6\ =\ 0;\l\
+|maxfraglen\ =\ 0;\l\
+|c_nbio\ =\ 0;\l\
+|c_msg\ =\ 0;\l\
+|c_ign_eof\ =\ 0;\l\
+|c_brief\ =\ 0;\l\
+|c_tlsextdebug\ =\ 0;\l\
+|c_status_req\ =\ 0;\l\
+|keylog_file\ =\ 0B;\l\
+|early_data_file\ =\ 0B;\l\
+|isdtls\ =\ 0;\l\
+|psksessf\ =\ 0B;\l\
+|_3\ =\ *argv;\l\
+|_4\ =\ opt_progname\ (_3);\l\
+|prog\ =\ _4;\l\
+|c_quiet\ =\ 0;\l\
+|c_debug\ =\ 0;\l\
+|c_showcerts\ =\ 0;\l\
+|c_nbio\ =\ 0;\l\
+goto\ \<bb\ 21\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|prog.0_6\ =\ prog;\l\
+|bio_err.1_7\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.1_7,\ \"%s:\ Intermixed\ protocol\ flags\ (unix\ and\ internet\ domains)\\n\",\ prog.0_6);\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 60\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_8 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 8\>:\l\
+|prog.2_9\ =\ prog;\l\
+|bio_err.3_10\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.3_10,\ \"%s:\ Intermixed\ protocol\ flags\ (internet\ and\ unix\ domains)\\n\",\ prog.2_9);\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 60\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_11 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 11\>:\l\
+|bio_err.4_12\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.4_12,\ \"Cannot\ supply\ multiple\ protocol\ flags\\n\");\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 60\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_15 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 15\>:\l\
+|bio_err.6_18\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.6_18,\ \"Cannot\ supply\ both\ a\ protocol\ flag\ and\ \\'-no_\<prot\>\\'\\n\");\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 60\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_17 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 17\>:\l\
+|opthelp:\l\
+|prog.7_19\ =\ prog;\l\
+|bio_err.8_20\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.8_20,\ \"%s:\ Use\ -help\ for\ summary.\\n\",\ prog.7_19);\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 60\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_22 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 22\>:\l\
+|if\ (count4or6\ \>\ 1)\l\
+\ \ goto\ \<bb\ 23\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 24\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_23 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 23\>:\l\
+|prog.9_26\ =\ prog;\l\
+|bio_err.10_27\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.10_27,\ \"%s:\ Can\\'t\ use\ both\ -4\ and\ -6\\n\",\ prog.9_26);\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 17\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_24 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 24\>:\l\
+|if\ (noservername\ !=\ 0)\l\
+\ \ goto\ \<bb\ 25\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 29\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_25 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 25\>:\l\
+|if\ (servername\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 26\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 27\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_26 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 26\>:\l\
+|prog.11_28\ =\ prog;\l\
+|bio_err.12_29\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.12_29,\ \"%s:\ Can\\'t\ use\ -servername\ and\ -noservername\ together\\n\",\ prog.11_28);\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 17\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_27 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 27\>:\l\
+|if\ (dane_tlsa_domain\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 28\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 29\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_28 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 28\>:\l\
+|prog.13_30\ =\ prog;\l\
+|bio_err.14_31\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.14_31,\ \"%s:\ Can\\'t\ use\ -dane_tlsa_domain\ and\ -noservername\ together\\n\",\ prog.13_30);\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 17\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_29 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 29\>:\l\
+|argc\ =\ opt_num_rest\ ();\l\
+|if\ (argc\ ==\ 1)\l\
+\ \ goto\ \<bb\ 30\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 33\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_30 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 30\>:\l\
+|if\ (connectstr\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 31\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 32\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_31 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 31\>:\l\
+|prog.15_32\ =\ prog;\l\
+|bio_err.16_33\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.16_33,\ \"%s:\ must\ not\ provide\ both\ -connect\ option\ and\ target\ parameter\\n\",\ prog.15_32);\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 17\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_32 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 32\>:\l\
+|connect_type\ =\ 0;\l\
+goto\ \<bb\ 35\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_33 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 33\>:\l\
+|if\ (argc\ !=\ 0)\l\
+\ \ goto\ \<bb\ 34\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 35\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_34 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 34\>:\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 17\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_35 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 35\>:\l\
+|if\ (sess_in\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 36\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 48\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_36 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 36\>:\l\
+|_34\ =\ BIO_new_file\ (sess_in,\ \"r\");\l\
+|_35\ =\ (long\ int)\ _34;\l\
+|stmp\ =\ (struct\ BIO\ *)\ _35;\l\
+|if\ (stmp\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 37\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 38\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_37 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 37\>:\l\
+|bio_err.17_36\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.17_36,\ \"Can\\'t\ open\ session\ file\ %s\\n\",\ sess_in);\l\
+|bio_err.18_37\ =\ bio_err;\l\
+|ERR_print_errors\ (bio_err.18_37);\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 60\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_38 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 38\>:\l\
+|_38\ =\ PEM_read_bio_SSL_SESSION\ (stmp,\ 0B,\ 0,\ 0B);\l\
+|_39\ =\ (long\ int)\ _38;\l\
+|sess\ =\ (struct\ SSL_SESSION\ *)\ _39;\l\
+|BIO_free\ (stmp);\l\
+|if\ (sess\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 39\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 40\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_39 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 39\>:\l\
+|bio_err.19_40\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.19_40,\ \"Can\\'t\ open\ session\ file\ %s\\n\",\ sess_in);\l\
+|bio_err.20_41\ =\ bio_err;\l\
+|ERR_print_errors\ (bio_err.20_41);\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 60\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_40 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 40\>:\l\
+|_42\ =\ SSL_set_session\ (con,\ sess);\l\
+|if\ (_42\ ==\ 0)\l\
+\ \ goto\ \<bb\ 41\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 42\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_41 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 41\>:\l\
+|bio_err.21_43\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.21_43,\ \"Can\\'t\ set\ session\\n\");\l\
+|bio_err.22_44\ =\ bio_err;\l\
+|ERR_print_errors\ (bio_err.22_44);\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 60\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_42 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 42\>:\l\
+|_45\ =\ noservername\ ==\ 0;\l\
+|_46\ =\ servername\ ==\ 0B;\l\
+|_47\ =\ _45\ &\ _46;\l\
+|if\ (_47\ !=\ 0)\l\
+\ \ goto\ \<bb\ 43\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 47\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_43 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 43\>:\l\
+|_48\ =\ SSL_SESSION_get0_hostname\ (sess);\l\
+|_49\ =\ (long\ int)\ _48;\l\
+|sni\ =\ (const\ char\ *)\ _49;\l\
+|if\ (sni\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 44\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 46\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_44 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 44\>:\l\
+|_50\ =\ OPENSSL_strdup\ (sni);\l\
+|_51\ =\ (long\ int)\ _50;\l\
+|servername\ =\ (char\ *)\ _51;\l\
+|if\ (servername\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 45\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 47\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_45 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 45\>:\l\
+|bio_err.23_52\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.23_52,\ \"Can\\'t\ set\ server\ name\\n\");\l\
+|bio_err.24_53\ =\ bio_err;\l\
+|ERR_print_errors\ (bio_err.24_53);\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 60\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_46 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 46\>:\l\
+|noservername\ =\ 1;\l\
+}"];
+
+	fn_23_basic_block_47 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 47\>:\l\
+|SSL_SESSION_free\ (sess);\l\
+}"];
+
+	fn_23_basic_block_48 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 48\>:\l\
+|if\ (noservername\ ==\ 0)\l\
+\ \ goto\ \<bb\ 49\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 57\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_49 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 49\>:\l\
+|_54\ =\ servername\ !=\ 0B;\l\
+|_55\ =\ dane_tlsa_domain\ ==\ 0B;\l\
+|_56\ =\ _54\ \|\ _55;\l\
+|if\ (_56\ !=\ 0)\l\
+\ \ goto\ \<bb\ 50\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 57\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_50 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 50\>:\l\
+|if\ (servername\ ==\ 0B)\l\
+\ \ goto\ \<bb\ 51\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 55\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_51 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 51\>:\l\
+|host.26_57\ =\ host;\l\
+|if\ (host.26_57\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 52\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 53\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_52 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 52\>:\l\
+|iftmp.25\ =\ host;\l\
+goto\ \<bb\ 54\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_53 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 53\>:\l\
+|iftmp.25\ =\ \"localhost\";\l\
+}"];
+
+	fn_23_basic_block_54 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 54\>:\l\
+|servername\ =\ iftmp.25;\l\
+}"];
+
+	fn_23_basic_block_55 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 55\>:\l\
+|_58\ =\ SSL_set_tlsext_host_name\ (con,\ servername);\l\
+|if\ (_58\ ==\ 0)\l\
+\ \ goto\ \<bb\ 56\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 57\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_56 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 56\>:\l\
+|bio_err.27_59\ =\ bio_err;\l\
+|BIO_printf\ (bio_err.27_59,\ \"Unable\ to\ set\ TLS\ servername\ extension.\\n\");\l\
+|bio_err.28_60\ =\ bio_err;\l\
+|ERR_print_errors\ (bio_err.28_60);\l\
+|//\ predicted\ unlikely\ by\ goto\ predictor.\l\
+goto\ \<bb\ 60\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_57 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 57\>:\l\
+|re_start:\l\
+|ret\ =\ 0;\l\
+|if\ (in_init\ !=\ 0)\l\
+\ \ goto\ \<bb\ 58\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 59\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_58 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 58\>:\l\
+|bio_c_out.29_61\ =\ bio_c_out;\l\
+|print_stuff\ (bio_c_out.29_61,\ con,\ full_log);\l\
+}"];
+
+	fn_23_basic_block_59 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 59\>:\l\
+|do_ssl_shutdown\ (con);\l\
+}"];
+
+	fn_23_basic_block_60 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 60\>:\l\
+|end:\l\
+|if\ (con\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 61\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 63\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_61 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 61\>:\l\
+|if\ (prexit\ !=\ 0)\l\
+\ \ goto\ \<bb\ 62\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 63\>;\ [INV]\l\
+}"];
+
+	fn_23_basic_block_62 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 62\>:\l\
+|bio_c_out.30_62\ =\ bio_c_out;\l\
+|print_stuff\ (bio_c_out.30_62,\ con,\ 1);\l\
+}"];
+
+	fn_23_basic_block_63 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 63\>:\l\
+|host.31_63\ =\ host;\l\
+|free\ (host.31_63);\l\
+|D.4055\ =\ ret;\l\
+|host\ =\ \{CLOBBER\};\l\
+|timeout\ =\ \{CLOBBER\};\l\
+|readfds\ =\ \{CLOBBER\};\l\
+|writefds\ =\ \{CLOBBER\};\l\
+|serverinfo_types\ =\ \{CLOBBER\};\l\
+|return\ D.4055;\l\
+}"];
+
+	fn_23_basic_block_0:s -> fn_23_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_2:s -> fn_23_basic_block_21:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_3:s -> fn_23_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_3:s -> fn_23_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_4:s -> fn_23_basic_block_5:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_4:s -> fn_23_basic_block_6:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_5:s -> fn_23_basic_block_60:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_6:s -> fn_23_basic_block_7:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_6:s -> fn_23_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_7:s -> fn_23_basic_block_8:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_7:s -> fn_23_basic_block_9:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_8:s -> fn_23_basic_block_60:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_9:s -> fn_23_basic_block_10:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_9:s -> fn_23_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_10:s -> fn_23_basic_block_11:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_10:s -> fn_23_basic_block_12:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_11:s -> fn_23_basic_block_60:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_12:s -> fn_23_basic_block_13:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_12:s -> fn_23_basic_block_14:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_13:s -> fn_23_basic_block_14:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_14:s -> fn_23_basic_block_15:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_14:s -> fn_23_basic_block_16:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_15:s -> fn_23_basic_block_60:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_16:s -> fn_23_basic_block_21:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_23_basic_block_16:s -> fn_23_basic_block_17:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_16:s -> fn_23_basic_block_18:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_16:s -> fn_23_basic_block_19:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_16:s -> fn_23_basic_block_20:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_17:s -> fn_23_basic_block_60:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_18:s -> fn_23_basic_block_21:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_23_basic_block_19:s -> fn_23_basic_block_21:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_23_basic_block_20:s -> fn_23_basic_block_21:n [style="dotted,bold",color=blue,weight=10,constraint=false];
+	fn_23_basic_block_21:s -> fn_23_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_21:s -> fn_23_basic_block_22:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_22:s -> fn_23_basic_block_23:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_22:s -> fn_23_basic_block_24:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_23:s -> fn_23_basic_block_17:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_24:s -> fn_23_basic_block_25:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_24:s -> fn_23_basic_block_29:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_25:s -> fn_23_basic_block_26:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_25:s -> fn_23_basic_block_27:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_26:s -> fn_23_basic_block_17:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_27:s -> fn_23_basic_block_28:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_27:s -> fn_23_basic_block_29:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_28:s -> fn_23_basic_block_17:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_29:s -> fn_23_basic_block_30:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_29:s -> fn_23_basic_block_33:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_30:s -> fn_23_basic_block_31:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_30:s -> fn_23_basic_block_32:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_31:s -> fn_23_basic_block_17:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_32:s -> fn_23_basic_block_35:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_33:s -> fn_23_basic_block_34:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_33:s -> fn_23_basic_block_35:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_34:s -> fn_23_basic_block_17:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_35:s -> fn_23_basic_block_36:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_35:s -> fn_23_basic_block_48:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_36:s -> fn_23_basic_block_37:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_36:s -> fn_23_basic_block_38:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_37:s -> fn_23_basic_block_60:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_38:s -> fn_23_basic_block_39:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_38:s -> fn_23_basic_block_40:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_39:s -> fn_23_basic_block_60:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_40:s -> fn_23_basic_block_41:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_40:s -> fn_23_basic_block_42:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_41:s -> fn_23_basic_block_60:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_42:s -> fn_23_basic_block_43:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_42:s -> fn_23_basic_block_47:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_43:s -> fn_23_basic_block_44:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_43:s -> fn_23_basic_block_46:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_44:s -> fn_23_basic_block_45:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_44:s -> fn_23_basic_block_47:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_45:s -> fn_23_basic_block_60:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_46:s -> fn_23_basic_block_47:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_47:s -> fn_23_basic_block_48:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_48:s -> fn_23_basic_block_49:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_48:s -> fn_23_basic_block_57:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_49:s -> fn_23_basic_block_50:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_49:s -> fn_23_basic_block_57:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_50:s -> fn_23_basic_block_51:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_50:s -> fn_23_basic_block_55:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_51:s -> fn_23_basic_block_52:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_51:s -> fn_23_basic_block_53:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_52:s -> fn_23_basic_block_54:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_53:s -> fn_23_basic_block_54:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_54:s -> fn_23_basic_block_55:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_55:s -> fn_23_basic_block_56:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_55:s -> fn_23_basic_block_57:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_56:s -> fn_23_basic_block_60:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_57:s -> fn_23_basic_block_58:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_57:s -> fn_23_basic_block_59:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_58:s -> fn_23_basic_block_59:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_59:s -> fn_23_basic_block_60:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_60:s -> fn_23_basic_block_61:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_60:s -> fn_23_basic_block_63:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_61:s -> fn_23_basic_block_62:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_61:s -> fn_23_basic_block_63:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_62:s -> fn_23_basic_block_63:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_23_basic_block_63:s -> fn_23_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_23_basic_block_0:s -> fn_23_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_freeandcopy" {
+	style="dashed";
+	color="black";
+	label="freeandcopy ()";
+	fn_22_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_22_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_22_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|_1\ =\ *dest;\l\
+|free\ (_1);\l\
+|*dest\ =\ 0B;\l\
+|if\ (source\ !=\ 0B)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_22_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_2\ =\ OPENSSL_strdup\ (source);\l\
+|_3\ =\ (long\ int)\ _2;\l\
+|_4\ =\ (char\ *)\ _3;\l\
+|*dest\ =\ _4;\l\
+}"];
+
+	fn_22_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|return;\l\
+}"];
+
+	fn_22_basic_block_0:s -> fn_22_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_2:s -> fn_22_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_2:s -> fn_22_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_3:s -> fn_22_basic_block_4:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_22_basic_block_4:s -> fn_22_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_22_basic_block_0:s -> fn_22_basic_block_1:n [style="invis",constraint=true];
+}
+}
