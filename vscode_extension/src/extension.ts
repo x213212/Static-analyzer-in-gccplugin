@@ -2,15 +2,15 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import { DebugSession } from 'vscode';
-
+var fs = require('fs');
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
-var arrays = []; // empty array
+var arrays = [""]; // empty array
 var init = 0;
 export function activate(context: vscode.ExtensionContext) {
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "helloworld-sample" is now active!');
+
 	// let globalStoragePath = context.globalStoragePath;
 	context.subscriptions.push(vscode.debug.onDidChangeBreakpoints(
 		session => {
@@ -138,5 +138,36 @@ export function activate(context: vscode.ExtensionContext) {
 
 	});
 
+
+	const disposable2 = vscode.commands.registerCommand('extension.removebreakp', () => {
+
+		// The code you place here will be executed every time your command is executed
+		vscode.debug.onDidReceiveDebugSessionCustomEvent(event => {
+			// console.log(event.event);
+			if (event.event == 'stopped') {
+
+				console.log("Hello World!");
+			}
+		})
+
+		vscode.window.showInformationMessage('remove all breakpoint');
+		const storagePath = context.storagePath;
+		const globalStoragePath = context.globalStoragePath;
+		console.log("storagePath:" + globalStoragePath);
+		arrays = [];
+		var filePath = globalStoragePath + "/breakpoint.txt";
+		fs.exists(filePath, function (exists: any) {
+			if (exists) {
+				fs.unlinkSync(filePath);
+			}
+		});
+
+		vscode.window.showInformationMessage(globalStoragePath + "/breakpoint.txt")
+
+
+
+	});
 	context.subscriptions.push(disposable);
+	context.subscriptions.push(disposable2);
+	console.log('Congratulations, your extension "GCC Plugin load successful!" is now active!');
 }

@@ -13,8 +13,8 @@
 	],
 	"activationEvents": [
 		"onCommand:extension.helloWorld",
+		"onCommand:extension.removebreakp",
 		"onDebugAdapterProtocolTracker:node"
-		
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -22,13 +22,17 @@
 			{
 				"command": "extension.helloWorld",
 				"title": "GCC Analyzer"
+			},
+			{
+				"command": "extension.removebreakp",
+				"title": "GCC Analyzer remove breakpoint"
 			}
 		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
-		 "lint": "eslint . --ext .ts,.tsx",
+		"lint": "eslint . --ext .ts,.tsx",
 		"watch": "tsc -watch -p ./"
 	},
 	"devDependencies": {
