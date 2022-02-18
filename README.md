@@ -217,7 +217,7 @@ press f5 start debug extension
 ```
 
 
-# rolloback gcc 7.5
+# rollback gcc 7.5
 /root/x21321219/new_gccplugin/Compiler/Algorithm.h
 ```c
 cgraph_node *caller = e->caller->inlined_to ? e->caller->inlined_to : e->caller;
