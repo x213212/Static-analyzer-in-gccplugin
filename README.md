@@ -31,6 +31,9 @@ cd ..
 make
 cat /Test/check.log
 ```
+# console ascii color show!
+![](https://i.imgur.com/juPYp15.png)
+![](https://i.imgur.com/8a6XK1w.png)
 
 # unittest check memory error detect
 ```bash
@@ -217,12 +220,3 @@ press f5 start debug extension
 ```
 
 
-# rollback gcc 7.5
-/root/x21321219/new_gccplugin/Compiler/Algorithm.h
-```c
-cgraph_node *caller = e->caller->inlined_to ? e->caller->inlined_to : e->caller;
-to 
-cgraph_node *caller = e->caller->global.inlined_to ? e->caller->global.inlined_to : e->caller;
-
-```
-welcome to gcc 7.5!
