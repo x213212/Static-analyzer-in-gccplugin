@@ -1,5 +1,6 @@
 # new_gccplugin
 # define.h
+```c
 /*interprocedural analysis*/
 bool ipa = true;
 bool freeanysis = true; // no free no anysis
@@ -22,7 +23,7 @@ bool stmtloopcheck = true;
 bool samefucntioncheck = true;
 bool maxbasicblockcalc = true;
 bool pathconstraint = false;
-
+```
 # unittest check draw graphiz
 ```bahs
 cd Test
