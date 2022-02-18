@@ -7,7 +7,7 @@ bool freeanysis = true; // no free no anysis
 bool vscode_extensionmod = false;     
 bool vscode_extensionIgonefreemod = true;
 bool memoryleakcheck = true;
-// kroren testcase need turn on
+// open_source testcase need turn on
 bool Looserulesfree = true;
 bool useafterfree = true;
 bool debugmod = true; //draw graphiz
@@ -30,6 +30,7 @@ cd Test
 make graphiz
 ```
 # unittest check single file test
+## hello word
 ```bash
 cd Test
 # mod 1
