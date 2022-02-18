@@ -102,7 +102,7 @@ make unittest
 		}
 	}
 ```
-rebuild gcc plugin
+rebuild the gcc plugin 
 ```
 make
 ```
@@ -188,7 +188,32 @@ bool maxbasicblockcalc = true;
 bool pathconstraint = false;
 ```
 # unittest check draw graphiz
+![](https://i.imgur.com/jSMgN6P.png)
 ```bahs
 cd Test
 make graphiz
+
 ```
+Use  browser open ./graph.svg
+
+# vscode extension support
+Use filters to detect partial code fragments
+![](https://i.imgur.com/xTv3L2o.png)
+press f5 start debug extension
+![](https://i.imgur.com/WE5qvIT.png)
+
+```add new fucntion
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.helloWorld",
+				"title": "GCC Analyzer"
+			},
+			{
+				"command": "extension.removebreakp",
+				"title": "GCC Analyzer remove breakpoint"
+			}
+		]
+```
+
+
