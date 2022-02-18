@@ -28,11 +28,12 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 				name = get_name(gimple_call_fn(gc));
 				if (name != NULL)
 				{
-					if (!strcmp(name, "free") || !strcmp(name, "xfree")){
+					if (!strcmp(name, "free") || !strcmp(name, "xfree"))
+					{
 						find = 1;
 						fprintf(stderr, "set breakpoint free stmt igone\n");
-							warning_at(gimple_location_safe(gc), 0, "use location");
-						}
+						warning_at(gimple_location_safe(gc), 0, "use location");
+					}
 				}
 			}
 		}
@@ -65,7 +66,48 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 			// debug(gimple_call_lhs(gc));
 
 			// }
+			if (gimple_call_fndecl(gc))
+			{
+				const char *name2;
+				name2 = get_name(gimple_call_fndecl(gc));
+				if (strcmp(name2, "realloc") && strcmp(name2, "malloc") && strcmp(get_name(gimple_call_fn(gc)), "calloc") && strcmp(name2, "xcalloc") && strcmp(name2, "xmalloc") && strcmp(name2, "strdup") && strcmp(name2, "xstrdup") && strcmp(name2, "free") && strcmp(name2, "printf"))
+				{
 
+					// debug_tree(gimple_call_fndecl(gc)); // GIMPLE_FREE_COUNT++;;
+					// if gimple type is addr_expr memory direct all memory
+					if ((gimple_call_num_args(gc) != 0))
+					{
+						for (int i = 0; i < gimple_call_num_args(gc); i++)
+						{
+							tree second = NULL_TREE;
+							if (TREE_CODE(gimple_call_arg(gc, i)) == ADDR_EXPR)
+								second = TREE_OPERAND(gimple_call_arg(gc, i), 0);
+							else if (TREE_CODE(gimple_call_arg(gc, i)) == SSA_NAME)
+							{
+								second = gimple_call_arg(gc, i);
+							}
+							if (second)
+							{
+								// debug_tree(second);
+								set_ptb(bb, ptable, second, loc, 0, gc, node);
+							}
+						}
+					}
+					// addr_expr free (&a)
+					// ADDR_EXPR
+					// if (TREE_CODE(gimple_call_arg(gc, 0)) == ADDR_EXPR)
+					// {
+					// 	// debug_gimple_stmt(gc);
+					// 	// debug_tree(gimple_call_arg(gc, 0));
+					fprintf(stderr, "addr_expraddr_expraddr_expraddr_expraddr_expr------%s--\n", name2);
+					// }
+					// else
+					// {
+					// 	// debug_tree(gimple_call_arg(gc, 0));
+					// 	set_ptb(bb, ftable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+					// }
+				}
+			}
 			if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 			{
 				GIMPLE_FREE_COUNT++;
@@ -714,6 +756,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 		}
 		else if (TREE_CODE(getFunctionAssignRHS) == VAR_DECL)
 		{
+
 			if (TREE_CODE(getFunctionAssignLHS) == SSA_NAME)
 			{
 

@@ -144,14 +144,12 @@ In file included from ./benchmarks/tmux/leak_2/tmux_leak_2.c:10:
 ./benchmarks/tmux/leak_2/tmux_leak_2.c:189:45: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 33%)
- phase parsing                      :   0.04 (100%)   0.04 ( 67%)   0.08 ( 80%)  2113k ( 54%)
- phase opt and generate             :   0.00 (  0%)   0.02 ( 33%)   0.02 ( 20%)   512k ( 13%)
- callgraph construction             :   0.00 (  0%)   0.02 ( 33%)   0.02 ( 20%)   148k (  4%)
- preprocessing                      :   0.01 ( 25%)   0.02 ( 33%)   0.04 ( 40%)   900k ( 23%)
- lexical analysis                   :   0.01 ( 25%)   0.01 ( 17%)   0.01 ( 10%)     0  (  0%)
- parser (global)                    :   0.02 ( 50%)   0.01 ( 17%)   0.00 (  0%)   631k ( 16%)
- parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)   154k (  4%)
- parser function body               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)   278k (  7%)
- parser inl. func. body             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)    59k (  2%)
- TOTAL                              :   0.04          0.06          0.10         3934k
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 34%)
+ phase parsing                      :   0.06 ( 86%)   0.02 (100%)   0.09 (100%)  2032k ( 53%)
+ phase opt and generate             :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)   507k ( 13%)
+ preprocessing                      :   0.03 ( 43%)   0.00 (  0%)   0.04 ( 44%)   876k ( 23%)
+ lexical analysis                   :   0.00 (  0%)   0.01 ( 50%)   0.02 ( 22%)     0  (  0%)
+ parser (global)                    :   0.02 ( 29%)   0.00 (  0%)   0.01 ( 11%)   590k ( 15%)
+ parser function body               :   0.01 ( 14%)   0.01 ( 50%)   0.02 ( 22%)   313k (  8%)
+ loop init                          :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.07          0.02          0.09         3847k

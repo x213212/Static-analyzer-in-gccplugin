@@ -266,15 +266,11 @@ In file included from ./benchmarks/git/leak_1/git_leak_1.c:6:
       |                                            ~~~~~~~~~~~~~^~~~
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)  1298k ( 45%)
- phase parsing                      :   0.08 (100%)   0.00 (  0%)   0.07 ( 78%)  1362k ( 47%)
- phase opt and generate             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)   230k (  8%)
- callgraph construction             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)    82k (  3%)
- preprocessing                      :   0.02 ( 25%)   0.00 (  0%)   0.01 ( 11%)   500k ( 17%)
- lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)     0  (  0%)
- parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.02 ( 22%)   625k ( 22%)
- parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)    75k (  3%)
- parser function body               :   0.03 ( 38%)   0.00 (  0%)   0.02 ( 22%)    81k (  3%)
- parser inl. func. body             :   0.02 ( 25%)   0.00 (  0%)   0.00 (  0%)    71k (  2%)
- plugin execution                   :   0.01 ( 12%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
- TOTAL                              :   0.08          0.00          0.09         2901k
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 48%)
+ phase parsing                      :   0.03 (100%)   0.03 (100%)   0.06 (100%)  1153k ( 43%)
+ preprocessing                      :   0.00 (  0%)   0.01 ( 33%)   0.01 ( 17%)   348k ( 13%)
+ lexical analysis                   :   0.02 ( 67%)   0.01 ( 33%)   0.00 (  0%)     0  (  0%)
+ parser (global)                    :   0.01 ( 33%)   0.01 ( 33%)   0.02 ( 33%)   583k ( 22%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.02 ( 33%)    75k (  3%)
+ parser function body               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   113k (  4%)
+ TOTAL                              :   0.03          0.03          0.06         2690k

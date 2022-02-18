@@ -186,13 +186,11 @@ In file included from ./benchmarks/openssh-portable/double_free_5/openssh_df_5.c
       |                         ^~~~~~~~~~~~~~~~~
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)  1298k ( 41%)
- phase parsing                      :   0.06 (100%)   0.02 (100%)   0.07 ( 78%)  1672k ( 53%)
- phase opt and generate             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)   187k (  6%)
- preprocessing                      :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 11%)   776k ( 25%)
- lexical analysis                   :   0.01 ( 17%)   0.00 (  0%)   0.03 ( 33%)     0  (  0%)
- parser (global)                    :   0.01 ( 17%)   0.01 ( 50%)   0.00 (  0%)   609k ( 19%)
- parser function body               :   0.03 ( 50%)   0.01 ( 50%)   0.02 ( 22%)    90k (  3%)
- parser inl. func. body             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)    59k (  2%)
- tree gimplify                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)    69k (  2%)
- TOTAL                              :   0.06          0.02          0.09         3168k
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)  1298k ( 45%)
+ phase parsing                      :   0.08 (100%)   0.00 (  0%)   0.07 ( 88%)  1462k ( 51%)
+ preprocessing                      :   0.02 ( 25%)   0.00 (  0%)   0.01 ( 12%)   655k ( 23%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 13%)     0  (  0%)
+ parser (global)                    :   0.02 ( 25%)   0.00 (  0%)   0.01 ( 13%)   568k ( 20%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)   117k (  4%)
+ parser function body               :   0.04 ( 50%)   0.00 (  0%)   0.03 ( 37%)    93k (  3%)
+ TOTAL                              :   0.08          0.00          0.08         2893k

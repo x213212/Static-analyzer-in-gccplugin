@@ -67,10 +67,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 			{
 				vector<free_type> free_array;
 				find_freestmt = find_mallocstmt = find_phistmt = 0;
-				// debug_tree(function_tree);
-				// debug_tree(table_temp->target);
+
 				// if (debugmod)
-					fprintf(stderr, "\ndot graph START\n");
+				fprintf(stderr, "\ndot graph START\n");
 				fprintf(stderr, "\n======================================================================\n");
 
 				const char *name = "";
@@ -80,25 +79,27 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					debug_tree(table_temp->target);
 					continue;
 				}
-
+				// debug(table_temp->last_stmt);
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
 
 				if (def_stmt)
-					if (TREE_CODE(table_temp->target) != VAR_DECL)
+				// parm_decl
+					if (TREE_CODE(table_temp->target) != VAR_DECL && TREE_CODE(table_temp->target) != PARM_DECL)
 					{
 						// debug_gimple_stmt(def_stmt);
+							debug_tree(table_temp->target);
 						if (def_stmt)
 						{
-							debug_tree(table_temp->target);
+								debug_tree(table_temp->target);
 							// debug(def_stmt);
 							if (TREE_CODE(table_temp->target) == FUNCTION_DECL)
 								name = get_name(table_temp->target);
-							if (TREE_CODE(table_temp->target) != ADDR_EXPR && TREE_CODE(table_temp->target))
-								if (gimple_code(def_stmt))
+							else if (TREE_CODE(table_temp->target) != ADDR_EXPR && TREE_CODE(table_temp->target))
+								if (is_gimple_call(def_stmt))
 								{
-									debug_gimple_stmt(def_stmt);
+									// debug_gimple_stmt(def_stmt);
 
-									if (gimple_code(def_stmt) == GIMPLE_CALL)
+									
 										if (gimple_call_fndecl(def_stmt))
 											name = get_name(gimple_call_fndecl(def_stmt));
 								}
@@ -132,7 +133,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							}
 						fprintf(stderr, "\n ================== pre trace ptable finish================== \n");
 					}
-				fprintf(stderr, "\n ================== this stmt hava call fucntion ================== \n");
+					else
+					{
+							debug_tree(table_temp->target);
+						fprintf(stderr, "\n ================== this stmt hava call fucntion ================== \n");
+					}
 
 				if (name != NULL)
 					if (!strcmp(name, "realloc") ||
@@ -149,6 +154,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					else
 					{
 						ptable_type = IS_OTHRER_FUCNTION;
+						debug_tree(table_temp->target);
 						fprintf(stderr, "is Other function %s\n", name);
 						// 	continue;
 					}
@@ -807,7 +813,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										fprintf(stderr, "dot graph arrow");
 										fprintf(stderr, "subgraph cluster_%lu dot graph subgraph  ", x);
 										debug(it_i->stmt);
-										debug(def_stmt);
+										if (TREE_CODE(it_i->relate_tree) != VAR_DECL)
+											debug(def_stmt);
 
 										fprintf(stderr, "dot graph subgrapend\n\n");
 									}
@@ -937,13 +944,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												debug_gimple_stmt(free_array.at(i).stmt);
 												warning_at(gimple_location_safe(free_array.at(i).stmt), 0, "free in this location");
 												check_bbinfo(table_temp->node, gimple_bb(free_array.at(i).stmt));
-												if (user_tmp->aptr)
-												{
-
-													name = get_tree_code_name(TREE_CODE(user_tmp->aptr));
-													if (name)
-														fprintf(stderr, "\033[40;35m target gimple type: %s \033[0m\n", name);
-												}
+												// if (user_tmp->aptr)
+												// {
+												// 	debug_tree(user_tmp->aptr);
+												// 	name = get_tree_code_name(TREE_CODE(user_tmp->aptr));
+												// 	if (name)
+												// 		fprintf(stderr, "\033[40;35m target gimple type: %s \033[0m\n", name);
+												// }
+												fprintf(stderr, "\n===== possiable asias =====\n");
 												debug_gimple_stmt(u_stmt);
 												warning_at(gimple_location_safe(u_stmt), 0, "use location");
 												check_bbinfo(table_temp->node, gimple_bb(u_stmt));
@@ -974,7 +982,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								// }
 							}
 						// if (debugmod)
-							fprintf(stderr, "\ndot graph END\n");
+						fprintf(stderr, "\ndot graph END\n");
 						// fprintf(stderr, "\n ================== Start Use after free Check ================== \n");
 					}
 					fprintf(stderr, " \n Finish check Pointer Collect  \n");

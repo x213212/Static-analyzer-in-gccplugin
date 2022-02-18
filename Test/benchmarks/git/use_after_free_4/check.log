@@ -194,12 +194,11 @@ In file included from ./benchmarks/git/use_after_free_4/git_uaf_4.c:11:
       |                  hash_index_entry
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 44%)
- phase parsing                      :   0.04 ( 80%)   0.02 (100%)   0.06 ( 86%)  1408k ( 48%)
- phase opt and generate             :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 14%)   221k (  8%)
- callgraph construction             :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 14%)    83k (  3%)
- preprocessing                      :   0.01 ( 20%)   0.00 (  0%)   0.03 ( 43%)   507k ( 17%)
- lexical analysis                   :   0.01 ( 20%)   0.02 (100%)   0.00 (  0%)     0  (  0%)
- parser function body               :   0.02 ( 40%)   0.00 (  0%)   0.02 ( 29%)    94k (  3%)
- parser inl. func. body             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    71k (  2%)
- TOTAL                              :   0.05          0.02          0.07         2938k
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 49%)
+ phase parsing                      :   0.00 (  0%)   0.05 (100%)   0.05 ( 83%)  1199k ( 45%)
+ phase opt and generate             :   0.01 (100%)   0.00 (  0%)   0.01 ( 17%)   155k (  6%)
+ callgraph construction             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    17k (  1%)
+ preprocessing                      :   0.00 (  0%)   0.04 ( 80%)   0.03 ( 50%)   354k ( 13%)
+ parser (global)                    :   0.00 (  0%)   0.01 ( 20%)   0.01 ( 17%)   607k ( 23%)
+ plugin execution                   :   0.01 (100%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ TOTAL                              :   0.01          0.05          0.06         2663k

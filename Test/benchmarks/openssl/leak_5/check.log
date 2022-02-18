@@ -76,13 +76,14 @@
       |                        ^~~~~~
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 36%)
- phase parsing                      :   0.23 ( 96%)   0.01 (100%)   0.24 ( 96%)  2217k ( 62%)
- phase opt and generate             :   0.01 (  4%)   0.00 (  0%)   0.01 (  4%)    78k (  2%)
- callgraph construction             :   0.01 (  4%)   0.00 (  0%)   0.01 (  4%)  9544  (  0%)
- preprocessing                      :   0.01 (  4%)   0.01 (100%)   0.04 ( 16%)  1223k ( 34%)
- lexical analysis                   :   0.04 ( 17%)   0.00 (  0%)   0.01 (  4%)     0  (  0%)
- parser (global)                    :   0.01 (  4%)   0.00 (  0%)   0.01 (  4%)   791k ( 22%)
- parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 (  4%)   102k (  3%)
- parser function body               :   0.17 ( 71%)   0.00 (  0%)   0.17 ( 68%)    41k (  1%)
- TOTAL                              :   0.24          0.01          0.25         3604k
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 38%)
+ phase parsing                      :   0.11 ( 92%)   0.02 (100%)   0.13 ( 93%)  2005k ( 59%)
+ phase opt and generate             :   0.01 (  8%)   0.00 (  0%)   0.01 (  7%)    77k (  2%)
+ callgraph construction             :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)  9016  (  0%)
+ preprocessing                      :   0.01 (  8%)   0.00 (  0%)   0.02 ( 14%)  1102k ( 33%)
+ lexical analysis                   :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.01 ( 50%)   0.02 ( 14%)   686k ( 20%)
+ parser struct body                 :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)   102k (  3%)
+ parser function body               :   0.09 ( 75%)   0.00 (  0%)   0.09 ( 64%)   105k (  3%)
+ tree gimplify                      :   0.00 (  0%)   0.00 (  0%)   0.01 (  7%)    44k (  1%)
+ TOTAL                              :   0.12          0.02          0.14         3392k

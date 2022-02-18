@@ -21,6 +21,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 		//    continue;
 		int fucntion_level = 0;
 		push_cfun(node->get_fun());
+
 		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 		if (cfun == NULL)
 		{
@@ -65,8 +66,12 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 						struct ptr_info_def *pi1, *pi2, *pi3, *pi4;
 						pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
 						struct pt_solution *pt1 = &pi1->pt;
+
 						if (pt1 && relatemod)
-							if (TREE_CODE(mallocStmt_tree) == SSA_NAME)
+						{	
+							// debug_tree(mallocStmt_tree);
+
+							if (TREE_CODE(mallocStmt_tree) == SSA_NAME||TREE_CODE(mallocStmt_tree) == VAR_DECL)
 							{
 								if (gimple_assign_lhs(gc) != NULL)
 								{
@@ -114,6 +119,8 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 														tree first = TREE_OPERAND(gimple_assign_lhs(gc), 0);
 														gimple *def_stmt = SSA_NAME_DEF_STMT(first);
 														gimple *def_stmt2 = SSA_NAME_DEF_STMT(mallocStmt_tree);
+														if(TREE_CODE(first) != VAR_DECL)
+														if(TREE_CODE(mallocStmt_tree) != VAR_DECL)
 														if (def_stmt && def_stmt2)
 														{
 
@@ -123,6 +130,8 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 															if (!pt1 || pt1->anything)
 																continue;
 															//
+															// debug_tree(first);
+															// debug_tree(mallocStmt_tree);
 															if (is_gimple_assign(def_stmt) && is_gimple_assign(def_stmt2))
 																if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "<invalid tree code>"))
 																{
@@ -186,7 +195,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 												fprintf(stderr, "\033[40;36m ======= relate node_fun argument:%s========= \033[0m\n", get_name(mallocStmt_tree));
 												fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", get_name(gimple_assign_lhs(gc)));
 												// ready add dot graph
-											
+
 												unsigned long x = rand();
 												if (debugmod)
 												{
@@ -270,6 +279,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 									}
 								}
 							}
+						}
 
 						if (TREE_CODE(gimple_assign_lhs(gc)) == ARRAY_REF || TREE_CODE(mallocStmt_tree) == SSA_NAME)
 						{
@@ -628,11 +638,13 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 
 			struct ptr_info_def *pi1, *pi2, *pi3;
 			pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
-			struct pt_solution *pt1 = &pi1->pt;
-			if (pt1 && pt1->null)
-			{
-				trace_fucntion_relate_stmt(node, function_tree, mallocStmt_tree);
-			}
+			debug_tree(mallocStmt_tree);
+			// struct pt_solution *pt1 = &pi1->pt;
+			// if (pt1 && pt1->null)
+			// {
+
+			trace_fucntion_relate_stmt(node, function_tree, mallocStmt_tree);
+			// }
 		}
 	}
 	if (fucntion_level != -1 && fucntion_level != DISABLE_TREACE)

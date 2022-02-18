@@ -10,8 +10,8 @@ subgraph "cluster_foo" {
 
 	fn_0_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
 |ptr1\ =\ malloc\ (20);\l\
-|D.1966\ =\ ptr1;\l\
-|return\ D.1966;\l\
+|D.1981\ =\ ptr1;\l\
+|return\ D.1981;\l\
 }"];
 
 	fn_0_basic_block_0:s -> fn_0_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
@@ -27,17 +27,42 @@ subgraph "cluster_changePtr" {
 	fn_1_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
 
 	fn_1_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|if\ (test\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_1_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
 |_1\ =\ malloc\ (40);\l\
 |_2\ =\ (long\ int)\ _1;\l\
 |a\ =\ (int)\ _2;\l\
 |_3\ =\ (long\ int)\ a;\l\
 |_4\ =\ (int\ *)\ _3;\l\
 |*ptr\ =\ _4;\l\
+goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_1_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_5\ =\ malloc\ (40);\l\
+|_6\ =\ (long\ int)\ _5;\l\
+|a2\ =\ (int)\ _6;\l\
+|printf\ (\"%d\\n\",\ a2);\l\
+|_7\ =\ (long\ int)\ a2;\l\
+|_8\ =\ (int\ *)\ _7;\l\
+|*ptr\ =\ _8;\l\
+}"];
+
+	fn_1_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
 |return;\l\
 }"];
 
 	fn_1_basic_block_0:s -> fn_1_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
-	fn_1_basic_block_2:s -> fn_1_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1_basic_block_2:s -> fn_1_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1_basic_block_2:s -> fn_1_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_1_basic_block_3:s -> fn_1_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_1_basic_block_4:s -> fn_1_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_1_basic_block_5:s -> fn_1_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
 	fn_1_basic_block_0:s -> fn_1_basic_block_1:n [style="invis",constraint=true];
 }
 subgraph "cluster_fun" {
@@ -49,7 +74,11 @@ subgraph "cluster_fun" {
 	fn_2_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
 
 	fn_2_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
-|*fptr\ =\ 5;\l\
+|_1\ =\ malloc\ (40);\l\
+|_2\ =\ (long\ int)\ _1;\l\
+|_3\ =\ (int)\ _2;\l\
+|*fptr\ =\ _3;\l\
+|*fptr\ =\ 0;\l\
 |return;\l\
 }"];
 
@@ -57,31 +86,95 @@ subgraph "cluster_fun" {
 	fn_2_basic_block_2:s -> fn_2_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
 	fn_2_basic_block_0:s -> fn_2_basic_block_1:n [style="invis",constraint=true];
 }
-subgraph "cluster_main" {
+subgraph "cluster_changePtr2" {
 	style="dashed";
 	color="black";
-	label="main ()";
+	label="changePtr2 ()";
 	fn_3_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
 
 	fn_3_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
 
 	fn_3_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
-|localValue\ =\ 1;\l\
-|localPtr\ =\ &localValue;\l\
-|changePtr\ (&localPtr);\l\
-|localPtr.0_1\ =\ localPtr;\l\
-|_2\ =\ *localPtr.0_1;\l\
-|printf\ (\"%d\\n\",\ _2);\l\
-|localPtr.1_3\ =\ localPtr;\l\
-|free\ (localPtr.1_3);\l\
-|localValue\ =\ \{CLOBBER\};\l\
-|localPtr\ =\ \{CLOBBER\};\l\
-|D.1968\ =\ 0;\l\
-|return\ D.1968;\l\
+|if\ (test\ !=\ 0)\l\
+\ \ goto\ \<bb\ 3\>;\ [INV]\l\
+else\l\
+\ \ goto\ \<bb\ 4\>;\ [INV]\l\
+}"];
+
+	fn_3_basic_block_3 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 3\>:\l\
+|_1\ =\ malloc\ (40);\l\
+|_2\ =\ (long\ int)\ _1;\l\
+|a\ =\ (int)\ _2;\l\
+|_3\ =\ (long\ int)\ a;\l\
+|_4\ =\ (int\ *\ *)\ _3;\l\
+|*ptr\ =\ _4;\l\
+goto\ \<bb\ 5\>;\ [INV]\l\
+}"];
+
+	fn_3_basic_block_4 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 4\>:\l\
+|_5\ =\ malloc\ (40);\l\
+|_6\ =\ (long\ int)\ _5;\l\
+|a2\ =\ (int)\ _6;\l\
+|printf\ (\"%d\\n\",\ a2);\l\
+|_7\ =\ (long\ int)\ a2;\l\
+|_8\ =\ (int\ *\ *)\ _7;\l\
+|*ptr\ =\ _8;\l\
+}"];
+
+	fn_3_basic_block_5 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 5\>:\l\
+|return;\l\
 }"];
 
 	fn_3_basic_block_0:s -> fn_3_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
-	fn_3_basic_block_2:s -> fn_3_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_3_basic_block_2:s -> fn_3_basic_block_3:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_3_basic_block_2:s -> fn_3_basic_block_4:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_3_basic_block_3:s -> fn_3_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_3_basic_block_4:s -> fn_3_basic_block_5:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_3_basic_block_5:s -> fn_3_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
 	fn_3_basic_block_0:s -> fn_3_basic_block_1:n [style="invis",constraint=true];
+}
+subgraph "cluster_main" {
+	style="dashed";
+	color="black";
+	label="main ()";
+	fn_4_basic_block_0 [shape=Mdiamond,style=filled,fillcolor=white,label="ENTRY"];
+
+	fn_4_basic_block_1 [shape=Mdiamond,style=filled,fillcolor=white,label="EXIT"];
+
+	fn_4_basic_block_2 [shape=record,style=filled,fillcolor=lightgrey,label="{\<bb\ 2\>:\l\
+|num\ =\ 100;\l\
+|ptr\ =\ &num;\l\
+|ptr2\ =\ &ptr;\l\
+|ptr3\ =\ &ptr2;\l\
+|ptr3.0_1\ =\ ptr3;\l\
+|changePtr2\ (ptr3.0_1);\l\
+|ptr3.1_2\ =\ ptr3;\l\
+|_3\ =\ *ptr3.1_2;\l\
+|_4\ =\ *_3;\l\
+|_5\ =\ *_4;\l\
+|printf\ (\"\\xe9\\x80\\x8f\\xe9\\x81\\x8eptr3\\xe5\\x8f\\x96\\xe5\\xbe\\x97\\xe5\\x88\\xb0num\\xe5\\x80\\xbc\ \\t%d\\n\",\ _5);\l\
+|ptr3.2_6\ =\ ptr3;\l\
+|_7\ =\ *ptr3.2_6;\l\
+|_8\ =\ *_7;\l\
+|printf\ (\"ptr3\\xe6\\x8c\\x87\\xe5\\x88\\xb0ptr\\xe4\\xbd\\x8d\\xe5\\x9d\\x80\ \\t%p\\n\",\ _8);\l\
+|ptr3.3_9\ =\ ptr3;\l\
+|_10\ =\ *ptr3.3_9;\l\
+|printf\ (\"ptr3\\xe6\\x8c\\x87\\xe5\\x88\\xb0ptr\\xe7\\x9a\\x84\\xe8\\xa8\\x98\\xe6\\x86\\xb6\\xe9\\xab\\x94\\xe4\\xbd\\x8d\\xe7\\xbd\\xae\ \\t%p\\n\",\ _10);\l\
+|ptr3.4_11\ =\ ptr3;\l\
+|printf\ (\"ptr3\\xe6\\x8c\\x87\\xe5\\x88\\xb0ptr2\\xe7\\x9a\\x84\\xe8\\xa8\\x98\\xe6\\x86\\xb6\\xe9\\xab\\x94\\xe4\\xbd\\x8d\\xe7\\xbd\\xae\ \\t%p\\n\",\ ptr3.4_11);\l\
+|printf\ (\"ptr3\\xe8\\xa8\\x98\\xe6\\x86\\xb6\\xe9\\xab\\x94\\xe4\\xbd\\x8d\\xe5\\x9d\\x80\ \\t%p\\n\\n\\n\",\ &ptr3);\l\
+|ptr3.5_12\ =\ ptr3;\l\
+|printf\ (\"ptr3\\xe8\\xa8\\x98\\xe6\\x86\\xb6\\xe9\\xab\\x94\\xe4\\xbd\\x8d\\xe5\\x9d\\x80\ \\t%p\\n\\n\\n\",\ ptr3.5_12);\l\
+|num\ =\ \{CLOBBER\};\l\
+|ptr\ =\ \{CLOBBER\};\l\
+|ptr2\ =\ \{CLOBBER\};\l\
+|ptr3\ =\ \{CLOBBER\};\l\
+|D.1989\ =\ 0;\l\
+|return\ D.1989;\l\
+}"];
+
+	fn_4_basic_block_0:s -> fn_4_basic_block_2:n [style="solid,bold",color=blue,weight=100,constraint=true];
+	fn_4_basic_block_2:s -> fn_4_basic_block_1:n [style="solid,bold",color=black,weight=10,constraint=true];
+	fn_4_basic_block_0:s -> fn_4_basic_block_1:n [style="invis",constraint=true];
 }
 }

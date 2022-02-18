@@ -159,7 +159,8 @@ LTO=-flto
 WHOLE=-fwhole-program 
 # https://gcc.gnu.org/onlinedocs/gcc/Developer-Options.html
 #-fno-inline-functions-called-once
-FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fdump-tree-cfg-graph -pthread  --param max-ssa-name-query-depth=10  -ftime-report
+FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fno-inline  -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions -ftime-report
+# FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fdump-tree-cfg-graph -pthread  --param max-ssa-name-query-depth=10  -ftime-report
 # FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta   --param max-ssa-name-query-depth=10 -ftime-report
 # -fno-inline 
 # -flto-report
@@ -173,10 +174,11 @@ PLUGIN=-fplugin=../Compiler/newplugin.so
 all: test.o
 
 test.o:  
-	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
+	# mod 1
 	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
 	# @sh ./test.sh $(FILE_NAME)
+	# mod 2
 	# binutils
 	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME1)  -o $@ 2> $(BINUTILSL)1/check.log
 	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME2)  -o $@ 2> $(BINUTILSL)2/check.log

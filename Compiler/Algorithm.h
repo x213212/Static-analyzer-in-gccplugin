@@ -32,8 +32,6 @@ using namespace std;
 #include <unistd.h>
 #include <string>
 
-
-
 void record_fucntion(cgraph_node *node)
 {
 	cgraph_edge *e;
@@ -173,12 +171,18 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 			while (processtable->next != NULL)
 			{
 
-				if (TREE_CODE(TREE_TYPE(processtable->target)) == METHOD_TYPE || TREE_CODE(TREE_TYPE(processtable->target)) == FUNCTION_TYPE || TREE_CODE(TREE_TYPE(processtable->target)) == RECORD_TYPE || !(TREE_CODE(processtable->target) == SSA_NAME))
-				{
-					processtable = processtable->next;
-					continue;
-				}
-
+				// if (TREE_CODE(TREE_TYPE(processtable->target)) == METHOD_TYPE  || TREE_CODE(TREE_TYPE(processtable->target)) == RECORD_TYPE || !(TREE_CODE(processtable->target) == SSA_NAME))
+				// tree treetype = TREE_TYPE(processtable->target);
+				// if (treetype)
+				// {
+				// 	debug(treetype);
+				// 	if (TREE_CODE(treetype) == METHOD_TYPE || TREE_CODE(treetype) == RECORD_TYPE)
+				// 	{
+				// 		processtable = processtable->next;
+				// 		continue;
+				// 	}
+				// }
+				// debug_tree(processtable->target);
 				if (TREE_CODE(processtable->target) == INTEGER_CST)
 				{
 					processtable = processtable->next;
@@ -191,36 +195,43 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				start.stmt = NULL;
 				used_stmt = &start;
 				const char *name;
-
-				gimple *def_stmt = SSA_NAME_DEF_STMT(processtable->target);
-				levelsize = 0;
-
-				if (gimple_code(def_stmt) != GIMPLE_NOP || gimple_code(def_stmt) != ADDR_EXPR)
+				if ((TREE_CODE(processtable->target) == SSA_NAME))
 				{
-					int pass = 0;
-					if (gimple_code(def_stmt) == GIMPLE_CALL)
-						if (TREE_CODE(gimple_call_fn(def_stmt)) != MEM_REF)
-							pass = 1;
+					// debug_tree(processtable->target);
+					gimple *def_stmt = SSA_NAME_DEF_STMT(processtable->target);
+					levelsize = 0;
 
-					if (gimple_code(def_stmt) == GIMPLE_ASSIGN)
-						if (TREE_CODE(gimple_assign_rhs1(def_stmt)) != MEM_REF && TREE_CODE(gimple_assign_rhs1(def_stmt)) != VAR_DECL)
-							pass = 1;
+					if (gimple_code(def_stmt) != GIMPLE_NOP || gimple_code(def_stmt) != ADDR_EXPR)
+					{
+						int pass = 0;
+						if (gimple_code(def_stmt) == GIMPLE_CALL)
+							if (TREE_CODE(gimple_call_fn(def_stmt)) != MEM_REF)
+								pass = 1;
 
-					if (TREE_CODE(processtable->target) != ADDR_EXPR && pass == 1)
-						if (def_stmt)
-							if (gimple_code(def_stmt) == GIMPLE_CALL)
-								if (gimple_call_fn(def_stmt) && gimple_call_fndecl(def_stmt))
-								{
+						if (gimple_code(def_stmt) == GIMPLE_ASSIGN)
+							if (TREE_CODE(gimple_assign_rhs1(def_stmt)) != MEM_REF && TREE_CODE(gimple_assign_rhs1(def_stmt)) != VAR_DECL)
+								pass = 1;
 
-									name = get_name(gimple_call_fn(def_stmt));
-									if (name != NULL)
-										if (strcmp(name, "malloc"))
-											Prenew_search_imm_use(used_stmt, processtable->target, processtable->target);
-								}
+						if (TREE_CODE(processtable->target) != ADDR_EXPR && pass == 1)
+							if (def_stmt)
+								if (gimple_code(def_stmt) == GIMPLE_CALL)
+									if (gimple_call_fn(def_stmt) && gimple_call_fndecl(def_stmt))
+									{
+
+										name = get_name(gimple_call_fn(def_stmt));
+										if (name != NULL)
+											if (strcmp(name, "malloc"))
+												Prenew_search_imm_use(used_stmt, processtable->target, processtable->target);
+									}
+					}
+				}
+				else
+				{
+					Varnew_search_imm_use(used_stmt, processtable->last_stmt, processtable->target, processtable->target);
 				}
 
 				now_tree = processtable->target;
-
+				// debug_tree( processtable->target);
 				new_search_imm_use(used_stmt, processtable->target, processtable->target);
 				set_gimple_array(used_stmt, processtable->last_stmt, processtable->target, processtable->target, NULL);
 
@@ -251,7 +262,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				Entrypoint++;
 				fprintf(stderr, "=============== *this point analyzable =================\n");
 				debug(processtable->last_stmt);
-				// fprintf(stderr, "=============== *this point analyzable =================\n");
+				fprintf(stderr, "========================================================\n");
 				// debug(processtable->swap_stmt);
 
 				if (processtable->next->target == NULL)

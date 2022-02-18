@@ -156,10 +156,9 @@ In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
       |                 ^~~~~~~~~~~~~~~~
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 50%)
- phase parsing                      :   0.02 (100%)   0.03 (100%)   0.05 (100%)  1165k ( 45%)
- preprocessing                      :   0.01 ( 50%)   0.00 (  0%)   0.03 ( 60%)   347k ( 13%)
- lexical analysis                   :   0.00 (  0%)   0.02 ( 67%)   0.00 (  0%)     0  (  0%)
- parser (global)                    :   0.01 ( 50%)   0.01 ( 33%)   0.01 ( 20%)   608k ( 23%)
- parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    73k (  3%)
- TOTAL                              :   0.02          0.03          0.05         2597k
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 52%)
+ phase parsing                      :   0.03 (100%)   0.02 (100%)   0.05 (100%)  1084k ( 43%)
+ preprocessing                      :   0.01 ( 33%)   0.01 ( 50%)   0.01 ( 20%)   322k ( 13%)
+ lexical analysis                   :   0.02 ( 67%)   0.00 (  0%)   0.03 ( 60%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 20%)   567k ( 23%)
+ TOTAL                              :   0.03          0.02          0.05         2514k
