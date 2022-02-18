@@ -73,38 +73,25 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 				if (strcmp(name2, "realloc") && strcmp(name2, "malloc") && strcmp(get_name(gimple_call_fn(gc)), "calloc") && strcmp(name2, "xcalloc") && strcmp(name2, "xmalloc") && strcmp(name2, "strdup") && strcmp(name2, "xstrdup") && strcmp(name2, "free") && strcmp(name2, "printf"))
 				{
 
-					// debug_tree(gimple_call_fndecl(gc)); // GIMPLE_FREE_COUNT++;;
-					// if gimple type is addr_expr memory direct all memory
-					if ((gimple_call_num_args(gc) != 0))
-					{
-						for (int i = 0; i < gimple_call_num_args(gc); i++)
-						{
-							tree second = NULL_TREE;
-							if (TREE_CODE(gimple_call_arg(gc, i)) == ADDR_EXPR)
-								second = TREE_OPERAND(gimple_call_arg(gc, i), 0);
-							else if (TREE_CODE(gimple_call_arg(gc, i)) == SSA_NAME)
-							{
-								second = gimple_call_arg(gc, i);
-							}
-							if (second)
-							{
-								// debug_tree(second);
-								set_ptb(bb, ptable, second, loc, 0, gc, node);
-							}
-						}
-					}
-					// addr_expr free (&a)
-					// ADDR_EXPR
-					// if (TREE_CODE(gimple_call_arg(gc, 0)) == ADDR_EXPR)
+					// fprintf(stderr, "------Juliet_Test_Suite please disable------%s--\n", name2);
+					// fprintf(stderr, "------and turn off freeanysis filter no free gimple stmt can filter ------%s--\n", name2);
+					// if ((gimple_call_num_args(gc) != 0))
 					// {
-					// 	// debug_gimple_stmt(gc);
-					// 	// debug_tree(gimple_call_arg(gc, 0));
-					fprintf(stderr, "addr_expraddr_expraddr_expraddr_expraddr_expr------%s--\n", name2);
-					// }
-					// else
-					// {
-					// 	// debug_tree(gimple_call_arg(gc, 0));
-					// 	set_ptb(bb, ftable, gimple_call_arg(gc, 0), loc, 0, gc, node);
+					// 	for (int i = 0; i < gimple_call_num_args(gc); i++)
+					// 	{
+					// 		tree second = NULL_TREE;
+					// 		if (TREE_CODE(gimple_call_arg(gc, i)) == ADDR_EXPR)
+					// 			second = TREE_OPERAND(gimple_call_arg(gc, i), 0);
+					// 		else if (TREE_CODE(gimple_call_arg(gc, i)) == SSA_NAME)
+					// 		{
+					// 			second = gimple_call_arg(gc, i);
+					// 		}
+					// 		if (second)
+					// 		{
+					// 			// debug_tree(second);
+					// 			set_ptb(bb, ptable, second, loc, 0, gc, node);
+					// 		}
+					// 	}
 					// }
 				}
 			}

@@ -38,7 +38,7 @@ ofstream cfginfo("cfginfo.txt");
 
 /*interprocedural analysis*/
 bool ipa = true;
-bool freeanysis = true;
+bool freeanysis = false; // no free no anysis
 bool vscode_extensionmod = false;
 bool vscode_extensionIgonefreemod = true;
 bool memoryleakcheck = true;

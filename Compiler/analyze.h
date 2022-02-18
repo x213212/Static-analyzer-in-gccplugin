@@ -83,14 +83,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				gimple *def_stmt = SSA_NAME_DEF_STMT(table_temp->target);
 
 				if (def_stmt)
-				// parm_decl
+					// parm_decl
 					if (TREE_CODE(table_temp->target) != VAR_DECL && TREE_CODE(table_temp->target) != PARM_DECL)
 					{
 						// debug_gimple_stmt(def_stmt);
-							debug_tree(table_temp->target);
+						debug_tree(table_temp->target);
 						if (def_stmt)
 						{
-								debug_tree(table_temp->target);
+							debug_tree(table_temp->target);
 							// debug(def_stmt);
 							if (TREE_CODE(table_temp->target) == FUNCTION_DECL)
 								name = get_name(table_temp->target);
@@ -99,9 +99,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								{
 									// debug_gimple_stmt(def_stmt);
 
-									
-										if (gimple_call_fndecl(def_stmt))
-											name = get_name(gimple_call_fndecl(def_stmt));
+									if (gimple_call_fndecl(def_stmt))
+										name = get_name(gimple_call_fndecl(def_stmt));
 								}
 						}
 
@@ -135,7 +134,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					}
 					else
 					{
-							debug_tree(table_temp->target);
+						debug_tree(table_temp->target);
 						fprintf(stderr, "\n ================== this stmt hava call fucntion ================== \n");
 					}
 
@@ -935,6 +934,39 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											if (is_gimple_call(u_stmt))
 												if (gimple_call_fndecl(free_array.at(i).stmt) == gimple_call_fndecl(u_stmt))
 													continue;
+											if ((gimple_call_num_args(free_array.at(i).stmt) != 0))
+											{
+												tree callarg = gimple_call_arg(free_array.at(i).stmt, 0);
+												if (TREE_CODE(callarg) == SSA_NAME)
+												{
+													gimple *def_stmt = SSA_NAME_DEF_STMT(callarg);
+
+													if (def_stmt)
+													{
+														if (gimple_code(def_stmt) == GIMPLE_PHI)
+														{
+															if (gimple_phi_num_args(def_stmt))
+																for (int k = 0; k < gimple_phi_num_args(def_stmt); k++)
+																{
+																	tree arg = gimple_phi_arg_def(def_stmt, k);
+																	// debug_tree(arg);
+																	if (arg == user_tmp->target)
+																		continue;
+																}
+															if (gimple_phi_result(def_stmt) == user_tmp->target)
+
+																continue;
+														}
+													}
+												}
+												if(is_gimple_call(u_stmt))
+												if (gimple_call_fndecl(free_array.at(i).stmt) == gimple_call_fndecl(u_stmt))
+												if (callarg == user_tmp->target)
+													continue;
+												if (gimple_code(u_stmt) == GIMPLE_PHI)
+													if (gimple_phi_result(u_stmt) == callarg)
+														continue;
+											}
 											if (Location_b2(free_array.at(i).stmt, u_stmt, function_tree))
 											{
 
