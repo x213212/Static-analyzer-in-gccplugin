@@ -58,6 +58,7 @@ int main(void)
     //     a = (int *)malloc(40);
     //     free(a);
     // }
+    
     // 一級pointer
     int value=1;
     int *ptr=&value;
