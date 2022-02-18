@@ -1631,32 +1631,31 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 								}
 								if (gimple_call_arg(use_stmt, 0))
 								{
-										if (!check_stmtStack(gimple_call_arg(use_stmt, 0)))
-									if ((TREE_CODE(gimple_call_arg(use_stmt, 0)) == SSA_NAME))
-									{
-										// if (!check_stmtStack(gimple_call_arg(use_stmt, 0)))
-										// {
-										debug_tree(gimple_call_arg(use_stmt, 0));
-										// fprintf(stderr, "-------Untreated-------------------------\n");
-										// 	set_gimple_array(used_stmt, use_stmt, imple_call_arg(use_stmt, 0), target, NULL);
+									if (!check_stmtStack(gimple_call_arg(use_stmt, 0)))
+										if ((TREE_CODE(gimple_call_arg(use_stmt, 0)) == SSA_NAME))
+										{
+											// if (!check_stmtStack(gimple_call_arg(use_stmt, 0)))
+											// {
+											debug_tree(gimple_call_arg(use_stmt, 0));
+											// fprintf(stderr, "-------Untreated-------------------------\n");
+											// 	set_gimple_array(used_stmt, use_stmt, imple_call_arg(use_stmt, 0), target, NULL);
 
-										if (TREE_CODE(gimple_call_arg(use_stmt, 0)) == SSA_NAME)
-											new_search_imm_use(used_stmt, gimple_call_arg(use_stmt, 0), gimple_call_arg(use_stmt, 0));
+											if (TREE_CODE(gimple_call_arg(use_stmt, 0)) == SSA_NAME)
+												new_search_imm_use(used_stmt, gimple_call_arg(use_stmt, 0), gimple_call_arg(use_stmt, 0));
 
-										gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(use_stmt, 0));
+											gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_call_arg(use_stmt, 0));
 
-										if (is_gimple_assign(def_stmt))
+											if (is_gimple_assign(def_stmt))
 
-											if (TREE_CODE(gimple_assign_lhs(def_stmt)) == VAR_DECL)
-											{
-												Varnew_search_imm_use(used_stmt, def_stmt, target, target2);
-											}
-											else if (TREE_CODE(gimple_assign_rhs1(def_stmt)) == VAR_DECL)
-											{
-												Varnew_search_imm_use(used_stmt, def_stmt, target, target2);
-											}
-								
-									}
+												if (TREE_CODE(gimple_assign_lhs(def_stmt)) == VAR_DECL)
+												{
+													Varnew_search_imm_use(used_stmt, def_stmt, target, target2);
+												}
+												else if (TREE_CODE(gimple_assign_rhs1(def_stmt)) == VAR_DECL)
+												{
+													Varnew_search_imm_use(used_stmt, def_stmt, target, target2);
+												}
+										}
 								}
 							}
 					}

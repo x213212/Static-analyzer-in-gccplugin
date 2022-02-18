@@ -1,7 +1,7 @@
 #define FOR_EACH_TABLE(TABLE, TAR)                           \
 	for ((TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target; \
 		 (TAR) != NULL;                                      \
-		 (TABLE) = (TABLE)->next , (TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target)
+		 (TABLE) = (TABLE)->next, (TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target)
 #define FOR_EACH_USE_TABLE(USE, STMT) \
 	for ((STMT) = ((USE) == NULL) ? NULL : (USE)->stmt; (USE) != NULL; (USE) = (USE)->next, (STMT) = ((USE) == NULL) ? NULL : (USE)->stmt)
 
@@ -30,26 +30,26 @@ unsigned int EFFECTIVE = 10000;
 unsigned int CREATE_JOINABLE = 0;
 unsigned int CREATE_DETACHED = 1;
 unsigned int DISABLE_TREACE = -100;
-int GIMPLE_MALLOC_COUNT=0;
-int GIMPLE_FREE_COUNT=0;
+int GIMPLE_MALLOC_COUNT = 0;
+int GIMPLE_FREE_COUNT = 0;
 /*dump file */
 FILE *fp;
 ofstream cfginfo("cfginfo.txt");
 
 /*interprocedural analysis*/
 bool ipa = true;
-bool freeanysis = false; // no free no anysis
+bool freeanysis = true; // no free no anysis
 bool vscode_extensionmod = false;
 bool vscode_extensionIgonefreemod = true;
 bool memoryleakcheck = true;
-//kroren testcase need turn on
-bool Looserulesfree =true;
-bool useafterfree =true;
-bool debugmod = false;
+// kroren testcase need turn on
+bool Looserulesfree = true;
+bool useafterfree = true;
+bool debugmod = true;
 bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;
-bool retmod = true; 
+bool retmod = true;
 bool pthread_detachedmod = true;
 bool pthread_exitmod = true;
 bool tracerelatestmt = true;
@@ -58,8 +58,6 @@ bool stmtloopcheck = true;
 bool samefucntioncheck = true;
 bool maxbasicblockcalc = true;
 bool pathconstraint = false;
-
-
 
 /*allocation and deallocation table*/
 struct ptb
@@ -96,7 +94,8 @@ struct symbolicinfoPatharray
 	int boolt = 1;
 };
 
-struct breakpoint{
+struct breakpoint
+{
 	string name;
 	int line;
 };
@@ -154,7 +153,6 @@ struct function_path
 	cgraph_node *cgnext;
 	tree prev;
 	tree next;
-
 };
 struct return_type
 {
@@ -167,7 +165,6 @@ struct assign_type
 	gimple *stmt;
 	tree assign_tree;
 	tree form_tree;
-
 };
 
 struct free_type
@@ -175,7 +172,6 @@ struct free_type
 	gimple *stmt;
 	tree free_tree;
 	int Looserulesfree = 0;
-
 };
 struct relate_type
 {
@@ -186,21 +182,18 @@ struct relate_type
 	unsigned int now_fucntion = 0;
 	unsigned int now_stmt = 0;
 	int now_basicblock = 0;
-
 };
 
 struct pthread_detched_type
 {
 	gimple *stmt;
 	tree pthread_detched_tree;
-
 };
 
 struct pthread_exit_type
 {
 	gimple *stmt;
 	tree pthread_exit_tree;
-
 };
 
 /*define return_type struct*/
@@ -262,7 +255,6 @@ struct function_relate_array
 	vector<relate_type> relate_type_array;
 };
 
-
 /*collect function return types */
 hash_map<tree, function_return_array> *function_return_collect;
 /*collect function var decl ssa name */
@@ -302,7 +294,6 @@ hash_map<basic_block, symbolicinfo> *syminfo;
 /*record each DFS graph*/
 hash_map<cgraph_node *, Graph> *fDFS;
 
-
 /*collect  function stack*/
 class CStack : public std::stack<tree>
 {
@@ -326,7 +317,6 @@ vector<basic_block> symbolicExecutionswitch;
 vector<breakpoint> vbreakpoint;
 vector<return_type> global_ret_type_array;
 
-
 CStack stmtStack;
 CstmtStack stmtStack2;
 
@@ -343,7 +333,7 @@ unsigned int SDBMHash(char *str);
 tree prechecktree(tree tree);
 
 int dump_points_to_solution2(FILE *file, struct pt_solution *pt);
-void check_bbinfo(cgraph_node *m,basic_block bb);
+void check_bbinfo(cgraph_node *m, basic_block bb);
 void Checknew_search_imm_use_rhs(gimple_array *used_stmt, gimple *use_stmt, tree target, tree target2);
 void Checknew_search_imm_use_lhs(gimple_array *used_stmt, gimple *use_stmt, tree target, tree target2);
 int check_stmtStack4(gimple *stmt);
@@ -360,7 +350,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 void record_fucntion(cgraph_node *node);
 
 void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb);
-void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb,ptb *ptable);
+void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block bb, ptb *ptable);
 
 int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_tree, int *freecount);
 void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gimple_array *user_tmp);

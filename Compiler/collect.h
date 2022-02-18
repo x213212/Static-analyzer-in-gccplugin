@@ -75,24 +75,24 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 
 					// fprintf(stderr, "------Juliet_Test_Suite please disable------%s--\n", name2);
 					// fprintf(stderr, "------and turn off freeanysis filter no free gimple stmt can filter ------%s--\n", name2);
-					// if ((gimple_call_num_args(gc) != 0))
-					// {
-					// 	for (int i = 0; i < gimple_call_num_args(gc); i++)
-					// 	{
-					// 		tree second = NULL_TREE;
-					// 		if (TREE_CODE(gimple_call_arg(gc, i)) == ADDR_EXPR)
-					// 			second = TREE_OPERAND(gimple_call_arg(gc, i), 0);
-					// 		else if (TREE_CODE(gimple_call_arg(gc, i)) == SSA_NAME)
-					// 		{
-					// 			second = gimple_call_arg(gc, i);
-					// 		}
-					// 		if (second)
-					// 		{
-					// 			// debug_tree(second);
-					// 			set_ptb(bb, ptable, second, loc, 0, gc, node);
-					// 		}
-					// 	}
-					// }
+					if ((gimple_call_num_args(gc) != 0))
+					{
+						for (int i = 0; i < gimple_call_num_args(gc); i++)
+						{
+							tree second = NULL_TREE;
+							if (TREE_CODE(gimple_call_arg(gc, i)) == ADDR_EXPR)
+								second = TREE_OPERAND(gimple_call_arg(gc, i), 0);
+							else if (TREE_CODE(gimple_call_arg(gc, i)) == SSA_NAME)
+							{
+								second = gimple_call_arg(gc, i);
+							}
+							if (second)
+							{
+								// debug_tree(second);
+								set_ptb(bb, ptable, second, loc, 0, gc, node);
+							}
+						}
+					}
 				}
 			}
 			if (!strcmp(name, "free") || !strcmp(name, "xfree"))

@@ -959,10 +959,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														}
 													}
 												}
-												if(is_gimple_call(u_stmt))
-												if (gimple_call_fndecl(free_array.at(i).stmt) == gimple_call_fndecl(u_stmt))
-												if (callarg == user_tmp->target)
-													continue;
+												if (is_gimple_call(u_stmt))
+													if (gimple_call_fndecl(free_array.at(i).stmt) == gimple_call_fndecl(u_stmt))
+														if (callarg == user_tmp->target)
+															continue;
 												if (gimple_code(u_stmt) == GIMPLE_PHI)
 													if (gimple_phi_result(u_stmt) == callarg)
 														continue;
