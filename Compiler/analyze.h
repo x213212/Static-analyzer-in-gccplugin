@@ -1175,7 +1175,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 				fprintf(stderr, "\n======================================================================\n");
 			}
-			if(table_temp->next->next  == NULL)
-				break;
+	
 	}
 }

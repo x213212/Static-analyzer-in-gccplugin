@@ -1,6 +1,6 @@
 #define FOR_EACH_TABLE(TABLE, TAR)                           \
 	for ((TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target; \
-		 (TAR) != NULL;                                      \
+		 (TAR) != NULL,       (TABLE)->next!=NULL;                               \
 		 (TABLE) = (TABLE)->next, (TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target)
 #define FOR_EACH_USE_TABLE(USE, STMT) \
 	for ((STMT) = ((USE) == NULL) ? NULL : (USE)->stmt; (USE) != NULL; (USE) = (USE)->next, (STMT) = ((USE) == NULL) ? NULL : (USE)->stmt)

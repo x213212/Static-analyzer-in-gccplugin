@@ -60,22 +60,22 @@ int main(void)
     // }
     
     // 一級pointer
-    int value=1;
-    int *ptr0=&value;
-    fun(ptr0);
-    printf("%d",*ptr0);
+    // int value=1;
+    // int *ptr0=&value;
+    // fun(ptr0);
+    // printf("%d",*ptr0);
     // 二級pointer
     int localValue = 1;
     int *localPtr = &localValue;
     changePtr(&localPtr);
-    printf("%d\n", *localPtr); //經過changPtr函式，localPtr指標變數改指向
-    free(localPtr);
-    // 三級pointer
-    int num = 100;
-    int *ptr = &num;
-    int **ptr2 = &ptr;
-    int ***ptr3 = &ptr2;
-    changePtr2(ptr3);
+    // printf("%d\n", *localPtr); //經過changPtr函式，localPtr指標變數改指向
+    // free(localPtr);
+    // // 三級pointer
+    // int num = 100;
+    // int *ptr = &num;
+    // int **ptr2 = &ptr;
+    // int ***ptr3 = &ptr2;
+    // changePtr2(ptr3);
     // printf("透過ptr3取得到num值 \t%d\n", ***ptr3);
     // printf("ptr3指到ptr位址 \t%p\n", **ptr3);
     // printf("ptr3指到ptr的記憶體位置 \t%p\n", *ptr3);
