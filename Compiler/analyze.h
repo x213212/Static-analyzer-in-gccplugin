@@ -783,52 +783,55 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							if (debugmod)
 							{
 								lastbasicblock = -1;
-								maxbb_array = *(function_maxbb_collect->get(table_temp->target));
-								maxbb_type_array = maxbb_array.relate_type_array;
-								hash_map<tree, int> *function_maxbasicblock_collect = new hash_map<tree, int>;
-								for (int i = 0; i < maxbb_type_array.size(); i++)
+								if (function_maxbb_collect->get(table_temp->target) != NULL)
 								{
-									function_maxbasicblock_collect->put(maxbb_type_array[i].relate_funtree, maxbb_type_array[i].now_basicblock);
-									for (int j = 0; j < maxbb_type_array.size(); j++)
+									maxbb_array = *(function_maxbb_collect->get(table_temp->target));
+									maxbb_type_array = maxbb_array.relate_type_array;
+									hash_map<tree, int> *function_maxbasicblock_collect = new hash_map<tree, int>;
+									for (int i = 0; i < maxbb_type_array.size(); i++)
 									{
-
-										if (maxbb_type_array[i].relate_funtree == maxbb_type_array[j].relate_funtree)
+										function_maxbasicblock_collect->put(maxbb_type_array[i].relate_funtree, maxbb_type_array[i].now_basicblock);
+										for (int j = 0; j < maxbb_type_array.size(); j++)
 										{
-											int max_bb;
-											// debug_tree(it_i->relate_funtree);
-											max_bb = *(function_maxbasicblock_collect)->get(maxbb_type_array[i].relate_funtree);
-											if (maxbb_type_array[j].now_basicblock >= max_bb)
-												function_maxbasicblock_collect->put(maxbb_type_array[j].relate_funtree, maxbb_type_array[j].now_basicblock);
+
+											if (maxbb_type_array[i].relate_funtree == maxbb_type_array[j].relate_funtree)
+											{
+												int max_bb;
+												// debug_tree(it_i->relate_funtree);
+												max_bb = *(function_maxbasicblock_collect)->get(maxbb_type_array[i].relate_funtree);
+												if (maxbb_type_array[j].now_basicblock >= max_bb)
+													function_maxbasicblock_collect->put(maxbb_type_array[j].relate_funtree, maxbb_type_array[j].now_basicblock);
+											}
 										}
 									}
-								}
-								vector<relate_type>::iterator it_i;
-								for (it_i = maxbb_type_array.begin(); it_i != maxbb_type_array.end(); ++it_i)
-								{
-									int max_bb;
-									// debug_tree(it_i->relate_funtree);
-									max_bb = *(function_maxbasicblock_collect)->get(it_i->relate_funtree);
-									// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===%d==%s===============\n", it_i->now_basicblock, get_name(it_i->relate_funtree));
-									// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===%d==%s===============\n", max_bb, get_name(it_i->relate_funtree));
-									if (max_bb == (it_i->now_basicblock))
+									vector<relate_type>::iterator it_i;
+									for (it_i = maxbb_type_array.begin(); it_i != maxbb_type_array.end(); ++it_i)
 									{
+										int max_bb;
+										// debug_tree(it_i->relate_funtree);
+										max_bb = *(function_maxbasicblock_collect)->get(it_i->relate_funtree);
+										// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===%d==%s===============\n", it_i->now_basicblock, get_name(it_i->relate_funtree));
 										// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===%d==%s===============\n", max_bb, get_name(it_i->relate_funtree));
-										// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===============%d=====\n", lastbasicblock);
-										gimple *def_stmt = SSA_NAME_DEF_STMT(it_i->relate_tree);
-										fprintf(stderr, "dot graph target basicblock start ");
-										fprintf(stderr, "from %s basic block %d", (char *)get_name(it_i->relate_funtree), gimple_bb(it_i->stmt)->index);
-										fprintf(stderr, "dot graph target basicblock en1\n\n");
-										unsigned long x = rand();
-										fprintf(stderr, "dot graph arrow");
-										fprintf(stderr, "subgraph cluster_%lu dot graph subgraph  ", x);
-										debug(it_i->stmt);
-										if (TREE_CODE(it_i->relate_tree) != VAR_DECL)
-											debug(def_stmt);
+										if (max_bb == (it_i->now_basicblock))
+										{
+											// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===%d==%s===============\n", max_bb, get_name(it_i->relate_funtree));
+											// fprintf(stderr, "\n==============================hhhhhhhhhhhhhhhh===============%d=====\n", lastbasicblock);
+											gimple *def_stmt = SSA_NAME_DEF_STMT(it_i->relate_tree);
+											fprintf(stderr, "dot graph target basicblock start ");
+											fprintf(stderr, "from %s basic block %d", (char *)get_name(it_i->relate_funtree), gimple_bb(it_i->stmt)->index);
+											fprintf(stderr, "dot graph target basicblock en1\n\n");
+											unsigned long x = rand();
+											fprintf(stderr, "dot graph arrow");
+											fprintf(stderr, "subgraph cluster_%lu dot graph subgraph  ", x);
+											debug(it_i->stmt);
+											if (TREE_CODE(it_i->relate_tree) == SSA_NAME)
+												debug(def_stmt);
 
-										fprintf(stderr, "dot graph subgrapend\n\n");
+											fprintf(stderr, "dot graph subgrapend\n\n");
+										}
 									}
+									delete function_maxbb_collect;
 								}
-								delete function_maxbb_collect;
 							}
 						}
 					}
@@ -1175,6 +1178,5 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 				fprintf(stderr, "\n======================================================================\n");
 			}
-	
 	}
 }
