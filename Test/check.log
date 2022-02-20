@@ -75,10 +75,10 @@ test.c:43:14: warning: assignment to ‘int **’ from ‘int’ makes pointer f
    43 |         *ptr = a2;
       |              ^
 test.c: In function ‘main’:
-test.c:71:5: warning: incompatible implicit declaration of built-in function ‘printf’ [-Wbuiltin-declaration-mismatch]
-   71 |     printf("%d\n", *localPtr); //經過changPtr函式，localPtr指標變數改指向
+test.c:66:5: warning: incompatible implicit declaration of built-in function ‘printf’ [-Wbuiltin-declaration-mismatch]
+   66 |     printf("%d",*ptr0);
       |     ^~~~~~
-test.c:71:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
+test.c:66:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
 test.c:72:5: warning: implicit declaration of function ‘free’ [-Wimplicit-function-declaration]
    72 |     free(localPtr);
       |     ^~~~
@@ -87,32 +87,23 @@ test.c:72:5: warning: incompatible implicit declaration of built-in function ‘
 test.c:72:5: note: include ‘<stdlib.h>’ or provide a declaration of ‘free’
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.01 ( 17%)   0.00 (  0%)   0.02 ( 29%)  1298k ( 84%)
- phase parsing                      :   0.02 ( 33%)   0.00 (  0%)   0.02 ( 29%)   160k ( 10%)
- phase opt and generate             :   0.02 ( 33%)   0.01 ( 50%)   0.03 ( 43%)    68k (  4%)
- callgraph optimization             :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
- callgraph ipa passes               :   0.02 ( 33%)   0.01 ( 50%)   0.02 ( 29%)    37k (  2%)
- lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
- lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
- parser (global)                    :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)   127k (  8%)
- parser function body               :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 14%)    22k (  1%)
- inline parameters                  :   0.01 ( 17%)   0.01 ( 50%)   0.00 (  0%)  6912  (  0%)
- tree gimplify                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    19k (  1%)
- tree PTA                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  1032  (  0%)
- TOTAL                              :   0.06          0.02          0.07         1537k
+ phase setup                        :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)  1298k ( 84%)
+ phase parsing                      :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)   162k ( 11%)
+ phase opt and generate             :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    76k (  5%)
+ callgraph ipa passes               :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    43k (  3%)
+ parser function body               :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)    25k (  2%)
+ inline parameters                  :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)  6912  (  0%)
+ TOTAL                              :   0.02          0.00          0.01         1548k
 ../Compiler/newplugin.so 11.2.0 
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 33%)  2157k ( 99%)
- phase stream in                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)    28k (  1%)
- phase stream out                   :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
- ipa cp                             :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
- ipa lto cgraph I/O                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  3448  (  0%)
- TOTAL                              :   0.03          0.00          0.03         2188k
+ phase setup                        :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)  2157k ( 99%)
+ TOTAL                              :   0.00          0.01          0.00         2189k
 ../Compiler/newplugin.so 11.2.0 
 =======ipa_pta=========
 =============== The first stage : Point of interest stmt collect =================
 =======node_fun:main=========
+=======node_fun:fun=========
 =======node_fun:changePtr=========
 node:= 2 
  	next_branch :=3
@@ -123,24 +114,28 @@ node:= 4
  	next_branch :=5
 =============== The first stage :  record fucntion =================
 start PointerConstraint
-ptable point 4 
+ptable point 6 
 ===============The second stage : Mapping stmt=================
 # .MEM_7 = VDEF <.MEM_6>
+fun (&value);
+# .MEM_11 = VDEF <.MEM_10>
 changePtr (&localPtr);
- <var_decl 0x7f78eae40b40 localPtr
-    type <pointer_type 0x7f78ea5b49d8
-        type <integer_type 0x7f78ea5ad5e8 int public SI
-            size <integer_cst 0x7f78ea598df8 constant 32>
-            unit-size <integer_cst 0x7f78ea598e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f78ea5ad5e8 precision:32 min <integer_cst 0x7f78ea598db0 -2147483648> max <integer_cst 0x7f78ea598dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f78ea5b49d8>>
+ <var_decl 0x7f6f7d0a0b40 localPtr
+    type <pointer_type 0x7f6f7c8149d8
+        type <integer_type 0x7f6f7c80d5e8 int public SI
+            size <integer_cst 0x7f6f7c7f8df8 constant 32>
+            unit-size <integer_cst 0x7f6f7c7f8e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f6f7c80d5e8 precision:32 min <integer_cst 0x7f6f7c7f8db0 -2147483648> max <integer_cst 0x7f6f7c7f8dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f6f7c8149d8>>
         public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea0b09d8>>
-    addressable unsigned DI test.c:69:10 size <integer_cst 0x7f78ea598bb8 64> unit-size <integer_cst 0x7f78ea598bd0 8>
-    align:64 warn_if_not_align:0 context <function_decl 0x7f78ea0b1b00 main>>
+        pointer_to_this <pointer_type 0x7f6f7c3109d8>>
+    addressable unsigned DI test.c:69:10 size <integer_cst 0x7f6f7c7f8bb8 64> unit-size <integer_cst 0x7f6f7c7f8bd0 8>
+    align:64 warn_if_not_align:0 context <function_decl 0x7f6f7c311c00 main>>
+# .MEM_8 = VDEF <.MEM_7(D)>
+_1 = malloc (40);
 # .MEM_24 = VDEF <.MEM_20(D)>
 _1 = malloc (40);
 # .MEM_21 = VDEF <.MEM_20(D)>
@@ -149,7 +144,15 @@ _5 = malloc (40);
 ------------------VAR_DECL : LHS2------------------
 ------------------VAR_DECL : LHS2------------------
 =============== *this point analyzable =================
+fun (&value);
+========================================================
+------------------VAR_DECL : LHS2------------------
+------------------VAR_DECL : LHS2------------------
+=============== *this point analyzable =================
 changePtr (&localPtr);
+========================================================
+=============== *this point analyzable =================
+_1 = malloc (40);
 ========================================================
 =============== *this point analyzable =================
 _1 = malloc (40);
@@ -174,7 +177,7 @@ _5 = malloc (40);
 =============== The third stage : Start detection  =================
 [40;44m =======node_fun:main========= [0m
 [40;44m fucntion collect path  [0m
-[40;44m =======print_function_path main  function_call count: 3 level :0========  [0m
+[40;44m =======print_function_path main  function_call count: 4 level :0========  [0m
 [40;44m =======print_function_type 0  ========  [0m
 [40;42m =======pre add _ fucntion:free========= [0m
 [40;33m =======POP node_fun stack:free========= [0m
@@ -194,34 +197,34 @@ _5 = malloc (40);
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f78ea5a0900
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
+ <ssa_name 0x7f6f7c800cf0
+    type <pointer_type 0x7f6f7c814000
+        type <void_type 0x7f6f7c80df18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
+            pointer_to_this <pointer_type 0x7f6f7c814000>>
         public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
+        pointer_to_this <pointer_type 0x7f6f7c8199d8>>
    
     def_stmt _1 = malloc (40);
     version:1
-    ptr-info 0x7f78ea0be138>
- <ssa_name 0x7f78ea5a0900
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
+    ptr-info 0x7f6f7c31e1b0>
+ <ssa_name 0x7f6f7c800cf0
+    type <pointer_type 0x7f6f7c814000
+        type <void_type 0x7f6f7c80df18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
+            pointer_to_this <pointer_type 0x7f6f7c814000>>
         public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
+        pointer_to_this <pointer_type 0x7f6f7c8199d8>>
    
     def_stmt _1 = malloc (40);
     version:1
-    ptr-info 0x7f78ea0be138>
+    ptr-info 0x7f6f7c31e1b0>
 
  ================== pre trace ptable ================== 
 trace fucntion name:malloc 
@@ -232,28 +235,266 @@ is Reserved word function :malloc
  Start check Pointer Collect  
 
 ======================================================================
+dot graph entry changePtr
+dot graph target entry end
+
 _2 = (long int) _1;
 In function ‘main’:
 test.c:14:13: warning: use location
    14 |         int a = (int *)malloc(40);
       |             ^
-a_18 = (int) _2;
-test.c:14:13: warning: use location
-_3 = (long int) a_18;
-test.c:15:14: warning: use location
-   15 |         *ptr = a; //改變指標變數的值，即改變localPtr存放的值
-      |              ^
-_4 = (int *) _3;
-test.c:15:14: warning: use location
-*ptr_15(D) = _4;
-test.c:15:14: warning: use location
-# .MEM_24 = VDEF <.MEM_20(D)>
-_1 = malloc (40);
+dot graph target loc start # .MEM_24 = VDEF <.MEM_20(D)>
 _1 = malloc (40);
 test.c:14:24: warning: use location
    14 |         int a = (int *)malloc(40);
       |                        ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 3: _2 = (long int) _1;
+test.c:14:13: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |             ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_24 = VDEF <.MEM_20(D)>
+_1 = malloc (40);
+test.c:14:24: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |                        ^
+dot graph target loc end
+
+dot graph target basicblock start from changePtr basic block 3dot graph target basicblock en1
+
+dot graph stmt start _2 = (long int) _1;
+_1 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start _2 = (long int) _1;
+test.c:14:13: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |             ^
+dot graph stmt end
+
+dot graph entry changePtr
+dot graph target entry end
+
+a_18 = (int) _2;
+test.c:14:13: warning: use location
+dot graph target loc start # .MEM_24 = VDEF <.MEM_20(D)>
+_1 = malloc (40);
+test.c:14:24: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |                        ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 3: a_18 = (int) _2;
+test.c:14:13: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |             ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_24 = VDEF <.MEM_20(D)>
+_1 = malloc (40);
+test.c:14:24: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |                        ^
+dot graph target loc end
+
+dot graph target basicblock start from changePtr basic block 3dot graph target basicblock en1
+
+dot graph stmt start a_18 = (int) _2;
+_1 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start a_18 = (int) _2;
+test.c:14:13: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |             ^
+dot graph stmt end
+
+dot graph entry changePtr
+dot graph target entry end
+
+_3 = (long int) a_18;
+test.c:15:14: warning: use location
+   15 |         *ptr = a; //改變指標變數的值，即改變localPtr存放的值
+      |              ^
+dot graph target loc start # .MEM_24 = VDEF <.MEM_20(D)>
+_1 = malloc (40);
+test.c:14:24: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |                        ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 3: _3 = (long int) a_18;
+test.c:15:14: warning: use location
+   15 |         *ptr = a; //改變指標變數的值，即改變localPtr存放的值
+      |              ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_24 = VDEF <.MEM_20(D)>
+_1 = malloc (40);
+test.c:14:24: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |                        ^
+dot graph target loc end
+
+dot graph target basicblock start from changePtr basic block 3dot graph target basicblock en1
+
+dot graph stmt start _3 = (long int) a_18;
+_1 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start _3 = (long int) a_18;
+test.c:15:14: warning: use location
+   15 |         *ptr = a; //改變指標變數的值，即改變localPtr存放的值
+      |              ^
+dot graph stmt end
+
+dot graph entry changePtr
+dot graph target entry end
+
+_4 = (int *) _3;
+test.c:15:14: warning: use location
+dot graph target loc start # .MEM_24 = VDEF <.MEM_20(D)>
+_1 = malloc (40);
+test.c:14:24: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |                        ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 3: _4 = (int *) _3;
+test.c:15:14: warning: use location
+   15 |         *ptr = a; //改變指標變數的值，即改變localPtr存放的值
+      |              ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_24 = VDEF <.MEM_20(D)>
+_1 = malloc (40);
+test.c:14:24: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |                        ^
+dot graph target loc end
+
+dot graph target basicblock start from changePtr basic block 3dot graph target basicblock en1
+
+dot graph stmt start _4 = (int *) _3;
+_1 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start _4 = (int *) _3;
+test.c:15:14: warning: use location
+   15 |         *ptr = a; //改變指標變數的值，即改變localPtr存放的值
+      |              ^
+dot graph stmt end
+
+dot graph entry changePtr
+dot graph target entry end
+
+*ptr_15(D) = _4;
+test.c:15:14: warning: use location
+dot graph target loc start # .MEM_24 = VDEF <.MEM_20(D)>
+_1 = malloc (40);
+test.c:14:24: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |                        ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 3: *ptr_15(D) = _4;
+test.c:15:14: warning: use location
+   15 |         *ptr = a; //改變指標變數的值，即改變localPtr存放的值
+      |              ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_24 = VDEF <.MEM_20(D)>
+_1 = malloc (40);
+test.c:14:24: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |                        ^
+dot graph target loc end
+
+dot graph target basicblock start from changePtr basic block 3dot graph target basicblock en1
+
+dot graph stmt start *ptr_15(D) = _4;
+_1 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start *ptr_15(D) = _4;
+test.c:15:14: warning: use location
+   15 |         *ptr = a; //改變指標變數的值，即改變localPtr存放的值
+      |              ^
+dot graph stmt end
+
+# .MEM_24 = VDEF <.MEM_20(D)>
+_1 = malloc (40);
+dot graph entry changePtr
+dot graph target entry end
+
+_1 = malloc (40);
+test.c:14:24: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |                        ^
+dot graph target loc start # .MEM_24 = VDEF <.MEM_20(D)>
+_1 = malloc (40);
+test.c:14:24: warning: use location
+dot graph target loc en1
+
+dot graph target line desc form basic block 3: _1 = malloc (40);
+test.c:14:24: warning: use location
+dot graph target line desend
+
+dot graph target loc start # .MEM_24 = VDEF <.MEM_20(D)>
+_1 = malloc (40);
+test.c:14:24: warning: use location
+dot graph target loc end
+
+dot graph target basicblock start from changePtr basic block 3dot graph target basicblock en1
+
+dot graph stmt start _1 = malloc (40);
+_1 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start _1 = malloc (40);
+test.c:14:24: warning: use location
+dot graph stmt end
+
 this stmt call this function :malloc
+dot graph target basicblock start from changePtr basic block 3dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_181287172 dot graph subgraph  _2 = (long int) _1;
+_1 = malloc (40);
+dot graph subgrapend
+
+dot graph target basicblock start from changePtr basic block 3dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_444419767 dot graph subgraph  a_18 = (int) _2;
+_2 = (long int) _1;
+dot graph subgrapend
+
+dot graph target basicblock start from changePtr basic block 3dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1993886080 dot graph subgraph  _3 = (long int) a_18;
+a_18 = (int) _2;
+dot graph subgrapend
+
+dot graph target basicblock start from changePtr basic block 3dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1048551297 dot graph subgraph  _4 = (int *) _3;
+_3 = (long int) a_18;
+dot graph subgrapend
+
+dot graph target basicblock start from changePtr basic block 3dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1824120408 dot graph subgraph  *ptr_15(D) = _4;
+_4 = (int *) _3;
+dot graph subgrapend
+
+dot graph target basicblock start from changePtr basic block 3dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1328035719 dot graph subgraph  _1 = malloc (40);
+_1 = malloc (40);
+dot graph subgrapend
+
 
  ================== Start Looserules free Check ================== 
 
@@ -261,20 +502,20 @@ this stmt call this function :malloc
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f78ea5a0900
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
+ <ssa_name 0x7f6f7c800cf0
+    type <pointer_type 0x7f6f7c814000
+        type <void_type 0x7f6f7c80df18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
+            pointer_to_this <pointer_type 0x7f6f7c814000>>
         public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
+        pointer_to_this <pointer_type 0x7f6f7c8199d8>>
    
     def_stmt _1 = malloc (40);
     version:1
-    ptr-info 0x7f78ea0be138>
+    ptr-info 0x7f6f7c31e1b0>
 
  ================================================================= 
 
@@ -300,34 +541,34 @@ dot graph END
 dot graph START
 
 ======================================================================
- <ssa_name 0x7f78ea5a0a20
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
+ <ssa_name 0x7f6f7c800e10
+    type <pointer_type 0x7f6f7c814000
+        type <void_type 0x7f6f7c80df18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
+            pointer_to_this <pointer_type 0x7f6f7c814000>>
         public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
+        pointer_to_this <pointer_type 0x7f6f7c8199d8>>
    
     def_stmt _5 = malloc (40);
     version:5
-    ptr-info 0x7f78ea0be168>
- <ssa_name 0x7f78ea5a0a20
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
+    ptr-info 0x7f6f7c31e1e0>
+ <ssa_name 0x7f6f7c800e10
+    type <pointer_type 0x7f6f7c814000
+        type <void_type 0x7f6f7c80df18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
+            pointer_to_this <pointer_type 0x7f6f7c814000>>
         public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
+        pointer_to_this <pointer_type 0x7f6f7c8199d8>>
    
     def_stmt _5 = malloc (40);
     version:5
-    ptr-info 0x7f78ea0be168>
+    ptr-info 0x7f6f7c31e1e0>
 
  ================== pre trace ptable ================== 
 trace fucntion name:malloc 
@@ -338,24 +579,234 @@ is Reserved word function :malloc
  Start check Pointer Collect  
 
 ======================================================================
+dot graph entry changePtr
+dot graph target entry end
+
 _6 = (long int) _5;
 test.c:19:13: warning: use location
    19 |         int a2 = (int *)malloc(40);
       |             ^
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 4: _6 = (long int) _5;
+test.c:19:13: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |             ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+dot graph target loc end
+
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
+
+dot graph stmt start _6 = (long int) _5;
+_5 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start _6 = (long int) _5;
+test.c:19:13: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |             ^
+dot graph stmt end
+
+dot graph entry changePtr
+dot graph target entry end
+
 a2_13 = (int) _6;
 test.c:19:13: warning: use location
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 4: a2_13 = (int) _6;
+test.c:19:13: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |             ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+dot graph target loc end
+
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
+
+dot graph stmt start a2_13 = (int) _6;
+_5 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start a2_13 = (int) _6;
+test.c:19:13: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |             ^
+dot graph stmt end
+
+dot graph entry changePtr
+dot graph target entry end
+
 _7 = (long int) a2_13;
 test.c:21:14: warning: use location
    21 |         *ptr = a2;
       |              ^
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 4: _7 = (long int) a2_13;
+test.c:21:14: warning: use location
+   21 |         *ptr = a2;
+      |              ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+dot graph target loc end
+
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
+
+dot graph stmt start _7 = (long int) a2_13;
+_5 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start _7 = (long int) a2_13;
+test.c:21:14: warning: use location
+   21 |         *ptr = a2;
+      |              ^
+dot graph stmt end
+
+dot graph entry changePtr
+dot graph target entry end
+
 _8 = (int *) _7;
 test.c:21:14: warning: use location
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 4: _8 = (int *) _7;
+test.c:21:14: warning: use location
+   21 |         *ptr = a2;
+      |              ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+dot graph target loc end
+
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
+
+dot graph stmt start _8 = (int *) _7;
+_5 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start _8 = (int *) _7;
+test.c:21:14: warning: use location
+   21 |         *ptr = a2;
+      |              ^
+dot graph stmt end
+
+dot graph entry changePtr
+dot graph target entry end
+
 *ptr_15(D) = _8;
 test.c:21:14: warning: use location
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 4: *ptr_15(D) = _8;
+test.c:21:14: warning: use location
+   21 |         *ptr = a2;
+      |              ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+dot graph target loc end
+
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
+
+dot graph stmt start *ptr_15(D) = _8;
+_5 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start *ptr_15(D) = _8;
+test.c:21:14: warning: use location
+   21 |         *ptr = a2;
+      |              ^
+dot graph stmt end
+
+dot graph entry changePtr
+dot graph target entry end
+
 printf ("%d\n", a2_13);
 test.c:20:9: warning: use location
    20 |         printf("%d\n", a2); //經過changPtr函式，localPtr指標變數改指向
       |         ^
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 4: printf ("%d\n", a2_13);
+test.c:20:9: warning: use location
+   20 |         printf("%d\n", a2); //經過changPtr函式，localPtr指標變數改指向
+      |         ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+dot graph target loc end
+
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
+
+dot graph stmt start printf ("%d\n", a2_13);
+_5 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start printf ("%d\n", a2_13);
+test.c:20:9: warning: use location
+   20 |         printf("%d\n", a2); //經過changPtr函式，localPtr指標變數改指向
+      |         ^
+dot graph stmt end
+
 this stmt call this function :printf
 trace fucntion name:printf 
 
@@ -363,125 +814,80 @@ trace fucntion name:printf
 trace fucntion free:0 
 # .MEM_21 = VDEF <.MEM_20(D)>
 _5 = malloc (40);
+dot graph entry changePtr
+dot graph target entry end
+
 _5 = malloc (40);
 test.c:19:25: warning: use location
    19 |         int a2 = (int *)malloc(40);
       |                         ^
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+dot graph target loc en1
+
+dot graph target line desc form basic block 4: _5 = malloc (40);
+test.c:19:25: warning: use location
+dot graph target line desend
+
+dot graph target loc start # .MEM_21 = VDEF <.MEM_20(D)>
+_5 = malloc (40);
+test.c:19:25: warning: use location
+dot graph target loc end
+
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
+
+dot graph stmt start _5 = malloc (40);
+_5 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start _5 = malloc (40);
+test.c:19:25: warning: use location
+dot graph stmt end
+
 this stmt call this function :malloc
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
 
- ================== Start Looserules free Check ================== 
+dot graph arrowsubgraph cluster_2087448790 dot graph subgraph  _6 = (long int) _5;
+_5 = malloc (40);
+dot graph subgrapend
 
- ================== warring ================== 
-[40;35m   this module possiable false positives [0m
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
 
- ================== warring ================== 
- <ssa_name 0x7f78ea5a0a20
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
-            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
-   
-    def_stmt _5 = malloc (40);
-    version:5
-    ptr-info 0x7f78ea0be168>
-
- ================================================================= 
-
- ================== Start Use after free Check ================== 
-
-dot graph END
- 
- Finish check Pointer Collect  
-
-======================================================================
-[40;35m  	Looserules free count:0 [0m
-[40;31m  	free count:0 [0m
-
-======================================================================
-
-======================================================================
-[40;31m    no free stmt possible memory leak [0m
-
-======================================================================
-
-======================================================================
-
-dot graph START
-
-======================================================================
- <ssa_name 0x7f78ea5a0a20
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
-            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
-   
-    def_stmt _5 = malloc (40);
-    version:5
-    ptr-info 0x7f78ea0be168>
- <ssa_name 0x7f78ea5a0a20
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
-            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
-   
-    def_stmt _5 = malloc (40);
-    version:5
-    ptr-info 0x7f78ea0be168>
-
- ================== pre trace ptable ================== 
-trace fucntion name:malloc 
-
- ================== pre trace ptable finish================== 
-is Reserved word function :malloc
- 
- Start check Pointer Collect  
-
-======================================================================
+dot graph arrowsubgraph cluster_1048055055 dot graph subgraph  a2_13 = (int) _6;
 _6 = (long int) _5;
-test.c:19:13: warning: use location
-   19 |         int a2 = (int *)malloc(40);
-      |             ^
-a2_13 = (int) _6;
-test.c:19:13: warning: use location
-_7 = (long int) a2_13;
-test.c:21:14: warning: use location
-   21 |         *ptr = a2;
-      |              ^
-_8 = (int *) _7;
-test.c:21:14: warning: use location
-*ptr_15(D) = _8;
-test.c:21:14: warning: use location
-printf ("%d\n", a2_13);
-test.c:20:9: warning: use location
-   20 |         printf("%d\n", a2); //經過changPtr函式，localPtr指標變數改指向
-      |         ^
-this stmt call this function :printf
-trace fucntion name:printf 
+dot graph subgrapend
 
- ================== trace ================== 
-trace fucntion free:0 
-# .MEM_21 = VDEF <.MEM_20(D)>
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_135195625 dot graph subgraph  _7 = (long int) a2_13;
+a2_13 = (int) _6;
+dot graph subgrapend
+
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1365957848 dot graph subgraph  _8 = (int *) _7;
+_7 = (long int) a2_13;
+dot graph subgrapend
+
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_143777017 dot graph subgraph  *ptr_15(D) = _8;
+_8 = (int *) _7;
+dot graph subgrapend
+
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1079062025 dot graph subgraph  printf ("%d\n", a2_13);
+a2_13 = (int) _6;
+dot graph subgrapend
+
+dot graph target basicblock start from changePtr basic block 4dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1721189215 dot graph subgraph  _5 = malloc (40);
 _5 = malloc (40);
-_5 = malloc (40);
-test.c:19:25: warning: use location
-   19 |         int a2 = (int *)malloc(40);
-      |                         ^
-this stmt call this function :malloc
+dot graph subgrapend
+
 
  ================== Start Looserules free Check ================== 
 
@@ -489,20 +895,20 @@ this stmt call this function :malloc
 [40;35m   this module possiable false positives [0m
 
  ================== warring ================== 
- <ssa_name 0x7f78ea5a0a20
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
+ <ssa_name 0x7f6f7c800e10
+    type <pointer_type 0x7f6f7c814000
+        type <void_type 0x7f6f7c80df18 void VOID
             align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
+            pointer_to_this <pointer_type 0x7f6f7c814000>>
         public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
         align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
+        pointer_to_this <pointer_type 0x7f6f7c8199d8>>
    
     def_stmt _5 = malloc (40);
     version:5
-    ptr-info 0x7f78ea0be168>
+    ptr-info 0x7f6f7c31e1e0>
 
  ================================================================= 
 
@@ -525,95 +931,369 @@ dot graph END
 
 ======================================================================
 [40;33m =======POP node_fun stack:changePtr========= [0m
+[40;42m =======pre add _ fucntion:fun========= [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;44m =======print_function_path fun  function_call count: 1 level :1========  [0m
+[40;44m =======print_function_type 0  ========  [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;33m =======POP node_fun stack:malloc========= [0m
+[40;42m =======pre_check_funciton:fun========= [0m
+[40;42m =======start_check_funciton:fun========= [0m
+
+dot graph START
+
+======================================================================
+ <ssa_name 0x7f6f7c800ab0
+    type <pointer_type 0x7f6f7c814000
+        type <void_type 0x7f6f7c80df18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f6f7c814000>>
+        public unsigned DI
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f6f7c8199d8>>
+   
+    def_stmt _1 = malloc (40);
+    version:1
+    ptr-info 0x7f6f7c31e180>
+ <ssa_name 0x7f6f7c800ab0
+    type <pointer_type 0x7f6f7c814000
+        type <void_type 0x7f6f7c80df18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f6f7c814000>>
+        public unsigned DI
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f6f7c8199d8>>
+   
+    def_stmt _1 = malloc (40);
+    version:1
+    ptr-info 0x7f6f7c31e180>
+
+ ================== pre trace ptable ================== 
+trace fucntion name:malloc 
+
+ ================== pre trace ptable finish================== 
+is Reserved word function :malloc
+ 
+ Start check Pointer Collect  
+
+======================================================================
+dot graph entry fun
+dot graph target entry end
+
+_2 = (long int) _1;
+test.c:28:11: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |           ^
+dot graph target loc start # .MEM_8 = VDEF <.MEM_7(D)>
+_1 = malloc (40);
+test.c:28:20: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |                    ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: _2 = (long int) _1;
+test.c:28:11: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |           ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_8 = VDEF <.MEM_7(D)>
+_1 = malloc (40);
+test.c:28:20: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |                    ^
+dot graph target loc end
+
+dot graph target basicblock start from fun basic block 2dot graph target basicblock en1
+
+dot graph stmt start _2 = (long int) _1;
+_1 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start _2 = (long int) _1;
+test.c:28:11: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |           ^
+dot graph stmt end
+
+dot graph entry fun
+dot graph target entry end
+
+_3 = (int) _2;
+test.c:28:11: warning: use location
+dot graph target loc start # .MEM_8 = VDEF <.MEM_7(D)>
+_1 = malloc (40);
+test.c:28:20: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |                    ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: _3 = (int) _2;
+test.c:28:11: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |           ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_8 = VDEF <.MEM_7(D)>
+_1 = malloc (40);
+test.c:28:20: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |                    ^
+dot graph target loc end
+
+dot graph target basicblock start from fun basic block 2dot graph target basicblock en1
+
+dot graph stmt start _3 = (int) _2;
+_1 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start _3 = (int) _2;
+test.c:28:11: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |           ^
+dot graph stmt end
+
+dot graph entry fun
+dot graph target entry end
+
+*fptr_6(D) = _3;
+test.c:28:11: warning: use location
+dot graph target loc start # .MEM_8 = VDEF <.MEM_7(D)>
+_1 = malloc (40);
+test.c:28:20: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |                    ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: *fptr_6(D) = _3;
+test.c:28:11: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |           ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_8 = VDEF <.MEM_7(D)>
+_1 = malloc (40);
+test.c:28:20: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |                    ^
+dot graph target loc end
+
+dot graph target basicblock start from fun basic block 2dot graph target basicblock en1
+
+dot graph stmt start *fptr_6(D) = _3;
+_1 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start *fptr_6(D) = _3;
+test.c:28:11: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |           ^
+dot graph stmt end
+
+# .MEM_8 = VDEF <.MEM_7(D)>
+_1 = malloc (40);
+dot graph entry fun
+dot graph target entry end
+
+_1 = malloc (40);
+test.c:28:20: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |                    ^
+dot graph target loc start # .MEM_8 = VDEF <.MEM_7(D)>
+_1 = malloc (40);
+test.c:28:20: warning: use location
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: _1 = malloc (40);
+test.c:28:20: warning: use location
+dot graph target line desend
+
+dot graph target loc start # .MEM_8 = VDEF <.MEM_7(D)>
+_1 = malloc (40);
+test.c:28:20: warning: use location
+dot graph target loc end
+
+dot graph target basicblock start from fun basic block 2dot graph target basicblock en1
+
+dot graph stmt start _1 = malloc (40);
+_1 = malloc (40);
+dot graph stmt end
+
+dot graph stmt start _1 = malloc (40);
+test.c:28:20: warning: use location
+dot graph stmt end
+
+this stmt call this function :malloc
+dot graph target basicblock start from fun basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_101496717 dot graph subgraph  _2 = (long int) _1;
+_1 = malloc (40);
+dot graph subgrapend
+
+dot graph target basicblock start from fun basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_384584299 dot graph subgraph  _3 = (int) _2;
+_2 = (long int) _1;
+dot graph subgrapend
+
+dot graph target basicblock start from fun basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_189461668 dot graph subgraph  *fptr_6(D) = _3;
+_3 = (int) _2;
+dot graph subgrapend
+
+dot graph target basicblock start from fun basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_193385073 dot graph subgraph  _1 = malloc (40);
+_1 = malloc (40);
+dot graph subgrapend
+
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+ <ssa_name 0x7f6f7c800ab0
+    type <pointer_type 0x7f6f7c814000
+        type <void_type 0x7f6f7c80df18 void VOID
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+            pointer_to_this <pointer_type 0x7f6f7c814000>>
+        public unsigned DI
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f6f7c8199d8>>
+   
+    def_stmt _1 = malloc (40);
+    version:1
+    ptr-info 0x7f6f7c31e180>
+
+ ================================================================= 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+[40;33m =======POP node_fun stack:fun========= [0m
 [40;42m =======pre_check_funciton:main========= [0m
 [40;42m =======start_check_funciton:main========= [0m
 
 dot graph START
 
 ======================================================================
- <var_decl 0x7f78eae40b40 localPtr
-    type <pointer_type 0x7f78ea5b49d8
-        type <integer_type 0x7f78ea5ad5e8 int public SI
-            size <integer_cst 0x7f78ea598df8 constant 32>
-            unit-size <integer_cst 0x7f78ea598e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f78ea5ad5e8 precision:32 min <integer_cst 0x7f78ea598db0 -2147483648> max <integer_cst 0x7f78ea598dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f78ea5b49d8>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea0b09d8>>
-    addressable unsigned DI test.c:69:10 size <integer_cst 0x7f78ea598bb8 64> unit-size <integer_cst 0x7f78ea598bd0 8>
-    align:64 warn_if_not_align:0 context <function_decl 0x7f78ea0b1b00 main>>
+ <var_decl 0x7f6f7d0a0c60 value
+    type <integer_type 0x7f6f7c80d5e8 int public SI
+        size <integer_cst 0x7f6f7c7f8df8 constant 32>
+        unit-size <integer_cst 0x7f6f7c7f8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f6f7c80d5e8 precision:32 min <integer_cst 0x7f6f7c7f8db0 -2147483648> max <integer_cst 0x7f6f7c7f8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7f6f7c8149d8>>
+    addressable SI test.c:63:9 size <integer_cst 0x7f6f7c7f8df8 32> unit-size <integer_cst 0x7f6f7c7f8e10 4>
+    align:32 warn_if_not_align:0 context <function_decl 0x7f6f7c311c00 main> chain <var_decl 0x7f6f7d0a0bd0 localValue>>
 
  ================== this stmt hava call fucntion ================== 
- <var_decl 0x7f78eae40b40 localPtr
-    type <pointer_type 0x7f78ea5b49d8
-        type <integer_type 0x7f78ea5ad5e8 int public SI
-            size <integer_cst 0x7f78ea598df8 constant 32>
-            unit-size <integer_cst 0x7f78ea598e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f78ea5ad5e8 precision:32 min <integer_cst 0x7f78ea598db0 -2147483648> max <integer_cst 0x7f78ea598dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f78ea5b49d8>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea0b09d8>>
-    addressable unsigned DI test.c:69:10 size <integer_cst 0x7f78ea598bb8 64> unit-size <integer_cst 0x7f78ea598bd0 8>
-    align:64 warn_if_not_align:0 context <function_decl 0x7f78ea0b1b00 main>>
+ <var_decl 0x7f6f7d0a0c60 value
+    type <integer_type 0x7f6f7c80d5e8 int public SI
+        size <integer_cst 0x7f6f7c7f8df8 constant 32>
+        unit-size <integer_cst 0x7f6f7c7f8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f6f7c80d5e8 precision:32 min <integer_cst 0x7f6f7c7f8db0 -2147483648> max <integer_cst 0x7f6f7c7f8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7f6f7c8149d8>>
+    addressable SI test.c:63:9 size <integer_cst 0x7f6f7c7f8df8 32> unit-size <integer_cst 0x7f6f7c7f8e10 4>
+    align:32 warn_if_not_align:0 context <function_decl 0x7f6f7c311c00 main> chain <var_decl 0x7f6f7d0a0bd0 localValue>>
 is Other function 
  
  Start check Pointer Collect  
 
 ======================================================================
 # .MEM_7 = VDEF <.MEM_6>
-changePtr (&localPtr);
-changePtr (&localPtr);
-test.c:70:5: warning: use location
-   70 |     changePtr(&localPtr);
+fun (&value);
+dot graph entry main
+dot graph target entry end
+
+fun (&value);
+test.c:65:5: warning: use location
+   65 |     fun(ptr0);
       |     ^
-this stmt call this function :changePtr
-trace fucntion name:changePtr 
-[40;44m =======trace_function_path changePtr  function_call count: 2 level :0========  [0m
- <var_decl 0x7f78eae40b40 localPtr
-    type <pointer_type 0x7f78ea5b49d8
-        type <integer_type 0x7f78ea5ad5e8 int public SI
-            size <integer_cst 0x7f78ea598df8 constant 32>
-            unit-size <integer_cst 0x7f78ea598e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f78ea5ad5e8 precision:32 min <integer_cst 0x7f78ea598db0 -2147483648> max <integer_cst 0x7f78ea598dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f78ea5b49d8>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea0b09d8>>
-    addressable unsigned DI test.c:69:10 size <integer_cst 0x7f78ea598bb8 64> unit-size <integer_cst 0x7f78ea598bd0 8>
-    align:64 warn_if_not_align:0 context <function_decl 0x7f78ea0b1b00 main>>
-[40;36m ======= node_fun:changePtr========= [0m
-[40;36m ======= find relate stmt with localPtr ========= [0m
-[40;36m ======= relate node_fun argument:localPtr========= [0m
-[40;36m ======= relate gimple_assign_lhs:(null)========= [0m
-In function ‘changePtr’:
-test.c:15:14: warning: use location
-   15 |         *ptr = a; //改變指標變數的值，即改變localPtr存放的值
-      |              ^
-*ptr_15(D) = _4;
-test.c:15:14: warning: use location
-*ptr_15(D)
+dot graph target loc start # .MEM_7 = VDEF <.MEM_6>
+fun (&value);
+test.c:65:5: warning: use location
+dot graph target loc en1
 
- ================== warring ================== 
-[40;35m this pointer possible reference other address [0m
-[40;35m or assign other value [0m
+dot graph target line desc form basic block 2: fun (&value);
+test.c:65:5: warning: use location
+dot graph target line desend
 
- ================== warring ================== 
-[40;36m ======= relate node_fun argument:localPtr========= [0m
+dot graph target loc start # .MEM_7 = VDEF <.MEM_6>
+fun (&value);
+test.c:65:5: warning: use location
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph stmt start fun (&value);
+fun (&value);
+dot graph stmt end
+
+dot graph stmt start fun (&value);
+test.c:65:5: warning: use location
+dot graph stmt end
+
+this stmt call this function :fun
+trace fucntion name:fun 
+[40;44m =======trace_function_path fun  function_call count: 1 level :0========  [0m
+ <var_decl 0x7f6f7d0a0c60 value
+    type <integer_type 0x7f6f7c80d5e8 int public SI
+        size <integer_cst 0x7f6f7c7f8df8 constant 32>
+        unit-size <integer_cst 0x7f6f7c7f8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f6f7c80d5e8 precision:32 min <integer_cst 0x7f6f7c7f8db0 -2147483648> max <integer_cst 0x7f6f7c7f8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7f6f7c8149d8>>
+    addressable SI test.c:63:9 size <integer_cst 0x7f6f7c7f8df8 32> unit-size <integer_cst 0x7f6f7c7f8e10 4>
+    align:32 warn_if_not_align:0 context <function_decl 0x7f6f7c311c00 main> chain <var_decl 0x7f6f7d0a0bd0 localValue>>
+[40;36m ======= node_fun:fun========= [0m
+[40;36m ======= find relate stmt with value ========= [0m
+dot graph arrowdot graph start relate for1ID : 1999878472
+from fun basic block 2dot graph end relate end
+
+dot graph relate stmt start ID : 799195262 stmt(call) :_1 = malloc (40);
+In function ‘fun’:
+test.c:28:20: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |                    ^
+40
+dot graph relate end
+
+[40;36m ======= relate node_fun argument:value========= [0m
 [40;36m ======= relate gimple_assign_lhs:(null)========= [0m
-test.c:21:14: warning: use location
-   21 |         *ptr = a2;
-      |              ^
-*ptr_15(D) = _8;
-test.c:21:14: warning: use location
-*ptr_15(D)
+dot graph arrowdot graph start relate for1ID : 1999878472
+from fun basic block 2dot graph end relate end
+
+test.c:29:13: warning: use location
+   29 |     fptr[0] = 0;
+      |             ^
+*fptr_6(D) = 0;
+dot graph relate stmt start ID : 1709733596 stmt(LHS) :test.c:29:13: warning: use location
+*fptr_6(D)
+dot graph relate end
+
 
  ================== warring ================== 
 [40;35m this pointer possible reference other address [0m
@@ -621,62 +1301,383 @@ test.c:21:14: warning: use location
 
  ================== warring ================== 
 fucntion collect path finsh
-[40;42m =======pre add _ fucntion:printf========= [0m
-[40;46m =======add node_fun stack:printf========= [0m
 [40;42m =======pre add _ fucntion:malloc========= [0m
 [40;46m =======add node_fun stack:malloc========= [0m
 
  ================== trace ================== 
 trace fucntion free:0 
 # .MEM_7 = VDEF <.MEM_6>
-changePtr (&localPtr);
-changePtr (&localPtr);
+fun (&value);
+dot graph entry main
+dot graph target entry end
+
+fun (&value);
 In function ‘main’:
-test.c:70:5: warning: use location
-   70 |     changePtr(&localPtr);
+test.c:65:5: warning: use location
+   65 |     fun(ptr0);
       |     ^
-this stmt call this function :changePtr
-trace fucntion name:changePtr 
-[40;44m =======trace_function_path changePtr  function_call count: 2 level :0========  [0m
- <var_decl 0x7f78eae40b40 localPtr
-    type <pointer_type 0x7f78ea5b49d8
-        type <integer_type 0x7f78ea5ad5e8 int public SI
-            size <integer_cst 0x7f78ea598df8 constant 32>
-            unit-size <integer_cst 0x7f78ea598e10 constant 4>
-            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f78ea5ad5e8 precision:32 min <integer_cst 0x7f78ea598db0 -2147483648> max <integer_cst 0x7f78ea598dc8 2147483647>
-            pointer_to_this <pointer_type 0x7f78ea5b49d8>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea0b09d8>>
-    addressable unsigned DI test.c:69:10 size <integer_cst 0x7f78ea598bb8 64> unit-size <integer_cst 0x7f78ea598bd0 8>
-    align:64 warn_if_not_align:0 context <function_decl 0x7f78ea0b1b00 main>>
-[40;36m ======= node_fun:changePtr========= [0m
-[40;36m ======= find relate stmt with localPtr ========= [0m
-[40;36m ======= relate node_fun argument:localPtr========= [0m
+dot graph target loc start # .MEM_7 = VDEF <.MEM_6>
+fun (&value);
+test.c:65:5: warning: use location
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: fun (&value);
+test.c:65:5: warning: use location
+dot graph target line desend
+
+dot graph target loc start # .MEM_7 = VDEF <.MEM_6>
+fun (&value);
+test.c:65:5: warning: use location
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph stmt start fun (&value);
+fun (&value);
+dot graph stmt end
+
+dot graph stmt start fun (&value);
+test.c:65:5: warning: use location
+dot graph stmt end
+
+this stmt call this function :fun
+trace fucntion name:fun 
+[40;44m =======trace_function_path fun  function_call count: 1 level :0========  [0m
+ <var_decl 0x7f6f7d0a0c60 value
+    type <integer_type 0x7f6f7c80d5e8 int public SI
+        size <integer_cst 0x7f6f7c7f8df8 constant 32>
+        unit-size <integer_cst 0x7f6f7c7f8e10 constant 4>
+        align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f6f7c80d5e8 precision:32 min <integer_cst 0x7f6f7c7f8db0 -2147483648> max <integer_cst 0x7f6f7c7f8dc8 2147483647>
+        pointer_to_this <pointer_type 0x7f6f7c8149d8>>
+    addressable SI test.c:63:9 size <integer_cst 0x7f6f7c7f8df8 32> unit-size <integer_cst 0x7f6f7c7f8e10 4>
+    align:32 warn_if_not_align:0 context <function_decl 0x7f6f7c311c00 main> chain <var_decl 0x7f6f7d0a0bd0 localValue>>
+[40;36m ======= node_fun:fun========= [0m
+[40;36m ======= find relate stmt with value ========= [0m
+dot graph arrowdot graph start relate for1ID : 1242900108
+from fun basic block 2dot graph end relate end
+
+dot graph relate stmt start ID : 929815657 stmt(call) :_1 = malloc (40);
+In function ‘fun’:
+test.c:28:20: warning: use location
+   28 |     *fptr = (int *)malloc(40); //指標指向的值改成5，即value變成5
+      |                    ^
+40
+dot graph relate end
+
+[40;36m ======= relate node_fun argument:value========= [0m
 [40;36m ======= relate gimple_assign_lhs:(null)========= [0m
-In function ‘changePtr’:
-test.c:15:14: warning: use location
-   15 |         *ptr = a; //改變指標變數的值，即改變localPtr存放的值
-      |              ^
-*ptr_15(D) = _4;
-test.c:15:14: warning: use location
-*ptr_15(D)
+dot graph arrowdot graph start relate for1ID : 1242900108
+from fun basic block 2dot graph end relate end
+
+test.c:29:13: warning: use location
+   29 |     fptr[0] = 0;
+      |             ^
+*fptr_6(D) = 0;
+dot graph relate stmt start ID : 1156978098 stmt(LHS) :test.c:29:13: warning: use location
+*fptr_6(D)
+dot graph relate end
+
 
  ================== warring ================== 
 [40;35m this pointer possible reference other address [0m
 [40;35m or assign other value [0m
 
  ================== warring ================== 
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;46m =======add node_fun stack:malloc========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+dot graph entry main
+dot graph target entry end
+
+_1 = value;
+In function ‘main’:
+test.c:66:5: warning: use location
+   66 |     printf("%d",*ptr0);
+      |     ^
+dot graph target loc start # .MEM_7 = VDEF <.MEM_6>
+fun (&value);
+test.c:65:5: warning: use location
+   65 |     fun(ptr0);
+      |     ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: _1 = value;
+test.c:66:5: warning: use location
+   66 |     printf("%d",*ptr0);
+      |     ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_7 = VDEF <.MEM_6>
+fun (&value);
+test.c:65:5: warning: use location
+   65 |     fun(ptr0);
+      |     ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph stmt start _1 = value;
+fun (&value);
+dot graph stmt end
+
+dot graph stmt start _1 = value;
+test.c:66:5: warning: use location
+   66 |     printf("%d",*ptr0);
+      |     ^
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+printf ("%d", _1);
+test.c:66:5: warning: use location
+dot graph target loc start # .MEM_7 = VDEF <.MEM_6>
+fun (&value);
+test.c:65:5: warning: use location
+   65 |     fun(ptr0);
+      |     ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: printf ("%d", _1);
+test.c:66:5: warning: use location
+   66 |     printf("%d",*ptr0);
+      |     ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_7 = VDEF <.MEM_6>
+fun (&value);
+test.c:65:5: warning: use location
+   65 |     fun(ptr0);
+      |     ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph stmt start printf ("%d", _1);
+fun (&value);
+dot graph stmt end
+
+dot graph stmt start printf ("%d", _1);
+test.c:66:5: warning: use location
+   66 |     printf("%d",*ptr0);
+      |     ^
+dot graph stmt end
+
+this stmt call this function :printf
+trace fucntion name:printf 
+
+ ================== trace ================== 
+trace fucntion free:0 
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_2106186044 dot graph subgraph  fun (&value);
+dot graph subgrapend
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_2108770452 dot graph subgraph  fun (&value);
+dot graph subgrapend
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1829541588 dot graph subgraph  _1 = value;
+dot graph subgrapend
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_795904171 dot graph subgraph  printf ("%d", _1);
+_1 = value;
+dot graph subgrapend
+
+dot graph start relate for1ID : 1999878472
+from fun basic block 2dot graph end relate end
+
+subgraph cluster_1890016503 dot graph subgraph  start ID : 1709733596 stmt(relate) ， Tree ID : 1999878472 : *fptr_6(D) = 0;
+test.c:29:13: warning: use location
+   29 |     fptr[0] = 0;
+      |             ^
+dot graph subgrapend
+
+dot graph start relate for1ID : 1242900108
+from fun basic block 2dot graph end relate end
+
+subgraph cluster_887324741 dot graph subgraph  start ID : 1156978098 stmt(relate) ， Tree ID : 1242900108 : *fptr_6(D) = 0;
+test.c:29:13: warning: use location
+dot graph subgrapend
+
+
+ ================== Start Looserules free Check ================== 
+
+ ================== warring ================== 
+[40;35m   this module possiable false positives [0m
+
+ ================== warring ================== 
+
+ ================== Start Use after free Check ================== 
+
+dot graph END
+ 
+ Finish check Pointer Collect  
+
+======================================================================
+[40;35m  	Looserules free count:0 [0m
+[40;31m  	free count:0 [0m
+
+======================================================================
+
+======================================================================
+[40;31m    no free stmt possible memory leak [0m
+
+======================================================================
+
+======================================================================
+
+dot graph START
+
+======================================================================
+ <var_decl 0x7f6f7d0a0b40 localPtr
+    type <pointer_type 0x7f6f7c8149d8
+        type <integer_type 0x7f6f7c80d5e8 int public SI
+            size <integer_cst 0x7f6f7c7f8df8 constant 32>
+            unit-size <integer_cst 0x7f6f7c7f8e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f6f7c80d5e8 precision:32 min <integer_cst 0x7f6f7c7f8db0 -2147483648> max <integer_cst 0x7f6f7c7f8dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f6f7c8149d8>>
+        public unsigned DI
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f6f7c3109d8>>
+    addressable unsigned DI test.c:69:10 size <integer_cst 0x7f6f7c7f8bb8 64> unit-size <integer_cst 0x7f6f7c7f8bd0 8>
+    align:64 warn_if_not_align:0 context <function_decl 0x7f6f7c311c00 main>>
+
+ ================== this stmt hava call fucntion ================== 
+ <var_decl 0x7f6f7d0a0b40 localPtr
+    type <pointer_type 0x7f6f7c8149d8
+        type <integer_type 0x7f6f7c80d5e8 int public SI
+            size <integer_cst 0x7f6f7c7f8df8 constant 32>
+            unit-size <integer_cst 0x7f6f7c7f8e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f6f7c80d5e8 precision:32 min <integer_cst 0x7f6f7c7f8db0 -2147483648> max <integer_cst 0x7f6f7c7f8dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f6f7c8149d8>>
+        public unsigned DI
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f6f7c3109d8>>
+    addressable unsigned DI test.c:69:10 size <integer_cst 0x7f6f7c7f8bb8 64> unit-size <integer_cst 0x7f6f7c7f8bd0 8>
+    align:64 warn_if_not_align:0 context <function_decl 0x7f6f7c311c00 main>>
+is Other function 
+ 
+ Start check Pointer Collect  
+
+======================================================================
+# .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+dot graph entry main
+dot graph target entry end
+
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+   70 |     changePtr(&localPtr);
+      |     ^
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: changePtr (&localPtr);
+test.c:70:5: warning: use location
+dot graph target line desend
+
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph stmt start changePtr (&localPtr);
+changePtr (&localPtr);
+dot graph stmt end
+
+dot graph stmt start changePtr (&localPtr);
+test.c:70:5: warning: use location
+dot graph stmt end
+
+this stmt call this function :changePtr
+trace fucntion name:changePtr 
+[40;44m =======trace_function_path changePtr  function_call count: 2 level :0========  [0m
+ <var_decl 0x7f6f7d0a0b40 localPtr
+    type <pointer_type 0x7f6f7c8149d8
+        type <integer_type 0x7f6f7c80d5e8 int public SI
+            size <integer_cst 0x7f6f7c7f8df8 constant 32>
+            unit-size <integer_cst 0x7f6f7c7f8e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f6f7c80d5e8 precision:32 min <integer_cst 0x7f6f7c7f8db0 -2147483648> max <integer_cst 0x7f6f7c7f8dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f6f7c8149d8>>
+        public unsigned DI
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f6f7c3109d8>>
+    addressable unsigned DI test.c:69:10 size <integer_cst 0x7f6f7c7f8bb8 64> unit-size <integer_cst 0x7f6f7c7f8bd0 8>
+    align:64 warn_if_not_align:0 context <function_decl 0x7f6f7c311c00 main>>
+[40;36m ======= node_fun:changePtr========= [0m
+[40;36m ======= find relate stmt with localPtr ========= [0m
+dot graph arrowdot graph start relate for1ID : 977928335
+from changePtr basic block 3dot graph end relate end
+
+dot graph relate stmt start ID : 2115102210 stmt(call) :_1 = malloc (40);
+In function ‘changePtr’:
+test.c:14:24: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |                        ^
+40
+dot graph relate end
+
 [40;36m ======= relate node_fun argument:localPtr========= [0m
 [40;36m ======= relate gimple_assign_lhs:(null)========= [0m
+dot graph arrowdot graph start relate for1ID : 977928335
+from changePtr basic block 3dot graph end relate end
+
+test.c:15:14: warning: use location
+   15 |         *ptr = a; //改變指標變數的值，即改變localPtr存放的值
+      |              ^
+*ptr_15(D) = _4;
+dot graph relate stmt start ID : 1068611913 stmt(LHS) :test.c:15:14: warning: use location
+*ptr_15(D)
+dot graph relate end
+
+
+ ================== warring ================== 
+[40;35m this pointer possible reference other address [0m
+[40;35m or assign other value [0m
+
+ ================== warring ================== 
+dot graph arrowdot graph start relate for1ID : 977928335
+from changePtr basic block 4dot graph end relate end
+
+dot graph relate stmt start ID : 1422348102 stmt(call) :_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+40
+dot graph relate end
+
+[40;36m ======= relate node_fun argument:localPtr========= [0m
+[40;36m ======= relate gimple_assign_lhs:(null)========= [0m
+dot graph arrowdot graph start relate for1ID : 977928335
+from changePtr basic block 4dot graph end relate end
+
 test.c:21:14: warning: use location
    21 |         *ptr = a2;
       |              ^
 *ptr_15(D) = _8;
-test.c:21:14: warning: use location
+dot graph relate stmt start ID : 1961504642 stmt(LHS) :test.c:21:14: warning: use location
 *ptr_15(D)
+dot graph relate end
+
 
  ================== warring ================== 
 [40;35m this pointer possible reference other address [0m
@@ -691,34 +1692,385 @@ fucntion collect path finsh
 
  ================== trace ================== 
 trace fucntion free:0 
-_1 = localPtr;
+# .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+dot graph entry main
+dot graph target entry end
+
+changePtr (&localPtr);
+In function ‘main’:
+test.c:70:5: warning: use location
+   70 |     changePtr(&localPtr);
+      |     ^
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: changePtr (&localPtr);
+test.c:70:5: warning: use location
+dot graph target line desend
+
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph stmt start changePtr (&localPtr);
+changePtr (&localPtr);
+dot graph stmt end
+
+dot graph stmt start changePtr (&localPtr);
+test.c:70:5: warning: use location
+dot graph stmt end
+
+this stmt call this function :changePtr
+trace fucntion name:changePtr 
+[40;44m =======trace_function_path changePtr  function_call count: 2 level :0========  [0m
+ <var_decl 0x7f6f7d0a0b40 localPtr
+    type <pointer_type 0x7f6f7c8149d8
+        type <integer_type 0x7f6f7c80d5e8 int public SI
+            size <integer_cst 0x7f6f7c7f8df8 constant 32>
+            unit-size <integer_cst 0x7f6f7c7f8e10 constant 4>
+            align:32 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f6f7c80d5e8 precision:32 min <integer_cst 0x7f6f7c7f8db0 -2147483648> max <integer_cst 0x7f6f7c7f8dc8 2147483647>
+            pointer_to_this <pointer_type 0x7f6f7c8149d8>>
+        public unsigned DI
+        size <integer_cst 0x7f6f7c7f8bb8 constant 64>
+        unit-size <integer_cst 0x7f6f7c7f8bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f6f7c3109d8>>
+    addressable unsigned DI test.c:69:10 size <integer_cst 0x7f6f7c7f8bb8 64> unit-size <integer_cst 0x7f6f7c7f8bd0 8>
+    align:64 warn_if_not_align:0 context <function_decl 0x7f6f7c311c00 main>>
+[40;36m ======= node_fun:changePtr========= [0m
+[40;36m ======= find relate stmt with localPtr ========= [0m
+dot graph arrowdot graph start relate for1ID : 2117163210
+from changePtr basic block 3dot graph end relate end
+
+dot graph relate stmt start ID : 1098984863 stmt(call) :_1 = malloc (40);
+In function ‘changePtr’:
+test.c:14:24: warning: use location
+   14 |         int a = (int *)malloc(40);
+      |                        ^
+40
+dot graph relate end
+
+[40;36m ======= relate node_fun argument:localPtr========= [0m
+[40;36m ======= relate gimple_assign_lhs:(null)========= [0m
+dot graph arrowdot graph start relate for1ID : 2117163210
+from changePtr basic block 3dot graph end relate end
+
+test.c:15:14: warning: use location
+   15 |         *ptr = a; //改變指標變數的值，即改變localPtr存放的值
+      |              ^
+*ptr_15(D) = _4;
+dot graph relate stmt start ID : 1142056714 stmt(LHS) :test.c:15:14: warning: use location
+*ptr_15(D)
+dot graph relate end
+
+
+ ================== warring ================== 
+[40;35m this pointer possible reference other address [0m
+[40;35m or assign other value [0m
+
+ ================== warring ================== 
+dot graph arrowdot graph start relate for1ID : 2117163210
+from changePtr basic block 4dot graph end relate end
+
+dot graph relate stmt start ID : 2057128352 stmt(call) :_5 = malloc (40);
+test.c:19:25: warning: use location
+   19 |         int a2 = (int *)malloc(40);
+      |                         ^
+40
+dot graph relate end
+
+[40;36m ======= relate node_fun argument:localPtr========= [0m
+[40;36m ======= relate gimple_assign_lhs:(null)========= [0m
+dot graph arrowdot graph start relate for1ID : 2117163210
+from changePtr basic block 4dot graph end relate end
+
+test.c:21:14: warning: use location
+   21 |         *ptr = a2;
+      |              ^
+*ptr_15(D) = _8;
+dot graph relate stmt start ID : 2147039918 stmt(LHS) :test.c:21:14: warning: use location
+*ptr_15(D)
+dot graph relate end
+
+
+ ================== warring ================== 
+[40;35m this pointer possible reference other address [0m
+[40;35m or assign other value [0m
+
+ ================== warring ================== 
+fucntion collect path finsh
+[40;42m =======pre add _ fucntion:printf========= [0m
+[40;46m =======add node_fun stack:printf========= [0m
+[40;42m =======pre add _ fucntion:malloc========= [0m
+[40;46m =======add node_fun stack:malloc========= [0m
+
+ ================== trace ================== 
+trace fucntion free:0 
+dot graph entry main
+dot graph target entry end
+
+_2 = localPtr;
 In function ‘main’:
 test.c:71:5: warning: use location
    71 |     printf("%d\n", *localPtr); //經過changPtr函式，localPtr指標變數改指向
       |     ^
-_2 = *_1;
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+   70 |     changePtr(&localPtr);
+      |     ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: _2 = localPtr;
 test.c:71:5: warning: use location
-printf ("%d\n", _2);
+   71 |     printf("%d\n", *localPtr); //經過changPtr函式，localPtr指標變數改指向
+      |     ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+   70 |     changePtr(&localPtr);
+      |     ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph stmt start _2 = localPtr;
+changePtr (&localPtr);
+dot graph stmt end
+
+dot graph stmt start _2 = localPtr;
 test.c:71:5: warning: use location
+   71 |     printf("%d\n", *localPtr); //經過changPtr函式，localPtr指標變數改指向
+      |     ^
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+_3 = *_2;
+test.c:71:5: warning: use location
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+   70 |     changePtr(&localPtr);
+      |     ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: _3 = *_2;
+test.c:71:5: warning: use location
+   71 |     printf("%d\n", *localPtr); //經過changPtr函式，localPtr指標變數改指向
+      |     ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+   70 |     changePtr(&localPtr);
+      |     ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph stmt start _3 = *_2;
+changePtr (&localPtr);
+dot graph stmt end
+
+dot graph stmt start _3 = *_2;
+test.c:71:5: warning: use location
+   71 |     printf("%d\n", *localPtr); //經過changPtr函式，localPtr指標變數改指向
+      |     ^
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+printf ("%d\n", _3);
+test.c:71:5: warning: use location
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+   70 |     changePtr(&localPtr);
+      |     ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: printf ("%d\n", _3);
+test.c:71:5: warning: use location
+   71 |     printf("%d\n", *localPtr); //經過changPtr函式，localPtr指標變數改指向
+      |     ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+   70 |     changePtr(&localPtr);
+      |     ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph stmt start printf ("%d\n", _3);
+changePtr (&localPtr);
+dot graph stmt end
+
+dot graph stmt start printf ("%d\n", _3);
+test.c:71:5: warning: use location
+   71 |     printf("%d\n", *localPtr); //經過changPtr函式，localPtr指標變數改指向
+      |     ^
+dot graph stmt end
+
 this stmt call this function :printf
 trace fucntion name:printf 
 
  ================== trace ================== 
 trace fucntion free:0 
-_3 = localPtr;
+dot graph entry main
+dot graph target entry end
+
+_4 = localPtr;
 test.c:72:5: warning: use location
    72 |     free(localPtr);
       |     ^
-free (_3);
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+   70 |     changePtr(&localPtr);
+      |     ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: _4 = localPtr;
 test.c:72:5: warning: use location
+   72 |     free(localPtr);
+      |     ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+   70 |     changePtr(&localPtr);
+      |     ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph stmt start _4 = localPtr;
+changePtr (&localPtr);
+dot graph stmt end
+
+dot graph stmt start _4 = localPtr;
+test.c:72:5: warning: use location
+   72 |     free(localPtr);
+      |     ^
+dot graph stmt end
+
+dot graph entry main
+dot graph target entry end
+
+free (_4);
+test.c:72:5: warning: use location
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+   70 |     changePtr(&localPtr);
+      |     ^
+dot graph target loc en1
+
+dot graph target line desc form basic block 2: free (_4);
+test.c:72:5: warning: use location
+   72 |     free(localPtr);
+      |     ^
+dot graph target line desend
+
+dot graph target loc start # .MEM_11 = VDEF <.MEM_10>
+changePtr (&localPtr);
+test.c:70:5: warning: use location
+   70 |     changePtr(&localPtr);
+      |     ^
+dot graph target loc end
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph stmt start free (_4);
+changePtr (&localPtr);
+dot graph stmt end
+
+dot graph stmt start free (_4);
+test.c:72:5: warning: use location
+   72 |     free(localPtr);
+      |     ^
+dot graph stmt end
+
+dot graph target color descgreendot graph target color desend
+
 this stmt call this function :free
 
  ================== find free stmt ================== 
-free (_3);
+free (_4);
 test.c:72:5: warning: use location
 [40;32m    HAS FREE STMT count:1 name:free [0m
 
  ================== find free stmt ================== 
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1277252339 dot graph subgraph  changePtr (&localPtr);
+dot graph subgrapend
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_1275602553 dot graph subgraph  changePtr (&localPtr);
+dot graph subgrapend
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_143333288 dot graph subgraph  _2 = localPtr;
+dot graph subgrapend
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_208830717 dot graph subgraph  _3 = *_2;
+_2 = localPtr;
+dot graph subgrapend
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_849308120 dot graph subgraph  printf ("%d\n", _3);
+_3 = *_2;
+dot graph subgrapend
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_244830005 dot graph subgraph  _4 = localPtr;
+dot graph subgrapend
+
+dot graph target basicblock start from main basic block 2dot graph target basicblock en1
+
+dot graph arrowsubgraph cluster_593415016 dot graph subgraph  free (_4);
+_4 = localPtr;
+dot graph subgrapend
+
+dot graph start relate for1ID : 977928335
+from changePtr basic block 4dot graph end relate end
+
+subgraph cluster_1038769788 dot graph subgraph  start ID : 1961504642 stmt(relate) ， Tree ID : 977928335 : *ptr_15(D) = _8;
+test.c:21:14: warning: use location
+   21 |         *ptr = a2;
+      |              ^
+dot graph subgrapend
+
+dot graph start relate for1ID : 2117163210
+from changePtr basic block 4dot graph end relate end
+
+subgraph cluster_438215078 dot graph subgraph  start ID : 2147039918 stmt(relate) ， Tree ID : 2117163210 : *ptr_15(D) = _8;
+test.c:21:14: warning: use location
+dot graph subgrapend
+
 
  ================== Start Looserules free Check ================== 
 
@@ -747,351 +2099,6 @@ dot graph END
 
 ======================================================================
 [40;33m =======POP node_fun stack:main========= [0m
-[40;44m =======node_fun:changePtr========= [0m
-[40;44m fucntion collect path  [0m
-[40;44m =======print_function_path changePtr  function_call count: 2 level :0========  [0m
-[40;44m =======print_function_type 0  ========  [0m
-[40;42m =======pre add _ fucntion:printf========= [0m
-[40;33m =======POP node_fun stack:printf========= [0m
-[40;42m =======pre add _ fucntion:malloc========= [0m
-[40;33m =======POP node_fun stack:malloc========= [0m
-[40;42m =======pre_check_funciton:changePtr========= [0m
-[40;42m =======start_check_funciton:changePtr========= [0m
-
-dot graph START
-
-======================================================================
- <ssa_name 0x7f78ea5a0900
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
-            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
-   
-    def_stmt _1 = malloc (40);
-    version:1
-    ptr-info 0x7f78ea0be138>
- <ssa_name 0x7f78ea5a0900
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
-            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
-   
-    def_stmt _1 = malloc (40);
-    version:1
-    ptr-info 0x7f78ea0be138>
-
- ================== pre trace ptable ================== 
-trace fucntion name:malloc 
-
- ================== pre trace ptable finish================== 
-is Reserved word function :malloc
- 
- Start check Pointer Collect  
-
-======================================================================
-_2 = (long int) _1;
-In function ‘changePtr’:
-test.c:14:13: warning: use location
-   14 |         int a = (int *)malloc(40);
-      |             ^
-a_18 = (int) _2;
-test.c:14:13: warning: use location
-_3 = (long int) a_18;
-test.c:15:14: warning: use location
-   15 |         *ptr = a; //改變指標變數的值，即改變localPtr存放的值
-      |              ^
-_4 = (int *) _3;
-test.c:15:14: warning: use location
-*ptr_15(D) = _4;
-test.c:15:14: warning: use location
-# .MEM_24 = VDEF <.MEM_20(D)>
-_1 = malloc (40);
-_1 = malloc (40);
-test.c:14:24: warning: use location
-   14 |         int a = (int *)malloc(40);
-      |                        ^
-this stmt call this function :malloc
-
- ================== Start Looserules free Check ================== 
-
- ================== warring ================== 
-[40;35m   this module possiable false positives [0m
-
- ================== warring ================== 
- <ssa_name 0x7f78ea5a0900
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
-            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
-   
-    def_stmt _1 = malloc (40);
-    version:1
-    ptr-info 0x7f78ea0be138>
-
- ================================================================= 
-
- ================== Start Use after free Check ================== 
-
-dot graph END
- 
- Finish check Pointer Collect  
-
-======================================================================
-[40;35m  	Looserules free count:0 [0m
-[40;31m  	free count:0 [0m
-
-======================================================================
-
-======================================================================
-[40;31m    no free stmt possible memory leak [0m
-
-======================================================================
-
-======================================================================
-
-dot graph START
-
-======================================================================
- <ssa_name 0x7f78ea5a0a20
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
-            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
-   
-    def_stmt _5 = malloc (40);
-    version:5
-    ptr-info 0x7f78ea0be168>
- <ssa_name 0x7f78ea5a0a20
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
-            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
-   
-    def_stmt _5 = malloc (40);
-    version:5
-    ptr-info 0x7f78ea0be168>
-
- ================== pre trace ptable ================== 
-trace fucntion name:malloc 
-
- ================== pre trace ptable finish================== 
-is Reserved word function :malloc
- 
- Start check Pointer Collect  
-
-======================================================================
-_6 = (long int) _5;
-test.c:19:13: warning: use location
-   19 |         int a2 = (int *)malloc(40);
-      |             ^
-a2_13 = (int) _6;
-test.c:19:13: warning: use location
-_7 = (long int) a2_13;
-test.c:21:14: warning: use location
-   21 |         *ptr = a2;
-      |              ^
-_8 = (int *) _7;
-test.c:21:14: warning: use location
-*ptr_15(D) = _8;
-test.c:21:14: warning: use location
-printf ("%d\n", a2_13);
-test.c:20:9: warning: use location
-   20 |         printf("%d\n", a2); //經過changPtr函式，localPtr指標變數改指向
-      |         ^
-this stmt call this function :printf
-trace fucntion name:printf 
-
- ================== trace ================== 
-trace fucntion free:0 
-# .MEM_21 = VDEF <.MEM_20(D)>
-_5 = malloc (40);
-_5 = malloc (40);
-test.c:19:25: warning: use location
-   19 |         int a2 = (int *)malloc(40);
-      |                         ^
-this stmt call this function :malloc
-
- ================== Start Looserules free Check ================== 
-
- ================== warring ================== 
-[40;35m   this module possiable false positives [0m
-
- ================== warring ================== 
- <ssa_name 0x7f78ea5a0a20
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
-            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
-   
-    def_stmt _5 = malloc (40);
-    version:5
-    ptr-info 0x7f78ea0be168>
-
- ================================================================= 
-
- ================== Start Use after free Check ================== 
-
-dot graph END
- 
- Finish check Pointer Collect  
-
-======================================================================
-[40;35m  	Looserules free count:0 [0m
-[40;31m  	free count:0 [0m
-
-======================================================================
-
-======================================================================
-[40;31m    no free stmt possible memory leak [0m
-
-======================================================================
-
-======================================================================
-
-dot graph START
-
-======================================================================
- <ssa_name 0x7f78ea5a0a20
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
-            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
-   
-    def_stmt _5 = malloc (40);
-    version:5
-    ptr-info 0x7f78ea0be168>
- <ssa_name 0x7f78ea5a0a20
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
-            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
-   
-    def_stmt _5 = malloc (40);
-    version:5
-    ptr-info 0x7f78ea0be168>
-
- ================== pre trace ptable ================== 
-trace fucntion name:malloc 
-
- ================== pre trace ptable finish================== 
-is Reserved word function :malloc
- 
- Start check Pointer Collect  
-
-======================================================================
-_6 = (long int) _5;
-test.c:19:13: warning: use location
-   19 |         int a2 = (int *)malloc(40);
-      |             ^
-a2_13 = (int) _6;
-test.c:19:13: warning: use location
-_7 = (long int) a2_13;
-test.c:21:14: warning: use location
-   21 |         *ptr = a2;
-      |              ^
-_8 = (int *) _7;
-test.c:21:14: warning: use location
-*ptr_15(D) = _8;
-test.c:21:14: warning: use location
-printf ("%d\n", a2_13);
-test.c:20:9: warning: use location
-   20 |         printf("%d\n", a2); //經過changPtr函式，localPtr指標變數改指向
-      |         ^
-this stmt call this function :printf
-trace fucntion name:printf 
-
- ================== trace ================== 
-trace fucntion free:0 
-# .MEM_21 = VDEF <.MEM_20(D)>
-_5 = malloc (40);
-_5 = malloc (40);
-test.c:19:25: warning: use location
-   19 |         int a2 = (int *)malloc(40);
-      |                         ^
-this stmt call this function :malloc
-
- ================== Start Looserules free Check ================== 
-
- ================== warring ================== 
-[40;35m   this module possiable false positives [0m
-
- ================== warring ================== 
- <ssa_name 0x7f78ea5a0a20
-    type <pointer_type 0x7f78ea5b4000
-        type <void_type 0x7f78ea5adf18 void VOID
-            align:8 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-            pointer_to_this <pointer_type 0x7f78ea5b4000>>
-        public unsigned DI
-        size <integer_cst 0x7f78ea598bb8 constant 64>
-        unit-size <integer_cst 0x7f78ea598bd0 constant 8>
-        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
-        pointer_to_this <pointer_type 0x7f78ea5b99d8>>
-   
-    def_stmt _5 = malloc (40);
-    version:5
-    ptr-info 0x7f78ea0be168>
-
- ================================================================= 
-
- ================== Start Use after free Check ================== 
-
-dot graph END
- 
- Finish check Pointer Collect  
-
-======================================================================
-[40;35m  	Looserules free count:0 [0m
-[40;31m  	free count:0 [0m
-
-======================================================================
-
-======================================================================
-[40;31m    no free stmt possible memory leak [0m
-
-======================================================================
-
-======================================================================
-[40;33m =======POP node_fun stack:changePtr========= [0m
 fucntion collect path finsh
 
 =============== The third stage : detection  End=================
@@ -1102,17 +2109,34 @@ fucntion collect path finsh
 
  bb index 2 
 <bb 2> [local count: 1073741824]:
+value = 1;
+fun (&value);
+_1 = value;
+printf ("%d", _1);
 localValue = 1;
 localPtr = &localValue;
 changePtr (&localPtr);
-_1 = localPtr;
-_2 = *_1;
-printf ("%d\n", _2);
-_3 = localPtr;
-free (_3);
+_2 = localPtr;
+_3 = *_2;
+printf ("%d\n", _3);
+_4 = localPtr;
+free (_4);
+value ={v} {CLOBBER};
 localValue ={v} {CLOBBER};
 localPtr ={v} {CLOBBER};
 return 0;
+
+=======Mapping node_fun:fun=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = malloc (40);
+_2 = (long int) _1;
+_3 = (int) _2;
+*fptr_6(D) = _3;
+*fptr_6(D) = 0;
+return;
 
 =======Mapping node_fun:changePtr=========
 =======is loop:0=========
@@ -1166,31 +2190,26 @@ return;
     ~~~~~~~~~~~  
  ~~~~~~
            ~~~~~~~
-[40;34m    gimple malloc count : 2 [0m
+[40;34m    gimple malloc count : 3 [0m
 [40;34m    gimple free   count : 1 [0m
-[40;34m    all ptable point : 5 [0m
-[40;34m    analyzable ptable point : 3 [0m
-[40;34m    used_stmt array stack totalsize of : 0.000360 mb[0m
-[40;34m    collect time: : 0.000880 s [0m
-[40;34m    algorithm time: 0.012710 s [0m
-[40;34m    gimple stmt count : : 26 [0m
-[40;34m    this report analysis in Sat Feb 19 05:24:06 2022
+[40;34m    all ptable point : 7 [0m
+[40;34m    analyzable ptable point : 5 [0m
+[40;34m    used_stmt array stack totalsize of : 0.000488 mb[0m
+[40;34m    collect time: : 0.001515 s [0m
+[40;34m    algorithm time: 0.016083 s [0m
+[40;34m    gimple stmt count : : 37 [0m
+[40;34m    this report analysis in Sun Feb 20 08:58:24 2022
  [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)  2157k ( 93%)
- phase opt and generate             :   0.04 ( 80%)   0.02 (100%)   0.08 (100%)   140k (  6%)
- callgraph functions expansion      :   0.04 ( 80%)   0.01 ( 50%)   0.06 ( 75%)   106k (  5%)
- ipa lto gimple in                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)    28k (  1%)
- tree CCP                           :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 13%)  2264  (  0%)
- expand                             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)  8728  (  0%)
- combiner                           :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)   648  (  0%)
- integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)    49k (  2%)
- LRA non-specific                   :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)   360  (  0%)
- final                              :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)  4064  (  0%)
- plugin execution                   :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 12%)   208  (  0%)
- initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)    12k (  1%)
- rest of compilation                :   0.01 ( 20%)   0.00 (  0%)   0.02 ( 25%)  5144  (  0%)
- TOTAL                              :   0.05          0.02          0.08         2322k
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  2157k ( 91%)
+ phase opt and generate             :   0.02 ( 67%)   0.01 (100%)   0.03 ( 75%)   190k (  8%)
+ phase stream in                    :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    24k (  1%)
+ callgraph functions expansion      :   0.02 ( 67%)   0.01 (100%)   0.01 ( 25%)   149k (  6%)
+ ipa lto decl in                    :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    19k (  1%)
+ plugin execution                   :   0.00 (  0%)   0.00 (  0%)   0.02 ( 50%)   240  (  0%)
+ initialize rtl                     :   0.01 ( 33%)   0.01 (100%)   0.00 (  0%)    12k (  1%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  7576  (  0%)
+ TOTAL                              :   0.03          0.01          0.04         2374k

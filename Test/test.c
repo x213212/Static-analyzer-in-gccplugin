@@ -46,9 +46,9 @@ void changePtr2(int ***ptr) //透過雙重指標改變指標變數的值
 }
 int main(void)
 {
-    int *a;
+    // int *a;
 
-    int test;
+    // int test;
 
     // a = foo();
     // if (test)
@@ -60,10 +60,10 @@ int main(void)
     // }
     
     // 一級pointer
-    // int value=1;
-    // int *ptr=&value;
-    // fun(ptr);
-    // printf("%d",*ptr);
+    int value=1;
+    int *ptr0=&value;
+    fun(ptr0);
+    printf("%d",*ptr0);
     // 二級pointer
     int localValue = 1;
     int *localPtr = &localValue;
@@ -71,11 +71,11 @@ int main(void)
     printf("%d\n", *localPtr); //經過changPtr函式，localPtr指標變數改指向
     free(localPtr);
     // 三級pointer
-    // int num = 100;
-    // int *ptr = &num;
-    // int **ptr2 = &ptr;
-    // int ***ptr3 = &ptr2;
-    // changePtr2(ptr3);
+    int num = 100;
+    int *ptr = &num;
+    int **ptr2 = &ptr;
+    int ***ptr3 = &ptr2;
+    changePtr2(ptr3);
     // printf("透過ptr3取得到num值 \t%d\n", ***ptr3);
     // printf("ptr3指到ptr位址 \t%p\n", **ptr3);
     // printf("ptr3指到ptr的記憶體位置 \t%p\n", *ptr3);

@@ -68,10 +68,10 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 						struct pt_solution *pt1 = &pi1->pt;
 
 						if (pt1 && relatemod)
-						{	
+						{
 							// debug_tree(mallocStmt_tree);
 
-							if (TREE_CODE(mallocStmt_tree) == SSA_NAME||TREE_CODE(mallocStmt_tree) == VAR_DECL)
+							if (TREE_CODE(mallocStmt_tree) == SSA_NAME || TREE_CODE(mallocStmt_tree) == VAR_DECL)
 							{
 								if (gimple_assign_lhs(gc) != NULL)
 								{
@@ -119,53 +119,53 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 														tree first = TREE_OPERAND(gimple_assign_lhs(gc), 0);
 														gimple *def_stmt = SSA_NAME_DEF_STMT(first);
 														gimple *def_stmt2 = SSA_NAME_DEF_STMT(mallocStmt_tree);
-														if(TREE_CODE(first) != VAR_DECL)
-														if(TREE_CODE(mallocStmt_tree) != VAR_DECL)
-														if (def_stmt && def_stmt2)
-														{
-
-															pi4 = SSA_NAME_PTR_INFO(first);
-															struct pt_solution *pt1 = &pi4->pt;
-															struct pt_solution *pt2 = &pi1->pt;
-															if (!pt1 || pt1->anything)
-																continue;
-															//
-															// debug_tree(first);
-															// debug_tree(mallocStmt_tree);
-															if (is_gimple_assign(def_stmt) && is_gimple_assign(def_stmt2))
-																if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "<invalid tree code>"))
+														if (TREE_CODE(first) != VAR_DECL)
+															if (TREE_CODE(mallocStmt_tree) != VAR_DECL)
+																if (def_stmt && def_stmt2)
 																{
 
-																	if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt2))), "<invalid tree code>"))
-																	{
-																		if (!pt1->nonlocal && !pt2->nonlocal)
+																	pi4 = SSA_NAME_PTR_INFO(first);
+																	struct pt_solution *pt1 = &pi4->pt;
+																	struct pt_solution *pt2 = &pi1->pt;
+																	if (!pt1 || pt1->anything)
+																		continue;
+																	//
+																	// debug_tree(first);
+																	// debug_tree(mallocStmt_tree);
+																	if (is_gimple_assign(def_stmt) && is_gimple_assign(def_stmt2))
+																		if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "<invalid tree code>"))
 																		{
-																			if (gimple_assign_rhs1(def_stmt2) != NULL)
-																				if (!is_global_var(gimple_assign_rhs1(def_stmt2)))
-																				{
 
-																					if (pt1)
-																						if (gimple_assign_rhs1(def_stmt) != NULL)
-																							if (is_global_var(gimple_assign_rhs1(def_stmt)))
-																							{
-																								if (!ptr_derefs_may_alias_p(mallocStmt_tree, first))
-																								{
-																									continue;
-																								}
-																							}
+																			if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt2))), "<invalid tree code>"))
+																			{
+																				if (!pt1->nonlocal && !pt2->nonlocal)
+																				{
+																					if (gimple_assign_rhs1(def_stmt2) != NULL)
+																						if (!is_global_var(gimple_assign_rhs1(def_stmt2)))
+																						{
+
+																							if (pt1)
+																								if (gimple_assign_rhs1(def_stmt) != NULL)
+																									if (is_global_var(gimple_assign_rhs1(def_stmt)))
+																									{
+																										if (!ptr_derefs_may_alias_p(mallocStmt_tree, first))
+																										{
+																											continue;
+																										}
+																									}
+																						}
+																						else
+																						{
+																							continue;
+																						}
 																				}
 																				else
 																				{
 																					continue;
 																				}
+																			}
 																		}
-																		else
-																		{
-																			continue;
-																		}
-																	}
 																}
-														}
 													}
 													else if (TREE_CODE(gimple_assign_rhs1(gc)) == VAR_DECL)
 													{
@@ -867,17 +867,18 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 			continue;
 		}
 		// mutlple entry point
-		// if (!strcmp(get_name(cfun->decl), "main"))
+		if (!strcmp(get_name(cfun->decl), "main"))
+		{
 
-		fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
-		fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
+			fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
+			fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
 
-		pathStack.push_back(cfun->decl);
-		// debug_tree(node->get_fun()->decl );
-		walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
-		fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
-		pathStack.pop_back();
-
+			pathStack.push_back(cfun->decl);
+			// debug_tree(node->get_fun()->decl );
+			walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
+			fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
+			pathStack.pop_back();
+		}
 		pop_cfun();
 	}
 	fprintf(stderr, "fucntion collect path finsh\n");

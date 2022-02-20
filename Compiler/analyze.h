@@ -47,9 +47,19 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		fprintf(stderr, "\033[40;42m =======thread job funciton lock count :%d========= \033[0m\n", find_thread_count);
 	}
 	fprintf(stderr, "\033[40;42m =======start_check_funciton:%s========= \033[0m\n", get_name(function_tree));
-
+	// while (table_temp->next != NULL)
+	// {
+	// 	// 	fprintf(stderr, "\n==========asdasd=================================\n");
+	// 	// if (table_temp->next->target == NULL)
+	// 	// 			break;
+	// 	// 		else
+	// 	// 		{
+	// 	// 			table_temp = table_temp->next;
+	// 	// 		}
+	// }
 	FOR_EACH_TABLE(table_temp, t)
 	{
+
 		int find_Looserulesfreestmt = 0;
 		int ptable_type = 0;
 		int childptable_type = 0;
@@ -1165,5 +1175,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 				fprintf(stderr, "\n======================================================================\n");
 			}
+			if(table_temp->next->next  == NULL)
+				break;
 	}
 }
