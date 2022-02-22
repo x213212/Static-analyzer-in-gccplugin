@@ -19,14 +19,14 @@ int changePtr(int **ptr) //透過雙重指標改變指標變數的值
        
         if(test){
              free(a);
-             exit(a);//branch possiable have return2 or exit
+             exit(a);//branch possiable have return or exit
       }
         else
         return 20;//fucntion exit  
     }
     else
     {
-        // free(a);
+        // free(a);//malloc def-leak warring
         a = (int *)malloc(40);
         *ptr = a;
         printf("%d\n", a); //經過changPtr函式，localPtr指標變數改指向

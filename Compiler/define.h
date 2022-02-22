@@ -1,6 +1,6 @@
 #define FOR_EACH_TABLE(TABLE, TAR)                           \
 	for ((TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target; \
-		 (TAR) != NULL,       (TABLE)->next!=NULL;                               \
+		 (TAR) != NULL, (TABLE)->next != NULL;               \
 		 (TABLE) = (TABLE)->next, (TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target)
 #define FOR_EACH_USE_TABLE(USE, STMT) \
 	for ((STMT) = ((USE) == NULL) ? NULL : (USE)->stmt; (USE) != NULL; (USE) = (USE)->next, (STMT) = ((USE) == NULL) ? NULL : (USE)->stmt)
@@ -41,12 +41,12 @@ bool ipa = true;
 bool freeanysis = true; // no free no anysis
 bool vscode_extensionmod = false;
 bool vscode_extensionIgonefreemod = true;
-bool defmemoryleak=true;
+bool defmemoryleak = true;
 bool memoryleakcheck = true;
 // kroren testcase need turn on
 bool Looserulesfree = true;
 bool useafterfree = true;
-bool debugmod = true;
+bool debugmod = false;
 bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;
@@ -179,7 +179,7 @@ struct defmalloc_type
 {
 	gimple *stmt;
 	tree malloc_tree;
-		vector<free_type> free_array;
+	vector<free_type> free_array;
 	// int Looserulesfree = 0;
 };
 struct relate_type
