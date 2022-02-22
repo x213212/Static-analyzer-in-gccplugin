@@ -5,40 +5,7 @@ digraph {   graph [bgcolor=black];node [fillcolor=black color=lightgray     font
 "->
 
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
-a_7 = malloc (40)
-
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 5: free (a_7)
-test.c:29:9: warning: use location
-
-" ]
-
-" # .MEM_15 = VDEF <.MEM_14(D)>
-a_7 = malloc (40)
-
-"->
-
-" from changePtr basic block 5"
-
-->" free (a_7)
-a_7 = malloc (40)
-"
-
-->" free (a_7)
-test.c:29:9: warning: use location
-
-"
-
-[color="green" ]
-
-
-" changePtr
-"->
-
-
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "
@@ -48,7 +15,7 @@ test.c:22:14: warning: use location
 
 " ]
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "->
@@ -68,7 +35,7 @@ test.c:22:14: warning: use location
 "->
 
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "
@@ -78,7 +45,7 @@ test.c:22:14: warning: use location
 
 " ]
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "->
@@ -98,7 +65,7 @@ test.c:22:14: warning: use location
 "->
 
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "
@@ -108,7 +75,7 @@ test.c:22:14: warning: use location
 
 " ]
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "->
@@ -129,7 +96,7 @@ test.c:22:14: warning: use location
 "->
 
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "
@@ -139,7 +106,7 @@ test.c:22:14: warning: use location
 
 " ]
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "->
@@ -160,7 +127,7 @@ test.c:22:14: warning: use location
 "->
 
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "
@@ -170,7 +137,7 @@ test.c:21:14: warning: use location
 
 " ]
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "->
@@ -193,7 +160,7 @@ test.c:21:14: warning: use location
 "->
 
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "
@@ -204,7 +171,7 @@ test.c:18:9: warning: use location
 
 " ]
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "->
@@ -227,7 +194,7 @@ test.c:18:9: warning: use location
 "->
 
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "
@@ -236,7 +203,7 @@ a_7 = malloc (40)
 test.c:12:21: warning: use location
 " ]
 
-" # .MEM_15 = VDEF <.MEM_14(D)>
+" # .MEM_14 = VDEF <.MEM_13(D)>
 a_7 = malloc (40)
 
 "->
@@ -252,9 +219,33 @@ test.c:12:21: warning: use location
 "
 
 
-" from changePtr basic block 5"
+" from changePtr basic block 4"
 
-->subgraph cluster_670587902 { color=lightgrey; style ="dashed";"  free (a_7)
+->subgraph cluster_1841564185 { color=lightgrey; style ="dashed";"  _1 = (long int) a_7
+a_7 = malloc (40)
+";}
+
+" from changePtr basic block 4"
+
+->subgraph cluster_412071711 { color=lightgrey; style ="dashed";"  _2 = (int) _1
+_1 = (long int) a_7
+";}
+
+" from changePtr basic block 4"
+
+->subgraph cluster_1281439748 { color=lightgrey; style ="dashed";"  exit (_2)
+_2 = (int) _1
+";}
+
+" from changePtr basic block 4"
+
+->subgraph cluster_198574511 { color=lightgrey; style ="dashed";"  exit (_2)
+_2 = (int) _1
+";}
+
+" from changePtr basic block 4"
+
+->subgraph cluster_1529167009 { color=lightgrey; style ="dashed";"  free (a_7)
 a_7 = malloc (40)
 ";}
 
@@ -269,7 +260,7 @@ a_7 = malloc (40)
 "->
 
 
-" # .MEM_23 = VDEF <.MEM_22>
+" # .MEM_21 = VDEF <.MEM_20>
 exit (_2)
 
 "
@@ -278,7 +269,7 @@ exit (_2)
 test.c:22:14: warning: use location
 " ]
 
-" # .MEM_23 = VDEF <.MEM_22>
+" # .MEM_21 = VDEF <.MEM_20>
 exit (_2)
 
 "->
@@ -298,7 +289,7 @@ test.c:22:14: warning: use location
 "->
 
 
-" # .MEM_23 = VDEF <.MEM_22>
+" # .MEM_21 = VDEF <.MEM_20>
 exit (_2)
 
 "
@@ -307,7 +298,7 @@ exit (_2)
 test.c:22:14: warning: use location
 " ]
 
-" # .MEM_23 = VDEF <.MEM_22>
+" # .MEM_21 = VDEF <.MEM_20>
 exit (_2)
 
 "->
@@ -325,13 +316,13 @@ test.c:22:14: warning: use location
 
 " from changePtr basic block 4"
 
-->subgraph cluster_622907109 { color=lightgrey; style ="dashed";"  exit (_2)
+->subgraph cluster_338327682 { color=lightgrey; style ="dashed";"  exit (_2)
 _2 = (int) _1
 ";}
 
 " from changePtr basic block 4"
 
-->subgraph cluster_117705789 { color=lightgrey; style ="dashed";"  exit (_2)
+->subgraph cluster_1276978248 { color=lightgrey; style ="dashed";"  exit (_2)
 _2 = (int) _1
 ";}
 
@@ -346,28 +337,28 @@ _2 = (int) _1
 "->
 
 
-" # .MEM_17 = VDEF <.MEM_16>
-a_11 = malloc (40)
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 5: free (a_11)
+[fontsize = 15 fontcolor=white;label=" form basic block 5: free (a_10)
 test.c:33:9: warning: use location
 
 " ]
 
-" # .MEM_17 = VDEF <.MEM_16>
-a_11 = malloc (40)
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
 
 "->
 
 " from changePtr basic block 5"
 
-->" free (a_11)
-a_11 = malloc (40)
+->" free (a_10)
+a_10 = malloc (40)
 "
 
-->" free (a_11)
+->" free (a_10)
 test.c:33:9: warning: use location
 
 "
@@ -379,31 +370,31 @@ test.c:33:9: warning: use location
 "->
 
 
-" # .MEM_17 = VDEF <.MEM_16>
-a_11 = malloc (40)
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
 
 "
 
 [fontsize = 15 fontcolor=white;label=" form basic block 5: printf (d
-, a_11)
+, a_10)
 test.c:32:9: warning: use location
 
 " ]
 
-" # .MEM_17 = VDEF <.MEM_16>
-a_11 = malloc (40)
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
 
 "->
 
 " from changePtr basic block 5"
 
 ->" printf (d
-, a_11)
-a_11 = malloc (40)
+, a_10)
+a_10 = malloc (40)
 "
 
 ->" printf (d
-, a_11)
+, a_10)
 test.c:32:9: warning: use location
 
 "
@@ -413,28 +404,28 @@ test.c:32:9: warning: use location
 "->
 
 
-" # .MEM_17 = VDEF <.MEM_16>
-a_11 = malloc (40)
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 5: *ptr_12(D) = a_11
+[fontsize = 15 fontcolor=white;label=" form basic block 5: *ptr_11(D) = a_10
 test.c:31:14: warning: use location
 
 " ]
 
-" # .MEM_17 = VDEF <.MEM_16>
-a_11 = malloc (40)
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
 
 "->
 
 " from changePtr basic block 5"
 
-->" *ptr_12(D) = a_11
-a_11 = malloc (40)
+->" *ptr_11(D) = a_10
+a_10 = malloc (40)
 "
 
-->" *ptr_12(D) = a_11
+->" *ptr_11(D) = a_10
 test.c:31:14: warning: use location
 
 "
@@ -444,28 +435,28 @@ test.c:31:14: warning: use location
 "->
 
 
-" # .MEM_17 = VDEF <.MEM_16>
-a_11 = malloc (40)
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 5: *ptr_12(D) = a_11
+[fontsize = 15 fontcolor=white;label=" form basic block 5: *ptr_11(D) = a_10
 test.c:31:14: warning: use location
 
 " ]
 
-" # .MEM_17 = VDEF <.MEM_16>
-a_11 = malloc (40)
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
 
 "->
 
 " from changePtr basic block 5"
 
-->" *ptr_12(D) = a_11
-a_11 = malloc (40)
+->" *ptr_11(D) = a_10
+a_10 = malloc (40)
 "
 
-->" *ptr_12(D) = a_11
+->" *ptr_11(D) = a_10
 test.c:31:14: warning: use location
 
 "
@@ -475,60 +466,60 @@ test.c:31:14: warning: use location
 "->
 
 
-" # .MEM_17 = VDEF <.MEM_16>
-a_11 = malloc (40)
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
 
 "
 
-[fontsize = 15 fontcolor=white;label=" form basic block 5: a_11 = malloc (40)
+[fontsize = 15 fontcolor=white;label=" form basic block 5: a_10 = malloc (40)
 test.c:30:20: warning: use location
 " ]
 
-" # .MEM_17 = VDEF <.MEM_16>
-a_11 = malloc (40)
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
 
 "->
 
 " from changePtr basic block 5"
 
-->" a_11 = malloc (40)
-a_11 = malloc (40)
+->" a_10 = malloc (40)
+a_10 = malloc (40)
 "
 
-->" a_11 = malloc (40)
+->" a_10 = malloc (40)
 test.c:30:20: warning: use location
 "
 
 
 " from changePtr basic block 5"
 
-->subgraph cluster_2134144558 { color=lightgrey; style ="dashed";"  free (a_11)
-a_11 = malloc (40)
+->subgraph cluster_1916310124 { color=lightgrey; style ="dashed";"  free (a_10)
+a_10 = malloc (40)
 ";}
 
 " from changePtr basic block 5"
 
-->subgraph cluster_70725700 { color=lightgrey; style ="dashed";"  printf (d
-, a_11)
-a_11 = malloc (40)
+->subgraph cluster_1228108433 { color=lightgrey; style ="dashed";"  printf (d
+, a_10)
+a_10 = malloc (40)
 ";}
 
 " from changePtr basic block 5"
 
-->subgraph cluster_511547726 { color=lightgrey; style ="dashed";"  *ptr_12(D) = a_11
-a_11 = malloc (40)
+->subgraph cluster_1281483133 { color=lightgrey; style ="dashed";"  *ptr_11(D) = a_10
+a_10 = malloc (40)
 ";}
 
 " from changePtr basic block 5"
 
-->subgraph cluster_1446683564 { color=lightgrey; style ="dashed";"  *ptr_12(D) = a_11
-a_11 = malloc (40)
+->subgraph cluster_681949890 { color=lightgrey; style ="dashed";"  *ptr_11(D) = a_10
+a_10 = malloc (40)
 ";}
 
 " from changePtr basic block 5"
 
-->subgraph cluster_1159317818 { color=lightgrey; style ="dashed";"  a_11 = malloc (40)
-a_11 = malloc (40)
+->subgraph cluster_1718323178 { color=lightgrey; style ="dashed";"  a_10 = malloc (40)
+a_10 = malloc (40)
 ";}
 
 
@@ -567,71 +558,57 @@ test.c:84:5: warning: use location
 "
 
 
-->" ID : 266592079
+->" ID : 818074975
 from changePtr basic block 4"->
 
-" ID : 1164895783 stmt(free) :free (a_7)
+" ID : 2046806840 stmt(free) :free (a_7)
 test.c:21:14: warning: use location
 "
 
 [color="green" ]
 
-" ID : 1164895783 stmt(free) :free (a_7)
+" ID : 2046806840 stmt(free) :free (a_7)
 test.c:21:14: warning: use location
 "
 
 
-->" ID : 266592079
+->" ID : 818074975
 from changePtr basic block 5"->
 
-" ID : 99258562 stmt(free) :free (a_7)
-test.c:29:9: warning: use location
-"
-
-[color="green" ]
-
-" ID : 99258562 stmt(free) :free (a_7)
-test.c:29:9: warning: use location
-"
-
-
-->" ID : 266592079
-from changePtr basic block 5"->
-
-" ID : 178738785 stmt(free) :free (a_11)
+" ID : 284157489 stmt(free) :free (a_10)
 test.c:33:9: warning: use location
 "
 
 [color="green" ]
 
-" ID : 178738785 stmt(free) :free (a_11)
+" ID : 284157489 stmt(free) :free (a_10)
 test.c:33:9: warning: use location
 "
 
 
-->"ID : 266592079
+->"ID : 818074975
 from changePtr basic block 2"->
 
-" ID : 383840744 stmt(call) :a_7 = malloc (40)
+" ID : 112449917 stmt(call) :a_7 = malloc (40)
 In function ‘changePtr’:
 
 "
 
-->"ID : 266592079
+->"ID : 818074975
 from changePtr basic block 5"->
 
-" ID : 327285437 stmt(call) :a_11 = malloc (40)
+" ID : 1212960181 stmt(call) :a_10 = malloc (40)
 test.c:30:20: warning: use location
 
 "
 
 
-->"ID : 266592079
+->"ID : 818074975
 from changePtr basic block 5"->
 
 
-" ID : 429388429 stmt(LHS) :test.c:31:14: warning: use location
-*ptr_12(D)
+" ID : 1985554864 stmt(LHS) :test.c:31:14: warning: use location
+*ptr_11(D)
 "
 
 
@@ -664,97 +641,611 @@ test.c:84:5: warning: use location
 "
 
 
-->" ID : 757968597
+->" ID : 257694715
 from changePtr basic block 4"->
 
-" ID : 1416185521 stmt(free) :free (a_7)
+" ID : 1828483024 stmt(free) :free (a_7)
 test.c:21:14: warning: use location
 "
 
 [color="green" ]
 
-" ID : 1416185521 stmt(free) :free (a_7)
+" ID : 1828483024 stmt(free) :free (a_7)
 test.c:21:14: warning: use location
 "
 
 
-->" ID : 757968597
+->" ID : 257694715
 from changePtr basic block 5"->
 
-" ID : 1379508060 stmt(free) :free (a_7)
-test.c:29:9: warning: use location
-"
-
-[color="green" ]
-
-" ID : 1379508060 stmt(free) :free (a_7)
-test.c:29:9: warning: use location
-"
-
-
-->" ID : 757968597
-from changePtr basic block 5"->
-
-" ID : 1120100241 stmt(free) :free (a_11)
+" ID : 2050540869 stmt(free) :free (a_10)
 test.c:33:9: warning: use location
 "
 
 [color="green" ]
 
-" ID : 1120100241 stmt(free) :free (a_11)
+" ID : 2050540869 stmt(free) :free (a_10)
 test.c:33:9: warning: use location
 "
 
 
-->"ID : 757968597
+->"ID : 257694715
 from changePtr basic block 2"->
 
-" ID : 847317183 stmt(call) :a_7 = malloc (40)
+" ID : 2115659416 stmt(call) :a_7 = malloc (40)
 In function ‘changePtr’:
 
 "
 
-->"ID : 757968597
+->"ID : 257694715
 from changePtr basic block 5"->
 
-" ID : 429996043 stmt(call) :a_11 = malloc (40)
+" ID : 1719838517 stmt(call) :a_10 = malloc (40)
 test.c:30:20: warning: use location
 
 "
 
 
-->"ID : 757968597
+->"ID : 257694715
 from changePtr basic block 5"->
 
 
-" ID : 758336412 stmt(LHS) :test.c:31:14: warning: use location
-*ptr_12(D)
+" ID : 613443206 stmt(LHS) :test.c:31:14: warning: use location
+*ptr_11(D)
 "
 
 
 " from main basic block 2"
 
-->subgraph cluster_1444580040 { color=lightgrey; style ="dashed";"  changePtr (&localPtr)
+->subgraph cluster_798471252 { color=lightgrey; style ="dashed";"  changePtr (&localPtr)
 ";}
 
 " from main basic block 2"
 
-->subgraph cluster_34967832 { color=lightgrey; style ="dashed";"  changePtr (&localPtr)
+->subgraph cluster_2100819071 { color=lightgrey; style ="dashed";"  changePtr (&localPtr)
 ";}
 
-"ID : 266592079
+"ID : 818074975
 from changePtr basic block 5"->
 
-subgraph cluster_1091299039 { color=lightgrey; style ="dashed";"  start ID : 429388429 stmt(relate) ， Tree ID : 266592079 : *ptr_12(D) = a_11
+subgraph cluster_510700903 { color=lightgrey; style ="dashed";"  start ID : 1985554864 stmt(relate) ， Tree ID : 818074975 : *ptr_11(D) = a_10
 In function ‘main’:
 
 ";}
 
-"ID : 757968597
+"ID : 257694715
 from changePtr basic block 5"->
 
-subgraph cluster_1705964844 { color=lightgrey; style ="dashed";"  start ID : 758336412 stmt(relate) ， Tree ID : 757968597 : *ptr_12(D) = a_11
+subgraph cluster_711838935 { color=lightgrey; style ="dashed";"  start ID : 613443206 stmt(relate) ， Tree ID : 257694715 : *ptr_11(D) = a_10
 test.c:31:14: warning: use location
+";}
+
+
+
+ 
+
+
+
+
+" changePtr
+"->
+
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 4: _1 = (long int) a_7
+test.c:22:14: warning: use location
+
+" ]
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"->
+
+" from changePtr basic block 4"
+
+->" _1 = (long int) a_7
+a_7 = malloc (40)
+"
+
+->" _1 = (long int) a_7
+test.c:22:14: warning: use location
+
+"
+
+" changePtr
+"->
+
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 4: _2 = (int) _1
+test.c:22:14: warning: use location
+
+" ]
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"->
+
+" from changePtr basic block 4"
+
+->" _2 = (int) _1
+a_7 = malloc (40)
+"
+
+->" _2 = (int) _1
+test.c:22:14: warning: use location
+
+"
+
+" changePtr
+"->
+
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 4: exit (_2)
+test.c:22:14: warning: use location
+
+" ]
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"->
+
+" from changePtr basic block 4"
+
+->" exit (_2)
+a_7 = malloc (40)
+"
+
+->" exit (_2)
+test.c:22:14: warning: use location
+
+"
+
+
+" changePtr
+"->
+
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 4: exit (_2)
+test.c:22:14: warning: use location
+
+" ]
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"->
+
+" from changePtr basic block 4"
+
+->" exit (_2)
+a_7 = malloc (40)
+"
+
+->" exit (_2)
+test.c:22:14: warning: use location
+
+"
+
+
+" changePtr
+"->
+
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 4: free (a_7)
+test.c:21:14: warning: use location
+
+" ]
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"->
+
+" from changePtr basic block 4"
+
+->" free (a_7)
+a_7 = malloc (40)
+"
+
+->" free (a_7)
+test.c:21:14: warning: use location
+
+"
+
+[color="green" ]
+
+
+" changePtr
+"->
+
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 3: printf (d
+, a_7)
+test.c:18:9: warning: use location
+
+" ]
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"->
+
+" from changePtr basic block 3"
+
+->" printf (d
+, a_7)
+a_7 = malloc (40)
+"
+
+->" printf (d
+, a_7)
+test.c:18:9: warning: use location
+
+"
+
+
+" changePtr
+"->
+
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 2: a_7 = malloc (40)
+test.c:12:21: warning: use location
+" ]
+
+" # .MEM_14 = VDEF <.MEM_13(D)>
+a_7 = malloc (40)
+
+"->
+
+" from changePtr basic block 2"
+
+->" a_7 = malloc (40)
+a_7 = malloc (40)
+"
+
+->" a_7 = malloc (40)
+test.c:12:21: warning: use location
+"
+
+
+" from changePtr basic block 4"
+
+->subgraph cluster_890780424 { color=lightgrey; style ="dashed";"  _1 = (long int) a_7
+a_7 = malloc (40)
+";}
+
+" from changePtr basic block 4"
+
+->subgraph cluster_1661980982 { color=lightgrey; style ="dashed";"  _2 = (int) _1
+_1 = (long int) a_7
+";}
+
+" from changePtr basic block 4"
+
+->subgraph cluster_1051355345 { color=lightgrey; style ="dashed";"  exit (_2)
+_2 = (int) _1
+";}
+
+" from changePtr basic block 4"
+
+->subgraph cluster_584860961 { color=lightgrey; style ="dashed";"  exit (_2)
+_2 = (int) _1
+";}
+
+" from changePtr basic block 4"
+
+->subgraph cluster_2074052693 { color=lightgrey; style ="dashed";"  free (a_7)
+a_7 = malloc (40)
+";}
+
+
+
+ 
+
+
+
+
+" changePtr
+"->
+
+
+" # .MEM_21 = VDEF <.MEM_20>
+exit (_2)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 4: exit (_2)
+test.c:22:14: warning: use location
+" ]
+
+" # .MEM_21 = VDEF <.MEM_20>
+exit (_2)
+
+"->
+
+" from changePtr basic block 4"
+
+->" exit (_2)
+exit (_2)
+"
+
+->" exit (_2)
+test.c:22:14: warning: use location
+"
+
+
+" changePtr
+"->
+
+
+" # .MEM_21 = VDEF <.MEM_20>
+exit (_2)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 4: exit (_2)
+test.c:22:14: warning: use location
+" ]
+
+" # .MEM_21 = VDEF <.MEM_20>
+exit (_2)
+
+"->
+
+" from changePtr basic block 4"
+
+->" exit (_2)
+exit (_2)
+"
+
+->" exit (_2)
+test.c:22:14: warning: use location
+"
+
+
+" from changePtr basic block 4"
+
+->subgraph cluster_185311446 { color=lightgrey; style ="dashed";"  exit (_2)
+_2 = (int) _1
+";}
+
+" from changePtr basic block 4"
+
+->subgraph cluster_783435472 { color=lightgrey; style ="dashed";"  exit (_2)
+_2 = (int) _1
+";}
+
+
+
+ 
+
+
+
+
+" changePtr
+"->
+
+
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 5: free (a_10)
+test.c:33:9: warning: use location
+
+" ]
+
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
+
+"->
+
+" from changePtr basic block 5"
+
+->" free (a_10)
+a_10 = malloc (40)
+"
+
+->" free (a_10)
+test.c:33:9: warning: use location
+
+"
+
+[color="green" ]
+
+
+" changePtr
+"->
+
+
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 5: printf (d
+, a_10)
+test.c:32:9: warning: use location
+
+" ]
+
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
+
+"->
+
+" from changePtr basic block 5"
+
+->" printf (d
+, a_10)
+a_10 = malloc (40)
+"
+
+->" printf (d
+, a_10)
+test.c:32:9: warning: use location
+
+"
+
+
+" changePtr
+"->
+
+
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 5: *ptr_11(D) = a_10
+test.c:31:14: warning: use location
+
+" ]
+
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
+
+"->
+
+" from changePtr basic block 5"
+
+->" *ptr_11(D) = a_10
+a_10 = malloc (40)
+"
+
+->" *ptr_11(D) = a_10
+test.c:31:14: warning: use location
+
+"
+
+
+" changePtr
+"->
+
+
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 5: *ptr_11(D) = a_10
+test.c:31:14: warning: use location
+
+" ]
+
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
+
+"->
+
+" from changePtr basic block 5"
+
+->" *ptr_11(D) = a_10
+a_10 = malloc (40)
+"
+
+->" *ptr_11(D) = a_10
+test.c:31:14: warning: use location
+
+"
+
+
+" changePtr
+"->
+
+
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
+
+"
+
+[fontsize = 15 fontcolor=white;label=" form basic block 5: a_10 = malloc (40)
+test.c:30:20: warning: use location
+" ]
+
+" # .MEM_15 = VDEF <.MEM_14>
+a_10 = malloc (40)
+
+"->
+
+" from changePtr basic block 5"
+
+->" a_10 = malloc (40)
+a_10 = malloc (40)
+"
+
+->" a_10 = malloc (40)
+test.c:30:20: warning: use location
+"
+
+
+" from changePtr basic block 5"
+
+->subgraph cluster_1455736054 { color=lightgrey; style ="dashed";"  free (a_10)
+a_10 = malloc (40)
+";}
+
+" from changePtr basic block 5"
+
+->subgraph cluster_523639128 { color=lightgrey; style ="dashed";"  printf (d
+, a_10)
+a_10 = malloc (40)
+";}
+
+" from changePtr basic block 5"
+
+->subgraph cluster_2060413720 { color=lightgrey; style ="dashed";"  *ptr_11(D) = a_10
+a_10 = malloc (40)
+";}
+
+" from changePtr basic block 5"
+
+->subgraph cluster_1224562531 { color=lightgrey; style ="dashed";"  *ptr_11(D) = a_10
+a_10 = malloc (40)
+";}
+
+" from changePtr basic block 5"
+
+->subgraph cluster_1751747561 { color=lightgrey; style ="dashed";"  a_10 = malloc (40)
+a_10 = malloc (40)
 ";}
 
 

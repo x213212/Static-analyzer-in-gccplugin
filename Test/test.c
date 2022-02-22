@@ -26,7 +26,7 @@ int changePtr(int **ptr) //透過雙重指標改變指標變數的值
     }
     else
     {
-        free(a);
+        // free(a);
         a = (int *)malloc(40);
         *ptr = a;
         printf("%d\n", a); //經過changPtr函式，localPtr指標變數改指向

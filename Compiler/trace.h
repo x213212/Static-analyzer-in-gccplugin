@@ -867,8 +867,8 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 			continue;
 		}
 		// mutlple entry point
-		if (!strcmp(get_name(cfun->decl), "main"))
-		{
+		// if (!strcmp(get_name(cfun->decl), "main"))
+		// {
 
 			// fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
 			// fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
@@ -878,7 +878,7 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 			walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
 			// fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
 			pathStack.pop_back();
-		}
+		// }
 		pop_cfun();
 	}
 	fprintf(stderr, "fucntion collect path finsh\n");
