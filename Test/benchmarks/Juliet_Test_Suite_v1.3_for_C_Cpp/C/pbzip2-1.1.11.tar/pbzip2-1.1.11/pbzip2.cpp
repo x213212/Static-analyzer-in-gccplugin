@@ -3341,6 +3341,7 @@ int main(int argc, char* argv[])
 	int force = 0;
 	int ret = 0;
 	int fileLoop;
+
 	size_t i, j, k;
 	bool switchedMtToSt = false; // switched from multi- to single-thread
 

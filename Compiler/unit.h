@@ -1,3 +1,75 @@
+void analyze_type(tree tree_typed)
+{
+	// printf("%s ", get_tree_code_name(TREE_CODE(tree_typed)));
+	switch (TREE_CODE(tree_typed))
+	{
+	case FUNCTION_TYPE:
+	{
+		printf("receives ");
+		tree args = TYPE_ARG_TYPES(tree_typed);
+		if (args == NULL_TREE)
+			printf("nothing ");
+		else
+			while (args != NULL_TREE && TREE_VALUE(args) != void_type_node)
+			{
+				analyze_type(TREE_VALUE(args));
+				if (TREE_CHAIN(args) != NULL_TREE)
+					printf("and ");
+				else
+					printf("... "); // this node is not void_type_node and the next node is NULL_TREE, thus variadic arguments
+				args = TREE_CHAIN(args);
+			}
+		printf("then returns ");
+		analyze_type(TREE_TYPE(tree_typed));
+		break;
+	}
+	case RECORD_TYPE:
+	{
+		printf("named ");
+		tree type_name = TYPE_NAME(tree_typed);
+		if (TREE_CODE(type_name) == IDENTIFIER_NODE)
+		{
+			printf("%s ", IDENTIFIER_POINTER(type_name));
+		}
+		else if (TREE_CODE(type_name) == TYPE_DECL)
+		{
+			printf("%s ", IDENTIFIER_POINTER(DECL_NAME(type_name)));
+		}
+		else
+		{
+			printf("**** UNRECOGNIZED TYPE NODE ****");
+		}
+		break;
+	}
+		switch (TREE_CODE(tree_typed))
+		case POINTER_TYPE:
+		{
+			printf("points to ");
+			analyze_type(TREE_TYPE(tree_typed));
+			break;
+		}
+		case INTEGER_TYPE:
+		{
+			unsigned int precision = TYPE_PRECISION(tree_typed);
+			printf("%s integer of %d bits ", TYPE_UNSIGNED(tree_typed) ? "unsigned" : "signed", precision);
+			break;
+		}
+		case ARRAY_TYPE:
+		{
+			printf("of ");
+			analyze_type(TREE_TYPE(tree_typed));
+			break;
+		}
+		case VAR_DECL:
+		{
+			printf("oSDAAAAAf ");
+			analyze_type(TREE_TYPE(tree_typed));
+			break;
+		}
+		default:
+			break;
+	}
+}
 bool bb_in_loop_p(basic_block bb)
 {
 	return bb->loop_father->header->index != 0;
@@ -15,6 +87,7 @@ bool bb_in_branch_p(gimple *stmt)
 
 	return !dominated_by_p(CDI_DOMINATORS, stmt->bb, cfun->cfg->x_exit_block_ptr->prev_bb);
 }
+
 void init_table()
 {
 	// fprintf(stderr,"init_table.... \n");
@@ -98,6 +171,53 @@ bool Location_b2(gimple *a, gimple *b, tree function_tree)
 	return false;
 }
 
+bool Location_b3(gimple *a, gimple *b, tree function_tree)
+{
+	struct cgraph_node *node;
+	basic_block bb;
+	FOR_EACH_DEFINED_FUNCTION(node)
+	{
+		if (!gimple_has_body_p(node->decl))
+			continue;
+
+		push_cfun(DECL_STRUCT_FUNCTION(node->decl));
+
+		// fprintf(stderr, "=====www==node_fun:%s=========\n", get_name(cfun->decl));
+
+		if (cfun == NULL)
+		{
+			pop_cfun();
+			continue;
+		}
+		// mutlple entry point
+		if (cfun->decl == function_tree)
+		{
+
+			calculate_dominance_info(CDI_DOMINATORS);
+
+			FOR_EACH_BB_FN(bb, cfun)
+			{
+
+				for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
+				{
+					gimple *gc = gsi_stmt(gsi);
+					if (dominated_by_p(CDI_DOMINATORS, a->bb, b->bb))
+					{
+						pop_cfun();
+						return true;
+					}
+					else
+					{
+						pop_cfun();
+						return false;
+					}
+				}
+			}
+		}
+		pop_cfun();
+	}
+	return false;
+}
 unsigned int SDBMHash(char *str)
 {
 	unsigned int hash = rand() % 10;

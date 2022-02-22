@@ -1,9 +1,10 @@
 # Make file for parallel BZIP2
 SHELL = /bin/sh
 
-PLUGIN=-fplugin=./misra.so
+PLUGIN=-fplugin=./newplugin.so
+#PLUGIN=-fanalyzer -Wanalyzer-malloc-leak
 # Compiler to use
-# CXX = g++
+CXX = g++-11.2
 LTO=-flto
 FLAGS=-O1   -fno-tree-dse  -fno-tree-fre -fno-tree-dce -fipa-pta  -pthread 
 # Thread-related flags

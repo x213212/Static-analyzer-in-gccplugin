@@ -783,7 +783,7 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 			if (pathStack[o] == (function_path_array)[i].next)
 			{
 				find = 1;
-				fprintf(stderr, "\033[40;41m =======recursive_fun:%s========= \033[0m\n", get_name(pathStack[o]));
+				// fprintf(stderr, "\033[40;41m =======recursive_fun:%s========= \033[0m\n", get_name(pathStack[o]));
 				break;
 			}
 		}
@@ -793,7 +793,7 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 			if (function_return_collect->get((function_path_array)[i].next) != NULL)
 			{
 				function_return_array calleeFunArray = *(function_return_collect->get((function_path_array)[i].next));
-				fprintf(stderr, "\033[40;44m =======print_function_type %d  ========  \033[0m\n", calleeFunArray.return_type_num);
+				// fprintf(stderr, "\033[40;44m =======print_function_type %d  ========  \033[0m\n", calleeFunArray.return_type_num);
 				// thread lock set
 				function_return_array find_fun_array;
 				vector<return_type> ret_type_find_fun_array;
@@ -832,7 +832,7 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 				}
 			}
 			walk_function_path((function_path_array)[i].next, fucntion_level, ptable, user_tmp);
-			fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
+			// fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
 			pathStack.pop_back();
 		}
 	}
@@ -870,13 +870,13 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 		if (!strcmp(get_name(cfun->decl), "main"))
 		{
 
-			fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
-			fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
+			// fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
+			// fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
 
 			pathStack.push_back(cfun->decl);
 			// debug_tree(node->get_fun()->decl );
 			walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
-			fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
+			// fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
 			pathStack.pop_back();
 		}
 		pop_cfun();

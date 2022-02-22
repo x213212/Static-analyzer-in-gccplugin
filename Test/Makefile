@@ -175,7 +175,7 @@ all: test.o
 
 test.o:  
 	# mod 1
-	# # $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
+	# # # $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 	$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
 	@sh ./test.sh $(FILE_NAME)
 	# # mod 2

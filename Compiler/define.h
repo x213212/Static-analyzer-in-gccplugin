@@ -41,6 +41,7 @@ bool ipa = true;
 bool freeanysis = true; // no free no anysis
 bool vscode_extensionmod = false;
 bool vscode_extensionIgonefreemod = true;
+bool defmemoryleak=true;
 bool memoryleakcheck = true;
 // kroren testcase need turn on
 bool Looserulesfree = true;
@@ -53,7 +54,7 @@ bool retmod = true;
 bool pthread_detachedmod = true;
 bool pthread_exitmod = true;
 bool tracerelatestmt = true;
-bool prebranchexit = false;
+bool prebranchexit = true;
 bool stmtloopcheck = true;
 bool samefucntioncheck = true;
 bool maxbasicblockcalc = true;
@@ -172,6 +173,14 @@ struct free_type
 	gimple *stmt;
 	tree free_tree;
 	int Looserulesfree = 0;
+};
+
+struct defmalloc_type
+{
+	gimple *stmt;
+	tree malloc_tree;
+		vector<free_type> free_array;
+	// int Looserulesfree = 0;
 };
 struct relate_type
 {
@@ -331,7 +340,7 @@ static tree now_tree;
 static enum cdi_direction nowdir;
 unsigned int SDBMHash(char *str);
 tree prechecktree(tree tree);
-
+void analyze_type(tree tree_typed);
 int dump_points_to_solution2(FILE *file, struct pt_solution *pt);
 void check_bbinfo(cgraph_node *m, basic_block bb);
 void Checknew_search_imm_use_rhs(gimple_array *used_stmt, gimple *use_stmt, tree target, tree target2);

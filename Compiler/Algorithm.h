@@ -159,7 +159,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 	ptb *processtable = ptable;
 	fprintf(stderr, "===============The second stage : Program slicing=================\n");
-
+	int allcolectCount = 0;
 	if (GIMPLE_FREE_COUNT || freeanysis)
 	{
 
@@ -262,6 +262,9 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				Entrypoint++;
 				fprintf(stderr, "=============== *this point analyzable =================\n");
 				debug(processtable->last_stmt);
+				fprintf(stderr, "=============== program slcing stmt count:%d=================\n", colectCount);
+				allcolectCount+=colectCount;
+				warning_at(gimple_location_safe(processtable->last_stmt), 0, "use location");
 				fprintf(stderr, "========================================================\n");
 				// debug(processtable->swap_stmt);
 
@@ -330,6 +333,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "\033[40;34m    gimple free   count : %d \033[0m\n", GIMPLE_FREE_COUNT);
 	fprintf(stderr, "\033[40;34m    all ptable point : %d \033[0m\n", pointtablecount);
 	fprintf(stderr, "\033[40;34m    analyzable ptable point : %d \033[0m\n", Entrypoint);
+	fprintf(stderr, "\033[40;34m    analyzable ptable all point stmt : %d \033[0m\n", allcolectCount);
 	fprintf(stderr, "\033[40;34m    used_stmt array stack totalsize of : %f mb\033[0m\n", (totalsize * 0.000001));
 	fprintf(stderr, "\033[40;34m    collect time: : %f s \033[0m\n", time_used);
 	fprintf(stderr, "\033[40;34m    algorithm time: %f s \033[0m\n", time_used2);
