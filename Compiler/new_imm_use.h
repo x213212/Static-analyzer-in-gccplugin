@@ -1250,12 +1250,13 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 					// add new rule in there warring need double check possiable loop
 					else if (gimple_code(use_stmt) == GIMPLE_ASSIGN)
 					{
-						// fprintf(stderr, "GIMPLE ASSIGN\n");
+						fprintf(stderr, "GIMPLE ASSIGN\n");
 
 						int ssa_name_assign = 0;
 						tree gimpleassignlhs = prechecktree(gimple_assign_lhs(use_stmt));
 						tree gimpleassignrhs = prechecktree(gimple_assign_rhs1(use_stmt));
 
+						debug_tree(gimpleassignlhs);
 						if (gimpleassignlhs && TREE_CODE(gimpleassignlhs) == SSA_NAME)
 						{
 							// fprintf(stderr, "-------always in therealways in therealways in there------%d--------------------\n", has_zero_uses (gimple_assign_lhs(use_stmt)));
@@ -1340,6 +1341,18 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 							// debug_gimple_stmt(use_stmt);
 							if (!check_stmtStack(gimpleassignlhs))
 								set_gimple_array(used_stmt, use_stmt, gimpleassignlhs, target, NULL);
+							if (TREE_CODE(fundecl) == SSA_NAME)
+							{
+								// fprintf(stderr, "============MEM_REF SSA_NAME=================\n");
+								// debug_gimple_stmt(use_stmt);
+								if (!check_stmtStack(fundecl))
+								{
+									set_gimple_array(used_stmt, use_stmt, fundecl, target, NULL);
+									if (fundecl != target2)
+										new_search_imm_use(used_stmt, fundecl, fundecl);
+								}
+							}
+								
 						}
 
 						else if (gimpleassignlhs && TREE_CODE(gimpleassignlhs) == COMPONENT_REF)

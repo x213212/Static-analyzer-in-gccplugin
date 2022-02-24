@@ -1172,6 +1172,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									int finddefsafe = 0;
 									for (int k = 0; k < defmalloc_array.at(i).free_array.size(); k++)
 									{
+										
+											debug(defmalloc_array.at(i).free_array.at(k).stmt);
 										// debug(defmalloc_array.at(i).free_array.at(k).stmt);
 										// if (gimple_bb(defmalloc_array.at(j).stmt)->index == gimple_bb(defmalloc_array.at(i).free_array.at(k).stmt)->index)
 										if (!Location_b3(defmalloc_array.at(j).stmt, defmalloc_array.at(i).free_array.at(k).stmt, function_tree))
