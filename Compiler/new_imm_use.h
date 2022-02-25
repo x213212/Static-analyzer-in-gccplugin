@@ -1250,7 +1250,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 					// add new rule in there warring need double check possiable loop
 					else if (gimple_code(use_stmt) == GIMPLE_ASSIGN)
 					{
-						fprintf(stderr, "GIMPLE ASSIGN\n");
+						// fprintf(stderr, "GIMPLE ASSIGN\n");
 
 						int ssa_name_assign = 0;
 						tree gimpleassignlhs = prechecktree(gimple_assign_lhs(use_stmt));
@@ -1331,7 +1331,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						}
 
 						Varnew_search_imm_use(used_stmt, use_stmt, target, target2);
-						// lhssssssssssssssssssssssssssss
+
 						if (gimpleassignlhs && TREE_CODE(gimpleassignlhs) == MEM_REF)
 						{
 
@@ -1401,31 +1401,23 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 									if (gimple_phi_result(use_stmt) != target2)
 										new_search_imm_use(used_stmt, gimple_phi_result(use_stmt), gimple_phi_result(use_stmt));
 								}
-							// if (gimple_phi_num_args(use_stmt))
-							// {
-							// 	for (int i = 0; i < gimple_phi_num_args(use_stmt); i++)
-							// 	{
-							// 		tree arg = gimple_phi_arg_def(use_stmt, i);
-							// 		if (arg)
-							// 			if (TREE_CODE(arg) == SSA_NAME)
-							// 				if (!check_stmtStack(arg))
-							// 				{
-							// 					set_gimple_array(used_stmt, use_stmt, arg, target, NULL);
-
-							// 					// debug_tree(gimple_phi_result(use_stmt));
-
-							// 					if (arg != target2)
-							// 					{
-
-							// 						new_search_imm_use(used_stmt, arg, arg);
-							// 						// debug(target2);
-							// 						// debug(arg);
-							// 						// fprintf(stderr, "-------Untreated-------------------------\n");
-							// 					}
-							// 				}
-							// 	}
-							// 	// debug_gimple_stmt(use_stmt);
-							// }
+							if (gimple_phi_num_args(use_stmt))
+							{
+								for (int i = 0; i < gimple_phi_num_args(use_stmt); i++)
+								{
+									tree arg = gimple_phi_arg_def(use_stmt, i);
+									if (arg)
+										if (TREE_CODE(arg) == SSA_NAME)
+											if (!check_stmtStack(arg))
+											{
+												set_gimple_array(used_stmt, use_stmt, arg, target, NULL);
+												if (arg != target2)
+												{
+													new_search_imm_use(used_stmt, arg, arg);
+												}
+											}
+								}
+							}
 						}
 					}
 					else if (gimple_code(use_stmt) == GIMPLE_CALL)

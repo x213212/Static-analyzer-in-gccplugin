@@ -250,16 +250,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																	{
 
 																		fprintf(stderr, "\n======================================================================\n");
-																		fprintf(stderr, "\033[40;31m    branch possiable have return2 or exit  \033[0m\n");
-
+																		fprintf(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
 																		debug_gimple_stmt(u_stmt);
 																		fprintf(stderr, "bb index := %d\n", gimple_bb(u_stmt)->index);
 																		debug_gimple_stmt(tmp);
 																		warning_at(gimple_location_safe(tmp), 0, "use location");
-																		fprintf(stderr, "beacuse in succ := %d have return or exit\n", gimple_bb(tmp)->index);
-																		debug_gimple_stmt((global_ret_type_array)[k].stmt);
-																		warning_at(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
-																		fprintf(stderr, "gimple stmt in succ := %d ,possiable got to succ := %d\n", gimple_bb(u_stmt)->index, gimple_bb(tmp)->index);
+																		fprintf(stderr, "gimple stmt in succ := %d \n", gimple_bb(u_stmt)->index);
+																		fprintf(stderr, "branch in succ := %d have return or exit\n", gimple_bb(tmp)->index);
 
 																		fprintf(stderr, "\n======================================================================\n");
 																	}
@@ -273,6 +270,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																warning_at(gimple_location_safe(u_stmt), 0, "use location");
 																succ_havereturn = 1;
 																fprintf(stderr, "\033[40;31m    branch possiable have return in bb:%d \033[0m\n", bb->index);
+																fprintf(stderr, "gimple stmt in succ := %d \n", gimple_bb(u_stmt)->index);
 																fprintf(stderr, "beacuse in succ := %d have return \n", cfun->cfg->x_exit_block_ptr->prev_bb->index);
 																fprintf(stderr, "\n======================================================================\n");
 																continue;
@@ -286,7 +284,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								}
 								pop_cfun();
 							}
-							
+
 							if (stmtloopcheck)
 								if (bb_in_loop_p(gimple_bb(u_stmt)))
 								{
@@ -1170,10 +1168,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								if (defmalloc_array.at(i).free_array.size())
 								{
 									int finddefsafe = 0;
+									// fprintf(stderr, "\033[40;31mfuck%d \033[0m\n",	Location_b3(defmalloc_array.at(i).free_array.at(0).stmt, defmalloc_array.at(i).free_array.at(1).stmt, function_tree));
+									// 		fprintf(stderr, "\033[40;31mfuck%d \033[0m\n",	Location_b3(defmalloc_array.at(i).free_array.at(1).stmt, defmalloc_array.at(i).free_array.at(0).stmt, function_tree));
+
 									for (int k = 0; k < defmalloc_array.at(i).free_array.size(); k++)
 									{
-										
-											debug(defmalloc_array.at(i).free_array.at(k).stmt);
+										fprintf(stderr, "\033[40;31m   fuck \033[0m\n");
+										debug(defmalloc_array.at(i).free_array.at(k).stmt);
 										// debug(defmalloc_array.at(i).free_array.at(k).stmt);
 										// if (gimple_bb(defmalloc_array.at(j).stmt)->index == gimple_bb(defmalloc_array.at(i).free_array.at(k).stmt)->index)
 										if (!Location_b3(defmalloc_array.at(j).stmt, defmalloc_array.at(i).free_array.at(k).stmt, function_tree))

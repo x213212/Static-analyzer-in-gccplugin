@@ -15,24 +15,26 @@ int changePtr(int **ptr) //透過雙重指標改變指標變數的值
     {
 
         ptr = a;           //改變指標變數的值，即改變localPtr存放的值
-        printf("%d\n", a); //經過changPtr函式，localPtr指標變數改指向
+        printf("2%d\n", a); //經過changPtr函式，localPtr指標變數改指向
        
-        if(test){
-             free(a);
-             exit(a);//branch possiable have return or exit
-      }
-        else
-        return 20;//fucntion exit  
+    //     if(test){
+    //          free(a);
+    //          exit(a);//branch possiable have return or exit
+    //   }
+    //     else
+    //     return 20;//fucntion exit  
+      free(a);//malloc def-leak warring222
     }
     else
     {
         // free(a);//malloc def-leak warring
-        a = (int *)malloc(40);
-        *ptr = a;
+        // a = (int *)malloc(40);
+        ptr = (int *)malloc(40);
         printf("%d\n", a); //經過changPtr函式，localPtr指標變數改指向
         free(a);
     }
-     free(ptr);//malloc def-leak warring222
+    free(a);
+    //  free(ptr);//malloc def-leak warring222
     return 0;
     // free(a);
     // *ptr = a; //改變指標變數的值，即改變localPtr存放的值
