@@ -51,7 +51,7 @@ void Checknew_search_imm_use_lhs(gimple_array *used_stmt, gimple *use_stmt, tree
 {
 	// if mem_ref... need expand to ssa_name get def_stmt
 	gimple *def_stmt = use_stmt;
-	if (TREE_CODE(gimple_assign_rhs1(use_stmt)) == SSA_NAME)
+	if (TREE_CODE(gimple_assign_lhs(use_stmt)) == SSA_NAME)
 		gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_assign_lhs(use_stmt));
 	if (def_stmt)
 		if (gimple_assign_lhs(def_stmt))
@@ -62,6 +62,9 @@ void Checknew_search_imm_use_lhs(gimple_array *used_stmt, gimple *use_stmt, tree
 				Varnew_search_imm_use(used_stmt, def_stmt, target, target2);
 			else if (TREE_CODE(gimple_assign_lhs(def_stmt)) == MEM_REF)
 				Varnew_search_imm_use(used_stmt, def_stmt, target, target2);
+			else if (TREE_CODE(target) == VAR_DECL)
+
+				Varnew_search_imm_use(used_stmt, use_stmt, target, target2);
 		}
 }
 void Checknew_search_imm_use_rhs(gimple_array *used_stmt, gimple *use_stmt, tree target, tree target2)

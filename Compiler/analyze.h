@@ -1173,7 +1173,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 									for (int k = 0; k < defmalloc_array.at(i).free_array.size(); k++)
 									{
-										fprintf(stderr, "\033[40;31m   fuck \033[0m\n");
+						
 										debug(defmalloc_array.at(i).free_array.at(k).stmt);
 										// debug(defmalloc_array.at(i).free_array.at(k).stmt);
 										// if (gimple_bb(defmalloc_array.at(j).stmt)->index == gimple_bb(defmalloc_array.at(i).free_array.at(k).stmt)->index)

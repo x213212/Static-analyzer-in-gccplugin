@@ -1,3 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct person_t
+{
+    int *a;
+    unsigned age;
+};
+enum VALID
+{
+    FALSE,
+    TRUE
+};
+typedef struct
+{
+    int valid;
+    int *data;
+    size_t size;
+} MyObject;
+
 int *foo(void)
 {
     int *ptr1;
@@ -14,16 +33,17 @@ int changePtr(int **ptr) //透過雙重指標改變指標變數的值
     if (test)
     {
 
-        ptr = a;           //改變指標變數的值，即改變localPtr存放的值
-        printf("2%d\n", a); //經過changPtr函式，localPtr指標變數改指向
-       
-    //     if(test){
-    //          free(a);
-    //          exit(a);//branch possiable have return or exit
-    //   }
-    //     else
-    //     return 20;//fucntion exit  
-      free(a);//malloc def-leak warring222
+        *ptr = a;              //改變指標變數的值，即改變localPtr存放的值
+        printf("2%d\n", a);    //經過changPtr函式，localPtr指標變數改指向
+        printf("2%d\n", *ptr); //經過changPtr函式，localPtr指標變數改指向
+
+        //     if(test){
+        //          free(a);
+        //          exit(a);//branch possiable have return or exit
+        //   }
+        //     else
+        //     return 20;//fucntion exit
+        free(a); // malloc def-leak warring222
     }
     else
     {
@@ -82,9 +102,22 @@ int main(void)
     // fun(ptr0);
     // printf("%d",*ptr0);
     // 二級pointer
-    int localValue = 1;
-    int *localPtr = &localValue;
-    changePtr(&localPtr);
+
+    // int localValue = 1;
+    // int *localPtr = &localValue;
+    // changePtr(&localPtr);
+    // struct person_t p = {(int *)malloc(40), 37};
+    // printf("%d\n", p.age); //經過changPtr函式，localPtr指標變數改指向
+    // free(p.a);
+    // int *tmp = NULL;
+    // MyObject *my1 = malloc(sizeof(MyObject));
+
+    // my1->valid = TRUE;
+    // my1->data = tmp;
+    // my1->size = sizeof tmp;
+    // printf("ptr3指到ptr位址 \t%p\n", my1->data);
+    // free(my1);
+
     // pr。intf("%d\n", *localPtr); //經過changPtr函式，localPtr指標變數改指向
     // free(localPtr);
     // // 三級pointer
@@ -100,4 +133,14 @@ int main(void)
     // printf("ptr3記憶體位址 \t%p\n\n\n", &ptr3);
     //  printf("ptr3記憶體位址 \t%p\n\n\n", ptr3);
     // free(a);
+
+    int *arr3 = (int *)realloc(NULL, sizeof(int) * 5);
+    for (int i = 0; i < 5; i++)
+    {
+        printf("arr3 %p\n", (arr3 + i));
+        printf("arr3[%d] = %d\n", i, *(arr3 + i));
+    }
+    // free(arr3);
+    realloc(arr3, 0);
+    realloc(arr3, 0);
 }
