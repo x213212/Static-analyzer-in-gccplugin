@@ -1159,7 +1159,18 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 			{
 				for (int j = 0; j < defmalloc_array.size(); j++)
 				{
+					if (defmalloc_array.at(i).malloc_tree != defmalloc_array.at(j).malloc_tree)
+					{
+						fprintf(stderr, "\033[40;31m  start check tree \033[0m\n");
+						debug(defmalloc_array.at(i).malloc_tree);
+						debug(defmalloc_array.at(j).malloc_tree);
+						if (ptr_derefs_may_alias_p(defmalloc_array.at(i).malloc_tree, defmalloc_array.at(j).malloc_tree))
+						{
+							fprintf(stderr, "\033[40;31m  same alias gimple tree \033[0m\n");
+						}
+					}
 					if (i != j)
+					{
 						if (SSA_NAME_VAR(defmalloc_array.at(i).malloc_tree) == SSA_NAME_VAR(defmalloc_array.at(j).malloc_tree))
 							if (Location_b3(defmalloc_array.at(j).stmt, defmalloc_array.at(i).stmt, function_tree))
 							// if (Location_b2(defmalloc_array.at(i).stmt, defmalloc_array.at(j).stmt, function_tree))
@@ -1173,8 +1184,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 									for (int k = 0; k < defmalloc_array.at(i).free_array.size(); k++)
 									{
-						
-										debug(defmalloc_array.at(i).free_array.at(k).stmt);
+
+										// debug(defmalloc_array.at(i).free_array.at(k).stmt);
 										// debug(defmalloc_array.at(i).free_array.at(k).stmt);
 										// if (gimple_bb(defmalloc_array.at(j).stmt)->index == gimple_bb(defmalloc_array.at(i).free_array.at(k).stmt)->index)
 										if (!Location_b3(defmalloc_array.at(j).stmt, defmalloc_array.at(i).free_array.at(k).stmt, function_tree))
@@ -1212,6 +1223,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									warning_at(gimple_location_safe(defmalloc_array.at(j).stmt), 0, "use location");
 								}
 							}
+					}
 				}
 			}
 		}

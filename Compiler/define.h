@@ -46,7 +46,7 @@ bool memoryleakcheck = true;
 // kroren testcase need turn on
 bool Looserulesfree = true;
 bool useafterfree = true;
-bool debugmod = true;
+bool debugmod = false;
 bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;
