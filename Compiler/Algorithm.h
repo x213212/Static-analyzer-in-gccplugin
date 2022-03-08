@@ -379,7 +379,8 @@ void detect()
 		fprintf(stderr, "==============breakpoint=========\n");
 		if (!ifs.is_open())
 		{
-			cout << "Failed to open file.\n";
+			fprintf(stderr, "vscode_extensionmod is open ,no set breakpoint.\n");
+			// cout << "vscode_extensionmod is open ,no set breakpoint.\n";
 			return;
 		}
 		else
@@ -517,7 +518,8 @@ void detect()
 		myfile.close();
 	}
 	else
-		cout << "Unable to open file";
+		fprintf(stderr, "Unable to open file.\n");
+
 }
 
 void insert_always_inline()

@@ -81,12 +81,13 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 				// 		for (int i = 0; i < gimple_call_num_args(gc); i++)
 				// 		{
 				// 			tree second = NULL_TREE;
-				// 			if (TREE_CODE(gimple_call_arg(gc, i)) == ADDR_EXPR)
-				// 				second = TREE_OPERAND(gimple_call_arg(gc, i), 0);
-				// 			else if (TREE_CODE(gimple_call_arg(gc, i)) == SSA_NAME)
+
+				// 			if (TREE_CODE(gimple_call_arg(gc, i)) == SSA_NAME)
 				// 			{
 				// 				second = gimple_call_arg(gc, i);
 				// 			}
+				// 			else if (TREE_CODE(gimple_call_arg(gc, i)) == ADDR_EXPR)
+				// 				second = TREE_OPERAND(gimple_call_arg(gc, i), 0);
 				// 			if (second)
 				// 			{
 				// 				// debug_tree(second);
@@ -945,7 +946,6 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					}
 				}
 			}
-		
 
 			if (TREE_CODE(getFunctionAssignRHS) == MEM_REF)
 			{

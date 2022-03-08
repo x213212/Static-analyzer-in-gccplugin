@@ -1159,16 +1159,15 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 			{
 				for (int j = 0; j < defmalloc_array.size(); j++)
 				{
-					if (defmalloc_array.at(i).malloc_tree != defmalloc_array.at(j).malloc_tree)
-					{
-						fprintf(stderr, "\033[40;31m  start check tree \033[0m\n");
-						debug(defmalloc_array.at(i).malloc_tree);
-						debug(defmalloc_array.at(j).malloc_tree);
-						if (ptr_derefs_may_alias_p(defmalloc_array.at(i).malloc_tree, defmalloc_array.at(j).malloc_tree))
-						{
-							fprintf(stderr, "\033[40;31m  same alias gimple tree \033[0m\n");
-						}
-					}
+					// if (defmalloc_array.at(i).malloc_tree != defmalloc_array.at(j).malloc_tree)
+					// {	fprintf(stderr, "\033[40;31m  start check tree \033[0m\n");
+					// 	if (ptr_derefs_may_alias_p(defmalloc_array.at(i).malloc_tree, defmalloc_array.at(j).malloc_tree))
+					// 	{
+					// 		debug(defmalloc_array.at(i).malloc_tree);
+					// 		debug(defmalloc_array.at(j).malloc_tree);
+					// 		fprintf(stderr, "\033[40;31m  same alias gimple tree \033[0m\n");
+					// 	}
+					// }
 					if (i != j)
 					{
 						if (SSA_NAME_VAR(defmalloc_array.at(i).malloc_tree) == SSA_NAME_VAR(defmalloc_array.at(j).malloc_tree))

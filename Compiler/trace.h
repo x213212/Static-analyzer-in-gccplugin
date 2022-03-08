@@ -240,17 +240,15 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 															fprintf(stderr, "dot graph start relate for1");
 														}
 													}
+													fistconunt++;
 													fprintf(stderr, "ID : %lu\n", now_fucntion);
 													fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
 													fprintf(stderr, "dot graph end relate end\n\n");
 
 													// print address error
-													fistconunt++;
 													warning_at(gimple_location_safe(gc), 0, "use location");
 													debug(gc);
-
 													fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(LHS) :", x);
-
 													// check_bbinfo2(gimple_bb(gc));
 													warning_at(gimple_location_safe(gc), 0, "use location");
 													debug(gimple_assign_lhs(gc));
@@ -407,8 +405,9 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 														fprintf(stderr, "ID : %lu\n", now_fucntion);
 														fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
 														fprintf(stderr, "dot graph end relate end\n\n");
-														fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(call) :", x);
 														debug(gc);
+														// warning_at(gimple_location_safe(gc), 0, "use location");
+														fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(call) :", x);
 														warning_at(gimple_location_safe(gc), 0, "use location");
 														debug(gimple_call_arg(gc, 0));
 														fprintf(stderr, "dot graph relate end\n\n");
@@ -630,7 +629,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 	}
 
 	//避開 pthread
-	if (tracerelatestmt == true && fucntion_level != -1 && fucntion_level != DISABLE_TREACE)
+	if (tracerelatestmt == true && fucntion_level != -1 && fucntion_level != DISABLE_TREACE && fucntion_level != RET_HEAP_OBJECT)
 	{
 		struct cgraph_node *node;
 		if (mallocStmt_tree != NULL)
@@ -639,12 +638,12 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			struct ptr_info_def *pi1, *pi2, *pi3;
 			pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
 			debug_tree(mallocStmt_tree);
-			// struct pt_solution *pt1 = &pi1->pt;
-			// if (pt1 && pt1->null)
-			// {
+			struct pt_solution *pt1 = &pi1->pt;
+			if (pt1 && pt1->null)
+			{
 
 			trace_fucntion_relate_stmt(node, function_tree, mallocStmt_tree);
-			// }
+			}
 		}
 	}
 	if (fucntion_level != -1 && fucntion_level != DISABLE_TREACE)

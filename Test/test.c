@@ -182,11 +182,11 @@ void foo2(int* ptr){
 
 int main(void){
     int *a, *b, *c;
-    a = malloc(1);
+    a =foo();
     b = a;
     foo2(b);
 
-    b = malloc(1);
+    b = foo();
     c = b;
     foo2(c);
     printf("%d\n",&c);
