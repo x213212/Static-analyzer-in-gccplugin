@@ -253,3 +253,14 @@ press f5 start debug extension
     tsc -p ./
 ```
 use ctrl+shift + p reload vscode extension 
+
+# set first breakpoint
+![](https://user-images.githubusercontent.com/9297254/157389984-00e30a00-4699-4892-b6f9-cadfd3def81a.png)
+use ctrl+shift + p load GCC Analyzer
+Select the starting point of the code where you want to set the breakpoint 
+![](https://user-images.githubusercontent.com/9297254/157390318-cb4827cf-4e2b-49a2-8058-0e822e69287b.png)
+
+```
+cd Test
+make 
+```
