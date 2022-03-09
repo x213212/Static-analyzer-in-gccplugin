@@ -166,6 +166,7 @@ grep  "===== possiable asias =====" ./CWE416_Use_After_Free__return_freed_ptr_*.
 
 
 # new_gccplugin fucntion 
+/Compiler/define.h
 ```c
 /*interprocedural analysis*/
 bool ipa = true;
@@ -190,6 +191,32 @@ bool samefucntioncheck = true;
 bool maxbasicblockcalc = true;
 bool pathconstraint = false;
 ```
+# suppose custome gccplugin argument 
+/Compiler/Algorithm.h/detect
+```
+	fprintf(stderr, "--------plugin argument-----------\n");
+	for (int i = 0; i < argc; i++)
+	{
+		if (!strcmp(argv[i].key, "debugmod"))
+			if (strtol(argv[i].value, NULL, 10)) // char* to int
+				debugmod = true;
+			else
+				debugmod = false;
+		if (!strcmp(argv[i].key, "vscode_extensionmod"))
+			if (strtol(argv[i].value, NULL, 10)) // char* to int
+				vscode_extensionmod = true;
+			else
+				vscode_extensionmod = false;
+		
+		fprintf(stderr, "%s %s\n", argv[i].key, argv[i].value);
+	}
+```
+# use custome gccplugin argument 
+/Test/Makefile
+```
+PLUGIN=-fplugin=../Compiler/newplugin.so  -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1
+```
+
 # unittest check draw graphiz
 ![](https://i.imgur.com/jSMgN6P.png)
 ```bahs
@@ -218,5 +245,11 @@ press f5 start debug extension
 			}
 		]
 ```
-
-
+# compiler  vscode extension
+```
+  vscode:prepublish
+    npm run compile
+  compile
+    tsc -p ./
+```
+use ctrl+shift + p reload vscode extension 
