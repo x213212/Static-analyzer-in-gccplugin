@@ -217,6 +217,31 @@ bool pathconstraint = false;
 PLUGIN=-fplugin=../Compiler/newplugin.so  -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1
 ```
 
+# use custom gccplugin argument by makefile
+
+```
+test.o:  
+ifeq ($(debug),0)
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so)
+else ifeq ($(debug),1)
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=0 -fplugin-arg-newplugin-vscode_extensionmod=1)
+else ifeq ($(debug),2)
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1)
+else ifeq ($(debug),3)
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=0)
+endif
+```
+
+## command
+```
+cd /Test/
+make debug=0
+make debug=1
+make debug=2
+make debug=3
+```
+
+
 # unittest check draw graphiz
 ![](https://i.imgur.com/jSMgN6P.png)
 ```bahs
