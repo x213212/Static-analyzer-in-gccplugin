@@ -132,9 +132,32 @@ export function activate(context: vscode.ExtensionContext) {
 		const storagePath = context.storagePath;
 		const globalStoragePath = context.globalStoragePath;
 		console.log("storagePath:" + globalStoragePath);
+
 		vscode.window.showInformationMessage(globalStoragePath + "/breakpoint.txt")
-
-
+		var fs = require('fs');
+		// fs.appendFile(globalStoragePath + '/breakpoint.txt',"") , function (err: any) {
+		// 	if (err)
+		// 		console.log(err);
+		// 	else
+		// 		console.log('Write operation complete.');
+		// });
+		// fs.appendFile(globalStoragePath + '/breakpoint.txt', function (err: any) {
+		// 	if (err) 
+		// 	console.log('The “data to append” was appended to file!');
+		// 	else
+		// 		console.log('Write operation complete.');
+		//   });
+		fs.exists(globalStoragePath + '/breakpoint.txt', function (exists: any) {
+			if (!exists) {
+				fs.writeFile(globalStoragePath + '/breakpoint.txt',"",function (err:any) {
+					if (err) 
+					console.log('The “data to append” was appended to file!');
+					else
+						console.log('Write operation complete.');
+				})
+			}
+		});
+	
 
 	});
 

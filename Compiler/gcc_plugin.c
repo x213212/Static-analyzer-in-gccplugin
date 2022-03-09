@@ -42,7 +42,8 @@ int plugin_is_GPL_compatible;
 
 struct register_pass_info inline_passinfo;
 struct register_pass_info detect_passinfo;
-
+struct plugin_argument *argv ;
+int argc =0;
 const pass_data inline_pass_data =
     {
         GIMPLE_PASS,     /* type */
@@ -55,9 +56,9 @@ const pass_data inline_pass_data =
         0,               /* todo_flags_start */
         0,               /* todo_flags_finish */
 };
-        // "inline_pass_test",   /* name */
-        // OPTGROUP_INLINE, /* optinfo_flags */
-        // TV_ANALYZER_TESTHAHA,  
+// "inline_pass_test",   /* name */
+// OPTGROUP_INLINE, /* optinfo_flags */
+// TV_ANALYZER_TESTHAHA,
 const pass_data detect_pass_data =
     {
         .type = SIMPLE_IPA_PASS, // SIMPLE_IPA_PASS,GIMPLE_PASS
@@ -106,8 +107,8 @@ make_pass_ipa_always(gcc::context *ctxt)
 
 static int execute_detect(void)
 {
-  
-  detect();
+
+  detect(argv,argc);
 
   return 0;
 }
@@ -144,11 +145,12 @@ int plugin_init(struct plugin_name_args *plugin_info, struct plugin_gcc_version 
 
   if (!plugin_default_version_check(version, &gcc_version))
   {
+
     printf("incompatible gcc/plugin versions\n");
     return 1;
   }
-  
-  fprintf(stderr,"%s %s %s\n",plugin_info->full_name,version->basever,version->devphase);
+
+  fprintf(stderr, "%s %s %s\n", plugin_info->full_name, version->basever, version->devphase);
 
   inline_passinfo.pass = make_pass_ipa_always(g);
   inline_passinfo.reference_pass_name = "einline";
@@ -159,10 +161,19 @@ int plugin_init(struct plugin_name_args *plugin_info, struct plugin_gcc_version 
   detect_passinfo.reference_pass_name = "pta";
   detect_passinfo.ref_pass_instance_number = 0;
   detect_passinfo.pos_op = PASS_POS_INSERT_AFTER;
+  argv = plugin_info->argv;
+  argc = plugin_info->argc;
+  /* For now, tell the dc to expect ranges and thus to colorize the source
+     lines, not just the carets/underlines.  This will be redundant
+     once the C frontend generates ranges.  */
 
-  // const char *const plugin_name = plugin_info->base_name;
+  // struct plugin_argument *argv = plugin_info->argv;
+  // for (int i = 0; i <  plugin_info->argc; i++)
+  // {
+  //   printf("-------------------\n");
+  //   printf("%s %s\n",argv[i].key,argv[i].value);
+  // }
 
-  // register_callback("rest_inline", PLUGIN_PASS_MANAGER_SETUP, NULL, &inline_passinfo);
   register_callback("static_analyzer", PLUGIN_PASS_MANAGER_SETUP, NULL, &detect_passinfo);
 
   return 0;

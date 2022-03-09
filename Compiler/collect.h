@@ -69,33 +69,33 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 			// }
 			if (gimple_call_fndecl(gc))
 			{
-				// const char *name2;
-				// name2 = get_name(gimple_call_fndecl(gc));
-				// if (strcmp(name2, "realloc") && strcmp(name2, "malloc") && strcmp(get_name(gimple_call_fn(gc)), "calloc") && strcmp(name2, "xcalloc") && strcmp(name2, "xmalloc") && strcmp(name2, "strdup") && strcmp(name2, "xstrdup") && strcmp(name2, "free") && strcmp(name2, "printf"))
-				// {
+				const char *name2;
+				name2 = get_name(gimple_call_fndecl(gc));
+				if (strcmp(name2, "realloc") && strcmp(name2, "malloc") && strcmp(get_name(gimple_call_fn(gc)), "calloc") && strcmp(name2, "xcalloc") && strcmp(name2, "xmalloc") && strcmp(name2, "strdup") && strcmp(name2, "xstrdup") && strcmp(name2, "free") && strcmp(name2, "printf"))
+				{
 
-				// 	// fprintf(stderr, "------Juliet_Test_Suite please disable------%s--\n", name2);
-				// 	// fprintf(stderr, "------and turn off freeanysis filter no free gimple stmt can filter ------%s--\n", name2);
-				// 	if ((gimple_call_num_args(gc) != 0))
-				// 	{
-				// 		for (int i = 0; i < gimple_call_num_args(gc); i++)
-				// 		{
-				// 			tree second = NULL_TREE;
+					// fprintf(stderr, "------Juliet_Test_Suite please disable------%s--\n", name2);
+					// fprintf(stderr, "------and turn off freeanysis filter no free gimple stmt can filter ------%s--\n", name2);
+					if ((gimple_call_num_args(gc) != 0))
+					{
+						for (int i = 0; i < gimple_call_num_args(gc); i++)
+						{
+							tree second = NULL_TREE;
 
-				// 			if (TREE_CODE(gimple_call_arg(gc, i)) == SSA_NAME)
-				// 			{
-				// 				second = gimple_call_arg(gc, i);
-				// 			}
-				// 			else if (TREE_CODE(gimple_call_arg(gc, i)) == ADDR_EXPR)
-				// 				second = TREE_OPERAND(gimple_call_arg(gc, i), 0);
-				// 			if (second)
-				// 			{
-				// 				// debug_tree(second);
-				// 				set_ptb(bb, ptable, second, loc, 0, gc, node);
-				// 			}
-				// 		}
-				// 	}
-				// }
+							if (TREE_CODE(gimple_call_arg(gc, i)) == SSA_NAME)
+							{
+								second = gimple_call_arg(gc, i);
+							}
+							else if (TREE_CODE(gimple_call_arg(gc, i)) == ADDR_EXPR)
+								second = TREE_OPERAND(gimple_call_arg(gc, i), 0);
+							if (second)
+							{
+								// debug_tree(second);
+								set_ptb(bb, ptable, second, loc, 0, gc, node);
+							}
+						}
+					}
+				}
 			}
 			if (!strcmp(name, "free") || !strcmp(name, "xfree"))
 			{
@@ -219,10 +219,10 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 		if (name != NULL)
 
-			if (strcmp(name, "printf"))
+			// if (strcmp(name, "printf"))
 				if (!strcmp(name, "free") || !strcmp(name, "xfree") || !strcmp(name, "realloc"))
 				{
-
+						// debug(gc);
 					if (TREE_CODE(gimple_call_arg(gc, 0)) == ADDR_EXPR)
 					{
 

@@ -182,14 +182,22 @@ void foo2(int* ptr){
 
 int main(void){
     int *a, *b, *c;
-    a =foo();
+    a =malloc(1);
     b = a;
     foo2(b);
 
     b = foo();
     c = b;
     foo2(c);
+    free(b);
     printf("%d\n",&c);
+        int *arr3 = (int *)realloc( a, sizeof(int) * 5);
+    for (int i = 0; i < 5; i++)
+    {
+        printf("arr3 %p\n", (arr3 + i));
+        printf("arr3[%d] = %d\n", i, *(arr3 + i));
+    }
+    // free(arr3);
     return 0;
 }
 

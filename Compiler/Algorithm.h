@@ -263,7 +263,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				fprintf(stderr, "=============== *this point analyzable =================\n");
 				debug(processtable->last_stmt);
 				fprintf(stderr, "=============== program slcing stmt count:%d=================\n", colectCount);
-				allcolectCount+=colectCount;
+				allcolectCount += colectCount;
 				warning_at(gimple_location_safe(processtable->last_stmt), 0, "use location");
 				fprintf(stderr, "========================================================\n");
 				// debug(processtable->swap_stmt);
@@ -342,7 +342,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 	fprintf(stderr, "\033[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK\033[0m\n");
 }
-void detect()
+void detect(struct plugin_argument *argv, int argc)
 {
 	struct rusage ru;
 	struct timeval utime;
@@ -373,6 +373,22 @@ void detect()
 	function_graph_collect = new hash_map<tree, function_graph_array>;
 	function_relate_collect = new hash_map<tree, function_relate_array>;
 
+	fprintf(stderr, "--------plugin argument-----------\n");
+	for (int i = 0; i < argc; i++)
+	{
+		if (!strcmp(argv[i].key, "debugmod"))
+			if (strtol(argv[i].value, NULL, 10)) // char* to int
+				debugmod = true;
+			else
+				debugmod = false;
+		if (!strcmp(argv[i].key, "vscode_extensionmod"))
+			if (strtol(argv[i].value, NULL, 10)) // char* to int
+				vscode_extensionmod = true;
+			else
+				vscode_extensionmod = false;
+		
+		fprintf(stderr, "%s %s\n", argv[i].key, argv[i].value);
+	}
 	if (vscode_extensionmod)
 	{
 		std::ifstream ifs("/root/.vscode-server/data/User/globalStorage/vscode-samples.helloworld-sample/breakpoint.txt", std::ios::in);
@@ -399,6 +415,7 @@ void detect()
 		}
 		ifs.close();
 	}
+
 
 	srand((unsigned)time(NULL) + getpid());
 	fprintf(stderr, "=======ipa_pta=========\n");
@@ -519,7 +536,6 @@ void detect()
 	}
 	else
 		fprintf(stderr, "Unable to open file.\n");
-
 }
 
 void insert_always_inline()
