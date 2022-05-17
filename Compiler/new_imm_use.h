@@ -1237,8 +1237,8 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 				use_stmt = USE_STMT(use_p);
 				if (!check_stmtStack4(use_stmt))
 				{
-					// debug_gimple_stmt(use_stmt);
-
+	// 				debug_gimple_stmt(use_stmt);
+	// fprintf(stderr, "------------------GIMPLE_RETURN : LHS------------------\n");
 				has_single_use_jump:
 					if (gimple_cond_code(use_stmt))
 					{
@@ -1507,10 +1507,8 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 																new_search_imm_use(used_stmt, gimple_call_arg(use_stmt, i), gimple_call_arg(use_stmt, i));
 												}
 											}
-										
 										}
 									}
-							
 								}
 							}
 							else if (!strcmp(name, "free") || !strcmp(name, "xfree"))
@@ -1530,7 +1528,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 								if (!check_stmtStack(gimple_call_fn(use_stmt)))
 								{
 									// fprintf(stderr, "-----------------GIMPLE_CALL : precess pthread------------------\n");
-									// debug(target);
+									// debug_tree(target);
 
 								has_single_use_addr_expr_jump:
 									tree second = NULL;

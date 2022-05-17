@@ -7,7 +7,6 @@ using namespace std;
 #include <vector>
 #include <time.h>
 #include <sys/time.h>
-
 #include <fstream>
 #include <stack>
 #include <string.h>
@@ -386,12 +385,17 @@ void detect(struct plugin_argument *argv, int argc)
 				vscode_extensionmod = true;
 			else
 				vscode_extensionmod = false;
-		
+		if (!strcmp(argv[i].key, "contextsentive"))
+			if (strtol(argv[i].value, NULL, 10)) // char* to int
+				contextsentive = true;
+			else
+				contextsentive = false;
 		fprintf(stderr, "%s %s\n", argv[i].key, argv[i].value);
 	}
+
 	if (vscode_extensionmod)
 	{
-		std::ifstream ifs("/root/.vscode-server/data/User/globalStorage/vscode-samples.helloworld-sample/breakpoint.txt", std::ios::in);
+		std::ifstream ifs("/root/.vscode-server/data/User/globalStorage/x213212.helloworld-sample/breakpoint.txt", std::ios::in);
 		fprintf(stderr, "==============breakpoint=========\n");
 		if (!ifs.is_open())
 		{
@@ -415,7 +419,6 @@ void detect(struct plugin_argument *argv, int argc)
 		}
 		ifs.close();
 	}
-
 
 	srand((unsigned)time(NULL) + getpid());
 	fprintf(stderr, "=======ipa_pta=========\n");

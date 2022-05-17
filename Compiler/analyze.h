@@ -140,6 +140,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					else
 					{
 						debug_tree(table_temp->target);
+						// debug(table_temp->last_stmt);
+						// debug(table_temp->last_stmt);
 						fprintf(stderr, "\n ================== this stmt hava call fucntion ================== \n");
 					}
 
@@ -419,7 +421,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										{
 
 											fprintf(stderr, "dot graph target loc start ");
-											debug_gimple_stmt(table_temp->last_stmt);
+											debug(table_temp->last_stmt);
 											warning_at(gimple_location_safe(table_temp->last_stmt), 0, "use location");
 											fprintf(stderr, "dot graph target loc en1\n\n");
 

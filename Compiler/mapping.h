@@ -91,11 +91,14 @@ void FunctionStmtMappingRet(ptb *ptable, ptb *ftable, gimple_array *user_tmp)
 
 									pthread_attr_array pthread_attr_array;
 									tree getvardecl = TREE_OPERAND(gimple_call_arg(table_temp->swap_stmt, 1), 0);
+										// fprintf(stderr,"wwwwwwwwwwwwwwwwwwww\n");
 
 									if (pthread_attr_setdetachstates->get(getvardecl) != NULL)
 									{
 
 										pthread_attr_array = *(pthread_attr_setdetachstates->get(getvardecl));
+										// table_temp->last_stmt=last_stmt;
+										// debug_tree(getvardecl);
 										table_temp->pthread_type = pthread_attr_array.attr_type_num;
 									}
 								}

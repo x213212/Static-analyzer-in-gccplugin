@@ -1,4 +1,3 @@
-
 #include "gcc-plugin.h"
 #include "plugin-version.h"
 #include <coretypes.h>

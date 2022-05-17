@@ -3,7 +3,7 @@
 	"displayName": "helloworld-sample",
 	"description": "HelloWorld example for VS Code",
 	"version": "0.0.1",
-	"publisher": "vscode-samples",
+	"publisher": "x213212",
 	"repository": "https://github.com/Microsoft/vscode-extension-samples/helloworld-sample",
 	"engines": {
 		"vscode": "^1.34.0"

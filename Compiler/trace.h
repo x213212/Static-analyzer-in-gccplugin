@@ -462,6 +462,8 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 
 int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_tree, int *freecount)
 {
+	if (contextsentive == false)
+		return 0;
 	if (function_path_collect->get(function_tree) == NULL)
 	{
 		return 0;
@@ -627,6 +629,8 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			}
 		}
 	}
+	// if (contextsentive == false)
+	// 	return 0;
 
 	//避開 pthread
 	if (tracerelatestmt == true && fucntion_level != -1 && fucntion_level != DISABLE_TREACE && fucntion_level != RET_HEAP_OBJECT)
@@ -642,7 +646,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			if (pt1 && pt1->null)
 			{
 
-			trace_fucntion_relate_stmt(node, function_tree, mallocStmt_tree);
+				trace_fucntion_relate_stmt(node, function_tree, mallocStmt_tree);
 			}
 		}
 	}
@@ -869,14 +873,14 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 		// if (!strcmp(get_name(cfun->decl), "main"))
 		// {
 
-			// fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
-			// fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
+		// fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
+		// fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
 
-			pathStack.push_back(cfun->decl);
-			// debug_tree(node->get_fun()->decl );
-			walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
-			// fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
-			pathStack.pop_back();
+		pathStack.push_back(cfun->decl);
+		// debug_tree(node->get_fun()->decl );
+		walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
+		// fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
+		pathStack.pop_back();
 		// }
 		pop_cfun();
 	}

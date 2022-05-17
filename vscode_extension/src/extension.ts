@@ -7,6 +7,7 @@ var fs = require('fs');
 // your extension is activated the very first time the command is executed
 var arrays = [""]; // empty array
 var init = 0;
+
 export function activate(context: vscode.ExtensionContext) {
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
@@ -22,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
 				let find = -1;
 				for (let array of arrays) {
 					for (let sess of session['removed']) {
-						console.log(sess['location']['uri']['path']);
+						// console.log(sess['location']['uri']['path']);
 						// console.log("sess");
 
 						if (array['path'] == sess['location']['uri']['path']) {
@@ -31,7 +32,7 @@ export function activate(context: vscode.ExtensionContext) {
 							// }
 							let linesrc = (Number(sess['location']['range']['_start']['_line']));
 							if (Number(array['line']) == linesrc) {
-								console.log("find");
+								// console.log("find");
 								find = i;
 								break;
 							}
@@ -64,7 +65,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 				for (let array of arrays) {
 					for (let sess of session['added']) {
-						console.log(sess['location']['uri']['path']);
+						// console.log(sess['location']['uri']['path']);
 						// console.log("sess");
 
 						if (array['path'] == sess['location']['uri']['path']) {
@@ -73,7 +74,7 @@ export function activate(context: vscode.ExtensionContext) {
 							// }
 							let linesrc = (Number(sess['location']['range']['_start']['_line']));
 							if (Number(array['line']) == linesrc) {
-								console.log("find");
+								// console.log("find");
 								find = i;
 								break;
 							}
@@ -86,7 +87,6 @@ export function activate(context: vscode.ExtensionContext) {
 
 				if (find == -1)
 					for (let sess of session['added']) {
-
 						let id = sess['_id'];
 						let pathstc = sess['location']['uri']['path'];
 						let linesrc = (Number(sess['location']['range']['_start']['_line']));
@@ -94,7 +94,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 					}
-				console.log(arrays);
+				// console.log(arrays);
 
 				fs.unlink(globalStoragePath + '/breakpoint.txt', (err: any) => {
 					if (err) console.log('init error');

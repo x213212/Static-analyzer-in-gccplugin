@@ -39,7 +39,7 @@ ofstream cfginfo("cfginfo.txt");
 /*interprocedural analysis*/
 bool ipa = true;
 bool freeanysis = true; // no free no anysis
-bool vscode_extensionmod = true;
+bool vscode_extensionmod = false;
 bool vscode_extensionIgonefreemod = true;
 bool defmemoryleak = true;
 bool memoryleakcheck = true;
@@ -50,7 +50,7 @@ bool debugmod = true;
 bool threadmod = false;
 bool relatemod = true;
 bool freemod = true;
-bool retmod = true;
+bool retmod = false;
 bool pthread_detachedmod = true;
 bool pthread_exitmod = true;
 bool tracerelatestmt = true;
@@ -59,6 +59,7 @@ bool stmtloopcheck = true;
 bool samefucntioncheck = true;
 bool maxbasicblockcalc = true;
 bool pathconstraint = false;
+bool contextsentive = true;
 
 /*allocation and deallocation table*/
 struct ptb
@@ -76,8 +77,8 @@ struct ptb
 	bool removed;
 	bool inbranch;
 	gimple *swap_stmt;
-	tree swap_target;
-	int swap_type;
+	tree swap_target=NULL;
+	int swap_type=0;
 	int pthread_type = 0;
 	int size = 0;
 };

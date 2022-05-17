@@ -159,7 +159,8 @@ LTO=-flto
 WHOLE=-fwhole-program 
 # https://gcc.gnu.org/onlinedocs/gcc/Developer-Options.html
 #-fno-inline-functions-called-once
-FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fno-inline  -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions -ftime-report
+# FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fno-inline  -pthread   -ftime-report
+FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fno-inline  -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions -ftime-report 
 # FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fdump-tree-cfg-graph -pthread  --param max-ssa-name-query-depth=10  -ftime-report
 # FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta   --param max-ssa-name-query-depth=10 -ftime-report
 # -fno-inline 
@@ -172,7 +173,7 @@ FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fno-inline  -pthread  --param 
 # PLUGIN=
 # PLUGIN=-fplugin=../Compiler/newplugin.so  -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1
 
-PLUGIN :=-fplugin=../Compiler/newplugin.so
+PLUGIN :=-fplugin=../Compiler/newplugin.so 
 DEBUGMOD= -fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1
 debug=0
 
@@ -182,13 +183,15 @@ all: test.o
 
 test.o:  
 ifeq ($(debug),0)
-	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so)
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-contextsentive=1)
 else ifeq ($(debug),1)
 	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=0 -fplugin-arg-newplugin-vscode_extensionmod=1)
 else ifeq ($(debug),2)
-	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1)
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1 )
 else ifeq ($(debug),3)
-	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=0)
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=0  -fplugin-arg-newplugin-contextsentive=0)
+else ifeq ($(debug),4)
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=0 -fplugin-arg-newplugin-vscode_extensionmod=0 )
 endif
 	@echo $(debug)
 	# mod 1
@@ -857,8 +860,8 @@ undeffun:
 	grep "undefined reference to"   ./benchmarks/tmux/double_free_2/check.log | uniq -c    | wc -l				
 	grep "undefined reference to"   ./benchmarks/tmux/double_free_3/check.log | uniq -c    | wc -l	
 
-			
-graphviz:  
+# graphviz:  			
+gpz:  
 	@sh ./test.sh $(FILE_NAME)
 clean:
 	-rm -rf ./test ./test.dSYM *.o
